@@ -39,3 +39,6 @@ Milestone M1: local-only catalog with Cards.
 - CI: GitHub Actions pipeline — analyze + tests on Linux, release APK
   artifact, unsigned iOS build; separate TestFlight workflow (signed build
   and upload) ready for the Apple credentials.
+- Android release signing (own upload keystore, debug fallback for local
+  builds) and a tag-driven Release workflow attaching signed per-ABI and
+  universal APKs to GitHub Releases.

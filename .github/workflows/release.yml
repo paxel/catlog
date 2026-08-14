@@ -1,0 +1,57 @@
+# Tag-driven Android release: signed APKs (per-ABI + universal) attached
+# to a GitHub Release. Requires repository secrets:
+#   ANDROID_KEYSTORE_BASE64   the upload keystore (.jks, base64)
+#   ANDROID_KEYSTORE_PASSWORD store & key password
+# (Key alias is fixed: catlog)
+
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  android:
+    name: Signed Android APKs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Write signing config from secrets
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > "$RUNNER_TEMP/upload.jks"
+          cat > android/key.properties <<EOF
+          storeFile=$RUNNER_TEMP/upload.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=catlog
+          keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          EOF
+      - run: flutter pub get
+      - name: Build signed APKs
+        run: |
+          flutter build apk --release --split-per-abi
+          flutter build apk --release
+      - name: Rename artifacts
+        run: |
+          v="${GITHUB_REF_NAME#v}"
+          d=build/app/outputs/flutter-apk
+          mv "$d/app-arm64-v8a-release.apk"   "$d/catlog-$v-arm64-v8a.apk"
+          mv "$d/app-armeabi-v7a-release.apk" "$d/catlog-$v-armeabi-v7a.apk"
+          mv "$d/app-x86_64-release.apk"      "$d/catlog-$v-x86_64.apk"
+          mv "$d/app-release.apk"             "$d/catlog-$v-universal.apk"
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          generate_release_notes: true
+          files: build/app/outputs/flutter-apk/catlog-*.apk
