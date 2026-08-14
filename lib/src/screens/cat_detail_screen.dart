@@ -1,7 +1,9 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../field_editing.dart';
 import '../image_import.dart';
+import 'timeline_screen.dart';
 
 /// One Cat: name and photo gallery. Fields and timeline arrive with
 /// later tickets.
@@ -71,11 +73,26 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     );
   }
 
+  Future<void> _editField(FieldDef def) async {
+    final edit = await editFieldValue(context, def, store.current(id, def.key));
+    if (edit == null) return;
+    store.append(id, def.key, edit.value, date: edit.date);
+    setState(() {});
+  }
+
+  void _openTimeline({String? field}) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) =>
+          TimelineScreen(store: store, entityId: id, field: field),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final images = store.images(id);
     final profile = store.profileImage(id);
+    final defs = store.fieldDefs(scope: FieldScope.cat);
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
@@ -84,38 +101,63 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               icon: const Icon(Icons.edit),
               tooltip: 'Rename',
               onPressed: _rename),
+          IconButton(
+              icon: const Icon(Icons.history),
+              tooltip: 'Timeline',
+              onPressed: _openTimeline),
         ],
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(8),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 160,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, i) {
-          final hash = images[i];
-          final bytes = store.imageBytes(hash);
-          return GestureDetector(
-            onTap: () => _imageMenu(hash),
-            child: Stack(fit: StackFit.expand, children: [
-              if (bytes != null)
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.memory(bytes, fit: BoxFit.cover),
-                ),
-              if (hash == profile)
-                const Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Icon(Icons.star, color: Colors.amber),
-                  ),
-                ),
-            ]),
-          );
-        },
+      body: ListView(
+        children: [
+          for (final def in defs)
+            ListTile(
+              title: Text(def.name),
+              subtitle: Text(store.current(id, def.key) ?? '—'),
+              trailing: const Icon(Icons.edit_outlined),
+              onTap: () => _editField(def),
+              onLongPress: () => _openTimeline(field: def.key),
+            ),
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text('Photos',
+                style: Theme.of(context).textTheme.titleMedium),
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(8),
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 160,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+            ),
+            itemCount: images.length,
+            itemBuilder: (context, i) {
+              final hash = images[i];
+              final bytes = store.imageBytes(hash);
+              return GestureDetector(
+                onTap: () => _imageMenu(hash),
+                child: Stack(fit: StackFit.expand, children: [
+                  if (bytes != null)
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.memory(bytes, fit: BoxFit.cover),
+                    ),
+                  if (hash == profile)
+                    const Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Icon(Icons.star, color: Colors.amber),
+                      ),
+                    ),
+                ]),
+              );
+            },
+          ),
+          const SizedBox(height: 80),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addPhoto,

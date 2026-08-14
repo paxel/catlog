@@ -21,3 +21,6 @@ Milestone M1: local-only catalog with Cards.
   automatic compression on import (2560 px long edge), content-addressed image
   storage, Profile Image (defaults to the first photo, choosable), Clowder
   view as a grid of cat faces.
+- Typed Field editing on Cats and Clowders (text, yes/no, date, number,
+  choice) with backdating ("as of" date on every edit), full timeline per Cat
+  and Clowder, and per-Field history via long-press.

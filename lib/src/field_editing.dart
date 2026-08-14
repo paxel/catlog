@@ -1,0 +1,156 @@
+import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/material.dart';
+
+/// The outcome of editing a Field value: what to store and the effective
+/// (possibly backdated) date.
+class FieldEdit {
+  final String? value;
+  final DateTime date;
+  const FieldEdit(this.value, this.date);
+}
+
+/// Type-aware editor dialog for a Field value. Returns null on cancel.
+/// Every editor carries an "as of" date so entries can be backdated
+/// ("spayed on 3 May", entered today).
+Future<FieldEdit?> editFieldValue(
+    BuildContext context, FieldDef def, String? current) {
+  return showDialog<FieldEdit>(
+    context: context,
+    builder: (context) => _FieldEditDialog(def: def, current: current),
+  );
+}
+
+class _FieldEditDialog extends StatefulWidget {
+  final FieldDef def;
+  final String? current;
+
+  const _FieldEditDialog({required this.def, required this.current});
+
+  @override
+  State<_FieldEditDialog> createState() => _FieldEditDialogState();
+}
+
+class _FieldEditDialogState extends State<_FieldEditDialog> {
+  late final TextEditingController _text =
+      TextEditingController(text: widget.current ?? '');
+  String? _choice;
+  DateTime _asOf = DateTime.now();
+
+  FieldDef get def => widget.def;
+
+  @override
+  void initState() {
+    super.initState();
+    _choice = widget.current;
+  }
+
+  @override
+  void dispose() {
+    _text.dispose();
+    super.dispose();
+  }
+
+  void _submit(String? value) =>
+      Navigator.of(context).pop(FieldEdit(value, _asOf));
+
+  Future<void> _pickAsOf() async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _asOf,
+      firstDate: DateTime(2000),
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+    );
+    if (picked != null) setState(() => _asOf = picked);
+  }
+
+  Widget _input() {
+    switch (def.type) {
+      case FieldType.yesNo:
+      case FieldType.choice:
+        final options =
+            def.type == FieldType.yesNo ? const ['yes', 'no'] : def.options;
+        return RadioGroup<String>(
+          groupValue: _choice,
+          onChanged: (v) => setState(() => _choice = v),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            for (final option in options)
+              RadioListTile<String>(title: Text(option), value: option),
+          ]),
+        );
+      case FieldType.date:
+        return CalendarDatePicker(
+          initialDate: DateTime.tryParse(widget.current ?? '') ?? DateTime.now(),
+          firstDate: DateTime(2000),
+          lastDate: DateTime(2100),
+          onDateChanged: (d) =>
+              _choice = d.toIso8601String().substring(0, 10),
+        );
+      case FieldType.number:
+        return TextField(
+          controller: _text,
+          autofocus: true,
+          keyboardType:
+              const TextInputType.numberWithOptions(decimal: true),
+          decoration: const InputDecoration(labelText: 'Value'),
+        );
+      case FieldType.text:
+      case FieldType.location:
+        return TextField(
+          controller: _text,
+          autofocus: true,
+          decoration: InputDecoration(
+            labelText: def.type == FieldType.location
+                ? 'latitude, longitude'
+                : 'Value',
+          ),
+        );
+    }
+  }
+
+  String? _result() {
+    switch (def.type) {
+      case FieldType.yesNo:
+      case FieldType.choice:
+      case FieldType.date:
+        return _choice;
+      case FieldType.text:
+      case FieldType.location:
+      case FieldType.number:
+        final v = _text.text.trim();
+        return v.isEmpty ? null : v;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final sameDay = DateUtils.isSameDay(_asOf, DateTime.now());
+    return AlertDialog(
+      title: Text(def.name),
+      content: SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          _input(),
+          const SizedBox(height: 8),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.event),
+            title: Text(sameDay
+                ? 'As of today'
+                : 'As of ${_asOf.toIso8601String().substring(0, 10)}'),
+            trailing: const Icon(Icons.edit_calendar_outlined),
+            onTap: _pickAsOf,
+          ),
+        ]),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () => _submit(_result()),
+          child: const Text('Save'),
+        ),
+      ],
+    );
+  }
+}

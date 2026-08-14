@@ -104,6 +104,16 @@ void main() {
       expect(timeline.length, 3); // $type + two names
       expect(timeline.every((e) => e.author == 'axel'), isTrue);
     });
+
+    test('orders by effective date, so backdated events sort into place', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:neutered', 'yes', date: DateTime.utc(2026, 5, 3));
+      store.append(cat, 'f:color', 'black');
+      final dates = store.timeline(cat).map((e) => e.date).toList();
+      final sorted = [...dates]..sort((a, b) => b.compareTo(a));
+      expect(dates, sorted);
+      expect(store.current(cat, 'f:neutered'), 'yes');
+    });
   });
 
   group('cats', () {

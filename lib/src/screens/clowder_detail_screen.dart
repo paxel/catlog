@@ -1,8 +1,10 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../field_editing.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
+import 'timeline_screen.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -61,6 +63,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             tooltip: 'Rename',
             onPressed: () => _edit('Rename clowder', Keys.name, name),
           ),
+          IconButton(
+            icon: const Icon(Icons.history),
+            tooltip: 'Timeline',
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => TimelineScreen(store: store, entityId: id),
+            )),
+          ),
         ],
       ),
       body: ListView(
@@ -70,8 +79,18 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               title: Text(def.name),
               subtitle: Text(store.current(id, def.key) ?? '—'),
               trailing: const Icon(Icons.edit_outlined),
-              onTap: () =>
-                  _edit(def.name, def.key, store.current(id, def.key)),
+              onTap: () async {
+                final edit = await editFieldValue(
+                    context, def, store.current(id, def.key));
+                if (edit == null) return;
+                store.append(id, def.key, edit.value, date: edit.date);
+                setState(() {});
+              },
+              onLongPress: () =>
+                  Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => TimelineScreen(
+                    store: store, entityId: id, field: def.key),
+              )),
             ),
           const Divider(),
           Padding(

@@ -71,4 +71,33 @@ void main() {
     final cat = store.cats(clowderId: home).single;
     expect(store.fieldHistory(cat.id, Keys.name).length, 2);
   });
+
+  testWidgets('setting a choice field and seeing it on the timeline',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    store.createCat('Miezi', clowderId: home);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+
+    // Set gender via the typed editor.
+    await tester.tap(find.text('Gender'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('female'));
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(find.text('female'), findsOneWidget);
+
+    // Timeline lists the change with the author.
+    await tester.tap(find.byTooltip('Timeline'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Gender: female'), findsOneWidget);
+    expect(find.textContaining('axel'), findsWidgets);
+  });
 }

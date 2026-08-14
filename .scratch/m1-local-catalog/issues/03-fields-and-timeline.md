@@ -4,12 +4,12 @@
 
 **Blocked by:** 02 — Cats with photos.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Starter Field set seeded on first launch as ordinary entries
-- [ ] Typed values settable on Cats and Clowders (text, yes/no, date, number, choice)
-- [ ] Entries can be backdated; timeline orders by the stated date
-- [ ] Cat timeline shows all field changes with date and Author
-- [ ] Single-field history view (e.g. weight over time)
-- [ ] Death is recorded via the dated deceased field, not deletion
-- [ ] Core tests cover typing, backdating, timeline ordering, per-field history
+- [x] Starter Field set seeded on first launch as ordinary entries
+- [x] Typed values settable on Cats and Clowders (text, yes/no, date, number, choice)
+- [x] Entries can be backdated; timeline orders by the stated date
+- [x] Cat timeline shows all field changes with date and Author
+- [x] Single-field history view (e.g. weight over time)
+- [x] Death is recorded via the dated deceased field, not deletion
+- [x] Core tests cover typing, backdating, timeline ordering, per-field history
