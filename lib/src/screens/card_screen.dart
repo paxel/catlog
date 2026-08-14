@@ -1,0 +1,208 @@
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
+import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
+import 'package:share_plus/share_plus.dart';
+
+/// A Cat's Card: photo plus current facts on one screen, exportable as
+/// an image (share sheet), a PDF, or straight to the printer. The
+/// original reason this app exists.
+class CardScreen extends StatefulWidget {
+  final CatalogStore store;
+  final String catId;
+
+  const CardScreen({super.key, required this.store, required this.catId});
+
+  @override
+  State<CardScreen> createState() => _CardScreenState();
+}
+
+class _CardScreenState extends State<CardScreen> {
+  final _cardKey = GlobalKey();
+
+  CatalogStore get store => widget.store;
+  String get id => widget.catId;
+
+  /// Field label/value pairs shown on the card: only filled Fields.
+  List<(String, String)> _facts() {
+    final facts = <(String, String)>[];
+    final clowderId = store.current(id, Keys.clowder);
+    facts.add((
+      'Clowder',
+      clowderId == null
+          ? 'Stray'
+          : store.current(clowderId, Keys.name) ?? '(unnamed)'
+    ));
+    for (final def in store.fieldDefs(scope: FieldScope.cat)) {
+      final value = store.current(id, def.key);
+      if (value != null) facts.add((def.name, value));
+    }
+    return facts;
+  }
+
+  Future<Uint8List> _cardAsPng() async {
+    final boundary = _cardKey.currentContext!.findRenderObject()!
+        as RenderRepaintBoundary;
+    final image = await boundary.toImage(pixelRatio: 3);
+    final data = await image.toByteData(format: ui.ImageByteFormat.png);
+    return data!.buffer.asUint8List();
+  }
+
+  Future<void> _shareImage() async {
+    final png = await _cardAsPng();
+    final name = store.current(id, Keys.name) ?? 'cat';
+    await Share.shareXFiles([
+      XFile.fromData(png, mimeType: 'image/png', name: '$name-card.png'),
+    ]);
+  }
+
+  Future<pw.Document> _buildPdf() async {
+    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final hash = store.profileImage(id);
+    final photo = hash == null ? null : store.imageBytes(hash);
+    final facts = _facts();
+    final doc = pw.Document(title: '$name — cat(a)log card');
+    doc.addPage(
+      pw.Page(
+        pageFormat: PdfPageFormat.a5,
+        build: (context) => pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
+          children: [
+            if (photo != null)
+              pw.Center(
+                child: pw.ClipRRect(
+                  horizontalRadius: 12,
+                  verticalRadius: 12,
+                  child: pw.Image(
+                    pw.MemoryImage(photo),
+                    height: 220,
+                    fit: pw.BoxFit.cover,
+                  ),
+                ),
+              ),
+            pw.SizedBox(height: 16),
+            pw.Text(name,
+                style: pw.TextStyle(
+                    fontSize: 28, fontWeight: pw.FontWeight.bold)),
+            pw.SizedBox(height: 12),
+            for (final (label, value) in facts)
+              pw.Padding(
+                padding: const pw.EdgeInsets.only(bottom: 4),
+                child: pw.Row(children: [
+                  pw.SizedBox(
+                    width: 140,
+                    child: pw.Text(label,
+                        style: const pw.TextStyle(
+                            fontSize: 12, color: PdfColors.grey700)),
+                  ),
+                  pw.Expanded(
+                      child: pw.Text(value,
+                          style: const pw.TextStyle(fontSize: 12))),
+                ]),
+              ),
+            pw.Spacer(),
+            pw.Text('cat(a)log',
+                style: const pw.TextStyle(
+                    fontSize: 9, color: PdfColors.grey500)),
+          ],
+        ),
+      ),
+    );
+    return doc;
+  }
+
+  Future<void> _printCard() async {
+    final doc = await _buildPdf();
+    await Printing.layoutPdf(onLayout: (_) => doc.save());
+  }
+
+  Future<void> _sharePdf() async {
+    final doc = await _buildPdf();
+    final name = store.current(id, Keys.name) ?? 'cat';
+    await Printing.sharePdf(
+        bytes: await doc.save(), filename: '$name-card.pdf');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final hash = store.profileImage(id);
+    final photo = hash == null ? null : store.imageBytes(hash);
+    final facts = _facts();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Card — $name'),
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.ios_share),
+              tooltip: 'Share as image',
+              onPressed: _shareImage),
+          IconButton(
+              icon: const Icon(Icons.picture_as_pdf),
+              tooltip: 'Share as PDF',
+              onPressed: _sharePdf),
+          IconButton(
+              icon: const Icon(Icons.print),
+              tooltip: 'Print',
+              onPressed: _printCard),
+        ],
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: RepaintBoundary(
+            key: _cardKey,
+            child: Container(
+              width: 360,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.outlineVariant),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (photo != null)
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.memory(photo,
+                          width: 328, height: 246, fit: BoxFit.cover),
+                    ),
+                  const SizedBox(height: 12),
+                  Text(name,
+                      style: Theme.of(context).textTheme.headlineMedium),
+                  const SizedBox(height: 8),
+                  for (final (label, value) in facts)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 140,
+                            child: Text(label,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall),
+                          ),
+                          Expanded(child: Text(value)),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -17,6 +17,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   image_picker: ^1.1.2
   path_provider: ^2.1.4
+  pdf: ^3.11.1
+  printing: ^5.13.2
+  share_plus: ^10.1.0
   sqlite3_flutter_libs: ^0.5.24
 
 dev_dependencies:
@@ -24,6 +27,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^6.0.0
+  image: ^4.2.0
 
 flutter:
   uses-material-design: true

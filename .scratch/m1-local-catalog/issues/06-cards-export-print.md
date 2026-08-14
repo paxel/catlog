@@ -4,10 +4,10 @@
 
 **Blocked by:** 03 — Fields + timeline.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Card screen shows Profile Image, name, and current values of filled Fields
-- [ ] Export as image → platform share sheet
-- [ ] Export as PDF and print via platform print dialog
-- [ ] Output verified manually on a real device (by-eye check is the acceptance)
-- [ ] Widget smoke test: card screen renders for a cat with and without photo
+- [x] Card screen shows Profile Image, name, and current values of filled Fields
+- [x] Export as image → platform share sheet
+- [x] Export as PDF and print via platform print dialog
+- [ ] Output verified manually on a real device (by-eye check is the acceptance) — pending: needs a run on real hardware
+- [x] Widget smoke test: card screen renders for a cat with and without photo

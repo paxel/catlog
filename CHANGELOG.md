@@ -30,3 +30,5 @@ Milestone M1: local-only catalog with Cards.
 - Move & Stray: move a Cat to another Clowder (adoption) or record it leaving
   with no destination; Strays list on the home screen; every Move appears in
   the timeline.
+- Cards: one screen with photo, name, and current facts per Cat — share as
+  image, export as PDF (A5), or print directly.

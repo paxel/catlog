@@ -1,7 +1,14 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
+
+/// A small synthetic JPEG for photo tests.
+Uint8List makeTestJpeg() =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: 64, height: 48)));
 
 void main() {
   setUpAll(useSystemSqlite);
@@ -130,5 +137,38 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Strays'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
+  });
+
+  testWidgets('card screen renders with and without a photo',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    final cat = store.createCat('Miezi', clowderId: home);
+    store.append(cat, Keys.userField('gender'), 'female');
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Card'));
+    await tester.pumpAndSettle();
+
+    // No photo yet — facts still render.
+    expect(find.text('Card — Miezi'), findsOneWidget);
+    expect(find.text('Gender'), findsOneWidget);
+    expect(find.text('female'), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
+
+    // With a photo the image shows up on the card.
+    final bytes = CatalogStore.compressImage(makeTestJpeg());
+    store.addImage(cat, bytes);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Card'));
+    await tester.pumpAndSettle();
+    expect(find.byType(Image), findsWidgets);
   });
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../field_editing.dart';
 import '../image_import.dart';
+import 'card_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Cat: name and photo gallery. Fields and timeline arrive with
@@ -139,6 +140,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       appBar: AppBar(
         title: Text(name),
         actions: [
+          IconButton(
+              icon: const Icon(Icons.badge_outlined),
+              tooltip: 'Card',
+              onPressed: () =>
+                  Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => CardScreen(store: store, catId: id),
+              ))),
           IconButton(
               icon: const Icon(Icons.edit),
               tooltip: 'Rename',
