@@ -215,6 +215,34 @@ void main() {
     });
   });
 
+  group('search', () {
+    test('finds cats by name across clowders and strays', () {
+      final home = store.createClowder('Home');
+      store.createCat('Miezi', clowderId: home);
+      store.createCat('Mizzi'); // stray
+      store.createCat('Balu', clowderId: home);
+
+      expect(store.searchCats('mi').map((c) => c.name),
+          containsAll(['Miezi', 'Mizzi']));
+      expect(store.searchCats('MI').length, 2);
+      expect(store.searchCats('balu').single.name, 'Balu');
+      expect(store.searchCats(''), isEmpty);
+    });
+
+    test('renamed cats are found under the current name only', () {
+      final cat = store.createCat('Old');
+      store.append(cat, Keys.name, 'New');
+      expect(store.searchCats('old'), isEmpty);
+      expect(store.searchCats('new').single.id, cat);
+    });
+
+    test('deleted cats never appear', () {
+      final cat = store.createCat('Ghost');
+      store.deleteCat(cat);
+      expect(store.searchCats('ghost'), isEmpty);
+    });
+  });
+
   group('deletes', () {
     test('deleting a photo drops the bytes and hides it', () {
       final cat = store.createCat('Miezi');

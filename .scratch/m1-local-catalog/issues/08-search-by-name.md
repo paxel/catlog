@@ -4,10 +4,10 @@
 
 **Blocked by:** 02 — Cats with photos.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Search field reachable from the main screen
-- [ ] Case-insensitive substring match on current Cat names
-- [ ] Results show face, name, and where the cat currently is
-- [ ] Deleted Cats never appear
-- [ ] Core test covers search across clowders and strays
+- [x] Search field reachable from the main screen
+- [x] Case-insensitive substring match on current Cat names
+- [x] Results show face, name, and where the cat currently is
+- [x] Deleted Cats never appear
+- [x] Core test covers search across clowders and strays

@@ -34,3 +34,5 @@ Milestone M1: local-only catalog with Cards.
   image, export as PDF (A5), or print directly.
 - Deletes: photos (data really gone once no Cat shows them), Cats (hidden
   everywhere, photos dropped), and Clowders (their Cats fall out as Strays).
+- Search: find a Cat by name (case-insensitive) across all Clowders and
+  Strays, with face, name, and current location in the results.

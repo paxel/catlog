@@ -226,6 +226,17 @@ class CatalogStore {
           if (current(id, Keys.clowder) == null) _view(id)
       ];
 
+  /// Cats whose current name contains [query], case-insensitive —
+  /// across all Clowders and Strays. Deleted Cats never appear.
+  List<EntityView> searchCats(String query) {
+    final q = query.trim().toLowerCase();
+    if (q.isEmpty) return const [];
+    return [
+      for (final view in cats())
+        if (view.name.toLowerCase().contains(q)) view
+    ];
+  }
+
   // ---------------------------------------------------------------- images
 
   /// Longest edge an imported photo keeps; larger photos are scaled down.

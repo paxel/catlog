@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
+import 'search_screen.dart';
 import 'strays_screen.dart';
 
 /// Home screen: all Clowders.
@@ -36,6 +37,13 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       appBar: AppBar(
         title: const Text('Clowders'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            tooltip: 'Search cats',
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => SearchScreen(store: widget.store),
+            )),
+          ),
           IconButton(
             icon: const Icon(Icons.tune),
             tooltip: 'Fields',
