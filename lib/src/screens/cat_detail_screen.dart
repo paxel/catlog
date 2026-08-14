@@ -25,6 +25,9 @@ class CatDetailScreen extends StatefulWidget {
   State<CatDetailScreen> createState() => _CatDetailScreenState();
 }
 
+// Sentinel for "no clowder" in the move dialog, where null means canceled.
+const _strayMarker = '\$stray';
+
 class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
@@ -73,6 +76,44 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     );
   }
 
+  Future<void> _move() async {
+    final currentClowder = store.current(id, Keys.clowder);
+    final clowders = store.clowders();
+    final target = await showDialog<String?>(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: const Text('Move to'),
+        children: [
+          for (final c in clowders)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(context).pop(c.id),
+              child: Row(children: [
+                if (c.id == currentClowder)
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(Icons.check, size: 18),
+                  ),
+                Expanded(child: Text(c.name)),
+              ]),
+            ),
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop(_strayMarker),
+            child: const Row(children: [
+              Icon(Icons.explore, size: 18),
+              SizedBox(width: 8),
+              Expanded(child: Text('No clowder — stray / ran away')),
+            ]),
+          ),
+        ],
+      ),
+    );
+    if (target == null) return; // dialog dismissed
+    final destination = target == _strayMarker ? null : target;
+    if (destination == currentClowder) return;
+    store.moveCat(id, destination);
+    setState(() {});
+  }
+
   Future<void> _editField(FieldDef def) async {
     final edit = await editFieldValue(context, def, store.current(id, def.key));
     if (edit == null) return;
@@ -93,6 +134,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final images = store.images(id);
     final profile = store.profileImage(id);
     final defs = store.fieldDefs(scope: FieldScope.cat);
+    final clowderId = store.current(id, Keys.clowder);
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
@@ -109,6 +151,17 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
       body: ListView(
         children: [
+          ListTile(
+            leading: Icon(clowderId == null ? Icons.explore : Icons.home),
+            title: const Text('Clowder'),
+            subtitle: Text(clowderId == null
+                ? 'Stray — no clowder'
+                : store.current(clowderId, Keys.name) ?? '(unnamed)'),
+            trailing: const Icon(Icons.drive_file_move_outline),
+            onTap: _move,
+            onLongPress: () => _openTimeline(field: Keys.clowder),
+          ),
+          const Divider(),
           for (final def in defs)
             ListTile(
               title: Text(def.name),

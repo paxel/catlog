@@ -180,6 +180,41 @@ void main() {
     });
   });
 
+  group('move and stray', () {
+    test('moving a cat changes its clowder and is kept as history', () {
+      final foster = store.createClowder('Foster Home');
+      final adopter = store.createClowder('Adopter Home');
+      final cat = store.createCat('Miezi', clowderId: foster);
+
+      store.moveCat(cat, adopter);
+      expect(store.cats(clowderId: foster), isEmpty);
+      expect(store.cats(clowderId: adopter).single.id, cat);
+
+      final moves = store.fieldHistory(cat, Keys.clowder);
+      expect(moves.map((e) => e.value), containsAll([foster, adopter]));
+    });
+
+    test('leaving with no destination makes the cat a stray', () {
+      final foster = store.createClowder('Foster Home');
+      final cat = store.createCat('Runner', clowderId: foster);
+      expect(store.strays(), isEmpty);
+
+      store.moveCat(cat, null);
+      expect(store.strays().single.id, cat);
+      expect(store.cats(clowderId: foster), isEmpty);
+    });
+
+    test('a stray moving into a clowder stops being a stray', () {
+      final cat = store.createCat('Foundling');
+      expect(store.strays().single.id, cat);
+
+      final home = store.createClowder('Home');
+      store.moveCat(cat, home);
+      expect(store.strays(), isEmpty);
+      expect(store.cats(clowderId: home).single.id, cat);
+    });
+  });
+
   group('user-defined fields', () {
     test('a new field is defined and immediately usable', () {
       store.defineField('Flea treatment', FieldType.date,

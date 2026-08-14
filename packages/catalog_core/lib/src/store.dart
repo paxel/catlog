@@ -214,6 +214,18 @@ class CatalogStore {
             _view(id)
       ];
 
+  /// Moves a Cat into a Clowder — adoption is exactly this — or, with
+  /// null, records it leaving with no destination: the Cat becomes a
+  /// Stray. Just an ordinary dated field change (see CONTEXT.md: Move).
+  void moveCat(String catId, String? clowderId, {DateTime? date}) =>
+      append(catId, Keys.clowder, clowderId, date: date);
+
+  /// Cats currently in no Clowder (see CONTEXT.md: Stray).
+  List<EntityView> strays() => [
+        for (final id in _entitiesOf(Kinds.cat))
+          if (current(id, Keys.clowder) == null) _view(id)
+      ];
+
   // ---------------------------------------------------------------- images
 
   /// Longest edge an imported photo keeps; larger photos are scaled down.

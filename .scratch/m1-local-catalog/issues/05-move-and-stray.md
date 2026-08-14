@@ -4,10 +4,10 @@
 
 **Blocked by:** 03 — Fields + timeline.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Move action: pick target Clowder; membership is an ordinary dated field change
-- [ ] "Left / ran away" action clears membership; Cat becomes a Stray
-- [ ] Strays list shows all Cats with no current Clowder
-- [ ] Moves and departures appear in the timeline with date and Author
-- [ ] Core tests cover membership transitions and Stray queries
+- [x] Move action: pick target Clowder; membership is an ordinary dated field change
+- [x] "Left / ran away" action clears membership; Cat becomes a Stray
+- [x] Strays list shows all Cats with no current Clowder
+- [x] Moves and departures appear in the timeline with date and Author
+- [x] Core tests cover membership transitions and Stray queries

@@ -27,3 +27,6 @@ Milestone M1: local-only catalog with Cards.
 - User-defined global Fields: create your own Field with name, type, scope
   (cats/clowders/both), and options for choice fields — usable immediately,
   no app update needed.
+- Move & Stray: move a Cat to another Clowder (adoption) or record it leaving
+  with no destination; Strays list on the home screen; every Move appears in
+  the timeline.

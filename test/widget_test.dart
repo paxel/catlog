@@ -100,4 +100,35 @@ void main() {
     expect(find.textContaining('Gender: female'), findsOneWidget);
     expect(find.textContaining('axel'), findsWidgets);
   });
+
+  testWidgets('moving a cat out makes it a stray on the home screen',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    final cat = store.createCat('Runner', clowderId: home);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Runner'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Clowder'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('No clowder — stray / ran away'));
+    await tester.pumpAndSettle();
+
+    expect(store.strays().single.id, cat);
+    expect(find.text('Stray — no clowder'), findsOneWidget);
+
+    // Home screen shows the stray count.
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    expect(find.text('Strays'), findsOneWidget);
+    expect(find.text('1'), findsOneWidget);
+  });
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
+import 'strays_screen.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -30,6 +31,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   @override
   Widget build(BuildContext context) {
     final clowders = widget.store.clowders();
+    final strays = widget.store.strays();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Clowders'),
@@ -43,28 +45,40 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           ),
         ],
       ),
-      body: clowders.isEmpty
-          ? const Center(
+      body: ListView(
+        children: [
+          if (clowders.isEmpty)
+            const Padding(
+              padding: EdgeInsets.all(32),
               child: Text('No clowders yet.\nCreate the first one below.',
                   textAlign: TextAlign.center),
-            )
-          : ListView.builder(
-              itemCount: clowders.length,
-              itemBuilder: (context, i) {
-                final clowder = clowders[i];
-                return ListTile(
-                  leading: const Icon(Icons.home),
-                  title: Text(clowder.name),
-                  onTap: () async {
-                    await Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => ClowderDetailScreen(
-                          store: widget.store, clowderId: clowder.id),
-                    ));
-                    setState(() {});
-                  },
-                );
+            ),
+          for (final clowder in clowders)
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: Text(clowder.name),
+              onTap: () async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => ClowderDetailScreen(
+                      store: widget.store, clowderId: clowder.id),
+                ));
+                setState(() {});
               },
             ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.explore),
+            title: const Text('Strays'),
+            trailing: Text('${strays.length}'),
+            onTap: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => StraysScreen(store: widget.store),
+              ));
+              setState(() {});
+            },
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addClowder,
         tooltip: 'New clowder',
