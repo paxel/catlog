@@ -32,3 +32,5 @@ Milestone M1: local-only catalog with Cards.
   the timeline.
 - Cards: one screen with photo, name, and current facts per Cat — share as
   image, export as PDF (A5), or print directly.
+- Deletes: photos (data really gone once no Cat shows them), Cats (hidden
+  everywhere, photos dropped), and Clowders (their Cats fall out as Strays).

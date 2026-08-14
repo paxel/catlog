@@ -42,6 +42,35 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     setState(() {});
   }
 
+  Future<void> _deleteClowder() async {
+    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final count = store.cats(clowderId: id).length;
+    final sure = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete $name?'),
+        content: Text(count == 0
+            ? 'The clowder disappears from the list.'
+            : 'Its $count cat(s) are not deleted — they become strays. '
+                'Move them to another clowder first if that is not '
+                'what you want.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    if (sure != true || !mounted) return;
+    store.deleteClowder(id);
+    Navigator.of(context).pop();
+  }
+
   Future<void> _openCat(String catId) async {
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CatDetailScreen(store: store, catId: catId),
@@ -69,6 +98,15 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => TimelineScreen(store: store, entityId: id),
             )),
+          ),
+          PopupMenuButton<String>(
+            onSelected: (v) {
+              if (v == 'delete') _deleteClowder();
+            },
+            itemBuilder: (context) => const [
+              PopupMenuItem(
+                  value: 'delete', child: Text('Delete clowder')),
+            ],
           ),
         ],
       ),

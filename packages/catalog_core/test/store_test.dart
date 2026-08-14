@@ -215,6 +215,55 @@ void main() {
     });
   });
 
+  group('deletes', () {
+    test('deleting a photo drops the bytes and hides it', () {
+      final cat = store.createCat('Miezi');
+      final hash = store.addImage(
+          cat, CatalogStore.compressImage(makeJpeg(40, 40)));
+      store.deleteImage(cat, hash);
+      expect(store.images(cat), isEmpty);
+      expect(store.imageBytes(hash), isNull);
+      expect(store.fieldHistory(cat, Keys.image(hash)).first.value, 'deleted');
+    });
+
+    test('bytes survive while another cat still shows the same photo', () {
+      final a = store.createCat('A');
+      final b = store.createCat('B');
+      final bytes = CatalogStore.compressImage(makeJpeg(42, 42));
+      final hash = store.addImage(a, bytes);
+      store.addImage(b, bytes);
+
+      store.deleteImage(a, hash);
+      expect(store.imageBytes(hash), isNotNull);
+
+      store.deleteImage(b, hash);
+      expect(store.imageBytes(hash), isNull);
+    });
+
+    test('deleting a cat hides it everywhere and drops its photos', () {
+      final home = store.createClowder('Home');
+      final cat = store.createCat('Mistake', clowderId: home);
+      final hash = store.addImage(
+          cat, CatalogStore.compressImage(makeJpeg(30, 30)));
+
+      store.deleteCat(cat);
+      expect(store.cats(), isEmpty);
+      expect(store.strays(), isEmpty);
+      expect(store.imageBytes(hash), isNull);
+    });
+
+    test('deleting a clowder turns its cats into strays', () {
+      final home = store.createClowder('Owner Home');
+      final cat = store.createCat('Survivor', clowderId: home);
+
+      store.deleteClowder(home);
+      expect(store.clowders(), isEmpty);
+      expect(store.strays().single.id, cat);
+      // The fallout is an ordinary Move in the cat's history.
+      expect(store.fieldHistory(cat, Keys.clowder).first.value, isNull);
+    });
+  });
+
   group('user-defined fields', () {
     test('a new field is defined and immediately usable', () {
       store.defineField('Flea treatment', FieldType.date,

@@ -4,10 +4,10 @@
 
 **Blocked by:** 05 — Move & Stray.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Photo delete removes the image bytes and hides it everywhere; marker entry recorded
-- [ ] Cat delete hides the Cat from all lists and searches; its photo bytes are dropped
-- [ ] Clowder delete turns its current Cats into Strays, then removes the Clowder
-- [ ] No hard removal of log entries other than image bytes
-- [ ] Core tests cover all three deletes including clowder-delete → Strays
+- [x] Photo delete removes the image bytes and hides it everywhere; marker entry recorded
+- [x] Cat delete hides the Cat from all lists and searches; its photo bytes are dropped
+- [x] Clowder delete turns its current Cats into Strays, then removes the Clowder
+- [x] No hard removal of log entries other than image bytes
+- [x] Core tests cover all three deletes including clowder-delete → Strays

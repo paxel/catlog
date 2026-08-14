@@ -290,6 +290,45 @@ class CatalogStore {
     return all.isEmpty ? null : all.first;
   }
 
+  // --------------------------------------------------------------- deletes
+
+  /// True while any entity still shows [hash] as an added image.
+  bool _imageReferenced(String hash) {
+    final rows = _db.select(
+      'SELECT DISTINCT entity FROM entries WHERE field = ?',
+      [Keys.image(hash)],
+    );
+    return rows.any((r) =>
+        current(r['entity'] as String, Keys.image(hash)) == 'added');
+  }
+
+  /// Deletes one photo of a Cat: a marker entry propagates the deletion
+  /// (ADR-0001), and the bytes are dropped once no Cat references the
+  /// hash anymore. The photo's data is really gone.
+  void deleteImage(String catId, String hash, {DateTime? date}) {
+    append(catId, Keys.image(hash), 'deleted', date: date);
+    if (!_imageReferenced(hash)) _blobs.remove(hash);
+  }
+
+  /// Deletes a Cat: hidden from every list and search, its photos'
+  /// bytes dropped. The log entries stay (they are tiny and sync needs
+  /// the markers).
+  void deleteCat(String catId, {DateTime? date}) {
+    for (final hash in images(catId)) {
+      deleteImage(catId, hash, date: date);
+    }
+    append(catId, Keys.deleted, 'true', date: date);
+  }
+
+  /// Deletes a Clowder. Its current Cats are not deleted with it — they
+  /// fall out as Strays (see CONTEXT.md: Stray).
+  void deleteClowder(String clowderId, {DateTime? date}) {
+    for (final cat in cats(clowderId: clowderId)) {
+      moveCat(cat.id, null, date: date);
+    }
+    append(clowderId, Keys.deleted, 'true', date: date);
+  }
+
   // ------------------------------------------------------------ field defs
 
   /// All global Field definitions, optionally filtered by where they apply.

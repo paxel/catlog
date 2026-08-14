@@ -72,9 +72,37 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               setState(() {});
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.delete_outline),
+            title: const Text('Delete photo'),
+            onTap: () async {
+              Navigator.of(context).pop();
+              final sure = await _confirm(
+                  context,
+                  'Delete photo?',
+                  'The photo data is removed for good — this cannot '
+                      'be undone.');
+              if (sure && mounted) {
+                store.deleteImage(id, hash);
+                setState(() {});
+              }
+            },
+          ),
         ]),
       ),
     );
+  }
+
+  Future<void> _deleteCat() async {
+    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final sure = await _confirm(
+        context,
+        'Delete $name?',
+        'The cat disappears from all lists. Its photos are removed '
+            'for good.');
+    if (!sure || !mounted) return;
+    store.deleteCat(id);
+    Navigator.of(context).pop();
   }
 
   Future<void> _move() async {
@@ -155,6 +183,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               icon: const Icon(Icons.history),
               tooltip: 'Timeline',
               onPressed: _openTimeline),
+          PopupMenuButton<String>(
+            onSelected: (v) {
+              if (v == 'delete') _deleteCat();
+            },
+            itemBuilder: (context) => const [
+              PopupMenuItem(value: 'delete', child: Text('Delete cat')),
+            ],
+          ),
         ],
       ),
       body: ListView(
@@ -227,6 +263,28 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
     );
   }
+}
+
+Future<bool> _confirm(
+    BuildContext context, String title, String message) async {
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(title),
+      content: Text(message),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(true),
+          child: const Text('Delete'),
+        ),
+      ],
+    ),
+  );
+  return result ?? false;
 }
 
 Future<String?> _askForText(
