@@ -24,3 +24,6 @@ Milestone M1: local-only catalog with Cards.
 - Typed Field editing on Cats and Clowders (text, yes/no, date, number,
   choice) with backdating ("as of" date on every edit), full timeline per Cat
   and Clowder, and per-Field history via long-press.
+- User-defined global Fields: create your own Field with name, type, scope
+  (cats/clowders/both), and options for choice fields — usable immediately,
+  no app update needed.

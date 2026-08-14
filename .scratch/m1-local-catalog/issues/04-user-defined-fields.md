@@ -4,9 +4,9 @@
 
 **Blocked by:** 03 — Fields + timeline.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Field creation UI with name and type; choice fields define their options
-- [ ] New Field is global: usable on every Cat/Clowder right away
-- [ ] Field definitions are themselves entries (dated, authored)
-- [ ] Core tests cover definition entries and use of a user-defined Field end to end
+- [x] Field creation UI with name and type; choice fields define their options
+- [x] New Field is global: usable on every Cat/Clowder right away
+- [x] Field definitions are themselves entries (dated, authored)
+- [x] Core tests cover definition entries and use of a user-defined Field end to end

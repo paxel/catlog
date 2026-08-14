@@ -305,6 +305,36 @@ class CatalogStore {
     return defs;
   }
 
+  /// Creates a new global Field definition and returns its entity id.
+  /// The definition is itself entries — dated, authored, and synced like
+  /// everything else. Throws if a Field with the same slug exists.
+  String defineField(String name, FieldType type,
+      {FieldScope scope = FieldScope.both,
+      List<String> options = const [],
+      DateTime? date}) {
+    final slug = slugify(name);
+    if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
+    final id = 'fielddef:$slug';
+    if (current(id, Keys.type) != null) {
+      throw ArgumentError('A field named "$name" already exists');
+    }
+    append(id, Keys.type, Kinds.fieldDef, date: date);
+    append(id, Keys.name, name, date: date);
+    append(id, Keys.fieldType, type.name, date: date);
+    append(id, Keys.fieldScope, scope.name, date: date);
+    if (options.isNotEmpty) {
+      append(id, Keys.fieldOptions, options.join('\n'), date: date);
+    }
+    return id;
+  }
+
+  /// Lowercase, alphanumeric-and-dash form of a Field name.
+  static String slugify(String name) => name
+      .trim()
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';

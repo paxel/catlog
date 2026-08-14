@@ -180,6 +180,40 @@ void main() {
     });
   });
 
+  group('user-defined fields', () {
+    test('a new field is defined and immediately usable', () {
+      store.defineField('Flea treatment', FieldType.date,
+          scope: FieldScope.cat);
+      final def = store
+          .fieldDefs(scope: FieldScope.cat)
+          .firstWhere((d) => d.slug == 'flea-treatment');
+      expect(def.type, FieldType.date);
+
+      final cat = store.createCat('Miezi');
+      store.append(cat, def.key, '2026-08-01');
+      expect(store.current(cat, def.key), '2026-08-01');
+    });
+
+    test('choice fields carry their options', () {
+      store.defineField('Mood', FieldType.choice,
+          options: ['calm', 'wild']);
+      final def =
+          store.fieldDefs().firstWhere((d) => d.slug == 'mood');
+      expect(def.options, ['calm', 'wild']);
+    });
+
+    test('definitions are dated, authored entries', () {
+      final id = store.defineField('Chip number', FieldType.text);
+      expect(store.timeline(id).every((e) => e.author == 'axel'), isTrue);
+    });
+
+    test('duplicate names are rejected', () {
+      store.defineField('Weight', FieldType.number);
+      expect(() => store.defineField('Weight', FieldType.number),
+          throwsArgumentError);
+    });
+  });
+
   group('starter fields', () {
     test('seeded once with types and scopes', () {
       final defs = store.fieldDefs();
