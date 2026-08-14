@@ -36,3 +36,6 @@ Milestone M1: local-only catalog with Cards.
   everywhere, photos dropped), and Clowders (their Cats fall out as Strays).
 - Search: find a Cat by name (case-insensitive) across all Clowders and
   Strays, with face, name, and current location in the results.
+- CI: GitHub Actions pipeline — analyze + tests on Linux, release APK
+  artifact, unsigned iOS build; separate TestFlight workflow (signed build
+  and upload) ready for the Apple credentials.

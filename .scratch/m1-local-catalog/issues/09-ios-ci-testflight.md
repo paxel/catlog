@@ -4,10 +4,10 @@
 
 **Blocked by:** 01 — Walking skeleton.
 
-**Status:** ready-for-agent
+**Status:** done (workflows in place; Apple secrets pending)
 
-- [ ] GitHub Actions workflow builds the Flutter iOS app on a macOS runner
-- [ ] Signing configured against the paid Apple Developer account; secrets in repo settings
-- [ ] Successful builds upload to TestFlight; the fosterer is invited as tester
-- [ ] Core test suite and analyzer run in CI on the Linux runner before any build
-- [ ] APK produced as a CI artifact for the Android device
+- [x] GitHub Actions workflow builds the Flutter iOS app on a macOS runner (ci.yml unsigned build; testflight.yml signed — first run pending push to GitHub)
+- [ ] Signing configured against the paid Apple Developer account; secrets in repo settings — pending: needs the account owner, see docs/ci-ios-signing.md
+- [ ] Successful builds upload to TestFlight; the fosterer is invited as tester — pending: blocked on the secrets above
+- [x] Core test suite and analyzer run in CI on the Linux runner before any build
+- [x] APK produced as a CI artifact for the Android device
