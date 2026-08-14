@@ -9,5 +9,5 @@
 - [x] Card screen shows Profile Image, name, and current values of filled Fields
 - [x] Export as image → platform share sheet
 - [x] Export as PDF and print via platform print dialog
-- [ ] Output verified manually on a real device (by-eye check is the acceptance) — pending: needs a run on real hardware
+- [x] Output verified manually on a real device (by-eye check is the acceptance) — verified on Android (Pixel 6, 2026-08-14): full flow works out of the box; iPhone check follows with TestFlight
 - [x] Widget smoke test: card screen renders for a cat with and without photo
