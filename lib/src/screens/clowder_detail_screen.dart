@@ -1,7 +1,11 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
-/// One Clowder: name plus its Field values (address, responsible person, …).
+import '../widgets/cat_avatar.dart';
+import 'cat_detail_screen.dart';
+
+/// One Clowder: name, its Field values (address, responsible person, …),
+/// and the Cats currently living there as a grid of faces.
 class ClowderDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String clowderId;
@@ -24,10 +28,30 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     setState(() {});
   }
 
+  Future<void> _addCat() async {
+    final name = await _askForText(context, 'New cat', null);
+    if (name == null || name.isEmpty || !mounted) return;
+    final catId = store.createCat(name, clowderId: id);
+    setState(() {});
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CatDetailScreen(
+          store: store, catId: catId, promptPhoto: true),
+    ));
+    setState(() {});
+  }
+
+  Future<void> _openCat(String catId) async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CatDetailScreen(store: store, catId: catId),
+    ));
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final defs = store.fieldDefs(scope: FieldScope.clowder);
+    final cats = store.cats(clowderId: id);
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
@@ -49,7 +73,52 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               onTap: () =>
                   _edit(def.name, def.key, store.current(id, def.key)),
             ),
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text('Cats',
+                style: Theme.of(context).textTheme.titleMedium),
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(8),
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 120,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: 0.8,
+            ),
+            itemCount: cats.length,
+            itemBuilder: (context, i) {
+              final cat = cats[i];
+              return InkWell(
+                onTap: () => _openCat(cat.id),
+                borderRadius: BorderRadius.circular(12),
+                child: Column(children: [
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: CatAvatar(
+                          store: store, catId: cat.id, size: 96),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(cat.name,
+                        overflow: TextOverflow.ellipsis, maxLines: 1),
+                  ),
+                ]),
+              );
+            },
+          ),
+          const SizedBox(height: 80),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _addCat,
+        icon: const Icon(Icons.add),
+        label: const Text('Add cat'),
       ),
     );
   }

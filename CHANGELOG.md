@@ -17,3 +17,7 @@ Milestone M1: local-only catalog with Cards.
   Field values with history.
 - Starter Field definitions seeded on first launch (gender, color, neutered,
   pregnant, birth date, deceased, address, responsible person).
+- Cats: create inside a Clowder with name and photo, multiple photos per Cat,
+  automatic compression on import (2560 px long edge), content-addressed image
+  storage, Profile Image (defaults to the first photo, choosable), Clowder
+  view as a grid of cat faces.

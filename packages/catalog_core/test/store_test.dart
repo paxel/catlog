@@ -1,5 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
+import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
+
+/// A synthetic JPEG of the given size.
+Uint8List makeJpeg(int width, int height) =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: width, height: height)));
 
 void main() {
   late CatalogStore store;
@@ -96,6 +103,70 @@ void main() {
       final timeline = store.timeline(id);
       expect(timeline.length, 3); // $type + two names
       expect(timeline.every((e) => e.author == 'axel'), isTrue);
+    });
+  });
+
+  group('cats', () {
+    test('created cat lives in its clowder', () {
+      final home = store.createClowder('Home');
+      final cat = store.createCat('Miezi', clowderId: home);
+      expect(store.cats(clowderId: home).map((c) => c.id), [cat]);
+      expect(store.cats().first.name, 'Miezi');
+    });
+
+    test('cat without clowder is listed among all cats', () {
+      store.createCat('Wanderer');
+      expect(store.cats().map((c) => c.name), contains('Wanderer'));
+      expect(store.cats(clowderId: 'clowder:none'), isEmpty);
+    });
+  });
+
+  group('images', () {
+    test('compressImage scales the long edge down to 2560', () {
+      final compressed = CatalogStore.compressImage(makeJpeg(4000, 2000));
+      final decoded = img.decodeImage(compressed)!;
+      expect(decoded.width, CatalogStore.maxImageEdge);
+      expect(decoded.height, CatalogStore.maxImageEdge ~/ 2);
+    });
+
+    test('small images are not upscaled', () {
+      final compressed = CatalogStore.compressImage(makeJpeg(800, 600));
+      final decoded = img.decodeImage(compressed)!;
+      expect(decoded.width, 800);
+    });
+
+    test('added image is content-addressed and retrievable', () {
+      final cat = store.createCat('Miezi');
+      final bytes = CatalogStore.compressImage(makeJpeg(100, 100));
+      final hash = store.addImage(cat, bytes);
+      expect(store.images(cat), [hash]);
+      expect(store.imageBytes(hash), bytes);
+    });
+
+    test('adding identical bytes twice yields the same hash once', () {
+      final cat = store.createCat('Miezi');
+      final bytes = CatalogStore.compressImage(makeJpeg(50, 50));
+      final h1 = store.addImage(cat, bytes);
+      final h2 = store.addImage(cat, bytes);
+      expect(h1, h2);
+      expect(store.images(cat), [h1]);
+    });
+
+    test('profile image defaults to the first and stays stable', () {
+      final cat = store.createCat('Miezi');
+      final first = store.addImage(
+          cat, CatalogStore.compressImage(makeJpeg(60, 60)));
+      store.addImage(cat, CatalogStore.compressImage(makeJpeg(70, 70)));
+      expect(store.profileImage(cat), first);
+    });
+
+    test('profile image can be chosen explicitly', () {
+      final cat = store.createCat('Miezi');
+      store.addImage(cat, CatalogStore.compressImage(makeJpeg(60, 60)));
+      final second = store.addImage(
+          cat, CatalogStore.compressImage(makeJpeg(70, 70)));
+      store.setProfileImage(cat, second);
+      expect(store.profileImage(cat), second);
     });
   });
 

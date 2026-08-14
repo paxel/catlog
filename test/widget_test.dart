@@ -43,4 +43,32 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Foster Home South'), findsOneWidget);
   });
+
+  testWidgets('adding a cat shows it in the clowder grid', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    store.createCat('Miezi', clowderId: home);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Cats'), findsOneWidget);
+    expect(find.text('Miezi'), findsOneWidget);
+
+    // Open the cat and rename it; the change is authored and historic.
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Rename'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Mizzi');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Mizzi'), findsOneWidget);
+    final cat = store.cats(clowderId: home).single;
+    expect(store.fieldHistory(cat.id, Keys.name).length, 2);
+  });
 }

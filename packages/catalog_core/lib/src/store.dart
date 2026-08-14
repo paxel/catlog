@@ -1,5 +1,9 @@
+import 'dart:io';
 import 'dart:math';
+import 'dart:typed_data';
 
+import 'package:crypto/crypto.dart';
+import 'package:image/image.dart' as img;
 import 'package:sqlite3/sqlite3.dart';
 
 import 'entry.dart';
@@ -17,18 +21,27 @@ class EntityView {
 
 /// The catalog: an append-only entry log over SQLite with a latest-wins
 /// projection (ADR-0001). All reads and writes are synchronous.
+///
+/// Image bytes live outside the log in a content-addressed blob store —
+/// a directory next to the database file, or memory for [inMemory] stores.
 class CatalogStore {
   final Database _db;
+  final _BlobStore _blobs;
 
-  CatalogStore._(this._db);
+  CatalogStore._(this._db, this._blobs);
 
-  /// Opens an on-disk catalog, creating it if needed.
-  factory CatalogStore.open(String path) => _init(sqlite3.open(path));
+  /// Opens an on-disk catalog, creating it if needed. Image blobs go to an
+  /// `images` directory next to the database file.
+  factory CatalogStore.open(String path) => _init(
+        sqlite3.open(path),
+        _FileBlobStore('${File(path).parent.path}/images'),
+      );
 
   /// Opens a throwaway in-memory catalog (tests).
-  factory CatalogStore.inMemory() => _init(sqlite3.openInMemory());
+  factory CatalogStore.inMemory() =>
+      _init(sqlite3.openInMemory(), _MemoryBlobStore());
 
-  static CatalogStore _init(Database db) {
+  static CatalogStore _init(Database db, _BlobStore blobs) {
     db.execute('''
       PRAGMA journal_mode = WAL;
       CREATE TABLE IF NOT EXISTS entries (
@@ -47,7 +60,7 @@ class CatalogStore {
         value TEXT NOT NULL
       );
     ''');
-    final store = CatalogStore._(db);
+    final store = CatalogStore._(db, blobs);
     store._seedStarterFields();
     return store;
   }
@@ -183,6 +196,88 @@ class CatalogStore {
   List<EntityView> clowders() =>
       _entitiesOf(Kinds.clowder).map(_view).toList();
 
+  // ------------------------------------------------------------------ cats
+
+  /// Creates a Cat inside a Clowder and returns its entity id.
+  String createCat(String name, {String? clowderId, DateTime? date}) {
+    final id = 'cat:${_uuid()}';
+    append(id, Keys.type, Kinds.cat, date: date);
+    append(id, Keys.name, name, date: date);
+    if (clowderId != null) append(id, Keys.clowder, clowderId, date: date);
+    return id;
+  }
+
+  /// Cats currently in [clowderId], or every Cat when null.
+  List<EntityView> cats({String? clowderId}) => [
+        for (final id in _entitiesOf(Kinds.cat))
+          if (clowderId == null || current(id, Keys.clowder) == clowderId)
+            _view(id)
+      ];
+
+  // ---------------------------------------------------------------- images
+
+  /// Longest edge an imported photo keeps; larger photos are scaled down.
+  /// 2560 px prints sharp on a Card and stays cheap to sync.
+  static const maxImageEdge = 2560;
+
+  /// Pure function: re-encodes a photo as JPEG, scaled to [maxImageEdge].
+  /// CPU-heavy — call through `Isolate.run` from UI code.
+  static Uint8List compressImage(Uint8List bytes) {
+    var decoded = img.decodeImage(bytes);
+    if (decoded == null) throw const FormatException('Not a decodable image');
+    decoded = img.bakeOrientation(decoded);
+    final edge = max(decoded.width, decoded.height);
+    if (edge > maxImageEdge) {
+      final scale = maxImageEdge / edge;
+      decoded = img.copyResize(
+        decoded,
+        width: (decoded.width * scale).round(),
+        height: (decoded.height * scale).round(),
+        interpolation: img.Interpolation.average,
+      );
+    }
+    return Uint8List.fromList(img.encodeJpg(decoded, quality: 85));
+  }
+
+  /// Stores an already-compressed JPEG for a Cat, content-addressed by
+  /// SHA-256, and records it in the log. Returns the content hash.
+  String addImage(String catId, Uint8List jpegBytes, {DateTime? date}) {
+    final hash = sha256.convert(jpegBytes).toString();
+    _blobs.put(hash, jpegBytes);
+    append(catId, Keys.image(hash), 'added', date: date);
+    return hash;
+  }
+
+  /// Content hashes of a Cat's images, oldest first, deleted ones excluded.
+  List<String> images(String catId) {
+    final rows = _db.select(
+      'SELECT DISTINCT field FROM entries WHERE entity = ? AND field LIKE ? '
+      'ORDER BY seq',
+      [catId, '${Keys.imagePrefix}%'],
+    );
+    return [
+      for (final r in rows)
+        if (current(catId, r['field'] as String) == 'added')
+          (r['field'] as String).substring(Keys.imagePrefix.length)
+    ];
+  }
+
+  /// The stored bytes for a content hash, or null if unknown.
+  Uint8List? imageBytes(String hash) => _blobs.get(hash);
+
+  /// Marks [hash] as the Cat's Profile Image.
+  void setProfileImage(String catId, String hash, {DateTime? date}) =>
+      append(catId, Keys.profileImage, hash, date: date);
+
+  /// The Cat's Profile Image: the chosen one, defaulting to the first
+  /// (stable — it does not change as photos are added).
+  String? profileImage(String catId) {
+    final chosen = current(catId, Keys.profileImage);
+    final all = images(catId);
+    if (chosen != null && all.contains(chosen)) return chosen;
+    return all.isEmpty ? null : all.first;
+  }
+
   // ------------------------------------------------------------ field defs
 
   /// All global Field definitions, optionally filtered by where they apply.
@@ -226,7 +321,7 @@ class CatalogStore {
 
   // ------------------------------------------------------------------ misc
 
-  static final _random = Random.secure();
+  static final Random _random = Random.secure();
 
   static String _uuid() {
     final b = List.generate(16, (_) => _random.nextInt(256));
@@ -236,4 +331,52 @@ class CatalogStore {
     return '${h.substring(0, 8)}-${h.substring(8, 12)}-${h.substring(12, 16)}-'
         '${h.substring(16, 20)}-${h.substring(20)}';
   }
+}
+
+/// Content-addressed storage for image bytes, keyed by SHA-256 hash.
+abstract interface class _BlobStore {
+  void put(String hash, Uint8List bytes);
+  Uint8List? get(String hash);
+  void remove(String hash);
+}
+
+class _FileBlobStore implements _BlobStore {
+  final Directory _dir;
+
+  _FileBlobStore(String path) : _dir = Directory(path) {
+    _dir.createSync(recursive: true);
+  }
+
+  File _file(String hash) => File('${_dir.path}/$hash.jpg');
+
+  @override
+  void put(String hash, Uint8List bytes) {
+    final f = _file(hash);
+    if (!f.existsSync()) f.writeAsBytesSync(bytes);
+  }
+
+  @override
+  Uint8List? get(String hash) {
+    final f = _file(hash);
+    return f.existsSync() ? f.readAsBytesSync() : null;
+  }
+
+  @override
+  void remove(String hash) {
+    final f = _file(hash);
+    if (f.existsSync()) f.deleteSync();
+  }
+}
+
+class _MemoryBlobStore implements _BlobStore {
+  final _blobs = <String, Uint8List>{};
+
+  @override
+  void put(String hash, Uint8List bytes) => _blobs[hash] = bytes;
+
+  @override
+  Uint8List? get(String hash) => _blobs[hash];
+
+  @override
+  void remove(String hash) => _blobs.remove(hash);
 }
