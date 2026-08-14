@@ -1,0 +1,28 @@
+name: catlog
+description: "cat(a)log — a local-first catalog of foster cats: Clowders, Cats, dated field history, and shareable Cards."
+publish_to: 'none'
+
+# App version. Keep in sync with CHANGELOG.md.
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  catalog_core:
+    path: packages/catalog_core
+  cupertino_icons: ^1.0.8
+  path_provider: ^2.1.4
+  sqlite3_flutter_libs: ^0.5.24
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

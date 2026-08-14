@@ -4,13 +4,13 @@
 
 **Blocked by:** None — can start immediately.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] First launch asks for an Author name; it is stamped on every entry thereafter
-- [ ] Clowder can be created and edited; address and responsible person use the Field mechanism
-- [ ] Clowder list shows all Clowders; data persists across app restarts
-- [ ] Catalog core is pure Dart (no Flutter imports); UI reaches data only through its API
-- [ ] Entries are append-only `(entity, field, value, date, author)`; edits never overwrite
-- [ ] Displayed values come from the latest-wins projection with deterministic tiebreak
-- [ ] Core behavior tests run against real in-memory SQLite (e.g. edit twice → latest shows, both in history)
-- [ ] Repo is public with Apache-2.0/MIT dual license files
+- [x] First launch asks for an Author name; it is stamped on every entry thereafter
+- [x] Clowder can be created and edited; address and responsible person use the Field mechanism
+- [x] Clowder list shows all Clowders; data persists across app restarts
+- [x] Catalog core is pure Dart (no Flutter imports); UI reaches data only through its API
+- [x] Entries are append-only `(entity, field, value, date, author)`; edits never overwrite
+- [x] Displayed values come from the latest-wins projection with deterministic tiebreak
+- [x] Core behavior tests run against real in-memory SQLite (e.g. edit twice → latest shows, both in history)
+- [x] Repo is public with Apache-2.0/MIT dual license files
