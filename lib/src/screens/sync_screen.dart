@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../sync/lan.dart';
@@ -158,8 +159,53 @@ class _SyncScreenState extends State<SyncScreen> {
             Text('Last sync with ${lastPeer!.split(':').first}: '
                 '${lastSync.substring(0, 16).replaceFirst('T', ' ')}'),
           ],
+          const Divider(height: 40),
+          Text('Shared folder',
+              style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          const Text('Sync through a folder that a cloud drive or USB '
+              'stick carries between devices — for people who are not '
+              'on the same network.'),
+          const SizedBox(height: 8),
+          Row(children: [
+            Expanded(
+              child: Text(
+                widget.store.localSetting('syncFolder') ??
+                    'No folder chosen yet',
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            TextButton(
+              onPressed: () async {
+                final path = await FilePicker.platform.getDirectoryPath();
+                if (path != null) {
+                  widget.store.setLocalSetting('syncFolder', path);
+                  setState(() {});
+                }
+              },
+              child: const Text('Choose…'),
+            ),
+          ]),
+          const SizedBox(height: 8),
+          FilledButton.icon(
+            onPressed: widget.store.localSetting('syncFolder') == null
+                ? null
+                : _folderSync,
+            icon: const Icon(Icons.folder_copy_outlined),
+            label: const Text('Sync folder now'),
+          ),
         ],
       ),
     );
+  }
+
+  Future<void> _folderSync() async {
+    final folder = widget.store.localSetting('syncFolder')!;
+    try {
+      final result = folderSync(widget.store, folder);
+      setState(() => _lastResult = 'Folder synced: $result');
+    } catch (e) {
+      setState(() => _lastResult = 'Folder sync failed: $e');
+    }
   }
 }

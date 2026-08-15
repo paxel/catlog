@@ -4,9 +4,9 @@
 
 **Blocked by:** M2-02 — Sync engine.
 
-**Status:** done (core; folder picker UI follows with the sync screen wiring)
+**Status:** done
 
 - [x] Own-file append + blob copy; foreign files read-only
 - [x] Import via the engine's vector, so re-syncs are cheap and idempotent
-- [ ] Folder selection persisted per device; sync action with result summary
+- [x] Folder selection persisted per device; sync action with result summary
 - [x] Core tests: two stores round-trip through a temp directory, convergence, no foreign writes
