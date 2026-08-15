@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   catalog_core:
     path: packages/catalog_core
@@ -21,6 +23,7 @@ dependencies:
   latlong2: ^0.9.1
   package_info_plus: ^8.0.2
   image_picker: ^1.1.2
+  intl: any
   path_provider: ^2.1.4
   pdf: ^3.11.1
   printing: ^5.13.2
@@ -38,3 +41,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true

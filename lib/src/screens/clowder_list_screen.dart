@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../l10n.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
@@ -40,7 +41,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       await file.writeAsString(csv);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('CSV saved to ${file.path}')),
+        SnackBar(content: Text(context.t.csvSavedTo(file.path))),
       );
     }
   }
@@ -64,18 +65,18 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     final strays = widget.store.strays();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clowders'),
+        title: Text(context.t.clowders),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            tooltip: 'Search cats',
+            tooltip: context.t.searchCats,
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => SearchScreen(store: widget.store),
             )),
           ),
           IconButton(
             icon: const Icon(Icons.map_outlined),
-            tooltip: 'Map',
+            tooltip: context.t.map,
             onPressed: () async {
               await Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => MapScreen(store: widget.store),
@@ -85,7 +86,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.sync),
-            tooltip: 'Sync',
+            tooltip: context.t.sync,
             onPressed: () async {
               await Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => SyncScreen(store: widget.store),
@@ -95,7 +96,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.tune),
-            tooltip: 'Fields',
+            tooltip: context.t.fields,
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => FieldsScreen(store: widget.store),
             )),
@@ -109,9 +110,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 ));
               }
             },
-            itemBuilder: (context) => const [
-              PopupMenuItem(value: 'csv', child: Text('Export CSV')),
-              PopupMenuItem(value: 'about', child: Text('About & feedback')),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 'csv', child: Text(context.t.exportCsv)),
+              PopupMenuItem(
+                  value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],
           ),
         ],
@@ -119,9 +122,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       body: ListView(
         children: [
           if (clowders.isEmpty)
-            const Padding(
-              padding: EdgeInsets.all(32),
-              child: Text('No clowders yet.\nCreate the first one below.',
+            Padding(
+              padding: const EdgeInsets.all(32),
+              child: Text(context.t.noClowdersYet,
                   textAlign: TextAlign.center),
             ),
           GridView.builder(
@@ -153,7 +156,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.explore),
-            title: const Text('Strays'),
+            title: Text(context.t.strays),
             trailing: Text('${strays.length}'),
             onTap: () async {
               await Navigator.of(context).push(MaterialPageRoute(
@@ -166,7 +169,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addClowder,
-        tooltip: 'New clowder',
+        tooltip: context.t.newClowder,
         child: const Icon(Icons.add),
       ),
     );
@@ -248,21 +251,21 @@ Future<String?> _askForName(BuildContext context) {
   return showDialog<String>(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('New clowder'),
+      title: Text(context.t.newClowder),
       content: TextField(
         controller: controller,
         autofocus: true,
-        decoration: const InputDecoration(labelText: 'Name'),
+        decoration: InputDecoration(labelText: context.t.name),
         onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(controller.text.trim()),
-          child: const Text('Create'),
+          child: Text(context.t.create),
         ),
       ],
     ),

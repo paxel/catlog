@@ -1,6 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import 'l10n.dart';
+
 /// "Merge into…" — the record on screen is the LOSER and folds into the
 /// picked survivor, irreversibly (CONTEXT.md: Merge). Returns true if a
 /// merge happened; the caller closes the loser's screen.
@@ -15,7 +17,7 @@ Future<bool> showMergeDialog({
   final options = candidates.where((c) => c.id != loserId).toList();
   if (options.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('No other $kindLabel to merge into.')),
+      SnackBar(content: Text(context.t.noOtherToMergeInto(kindLabel))),
     );
     return false;
   }
@@ -23,7 +25,7 @@ Future<bool> showMergeDialog({
   final survivorId = await showDialog<String>(
     context: context,
     builder: (context) => SimpleDialog(
-      title: Text('Merge this $kindLabel into…'),
+      title: Text(context.t.mergeThisInto(kindLabel)),
       children: [
         for (final c in options)
           SimpleDialogOption(
@@ -41,19 +43,16 @@ Future<bool> showMergeDialog({
   final sure = await showDialog<bool>(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text('Merge into $survivorName?'),
-      content: Text(
-          'The two records become one. $survivorName keeps its current '
-          'values; the other record\'s history joins its timeline. '
-          'This cannot be undone.'),
+      title: Text(context.t.mergeIntoQuestion(survivorName)),
+      content: Text(context.t.mergeBody(survivorName)),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(true),
-          child: const Text('Merge'),
+          child: Text(context.t.merge),
         ),
       ],
     ),

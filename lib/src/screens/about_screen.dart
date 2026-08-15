@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../l10n.dart';
+
 const _repoUrl = 'https://github.com/paxel/catlog';
 const _issuesUrl = '$_repoUrl/issues';
 const _feedbackMail = 'taum@tuta.io';
@@ -21,9 +23,10 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = context.t;
     final showDonate = !Platform.isIOS;
     return Scaffold(
-      appBar: AppBar(title: const Text('About')),
+      appBar: AppBar(title: Text(t.about)),
       body: ListView(children: [
         const SizedBox(height: 24),
         const Center(child: Icon(Icons.pets, size: 64)),
@@ -36,17 +39,17 @@ class AboutScreen extends StatelessWidget {
           child: FutureBuilder<PackageInfo>(
             future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) => Text(snapshot.hasData
-                ? 'Version ${snapshot.data!.version} (${snapshot.data!.buildNumber})'
+                ? t.versionLabel(snapshot.data!.version,
+                    snapshot.data!.buildNumber)
                 : ''),
           ),
         ),
         const SizedBox(height: 8),
-        const Center(
+        Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Text(
-              'A local-first catalog for foster cats. Your data lives on '
-              'your devices — no server, no account.',
+              t.aboutTagline,
               textAlign: TextAlign.center,
             ),
           ),
@@ -54,19 +57,19 @@ class AboutScreen extends StatelessWidget {
         const SizedBox(height: 16),
         ListTile(
           leading: const Icon(Icons.code),
-          title: const Text('Source code'),
+          title: Text(t.sourceCode),
           subtitle: const Text('$_repoUrl — Apache-2.0 / MIT'),
           onTap: () => _open(_repoUrl),
         ),
         ListTile(
           leading: const Icon(Icons.bug_report_outlined),
-          title: const Text('Report a problem or idea'),
-          subtitle: const Text('GitHub issues'),
+          title: Text(t.reportProblemOrIdea),
+          subtitle: Text(t.githubIssues),
           onTap: () => _open(_issuesUrl),
         ),
         ListTile(
           leading: const Icon(Icons.mail_outline),
-          title: const Text('Write the developer'),
+          title: Text(t.writeTheDeveloper),
           subtitle: const Text(_feedbackMail),
           onTap: () => _open(
               'mailto:$_feedbackMail?subject=cat(a)log%20feedback'),
@@ -74,16 +77,24 @@ class AboutScreen extends StatelessWidget {
         if (showDonate)
           ListTile(
             leading: const Icon(Icons.coffee_outlined),
-            title: const Text('Buy the developer a coffee'),
-            subtitle: const Text('Entirely optional — the app is free'),
+            title: Text(t.buyCoffee),
+            subtitle: Text(t.coffeeSubtitle),
             onTap: () => _open(_donateUrl),
           ),
         ListTile(
           leading: const Icon(Icons.description_outlined),
-          title: const Text('Open-source licenses'),
+          title: Text(t.openSourceLicenses),
           onTap: () => showLicensePage(
             context: context,
             applicationName: 'cat(a)log',
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            t.machineTranslated,
+            style: Theme.of(context).textTheme.bodySmall,
+            textAlign: TextAlign.center,
           ),
         ),
       ]),

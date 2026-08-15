@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../field_labels.dart';
 import '../image_import.dart';
+import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../stray_cam.dart';
 import 'card_screen.dart';
 import 'timeline_screen.dart';
 
-/// One Cat: name and photo gallery. Fields and timeline arrive with
-/// later tickets.
+/// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String catId;
@@ -46,7 +47,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
 
   Future<void> _rename() async {
     final current = store.current(id, Keys.name) ?? '';
-    final name = await _askForText(context, 'Rename cat', current);
+    final name = await _askForText(context, context.t.renameCat, current);
     if (name == null || name.isEmpty || name == current) return;
     store.append(id, Keys.name, name);
     setState(() {});
@@ -57,87 +58,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (hash != null) setState(() {});
   }
 
-  void _imageMenu(String hash) {
-    final isProfile = store.profileImage(id) == hash;
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (context) => SafeArea(
-        child: Wrap(children: [
-          ListTile(
-            leading: const Icon(Icons.star),
-            title: Text(isProfile
-                ? 'This is the profile image'
-                : 'Set as profile image'),
-            enabled: !isProfile,
-            onTap: () {
-              store.setProfileImage(id, hash);
-              Navigator.of(context).pop();
-              setState(() {});
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.delete_outline),
-            title: const Text('Delete photo'),
-            onTap: () async {
-              Navigator.of(context).pop();
-              final sure = await _confirm(
-                  context,
-                  'Delete photo?',
-                  'The photo data is removed for good — this cannot '
-                      'be undone.');
-              if (sure && mounted) {
-                store.deleteImage(id, hash);
-                setState(() {});
-              }
-            },
-          ),
-        ]),
-      ),
-    );
-  }
-
-  Future<void> _seenHere() async {
-    final ok = await seenHereNow(store, id);
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(ok
-          ? 'Sighting recorded at your position.'
-          : 'No location available — long-press the map instead.'),
-    ));
-    setState(() {});
-  }
-
-  Future<void> _mergeCat() async {
-    final merged = await showMergeDialog(
-      context: context,
-      store: store,
-      loserId: id,
-      kindLabel: 'cat',
-      candidates: store.cats(),
-      merge: store.mergeCat,
-    );
-    if (merged && mounted) Navigator.of(context).pop();
-  }
-
-  Future<void> _deleteCat() async {
-    final name = store.current(id, Keys.name) ?? '(unnamed)';
-    final sure = await _confirm(
-        context,
-        'Delete $name?',
-        'The cat disappears from all lists. Its photos are removed '
-            'for good.');
-    if (!sure || !mounted) return;
-    store.deleteCat(id);
-    Navigator.of(context).pop();
-  }
-
   Future<void> _move() async {
     final currentClowder = store.current(id, Keys.clowder);
     final clowders = store.clowders();
     final target = await showDialog<String?>(
       context: context,
       builder: (context) => SimpleDialog(
-        title: const Text('Move to'),
+        title: Text(context.t.moveTo),
         children: [
           for (final c in clowders)
             SimpleDialogOption(
@@ -153,10 +80,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             ),
           SimpleDialogOption(
             onPressed: () => Navigator.of(context).pop(_strayMarker),
-            child: const Row(children: [
-              Icon(Icons.explore, size: 18),
-              SizedBox(width: 8),
-              Expanded(child: Text('No clowder — stray / ran away')),
+            child: Row(children: [
+              const Icon(Icons.explore, size: 18),
+              const SizedBox(width: 8),
+              Expanded(child: Text(context.t.noClowderStrayOption)),
             ]),
           ),
         ],
@@ -170,7 +97,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _editField(FieldDef def) async {
-    final edit = await editFieldValue(context, def, store.current(id, def.key));
+    final edit =
+        await editFieldValue(context, def, store.current(id, def.key));
     if (edit == null) return;
     store.append(id, def.key, edit.value, date: edit.date);
     setState(() {});
@@ -183,9 +111,77 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     ));
   }
 
+  void _imageMenu(String hash) {
+    final isProfile = store.profileImage(id) == hash;
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (context) => SafeArea(
+        child: Wrap(children: [
+          ListTile(
+            leading: const Icon(Icons.star),
+            title: Text(isProfile
+                ? context.t.thisIsProfileImage
+                : context.t.setAsProfileImage),
+            enabled: !isProfile,
+            onTap: () {
+              store.setProfileImage(id, hash);
+              Navigator.of(context).pop();
+              setState(() {});
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.delete_outline),
+            title: Text(context.t.deletePhoto),
+            onTap: () async {
+              Navigator.of(context).pop();
+              final sure = await _confirm(context,
+                  context.t.deletePhotoTitle, context.t.deletePhotoBody);
+              if (sure && mounted) {
+                store.deleteImage(id, hash);
+                setState(() {});
+              }
+            },
+          ),
+        ]),
+      ),
+    );
+  }
+
+  Future<void> _deleteCat() async {
+    final name = store.current(id, Keys.name) ?? context.t.unnamed;
+    final sure = await _confirm(
+        context, context.t.deleteQuestion(name), context.t.deleteCatBody);
+    if (!sure || !mounted) return;
+    store.deleteCat(id);
+    Navigator.of(context).pop();
+  }
+
+  Future<void> _seenHere() async {
+    final ok = await seenHereNow(store, id);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(ok
+          ? context.t.sightingRecorded
+          : context.t.noLocationAvailable),
+    ));
+    setState(() {});
+  }
+
+  Future<void> _mergeCat() async {
+    final merged = await showMergeDialog(
+      context: context,
+      store: store,
+      loserId: id,
+      kindLabel: context.t.kindCat,
+      candidates: store.cats(),
+      merge: store.mergeCat,
+    );
+    if (merged && mounted) Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final images = store.images(id);
     final profile = store.profileImage(id);
     final defs = store.fieldDefs(scope: FieldScope.cat);
@@ -196,18 +192,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         actions: [
           IconButton(
               icon: const Icon(Icons.badge_outlined),
-              tooltip: 'Card',
+              tooltip: context.t.card,
               onPressed: () =>
                   Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => CardScreen(store: store, catId: id),
-              ))),
+                    builder: (_) => CardScreen(store: store, catId: id),
+                  ))),
           IconButton(
               icon: const Icon(Icons.edit),
-              tooltip: 'Rename',
+              tooltip: context.t.rename,
               onPressed: _rename),
           IconButton(
               icon: const Icon(Icons.history),
-              tooltip: 'Timeline',
+              tooltip: context.t.timeline,
               onPressed: _openTimeline),
           PopupMenuButton<String>(
             onSelected: (v) {
@@ -215,10 +211,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
             },
-            itemBuilder: (context) => const [
-              PopupMenuItem(value: 'seen', child: Text('Seen here now')),
-              PopupMenuItem(value: 'merge', child: Text('Merge into…')),
-              PopupMenuItem(value: 'delete', child: Text('Delete cat')),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 'seen', child: Text(context.t.seenHereNow)),
+              PopupMenuItem(
+                  value: 'merge', child: Text(context.t.mergeInto)),
+              PopupMenuItem(
+                  value: 'delete', child: Text(context.t.deleteCat)),
             ],
           ),
         ],
@@ -227,10 +226,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         children: [
           ListTile(
             leading: Icon(clowderId == null ? Icons.explore : Icons.home),
-            title: const Text('Clowder'),
+            title: Text(context.t.clowderLabel),
             subtitle: Text(clowderId == null
-                ? 'Stray — no clowder'
-                : store.current(clowderId, Keys.name) ?? '(unnamed)'),
+                ? context.t.strayNoClowder
+                : store.current(clowderId, Keys.name) ?? context.t.unnamed),
             trailing: const Icon(Icons.drive_file_move_outline),
             onTap: _move,
             onLongPress: () => _openTimeline(field: Keys.clowder),
@@ -238,8 +237,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           const Divider(),
           for (final def in defs)
             ListTile(
-              title: Text(def.name),
-              subtitle: Text(store.current(id, def.key) ?? '—'),
+              title: Text(fieldDefName(context.t, def)),
+              subtitle: Text(fieldValueDisplay(
+                  context.t, def, store.current(id, def.key))),
               trailing: store.hasConflict(id, def.key)
                   ? const Icon(Icons.warning_amber, color: Colors.amber)
                   : const Icon(Icons.edit_outlined),
@@ -254,7 +254,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text('Photos',
+            child: Text(context.t.photos,
                 style: Theme.of(context).textTheme.titleMedium),
           ),
           GridView.builder(
@@ -295,7 +295,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addPhoto,
-        tooltip: 'Add photo',
+        tooltip: context.t.addPhoto,
         child: const Icon(Icons.add_a_photo),
       ),
     );
@@ -312,11 +312,11 @@ Future<bool> _confirm(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(true),
-          child: const Text('Delete'),
+          child: Text(context.t.delete),
         ),
       ],
     ),
@@ -339,11 +339,11 @@ Future<String?> _askForText(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(controller.text.trim()),
-          child: const Text('Save'),
+          child: Text(context.t.save),
         ),
       ],
     ),

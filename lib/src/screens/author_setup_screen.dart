@@ -1,6 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n.dart';
+
 /// First-launch screen: asks for the Author name that every change made on
 /// this device will be attributed to (see CONTEXT.md: Author).
 class AuthorSetupScreen extends StatefulWidget {
@@ -42,28 +44,28 @@ class _AuthorSetupScreenState extends State<AuthorSetupScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Welcome to cat(a)log',
+                Text(context.t.welcomeTitle,
                     style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 12),
-                const Text(
-                  'Pick a name for yourself. Every change you make is '
-                  'recorded under this name, so others can see who did what.',
+                Text(
+                  context.t.welcomeBody,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),
                 TextField(
                   controller: _controller,
                   autofocus: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Your name',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: context.t.yourName,
+                    border: const OutlineInputBorder(),
                   ),
                   textInputAction: TextInputAction.done,
                   onSubmitted: (_) => _save(),
                 ),
                 const SizedBox(height: 16),
-                FilledButton(onPressed: _save, child: const Text('Start')),
+                FilledButton(
+                    onPressed: _save, child: Text(context.t.start)),
               ],
             ),
           ),

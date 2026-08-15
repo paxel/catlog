@@ -5,6 +5,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'l10n.dart';
+
 /// Lets the user pick or take a photo, compresses it off the UI thread,
 /// and stores it on the Cat. Returns the content hash, or null if the
 /// user canceled.
@@ -19,12 +21,12 @@ Future<String?> pickAndAddImage(
         child: Wrap(children: [
           ListTile(
             leading: const Icon(Icons.photo_camera),
-            title: const Text('Take photo'),
+            title: Text(context.t.takePhoto),
             onTap: () => Navigator.of(context).pop(ImageSource.camera),
           ),
           ListTile(
             leading: const Icon(Icons.photo_library),
-            title: const Text('Choose from gallery'),
+            title: Text(context.t.chooseFromGallery),
             onTap: () => Navigator.of(context).pop(ImageSource.gallery),
           ),
         ]),

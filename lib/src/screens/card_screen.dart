@@ -4,6 +4,9 @@ import 'dart:ui' as ui;
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import '../field_labels.dart';
+import '../l10n.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -28,19 +31,24 @@ class _CardScreenState extends State<CardScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
 
-  /// Field label/value pairs shown on the card: only filled Fields.
+  /// Field label/value pairs shown on the card: only filled Fields,
+  /// labels and canonical values in the viewing device's language.
   List<(String, String)> _facts() {
+    final t = context.t;
     final facts = <(String, String)>[];
     final clowderId = store.current(id, Keys.clowder);
     facts.add((
-      'Clowder',
+      t.clowderLabel,
       clowderId == null
-          ? 'Stray'
-          : store.current(clowderId, Keys.name) ?? '(unnamed)'
+          ? t.stray
+          : store.current(clowderId, Keys.name) ?? t.unnamed
     ));
     for (final def in store.fieldDefs(scope: FieldScope.cat)) {
       final value = store.current(id, def.key);
-      if (value != null) facts.add((def.name, value));
+      if (value != null) {
+        facts.add(
+            (fieldDefName(t, def), fieldValueDisplay(t, def, value)));
+      }
     }
     return facts;
   }
@@ -136,19 +144,19 @@ class _CardScreenState extends State<CardScreen> {
     final facts = _facts();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card — $name'),
+        title: Text(context.t.cardTitle(name)),
         actions: [
           IconButton(
               icon: const Icon(Icons.ios_share),
-              tooltip: 'Share as image',
+              tooltip: context.t.shareAsImage,
               onPressed: _shareImage),
           IconButton(
               icon: const Icon(Icons.picture_as_pdf),
-              tooltip: 'Share as PDF',
+              tooltip: context.t.shareAsPdf,
               onPressed: _sharePdf),
           IconButton(
               icon: const Icon(Icons.print),
-              tooltip: 'Print',
+              tooltip: context.t.print,
               onPressed: _printCard),
         ],
       ),

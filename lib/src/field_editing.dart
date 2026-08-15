@@ -1,5 +1,9 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'field_labels.dart';
+import 'l10n.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
 /// (possibly backdated) date.
@@ -74,7 +78,10 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           onChanged: (v) => setState(() => _choice = v),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             for (final option in options)
-              RadioListTile<String>(title: Text(option), value: option),
+              RadioListTile<String>(
+                  title: Text(
+                      fieldValueDisplay(context.t, def, option)),
+                  value: option),
           ]),
         );
       case FieldType.date:
@@ -91,7 +98,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           autofocus: true,
           keyboardType:
               const TextInputType.numberWithOptions(decimal: true),
-          decoration: const InputDecoration(labelText: 'Value'),
+          decoration: InputDecoration(labelText: context.t.value),
         );
       case FieldType.text:
       case FieldType.location:
@@ -100,8 +107,8 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           autofocus: true,
           decoration: InputDecoration(
             labelText: def.type == FieldType.location
-                ? 'latitude, longitude'
-                : 'Value',
+                ? context.t.latitudeLongitude
+                : context.t.value,
           ),
         );
     }
@@ -125,7 +132,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   Widget build(BuildContext context) {
     final sameDay = DateUtils.isSameDay(_asOf, DateTime.now());
     return AlertDialog(
-      title: Text(def.name),
+      title: Text(fieldDefName(context.t, def)),
       content: SingleChildScrollView(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           _input(),
@@ -134,8 +141,10 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
             contentPadding: EdgeInsets.zero,
             leading: const Icon(Icons.event),
             title: Text(sameDay
-                ? 'As of today'
-                : 'As of ${_asOf.toIso8601String().substring(0, 10)}'),
+                ? context.t.asOfToday
+                : context.t.asOfDate(DateFormat.yMd(
+                        Localizations.localeOf(context).toString())
+                    .format(_asOf))),
             trailing: const Icon(Icons.edit_calendar_outlined),
             onTap: _pickAsOf,
           ),
@@ -144,11 +153,11 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => _submit(_result()),
-          child: const Text('Save'),
+          child: Text(context.t.save),
         ),
       ],
     );

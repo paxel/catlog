@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 
@@ -25,8 +26,8 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         title: TextField(
           autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Search cats by name…',
+          decoration: InputDecoration(
+            hintText: context.t.searchByNameHint,
             border: InputBorder.none,
           ),
           onChanged: (v) => setState(() => _query = v),
@@ -38,8 +39,9 @@ class _SearchScreenState extends State<SearchScreen> {
           final cat = results[i];
           final clowderId = widget.store.current(cat.id, Keys.clowder);
           final where = clowderId == null
-              ? 'Stray'
-              : widget.store.current(clowderId, Keys.name) ?? '(unnamed)';
+              ? context.t.stray
+              : widget.store.current(clowderId, Keys.name) ??
+                  context.t.unnamed;
           return ListTile(
             leading:
                 CatAvatar(store: widget.store, catId: cat.id, size: 40),

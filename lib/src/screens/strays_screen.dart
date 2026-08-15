@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -22,22 +23,22 @@ class _StraysScreenState extends State<StraysScreen> {
     final name = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('New stray'),
+        title: Text(context.t.newStray),
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: const InputDecoration(labelText: 'Name'),
+          decoration: InputDecoration(labelText: context.t.name),
           onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(context.t.cancel),
           ),
           FilledButton(
             onPressed: () =>
                 Navigator.of(context).pop(controller.text.trim()),
-            child: const Text('Create'),
+            child: Text(context.t.create),
           ),
         ],
       ),
@@ -56,7 +57,7 @@ class _StraysScreenState extends State<StraysScreen> {
   Widget build(BuildContext context) {
     final strays = widget.store.strays();
     return Scaffold(
-      appBar: AppBar(title: const Text('Strays')),
+      appBar: AppBar(title: Text(context.t.strays)),
       floatingActionButton:
           Column(mainAxisSize: MainAxisSize.min, children: [
         FloatingActionButton.extended(
@@ -72,18 +73,18 @@ class _StraysScreenState extends State<StraysScreen> {
             setState(() {});
           },
           icon: const Icon(Icons.photo_camera),
-          label: const Text('Stray Cam'),
+          label: Text(context.t.strayCam),
         ),
         const SizedBox(height: 12),
         FloatingActionButton.extended(
           heroTag: 'addStray',
           onPressed: _addStray,
           icon: const Icon(Icons.add),
-          label: const Text('Add stray'),
+          label: Text(context.t.addStray),
         ),
       ]),
       body: strays.isEmpty
-          ? const Center(child: Text('No strays right now.'))
+          ? Center(child: Text(context.t.noStraysRightNow))
           : ListView.builder(
               itemCount: strays.length,
               itemBuilder: (context, i) {

@@ -4,10 +4,10 @@
 
 **Blocked by:** None.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] l10n.yaml + app_en.arb as the template; no hardcoded user-facing strings left in lib/
-- [ ] German ARB complete
-- [ ] Starter names/values translated at display time only while un-renamed
-- [ ] Dates via intl per locale
-- [ ] Widget tests under de and ar (RTL) locales
+- [x] l10n.yaml + app_en.arb as the template; no hardcoded user-facing strings left in lib/
+- [x] German ARB complete
+- [x] Starter names/values translated at display time only while un-renamed
+- [x] Dates via intl per locale
+- [x] Widget tests under de; ar RTL check lands with ticket 02 (needs the ar ARB)

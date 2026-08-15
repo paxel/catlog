@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -38,6 +39,8 @@ void main() {
     store.recordPosition(stray, 52.53, 13.41);
 
     await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
     ));
     await tester.pump(const Duration(seconds: 1));

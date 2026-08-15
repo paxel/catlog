@@ -1,6 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../field_labels.dart';
+import '../l10n.dart';
 import '../merge_dialogs.dart';
 
 /// All global Field definitions, and a dialog to create new ones.
@@ -19,22 +21,22 @@ class _FieldsScreenState extends State<FieldsScreen> {
     final name = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Rename field'),
+        title: Text(context.t.renameField),
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: const InputDecoration(labelText: 'Name'),
+          decoration: InputDecoration(labelText: context.t.name),
           onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(context.t.cancel),
           ),
           FilledButton(
             onPressed: () =>
                 Navigator.of(context).pop(controller.text.trim()),
-            child: const Text('Save'),
+            child: Text(context.t.save),
           ),
         ],
       ),
@@ -54,7 +56,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       context: context,
       store: widget.store,
       loserId: def.id,
-      kindLabel: 'field',
+      kindLabel: context.t.kindField,
       candidates: sameType,
       merge: widget.store.mergeField,
     );
@@ -72,17 +74,22 @@ class _FieldsScreenState extends State<FieldsScreen> {
   @override
   Widget build(BuildContext context) {
     final defs = widget.store.fieldDefs();
+    String scopeName(FieldScope s) => switch (s) {
+          FieldScope.cat => context.t.forCats,
+          FieldScope.clowder => context.t.forClowders,
+          FieldScope.both => context.t.forBoth,
+        };
     return Scaffold(
-      appBar: AppBar(title: const Text('Fields')),
+      appBar: AppBar(title: Text(context.t.fields)),
       body: ListView(
         children: [
           for (final def in defs)
             ListTile(
               leading: const Icon(Icons.label_outline),
-              title: Text(def.name),
+              title: Text(fieldDefName(context.t, def)),
               subtitle: Text([
                 def.type.name,
-                'for ${def.scope.name}',
+                scopeName(def.scope),
                 if (def.options.isNotEmpty) def.options.join(', '),
               ].join(' · ')),
               trailing: PopupMenuButton<String>(
@@ -90,10 +97,11 @@ class _FieldsScreenState extends State<FieldsScreen> {
                   if (v == 'rename') _renameField(def);
                   if (v == 'merge') _mergeField(def);
                 },
-                itemBuilder: (context) => const [
-                  PopupMenuItem(value: 'rename', child: Text('Rename')),
+                itemBuilder: (context) => [
                   PopupMenuItem(
-                      value: 'merge', child: Text('Merge into…')),
+                      value: 'rename', child: Text(context.t.rename)),
+                  PopupMenuItem(
+                      value: 'merge', child: Text(context.t.mergeInto)),
                 ],
               ),
               onTap: () => _renameField(def),
@@ -103,7 +111,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _addField,
         icon: const Icon(Icons.add),
-        label: const Text('New field'),
+        label: Text(context.t.newField),
       ),
     );
   }
@@ -153,19 +161,19 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('New field'),
+      title: Text(context.t.newField),
       content: SingleChildScrollView(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           TextField(
             controller: _name,
             autofocus: true,
-            decoration:
-                InputDecoration(labelText: 'Name', errorText: _error),
+            decoration: InputDecoration(
+                labelText: context.t.name, errorText: _error),
           ),
           const SizedBox(height: 12),
           DropdownButtonFormField<FieldType>(
             initialValue: _type,
-            decoration: const InputDecoration(labelText: 'Type'),
+            decoration: InputDecoration(labelText: context.t.fieldType),
             items: [
               for (final t in FieldType.values)
                 DropdownMenuItem(value: t, child: Text(t.name)),
@@ -175,14 +183,15 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
           const SizedBox(height: 12),
           DropdownButtonFormField<FieldScope>(
             initialValue: _scope,
-            decoration: const InputDecoration(labelText: 'Used on'),
-            items: const [
+            decoration: InputDecoration(labelText: context.t.usedOn),
+            items: [
               DropdownMenuItem(
-                  value: FieldScope.cat, child: Text('cats')),
+                  value: FieldScope.cat, child: Text(context.t.forCats)),
               DropdownMenuItem(
-                  value: FieldScope.clowder, child: Text('clowders')),
+                  value: FieldScope.clowder,
+                  child: Text(context.t.forClowders)),
               DropdownMenuItem(
-                  value: FieldScope.both, child: Text('both')),
+                  value: FieldScope.both, child: Text(context.t.forBoth)),
             ],
             onChanged: (s) => setState(() => _scope = s ?? _scope),
           ),
@@ -191,8 +200,8 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
             TextField(
               controller: _options,
               maxLines: 4,
-              decoration: const InputDecoration(
-                labelText: 'Options (one per line)',
+              decoration: InputDecoration(
+                labelText: context.t.optionsOnePerLine,
                 alignLabelWithHint: true,
               ),
             ),
@@ -202,9 +211,9 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
-        FilledButton(onPressed: _create, child: const Text('Create')),
+        FilledButton(onPressed: _create, child: Text(context.t.create)),
       ],
     );
   }

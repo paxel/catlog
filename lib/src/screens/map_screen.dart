@@ -6,6 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../stray_cam.dart';
 import 'cat_detail_screen.dart';
@@ -77,9 +78,9 @@ class _MapScreenState extends State<MapScreen> {
       builder: (context) => SafeArea(
         child: ListView(shrinkWrap: true, children: [
           if (strays.isNotEmpty)
-            const Padding(
-              padding: EdgeInsets.all(12),
-              child: Text('Record a sighting here:'),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(context.t.recordSightingHere),
             ),
           for (final s in strays)
             ListTile(
@@ -88,9 +89,9 @@ class _MapScreenState extends State<MapScreen> {
               onTap: () => Navigator.of(context).pop(('stray', s.id)),
             ),
           if (clowders.isNotEmpty)
-            const Padding(
-              padding: EdgeInsets.all(12),
-              child: Text('Or place a clowder here:'),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(context.t.orPlaceClowderHere),
             ),
           for (final c in clowders)
             ListTile(
@@ -117,7 +118,7 @@ class _MapScreenState extends State<MapScreen> {
     final center =
         all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2;
     return Scaffold(
-      appBar: AppBar(title: const Text('Map')),
+      appBar: AppBar(title: Text(context.t.map)),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           final catId = await strayCam(context, store);
@@ -129,7 +130,7 @@ class _MapScreenState extends State<MapScreen> {
           setState(() {});
         },
         icon: const Icon(Icons.photo_camera),
-        label: const Text('Stray Cam'),
+        label: Text(context.t.strayCam),
       ),
       body: FlutterMap(
         options: MapOptions(
@@ -215,8 +216,9 @@ class _MapScreenState extends State<MapScreen> {
               child: Row(children: [
                 Expanded(
                   child: Text(
-                    'Trail: ${store.current(_trailCat!, Keys.name) ?? ''} '
-                    '(${_trail(_trailCat!).length} sightings)',
+                    context.t.trailOf(
+                        store.current(_trailCat!, Keys.name) ?? '',
+                        _trail(_trailCat!).length),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -228,7 +230,7 @@ class _MapScreenState extends State<MapScreen> {
                     ));
                     setState(() {});
                   },
-                  child: const Text('Open'),
+                  child: Text(context.t.open),
                 ),
                 IconButton(
                   icon: const Icon(Icons.close),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../field_labels.dart';
+import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -25,21 +27,23 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.clowderId;
 
-  Future<void> _edit(String title, String field, String? initial) async {
-    final value = await _askForText(context, title, initial);
-    if (value == null || value == (initial ?? '')) return;
-    store.append(id, field, value);
+  Future<void> _rename() async {
+    final current = store.current(id, Keys.name) ?? '';
+    final name =
+        await _askForText(context, context.t.renameClowder, current);
+    if (name == null || name.isEmpty || name == current) return;
+    store.append(id, Keys.name, name);
     setState(() {});
   }
 
   Future<void> _addCat() async {
-    final name = await _askForText(context, 'New cat', null);
+    final name = await _askForText(context, context.t.newCat, null);
     if (name == null || name.isEmpty || !mounted) return;
     final catId = store.createCat(name, clowderId: id);
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => CatDetailScreen(
-          store: store, catId: catId, promptPhoto: true),
+      builder: (_) =>
+          CatDetailScreen(store: store, catId: catId, promptPhoto: true),
     ));
     setState(() {});
   }
@@ -49,7 +53,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       context: context,
       store: store,
       loserId: id,
-      kindLabel: 'clowder',
+      kindLabel: context.t.kindClowder,
       candidates: store.clowders(),
       merge: store.mergeClowder,
     );
@@ -57,25 +61,23 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   }
 
   Future<void> _deleteClowder() async {
-    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final count = store.cats(clowderId: id).length;
     final sure = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete $name?'),
+        title: Text(context.t.deleteQuestion(name)),
         content: Text(count == 0
-            ? 'The clowder disappears from the list.'
-            : 'Its $count cat(s) are not deleted — they become strays. '
-                'Move them to another clowder first if that is not '
-                'what you want.'),
+            ? context.t.deleteClowderEmptyBody
+            : context.t.deleteClowderBody(count)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(context.t.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Delete'),
+            child: Text(context.t.delete),
           ),
         ],
       ),
@@ -94,7 +96,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final name = store.current(id, Keys.name) ?? '(unnamed)';
+    final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final defs = store.fieldDefs(scope: FieldScope.clowder);
     final cats = store.cats(clowderId: id);
     return Scaffold(
@@ -103,12 +105,12 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.edit),
-            tooltip: 'Rename',
-            onPressed: () => _edit('Rename clowder', Keys.name, name),
+            tooltip: context.t.rename,
+            onPressed: _rename,
           ),
           IconButton(
             icon: const Icon(Icons.history),
-            tooltip: 'Timeline',
+            tooltip: context.t.timeline,
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => TimelineScreen(store: store, entityId: id),
             )),
@@ -118,10 +120,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               if (v == 'delete') _deleteClowder();
               if (v == 'merge') _mergeClowder();
             },
-            itemBuilder: (context) => const [
-              PopupMenuItem(value: 'merge', child: Text('Merge into…')),
+            itemBuilder: (context) => [
               PopupMenuItem(
-                  value: 'delete', child: Text('Delete clowder')),
+                  value: 'merge', child: Text(context.t.mergeInto)),
+              PopupMenuItem(
+                  value: 'delete', child: Text(context.t.deleteClowder)),
             ],
           ),
         ],
@@ -130,8 +133,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         children: [
           for (final def in defs)
             ListTile(
-              title: Text(def.name),
-              subtitle: Text(store.current(id, def.key) ?? '—'),
+              title: Text(fieldDefName(context.t, def)),
+              subtitle: Text(fieldValueDisplay(
+                  context.t, def, store.current(id, def.key))),
               trailing: store.hasConflict(id, def.key)
                   ? const Icon(Icons.warning_amber, color: Colors.amber)
                   : const Icon(Icons.edit_outlined),
@@ -156,7 +160,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text('Cats',
+            child: Text(context.t.cats,
                 style: Theme.of(context).textTheme.titleMedium),
           ),
           GridView.builder(
@@ -179,8 +183,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                   Expanded(
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: CatAvatar(
-                          store: store, catId: cat.id, size: 96),
+                      child:
+                          CatAvatar(store: store, catId: cat.id, size: 96),
                     ),
                   ),
                   Padding(
@@ -198,7 +202,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _addCat,
         icon: const Icon(Icons.add),
-        label: const Text('Add cat'),
+        label: Text(context.t.addCat),
       ),
     );
   }
@@ -219,11 +223,11 @@ Future<String?> _askForText(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.t.cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(controller.text.trim()),
-          child: const Text('Save'),
+          child: Text(context.t.save),
         ),
       ],
     ),

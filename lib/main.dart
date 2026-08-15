@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'l10n/app_localizations.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/clowder_list_screen.dart';
 
@@ -26,6 +27,8 @@ class _CatlogAppState extends State<CatlogApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'cat(a)log',
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       ),

@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/main.dart';
+import 'package:catlog/src/screens/clowder_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
@@ -174,6 +176,32 @@ void main() {
     expect(find.text('Colour'), findsOneWidget);
     expect(
         store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
+  });
+
+  testWidgets('German locale shows translated UI and starter fields',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Zuhause');
+    store.createCat('Miezi', clowderId: home);
+
+    await tester.pumpWidget(MaterialApp(
+      locale: const Locale('de'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: ClowderListScreen(store: store),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Clowder'), findsWidgets); // German plural title
+    await tester.tap(find.text('Zuhause'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    // Starter field name shows in German (ADR-0005 display-time).
+    expect(find.text('Geschlecht'), findsOneWidget);
+    expect(find.text('Kastriert'), findsOneWidget);
   });
 
   testWidgets('merging two cats via the dialog', (tester) async {

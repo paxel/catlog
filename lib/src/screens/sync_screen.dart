@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n.dart';
 import '../sync/lan.dart';
 
 /// Device-to-device sync over the local network: one side hosts and
@@ -57,9 +58,10 @@ class _SyncScreenState extends State<SyncScreen> {
   }
 
   Future<void> _join() async {
+    final t = context.t;
     final parts = _address.text.trim().split(':');
     if (parts.length != 2 || int.tryParse(parts[1]) == null) {
-      setState(() => _lastResult = 'Address must look like 192.168.0.12:38472');
+      setState(() => _lastResult = t.addressFormatHint);
       return;
     }
     setState(() {
@@ -73,9 +75,9 @@ class _SyncScreenState extends State<SyncScreen> {
         ..setLocalSetting('lastPeerAddress', _address.text.trim())
         ..setLocalSetting('lastSync:${parts[0]}',
             DateTime.now().toIso8601String());
-      setState(() => _lastResult = 'Synced: $result');
+      setState(() => _lastResult = t.syncedResult('$result'));
     } catch (e) {
-      setState(() => _lastResult = 'Sync failed: $e');
+      setState(() => _lastResult = t.syncFailed('$e'));
     } finally {
       if (mounted) setState(() => _joining = false);
     }
@@ -87,20 +89,20 @@ class _SyncScreenState extends State<SyncScreen> {
     final lastSync = lastPeer == null
         ? null
         : widget.store.localSetting('lastSync:${lastPeer.split(':').first}');
+    final t = context.t;
     return Scaffold(
-      appBar: AppBar(title: const Text('Sync')),
+      appBar: AppBar(title: Text(t.sync)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('Host', style: Theme.of(context).textTheme.titleMedium),
+          Text(t.host, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
-          const Text('Start here, then enter the address and PIN on the '
-              'other device.'),
+          Text(t.hostExplainer),
           const SizedBox(height: 8),
           FilledButton.icon(
             onPressed: _toggleHost,
             icon: Icon(_host == null ? Icons.wifi_tethering : Icons.stop),
-            label: Text(_host == null ? 'Start hosting' : 'Stop hosting'),
+            label: Text(_host == null ? t.startHosting : t.stopHosting),
           ),
           if (_host != null) ...[
             const SizedBox(height: 12),
@@ -111,31 +113,31 @@ class _SyncScreenState extends State<SyncScreen> {
                   Text(_hostAddress!,
                       style: Theme.of(context).textTheme.headlineSmall),
                   const SizedBox(height: 4),
-                  Text('PIN: $_pin',
+                  Text(t.pinLabel(_pin),
                       style: Theme.of(context).textTheme.headlineSmall),
                   const SizedBox(height: 4),
-                  Text('$_sessions session(s) so far'),
+                  Text(t.sessionsSoFar(_sessions)),
                 ]),
               ),
             ),
           ],
           const Divider(height: 40),
-          Text('Join', style: Theme.of(context).textTheme.titleMedium),
+          Text(t.join, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
           TextField(
             controller: _address,
-            decoration: const InputDecoration(
-              labelText: 'Address (from the hosting device)',
+            decoration: InputDecoration(
+              labelText: t.addressFromHost,
               hintText: '192.168.0.12:38472',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
           ),
           const SizedBox(height: 12),
           TextField(
             controller: _joinPin,
-            decoration: const InputDecoration(
-              labelText: 'PIN',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              labelText: t.pin,
+              border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.number,
           ),
@@ -148,7 +150,7 @@ class _SyncScreenState extends State<SyncScreen> {
                     height: 18,
                     child: CircularProgressIndicator(strokeWidth: 2))
                 : const Icon(Icons.sync),
-            label: const Text('Sync now'),
+            label: Text(t.syncNow),
           ),
           if (_lastResult != null) ...[
             const SizedBox(height: 12),
@@ -156,22 +158,20 @@ class _SyncScreenState extends State<SyncScreen> {
           ],
           if (lastSync != null) ...[
             const SizedBox(height: 12),
-            Text('Last sync with ${lastPeer!.split(':').first}: '
-                '${lastSync.substring(0, 16).replaceFirst('T', ' ')}'),
+            Text(t.lastSyncWith(lastPeer!.split(':').first,
+                lastSync.substring(0, 16).replaceFirst('T', ' '))),
           ],
           const Divider(height: 40),
-          Text('Shared folder',
+          Text(t.sharedFolder,
               style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
-          const Text('Sync through a folder that a cloud drive or USB '
-              'stick carries between devices — for people who are not '
-              'on the same network.'),
+          Text(t.sharedFolderExplainer),
           const SizedBox(height: 8),
           Row(children: [
             Expanded(
               child: Text(
                 widget.store.localSetting('syncFolder') ??
-                    'No folder chosen yet',
+                    t.noFolderChosenYet,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -183,7 +183,7 @@ class _SyncScreenState extends State<SyncScreen> {
                   setState(() {});
                 }
               },
-              child: const Text('Choose…'),
+              child: Text(t.choose),
             ),
           ]),
           const SizedBox(height: 8),
@@ -192,7 +192,7 @@ class _SyncScreenState extends State<SyncScreen> {
                 ? null
                 : _folderSync,
             icon: const Icon(Icons.folder_copy_outlined),
-            label: const Text('Sync folder now'),
+            label: Text(t.syncFolderNow),
           ),
         ],
       ),
@@ -200,12 +200,13 @@ class _SyncScreenState extends State<SyncScreen> {
   }
 
   Future<void> _folderSync() async {
+    final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
       final result = folderSync(widget.store, folder);
-      setState(() => _lastResult = 'Folder synced: $result');
+      setState(() => _lastResult = t.folderSynced('$result'));
     } catch (e) {
-      setState(() => _lastResult = 'Folder sync failed: $e');
+      setState(() => _lastResult = t.folderSyncFailed('$e'));
     }
   }
 }

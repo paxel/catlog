@@ -1,7 +1,9 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'field_labels.dart';
+import 'l10n.dart';
 
 /// Two people changed [field] at the same time. Shows the competing
 /// values with author and date; the user keeps the current one or
@@ -16,12 +18,13 @@ Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
     context: context,
     builder: (context) => StatefulBuilder(
       builder: (context, setState) => AlertDialog(
-        title: Text('Conflict — ${fieldLabel(store, field)}'),
+        title: Text(context.t
+            .conflictOn(fieldLabel(context.t, store, field))),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Changed in two places at once. Pick what is true:'),
+            Text(context.t.conflictBody),
             const SizedBox(height: 8),
             RadioGroup<String?>(
               groupValue: chosen,
@@ -30,10 +33,10 @@ Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
                 for (final e in candidates)
                   RadioListTile<String?>(
                     value: e.value,
-                    title:
-                        Text(valueLabel(store, field, e.value)),
+                    title: Text(
+                        valueLabel(context.t, store, field, e.value)),
                     subtitle: Text(
-                        '${e.date.toLocal().toIso8601String().substring(0, 10)}'
+                        '${DateFormat.yMd(Localizations.localeOf(context).toString()).format(e.date.toLocal())}'
                         ' · ${e.author}'),
                   ),
               ]),
@@ -43,11 +46,11 @@ Future<bool> showConflictDialog(BuildContext context, CatalogStore store,
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(context.t.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Resolve'),
+            child: Text(context.t.resolve),
           ),
         ],
       ),

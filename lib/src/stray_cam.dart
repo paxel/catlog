@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'image_import.dart';
+import 'l10n.dart';
 
 /// The device's position, or null when the service is off or denied.
 /// Denial degrades gracefully — the map's long-press pin still works.
@@ -33,9 +34,8 @@ Future<String?> strayCam(BuildContext context, CatalogStore store) async {
   final position = await currentPosition();
   if (position == null) {
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('No location available — long-press the map to '
-            'place the stray by hand.'),
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(context.t.noLocationAvailable),
       ));
     }
     return null;

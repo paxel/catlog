@@ -1,0 +1,1040 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_de.dart';
+import 'app_localizations_en.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'l10n/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('de'),
+    Locale('en'),
+  ];
+
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'cat(a)log'**
+  String get appTitle;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to cat(a)log'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a name for yourself. Every change you make is recorded under this name, so others can see who did what.'**
+  String get welcomeBody;
+
+  /// No description provided for @yourName.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name'**
+  String get yourName;
+
+  /// No description provided for @start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get start;
+
+  /// No description provided for @clowders.
+  ///
+  /// In en, this message translates to:
+  /// **'Clowders'**
+  String get clowders;
+
+  /// No description provided for @noClowdersYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No clowders yet.\nCreate the first one below.'**
+  String get noClowdersYet;
+
+  /// No description provided for @strays.
+  ///
+  /// In en, this message translates to:
+  /// **'Strays'**
+  String get strays;
+
+  /// No description provided for @searchCats.
+  ///
+  /// In en, this message translates to:
+  /// **'Search cats'**
+  String get searchCats;
+
+  /// No description provided for @map.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get map;
+
+  /// No description provided for @sync.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync'**
+  String get sync;
+
+  /// No description provided for @fields.
+  ///
+  /// In en, this message translates to:
+  /// **'Fields'**
+  String get fields;
+
+  /// No description provided for @exportCsv.
+  ///
+  /// In en, this message translates to:
+  /// **'Export CSV'**
+  String get exportCsv;
+
+  /// No description provided for @aboutAndFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'About & feedback'**
+  String get aboutAndFeedback;
+
+  /// No description provided for @newClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'New clowder'**
+  String get newClowder;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @merge.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge'**
+  String get merge;
+
+  /// No description provided for @resolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolve'**
+  String get resolve;
+
+  /// No description provided for @open.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get open;
+
+  /// No description provided for @csvSavedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV saved to {path}'**
+  String csvSavedTo(String path);
+
+  /// No description provided for @renameClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename clowder'**
+  String get renameClowder;
+
+  /// No description provided for @rename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get rename;
+
+  /// No description provided for @timeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline'**
+  String get timeline;
+
+  /// No description provided for @mergeInto.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge into…'**
+  String get mergeInto;
+
+  /// No description provided for @deleteClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete clowder'**
+  String get deleteClowder;
+
+  /// No description provided for @cats.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats'**
+  String get cats;
+
+  /// No description provided for @addCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Add cat'**
+  String get addCat;
+
+  /// No description provided for @newCat.
+  ///
+  /// In en, this message translates to:
+  /// **'New cat'**
+  String get newCat;
+
+  /// No description provided for @deleteQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete {name}?'**
+  String deleteQuestion(String name);
+
+  /// No description provided for @deleteClowderEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The clowder disappears from the list.'**
+  String get deleteClowderEmptyBody;
+
+  /// No description provided for @deleteClowderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Its {count} cat(s) are not deleted — they become strays. Move them to another clowder first if that is not what you want.'**
+  String deleteClowderBody(int count);
+
+  /// No description provided for @card.
+  ///
+  /// In en, this message translates to:
+  /// **'Card'**
+  String get card;
+
+  /// No description provided for @shareAsImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as image'**
+  String get shareAsImage;
+
+  /// No description provided for @shareAsPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as PDF'**
+  String get shareAsPdf;
+
+  /// No description provided for @print.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get print;
+
+  /// No description provided for @cardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Card — {name}'**
+  String cardTitle(String name);
+
+  /// No description provided for @renameCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename cat'**
+  String get renameCat;
+
+  /// No description provided for @seenHereNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Seen here now'**
+  String get seenHereNow;
+
+  /// No description provided for @deleteCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete cat'**
+  String get deleteCat;
+
+  /// No description provided for @clowderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Clowder'**
+  String get clowderLabel;
+
+  /// No description provided for @strayNoClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Stray — no clowder'**
+  String get strayNoClowder;
+
+  /// No description provided for @stray.
+  ///
+  /// In en, this message translates to:
+  /// **'Stray'**
+  String get stray;
+
+  /// No description provided for @photos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get photos;
+
+  /// No description provided for @addPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photo'**
+  String get addPhoto;
+
+  /// No description provided for @setAsProfileImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Set as profile image'**
+  String get setAsProfileImage;
+
+  /// No description provided for @thisIsProfileImage.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the profile image'**
+  String get thisIsProfileImage;
+
+  /// No description provided for @deletePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete photo'**
+  String get deletePhoto;
+
+  /// No description provided for @deletePhotoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete photo?'**
+  String get deletePhotoTitle;
+
+  /// No description provided for @deletePhotoBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The photo data is removed for good — this cannot be undone.'**
+  String get deletePhotoBody;
+
+  /// No description provided for @deleteCatBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The cat disappears from all lists. Its photos are removed for good.'**
+  String get deleteCatBody;
+
+  /// No description provided for @sightingRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Sighting recorded at your position.'**
+  String get sightingRecorded;
+
+  /// No description provided for @noLocationAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No location available — long-press the map instead.'**
+  String get noLocationAvailable;
+
+  /// No description provided for @moveTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to'**
+  String get moveTo;
+
+  /// No description provided for @noClowderStrayOption.
+  ///
+  /// In en, this message translates to:
+  /// **'No clowder — stray / ran away'**
+  String get noClowderStrayOption;
+
+  /// No description provided for @timelineOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline — {name}'**
+  String timelineOf(String name);
+
+  /// No description provided for @fieldHistoryOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{field} — {name}'**
+  String fieldHistoryOf(String field, String name);
+
+  /// No description provided for @revertThisChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Revert this change'**
+  String get revertThisChange;
+
+  /// No description provided for @revertSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restores the previous value as a new entry — history keeps both.'**
+  String get revertSubtitle;
+
+  /// No description provided for @fieldCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'{field} cleared'**
+  String fieldCleared(String field);
+
+  /// No description provided for @fieldBackTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{field} back to \"{value}\"'**
+  String fieldBackTo(String field, String value);
+
+  /// No description provided for @leftStray.
+  ///
+  /// In en, this message translates to:
+  /// **'Left — stray'**
+  String get leftStray;
+
+  /// No description provided for @movedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Moved to {name}'**
+  String movedTo(String name);
+
+  /// No description provided for @arrivedPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} arrived'**
+  String arrivedPlain(String cat);
+
+  /// No description provided for @arrivedFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} arrived from {place}'**
+  String arrivedFrom(String cat, String place);
+
+  /// No description provided for @leftTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} left to {place}'**
+  String leftTo(String cat, String place);
+
+  /// No description provided for @duplicateMergedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate record merged in'**
+  String get duplicateMergedIn;
+
+  /// No description provided for @asOfToday.
+  ///
+  /// In en, this message translates to:
+  /// **'As of today'**
+  String get asOfToday;
+
+  /// No description provided for @asOfDate.
+  ///
+  /// In en, this message translates to:
+  /// **'As of {date}'**
+  String asOfDate(String date);
+
+  /// No description provided for @value.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get value;
+
+  /// No description provided for @latitudeLongitude.
+  ///
+  /// In en, this message translates to:
+  /// **'latitude, longitude'**
+  String get latitudeLongitude;
+
+  /// No description provided for @newField.
+  ///
+  /// In en, this message translates to:
+  /// **'New field'**
+  String get newField;
+
+  /// No description provided for @fieldType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get fieldType;
+
+  /// No description provided for @usedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Used on'**
+  String get usedOn;
+
+  /// No description provided for @forCats.
+  ///
+  /// In en, this message translates to:
+  /// **'cats'**
+  String get forCats;
+
+  /// No description provided for @forClowders.
+  ///
+  /// In en, this message translates to:
+  /// **'clowders'**
+  String get forClowders;
+
+  /// No description provided for @forBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'both'**
+  String get forBoth;
+
+  /// No description provided for @optionsOnePerLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Options (one per line)'**
+  String get optionsOnePerLine;
+
+  /// No description provided for @renameField.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename field'**
+  String get renameField;
+
+  /// No description provided for @noStraysRightNow.
+  ///
+  /// In en, this message translates to:
+  /// **'No strays right now.'**
+  String get noStraysRightNow;
+
+  /// No description provided for @strayCam.
+  ///
+  /// In en, this message translates to:
+  /// **'Stray Cam'**
+  String get strayCam;
+
+  /// No description provided for @addStray.
+  ///
+  /// In en, this message translates to:
+  /// **'Add stray'**
+  String get addStray;
+
+  /// No description provided for @newStray.
+  ///
+  /// In en, this message translates to:
+  /// **'New stray'**
+  String get newStray;
+
+  /// No description provided for @searchByNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search cats by name…'**
+  String get searchByNameHint;
+
+  /// No description provided for @host.
+  ///
+  /// In en, this message translates to:
+  /// **'Host'**
+  String get host;
+
+  /// No description provided for @hostExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Start here, then enter the address and PIN on the other device.'**
+  String get hostExplainer;
+
+  /// No description provided for @startHosting.
+  ///
+  /// In en, this message translates to:
+  /// **'Start hosting'**
+  String get startHosting;
+
+  /// No description provided for @stopHosting.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop hosting'**
+  String get stopHosting;
+
+  /// No description provided for @pinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN: {pin}'**
+  String pinLabel(String pin);
+
+  /// No description provided for @sessionsSoFar.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} session(s) so far'**
+  String sessionsSoFar(int count);
+
+  /// No description provided for @join.
+  ///
+  /// In en, this message translates to:
+  /// **'Join'**
+  String get join;
+
+  /// No description provided for @addressFromHost.
+  ///
+  /// In en, this message translates to:
+  /// **'Address (from the hosting device)'**
+  String get addressFromHost;
+
+  /// No description provided for @pin.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN'**
+  String get pin;
+
+  /// No description provided for @syncNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync now'**
+  String get syncNow;
+
+  /// No description provided for @addressFormatHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Address must look like 192.168.0.12:38472'**
+  String get addressFormatHint;
+
+  /// No description provided for @syncedResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Synced: {result}'**
+  String syncedResult(String result);
+
+  /// No description provided for @syncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed: {error}'**
+  String syncFailed(String error);
+
+  /// No description provided for @lastSyncWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Last sync with {peer}: {time}'**
+  String lastSyncWith(String peer, String time);
+
+  /// No description provided for @sharedFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared folder'**
+  String get sharedFolder;
+
+  /// No description provided for @sharedFolderExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync through a folder that a cloud drive or USB stick carries between devices — for people who are not on the same network.'**
+  String get sharedFolderExplainer;
+
+  /// No description provided for @noFolderChosenYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No folder chosen yet'**
+  String get noFolderChosenYet;
+
+  /// No description provided for @choose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose…'**
+  String get choose;
+
+  /// No description provided for @syncFolderNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync folder now'**
+  String get syncFolderNow;
+
+  /// No description provided for @folderSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder synced: {result}'**
+  String folderSynced(String result);
+
+  /// No description provided for @folderSyncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder sync failed: {error}'**
+  String folderSyncFailed(String error);
+
+  /// No description provided for @recordSightingHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Record a sighting here:'**
+  String get recordSightingHere;
+
+  /// No description provided for @orPlaceClowderHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Or place a clowder here:'**
+  String get orPlaceClowderHere;
+
+  /// No description provided for @trailOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Trail: {name} ({count} sightings)'**
+  String trailOf(String name, int count);
+
+  /// No description provided for @conflictOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflict — {field}'**
+  String conflictOn(String field);
+
+  /// No description provided for @conflictBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Changed in two places at once. Pick what is true:'**
+  String get conflictBody;
+
+  /// No description provided for @mergeThisInto.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge this {kind} into…'**
+  String mergeThisInto(String kind);
+
+  /// No description provided for @noOtherToMergeInto.
+  ///
+  /// In en, this message translates to:
+  /// **'No other {kind} to merge into.'**
+  String noOtherToMergeInto(String kind);
+
+  /// No description provided for @mergeIntoQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge into {name}?'**
+  String mergeIntoQuestion(String name);
+
+  /// No description provided for @mergeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The two records become one. {name} keeps its current values; the other record\'s history joins its timeline. This cannot be undone.'**
+  String mergeBody(String name);
+
+  /// No description provided for @kindCat.
+  ///
+  /// In en, this message translates to:
+  /// **'cat'**
+  String get kindCat;
+
+  /// No description provided for @kindClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'clowder'**
+  String get kindClowder;
+
+  /// No description provided for @kindField.
+  ///
+  /// In en, this message translates to:
+  /// **'field'**
+  String get kindField;
+
+  /// No description provided for @takePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take photo'**
+  String get takePhoto;
+
+  /// No description provided for @chooseFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get chooseFromGallery;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @aboutTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'A local-first catalog for foster cats. Your data lives on your devices — no server, no account.'**
+  String get aboutTagline;
+
+  /// No description provided for @versionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version} ({build})'**
+  String versionLabel(String version, String build);
+
+  /// No description provided for @sourceCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Source code'**
+  String get sourceCode;
+
+  /// No description provided for @reportProblemOrIdea.
+  ///
+  /// In en, this message translates to:
+  /// **'Report a problem or idea'**
+  String get reportProblemOrIdea;
+
+  /// No description provided for @githubIssues.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub issues'**
+  String get githubIssues;
+
+  /// No description provided for @writeTheDeveloper.
+  ///
+  /// In en, this message translates to:
+  /// **'Write the developer'**
+  String get writeTheDeveloper;
+
+  /// No description provided for @buyCoffee.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy the developer a coffee'**
+  String get buyCoffee;
+
+  /// No description provided for @coffeeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Entirely optional — the app is free'**
+  String get coffeeSubtitle;
+
+  /// No description provided for @openSourceLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Open-source licenses'**
+  String get openSourceLicenses;
+
+  /// No description provided for @machineTranslated.
+  ///
+  /// In en, this message translates to:
+  /// **'Translations are machine-made — corrections are welcome on GitHub.'**
+  String get machineTranslated;
+
+  /// No description provided for @unnamed.
+  ///
+  /// In en, this message translates to:
+  /// **'(unnamed)'**
+  String get unnamed;
+
+  /// No description provided for @labelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get labelName;
+
+  /// No description provided for @labelProfileImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile image'**
+  String get labelProfileImage;
+
+  /// No description provided for @labelPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get labelPhoto;
+
+  /// No description provided for @starterGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get starterGender;
+
+  /// No description provided for @starterColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get starterColor;
+
+  /// No description provided for @starterNeutered.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutered'**
+  String get starterNeutered;
+
+  /// No description provided for @starterPregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnant'**
+  String get starterPregnant;
+
+  /// No description provided for @starterBirthdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth date'**
+  String get starterBirthdate;
+
+  /// No description provided for @starterDeceased.
+  ///
+  /// In en, this message translates to:
+  /// **'Deceased'**
+  String get starterDeceased;
+
+  /// No description provided for @starterAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get starterAddress;
+
+  /// No description provided for @starterResponsible.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsible person'**
+  String get starterResponsible;
+
+  /// No description provided for @starterPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Position'**
+  String get starterPosition;
+
+  /// No description provided for @valueYes.
+  ///
+  /// In en, this message translates to:
+  /// **'yes'**
+  String get valueYes;
+
+  /// No description provided for @valueNo.
+  ///
+  /// In en, this message translates to:
+  /// **'no'**
+  String get valueNo;
+
+  /// No description provided for @valueFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'female'**
+  String get valueFemale;
+
+  /// No description provided for @valueMale.
+  ///
+  /// In en, this message translates to:
+  /// **'male'**
+  String get valueMale;
+
+  /// No description provided for @valueUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'unknown'**
+  String get valueUnknown;
+}
+
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) =>
+      <String>['de', 'en'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'de':
+      return AppLocalizationsDe();
+    case 'en':
+      return AppLocalizationsEn();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
+}
