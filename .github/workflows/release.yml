@@ -247,7 +247,11 @@ jobs:
           sed -e "s/{{VERSION}}/$ver/g" \
               -e "s/{{SHA_MACOS_ARM64}}/$(sha catlog-$ver-macos-arm64.dmg)/" \
               -e "s/{{SHA_MACOS_X86_64}}/$(sha catlog-$ver-macos-x86_64.dmg)/" \
-              packaging/homebrew/catlog.rb.tmpl > out/catlog.rb
+              packaging/homebrew/catlog.rb.tmpl > out/catlog-cask.rb
+          sed -e "s/{{VERSION}}/$ver/g" \
+              -e "s/{{SHA_LINUX_ARM64}}/$(sha catlog-$ver-linux-arm64.tar.gz)/" \
+              -e "s/{{SHA_LINUX_X86_64}}/$(sha catlog-$ver-linux-x86_64.tar.gz)/" \
+              packaging/homebrew/catlog-linux.rb.tmpl > out/catlog-formula.rb
           sed -e "s/{{VERSION}}/$ver/g" \
               -e "s/{{SHA_WINDOWS_X86_64}}/$(sha catlog-$ver-windows-x86_64.zip)/" \
               packaging/scoop/catlog.json.tmpl > out/catlog.json
@@ -259,9 +263,10 @@ jobs:
           git config --global user.name "catlog-release-bot"
           git config --global user.email "taum@tuta.io"
           git clone "https://x-access-token:${GH_TOKEN}@github.com/paxel/homebrew-tap.git" tap
-          mkdir -p tap/Casks
-          cp out/catlog.rb tap/Casks/catlog.rb
-          git -C tap add Casks/catlog.rb
+          mkdir -p tap/Casks tap/Formula
+          cp out/catlog-cask.rb tap/Casks/catlog.rb
+          cp out/catlog-formula.rb tap/Formula/catlog.rb
+          git -C tap add Casks/catlog.rb Formula/catlog.rb
           git -C tap commit -m "catlog $ver"
           git -C tap push
       - name: Push to the bucket

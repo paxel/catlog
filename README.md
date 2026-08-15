@@ -72,7 +72,8 @@ Everything is on the **[download page](https://github.com/paxel/catlog/releases)
   `x86_64` for Intel ones), drag the app into Applications. The first time,
   **right-click the app and choose "Open"** — it isn't signed with Apple,
   so the Mac asks once.
-- **Linux**: download the `tar.gz`, unpack, run `catlog`.
+- **Linux**: download the `tar.gz`, unpack, run `catlog` — or, if you use
+  Homebrew: `brew install paxel/tap/catlog`.
 
 Your data never leaves your devices unless *you* share it. There is nothing
 to sign up for and nothing to pay. If the app helps you and you feel like

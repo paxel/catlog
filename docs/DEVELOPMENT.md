@@ -47,7 +47,8 @@ Tag-driven, mirroring the dedup-rs pipeline: `git tag v0.1.0 && git push
 the tag against the pubspec version, builds signed Android APKs, Linux
 tar.gz (x86_64 + arm64), a Windows zip, and unsigned macOS dmgs (both
 arches), creates the GitHub Release with the CHANGELOG section as notes,
-and pushes the Homebrew cask and Scoop manifest to `paxel/homebrew-tap`
+and pushes the Homebrew cask (macOS app), the Homebrew formula (Linux
+tarballs, both arches), and the Scoop manifest to `paxel/homebrew-tap`
 and `paxel/scoop-bucket`.
 
 Required repository secrets: `ANDROID_KEYSTORE_BASE64`,
