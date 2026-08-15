@@ -1,0 +1,530 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Macedonian (`mk`).
+class AppLocalizationsMk extends AppLocalizations {
+  AppLocalizationsMk([String locale = 'mk']) : super(locale);
+
+  @override
+  String get appTitle => 'cat(a)log';
+
+  @override
+  String get welcomeTitle => 'Добредојдовте во cat(a)log';
+
+  @override
+  String get welcomeBody =>
+      'Изберете си име. Секоја промена се запишува под тоа име, за другите да видат кој што направил.';
+
+  @override
+  String get yourName => 'Вашето име';
+
+  @override
+  String get start => 'Почни';
+
+  @override
+  String get clowders => 'Клаудери';
+
+  @override
+  String get noClowdersYet =>
+      'Сè уште нема клаудери.\nСоздадете го првиот подолу.';
+
+  @override
+  String get strays => 'Скитници';
+
+  @override
+  String get searchCats => 'Барај мачки';
+
+  @override
+  String get map => 'Мапа';
+
+  @override
+  String get sync => 'Синхронизација';
+
+  @override
+  String get fields => 'Полиња';
+
+  @override
+  String get exportCsv => 'Извези CSV';
+
+  @override
+  String get aboutAndFeedback => 'За апликацијата и повратни информации';
+
+  @override
+  String get newClowder => 'Нов клаудер';
+
+  @override
+  String get name => 'Име';
+
+  @override
+  String get cancel => 'Откажи';
+
+  @override
+  String get create => 'Создај';
+
+  @override
+  String get save => 'Зачувај';
+
+  @override
+  String get delete => 'Избриши';
+
+  @override
+  String get merge => 'Спои';
+
+  @override
+  String get resolve => 'Одлучи';
+
+  @override
+  String get open => 'Отвори';
+
+  @override
+  String csvSavedTo(String path) {
+    return 'CSV зачуван во $path';
+  }
+
+  @override
+  String get renameClowder => 'Преименувај клаудер';
+
+  @override
+  String get rename => 'Преименувај';
+
+  @override
+  String get timeline => 'Времеплов';
+
+  @override
+  String get mergeInto => 'Спои со…';
+
+  @override
+  String get deleteClowder => 'Избриши клаудер';
+
+  @override
+  String get cats => 'Мачки';
+
+  @override
+  String get addCat => 'Додај мачка';
+
+  @override
+  String get newCat => 'Нова мачка';
+
+  @override
+  String deleteQuestion(String name) {
+    return 'Да се избрише $name?';
+  }
+
+  @override
+  String get deleteClowderEmptyBody => 'Клаудерот исчезнува од списокот.';
+
+  @override
+  String deleteClowderBody(int count) {
+    return 'Неговите мачки ($count) не се бришат — стануваат скитници. Прво преместете ги во друг клаудер ако не го сакате тоа.';
+  }
+
+  @override
+  String get card => 'Картичка';
+
+  @override
+  String get shareAsImage => 'Сподели како слика';
+
+  @override
+  String get shareAsPdf => 'Сподели како PDF';
+
+  @override
+  String get print => 'Печати';
+
+  @override
+  String cardTitle(String name) {
+    return 'Картичка — $name';
+  }
+
+  @override
+  String get renameCat => 'Преименувај мачка';
+
+  @override
+  String get seenHereNow => 'Видена тука сега';
+
+  @override
+  String get deleteCat => 'Избриши мачка';
+
+  @override
+  String get clowderLabel => 'Клаудер';
+
+  @override
+  String get strayNoClowder => 'Скитница — без клаудер';
+
+  @override
+  String get stray => 'Скитница';
+
+  @override
+  String get photos => 'Фотографии';
+
+  @override
+  String get addPhoto => 'Додај фотографија';
+
+  @override
+  String get setAsProfileImage => 'Постави како профилна';
+
+  @override
+  String get thisIsProfileImage => 'Ова е профилната фотографија';
+
+  @override
+  String get deletePhoto => 'Избриши фотографија';
+
+  @override
+  String get deletePhotoTitle => 'Да се избрише фотографијата?';
+
+  @override
+  String get deletePhotoBody =>
+      'Податоците на фотографијата се бришат засекогаш — не може да се врати.';
+
+  @override
+  String get deleteCatBody =>
+      'Мачката исчезнува од сите списоци. Нејзините фотографии се бришат засекогаш.';
+
+  @override
+  String get sightingRecorded => 'Видувањето е запишано на вашата позиција.';
+
+  @override
+  String get noLocationAvailable =>
+      'Нема локација — наместо тоа задржете на мапата.';
+
+  @override
+  String get moveTo => 'Премести во';
+
+  @override
+  String get noClowderStrayOption => 'Без клаудер — скитница / избега';
+
+  @override
+  String timelineOf(String name) {
+    return 'Времеплов — $name';
+  }
+
+  @override
+  String fieldHistoryOf(String field, String name) {
+    return '$field — $name';
+  }
+
+  @override
+  String get revertThisChange => 'Поништи ја оваа промена';
+
+  @override
+  String get revertSubtitle =>
+      'Ја враќа претходната вредност како нов запис — историјата ги чува двете.';
+
+  @override
+  String fieldCleared(String field) {
+    return '$field испразнето';
+  }
+
+  @override
+  String fieldBackTo(String field, String value) {
+    return '$field вратено на \"$value\"';
+  }
+
+  @override
+  String get leftStray => 'Замина — скитница';
+
+  @override
+  String movedTo(String name) {
+    return 'Преместена во $name';
+  }
+
+  @override
+  String arrivedPlain(String cat) {
+    return '$cat пристигна';
+  }
+
+  @override
+  String arrivedFrom(String cat, String place) {
+    return '$cat пристигна од $place';
+  }
+
+  @override
+  String leftTo(String cat, String place) {
+    return '$cat замина во $place';
+  }
+
+  @override
+  String get duplicateMergedIn => 'Дупликатот е споен';
+
+  @override
+  String get asOfToday => 'Со денешен датум';
+
+  @override
+  String asOfDate(String date) {
+    return 'Со датум $date';
+  }
+
+  @override
+  String get value => 'Вредност';
+
+  @override
+  String get latitudeLongitude => 'географска ширина, должина';
+
+  @override
+  String get newField => 'Ново поле';
+
+  @override
+  String get fieldType => 'Тип';
+
+  @override
+  String get usedOn => 'Се користи за';
+
+  @override
+  String get forCats => 'мачки';
+
+  @override
+  String get forClowders => 'клаудери';
+
+  @override
+  String get forBoth => 'двете';
+
+  @override
+  String get optionsOnePerLine => 'Опции (по една во ред)';
+
+  @override
+  String get renameField => 'Преименувај поле';
+
+  @override
+  String get noStraysRightNow => 'Моментално нема скитници.';
+
+  @override
+  String get strayCam => 'Stray Cam';
+
+  @override
+  String get addStray => 'Додај скитница';
+
+  @override
+  String get newStray => 'Нова скитница';
+
+  @override
+  String get searchByNameHint => 'Барај мачки по име…';
+
+  @override
+  String get host => 'Домаќин';
+
+  @override
+  String get hostExplainer =>
+      'Почнете тука, потоа внесете ја адресата и PIN-от на другиот уред.';
+
+  @override
+  String get startHosting => 'Започни домаќинство';
+
+  @override
+  String get stopHosting => 'Запри домаќинство';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String sessionsSoFar(int count) {
+    return 'Сесии досега: $count';
+  }
+
+  @override
+  String get join => 'Приклучи се';
+
+  @override
+  String get addressFromHost => 'Адреса (од уредот домаќин)';
+
+  @override
+  String get pin => 'PIN';
+
+  @override
+  String get syncNow => 'Синхронизирај сега';
+
+  @override
+  String get addressFormatHint =>
+      'Адресата треба да изгледа како 192.168.0.12:38472';
+
+  @override
+  String syncedResult(String result) {
+    return 'Синхронизирано: $result';
+  }
+
+  @override
+  String syncFailed(String error) {
+    return 'Синхронизацијата не успеа: $error';
+  }
+
+  @override
+  String lastSyncWith(String peer, String time) {
+    return 'Последна синхронизација со $peer: $time';
+  }
+
+  @override
+  String get sharedFolder => 'Заедничка папка';
+
+  @override
+  String get sharedFolderExplainer =>
+      'Синхронизирајте преку папка што облак или USB ја пренесува меѓу уредите — за оние што не се на иста мрежа.';
+
+  @override
+  String get noFolderChosenYet => 'Сè уште не е избрана папка';
+
+  @override
+  String get choose => 'Избери…';
+
+  @override
+  String get syncFolderNow => 'Синхронизирај папка сега';
+
+  @override
+  String folderSynced(String result) {
+    return 'Папката е синхронизирана: $result';
+  }
+
+  @override
+  String folderSyncFailed(String error) {
+    return 'Синхронизацијата на папката не успеа: $error';
+  }
+
+  @override
+  String get recordSightingHere => 'Запиши видување тука:';
+
+  @override
+  String get orPlaceClowderHere => 'Или постави клаудер тука:';
+
+  @override
+  String trailOf(String name, int count) {
+    return 'Патека: $name ($count видувања)';
+  }
+
+  @override
+  String conflictOn(String field) {
+    return 'Конфликт — $field';
+  }
+
+  @override
+  String get conflictBody =>
+      'Променето на две места истовремено. Изберете што е точно:';
+
+  @override
+  String mergeThisInto(String kind) {
+    return 'Спои го овој запис ($kind) со…';
+  }
+
+  @override
+  String noOtherToMergeInto(String kind) {
+    return 'Нема друг запис ($kind) за спојување.';
+  }
+
+  @override
+  String mergeIntoQuestion(String name) {
+    return 'Да се спои со $name?';
+  }
+
+  @override
+  String mergeBody(String name) {
+    return 'Двата записа стануваат еден. $name ги задржува тековните вредности; историјата на другиот се приклучува. Не може да се врати.';
+  }
+
+  @override
+  String get kindCat => 'мачка';
+
+  @override
+  String get kindClowder => 'клаудер';
+
+  @override
+  String get kindField => 'поле';
+
+  @override
+  String get takePhoto => 'Фотографирај';
+
+  @override
+  String get chooseFromGallery => 'Избери од галерија';
+
+  @override
+  String get about => 'За апликацијата';
+
+  @override
+  String get aboutTagline =>
+      'Локален каталог за мачки на грижа. Вашите податоци остануваат на вашите уреди — без сервер, без сметка.';
+
+  @override
+  String versionLabel(String version, String build) {
+    return 'Верзија $version ($build)';
+  }
+
+  @override
+  String get sourceCode => 'Изворен код';
+
+  @override
+  String get reportProblemOrIdea => 'Пријави проблем или идеја';
+
+  @override
+  String get githubIssues => 'GitHub Issues';
+
+  @override
+  String get writeTheDeveloper => 'Пиши му на развивачот';
+
+  @override
+  String get buyCoffee => 'Части го развивачот кафе';
+
+  @override
+  String get coffeeSubtitle => 'Целосно доброволно — апликацијата е бесплатна';
+
+  @override
+  String get openSourceLicenses => 'Лиценци со отворен код';
+
+  @override
+  String get machineTranslated =>
+      'Преводите се машински — исправките се добредојдени на GitHub.';
+
+  @override
+  String get unnamed => '(без име)';
+
+  @override
+  String get labelName => 'Име';
+
+  @override
+  String get labelProfileImage => 'Профилна фотографија';
+
+  @override
+  String get labelPhoto => 'Фотографија';
+
+  @override
+  String get starterGender => 'Пол';
+
+  @override
+  String get starterColor => 'Боја';
+
+  @override
+  String get starterNeutered => 'Стерилизирана';
+
+  @override
+  String get starterPregnant => 'Бремена';
+
+  @override
+  String get starterBirthdate => 'Датум на раѓање';
+
+  @override
+  String get starterDeceased => 'Почината';
+
+  @override
+  String get starterAddress => 'Адреса';
+
+  @override
+  String get starterResponsible => 'Одговорно лице';
+
+  @override
+  String get starterPosition => 'Позиција';
+
+  @override
+  String get valueYes => 'да';
+
+  @override
+  String get valueNo => 'не';
+
+  @override
+  String get valueFemale => 'женка';
+
+  @override
+  String get valueMale => 'мажјак';
+
+  @override
+  String get valueUnknown => 'непознато';
+}

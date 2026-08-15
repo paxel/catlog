@@ -1,0 +1,518 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Chinese (`zh`).
+class AppLocalizationsZh extends AppLocalizations {
+  AppLocalizationsZh([String locale = 'zh']) : super(locale);
+
+  @override
+  String get appTitle => 'cat(a)log';
+
+  @override
+  String get welcomeTitle => '欢迎使用 cat(a)log';
+
+  @override
+  String get welcomeBody => '给自己取个名字。每次修改都会记录在这个名字下，让其他人知道是谁做了什么。';
+
+  @override
+  String get yourName => '你的名字';
+
+  @override
+  String get start => '开始';
+
+  @override
+  String get clowders => '猫群';
+
+  @override
+  String get noClowdersYet => '还没有猫群。\n在下方创建第一个吧。';
+
+  @override
+  String get strays => '流浪猫';
+
+  @override
+  String get searchCats => '搜索猫';
+
+  @override
+  String get map => '地图';
+
+  @override
+  String get sync => '同步';
+
+  @override
+  String get fields => '字段';
+
+  @override
+  String get exportCsv => '导出 CSV';
+
+  @override
+  String get aboutAndFeedback => '关于与反馈';
+
+  @override
+  String get newClowder => '新建猫群';
+
+  @override
+  String get name => '名字';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get create => '创建';
+
+  @override
+  String get save => '保存';
+
+  @override
+  String get delete => '删除';
+
+  @override
+  String get merge => '合并';
+
+  @override
+  String get resolve => '裁定';
+
+  @override
+  String get open => '打开';
+
+  @override
+  String csvSavedTo(String path) {
+    return 'CSV 已保存到 $path';
+  }
+
+  @override
+  String get renameClowder => '重命名猫群';
+
+  @override
+  String get rename => '重命名';
+
+  @override
+  String get timeline => '时间线';
+
+  @override
+  String get mergeInto => '合并到…';
+
+  @override
+  String get deleteClowder => '删除猫群';
+
+  @override
+  String get cats => '猫';
+
+  @override
+  String get addCat => '添加猫';
+
+  @override
+  String get newCat => '新的猫';
+
+  @override
+  String deleteQuestion(String name) {
+    return '删除 $name？';
+  }
+
+  @override
+  String get deleteClowderEmptyBody => '该猫群将从列表中消失。';
+
+  @override
+  String deleteClowderBody(int count) {
+    return '它的 $count 只猫不会被删除——它们会变成流浪猫。如果这不是你想要的，请先把它们移到别的猫群。';
+  }
+
+  @override
+  String get card => '卡片';
+
+  @override
+  String get shareAsImage => '以图片分享';
+
+  @override
+  String get shareAsPdf => '以 PDF 分享';
+
+  @override
+  String get print => '打印';
+
+  @override
+  String cardTitle(String name) {
+    return '卡片 — $name';
+  }
+
+  @override
+  String get renameCat => '重命名猫';
+
+  @override
+  String get seenHereNow => '刚在这里见到';
+
+  @override
+  String get deleteCat => '删除猫';
+
+  @override
+  String get clowderLabel => '猫群';
+
+  @override
+  String get strayNoClowder => '流浪猫 — 无猫群';
+
+  @override
+  String get stray => '流浪猫';
+
+  @override
+  String get photos => '照片';
+
+  @override
+  String get addPhoto => '添加照片';
+
+  @override
+  String get setAsProfileImage => '设为头像';
+
+  @override
+  String get thisIsProfileImage => '这是当前头像';
+
+  @override
+  String get deletePhoto => '删除照片';
+
+  @override
+  String get deletePhotoTitle => '删除照片？';
+
+  @override
+  String get deletePhotoBody => '照片数据将被永久删除——无法撤销。';
+
+  @override
+  String get deleteCatBody => '这只猫会从所有列表中消失，照片将被永久删除。';
+
+  @override
+  String get sightingRecorded => '已在你的位置记录目击。';
+
+  @override
+  String get noLocationAvailable => '无法获取位置——请改为长按地图。';
+
+  @override
+  String get moveTo => '移动到';
+
+  @override
+  String get noClowderStrayOption => '无猫群 — 流浪／跑掉了';
+
+  @override
+  String timelineOf(String name) {
+    return '时间线 — $name';
+  }
+
+  @override
+  String fieldHistoryOf(String field, String name) {
+    return '$field — $name';
+  }
+
+  @override
+  String get revertThisChange => '撤销此更改';
+
+  @override
+  String get revertSubtitle => '把之前的值作为新记录恢复——历史会保留两者。';
+
+  @override
+  String fieldCleared(String field) {
+    return '已清空 $field';
+  }
+
+  @override
+  String fieldBackTo(String field, String value) {
+    return '$field 已恢复为“$value”';
+  }
+
+  @override
+  String get leftStray => '离开了 — 流浪猫';
+
+  @override
+  String movedTo(String name) {
+    return '移动到 $name';
+  }
+
+  @override
+  String arrivedPlain(String cat) {
+    return '$cat 来了';
+  }
+
+  @override
+  String arrivedFrom(String cat, String place) {
+    return '$cat 从 $place 来';
+  }
+
+  @override
+  String leftTo(String cat, String place) {
+    return '$cat 去了 $place';
+  }
+
+  @override
+  String get duplicateMergedIn => '已合并重复记录';
+
+  @override
+  String get asOfToday => '记为今天';
+
+  @override
+  String asOfDate(String date) {
+    return '记为 $date';
+  }
+
+  @override
+  String get value => '值';
+
+  @override
+  String get latitudeLongitude => '纬度，经度';
+
+  @override
+  String get newField => '新字段';
+
+  @override
+  String get fieldType => '类型';
+
+  @override
+  String get usedOn => '用于';
+
+  @override
+  String get forCats => '猫';
+
+  @override
+  String get forClowders => '猫群';
+
+  @override
+  String get forBoth => '两者';
+
+  @override
+  String get optionsOnePerLine => '选项（每行一个）';
+
+  @override
+  String get renameField => '重命名字段';
+
+  @override
+  String get noStraysRightNow => '现在没有流浪猫。';
+
+  @override
+  String get strayCam => 'Stray Cam';
+
+  @override
+  String get addStray => '添加流浪猫';
+
+  @override
+  String get newStray => '新的流浪猫';
+
+  @override
+  String get searchByNameHint => '按名字搜索猫…';
+
+  @override
+  String get host => '主机';
+
+  @override
+  String get hostExplainer => '从这里开始，然后在另一台设备上输入地址和 PIN。';
+
+  @override
+  String get startHosting => '开始托管';
+
+  @override
+  String get stopHosting => '停止托管';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN：$pin';
+  }
+
+  @override
+  String sessionsSoFar(int count) {
+    return '已完成会话：$count';
+  }
+
+  @override
+  String get join => '加入';
+
+  @override
+  String get addressFromHost => '地址（来自主机设备）';
+
+  @override
+  String get pin => 'PIN';
+
+  @override
+  String get syncNow => '立即同步';
+
+  @override
+  String get addressFormatHint => '地址格式应类似 192.168.0.12:38472';
+
+  @override
+  String syncedResult(String result) {
+    return '已同步：$result';
+  }
+
+  @override
+  String syncFailed(String error) {
+    return '同步失败：$error';
+  }
+
+  @override
+  String lastSyncWith(String peer, String time) {
+    return '与 $peer 的上次同步：$time';
+  }
+
+  @override
+  String get sharedFolder => '共享文件夹';
+
+  @override
+  String get sharedFolderExplainer => '通过云盘或 U 盘在设备间携带的文件夹进行同步——适合不在同一网络的人。';
+
+  @override
+  String get noFolderChosenYet => '尚未选择文件夹';
+
+  @override
+  String get choose => '选择…';
+
+  @override
+  String get syncFolderNow => '立即同步文件夹';
+
+  @override
+  String folderSynced(String result) {
+    return '文件夹已同步：$result';
+  }
+
+  @override
+  String folderSyncFailed(String error) {
+    return '文件夹同步失败：$error';
+  }
+
+  @override
+  String get recordSightingHere => '在这里记录目击：';
+
+  @override
+  String get orPlaceClowderHere => '或在这里放置猫群：';
+
+  @override
+  String trailOf(String name, int count) {
+    return '路线：$name（目击 $count 次）';
+  }
+
+  @override
+  String conflictOn(String field) {
+    return '冲突 — $field';
+  }
+
+  @override
+  String get conflictBody => '同时在两处被修改。选出正确的：';
+
+  @override
+  String mergeThisInto(String kind) {
+    return '把这个$kind合并到…';
+  }
+
+  @override
+  String noOtherToMergeInto(String kind) {
+    return '没有其他$kind可合并。';
+  }
+
+  @override
+  String mergeIntoQuestion(String name) {
+    return '合并到 $name？';
+  }
+
+  @override
+  String mergeBody(String name) {
+    return '两条记录合为一条。$name 保留当前值；另一条的历史并入其时间线。无法撤销。';
+  }
+
+  @override
+  String get kindCat => '猫';
+
+  @override
+  String get kindClowder => '猫群';
+
+  @override
+  String get kindField => '字段';
+
+  @override
+  String get takePhoto => '拍照';
+
+  @override
+  String get chooseFromGallery => '从相册选择';
+
+  @override
+  String get about => '关于';
+
+  @override
+  String get aboutTagline => '本地优先的寄养猫目录。数据只留在你的设备上——没有服务器，没有账号。';
+
+  @override
+  String versionLabel(String version, String build) {
+    return '版本 $version（$build）';
+  }
+
+  @override
+  String get sourceCode => '源代码';
+
+  @override
+  String get reportProblemOrIdea => '反馈问题或想法';
+
+  @override
+  String get githubIssues => 'GitHub Issues';
+
+  @override
+  String get writeTheDeveloper => '写信给开发者';
+
+  @override
+  String get buyCoffee => '请开发者喝杯咖啡';
+
+  @override
+  String get coffeeSubtitle => '完全自愿——应用免费';
+
+  @override
+  String get openSourceLicenses => '开源许可证';
+
+  @override
+  String get machineTranslated => '翻译为机器生成——欢迎在 GitHub 上提交修正。';
+
+  @override
+  String get unnamed => '（未命名）';
+
+  @override
+  String get labelName => '名字';
+
+  @override
+  String get labelProfileImage => '头像';
+
+  @override
+  String get labelPhoto => '照片';
+
+  @override
+  String get starterGender => '性别';
+
+  @override
+  String get starterColor => '毛色';
+
+  @override
+  String get starterNeutered => '已绝育';
+
+  @override
+  String get starterPregnant => '怀孕';
+
+  @override
+  String get starterBirthdate => '出生日期';
+
+  @override
+  String get starterDeceased => '死亡';
+
+  @override
+  String get starterAddress => '地址';
+
+  @override
+  String get starterResponsible => '负责人';
+
+  @override
+  String get starterPosition => '位置';
+
+  @override
+  String get valueYes => '是';
+
+  @override
+  String get valueNo => '否';
+
+  @override
+  String get valueFemale => '母';
+
+  @override
+  String get valueMale => '公';
+
+  @override
+  String get valueUnknown => '未知';
+}

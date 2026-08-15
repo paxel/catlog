@@ -204,6 +204,27 @@ void main() {
     expect(find.text('Kastriert'), findsOneWidget);
   });
 
+  testWidgets('Arabic locale renders right-to-left with translated UI',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    store.createClowder('البيت');
+
+    await tester.pumpWidget(MaterialApp(
+      locale: const Locale('ar'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: ClowderListScreen(store: store),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.text('المجموعات'), findsOneWidget); // app bar title
+    expect(
+        Directionality.of(tester.element(find.text('المجموعات'))),
+        TextDirection.rtl);
+  });
+
   testWidgets('merging two cats via the dialog', (tester) async {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);

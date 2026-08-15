@@ -1,0 +1,531 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Maltese (`mt`).
+class AppLocalizationsMt extends AppLocalizations {
+  AppLocalizationsMt([String locale = 'mt']) : super(locale);
+
+  @override
+  String get appTitle => 'cat(a)log';
+
+  @override
+  String get welcomeTitle => 'Merħba f\'cat(a)log';
+
+  @override
+  String get welcomeBody =>
+      'Agħżel isem għalik. Kull bidla tiġi rreġistrata taħt dan l-isem, biex l-oħrajn jaraw min għamel xiex.';
+
+  @override
+  String get yourName => 'Ismek';
+
+  @override
+  String get start => 'Ibda';
+
+  @override
+  String get clowders => 'Clowders';
+
+  @override
+  String get noClowdersYet =>
+      'Għad m\'hemmx clowders.\nOħloq l-ewwel wieħed hawn taħt.';
+
+  @override
+  String get strays => 'Qtates tat-triq';
+
+  @override
+  String get searchCats => 'Fittex qtates';
+
+  @override
+  String get map => 'Mappa';
+
+  @override
+  String get sync => 'Sinkronizzazzjoni';
+
+  @override
+  String get fields => 'Oqsma';
+
+  @override
+  String get exportCsv => 'Esporta CSV';
+
+  @override
+  String get aboutAndFeedback => 'Dwar & feedback';
+
+  @override
+  String get newClowder => 'Clowder ġdid';
+
+  @override
+  String get name => 'Isem';
+
+  @override
+  String get cancel => 'Ikkanċella';
+
+  @override
+  String get create => 'Oħloq';
+
+  @override
+  String get save => 'Issejvja';
+
+  @override
+  String get delete => 'Ħassar';
+
+  @override
+  String get merge => 'Għaqqad';
+
+  @override
+  String get resolve => 'Iddeċiedi';
+
+  @override
+  String get open => 'Iftaħ';
+
+  @override
+  String csvSavedTo(String path) {
+    return 'CSV salvat f\'$path';
+  }
+
+  @override
+  String get renameClowder => 'Ibdel isem il-clowder';
+
+  @override
+  String get rename => 'Ibdel l-isem';
+
+  @override
+  String get timeline => 'Linja taż-żmien';
+
+  @override
+  String get mergeInto => 'Għaqqad ma\'…';
+
+  @override
+  String get deleteClowder => 'Ħassar il-clowder';
+
+  @override
+  String get cats => 'Qtates';
+
+  @override
+  String get addCat => 'Żid qattus';
+
+  @override
+  String get newCat => 'Qattus ġdid';
+
+  @override
+  String deleteQuestion(String name) {
+    return 'Tħassar $name?';
+  }
+
+  @override
+  String get deleteClowderEmptyBody => 'Il-clowder jisparixxi mil-lista.';
+
+  @override
+  String deleteClowderBody(int count) {
+    return 'Il-qtates tiegħu ($count) ma jitħassrux — isiru tat-triq. Mexxihom l-ewwel fi clowder ieħor jekk mhux dan li trid.';
+  }
+
+  @override
+  String get card => 'Karta';
+
+  @override
+  String get shareAsImage => 'Aqsam bħala immaġni';
+
+  @override
+  String get shareAsPdf => 'Aqsam bħala PDF';
+
+  @override
+  String get print => 'Ipprintja';
+
+  @override
+  String cardTitle(String name) {
+    return 'Karta — $name';
+  }
+
+  @override
+  String get renameCat => 'Ibdel isem il-qattus';
+
+  @override
+  String get seenHereNow => 'Rajtu hawn issa';
+
+  @override
+  String get deleteCat => 'Ħassar il-qattus';
+
+  @override
+  String get clowderLabel => 'Clowder';
+
+  @override
+  String get strayNoClowder => 'Tat-triq — bla clowder';
+
+  @override
+  String get stray => 'Tat-triq';
+
+  @override
+  String get photos => 'Ritratti';
+
+  @override
+  String get addPhoto => 'Żid ritratt';
+
+  @override
+  String get setAsProfileImage => 'Issettja bħala ritratt tal-profil';
+
+  @override
+  String get thisIsProfileImage => 'Dan hu r-ritratt tal-profil';
+
+  @override
+  String get deletePhoto => 'Ħassar ir-ritratt';
+
+  @override
+  String get deletePhotoTitle => 'Tħassar ir-ritratt?';
+
+  @override
+  String get deletePhotoBody =>
+      'Id-data tar-ritratt titħassar għal dejjem — ma tistax terġa\' lura.';
+
+  @override
+  String get deleteCatBody =>
+      'Il-qattus jisparixxi mil-listi kollha. Ir-ritratti tiegħu jitħassru għal dejjem.';
+
+  @override
+  String get sightingRecorded =>
+      'Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.';
+
+  @override
+  String get noLocationAvailable =>
+      'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
+
+  @override
+  String get moveTo => 'Mexxi lejn';
+
+  @override
+  String get noClowderStrayOption => 'Bla clowder — tat-triq / ħarab';
+
+  @override
+  String timelineOf(String name) {
+    return 'Linja taż-żmien — $name';
+  }
+
+  @override
+  String fieldHistoryOf(String field, String name) {
+    return '$field — $name';
+  }
+
+  @override
+  String get revertThisChange => 'Reġġa\' lura din il-bidla';
+
+  @override
+  String get revertSubtitle =>
+      'Jirrestawra l-valur ta\' qabel bħala entrata ġdida — l-istorja żżomm it-tnejn.';
+
+  @override
+  String fieldCleared(String field) {
+    return '$field tbattal';
+  }
+
+  @override
+  String fieldBackTo(String field, String value) {
+    return '$field lura għal \"$value\"';
+  }
+
+  @override
+  String get leftStray => 'Telaq — tat-triq';
+
+  @override
+  String movedTo(String name) {
+    return 'Imċaqlaq lejn $name';
+  }
+
+  @override
+  String arrivedPlain(String cat) {
+    return '$cat wasal';
+  }
+
+  @override
+  String arrivedFrom(String cat, String place) {
+    return '$cat wasal minn $place';
+  }
+
+  @override
+  String leftTo(String cat, String place) {
+    return '$cat mar lejn $place';
+  }
+
+  @override
+  String get duplicateMergedIn => 'Duplikat magħqud';
+
+  @override
+  String get asOfToday => 'Mil-lum';
+
+  @override
+  String asOfDate(String date) {
+    return 'Mid-data $date';
+  }
+
+  @override
+  String get value => 'Valur';
+
+  @override
+  String get latitudeLongitude => 'latitudni, lonġitudni';
+
+  @override
+  String get newField => 'Qasam ġdid';
+
+  @override
+  String get fieldType => 'Tip';
+
+  @override
+  String get usedOn => 'Użat għal';
+
+  @override
+  String get forCats => 'qtates';
+
+  @override
+  String get forClowders => 'clowders';
+
+  @override
+  String get forBoth => 'it-tnejn';
+
+  @override
+  String get optionsOnePerLine => 'Għażliet (waħda f\'kull linja)';
+
+  @override
+  String get renameField => 'Ibdel isem il-qasam';
+
+  @override
+  String get noStraysRightNow => 'M\'hemmx qtates tat-triq bħalissa.';
+
+  @override
+  String get strayCam => 'Stray Cam';
+
+  @override
+  String get addStray => 'Żid tat-triq';
+
+  @override
+  String get newStray => 'Tat-triq ġdid';
+
+  @override
+  String get searchByNameHint => 'Fittex qtates bl-isem…';
+
+  @override
+  String get host => 'Ospita';
+
+  @override
+  String get hostExplainer =>
+      'Ibda hawn, imbagħad daħħal l-indirizz u l-PIN fuq l-apparat l-ieħor.';
+
+  @override
+  String get startHosting => 'Ibda ospita';
+
+  @override
+  String get stopHosting => 'Ieqaf ospita';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String sessionsSoFar(int count) {
+    return 'Sessjonijiet s\'issa: $count';
+  }
+
+  @override
+  String get join => 'Ingħaqad';
+
+  @override
+  String get addressFromHost => 'Indirizz (mill-apparat li qed jospita)';
+
+  @override
+  String get pin => 'PIN';
+
+  @override
+  String get syncNow => 'Issinkronizza issa';
+
+  @override
+  String get addressFormatHint =>
+      'L-indirizz irid jidher bħal 192.168.0.12:38472';
+
+  @override
+  String syncedResult(String result) {
+    return 'Sinkronizzat: $result';
+  }
+
+  @override
+  String syncFailed(String error) {
+    return 'Is-sinkronizzazzjoni falliet: $error';
+  }
+
+  @override
+  String lastSyncWith(String peer, String time) {
+    return 'L-aħħar sinkronizzazzjoni ma\' $peer: $time';
+  }
+
+  @override
+  String get sharedFolder => 'Folder kondiviż';
+
+  @override
+  String get sharedFolderExplainer =>
+      'Issinkronizza permezz ta\' folder li cloud jew USB iġorr bejn l-apparati — għal min mhux fuq l-istess netwerk.';
+
+  @override
+  String get noFolderChosenYet => 'Għad m\'hemmx folder magħżul';
+
+  @override
+  String get choose => 'Agħżel…';
+
+  @override
+  String get syncFolderNow => 'Issinkronizza l-folder issa';
+
+  @override
+  String folderSynced(String result) {
+    return 'Folder sinkronizzat: $result';
+  }
+
+  @override
+  String folderSyncFailed(String error) {
+    return 'Is-sinkronizzazzjoni tal-folder falliet: $error';
+  }
+
+  @override
+  String get recordSightingHere => 'Irreġistra dehra hawn:';
+
+  @override
+  String get orPlaceClowderHere => 'Jew poġġi clowder hawn:';
+
+  @override
+  String trailOf(String name, int count) {
+    return 'Rotta: $name ($count dehriet)';
+  }
+
+  @override
+  String conflictOn(String field) {
+    return 'Kunflitt — $field';
+  }
+
+  @override
+  String get conflictBody =>
+      'Inbidel f\'żewġ postijiet fl-istess ħin. Agħżel x\'inhu veru:';
+
+  @override
+  String mergeThisInto(String kind) {
+    return 'Għaqqad dan il-$kind ma\'…';
+  }
+
+  @override
+  String noOtherToMergeInto(String kind) {
+    return 'M\'hemmx $kind ieħor biex tgħaqqad miegħu.';
+  }
+
+  @override
+  String mergeIntoQuestion(String name) {
+    return 'Tgħaqqad ma\' $name?';
+  }
+
+  @override
+  String mergeBody(String name) {
+    return 'Iż-żewġ rekords isiru wieħed. $name iżomm il-valuri attwali tiegħu; l-istorja tal-ieħor tingħaqad miegħu. Ma tistax terġa\' lura.';
+  }
+
+  @override
+  String get kindCat => 'qattus';
+
+  @override
+  String get kindClowder => 'clowder';
+
+  @override
+  String get kindField => 'qasam';
+
+  @override
+  String get takePhoto => 'Ħu ritratt';
+
+  @override
+  String get chooseFromGallery => 'Agħżel mill-gallerija';
+
+  @override
+  String get about => 'Dwar';
+
+  @override
+  String get aboutTagline =>
+      'Katalgu lokali għal qtates f\'fostering. Id-data tiegħek tibqa\' fuq l-apparati tiegħek — l-ebda server, l-ebda kont.';
+
+  @override
+  String versionLabel(String version, String build) {
+    return 'Verżjoni $version ($build)';
+  }
+
+  @override
+  String get sourceCode => 'Kodiċi sors';
+
+  @override
+  String get reportProblemOrIdea => 'Irrapporta problema jew idea';
+
+  @override
+  String get githubIssues => 'GitHub Issues';
+
+  @override
+  String get writeTheDeveloper => 'Ikteb lill-iżviluppatur';
+
+  @override
+  String get buyCoffee => 'Ixtri kafè lill-iżviluppatur';
+
+  @override
+  String get coffeeSubtitle => 'Kompletament volontarju — l-app hija b\'xejn';
+
+  @override
+  String get openSourceLicenses => 'Liċenzji open source';
+
+  @override
+  String get machineTranslated =>
+      'It-traduzzjonijiet huma awtomatiċi — korrezzjonijiet milqugħa fuq GitHub.';
+
+  @override
+  String get unnamed => '(bla isem)';
+
+  @override
+  String get labelName => 'Isem';
+
+  @override
+  String get labelProfileImage => 'Ritratt tal-profil';
+
+  @override
+  String get labelPhoto => 'Ritratt';
+
+  @override
+  String get starterGender => 'Sess';
+
+  @override
+  String get starterColor => 'Kulur';
+
+  @override
+  String get starterNeutered => 'Sterilizzat';
+
+  @override
+  String get starterPregnant => 'Tqila';
+
+  @override
+  String get starterBirthdate => 'Data tat-twelid';
+
+  @override
+  String get starterDeceased => 'Mejjet';
+
+  @override
+  String get starterAddress => 'Indirizz';
+
+  @override
+  String get starterResponsible => 'Persuna responsabbli';
+
+  @override
+  String get starterPosition => 'Pożizzjoni';
+
+  @override
+  String get valueYes => 'iva';
+
+  @override
+  String get valueNo => 'le';
+
+  @override
+  String get valueFemale => 'mara';
+
+  @override
+  String get valueMale => 'raġel';
+
+  @override
+  String get valueUnknown => 'mhux magħruf';
+}

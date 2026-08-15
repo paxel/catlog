@@ -1,0 +1,530 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Modern Greek (`el`).
+class AppLocalizationsEl extends AppLocalizations {
+  AppLocalizationsEl([String locale = 'el']) : super(locale);
+
+  @override
+  String get appTitle => 'cat(a)log';
+
+  @override
+  String get welcomeTitle => 'Καλώς ήρθατε στο cat(a)log';
+
+  @override
+  String get welcomeBody =>
+      'Διαλέξτε ένα όνομα για εσάς. Κάθε αλλαγή καταγράφεται με αυτό το όνομα, ώστε οι άλλοι να βλέπουν ποιος έκανε τι.';
+
+  @override
+  String get yourName => 'Το όνομά σας';
+
+  @override
+  String get start => 'Έναρξη';
+
+  @override
+  String get clowders => 'Ομάδες';
+
+  @override
+  String get noClowdersYet =>
+      'Δεν υπάρχουν ομάδες ακόμα.\nΔημιουργήστε την πρώτη παρακάτω.';
+
+  @override
+  String get strays => 'Αδέσποτα';
+
+  @override
+  String get searchCats => 'Αναζήτηση γατών';
+
+  @override
+  String get map => 'Χάρτης';
+
+  @override
+  String get sync => 'Συγχρονισμός';
+
+  @override
+  String get fields => 'Πεδία';
+
+  @override
+  String get exportCsv => 'Εξαγωγή CSV';
+
+  @override
+  String get aboutAndFeedback => 'Σχετικά & σχόλια';
+
+  @override
+  String get newClowder => 'Νέα ομάδα';
+
+  @override
+  String get name => 'Όνομα';
+
+  @override
+  String get cancel => 'Άκυρο';
+
+  @override
+  String get create => 'Δημιουργία';
+
+  @override
+  String get save => 'Αποθήκευση';
+
+  @override
+  String get delete => 'Διαγραφή';
+
+  @override
+  String get merge => 'Συγχώνευση';
+
+  @override
+  String get resolve => 'Απόφαση';
+
+  @override
+  String get open => 'Άνοιγμα';
+
+  @override
+  String csvSavedTo(String path) {
+    return 'Το CSV αποθηκεύτηκε στο $path';
+  }
+
+  @override
+  String get renameClowder => 'Μετονομασία ομάδας';
+
+  @override
+  String get rename => 'Μετονομασία';
+
+  @override
+  String get timeline => 'Χρονολόγιο';
+
+  @override
+  String get mergeInto => 'Συγχώνευση με…';
+
+  @override
+  String get deleteClowder => 'Διαγραφή ομάδας';
+
+  @override
+  String get cats => 'Γάτες';
+
+  @override
+  String get addCat => 'Προσθήκη γάτας';
+
+  @override
+  String get newCat => 'Νέα γάτα';
+
+  @override
+  String deleteQuestion(String name) {
+    return 'Διαγραφή του $name;';
+  }
+
+  @override
+  String get deleteClowderEmptyBody => 'Η ομάδα εξαφανίζεται από τη λίστα.';
+
+  @override
+  String deleteClowderBody(int count) {
+    return 'Οι $count γάτες της δεν διαγράφονται — γίνονται αδέσποτες. Μετακινήστε τις πρώτα σε άλλη ομάδα αν δεν το θέλετε αυτό.';
+  }
+
+  @override
+  String get card => 'Καρτέλα';
+
+  @override
+  String get shareAsImage => 'Κοινοποίηση ως εικόνα';
+
+  @override
+  String get shareAsPdf => 'Κοινοποίηση ως PDF';
+
+  @override
+  String get print => 'Εκτύπωση';
+
+  @override
+  String cardTitle(String name) {
+    return 'Καρτέλα — $name';
+  }
+
+  @override
+  String get renameCat => 'Μετονομασία γάτας';
+
+  @override
+  String get seenHereNow => 'Εθεάθη εδώ τώρα';
+
+  @override
+  String get deleteCat => 'Διαγραφή γάτας';
+
+  @override
+  String get clowderLabel => 'Ομάδα';
+
+  @override
+  String get strayNoClowder => 'Αδέσποτη — χωρίς ομάδα';
+
+  @override
+  String get stray => 'Αδέσποτη';
+
+  @override
+  String get photos => 'Φωτογραφίες';
+
+  @override
+  String get addPhoto => 'Προσθήκη φωτογραφίας';
+
+  @override
+  String get setAsProfileImage => 'Ορισμός ως φωτογραφία προφίλ';
+
+  @override
+  String get thisIsProfileImage => 'Αυτή είναι η φωτογραφία προφίλ';
+
+  @override
+  String get deletePhoto => 'Διαγραφή φωτογραφίας';
+
+  @override
+  String get deletePhotoTitle => 'Διαγραφή φωτογραφίας;';
+
+  @override
+  String get deletePhotoBody =>
+      'Τα δεδομένα της φωτογραφίας διαγράφονται οριστικά — δεν αναιρείται.';
+
+  @override
+  String get deleteCatBody =>
+      'Η γάτα εξαφανίζεται από όλες τις λίστες. Οι φωτογραφίες της διαγράφονται οριστικά.';
+
+  @override
+  String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
+
+  @override
+  String get noLocationAvailable =>
+      'Δεν υπάρχει τοποθεσία — πατήστε παρατεταμένα στον χάρτη.';
+
+  @override
+  String get moveTo => 'Μετακίνηση σε';
+
+  @override
+  String get noClowderStrayOption => 'Χωρίς ομάδα — αδέσποτη / το έσκασε';
+
+  @override
+  String timelineOf(String name) {
+    return 'Χρονολόγιο — $name';
+  }
+
+  @override
+  String fieldHistoryOf(String field, String name) {
+    return '$field — $name';
+  }
+
+  @override
+  String get revertThisChange => 'Αναίρεση αυτής της αλλαγής';
+
+  @override
+  String get revertSubtitle =>
+      'Επαναφέρει την προηγούμενη τιμή ως νέα εγγραφή — το ιστορικό κρατά και τις δύο.';
+
+  @override
+  String fieldCleared(String field) {
+    return 'Το $field καθαρίστηκε';
+  }
+
+  @override
+  String fieldBackTo(String field, String value) {
+    return 'Το $field επανήλθε σε \"$value\"';
+  }
+
+  @override
+  String get leftStray => 'Έφυγε — αδέσποτη';
+
+  @override
+  String movedTo(String name) {
+    return 'Μετακινήθηκε σε $name';
+  }
+
+  @override
+  String arrivedPlain(String cat) {
+    return 'Η $cat ήρθε';
+  }
+
+  @override
+  String arrivedFrom(String cat, String place) {
+    return 'Η $cat ήρθε από $place';
+  }
+
+  @override
+  String leftTo(String cat, String place) {
+    return 'Η $cat πήγε σε $place';
+  }
+
+  @override
+  String get duplicateMergedIn => 'Συγχωνεύτηκε διπλότυπο';
+
+  @override
+  String get asOfToday => 'Με σημερινή ημερομηνία';
+
+  @override
+  String asOfDate(String date) {
+    return 'Με ημερομηνία $date';
+  }
+
+  @override
+  String get value => 'Τιμή';
+
+  @override
+  String get latitudeLongitude => 'γεωγρ. πλάτος, μήκος';
+
+  @override
+  String get newField => 'Νέο πεδίο';
+
+  @override
+  String get fieldType => 'Τύπος';
+
+  @override
+  String get usedOn => 'Χρήση για';
+
+  @override
+  String get forCats => 'γάτες';
+
+  @override
+  String get forClowders => 'ομάδες';
+
+  @override
+  String get forBoth => 'και τα δύο';
+
+  @override
+  String get optionsOnePerLine => 'Επιλογές (μία ανά γραμμή)';
+
+  @override
+  String get renameField => 'Μετονομασία πεδίου';
+
+  @override
+  String get noStraysRightNow => 'Δεν υπάρχουν αδέσποτα αυτή τη στιγμή.';
+
+  @override
+  String get strayCam => 'Stray Cam';
+
+  @override
+  String get addStray => 'Προσθήκη αδέσποτης';
+
+  @override
+  String get newStray => 'Νέα αδέσποτη';
+
+  @override
+  String get searchByNameHint => 'Αναζήτηση γατών με όνομα…';
+
+  @override
+  String get host => 'Φιλοξενία';
+
+  @override
+  String get hostExplainer =>
+      'Ξεκινήστε εδώ και μετά εισαγάγετε διεύθυνση και PIN στην άλλη συσκευή.';
+
+  @override
+  String get startHosting => 'Έναρξη φιλοξενίας';
+
+  @override
+  String get stopHosting => 'Διακοπή φιλοξενίας';
+
+  @override
+  String pinLabel(String pin) {
+    return 'PIN: $pin';
+  }
+
+  @override
+  String sessionsSoFar(int count) {
+    return 'Συνεδρίες μέχρι τώρα: $count';
+  }
+
+  @override
+  String get join => 'Σύνδεση';
+
+  @override
+  String get addressFromHost => 'Διεύθυνση (από τη συσκευή-οικοδεσπότη)';
+
+  @override
+  String get pin => 'PIN';
+
+  @override
+  String get syncNow => 'Συγχρονισμός τώρα';
+
+  @override
+  String get addressFormatHint =>
+      'Η διεύθυνση πρέπει να μοιάζει με 192.168.0.12:38472';
+
+  @override
+  String syncedResult(String result) {
+    return 'Συγχρονίστηκε: $result';
+  }
+
+  @override
+  String syncFailed(String error) {
+    return 'Αποτυχία συγχρονισμού: $error';
+  }
+
+  @override
+  String lastSyncWith(String peer, String time) {
+    return 'Τελευταίος συγχρονισμός με $peer: $time';
+  }
+
+  @override
+  String get sharedFolder => 'Κοινός φάκελος';
+
+  @override
+  String get sharedFolderExplainer =>
+      'Συγχρονισμός μέσω φακέλου που μεταφέρει ένα cloud ή ένα USB stick μεταξύ συσκευών — για όσους δεν είναι στο ίδιο δίκτυο.';
+
+  @override
+  String get noFolderChosenYet => 'Δεν έχει επιλεγεί φάκελος ακόμα';
+
+  @override
+  String get choose => 'Επιλογή…';
+
+  @override
+  String get syncFolderNow => 'Συγχρονισμός φακέλου τώρα';
+
+  @override
+  String folderSynced(String result) {
+    return 'Ο φάκελος συγχρονίστηκε: $result';
+  }
+
+  @override
+  String folderSyncFailed(String error) {
+    return 'Αποτυχία συγχρονισμού φακέλου: $error';
+  }
+
+  @override
+  String get recordSightingHere => 'Καταγραφή παρατήρησης εδώ:';
+
+  @override
+  String get orPlaceClowderHere => 'Ή τοποθέτηση ομάδας εδώ:';
+
+  @override
+  String trailOf(String name, int count) {
+    return 'Διαδρομή: $name ($count παρατηρήσεις)';
+  }
+
+  @override
+  String conflictOn(String field) {
+    return 'Σύγκρουση — $field';
+  }
+
+  @override
+  String get conflictBody =>
+      'Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:';
+
+  @override
+  String mergeThisInto(String kind) {
+    return 'Συγχώνευση αυτού ($kind) με…';
+  }
+
+  @override
+  String noOtherToMergeInto(String kind) {
+    return 'Δεν υπάρχει άλλο ($kind) για συγχώνευση.';
+  }
+
+  @override
+  String mergeIntoQuestion(String name) {
+    return 'Συγχώνευση με $name;';
+  }
+
+  @override
+  String mergeBody(String name) {
+    return 'Οι δύο εγγραφές γίνονται μία. Η $name κρατά τις τρέχουσες τιμές της· το ιστορικό της άλλης προστίθεται. Δεν αναιρείται.';
+  }
+
+  @override
+  String get kindCat => 'γάτα';
+
+  @override
+  String get kindClowder => 'ομάδα';
+
+  @override
+  String get kindField => 'πεδίο';
+
+  @override
+  String get takePhoto => 'Λήψη φωτογραφίας';
+
+  @override
+  String get chooseFromGallery => 'Επιλογή από τη συλλογή';
+
+  @override
+  String get about => 'Σχετικά';
+
+  @override
+  String get aboutTagline =>
+      'Τοπικός κατάλογος για γάτες σε ανάδοχες οικογένειες. Τα δεδομένα σας μένουν στις συσκευές σας — χωρίς διακομιστή, χωρίς λογαριασμό.';
+
+  @override
+  String versionLabel(String version, String build) {
+    return 'Έκδοση $version ($build)';
+  }
+
+  @override
+  String get sourceCode => 'Πηγαίος κώδικας';
+
+  @override
+  String get reportProblemOrIdea => 'Αναφορά προβλήματος ή ιδέας';
+
+  @override
+  String get githubIssues => 'GitHub Issues';
+
+  @override
+  String get writeTheDeveloper => 'Γράψτε στον προγραμματιστή';
+
+  @override
+  String get buyCoffee => 'Κεράστε τον προγραμματιστή έναν καφέ';
+
+  @override
+  String get coffeeSubtitle => 'Εντελώς προαιρετικό — η εφαρμογή είναι δωρεάν';
+
+  @override
+  String get openSourceLicenses => 'Άδειες ανοιχτού κώδικα';
+
+  @override
+  String get machineTranslated =>
+      'Οι μεταφράσεις είναι μηχανικές — διορθώσεις ευπρόσδεκτες στο GitHub.';
+
+  @override
+  String get unnamed => '(χωρίς όνομα)';
+
+  @override
+  String get labelName => 'Όνομα';
+
+  @override
+  String get labelProfileImage => 'Φωτογραφία προφίλ';
+
+  @override
+  String get labelPhoto => 'Φωτογραφία';
+
+  @override
+  String get starterGender => 'Φύλο';
+
+  @override
+  String get starterColor => 'Χρώμα';
+
+  @override
+  String get starterNeutered => 'Στειρωμένη';
+
+  @override
+  String get starterPregnant => 'Έγκυος';
+
+  @override
+  String get starterBirthdate => 'Ημερομηνία γέννησης';
+
+  @override
+  String get starterDeceased => 'Απεβίωσε';
+
+  @override
+  String get starterAddress => 'Διεύθυνση';
+
+  @override
+  String get starterResponsible => 'Υπεύθυνο άτομο';
+
+  @override
+  String get starterPosition => 'Θέση';
+
+  @override
+  String get valueYes => 'ναι';
+
+  @override
+  String get valueNo => 'όχι';
+
+  @override
+  String get valueFemale => 'θηλυκό';
+
+  @override
+  String get valueMale => 'αρσενικό';
+
+  @override
+  String get valueUnknown => 'άγνωστο';
+}

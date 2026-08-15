@@ -4,8 +4,8 @@
 
 **Blocked by:** 01 — l10n scaffolding.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] All ARB files present and complete (gen_l10n untranslated report empty)
-- [ ] RTL languages verified to render (ar, fa, he)
-- [ ] Machine-translation note in About and README
+- [x] All ARB files present and complete (gen_l10n untranslated report empty)
+- [x] RTL languages verified to render (ar, fa, he)
+- [x] Machine-translation note in About and README
