@@ -5,95 +5,87 @@
 <h1 align="center">cat(a)log</h1>
 
 <p align="center">
-  <b>A local-first catalog for people fostering cats.</b><br/>
-  Your data lives on your devices — no server, no account, no tracking.
+  <b>The app for people who foster cats.</b><br/>
+  Everything stays on your phone — no account, no cloud, no tracking. Free.
 </p>
 
 ---
 
 Ten foster kittens that all look the same. Who is who? Who is already
-neutered, who was spayed when, who moved to which adopter? cat(a)log keeps a
-**card** for every cat — photo, gender, color, anything you define — and a
-full **history** of every change: nothing is ever overwritten, every edit is
-dated and signed with the name of the person who made it, and any mistake can
-be reverted like a git commit.
+neutered? When was Luna spayed, and where did Miezi end up after adoption?
 
-- **Clowders** — a clowder (the actual English word for a group of cats) is a
-  place cats live: a foster home, an adopter's flat, the old barn. Moving a
-  cat between clowders *is* the adoption record.
-- **Cards** — one screen per cat with photo and facts; share it as an image,
-  export a PDF, print it for the vet's notice board.
-- **Strays & map** — cats without a home live on an OpenStreetMap view with
-  their movement trails. The Stray Cam registers a cat at your GPS position
-  with a photo in one tap.
-- **Sync without a server** — devices sync directly over your Wi-Fi (host
-  shows address + PIN, other device joins), or through any shared folder a
-  cloud drive or USB stick carries around. Every device converges to the same
-  state; concurrent edits show a conflict badge and a human picks the truth —
-  both versions stay in the history.
-- **Duplicates merge** — two people registered the same cat, home, or field?
-  Merge them; the survivor keeps its values, both histories combine.
-- **Your fields** — track anything: add "flea treatment" as a date field and
-  it works like the built-ins, timeline included.
-- **38 languages** — including right-to-left Arabic, Farsi, and Hebrew.
-  Translations are machine-made; corrections are one-line pull requests in
-  [`lib/l10n/`](lib/l10n/).
+cat(a)log keeps a **card for every cat** — photo, gender, color, whatever you
+want to note — and remembers **when everything happened**. Nothing you write
+down ever gets lost: every change keeps its date and the name of the person
+who made it, and you can look at any cat's story like a diary.
 
-## Screenshots
+## What it does
 
-| Home | Cat | Card |
+- **Cards** — one page per cat with photo and facts. Send it to an adopter
+  as a picture, or print it for the vet's notice board.
+- **Homes for cats** — cats live in groups the app calls *clowders* (that's
+  the real English word for a group of cats!): your foster home, an
+  adopter's flat, the barn next door. Moving a cat to its new family is two
+  taps — and the app remembers the move forever.
+- **The diary** — tap the clock on any cat: every change, every move, every
+  vet date, in order. Made a mistake? Undo it — the correction is written
+  into the diary too, nothing is ever erased in secret.
+- **Street cats** — cats without a home appear on a map. See a stray? One
+  tap on the Stray Cam saves it right where you stand, photo included. Meet
+  it again elsewhere? The map shows where it wanders.
+- **Photos of a whole litter?** Crop the right kitten out when you add the
+  photo, or draw a circle around it when they're too tangled to crop.
+- **Share with your helpers** — your phone and a friend's phone swap their
+  data directly over your Wi-Fi, or through a shared folder (Dropbox, Google
+  Drive, a USB stick — whatever you already use). No company server ever
+  sees your cats. If two of you changed the same thing at the same time, the
+  app shows both versions and you pick what's right.
+- **Your own fields** — want to track "flea treatment" or "favorite food"?
+  Add it yourself; it works like everything else, diary included.
+- **Speaks your language** — 38 languages, including Arabic, Farsi, and
+  Hebrew written right-to-left. (The translations are computer-made — tell
+  us where they sound wrong!)
+
+## What it looks like
+
+| Home | A cat | Its card |
 |---|---|---|
 | ![Clowders](docs/screenshots/01-home.png) | ![Cat](docs/screenshots/03-cat.png) | ![Card](docs/screenshots/04-card.png) |
 
-| Clowder | Timeline | Map |
+| A foster home | The diary | The map |
 |---|---|---|
 | ![Clowder](docs/screenshots/02-clowder.png) | ![Timeline](docs/screenshots/05-timeline.png) | ![Map](docs/screenshots/06-map.png) |
 
 *(Demo data — the cats in your catalog will be considerably fluffier.)*
 
-## Install
+## Get it
 
-| Platform | How |
-|---|---|
-| **Android** | APK from the [latest release](https://github.com/paxel/catlog/releases) (arm64 for modern phones) |
-| **iPhone / iPad** | TestFlight (beta) — ask via an issue |
-| **macOS** | `brew install --cask paxel/tap/catlog` — unsigned: right-click → Open on first launch |
-| **Windows** | `scoop bucket add paxel https://github.com/paxel/scoop-bucket && scoop install catlog` |
-| **Linux** | tar.gz (x86_64 / arm64) from the [latest release](https://github.com/paxel/catlog/releases) |
+Everything is on the **[download page](https://github.com/paxel/catlog/releases)**.
 
-## How it works
+- **Android phone or tablet**: download the file ending in
+  `arm64-v8a.apk`, open it, and allow the installation when the phone asks.
+- **iPhone / iPad**: currently as a beta through Apple's TestFlight —
+  [ask us](https://github.com/paxel/catlog/issues) and we'll invite you.
+- **Windows**: download the file ending in `windows-x86_64.zip`, unpack it
+  anywhere, double-click `catlog.exe`.
+- **Mac**: download the `.dmg` for your Mac (`arm64` for newer Macs,
+  `x86_64` for Intel ones), drag the app into Applications. The first time,
+  **right-click the app and choose "Open"** — it isn't signed with Apple,
+  so the Mac asks once.
+- **Linux**: download the `tar.gz`, unpack, run `catlog`.
 
-Every change is an immutable entry `(entity, field, value, date, author)` in
-an append-only log; a device's state is the union of all entries it has seen,
-and the newest entry wins the display — deterministically, on every device.
-Syncing is just exchanging missing entries, so it works over any transport
-and never conflicts on the data level. Human conflicts (two people renamed
-the same cat while apart) get a badge and a one-tap resolution that is itself
-an ordinary history entry. The whole model lives in
-[`packages/catalog_core`](packages/catalog_core) — pure Dart, no Flutter,
-fully tested against in-memory SQLite. Decisions are documented in
-[`docs/adr/`](docs/adr/), the domain vocabulary in [`CONTEXT.md`](CONTEXT.md).
+Your data never leaves your devices unless *you* share it. There is nothing
+to sign up for and nothing to pay. If the app helps you and you feel like
+it, you can buy the developer a coffee — the button is on the About page in
+the app.
 
-## Development
+## Questions, problems, ideas
 
-```sh
-# core tests (pure Dart)
-cd packages/catalog_core && dart test
+Write us: [github.com/paxel/catlog/issues](https://github.com/paxel/catlog/issues)
+— in whatever language you like.
 
-# app analysis and widget tests
-flutter analyze && flutter test
+---
 
-# run the desktop app
-flutter run -d linux
-
-# regenerate the README screenshots
-flutter test test/screenshots --run-skipped
-```
-
-Releases mirror the dedup-rs pipeline: `git tag v0.1.0 && git push --tags`
-builds and publishes everything (see `docs/release-android.md`).
-
-## License
-
-Dual-licensed under Apache-2.0 or MIT, at your option. See `LICENSE-APACHE`
-and `LICENSE-MIT`.
+*For developers: build instructions, architecture, and release process live
+in [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The app is open source,
+dual-licensed Apache-2.0 / MIT.*
