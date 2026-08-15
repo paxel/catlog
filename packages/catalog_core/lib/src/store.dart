@@ -65,6 +65,8 @@ class CatalogStore {
       PRAGMA journal_mode = WAL;
       CREATE TABLE IF NOT EXISTS entries (
         seq      INTEGER PRIMARY KEY AUTOINCREMENT,
+        device   TEXT NOT NULL,
+        dseq     INTEGER NOT NULL,
         entity   TEXT NOT NULL,
         field    TEXT NOT NULL,
         value    TEXT,
@@ -72,16 +74,51 @@ class CatalogStore {
         author   TEXT NOT NULL,
         recorded TEXT NOT NULL
       );
-      CREATE INDEX IF NOT EXISTS idx_entries_entity_field
-        ON entries (entity, field);
       CREATE TABLE IF NOT EXISTS local_settings (
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
     ''');
     final store = CatalogStore._(db, blobs);
+    store._ensureDeviceId();
+    store._migrateV1();
+    db.execute('''
+      CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
+        ON entries (device, dseq);
+      CREATE INDEX IF NOT EXISTS idx_entries_entity_field
+        ON entries (entity, field);
+    ''');
     store._seedStarterFields();
     return store;
+  }
+
+  /// This installation's stable device id (ADR-0002); created once.
+  String get deviceId {
+    final rows = _db
+        .select('SELECT value FROM local_settings WHERE key = ?', ['device']);
+    return rows.first['value'] as String;
+  }
+
+  void _ensureDeviceId() {
+    _db.execute(
+      'INSERT OR IGNORE INTO local_settings (key, value) VALUES (?, ?)',
+      ['device', _uuid()],
+    );
+  }
+
+  /// Upgrades a pre-sync (M1) database: entries lacked (device, dseq).
+  /// Existing rows are claimed by this device with dseq = seq — correct,
+  /// because M1 databases were single-device by construction.
+  void _migrateV1() {
+    final cols = _db
+        .select('PRAGMA table_info(entries)')
+        .map((r) => r['name'] as String)
+        .toSet();
+    if (cols.contains('device')) return;
+    _db.execute("ALTER TABLE entries ADD COLUMN device TEXT NOT NULL DEFAULT ''");
+    _db.execute('ALTER TABLE entries ADD COLUMN dseq INTEGER NOT NULL DEFAULT 0');
+    _db.execute(
+        'UPDATE entries SET device = ?, dseq = seq', [deviceId]);
   }
 
   void close() => _db.dispose();
@@ -117,10 +154,17 @@ class CatalogStore {
     final by = as ?? author;
     if (by == null) throw StateError('No author configured');
     final now = DateTime.now().toUtc();
+    final device = deviceId;
+    final next = _db.select(
+      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
+      [device],
+    ).first['n'] as int;
     _db.execute(
-      'INSERT INTO entries (entity, field, value, date, author, recorded) '
-      'VALUES (?, ?, ?, ?, ?, ?)',
+      'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
+      'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
       [
+        device,
+        next,
         entity,
         field,
         value,
@@ -133,6 +177,8 @@ class CatalogStore {
 
   Entry _entry(Row r) => Entry(
         seq: r['seq'] as int,
+        device: r['device'] as String,
+        dseq: r['dseq'] as int,
         entity: r['entity'] as String,
         field: r['field'] as String,
         value: r['value'] as String?,
@@ -142,9 +188,10 @@ class CatalogStore {
       );
 
   /// Deterministic latest-wins ordering (ADR-0001): effective date, then
-  /// recording time, then author name, then local sequence.
+  /// recording time, then author, then origin device and its counter —
+  /// device-stable, so every synced device projects identical state.
   static const _latest =
-      'ORDER BY date DESC, recorded DESC, author DESC, seq DESC';
+      'ORDER BY date DESC, recorded DESC, author DESC, device DESC, dseq DESC';
 
   /// Current value of one field, or null if never set or last set to null.
   String? current(String entity, String field) {
@@ -209,14 +256,16 @@ class CatalogStore {
     // sorts strictly before the reverted one in projection order.
     final prev = _db.select(
       'SELECT * FROM entries WHERE entity = ? AND field = ? '
-      'AND (date, recorded, author, seq) < (?, ?, ?, ?) $_latest LIMIT 1',
+      'AND (date, recorded, author, device, dseq) < (?, ?, ?, ?, ?) '
+      '$_latest LIMIT 1',
       [
         entry.entity,
         entry.field,
         entry.date.toIso8601String(),
         entry.recorded.toIso8601String(),
         entry.author,
-        entry.seq,
+        entry.device,
+        entry.dseq,
       ],
     );
     final restored =

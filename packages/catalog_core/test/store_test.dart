@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:image/image.dart' as img;
+import 'package:sqlite3/sqlite3.dart';
 import 'package:test/test.dart';
 
 /// A synthetic JPEG of the given size.
@@ -212,6 +214,56 @@ void main() {
       store.moveCat(cat, home);
       expect(store.strays(), isEmpty);
       expect(store.cats(clowderId: home).single.id, cat);
+    });
+  });
+
+  group('device identity', () {
+    test('device id is stable and stamped with a growing dseq', () {
+      expect(store.deviceId, store.deviceId);
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:color', 'black');
+      final entries = store.timeline(cat);
+      expect(entries.every((e) => e.device == store.deviceId), isTrue);
+      final dseqs = entries.map((e) => e.dseq).toList();
+      expect(dseqs.toSet().length, dseqs.length); // unique per device
+    });
+
+    test('two stores have different device ids', () {
+      final other = CatalogStore.inMemory();
+      expect(other.deviceId, isNot(store.deviceId));
+      other.close();
+    });
+
+    test('a v1 database migrates: rows claimed by the local device', () {
+      final dir = Directory.systemTemp.createTempSync('catlog_test');
+      addTearDown(() => dir.deleteSync(recursive: true));
+      final path = '${dir.path}/v1.db';
+
+      // Build a pre-sync (M1) database by hand.
+      final raw = sqlite3.open(path);
+      raw.execute('''
+        CREATE TABLE entries (
+          seq      INTEGER PRIMARY KEY AUTOINCREMENT,
+          entity   TEXT NOT NULL,
+          field    TEXT NOT NULL,
+          value    TEXT,
+          date     TEXT NOT NULL,
+          author   TEXT NOT NULL,
+          recorded TEXT NOT NULL
+        );
+        CREATE TABLE local_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+        INSERT INTO entries (entity, field, value, date, author, recorded)
+        VALUES ('cat:x', '\$type', 'cat', '2026-01-01T00:00:00.000Z', 'axel', '2026-01-01T00:00:00.000Z'),
+               ('cat:x', 'name', 'Miezi', '2026-01-01T00:00:00.000Z', 'axel', '2026-01-01T00:00:00.000Z');
+      ''');
+      raw.dispose();
+
+      final migrated = CatalogStore.open(path);
+      addTearDown(migrated.close);
+      expect(migrated.cats().single.name, 'Miezi');
+      final entries = migrated.timeline('cat:x');
+      expect(entries.every((e) => e.device == migrated.deviceId), isTrue);
+      expect(entries.map((e) => e.dseq).toSet().length, entries.length);
     });
   });
 
