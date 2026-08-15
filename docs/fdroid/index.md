@@ -23,11 +23,3 @@ Get cat(a)log through the F-Droid app and receive updates automatically.
 
 Updates appear in F-Droid like for any other app whenever a new version is
 released.
-
-## Maintainer notes
-
-The repo is generated with `fdroidserver` from the GitHub release APK
-(arm64-v8a); working directory and signing keystore live in the private
-backup folder. To publish a new version: drop the new APK into
-`fdroid-work/repo/`, run `fdroid update`, copy `repo/` back to
-`docs/fdroid/repo/`, commit.
