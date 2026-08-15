@@ -74,6 +74,8 @@
 	<string>Sync your catalog directly with another device on this network — no server involved.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Record where a stray cat was seen (Stray Cam and sightings).</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Record where a stray cat was seen (Stray Cam and sightings). The app never tracks location in the background.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>
