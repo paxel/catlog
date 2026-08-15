@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
-import 'package:media_store_plus/media_store_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// Uninstall-proof safety net: whenever the app goes to the background
@@ -19,13 +19,11 @@ Future<void> autoBackup(CatalogStore store) async {
     final path = writeBundle(store, '${tmp.path}/catlog-backup.catsync');
 
     if (Platform.isAndroid) {
-      await MediaStore.ensureInitialized();
-      MediaStore.appFolder = 'catlog';
-      await MediaStore().saveFile(
-        tempFilePath: path,
-        dirType: DirType.download,
-        dirName: DirName.download,
-      );
+      // Tiny platform channel instead of a plugin: MediaStore insert
+      // into Downloads/catlog (see MainActivity.kt).
+      await const MethodChannel('catlog/backup').invokeMethod(
+          'saveToDownloads',
+          {'path': path, 'name': 'catlog-backup.catsync'});
     } else if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
       final downloads = await getDownloadsDirectory();
       if (downloads == null) return;
