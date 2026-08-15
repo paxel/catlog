@@ -53,3 +53,5 @@ Milestone M1: local-only catalog with Cards.
 - Clowder timelines show which Cat lived there when: arrivals and
   departures ("Miezi arrived from A", "left to Adopter") derived from the
   Cats' membership histories; Cat timelines render moves readably too.
+- App icon: a Karteikarte with a cat face — generated for Android
+  (including adaptive), iOS, Windows, and macOS from assets/icon/icon.svg.

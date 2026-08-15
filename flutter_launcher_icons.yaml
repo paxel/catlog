@@ -1,0 +1,14 @@
+# App icon generation: dart run flutter_launcher_icons
+# Source of truth is assets/icon/icon.svg; the PNGs are rendered from it
+# with ImageMagick (see assets/icon/README.md).
+flutter_launcher_icons:
+  image_path: assets/icon/icon.png
+  android: true
+  adaptive_icon_background: "#F6E7D3"
+  adaptive_icon_foreground: assets/icon/icon_fg.png
+  ios: true
+  remove_alpha_ios: true
+  windows:
+    generate: true
+  macos:
+    generate: true

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- cat(a)log app icon: a Karteikarte (index card) with a cat face.
+       Filled shapes only — no strokes (rendered with ImageMagick MSVG). -->
+  <!-- background -->
+  <rect width="1024" height="1024" fill="#F6E7D3"/>
+  <!-- card, slightly tilted; border simulated by a backing rect -->
+  <g transform="rotate(-4 512 512)">
+    <rect x="146" y="186" width="732" height="672" rx="48" fill="#D8CBB8"/>
+    <rect x="152" y="192" width="720" height="660" rx="44" fill="#FFFFFF"/>
+    <!-- classic Karteikarte rules: red header line, blue-grey text lines -->
+    <rect x="152" y="556" width="720" height="12" fill="#E05A4E"/>
+    <rect x="216" y="628" width="500" height="34" rx="17" fill="#B9C4D0"/>
+    <rect x="216" y="712" width="590" height="34" rx="17" fill="#C9D2DC"/>
+    <rect x="216" y="796" width="380" height="34" rx="17" fill="#C9D2DC"/>
+    <!-- cat head above the red line -->
+    <g>
+      <!-- ears -->
+      <path d="M 362 320 L 398 190 L 484 268 Z" fill="#E88A3A"/>
+      <path d="M 662 320 L 626 190 L 540 268 Z" fill="#E88A3A"/>
+      <path d="M 384 298 L 404 226 L 454 270 Z" fill="#F7C59F"/>
+      <path d="M 640 298 L 620 226 L 570 270 Z" fill="#F7C59F"/>
+      <!-- head -->
+      <circle cx="512" cy="392" r="160" fill="#E88A3A"/>
+      <!-- eyes -->
+      <ellipse cx="452" cy="376" rx="20" ry="27" fill="#5B3A21"/>
+      <ellipse cx="572" cy="376" rx="20" ry="27" fill="#5B3A21"/>
+      <!-- nose -->
+      <path d="M 490 432 L 534 432 L 512 460 Z" fill="#5B3A21"/>
+      <!-- whiskers as thin filled bars (no transforms: MSVG-safe) -->
+      <g fill="#5B3A21">
+        <rect x="292" y="398" width="104" height="10" rx="5"/>
+        <rect x="292" y="434" width="104" height="10" rx="5"/>
+        <rect x="628" y="398" width="104" height="10" rx="5"/>
+        <rect x="628" y="434" width="104" height="10" rx="5"/>
+      </g>
+    </g>
+  </g>
+</svg>
