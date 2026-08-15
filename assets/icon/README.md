@@ -4,11 +4,13 @@
 face. Filled shapes only: ImageMagick's built-in SVG renderer drops
 strokes and mishandles rotate transforms.
 
-Regenerate after editing the SVG:
+Regenerate after editing the SVG (icon.png MUST be flattened opaque
+8-bit - an alpha channel turns the iOS App Store icon solid black):
 
 ```sh
 magick -background none -density 300 assets/icon/icon.svg \
-  -resize 1024x1024 assets/icon/icon.png
+  -resize 1024x1024 -background '#F6E7D3' -flatten -alpha off -depth 8 \
+  PNG24:assets/icon/icon.png
 sed '/<rect width="1024" height="1024" fill="#F6E7D3"\/>/d' \
   assets/icon/icon.svg > /tmp/icon_fg.svg
 magick -background none -density 300 /tmp/icon_fg.svg \
