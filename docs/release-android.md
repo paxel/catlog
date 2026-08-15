@@ -1,4 +1,14 @@
-# Android release signing & tagged releases
+# Release signing & tagged releases
+
+The release pipeline mirrors dedup-rs: gate → per-platform builds
+(Android APKs, Linux x86_64+arm64 tar.gz, Windows zip, macOS dmg per
+arch) → idempotent GitHub Release with the CHANGELOG section as notes →
+Homebrew cask (`brew install --cask paxel/tap/catlog`) and Scoop
+manifest (`scoop install catlog`) pushed via the shared `CHANNEL_PAT`
+secret. Releases can also be cut from the Actions UI (Run workflow →
+type the tag). The tag must match the pubspec version (without the
+build number) or the gate fails.
+
 
 ## Keystore
 

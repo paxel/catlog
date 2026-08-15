@@ -1,21 +1,67 @@
-# Tag-driven Android release: signed APKs (per-ABI + universal) attached
-# to a GitHub Release. Requires repository secrets:
-#   ANDROID_KEYSTORE_BASE64   the upload keystore (.jks, base64)
-#   ANDROID_KEYSTORE_PASSWORD store & key password
-# (Key alias is fixed: catlog)
-
+# Release on tag: `git tag v0.1.0 && git push --tags` produces everything.
+# Mirrors the dedup-rs release pipeline, adapted to Flutter:
+#
+#   gate           — full Linux gate once more (analyze fatal-infos, all tests)
+#   build-android  — signed per-ABI + universal APKs
+#   build-linux    — bundle tar.gz per arch (x86_64 + arm64)
+#   build-windows  — zip with catlog.exe + runtime
+#   build-macos    — unsigned catlog.app in a .dmg, per arch
+#   release        — GitHub Release, notes = the CHANGELOG section for the tag
+#   channels       — Homebrew cask + Scoop manifest pushed to the tap/bucket
+#
+# One-time setup (repository secrets):
+#   ANDROID_KEYSTORE_BASE64 / ANDROID_KEYSTORE_PASSWORD — upload keystore
+#   CHANNEL_PAT — PAT with push access to paxel/homebrew-tap and
+#                 paxel/scoop-bucket (shared with dedup-rs)
 name: Release
 
 on:
   push:
-    tags: ['v*']
+    tags: ["v*"]
+  # Releasing from the Actions UI: Run workflow → type the tag. `gh release
+  # create` makes the tag at HEAD when it doesn't exist yet, so the button
+  # alone can cut a release.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v0.1.0)"
+        required: true
 
-permissions:
-  contents: write
+env:
+  RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
 
 jobs:
-  android:
-    name: Signed Android APKs
+  gate:
+    name: Gate (Linux, full)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Install sqlite3 for pure-Dart core tests
+        run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
+      - name: Tag matches the pubspec version
+        run: |
+          ver=$(grep -m1 '^version:' pubspec.yaml | sed -E 's/version: *//; s/\+.*//')
+          tag=${RELEASE_TAG#v}
+          [ "$ver" = "$tag" ] || { echo "tag v$tag != pubspec version $ver" >&2; exit 1; }
+      - name: Core — analyze and test
+        working-directory: packages/catalog_core
+        run: |
+          dart pub get
+          dart analyze --fatal-infos
+          dart test
+      - name: App — analyze and test
+        run: |
+          flutter pub get
+          flutter analyze --fatal-infos
+          flutter test
+
+  build-android:
+    name: Android APKs
+    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -43,21 +89,29 @@ jobs:
           flutter build apk --release
       - name: Rename artifacts
         run: |
-          v="${GITHUB_REF_NAME#v}"
+          v="${RELEASE_TAG#v}"
           d=build/app/outputs/flutter-apk
-          mv "$d/app-arm64-v8a-release.apk"   "$d/catlog-$v-arm64-v8a.apk"
-          mv "$d/app-armeabi-v7a-release.apk" "$d/catlog-$v-armeabi-v7a.apk"
-          mv "$d/app-x86_64-release.apk"      "$d/catlog-$v-x86_64.apk"
-          mv "$d/app-release.apk"             "$d/catlog-$v-universal.apk"
-      - name: Upload APKs for the release job
-        uses: actions/upload-artifact@v4
+          mkdir -p dist
+          mv "$d/app-arm64-v8a-release.apk"   "dist/catlog-$v-android-arm64-v8a.apk"
+          mv "$d/app-armeabi-v7a-release.apk" "dist/catlog-$v-android-armeabi-v7a.apk"
+          mv "$d/app-x86_64-release.apk"      "dist/catlog-$v-android-x86_64.apk"
+          mv "$d/app-release.apk"             "dist/catlog-$v-android-universal.apk"
+      - uses: actions/upload-artifact@v4
         with:
-          name: apks
-          path: build/app/outputs/flutter-apk/catlog-*.apk
+          name: android
+          path: dist/*
 
-  linux:
-    name: Linux bundle
-    runs-on: ubuntu-latest
+  build-linux:
+    name: Linux bundle (${{ matrix.arch }})
+    needs: gate
+    strategy:
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            arch: x86_64
+          - runner: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4
       - name: Install Linux desktop build dependencies
@@ -72,15 +126,18 @@ jobs:
       - run: flutter build linux --release
       - name: Pack
         run: |
-          v="${GITHUB_REF_NAME#v}"
-          tar -C build/linux/x64/release/bundle -czf "catlog-$v-linux-x64.tar.gz" .
+          v="${RELEASE_TAG#v}"
+          mkdir -p dist
+          bundle=$(ls -d build/linux/*/release/bundle | head -1)
+          tar -C "$bundle" -czf "dist/catlog-$v-linux-${{ matrix.arch }}.tar.gz" .
       - uses: actions/upload-artifact@v4
         with:
-          name: linux-bundle
-          path: catlog-*-linux-x64.tar.gz
+          name: linux-${{ matrix.arch }}
+          path: dist/*
 
-  windows:
+  build-windows:
     name: Windows bundle
+    needs: gate
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -93,25 +150,128 @@ jobs:
       - name: Pack
         shell: pwsh
         run: |
-          $v = $env:GITHUB_REF_NAME -replace '^v',''
-          Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath "catlog-$v-windows-x64.zip"
+          $v = $env:RELEASE_TAG.TrimStart("v")
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Compress-Archive -Path build\windows\x64\runner\Release\*, LICENSE-APACHE, LICENSE-MIT `
+                           -DestinationPath "dist/catlog-$v-windows-x86_64.zip"
       - uses: actions/upload-artifact@v4
         with:
-          name: windows-bundle
-          path: catlog-*-windows-x64.zip
+          name: windows
+          path: dist/*
+
+  build-macos:
+    name: macOS app (${{ matrix.arch }})
+    needs: gate
+    strategy:
+      matrix:
+        include:
+          - runner: macos-latest
+            arch: arm64
+          # Last Intel image GitHub offers; when it retires, switch the
+          # x86_64 artifact to a cross-compile from the arm64 runner.
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter build macos --release
+      - name: App bundle into dmg (unsigned)
+        run: |
+          v="${RELEASE_TAG#v}"
+          mkdir -p dist dmgroot
+          cp -R build/macos/Build/Products/Release/catlog.app dmgroot/
+          ln -s /Applications dmgroot/Applications
+          hdiutil create -volname "cat(a)log" -srcfolder dmgroot -ov -format UDZO \
+            "dist/catlog-$v-macos-${{ matrix.arch }}.dmg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-${{ matrix.arch }}
+          path: dist/*
 
   release:
-    name: Create GitHub Release
+    name: GitHub Release
+    needs: [build-android, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
-    needs: [android, linux, windows]
+    permissions:
+      contents: write
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          merge-multiple: true
           path: dist
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+          merge-multiple: true
+      - name: Release notes from the CHANGELOG section
+        run: |
+          ver=${RELEASE_TAG#v}
+          awk -v ver="$ver" '
+            $0 ~ "^## \\[" ver "\\]" { grab = 1; next }
+            grab && (/^## \[/ || /^---/) { exit }
+            grab { print }
+          ' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "Release $ver." > notes.md
+      - name: Create release (idempotent — a rerun updates instead of dying)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --title "cat(a)log $RELEASE_TAG" --notes-file notes.md
+            gh release upload "$RELEASE_TAG" dist/* --clobber
+          else
+            gh release create "$RELEASE_TAG" \
+              --title "cat(a)log $RELEASE_TAG" \
+              --notes-file notes.md \
+              dist/*
+          fi
+
+  channels:
+    name: Homebrew tap + Scoop bucket
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
-          draft: false
-          generate_release_notes: true
-          files: dist/*
+          path: dist
+          merge-multiple: true
+      - name: Render cask and manifest from the templates
+        run: |
+          ver=${RELEASE_TAG#v}
+          sha() { sha256sum "dist/$1" | cut -d' ' -f1; }
+          mkdir -p out
+          sed -e "s/{{VERSION}}/$ver/g" \
+              -e "s/{{SHA_MACOS_ARM64}}/$(sha catlog-$ver-macos-arm64.dmg)/" \
+              -e "s/{{SHA_MACOS_X86_64}}/$(sha catlog-$ver-macos-x86_64.dmg)/" \
+              packaging/homebrew/catlog.rb.tmpl > out/catlog.rb
+          sed -e "s/{{VERSION}}/$ver/g" \
+              -e "s/{{SHA_WINDOWS_X86_64}}/$(sha catlog-$ver-windows-x86_64.zip)/" \
+              packaging/scoop/catlog.json.tmpl > out/catlog.json
+      - name: Push to the tap
+        env:
+          GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
+        run: |
+          ver=${RELEASE_TAG#v}
+          git config --global user.name "catlog-release-bot"
+          git config --global user.email "taum@tuta.io"
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/paxel/homebrew-tap.git" tap
+          mkdir -p tap/Casks
+          cp out/catlog.rb tap/Casks/catlog.rb
+          git -C tap add Casks/catlog.rb
+          git -C tap commit -m "catlog $ver"
+          git -C tap push
+      - name: Push to the bucket
+        env:
+          GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
+        run: |
+          ver=${RELEASE_TAG#v}
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/paxel/scoop-bucket.git" bucket
+          mkdir -p bucket/bucket
+          cp out/catlog.json bucket/bucket/catlog.json
+          git -C bucket add bucket/catlog.json
+          git -C bucket commit -m "catlog $ver"
+          git -C bucket push

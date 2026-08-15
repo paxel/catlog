@@ -83,6 +83,7 @@ class CatalogStore {
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
     store._migrateV1();
+    store._normalizeTimestamps();
     db.execute('''
       CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
         ON entries (device, dseq);
@@ -105,6 +106,25 @@ class CatalogStore {
       'INSERT OR IGNORE INTO local_settings (key, value) VALUES (?, ?)',
       ['device', _uuid()],
     );
+  }
+
+  /// Timestamps are compared as strings in SQL, so they MUST have fixed
+  /// precision: Dart's toIso8601String emits 3 fraction digits when the
+  /// microseconds are zero and 6 otherwise — and "…858Z" string-sorts
+  /// after "…858233Z" ('Z' > '2'). Always store 6 fraction digits.
+  static String _iso(DateTime d) {
+    final s = d.toUtc().toIso8601String();
+    return s.length == 24 ? '${s.substring(0, 23)}000Z' : s;
+  }
+
+  /// Repairs rows written with 3-digit fractions (idempotent).
+  void _normalizeTimestamps() {
+    _db.execute(
+        "UPDATE entries SET date = substr(date, 1, 23) || '000Z' "
+        'WHERE length(date) = 24');
+    _db.execute(
+        "UPDATE entries SET recorded = substr(recorded, 1, 23) || '000Z' "
+        'WHERE length(recorded) = 24');
   }
 
   /// Upgrades a pre-sync (M1) database: entries lacked (device, dseq).
@@ -183,9 +203,9 @@ class CatalogStore {
         entity,
         field,
         value,
-        (date?.toUtc() ?? now).toIso8601String(),
+        _iso(date ?? now),
         by,
-        now.toIso8601String(),
+        _iso(now),
       ],
     );
   }
@@ -376,8 +396,8 @@ class CatalogStore {
       [
         entry.entity,
         entry.field,
-        entry.date.toIso8601String(),
-        entry.recorded.toIso8601String(),
+        _iso(entry.date),
+        _iso(entry.recorded),
         entry.author,
         entry.device,
         entry.dseq,
@@ -713,9 +733,9 @@ class CatalogStore {
           e.entity,
           e.field,
           e.value,
-          e.date.toUtc().toIso8601String(),
+          _iso(e.date),
           e.author,
-          e.recorded.toUtc().toIso8601String(),
+          _iso(e.recorded),
         ],
       );
       if (_db.updatedRows > 0) imported.add(e);

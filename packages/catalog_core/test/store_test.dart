@@ -74,6 +74,21 @@ void main() {
       expect(history.every((e) => e.author == 'axel'), isTrue);
     });
 
+    test('zero-microsecond timestamps sort correctly against precise ones',
+        () {
+      // Dart serializes whole-millisecond times with 3 fraction digits
+      // and precise ones with 6; naive string ordering breaks there.
+      final id = store.createClowder('Home');
+      store.append(id, 'f:color', 'older',
+          date: DateTime.utc(2026, 1, 1, 12, 0, 0, 500)); // .500Z
+      store.append(id, 'f:color', 'newer',
+          date: DateTime.utc(2026, 1, 1, 12, 0, 0, 500, 1)); // .500001Z
+      expect(store.current(id, 'f:color'), 'newer');
+      final history = store.fieldHistory(id, 'f:color');
+      expect(history.first.value, 'newer');
+      expect(history.last.value, 'older');
+    });
+
     test('later effective date wins even if recorded earlier', () {
       final id = store.createClowder('Home');
       store.append(id, Keys.name, 'Future Name',

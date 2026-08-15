@@ -88,3 +88,13 @@ Milestone M1: local-only catalog with Cards.
   original stays, so one litter photo serves several cats.
 - Mark: drag an ellipse over one cat and a highlight is baked into a copy
   — for tangled kittens no crop can separate; prints like any photo.
+- Desktop installs via Homebrew (`brew install --cask paxel/tap/catlog`,
+  macOS dmg per architecture) and Scoop (`scoop install catlog`, Windows);
+  Linux tar.gz for x86_64 and arm64 on every release.
+
+### Fixed
+
+- Deterministic ordering could disagree between devices when a timestamp
+  had exactly zero microseconds (variable-precision ISO strings compare
+  wrongly); timestamps now store fixed precision, existing databases are
+  repaired on open.
