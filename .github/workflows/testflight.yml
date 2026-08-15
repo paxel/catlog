@@ -36,6 +36,16 @@ jobs:
           echo "${{ secrets.IOS_PROFILE_BASE64 }}" | base64 --decode \
             > ~/Library/MobileDevice/Provisioning\ Profiles/catlog.mobileprovision
       - run: flutter pub get
+      - name: Pin manual signing for the archive build
+        run: |
+          for f in ios/Flutter/Release.xcconfig ios/Flutter/Debug.xcconfig; do
+            cat >> "$f" <<'EOF'
+          CODE_SIGN_STYLE = Manual
+          DEVELOPMENT_TEAM = 5Q2A853F9A
+          PROVISIONING_PROFILE_SPECIFIER = catlog appstore
+          CODE_SIGN_IDENTITY = Apple Distribution
+          EOF
+          done
       - name: Build signed IPA
         run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
       - name: Upload to TestFlight

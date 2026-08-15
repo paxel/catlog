@@ -4,6 +4,15 @@
 <dict>
 	<key>method</key>
 	<string>app-store-connect</string>
+	<key>signingStyle</key>
+	<string>manual</string>
+	<key>teamID</key>
+	<string>5Q2A853F9A</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>io.github.paxel.catlog</key>
+		<string>catlog appstore</string>
+	</dict>
 	<key>uploadSymbols</key>
 	<true/>
 </dict>
