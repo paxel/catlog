@@ -61,7 +61,7 @@ CatalogStore _demoStore() {
       store.createCat('Miezi', clowderId: home, date: DateTime.utc(2026, 5, 3));
   store.addImage(miezi, photo(1), date: DateTime.utc(2026, 5, 3));
   store.append(miezi, 'f:gender', 'female', date: DateTime.utc(2026, 5, 3));
-  store.append(miezi, 'f:color', 'ginger tabby',
+  store.append(miezi, 'f:color', 'white & ginger',
       date: DateTime.utc(2026, 5, 3));
   store.append(miezi, 'f:neutered', 'yes', date: DateTime.utc(2026, 6, 14));
   store.append(miezi, 'f:birthdate', '2026-03-01',
@@ -71,7 +71,7 @@ CatalogStore _demoStore() {
       store.createCat('Balu', clowderId: home, date: DateTime.utc(2026, 5, 3));
   store.addImage(balu, photo(2), date: DateTime.utc(2026, 5, 3));
   store.append(balu, 'f:gender', 'male', date: DateTime.utc(2026, 5, 3));
-  store.append(balu, 'f:color', 'grey', date: DateTime.utc(2026, 5, 3));
+  store.append(balu, 'f:color', 'black', date: DateTime.utc(2026, 5, 3));
 
   final luna =
       store.createCat('Luna', clowderId: home, date: DateTime.utc(2026, 5, 10));
