@@ -43,6 +43,15 @@ jobs:
         with:
           channel: stable
           cache: true
+      - name: Write signing config from secrets
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > "$RUNNER_TEMP/upload.jks"
+          cat > android/key.properties <<EOF
+          storeFile=$RUNNER_TEMP/upload.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=catlog
+          keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          EOF
       - run: flutter pub get
       - run: flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
       - uses: actions/upload-artifact@v4
