@@ -79,3 +79,12 @@ Milestone M1: local-only catalog with Cards.
 - About & feedback screen: version, source link, GitHub issues, mail,
   open-source licenses, and a donation link (hidden on iOS per App Store
   rules).
+- 38 languages, machine-translated (corrections welcome on GitHub), with
+  right-to-left support for Arabic, Farsi, and Hebrew; starter Field names
+  and values translate per device language while the data stays canonical
+  (ADR-0005); dates follow the device locale.
+- Crop: a skippable crop step when importing photos (Stray Cam skips it),
+  and "Crop…" on any photo — the cropped copy joins as a new photo, the
+  original stays, so one litter photo serves several cats.
+- Mark: drag an ellipse over one cat and a highlight is baked into a copy
+  — for tangled kittens no crop can separate; prints like any photo.
