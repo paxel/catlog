@@ -173,5 +173,6 @@
   "pickOnMap": "انتخاب روی نقشه",
   "useMyLocation": "استفاده از موقعیت من",
   "language": "زبان",
-  "systemDefault": "پیش‌فرض سیستم"
+  "systemDefault": "پیش‌فرض سیستم",
+  "iosLocalNetworkHint": "اگر در iPhone/iPad همچنان ناموفق است: تنظیمات → حریم خصوصی و امنیت → شبکه محلی → به cat(a)log اجازه دهید و دوباره امتحان کنید."
 }

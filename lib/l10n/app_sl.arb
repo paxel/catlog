@@ -173,5 +173,6 @@
   "pickOnMap": "Izberi na zemljevidu",
   "useMyLocation": "Uporabi mojo lokacijo",
   "language": "Jezik",
-  "systemDefault": "Sistemsko privzeto"
+  "systemDefault": "Sistemsko privzeto",
+  "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova."
 }

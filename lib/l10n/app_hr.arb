@@ -173,5 +173,6 @@
   "pickOnMap": "Odaberi na karti",
   "useMyLocation": "Koristi moju lokaciju",
   "language": "Jezik",
-  "systemDefault": "Zadano sustavom"
+  "systemDefault": "Zadano sustavom",
+  "iosLocalNetworkHint": "Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dopusti cat(a)log pa pokušaj ponovno."
 }

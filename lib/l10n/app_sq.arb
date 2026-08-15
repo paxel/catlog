@@ -173,5 +173,6 @@
   "pickOnMap": "Zgjidh në hartë",
   "useMyLocation": "Përdor vendndodhjen time",
   "language": "Gjuha",
-  "systemDefault": "Parazgjedhja e sistemit"
+  "systemDefault": "Parazgjedhja e sistemit",
+  "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish."
 }

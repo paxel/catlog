@@ -600,4 +600,8 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get systemDefault => 'Системна за замовчуванням';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Якщо на iPhone/iPad далі не вдається: Параметри → Конфіденційність і безпека → Локальна мережа → дозвольте cat(a)log і спробуйте ще раз.';
 }

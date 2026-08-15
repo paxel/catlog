@@ -173,5 +173,6 @@
   "pickOnMap": "Valitse kartalta",
   "useMyLocation": "Käytä sijaintiani",
   "language": "Kieli",
-  "systemDefault": "Järjestelmän oletus"
+  "systemDefault": "Järjestelmän oletus",
+  "iosLocalNetworkHint": "Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen."
 }

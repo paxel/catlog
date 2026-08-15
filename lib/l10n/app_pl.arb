@@ -173,5 +173,6 @@
   "pickOnMap": "Wybierz na mapie",
   "useMyLocation": "Użyj mojej lokalizacji",
   "language": "Język",
-  "systemDefault": "Domyślny systemowy"
+  "systemDefault": "Domyślny systemowy",
+  "iosLocalNetworkHint": "Jeśli na iPhone/iPad wciąż się nie udaje: Ustawienia → Prywatność i ochrona → Sieć lokalna → zezwól cat(a)log i spróbuj ponownie."
 }

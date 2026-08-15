@@ -601,4 +601,8 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Sistemos numatytoji';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Jei iPhone/iPad vis nepavyksta: Nustatymai → Privatumas ir sauga → Vietinis tinklas → leisti cat(a)log ir bandyti dar kartą.';
 }

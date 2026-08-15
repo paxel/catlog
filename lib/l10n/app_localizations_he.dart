@@ -598,4 +598,8 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get systemDefault => 'ברירת מחדל של המערכת';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'אם זה ממשיך להיכשל ב-iPhone/iPad: הגדרות → פרטיות ואבטחה → רשת מקומית → אפשרו ל-cat(a)log ונסו שוב.';
 }

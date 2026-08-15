@@ -173,5 +173,6 @@
   "pickOnMap": "Alege pe hartă",
   "useMyLocation": "Folosește locația mea",
   "language": "Limbă",
-  "systemDefault": "Implicit sistem"
+  "systemDefault": "Implicit sistem",
+  "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou."
 }

@@ -173,5 +173,6 @@
   "pickOnMap": "Vali kaardilt",
   "useMyLocation": "Kasuta minu asukohta",
   "language": "Keel",
-  "systemDefault": "Süsteemi vaikimisi"
+  "systemDefault": "Süsteemi vaikimisi",
+  "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti."
 }

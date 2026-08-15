@@ -173,5 +173,6 @@
   "pickOnMap": "Kies op de kaart",
   "useMyLocation": "Mijn locatie gebruiken",
   "language": "Taal",
-  "systemDefault": "Systeemstandaard"
+  "systemDefault": "Systeemstandaard",
+  "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen."
 }

@@ -173,5 +173,6 @@
   "pickOnMap": "اختر على الخريطة",
   "useMyLocation": "استخدام موقعي",
   "language": "اللغة",
-  "systemDefault": "افتراضي النظام"
+  "systemDefault": "افتراضي النظام",
+  "iosLocalNetworkHint": "إذا استمر الفشل على iPhone/iPad: الإعدادات → الخصوصية والأمن → الشبكة المحلية → اسمح لـ cat(a)log ثم أعد المحاولة."
 }

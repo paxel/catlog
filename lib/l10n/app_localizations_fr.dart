@@ -602,4 +602,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get systemDefault => 'Langue du système';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer.';
 }

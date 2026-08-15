@@ -173,5 +173,6 @@
   "pickOnMap": "在地图上选择",
   "useMyLocation": "使用我的位置",
   "language": "语言",
-  "systemDefault": "跟随系统"
+  "systemDefault": "跟随系统",
+  "iosLocalNetworkHint": "如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。"
 }

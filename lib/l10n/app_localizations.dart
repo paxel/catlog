@@ -1213,6 +1213,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System default'**
   String get systemDefault;
+
+  /// No description provided for @iosLocalNetworkHint.
+  ///
+  /// In en, this message translates to:
+  /// **'If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.'**
+  String get iosLocalNetworkHint;
 }
 
 class _AppLocalizationsDelegate

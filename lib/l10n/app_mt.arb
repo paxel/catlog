@@ -173,5 +173,6 @@
   "pickOnMap": "Agħżel fuq il-mappa",
   "useMyLocation": "Uża l-post tiegħi",
   "language": "Lingwa",
-  "systemDefault": "Default tas-sistema"
+  "systemDefault": "Default tas-sistema",
+  "iosLocalNetworkHint": "Jekk jibqa' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa' pprova."
 }

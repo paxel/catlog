@@ -173,5 +173,6 @@
   "pickOnMap": "地図で選ぶ",
   "useMyLocation": "現在地を使う",
   "language": "言語",
-  "systemDefault": "システムの既定"
+  "systemDefault": "システムの既定",
+  "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。"
 }

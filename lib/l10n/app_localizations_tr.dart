@@ -600,4 +600,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get systemDefault => 'Sistem varsayılanı';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'iPhone/iPad\'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log\'a izin ver, sonra tekrar dene.';
 }

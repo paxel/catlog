@@ -601,4 +601,8 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get systemDefault => 'Системен по подразбиране';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ако на iPhone/iPad продължава да не успява: Настройки → Поверителност и сигурност → Локална мрежа → разреши cat(a)log и опитай пак.';
 }

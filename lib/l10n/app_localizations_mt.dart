@@ -603,4 +603,8 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Default tas-sistema';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Jekk jibqa\' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa\' pprova.';
 }

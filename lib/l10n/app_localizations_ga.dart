@@ -602,4 +602,8 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get systemDefault => 'Réamhshocrú an chórais';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.';
 }

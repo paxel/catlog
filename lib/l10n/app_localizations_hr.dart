@@ -601,4 +601,8 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get systemDefault => 'Zadano sustavom';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dopusti cat(a)log pa pokušaj ponovno.';
 }

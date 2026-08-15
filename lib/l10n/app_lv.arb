@@ -173,5 +173,6 @@
   "pickOnMap": "Izvēlēties kartē",
   "useMyLocation": "Izmantot manu atrašanās vietu",
   "language": "Valoda",
-  "systemDefault": "Sistēmas noklusējums"
+  "systemDefault": "Sistēmas noklusējums",
+  "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz."
 }

@@ -601,4 +601,8 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get systemDefault => 'Domyślny systemowy';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Jeśli na iPhone/iPad wciąż się nie udaje: Ustawienia → Prywatność i ochrona → Sieć lokalna → zezwól cat(a)log i spróbuj ponownie.';
 }

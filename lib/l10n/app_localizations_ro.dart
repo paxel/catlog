@@ -602,4 +602,8 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get systemDefault => 'Implicit sistem';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.';
 }

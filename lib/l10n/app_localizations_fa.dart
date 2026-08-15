@@ -600,4 +600,8 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get systemDefault => 'پیش‌فرض سیستم';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'اگر در iPhone/iPad همچنان ناموفق است: تنظیمات → حریم خصوصی و امنیت → شبکه محلی → به cat(a)log اجازه دهید و دوباره امتحان کنید.';
 }

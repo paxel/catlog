@@ -35,6 +35,28 @@ class _SyncScreenState extends State<SyncScreen> {
   String? _lastResult;
 
   @override
+  void initState() {
+    super.initState();
+    _pokeLocalNetwork();
+  }
+
+  /// iOS gates outgoing LAN connections behind the Local Network
+  /// permission prompt — and blocks traffic until it is answered.
+  /// Poking the network when the sync screen opens surfaces the prompt
+  /// BEFORE the user scans a code, so the first join doesn't time out.
+  Future<void> _pokeLocalNetwork() async {
+    if (!Platform.isIOS) return;
+    try {
+      final socket =
+          await RawDatagramSocket.bind(InternetAddress.anyIPv4, 0);
+      socket.send([0], InternetAddress('224.0.0.251'), 5353);
+      socket.close();
+    } catch (_) {
+      // Best effort — the prompt either appeared or was long answered.
+    }
+  }
+
+  @override
   void dispose() {
     _host?.stop();
     _code.dispose();
@@ -79,7 +101,11 @@ class _SyncScreenState extends State<SyncScreen> {
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
     } catch (e) {
-      setState(() => _lastResult = context.t.syncFailed('$e'));
+      if (mounted) {
+        final hint =
+            Platform.isIOS ? '\n${context.t.iosLocalNetworkHint}' : '';
+        setState(() => _lastResult = context.t.syncFailed('$e$hint'));
+      }
     } finally {
       if (mounted) setState(() => _joining = false);
     }

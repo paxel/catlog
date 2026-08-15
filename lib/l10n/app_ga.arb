@@ -173,5 +173,6 @@
   "pickOnMap": "Roghnaigh ar an léarscáil",
   "useMyLocation": "Úsáid mo shuíomh",
   "language": "Teanga",
-  "systemDefault": "Réamhshocrú an chórais"
+  "systemDefault": "Réamhshocrú an chórais",
+  "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as."
 }

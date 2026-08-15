@@ -173,5 +173,6 @@
   "pickOnMap": "Pasirinkti žemėlapyje",
   "useMyLocation": "Naudoti mano vietą",
   "language": "Kalba",
-  "systemDefault": "Sistemos numatytoji"
+  "systemDefault": "Sistemos numatytoji",
+  "iosLocalNetworkHint": "Jei iPhone/iPad vis nepavyksta: Nustatymai → Privatumas ir sauga → Vietinis tinklas → leisti cat(a)log ir bandyti dar kartą."
 }

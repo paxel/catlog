@@ -600,4 +600,8 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get systemDefault => 'Predvolený systém';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova.';
 }

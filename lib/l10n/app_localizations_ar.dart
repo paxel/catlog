@@ -600,4 +600,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get systemDefault => 'افتراضي النظام';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'إذا استمر الفشل على iPhone/iPad: الإعدادات → الخصوصية والأمن → الشبكة المحلية → اسمح لـ cat(a)log ثم أعد المحاولة.';
 }

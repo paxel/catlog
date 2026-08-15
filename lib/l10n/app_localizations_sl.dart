@@ -601,4 +601,8 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get systemDefault => 'Sistemsko privzeto';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.';
 }

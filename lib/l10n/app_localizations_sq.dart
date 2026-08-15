@@ -602,4 +602,8 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get systemDefault => 'Parazgjedhja e sistemit';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.';
 }

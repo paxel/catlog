@@ -600,4 +600,8 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get systemDefault => 'Sistēmas noklusējums';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.';
 }

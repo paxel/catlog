@@ -173,5 +173,6 @@
   "pickOnMap": "Kiválasztás térképen",
   "useMyLocation": "Saját helyzetem használata",
   "language": "Nyelv",
-  "systemDefault": "Rendszer alapértelmezés"
+  "systemDefault": "Rendszer alapértelmezés",
+  "iosLocalNetworkHint": "Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra."
 }

@@ -601,4 +601,8 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get systemDefault => 'Järjestelmän oletus';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.';
 }

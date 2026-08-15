@@ -173,5 +173,6 @@
   "pickOnMap": "Välj på kartan",
   "useMyLocation": "Använd min plats",
   "language": "Språk",
-  "systemDefault": "Systemstandard"
+  "systemDefault": "Systemstandard",
+  "iosLocalNetworkHint": "Om det fortsätter misslyckas på iPhone/iPad: Inställningar → Integritet och säkerhet → Lokalt nätverk → tillåt cat(a)log och försök igen."
 }

@@ -600,4 +600,8 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Süsteemi vaikimisi';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Kui iPhone\'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.';
 }

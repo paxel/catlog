@@ -603,4 +603,8 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get systemDefault => 'Sjálfgefið kerfis';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.';
 }

@@ -112,7 +112,9 @@ class LanSyncHost {
 /// directions, then photos both directions.
 Future<SyncResult> lanSync(
     CatalogStore store, String host, int port, String pin) async {
-  final client = HttpClient()..connectionTimeout = const Duration(seconds: 8);
+  // Generous timeout: on iOS the first-ever local connection blocks on
+  // the Local Network permission prompt until the user answers it.
+  final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
   try {
     Future<dynamic> call(String method, String path, {Object? body}) async {
       final req = await client.openUrl(method, Uri.parse('http://$host:$port$path'));

@@ -602,4 +602,8 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get systemDefault => 'Системски стандард';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ако и понатаму не успева на iPhone/iPad: Поставки → Приватност и безбедност → Локална мрежа → дозволи cat(a)log и обиди се пак.';
 }

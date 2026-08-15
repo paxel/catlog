@@ -601,4 +601,8 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get systemDefault => 'Systemstandard';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Hvis det bliver ved med at fejle på iPhone/iPad: Indstillinger → Anonymitet og sikkerhed → Lokalt netværk → tillad cat(a)log, og prøv igen.';
 }

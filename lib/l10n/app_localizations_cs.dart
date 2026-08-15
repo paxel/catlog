@@ -600,4 +600,8 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get systemDefault => 'Výchozí systému';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.';
 }

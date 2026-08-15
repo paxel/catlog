@@ -602,4 +602,8 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get systemDefault => 'Προεπιλογή συστήματος';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Αν συνεχίζει να αποτυγχάνει σε iPhone/iPad: Ρυθμίσεις → Απόρρητο και ασφάλεια → Τοπικό δίκτυο → επιτρέψτε το cat(a)log και δοκιμάστε ξανά.';
 }

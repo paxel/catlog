@@ -173,5 +173,6 @@
   "pickOnMap": "Vybrať na mape",
   "useMyLocation": "Použiť moju polohu",
   "language": "Jazyk",
-  "systemDefault": "Predvolený systém"
+  "systemDefault": "Predvolený systém",
+  "iosLocalNetworkHint": "Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova."
 }

@@ -601,4 +601,8 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get systemDefault => 'Системный по умолчанию';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Если на iPhone/iPad всё ещё не получается: Настройки → Конфиденциальность и безопасность → Локальная сеть → разрешите cat(a)log и попробуйте снова.';
 }

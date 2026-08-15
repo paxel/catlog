@@ -589,4 +589,8 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get systemDefault => '跟随系统';
+
+  @override
+  String get iosLocalNetworkHint =>
+      '如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。';
 }

@@ -591,4 +591,8 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get systemDefault => 'システムの既定';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。';
 }

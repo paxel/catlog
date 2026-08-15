@@ -602,4 +602,8 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Predefinita di sistema';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Se continua a fallire su iPhone/iPad: Impostazioni → Privacy e sicurezza → Rete locale → consenti cat(a)log, poi riprova.';
 }

@@ -173,5 +173,6 @@
   "pickOnMap": "Velja á korti",
   "useMyLocation": "Nota staðsetningu mína",
   "language": "Tungumál",
-  "systemDefault": "Sjálfgefið kerfis"
+  "systemDefault": "Sjálfgefið kerfis",
+  "iosLocalNetworkHint": "Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur."
 }

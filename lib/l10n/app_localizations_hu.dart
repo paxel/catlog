@@ -601,4 +601,8 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get systemDefault => 'Rendszer alapértelmezés';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.';
 }

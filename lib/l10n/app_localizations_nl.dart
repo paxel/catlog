@@ -602,4 +602,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get systemDefault => 'Systeemstandaard';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.';
 }

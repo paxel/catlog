@@ -600,4 +600,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Padrão do sistema';
+
+  @override
+  String get iosLocalNetworkHint =>
+      'Se continuar a falhar no iPhone/iPad: Definições → Privacidade e segurança → Rede local → permitir cat(a)log e tenta de novo.';
 }
