@@ -390,6 +390,16 @@ class CatalogStore {
     return id;
   }
 
+  /// Renames a Field definition (typo fixes). The slug — and with it the
+  /// key values are stored under — never changes, so existing entries
+  /// stay attached; only the display name moves, with full history.
+  void renameField(String fieldDefId, String newName, {DateTime? date}) {
+    if (current(fieldDefId, Keys.type) != Kinds.fieldDef) {
+      throw ArgumentError('Not a field definition: $fieldDefId');
+    }
+    append(fieldDefId, Keys.name, newName, date: date);
+  }
+
   /// Lowercase, alphanumeric-and-dash form of a Field name.
   static String slugify(String name) => name
       .trim()

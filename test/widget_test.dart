@@ -139,6 +139,43 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 
+  testWidgets('a stray can be created directly from the strays screen',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Strays'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add stray'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Foundling');
+    await tester.tap(find.text('Create'));
+    await tester.pumpAndSettle();
+
+    expect(store.strays().single.name, 'Foundling');
+  });
+
+  testWidgets('a field definition can be renamed', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.byTooltip('Fields'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Color'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Colour');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Colour'), findsOneWidget);
+    expect(
+        store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
+  });
+
   testWidgets('card screen renders with and without a photo',
       (tester) async {
     final store = CatalogStore.inMemory();

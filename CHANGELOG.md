@@ -42,3 +42,8 @@ Milestone M1: local-only catalog with Cards.
 - Android release signing (own upload keystore, debug fallback for local
   builds) and a tag-driven Release workflow attaching signed per-ABI and
   universal APKs to GitHub Releases.
+- Home screen shows Clowders as photo cards (two per row, sorted by name,
+  faded cat photo background, shadowed name).
+- Strays can be created directly from the Strays screen.
+- Field definitions can be renamed (typo fixes); values and history stay
+  attached, the rename itself is recorded history.

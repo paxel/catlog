@@ -12,6 +12,36 @@ class FieldsScreen extends StatefulWidget {
 }
 
 class _FieldsScreenState extends State<FieldsScreen> {
+  Future<void> _renameField(FieldDef def) async {
+    final controller = TextEditingController(text: def.name);
+    final name = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Rename field'),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(labelText: 'Name'),
+          onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () =>
+                Navigator.of(context).pop(controller.text.trim()),
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    );
+    if (name == null || name.isEmpty || name == def.name) return;
+    widget.store.renameField(def.id, name);
+    setState(() {});
+  }
+
   Future<void> _addField() async {
     final created = await showDialog<bool>(
       context: context,
@@ -36,6 +66,8 @@ class _FieldsScreenState extends State<FieldsScreen> {
                 'for ${def.scope.name}',
                 if (def.options.isNotEmpty) def.options.join(', '),
               ].join(' · ')),
+              trailing: const Icon(Icons.edit_outlined),
+              onTap: () => _renameField(def),
             ),
         ],
       ),

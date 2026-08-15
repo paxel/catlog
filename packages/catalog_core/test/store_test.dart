@@ -324,6 +324,25 @@ void main() {
       expect(() => store.defineField('Weight', FieldType.number),
           throwsArgumentError);
     });
+
+    test('renaming a field keeps its key, values, and history', () {
+      final id = store.defineField('Waight', FieldType.number);
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:waight', '4.2');
+
+      store.renameField(id, 'Weight');
+      final def = store.fieldDefs().firstWhere((d) => d.id == id);
+      expect(def.name, 'Weight');
+      expect(def.slug, 'waight'); // slug is internal, stays
+      expect(store.current(cat, def.key), '4.2');
+      expect(store.fieldHistory(id, Keys.name).map((e) => e.value),
+          containsAll(['Waight', 'Weight']));
+    });
+
+    test('renameField refuses non-definitions', () {
+      final cat = store.createCat('Miezi');
+      expect(() => store.renameField(cat, 'X'), throwsArgumentError);
+    });
   });
 
   group('starter fields', () {

@@ -16,11 +16,51 @@ class StraysScreen extends StatefulWidget {
 }
 
 class _StraysScreenState extends State<StraysScreen> {
+  Future<void> _addStray() async {
+    final controller = TextEditingController();
+    final name = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('New stray'),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(labelText: 'Name'),
+          onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () =>
+                Navigator.of(context).pop(controller.text.trim()),
+            child: const Text('Create'),
+          ),
+        ],
+      ),
+    );
+    if (name == null || name.isEmpty || !mounted) return;
+    final catId = widget.store.createCat(name);
+    setState(() {});
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CatDetailScreen(
+          store: widget.store, catId: catId, promptPhoto: true),
+    ));
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final strays = widget.store.strays();
     return Scaffold(
       appBar: AppBar(title: const Text('Strays')),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _addStray,
+        icon: const Icon(Icons.add),
+        label: const Text('Add stray'),
+      ),
       body: strays.isEmpty
           ? const Center(child: Text('No strays right now.'))
           : ListView.builder(
