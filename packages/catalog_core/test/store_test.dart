@@ -215,6 +215,51 @@ void main() {
     });
   });
 
+  group('revert', () {
+    test('reverting a rename restores the previous name as a new entry', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, Keys.name, 'Mizzi');
+      final rename = store.fieldHistory(cat, Keys.name).first;
+
+      final restored = store.revertEntry(rename.seq);
+      expect(restored, 'Miezi');
+      expect(store.current(cat, Keys.name), 'Miezi');
+      // Nothing deleted: original, rename, and revert all in history.
+      expect(store.fieldHistory(cat, Keys.name).length, 3);
+    });
+
+    test('reverting a move puts the cat back', () {
+      final a = store.createClowder('A');
+      final b = store.createClowder('B');
+      final cat = store.createCat('Miezi', clowderId: a);
+      store.moveCat(cat, b);
+      final move = store.fieldHistory(cat, Keys.clowder).first;
+
+      store.revertEntry(move.seq);
+      expect(store.current(cat, Keys.clowder), a);
+    });
+
+    test('reverting the first entry of a field clears it', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:color', 'black');
+      final first = store.fieldHistory(cat, 'f:color').first;
+
+      expect(store.revertEntry(first.seq), isNull);
+      expect(store.current(cat, 'f:color'), isNull);
+    });
+
+    test('structural and photo entries are not revertable', () {
+      final cat = store.createCat('Miezi');
+      final hash = store.addImage(
+          cat, CatalogStore.compressImage(makeJpeg(30, 30)));
+      store.deleteImage(cat, hash);
+      final marker = store.fieldHistory(cat, Keys.image(hash)).first;
+      expect(() => store.revertEntry(marker.seq), throwsArgumentError);
+      expect(CatalogStore.isRevertable(Keys.type), isFalse);
+      expect(CatalogStore.isRevertable(Keys.name), isTrue);
+    });
+  });
+
   group('search', () {
     test('finds cats by name across clowders and strays', () {
       final home = store.createClowder('Home');

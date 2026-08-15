@@ -47,3 +47,6 @@ Milestone M1: local-only catalog with Cards.
 - Strays can be created directly from the Strays screen.
 - Field definitions can be renamed (typo fixes); values and history stay
   attached, the rename itself is recorded history.
+- Revert from history, git-style: any regular change (rename, field value,
+  move) can be reverted; the previous value is appended as a new entry at
+  the current time and both change and undo remain visible.

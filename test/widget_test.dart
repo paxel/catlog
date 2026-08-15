@@ -176,6 +176,31 @@ void main() {
         store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
   });
 
+  testWidgets('a change can be reverted from the timeline', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    final cat = store.createCat('Miezi', clowderId: home);
+    store.append(cat, Keys.name, 'Mizzi');
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Mizzi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Timeline'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.textContaining('Name: Mizzi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Revert this change'));
+    await tester.pumpAndSettle();
+
+    expect(store.current(cat, Keys.name), 'Miezi');
+    expect(store.fieldHistory(cat, Keys.name).length, 3);
+  });
+
   testWidgets('card screen renders with and without a photo',
       (tester) async {
     final store = CatalogStore.inMemory();

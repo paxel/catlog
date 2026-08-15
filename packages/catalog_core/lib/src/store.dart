@@ -166,6 +166,46 @@ class CatalogStore {
 
   bool isDeleted(String entity) => current(entity, Keys.deleted) == 'true';
 
+  /// True when [field] may be reverted from the history UI. Structural
+  /// markers and photo entries are not revertable (photo bytes are gone
+  /// for good once deleted).
+  static bool isRevertable(String field) =>
+      field != Keys.type &&
+      field != Keys.deleted &&
+      !field.startsWith(Keys.imagePrefix);
+
+  /// Reverts one entry, git-style: appends the value that was current
+  /// just before it — for its (entity, field) — as a NEW entry at the
+  /// current time. Nothing is deleted; both the change and its undo
+  /// stay in history. Returns the value that was restored.
+  String? revertEntry(int seq) {
+    final rows =
+        _db.select('SELECT * FROM entries WHERE seq = ?', [seq]);
+    if (rows.isEmpty) throw ArgumentError('No entry with seq $seq');
+    final entry = _entry(rows.first);
+    if (!isRevertable(entry.field)) {
+      throw ArgumentError('Field ${entry.field} cannot be reverted');
+    }
+    // Predecessor: the latest entry for the same (entity, field) that
+    // sorts strictly before the reverted one in projection order.
+    final prev = _db.select(
+      'SELECT * FROM entries WHERE entity = ? AND field = ? '
+      'AND (date, recorded, author, seq) < (?, ?, ?, ?) $_latest LIMIT 1',
+      [
+        entry.entity,
+        entry.field,
+        entry.date.toIso8601String(),
+        entry.recorded.toIso8601String(),
+        entry.author,
+        entry.seq,
+      ],
+    );
+    final restored =
+        prev.isEmpty ? null : prev.first['value'] as String?;
+    append(entry.entity, entry.field, restored);
+    return restored;
+  }
+
   /// Ids of all non-deleted entities of a kind, oldest first.
   List<String> _entitiesOf(String kind) {
     final rows = _db.select(
