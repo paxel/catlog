@@ -198,42 +198,140 @@ class CatalogStore {
   static const _latest =
       'ORDER BY date DESC, recorded DESC, author DESC, device DESC, dseq DESC';
 
-  /// Current value of one field, or null if never set or last set to null.
-  String? current(String entity, String field) {
+  // ------------------------------------------------------- alias (merge)
+
+  /// Raw loser → survivor map from the latest $mergedInto entries.
+  /// Built with plain SQL — never through the alias-aware readers.
+  Map<String, String> _mergeTargets() {
     final rows = _db.select(
-      'SELECT * FROM entries WHERE entity = ? AND field = ? $_latest LIMIT 1',
-      [entity, field],
+      'SELECT * FROM entries WHERE field = ? $_latest',
+      [Keys.mergedInto],
     );
-    return rows.isEmpty ? null : rows.first['value'] as String?;
+    final map = <String, String>{};
+    for (final r in rows) {
+      map.putIfAbsent(r['entity'] as String, () => r['value'] as String);
+    }
+    return map;
   }
 
-  /// Current value of every field of an entity.
-  Map<String, String?> currentFields(String entity) {
+  /// Canonical id: follows the merge chain (cycle-safe).
+  String resolveEntity(String id) {
+    final targets = _mergeTargets();
+    var current = id;
+    final seen = <String>{};
+    while (targets.containsKey(current) && seen.add(current)) {
+      current = targets[current]!;
+    }
+    return current;
+  }
+
+  /// The alias group of a canonical id: itself plus every loser whose
+  /// chain resolves to it. Used for Cats and Clowders (value union);
+  /// field definitions read survivor-only properties instead.
+  List<String> _group(String id) {
+    final targets = _mergeTargets();
+    if (targets.isEmpty) return [id];
+    String resolve(String x) {
+      final seen = <String>{};
+      while (targets.containsKey(x) && seen.add(x)) {
+        x = targets[x]!;
+      }
+      return x;
+    }
+
+    final canonical = resolve(id);
+    return [
+      canonical,
+      for (final loser in targets.keys)
+        if (resolve(loser) == canonical) loser
+    ];
+  }
+
+  /// All keys a field key answers for: itself plus the keys of field
+  /// definitions merged into its definition.
+  List<String> _keysFor(String field) {
+    if (!field.startsWith('f:')) return [field];
+    final defId = 'fielddef:${field.substring(2)}';
+    return [
+      for (final id in _group(defId)) 'f:${id.substring('fielddef:'.length)}'
+    ];
+  }
+
+  /// Display key for a raw stored field key: loser keys map to the
+  /// survivor's key.
+  String canonicalKey(String field) {
+    if (!field.startsWith('f:')) return field;
+    final resolved = resolveEntity('fielddef:${field.substring(2)}');
+    return 'f:${resolved.substring('fielddef:'.length)}';
+  }
+
+  String _placeholders(int n) => List.filled(n, '?').join(', ');
+
+  bool _unionKind(String entity) =>
+      entity.startsWith('cat:') || entity.startsWith('clowder:');
+
+  /// Current value of one field, or null if never set or last set to null.
+  /// Cat/Clowder reads unite the alias group; field keys unite aliased
+  /// definitions; Clowder membership values resolve to the survivor.
+  String? current(String entity, String field) {
+    final entities = _unionKind(entity) ? _group(entity) : [entity];
+    final keys = _keysFor(field);
     final rows = _db.select(
-      'SELECT field, value FROM entries WHERE entity = ? $_latest',
-      [entity],
+      'SELECT * FROM entries WHERE entity IN (${_placeholders(entities.length)}) '
+      'AND field IN (${_placeholders(keys.length)}) $_latest LIMIT 1',
+      [...entities, ...keys],
+    );
+    if (rows.isEmpty) return null;
+    final value = rows.first['value'] as String?;
+    if (field == Keys.clowder && value != null) return resolveEntity(value);
+    return value;
+  }
+
+  /// Current value of every field of an entity, loser field keys shown
+  /// under the survivor's key.
+  Map<String, String?> currentFields(String entity) {
+    final entities = _unionKind(entity) ? _group(entity) : [entity];
+    final rows = _db.select(
+      'SELECT field, value FROM entries '
+      'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
+      entities,
     );
     final result = <String, String?>{};
     for (final r in rows) {
-      result.putIfAbsent(r['field'] as String, () => r['value'] as String?);
+      result.putIfAbsent(
+          canonicalKey(r['field'] as String), () => r['value'] as String?);
     }
     return result;
   }
 
-  /// Every entry of an entity, newest effective date first.
-  List<Entry> timeline(String entity) => _db
-      .select('SELECT * FROM entries WHERE entity = ? $_latest', [entity])
-      .map(_entry)
-      .toList();
+  /// Every entry of an entity (including merged-in losers), newest
+  /// effective date first.
+  List<Entry> timeline(String entity) {
+    final entities = _unionKind(entity) ? _group(entity) : [entity];
+    return _db
+        .select(
+          'SELECT * FROM entries '
+          'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
+          entities,
+        )
+        .map(_entry)
+        .toList();
+  }
 
   /// Every entry of one field of an entity, newest effective date first.
-  List<Entry> fieldHistory(String entity, String field) => _db
-      .select(
-        'SELECT * FROM entries WHERE entity = ? AND field = ? $_latest',
-        [entity, field],
-      )
-      .map(_entry)
-      .toList();
+  List<Entry> fieldHistory(String entity, String field) {
+    final entities = _unionKind(entity) ? _group(entity) : [entity];
+    final keys = _keysFor(field);
+    return _db
+        .select(
+          'SELECT * FROM entries '
+          'WHERE entity IN (${_placeholders(entities.length)}) '
+          'AND field IN (${_placeholders(keys.length)}) $_latest',
+          [...entities, ...keys],
+        )
+        .map(_entry)
+        .toList();
+  }
 
   bool isDeleted(String entity) => current(entity, Keys.deleted) == 'true';
 
@@ -279,8 +377,9 @@ class CatalogStore {
     return restored;
   }
 
-  /// Ids of all non-deleted entities of a kind, oldest first.
+  /// Ids of all non-deleted, non-merged entities of a kind, oldest first.
   List<String> _entitiesOf(String kind) {
+    final merged = _mergeTargets();
     final rows = _db.select(
       'SELECT DISTINCT entity FROM entries WHERE field = ? AND value = ? '
       'ORDER BY seq',
@@ -288,7 +387,9 @@ class CatalogStore {
     );
     return [
       for (final r in rows)
-        if (!isDeleted(r['entity'] as String)) r['entity'] as String
+        if (!merged.containsKey(r['entity'] as String) &&
+            !isDeleted(r['entity'] as String))
+          r['entity'] as String
     ];
   }
 
@@ -320,12 +421,15 @@ class CatalogStore {
     return id;
   }
 
-  /// Cats currently in [clowderId], or every Cat when null.
-  List<EntityView> cats({String? clowderId}) => [
-        for (final id in _entitiesOf(Kinds.cat))
-          if (clowderId == null || current(id, Keys.clowder) == clowderId)
-            _view(id)
-      ];
+  /// Cats currently in [clowderId], or every Cat when null. Membership
+  /// pointing at a merged Clowder counts for the survivor.
+  List<EntityView> cats({String? clowderId}) {
+    final target = clowderId == null ? null : resolveEntity(clowderId);
+    return [
+      for (final id in _entitiesOf(Kinds.cat))
+        if (target == null || current(id, Keys.clowder) == target) _view(id)
+    ];
+  }
 
   /// Moves a Cat into a Clowder — adoption is exactly this — or, with
   /// null, records it leaving with no destination: the Cat becomes a
@@ -345,24 +449,28 @@ class CatalogStore {
   /// [counterpart] is where the cat came from / went to — a Clowder id,
   /// or null for Stray.
   List<ClowderEvent> clowderOccupancy(String clowderId) {
+    final target = resolveEntity(clowderId);
     final events = <ClowderEvent>[];
     final rows = _db.select(
       'SELECT DISTINCT entity FROM entries WHERE field = ?',
       [Keys.clowder],
     );
+    final merged = _mergeTargets();
     for (final r in rows) {
       final catId = r['entity'] as String;
+      if (merged.containsKey(catId)) continue; // counted via survivor
       final history = fieldHistory(catId, Keys.clowder).reversed;
       String? prev;
       for (final e in history) {
-        if (e.value == clowderId && prev != clowderId) {
+        final value = e.value == null ? null : resolveEntity(e.value!);
+        if (value == target && prev != target) {
           events.add(ClowderEvent(
               entry: e, catId: catId, arrived: true, counterpart: prev));
-        } else if (prev == clowderId && e.value != clowderId) {
+        } else if (prev == target && value != target) {
           events.add(ClowderEvent(
-              entry: e, catId: catId, arrived: false, counterpart: e.value));
+              entry: e, catId: catId, arrived: false, counterpart: value));
         }
-        prev = e.value;
+        prev = value;
       }
     }
     events.sort((a, b) => b.entry.date.compareTo(a.entry.date));
@@ -414,12 +522,15 @@ class CatalogStore {
     return hash;
   }
 
-  /// Content hashes of a Cat's images, oldest first, deleted ones excluded.
+  /// Content hashes of a Cat's images (merged-in losers included),
+  /// oldest first, deleted ones excluded.
   List<String> images(String catId) {
+    final entities = _group(catId);
     final rows = _db.select(
-      'SELECT DISTINCT field FROM entries WHERE entity = ? AND field LIKE ? '
+      'SELECT DISTINCT field FROM entries '
+      'WHERE entity IN (${_placeholders(entities.length)}) AND field LIKE ? '
       'ORDER BY seq',
-      [catId, '${Keys.imagePrefix}%'],
+      [...entities, '${Keys.imagePrefix}%'],
     );
     return [
       for (final r in rows)
@@ -533,6 +644,61 @@ class CatalogStore {
       }
     }
     return imported;
+  }
+
+  // ----------------------------------------------------------------- merge
+
+  /// Merges two Cats: [loserId] folds into [survivorId], irreversibly
+  /// (see CONTEXT.md: Merge). The survivor re-asserts its current values
+  /// so they win the combined projection; loser values fill only gaps.
+  void mergeCat(String loserId, String survivorId, {DateTime? date}) =>
+      _merge(loserId, survivorId, 'cat:', date);
+
+  /// Merges two Clowders; membership pointing at the loser resolves to
+  /// the survivor — including entries still syncing in from elsewhere.
+  void mergeClowder(String loserId, String survivorId, {DateTime? date}) =>
+      _merge(loserId, survivorId, 'clowder:', date);
+
+  /// Merges two Field definitions of the SAME type; values recorded
+  /// under either key read as the survivor's field from now on.
+  void mergeField(String loserDefId, String survivorDefId, {DateTime? date}) {
+    final lt = current(loserDefId, Keys.fieldType);
+    final st = current(survivorDefId, Keys.fieldType);
+    if (lt == null || st == null) {
+      throw ArgumentError('Not field definitions: $loserDefId, $survivorDefId');
+    }
+    if (lt != st) {
+      throw ArgumentError('Cannot merge $lt field into $st field');
+    }
+    _merge(loserDefId, survivorDefId, 'fielddef:', date, reassert: false);
+  }
+
+  void _merge(String loserId, String survivorId, String prefix, DateTime? date,
+      {bool reassert = true}) {
+    if (!loserId.startsWith(prefix) || !survivorId.startsWith(prefix)) {
+      throw ArgumentError('Merge partners must both be ${prefix}entities');
+    }
+    if (loserId == survivorId) {
+      throw ArgumentError('Cannot merge an entity into itself');
+    }
+    if (resolveEntity(survivorId) == loserId ||
+        _mergeTargets().containsKey(loserId)) {
+      throw ArgumentError('Merge would create a cycle or re-merge a loser');
+    }
+    if (reassert) {
+      // Survivor-wins: re-assert survivor values that the loser's newer
+      // entries would otherwise override in the combined projection.
+      final survivorFields = currentFields(survivorId);
+      final loserFields = currentFields(loserId);
+      for (final key in survivorFields.keys) {
+        if (key == Keys.type || key == Keys.deleted) continue;
+        if (key.startsWith(Keys.imagePrefix)) continue;
+        if (!loserFields.containsKey(key)) continue;
+        if (loserFields[key] == survivorFields[key]) continue;
+        append(survivorId, key, survivorFields[key], date: date);
+      }
+    }
+    append(loserId, Keys.mergedInto, survivorId, date: date);
   }
 
   // ------------------------------------------------------------- conflicts

@@ -4,11 +4,11 @@
 
 **Blocked by:** 01 — Device identity (stable ordering for re-assertion).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] mergeCat / mergeClowder / mergeField with alias resolution in all read paths
-- [ ] Survivor re-assertion for Cats and Clowders; latest-wins union for field values
-- [ ] Same-type guard for field merges; cycle refusal; merged losers hidden from lists
-- [ ] Offline-entry case: values recorded against the loser on another device land on the survivor after sync
-- [ ] ADR written (alias merge, copy-merge rejected)
-- [ ] Core tests cover all record kinds and the offline case
+- [x] mergeCat / mergeClowder / mergeField with alias resolution in all read paths
+- [x] Survivor re-assertion for Cats and Clowders; latest-wins union for field values
+- [x] Same-type guard for field merges; cycle refusal; merged losers hidden from lists
+- [x] Offline-entry case: values recorded against the loser on another device land on the survivor after sync
+- [x] ADR written (alias merge, copy-merge rejected)
+- [x] Core tests cover all record kinds and the offline case

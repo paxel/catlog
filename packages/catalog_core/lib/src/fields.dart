@@ -6,6 +6,10 @@ abstract final class Keys {
   /// `true` when the entity is deleted (hidden everywhere).
   static const deleted = r'$deleted';
 
+  /// Alias merge (see docs/adr and .scratch/m2-notes.md): set on the
+  /// LOSER, value = survivor entity id. Reads resolve the chain.
+  static const mergedInto = r'$mergedInto';
+
   /// Display name of a Cat, Clowder, or field definition.
   static const name = 'name';
 
