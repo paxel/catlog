@@ -85,8 +85,8 @@ jobs:
       - run: flutter pub get
       - name: Build signed APKs
         run: |
-          flutter build apk --release --split-per-abi
-          flutter build apk --release
+          flutter build apk --release --split-per-abi --build-number=$GITHUB_RUN_NUMBER
+          flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
       - name: Rename artifacts
         run: |
           v="${RELEASE_TAG#v}"
