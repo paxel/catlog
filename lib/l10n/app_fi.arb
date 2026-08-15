@@ -157,5 +157,21 @@
   "dragToSelect": "Vedä suorakulmio kissan ympärille",
   "dragOverTheCat": "Vedä ellipsi kissan päälle",
   "cropPhoto": "Rajaa…",
-  "markPhoto": "Merkitse…"
+  "markPhoto": "Merkitse…",
+  "scanCode": "Skannaa koodi",
+  "orTypeCode": "Tai kirjoita koodi",
+  "copyCode": "Kopioi koodi",
+  "copied": "Kopioitu",
+  "invalidCode": "Koodi ei kelpaa",
+  "hotspotHint": "Ei yhteistä Wi-Fiä? Laita yhden puhelimen hotspot päälle, yhdistä toinen siihen ja isännöi tässä.",
+  "byMessenger": "Viestisovelluksella",
+  "byMessengerExplainer": "Lähetä koko luettelo yhtenä tiedostona WhatsAppilla, Signalilla tai sähköpostilla — toinen puoli tuo sen.",
+  "shareBundle": "Jaa synkronointipaketti…",
+  "importBundle": "Tuo synkronointipaketti…",
+  "bundleImported": "Paketti tuotu: {result}",
+  "bundleImportFailed": "Tuonti epäonnistui: {error}",
+  "pickOnMap": "Valitse kartalta",
+  "useMyLocation": "Käytä sijaintiani",
+  "language": "Kieli",
+  "systemDefault": "Järjestelmän oletus"
 }

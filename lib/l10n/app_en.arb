@@ -367,5 +367,35 @@
   "dragToSelect": "Drag a rectangle around the cat",
   "dragOverTheCat": "Drag an ellipse over the cat",
   "cropPhoto": "Crop…",
-  "markPhoto": "Mark…"
+  "markPhoto": "Mark…",
+  "scanCode": "Scan code",
+  "orTypeCode": "Or type the code",
+  "copyCode": "Copy code",
+  "copied": "Copied",
+  "invalidCode": "That code is not valid",
+  "hotspotHint": "No shared Wi-Fi? Turn on one phone's hotspot, connect the other phone to it, then host here.",
+  "byMessenger": "By messenger",
+  "byMessengerExplainer": "Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.",
+  "shareBundle": "Share sync bundle…",
+  "importBundle": "Import sync bundle…",
+  "bundleImported": "Bundle imported: {result}",
+  "@bundleImported": {
+    "placeholders": {
+      "result": {
+        "type": "String"
+      }
+    }
+  },
+  "bundleImportFailed": "Import failed: {error}",
+  "@bundleImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "pickOnMap": "Pick on map",
+  "useMyLocation": "Use my location",
+  "language": "Language",
+  "systemDefault": "System default"
 }

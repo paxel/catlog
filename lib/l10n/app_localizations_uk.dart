@@ -546,4 +546,58 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get markPhoto => 'Позначити…';
+
+  @override
+  String get scanCode => 'Сканувати код';
+
+  @override
+  String get orTypeCode => 'Або введіть код';
+
+  @override
+  String get copyCode => 'Копіювати код';
+
+  @override
+  String get copied => 'Скопійовано';
+
+  @override
+  String get invalidCode => 'Цей код недійсний';
+
+  @override
+  String get hotspotHint =>
+      'Немає спільного Wi-Fi? Увімкніть точку доступу на одному телефоні, підключіть інший і роздавайте тут.';
+
+  @override
+  String get byMessenger => 'Через месенджер';
+
+  @override
+  String get byMessengerExplainer =>
+      'Надішліть увесь каталог одним файлом через WhatsApp, Signal чи пошту — інша сторона його імпортує.';
+
+  @override
+  String get shareBundle => 'Поділитися пакетом синхронізації…';
+
+  @override
+  String get importBundle => 'Імпортувати пакет синхронізації…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакет імпортовано: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Помилка імпорту: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Обрати на мапі';
+
+  @override
+  String get useMyLocation => 'Використати моє місцезнаходження';
+
+  @override
+  String get language => 'Мова';
+
+  @override
+  String get systemDefault => 'Системна за замовчуванням';
 }

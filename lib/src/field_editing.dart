@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'screens/position_picker_screen.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
 /// (possibly backdated) date.
@@ -100,16 +101,30 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
               const TextInputType.numberWithOptions(decimal: true),
           decoration: InputDecoration(labelText: context.t.value),
         );
-      case FieldType.text:
       case FieldType.location:
+        return ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.location_pin),
+          title: Text(_text.text.isEmpty
+              ? context.t.pickOnMap
+              : _text.text),
+          trailing: const Icon(Icons.map_outlined),
+          onTap: () async {
+            final picked = await Navigator.of(context).push<String>(
+              MaterialPageRoute(
+                builder: (_) => PositionPickerScreen(
+                    initial:
+                        _text.text.isEmpty ? null : _text.text),
+              ),
+            );
+            if (picked != null) setState(() => _text.text = picked);
+          },
+        );
+      case FieldType.text:
         return TextField(
           controller: _text,
           autofocus: true,
-          decoration: InputDecoration(
-            labelText: def.type == FieldType.location
-                ? context.t.latitudeLongitude
-                : context.t.value,
-          ),
+          decoration: InputDecoration(labelText: context.t.value),
         );
     }
   }

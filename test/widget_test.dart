@@ -128,6 +128,9 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('No clowder — stray / ran away'));
     await tester.pumpAndSettle();
+    // Moves ask for the effective date (historic moves are a thing).
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
 
     expect(store.strays().single.id, cat);
     expect(find.text('Stray — no clowder'), findsOneWidget);

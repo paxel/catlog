@@ -10,6 +10,7 @@ import '../field_labels.dart';
 import '../image_import.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
+import '../name_date_dialog.dart';
 import '../stray_cam.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
@@ -96,7 +97,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (target == null) return; // dialog dismissed
     final destination = target == _strayMarker ? null : target;
     if (destination == currentClowder) return;
-    store.moveCat(id, destination);
+    if (!mounted) return;
+    // Historic moves happen: the date is askable, defaulting to today.
+    final asOf = await askAsOfDate(context, context.t.moveTo);
+    if (asOf == null) return;
+    store.moveCat(id, destination, date: asOf);
     setState(() {});
   }
 

@@ -157,5 +157,21 @@
   "dragToSelect": "Ziehe ein Rechteck um die Katze",
   "dragOverTheCat": "Ziehe eine Ellipse über die Katze",
   "cropPhoto": "Zuschneiden…",
-  "markPhoto": "Markieren…"
+  "markPhoto": "Markieren…",
+  "scanCode": "Code scannen",
+  "orTypeCode": "Oder Code eintippen",
+  "copyCode": "Code kopieren",
+  "copied": "Kopiert",
+  "invalidCode": "Dieser Code ist ungültig",
+  "hotspotHint": "Kein gemeinsames WLAN? Hotspot auf einem Handy einschalten, das andere damit verbinden, dann hier anbieten.",
+  "byMessenger": "Per Messenger",
+  "byMessengerExplainer": "Schick deinen ganzen Katalog als eine Datei über WhatsApp, Signal oder Mail — die Gegenseite importiert sie.",
+  "shareBundle": "Sync-Paket teilen…",
+  "importBundle": "Sync-Paket importieren…",
+  "bundleImported": "Paket importiert: {result}",
+  "bundleImportFailed": "Import fehlgeschlagen: {error}",
+  "pickOnMap": "Auf Karte wählen",
+  "useMyLocation": "Meinen Standort verwenden",
+  "language": "Sprache",
+  "systemDefault": "Systemstandard"
 }

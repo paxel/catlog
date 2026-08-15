@@ -536,4 +536,57 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get markPhoto => '标记…';
+
+  @override
+  String get scanCode => '扫描代码';
+
+  @override
+  String get orTypeCode => '或输入代码';
+
+  @override
+  String get copyCode => '复制代码';
+
+  @override
+  String get copied => '已复制';
+
+  @override
+  String get invalidCode => '该代码无效';
+
+  @override
+  String get hotspotHint => '没有共同的 Wi-Fi？打开一部手机的热点，让另一部连接，然后在这里托管。';
+
+  @override
+  String get byMessenger => '通过聊天软件';
+
+  @override
+  String get byMessengerExplainer =>
+      '把整个目录作为一个文件通过 WhatsApp、Signal 或邮件发送——对方导入即可。';
+
+  @override
+  String get shareBundle => '分享同步包…';
+
+  @override
+  String get importBundle => '导入同步包…';
+
+  @override
+  String bundleImported(String result) {
+    return '已导入同步包：$result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return '导入失败：$error';
+  }
+
+  @override
+  String get pickOnMap => '在地图上选择';
+
+  @override
+  String get useMyLocation => '使用我的位置';
+
+  @override
+  String get language => '语言';
+
+  @override
+  String get systemDefault => '跟随系统';
 }

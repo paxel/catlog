@@ -8,6 +8,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n.dart';
+import '../language_dialog.dart';
+import '../name_date_dialog.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
@@ -47,9 +49,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   }
 
   Future<void> _addClowder() async {
-    final name = await _askForName(context);
-    if (name == null || !mounted) return;
-    final id = widget.store.createClowder(name);
+    final result = await askNameAndDate(context, context.t.newClowder);
+    if (result == null || !mounted) return;
+    final id = widget.store.createClowder(result.name, date: result.date);
     setState(() {});
     if (!mounted) return;
     await Navigator.of(context).push(MaterialPageRoute(
@@ -104,6 +106,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'csv') _exportCsv();
+              if (v == 'language') {
+                showLanguageDialog(context, widget.store);
+              }
               if (v == 'about') {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) => const AboutScreen(),
@@ -113,6 +118,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             itemBuilder: (context) => [
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
+              PopupMenuItem(
+                  value: 'language', child: Text(context.t.language)),
               PopupMenuItem(
                   value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],
@@ -246,28 +253,3 @@ class _ClowderCard extends StatelessWidget {
   }
 }
 
-Future<String?> _askForName(BuildContext context) {
-  final controller = TextEditingController();
-  return showDialog<String>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text(context.t.newClowder),
-      content: TextField(
-        controller: controller,
-        autofocus: true,
-        decoration: InputDecoration(labelText: context.t.name),
-        onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(context.t.cancel),
-        ),
-        FilledButton(
-          onPressed: () => Navigator.of(context).pop(controller.text.trim()),
-          child: Text(context.t.create),
-        ),
-      ],
-    ),
-  ).then((name) => (name == null || name.isEmpty) ? null : name);
-}

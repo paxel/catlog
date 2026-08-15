@@ -544,4 +544,58 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get markPhoto => 'סימון…';
+
+  @override
+  String get scanCode => 'סריקת קוד';
+
+  @override
+  String get orTypeCode => 'או הקלידו את הקוד';
+
+  @override
+  String get copyCode => 'העתקת קוד';
+
+  @override
+  String get copied => 'הועתק';
+
+  @override
+  String get invalidCode => 'הקוד הזה לא תקין';
+
+  @override
+  String get hotspotHint =>
+      'אין Wi-Fi משותף? הפעילו נקודה חמה בטלפון אחד, חברו את השני וארחו כאן.';
+
+  @override
+  String get byMessenger => 'דרך מסנג\'ר';
+
+  @override
+  String get byMessengerExplainer =>
+      'שלחו את כל הקטלוג כקובץ אחד ב-WhatsApp, Signal או מייל — הצד השני מייבא אותו.';
+
+  @override
+  String get shareBundle => 'שיתוף חבילת סנכרון…';
+
+  @override
+  String get importBundle => 'ייבוא חבילת סנכרון…';
+
+  @override
+  String bundleImported(String result) {
+    return 'החבילה יובאה: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'הייבוא נכשל: $error';
+  }
+
+  @override
+  String get pickOnMap => 'בחירה במפה';
+
+  @override
+  String get useMyLocation => 'שימוש במיקום שלי';
+
+  @override
+  String get language => 'שפה';
+
+  @override
+  String get systemDefault => 'ברירת מחדל של המערכת';
 }

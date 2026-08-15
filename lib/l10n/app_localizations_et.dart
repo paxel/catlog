@@ -546,4 +546,58 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get markPhoto => 'Märgi…';
+
+  @override
+  String get scanCode => 'Skanni kood';
+
+  @override
+  String get orTypeCode => 'Või sisesta kood';
+
+  @override
+  String get copyCode => 'Kopeeri kood';
+
+  @override
+  String get copied => 'Kopeeritud';
+
+  @override
+  String get invalidCode => 'See kood ei kehti';
+
+  @override
+  String get hotspotHint =>
+      'Ühist Wi-Fit pole? Lülita ühe telefoni kuumkoht sisse, ühenda teine ja majuta siin.';
+
+  @override
+  String get byMessenger => 'Sõnumirakendusega';
+
+  @override
+  String get byMessengerExplainer =>
+      'Saada kogu kataloog ühe failina WhatsAppi, Signali või e-postiga — teine pool impordib selle.';
+
+  @override
+  String get shareBundle => 'Jaga sünkroonimispaketti…';
+
+  @override
+  String get importBundle => 'Impordi sünkroonimispakett…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakett imporditud: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import ebaõnnestus: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Vali kaardilt';
+
+  @override
+  String get useMyLocation => 'Kasuta minu asukohta';
+
+  @override
+  String get language => 'Keel';
+
+  @override
+  String get systemDefault => 'Süsteemi vaikimisi';
 }

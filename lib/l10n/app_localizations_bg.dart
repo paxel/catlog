@@ -547,4 +547,58 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get markPhoto => 'Маркирай…';
+
+  @override
+  String get scanCode => 'Сканирай кода';
+
+  @override
+  String get orTypeCode => 'Или въведи кода';
+
+  @override
+  String get copyCode => 'Копирай кода';
+
+  @override
+  String get copied => 'Копирано';
+
+  @override
+  String get invalidCode => 'Този код не е валиден';
+
+  @override
+  String get hotspotHint =>
+      'Няма общ Wi-Fi? Включи точката за достъп на единия телефон, свържи другия и стани домакин тук.';
+
+  @override
+  String get byMessenger => 'Чрез месинджър';
+
+  @override
+  String get byMessengerExplainer =>
+      'Изпрати целия каталог като един файл през WhatsApp, Signal или поща — другата страна го импортира.';
+
+  @override
+  String get shareBundle => 'Сподели пакет за синхронизация…';
+
+  @override
+  String get importBundle => 'Импортирай пакет за синхронизация…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакетът е импортиран: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Импортът се провали: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Избери на картата';
+
+  @override
+  String get useMyLocation => 'Използвай моето местоположение';
+
+  @override
+  String get language => 'Език';
+
+  @override
+  String get systemDefault => 'Системен по подразбиране';
 }

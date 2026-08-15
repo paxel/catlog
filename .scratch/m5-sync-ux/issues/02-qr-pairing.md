@@ -4,9 +4,9 @@
 
 **Blocked by:** None.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Pair-code encode/decode in the core, round-trip tested (v4, v6, bad input)
-- [ ] Host: QR + grouped code + copy button, shown immediately on start
-- [ ] Join: camera scan on Android/iOS, code field with auto-grouping everywhere, auto-sync on decode
-- [ ] Hotspot hint text
+- [x] Pair-code encode/decode in the core, round-trip tested (v4, v6, bad input)
+- [x] Host: QR + grouped code + copy button, shown immediately on start
+- [x] Join: camera scan on Android/iOS, code field with auto-grouping everywhere, auto-sync on decode
+- [x] Hotspot hint text

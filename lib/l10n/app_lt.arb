@@ -157,5 +157,21 @@
   "dragToSelect": "Vilkite stačiakampį aplink katę",
   "dragOverTheCat": "Vilkite elipsę virš katės",
   "cropPhoto": "Apkirpti…",
-  "markPhoto": "Pažymėti…"
+  "markPhoto": "Pažymėti…",
+  "scanCode": "Nuskaityti kodą",
+  "orTypeCode": "Arba įveskite kodą",
+  "copyCode": "Kopijuoti kodą",
+  "copied": "Nukopijuota",
+  "invalidCode": "Šis kodas negalioja",
+  "hotspotHint": "Nėra bendro Wi-Fi? Įjunkite viešosios interneto prieigos tašką viename telefone, prijunkite kitą ir priimkite čia.",
+  "byMessenger": "Per žinučių programą",
+  "byMessengerExplainer": "Siųskite visą katalogą kaip vieną failą per WhatsApp, Signal ar el. paštą — kita pusė jį importuos.",
+  "shareBundle": "Bendrinti sinchronizavimo paketą…",
+  "importBundle": "Importuoti sinchronizavimo paketą…",
+  "bundleImported": "Paketas importuotas: {result}",
+  "bundleImportFailed": "Importas nepavyko: {error}",
+  "pickOnMap": "Pasirinkti žemėlapyje",
+  "useMyLocation": "Naudoti mano vietą",
+  "language": "Kalba",
+  "systemDefault": "Sistemos numatytoji"
 }

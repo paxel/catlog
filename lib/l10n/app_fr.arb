@@ -157,5 +157,21 @@
   "dragToSelect": "Trace un rectangle autour du chat",
   "dragOverTheCat": "Trace une ellipse sur le chat",
   "cropPhoto": "Recadrer…",
-  "markPhoto": "Marquer…"
+  "markPhoto": "Marquer…",
+  "scanCode": "Scanner le code",
+  "orTypeCode": "Ou taper le code",
+  "copyCode": "Copier le code",
+  "copied": "Copié",
+  "invalidCode": "Ce code n'est pas valide",
+  "hotspotHint": "Pas de Wi-Fi commun ? Active le partage de connexion d'un téléphone, connecte l'autre, puis héberge ici.",
+  "byMessenger": "Par messagerie",
+  "byMessengerExplainer": "Envoie tout ton catalogue en un seul fichier via WhatsApp, Signal ou mail — l'autre côté l'importe.",
+  "shareBundle": "Partager le paquet de synchro…",
+  "importBundle": "Importer un paquet de synchro…",
+  "bundleImported": "Paquet importé : {result}",
+  "bundleImportFailed": "Échec de l'import : {error}",
+  "pickOnMap": "Choisir sur la carte",
+  "useMyLocation": "Utiliser ma position",
+  "language": "Langue",
+  "systemDefault": "Langue du système"
 }

@@ -548,4 +548,58 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get markPhoto => 'Marchează…';
+
+  @override
+  String get scanCode => 'Scanează codul';
+
+  @override
+  String get orTypeCode => 'Sau tastează codul';
+
+  @override
+  String get copyCode => 'Copiază codul';
+
+  @override
+  String get copied => 'Copiat';
+
+  @override
+  String get invalidCode => 'Codul nu este valid';
+
+  @override
+  String get hotspotHint =>
+      'Fără Wi-Fi comun? Pornește hotspotul unui telefon, conectează-l pe celălalt și găzduiește aici.';
+
+  @override
+  String get byMessenger => 'Prin messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Trimite tot catalogul ca un singur fișier prin WhatsApp, Signal sau mail — cealaltă parte îl importă.';
+
+  @override
+  String get shareBundle => 'Partajează pachetul de sincronizare…';
+
+  @override
+  String get importBundle => 'Importă pachetul de sincronizare…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pachet importat: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import eșuat: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Alege pe hartă';
+
+  @override
+  String get useMyLocation => 'Folosește locația mea';
+
+  @override
+  String get language => 'Limbă';
+
+  @override
+  String get systemDefault => 'Implicit sistem';
 }

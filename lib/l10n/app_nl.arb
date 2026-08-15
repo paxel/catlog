@@ -157,5 +157,21 @@
   "dragToSelect": "Sleep een rechthoek om de kat",
   "dragOverTheCat": "Sleep een ellips over de kat",
   "cropPhoto": "Bijsnijden…",
-  "markPhoto": "Markeren…"
+  "markPhoto": "Markeren…",
+  "scanCode": "Code scannen",
+  "orTypeCode": "Of typ de code",
+  "copyCode": "Code kopiëren",
+  "copied": "Gekopieerd",
+  "invalidCode": "Die code is ongeldig",
+  "hotspotHint": "Geen gedeelde wifi? Zet de hotspot van één telefoon aan, verbind de andere en host hier.",
+  "byMessenger": "Via messenger",
+  "byMessengerExplainer": "Stuur je hele catalogus als één bestand via WhatsApp, Signal of mail — de andere kant importeert hem.",
+  "shareBundle": "Syncpakket delen…",
+  "importBundle": "Syncpakket importeren…",
+  "bundleImported": "Pakket geïmporteerd: {result}",
+  "bundleImportFailed": "Import mislukt: {error}",
+  "pickOnMap": "Kies op de kaart",
+  "useMyLocation": "Mijn locatie gebruiken",
+  "language": "Taal",
+  "systemDefault": "Systeemstandaard"
 }

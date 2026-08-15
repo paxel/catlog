@@ -157,5 +157,21 @@
   "dragToSelect": "גררו מלבן סביב החתול",
   "dragOverTheCat": "גררו אליפסה מעל החתול",
   "cropPhoto": "חיתוך…",
-  "markPhoto": "סימון…"
+  "markPhoto": "סימון…",
+  "scanCode": "סריקת קוד",
+  "orTypeCode": "או הקלידו את הקוד",
+  "copyCode": "העתקת קוד",
+  "copied": "הועתק",
+  "invalidCode": "הקוד הזה לא תקין",
+  "hotspotHint": "אין Wi-Fi משותף? הפעילו נקודה חמה בטלפון אחד, חברו את השני וארחו כאן.",
+  "byMessenger": "דרך מסנג'ר",
+  "byMessengerExplainer": "שלחו את כל הקטלוג כקובץ אחד ב-WhatsApp, Signal או מייל — הצד השני מייבא אותו.",
+  "shareBundle": "שיתוף חבילת סנכרון…",
+  "importBundle": "ייבוא חבילת סנכרון…",
+  "bundleImported": "החבילה יובאה: {result}",
+  "bundleImportFailed": "הייבוא נכשל: {error}",
+  "pickOnMap": "בחירה במפה",
+  "useMyLocation": "שימוש במיקום שלי",
+  "language": "שפה",
+  "systemDefault": "ברירת מחדל של המערכת"
 }

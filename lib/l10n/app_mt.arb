@@ -157,5 +157,21 @@
   "dragToSelect": "Iġbed rettangolu madwar il-qattus",
   "dragOverTheCat": "Iġbed ellissi fuq il-qattus",
   "cropPhoto": "Aqta'…",
-  "markPhoto": "Immarka…"
+  "markPhoto": "Immarka…",
+  "scanCode": "Skennja l-kodiċi",
+  "orTypeCode": "Jew ittajpja l-kodiċi",
+  "copyCode": "Ikkopja l-kodiċi",
+  "copied": "Ikkupjat",
+  "invalidCode": "Dak il-kodiċi mhux validu",
+  "hotspotHint": "M'hemmx Wi-Fi komuni? Ixgħel il-hotspot ta' telefown wieħed, qabbad l-ieħor, imbagħad ospita hawn.",
+  "byMessenger": "Bil-messenger",
+  "byMessengerExplainer": "Ibgħat il-katalgu kollu bħala fajl wieħed bil-WhatsApp, Signal jew mail — in-naħa l-oħra timportah.",
+  "shareBundle": "Aqsam il-pakkett tas-sink…",
+  "importBundle": "Importa l-pakkett tas-sink…",
+  "bundleImported": "Pakkett importat: {result}",
+  "bundleImportFailed": "L-importazzjoni falliet: {error}",
+  "pickOnMap": "Agħżel fuq il-mappa",
+  "useMyLocation": "Uża l-post tiegħi",
+  "language": "Lingwa",
+  "systemDefault": "Default tas-sistema"
 }

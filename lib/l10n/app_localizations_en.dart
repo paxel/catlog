@@ -546,4 +546,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get markPhoto => 'Mark…';
+
+  @override
+  String get scanCode => 'Scan code';
+
+  @override
+  String get orTypeCode => 'Or type the code';
+
+  @override
+  String get copyCode => 'Copy code';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
+  String get invalidCode => 'That code is not valid';
+
+  @override
+  String get hotspotHint =>
+      'No shared Wi-Fi? Turn on one phone\'s hotspot, connect the other phone to it, then host here.';
+
+  @override
+  String get byMessenger => 'By messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.';
+
+  @override
+  String get shareBundle => 'Share sync bundle…';
+
+  @override
+  String get importBundle => 'Import sync bundle…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Bundle imported: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Pick on map';
+
+  @override
+  String get useMyLocation => 'Use my location';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get systemDefault => 'System default';
 }

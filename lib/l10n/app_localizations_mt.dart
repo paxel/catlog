@@ -549,4 +549,58 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get markPhoto => 'Immarka…';
+
+  @override
+  String get scanCode => 'Skennja l-kodiċi';
+
+  @override
+  String get orTypeCode => 'Jew ittajpja l-kodiċi';
+
+  @override
+  String get copyCode => 'Ikkopja l-kodiċi';
+
+  @override
+  String get copied => 'Ikkupjat';
+
+  @override
+  String get invalidCode => 'Dak il-kodiċi mhux validu';
+
+  @override
+  String get hotspotHint =>
+      'M\'hemmx Wi-Fi komuni? Ixgħel il-hotspot ta\' telefown wieħed, qabbad l-ieħor, imbagħad ospita hawn.';
+
+  @override
+  String get byMessenger => 'Bil-messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Ibgħat il-katalgu kollu bħala fajl wieħed bil-WhatsApp, Signal jew mail — in-naħa l-oħra timportah.';
+
+  @override
+  String get shareBundle => 'Aqsam il-pakkett tas-sink…';
+
+  @override
+  String get importBundle => 'Importa l-pakkett tas-sink…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakkett importat: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'L-importazzjoni falliet: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Agħżel fuq il-mappa';
+
+  @override
+  String get useMyLocation => 'Uża l-post tiegħi';
+
+  @override
+  String get language => 'Lingwa';
+
+  @override
+  String get systemDefault => 'Default tas-sistema';
 }

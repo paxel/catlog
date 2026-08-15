@@ -157,5 +157,21 @@
   "dragToSelect": "Trage un dreptunghi în jurul pisicii",
   "dragOverTheCat": "Trage o elipsă peste pisică",
   "cropPhoto": "Decupează…",
-  "markPhoto": "Marchează…"
+  "markPhoto": "Marchează…",
+  "scanCode": "Scanează codul",
+  "orTypeCode": "Sau tastează codul",
+  "copyCode": "Copiază codul",
+  "copied": "Copiat",
+  "invalidCode": "Codul nu este valid",
+  "hotspotHint": "Fără Wi-Fi comun? Pornește hotspotul unui telefon, conectează-l pe celălalt și găzduiește aici.",
+  "byMessenger": "Prin messenger",
+  "byMessengerExplainer": "Trimite tot catalogul ca un singur fișier prin WhatsApp, Signal sau mail — cealaltă parte îl importă.",
+  "shareBundle": "Partajează pachetul de sincronizare…",
+  "importBundle": "Importă pachetul de sincronizare…",
+  "bundleImported": "Pachet importat: {result}",
+  "bundleImportFailed": "Import eșuat: {error}",
+  "pickOnMap": "Alege pe hartă",
+  "useMyLocation": "Folosește locația mea",
+  "language": "Limbă",
+  "systemDefault": "Implicit sistem"
 }

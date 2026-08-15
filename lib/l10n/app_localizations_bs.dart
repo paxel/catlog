@@ -547,4 +547,58 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get markPhoto => 'Označi…';
+
+  @override
+  String get scanCode => 'Skeniraj kod';
+
+  @override
+  String get orTypeCode => 'Ili ukucaj kod';
+
+  @override
+  String get copyCode => 'Kopiraj kod';
+
+  @override
+  String get copied => 'Kopirano';
+
+  @override
+  String get invalidCode => 'Taj kod nije važeći';
+
+  @override
+  String get hotspotHint =>
+      'Nema zajedničkog Wi-Fi-ja? Uključi hotspot na jednom telefonu, poveži drugi i budi domaćin ovdje.';
+
+  @override
+  String get byMessenger => 'Preko messengera';
+
+  @override
+  String get byMessengerExplainer =>
+      'Pošalji cijeli katalog kao jednu datoteku preko WhatsAppa, Signala ili maila — druga strana ga uvozi.';
+
+  @override
+  String get shareBundle => 'Podijeli paket sinhronizacije…';
+
+  @override
+  String get importBundle => 'Uvezi paket sinhronizacije…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paket uvezen: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Uvoz nije uspio: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Odaberi na mapi';
+
+  @override
+  String get useMyLocation => 'Koristi moju lokaciju';
+
+  @override
+  String get language => 'Jezik';
+
+  @override
+  String get systemDefault => 'Zadano sistemom';
 }

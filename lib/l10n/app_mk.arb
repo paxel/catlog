@@ -157,5 +157,21 @@
   "dragToSelect": "Повлечи правоаголник околу мачката",
   "dragOverTheCat": "Повлечи елипса врз мачката",
   "cropPhoto": "Исечи…",
-  "markPhoto": "Означи…"
+  "markPhoto": "Означи…",
+  "scanCode": "Скенирај код",
+  "orTypeCode": "Или внеси го кодот",
+  "copyCode": "Копирај код",
+  "copied": "Копирано",
+  "invalidCode": "Тој код не е валиден",
+  "hotspotHint": "Нема заедничко Wi-Fi? Вклучи хотспот на едниот телефон, поврзи го другиот и биди домаќин тука.",
+  "byMessenger": "Преку месинџер",
+  "byMessengerExplainer": "Испрати го целиот каталог како една датотека преку WhatsApp, Signal или пошта — другата страна го увезува.",
+  "shareBundle": "Сподели пакет за синхронизација…",
+  "importBundle": "Увези пакет за синхронизација…",
+  "bundleImported": "Пакетот е увезен: {result}",
+  "bundleImportFailed": "Увозот не успеа: {error}",
+  "pickOnMap": "Избери на мапа",
+  "useMyLocation": "Користи ја мојата локација",
+  "language": "Јазик",
+  "systemDefault": "Системски стандард"
 }

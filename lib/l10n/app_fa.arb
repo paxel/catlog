@@ -157,5 +157,21 @@
   "dragToSelect": "دور گربه یک مستطیل بکشید",
   "dragOverTheCat": "روی گربه یک بیضی بکشید",
   "cropPhoto": "برش…",
-  "markPhoto": "نشانه‌گذاری…"
+  "markPhoto": "نشانه‌گذاری…",
+  "scanCode": "اسکن کد",
+  "orTypeCode": "یا کد را وارد کنید",
+  "copyCode": "کپی کد",
+  "copied": "کپی شد",
+  "invalidCode": "این کد معتبر نیست",
+  "hotspotHint": "وای‌فای مشترک ندارید؟ هات‌اسپات یک گوشی را روشن کنید، دیگری را وصل کنید و اینجا میزبان شوید.",
+  "byMessenger": "با پیام‌رسان",
+  "byMessengerExplainer": "کل فهرست را به‌صورت یک فایل با واتساپ، سیگنال یا ایمیل بفرستید — طرف مقابل آن را وارد می‌کند.",
+  "shareBundle": "اشتراک بستهٔ همگام‌سازی…",
+  "importBundle": "وارد کردن بستهٔ همگام‌سازی…",
+  "bundleImported": "بسته وارد شد: {result}",
+  "bundleImportFailed": "ورود ناموفق: {error}",
+  "pickOnMap": "انتخاب روی نقشه",
+  "useMyLocation": "استفاده از موقعیت من",
+  "language": "زبان",
+  "systemDefault": "پیش‌فرض سیستم"
 }

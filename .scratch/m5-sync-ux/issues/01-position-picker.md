@@ -4,8 +4,8 @@
 
 **Blocked by:** None.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Location field editor opens the picker (map tap + GPS button), shows current position if set
-- [ ] Value stored in the existing "lat,lon" format
-- [ ] Widget test with fake tiles
+- [x] Location field editor opens the picker (map tap + GPS button), shows current position if set
+- [x] Value stored in the existing "lat,lon" format
+- [x] Widget test with fake tiles

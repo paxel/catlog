@@ -6,6 +6,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
+import '../name_date_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 import 'timeline_screen.dart';
@@ -37,9 +38,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   }
 
   Future<void> _addCat() async {
-    final name = await _askForText(context, context.t.newCat, null);
-    if (name == null || name.isEmpty || !mounted) return;
-    final catId = store.createCat(name, clowderId: id);
+    final result = await askNameAndDate(context, context.t.newCat);
+    if (result == null || !mounted) return;
+    final catId =
+        store.createCat(result.name, clowderId: id, date: result.date);
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) =>

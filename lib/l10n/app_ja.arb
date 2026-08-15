@@ -157,5 +157,21 @@
   "dragToSelect": "猫の周りに四角形をドラッグ",
   "dragOverTheCat": "猫の上に楕円をドラッグ",
   "cropPhoto": "トリミング…",
-  "markPhoto": "印を付ける…"
+  "markPhoto": "印を付ける…",
+  "scanCode": "コードをスキャン",
+  "orTypeCode": "またはコードを入力",
+  "copyCode": "コードをコピー",
+  "copied": "コピーしました",
+  "invalidCode": "このコードは無効です",
+  "hotspotHint": "共通のWi-Fiがない場合は、片方のスマホのテザリングをオンにし、もう片方を接続してからここでホストしてください。",
+  "byMessenger": "メッセンジャーで",
+  "byMessengerExplainer": "カタログ全体を1つのファイルとしてWhatsApp・Signal・メールで送信 — 相手側が取り込みます。",
+  "shareBundle": "同期パッケージを共有…",
+  "importBundle": "同期パッケージを取り込む…",
+  "bundleImported": "パッケージを取り込みました: {result}",
+  "bundleImportFailed": "取り込みに失敗: {error}",
+  "pickOnMap": "地図で選ぶ",
+  "useMyLocation": "現在地を使う",
+  "language": "言語",
+  "systemDefault": "システムの既定"
 }

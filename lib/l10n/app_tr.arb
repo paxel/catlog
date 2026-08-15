@@ -157,5 +157,21 @@
   "dragToSelect": "Kedinin etrafına dikdörtgen çiz",
   "dragOverTheCat": "Kedinin üzerine elips çiz",
   "cropPhoto": "Kırp…",
-  "markPhoto": "İşaretle…"
+  "markPhoto": "İşaretle…",
+  "scanCode": "Kodu tara",
+  "orTypeCode": "Ya da kodu yaz",
+  "copyCode": "Kodu kopyala",
+  "copied": "Kopyalandı",
+  "invalidCode": "Bu kod geçersiz",
+  "hotspotHint": "Ortak Wi-Fi yok mu? Bir telefonun erişim noktasını aç, diğerini bağla, sonra burada sun.",
+  "byMessenger": "Mesajlaşma ile",
+  "byMessengerExplainer": "Tüm kataloğu tek dosya olarak WhatsApp, Signal veya postayla gönder — karşı taraf içe aktarır.",
+  "shareBundle": "Eşitleme paketini paylaş…",
+  "importBundle": "Eşitleme paketini içe aktar…",
+  "bundleImported": "Paket içe aktarıldı: {result}",
+  "bundleImportFailed": "İçe aktarma başarısız: {error}",
+  "pickOnMap": "Haritadan seç",
+  "useMyLocation": "Konumumu kullan",
+  "language": "Dil",
+  "systemDefault": "Sistem varsayılanı"
 }

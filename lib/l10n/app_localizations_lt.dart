@@ -547,4 +547,58 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get markPhoto => 'Pažymėti…';
+
+  @override
+  String get scanCode => 'Nuskaityti kodą';
+
+  @override
+  String get orTypeCode => 'Arba įveskite kodą';
+
+  @override
+  String get copyCode => 'Kopijuoti kodą';
+
+  @override
+  String get copied => 'Nukopijuota';
+
+  @override
+  String get invalidCode => 'Šis kodas negalioja';
+
+  @override
+  String get hotspotHint =>
+      'Nėra bendro Wi-Fi? Įjunkite viešosios interneto prieigos tašką viename telefone, prijunkite kitą ir priimkite čia.';
+
+  @override
+  String get byMessenger => 'Per žinučių programą';
+
+  @override
+  String get byMessengerExplainer =>
+      'Siųskite visą katalogą kaip vieną failą per WhatsApp, Signal ar el. paštą — kita pusė jį importuos.';
+
+  @override
+  String get shareBundle => 'Bendrinti sinchronizavimo paketą…';
+
+  @override
+  String get importBundle => 'Importuoti sinchronizavimo paketą…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketas importuotas: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Importas nepavyko: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Pasirinkti žemėlapyje';
+
+  @override
+  String get useMyLocation => 'Naudoti mano vietą';
+
+  @override
+  String get language => 'Kalba';
+
+  @override
+  String get systemDefault => 'Sistemos numatytoji';
 }

@@ -4,8 +4,8 @@
 
 **Blocked by:** None.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Core: bundle write/read (zip: entries.jsonl + blobs), import idempotent, conflicts detected via the writer vector
-- [ ] Share via share sheet; import via file picker
-- [ ] Round-trip core test: two stores converge through a bundle file
+- [x] Core: bundle write/read (zip: entries.jsonl + blobs), import idempotent, conflicts detected via the writer vector
+- [x] Share via share sheet; import via file picker
+- [x] Round-trip core test: two stores converge through a bundle file

@@ -546,4 +546,58 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get markPhoto => 'نشانه‌گذاری…';
+
+  @override
+  String get scanCode => 'اسکن کد';
+
+  @override
+  String get orTypeCode => 'یا کد را وارد کنید';
+
+  @override
+  String get copyCode => 'کپی کد';
+
+  @override
+  String get copied => 'کپی شد';
+
+  @override
+  String get invalidCode => 'این کد معتبر نیست';
+
+  @override
+  String get hotspotHint =>
+      'وای‌فای مشترک ندارید؟ هات‌اسپات یک گوشی را روشن کنید، دیگری را وصل کنید و اینجا میزبان شوید.';
+
+  @override
+  String get byMessenger => 'با پیام‌رسان';
+
+  @override
+  String get byMessengerExplainer =>
+      'کل فهرست را به‌صورت یک فایل با واتساپ، سیگنال یا ایمیل بفرستید — طرف مقابل آن را وارد می‌کند.';
+
+  @override
+  String get shareBundle => 'اشتراک بستهٔ همگام‌سازی…';
+
+  @override
+  String get importBundle => 'وارد کردن بستهٔ همگام‌سازی…';
+
+  @override
+  String bundleImported(String result) {
+    return 'بسته وارد شد: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'ورود ناموفق: $error';
+  }
+
+  @override
+  String get pickOnMap => 'انتخاب روی نقشه';
+
+  @override
+  String get useMyLocation => 'استفاده از موقعیت من';
+
+  @override
+  String get language => 'زبان';
+
+  @override
+  String get systemDefault => 'پیش‌فرض سیستم';
 }

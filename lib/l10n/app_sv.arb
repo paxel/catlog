@@ -157,5 +157,21 @@
   "dragToSelect": "Dra en rektangel runt katten",
   "dragOverTheCat": "Dra en ellips över katten",
   "cropPhoto": "Beskär…",
-  "markPhoto": "Markera…"
+  "markPhoto": "Markera…",
+  "scanCode": "Skanna kod",
+  "orTypeCode": "Eller skriv koden",
+  "copyCode": "Kopiera kod",
+  "copied": "Kopierat",
+  "invalidCode": "Den koden är inte giltig",
+  "hotspotHint": "Inget gemensamt Wi-Fi? Slå på hotspot på en telefon, anslut den andra och agera värd här.",
+  "byMessenger": "Via messenger",
+  "byMessengerExplainer": "Skicka hela katalogen som en fil via WhatsApp, Signal eller mail — andra sidan importerar den.",
+  "shareBundle": "Dela synkpaket…",
+  "importBundle": "Importera synkpaket…",
+  "bundleImported": "Paket importerat: {result}",
+  "bundleImportFailed": "Import misslyckades: {error}",
+  "pickOnMap": "Välj på kartan",
+  "useMyLocation": "Använd min plats",
+  "language": "Språk",
+  "systemDefault": "Systemstandard"
 }

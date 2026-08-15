@@ -549,4 +549,58 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get markPhoto => 'Merkja…';
+
+  @override
+  String get scanCode => 'Skanna kóða';
+
+  @override
+  String get orTypeCode => 'Eða sláðu inn kóðann';
+
+  @override
+  String get copyCode => 'Afrita kóða';
+
+  @override
+  String get copied => 'Afritað';
+
+  @override
+  String get invalidCode => 'Þessi kóði er ógildur';
+
+  @override
+  String get hotspotHint =>
+      'Ekkert sameiginlegt Wi-Fi? Kveiktu á heitum reit á öðrum símanum, tengdu hinn og hýstu hér.';
+
+  @override
+  String get byMessenger => 'Með skilaboðaforriti';
+
+  @override
+  String get byMessengerExplainer =>
+      'Sendu alla skrána sem eina skrá með WhatsApp, Signal eða pósti — hin hliðin flytur hana inn.';
+
+  @override
+  String get shareBundle => 'Deila samstillingarpakka…';
+
+  @override
+  String get importBundle => 'Flytja inn samstillingarpakka…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakki fluttur inn: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Innflutningur mistókst: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Velja á korti';
+
+  @override
+  String get useMyLocation => 'Nota staðsetningu mína';
+
+  @override
+  String get language => 'Tungumál';
+
+  @override
+  String get systemDefault => 'Sjálfgefið kerfis';
 }

@@ -548,4 +548,58 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get markPhoto => 'Shëno…';
+
+  @override
+  String get scanCode => 'Skano kodin';
+
+  @override
+  String get orTypeCode => 'Ose shkruaje kodin';
+
+  @override
+  String get copyCode => 'Kopjo kodin';
+
+  @override
+  String get copied => 'U kopjua';
+
+  @override
+  String get invalidCode => 'Ky kod nuk është i vlefshëm';
+
+  @override
+  String get hotspotHint =>
+      'S\'ka Wi-Fi të përbashkët? Ndiz hotspot-in e njërit telefon, lidh tjetrin dhe prit këtu.';
+
+  @override
+  String get byMessenger => 'Me messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Dërgo gjithë katalogun si një skedar me WhatsApp, Signal ose mail — pala tjetër e importon.';
+
+  @override
+  String get shareBundle => 'Ndaj paketën e sinkronizimit…';
+
+  @override
+  String get importBundle => 'Importo paketën e sinkronizimit…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketa u importua: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Importi dështoi: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Zgjidh në hartë';
+
+  @override
+  String get useMyLocation => 'Përdor vendndodhjen time';
+
+  @override
+  String get language => 'Gjuha';
+
+  @override
+  String get systemDefault => 'Parazgjedhja e sistemit';
 }

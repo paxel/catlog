@@ -548,4 +548,58 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get markPhoto => 'Σήμανση…';
+
+  @override
+  String get scanCode => 'Σάρωση κωδικού';
+
+  @override
+  String get orTypeCode => 'Ή πληκτρολογήστε τον κωδικό';
+
+  @override
+  String get copyCode => 'Αντιγραφή κωδικού';
+
+  @override
+  String get copied => 'Αντιγράφηκε';
+
+  @override
+  String get invalidCode => 'Ο κωδικός δεν είναι έγκυρος';
+
+  @override
+  String get hotspotHint =>
+      'Χωρίς κοινό Wi-Fi; Ανοίξτε το hotspot του ενός τηλεφώνου, συνδέστε το άλλο και φιλοξενήστε εδώ.';
+
+  @override
+  String get byMessenger => 'Μέσω messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Στείλτε όλο τον κατάλογο ως ένα αρχείο με WhatsApp, Signal ή mail — η άλλη πλευρά τον εισάγει.';
+
+  @override
+  String get shareBundle => 'Κοινοποίηση πακέτου συγχρονισμού…';
+
+  @override
+  String get importBundle => 'Εισαγωγή πακέτου συγχρονισμού…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Το πακέτο εισήχθη: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Η εισαγωγή απέτυχε: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Επιλογή στον χάρτη';
+
+  @override
+  String get useMyLocation => 'Χρήση της θέσης μου';
+
+  @override
+  String get language => 'Γλώσσα';
+
+  @override
+  String get systemDefault => 'Προεπιλογή συστήματος';
 }

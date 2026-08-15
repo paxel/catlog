@@ -157,5 +157,21 @@
   "dragToSelect": "Dragðu rétthyrning utan um köttinn",
   "dragOverTheCat": "Dragðu sporöskju yfir köttinn",
   "cropPhoto": "Skera…",
-  "markPhoto": "Merkja…"
+  "markPhoto": "Merkja…",
+  "scanCode": "Skanna kóða",
+  "orTypeCode": "Eða sláðu inn kóðann",
+  "copyCode": "Afrita kóða",
+  "copied": "Afritað",
+  "invalidCode": "Þessi kóði er ógildur",
+  "hotspotHint": "Ekkert sameiginlegt Wi-Fi? Kveiktu á heitum reit á öðrum símanum, tengdu hinn og hýstu hér.",
+  "byMessenger": "Með skilaboðaforriti",
+  "byMessengerExplainer": "Sendu alla skrána sem eina skrá með WhatsApp, Signal eða pósti — hin hliðin flytur hana inn.",
+  "shareBundle": "Deila samstillingarpakka…",
+  "importBundle": "Flytja inn samstillingarpakka…",
+  "bundleImported": "Pakki fluttur inn: {result}",
+  "bundleImportFailed": "Innflutningur mistókst: {error}",
+  "pickOnMap": "Velja á korti",
+  "useMyLocation": "Nota staðsetningu mína",
+  "language": "Tungumál",
+  "systemDefault": "Sjálfgefið kerfis"
 }

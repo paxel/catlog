@@ -537,4 +537,58 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get markPhoto => '印を付ける…';
+
+  @override
+  String get scanCode => 'コードをスキャン';
+
+  @override
+  String get orTypeCode => 'またはコードを入力';
+
+  @override
+  String get copyCode => 'コードをコピー';
+
+  @override
+  String get copied => 'コピーしました';
+
+  @override
+  String get invalidCode => 'このコードは無効です';
+
+  @override
+  String get hotspotHint =>
+      '共通のWi-Fiがない場合は、片方のスマホのテザリングをオンにし、もう片方を接続してからここでホストしてください。';
+
+  @override
+  String get byMessenger => 'メッセンジャーで';
+
+  @override
+  String get byMessengerExplainer =>
+      'カタログ全体を1つのファイルとしてWhatsApp・Signal・メールで送信 — 相手側が取り込みます。';
+
+  @override
+  String get shareBundle => '同期パッケージを共有…';
+
+  @override
+  String get importBundle => '同期パッケージを取り込む…';
+
+  @override
+  String bundleImported(String result) {
+    return 'パッケージを取り込みました: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return '取り込みに失敗: $error';
+  }
+
+  @override
+  String get pickOnMap => '地図で選ぶ';
+
+  @override
+  String get useMyLocation => '現在地を使う';
+
+  @override
+  String get language => '言語';
+
+  @override
+  String get systemDefault => 'システムの既定';
 }

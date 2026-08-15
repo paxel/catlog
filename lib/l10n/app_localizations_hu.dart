@@ -547,4 +547,58 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get markPhoto => 'Megjelölés…';
+
+  @override
+  String get scanCode => 'Kód beolvasása';
+
+  @override
+  String get orTypeCode => 'Vagy írd be a kódot';
+
+  @override
+  String get copyCode => 'Kód másolása';
+
+  @override
+  String get copied => 'Másolva';
+
+  @override
+  String get invalidCode => 'Ez a kód érvénytelen';
+
+  @override
+  String get hotspotHint =>
+      'Nincs közös Wi-Fi? Kapcsold be az egyik telefon hotspotját, csatlakoztasd a másikat, majd itt legyél kiszolgáló.';
+
+  @override
+  String get byMessenger => 'Üzenetküldővel';
+
+  @override
+  String get byMessengerExplainer =>
+      'Küldd el az egész katalógust egy fájlként WhatsAppon, Signalon vagy mailben — a másik oldal importálja.';
+
+  @override
+  String get shareBundle => 'Szinkroncsomag megosztása…';
+
+  @override
+  String get importBundle => 'Szinkroncsomag importálása…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Csomag importálva: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Importálás sikertelen: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Kiválasztás térképen';
+
+  @override
+  String get useMyLocation => 'Saját helyzetem használata';
+
+  @override
+  String get language => 'Nyelv';
+
+  @override
+  String get systemDefault => 'Rendszer alapértelmezés';
 }

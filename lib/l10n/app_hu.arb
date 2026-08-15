@@ -157,5 +157,21 @@
   "dragToSelect": "Húzz téglalapot a macska köré",
   "dragOverTheCat": "Húzz ellipszist a macskára",
   "cropPhoto": "Körbevágás…",
-  "markPhoto": "Megjelölés…"
+  "markPhoto": "Megjelölés…",
+  "scanCode": "Kód beolvasása",
+  "orTypeCode": "Vagy írd be a kódot",
+  "copyCode": "Kód másolása",
+  "copied": "Másolva",
+  "invalidCode": "Ez a kód érvénytelen",
+  "hotspotHint": "Nincs közös Wi-Fi? Kapcsold be az egyik telefon hotspotját, csatlakoztasd a másikat, majd itt legyél kiszolgáló.",
+  "byMessenger": "Üzenetküldővel",
+  "byMessengerExplainer": "Küldd el az egész katalógust egy fájlként WhatsAppon, Signalon vagy mailben — a másik oldal importálja.",
+  "shareBundle": "Szinkroncsomag megosztása…",
+  "importBundle": "Szinkroncsomag importálása…",
+  "bundleImported": "Csomag importálva: {result}",
+  "bundleImportFailed": "Importálás sikertelen: {error}",
+  "pickOnMap": "Kiválasztás térképen",
+  "useMyLocation": "Saját helyzetem használata",
+  "language": "Nyelv",
+  "systemDefault": "Rendszer alapértelmezés"
 }

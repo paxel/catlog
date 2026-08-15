@@ -157,5 +157,21 @@
   "dragToSelect": "围绕猫拖出矩形",
   "dragOverTheCat": "在猫上拖出椭圆",
   "cropPhoto": "裁剪…",
-  "markPhoto": "标记…"
+  "markPhoto": "标记…",
+  "scanCode": "扫描代码",
+  "orTypeCode": "或输入代码",
+  "copyCode": "复制代码",
+  "copied": "已复制",
+  "invalidCode": "该代码无效",
+  "hotspotHint": "没有共同的 Wi-Fi？打开一部手机的热点，让另一部连接，然后在这里托管。",
+  "byMessenger": "通过聊天软件",
+  "byMessengerExplainer": "把整个目录作为一个文件通过 WhatsApp、Signal 或邮件发送——对方导入即可。",
+  "shareBundle": "分享同步包…",
+  "importBundle": "导入同步包…",
+  "bundleImported": "已导入同步包：{result}",
+  "bundleImportFailed": "导入失败：{error}",
+  "pickOnMap": "在地图上选择",
+  "useMyLocation": "使用我的位置",
+  "language": "语言",
+  "systemDefault": "跟随系统"
 }

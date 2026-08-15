@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../name_date_dialog.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -19,32 +20,9 @@ class StraysScreen extends StatefulWidget {
 
 class _StraysScreenState extends State<StraysScreen> {
   Future<void> _addStray() async {
-    final controller = TextEditingController();
-    final name = await showDialog<String>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.t.newStray),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: context.t.name),
-          onSubmitted: (v) => Navigator.of(context).pop(v.trim()),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(context.t.cancel),
-          ),
-          FilledButton(
-            onPressed: () =>
-                Navigator.of(context).pop(controller.text.trim()),
-            child: Text(context.t.create),
-          ),
-        ],
-      ),
-    );
-    if (name == null || name.isEmpty || !mounted) return;
-    final catId = widget.store.createCat(name);
+    final result = await askNameAndDate(context, context.t.newStray);
+    if (result == null || !mounted) return;
+    final catId = widget.store.createCat(result.name, date: result.date);
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CatDetailScreen(

@@ -548,4 +548,58 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get markPhoto => 'Marcáil…';
+
+  @override
+  String get scanCode => 'Scan an cód';
+
+  @override
+  String get orTypeCode => 'Nó clóscríobh an cód';
+
+  @override
+  String get copyCode => 'Cóipeáil an cód';
+
+  @override
+  String get copied => 'Cóipeáilte';
+
+  @override
+  String get invalidCode => 'Níl an cód sin bailí';
+
+  @override
+  String get hotspotHint =>
+      'Gan Wi-Fi comhroinnte? Cas air hotspot ar fhón amháin, ceangail an ceann eile, ansin óstáil anseo.';
+
+  @override
+  String get byMessenger => 'Trí theachtaire';
+
+  @override
+  String get byMessengerExplainer =>
+      'Seol an chatalóg iomlán mar chomhad amháin trí WhatsApp, Signal nó ríomhphost — iompórtálann an taobh eile é.';
+
+  @override
+  String get shareBundle => 'Roinn paca sioncronaithe…';
+
+  @override
+  String get importBundle => 'Iompórtáil paca sioncronaithe…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paca iompórtáilte: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Theip ar an iompórtáil: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Roghnaigh ar an léarscáil';
+
+  @override
+  String get useMyLocation => 'Úsáid mo shuíomh';
+
+  @override
+  String get language => 'Teanga';
+
+  @override
+  String get systemDefault => 'Réamhshocrú an chórais';
 }

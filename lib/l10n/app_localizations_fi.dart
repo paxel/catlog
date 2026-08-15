@@ -547,4 +547,58 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get markPhoto => 'Merkitse…';
+
+  @override
+  String get scanCode => 'Skannaa koodi';
+
+  @override
+  String get orTypeCode => 'Tai kirjoita koodi';
+
+  @override
+  String get copyCode => 'Kopioi koodi';
+
+  @override
+  String get copied => 'Kopioitu';
+
+  @override
+  String get invalidCode => 'Koodi ei kelpaa';
+
+  @override
+  String get hotspotHint =>
+      'Ei yhteistä Wi-Fiä? Laita yhden puhelimen hotspot päälle, yhdistä toinen siihen ja isännöi tässä.';
+
+  @override
+  String get byMessenger => 'Viestisovelluksella';
+
+  @override
+  String get byMessengerExplainer =>
+      'Lähetä koko luettelo yhtenä tiedostona WhatsAppilla, Signalilla tai sähköpostilla — toinen puoli tuo sen.';
+
+  @override
+  String get shareBundle => 'Jaa synkronointipaketti…';
+
+  @override
+  String get importBundle => 'Tuo synkronointipaketti…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paketti tuotu: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Tuonti epäonnistui: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Valitse kartalta';
+
+  @override
+  String get useMyLocation => 'Käytä sijaintiani';
+
+  @override
+  String get language => 'Kieli';
+
+  @override
+  String get systemDefault => 'Järjestelmän oletus';
 }

@@ -157,5 +157,21 @@
   "dragToSelect": "Lohista ristkülik kassi ümber",
   "dragOverTheCat": "Lohista ellips kassi peale",
   "cropPhoto": "Kärbi…",
-  "markPhoto": "Märgi…"
+  "markPhoto": "Märgi…",
+  "scanCode": "Skanni kood",
+  "orTypeCode": "Või sisesta kood",
+  "copyCode": "Kopeeri kood",
+  "copied": "Kopeeritud",
+  "invalidCode": "See kood ei kehti",
+  "hotspotHint": "Ühist Wi-Fit pole? Lülita ühe telefoni kuumkoht sisse, ühenda teine ja majuta siin.",
+  "byMessenger": "Sõnumirakendusega",
+  "byMessengerExplainer": "Saada kogu kataloog ühe failina WhatsAppi, Signali või e-postiga — teine pool impordib selle.",
+  "shareBundle": "Jaga sünkroonimispaketti…",
+  "importBundle": "Impordi sünkroonimispakett…",
+  "bundleImported": "Pakett imporditud: {result}",
+  "bundleImportFailed": "Import ebaõnnestus: {error}",
+  "pickOnMap": "Vali kaardilt",
+  "useMyLocation": "Kasuta minu asukohta",
+  "language": "Keel",
+  "systemDefault": "Süsteemi vaikimisi"
 }

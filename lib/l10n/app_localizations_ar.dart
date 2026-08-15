@@ -546,4 +546,58 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get markPhoto => 'تحديد…';
+
+  @override
+  String get scanCode => 'مسح الرمز';
+
+  @override
+  String get orTypeCode => 'أو اكتب الرمز';
+
+  @override
+  String get copyCode => 'نسخ الرمز';
+
+  @override
+  String get copied => 'تم النسخ';
+
+  @override
+  String get invalidCode => 'هذا الرمز غير صالح';
+
+  @override
+  String get hotspotHint =>
+      'لا توجد شبكة Wi-Fi مشتركة؟ شغّل نقطة اتصال أحد الهاتفين، وصل الآخر بها، ثم استضف هنا.';
+
+  @override
+  String get byMessenger => 'عبر المراسلة';
+
+  @override
+  String get byMessengerExplainer =>
+      'أرسل الفهرس كله كملف واحد عبر WhatsApp أو Signal أو البريد — والطرف الآخر يستورده.';
+
+  @override
+  String get shareBundle => 'مشاركة حزمة المزامنة…';
+
+  @override
+  String get importBundle => 'استيراد حزمة المزامنة…';
+
+  @override
+  String bundleImported(String result) {
+    return 'تم استيراد الحزمة: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'فشل الاستيراد: $error';
+  }
+
+  @override
+  String get pickOnMap => 'اختر على الخريطة';
+
+  @override
+  String get useMyLocation => 'استخدام موقعي';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get systemDefault => 'افتراضي النظام';
 }

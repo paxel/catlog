@@ -157,5 +157,21 @@
   "dragToSelect": "Tërhiq një drejtkëndësh rreth maces",
   "dragOverTheCat": "Tërhiq një elips mbi mace",
   "cropPhoto": "Prit…",
-  "markPhoto": "Shëno…"
+  "markPhoto": "Shëno…",
+  "scanCode": "Skano kodin",
+  "orTypeCode": "Ose shkruaje kodin",
+  "copyCode": "Kopjo kodin",
+  "copied": "U kopjua",
+  "invalidCode": "Ky kod nuk është i vlefshëm",
+  "hotspotHint": "S'ka Wi-Fi të përbashkët? Ndiz hotspot-in e njërit telefon, lidh tjetrin dhe prit këtu.",
+  "byMessenger": "Me messenger",
+  "byMessengerExplainer": "Dërgo gjithë katalogun si një skedar me WhatsApp, Signal ose mail — pala tjetër e importon.",
+  "shareBundle": "Ndaj paketën e sinkronizimit…",
+  "importBundle": "Importo paketën e sinkronizimit…",
+  "bundleImported": "Paketa u importua: {result}",
+  "bundleImportFailed": "Importi dështoi: {error}",
+  "pickOnMap": "Zgjidh në hartë",
+  "useMyLocation": "Përdor vendndodhjen time",
+  "language": "Gjuha",
+  "systemDefault": "Parazgjedhja e sistemit"
 }

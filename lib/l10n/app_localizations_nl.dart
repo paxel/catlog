@@ -548,4 +548,58 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get markPhoto => 'Markeren…';
+
+  @override
+  String get scanCode => 'Code scannen';
+
+  @override
+  String get orTypeCode => 'Of typ de code';
+
+  @override
+  String get copyCode => 'Code kopiëren';
+
+  @override
+  String get copied => 'Gekopieerd';
+
+  @override
+  String get invalidCode => 'Die code is ongeldig';
+
+  @override
+  String get hotspotHint =>
+      'Geen gedeelde wifi? Zet de hotspot van één telefoon aan, verbind de andere en host hier.';
+
+  @override
+  String get byMessenger => 'Via messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Stuur je hele catalogus als één bestand via WhatsApp, Signal of mail — de andere kant importeert hem.';
+
+  @override
+  String get shareBundle => 'Syncpakket delen…';
+
+  @override
+  String get importBundle => 'Syncpakket importeren…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakket geïmporteerd: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import mislukt: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Kies op de kaart';
+
+  @override
+  String get useMyLocation => 'Mijn locatie gebruiken';
+
+  @override
+  String get language => 'Taal';
+
+  @override
+  String get systemDefault => 'Systeemstandaard';
 }

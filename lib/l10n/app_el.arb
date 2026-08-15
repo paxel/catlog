@@ -157,5 +157,21 @@
   "dragToSelect": "Σύρετε ένα ορθογώνιο γύρω από τη γάτα",
   "dragOverTheCat": "Σύρετε μια έλλειψη πάνω στη γάτα",
   "cropPhoto": "Περικοπή…",
-  "markPhoto": "Σήμανση…"
+  "markPhoto": "Σήμανση…",
+  "scanCode": "Σάρωση κωδικού",
+  "orTypeCode": "Ή πληκτρολογήστε τον κωδικό",
+  "copyCode": "Αντιγραφή κωδικού",
+  "copied": "Αντιγράφηκε",
+  "invalidCode": "Ο κωδικός δεν είναι έγκυρος",
+  "hotspotHint": "Χωρίς κοινό Wi-Fi; Ανοίξτε το hotspot του ενός τηλεφώνου, συνδέστε το άλλο και φιλοξενήστε εδώ.",
+  "byMessenger": "Μέσω messenger",
+  "byMessengerExplainer": "Στείλτε όλο τον κατάλογο ως ένα αρχείο με WhatsApp, Signal ή mail — η άλλη πλευρά τον εισάγει.",
+  "shareBundle": "Κοινοποίηση πακέτου συγχρονισμού…",
+  "importBundle": "Εισαγωγή πακέτου συγχρονισμού…",
+  "bundleImported": "Το πακέτο εισήχθη: {result}",
+  "bundleImportFailed": "Η εισαγωγή απέτυχε: {error}",
+  "pickOnMap": "Επιλογή στον χάρτη",
+  "useMyLocation": "Χρήση της θέσης μου",
+  "language": "Γλώσσα",
+  "systemDefault": "Προεπιλογή συστήματος"
 }

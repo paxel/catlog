@@ -157,5 +157,21 @@
   "dragToSelect": "Tarraing dronuilleog timpeall an chait",
   "dragOverTheCat": "Tarraing éilips os cionn an chait",
   "cropPhoto": "Bearr…",
-  "markPhoto": "Marcáil…"
+  "markPhoto": "Marcáil…",
+  "scanCode": "Scan an cód",
+  "orTypeCode": "Nó clóscríobh an cód",
+  "copyCode": "Cóipeáil an cód",
+  "copied": "Cóipeáilte",
+  "invalidCode": "Níl an cód sin bailí",
+  "hotspotHint": "Gan Wi-Fi comhroinnte? Cas air hotspot ar fhón amháin, ceangail an ceann eile, ansin óstáil anseo.",
+  "byMessenger": "Trí theachtaire",
+  "byMessengerExplainer": "Seol an chatalóg iomlán mar chomhad amháin trí WhatsApp, Signal nó ríomhphost — iompórtálann an taobh eile é.",
+  "shareBundle": "Roinn paca sioncronaithe…",
+  "importBundle": "Iompórtáil paca sioncronaithe…",
+  "bundleImported": "Paca iompórtáilte: {result}",
+  "bundleImportFailed": "Theip ar an iompórtáil: {error}",
+  "pickOnMap": "Roghnaigh ar an léarscáil",
+  "useMyLocation": "Úsáid mo shuíomh",
+  "language": "Teanga",
+  "systemDefault": "Réamhshocrú an chórais"
 }

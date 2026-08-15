@@ -157,5 +157,21 @@
   "dragToSelect": "Velciet taisnstūri ap kaķi",
   "dragOverTheCat": "Velciet elipsi pār kaķi",
   "cropPhoto": "Apgriezt…",
-  "markPhoto": "Atzīmēt…"
+  "markPhoto": "Atzīmēt…",
+  "scanCode": "Skenēt kodu",
+  "orTypeCode": "Vai ierakstiet kodu",
+  "copyCode": "Kopēt kodu",
+  "copied": "Nokopēts",
+  "invalidCode": "Šis kods nav derīgs",
+  "hotspotHint": "Nav kopīga Wi-Fi? Ieslēdziet tīklāju vienā tālrunī, pievienojiet otru un uzņemiet šeit.",
+  "byMessenger": "Ar ziņotni",
+  "byMessengerExplainer": "Nosūtiet visu katalogu kā vienu failu ar WhatsApp, Signal vai e-pastu — otra puse to importē.",
+  "shareBundle": "Kopīgot sinhronizācijas paku…",
+  "importBundle": "Importēt sinhronizācijas paku…",
+  "bundleImported": "Paka importēta: {result}",
+  "bundleImportFailed": "Imports neizdevās: {error}",
+  "pickOnMap": "Izvēlēties kartē",
+  "useMyLocation": "Izmantot manu atrašanās vietu",
+  "language": "Valoda",
+  "systemDefault": "Sistēmas noklusējums"
 }

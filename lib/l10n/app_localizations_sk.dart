@@ -546,4 +546,58 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get markPhoto => 'Označiť…';
+
+  @override
+  String get scanCode => 'Naskenovať kód';
+
+  @override
+  String get orTypeCode => 'Alebo kód napíšte';
+
+  @override
+  String get copyCode => 'Kopírovať kód';
+
+  @override
+  String get copied => 'Skopírované';
+
+  @override
+  String get invalidCode => 'Tento kód nie je platný';
+
+  @override
+  String get hotspotHint =>
+      'Žiadna spoločná Wi-Fi? Zapnite hotspot na jednom telefóne, druhý pripojte a hostite tu.';
+
+  @override
+  String get byMessenger => 'Cez messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Pošlite celý katalóg ako jeden súbor cez WhatsApp, Signal alebo mail — druhá strana ho importuje.';
+
+  @override
+  String get shareBundle => 'Zdieľať synchronizačný balík…';
+
+  @override
+  String get importBundle => 'Importovať synchronizačný balík…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Balík importovaný: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import zlyhal: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Vybrať na mape';
+
+  @override
+  String get useMyLocation => 'Použiť moju polohu';
+
+  @override
+  String get language => 'Jazyk';
+
+  @override
+  String get systemDefault => 'Predvolený systém';
 }

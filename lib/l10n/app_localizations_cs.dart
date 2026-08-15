@@ -546,4 +546,58 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get markPhoto => 'Označit…';
+
+  @override
+  String get scanCode => 'Naskenovat kód';
+
+  @override
+  String get orTypeCode => 'Nebo kód napište';
+
+  @override
+  String get copyCode => 'Kopírovat kód';
+
+  @override
+  String get copied => 'Zkopírováno';
+
+  @override
+  String get invalidCode => 'Tento kód není platný';
+
+  @override
+  String get hotspotHint =>
+      'Žádná společná Wi-Fi? Zapněte hotspot na jednom telefonu, druhý připojte a hostujte zde.';
+
+  @override
+  String get byMessenger => 'Přes messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Pošlete celý katalog jako jeden soubor přes WhatsApp, Signal nebo mail — druhá strana ho importuje.';
+
+  @override
+  String get shareBundle => 'Sdílet synchronizační balíček…';
+
+  @override
+  String get importBundle => 'Importovat synchronizační balíček…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Balíček importován: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import selhal: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Vybrat na mapě';
+
+  @override
+  String get useMyLocation => 'Použít moji polohu';
+
+  @override
+  String get language => 'Jazyk';
+
+  @override
+  String get systemDefault => 'Výchozí systému';
 }

@@ -157,5 +157,21 @@
   "dragToSelect": "Tažením nakreslete obdélník kolem kočky",
   "dragOverTheCat": "Tažením nakreslete elipsu přes kočku",
   "cropPhoto": "Oříznout…",
-  "markPhoto": "Označit…"
+  "markPhoto": "Označit…",
+  "scanCode": "Naskenovat kód",
+  "orTypeCode": "Nebo kód napište",
+  "copyCode": "Kopírovat kód",
+  "copied": "Zkopírováno",
+  "invalidCode": "Tento kód není platný",
+  "hotspotHint": "Žádná společná Wi-Fi? Zapněte hotspot na jednom telefonu, druhý připojte a hostujte zde.",
+  "byMessenger": "Přes messenger",
+  "byMessengerExplainer": "Pošlete celý katalog jako jeden soubor přes WhatsApp, Signal nebo mail — druhá strana ho importuje.",
+  "shareBundle": "Sdílet synchronizační balíček…",
+  "importBundle": "Importovat synchronizační balíček…",
+  "bundleImported": "Balíček importován: {result}",
+  "bundleImportFailed": "Import selhal: {error}",
+  "pickOnMap": "Vybrat na mapě",
+  "useMyLocation": "Použít moji polohu",
+  "language": "Jazyk",
+  "systemDefault": "Výchozí systému"
 }

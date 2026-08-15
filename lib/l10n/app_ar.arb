@@ -157,5 +157,21 @@
   "dragToSelect": "ارسم مستطيلًا حول القطة",
   "dragOverTheCat": "ارسم شكلًا بيضاويًا فوق القطة",
   "cropPhoto": "قص…",
-  "markPhoto": "تحديد…"
+  "markPhoto": "تحديد…",
+  "scanCode": "مسح الرمز",
+  "orTypeCode": "أو اكتب الرمز",
+  "copyCode": "نسخ الرمز",
+  "copied": "تم النسخ",
+  "invalidCode": "هذا الرمز غير صالح",
+  "hotspotHint": "لا توجد شبكة Wi-Fi مشتركة؟ شغّل نقطة اتصال أحد الهاتفين، وصل الآخر بها، ثم استضف هنا.",
+  "byMessenger": "عبر المراسلة",
+  "byMessengerExplainer": "أرسل الفهرس كله كملف واحد عبر WhatsApp أو Signal أو البريد — والطرف الآخر يستورده.",
+  "shareBundle": "مشاركة حزمة المزامنة…",
+  "importBundle": "استيراد حزمة المزامنة…",
+  "bundleImported": "تم استيراد الحزمة: {result}",
+  "bundleImportFailed": "فشل الاستيراد: {error}",
+  "pickOnMap": "اختر على الخريطة",
+  "useMyLocation": "استخدام موقعي",
+  "language": "اللغة",
+  "systemDefault": "افتراضي النظام"
 }

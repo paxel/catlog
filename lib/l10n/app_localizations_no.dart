@@ -546,4 +546,58 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get markPhoto => 'Marker…';
+
+  @override
+  String get scanCode => 'Skann kode';
+
+  @override
+  String get orTypeCode => 'Eller skriv koden';
+
+  @override
+  String get copyCode => 'Kopier kode';
+
+  @override
+  String get copied => 'Kopiert';
+
+  @override
+  String get invalidCode => 'Den koden er ikke gyldig';
+
+  @override
+  String get hotspotHint =>
+      'Ingen felles Wi-Fi? Slå på hotspot på én telefon, koble til den andre og vær vert her.';
+
+  @override
+  String get byMessenger => 'Via messenger';
+
+  @override
+  String get byMessengerExplainer =>
+      'Send hele katalogen som én fil via WhatsApp, Signal eller e-post — den andre siden importerer den.';
+
+  @override
+  String get shareBundle => 'Del synkpakke…';
+
+  @override
+  String get importBundle => 'Importer synkpakke…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakke importert: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import mislyktes: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Velg på kartet';
+
+  @override
+  String get useMyLocation => 'Bruk min posisjon';
+
+  @override
+  String get language => 'Språk';
+
+  @override
+  String get systemDefault => 'Systemstandard';
 }

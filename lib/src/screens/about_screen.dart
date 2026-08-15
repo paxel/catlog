@@ -13,7 +13,7 @@ const _feedbackMail = 'taum@tuta.io';
 /// Where "buy me a coffee" points. Swap for your Ko-fi / Liberapay /
 /// BuyMeACoffee page once it exists. Hidden on iOS: Apple requires
 /// In-App Purchase for developer tips there (App Store rule 3.1.1).
-const _donateUrl = 'https://ko-fi.com/paxel';
+const _donateUrl = 'https://ko-fi.com/paxel7';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});

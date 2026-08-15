@@ -546,4 +546,58 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get markPhoto => 'İşaretle…';
+
+  @override
+  String get scanCode => 'Kodu tara';
+
+  @override
+  String get orTypeCode => 'Ya da kodu yaz';
+
+  @override
+  String get copyCode => 'Kodu kopyala';
+
+  @override
+  String get copied => 'Kopyalandı';
+
+  @override
+  String get invalidCode => 'Bu kod geçersiz';
+
+  @override
+  String get hotspotHint =>
+      'Ortak Wi-Fi yok mu? Bir telefonun erişim noktasını aç, diğerini bağla, sonra burada sun.';
+
+  @override
+  String get byMessenger => 'Mesajlaşma ile';
+
+  @override
+  String get byMessengerExplainer =>
+      'Tüm kataloğu tek dosya olarak WhatsApp, Signal veya postayla gönder — karşı taraf içe aktarır.';
+
+  @override
+  String get shareBundle => 'Eşitleme paketini paylaş…';
+
+  @override
+  String get importBundle => 'Eşitleme paketini içe aktar…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paket içe aktarıldı: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'İçe aktarma başarısız: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Haritadan seç';
+
+  @override
+  String get useMyLocation => 'Konumumu kullan';
+
+  @override
+  String get language => 'Dil';
+
+  @override
+  String get systemDefault => 'Sistem varsayılanı';
 }

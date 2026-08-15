@@ -157,5 +157,21 @@
   "dragToSelect": "Povuci pravokutnik oko mačke",
   "dragOverTheCat": "Povuci elipsu preko mačke",
   "cropPhoto": "Izreži…",
-  "markPhoto": "Označi…"
+  "markPhoto": "Označi…",
+  "scanCode": "Skeniraj kod",
+  "orTypeCode": "Ili upiši kod",
+  "copyCode": "Kopiraj kod",
+  "copied": "Kopirano",
+  "invalidCode": "Taj kod nije valjan",
+  "hotspotHint": "Nema zajedničkog Wi-Fija? Uključi hotspot na jednom telefonu, spoji drugi i budi domaćin ovdje.",
+  "byMessenger": "Preko messengera",
+  "byMessengerExplainer": "Pošalji cijeli katalog kao jednu datoteku preko WhatsAppa, Signala ili maila — druga strana je uvozi.",
+  "shareBundle": "Podijeli paket sinkronizacije…",
+  "importBundle": "Uvezi paket sinkronizacije…",
+  "bundleImported": "Paket uvezen: {result}",
+  "bundleImportFailed": "Uvoz nije uspio: {error}",
+  "pickOnMap": "Odaberi na karti",
+  "useMyLocation": "Koristi moju lokaciju",
+  "language": "Jezik",
+  "systemDefault": "Zadano sustavom"
 }

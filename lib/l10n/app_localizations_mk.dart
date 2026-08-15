@@ -548,4 +548,58 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get markPhoto => 'Означи…';
+
+  @override
+  String get scanCode => 'Скенирај код';
+
+  @override
+  String get orTypeCode => 'Или внеси го кодот';
+
+  @override
+  String get copyCode => 'Копирај код';
+
+  @override
+  String get copied => 'Копирано';
+
+  @override
+  String get invalidCode => 'Тој код не е валиден';
+
+  @override
+  String get hotspotHint =>
+      'Нема заедничко Wi-Fi? Вклучи хотспот на едниот телефон, поврзи го другиот и биди домаќин тука.';
+
+  @override
+  String get byMessenger => 'Преку месинџер';
+
+  @override
+  String get byMessengerExplainer =>
+      'Испрати го целиот каталог како една датотека преку WhatsApp, Signal или пошта — другата страна го увезува.';
+
+  @override
+  String get shareBundle => 'Сподели пакет за синхронизација…';
+
+  @override
+  String get importBundle => 'Увези пакет за синхронизација…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Пакетот е увезен: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Увозот не успеа: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Избери на мапа';
+
+  @override
+  String get useMyLocation => 'Користи ја мојата локација';
+
+  @override
+  String get language => 'Јазик';
+
+  @override
+  String get systemDefault => 'Системски стандард';
 }

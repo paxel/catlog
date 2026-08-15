@@ -157,5 +157,21 @@
   "dragToSelect": "Træk et rektangel rundt om katten",
   "dragOverTheCat": "Træk en ellipse over katten",
   "cropPhoto": "Beskær…",
-  "markPhoto": "Markér…"
+  "markPhoto": "Markér…",
+  "scanCode": "Scan kode",
+  "orTypeCode": "Eller indtast koden",
+  "copyCode": "Kopiér kode",
+  "copied": "Kopieret",
+  "invalidCode": "Den kode er ikke gyldig",
+  "hotspotHint": "Intet fælles Wi-Fi? Tænd hotspot på én telefon, forbind den anden og vær vært her.",
+  "byMessenger": "Via messenger",
+  "byMessengerExplainer": "Send hele dit katalog som én fil via WhatsApp, Signal eller mail — den anden side importerer den.",
+  "shareBundle": "Del synkroniseringspakke…",
+  "importBundle": "Importér synkroniseringspakke…",
+  "bundleImported": "Pakke importeret: {result}",
+  "bundleImportFailed": "Import mislykkedes: {error}",
+  "pickOnMap": "Vælg på kortet",
+  "useMyLocation": "Brug min placering",
+  "language": "Sprog",
+  "systemDefault": "Systemstandard"
 }

@@ -547,4 +547,58 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get markPhoto => 'Zaznacz…';
+
+  @override
+  String get scanCode => 'Skanuj kod';
+
+  @override
+  String get orTypeCode => 'Albo wpisz kod';
+
+  @override
+  String get copyCode => 'Kopiuj kod';
+
+  @override
+  String get copied => 'Skopiowano';
+
+  @override
+  String get invalidCode => 'Ten kod jest nieprawidłowy';
+
+  @override
+  String get hotspotHint =>
+      'Brak wspólnego Wi-Fi? Włącz hotspot w jednym telefonie, połącz drugi i hostuj tutaj.';
+
+  @override
+  String get byMessenger => 'Przez komunikator';
+
+  @override
+  String get byMessengerExplainer =>
+      'Wyślij cały katalog jako jeden plik przez WhatsApp, Signal lub mail — druga strona go zaimportuje.';
+
+  @override
+  String get shareBundle => 'Udostępnij pakiet synchronizacji…';
+
+  @override
+  String get importBundle => 'Importuj pakiet synchronizacji…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Pakiet zaimportowany: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Import nieudany: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Wybierz na mapie';
+
+  @override
+  String get useMyLocation => 'Użyj mojej lokalizacji';
+
+  @override
+  String get language => 'Język';
+
+  @override
+  String get systemDefault => 'Domyślny systemowy';
 }

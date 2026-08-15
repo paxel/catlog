@@ -546,4 +546,58 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get markPhoto => 'Atzīmēt…';
+
+  @override
+  String get scanCode => 'Skenēt kodu';
+
+  @override
+  String get orTypeCode => 'Vai ierakstiet kodu';
+
+  @override
+  String get copyCode => 'Kopēt kodu';
+
+  @override
+  String get copied => 'Nokopēts';
+
+  @override
+  String get invalidCode => 'Šis kods nav derīgs';
+
+  @override
+  String get hotspotHint =>
+      'Nav kopīga Wi-Fi? Ieslēdziet tīklāju vienā tālrunī, pievienojiet otru un uzņemiet šeit.';
+
+  @override
+  String get byMessenger => 'Ar ziņotni';
+
+  @override
+  String get byMessengerExplainer =>
+      'Nosūtiet visu katalogu kā vienu failu ar WhatsApp, Signal vai e-pastu — otra puse to importē.';
+
+  @override
+  String get shareBundle => 'Kopīgot sinhronizācijas paku…';
+
+  @override
+  String get importBundle => 'Importēt sinhronizācijas paku…';
+
+  @override
+  String bundleImported(String result) {
+    return 'Paka importēta: $result';
+  }
+
+  @override
+  String bundleImportFailed(String error) {
+    return 'Imports neizdevās: $error';
+  }
+
+  @override
+  String get pickOnMap => 'Izvēlēties kartē';
+
+  @override
+  String get useMyLocation => 'Izmantot manu atrašanās vietu';
+
+  @override
+  String get language => 'Valoda';
+
+  @override
+  String get systemDefault => 'Sistēmas noklusējums';
 }

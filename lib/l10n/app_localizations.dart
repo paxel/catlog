@@ -1117,6 +1117,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mark…'**
   String get markPhoto;
+
+  /// No description provided for @scanCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan code'**
+  String get scanCode;
+
+  /// No description provided for @orTypeCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Or type the code'**
+  String get orTypeCode;
+
+  /// No description provided for @copyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy code'**
+  String get copyCode;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
+
+  /// No description provided for @invalidCode.
+  ///
+  /// In en, this message translates to:
+  /// **'That code is not valid'**
+  String get invalidCode;
+
+  /// No description provided for @hotspotHint.
+  ///
+  /// In en, this message translates to:
+  /// **'No shared Wi-Fi? Turn on one phone\'s hotspot, connect the other phone to it, then host here.'**
+  String get hotspotHint;
+
+  /// No description provided for @byMessenger.
+  ///
+  /// In en, this message translates to:
+  /// **'By messenger'**
+  String get byMessenger;
+
+  /// No description provided for @byMessengerExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Send your whole catalog as one file through WhatsApp, Signal, or mail — the other side imports it.'**
+  String get byMessengerExplainer;
+
+  /// No description provided for @shareBundle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share sync bundle…'**
+  String get shareBundle;
+
+  /// No description provided for @importBundle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import sync bundle…'**
+  String get importBundle;
+
+  /// No description provided for @bundleImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Bundle imported: {result}'**
+  String bundleImported(String result);
+
+  /// No description provided for @bundleImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Import failed: {error}'**
+  String bundleImportFailed(String error);
+
+  /// No description provided for @pickOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick on map'**
+  String get pickOnMap;
+
+  /// No description provided for @useMyLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use my location'**
+  String get useMyLocation;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @systemDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'System default'**
+  String get systemDefault;
 }
 
 class _AppLocalizationsDelegate

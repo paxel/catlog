@@ -157,5 +157,21 @@
   "dragToSelect": "Arrasta um retângulo à volta do gato",
   "dragOverTheCat": "Arrasta uma elipse sobre o gato",
   "cropPhoto": "Recortar…",
-  "markPhoto": "Marcar…"
+  "markPhoto": "Marcar…",
+  "scanCode": "Ler código",
+  "orTypeCode": "Ou escreve o código",
+  "copyCode": "Copiar código",
+  "copied": "Copiado",
+  "invalidCode": "Esse código não é válido",
+  "hotspotHint": "Sem Wi-Fi comum? Liga o hotspot de um telemóvel, liga o outro a ele e hospeda aqui.",
+  "byMessenger": "Por mensagens",
+  "byMessengerExplainer": "Envia o catálogo inteiro como um ficheiro por WhatsApp, Signal ou mail — o outro lado importa-o.",
+  "shareBundle": "Partilhar pacote de sincronização…",
+  "importBundle": "Importar pacote de sincronização…",
+  "bundleImported": "Pacote importado: {result}",
+  "bundleImportFailed": "Falha na importação: {error}",
+  "pickOnMap": "Escolher no mapa",
+  "useMyLocation": "Usar a minha localização",
+  "language": "Idioma",
+  "systemDefault": "Padrão do sistema"
 }
