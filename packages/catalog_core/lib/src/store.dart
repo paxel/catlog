@@ -78,11 +78,6 @@ class CatalogStore {
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
-      CREATE TABLE IF NOT EXISTS conflicts (
-        entity TEXT NOT NULL,
-        field  TEXT NOT NULL,
-        PRIMARY KEY (entity, field)
-      );
     ''');
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
@@ -355,6 +350,8 @@ class CatalogStore {
   static bool isRevertable(String field) =>
       field != Keys.type &&
       field != Keys.deleted &&
+      field != Keys.mergedInto &&
+      !field.startsWith(Keys.conflictPrefix) &&
       !field.startsWith(Keys.imagePrefix);
 
   /// Reverts one entry, git-style: appends the value that was current
@@ -640,7 +637,9 @@ class CatalogStore {
         if (!_imageReferenced(hash)) _blobs.remove(hash);
       }
     }
-    // Concurrent-edit detection (see doc comment above).
+    // Concurrent-edit detection (see doc comment above). The flag is an
+    // ordinary entry — it syncs, so every device shows the badge, and a
+    // resolution on any device clears it everywhere.
     if (senderVector != null) {
       for (final e in imported) {
         if (!isRevertable(e.field)) continue;
@@ -649,11 +648,9 @@ class CatalogStore {
         if (e.value == before.value) continue; // same value, no fight
         final senderSawIt =
             (senderVector[before.device] ?? 0) >= before.dseq;
-        if (!senderSawIt) {
-          _db.execute(
-            'INSERT OR IGNORE INTO conflicts (entity, field) VALUES (?, ?)',
-            [e.entity, e.field],
-          );
+        if (!senderSawIt && !hasConflict(e.entity, e.field)) {
+          append(e.entity, Keys.conflict(e.field), 'open',
+              as: author ?? 'cat(a)log');
         }
       }
     }
@@ -718,23 +715,29 @@ class CatalogStore {
   // ------------------------------------------------------------- conflicts
 
   /// Fields with unresolved concurrent edits, as (entity, field) pairs.
-  List<(String, String)> conflicts() => [
-        for (final r in _db.select('SELECT entity, field FROM conflicts'))
-          (r['entity'] as String, r['field'] as String)
-      ];
+  List<(String, String)> conflicts() {
+    final rows = _db.select(
+      'SELECT DISTINCT entity, field FROM entries WHERE field LIKE ?',
+      ['${Keys.conflictPrefix}%'],
+    );
+    return [
+      for (final r in rows)
+        if (current(r['entity'] as String, r['field'] as String) == 'open')
+          (
+            r['entity'] as String,
+            (r['field'] as String).substring(Keys.conflictPrefix.length)
+          )
+    ];
+  }
 
-  bool hasConflict(String entity, String field) => _db.select(
-        'SELECT 1 FROM conflicts WHERE entity = ? AND field = ?',
-        [entity, field],
-      ).isNotEmpty;
+  bool hasConflict(String entity, String field) =>
+      current(entity, Keys.conflict(field)) == 'open';
 
   /// Clears a conflict flag — after the user viewed it, kept the current
   /// value, or promoted the other one (promotion itself is an ordinary
-  /// [append]).
-  void resolveConflict(String entity, String field) => _db.execute(
-        'DELETE FROM conflicts WHERE entity = ? AND field = ?',
-        [entity, field],
-      );
+  /// [append]). The resolution syncs like any entry.
+  void resolveConflict(String entity, String field) =>
+      append(entity, Keys.conflict(field), 'resolved');
 
   /// Content hashes referenced as added somewhere but missing locally.
   List<String> missingBlobs() {

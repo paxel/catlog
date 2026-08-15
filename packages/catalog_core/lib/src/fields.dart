@@ -10,6 +10,13 @@ abstract final class Keys {
   /// LOSER, value = survivor entity id. Reads resolve the chain.
   static const mergedInto = r'$mergedInto';
 
+  /// Concurrent-edit flag for one field: `$conflict:<field>` with value
+  /// `open` or `resolved`. An ordinary entry, so badges AND their
+  /// resolution propagate to every device.
+  static const conflictPrefix = r'$conflict:';
+
+  static String conflict(String field) => '$conflictPrefix$field';
+
   /// Display name of a Cat, Clowder, or field definition.
   static const name = 'name';
 

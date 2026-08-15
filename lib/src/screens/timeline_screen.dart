@@ -51,9 +51,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
         ? store.timeline(widget.entityId)
         : store.fieldHistory(widget.entityId, widget.field!);
     final rows = <_Row>[
-      for (final e in entries.where((e) => e.field != Keys.type))
+      for (final e in entries.where((e) =>
+          e.field != Keys.type &&
+          !e.field.startsWith(Keys.conflictPrefix)))
         if (e.field == Keys.clowder)
           _membershipRow(e)
+        else if (e.field == Keys.mergedInto)
+          _Row(e, Icons.merge, 'Duplicate record merged in')
         else
           _Row(e, Icons.history,
               '${fieldLabel(store, e.field)}: ${valueLabel(store, e.field, e.value)}'),

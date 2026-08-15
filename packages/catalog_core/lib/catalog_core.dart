@@ -7,5 +7,6 @@ library;
 
 export 'src/entry.dart';
 export 'src/fields.dart';
+export 'src/folder_sync.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';
