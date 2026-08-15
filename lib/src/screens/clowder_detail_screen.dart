@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -116,8 +117,15 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             ListTile(
               title: Text(def.name),
               subtitle: Text(store.current(id, def.key) ?? '—'),
-              trailing: const Icon(Icons.edit_outlined),
+              trailing: store.hasConflict(id, def.key)
+                  ? const Icon(Icons.warning_amber, color: Colors.amber)
+                  : const Icon(Icons.edit_outlined),
               onTap: () async {
+                if (store.hasConflict(id, def.key)) {
+                  await showConflictDialog(context, store, id, def.key);
+                  setState(() {});
+                  return;
+                }
                 final edit = await editFieldValue(
                     context, def, store.current(id, def.key));
                 if (edit == null) return;

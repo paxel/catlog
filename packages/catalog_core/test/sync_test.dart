@@ -7,9 +7,13 @@ Uint8List jpeg(int w, int h) =>
     Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
 /// Full two-way sync: entries then blobs — what every transport does.
+/// Vectors are snapshotted first so conflict detection sees what each
+/// side had actually seen before this session.
 void sync(CatalogStore a, CatalogStore b) {
-  b.applyEntries(a.entriesSince(b.versionVector()));
-  a.applyEntries(b.entriesSince(a.versionVector()));
+  final va = a.versionVector();
+  final vb = b.versionVector();
+  b.applyEntries(a.entriesSince(vb), senderVector: va);
+  a.applyEntries(b.entriesSince(va), senderVector: vb);
   for (final h in a.missingBlobs()) {
     final bytes = b.imageBytes(h);
     if (bytes != null) a.putBlob(h, bytes);
@@ -116,6 +120,62 @@ void main() {
     sync(a, b);
     expect(b.cats(), isEmpty);
     expect(b.imageBytes(hash), isNull);
+  });
+
+  test('concurrent different values flag a conflict on both sides', () {
+    final cat = a.createCat('Original');
+    sync(a, b);
+    final catOnB = b.cats().single.id;
+
+    a.append(cat, Keys.name, 'Axel Name');
+    b.append(catOnB, Keys.name, 'Friend Name');
+    sync(a, b);
+
+    expect(a.hasConflict(cat, Keys.name), isTrue);
+    expect(b.hasConflict(catOnB, Keys.name), isTrue);
+  });
+
+  test('sequential edit is not a conflict', () {
+    final cat = a.createCat('Original');
+    sync(a, b);
+    // b saw everything, then edits, then syncs back: no conflict.
+    b.append(b.cats().single.id, Keys.name, 'Better Name');
+    sync(a, b);
+    expect(a.conflicts(), isEmpty);
+    expect(b.conflicts(), isEmpty);
+    expect(a.current(cat, Keys.name), 'Better Name');
+  });
+
+  test('concurrent identical values are not a conflict', () {
+    final cat = a.createCat('Original');
+    sync(a, b);
+    a.append(cat, 'f:neutered', 'yes');
+    b.append(b.cats().single.id, 'f:neutered', 'yes');
+    sync(a, b);
+    expect(a.conflicts(), isEmpty);
+  });
+
+  test('promoting the loser resolves and converges', () {
+    final cat = a.createCat('Original');
+    sync(a, b);
+    final catOnB = b.cats().single.id;
+    a.append(cat, Keys.name, 'Axel Name');
+    b.append(catOnB, Keys.name, 'Friend Name');
+    sync(a, b);
+
+    // On A someone decides the friend's name was right after all —
+    // or re-asserts the loser: an ordinary append plus resolve.
+    final winner = a.current(cat, Keys.name)!;
+    final loser = winner == 'Axel Name' ? 'Friend Name' : 'Axel Name';
+    a.append(cat, Keys.name, loser);
+    a.resolveConflict(cat, Keys.name);
+    expect(a.hasConflict(cat, Keys.name), isFalse);
+
+    sync(a, b);
+    b.resolveConflict(catOnB, Keys.name);
+    expect(a.current(cat, Keys.name), loser);
+    expect(b.current(catOnB, Keys.name), loser);
+    expect(state(a), state(b));
   });
 
   test('putBlob rejects bytes that do not match the hash', () {

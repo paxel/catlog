@@ -4,10 +4,10 @@
 
 **Blocked by:** 02 — Sync engine.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Conflict detection at import time; flags in a local, unsynced table
-- [ ] Badge on affected field tiles; conflict dialog shows both candidates with author/date
-- [ ] Promote appends an ordinary entry; view/dismiss clears the badge
-- [ ] Core tests: concurrent edit → flag; promote → new entry, flag cleared; third device converges
-- [ ] Widget test: badge shown, promote flow
+- [x] Conflict detection at import time; flags in a local, unsynced table
+- [x] Badge on affected field tiles; conflict dialog shows both candidates with author/date
+- [x] Promote appends an ordinary entry; view/dismiss clears the badge
+- [x] Core tests: concurrent edit → flag; promote → new entry, flag cleared; third device converges
+- [x] Widget test: badge shown, promote flow

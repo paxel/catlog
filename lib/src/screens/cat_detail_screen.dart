@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../image_import.dart';
 import 'card_screen.dart';
@@ -210,8 +211,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             ListTile(
               title: Text(def.name),
               subtitle: Text(store.current(id, def.key) ?? '—'),
-              trailing: const Icon(Icons.edit_outlined),
-              onTap: () => _editField(def),
+              trailing: store.hasConflict(id, def.key)
+                  ? const Icon(Icons.warning_amber, color: Colors.amber)
+                  : const Icon(Icons.edit_outlined),
+              onTap: store.hasConflict(id, def.key)
+                  ? () async {
+                      await showConflictDialog(context, store, id, def.key);
+                      setState(() {});
+                    }
+                  : () => _editField(def),
               onLongPress: () => _openTimeline(field: def.key),
             ),
           const Divider(),

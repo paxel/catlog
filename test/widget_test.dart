@@ -176,6 +176,46 @@ void main() {
         store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
   });
 
+  testWidgets('conflicting field shows a badge and can be resolved',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    final other = CatalogStore.inMemory();
+    addTearDown(store.close);
+    addTearDown(other.close);
+    store.author = 'axel';
+    other.author = 'friend';
+
+    // Shared cat, then concurrent gender edits, then sync.
+    final home = store.createClowder('Home');
+    final cat = store.createCat('Miezi', clowderId: home);
+    other.applyEntries(store.entriesSince({}), senderVector: {});
+    final catOnOther = other.cats().single.id;
+    final vs = store.versionVector();
+    final vo = other.versionVector();
+    store.append(cat, Keys.userField('gender'), 'female');
+    other.append(catOnOther, Keys.userField('gender'), 'male');
+    store.applyEntries(other.entriesSince(vs), senderVector: vo);
+    expect(store.hasConflict(cat, Keys.userField('gender')), isTrue);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+
+    expect(find.byIcon(Icons.warning_amber), findsOneWidget);
+    await tester.tap(find.text('Gender'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Conflict'), findsOneWidget);
+    await tester.tap(find.text('female'));
+    await tester.tap(find.text('Resolve'));
+    await tester.pumpAndSettle();
+
+    expect(store.hasConflict(cat, Keys.userField('gender')), isFalse);
+    expect(store.current(cat, Keys.userField('gender')), 'female');
+    expect(find.byIcon(Icons.warning_amber), findsNothing);
+  });
+
   testWidgets('clowder timeline shows cat arrivals and departures',
       (tester) async {
     final store = CatalogStore.inMemory();

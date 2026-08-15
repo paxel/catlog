@@ -78,6 +78,11 @@ class CatalogStore {
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS conflicts (
+        entity TEXT NOT NULL,
+        field  TEXT NOT NULL,
+        PRIMARY KEY (entity, field)
+      );
     ''');
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
@@ -462,7 +467,28 @@ class CatalogStore {
   /// Imports foreign entries idempotently — (device, dseq) already seen
   /// are ignored. Returns the entries that were actually new. Image
   /// bytes whose last reference died with this import are dropped.
-  List<Entry> applyEntries(List<Entry> entries) {
+  ///
+  /// [senderVector] enables conflict detection: if the sender had NOT
+  /// seen our current entry for a field it changed (its vector does not
+  /// cover that entry), the edits were concurrent — the field is flagged
+  /// in the device-local conflicts table when the values differ. With
+  /// the vector absent, no conflicts are flagged.
+  List<Entry> applyEntries(List<Entry> entries,
+      {Map<String, int>? senderVector}) {
+    // Snapshot the pre-import winner of every field this batch touches.
+    final touched = <(String, String)>{
+      for (final e in entries) (e.entity, e.field)
+    };
+    final pre = <(String, String), Entry?>{};
+    if (senderVector != null) {
+      for (final t in touched) {
+        final rows = _db.select(
+          'SELECT * FROM entries WHERE entity = ? AND field = ? $_latest LIMIT 1',
+          [t.$1, t.$2],
+        );
+        pre[t] = rows.isEmpty ? null : _entry(rows.first);
+      }
+    }
     final imported = <Entry>[];
     for (final e in entries) {
       _db.execute(
@@ -489,8 +515,46 @@ class CatalogStore {
         if (!_imageReferenced(hash)) _blobs.remove(hash);
       }
     }
+    // Concurrent-edit detection (see doc comment above).
+    if (senderVector != null) {
+      for (final e in imported) {
+        if (!isRevertable(e.field)) continue;
+        final before = pre[(e.entity, e.field)];
+        if (before == null) continue; // field was new here
+        if (e.value == before.value) continue; // same value, no fight
+        final senderSawIt =
+            (senderVector[before.device] ?? 0) >= before.dseq;
+        if (!senderSawIt) {
+          _db.execute(
+            'INSERT OR IGNORE INTO conflicts (entity, field) VALUES (?, ?)',
+            [e.entity, e.field],
+          );
+        }
+      }
+    }
     return imported;
   }
+
+  // ------------------------------------------------------------- conflicts
+
+  /// Fields with unresolved concurrent edits, as (entity, field) pairs.
+  List<(String, String)> conflicts() => [
+        for (final r in _db.select('SELECT entity, field FROM conflicts'))
+          (r['entity'] as String, r['field'] as String)
+      ];
+
+  bool hasConflict(String entity, String field) => _db.select(
+        'SELECT 1 FROM conflicts WHERE entity = ? AND field = ?',
+        [entity, field],
+      ).isNotEmpty;
+
+  /// Clears a conflict flag — after the user viewed it, kept the current
+  /// value, or promoted the other one (promotion itself is an ordinary
+  /// [append]).
+  void resolveConflict(String entity, String field) => _db.execute(
+        'DELETE FROM conflicts WHERE entity = ? AND field = ?',
+        [entity, field],
+      );
 
   /// Content hashes referenced as added somewhere but missing locally.
   List<String> missingBlobs() {
