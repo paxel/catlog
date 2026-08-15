@@ -4,9 +4,9 @@
 
 **Blocked by:** None (parallel to the rest).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] CI job builds the Linux bundle (GTK deps installed on the runner) and zips it
-- [ ] CI job builds the Windows bundle and zips it
-- [ ] Release workflow attaches both to the GitHub Release
-- [ ] Default window size set (e.g. 1100×750)
+- [x] CI job builds the Linux bundle (GTK deps installed on the runner) and zips it
+- [x] CI job builds the Windows bundle and zips it
+- [x] Release workflow attaches both to the GitHub Release
+- [x] Default window size: Flutter template default of 1280×720 kept — already sane

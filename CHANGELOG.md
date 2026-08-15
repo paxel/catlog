@@ -55,3 +55,15 @@ Milestone M1: local-only catalog with Cards.
   Cats' membership histories; Cat timelines render moves readably too.
 - App icon: a Karteikarte with a cat face — generated for Android
   (including adaptive), iOS, Windows, and macOS from assets/icon/icon.svg.
+- Device-to-device sync over the local network: host shows address + PIN,
+  joiner syncs two ways (entries and photos, delta only) — no server, no
+  account; every device converges to identical state.
+- Conflict handling: concurrent edits of the same field are detected at
+  sync (causally, via version vectors), badged amber, and resolved by
+  choosing a value — the choice is a new history entry, nothing is lost.
+- Merge for duplicates of all kinds — Cats, Clowders, Fields (same type):
+  pick the survivor, the other record folds in alias-style with full
+  history; late-syncing edits against the merged record land on the
+  survivor.
+- Desktop: Linux and Windows bundles built in CI and attached to releases.
+- iOS permission strings for camera, photo library, and local network.
