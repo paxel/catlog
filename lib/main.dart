@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'src/auto_backup.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/clowder_list_screen.dart';
@@ -26,7 +27,29 @@ class CatlogApp extends StatefulWidget {
   State<CatlogApp> createState() => _CatlogAppState();
 }
 
-class _CatlogAppState extends State<CatlogApp> {
+class _CatlogAppState extends State<CatlogApp>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Leaving the app: drop an uninstall-proof backup if data changed.
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
+      autoBackup(widget.store);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Locale?>(

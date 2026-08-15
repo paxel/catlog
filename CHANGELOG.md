@@ -105,6 +105,10 @@ Milestone M1: local-only catalog with Cards.
   which date — records that are years old carry their real dates.
 - In-app language picker (all 38 languages, by native name).
 - Donation link points to ko-fi.com/paxel7.
+- Automatic uninstall-proof backup: leaving the app writes the full
+  catalog as a sync bundle to Downloads/catlog (Android) or the Downloads
+  folder (desktop) whenever something changed; restore via "Import sync
+  bundle". Uninstalling the app can no longer lose your cats.
 
 ### Fixed
 
