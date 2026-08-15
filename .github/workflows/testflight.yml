@@ -47,7 +47,7 @@ jobs:
           EOF
           done
       - name: Build signed IPA
-        run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
+        run: flutter build ipa --release --build-number=$GITHUB_RUN_NUMBER --export-options-plist=ios/ExportOptions.plist
       - name: Upload to TestFlight
         uses: apple-actions/upload-testflight-build@v3
         with:
