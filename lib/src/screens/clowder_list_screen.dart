@@ -7,6 +7,7 @@ import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
+import 'sync_screen.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -46,6 +47,16 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => SearchScreen(store: widget.store),
             )),
+          ),
+          IconButton(
+            icon: const Icon(Icons.sync),
+            tooltip: 'Sync',
+            onPressed: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => SyncScreen(store: widget.store),
+              ));
+              setState(() {});
+            },
           ),
           IconButton(
             icon: const Icon(Icons.tune),

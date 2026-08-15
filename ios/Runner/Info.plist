@@ -66,5 +66,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Take photos of cats for their cards.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pick existing photos of cats for their cards.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Sync your catalog directly with another device on this network — no server involved.</string>
 </dict>
 </plist>

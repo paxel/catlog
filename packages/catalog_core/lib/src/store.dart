@@ -149,6 +149,20 @@ class CatalogStore {
     );
   }
 
+  /// Device-local, never-synced key/value setting (last sync peer,
+  /// folder paths, …).
+  String? localSetting(String key) {
+    final rows = _db
+        .select('SELECT value FROM local_settings WHERE key = ?', ['u:$key']);
+    return rows.isEmpty ? null : rows.first['value'] as String;
+  }
+
+  void setLocalSetting(String key, String value) => _db.execute(
+        'INSERT INTO local_settings (key, value) VALUES (?, ?) '
+        'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+        ['u:$key', value],
+      );
+
   // ------------------------------------------------------------------- log
 
   /// Appends one immutable fact. [date] is the effective (backdatable)

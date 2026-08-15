@@ -4,10 +4,10 @@
 
 **Blocked by:** 02 — Sync engine.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] HTTP host on a random port, endpoints gated by the PIN header
-- [ ] Join flow: address+PIN entry, two-way delta sync, blob transfer
-- [ ] Result summary and per-peer last-sync timestamp
-- [ ] iOS local-network permission strings; graceful failure messages
-- [ ] Localhost integration test of a full two-store sync over the transport
+- [x] HTTP host on a random port, endpoints gated by the PIN header
+- [x] Join flow: address+PIN entry, two-way delta sync, blob transfer
+- [x] Result summary and per-peer last-sync timestamp
+- [x] iOS local-network permission strings; graceful failure messages
+- [x] Localhost integration test of a full two-store sync over the transport
