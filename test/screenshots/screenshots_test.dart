@@ -173,10 +173,10 @@ void main() {
             store: store, tileProvider: _PastelTileProvider(tileFile)),
         '06-map');
 
-    // Apple App Store sets: 6.7" iPhone (1290×2796 @3x) and 13" iPad
+    // Apple App Store sets: 6.9" iPhone (1320×2868 @3x) and 13" iPad
     // (2064×2752 @2x), into docs/screenshots/appstore/.
     Directory('docs/screenshots/appstore').createSync(recursive: true);
-    const phone = Size(1290, 2796);
+    const phone = Size(1320, 2868);
     const pad = Size(2064, 2752);
     final shots = <String, Widget>{
       '01-home': ClowderListScreen(store: store),
