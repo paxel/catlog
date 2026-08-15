@@ -7,7 +7,6 @@
 library;
 
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:catalog_core/catalog_core.dart';
