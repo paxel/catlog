@@ -87,6 +87,7 @@ jobs:
         run: |
           flutter build apk --release --split-per-abi --build-number=$GITHUB_RUN_NUMBER
           flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
+          flutter build appbundle --release --build-number=$GITHUB_RUN_NUMBER
       - name: Rename artifacts
         run: |
           v="${RELEASE_TAG#v}"
@@ -96,6 +97,7 @@ jobs:
           mv "$d/app-armeabi-v7a-release.apk" "dist/catlog-$v-android-armeabi-v7a.apk"
           mv "$d/app-x86_64-release.apk"      "dist/catlog-$v-android-x86_64.apk"
           mv "$d/app-release.apk"             "dist/catlog-$v-android-universal.apk"
+          mv build/app/outputs/bundle/release/app-release.aab "dist/catlog-$v-android-playstore.aab"
       - uses: actions/upload-artifact@v4
         with:
           name: android
