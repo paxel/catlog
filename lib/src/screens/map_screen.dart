@@ -166,6 +166,9 @@ class _MapScreenState extends State<MapScreen> {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'io.github.paxel.catlog',
             tileProvider: _tiles,
+            // Cached tiles pop in instantly; the fade animation only
+            // delays them (and never finishes under the test clock).
+            tileDisplay: const TileDisplay.instantaneous(),
           ),
           MarkerLayer(markers: [
             for (final (clowder, point) in clowders)

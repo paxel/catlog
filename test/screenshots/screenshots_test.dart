@@ -15,6 +15,7 @@ import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_list_screen.dart';
+import 'package:catlog/src/map/cached_tiles.dart';
 import 'package:catlog/src/screens/map_screen.dart';
 import 'package:catlog/src/screens/timeline_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image/image.dart' as img;
 
 Future<void> _loadRealFonts() async {
   final root = Platform.environment['FLUTTER_ROOT']!;
@@ -95,14 +95,6 @@ CatalogStore _demoStore() {
   return store;
 }
 
-class _PastelTileProvider extends TileProvider {
-  final File tile;
-  _PastelTileProvider(this.tile);
-  @override
-  ImageProvider getImage(TileCoordinates coordinates, TileLayer options) =>
-      FileImage(tile);
-}
-
 void main() {
   setUpAll(() async {
     useSystemSqlite();
@@ -128,10 +120,12 @@ void main() {
       ),
     ));
     await tester.pump(const Duration(milliseconds: 500));
-    // Real time so Image.memory decoding completes before capture.
-    await tester.runAsync(
-        () => Future<void>.delayed(const Duration(milliseconds: 600)));
-    await tester.pump(const Duration(milliseconds: 500));
+    // Real time so Image.memory decoding and tile loading complete.
+    for (var i = 0; i < 4; i++) {
+      await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 400)));
+      await tester.pump(const Duration(milliseconds: 300));
+    }
     await tester.runAsync(() async {
       final boundary = key.currentContext!.findRenderObject()!
           as RenderRepaintBoundary;
@@ -161,17 +155,12 @@ void main() {
     await shoot(tester,
         TimelineScreen(store: store, entityId: miezi), '05-timeline');
 
-    // Map with a soft placeholder tile (no network in tests).
-    final tileFile =
-        File('${Directory.systemTemp.path}/catlog_tile.png');
-    final tile = img.Image(width: 256, height: 256);
-    img.fill(tile, color: img.ColorRgb8(232, 238, 230));
-    tileFile.writeAsBytesSync(img.encodePng(tile));
-    await shoot(
-        tester,
-        MapScreen(
-            store: store, tileProvider: _PastelTileProvider(tileFile)),
-        '06-map');
+    // Map with REAL pre-downloaded OSM tiles (test/screenshots/tiles,
+    // fetched once by the tile script) — no network in tests.
+    final tiles =
+        DiskCachingTileProvider(Directory('test/screenshots/tiles'));
+    await shoot(tester,
+        MapScreen(store: store, tileProvider: tiles), '06-map');
 
     // Apple App Store sets: 6.9" iPhone (1320×2868 @3x) and 13" iPad
     // (2064×2752 @2x), into docs/screenshots/appstore/.
@@ -184,8 +173,7 @@ void main() {
       '03-cat': CatDetailScreen(store: store, catId: miezi),
       '04-card': CardScreen(store: store, catId: miezi),
       '05-timeline': TimelineScreen(store: store, entityId: miezi),
-      '06-map': MapScreen(
-          store: store, tileProvider: _PastelTileProvider(tileFile)),
+      '06-map': MapScreen(store: store, tileProvider: tiles),
     };
     for (final entry in shots.entries) {
       await shoot(tester, entry.value, 'appstore/iphone-${entry.key}',

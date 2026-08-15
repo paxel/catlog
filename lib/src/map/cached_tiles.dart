@@ -22,6 +22,10 @@ class DiskCachingTileProvider extends TileProvider {
     final url = getTileUrl(coordinates, options);
     final file = File(
         '${cacheDir.path}/${coordinates.z}_${coordinates.x}_${coordinates.y}.png');
+    // Cache hits load synchronously as MemoryImage — tiles are tiny,
+    // and this is the one image pipeline that renders reliably both on
+    // devices and under the widget-test clock (screenshot generator).
+    if (file.existsSync()) return MemoryImage(file.readAsBytesSync());
     return _CachedTileImage(url, file);
   }
 }
