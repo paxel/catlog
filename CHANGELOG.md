@@ -92,6 +92,20 @@ Milestone M1: local-only catalog with Cards.
   macOS dmg per architecture) and Scoop (`scoop install catlog`, Windows);
   Linux tar.gz for x86_64 and arm64 on every release.
 
+- Pairing for device sync: hosting shows a QR code and a short typable
+  code (auto-grouped, forgiving of case and look-alike characters);
+  joining scans or types it and syncs immediately — no more IP + PIN
+  fields. Hint for using a phone hotspot when there is no shared Wi-Fi.
+- Sync by messenger: send the whole catalog as one file through WhatsApp,
+  Signal, or mail; the other side imports it — cross-city sync, still no
+  server.
+- Position fields open a map picker (tap the spot or use GPS) instead of
+  asking for coordinates.
+- Creating clowders, cats, and strays and moving cats now ask "as of"
+  which date — records that are years old carry their real dates.
+- In-app language picker (all 38 languages, by native name).
+- Donation link points to ko-fi.com/paxel7.
+
 ### Fixed
 
 - Deterministic ordering could disagree between devices when a timestamp
