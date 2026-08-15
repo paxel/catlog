@@ -4,9 +4,9 @@
 
 **Blocked by:** 02 — Map.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Stray Cam action: GPS + create-with-photo flow + position entry, minimal taps
-- [ ] "Seen here now" on cats; map long-press sighting for a chosen stray
-- [ ] Location permission flows; graceful denial (manual pin still works)
-- [ ] GPS/camera verified manually on device (policy as M1 card printing)
+- [x] Stray Cam action: GPS + create-with-photo flow + position entry, minimal taps
+- [x] "Seen here now" on cats; map long-press sighting for a chosen stray
+- [x] Location permission flows; graceful denial (manual pin still works)
+- [ ] GPS/camera verified manually on device (policy as M1 card printing) — pending: next on-device round

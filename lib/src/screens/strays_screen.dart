@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 
@@ -56,11 +57,31 @@ class _StraysScreenState extends State<StraysScreen> {
     final strays = widget.store.strays();
     return Scaffold(
       appBar: AppBar(title: const Text('Strays')),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _addStray,
-        icon: const Icon(Icons.add),
-        label: const Text('Add stray'),
-      ),
+      floatingActionButton:
+          Column(mainAxisSize: MainAxisSize.min, children: [
+        FloatingActionButton.extended(
+          heroTag: 'strayCam',
+          onPressed: () async {
+            final catId = await strayCam(context, widget.store);
+            if (catId != null && context.mounted) {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) =>
+                    CatDetailScreen(store: widget.store, catId: catId),
+              ));
+            }
+            setState(() {});
+          },
+          icon: const Icon(Icons.photo_camera),
+          label: const Text('Stray Cam'),
+        ),
+        const SizedBox(height: 12),
+        FloatingActionButton.extended(
+          heroTag: 'addStray',
+          onPressed: _addStray,
+          icon: const Icon(Icons.add),
+          label: const Text('Add stray'),
+        ),
+      ]),
       body: strays.isEmpty
           ? const Center(child: Text('No strays right now.'))
           : ListView.builder(

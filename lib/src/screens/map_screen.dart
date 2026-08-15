@@ -7,6 +7,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../map/cached_tiles.dart';
+import '../stray_cam.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 
@@ -102,6 +103,19 @@ class _MapScreenState extends State<MapScreen> {
         all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2;
     return Scaffold(
       appBar: AppBar(title: const Text('Map')),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          final catId = await strayCam(context, store);
+          if (catId != null && context.mounted) {
+            await Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => CatDetailScreen(store: store, catId: catId),
+            ));
+          }
+          setState(() {});
+        },
+        icon: const Icon(Icons.photo_camera),
+        label: const Text('Stray Cam'),
+      ),
       body: FlutterMap(
         options: MapOptions(
           initialCenter: center,

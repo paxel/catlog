@@ -72,5 +72,7 @@
 	<string>Pick existing photos of cats for their cards.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Sync your catalog directly with another device on this network — no server involved.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Record where a stray cat was seen (Stray Cam and sightings).</string>
 </dict>
 </plist>

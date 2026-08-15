@@ -5,6 +5,7 @@ import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../image_import.dart';
 import '../merge_dialogs.dart';
+import '../stray_cam.dart';
 import 'card_screen.dart';
 import 'timeline_screen.dart';
 
@@ -93,6 +94,17 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         ]),
       ),
     );
+  }
+
+  Future<void> _seenHere() async {
+    final ok = await seenHereNow(store, id);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(ok
+          ? 'Sighting recorded at your position.'
+          : 'No location available — long-press the map instead.'),
+    ));
+    setState(() {});
   }
 
   Future<void> _mergeCat() async {
@@ -201,8 +213,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
               if (v == 'merge') _mergeCat();
+              if (v == 'seen') _seenHere();
             },
             itemBuilder: (context) => const [
+              PopupMenuItem(value: 'seen', child: Text('Seen here now')),
               PopupMenuItem(value: 'merge', child: Text('Merge into…')),
               PopupMenuItem(value: 'delete', child: Text('Delete cat')),
             ],
