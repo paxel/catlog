@@ -439,6 +439,83 @@ class CatalogStore {
     return all.isEmpty ? null : all.first;
   }
 
+  // ------------------------------------------------------------------ sync
+
+  /// What this store has seen: max dseq per known device (ADR-0002).
+  Map<String, int> versionVector() => {
+        for (final r in _db.select(
+            'SELECT device, MAX(dseq) AS m FROM entries GROUP BY device'))
+          r['device'] as String: r['m'] as int
+      };
+
+  /// Every entry a peer with [vector] is missing, ordered (device, dseq).
+  List<Entry> entriesSince(Map<String, int> vector) {
+    final all = _db
+        .select('SELECT * FROM entries ORDER BY device, dseq')
+        .map(_entry);
+    return [
+      for (final e in all)
+        if (e.dseq > (vector[e.device] ?? 0)) e
+    ];
+  }
+
+  /// Imports foreign entries idempotently — (device, dseq) already seen
+  /// are ignored. Returns the entries that were actually new. Image
+  /// bytes whose last reference died with this import are dropped.
+  List<Entry> applyEntries(List<Entry> entries) {
+    final imported = <Entry>[];
+    for (final e in entries) {
+      _db.execute(
+        'INSERT OR IGNORE INTO entries '
+        '(device, dseq, entity, field, value, date, author, recorded) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [
+          e.device,
+          e.dseq,
+          e.entity,
+          e.field,
+          e.value,
+          e.date.toUtc().toIso8601String(),
+          e.author,
+          e.recorded.toUtc().toIso8601String(),
+        ],
+      );
+      if (_db.updatedRows > 0) imported.add(e);
+    }
+    // Propagated image deletions: drop bytes with no live reference left.
+    for (final e in imported) {
+      if (e.field.startsWith(Keys.imagePrefix) && e.value == 'deleted') {
+        final hash = e.field.substring(Keys.imagePrefix.length);
+        if (!_imageReferenced(hash)) _blobs.remove(hash);
+      }
+    }
+    return imported;
+  }
+
+  /// Content hashes referenced as added somewhere but missing locally.
+  List<String> missingBlobs() {
+    final rows = _db.select(
+      'SELECT DISTINCT field FROM entries WHERE field LIKE ?',
+      ['${Keys.imagePrefix}%'],
+    );
+    final missing = <String>{};
+    for (final r in rows) {
+      final hash = (r['field'] as String).substring(Keys.imagePrefix.length);
+      if (_imageReferenced(hash) && _blobs.get(hash) == null) {
+        missing.add(hash);
+      }
+    }
+    return missing.toList();
+  }
+
+  /// Stores a blob received from a peer; verifies the content hash.
+  void putBlob(String hash, Uint8List bytes) {
+    if (sha256.convert(bytes).toString() != hash) {
+      throw ArgumentError('Blob content does not match hash $hash');
+    }
+    _blobs.put(hash, bytes);
+  }
+
   // --------------------------------------------------------------- deletes
 
   /// True while any entity still shows [hash] as an added image.

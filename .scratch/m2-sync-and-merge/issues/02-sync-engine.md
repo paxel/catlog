@@ -4,9 +4,9 @@
 
 **Blocked by:** 01 — Device identity.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Version vector export; entriesSince(vector); idempotent applyEntries (upsert on device+dseq)
-- [ ] Blob reconciliation: referenced-but-missing hashes listed, bytes transferable both ways
-- [ ] Deletions and image-delete markers propagate; blob bytes dropped on receipt of a delete that leaves no reference
-- [ ] Core tests: A↔B convergence, three-store A→B→C vs C→B→A identical state, repeated sync is a no-op
+- [x] Version vector export; entriesSince(vector); idempotent applyEntries (upsert on device+dseq)
+- [x] Blob reconciliation: referenced-but-missing hashes listed, bytes transferable both ways
+- [x] Deletions and image-delete markers propagate; blob bytes dropped on receipt of a delete that leaves no reference
+- [x] Core tests: A↔B convergence, three-store A→B→C vs C→B→A identical state, repeated sync is a no-op

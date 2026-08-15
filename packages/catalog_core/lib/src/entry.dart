@@ -48,4 +48,29 @@ class Entry {
   @override
   String toString() =>
       'Entry($seq $entity $field=$value @${date.toIso8601String()} by $author)';
+
+  /// Wire format for sync transports. `seq` is intentionally absent —
+  /// it is a local handle; identity on the wire is (device, dseq).
+  Map<String, dynamic> toJson() => {
+        'device': device,
+        'dseq': dseq,
+        'entity': entity,
+        'field': field,
+        'value': value,
+        'date': date.toIso8601String(),
+        'author': author,
+        'recorded': recorded.toIso8601String(),
+      };
+
+  factory Entry.fromJson(Map<String, dynamic> json) => Entry(
+        seq: -1,
+        device: json['device'] as String,
+        dseq: json['dseq'] as int,
+        entity: json['entity'] as String,
+        field: json['field'] as String,
+        value: json['value'] as String?,
+        date: DateTime.parse(json['date'] as String),
+        author: json['author'] as String,
+        recorded: DateTime.parse(json['recorded'] as String),
+      );
 }
