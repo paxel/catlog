@@ -17,6 +17,12 @@ Kittens born to the same mother in one birth. Reserved for a possible future "bo
 **Stray**:
 A Cat currently in no Clowder; tracked by map positions instead. A state, not a kind — any Cat becomes a Stray by leaving its Clowder (running away, Clowder deleted) and stops being one on a Move into a Clowder.
 
+**Crop**:
+Cutting one cat out of a photo. Happens in the import flow (skippable; Stray Cam skips it) or later from the photo menu; cropping later adds the cropped copy as a new photo, the original stays.
+
+**Mark**:
+A highlight (ellipse/arrow) baked into a copy of a photo to point at one cat when cropping cannot isolate it — an ordinary new photo, synced and printed like any other.
+
 **Stray Cam**:
 One-tap capture of a new Stray: creates the Cat at the device's current position with a photo (system camera or picked from the device), no further input required.
 
