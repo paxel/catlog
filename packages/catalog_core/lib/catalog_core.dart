@@ -5,6 +5,7 @@
 /// to [CatalogStore].
 library;
 
+export 'src/csv_export.dart';
 export 'src/entry.dart';
 export 'src/fields.dart';
 export 'src/folder_sync.dart';

@@ -342,6 +342,37 @@ void main() {
     });
   });
 
+  group('csv export', () {
+    test('stable columns, values, stray and clowder cats', () {
+      final home = store.createClowder('Home, sweet');
+      final a = store.createCat('Miezi', clowderId: home);
+      store.append(a, 'f:gender', 'female');
+      store.createCat('Roamer'); // stray
+
+      final csv = exportCsv(store);
+      final lines = csv.split('\r\n');
+      expect(lines.first, startsWith('name,clowder,photos,'));
+      expect(lines.first, contains('gender'));
+      // Comma in the clowder name forces quoting.
+      expect(csv, contains('"Home, sweet"'));
+      expect(csv, contains('Roamer,stray,0'));
+    });
+
+    test('quotes, newlines, and doubled quotes survive', () {
+      final cat = store.createCat('Weird "One"');
+      store.append(cat, 'f:color', 'black\nwhite');
+      final csv = exportCsv(store);
+      expect(csv, contains('"Weird ""One"""'));
+      expect(csv, contains('"black\nwhite"'));
+    });
+
+    test('deleted cats are absent', () {
+      final cat = store.createCat('Ghost');
+      store.deleteCat(cat);
+      expect(exportCsv(store), isNot(contains('Ghost')));
+    });
+  });
+
   group('positions', () {
     test('position field is seeded and parses', () {
       expect(store.fieldDefs().map((d) => d.slug), contains('position'));

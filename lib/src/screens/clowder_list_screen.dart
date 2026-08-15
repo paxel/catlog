@@ -1,7 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
@@ -21,6 +25,25 @@ class ClowderListScreen extends StatefulWidget {
 }
 
 class _ClowderListScreenState extends State<ClowderListScreen> {
+  Future<void> _exportCsv() async {
+    final csv = exportCsv(widget.store);
+    try {
+      await Share.shareXFiles([
+        XFile.fromData(Uint8List.fromList(utf8.encode(csv)),
+            mimeType: 'text/csv', name: 'catlog.csv'),
+      ]);
+    } catch (_) {
+      // Share sheet unavailable (some desktops): save next to the data.
+      final dir = await getApplicationSupportDirectory();
+      final file = File('${dir.path}/catlog.csv');
+      await file.writeAsString(csv);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('CSV saved to ${file.path}')),
+      );
+    }
+  }
+
   Future<void> _addClowder() async {
     final name = await _askForName(context);
     if (name == null || !mounted) return;
@@ -75,6 +98,14 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => FieldsScreen(store: widget.store),
             )),
+          ),
+          PopupMenuButton<String>(
+            onSelected: (v) {
+              if (v == 'csv') _exportCsv();
+            },
+            itemBuilder: (context) => const [
+              PopupMenuItem(value: 'csv', child: Text('Export CSV')),
+            ],
           ),
         ],
       ),

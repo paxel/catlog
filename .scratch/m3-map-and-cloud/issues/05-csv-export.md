@@ -4,9 +4,9 @@
 
 **Blocked by:** None (M1 base).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] CSV of all cats with stable column order (built-ins first, then field slugs alphabetically)
-- [ ] RFC 4180 quoting; UTF-8
-- [ ] Share via the platform share sheet from the home screen menu
-- [ ] Core tests: serialization, quoting edge cases (commas, quotes, newlines in values)
+- [x] CSV of all cats with stable column order (built-ins first, then field slugs alphabetically)
+- [x] RFC 4180 quoting; UTF-8
+- [x] Share via the platform share sheet from the home screen menu
+- [x] Core tests: serialization, quoting edge cases (commas, quotes, newlines in values)
