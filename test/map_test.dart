@@ -45,13 +45,13 @@ void main() {
     ));
     await tester.pump(const Duration(seconds: 1));
 
-    expect(find.byTooltip('Home'), findsOneWidget);
-    expect(find.byTooltip('Roamer'), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('Roamer'), findsOneWidget);
     expect(find.text('OpenStreetMap contributors'), findsOneWidget);
 
     // Tapping the stray pin shows its movement trail.
     store.recordPosition(stray, 52.54, 13.42);
-    await tester.tap(find.byTooltip('Roamer'));
+    await tester.tap(find.text('Roamer'));
     await tester.pump(const Duration(seconds: 1));
     expect(find.textContaining('Trail: Roamer'), findsOneWidget);
     expect(find.textContaining('sightings'), findsOneWidget);

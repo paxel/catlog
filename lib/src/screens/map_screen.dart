@@ -107,6 +107,29 @@ class _MapScreenState extends State<MapScreen> {
     setState(() {});
   }
 
+  /// A stray's face for its map pin: profile photo in a ring, paw icon
+  /// as fallback.
+  Widget _catFace(String catId, bool highlighted) {
+    final hash = store.profileImage(catId);
+    final bytes = hash == null ? null : store.imageBytes(hash);
+    final ring = highlighted ? Colors.red : Colors.deepOrange;
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: ring, width: 3),
+        color: Colors.white,
+      ),
+      child: CircleAvatar(
+        radius: 18,
+        backgroundColor: Colors.white,
+        backgroundImage: bytes != null ? MemoryImage(bytes) : null,
+        child: bytes == null
+            ? const Icon(Icons.pets, size: 20, color: Colors.deepOrange)
+            : null,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_tiles == null) {
@@ -148,13 +171,19 @@ class _MapScreenState extends State<MapScreen> {
             for (final (clowder, point) in clowders)
               Marker(
                 point: point,
-                width: 44,
-                height: 44,
-                child: IconButton(
-                  icon: const Icon(Icons.home, size: 32),
-                  color: Theme.of(context).colorScheme.primary,
-                  tooltip: clowder.name,
-                  onPressed: () =>
+                width: 110,
+                height: 72,
+                alignment: Alignment.topCenter,
+                child: _MapPin(
+                  label: clowder.name,
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor:
+                        Theme.of(context).colorScheme.primary,
+                    child: const Icon(Icons.home,
+                        size: 24, color: Colors.white),
+                  ),
+                  onTap: () =>
                       Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => ClowderDetailScreen(
                         store: store, clowderId: clowder.id),
@@ -164,16 +193,14 @@ class _MapScreenState extends State<MapScreen> {
             for (final (cat, point) in strays)
               Marker(
                 point: point,
-                width: 44,
-                height: 44,
-                child: IconButton(
-                  icon: Icon(Icons.pets,
-                      size: _trailCat == cat.id ? 36 : 30),
-                  color: _trailCat == cat.id
-                      ? Colors.red
-                      : Colors.deepOrange,
-                  tooltip: cat.name,
-                  onPressed: () => setState(() =>
+                width: 110,
+                height: 72,
+                alignment: Alignment.topCenter,
+                child: _MapPin(
+                  label: cat.name,
+                  highlighted: _trailCat == cat.id,
+                  child: _catFace(cat.id, _trailCat == cat.id),
+                  onTap: () => setState(() =>
                       _trailCat = _trailCat == cat.id ? null : cat.id),
                 ),
               ),
@@ -238,6 +265,51 @@ class _MapScreenState extends State<MapScreen> {
                 ),
               ]),
             ),
+    );
+  }
+}
+
+/// Map pin: avatar/icon with the name on a readable chip below.
+class _MapPin extends StatelessWidget {
+  final String label;
+  final Widget child;
+  final VoidCallback onTap;
+  final bool highlighted;
+
+  const _MapPin(
+      {required this.label,
+      required this.child,
+      required this.onTap,
+      this.highlighted = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        child,
+        const SizedBox(height: 2),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+          decoration: BoxDecoration(
+            color: highlighted ? Colors.red : Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: const [
+              BoxShadow(blurRadius: 2, color: Colors.black26),
+            ],
+          ),
+          child: Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: highlighted ? Colors.white : Colors.black87,
+            ),
+          ),
+        ),
+      ]),
     );
   }
 }
