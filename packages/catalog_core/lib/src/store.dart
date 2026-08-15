@@ -19,6 +19,25 @@ class EntityView {
   const EntityView(this.id, this.name);
 }
 
+/// One arrival or departure in a Clowder's combined timeline.
+class ClowderEvent {
+  /// The underlying membership entry on the Cat.
+  final Entry entry;
+  final String catId;
+
+  /// True: the cat arrived here. False: it left.
+  final bool arrived;
+
+  /// Where from (on arrival) or where to (on departure); null = Stray.
+  final String? counterpart;
+
+  const ClowderEvent(
+      {required this.entry,
+      required this.catId,
+      required this.arrived,
+      required this.counterpart});
+}
+
 /// The catalog: an append-only entry log over SQLite with a latest-wins
 /// projection (ADR-0001). All reads and writes are synchronous.
 ///
@@ -265,6 +284,36 @@ class CatalogStore {
         for (final id in _entitiesOf(Kinds.cat))
           if (current(id, Keys.clowder) == null) _view(id)
       ];
+
+  /// A Cat arriving in or leaving a Clowder, derived from the Cat's
+  /// membership history for one Clowder's combined timeline. [entry] is
+  /// the underlying membership entry (revertable like any other).
+  /// [counterpart] is where the cat came from / went to — a Clowder id,
+  /// or null for Stray.
+  List<ClowderEvent> clowderOccupancy(String clowderId) {
+    final events = <ClowderEvent>[];
+    final rows = _db.select(
+      'SELECT DISTINCT entity FROM entries WHERE field = ?',
+      [Keys.clowder],
+    );
+    for (final r in rows) {
+      final catId = r['entity'] as String;
+      final history = fieldHistory(catId, Keys.clowder).reversed;
+      String? prev;
+      for (final e in history) {
+        if (e.value == clowderId && prev != clowderId) {
+          events.add(ClowderEvent(
+              entry: e, catId: catId, arrived: true, counterpart: prev));
+        } else if (prev == clowderId && e.value != clowderId) {
+          events.add(ClowderEvent(
+              entry: e, catId: catId, arrived: false, counterpart: e.value));
+        }
+        prev = e.value;
+      }
+    }
+    events.sort((a, b) => b.entry.date.compareTo(a.entry.date));
+    return events;
+  }
 
   /// Cats whose current name contains [query], case-insensitive —
   /// across all Clowders and Strays. Deleted Cats never appear.

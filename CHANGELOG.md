@@ -50,3 +50,6 @@ Milestone M1: local-only catalog with Cards.
 - Revert from history, git-style: any regular change (rename, field value,
   move) can be reverted; the previous value is appended as a new entry at
   the current time and both change and undo remain visible.
+- Clowder timelines show which Cat lived there when: arrivals and
+  departures ("Miezi arrived from A", "left to Adopter") derived from the
+  Cats' membership histories; Cat timelines render moves readably too.

@@ -176,6 +176,26 @@ void main() {
         store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
   });
 
+  testWidgets('clowder timeline shows cat arrivals and departures',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    final away = store.createClowder('Adopter');
+    final cat = store.createCat('Miezi', clowderId: home);
+    store.moveCat(cat, away);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Timeline'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Miezi arrived'), findsOneWidget);
+    expect(find.text('Miezi left to Adopter'), findsOneWidget);
+  });
+
   testWidgets('a change can be reverted from the timeline', (tester) async {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);

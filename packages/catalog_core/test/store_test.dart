@@ -215,6 +215,36 @@ void main() {
     });
   });
 
+  group('clowder occupancy', () {
+    test('arrivals and departures derive from cat membership history', () {
+      final a = store.createClowder('A');
+      final b = store.createClowder('B');
+      final cat = store.createCat('Miezi', clowderId: a);
+      store.moveCat(cat, b);
+
+      final atA = store.clowderOccupancy(a);
+      expect(atA.length, 2);
+      expect(atA.map((e) => e.arrived), containsAll([true, false]));
+      final departure = atA.firstWhere((e) => !e.arrived);
+      expect(departure.counterpart, b);
+
+      final atB = store.clowderOccupancy(b);
+      expect(atB.single.arrived, isTrue);
+      expect(atB.single.counterpart, a);
+    });
+
+    test('clowder delete fallout shows as departure to stray', () {
+      final home = store.createClowder('Home');
+      final cat = store.createCat('Miezi', clowderId: home);
+      store.deleteClowder(home);
+
+      final events = store.clowderOccupancy(home);
+      final departure = events.firstWhere((e) => !e.arrived);
+      expect(departure.counterpart, isNull);
+      expect(departure.catId, cat);
+    });
+  });
+
   group('revert', () {
     test('reverting a rename restores the previous name as a new entry', () {
       final cat = store.createCat('Miezi');
