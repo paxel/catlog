@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 import 'timeline_screen.dart';
@@ -41,6 +42,18 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           store: store, catId: catId, promptPhoto: true),
     ));
     setState(() {});
+  }
+
+  Future<void> _mergeClowder() async {
+    final merged = await showMergeDialog(
+      context: context,
+      store: store,
+      loserId: id,
+      kindLabel: 'clowder',
+      candidates: store.clowders(),
+      merge: store.mergeClowder,
+    );
+    if (merged && mounted) Navigator.of(context).pop();
   }
 
   Future<void> _deleteClowder() async {
@@ -103,8 +116,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteClowder();
+              if (v == 'merge') _mergeClowder();
             },
             itemBuilder: (context) => const [
+              PopupMenuItem(value: 'merge', child: Text('Merge into…')),
               PopupMenuItem(
                   value: 'delete', child: Text('Delete clowder')),
             ],

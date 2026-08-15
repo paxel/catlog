@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../image_import.dart';
+import '../merge_dialogs.dart';
 import 'card_screen.dart';
 import 'timeline_screen.dart';
 
@@ -92,6 +93,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         ]),
       ),
     );
+  }
+
+  Future<void> _mergeCat() async {
+    final merged = await showMergeDialog(
+      context: context,
+      store: store,
+      loserId: id,
+      kindLabel: 'cat',
+      candidates: store.cats(),
+      merge: store.mergeCat,
+    );
+    if (merged && mounted) Navigator.of(context).pop();
   }
 
   Future<void> _deleteCat() async {
@@ -187,8 +200,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
+              if (v == 'merge') _mergeCat();
             },
             itemBuilder: (context) => const [
+              PopupMenuItem(value: 'merge', child: Text('Merge into…')),
               PopupMenuItem(value: 'delete', child: Text('Delete cat')),
             ],
           ),

@@ -4,9 +4,9 @@
 
 **Blocked by:** 04 — Alias merge core.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Merge action in cat, clowder, and field menus with survivor picker and confirm dialog
-- [ ] Field picker offers same-type fields only
-- [ ] Post-merge: lists refreshed, survivor timeline shows combined history
-- [ ] Widget test: merge two cats via the dialog
+- [x] Merge action in cat, clowder, and field menus with survivor picker and confirm dialog
+- [x] Field picker offers same-type fields only
+- [x] Post-merge: lists refreshed, survivor timeline shows combined history
+- [x] Widget test: merge two cats via the dialog

@@ -1,6 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../merge_dialogs.dart';
+
 /// All global Field definitions, and a dialog to create new ones.
 class FieldsScreen extends StatefulWidget {
   final CatalogStore store;
@@ -42,6 +44,23 @@ class _FieldsScreenState extends State<FieldsScreen> {
     setState(() {});
   }
 
+  Future<void> _mergeField(FieldDef def) async {
+    final sameType = widget.store
+        .fieldDefs()
+        .where((d) => d.type == def.type)
+        .map((d) => EntityView(d.id, d.name))
+        .toList();
+    final merged = await showMergeDialog(
+      context: context,
+      store: widget.store,
+      loserId: def.id,
+      kindLabel: 'field',
+      candidates: sameType,
+      merge: widget.store.mergeField,
+    );
+    if (merged) setState(() {});
+  }
+
   Future<void> _addField() async {
     final created = await showDialog<bool>(
       context: context,
@@ -66,7 +85,17 @@ class _FieldsScreenState extends State<FieldsScreen> {
                 'for ${def.scope.name}',
                 if (def.options.isNotEmpty) def.options.join(', '),
               ].join(' · ')),
-              trailing: const Icon(Icons.edit_outlined),
+              trailing: PopupMenuButton<String>(
+                onSelected: (v) {
+                  if (v == 'rename') _renameField(def);
+                  if (v == 'merge') _mergeField(def);
+                },
+                itemBuilder: (context) => const [
+                  PopupMenuItem(value: 'rename', child: Text('Rename')),
+                  PopupMenuItem(
+                      value: 'merge', child: Text('Merge into…')),
+                ],
+              ),
               onTap: () => _renameField(def),
             ),
         ],

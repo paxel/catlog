@@ -176,6 +176,32 @@ void main() {
         store.fieldDefs().firstWhere((d) => d.slug == 'color').name, 'Colour');
   });
 
+  testWidgets('merging two cats via the dialog', (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    final survivor = store.createCat('Miezi', clowderId: home);
+    store.createCat('Mizzi', clowderId: home); // duplicate
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Mizzi')); // open the duplicate = loser
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(PopupMenuButton<String>));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Merge into…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Merge'));
+    await tester.pumpAndSettle();
+
+    expect(store.cats().single.id, survivor);
+    expect(store.current(survivor, Keys.name), 'Miezi');
+  });
+
   testWidgets('conflicting field shows a badge and can be resolved',
       (tester) async {
     final store = CatalogStore.inMemory();
