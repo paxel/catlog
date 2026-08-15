@@ -43,8 +43,33 @@ _Avoid_: property, column, tag
 A change of a Cat's Clowder membership, recorded as a dated field change like any other. A Cat's movement history is the history of this field.
 
 **Adoption**:
-A Move into an adopter's Clowder. Not a stored status — there is no "adopted" flag.
+A Move into a Clowder whose Status is forever home. Not a stored status on the Cat — there is no "adopted" flag.
 _Avoid_: adopted state, adoption record
 
 **Author**:
 The self-chosen name a device carries; every change is attributed to an Author. There are no accounts and no authentication.
+
+**Status**:
+A Clowder Field with suggested canonical values (foster, forever home, clinic/vet, shelter, barn) the app recognizes for display and behavior (e.g. Adoption). Free text beyond the suggestions is allowed and stays an ordinary value.
+_Avoid_: clowder type, category
+
+**Private**:
+A per-entity marker (Cat, Clowder, or Field definition) that keeps the entity and all its entries off the wire by default. Every share/sync offers "public only" (default) or "include private"; the marker travels only in private-included syncs, so receiving own devices withhold it too. Trust is decided per handshake by the human, not by the system.
+_Avoid_: hidden (that's display-only), secret
+
+**Hidden**:
+A per-device display filter on an entity or Field definition. Hidden things are received, stored, and synced onward unchanged — they are only not shown. A "show hidden" toggle reveals them. Never leaves the device.
+_Avoid_: blocked, private (that's wire-level)
+
+**Deceased**:
+A Cat whose deceased date Field is set. Rendered subdued (dimmed photo, localized "Deceased" chip — no religious symbols) and listed in the import summary.
+
+**Species**:
+A starter Field on Cats, default "cat", free values (dog, rabbit, …). The only concession to other animals — entities, Clowders, and the app's cat-themed language stay unchanged.
+
+**Ban**:
+A local, per-device list of Authors/devices and blob hashes whose material is dropped on receive (received and discarded — sync bookkeeping still advances). Never propagates to other devices. Reversible per entry.
+_Avoid_: block (import filter sense), report
+
+**Hard Delete**:
+Physical removal of all entries and blobs of one Author/device from the local store — the sole exception to append-only history, for malicious or illegal content. Usually paired with a Ban so the material cannot return.

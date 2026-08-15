@@ -1,6 +1,6 @@
 name: catalog_core
 description: Pure-Dart catalog core for cat(a)log — append-only entry log over SQLite with latest-wins projection.
-version: 0.1.0
+version: 0.2.0
 publish_to: none
 
 environment:
