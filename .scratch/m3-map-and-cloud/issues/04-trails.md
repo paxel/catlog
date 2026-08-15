@@ -4,8 +4,8 @@
 
 **Blocked by:** 02 — Map.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Trail polyline through a cat's position history in date order
-- [ ] Date labels or tooltips on trail points
-- [ ] Widget smoke test with injected history
+- [x] Trail polyline through a cat's position history in date order
+- [x] Date labels or tooltips on trail points
+- [x] Widget smoke test with injected history

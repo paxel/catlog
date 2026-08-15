@@ -28,7 +28,22 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   TileProvider? _tiles;
 
+  /// Cat whose movement trail is drawn; tap its pin to toggle.
+  String? _trailCat;
+
   CatalogStore get store => widget.store;
+
+  /// Dated positions of a cat, oldest first.
+  List<(DateTime, LatLng)> _trail(String catId) => [
+        for (final e
+            in store.fieldHistory(catId, CatalogStore.positionKey).reversed)
+          if (CatalogStore.parsePosition(e.value) != null)
+            (
+              e.date,
+              LatLng(CatalogStore.parsePosition(e.value)!.$1,
+                  CatalogStore.parsePosition(e.value)!.$2)
+            )
+      ];
 
   @override
   void initState() {
@@ -151,22 +166,76 @@ class _MapScreenState extends State<MapScreen> {
                 width: 44,
                 height: 44,
                 child: IconButton(
-                  icon: const Icon(Icons.pets, size: 30),
-                  color: Colors.deepOrange,
+                  icon: Icon(Icons.pets,
+                      size: _trailCat == cat.id ? 36 : 30),
+                  color: _trailCat == cat.id
+                      ? Colors.red
+                      : Colors.deepOrange,
                   tooltip: cat.name,
-                  onPressed: () =>
-                      Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) =>
-                        CatDetailScreen(store: store, catId: cat.id),
-                  )),
+                  onPressed: () => setState(() =>
+                      _trailCat = _trailCat == cat.id ? null : cat.id),
                 ),
               ),
+            if (_trailCat != null)
+              for (final (date, point) in _trail(_trailCat!))
+                Marker(
+                  point: point,
+                  width: 20,
+                  height: 20,
+                  child: Tooltip(
+                    message: date
+                        .toLocal()
+                        .toIso8601String()
+                        .substring(0, 10),
+                    child: const DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ),
           ]),
+          if (_trailCat != null && _trail(_trailCat!).length > 1)
+            PolylineLayer(polylines: [
+              Polyline(
+                points: [for (final (_, p) in _trail(_trailCat!)) p],
+                strokeWidth: 3,
+                color: Colors.redAccent,
+              ),
+            ]),
           const SimpleAttributionWidget(
             source: Text('OpenStreetMap contributors'),
           ),
         ],
       ),
+      bottomNavigationBar: _trailCat == null
+          ? null
+          : BottomAppBar(
+              child: Row(children: [
+                Expanded(
+                  child: Text(
+                    'Trail: ${store.current(_trailCat!, Keys.name) ?? ''} '
+                    '(${_trail(_trailCat!).length} sightings)',
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    await Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => CatDetailScreen(
+                          store: store, catId: _trailCat!),
+                    ));
+                    setState(() {});
+                  },
+                  child: const Text('Open'),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => setState(() => _trailCat = null),
+                ),
+              ]),
+            ),
     );
   }
 }
