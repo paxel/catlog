@@ -526,4 +526,25 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get valueUnknown => 'neznano';
+
+  @override
+  String get cropTitle => 'Obreži fotografijo';
+
+  @override
+  String get markTitle => 'Označi mačko';
+
+  @override
+  String get useFullPhoto => 'Uporabi celo fotografijo';
+
+  @override
+  String get dragToSelect => 'Povleci pravokotnik okoli mačke';
+
+  @override
+  String get dragOverTheCat => 'Povleci elipso čez mačko';
+
+  @override
+  String get cropPhoto => 'Obreži…';
+
+  @override
+  String get markPhoto => 'Označi…';
 }

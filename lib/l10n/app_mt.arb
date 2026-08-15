@@ -150,5 +150,12 @@
   "valueNo": "le",
   "valueFemale": "mara",
   "valueMale": "raġel",
-  "valueUnknown": "mhux magħruf"
+  "valueUnknown": "mhux magħruf",
+  "cropTitle": "Aqta' r-ritratt",
+  "markTitle": "Immarka l-qattus",
+  "useFullPhoto": "Uża r-ritratt kollu",
+  "dragToSelect": "Iġbed rettangolu madwar il-qattus",
+  "dragOverTheCat": "Iġbed ellissi fuq il-qattus",
+  "cropPhoto": "Aqta'…",
+  "markPhoto": "Immarka…"
 }

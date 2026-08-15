@@ -45,7 +45,8 @@ Future<String?> strayCam(BuildContext context, CatalogStore store) async {
   final catId = store.createCat(name);
   store.recordPosition(catId, position.$1, position.$2);
   if (context.mounted) {
-    await pickAndAddImage(context, store, catId);
+    // Field speed beats framing: Stray Cam skips the crop step.
+    await pickAndAddImage(context, store, catId, allowCrop: false);
   }
   return catId;
 }

@@ -525,4 +525,25 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get valueUnknown => 'nezināms';
+
+  @override
+  String get cropTitle => 'Apgriezt foto';
+
+  @override
+  String get markTitle => 'Atzīmēt kaķi';
+
+  @override
+  String get useFullPhoto => 'Izmantot visu foto';
+
+  @override
+  String get dragToSelect => 'Velciet taisnstūri ap kaķi';
+
+  @override
+  String get dragOverTheCat => 'Velciet elipsi pār kaķi';
+
+  @override
+  String get cropPhoto => 'Apgriezt…';
+
+  @override
+  String get markPhoto => 'Atzīmēt…';
 }

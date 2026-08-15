@@ -150,5 +150,12 @@
   "valueNo": "no",
   "valueFemale": "femmina",
   "valueMale": "maschio",
-  "valueUnknown": "sconosciuto"
+  "valueUnknown": "sconosciuto",
+  "cropTitle": "Ritaglia foto",
+  "markTitle": "Contrassegna il gatto",
+  "useFullPhoto": "Usa la foto intera",
+  "dragToSelect": "Trascina un rettangolo intorno al gatto",
+  "dragOverTheCat": "Trascina un'ellisse sul gatto",
+  "cropPhoto": "Ritaglia…",
+  "markPhoto": "Contrassegna…"
 }

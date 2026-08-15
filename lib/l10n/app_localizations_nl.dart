@@ -527,4 +527,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get valueUnknown => 'onbekend';
+
+  @override
+  String get cropTitle => 'Foto bijsnijden';
+
+  @override
+  String get markTitle => 'Kat markeren';
+
+  @override
+  String get useFullPhoto => 'Hele foto gebruiken';
+
+  @override
+  String get dragToSelect => 'Sleep een rechthoek om de kat';
+
+  @override
+  String get dragOverTheCat => 'Sleep een ellips over de kat';
+
+  @override
+  String get cropPhoto => 'Bijsnijden…';
+
+  @override
+  String get markPhoto => 'Markeren…';
 }

@@ -527,4 +527,25 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get valueUnknown => 'inconnu';
+
+  @override
+  String get cropTitle => 'Recadrer la photo';
+
+  @override
+  String get markTitle => 'Marquer le chat';
+
+  @override
+  String get useFullPhoto => 'Utiliser la photo entière';
+
+  @override
+  String get dragToSelect => 'Trace un rectangle autour du chat';
+
+  @override
+  String get dragOverTheCat => 'Trace une ellipse sur le chat';
+
+  @override
+  String get cropPhoto => 'Recadrer…';
+
+  @override
+  String get markPhoto => 'Marquer…';
 }

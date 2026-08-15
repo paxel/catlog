@@ -150,5 +150,12 @@
   "valueNo": "nie",
   "valueFemale": "mačka",
   "valueMale": "kocúr",
-  "valueUnknown": "neznáme"
+  "valueUnknown": "neznáme",
+  "cropTitle": "Orezať fotku",
+  "markTitle": "Označiť mačku",
+  "useFullPhoto": "Použiť celú fotku",
+  "dragToSelect": "Ťahom nakreslite obdĺžnik okolo mačky",
+  "dragOverTheCat": "Ťahom nakreslite elipsu cez mačku",
+  "cropPhoto": "Orezať…",
+  "markPhoto": "Označiť…"
 }

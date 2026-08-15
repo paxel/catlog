@@ -1,3 +1,6 @@
+import 'dart:isolate';
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,7 @@ import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../stray_cam.dart';
 import 'card_screen.dart';
+import 'photo_edit_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
@@ -130,6 +134,22 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.crop),
+            title: Text(context.t.cropPhoto),
+            onTap: () {
+              Navigator.of(context).pop();
+              _editPhoto(hash, PhotoEditMode.crop);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.circle_outlined),
+            title: Text(context.t.markPhoto),
+            onTap: () {
+              Navigator.of(context).pop();
+              _editPhoto(hash, PhotoEditMode.mark);
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.delete_outline),
             title: Text(context.t.deletePhoto),
             onTap: () async {
@@ -145,6 +165,23 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         ]),
       ),
     );
+  }
+
+  /// Crop or mark an existing photo: the edited copy joins as a NEW
+  /// photo; the original stays (one litter photo can serve many cats).
+  Future<void> _editPhoto(String hash, PhotoEditMode mode) async {
+    final bytes = store.imageBytes(hash);
+    if (bytes == null) return;
+    final edited = await Navigator.of(context).push<Uint8List>(
+      MaterialPageRoute(
+        builder: (_) => PhotoEditScreen(bytes: bytes, mode: mode),
+      ),
+    );
+    if (edited == null) return;
+    final compressed =
+        await Isolate.run(() => CatalogStore.compressImage(edited));
+    store.addImage(id, compressed);
+    setState(() {});
   }
 
   Future<void> _deleteCat() async {

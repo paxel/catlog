@@ -525,4 +525,25 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get valueUnknown => 'teadmata';
+
+  @override
+  String get cropTitle => 'Kärbi fotot';
+
+  @override
+  String get markTitle => 'Märgi kass';
+
+  @override
+  String get useFullPhoto => 'Kasuta tervet fotot';
+
+  @override
+  String get dragToSelect => 'Lohista ristkülik kassi ümber';
+
+  @override
+  String get dragOverTheCat => 'Lohista ellips kassi peale';
+
+  @override
+  String get cropPhoto => 'Kärbi…';
+
+  @override
+  String get markPhoto => 'Märgi…';
 }

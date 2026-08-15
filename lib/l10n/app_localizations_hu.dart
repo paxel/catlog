@@ -526,4 +526,25 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get valueUnknown => 'ismeretlen';
+
+  @override
+  String get cropTitle => 'Fotó körbevágása';
+
+  @override
+  String get markTitle => 'Macska megjelölése';
+
+  @override
+  String get useFullPhoto => 'Teljes fotó használata';
+
+  @override
+  String get dragToSelect => 'Húzz téglalapot a macska köré';
+
+  @override
+  String get dragOverTheCat => 'Húzz ellipszist a macskára';
+
+  @override
+  String get cropPhoto => 'Körbevágás…';
+
+  @override
+  String get markPhoto => 'Megjelölés…';
 }

@@ -525,4 +525,25 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get valueUnknown => 'نامشخص';
+
+  @override
+  String get cropTitle => 'برش عکس';
+
+  @override
+  String get markTitle => 'نشانه‌گذاری گربه';
+
+  @override
+  String get useFullPhoto => 'استفاده از کل عکس';
+
+  @override
+  String get dragToSelect => 'دور گربه یک مستطیل بکشید';
+
+  @override
+  String get dragOverTheCat => 'روی گربه یک بیضی بکشید';
+
+  @override
+  String get cropPhoto => 'برش…';
+
+  @override
+  String get markPhoto => 'نشانه‌گذاری…';
 }

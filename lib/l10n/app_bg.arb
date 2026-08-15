@@ -150,5 +150,12 @@
   "valueNo": "не",
   "valueFemale": "женска",
   "valueMale": "мъжка",
-  "valueUnknown": "неизвестно"
+  "valueUnknown": "неизвестно",
+  "cropTitle": "Изрежи снимката",
+  "markTitle": "Маркирай котката",
+  "useFullPhoto": "Използвай цялата снимка",
+  "dragToSelect": "Очертай правоъгълник около котката",
+  "dragOverTheCat": "Очертай елипса върху котката",
+  "cropPhoto": "Изрежи…",
+  "markPhoto": "Маркирай…"
 }

@@ -150,5 +150,12 @@
   "valueNo": "нет",
   "valueFemale": "кошка",
   "valueMale": "кот",
-  "valueUnknown": "неизвестно"
+  "valueUnknown": "неизвестно",
+  "cropTitle": "Обрезать фото",
+  "markTitle": "Отметить кошку",
+  "useFullPhoto": "Использовать всё фото",
+  "dragToSelect": "Проведите прямоугольник вокруг кошки",
+  "dragOverTheCat": "Проведите эллипс над кошкой",
+  "cropPhoto": "Обрезать…",
+  "markPhoto": "Отметить…"
 }

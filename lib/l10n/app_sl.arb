@@ -150,5 +150,12 @@
   "valueNo": "ne",
   "valueFemale": "samica",
   "valueMale": "samec",
-  "valueUnknown": "neznano"
+  "valueUnknown": "neznano",
+  "cropTitle": "Obreži fotografijo",
+  "markTitle": "Označi mačko",
+  "useFullPhoto": "Uporabi celo fotografijo",
+  "dragToSelect": "Povleci pravokotnik okoli mačke",
+  "dragOverTheCat": "Povleci elipso čez mačko",
+  "cropPhoto": "Obreži…",
+  "markPhoto": "Označi…"
 }

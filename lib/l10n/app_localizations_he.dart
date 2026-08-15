@@ -523,4 +523,25 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get valueUnknown => 'לא ידוע';
+
+  @override
+  String get cropTitle => 'חיתוך התמונה';
+
+  @override
+  String get markTitle => 'סימון החתול';
+
+  @override
+  String get useFullPhoto => 'שימוש בתמונה המלאה';
+
+  @override
+  String get dragToSelect => 'גררו מלבן סביב החתול';
+
+  @override
+  String get dragOverTheCat => 'גררו אליפסה מעל החתול';
+
+  @override
+  String get cropPhoto => 'חיתוך…';
+
+  @override
+  String get markPhoto => 'סימון…';
 }

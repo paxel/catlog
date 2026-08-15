@@ -150,5 +150,12 @@
   "valueNo": "ne",
   "valueFemale": "ženka",
   "valueMale": "mužjak",
-  "valueUnknown": "nepoznato"
+  "valueUnknown": "nepoznato",
+  "cropTitle": "Izreži fotografiju",
+  "markTitle": "Označi mačku",
+  "useFullPhoto": "Koristi cijelu fotografiju",
+  "dragToSelect": "Povuci pravokutnik oko mačke",
+  "dragOverTheCat": "Povuci elipsu preko mačke",
+  "cropPhoto": "Izreži…",
+  "markPhoto": "Označi…"
 }

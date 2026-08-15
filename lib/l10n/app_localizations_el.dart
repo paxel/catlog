@@ -527,4 +527,25 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get valueUnknown => 'άγνωστο';
+
+  @override
+  String get cropTitle => 'Περικοπή φωτογραφίας';
+
+  @override
+  String get markTitle => 'Σήμανση της γάτας';
+
+  @override
+  String get useFullPhoto => 'Χρήση ολόκληρης της φωτογραφίας';
+
+  @override
+  String get dragToSelect => 'Σύρετε ένα ορθογώνιο γύρω από τη γάτα';
+
+  @override
+  String get dragOverTheCat => 'Σύρετε μια έλλειψη πάνω στη γάτα';
+
+  @override
+  String get cropPhoto => 'Περικοπή…';
+
+  @override
+  String get markPhoto => 'Σήμανση…';
 }

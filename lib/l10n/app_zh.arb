@@ -150,5 +150,12 @@
   "valueNo": "否",
   "valueFemale": "母",
   "valueMale": "公",
-  "valueUnknown": "未知"
+  "valueUnknown": "未知",
+  "cropTitle": "裁剪照片",
+  "markTitle": "标记这只猫",
+  "useFullPhoto": "使用整张照片",
+  "dragToSelect": "围绕猫拖出矩形",
+  "dragOverTheCat": "在猫上拖出椭圆",
+  "cropPhoto": "裁剪…",
+  "markPhoto": "标记…"
 }

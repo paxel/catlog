@@ -526,4 +526,25 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get valueUnknown => 'nežinoma';
+
+  @override
+  String get cropTitle => 'Apkirpti nuotrauką';
+
+  @override
+  String get markTitle => 'Pažymėti katę';
+
+  @override
+  String get useFullPhoto => 'Naudoti visą nuotrauką';
+
+  @override
+  String get dragToSelect => 'Vilkite stačiakampį aplink katę';
+
+  @override
+  String get dragOverTheCat => 'Vilkite elipsę virš katės';
+
+  @override
+  String get cropPhoto => 'Apkirpti…';
+
+  @override
+  String get markPhoto => 'Pažymėti…';
 }

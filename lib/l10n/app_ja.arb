@@ -150,5 +150,12 @@
   "valueNo": "いいえ",
   "valueFemale": "メス",
   "valueMale": "オス",
-  "valueUnknown": "不明"
+  "valueUnknown": "不明",
+  "cropTitle": "写真をトリミング",
+  "markTitle": "猫に印を付ける",
+  "useFullPhoto": "写真全体を使う",
+  "dragToSelect": "猫の周りに四角形をドラッグ",
+  "dragOverTheCat": "猫の上に楕円をドラッグ",
+  "cropPhoto": "トリミング…",
+  "markPhoto": "印を付ける…"
 }

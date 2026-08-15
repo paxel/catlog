@@ -527,4 +527,25 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get valueUnknown => 'e panjohur';
+
+  @override
+  String get cropTitle => 'Prit foton';
+
+  @override
+  String get markTitle => 'Shëno macen';
+
+  @override
+  String get useFullPhoto => 'Përdor foton e plotë';
+
+  @override
+  String get dragToSelect => 'Tërhiq një drejtkëndësh rreth maces';
+
+  @override
+  String get dragOverTheCat => 'Tërhiq një elips mbi mace';
+
+  @override
+  String get cropPhoto => 'Prit…';
+
+  @override
+  String get markPhoto => 'Shëno…';
 }

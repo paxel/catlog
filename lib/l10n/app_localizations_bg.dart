@@ -526,4 +526,25 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get valueUnknown => 'неизвестно';
+
+  @override
+  String get cropTitle => 'Изрежи снимката';
+
+  @override
+  String get markTitle => 'Маркирай котката';
+
+  @override
+  String get useFullPhoto => 'Използвай цялата снимка';
+
+  @override
+  String get dragToSelect => 'Очертай правоъгълник около котката';
+
+  @override
+  String get dragOverTheCat => 'Очертай елипса върху котката';
+
+  @override
+  String get cropPhoto => 'Изрежи…';
+
+  @override
+  String get markPhoto => 'Маркирай…';
 }

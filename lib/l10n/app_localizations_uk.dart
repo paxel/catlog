@@ -525,4 +525,25 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get valueUnknown => 'невідомо';
+
+  @override
+  String get cropTitle => 'Обрізати фото';
+
+  @override
+  String get markTitle => 'Позначити кота';
+
+  @override
+  String get useFullPhoto => 'Використати все фото';
+
+  @override
+  String get dragToSelect => 'Проведіть прямокутник навколо кота';
+
+  @override
+  String get dragOverTheCat => 'Проведіть еліпс над котом';
+
+  @override
+  String get cropPhoto => 'Обрізати…';
+
+  @override
+  String get markPhoto => 'Позначити…';
 }

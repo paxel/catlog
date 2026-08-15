@@ -526,4 +526,25 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get valueUnknown => 'nepoznato';
+
+  @override
+  String get cropTitle => 'Izreži fotografiju';
+
+  @override
+  String get markTitle => 'Označi mačku';
+
+  @override
+  String get useFullPhoto => 'Koristi cijelu fotografiju';
+
+  @override
+  String get dragToSelect => 'Povuci pravokutnik oko mačke';
+
+  @override
+  String get dragOverTheCat => 'Povuci elipsu preko mačke';
+
+  @override
+  String get cropPhoto => 'Izreži…';
+
+  @override
+  String get markPhoto => 'Označi…';
 }

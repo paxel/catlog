@@ -515,4 +515,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get valueUnknown => '未知';
+
+  @override
+  String get cropTitle => '裁剪照片';
+
+  @override
+  String get markTitle => '标记这只猫';
+
+  @override
+  String get useFullPhoto => '使用整张照片';
+
+  @override
+  String get dragToSelect => '围绕猫拖出矩形';
+
+  @override
+  String get dragOverTheCat => '在猫上拖出椭圆';
+
+  @override
+  String get cropPhoto => '裁剪…';
+
+  @override
+  String get markPhoto => '标记…';
 }

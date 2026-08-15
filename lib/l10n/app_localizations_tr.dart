@@ -525,4 +525,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get valueUnknown => 'bilinmiyor';
+
+  @override
+  String get cropTitle => 'Fotoğrafı kırp';
+
+  @override
+  String get markTitle => 'Kediyi işaretle';
+
+  @override
+  String get useFullPhoto => 'Fotoğrafın tamamını kullan';
+
+  @override
+  String get dragToSelect => 'Kedinin etrafına dikdörtgen çiz';
+
+  @override
+  String get dragOverTheCat => 'Kedinin üzerine elips çiz';
+
+  @override
+  String get cropPhoto => 'Kırp…';
+
+  @override
+  String get markPhoto => 'İşaretle…';
 }

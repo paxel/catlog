@@ -150,5 +150,12 @@
   "valueNo": "لا",
   "valueFemale": "أنثى",
   "valueMale": "ذكر",
-  "valueUnknown": "غير معروف"
+  "valueUnknown": "غير معروف",
+  "cropTitle": "قص الصورة",
+  "markTitle": "تحديد القطة",
+  "useFullPhoto": "استخدام الصورة كاملة",
+  "dragToSelect": "ارسم مستطيلًا حول القطة",
+  "dragOverTheCat": "ارسم شكلًا بيضاويًا فوق القطة",
+  "cropPhoto": "قص…",
+  "markPhoto": "تحديد…"
 }

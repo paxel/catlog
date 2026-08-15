@@ -528,4 +528,25 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get valueUnknown => 'óþekkt';
+
+  @override
+  String get cropTitle => 'Skera mynd';
+
+  @override
+  String get markTitle => 'Merkja köttinn';
+
+  @override
+  String get useFullPhoto => 'Nota alla myndina';
+
+  @override
+  String get dragToSelect => 'Dragðu rétthyrning utan um köttinn';
+
+  @override
+  String get dragOverTheCat => 'Dragðu sporöskju yfir köttinn';
+
+  @override
+  String get cropPhoto => 'Skera…';
+
+  @override
+  String get markPhoto => 'Merkja…';
 }

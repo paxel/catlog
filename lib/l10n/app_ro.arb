@@ -150,5 +150,12 @@
   "valueNo": "nu",
   "valueFemale": "femelă",
   "valueMale": "mascul",
-  "valueUnknown": "necunoscut"
+  "valueUnknown": "necunoscut",
+  "cropTitle": "Decupează poza",
+  "markTitle": "Marchează pisica",
+  "useFullPhoto": "Folosește toată poza",
+  "dragToSelect": "Trage un dreptunghi în jurul pisicii",
+  "dragOverTheCat": "Trage o elipsă peste pisică",
+  "cropPhoto": "Decupează…",
+  "markPhoto": "Marchează…"
 }

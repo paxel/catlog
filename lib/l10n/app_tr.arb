@@ -150,5 +150,12 @@
   "valueNo": "hayır",
   "valueFemale": "dişi",
   "valueMale": "erkek",
-  "valueUnknown": "bilinmiyor"
+  "valueUnknown": "bilinmiyor",
+  "cropTitle": "Fotoğrafı kırp",
+  "markTitle": "Kediyi işaretle",
+  "useFullPhoto": "Fotoğrafın tamamını kullan",
+  "dragToSelect": "Kedinin etrafına dikdörtgen çiz",
+  "dragOverTheCat": "Kedinin üzerine elips çiz",
+  "cropPhoto": "Kırp…",
+  "markPhoto": "İşaretle…"
 }

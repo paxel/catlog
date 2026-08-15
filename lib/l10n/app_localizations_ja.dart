@@ -516,4 +516,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get valueUnknown => '不明';
+
+  @override
+  String get cropTitle => '写真をトリミング';
+
+  @override
+  String get markTitle => '猫に印を付ける';
+
+  @override
+  String get useFullPhoto => '写真全体を使う';
+
+  @override
+  String get dragToSelect => '猫の周りに四角形をドラッグ';
+
+  @override
+  String get dragOverTheCat => '猫の上に楕円をドラッグ';
+
+  @override
+  String get cropPhoto => 'トリミング…';
+
+  @override
+  String get markPhoto => '印を付ける…';
 }

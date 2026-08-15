@@ -525,4 +525,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get valueUnknown => 'unknown';
+
+  @override
+  String get cropTitle => 'Crop photo';
+
+  @override
+  String get markTitle => 'Mark the cat';
+
+  @override
+  String get useFullPhoto => 'Use full photo';
+
+  @override
+  String get dragToSelect => 'Drag a rectangle around the cat';
+
+  @override
+  String get dragOverTheCat => 'Drag an ellipse over the cat';
+
+  @override
+  String get cropPhoto => 'Crop…';
+
+  @override
+  String get markPhoto => 'Mark…';
 }

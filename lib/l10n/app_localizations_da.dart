@@ -526,4 +526,25 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get valueUnknown => 'ukendt';
+
+  @override
+  String get cropTitle => 'Beskær foto';
+
+  @override
+  String get markTitle => 'Markér katten';
+
+  @override
+  String get useFullPhoto => 'Brug hele fotoet';
+
+  @override
+  String get dragToSelect => 'Træk et rektangel rundt om katten';
+
+  @override
+  String get dragOverTheCat => 'Træk en ellipse over katten';
+
+  @override
+  String get cropPhoto => 'Beskær…';
+
+  @override
+  String get markPhoto => 'Markér…';
 }

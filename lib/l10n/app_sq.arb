@@ -150,5 +150,12 @@
   "valueNo": "jo",
   "valueFemale": "femër",
   "valueMale": "mashkull",
-  "valueUnknown": "e panjohur"
+  "valueUnknown": "e panjohur",
+  "cropTitle": "Prit foton",
+  "markTitle": "Shëno macen",
+  "useFullPhoto": "Përdor foton e plotë",
+  "dragToSelect": "Tërhiq një drejtkëndësh rreth maces",
+  "dragOverTheCat": "Tërhiq një elips mbi mace",
+  "cropPhoto": "Prit…",
+  "markPhoto": "Shëno…"
 }

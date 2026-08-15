@@ -150,5 +150,12 @@
   "valueNo": "خیر",
   "valueFemale": "ماده",
   "valueMale": "نر",
-  "valueUnknown": "نامشخص"
+  "valueUnknown": "نامشخص",
+  "cropTitle": "برش عکس",
+  "markTitle": "نشانه‌گذاری گربه",
+  "useFullPhoto": "استفاده از کل عکس",
+  "dragToSelect": "دور گربه یک مستطیل بکشید",
+  "dragOverTheCat": "روی گربه یک بیضی بکشید",
+  "cropPhoto": "برش…",
+  "markPhoto": "نشانه‌گذاری…"
 }

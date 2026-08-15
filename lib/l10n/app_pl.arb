@@ -150,5 +150,12 @@
   "valueNo": "nie",
   "valueFemale": "kotka",
   "valueMale": "kocur",
-  "valueUnknown": "nieznana"
+  "valueUnknown": "nieznana",
+  "cropTitle": "Przytnij zdjęcie",
+  "markTitle": "Zaznacz kota",
+  "useFullPhoto": "Użyj całego zdjęcia",
+  "dragToSelect": "Przeciągnij prostokąt wokół kota",
+  "dragOverTheCat": "Przeciągnij elipsę na kocie",
+  "cropPhoto": "Przytnij…",
+  "markPhoto": "Zaznacz…"
 }

@@ -150,5 +150,12 @@
   "valueNo": "no",
   "valueFemale": "hembra",
   "valueMale": "macho",
-  "valueUnknown": "desconocido"
+  "valueUnknown": "desconocido",
+  "cropTitle": "Recortar foto",
+  "markTitle": "Marcar el gato",
+  "useFullPhoto": "Usar la foto completa",
+  "dragToSelect": "Dibuja un rectángulo alrededor del gato",
+  "dragOverTheCat": "Dibuja una elipse sobre el gato",
+  "cropPhoto": "Recortar…",
+  "markPhoto": "Marcar…"
 }

@@ -150,5 +150,12 @@
   "valueNo": "ei",
   "valueFemale": "emane",
   "valueMale": "isane",
-  "valueUnknown": "teadmata"
+  "valueUnknown": "teadmata",
+  "cropTitle": "Kärbi fotot",
+  "markTitle": "Märgi kass",
+  "useFullPhoto": "Kasuta tervet fotot",
+  "dragToSelect": "Lohista ristkülik kassi ümber",
+  "dragOverTheCat": "Lohista ellips kassi peale",
+  "cropPhoto": "Kärbi…",
+  "markPhoto": "Märgi…"
 }

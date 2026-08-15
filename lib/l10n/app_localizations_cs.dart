@@ -525,4 +525,25 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get valueUnknown => 'neznámé';
+
+  @override
+  String get cropTitle => 'Oříznout fotku';
+
+  @override
+  String get markTitle => 'Označit kočku';
+
+  @override
+  String get useFullPhoto => 'Použít celou fotku';
+
+  @override
+  String get dragToSelect => 'Tažením nakreslete obdélník kolem kočky';
+
+  @override
+  String get dragOverTheCat => 'Tažením nakreslete elipsu přes kočku';
+
+  @override
+  String get cropPhoto => 'Oříznout…';
+
+  @override
+  String get markPhoto => 'Označit…';
 }

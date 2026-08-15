@@ -525,4 +525,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get valueUnknown => 'غير معروف';
+
+  @override
+  String get cropTitle => 'قص الصورة';
+
+  @override
+  String get markTitle => 'تحديد القطة';
+
+  @override
+  String get useFullPhoto => 'استخدام الصورة كاملة';
+
+  @override
+  String get dragToSelect => 'ارسم مستطيلًا حول القطة';
+
+  @override
+  String get dragOverTheCat => 'ارسم شكلًا بيضاويًا فوق القطة';
+
+  @override
+  String get cropPhoto => 'قص…';
+
+  @override
+  String get markPhoto => 'تحديد…';
 }

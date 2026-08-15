@@ -150,5 +150,12 @@
   "valueNo": "nein",
   "valueFemale": "weiblich",
   "valueMale": "männlich",
-  "valueUnknown": "unbekannt"
+  "valueUnknown": "unbekannt",
+  "cropTitle": "Foto zuschneiden",
+  "markTitle": "Katze markieren",
+  "useFullPhoto": "Ganzes Foto verwenden",
+  "dragToSelect": "Ziehe ein Rechteck um die Katze",
+  "dragOverTheCat": "Ziehe eine Ellipse über die Katze",
+  "cropPhoto": "Zuschneiden…",
+  "markPhoto": "Markieren…"
 }

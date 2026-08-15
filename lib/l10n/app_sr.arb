@@ -150,5 +150,12 @@
   "valueNo": "не",
   "valueFemale": "женка",
   "valueMale": "мужјак",
-  "valueUnknown": "непознато"
+  "valueUnknown": "непознато",
+  "cropTitle": "Изрежи фотографију",
+  "markTitle": "Означи мачку",
+  "useFullPhoto": "Користи целу фотографију",
+  "dragToSelect": "Превуци правоугаоник око мачке",
+  "dragOverTheCat": "Превуци елипсу преко мачке",
+  "cropPhoto": "Изрежи…",
+  "markPhoto": "Означи…"
 }

@@ -150,5 +150,12 @@
   "valueNo": "ne",
   "valueFemale": "patelė",
   "valueMale": "patinas",
-  "valueUnknown": "nežinoma"
+  "valueUnknown": "nežinoma",
+  "cropTitle": "Apkirpti nuotrauką",
+  "markTitle": "Pažymėti katę",
+  "useFullPhoto": "Naudoti visą nuotrauką",
+  "dragToSelect": "Vilkite stačiakampį aplink katę",
+  "dragOverTheCat": "Vilkite elipsę virš katės",
+  "cropPhoto": "Apkirpti…",
+  "markPhoto": "Pažymėti…"
 }

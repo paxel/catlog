@@ -527,4 +527,25 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get valueUnknown => 'necunoscut';
+
+  @override
+  String get cropTitle => 'Decupează poza';
+
+  @override
+  String get markTitle => 'Marchează pisica';
+
+  @override
+  String get useFullPhoto => 'Folosește toată poza';
+
+  @override
+  String get dragToSelect => 'Trage un dreptunghi în jurul pisicii';
+
+  @override
+  String get dragOverTheCat => 'Trage o elipsă peste pisică';
+
+  @override
+  String get cropPhoto => 'Decupează…';
+
+  @override
+  String get markPhoto => 'Marchează…';
 }

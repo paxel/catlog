@@ -150,5 +150,12 @@
   "valueNo": "non",
   "valueFemale": "femelle",
   "valueMale": "mâle",
-  "valueUnknown": "inconnu"
+  "valueUnknown": "inconnu",
+  "cropTitle": "Recadrer la photo",
+  "markTitle": "Marquer le chat",
+  "useFullPhoto": "Utiliser la photo entière",
+  "dragToSelect": "Trace un rectangle autour du chat",
+  "dragOverTheCat": "Trace une ellipse sur le chat",
+  "cropPhoto": "Recadrer…",
+  "markPhoto": "Marquer…"
 }

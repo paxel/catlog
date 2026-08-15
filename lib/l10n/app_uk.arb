@@ -150,5 +150,12 @@
   "valueNo": "ні",
   "valueFemale": "кішка",
   "valueMale": "кіт",
-  "valueUnknown": "невідомо"
+  "valueUnknown": "невідомо",
+  "cropTitle": "Обрізати фото",
+  "markTitle": "Позначити кота",
+  "useFullPhoto": "Використати все фото",
+  "dragToSelect": "Проведіть прямокутник навколо кота",
+  "dragOverTheCat": "Проведіть еліпс над котом",
+  "cropPhoto": "Обрізати…",
+  "markPhoto": "Позначити…"
 }

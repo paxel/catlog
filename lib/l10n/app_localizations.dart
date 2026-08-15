@@ -1075,6 +1075,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'unknown'**
   String get valueUnknown;
+
+  /// No description provided for @cropTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop photo'**
+  String get cropTitle;
+
+  /// No description provided for @markTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark the cat'**
+  String get markTitle;
+
+  /// No description provided for @useFullPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Use full photo'**
+  String get useFullPhoto;
+
+  /// No description provided for @dragToSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag a rectangle around the cat'**
+  String get dragToSelect;
+
+  /// No description provided for @dragOverTheCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag an ellipse over the cat'**
+  String get dragOverTheCat;
+
+  /// No description provided for @cropPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop…'**
+  String get cropPhoto;
+
+  /// No description provided for @markPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark…'**
+  String get markPhoto;
 }
 
 class _AppLocalizationsDelegate

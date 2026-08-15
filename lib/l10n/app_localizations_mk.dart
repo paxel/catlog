@@ -527,4 +527,25 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get valueUnknown => 'непознато';
+
+  @override
+  String get cropTitle => 'Исечи ја фотографијата';
+
+  @override
+  String get markTitle => 'Означи ја мачката';
+
+  @override
+  String get useFullPhoto => 'Користи ја целата фотографија';
+
+  @override
+  String get dragToSelect => 'Повлечи правоаголник околу мачката';
+
+  @override
+  String get dragOverTheCat => 'Повлечи елипса врз мачката';
+
+  @override
+  String get cropPhoto => 'Исечи…';
+
+  @override
+  String get markPhoto => 'Означи…';
 }

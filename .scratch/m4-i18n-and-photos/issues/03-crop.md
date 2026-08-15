@@ -4,9 +4,9 @@
 
 **Blocked by:** None (parallel to i18n; strings join the ARB once 01 lands).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Crop screen in import flow with accept-full-frame skip; pure Flutter, all platforms
-- [ ] Stray Cam bypasses the crop screen
-- [ ] "Crop…" in the photo menu appends a copy, original kept
-- [ ] Unit test: crop rect applied to synthetic image bytes
+- [x] Crop screen in import flow with accept-full-frame skip; pure Flutter, all platforms
+- [x] Stray Cam bypasses the crop screen
+- [x] "Crop…" in the photo menu appends a copy, original kept
+- [x] Unit test: crop rect applied to synthetic image bytes

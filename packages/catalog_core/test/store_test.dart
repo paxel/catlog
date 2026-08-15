@@ -342,6 +342,35 @@ void main() {
     });
   });
 
+  group('crop and mark', () {
+    test('crop applies the fractional rectangle', () {
+      final source = CatalogStore.compressImage(makeJpeg(400, 200));
+      final cropped = CatalogStore.cropImage(source, 0.25, 0.25, 0.5, 0.5);
+      final decoded = img.decodeImage(cropped)!;
+      expect(decoded.width, 200);
+      expect(decoded.height, 100);
+    });
+
+    test('degenerate crop rectangles are refused', () {
+      final source = CatalogStore.compressImage(makeJpeg(100, 100));
+      expect(() => CatalogStore.cropImage(source, 0.5, 0.5, 0.001, 0.001),
+          throwsArgumentError);
+    });
+
+    test('mark bakes visible pixels into a copy', () {
+      final source = CatalogStore.compressImage(makeJpeg(300, 300));
+      final marked =
+          CatalogStore.markImage(source, 0.5, 0.5, 0.25, 0.15);
+      expect(marked, isNot(source));
+      final decoded = img.decodeImage(marked)!;
+      // A pixel on the ellipse's rightmost point is strongly orange.
+      final p = decoded.getPixel(
+          (0.5 * 300 + 0.25 * 300).round() - 1, (0.5 * 300).round());
+      expect(p.r, greaterThan(150));
+      expect(decoded.width, 300); // dimensions untouched
+    });
+  });
+
   group('csv export', () {
     test('stable columns, values, stray and clowder cats', () {
       final home = store.createClowder('Home, sweet');

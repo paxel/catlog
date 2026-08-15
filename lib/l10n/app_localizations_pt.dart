@@ -525,4 +525,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get valueUnknown => 'desconhecido';
+
+  @override
+  String get cropTitle => 'Recortar foto';
+
+  @override
+  String get markTitle => 'Marcar o gato';
+
+  @override
+  String get useFullPhoto => 'Usar a foto inteira';
+
+  @override
+  String get dragToSelect => 'Arrasta um retângulo à volta do gato';
+
+  @override
+  String get dragOverTheCat => 'Arrasta uma elipse sobre o gato';
+
+  @override
+  String get cropPhoto => 'Recortar…';
+
+  @override
+  String get markPhoto => 'Marcar…';
 }

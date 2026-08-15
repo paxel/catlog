@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
+
 import 'package:crypto/crypto.dart';
 import 'package:image/image.dart' as img;
 import 'package:sqlite3/sqlite3.dart';
@@ -544,6 +545,71 @@ class CatalogStore {
         height: (decoded.height * scale).round(),
         interpolation: img.Interpolation.average,
       );
+    }
+    return Uint8List.fromList(img.encodeJpg(decoded, quality: 85));
+  }
+
+  /// Pure function: cuts a fractional rectangle (0..1 coordinates) out
+  /// of a photo — the Crop operation (CONTEXT.md). CPU-heavy, use
+  /// Isolate.run from UI code.
+  static Uint8List cropImage(
+      Uint8List bytes, double x, double y, double w, double h) {
+    final decoded = img.decodeImage(bytes);
+    if (decoded == null) throw const FormatException('Not a decodable image');
+    final px = (x.clamp(0.0, 1.0) * decoded.width).round();
+    final py = (y.clamp(0.0, 1.0) * decoded.height).round();
+    final pw = (w.clamp(0.0, 1.0) * decoded.width).round();
+    final ph = (h.clamp(0.0, 1.0) * decoded.height).round();
+    if (pw < 8 || ph < 8) {
+      throw ArgumentError('Crop rectangle too small');
+    }
+    final cropped = img.copyCrop(decoded,
+        x: px,
+        y: py,
+        width: pw.clamp(1, decoded.width - px),
+        height: ph.clamp(1, decoded.height - py));
+    return Uint8List.fromList(img.encodeJpg(cropped, quality: 85));
+  }
+
+  /// Pure function: bakes a highlight ellipse into a copy of a photo —
+  /// the Mark operation (CONTEXT.md). Center/radii in 0..1 fractions.
+  static Uint8List markImage(
+      Uint8List bytes, double cx, double cy, double rx, double ry) {
+    final decoded = img.decodeImage(bytes);
+    if (decoded == null) throw const FormatException('Not a decodable image');
+    final centerX = cx * decoded.width;
+    final centerY = cy * decoded.height;
+    final radiusX = (rx * decoded.width).abs();
+    final radiusY = (ry * decoded.height).abs();
+    if (radiusX < 4 || radiusY < 4) {
+      throw ArgumentError('Mark ellipse too small');
+    }
+    final thickness =
+        (decoded.width > decoded.height ? decoded.width : decoded.height) ~/
+                150 +
+            3;
+    // White casing under an orange stroke keeps the mark visible on any
+    // background, including printed cards.
+    const segments = 90;
+    for (var pass = 0; pass < 2; pass++) {
+      final color = pass == 0
+          ? img.ColorRgb8(255, 255, 255)
+          : img.ColorRgb8(230, 90, 40);
+      final t = pass == 0 ? thickness + 4 : thickness;
+      for (var i = 0; i < segments; i++) {
+        final a1 = 2 * pi * i / segments;
+        final a2 = 2 * pi * (i + 1) / segments;
+        img.drawLine(
+          decoded,
+          x1: (centerX + radiusX * cos(a1)).round(),
+          y1: (centerY + radiusY * sin(a1)).round(),
+          x2: (centerX + radiusX * cos(a2)).round(),
+          y2: (centerY + radiusY * sin(a2)).round(),
+          color: color,
+          thickness: t.toDouble(),
+          antialias: true,
+        );
+      }
     }
     return Uint8List.fromList(img.encodeJpg(decoded, quality: 85));
   }

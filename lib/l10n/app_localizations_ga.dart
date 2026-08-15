@@ -527,4 +527,25 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get valueUnknown => 'anaithnid';
+
+  @override
+  String get cropTitle => 'Bearr an grianghraf';
+
+  @override
+  String get markTitle => 'Marcáil an cat';
+
+  @override
+  String get useFullPhoto => 'Úsáid an grianghraf iomlán';
+
+  @override
+  String get dragToSelect => 'Tarraing dronuilleog timpeall an chait';
+
+  @override
+  String get dragOverTheCat => 'Tarraing éilips os cionn an chait';
+
+  @override
+  String get cropPhoto => 'Bearr…';
+
+  @override
+  String get markPhoto => 'Marcáil…';
 }

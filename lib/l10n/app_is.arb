@@ -150,5 +150,12 @@
   "valueNo": "nei",
   "valueFemale": "læða",
   "valueMale": "fress",
-  "valueUnknown": "óþekkt"
+  "valueUnknown": "óþekkt",
+  "cropTitle": "Skera mynd",
+  "markTitle": "Merkja köttinn",
+  "useFullPhoto": "Nota alla myndina",
+  "dragToSelect": "Dragðu rétthyrning utan um köttinn",
+  "dragOverTheCat": "Dragðu sporöskju yfir köttinn",
+  "cropPhoto": "Skera…",
+  "markPhoto": "Merkja…"
 }

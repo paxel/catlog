@@ -526,4 +526,25 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get valueUnknown => 'tuntematon';
+
+  @override
+  String get cropTitle => 'Rajaa kuva';
+
+  @override
+  String get markTitle => 'Merkitse kissa';
+
+  @override
+  String get useFullPhoto => 'Käytä koko kuvaa';
+
+  @override
+  String get dragToSelect => 'Vedä suorakulmio kissan ympärille';
+
+  @override
+  String get dragOverTheCat => 'Vedä ellipsi kissan päälle';
+
+  @override
+  String get cropPhoto => 'Rajaa…';
+
+  @override
+  String get markPhoto => 'Merkitse…';
 }

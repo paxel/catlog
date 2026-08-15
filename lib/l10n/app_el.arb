@@ -150,5 +150,12 @@
   "valueNo": "όχι",
   "valueFemale": "θηλυκό",
   "valueMale": "αρσενικό",
-  "valueUnknown": "άγνωστο"
+  "valueUnknown": "άγνωστο",
+  "cropTitle": "Περικοπή φωτογραφίας",
+  "markTitle": "Σήμανση της γάτας",
+  "useFullPhoto": "Χρήση ολόκληρης της φωτογραφίας",
+  "dragToSelect": "Σύρετε ένα ορθογώνιο γύρω από τη γάτα",
+  "dragOverTheCat": "Σύρετε μια έλλειψη πάνω στη γάτα",
+  "cropPhoto": "Περικοπή…",
+  "markPhoto": "Σήμανση…"
 }

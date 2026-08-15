@@ -525,4 +525,25 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get valueUnknown => 'neznáme';
+
+  @override
+  String get cropTitle => 'Orezať fotku';
+
+  @override
+  String get markTitle => 'Označiť mačku';
+
+  @override
+  String get useFullPhoto => 'Použiť celú fotku';
+
+  @override
+  String get dragToSelect => 'Ťahom nakreslite obdĺžnik okolo mačky';
+
+  @override
+  String get dragOverTheCat => 'Ťahom nakreslite elipsu cez mačku';
+
+  @override
+  String get cropPhoto => 'Orezať…';
+
+  @override
+  String get markPhoto => 'Označiť…';
 }

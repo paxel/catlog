@@ -4,8 +4,8 @@
 
 **Blocked by:** 03 — Crop (shares the photo-edit flow).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Ellipse drag-to-draw over the photo, visible stroke on any background
-- [ ] Save bakes the mark into a copy; original kept
-- [ ] Unit test: ellipse baked into synthetic image bytes
+- [x] Ellipse drag-to-draw over the photo, visible stroke on any background
+- [x] Save bakes the mark into a copy; original kept
+- [x] Unit test: ellipse baked into synthetic image bytes

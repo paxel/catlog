@@ -33,6 +33,12 @@ flutter analyze && flutter test
 flutter run -d linux
 ```
 
+## Translations
+
+The app ships in 38 languages. Translations are machine-made; corrections
+are very welcome — each language is one file under `lib/l10n/app_<code>.arb`,
+so fixing a bad string is a one-line pull request.
+
 ## License
 
 Dual-licensed under Apache-2.0 or MIT, at your option. See `LICENSE-APACHE`

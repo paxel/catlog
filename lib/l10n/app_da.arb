@@ -150,5 +150,12 @@
   "valueNo": "nej",
   "valueFemale": "hun",
   "valueMale": "han",
-  "valueUnknown": "ukendt"
+  "valueUnknown": "ukendt",
+  "cropTitle": "Beskær foto",
+  "markTitle": "Markér katten",
+  "useFullPhoto": "Brug hele fotoet",
+  "dragToSelect": "Træk et rektangel rundt om katten",
+  "dragOverTheCat": "Træk en ellipse over katten",
+  "cropPhoto": "Beskær…",
+  "markPhoto": "Markér…"
 }

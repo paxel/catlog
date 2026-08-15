@@ -525,4 +525,25 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get valueUnknown => 'okänt';
+
+  @override
+  String get cropTitle => 'Beskär foto';
+
+  @override
+  String get markTitle => 'Markera katten';
+
+  @override
+  String get useFullPhoto => 'Använd hela fotot';
+
+  @override
+  String get dragToSelect => 'Dra en rektangel runt katten';
+
+  @override
+  String get dragOverTheCat => 'Dra en ellips över katten';
+
+  @override
+  String get cropPhoto => 'Beskär…';
+
+  @override
+  String get markPhoto => 'Markera…';
 }

@@ -526,4 +526,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get valueUnknown => 'неизвестно';
+
+  @override
+  String get cropTitle => 'Обрезать фото';
+
+  @override
+  String get markTitle => 'Отметить кошку';
+
+  @override
+  String get useFullPhoto => 'Использовать всё фото';
+
+  @override
+  String get dragToSelect => 'Проведите прямоугольник вокруг кошки';
+
+  @override
+  String get dragOverTheCat => 'Проведите эллипс над кошкой';
+
+  @override
+  String get cropPhoto => 'Обрезать…';
+
+  @override
+  String get markPhoto => 'Отметить…';
 }

@@ -527,4 +527,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get valueUnknown => 'unbekannt';
+
+  @override
+  String get cropTitle => 'Foto zuschneiden';
+
+  @override
+  String get markTitle => 'Katze markieren';
+
+  @override
+  String get useFullPhoto => 'Ganzes Foto verwenden';
+
+  @override
+  String get dragToSelect => 'Ziehe ein Rechteck um die Katze';
+
+  @override
+  String get dragOverTheCat => 'Ziehe eine Ellipse über die Katze';
+
+  @override
+  String get cropPhoto => 'Zuschneiden…';
+
+  @override
+  String get markPhoto => 'Markieren…';
 }

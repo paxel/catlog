@@ -528,4 +528,25 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get valueUnknown => 'mhux magħruf';
+
+  @override
+  String get cropTitle => 'Aqta\' r-ritratt';
+
+  @override
+  String get markTitle => 'Immarka l-qattus';
+
+  @override
+  String get useFullPhoto => 'Uża r-ritratt kollu';
+
+  @override
+  String get dragToSelect => 'Iġbed rettangolu madwar il-qattus';
+
+  @override
+  String get dragOverTheCat => 'Iġbed ellissi fuq il-qattus';
+
+  @override
+  String get cropPhoto => 'Aqta\'…';
+
+  @override
+  String get markPhoto => 'Immarka…';
 }

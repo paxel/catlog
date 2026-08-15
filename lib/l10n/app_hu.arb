@@ -150,5 +150,12 @@
   "valueNo": "nem",
   "valueFemale": "nőstény",
   "valueMale": "kandúr",
-  "valueUnknown": "ismeretlen"
+  "valueUnknown": "ismeretlen",
+  "cropTitle": "Fotó körbevágása",
+  "markTitle": "Macska megjelölése",
+  "useFullPhoto": "Teljes fotó használata",
+  "dragToSelect": "Húzz téglalapot a macska köré",
+  "dragOverTheCat": "Húzz ellipszist a macskára",
+  "cropPhoto": "Körbevágás…",
+  "markPhoto": "Megjelölés…"
 }

@@ -526,4 +526,25 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get valueUnknown => 'непознато';
+
+  @override
+  String get cropTitle => 'Изрежи фотографију';
+
+  @override
+  String get markTitle => 'Означи мачку';
+
+  @override
+  String get useFullPhoto => 'Користи целу фотографију';
+
+  @override
+  String get dragToSelect => 'Превуци правоугаоник око мачке';
+
+  @override
+  String get dragOverTheCat => 'Превуци елипсу преко мачке';
+
+  @override
+  String get cropPhoto => 'Изрежи…';
+
+  @override
+  String get markPhoto => 'Означи…';
 }

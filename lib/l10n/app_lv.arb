@@ -150,5 +150,12 @@
   "valueNo": "nē",
   "valueFemale": "mātīte",
   "valueMale": "tēviņš",
-  "valueUnknown": "nezināms"
+  "valueUnknown": "nezināms",
+  "cropTitle": "Apgriezt foto",
+  "markTitle": "Atzīmēt kaķi",
+  "useFullPhoto": "Izmantot visu foto",
+  "dragToSelect": "Velciet taisnstūri ap kaķi",
+  "dragOverTheCat": "Velciet elipsi pār kaķi",
+  "cropPhoto": "Apgriezt…",
+  "markPhoto": "Atzīmēt…"
 }
