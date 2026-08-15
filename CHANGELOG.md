@@ -67,3 +67,15 @@ Milestone M1: local-only catalog with Cards.
   survivor.
 - Desktop: Linux and Windows bundles built in CI and attached to releases.
 - iOS permission strings for camera, photo library, and local network.
+- Shared-folder sync: any cloud-drive or USB folder carries the catalog
+  between devices that never meet — each device writes only its own file.
+- Map (OpenStreetMap): Strays and Clowders as pins, offline cache of
+  visited tiles, long-press to place a clowder or record a sighting.
+- Stray Cam: one tap registers a stray at the current GPS position with a
+  photo; "seen here now" records sightings of any cat.
+- Movement trails: tap a stray's pin to see its dated positions connected
+  on the map.
+- CSV export of all cats via the share sheet (RFC 4180).
+- About & feedback screen: version, source link, GitHub issues, mail,
+  open-source licenses, and a donation link (hidden on iOS per App Store
+  rules).

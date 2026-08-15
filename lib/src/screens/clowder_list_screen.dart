@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
 import 'map_screen.dart';
@@ -102,9 +103,15 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'csv') _exportCsv();
+              if (v == 'about') {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => const AboutScreen(),
+                ));
+              }
             },
             itemBuilder: (context) => const [
               PopupMenuItem(value: 'csv', child: Text('Export CSV')),
+              PopupMenuItem(value: 'about', child: Text('About & feedback')),
             ],
           ),
         ],
