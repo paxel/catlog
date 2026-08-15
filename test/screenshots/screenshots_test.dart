@@ -109,9 +109,10 @@ void main() {
     await _loadRealFonts();
   });
 
-  Future<void> shoot(WidgetTester tester, Widget home, String name) async {
-    tester.view.physicalSize = const Size(820, 1660);
-    tester.view.devicePixelRatio = 2;
+  Future<void> shoot(WidgetTester tester, Widget home, String name,
+      {Size physical = const Size(820, 1660), double dpr = 2}) async {
+    tester.view.physicalSize = physical;
+    tester.view.devicePixelRatio = dpr;
     addTearDown(tester.view.reset);
     final key = GlobalKey();
     await tester.pumpWidget(RepaintBoundary(
@@ -134,7 +135,7 @@ void main() {
     await tester.runAsync(() async {
       final boundary = key.currentContext!.findRenderObject()!
           as RenderRepaintBoundary;
-      final image = await boundary.toImage(pixelRatio: 1);
+      final image = await boundary.toImage(pixelRatio: dpr);
       final data = await image.toByteData(format: ui.ImageByteFormat.png);
       File('docs/screenshots/$name.png')
           .writeAsBytesSync(data!.buffer.asUint8List());
@@ -171,5 +172,26 @@ void main() {
         MapScreen(
             store: store, tileProvider: _PastelTileProvider(tileFile)),
         '06-map');
+
+    // Apple App Store sets: 6.7" iPhone (1290×2796 @3x) and 13" iPad
+    // (2064×2752 @2x), into docs/screenshots/appstore/.
+    Directory('docs/screenshots/appstore').createSync(recursive: true);
+    const phone = Size(1290, 2796);
+    const pad = Size(2064, 2752);
+    final shots = <String, Widget>{
+      '01-home': ClowderListScreen(store: store),
+      '02-clowder': ClowderDetailScreen(store: store, clowderId: home),
+      '03-cat': CatDetailScreen(store: store, catId: miezi),
+      '04-card': CardScreen(store: store, catId: miezi),
+      '05-timeline': TimelineScreen(store: store, entityId: miezi),
+      '06-map': MapScreen(
+          store: store, tileProvider: _PastelTileProvider(tileFile)),
+    };
+    for (final entry in shots.entries) {
+      await shoot(tester, entry.value, 'appstore/iphone-${entry.key}',
+          physical: phone, dpr: 3);
+      await shoot(tester, entry.value, 'appstore/ipad-${entry.key}',
+          physical: pad, dpr: 2);
+    }
   });
 }
