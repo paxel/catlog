@@ -4,10 +4,10 @@
 
 **Blocked by:** None (M1 base).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `position` starter field seeded for existing and new databases
-- [ ] Map screen with OSM tiles, attribution, tile cache for offline viewing of visited areas
-- [ ] Stray pins (latest position) and Clowder pins; tap opens detail
-- [ ] Clowder position settable via "use my location" or long-press pin-drop
-- [ ] Core tests: latest-position query; widget smoke test with injected positions
+- [x] `position` starter field seeded for existing and new databases
+- [x] Map screen with OSM tiles, attribution, tile cache for offline viewing of visited areas
+- [x] Stray pins (latest position) and Clowder pins; tap opens detail
+- [x] Clowder position settable via long-press pin-drop ("use my location" lands with ticket 03's GPS)
+- [x] Core tests: latest-position query; widget smoke test with injected positions

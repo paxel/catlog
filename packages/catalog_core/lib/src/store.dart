@@ -488,6 +488,30 @@ class CatalogStore {
     return events;
   }
 
+  /// The key of the built-in Position starter field ("lat,lon").
+  static const positionKey = 'f:position';
+
+  /// An entity's current position, parsed from the Position field.
+  (double, double)? positionOf(String entityId) =>
+      parsePosition(current(entityId, positionKey));
+
+  /// Parses a "lat,lon" value; null for absent or malformed input.
+  static (double, double)? parsePosition(String? value) {
+    if (value == null) return null;
+    final parts = value.split(',');
+    if (parts.length != 2) return null;
+    final lat = double.tryParse(parts[0].trim());
+    final lon = double.tryParse(parts[1].trim());
+    if (lat == null || lon == null) return null;
+    if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+    return (lat, lon);
+  }
+
+  /// Records a position sighting at the current (or given) date.
+  void recordPosition(String entityId, double lat, double lon,
+          {DateTime? date}) =>
+      append(entityId, positionKey, '$lat,$lon', date: date);
+
   /// Cats whose current name contains [query], case-insensitive —
   /// across all Clowders and Strays. Deleted Cats never appear.
   List<EntityView> searchCats(String query) {

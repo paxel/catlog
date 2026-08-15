@@ -342,6 +342,25 @@ void main() {
     });
   });
 
+  group('positions', () {
+    test('position field is seeded and parses', () {
+      expect(store.fieldDefs().map((d) => d.slug), contains('position'));
+      final cat = store.createCat('Roamer');
+      store.recordPosition(cat, 52.52, 13.405);
+      expect(store.positionOf(cat), (52.52, 13.405));
+      // Sightings accumulate as history.
+      store.recordPosition(cat, 52.53, 13.41);
+      expect(
+          store.fieldHistory(cat, CatalogStore.positionKey).length, 2);
+    });
+
+    test('malformed positions parse to null', () {
+      expect(CatalogStore.parsePosition('garbage'), isNull);
+      expect(CatalogStore.parsePosition('91,0'), isNull);
+      expect(CatalogStore.parsePosition(null), isNull);
+    });
+  });
+
   group('search', () {
     test('finds cats by name across clowders and strays', () {
       final home = store.createClowder('Home');

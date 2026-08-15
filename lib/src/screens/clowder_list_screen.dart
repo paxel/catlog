@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
+import 'map_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
 import 'sync_screen.dart';
@@ -47,6 +48,16 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => SearchScreen(store: widget.store),
             )),
+          ),
+          IconButton(
+            icon: const Icon(Icons.map_outlined),
+            tooltip: 'Map',
+            onPressed: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => MapScreen(store: widget.store),
+              ));
+              setState(() {});
+            },
           ),
           IconButton(
             icon: const Icon(Icons.sync),
