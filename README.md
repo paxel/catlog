@@ -64,6 +64,8 @@ Everything is on the **[download page](https://github.com/paxel/catlog/releases)
 
 - **Android phone or tablet**: download the file ending in
   `arm64-v8a.apk`, open it, and allow the installation when the phone asks.
+  Prefer automatic updates? Add [our F-Droid
+  repository](https://paxel.github.io/catlog/fdroid/) to the F-Droid app.
 - **iPhone / iPad**: currently as a beta through Apple's TestFlight —
   [ask us](https://github.com/paxel/catlog/issues) and we'll invite you.
 - **Windows**: download the file ending in `windows-x86_64.zip`, unpack it
