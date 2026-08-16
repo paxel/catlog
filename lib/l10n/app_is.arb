@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Hýsa án Wi-Fi",
   "hotspotJoinNote": "Kemur á tímabundinni beintengingu við hinn símann (án internets). Aðeins cat(a)log notar hana og hún aftengist sjálf eftir samstillinguna.",
   "hotspotAndroidOnly": "Þessi kóði þarf tvo Android síma — á iPhone/iPad notaðu sameiginlegt Wi-Fi",
-  "selectClowderHint": "Veldu clowder til vinstri"
+  "selectClowderHint": "Veldu clowder til vinstri",
+  "introTitle1": "Kettir búa í clowderum",
+  "introBody1": "Clowder er staður þar sem kettir búa: fósturheimilið þitt, íbúð ættleiðanda, hlaðan í næsta húsi. Hver köttur fær spjald með mynd, staðreyndum og allri sögunni.",
+  "introTitle2": "Allt verður hjá þér",
+  "introBody2": "Enginn reikningur, ekkert ský, engin rakning. Gögnin þín búa á tækinu þínu.",
+  "introTitle3": "Deildu með hjálparfólkinu",
+  "introBody3": "Skannaðu kóða og tvö tæki samstillast á sekúndum, notaðu sameiginlega möppu eða sendu allt sem eina skrá.",
+  "introSkip": "Sleppa",
+  "introNext": "Áfram",
+  "introDone": "Byrjum",
+  "introReplayTitle": "Snögg kynning"
 }

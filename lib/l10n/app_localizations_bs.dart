@@ -874,4 +874,37 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Odaberi clowder lijevo';
+
+  @override
+  String get introTitle1 => 'Mačke žive u clowderima';
+
+  @override
+  String get introBody1 =>
+      'Clowder je mjesto gdje mačke žive: tvoj udomiteljski dom, stan usvojitelja, štala u komšiluku. Svaka mačka ima kartu sa slikom, činjenicama i cijelom pričom.';
+
+  @override
+  String get introTitle2 => 'Sve ostaje kod tebe';
+
+  @override
+  String get introBody2 =>
+      'Bez naloga, bez oblaka, bez praćenja. Tvoji podaci žive na tvom uređaju.';
+
+  @override
+  String get introTitle3 => 'Dijeli sa pomagačima';
+
+  @override
+  String get introBody3 =>
+      'Skeniraj kod i dva uređaja se sinhronizuju za sekunde, koristi dijeljenu fasciklu ili pošalji sve kao jednu datoteku.';
+
+  @override
+  String get introSkip => 'Preskoči';
+
+  @override
+  String get introNext => 'Dalje';
+
+  @override
+  String get introDone => 'Krenimo';
+
+  @override
+  String get introReplayTitle => 'Kratki uvod';
 }

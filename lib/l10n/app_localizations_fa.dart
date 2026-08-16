@@ -873,4 +873,37 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'از سمت چپ یک گروه انتخاب کنید';
+
+  @override
+  String get introTitle1 => 'گربه‌ها در گروه‌ها زندگی می‌کنند';
+
+  @override
+  String get introBody1 =>
+      'گروه جایی است که گربه‌ها زندگی می‌کنند: خانه موقت شما، آپارتمان سرپرست جدید، انبار همسایه. هر گربه کارتی با عکس، اطلاعات و تمام داستانش دارد.';
+
+  @override
+  String get introTitle2 => 'همه چیز نزد شما می‌ماند';
+
+  @override
+  String get introBody2 =>
+      'بدون حساب، بدون ابر، بدون ردیابی. داده‌های شما روی دستگاه خودتان است.';
+
+  @override
+  String get introTitle3 => 'با یارانتان به اشتراک بگذارید';
+
+  @override
+  String get introBody3 =>
+      'کدی را اسکن کنید تا دو دستگاه در چند ثانیه همگام شوند، از پوشه مشترک استفاده کنید یا همه را یک فایل بفرستید.';
+
+  @override
+  String get introSkip => 'رد شدن';
+
+  @override
+  String get introNext => 'بعدی';
+
+  @override
+  String get introDone => 'برویم';
+
+  @override
+  String get introReplayTitle => 'معرفی سریع';
 }

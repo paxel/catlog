@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Ospita mingħajr Wi-Fi",
   "hotspotJoinNote": "Joħloq konnessjoni diretta temporanja mat-telefown l-ieħor (mingħajr internet). Juża biss cat(a)log u tinqata' waħedha wara s-sinkronizzazzjoni.",
   "hotspotAndroidOnly": "Dan il-kodiċi jeħtieġ żewġ telefowns Android — fuq iPhone/iPad uża Wi-Fi kondiviż",
-  "selectClowderHint": "Agħżel clowder fuq ix-xellug"
+  "selectClowderHint": "Agħżel clowder fuq ix-xellug",
+  "introTitle1": "Il-qtates jgħixu fi clowders",
+  "introBody1": "Clowder huwa post fejn jgħixu l-qtates: id-dar tal-fostering tiegħek, l-appartament ta' min jadotta, il-maqjel tal-ġenb. Kull qattus għandu karta b'ritratt, fatti u l-istorja kollha tiegħu.",
+  "introTitle2": "Kollox jibqa' għandek",
+  "introBody2": "L-ebda kont, l-ebda cloud, l-ebda traċċar. Id-data tiegħek tgħix fuq l-apparat tiegħek.",
+  "introTitle3": "Aqsam mal-għajnuniet tiegħek",
+  "introBody3": "Skennja kodiċi u żewġ apparati jissinkronizzaw f'sekondi, uża folder kondiviż jew ibgħat kollox bħala fajl wieħed.",
+  "introSkip": "Aqbeż",
+  "introNext": "Li jmiss",
+  "introDone": "Ejja",
+  "introReplayTitle": "Introduzzjoni mgħaġġla"
 }

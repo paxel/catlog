@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Hospedar sem Wi-Fi",
   "hotspotJoinNote": "Cria uma ligação direta temporária ao outro telemóvel (sem internet). Só o cat(a)log a usa e desliga-se sozinha após a sincronização.",
   "hotspotAndroidOnly": "Este código precisa de dois telemóveis Android — no iPhone/iPad use uma Wi-Fi partilhada",
-  "selectClowderHint": "Escolha um clowder à esquerda"
+  "selectClowderHint": "Escolha um clowder à esquerda",
+  "introTitle1": "Os gatos vivem em clowders",
+  "introBody1": "Um clowder é um lugar onde vivem gatos: a sua casa de acolhimento, o apartamento de um adotante, o celeiro ao lado. Cada gato tem uma ficha com foto, factos e toda a sua história.",
+  "introTitle2": "Tudo fica consigo",
+  "introBody2": "Sem conta, sem nuvem, sem rastreio. Os seus dados vivem no seu dispositivo.",
+  "introTitle3": "Partilhe com os seus ajudantes",
+  "introBody3": "Digitalize um código e dois dispositivos sincronizam em segundos, use uma pasta partilhada ou envie tudo como um ficheiro.",
+  "introSkip": "Saltar",
+  "introNext": "Seguinte",
+  "introDone": "Vamos lá",
+  "introReplayTitle": "Introdução rápida"
 }

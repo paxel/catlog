@@ -859,4 +859,36 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get selectClowderHint => '左からグループを選択してください';
+
+  @override
+  String get introTitle1 => '猫はグループで暮らします';
+
+  @override
+  String get introBody1 =>
+      'グループとは猫が暮らす場所のこと。あなたの預かり宅、里親の部屋、隣の納屋。どの猫にも写真と情報と全履歴のカードがあります。';
+
+  @override
+  String get introTitle2 => 'すべてはあなたの手元に';
+
+  @override
+  String get introBody2 => 'アカウントもクラウドも追跡もなし。データはあなたの端末の中だけにあります。';
+
+  @override
+  String get introTitle3 => '仲間と共有';
+
+  @override
+  String get introBody3 =>
+      'コードをスキャンすれば数秒で2台が同期。共有フォルダやファイル送信でも。全員が同じカタログになります。';
+
+  @override
+  String get introSkip => 'スキップ';
+
+  @override
+  String get introNext => '次へ';
+
+  @override
+  String get introDone => 'はじめる';
+
+  @override
+  String get introReplayTitle => 'クイック紹介';
 }

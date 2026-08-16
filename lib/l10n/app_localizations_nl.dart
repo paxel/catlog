@@ -878,4 +878,37 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Kies links een clowder';
+
+  @override
+  String get introTitle1 => 'Katten wonen in clowders';
+
+  @override
+  String get introBody1 =>
+      'Een clowder is een plek waar katten wonen: jouw opvang, de flat van een adoptant, de schuur hiernaast. Elke kat krijgt een kaart met foto, feiten en het hele verhaal.';
+
+  @override
+  String get introTitle2 => 'Alles blijft bij jou';
+
+  @override
+  String get introBody2 =>
+      'Geen account, geen cloud, geen tracking. Je gegevens wonen op je apparaat.';
+
+  @override
+  String get introTitle3 => 'Deel met je helpers';
+
+  @override
+  String get introBody3 =>
+      'Scan een code en twee apparaten synchroniseren in seconden, gebruik een gedeelde map of stuur alles als één bestand.';
+
+  @override
+  String get introSkip => 'Overslaan';
+
+  @override
+  String get introNext => 'Volgende';
+
+  @override
+  String get introDone => 'Aan de slag';
+
+  @override
+  String get introReplayTitle => 'Korte intro';
 }

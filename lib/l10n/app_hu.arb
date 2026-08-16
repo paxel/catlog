@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Hosztolás Wi-Fi nélkül",
   "hotspotJoinNote": "Ideiglenes közvetlen kapcsolatot létesít a másik telefonnal (internet nélkül). Csak a cat(a)log használja, és a szinkronizálás után magától bontja.",
   "hotspotAndroidOnly": "Ehhez a kódhoz két Android telefon kell — iPhone-on/iPaden használj közös Wi-Fi-t",
-  "selectClowderHint": "Válassz egy clowdert balra"
+  "selectClowderHint": "Válassz egy clowdert balra",
+  "introTitle1": "A macskák clowderekben élnek",
+  "introBody1": "A clowder egy hely, ahol macskák élnek: az ideiglenes befogadód, egy örökbefogadó lakása, a szomszéd pajta. Minden macska kap egy kártyát fotóval, adatokkal és a teljes történetével.",
+  "introTitle2": "Minden nálad marad",
+  "introBody2": "Se fiók, se felhő, se követés. Az adataid a készülékeden élnek.",
+  "introTitle3": "Oszd meg a segítőiddel",
+  "introBody3": "Olvass be egy kódot és két készülék másodpercek alatt szinkronizál, használj megosztott mappát vagy küldj mindent egy fájlként.",
+  "introSkip": "Kihagyás",
+  "introNext": "Tovább",
+  "introDone": "Vágjunk bele",
+  "introReplayTitle": "Gyors bemutató"
 }

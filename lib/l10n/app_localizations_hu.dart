@@ -876,4 +876,37 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Válassz egy clowdert balra';
+
+  @override
+  String get introTitle1 => 'A macskák clowderekben élnek';
+
+  @override
+  String get introBody1 =>
+      'A clowder egy hely, ahol macskák élnek: az ideiglenes befogadód, egy örökbefogadó lakása, a szomszéd pajta. Minden macska kap egy kártyát fotóval, adatokkal és a teljes történetével.';
+
+  @override
+  String get introTitle2 => 'Minden nálad marad';
+
+  @override
+  String get introBody2 =>
+      'Se fiók, se felhő, se követés. Az adataid a készülékeden élnek.';
+
+  @override
+  String get introTitle3 => 'Oszd meg a segítőiddel';
+
+  @override
+  String get introBody3 =>
+      'Olvass be egy kódot és két készülék másodpercek alatt szinkronizál, használj megosztott mappát vagy küldj mindent egy fájlként.';
+
+  @override
+  String get introSkip => 'Kihagyás';
+
+  @override
+  String get introNext => 'Tovább';
+
+  @override
+  String get introDone => 'Vágjunk bele';
+
+  @override
+  String get introReplayTitle => 'Gyors bemutató';
 }

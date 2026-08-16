@@ -873,4 +873,37 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Välj en clowder till vänster';
+
+  @override
+  String get introTitle1 => 'Katter bor i clowdrar';
+
+  @override
+  String get introBody1 =>
+      'En clowder är en plats där katter bor: ditt jourhem, en adoptörs lägenhet, ladan intill. Varje katt får ett kort med foto, fakta och hela sin historia.';
+
+  @override
+  String get introTitle2 => 'Allt stannar hos dig';
+
+  @override
+  String get introBody2 =>
+      'Inget konto, inget moln, ingen spårning. Dina data bor på din enhet.';
+
+  @override
+  String get introTitle3 => 'Dela med dina hjälpare';
+
+  @override
+  String get introBody3 =>
+      'Skanna en kod så synkas två enheter på sekunder, använd en delad mapp eller skicka allt som en fil.';
+
+  @override
+  String get introSkip => 'Hoppa över';
+
+  @override
+  String get introNext => 'Nästa';
+
+  @override
+  String get introDone => 'Nu kör vi';
+
+  @override
+  String get introReplayTitle => 'Snabb intro';
 }

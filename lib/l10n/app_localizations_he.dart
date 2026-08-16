@@ -867,4 +867,37 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'בחרו קבוצה משמאל';
+
+  @override
+  String get introTitle1 => 'חתולים גרים בקבוצות';
+
+  @override
+  String get introBody1 =>
+      'קבוצה היא מקום שבו חתולים גרים: בית האומנה שלך, דירת מאמץ, האסם השכן. לכל חתול כרטיס עם תמונה, עובדות וכל הסיפור שלו.';
+
+  @override
+  String get introTitle2 => 'הכול נשאר אצלך';
+
+  @override
+  String get introBody2 =>
+      'בלי חשבון, בלי ענן, בלי מעקב. הנתונים שלך חיים במכשיר שלך.';
+
+  @override
+  String get introTitle3 => 'שתפו את העוזרים';
+
+  @override
+  String get introBody3 =>
+      'סרקו קוד ושני מכשירים מסתנכרנים בשניות, השתמשו בתיקייה משותפת או שלחו הכול כקובץ אחד.';
+
+  @override
+  String get introSkip => 'דלג';
+
+  @override
+  String get introNext => 'הבא';
+
+  @override
+  String get introDone => 'קדימה';
+
+  @override
+  String get introReplayTitle => 'היכרות מהירה';
 }

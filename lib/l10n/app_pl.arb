@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Hostuj bez Wi-Fi",
   "hotspotJoinNote": "Tworzy tymczasowe bezpośrednie połączenie z drugim telefonem (bez internetu). Korzysta z niego tylko cat(a)log i rozłącza się samo po synchronizacji.",
   "hotspotAndroidOnly": "Ten kod wymaga dwóch telefonów z Androidem — na iPhonie/iPadzie użyj wspólnego Wi-Fi",
-  "selectClowderHint": "Wybierz clowder po lewej"
+  "selectClowderHint": "Wybierz clowder po lewej",
+  "introTitle1": "Koty mieszkają w clowderach",
+  "introBody1": "Clowder to miejsce, gdzie mieszkają koty: twój dom tymczasowy, mieszkanie adoptującego, stodoła obok. Każdy kot ma kartę ze zdjęciem, faktami i całą historią.",
+  "introTitle2": "Wszystko zostaje u ciebie",
+  "introBody2": "Bez konta, bez chmury, bez śledzenia. Twoje dane żyją na twoim urządzeniu.",
+  "introTitle3": "Dziel się z pomocnikami",
+  "introBody3": "Zeskanuj kod, a dwa urządzenia zsynchronizują się w sekundy, użyj wspólnego folderu albo wyślij wszystko jako jeden plik.",
+  "introSkip": "Pomiń",
+  "introNext": "Dalej",
+  "introDone": "Zaczynamy",
+  "introReplayTitle": "Szybkie wprowadzenie"
 }

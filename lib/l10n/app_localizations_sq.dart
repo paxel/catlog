@@ -876,4 +876,37 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Zgjidh një clowder majtas';
+
+  @override
+  String get introTitle1 => 'Macet jetojnë në clowdera';
+
+  @override
+  String get introBody1 =>
+      'Clowder është një vend ku jetojnë macet: shtëpia jote e kujdestarisë, banesa e një birësuesi, hambari ngjitur. Çdo mace ka një kartë me foto, fakte dhe gjithë historinë e saj.';
+
+  @override
+  String get introTitle2 => 'Gjithçka mbetet te ti';
+
+  @override
+  String get introBody2 =>
+      'Pa llogari, pa cloud, pa gjurmim. Të dhënat e tua jetojnë në pajisjen tënde.';
+
+  @override
+  String get introTitle3 => 'Ndaj me ndihmësit';
+
+  @override
+  String get introBody3 =>
+      'Skano një kod dhe dy pajisje sinkronizohen për sekonda, përdor një dosje të përbashkët ose dërgo gjithçka si një skedar.';
+
+  @override
+  String get introSkip => 'Kapërce';
+
+  @override
+  String get introNext => 'Tjetra';
+
+  @override
+  String get introDone => 'Nisemi';
+
+  @override
+  String get introReplayTitle => 'Hyrje e shpejtë';
 }

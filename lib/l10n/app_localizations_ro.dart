@@ -876,4 +876,37 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Alege un clowder din stânga';
+
+  @override
+  String get introTitle1 => 'Pisicile trăiesc în clowdere';
+
+  @override
+  String get introBody1 =>
+      'Un clowder e un loc unde trăiesc pisici: casa ta de plasament, apartamentul unui adoptator, hambarul de alături. Fiecare pisică are o fișă cu poză, date și toată povestea ei.';
+
+  @override
+  String get introTitle2 => 'Totul rămâne la tine';
+
+  @override
+  String get introBody2 =>
+      'Fără cont, fără cloud, fără urmărire. Datele tale trăiesc pe dispozitivul tău.';
+
+  @override
+  String get introTitle3 => 'Împarte cu ajutoarele tale';
+
+  @override
+  String get introBody3 =>
+      'Scanează un cod și două dispozitive se sincronizează în secunde, folosește un dosar partajat sau trimite totul ca un fișier.';
+
+  @override
+  String get introSkip => 'Sari peste';
+
+  @override
+  String get introNext => 'Înainte';
+
+  @override
+  String get introDone => 'Să începem';
+
+  @override
+  String get introReplayTitle => 'Introducere rapidă';
 }

@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Wi-Fi olmadan barındır",
   "hotspotJoinNote": "Diğer telefonla geçici doğrudan bağlantı kurar (internet yok). Yalnızca cat(a)log kullanır ve eşitlemeden sonra kendiliğinden kesilir.",
   "hotspotAndroidOnly": "Bu kod iki Android telefon gerektirir — iPhone/iPad'de ortak Wi-Fi kullanın",
-  "selectClowderHint": "Soldan bir clowder seçin"
+  "selectClowderHint": "Soldan bir clowder seçin",
+  "introTitle1": "Kediler clowder'larda yaşar",
+  "introBody1": "Clowder, kedilerin yaşadığı yerdir: geçici yuvanız, sahiplenen kişinin evi, yandaki ahır. Her kedinin fotoğraflı, bilgili ve tüm hikâyesini içeren bir kartı olur.",
+  "introTitle2": "Her şey sizde kalır",
+  "introBody2": "Hesap yok, bulut yok, takip yok. Verileriniz cihazınızda yaşar.",
+  "introTitle3": "Yardımcılarınızla paylaşın",
+  "introBody3": "Bir kodu tarayın, iki cihaz saniyeler içinde eşitlensin; ortak klasör kullanın ya da her şeyi tek dosya olarak gönderin.",
+  "introSkip": "Atla",
+  "introNext": "İleri",
+  "introDone": "Başlayalım",
+  "introReplayTitle": "Hızlı tanıtım"
 }

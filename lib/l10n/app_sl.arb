@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Gosti brez Wi-Fi",
   "hotspotJoinNote": "Vzpostavi začasno neposredno povezavo z drugim telefonom (brez interneta). Uporablja jo samo cat(a)log in se po sinhronizaciji sama prekine.",
   "hotspotAndroidOnly": "Ta koda zahteva dva telefona Android — na iPhonu/iPadu uporabi skupni Wi-Fi",
-  "selectClowderHint": "Izberi clowder na levi"
+  "selectClowderHint": "Izberi clowder na levi",
+  "introTitle1": "Mačke živijo v clowderih",
+  "introBody1": "Clowder je kraj, kjer živijo mačke: tvoj začasni dom, stanovanje posvojitelja, sosedov skedenj. Vsaka mačka ima kartico s fotografijo, podatki in celotno zgodbo.",
+  "introTitle2": "Vse ostane pri tebi",
+  "introBody2": "Brez računa, brez oblaka, brez sledenja. Tvoji podatki živijo na tvoji napravi.",
+  "introTitle3": "Deli s pomočniki",
+  "introBody3": "Skeniraj kodo in napravi se sinhronizirata v sekundah, uporabi deljeno mapo ali pošlji vse kot eno datoteko.",
+  "introSkip": "Preskoči",
+  "introNext": "Naprej",
+  "introDone": "Gremo",
+  "introReplayTitle": "Hiter uvod"
 }

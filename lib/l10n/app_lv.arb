@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Viesot bez Wi-Fi",
   "hotspotJoinNote": "Izveido pagaidu tiešo savienojumu ar otru tālruni (bez interneta). To izmanto tikai cat(a)log, un pēc sinhronizācijas tas atvienojas pats.",
   "hotspotAndroidOnly": "Šim kodam vajag divus Android tālruņus — iPhone/iPad izmanto kopīgu Wi-Fi",
-  "selectClowderHint": "Izvēlies clowder kreisajā pusē"
+  "selectClowderHint": "Izvēlies clowder kreisajā pusē",
+  "introTitle1": "Kaķi dzīvo clowderos",
+  "introBody1": "Clowder ir vieta, kur dzīvo kaķi: tavas pagaidu mājas, adoptētāja dzīvoklis, kaimiņu šķūnis. Katram kaķim ir karte ar foto, faktiem un visu stāstu.",
+  "introTitle2": "Viss paliek pie tevis",
+  "introBody2": "Ne konta, ne mākoņa, ne izsekošanas. Tavi dati dzīvo tavā ierīcē.",
+  "introTitle3": "Dalies ar palīgiem",
+  "introBody3": "Noskenē kodu un divas ierīces sinhronizējas sekundēs, izmanto koplietotu mapi vai sūti visu kā vienu failu.",
+  "introSkip": "Izlaist",
+  "introNext": "Tālāk",
+  "introDone": "Aiziet",
+  "introReplayTitle": "Ātrs ievads"
 }

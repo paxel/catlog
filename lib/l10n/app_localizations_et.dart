@@ -874,4 +874,37 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Vali vasakult clowder';
+
+  @override
+  String get introTitle1 => 'Kassid elavad clowderites';
+
+  @override
+  String get introBody1 =>
+      'Clowder on koht, kus kassid elavad: sinu hoiukodu, lapsendaja korter, kõrvalasuv küün. Iga kass saab kaardi foto, faktide ja kogu looga.';
+
+  @override
+  String get introTitle2 => 'Kõik jääb sinule';
+
+  @override
+  String get introBody2 =>
+      'Ei kontot, ei pilve, ei jälgimist. Sinu andmed elavad sinu seadmes.';
+
+  @override
+  String get introTitle3 => 'Jaga oma abilistega';
+
+  @override
+  String get introBody3 =>
+      'Skanni kood ja kaks seadet sünkroonivad sekunditega, kasuta jagatud kausta või saada kõik ühe failina.';
+
+  @override
+  String get introSkip => 'Jäta vahele';
+
+  @override
+  String get introNext => 'Edasi';
+
+  @override
+  String get introDone => 'Alustame';
+
+  @override
+  String get introReplayTitle => 'Kiire tutvustus';
 }

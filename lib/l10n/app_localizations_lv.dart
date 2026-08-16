@@ -873,4 +873,37 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Izvēlies clowder kreisajā pusē';
+
+  @override
+  String get introTitle1 => 'Kaķi dzīvo clowderos';
+
+  @override
+  String get introBody1 =>
+      'Clowder ir vieta, kur dzīvo kaķi: tavas pagaidu mājas, adoptētāja dzīvoklis, kaimiņu šķūnis. Katram kaķim ir karte ar foto, faktiem un visu stāstu.';
+
+  @override
+  String get introTitle2 => 'Viss paliek pie tevis';
+
+  @override
+  String get introBody2 =>
+      'Ne konta, ne mākoņa, ne izsekošanas. Tavi dati dzīvo tavā ierīcē.';
+
+  @override
+  String get introTitle3 => 'Dalies ar palīgiem';
+
+  @override
+  String get introBody3 =>
+      'Noskenē kodu un divas ierīces sinhronizējas sekundēs, izmanto koplietotu mapi vai sūti visu kā vienu failu.';
+
+  @override
+  String get introSkip => 'Izlaist';
+
+  @override
+  String get introNext => 'Tālāk';
+
+  @override
+  String get introDone => 'Aiziet';
+
+  @override
+  String get introReplayTitle => 'Ātrs ievads';
 }

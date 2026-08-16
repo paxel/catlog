@@ -874,4 +874,37 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Valitse clowder vasemmalta';
+
+  @override
+  String get introTitle1 => 'Kissat asuvat clowdereissa';
+
+  @override
+  String get introBody1 =>
+      'Clowder on paikka, jossa kissat asuvat: sijaiskotisi, adoptoijan asunto, naapurin lato. Jokainen kissa saa kortin, jossa on kuva, tiedot ja koko tarina.';
+
+  @override
+  String get introTitle2 => 'Kaikki pysyy sinulla';
+
+  @override
+  String get introBody2 =>
+      'Ei tiliä, ei pilveä, ei seurantaa. Tietosi asuvat laitteellasi.';
+
+  @override
+  String get introTitle3 => 'Jaa auttajiesi kanssa';
+
+  @override
+  String get introBody3 =>
+      'Skannaa koodi ja kaksi laitetta synkronoituu sekunneissa, käytä jaettua kansiota tai lähetä kaikki yhtenä tiedostona.';
+
+  @override
+  String get introSkip => 'Ohita';
+
+  @override
+  String get introNext => 'Seuraava';
+
+  @override
+  String get introDone => 'Aloitetaan';
+
+  @override
+  String get introReplayTitle => 'Pikaesittely';
 }

@@ -875,4 +875,37 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Vælg en clowder til venstre';
+
+  @override
+  String get introTitle1 => 'Katte bor i clowdere';
+
+  @override
+  String get introBody1 =>
+      'En clowder er et sted, hvor katte bor: dit plejehjem, en adoptants lejlighed, laden ved siden af. Hver kat får et kort med foto, fakta og hele sin historie.';
+
+  @override
+  String get introTitle2 => 'Alt bliver hos dig';
+
+  @override
+  String get introBody2 =>
+      'Ingen konto, ingen sky, ingen sporing. Dine data bor på din enhed.';
+
+  @override
+  String get introTitle3 => 'Del med dine hjælpere';
+
+  @override
+  String get introBody3 =>
+      'Scan en kode og to enheder synkroniseres på sekunder, brug en delt mappe, eller send alt som én fil.';
+
+  @override
+  String get introSkip => 'Spring over';
+
+  @override
+  String get introNext => 'Næste';
+
+  @override
+  String get introDone => 'Kom i gang';
+
+  @override
+  String get introReplayTitle => 'Hurtig intro';
 }

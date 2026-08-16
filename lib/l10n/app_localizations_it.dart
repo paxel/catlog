@@ -878,4 +878,37 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Scegli un clowder a sinistra';
+
+  @override
+  String get introTitle1 => 'I gatti vivono nei clowder';
+
+  @override
+  String get introBody1 =>
+      'Un clowder è un posto dove vivono i gatti: la tua casa affidataria, l\'appartamento di un adottante, il fienile accanto. Ogni gatto ha una scheda con foto, dati e tutta la sua storia.';
+
+  @override
+  String get introTitle2 => 'Tutto resta da te';
+
+  @override
+  String get introBody2 =>
+      'Niente account, niente cloud, niente tracciamento. I tuoi dati vivono sul tuo dispositivo.';
+
+  @override
+  String get introTitle3 => 'Condividi con i tuoi aiutanti';
+
+  @override
+  String get introBody3 =>
+      'Scansiona un codice e due dispositivi si sincronizzano in secondi, usa una cartella condivisa o invia tutto come un file.';
+
+  @override
+  String get introSkip => 'Salta';
+
+  @override
+  String get introNext => 'Avanti';
+
+  @override
+  String get introDone => 'Si parte';
+
+  @override
+  String get introReplayTitle => 'Introduzione rapida';
 }

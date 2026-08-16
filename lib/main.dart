@@ -11,6 +11,7 @@ import 'src/incoming_file.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/home_shell.dart';
+import 'src/screens/intro_screen.dart';
 import 'src/screens/search_screen.dart';
 import 'src/screens/sync_screen.dart';
 
@@ -60,6 +61,10 @@ class CatlogApp extends StatefulWidget {
 
 class _CatlogAppState extends State<CatlogApp>
     with WidgetsBindingObserver, WindowListener {
+  /// True only when the author was created THIS run: the intro is for
+  /// fresh installs, never sprung on upgraders with a routine.
+  bool _freshSetup = false;
+
   @override
   void initState() {
     super.initState();
@@ -133,9 +138,15 @@ class _CatlogAppState extends State<CatlogApp>
         home: widget.store.author == null
             ? AuthorSetupScreen(
                 store: widget.store,
-                onDone: () => setState(() {}),
+                onDone: () => setState(() => _freshSetup = true),
               )
-            : HomeShell(store: widget.store),
+            : _freshSetup &&
+                    widget.store.localSetting('introSeen') == null
+                ? IntroScreen(
+                    store: widget.store,
+                    onDone: () => setState(() {}),
+                  )
+                : HomeShell(store: widget.store),
       ),
     );
   }

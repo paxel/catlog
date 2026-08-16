@@ -875,4 +875,37 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Избери клаудер лево';
+
+  @override
+  String get introTitle1 => 'Мачките живеат во клаудери';
+
+  @override
+  String get introBody1 =>
+      'Клаудер е место каде живеат мачки: твојот згрижувачки дом, станот на посвоителот, шталата до вас. Секоја мачка има карта со слика, факти и целата приказна.';
+
+  @override
+  String get introTitle2 => 'Сè останува кај тебе';
+
+  @override
+  String get introBody2 =>
+      'Без сметка, без облак, без следење. Твоите податоци живеат на твојот уред.';
+
+  @override
+  String get introTitle3 => 'Сподели со помагачите';
+
+  @override
+  String get introBody3 =>
+      'Скенирај код и два уреди се синхронизираат за секунди, користи споделена папка или испрати сè како една датотека.';
+
+  @override
+  String get introSkip => 'Прескокни';
+
+  @override
+  String get introNext => 'Следно';
+
+  @override
+  String get introDone => 'Одиме';
+
+  @override
+  String get introReplayTitle => 'Брз вовед';
 }

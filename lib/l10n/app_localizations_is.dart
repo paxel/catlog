@@ -877,4 +877,37 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Veldu clowder til vinstri';
+
+  @override
+  String get introTitle1 => 'Kettir búa í clowderum';
+
+  @override
+  String get introBody1 =>
+      'Clowder er staður þar sem kettir búa: fósturheimilið þitt, íbúð ættleiðanda, hlaðan í næsta húsi. Hver köttur fær spjald með mynd, staðreyndum og allri sögunni.';
+
+  @override
+  String get introTitle2 => 'Allt verður hjá þér';
+
+  @override
+  String get introBody2 =>
+      'Enginn reikningur, ekkert ský, engin rakning. Gögnin þín búa á tækinu þínu.';
+
+  @override
+  String get introTitle3 => 'Deildu með hjálparfólkinu';
+
+  @override
+  String get introBody3 =>
+      'Skannaðu kóða og tvö tæki samstillast á sekúndum, notaðu sameiginlega möppu eða sendu allt sem eina skrá.';
+
+  @override
+  String get introSkip => 'Sleppa';
+
+  @override
+  String get introNext => 'Áfram';
+
+  @override
+  String get introDone => 'Byrjum';
+
+  @override
+  String get introReplayTitle => 'Snögg kynning';
 }

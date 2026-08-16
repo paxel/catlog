@@ -875,4 +875,37 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Kairėje pasirinkite clowder';
+
+  @override
+  String get introTitle1 => 'Katės gyvena clowderiuose';
+
+  @override
+  String get introBody1 =>
+      'Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas, kaimyno daržinė. Kiekviena katė turi kortelę su nuotrauka, faktais ir visa istorija.';
+
+  @override
+  String get introTitle2 => 'Viskas lieka pas tave';
+
+  @override
+  String get introBody2 =>
+      'Jokios paskyros, jokio debesies, jokio sekimo. Tavo duomenys gyvena tavo įrenginyje.';
+
+  @override
+  String get introTitle3 => 'Dalinkis su pagalbininkais';
+
+  @override
+  String get introBody3 =>
+      'Nuskenuok kodą ir du įrenginiai susinchronizuojami per sekundes, naudok bendrą aplanką arba siųsk viską vienu failu.';
+
+  @override
+  String get introSkip => 'Praleisti';
+
+  @override
+  String get introNext => 'Toliau';
+
+  @override
+  String get introDone => 'Pirmyn';
+
+  @override
+  String get introReplayTitle => 'Greita pažintis';
 }

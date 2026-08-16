@@ -876,4 +876,37 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Διάλεξε ένα clowder αριστερά';
+
+  @override
+  String get introTitle1 => 'Οι γάτες ζουν σε clowder';
+
+  @override
+  String get introBody1 =>
+      'Το clowder είναι ένα μέρος όπου ζουν γάτες: το ανάδοχο σπίτι σου, το διαμέρισμα ενός υιοθέτη, ο αχυρώνας δίπλα. Κάθε γάτα έχει κάρτα με φωτογραφία, στοιχεία και όλη την ιστορία της.';
+
+  @override
+  String get introTitle2 => 'Όλα μένουν σε σένα';
+
+  @override
+  String get introBody2 =>
+      'Χωρίς λογαριασμό, χωρίς cloud, χωρίς παρακολούθηση. Τα δεδομένα σου ζουν στη συσκευή σου.';
+
+  @override
+  String get introTitle3 => 'Μοιράσου με τους βοηθούς σου';
+
+  @override
+  String get introBody3 =>
+      'Σκάναρε έναν κωδικό και δύο συσκευές συγχρονίζονται σε δευτερόλεπτα, χρησιμοποίησε κοινό φάκελο ή στείλε τα όλα ως ένα αρχείο.';
+
+  @override
+  String get introSkip => 'Παράλειψη';
+
+  @override
+  String get introNext => 'Επόμενο';
+
+  @override
+  String get introDone => 'Πάμε';
+
+  @override
+  String get introReplayTitle => 'Γρήγορη εισαγωγή';
 }

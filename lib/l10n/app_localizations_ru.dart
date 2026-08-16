@@ -874,4 +874,37 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Выберите клаудер слева';
+
+  @override
+  String get introTitle1 => 'Кошки живут в клаудерах';
+
+  @override
+  String get introBody1 =>
+      'Клаудер — это место, где живут кошки: ваша передержка, квартира усыновителя, соседний сарай. У каждой кошки есть карточка с фото, фактами и всей её историей.';
+
+  @override
+  String get introTitle2 => 'Всё остаётся у вас';
+
+  @override
+  String get introBody2 =>
+      'Без аккаунта, без облака, без слежки. Ваши данные живут на вашем устройстве.';
+
+  @override
+  String get introTitle3 => 'Делитесь с помощниками';
+
+  @override
+  String get introBody3 =>
+      'Отсканируйте код — и два устройства синхронизируются за секунды; используйте общую папку или отправьте всё одним файлом.';
+
+  @override
+  String get introSkip => 'Пропустить';
+
+  @override
+  String get introNext => 'Далее';
+
+  @override
+  String get introDone => 'Поехали';
+
+  @override
+  String get introReplayTitle => 'Быстрое знакомство';
 }

@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Wi-Fi なしでホスト",
   "hotspotJoinNote": "相手の端末との一時的な直接接続を作ります（インターネットなし）。cat(a)log だけが使用し、同期後は自動的に切断されます。",
   "hotspotAndroidOnly": "このコードは Android 2台が必要です — iPhone/iPad では共有 Wi-Fi を使ってください",
-  "selectClowderHint": "左からグループを選択してください"
+  "selectClowderHint": "左からグループを選択してください",
+  "introTitle1": "猫はグループで暮らします",
+  "introBody1": "グループとは猫が暮らす場所のこと。あなたの預かり宅、里親の部屋、隣の納屋。どの猫にも写真と情報と全履歴のカードがあります。",
+  "introTitle2": "すべてはあなたの手元に",
+  "introBody2": "アカウントもクラウドも追跡もなし。データはあなたの端末の中だけにあります。",
+  "introTitle3": "仲間と共有",
+  "introBody3": "コードをスキャンすれば数秒で2台が同期。共有フォルダやファイル送信でも。全員が同じカタログになります。",
+  "introSkip": "スキップ",
+  "introNext": "次へ",
+  "introDone": "はじめる",
+  "introReplayTitle": "クイック紹介"
 }

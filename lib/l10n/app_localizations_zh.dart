@@ -855,4 +855,35 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get selectClowderHint => '从左侧选择一个猫群';
+
+  @override
+  String get introTitle1 => '猫住在猫群里';
+
+  @override
+  String get introBody1 =>
+      '猫群是猫居住的地方：你的寄养家庭、领养人的公寓、隔壁的谷仓。每只猫都有一张卡片，有照片、信息和完整的故事。';
+
+  @override
+  String get introTitle2 => '一切都在你手中';
+
+  @override
+  String get introBody2 => '没有账号、没有云端、没有跟踪。数据只存在你的设备上。';
+
+  @override
+  String get introTitle3 => '与伙伴们共享';
+
+  @override
+  String get introBody3 => '扫码即可让两台设备秒速同步，也可以用共享文件夹或发送一个文件。所有人拥有同一份目录。';
+
+  @override
+  String get introSkip => '跳过';
+
+  @override
+  String get introNext => '下一步';
+
+  @override
+  String get introDone => '开始吧';
+
+  @override
+  String get introReplayTitle => '快速介绍';
 }

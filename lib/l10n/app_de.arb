@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Ohne WLAN hosten",
   "hotspotJoinNote": "Stellt eine vorübergehende Direktverbindung zum anderen Handy her (ohne Internet). Nur cat(a)log nutzt sie, nach der Synchronisierung trennt sie sich von selbst.",
   "hotspotAndroidOnly": "Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen",
-  "selectClowderHint": "Wähle links einen Clowder"
+  "selectClowderHint": "Wähle links einen Clowder",
+  "introTitle1": "Katzen wohnen in Clowdern",
+  "introBody1": "Ein Clowder ist ein Ort, an dem Katzen leben: deine Pflegestelle, die Wohnung eines Adoptanten, die Scheune nebenan. Jede Katze bekommt eine Karte mit Foto, Fakten und ihrer ganzen Geschichte.",
+  "introTitle2": "Alles bleibt bei dir",
+  "introBody2": "Kein Konto, keine Cloud, kein Tracking. Deine Daten leben auf deinem Gerät und gehen nur dorthin, wohin du sie schickst.",
+  "introTitle3": "Teile mit deinen Helfern",
+  "introBody3": "Scanne einen Code und zwei Geräte sind in Sekunden synchron, nutze einen geteilten Ordner oder schicke alles als eine Datei. Alle haben am Ende denselben Katalog.",
+  "introSkip": "Überspringen",
+  "introNext": "Weiter",
+  "introDone": "Los geht's",
+  "introReplayTitle": "Kurze Einführung"
 }

@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Isännöi ilman Wi-Fiä",
   "hotspotJoinNote": "Muodostaa väliaikaisen suoran yhteyden toiseen puhelimeen (ilman internetiä). Vain cat(a)log käyttää sitä, ja se katkeaa itsestään synkronoinnin jälkeen.",
   "hotspotAndroidOnly": "Tämä koodi vaatii kaksi Android-puhelinta — iPhonella/iPadilla käytä yhteistä Wi-Fiä",
-  "selectClowderHint": "Valitse clowder vasemmalta"
+  "selectClowderHint": "Valitse clowder vasemmalta",
+  "introTitle1": "Kissat asuvat clowdereissa",
+  "introBody1": "Clowder on paikka, jossa kissat asuvat: sijaiskotisi, adoptoijan asunto, naapurin lato. Jokainen kissa saa kortin, jossa on kuva, tiedot ja koko tarina.",
+  "introTitle2": "Kaikki pysyy sinulla",
+  "introBody2": "Ei tiliä, ei pilveä, ei seurantaa. Tietosi asuvat laitteellasi.",
+  "introTitle3": "Jaa auttajiesi kanssa",
+  "introBody3": "Skannaa koodi ja kaksi laitetta synkronoituu sekunneissa, käytä jaettua kansiota tai lähetä kaikki yhtenä tiedostona.",
+  "introSkip": "Ohita",
+  "introNext": "Seuraava",
+  "introDone": "Aloitetaan",
+  "introReplayTitle": "Pikaesittely"
 }

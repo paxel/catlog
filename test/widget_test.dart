@@ -51,8 +51,13 @@ void main() {
     await tester.enterText(find.byType(TextField), 'axel');
     await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
-
     expect(store.author, 'axel');
+
+    // Fresh installs get the skippable intro first (never unskippable).
+    expect(find.text('Cats live in clowders'), findsOneWidget);
+    await tester.tap(find.text('Skip'));
+    await tester.pumpAndSettle();
+
     expect(find.text('Clowders'), findsOneWidget);
   });
 

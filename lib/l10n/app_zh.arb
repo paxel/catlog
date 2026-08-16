@@ -255,5 +255,15 @@
   "hostWithoutWifi": "无 Wi-Fi 主持",
   "hotspotJoinNote": "与另一部手机建立临时直连（无互联网）。仅 cat(a)log 使用，同步后自动断开。",
   "hotspotAndroidOnly": "此二维码需要两部 Android 手机——iPhone/iPad 请改用共享 Wi-Fi",
-  "selectClowderHint": "从左侧选择一个猫群"
+  "selectClowderHint": "从左侧选择一个猫群",
+  "introTitle1": "猫住在猫群里",
+  "introBody1": "猫群是猫居住的地方：你的寄养家庭、领养人的公寓、隔壁的谷仓。每只猫都有一张卡片，有照片、信息和完整的故事。",
+  "introTitle2": "一切都在你手中",
+  "introBody2": "没有账号、没有云端、没有跟踪。数据只存在你的设备上。",
+  "introTitle3": "与伙伴们共享",
+  "introBody3": "扫码即可让两台设备秒速同步，也可以用共享文件夹或发送一个文件。所有人拥有同一份目录。",
+  "introSkip": "跳过",
+  "introNext": "下一步",
+  "introDone": "开始吧",
+  "introReplayTitle": "快速介绍"
 }

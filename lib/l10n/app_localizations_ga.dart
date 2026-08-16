@@ -877,4 +877,37 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Roghnaigh clowder ar chlé';
+
+  @override
+  String get introTitle1 => 'Cónaíonn cait i clowders';
+
+  @override
+  String get introBody1 =>
+      'Áit é clowder ina gcónaíonn cait: do theach altrama, árasán uchtaitheora, an scioból béal dorais. Faigheann gach cat cárta le grianghraf, fíricí agus a scéal iomlán.';
+
+  @override
+  String get introTitle2 => 'Fanann gach rud agat';
+
+  @override
+  String get introBody2 =>
+      'Gan chuntas, gan néal, gan rianú. Maireann do shonraí ar do ghléas.';
+
+  @override
+  String get introTitle3 => 'Roinn le do chúntóirí';
+
+  @override
+  String get introBody3 =>
+      'Scan cód agus sioncrónaítear dhá ghléas i soicindí, úsáid fillteán roinnte nó seol gach rud mar chomhad amháin.';
+
+  @override
+  String get introSkip => 'Scipeáil';
+
+  @override
+  String get introNext => 'Ar aghaidh';
+
+  @override
+  String get introDone => 'Ar aghaidh linn';
+
+  @override
+  String get introReplayTitle => 'Réamhrá tapa';
 }

@@ -875,4 +875,37 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Soldan bir clowder seçin';
+
+  @override
+  String get introTitle1 => 'Kediler clowder\'larda yaşar';
+
+  @override
+  String get introBody1 =>
+      'Clowder, kedilerin yaşadığı yerdir: geçici yuvanız, sahiplenen kişinin evi, yandaki ahır. Her kedinin fotoğraflı, bilgili ve tüm hikâyesini içeren bir kartı olur.';
+
+  @override
+  String get introTitle2 => 'Her şey sizde kalır';
+
+  @override
+  String get introBody2 =>
+      'Hesap yok, bulut yok, takip yok. Verileriniz cihazınızda yaşar.';
+
+  @override
+  String get introTitle3 => 'Yardımcılarınızla paylaşın';
+
+  @override
+  String get introBody3 =>
+      'Bir kodu tarayın, iki cihaz saniyeler içinde eşitlensin; ortak klasör kullanın ya da her şeyi tek dosya olarak gönderin.';
+
+  @override
+  String get introSkip => 'Atla';
+
+  @override
+  String get introNext => 'İleri';
+
+  @override
+  String get introDone => 'Başlayalım';
+
+  @override
+  String get introReplayTitle => 'Hızlı tanıtım';
 }

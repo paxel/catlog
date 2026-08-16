@@ -1705,6 +1705,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pick a clowder on the left'**
   String get selectClowderHint;
+
+  /// No description provided for @introTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats live in clowders'**
+  String get introTitle1;
+
+  /// No description provided for @introBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'A clowder is a place where cats live: your foster home, an adopter\'s flat, the barn next door. Every cat gets a card with photo, facts, and its whole story.'**
+  String get introBody1;
+
+  /// No description provided for @introTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything stays with you'**
+  String get introTitle2;
+
+  /// No description provided for @introBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'No account, no cloud, no tracking. Your data lives on your device and goes only where you send it.'**
+  String get introBody2;
+
+  /// No description provided for @introTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Share with your helpers'**
+  String get introTitle3;
+
+  /// No description provided for @introBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a code to sync two devices in seconds, use a shared folder, or send everything as one file. Everyone ends up with the same catalog.'**
+  String get introBody3;
+
+  /// No description provided for @introSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get introSkip;
+
+  /// No description provided for @introNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get introNext;
+
+  /// No description provided for @introDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s go'**
+  String get introDone;
+
+  /// No description provided for @introReplayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick intro'**
+  String get introReplayTitle;
 }
 
 class _AppLocalizationsDelegate

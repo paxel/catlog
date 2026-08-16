@@ -873,4 +873,37 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Vyber clowder vľavo';
+
+  @override
+  String get introTitle1 => 'Mačky bývajú v clowderoch';
+
+  @override
+  String get introBody1 =>
+      'Clowder je miesto, kde mačky žijú: tvoja dočasná starostlivosť, byt osvojiteľa, stodola vedľa. Každá mačka má kartu s fotkou, faktami a celým príbehom.';
+
+  @override
+  String get introTitle2 => 'Všetko zostáva u teba';
+
+  @override
+  String get introBody2 =>
+      'Žiadny účet, žiadny cloud, žiadne sledovanie. Tvoje dáta žijú na tvojom zariadení.';
+
+  @override
+  String get introTitle3 => 'Zdieľaj s pomocníkmi';
+
+  @override
+  String get introBody3 =>
+      'Naskenuj kód a dve zariadenia sa zosynchronizujú za sekundy, použi zdieľaný priečinok alebo pošli všetko ako jeden súbor.';
+
+  @override
+  String get introSkip => 'Preskočiť';
+
+  @override
+  String get introNext => 'Ďalej';
+
+  @override
+  String get introDone => 'Poďme na to';
+
+  @override
+  String get introReplayTitle => 'Rýchly úvod';
 }

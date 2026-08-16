@@ -872,4 +872,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'اختر مجموعة من اليسار';
+
+  @override
+  String get introTitle1 => 'القطط تعيش في مجموعات';
+
+  @override
+  String get introBody1 =>
+      'المجموعة هي مكان تعيش فيه القطط: دار الرعاية، شقة المتبني، الحظيرة المجاورة. كل قطة لها بطاقة بصورة وحقائق وقصتها كاملة.';
+
+  @override
+  String get introTitle2 => 'كل شيء يبقى معك';
+
+  @override
+  String get introBody2 =>
+      'لا حساب ولا سحابة ولا تتبع. بياناتك على جهازك ولا تذهب إلا حيث ترسلها.';
+
+  @override
+  String get introTitle3 => 'شارك مع مساعديك';
+
+  @override
+  String get introBody3 =>
+      'امسح رمزًا لمزامنة جهازين في ثوانٍ، أو استخدم مجلدًا مشتركًا، أو أرسل كل شيء كملف واحد.';
+
+  @override
+  String get introSkip => 'تخطي';
+
+  @override
+  String get introNext => 'التالي';
+
+  @override
+  String get introDone => 'هيا بنا';
+
+  @override
+  String get introReplayTitle => 'مقدمة سريعة';
 }

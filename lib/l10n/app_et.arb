@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Majuta ilma Wi-Fi-ta",
   "hotspotJoinNote": "Loob ajutise otseühenduse teise telefoniga (ilma internetita). Ainult cat(a)log kasutab seda ja see katkeb pärast sünkroonimist ise.",
   "hotspotAndroidOnly": "See kood vajab kahte Androidi telefoni — iPhone'is/iPadis kasuta ühist Wi-Fi-t",
-  "selectClowderHint": "Vali vasakult clowder"
+  "selectClowderHint": "Vali vasakult clowder",
+  "introTitle1": "Kassid elavad clowderites",
+  "introBody1": "Clowder on koht, kus kassid elavad: sinu hoiukodu, lapsendaja korter, kõrvalasuv küün. Iga kass saab kaardi foto, faktide ja kogu looga.",
+  "introTitle2": "Kõik jääb sinule",
+  "introBody2": "Ei kontot, ei pilve, ei jälgimist. Sinu andmed elavad sinu seadmes.",
+  "introTitle3": "Jaga oma abilistega",
+  "introBody3": "Skanni kood ja kaks seadet sünkroonivad sekunditega, kasuta jagatud kausta või saada kõik ühe failina.",
+  "introSkip": "Jäta vahele",
+  "introNext": "Edasi",
+  "introDone": "Alustame",
+  "introReplayTitle": "Kiire tutvustus"
 }

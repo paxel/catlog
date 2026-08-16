@@ -877,4 +877,37 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Agħżel clowder fuq ix-xellug';
+
+  @override
+  String get introTitle1 => 'Il-qtates jgħixu fi clowders';
+
+  @override
+  String get introBody1 =>
+      'Clowder huwa post fejn jgħixu l-qtates: id-dar tal-fostering tiegħek, l-appartament ta\' min jadotta, il-maqjel tal-ġenb. Kull qattus għandu karta b\'ritratt, fatti u l-istorja kollha tiegħu.';
+
+  @override
+  String get introTitle2 => 'Kollox jibqa\' għandek';
+
+  @override
+  String get introBody2 =>
+      'L-ebda kont, l-ebda cloud, l-ebda traċċar. Id-data tiegħek tgħix fuq l-apparat tiegħek.';
+
+  @override
+  String get introTitle3 => 'Aqsam mal-għajnuniet tiegħek';
+
+  @override
+  String get introBody3 =>
+      'Skennja kodiċi u żewġ apparati jissinkronizzaw f\'sekondi, uża folder kondiviż jew ibgħat kollox bħala fajl wieħed.';
+
+  @override
+  String get introSkip => 'Aqbeż';
+
+  @override
+  String get introNext => 'Li jmiss';
+
+  @override
+  String get introDone => 'Ejja';
+
+  @override
+  String get introReplayTitle => 'Introduzzjoni mgħaġġla';
 }

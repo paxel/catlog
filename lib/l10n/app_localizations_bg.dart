@@ -874,4 +874,37 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get selectClowderHint => 'Избери клаудър отляво';
+
+  @override
+  String get introTitle1 => 'Котките живеят в клаудъри';
+
+  @override
+  String get introBody1 =>
+      'Клаудърът е място, където живеят котки: приемният дом, жилището на осиновителя, плевнята до вас. Всяка котка има карта със снимка, факти и цялата ѝ история.';
+
+  @override
+  String get introTitle2 => 'Всичко остава при теб';
+
+  @override
+  String get introBody2 =>
+      'Без акаунт, без облак, без проследяване. Данните ти живеят на устройството ти.';
+
+  @override
+  String get introTitle3 => 'Споделяй с помощниците си';
+
+  @override
+  String get introBody3 =>
+      'Сканирай код и две устройства се синхронизират за секунди, ползвай споделена папка или изпрати всичко като файл.';
+
+  @override
+  String get introSkip => 'Пропусни';
+
+  @override
+  String get introNext => 'Напред';
+
+  @override
+  String get introDone => 'Да започваме';
+
+  @override
+  String get introReplayTitle => 'Кратко въведение';
 }

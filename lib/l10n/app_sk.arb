@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Hostovať bez Wi-Fi",
   "hotspotJoinNote": "Vytvorí dočasné priame spojenie s druhým telefónom (bez internetu). Používa ho iba cat(a)log a po synchronizácii sa samo odpojí.",
   "hotspotAndroidOnly": "Tento kód vyžaduje dva telefóny s Androidom — na iPhone/iPade použi spoločnú Wi-Fi",
-  "selectClowderHint": "Vyber clowder vľavo"
+  "selectClowderHint": "Vyber clowder vľavo",
+  "introTitle1": "Mačky bývajú v clowderoch",
+  "introBody1": "Clowder je miesto, kde mačky žijú: tvoja dočasná starostlivosť, byt osvojiteľa, stodola vedľa. Každá mačka má kartu s fotkou, faktami a celým príbehom.",
+  "introTitle2": "Všetko zostáva u teba",
+  "introBody2": "Žiadny účet, žiadny cloud, žiadne sledovanie. Tvoje dáta žijú na tvojom zariadení.",
+  "introTitle3": "Zdieľaj s pomocníkmi",
+  "introBody3": "Naskenuj kód a dve zariadenia sa zosynchronizujú za sekundy, použi zdieľaný priečinok alebo pošli všetko ako jeden súbor.",
+  "introSkip": "Preskočiť",
+  "introNext": "Ďalej",
+  "introDone": "Poďme na to",
+  "introReplayTitle": "Rýchly úvod"
 }

@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Óstáil gan Wi-Fi",
   "hotspotJoinNote": "Cruthaíonn sé nasc díreach sealadach leis an bhfón eile (gan idirlíon). Ní úsáideann ach cat(a)log é agus dícheanglaíonn sé é féin tar éis an tsioncronaithe.",
   "hotspotAndroidOnly": "Tá dhá fhón Android de dhíth ar an gcód seo — ar iPhone/iPad úsáid Wi-Fi comhroinnte",
-  "selectClowderHint": "Roghnaigh clowder ar chlé"
+  "selectClowderHint": "Roghnaigh clowder ar chlé",
+  "introTitle1": "Cónaíonn cait i clowders",
+  "introBody1": "Áit é clowder ina gcónaíonn cait: do theach altrama, árasán uchtaitheora, an scioból béal dorais. Faigheann gach cat cárta le grianghraf, fíricí agus a scéal iomlán.",
+  "introTitle2": "Fanann gach rud agat",
+  "introBody2": "Gan chuntas, gan néal, gan rianú. Maireann do shonraí ar do ghléas.",
+  "introTitle3": "Roinn le do chúntóirí",
+  "introBody3": "Scan cód agus sioncrónaítear dhá ghléas i soicindí, úsáid fillteán roinnte nó seol gach rud mar chomhad amháin.",
+  "introSkip": "Scipeáil",
+  "introNext": "Ar aghaidh",
+  "introDone": "Ar aghaidh linn",
+  "introReplayTitle": "Réamhrá tapa"
 }

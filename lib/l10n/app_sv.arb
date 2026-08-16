@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Var värd utan Wi-Fi",
   "hotspotJoinNote": "Skapar en tillfällig direktanslutning till den andra telefonen (utan internet). Bara cat(a)log använder den och den kopplas ner av sig själv efter synkroniseringen.",
   "hotspotAndroidOnly": "Den här koden kräver två Android-telefoner — använd ett delat Wi-Fi på iPhone/iPad",
-  "selectClowderHint": "Välj en clowder till vänster"
+  "selectClowderHint": "Välj en clowder till vänster",
+  "introTitle1": "Katter bor i clowdrar",
+  "introBody1": "En clowder är en plats där katter bor: ditt jourhem, en adoptörs lägenhet, ladan intill. Varje katt får ett kort med foto, fakta och hela sin historia.",
+  "introTitle2": "Allt stannar hos dig",
+  "introBody2": "Inget konto, inget moln, ingen spårning. Dina data bor på din enhet.",
+  "introTitle3": "Dela med dina hjälpare",
+  "introBody3": "Skanna en kod så synkas två enheter på sekunder, använd en delad mapp eller skicka allt som en fil.",
+  "introSkip": "Hoppa över",
+  "introNext": "Nästa",
+  "introDone": "Nu kör vi",
+  "introReplayTitle": "Snabb intro"
 }

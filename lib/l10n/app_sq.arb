@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Prit pa Wi-Fi",
   "hotspotJoinNote": "Krijon një lidhje të drejtpërdrejtë të përkohshme me telefonin tjetër (pa internet). E përdor vetëm cat(a)log dhe shkëputet vetë pas sinkronizimit.",
   "hotspotAndroidOnly": "Ky kod kërkon dy telefona Android — në iPhone/iPad përdor një Wi-Fi të përbashkët",
-  "selectClowderHint": "Zgjidh një clowder majtas"
+  "selectClowderHint": "Zgjidh një clowder majtas",
+  "introTitle1": "Macet jetojnë në clowdera",
+  "introBody1": "Clowder është një vend ku jetojnë macet: shtëpia jote e kujdestarisë, banesa e një birësuesi, hambari ngjitur. Çdo mace ka një kartë me foto, fakte dhe gjithë historinë e saj.",
+  "introTitle2": "Gjithçka mbetet te ti",
+  "introBody2": "Pa llogari, pa cloud, pa gjurmim. Të dhënat e tua jetojnë në pajisjen tënde.",
+  "introTitle3": "Ndaj me ndihmësit",
+  "introBody3": "Skano një kod dhe dy pajisje sinkronizohen për sekonda, përdor një dosje të përbashkët ose dërgo gjithçka si një skedar.",
+  "introSkip": "Kapërce",
+  "introNext": "Tjetra",
+  "introDone": "Nisemi",
+  "introReplayTitle": "Hyrje e shpejtë"
 }

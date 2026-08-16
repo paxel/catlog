@@ -255,5 +255,15 @@
   "hostWithoutWifi": "Găzduiește fără Wi-Fi",
   "hotspotJoinNote": "Creează o conexiune directă temporară cu celălalt telefon (fără internet). O folosește doar cat(a)log și se deconectează singură după sincronizare.",
   "hotspotAndroidOnly": "Acest cod necesită două telefoane Android — pe iPhone/iPad folosește un Wi-Fi comun",
-  "selectClowderHint": "Alege un clowder din stânga"
+  "selectClowderHint": "Alege un clowder din stânga",
+  "introTitle1": "Pisicile trăiesc în clowdere",
+  "introBody1": "Un clowder e un loc unde trăiesc pisici: casa ta de plasament, apartamentul unui adoptator, hambarul de alături. Fiecare pisică are o fișă cu poză, date și toată povestea ei.",
+  "introTitle2": "Totul rămâne la tine",
+  "introBody2": "Fără cont, fără cloud, fără urmărire. Datele tale trăiesc pe dispozitivul tău.",
+  "introTitle3": "Împarte cu ajutoarele tale",
+  "introBody3": "Scanează un cod și două dispozitive se sincronizează în secunde, folosește un dosar partajat sau trimite totul ca un fișier.",
+  "introSkip": "Sari peste",
+  "introNext": "Înainte",
+  "introDone": "Să începem",
+  "introReplayTitle": "Introducere rapidă"
 }
