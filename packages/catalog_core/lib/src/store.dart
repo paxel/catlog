@@ -489,6 +489,7 @@ class CatalogStore {
     final id = 'cat:${_uuid()}';
     append(id, Keys.type, Kinds.cat, date: date);
     append(id, Keys.name, name, date: date);
+    append(id, 'f:species', 'cat', date: date);
     if (clowderId != null) append(id, Keys.clowder, clowderId, date: date);
     return id;
   }

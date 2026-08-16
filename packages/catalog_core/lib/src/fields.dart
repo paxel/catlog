@@ -78,6 +78,16 @@ class FieldDef {
   String get key => Keys.userField(slug);
 }
 
+/// Canonical Clowder status values the app recognizes (chips, adoption
+/// trigger). Free text beyond these stays an ordinary value.
+const clowderStatusKeys = [
+  'foster',
+  'forever-home',
+  'clinic',
+  'shelter',
+  'barn',
+];
+
 /// Starter Fields seeded on first launch as ordinary entries, so a card
 /// can be filled without any configuration.
 const starterFields = [
@@ -87,6 +97,8 @@ const starterFields = [
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'species', name: 'Species', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),
   (slug: 'address', name: 'Address', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'responsible', name: 'Responsible person', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'position', name: 'Position', type: FieldType.location, scope: FieldScope.both, options: <String>[]),
