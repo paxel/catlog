@@ -356,9 +356,10 @@ void main() {
     await tester.tap(find.byTooltip('Card'));
     await tester.pumpAndSettle();
 
-    // No photo yet — facts still render.
+    // No photo yet — facts still render (label appears on the card AND
+    // as a composer chip).
     expect(find.text('Card — Miezi'), findsOneWidget);
-    expect(find.text('Gender'), findsOneWidget);
+    expect(find.text('Gender'), findsNWidgets(2));
     expect(find.text('female'), findsOneWidget);
     expect(find.text('Home'), findsOneWidget);
 

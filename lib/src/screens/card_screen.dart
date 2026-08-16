@@ -32,19 +32,52 @@ class _CardScreenState extends State<CardScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
 
+  /// Keys selected for the card: '\$photo', Keys.clowder, or field keys.
+  /// Loaded from the remembered last selection; first time everything
+  /// except position (addresses don't belong on shared images).
+  late Set<String> _selected;
+
+  static const _photoKey = r'$photo';
+
+  @override
+  void initState() {
+    super.initState();
+    final saved = store.localSetting('cardFields');
+    if (saved != null) {
+      _selected = saved.split('\n').where((k) => k.isNotEmpty).toSet();
+    } else {
+      _selected = {
+        _photoKey,
+        Keys.clowder,
+        for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+          if (def.slug != 'position') def.key,
+      };
+    }
+  }
+
+  void _toggle(String key) {
+    setState(() {
+      if (!_selected.remove(key)) _selected.add(key);
+      store.setLocalSetting('cardFields', _selected.join('\n'));
+    });
+  }
+
   /// Field label/value pairs shown on the card: only filled Fields,
   /// labels and canonical values in the viewing device's language.
   List<(String, String)> _facts() {
     final t = context.t;
     final facts = <(String, String)>[];
-    final clowderId = store.current(id, Keys.clowder);
-    facts.add((
-      t.clowderLabel,
-      clowderId == null
-          ? t.stray
-          : store.current(clowderId, Keys.name) ?? t.unnamed
-    ));
+    if (_selected.contains(Keys.clowder)) {
+      final clowderId = store.current(id, Keys.clowder);
+      facts.add((
+        t.clowderLabel,
+        clowderId == null
+            ? t.stray
+            : store.current(clowderId, Keys.name) ?? t.unnamed
+      ));
+    }
     for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
+      if (!_selected.contains(def.key)) continue;
       final value = store.current(id, def.key);
       if (value != null) {
         facts.add(
@@ -52,6 +85,35 @@ class _CardScreenState extends State<CardScreen> {
       }
     }
     return facts;
+  }
+
+  /// Chips for everything that could be on the card: photo, clowder,
+  /// and each filled field of this cat.
+  Widget _contentPicker() {
+    final t = context.t;
+    final chips = <(String, String)>[
+      if (store.profileImage(id) != null) (_photoKey, t.labelPhoto),
+      (Keys.clowder, t.clowderLabel),
+      for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+        if (store.current(id, def.key) != null)
+          (def.key, fieldDefName(t, def)),
+    ];
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 0,
+        children: [
+          for (final (key, label) in chips)
+            FilterChip(
+              label: Text(label),
+              selected: _selected.contains(key),
+              onSelected: (_) => _toggle(key),
+              visualDensity: VisualDensity.compact,
+            ),
+        ],
+      ),
+    );
   }
 
   Future<Uint8List> _cardAsPng() async {
@@ -72,7 +134,8 @@ class _CardScreenState extends State<CardScreen> {
 
   Future<pw.Document> _buildPdf() async {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
-    final hash = store.profileImage(id);
+    final hash =
+        _selected.contains(_photoKey) ? store.profileImage(id) : null;
     final photo = hash == null ? null : store.imageBytes(hash);
     final facts = _facts();
     final doc = pw.Document(title: '$name — cat(a)log card');
@@ -140,7 +203,8 @@ class _CardScreenState extends State<CardScreen> {
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
-    final hash = store.profileImage(id);
+    final hash =
+        _selected.contains(_photoKey) ? store.profileImage(id) : null;
     final photo = hash == null ? null : store.imageBytes(hash);
     final facts = _facts();
     return Scaffold(
@@ -161,8 +225,11 @@ class _CardScreenState extends State<CardScreen> {
               onPressed: _printCard),
         ],
       ),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(children: [
+          const SizedBox(height: 8),
+          _contentPicker(),
+          Padding(
           padding: const EdgeInsets.all(16),
           child: RepaintBoundary(
             key: _cardKey,
@@ -210,7 +277,8 @@ class _CardScreenState extends State<CardScreen> {
               ),
             ),
           ),
-        ),
+          ),
+        ]),
       ),
     );
   }
