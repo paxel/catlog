@@ -804,4 +804,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat u zhvendos te $home';
   }
+
+  @override
+  String get notACatlogFile => 'Ky nuk është skedar cat(a)log';
+
+  @override
+  String get nothingNewInBundle => 'Asgjë e re në skedar — i ke të gjitha';
 }

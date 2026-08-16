@@ -234,5 +234,7 @@
   "toastBorn": "✨ Pisoi nou: {cat} ✨",
   "toastDeceased": "{cat} a murit",
   "toastEscaped": "{cat} a evadat",
-  "toastMoved": "{cat} s-a mutat la {home}"
+  "toastMoved": "{cat} s-a mutat la {home}",
+  "notACatlogFile": "Acesta nu este un fișier cat(a)log",
+  "nothingNewInBundle": "Nimic nou în fișier — ai deja totul"
 }

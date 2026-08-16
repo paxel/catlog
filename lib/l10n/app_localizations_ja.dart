@@ -792,4 +792,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat が $home に引っ越しました';
   }
+
+  @override
+  String get notACatlogFile => 'cat(a)log のファイルではありません';
+
+  @override
+  String get nothingNewInBundle => '新しい内容はありません — すべて既にあります';
 }

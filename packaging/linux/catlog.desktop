@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=cat(a)log
+Comment=The catalog for people who foster cats
+Exec=catlog %f
+Icon=catlog
+Terminal=false
+Type=Application
+Categories=Utility;
+MimeType=application/x-catsync;

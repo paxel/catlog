@@ -805,4 +805,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat ist umgezogen zu $home';
   }
+
+  @override
+  String get notACatlogFile => 'Das ist keine cat(a)log-Datei';
+
+  @override
+  String get nothingNewInBundle =>
+      'Nichts Neues in der Datei — du hast schon alles';
 }

@@ -234,5 +234,7 @@
   "toastBorn": "✨ Nýr kettlingur: {cat} ✨",
   "toastDeceased": "{cat} er látin",
   "toastEscaped": "{cat} strauk",
-  "toastMoved": "{cat} flutti til {home}"
+  "toastMoved": "{cat} flutti til {home}",
+  "notACatlogFile": "Þetta er ekki cat(a)log-skrá",
+  "nothingNewInBundle": "Ekkert nýtt í skránni — þú átt allt nú þegar"
 }

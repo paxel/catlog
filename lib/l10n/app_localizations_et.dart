@@ -802,4 +802,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat kolis: $home';
   }
+
+  @override
+  String get notACatlogFile => 'See pole cat(a)logi fail';
+
+  @override
+  String get nothingNewInBundle =>
+      'Failis pole midagi uut — sul on kõik olemas';
 }

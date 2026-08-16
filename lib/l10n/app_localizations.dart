@@ -1579,6 +1579,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{cat} moved to {home}'**
   String toastMoved(Object cat, Object home);
+
+  /// No description provided for @notACatlogFile.
+  ///
+  /// In en, this message translates to:
+  /// **'That\'s not a cat(a)log file'**
+  String get notACatlogFile;
+
+  /// No description provided for @nothingNewInBundle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing new in that file — you already have everything'**
+  String get nothingNewInBundle;
 }
 
 class _AppLocalizationsDelegate

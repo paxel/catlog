@@ -234,5 +234,7 @@
   "toastBorn": "✨ Ново котенце: {cat} ✨",
   "toastDeceased": "{cat} почина",
   "toastEscaped": "{cat} избяга",
-  "toastMoved": "{cat} се премести в {home}"
+  "toastMoved": "{cat} се премести в {home}",
+  "notACatlogFile": "Това не е файл на cat(a)log",
+  "nothingNewInBundle": "Нищо ново във файла — вече имаш всичко"
 }

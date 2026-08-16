@@ -805,4 +805,11 @@ class AppLocalizationsGa extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return 'Bhog $cat go $home';
   }
+
+  @override
+  String get notACatlogFile => 'Ní comhad cat(a)log é sin';
+
+  @override
+  String get nothingNewInBundle =>
+      'Níl aon rud nua sa chomhad — tá gach rud agat cheana';
 }

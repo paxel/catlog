@@ -133,6 +133,7 @@ jobs:
           v="${RELEASE_TAG#v}"
           mkdir -p dist
           bundle=$(ls -d build/linux/*/release/bundle | head -1)
+          cp packaging/linux/catlog.desktop packaging/linux/catlog-mime.xml "$bundle/"
           tar -C "$bundle" -czf "dist/catlog-$v-linux-${{ matrix.arch }}.tar.gz" .
       - uses: actions/upload-artifact@v4
         with:

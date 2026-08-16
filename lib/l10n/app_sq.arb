@@ -234,5 +234,7 @@
   "toastBorn": "✨ Kotele e re: {cat} ✨",
   "toastDeceased": "{cat} ndërroi jetë",
   "toastEscaped": "{cat} u arratis",
-  "toastMoved": "{cat} u zhvendos te {home}"
+  "toastMoved": "{cat} u zhvendos te {home}",
+  "notACatlogFile": "Ky nuk është skedar cat(a)log",
+  "nothingNewInBundle": "Asgjë e re në skedar — i ke të gjitha"
 }

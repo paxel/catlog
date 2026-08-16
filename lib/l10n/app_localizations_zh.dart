@@ -789,4 +789,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat 搬到了 $home';
   }
+
+  @override
+  String get notACatlogFile => '这不是 cat(a)log 文件';
+
+  @override
+  String get nothingNewInBundle => '文件中没有新内容——您已拥有全部数据';
 }

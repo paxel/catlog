@@ -802,4 +802,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat انتقلت إلى $home';
   }
+
+  @override
+  String get notACatlogFile => 'هذا ليس ملف cat(a)log';
+
+  @override
+  String get nothingNewInBundle => 'لا جديد في هذا الملف — لديك كل شيء بالفعل';
 }

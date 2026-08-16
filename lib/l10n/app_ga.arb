@@ -234,5 +234,7 @@
   "toastBorn": "✨ Piscín nua: {cat} ✨",
   "toastDeceased": "Fuair {cat} bás",
   "toastEscaped": "D'éalaigh {cat}",
-  "toastMoved": "Bhog {cat} go {home}"
+  "toastMoved": "Bhog {cat} go {home}",
+  "notACatlogFile": "Ní comhad cat(a)log é sin",
+  "nothingNewInBundle": "Níl aon rud nua sa chomhad — tá gach rud agat cheana"
 }

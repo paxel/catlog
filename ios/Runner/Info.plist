@@ -78,5 +78,41 @@
 	<string>Record where a stray cat was seen (Stray Cam and sightings). The app never tracks location in the background.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>cat(a)log bundle</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>io.github.paxel.catlog.catsync</string>
+			</array>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>io.github.paxel.catlog.catsync</string>
+			<key>UTTypeDescription</key>
+			<string>cat(a)log bundle</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.archive</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>catsync</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

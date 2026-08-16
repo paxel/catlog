@@ -804,4 +804,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat persikėlė į $home';
   }
+
+  @override
+  String get notACatlogFile => 'Tai ne cat(a)log failas';
+
+  @override
+  String get nothingNewInBundle => 'Faile nieko naujo — viską jau turite';
 }

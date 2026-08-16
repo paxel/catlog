@@ -803,4 +803,10 @@ class AppLocalizationsBs extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat se preselila u $home';
   }
+
+  @override
+  String get notACatlogFile => 'Ovo nije cat(a)log datoteka';
+
+  @override
+  String get nothingNewInBundle => 'Ništa novo u datoteci — već imaš sve';
 }

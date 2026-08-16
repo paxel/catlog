@@ -234,5 +234,7 @@
   "toastBorn": "✨ Új kiscica: {cat} ✨",
   "toastDeceased": "{cat} elpusztult",
   "toastEscaped": "{cat} megszökött",
-  "toastMoved": "{cat} átköltözött: {home}"
+  "toastMoved": "{cat} átköltözött: {home}",
+  "notACatlogFile": "Ez nem cat(a)log-fájl",
+  "nothingNewInBundle": "Semmi új a fájlban — már mindened megvan"
 }

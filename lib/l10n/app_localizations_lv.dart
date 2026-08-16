@@ -802,4 +802,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat pārcēlās uz $home';
   }
+
+  @override
+  String get notACatlogFile => 'Tas nav cat(a)log fails';
+
+  @override
+  String get nothingNewInBundle => 'Failā nekā jauna — viss jau ir';
 }

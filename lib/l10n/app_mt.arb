@@ -234,5 +234,7 @@
   "toastBorn": "✨ Fellus ġdid: {cat} ✨",
   "toastDeceased": "{cat} miet",
   "toastEscaped": "{cat} ħarab",
-  "toastMoved": "{cat} mar joqgħod {home}"
+  "toastMoved": "{cat} mar joqgħod {home}",
+  "notACatlogFile": "Dan mhux fajl ta' cat(a)log",
+  "nothingNewInBundle": "Xejn ġdid fil-fajl — għandek kollox diġà"
 }

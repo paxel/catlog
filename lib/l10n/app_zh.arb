@@ -234,5 +234,7 @@
   "toastBorn": "✨ 新的小猫：{cat} ✨",
   "toastDeceased": "{cat} 离世了",
   "toastEscaped": "{cat} 走失了",
-  "toastMoved": "{cat} 搬到了 {home}"
+  "toastMoved": "{cat} 搬到了 {home}",
+  "notACatlogFile": "这不是 cat(a)log 文件",
+  "nothingNewInBundle": "文件中没有新内容——您已拥有全部数据"
 }

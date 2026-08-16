@@ -500,5 +500,7 @@
       "cat": {},
       "home": {}
     }
-  }
+  },
+  "notACatlogFile": "That's not a cat(a)log file",
+  "nothingNewInBundle": "Nothing new in that file — you already have everything"
 }

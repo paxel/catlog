@@ -234,5 +234,7 @@
   "toastBorn": "✨ هريرة جديدة: {cat} ✨",
   "toastDeceased": "{cat} فارقت الحياة",
   "toastEscaped": "{cat} هربت",
-  "toastMoved": "{cat} انتقلت إلى {home}"
+  "toastMoved": "{cat} انتقلت إلى {home}",
+  "notACatlogFile": "هذا ليس ملف cat(a)log",
+  "nothingNewInBundle": "لا جديد في هذا الملف — لديك كل شيء بالفعل"
 }

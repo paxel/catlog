@@ -804,4 +804,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat átköltözött: $home';
   }
+
+  @override
+  String get notACatlogFile => 'Ez nem cat(a)log-fájl';
+
+  @override
+  String get nothingNewInBundle => 'Semmi új a fájlban — már mindened megvan';
 }

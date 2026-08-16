@@ -234,5 +234,7 @@
   "toastBorn": "✨ Uus kassipoeg: {cat} ✨",
   "toastDeceased": "{cat} on surnud",
   "toastEscaped": "{cat} on põgenenud",
-  "toastMoved": "{cat} kolis: {home}"
+  "toastMoved": "{cat} kolis: {home}",
+  "notACatlogFile": "See pole cat(a)logi fail",
+  "nothingNewInBundle": "Failis pole midagi uut — sul on kõik olemas"
 }

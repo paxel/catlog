@@ -234,5 +234,7 @@
   "toastBorn": "✨ Jauns kaķēns: {cat} ✨",
   "toastDeceased": "{cat} ir miris",
   "toastEscaped": "{cat} aizbēga",
-  "toastMoved": "{cat} pārcēlās uz {home}"
+  "toastMoved": "{cat} pārcēlās uz {home}",
+  "notACatlogFile": "Tas nav cat(a)log fails",
+  "nothingNewInBundle": "Failā nekā jauna — viss jau ir"
 }

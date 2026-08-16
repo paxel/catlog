@@ -805,4 +805,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String toastMoved(Object cat, Object home) {
     return '$cat mar joqgħod $home';
   }
+
+  @override
+  String get notACatlogFile => 'Dan mhux fajl ta\' cat(a)log';
+
+  @override
+  String get nothingNewInBundle => 'Xejn ġdid fil-fajl — għandek kollox diġà';
 }

@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'src/auto_backup.dart';
+import 'src/incoming_file.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/clowder_list_screen.dart';
 
-Future<void> main() async {
+final navigatorKey = GlobalKey<NavigatorState>();
+
+Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   final dir = await getApplicationSupportDirectory();
   final store = CatalogStore.open('${dir.path}/catlog.db');
@@ -15,6 +18,7 @@ Future<void> main() async {
   if (saved != null && saved.isNotEmpty) {
     localeOverride.value = Locale(saved);
   }
+  initIncomingFiles(navigatorKey, store, args);
   runApp(CatlogApp(store: store));
 }
 
@@ -55,6 +59,7 @@ class _CatlogAppState extends State<CatlogApp>
     return ValueListenableBuilder<Locale?>(
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
+        navigatorKey: navigatorKey,
         title: 'cat(a)log',
         locale: locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,

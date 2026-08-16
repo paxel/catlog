@@ -234,5 +234,7 @@
   "toastBorn": "✨ Uusi pentu: {cat} ✨",
   "toastDeceased": "{cat} on kuollut",
   "toastEscaped": "{cat} on karannut",
-  "toastMoved": "{cat} muutti: {home}"
+  "toastMoved": "{cat} muutti: {home}",
+  "notACatlogFile": "Tuo ei ole cat(a)log-tiedosto",
+  "nothingNewInBundle": "Ei mitään uutta — sinulla on jo kaikki"
 }

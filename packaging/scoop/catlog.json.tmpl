@@ -12,6 +12,17 @@
             "cat(a)log"
         ]
     ],
+    "post_install": [
+        "reg add 'HKCU\\Software\\Classes\\.catsync' /ve /d 'catlog.catsync' /f | Out-Null",
+        "reg add 'HKCU\\Software\\Classes\\catlog.catsync' /ve /d 'cat(a)log bundle' /f | Out-Null",
+        "reg add 'HKCU\\Software\\Classes\\catlog.catsync\\shell\\open\\command' /ve /d \"\"\"$dir\\catlog.exe\"\" \"\"%1\"\"\" /f | Out-Null"
+    ],
+    "uninstaller": {
+        "script": [
+            "reg delete 'HKCU\\Software\\Classes\\.catsync' /f 2>$null | Out-Null",
+            "reg delete 'HKCU\\Software\\Classes\\catlog.catsync' /f 2>$null | Out-Null"
+        ]
+    },
     "checkver": {
         "github": "https://github.com/paxel/catlog"
     },
