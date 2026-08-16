@@ -209,5 +209,12 @@
   "alsoBan": "Tiltás is — soha többé ne fogadj tőle adatot",
   "bansSection": "Tiltások",
   "unbanAction": "Tiltás feloldása",
-  "deletedDone": "Törölve."
+  "deletedDone": "Törölve.",
+  "syncSummaryTitle": "Mi érkezett",
+  "summaryAdopted": "Örökbefogadva",
+  "summaryDeceased": "Elhunyt",
+  "summaryEscaped": "Megszökött",
+  "summaryNew": "Új",
+  "summaryConflicts": "Feloldandó ütközések",
+  "summaryOther": "…és még {n} változás"
 }

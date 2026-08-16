@@ -209,5 +209,12 @@
   "alsoBan": "Arī aizliegt — nekad vairs nepieņemt datus",
   "bansSection": "Aizliegumi",
   "unbanAction": "Noņemt aizliegumu",
-  "deletedDone": "Dzēsts."
+  "deletedDone": "Dzēsts.",
+  "syncSummaryTitle": "Kas pienāca",
+  "summaryAdopted": "Adoptēti",
+  "summaryDeceased": "Miruši",
+  "summaryEscaped": "Aizbēguši",
+  "summaryNew": "Jauni",
+  "summaryConflicts": "Risināmi konflikti",
+  "summaryOther": "…un vēl {n} izmaiņas"
 }

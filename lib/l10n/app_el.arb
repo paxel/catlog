@@ -209,5 +209,12 @@
   "alsoBan": "Και αποκλεισμός — ποτέ ξανά δεδομένα του",
   "bansSection": "Αποκλεισμοί",
   "unbanAction": "Άρση αποκλεισμού",
-  "deletedDone": "Διαγράφηκε."
+  "deletedDone": "Διαγράφηκε.",
+  "syncSummaryTitle": "Τι έφτασε",
+  "summaryAdopted": "Υιοθετήθηκαν",
+  "summaryDeceased": "Αποβίωσαν",
+  "summaryEscaped": "Δραπέτευσαν",
+  "summaryNew": "Νέα",
+  "summaryConflicts": "Συγκρούσεις προς επίλυση",
+  "summaryOther": "…και {n} άλλες αλλαγές"
 }

@@ -209,5 +209,12 @@
   "alsoBan": "Także zablokuj — nigdy więcej nie przyjmuj danych",
   "bansSection": "Blokady",
   "unbanAction": "Usuń blokadę",
-  "deletedDone": "Usunięto."
+  "deletedDone": "Usunięto.",
+  "syncSummaryTitle": "Co dotarło",
+  "summaryAdopted": "Adoptowane",
+  "summaryDeceased": "Zmarłe",
+  "summaryEscaped": "Zbiegłe",
+  "summaryNew": "Nowe",
+  "summaryConflicts": "Konflikty do rozwiązania",
+  "summaryOther": "…i {n} innych zmian"
 }

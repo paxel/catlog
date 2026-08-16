@@ -443,5 +443,17 @@
     "placeholders": {
       "name": {}
     }
+  },
+  "syncSummaryTitle": "What arrived",
+  "summaryAdopted": "Adopted",
+  "summaryDeceased": "Deceased",
+  "summaryEscaped": "Escaped",
+  "summaryNew": "New",
+  "summaryConflicts": "Conflicts to resolve",
+  "summaryOther": "…and {n} other changes",
+  "@summaryOther": {
+    "placeholders": {
+      "n": {}
+    }
   }
 }

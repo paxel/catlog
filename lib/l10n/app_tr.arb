@@ -209,5 +209,12 @@
   "alsoBan": "Ayrıca yasakla — bir daha asla veri kabul etme",
   "bansSection": "Yasaklar",
   "unbanAction": "Yasağı kaldır",
-  "deletedDone": "Silindi."
+  "deletedDone": "Silindi.",
+  "syncSummaryTitle": "Ne geldi",
+  "summaryAdopted": "Sahiplendirildi",
+  "summaryDeceased": "Öldü",
+  "summaryEscaped": "Kaçtı",
+  "summaryNew": "Yeni",
+  "summaryConflicts": "Çözülecek çakışmalar",
+  "summaryOther": "…ve {n} değişiklik daha"
 }

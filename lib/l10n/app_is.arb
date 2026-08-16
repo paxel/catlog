@@ -209,5 +209,12 @@
   "alsoBan": "Banna líka — aldrei taka við gögnum aftur",
   "bansSection": "Bönn",
   "unbanAction": "Fjarlægja bann",
-  "deletedDone": "Eytt."
+  "deletedDone": "Eytt.",
+  "syncSummaryTitle": "Hvað barst",
+  "summaryAdopted": "Ættleidd",
+  "summaryDeceased": "Látin",
+  "summaryEscaped": "Strokin",
+  "summaryNew": "Ný",
+  "summaryConflicts": "Árekstrar til að leysa",
+  "summaryOther": "…og {n} aðrar breytingar"
 }

@@ -209,5 +209,12 @@
   "alsoBan": "Keela ka — ära võta enam kunagi andmeid vastu",
   "bansSection": "Keelud",
   "unbanAction": "Eemalda keeld",
-  "deletedDone": "Kustutatud."
+  "deletedDone": "Kustutatud.",
+  "syncSummaryTitle": "Mis saabus",
+  "summaryAdopted": "Lapsendatud",
+  "summaryDeceased": "Surnud",
+  "summaryEscaped": "Põgenenud",
+  "summaryNew": "Uued",
+  "summaryConflicts": "Lahendamist vajavad konfliktid",
+  "summaryOther": "…ja veel {n} muudatust"
 }

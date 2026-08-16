@@ -717,4 +717,27 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get deletedDone => 'Ištrinta.';
+
+  @override
+  String get syncSummaryTitle => 'Kas atkeliavo';
+
+  @override
+  String get summaryAdopted => 'Priglausti';
+
+  @override
+  String get summaryDeceased => 'Nugaišę';
+
+  @override
+  String get summaryEscaped => 'Pabėgę';
+
+  @override
+  String get summaryNew => 'Nauji';
+
+  @override
+  String get summaryConflicts => 'Spręstini konfliktai';
+
+  @override
+  String summaryOther(Object n) {
+    return '…ir dar $n pakeitimų';
+  }
 }

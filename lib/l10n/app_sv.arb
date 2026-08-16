@@ -209,5 +209,12 @@
   "alsoBan": "Spärra också — ta aldrig emot data igen",
   "bansSection": "Spärrar",
   "unbanAction": "Ta bort spärr",
-  "deletedDone": "Raderat."
+  "deletedDone": "Raderat.",
+  "syncSummaryTitle": "Vad som kom",
+  "summaryAdopted": "Adopterade",
+  "summaryDeceased": "Avlidna",
+  "summaryEscaped": "Rymda",
+  "summaryNew": "Nya",
+  "summaryConflicts": "Konflikter att lösa",
+  "summaryOther": "…och {n} andra ändringar"
 }

@@ -717,4 +717,27 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get deletedDone => 'Διαγράφηκε.';
+
+  @override
+  String get syncSummaryTitle => 'Τι έφτασε';
+
+  @override
+  String get summaryAdopted => 'Υιοθετήθηκαν';
+
+  @override
+  String get summaryDeceased => 'Αποβίωσαν';
+
+  @override
+  String get summaryEscaped => 'Δραπέτευσαν';
+
+  @override
+  String get summaryNew => 'Νέα';
+
+  @override
+  String get summaryConflicts => 'Συγκρούσεις προς επίλυση';
+
+  @override
+  String summaryOther(Object n) {
+    return '…και $n άλλες αλλαγές';
+  }
 }

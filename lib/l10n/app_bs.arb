@@ -209,5 +209,12 @@
   "alsoBan": "Također zabrani — nikad više ne prihvataj podatke",
   "bansSection": "Zabrane",
   "unbanAction": "Ukloni zabranu",
-  "deletedDone": "Obrisano."
+  "deletedDone": "Obrisano.",
+  "syncSummaryTitle": "Šta je stiglo",
+  "summaryAdopted": "Udomljene",
+  "summaryDeceased": "Uginule",
+  "summaryEscaped": "Pobjegle",
+  "summaryNew": "Novo",
+  "summaryConflicts": "Konflikti za rješavanje",
+  "summaryOther": "…i još {n} promjena"
 }

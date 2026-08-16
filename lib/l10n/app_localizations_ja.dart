@@ -705,4 +705,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get deletedDone => '削除しました。';
+
+  @override
+  String get syncSummaryTitle => '届いた内容';
+
+  @override
+  String get summaryAdopted => '譲渡';
+
+  @override
+  String get summaryDeceased => '死亡';
+
+  @override
+  String get summaryEscaped => '脱走';
+
+  @override
+  String get summaryNew => '新規';
+
+  @override
+  String get summaryConflicts => '要解決の競合';
+
+  @override
+  String summaryOther(Object n) {
+    return '…他 $n 件の変更';
+  }
 }

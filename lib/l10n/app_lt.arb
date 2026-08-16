@@ -209,5 +209,12 @@
   "alsoBan": "Taip pat uždrausti — daugiau niekada nepriimti duomenų",
   "bansSection": "Draudimai",
   "unbanAction": "Pašalinti draudimą",
-  "deletedDone": "Ištrinta."
+  "deletedDone": "Ištrinta.",
+  "syncSummaryTitle": "Kas atkeliavo",
+  "summaryAdopted": "Priglausti",
+  "summaryDeceased": "Nugaišę",
+  "summaryEscaped": "Pabėgę",
+  "summaryNew": "Nauji",
+  "summaryConflicts": "Spręstini konfliktai",
+  "summaryOther": "…ir dar {n} pakeitimų"
 }

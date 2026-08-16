@@ -209,5 +209,12 @@
   "alsoBan": "Ndalo gjithashtu — mos prano më kurrë të dhëna",
   "bansSection": "Ndalimet",
   "unbanAction": "Hiq ndalimin",
-  "deletedDone": "U fshi."
+  "deletedDone": "U fshi.",
+  "syncSummaryTitle": "Çfarë mbërriti",
+  "summaryAdopted": "Të birësuara",
+  "summaryDeceased": "Të ngordhura",
+  "summaryEscaped": "Të arratisura",
+  "summaryNew": "Të reja",
+  "summaryConflicts": "Konflikte për zgjidhje",
+  "summaryOther": "…dhe {n} ndryshime të tjera"
 }

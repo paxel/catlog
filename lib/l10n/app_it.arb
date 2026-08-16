@@ -209,5 +209,12 @@
   "alsoBan": "Blocca anche — mai più accettare i suoi dati",
   "bansSection": "Blocchi",
   "unbanAction": "Rimuovi blocco",
-  "deletedDone": "Eliminato."
+  "deletedDone": "Eliminato.",
+  "syncSummaryTitle": "Cosa è arrivato",
+  "summaryAdopted": "Adottati",
+  "summaryDeceased": "Deceduti",
+  "summaryEscaped": "Scappati",
+  "summaryNew": "Nuovi",
+  "summaryConflicts": "Conflitti da risolvere",
+  "summaryOther": "…e altre {n} modifiche"
 }

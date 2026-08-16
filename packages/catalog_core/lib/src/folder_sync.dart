@@ -12,8 +12,12 @@ class FolderSyncResult {
   final int blobsIn;
   final int blobsOut;
 
+  /// The entries actually new to this store — the import summary's input.
+  final List<Entry> applied;
+
   const FolderSyncResult(
-      this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut);
+      this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
+      {this.applied = const []});
 
   @override
   String toString() =>
@@ -36,6 +40,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
 
   // ---- read every foreign device's file (never write them)
   var entriesIn = 0;
+  final applied = <Entry>[];
   for (final file in root.listSync().whereType<File>()) {
     if (!file.path.endsWith('.jsonl')) continue;
     final name = file.uri.pathSegments.last;
@@ -54,9 +59,10 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
         writerVector[e.device] = e.dseq;
       }
     }
-    entriesIn += store
-        .applyEntries(foreign, senderVector: writerVector)
-        .length;
+    final imported =
+        store.applyEntries(foreign, senderVector: writerVector);
+    applied.addAll(imported);
+    entriesIn += imported.length;
   }
 
   // ---- write own file: full knowledge, atomically via temp + rename
@@ -105,7 +111,8 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
     }
   }
 
-  return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut);
+  return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
+      applied: applied);
 }
 
 /// True when this store has seen a deletion marker for [hash] and no

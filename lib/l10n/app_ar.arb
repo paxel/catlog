@@ -209,5 +209,12 @@
   "alsoBan": "حظر أيضًا — عدم قبول بياناته مجددًا",
   "bansSection": "المحظورون",
   "unbanAction": "إزالة الحظر",
-  "deletedDone": "تم الحذف."
+  "deletedDone": "تم الحذف.",
+  "syncSummaryTitle": "ما الذي وصل",
+  "summaryAdopted": "تم تبنيها",
+  "summaryDeceased": "متوفاة",
+  "summaryEscaped": "هاربة",
+  "summaryNew": "جديد",
+  "summaryConflicts": "تعارضات للحل",
+  "summaryOther": "…و{n} تغييرات أخرى"
 }

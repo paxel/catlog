@@ -716,4 +716,27 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get deletedDone => 'Poistettu.';
+
+  @override
+  String get syncSummaryTitle => 'Mitä saapui';
+
+  @override
+  String get summaryAdopted => 'Adoptoidut';
+
+  @override
+  String get summaryDeceased => 'Kuolleet';
+
+  @override
+  String get summaryEscaped => 'Karanneet';
+
+  @override
+  String get summaryNew => 'Uudet';
+
+  @override
+  String get summaryConflicts => 'Ratkaistavat ristiriidat';
+
+  @override
+  String summaryOther(Object n) {
+    return '…ja $n muuta muutosta';
+  }
 }

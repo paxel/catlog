@@ -209,5 +209,12 @@
   "alsoBan": "Tudi prepovej — nikoli več ne sprejmi podatkov",
   "bansSection": "Prepovedi",
   "unbanAction": "Odstrani prepoved",
-  "deletedDone": "Izbrisano."
+  "deletedDone": "Izbrisano.",
+  "syncSummaryTitle": "Kaj je prispelo",
+  "summaryAdopted": "Posvojene",
+  "summaryDeceased": "Poginule",
+  "summaryEscaped": "Pobegle",
+  "summaryNew": "Novo",
+  "summaryConflicts": "Konflikti za rešitev",
+  "summaryOther": "…in še {n} sprememb"
 }

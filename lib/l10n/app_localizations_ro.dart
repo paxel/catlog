@@ -717,4 +717,27 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deletedDone => 'Șters.';
+
+  @override
+  String get syncSummaryTitle => 'Ce a sosit';
+
+  @override
+  String get summaryAdopted => 'Adoptate';
+
+  @override
+  String get summaryDeceased => 'Decedate';
+
+  @override
+  String get summaryEscaped => 'Evadate';
+
+  @override
+  String get summaryNew => 'Noi';
+
+  @override
+  String get summaryConflicts => 'Conflicte de rezolvat';
+
+  @override
+  String summaryOther(Object n) {
+    return '…și încă $n modificări';
+  }
 }

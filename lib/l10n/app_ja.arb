@@ -209,5 +209,12 @@
   "alsoBan": "ブロックもする — 今後データを受け取らない",
   "bansSection": "ブロック",
   "unbanAction": "ブロック解除",
-  "deletedDone": "削除しました。"
+  "deletedDone": "削除しました。",
+  "syncSummaryTitle": "届いた内容",
+  "summaryAdopted": "譲渡",
+  "summaryDeceased": "死亡",
+  "summaryEscaped": "脱走",
+  "summaryNew": "新規",
+  "summaryConflicts": "要解決の競合",
+  "summaryOther": "…他 {n} 件の変更"
 }

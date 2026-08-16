@@ -12,8 +12,12 @@ class SyncResult {
   final int blobsSent;
   final int blobsReceived;
 
+  /// The entries actually new to this store — the import summary's input.
+  final List<Entry> applied;
+
   const SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
-      this.blobsReceived);
+      this.blobsReceived,
+      {this.applied = const []});
 
   @override
   String toString() =>
@@ -34,8 +38,9 @@ class LanSyncHost {
   /// host's own choice; the joiner's outbound is governed by its own flag.
   final bool includePrivate;
 
-  /// Called after a joiner completed a session (data may have changed).
-  final VoidCallback? onSession;
+  /// Called after a joiner completed a session; receives what actually
+  /// landed, so the host can show the import summary too.
+  final void Function(List<Entry> applied)? onSession;
 
   HttpServer? _server;
 
@@ -77,7 +82,8 @@ class LanSyncHost {
           for (final e in body['entries'] as List)
             Entry.fromJson((e as Map).cast<String, dynamic>())
         ];
-        store.applyEntries(incoming, senderVector: joinerVector);
+        final applied =
+            store.applyEntries(incoming, senderVector: joinerVector);
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode({
           'entries': [
@@ -87,7 +93,7 @@ class LanSyncHost {
           ],
           'wantBlobs': store.missingBlobs(),
         }));
-        onSession?.call();
+        onSession?.call(applied);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
         final bytes = store.imageBytes(path.substring('/blob/'.length));
         if (bytes == null) {
@@ -103,7 +109,7 @@ class LanSyncHost {
         }
         store.putBlob(
             path.substring('/blob/'.length), builder.takeBytes());
-        onSession?.call();
+        onSession?.call(const []);
       } else {
         req.response.statusCode = HttpStatus.notFound;
       }
@@ -166,7 +172,8 @@ Future<SyncResult> lanSync(
       for (final e in response['entries'] as List)
         Entry.fromJson((e as Map).cast<String, dynamic>())
     ];
-    store.applyEntries(received, senderVector: hostVector);
+    final applied =
+        store.applyEntries(received, senderVector: hostVector);
 
     var blobsIn = 0, blobsOut = 0;
     for (final hash in store.missingBlobs()) {
@@ -183,7 +190,8 @@ Future<SyncResult> lanSync(
         blobsOut++;
       }
     }
-    return SyncResult(toSend.length, received.length, blobsOut, blobsIn);
+    return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
+        applied: applied);
   } finally {
     client.close(force: true);
   }

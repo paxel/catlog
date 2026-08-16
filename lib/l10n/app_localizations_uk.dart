@@ -715,4 +715,27 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get deletedDone => 'Видалено.';
+
+  @override
+  String get syncSummaryTitle => 'Що надійшло';
+
+  @override
+  String get summaryAdopted => 'Прилаштовані';
+
+  @override
+  String get summaryDeceased => 'Померли';
+
+  @override
+  String get summaryEscaped => 'Втекли';
+
+  @override
+  String get summaryNew => 'Нові';
+
+  @override
+  String get summaryConflicts => 'Конфлікти для вирішення';
+
+  @override
+  String summaryOther(Object n) {
+    return '…і ще $n змін';
+  }
 }

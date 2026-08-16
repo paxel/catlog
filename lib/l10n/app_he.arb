@@ -209,5 +209,12 @@
   "alsoBan": "גם לחסום — לעולם לא לקבל עוד נתונים",
   "bansSection": "חסימות",
   "unbanAction": "הסר חסימה",
-  "deletedDone": "נמחק."
+  "deletedDone": "נמחק.",
+  "syncSummaryTitle": "מה הגיע",
+  "summaryAdopted": "אומצו",
+  "summaryDeceased": "נפטרו",
+  "summaryEscaped": "ברחו",
+  "summaryNew": "חדשים",
+  "summaryConflicts": "קונפליקטים לפתרון",
+  "summaryOther": "…ועוד {n} שינויים"
 }

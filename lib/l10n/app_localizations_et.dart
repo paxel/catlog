@@ -715,4 +715,27 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deletedDone => 'Kustutatud.';
+
+  @override
+  String get syncSummaryTitle => 'Mis saabus';
+
+  @override
+  String get summaryAdopted => 'Lapsendatud';
+
+  @override
+  String get summaryDeceased => 'Surnud';
+
+  @override
+  String get summaryEscaped => 'Põgenenud';
+
+  @override
+  String get summaryNew => 'Uued';
+
+  @override
+  String get summaryConflicts => 'Lahendamist vajavad konfliktid';
+
+  @override
+  String summaryOther(Object n) {
+    return '…ja veel $n muudatust';
+  }
 }

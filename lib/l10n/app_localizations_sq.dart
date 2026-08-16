@@ -717,4 +717,27 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deletedDone => 'U fshi.';
+
+  @override
+  String get syncSummaryTitle => 'Çfarë mbërriti';
+
+  @override
+  String get summaryAdopted => 'Të birësuara';
+
+  @override
+  String get summaryDeceased => 'Të ngordhura';
+
+  @override
+  String get summaryEscaped => 'Të arratisura';
+
+  @override
+  String get summaryNew => 'Të reja';
+
+  @override
+  String get summaryConflicts => 'Konflikte për zgjidhje';
+
+  @override
+  String summaryOther(Object n) {
+    return '…dhe $n ndryshime të tjera';
+  }
 }

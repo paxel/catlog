@@ -718,4 +718,27 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get deletedDone => 'Supprimé.';
+
+  @override
+  String get syncSummaryTitle => 'Ce qui est arrivé';
+
+  @override
+  String get summaryAdopted => 'Adoptés';
+
+  @override
+  String get summaryDeceased => 'Décédés';
+
+  @override
+  String get summaryEscaped => 'Échappés';
+
+  @override
+  String get summaryNew => 'Nouveaux';
+
+  @override
+  String get summaryConflicts => 'Conflits à résoudre';
+
+  @override
+  String summaryOther(Object n) {
+    return '…et $n autres changements';
+  }
 }

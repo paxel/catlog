@@ -209,5 +209,12 @@
   "alsoBan": "Interzice și — nu mai accepta niciodată datele",
   "bansSection": "Interdicții",
   "unbanAction": "Elimină interdicția",
-  "deletedDone": "Șters."
+  "deletedDone": "Șters.",
+  "syncSummaryTitle": "Ce a sosit",
+  "summaryAdopted": "Adoptate",
+  "summaryDeceased": "Decedate",
+  "summaryEscaped": "Evadate",
+  "summaryNew": "Noi",
+  "summaryConflicts": "Conflicte de rezolvat",
+  "summaryOther": "…și încă {n} modificări"
 }

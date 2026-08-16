@@ -718,4 +718,27 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deletedDone => 'Verwijderd.';
+
+  @override
+  String get syncSummaryTitle => 'Wat er binnenkwam';
+
+  @override
+  String get summaryAdopted => 'Geadopteerd';
+
+  @override
+  String get summaryDeceased => 'Overleden';
+
+  @override
+  String get summaryEscaped => 'Ontsnapt';
+
+  @override
+  String get summaryNew => 'Nieuw';
+
+  @override
+  String get summaryConflicts => 'Op te lossen conflicten';
+
+  @override
+  String summaryOther(Object n) {
+    return '…en $n andere wijzigingen';
+  }
 }

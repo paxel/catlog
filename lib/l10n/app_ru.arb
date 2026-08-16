@@ -209,5 +209,12 @@
   "alsoBan": "Также запретить — никогда больше не принимать данные",
   "bansSection": "Запреты",
   "unbanAction": "Снять запрет",
-  "deletedDone": "Удалено."
+  "deletedDone": "Удалено.",
+  "syncSummaryTitle": "Что пришло",
+  "summaryAdopted": "Пристроены",
+  "summaryDeceased": "Умерли",
+  "summaryEscaped": "Сбежали",
+  "summaryNew": "Новые",
+  "summaryConflicts": "Конфликты для решения",
+  "summaryOther": "…и ещё {n} изменений"
 }

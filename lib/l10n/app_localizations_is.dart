@@ -718,4 +718,27 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deletedDone => 'Eytt.';
+
+  @override
+  String get syncSummaryTitle => 'Hvað barst';
+
+  @override
+  String get summaryAdopted => 'Ættleidd';
+
+  @override
+  String get summaryDeceased => 'Látin';
+
+  @override
+  String get summaryEscaped => 'Strokin';
+
+  @override
+  String get summaryNew => 'Ný';
+
+  @override
+  String get summaryConflicts => 'Árekstrar til að leysa';
+
+  @override
+  String summaryOther(Object n) {
+    return '…og $n aðrar breytingar';
+  }
 }

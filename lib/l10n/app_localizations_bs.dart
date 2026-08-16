@@ -716,4 +716,27 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get deletedDone => 'Obrisano.';
+
+  @override
+  String get syncSummaryTitle => 'Šta je stiglo';
+
+  @override
+  String get summaryAdopted => 'Udomljene';
+
+  @override
+  String get summaryDeceased => 'Uginule';
+
+  @override
+  String get summaryEscaped => 'Pobjegle';
+
+  @override
+  String get summaryNew => 'Novo';
+
+  @override
+  String get summaryConflicts => 'Konflikti za rješavanje';
+
+  @override
+  String summaryOther(Object n) {
+    return '…i još $n promjena';
+  }
 }

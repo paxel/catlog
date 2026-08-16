@@ -209,5 +209,12 @@
   "alsoBan": "Ipprojbixxi wkoll — qatt iżjed data mingħandu",
   "bansSection": "Projbizzjonijiet",
   "unbanAction": "Neħħi l-projbizzjoni",
-  "deletedDone": "Imħassar."
+  "deletedDone": "Imħassar.",
+  "syncSummaryTitle": "X'wasal",
+  "summaryAdopted": "Adottati",
+  "summaryDeceased": "Mejta",
+  "summaryEscaped": "Ħarbu",
+  "summaryNew": "Ġodda",
+  "summaryConflicts": "Kunflitti x'jissolvew",
+  "summaryOther": "…u {n} bidliet oħra"
 }

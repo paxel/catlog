@@ -15,7 +15,12 @@ import 'store.dart';
 class BundleResult {
   final int entriesIn;
   final int blobsIn;
-  const BundleResult(this.entriesIn, this.blobsIn);
+
+  /// The entries actually new to this store — the import summary's input.
+  final List<Entry> applied;
+
+  const BundleResult(this.entriesIn, this.blobsIn,
+      {this.applied = const []});
 
   @override
   String toString() => '$entriesIn entries + $blobsIn photos in';
@@ -73,8 +78,8 @@ BundleResult importBundle(CatalogStore store, String path) {
       writerVector[e.device] = e.dseq;
     }
   }
-  final imported =
-      store.applyEntries(entries, senderVector: writerVector).length;
+  final applied = store.applyEntries(entries, senderVector: writerVector);
+  final imported = applied.length;
   var blobsIn = 0;
   for (final hash in store.missingBlobs()) {
     final bytes = blobs[hash];
@@ -83,5 +88,5 @@ BundleResult importBundle(CatalogStore store, String path) {
       blobsIn++;
     }
   }
-  return BundleResult(imported, blobsIn);
+  return BundleResult(imported, blobsIn, applied: applied);
 }

@@ -209,5 +209,12 @@
   "alsoBan": "Cosc freisin — ná glac sonraí uaidh arís",
   "bansSection": "Coisc",
   "unbanAction": "Bain an cosc",
-  "deletedDone": "Scriosta."
+  "deletedDone": "Scriosta.",
+  "syncSummaryTitle": "Cad a tháinig",
+  "summaryAdopted": "Uchtaithe",
+  "summaryDeceased": "Básaithe",
+  "summaryEscaped": "Éalaithe",
+  "summaryNew": "Nua",
+  "summaryConflicts": "Coinbhleachtaí le réiteach",
+  "summaryOther": "…agus {n} athrú eile"
 }

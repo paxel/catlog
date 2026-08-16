@@ -716,4 +716,27 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deletedDone => 'Silindi.';
+
+  @override
+  String get syncSummaryTitle => 'Ne geldi';
+
+  @override
+  String get summaryAdopted => 'Sahiplendirildi';
+
+  @override
+  String get summaryDeceased => 'Öldü';
+
+  @override
+  String get summaryEscaped => 'Kaçtı';
+
+  @override
+  String get summaryNew => 'Yeni';
+
+  @override
+  String get summaryConflicts => 'Çözülecek çakışmalar';
+
+  @override
+  String summaryOther(Object n) {
+    return '…ve $n değişiklik daha';
+  }
 }

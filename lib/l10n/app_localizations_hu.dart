@@ -717,4 +717,27 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deletedDone => 'Törölve.';
+
+  @override
+  String get syncSummaryTitle => 'Mi érkezett';
+
+  @override
+  String get summaryAdopted => 'Örökbefogadva';
+
+  @override
+  String get summaryDeceased => 'Elhunyt';
+
+  @override
+  String get summaryEscaped => 'Megszökött';
+
+  @override
+  String get summaryNew => 'Új';
+
+  @override
+  String get summaryConflicts => 'Feloldandó ütközések';
+
+  @override
+  String summaryOther(Object n) {
+    return '…és még $n változás';
+  }
 }

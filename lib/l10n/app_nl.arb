@@ -209,5 +209,12 @@
   "alsoBan": "Ook blokkeren — nooit meer gegevens accepteren",
   "bansSection": "Blokkades",
   "unbanAction": "Blokkade opheffen",
-  "deletedDone": "Verwijderd."
+  "deletedDone": "Verwijderd.",
+  "syncSummaryTitle": "Wat er binnenkwam",
+  "summaryAdopted": "Geadopteerd",
+  "summaryDeceased": "Overleden",
+  "summaryEscaped": "Ontsnapt",
+  "summaryNew": "Nieuw",
+  "summaryConflicts": "Op te lossen conflicten",
+  "summaryOther": "…en {n} andere wijzigingen"
 }

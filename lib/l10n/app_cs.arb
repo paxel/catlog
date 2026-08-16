@@ -209,5 +209,12 @@
   "alsoBan": "Také zakázat — už nikdy nepřijímat data",
   "bansSection": "Zákazy",
   "unbanAction": "Zrušit zákaz",
-  "deletedDone": "Smazáno."
+  "deletedDone": "Smazáno.",
+  "syncSummaryTitle": "Co dorazilo",
+  "summaryAdopted": "Adoptované",
+  "summaryDeceased": "Uhynulé",
+  "summaryEscaped": "Utečené",
+  "summaryNew": "Nové",
+  "summaryConflicts": "Konflikty k vyřešení",
+  "summaryOther": "…a {n} dalších změn"
 }

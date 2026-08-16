@@ -209,5 +209,12 @@
   "alsoBan": "مسدود هم بشود — دیگر هرگز داده نپذیر",
   "bansSection": "مسدودی‌ها",
   "unbanAction": "رفع مسدودی",
-  "deletedDone": "حذف شد."
+  "deletedDone": "حذف شد.",
+  "syncSummaryTitle": "چه چیزی رسید",
+  "summaryAdopted": "واگذارشده",
+  "summaryDeceased": "درگذشته",
+  "summaryEscaped": "فراری",
+  "summaryNew": "جدید",
+  "summaryConflicts": "تعارض‌های حل‌نشده",
+  "summaryOther": "…و {n} تغییر دیگر"
 }

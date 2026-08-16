@@ -715,4 +715,27 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deletedDone => 'تم الحذف.';
+
+  @override
+  String get syncSummaryTitle => 'ما الذي وصل';
+
+  @override
+  String get summaryAdopted => 'تم تبنيها';
+
+  @override
+  String get summaryDeceased => 'متوفاة';
+
+  @override
+  String get summaryEscaped => 'هاربة';
+
+  @override
+  String get summaryNew => 'جديد';
+
+  @override
+  String get summaryConflicts => 'تعارضات للحل';
+
+  @override
+  String summaryOther(Object n) {
+    return '…و$n تغييرات أخرى';
+  }
 }

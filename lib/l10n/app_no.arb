@@ -209,5 +209,12 @@
   "alsoBan": "Utesteng også — aldri motta data igjen",
   "bansSection": "Utestengelser",
   "unbanAction": "Fjern utestengelse",
-  "deletedDone": "Slettet."
+  "deletedDone": "Slettet.",
+  "syncSummaryTitle": "Hva som kom",
+  "summaryAdopted": "Adoptert",
+  "summaryDeceased": "Døde",
+  "summaryEscaped": "Rømte",
+  "summaryNew": "Nye",
+  "summaryConflicts": "Konflikter å løse",
+  "summaryOther": "…og {n} andre endringer"
 }

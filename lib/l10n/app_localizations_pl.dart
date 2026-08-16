@@ -716,4 +716,27 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deletedDone => 'Usunięto.';
+
+  @override
+  String get syncSummaryTitle => 'Co dotarło';
+
+  @override
+  String get summaryAdopted => 'Adoptowane';
+
+  @override
+  String get summaryDeceased => 'Zmarłe';
+
+  @override
+  String get summaryEscaped => 'Zbiegłe';
+
+  @override
+  String get summaryNew => 'Nowe';
+
+  @override
+  String get summaryConflicts => 'Konflikty do rozwiązania';
+
+  @override
+  String summaryOther(Object n) {
+    return '…i $n innych zmian';
+  }
 }

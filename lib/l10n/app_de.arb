@@ -209,5 +209,12 @@
   "alsoBan": "Auch sperren — nie wieder Daten annehmen",
   "bansSection": "Sperren",
   "unbanAction": "Sperre aufheben",
-  "deletedDone": "Gelöscht."
+  "deletedDone": "Gelöscht.",
+  "syncSummaryTitle": "Was angekommen ist",
+  "summaryAdopted": "Adoptiert",
+  "summaryDeceased": "Verstorben",
+  "summaryEscaped": "Entlaufen",
+  "summaryNew": "Neu",
+  "summaryConflicts": "Zu klärende Konflikte",
+  "summaryOther": "…und {n} weitere Änderungen"
 }

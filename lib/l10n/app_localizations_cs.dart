@@ -715,4 +715,27 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get deletedDone => 'Smazáno.';
+
+  @override
+  String get syncSummaryTitle => 'Co dorazilo';
+
+  @override
+  String get summaryAdopted => 'Adoptované';
+
+  @override
+  String get summaryDeceased => 'Uhynulé';
+
+  @override
+  String get summaryEscaped => 'Utečené';
+
+  @override
+  String get summaryNew => 'Nové';
+
+  @override
+  String get summaryConflicts => 'Konflikty k vyřešení';
+
+  @override
+  String summaryOther(Object n) {
+    return '…a $n dalších změn';
+  }
 }

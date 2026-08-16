@@ -209,5 +209,12 @@
   "alsoBan": "Estä myös — älä koskaan enää vastaanota tietoja",
   "bansSection": "Estot",
   "unbanAction": "Poista esto",
-  "deletedDone": "Poistettu."
+  "deletedDone": "Poistettu.",
+  "syncSummaryTitle": "Mitä saapui",
+  "summaryAdopted": "Adoptoidut",
+  "summaryDeceased": "Kuolleet",
+  "summaryEscaped": "Karanneet",
+  "summaryNew": "Uudet",
+  "summaryConflicts": "Ratkaistavat ristiriidat",
+  "summaryOther": "…ja {n} muuta muutosta"
 }

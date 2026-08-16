@@ -715,4 +715,27 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get deletedDone => 'حذف شد.';
+
+  @override
+  String get syncSummaryTitle => 'چه چیزی رسید';
+
+  @override
+  String get summaryAdopted => 'واگذارشده';
+
+  @override
+  String get summaryDeceased => 'درگذشته';
+
+  @override
+  String get summaryEscaped => 'فراری';
+
+  @override
+  String get summaryNew => 'جدید';
+
+  @override
+  String get summaryConflicts => 'تعارض‌های حل‌نشده';
+
+  @override
+  String summaryOther(Object n) {
+    return '…و $n تغییر دیگر';
+  }
 }

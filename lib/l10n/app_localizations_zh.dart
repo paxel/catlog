@@ -702,4 +702,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get deletedDone => '已删除。';
+
+  @override
+  String get syncSummaryTitle => '同步内容';
+
+  @override
+  String get summaryAdopted => '已领养';
+
+  @override
+  String get summaryDeceased => '已离世';
+
+  @override
+  String get summaryEscaped => '走失';
+
+  @override
+  String get summaryNew => '新增';
+
+  @override
+  String get summaryConflicts => '待解决的冲突';
+
+  @override
+  String summaryOther(Object n) {
+    return '…及其他 $n 项变更';
+  }
 }

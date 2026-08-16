@@ -209,5 +209,12 @@
   "alsoBan": "Також заборонити — більше ніколи не приймати дані",
   "bansSection": "Заборони",
   "unbanAction": "Зняти заборону",
-  "deletedDone": "Видалено."
+  "deletedDone": "Видалено.",
+  "syncSummaryTitle": "Що надійшло",
+  "summaryAdopted": "Прилаштовані",
+  "summaryDeceased": "Померли",
+  "summaryEscaped": "Втекли",
+  "summaryNew": "Нові",
+  "summaryConflicts": "Конфлікти для вирішення",
+  "summaryOther": "…і ще {n} змін"
 }

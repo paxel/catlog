@@ -717,4 +717,27 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get deletedDone => 'Избришано.';
+
+  @override
+  String get syncSummaryTitle => 'Што пристигна';
+
+  @override
+  String get summaryAdopted => 'Посвоени';
+
+  @override
+  String get summaryDeceased => 'Починати';
+
+  @override
+  String get summaryEscaped => 'Избегани';
+
+  @override
+  String get summaryNew => 'Нови';
+
+  @override
+  String get summaryConflicts => 'Конфликти за решавање';
+
+  @override
+  String summaryOther(Object n) {
+    return '…и уште $n промени';
+  }
 }

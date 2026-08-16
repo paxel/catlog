@@ -209,5 +209,12 @@
   "alsoBan": "Исто така забрани — никогаш повеќе податоци",
   "bansSection": "Забрани",
   "unbanAction": "Отстрани забрана",
-  "deletedDone": "Избришано."
+  "deletedDone": "Избришано.",
+  "syncSummaryTitle": "Што пристигна",
+  "summaryAdopted": "Посвоени",
+  "summaryDeceased": "Починати",
+  "summaryEscaped": "Избегани",
+  "summaryNew": "Нови",
+  "summaryConflicts": "Конфликти за решавање",
+  "summaryOther": "…и уште {n} промени"
 }

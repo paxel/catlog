@@ -209,5 +209,12 @@
   "alsoBan": "Udeluk også — modtag aldrig data igen",
   "bansSection": "Udelukkelser",
   "unbanAction": "Fjern udelukkelse",
-  "deletedDone": "Slettet."
+  "deletedDone": "Slettet.",
+  "syncSummaryTitle": "Hvad der kom",
+  "summaryAdopted": "Adopteret",
+  "summaryDeceased": "Afdøde",
+  "summaryEscaped": "Bortløbne",
+  "summaryNew": "Nye",
+  "summaryConflicts": "Konflikter at løse",
+  "summaryOther": "…og {n} andre ændringer"
 }

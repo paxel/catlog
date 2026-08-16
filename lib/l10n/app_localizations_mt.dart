@@ -718,4 +718,27 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deletedDone => 'Imħassar.';
+
+  @override
+  String get syncSummaryTitle => 'X\'wasal';
+
+  @override
+  String get summaryAdopted => 'Adottati';
+
+  @override
+  String get summaryDeceased => 'Mejta';
+
+  @override
+  String get summaryEscaped => 'Ħarbu';
+
+  @override
+  String get summaryNew => 'Ġodda';
+
+  @override
+  String get summaryConflicts => 'Kunflitti x\'jissolvew';
+
+  @override
+  String summaryOther(Object n) {
+    return '…u $n bidliet oħra';
+  }
 }

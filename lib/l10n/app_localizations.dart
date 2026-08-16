@@ -1429,6 +1429,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deleted.'**
   String get deletedDone;
+
+  /// No description provided for @syncSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What arrived'**
+  String get syncSummaryTitle;
+
+  /// No description provided for @summaryAdopted.
+  ///
+  /// In en, this message translates to:
+  /// **'Adopted'**
+  String get summaryAdopted;
+
+  /// No description provided for @summaryDeceased.
+  ///
+  /// In en, this message translates to:
+  /// **'Deceased'**
+  String get summaryDeceased;
+
+  /// No description provided for @summaryEscaped.
+  ///
+  /// In en, this message translates to:
+  /// **'Escaped'**
+  String get summaryEscaped;
+
+  /// No description provided for @summaryNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get summaryNew;
+
+  /// No description provided for @summaryConflicts.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflicts to resolve'**
+  String get summaryConflicts;
+
+  /// No description provided for @summaryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'…and {n} other changes'**
+  String summaryOther(Object n);
 }
 
 class _AppLocalizationsDelegate

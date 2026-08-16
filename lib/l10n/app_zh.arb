@@ -209,5 +209,12 @@
   "alsoBan": "同时封禁——不再接收其数据",
   "bansSection": "封禁",
   "unbanAction": "解除封禁",
-  "deletedDone": "已删除。"
+  "deletedDone": "已删除。",
+  "syncSummaryTitle": "同步内容",
+  "summaryAdopted": "已领养",
+  "summaryDeceased": "已离世",
+  "summaryEscaped": "走失",
+  "summaryNew": "新增",
+  "summaryConflicts": "待解决的冲突",
+  "summaryOther": "…及其他 {n} 项变更"
 }

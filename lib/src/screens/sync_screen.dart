@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../import_summary.dart';
 import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
@@ -78,8 +79,12 @@ class _SyncScreenState extends State<SyncScreen> {
     }
     final pin = (Random.secure().nextInt(900000) + 100000).toString();
     final host = LanSyncHost(widget.store, pin,
-        includePrivate: _includePrivate, onSession: () {
-      if (mounted) setState(() => _sessions++);
+        includePrivate: _includePrivate, onSession: (applied) {
+      if (!mounted) return;
+      setState(() => _sessions++);
+      if (applied.isNotEmpty) {
+        showImportSummary(context, widget.store, applied);
+      }
     });
     final address = await host.start();
     setState(() {
@@ -106,6 +111,9 @@ class _SyncScreenState extends State<SyncScreen> {
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
+      if (mounted && result.applied.isNotEmpty) {
+        await showImportSummary(context, widget.store, result.applied);
+      }
     } catch (e) {
       if (mounted) {
         final hint =
@@ -148,6 +156,9 @@ class _SyncScreenState extends State<SyncScreen> {
     try {
       final result = importBundle(widget.store, path);
       setState(() => _lastResult = t.bundleImported('$result'));
+      if (mounted && result.applied.isNotEmpty) {
+        await showImportSummary(context, widget.store, result.applied);
+      }
     } catch (e) {
       setState(() => _lastResult = t.bundleImportFailed('$e'));
     }
@@ -337,6 +348,9 @@ class _SyncScreenState extends State<SyncScreen> {
     try {
       final result =
           folderSync(widget.store, folder, includePrivate: _includePrivate);
+      if (mounted && result.applied.isNotEmpty) {
+        await showImportSummary(context, widget.store, result.applied);
+      }
       setState(() => _lastResult = t.folderSynced('$result'));
     } catch (e) {
       setState(() => _lastResult = t.folderSyncFailed('$e'));

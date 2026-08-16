@@ -716,4 +716,27 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deletedDone => 'Удалено.';
+
+  @override
+  String get syncSummaryTitle => 'Что пришло';
+
+  @override
+  String get summaryAdopted => 'Пристроены';
+
+  @override
+  String get summaryDeceased => 'Умерли';
+
+  @override
+  String get summaryEscaped => 'Сбежали';
+
+  @override
+  String get summaryNew => 'Новые';
+
+  @override
+  String get summaryConflicts => 'Конфликты для решения';
+
+  @override
+  String summaryOther(Object n) {
+    return '…и ещё $n изменений';
+  }
 }

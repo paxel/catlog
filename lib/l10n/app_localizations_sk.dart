@@ -715,4 +715,27 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deletedDone => 'Zmazané.';
+
+  @override
+  String get syncSummaryTitle => 'Čo prišlo';
+
+  @override
+  String get summaryAdopted => 'Adoptované';
+
+  @override
+  String get summaryDeceased => 'Uhynuté';
+
+  @override
+  String get summaryEscaped => 'Utečené';
+
+  @override
+  String get summaryNew => 'Nové';
+
+  @override
+  String get summaryConflicts => 'Konflikty na vyriešenie';
+
+  @override
+  String summaryOther(Object n) {
+    return '…a $n ďalších zmien';
+  }
 }

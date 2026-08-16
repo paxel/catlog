@@ -717,4 +717,27 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deletedDone => 'Scriosta.';
+
+  @override
+  String get syncSummaryTitle => 'Cad a tháinig';
+
+  @override
+  String get summaryAdopted => 'Uchtaithe';
+
+  @override
+  String get summaryDeceased => 'Básaithe';
+
+  @override
+  String get summaryEscaped => 'Éalaithe';
+
+  @override
+  String get summaryNew => 'Nua';
+
+  @override
+  String get summaryConflicts => 'Coinbhleachtaí le réiteach';
+
+  @override
+  String summaryOther(Object n) {
+    return '…agus $n athrú eile';
+  }
 }
