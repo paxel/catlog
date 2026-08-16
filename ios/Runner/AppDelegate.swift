@@ -15,9 +15,10 @@ import UIKit
 
   func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
+    let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "CatlogOpenFile")
     openChannel = FlutterMethodChannel(
       name: "catlog/openfile",
-      binaryMessenger: engineBridge.applicationBinaryMessenger)
+      binaryMessenger: registrar!.messenger())
     openChannel?.setMethodCallHandler { [weak self] call, result in
       if call.method == "pending" {
         result(self?.pendingOpen)
