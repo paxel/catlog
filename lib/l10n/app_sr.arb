@@ -254,5 +254,6 @@
   "removeTrust": "Уклони",
   "hostWithoutWifi": "Хостуј без Wi-Fi",
   "hotspotJoinNote": "Успоставља привремену директну везу са другим телефоном (без интернета). Користи је само cat(a)log и сама се прекида након синхронизације.",
-  "hotspotAndroidOnly": "Овај код захтева два Android телефона — на iPhone/iPad користи заједнички Wi-Fi"
+  "hotspotAndroidOnly": "Овај код захтева два Android телефона — на iPhone/iPad користи заједнички Wi-Fi",
+  "selectClowderHint": "Изабери клаудер лево"
 }

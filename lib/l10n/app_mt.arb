@@ -254,5 +254,6 @@
   "removeTrust": "Neħħi",
   "hostWithoutWifi": "Ospita mingħajr Wi-Fi",
   "hotspotJoinNote": "Joħloq konnessjoni diretta temporanja mat-telefown l-ieħor (mingħajr internet). Juża biss cat(a)log u tinqata' waħedha wara s-sinkronizzazzjoni.",
-  "hotspotAndroidOnly": "Dan il-kodiċi jeħtieġ żewġ telefowns Android — fuq iPhone/iPad uża Wi-Fi kondiviż"
+  "hotspotAndroidOnly": "Dan il-kodiċi jeħtieġ żewġ telefowns Android — fuq iPhone/iPad uża Wi-Fi kondiviż",
+  "selectClowderHint": "Agħżel clowder fuq ix-xellug"
 }

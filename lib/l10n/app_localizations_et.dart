@@ -871,4 +871,7 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'See kood vajab kahte Androidi telefoni — iPhone\'is/iPadis kasuta ühist Wi-Fi-t';
+
+  @override
+  String get selectClowderHint => 'Vali vasakult clowder';
 }

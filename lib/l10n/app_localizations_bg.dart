@@ -871,4 +871,7 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Този код изисква два Android телефона — на iPhone/iPad използвай обща Wi-Fi мрежа';
+
+  @override
+  String get selectClowderHint => 'Избери клаудър отляво';
 }

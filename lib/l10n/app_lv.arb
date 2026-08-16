@@ -254,5 +254,6 @@
   "removeTrust": "Noņemt",
   "hostWithoutWifi": "Viesot bez Wi-Fi",
   "hotspotJoinNote": "Izveido pagaidu tiešo savienojumu ar otru tālruni (bez interneta). To izmanto tikai cat(a)log, un pēc sinhronizācijas tas atvienojas pats.",
-  "hotspotAndroidOnly": "Šim kodam vajag divus Android tālruņus — iPhone/iPad izmanto kopīgu Wi-Fi"
+  "hotspotAndroidOnly": "Šim kodam vajag divus Android tālruņus — iPhone/iPad izmanto kopīgu Wi-Fi",
+  "selectClowderHint": "Izvēlies clowder kreisajā pusē"
 }

@@ -25,7 +25,16 @@ import 'sync_screen.dart';
 class ClowderListScreen extends StatefulWidget {
   final CatalogStore store;
 
-  const ClowderListScreen({super.key, required this.store});
+  /// Wide (master-detail) mode: opening a clowder selects it in the
+  /// detail pane instead of pushing a route.
+  final void Function(String clowderId)? onOpenClowder;
+  final String? selectedClowderId;
+
+  const ClowderListScreen(
+      {super.key,
+      required this.store,
+      this.onOpenClowder,
+      this.selectedClowderId});
 
   @override
   State<ClowderListScreen> createState() => _ClowderListScreenState();
@@ -57,6 +66,10 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     final id = widget.store.createClowder(result.name, date: result.date);
     setState(() {});
     if (!mounted) return;
+    if (widget.onOpenClowder != null) {
+      widget.onOpenClowder!(id);
+      return;
+    }
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => ClowderDetailScreen(store: widget.store, clowderId: id),
     ));
@@ -161,7 +174,13 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               return _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
+                selected: clowder.id == widget.selectedClowderId,
                 onTap: () async {
+                  if (widget.onOpenClowder != null) {
+                    widget.onOpenClowder!(clowder.id);
+                    setState(() {});
+                    return;
+                  }
                   await Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => ClowderDetailScreen(
                         store: widget.store, clowderId: clowder.id),
@@ -200,9 +219,13 @@ class _ClowderCard extends StatelessWidget {
   final CatalogStore store;
   final EntityView clowder;
   final VoidCallback onTap;
+  final bool selected;
 
   const _ClowderCard(
-      {required this.store, required this.clowder, required this.onTap});
+      {required this.store,
+      required this.clowder,
+      required this.onTap,
+      this.selected = false});
 
   /// Background: profile image of the first cat in the clowder that has one.
   Uint8List? _cover() {
@@ -221,9 +244,16 @@ class _ClowderCard extends StatelessWidget {
     final cover = _cover();
     final scheme = Theme.of(context).colorScheme;
     return Material(
-      borderRadius: BorderRadius.circular(16),
       clipBehavior: Clip.antiAlias,
-      color: scheme.surfaceContainerHighest,
+      color: selected
+          ? scheme.primaryContainer
+          : scheme.surfaceContainerHighest,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: selected
+            ? BorderSide(color: scheme.primary, width: 2)
+            : BorderSide.none,
+      ),
       child: InkWell(
         onTap: onTap,
         child: Stack(fit: StackFit.expand, children: [

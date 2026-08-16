@@ -870,4 +870,7 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Tento kód vyžaduje dva telefóny s Androidom — na iPhone/iPade použi spoločnú Wi-Fi';
+
+  @override
+  String get selectClowderHint => 'Vyber clowder vľavo';
 }

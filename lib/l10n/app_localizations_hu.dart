@@ -873,4 +873,7 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Ehhez a kódhoz két Android telefon kell — iPhone-on/iPaden használj közös Wi-Fi-t';
+
+  @override
+  String get selectClowderHint => 'Válassz egy clowdert balra';
 }

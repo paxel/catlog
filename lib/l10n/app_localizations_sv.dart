@@ -870,4 +870,7 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Den här koden kräver två Android-telefoner — använd ett delat Wi-Fi på iPhone/iPad';
+
+  @override
+  String get selectClowderHint => 'Välj en clowder till vänster';
 }

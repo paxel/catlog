@@ -254,5 +254,6 @@
   "removeTrust": "Bain",
   "hostWithoutWifi": "Óstáil gan Wi-Fi",
   "hotspotJoinNote": "Cruthaíonn sé nasc díreach sealadach leis an bhfón eile (gan idirlíon). Ní úsáideann ach cat(a)log é agus dícheanglaíonn sé é féin tar éis an tsioncronaithe.",
-  "hotspotAndroidOnly": "Tá dhá fhón Android de dhíth ar an gcód seo — ar iPhone/iPad úsáid Wi-Fi comhroinnte"
+  "hotspotAndroidOnly": "Tá dhá fhón Android de dhíth ar an gcód seo — ar iPhone/iPad úsáid Wi-Fi comhroinnte",
+  "selectClowderHint": "Roghnaigh clowder ar chlé"
 }

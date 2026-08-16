@@ -254,5 +254,6 @@
   "removeTrust": "Entfernen",
   "hostWithoutWifi": "Ohne WLAN hosten",
   "hotspotJoinNote": "Stellt eine vorübergehende Direktverbindung zum anderen Handy her (ohne Internet). Nur cat(a)log nutzt sie, nach der Synchronisierung trennt sie sich von selbst.",
-  "hotspotAndroidOnly": "Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen"
+  "hotspotAndroidOnly": "Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen",
+  "selectClowderHint": "Wähle links einen Clowder"
 }

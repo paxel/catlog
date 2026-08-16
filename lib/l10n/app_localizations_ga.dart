@@ -874,4 +874,7 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Tá dhá fhón Android de dhíth ar an gcód seo — ar iPhone/iPad úsáid Wi-Fi comhroinnte';
+
+  @override
+  String get selectClowderHint => 'Roghnaigh clowder ar chlé';
 }

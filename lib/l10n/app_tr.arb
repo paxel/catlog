@@ -254,5 +254,6 @@
   "removeTrust": "Kaldır",
   "hostWithoutWifi": "Wi-Fi olmadan barındır",
   "hotspotJoinNote": "Diğer telefonla geçici doğrudan bağlantı kurar (internet yok). Yalnızca cat(a)log kullanır ve eşitlemeden sonra kendiliğinden kesilir.",
-  "hotspotAndroidOnly": "Bu kod iki Android telefon gerektirir — iPhone/iPad'de ortak Wi-Fi kullanın"
+  "hotspotAndroidOnly": "Bu kod iki Android telefon gerektirir — iPhone/iPad'de ortak Wi-Fi kullanın",
+  "selectClowderHint": "Soldan bir clowder seçin"
 }

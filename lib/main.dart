@@ -1,12 +1,15 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'src/auto_backup.dart';
 import 'src/incoming_file.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
-import 'src/screens/clowder_list_screen.dart';
+import 'src/screens/home_shell.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -19,7 +22,28 @@ Future<void> main(List<String> args) async {
     localeOverride.value = Locale(saved);
   }
   initIncomingFiles(navigatorKey, store, args);
+  await _restoreWindow(store);
   runApp(CatlogApp(store: store));
+}
+
+bool get _isDesktop =>
+    Platform.isLinux || Platform.isWindows || Platform.isMacOS;
+
+/// Desktop opens the way it was left (spec: window geometry persists).
+Future<void> _restoreWindow(CatalogStore store) async {
+  if (!_isDesktop) return;
+  await windowManager.ensureInitialized();
+  final saved = store.localSetting('windowBounds')?.split(',');
+  await windowManager.waitUntilReadyToShow(null, () async {
+    if (saved != null && saved.length == 4) {
+      final v = saved.map(double.tryParse).toList();
+      if (!v.contains(null)) {
+        await windowManager.setBounds(
+            Rect.fromLTWH(v[0]!, v[1]!, v[2]!, v[3]!));
+      }
+    }
+    await windowManager.show();
+  });
 }
 
 class CatlogApp extends StatefulWidget {
@@ -32,18 +56,32 @@ class CatlogApp extends StatefulWidget {
 }
 
 class _CatlogAppState extends State<CatlogApp>
-    with WidgetsBindingObserver {
+    with WidgetsBindingObserver, WindowListener {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    if (_isDesktop) windowManager.addListener(this);
   }
 
   @override
   void dispose() {
+    if (_isDesktop) windowManager.removeListener(this);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
+
+  Future<void> _saveBounds() async {
+    final b = await windowManager.getBounds();
+    widget.store.setLocalSetting('windowBounds',
+        '${b.left},${b.top},${b.width},${b.height}');
+  }
+
+  @override
+  void onWindowResized() => _saveBounds();
+
+  @override
+  void onWindowMoved() => _saveBounds();
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -66,13 +104,15 @@ class _CatlogAppState extends State<CatlogApp>
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          // Desktop gets desktop density and hover manners for free.
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: widget.store.author == null
             ? AuthorSetupScreen(
                 store: widget.store,
                 onDone: () => setState(() {}),
               )
-            : ClowderListScreen(store: widget.store),
+            : HomeShell(store: widget.store),
       ),
     );
   }

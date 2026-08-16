@@ -254,5 +254,6 @@
   "removeTrust": "Fjern",
   "hostWithoutWifi": "Vær vært uden Wi-Fi",
   "hotspotJoinNote": "Opretter en midlertidig direkte forbindelse til den anden telefon (uden internet). Kun cat(a)log bruger den, og den afbrydes selv efter synkroniseringen.",
-  "hotspotAndroidOnly": "Denne kode kræver to Android-telefoner — brug et fælles Wi-Fi på iPhone/iPad"
+  "hotspotAndroidOnly": "Denne kode kræver to Android-telefoner — brug et fælles Wi-Fi på iPhone/iPad",
+  "selectClowderHint": "Vælg en clowder til venstre"
 }

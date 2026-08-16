@@ -856,4 +856,7 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'このコードは Android 2台が必要です — iPhone/iPad では共有 Wi-Fi を使ってください';
+
+  @override
+  String get selectClowderHint => '左からグループを選択してください';
 }

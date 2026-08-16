@@ -869,4 +869,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'هذا الرمز يتطلب هاتفي أندرويد — على iPhone/iPad استخدم شبكة Wi-Fi مشتركة';
+
+  @override
+  String get selectClowderHint => 'اختر مجموعة من اليسار';
 }

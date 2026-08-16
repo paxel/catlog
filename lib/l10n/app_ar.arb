@@ -254,5 +254,6 @@
   "removeTrust": "إزالة",
   "hostWithoutWifi": "استضافة بدون Wi-Fi",
   "hotspotJoinNote": "ينشئ اتصالًا مباشرًا مؤقتًا بالهاتف الآخر (بدون إنترنت). يستخدمه cat(a)log فقط وينقطع تلقائيًا بعد المزامنة.",
-  "hotspotAndroidOnly": "هذا الرمز يتطلب هاتفي أندرويد — على iPhone/iPad استخدم شبكة Wi-Fi مشتركة"
+  "hotspotAndroidOnly": "هذا الرمز يتطلب هاتفي أندرويد — على iPhone/iPad استخدم شبكة Wi-Fi مشتركة",
+  "selectClowderHint": "اختر مجموعة من اليسار"
 }

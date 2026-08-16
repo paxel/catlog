@@ -871,4 +871,7 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Ten kod wymaga dwóch telefonów z Androidem — na iPhonie/iPadzie użyj wspólnego Wi-Fi';
+
+  @override
+  String get selectClowderHint => 'Wybierz clowder po lewej';
 }

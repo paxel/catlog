@@ -254,5 +254,6 @@
   "removeTrust": "Poista",
   "hostWithoutWifi": "Isännöi ilman Wi-Fiä",
   "hotspotJoinNote": "Muodostaa väliaikaisen suoran yhteyden toiseen puhelimeen (ilman internetiä). Vain cat(a)log käyttää sitä, ja se katkeaa itsestään synkronoinnin jälkeen.",
-  "hotspotAndroidOnly": "Tämä koodi vaatii kaksi Android-puhelinta — iPhonella/iPadilla käytä yhteistä Wi-Fiä"
+  "hotspotAndroidOnly": "Tämä koodi vaatii kaksi Android-puhelinta — iPhonella/iPadilla käytä yhteistä Wi-Fiä",
+  "selectClowderHint": "Valitse clowder vasemmalta"
 }

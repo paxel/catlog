@@ -254,5 +254,6 @@
   "removeTrust": "Убрать",
   "hostWithoutWifi": "Хост без Wi-Fi",
   "hotspotJoinNote": "Создаёт временное прямое соединение с другим телефоном (без интернета). Его использует только cat(a)log, после синхронизации оно отключается само.",
-  "hotspotAndroidOnly": "Этот код требует два Android-телефона — на iPhone/iPad используйте общий Wi-Fi"
+  "hotspotAndroidOnly": "Этот код требует два Android-телефона — на iPhone/iPad используйте общий Wi-Fi",
+  "selectClowderHint": "Выберите клаудер слева"
 }

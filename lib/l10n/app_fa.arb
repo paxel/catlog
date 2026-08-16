@@ -254,5 +254,6 @@
   "removeTrust": "حذف",
   "hostWithoutWifi": "میزبانی بدون Wi-Fi",
   "hotspotJoinNote": "یک اتصال مستقیم موقت با گوشی دیگر برقرار می‌کند (بدون اینترنت). فقط cat(a)log از آن استفاده می‌کند و پس از همگام‌سازی خودش قطع می‌شود.",
-  "hotspotAndroidOnly": "این کد به دو گوشی اندروید نیاز دارد — در iPhone/iPad از Wi-Fi مشترک استفاده کنید"
+  "hotspotAndroidOnly": "این کد به دو گوشی اندروید نیاز دارد — در iPhone/iPad از Wi-Fi مشترک استفاده کنید",
+  "selectClowderHint": "از سمت چپ یک گروه انتخاب کنید"
 }

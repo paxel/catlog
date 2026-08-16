@@ -15,6 +15,31 @@ Uint8List makeTestJpeg() =>
 void main() {
   setUpAll(useSystemSqlite);
 
+  testWidgets('wide window switches to master-detail', (tester) async {
+    tester.view.physicalSize = const Size(1600, 1000);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+    store.createCat('Miezi', clowderId: home);
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.pumpAndSettle();
+    // Placeholder pane until a clowder is picked.
+    expect(find.text('Pick a clowder on the left'), findsOneWidget);
+
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    // List AND detail visible at once: the clowder name appears in the
+    // grid card and in the pane's app bar.
+    expect(find.text('Home'), findsNWidgets(2));
+    expect(find.text('Miezi'), findsOneWidget);
+  });
+
   testWidgets('first launch asks for author, then shows clowder list',
       (tester) async {
     final store = CatalogStore.inMemory();

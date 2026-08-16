@@ -874,4 +874,7 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Dan il-kodiċi jeħtieġ żewġ telefowns Android — fuq iPhone/iPad uża Wi-Fi kondiviż';
+
+  @override
+  String get selectClowderHint => 'Agħżel clowder fuq ix-xellug';
 }

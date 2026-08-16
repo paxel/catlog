@@ -870,4 +870,7 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'این کد به دو گوشی اندروید نیاز دارد — در iPhone/iPad از Wi-Fi مشترک استفاده کنید';
+
+  @override
+  String get selectClowderHint => 'از سمت چپ یک گروه انتخاب کنید';
 }

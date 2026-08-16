@@ -871,4 +871,7 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Denne koden krever to Android-telefoner — bruk et delt Wi-Fi på iPhone/iPad';
+
+  @override
+  String get selectClowderHint => 'Velg en clowder til venstre';
 }

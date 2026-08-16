@@ -254,5 +254,6 @@
   "removeTrust": "Rimuovi",
   "hostWithoutWifi": "Ospita senza Wi-Fi",
   "hotspotJoinNote": "Crea una connessione diretta temporanea con l'altro telefono (senza internet). La usa solo cat(a)log e si disconnette da sola dopo la sincronizzazione.",
-  "hotspotAndroidOnly": "Questo codice richiede due telefoni Android — su iPhone/iPad usa una Wi-Fi condivisa"
+  "hotspotAndroidOnly": "Questo codice richiede due telefoni Android — su iPhone/iPad usa una Wi-Fi condivisa",
+  "selectClowderHint": "Scegli un clowder a sinistra"
 }

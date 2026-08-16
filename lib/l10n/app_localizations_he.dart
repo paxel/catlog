@@ -864,4 +864,7 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'הקוד הזה דורש שני טלפוני אנדרואיד — ב-iPhone/iPad השתמשו ב-Wi-Fi משותף';
+
+  @override
+  String get selectClowderHint => 'בחרו קבוצה משמאל';
 }

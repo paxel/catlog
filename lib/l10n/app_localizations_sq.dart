@@ -873,4 +873,7 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Ky kod kërkon dy telefona Android — në iPhone/iPad përdor një Wi-Fi të përbashkët';
+
+  @override
+  String get selectClowderHint => 'Zgjidh një clowder majtas';
 }

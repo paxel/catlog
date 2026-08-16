@@ -1699,6 +1699,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This code needs two Android phones — on iPhone/iPad, use a shared Wi-Fi instead'**
   String get hotspotAndroidOnly;
+
+  /// No description provided for @selectClowderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a clowder on the left'**
+  String get selectClowderHint;
 }
 
 class _AppLocalizationsDelegate

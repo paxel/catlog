@@ -526,5 +526,6 @@
   },
   "hostWithoutWifi": "Host without Wi-Fi",
   "hotspotJoinNote": "Joins a temporary direct connection to the other phone (no internet). Only cat(a)log uses it, and it disconnects by itself after the sync.",
-  "hotspotAndroidOnly": "This code needs two Android phones — on iPhone/iPad, use a shared Wi-Fi instead"
+  "hotspotAndroidOnly": "This code needs two Android phones — on iPhone/iPad, use a shared Wi-Fi instead",
+  "selectClowderHint": "Pick a clowder on the left"
 }

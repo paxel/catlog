@@ -852,4 +852,7 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       '此二维码需要两部 Android 手机——iPhone/iPad 请改用共享 Wi-Fi';
+
+  @override
+  String get selectClowderHint => '从左侧选择一个猫群';
 }

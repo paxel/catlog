@@ -871,4 +871,7 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Этот код требует два Android-телефона — на iPhone/iPad используйте общий Wi-Fi';
+
+  @override
+  String get selectClowderHint => 'Выберите клаудер слева';
 }

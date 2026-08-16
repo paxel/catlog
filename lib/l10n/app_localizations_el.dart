@@ -873,4 +873,7 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Αυτός ο κωδικός χρειάζεται δύο Android — σε iPhone/iPad χρησιμοποιήστε κοινό Wi-Fi';
+
+  @override
+  String get selectClowderHint => 'Διάλεξε ένα clowder αριστερά';
 }

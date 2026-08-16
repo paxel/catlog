@@ -873,4 +873,7 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Acest cod necesită două telefoane Android — pe iPhone/iPad folosește un Wi-Fi comun';
+
+  @override
+  String get selectClowderHint => 'Alege un clowder din stânga';
 }

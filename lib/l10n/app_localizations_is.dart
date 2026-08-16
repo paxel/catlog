@@ -874,4 +874,7 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get hotspotAndroidOnly =>
       'Þessi kóði þarf tvo Android síma — á iPhone/iPad notaðu sameiginlegt Wi-Fi';
+
+  @override
+  String get selectClowderHint => 'Veldu clowder til vinstri';
 }
