@@ -629,4 +629,31 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Sluta visa dolda';
+
+  @override
+  String get starterSpecies => 'Art';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Jourhem';
+
+  @override
+  String get statusForeverHome => 'För-alltid-hem';
+
+  @override
+  String get statusClinic => 'Klinik';
+
+  @override
+  String get statusShelter => 'Katthem';
+
+  @override
+  String get statusBarn => 'Lada';
+
+  @override
+  String get valueCat => 'Katt';
+
+  @override
+  String get otherOption => 'Annat…';
 }

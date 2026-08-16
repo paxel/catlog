@@ -182,5 +182,14 @@
   "hideLabel": "Ascunde pe acest dispozitiv",
   "unhideLabel": "Afișează din nou",
   "showHiddenLabel": "Afișează elementele ascunse",
-  "stopShowingHidden": "Nu mai afișa elementele ascunse"
+  "stopShowingHidden": "Nu mai afișa elementele ascunse",
+  "starterSpecies": "Specie",
+  "starterStatus": "Stare",
+  "statusFoster": "Casă de plasament",
+  "statusForeverHome": "Cămin definitiv",
+  "statusClinic": "Clinică",
+  "statusShelter": "Adăpost",
+  "statusBarn": "Hambar",
+  "valueCat": "Pisică",
+  "otherOption": "Altele…"
 }

@@ -629,4 +629,31 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'توقف نمایش موارد پنهان';
+
+  @override
+  String get starterSpecies => 'گونه';
+
+  @override
+  String get starterStatus => 'وضعیت';
+
+  @override
+  String get statusFoster => 'خانه موقت';
+
+  @override
+  String get statusForeverHome => 'خانه همیشگی';
+
+  @override
+  String get statusClinic => 'درمانگاه';
+
+  @override
+  String get statusShelter => 'پناهگاه';
+
+  @override
+  String get statusBarn => 'انبار';
+
+  @override
+  String get valueCat => 'گربه';
+
+  @override
+  String get otherOption => 'دیگر…';
 }

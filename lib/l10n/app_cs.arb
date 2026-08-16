@@ -182,5 +182,14 @@
   "hideLabel": "Skrýt na tomto zařízení",
   "unhideLabel": "Znovu zobrazit",
   "showHiddenLabel": "Zobrazit skryté",
-  "stopShowingHidden": "Přestat zobrazovat skryté"
+  "stopShowingHidden": "Přestat zobrazovat skryté",
+  "starterSpecies": "Druh",
+  "starterStatus": "Stav",
+  "statusFoster": "Dočasná péče",
+  "statusForeverHome": "Domov navždy",
+  "statusClinic": "Klinika",
+  "statusShelter": "Útulek",
+  "statusBarn": "Stodola",
+  "valueCat": "Kočka",
+  "otherOption": "Jiné…"
 }

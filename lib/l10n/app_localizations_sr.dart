@@ -630,4 +630,31 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Престани да приказујеш скривене';
+
+  @override
+  String get starterSpecies => 'Врста';
+
+  @override
+  String get starterStatus => 'Статус';
+
+  @override
+  String get statusFoster => 'Хранитељски дом';
+
+  @override
+  String get statusForeverHome => 'Трајни дом';
+
+  @override
+  String get statusClinic => 'Клиника';
+
+  @override
+  String get statusShelter => 'Склониште';
+
+  @override
+  String get statusBarn => 'Штала';
+
+  @override
+  String get valueCat => 'Мачка';
+
+  @override
+  String get otherOption => 'Друго…';
 }

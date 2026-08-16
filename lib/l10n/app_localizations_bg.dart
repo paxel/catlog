@@ -630,4 +630,31 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Спри показването на скритите';
+
+  @override
+  String get starterSpecies => 'Вид';
+
+  @override
+  String get starterStatus => 'Статус';
+
+  @override
+  String get statusFoster => 'Приемен дом';
+
+  @override
+  String get statusForeverHome => 'Постоянен дом';
+
+  @override
+  String get statusClinic => 'Клиника';
+
+  @override
+  String get statusShelter => 'Приют';
+
+  @override
+  String get statusBarn => 'Плевня';
+
+  @override
+  String get valueCat => 'Котка';
+
+  @override
+  String get otherOption => 'Друго…';
 }

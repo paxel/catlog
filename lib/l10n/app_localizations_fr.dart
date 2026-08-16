@@ -631,4 +631,31 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Ne plus afficher les éléments masqués';
+
+  @override
+  String get starterSpecies => 'Espèce';
+
+  @override
+  String get starterStatus => 'Statut';
+
+  @override
+  String get statusFoster => 'Famille d\'accueil';
+
+  @override
+  String get statusForeverHome => 'Foyer définitif';
+
+  @override
+  String get statusClinic => 'Clinique';
+
+  @override
+  String get statusShelter => 'Refuge';
+
+  @override
+  String get statusBarn => 'Grange';
+
+  @override
+  String get valueCat => 'Chat';
+
+  @override
+  String get otherOption => 'Autre…';
 }

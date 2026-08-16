@@ -182,5 +182,14 @@
   "hideLabel": "Peida selles seadmes",
   "unhideLabel": "Näita uuesti",
   "showHiddenLabel": "Näita peidetuid",
-  "stopShowingHidden": "Lõpeta peidetute näitamine"
+  "stopShowingHidden": "Lõpeta peidetute näitamine",
+  "starterSpecies": "Liik",
+  "starterStatus": "Staatus",
+  "statusFoster": "Hoiukodu",
+  "statusForeverHome": "Päriskodu",
+  "statusClinic": "Kliinik",
+  "statusShelter": "Varjupaik",
+  "statusBarn": "Küün",
+  "valueCat": "Kass",
+  "otherOption": "Muu…"
 }

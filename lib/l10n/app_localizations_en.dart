@@ -629,4 +629,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Stop showing hidden';
+
+  @override
+  String get starterSpecies => 'Species';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Foster home';
+
+  @override
+  String get statusForeverHome => 'Forever home';
+
+  @override
+  String get statusClinic => 'Clinic';
+
+  @override
+  String get statusShelter => 'Shelter';
+
+  @override
+  String get statusBarn => 'Barn';
+
+  @override
+  String get valueCat => 'Cat';
+
+  @override
+  String get otherOption => 'Other…';
 }

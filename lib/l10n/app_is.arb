@@ -182,5 +182,14 @@
   "hideLabel": "Fela á þessu tæki",
   "unhideLabel": "Sýna aftur",
   "showHiddenLabel": "Sýna falið",
-  "stopShowingHidden": "Hætta að sýna falið"
+  "stopShowingHidden": "Hætta að sýna falið",
+  "starterSpecies": "Tegund",
+  "starterStatus": "Staða",
+  "statusFoster": "Fósturheimili",
+  "statusForeverHome": "Framtíðarheimili",
+  "statusClinic": "Dýralæknastofa",
+  "statusShelter": "Athvarf",
+  "statusBarn": "Hlaða",
+  "valueCat": "Köttur",
+  "otherOption": "Annað…"
 }

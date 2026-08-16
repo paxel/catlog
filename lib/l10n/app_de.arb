@@ -182,5 +182,14 @@
   "hideLabel": "Auf diesem Gerät ausblenden",
   "unhideLabel": "Wieder anzeigen",
   "showHiddenLabel": "Ausgeblendetes anzeigen",
-  "stopShowingHidden": "Ausgeblendetes wieder verbergen"
+  "stopShowingHidden": "Ausgeblendetes wieder verbergen",
+  "starterSpecies": "Tierart",
+  "starterStatus": "Status",
+  "statusFoster": "Pflegestelle",
+  "statusForeverHome": "Für-immer-Zuhause",
+  "statusClinic": "Klinik",
+  "statusShelter": "Tierheim",
+  "statusBarn": "Scheune",
+  "valueCat": "Katze",
+  "otherOption": "Anderes…"
 }

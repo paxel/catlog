@@ -630,4 +630,31 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Lopeta piilotettujen näyttäminen';
+
+  @override
+  String get starterSpecies => 'Laji';
+
+  @override
+  String get starterStatus => 'Tila';
+
+  @override
+  String get statusFoster => 'Sijaiskoti';
+
+  @override
+  String get statusForeverHome => 'Ikuinen koti';
+
+  @override
+  String get statusClinic => 'Klinikka';
+
+  @override
+  String get statusShelter => 'Löytöeläintalo';
+
+  @override
+  String get statusBarn => 'Lato';
+
+  @override
+  String get valueCat => 'Kissa';
+
+  @override
+  String get otherOption => 'Muu…';
 }

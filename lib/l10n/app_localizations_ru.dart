@@ -630,4 +630,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Перестать показывать скрытые';
+
+  @override
+  String get starterSpecies => 'Вид';
+
+  @override
+  String get starterStatus => 'Статус';
+
+  @override
+  String get statusFoster => 'Передержка';
+
+  @override
+  String get statusForeverHome => 'Постоянный дом';
+
+  @override
+  String get statusClinic => 'Клиника';
+
+  @override
+  String get statusShelter => 'Приют';
+
+  @override
+  String get statusBarn => 'Сарай';
+
+  @override
+  String get valueCat => 'Кошка';
+
+  @override
+  String get otherOption => 'Другое…';
 }

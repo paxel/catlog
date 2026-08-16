@@ -617,4 +617,31 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stopShowingHidden => '停止显示隐藏项';
+
+  @override
+  String get starterSpecies => '物种';
+
+  @override
+  String get starterStatus => '状态';
+
+  @override
+  String get statusFoster => '寄养家庭';
+
+  @override
+  String get statusForeverHome => '永久的家';
+
+  @override
+  String get statusClinic => '诊所';
+
+  @override
+  String get statusShelter => '收容所';
+
+  @override
+  String get statusBarn => '谷仓';
+
+  @override
+  String get valueCat => '猫';
+
+  @override
+  String get otherOption => '其他…';
 }

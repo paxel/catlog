@@ -629,4 +629,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Gizlenenleri göstermeyi bırak';
+
+  @override
+  String get starterSpecies => 'Tür';
+
+  @override
+  String get starterStatus => 'Durum';
+
+  @override
+  String get statusFoster => 'Geçici yuva';
+
+  @override
+  String get statusForeverHome => 'Kalıcı yuva';
+
+  @override
+  String get statusClinic => 'Klinik';
+
+  @override
+  String get statusShelter => 'Barınak';
+
+  @override
+  String get statusBarn => 'Ahır';
+
+  @override
+  String get valueCat => 'Kedi';
+
+  @override
+  String get otherOption => 'Diğer…';
 }

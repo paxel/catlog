@@ -632,4 +632,31 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Hætta að sýna falið';
+
+  @override
+  String get starterSpecies => 'Tegund';
+
+  @override
+  String get starterStatus => 'Staða';
+
+  @override
+  String get statusFoster => 'Fósturheimili';
+
+  @override
+  String get statusForeverHome => 'Framtíðarheimili';
+
+  @override
+  String get statusClinic => 'Dýralæknastofa';
+
+  @override
+  String get statusShelter => 'Athvarf';
+
+  @override
+  String get statusBarn => 'Hlaða';
+
+  @override
+  String get valueCat => 'Köttur';
+
+  @override
+  String get otherOption => 'Annað…';
 }

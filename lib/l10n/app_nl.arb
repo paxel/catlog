@@ -182,5 +182,14 @@
   "hideLabel": "Verbergen op dit apparaat",
   "unhideLabel": "Opnieuw tonen",
   "showHiddenLabel": "Verborgen items tonen",
-  "stopShowingHidden": "Verborgen items weer verbergen"
+  "stopShowingHidden": "Verborgen items weer verbergen",
+  "starterSpecies": "Soort",
+  "starterStatus": "Status",
+  "statusFoster": "Opvanggezin",
+  "statusForeverHome": "Voor-altijd-thuis",
+  "statusClinic": "Kliniek",
+  "statusShelter": "Asiel",
+  "statusBarn": "Schuur",
+  "valueCat": "Kat",
+  "otherOption": "Anders…"
 }

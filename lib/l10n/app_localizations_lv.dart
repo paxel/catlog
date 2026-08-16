@@ -629,4 +629,31 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Pārtraukt rādīt paslēptos';
+
+  @override
+  String get starterSpecies => 'Suga';
+
+  @override
+  String get starterStatus => 'Statuss';
+
+  @override
+  String get statusFoster => 'Pagaidu mājas';
+
+  @override
+  String get statusForeverHome => 'Pastāvīgās mājas';
+
+  @override
+  String get statusClinic => 'Klīnika';
+
+  @override
+  String get statusShelter => 'Patversme';
+
+  @override
+  String get statusBarn => 'Šķūnis';
+
+  @override
+  String get valueCat => 'Kaķis';
+
+  @override
+  String get otherOption => 'Cits…';
 }

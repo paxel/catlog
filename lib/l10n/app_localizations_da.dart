@@ -630,4 +630,31 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Stop med at vise skjulte';
+
+  @override
+  String get starterSpecies => 'Art';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Plejehjem';
+
+  @override
+  String get statusForeverHome => 'For-evigt-hjem';
+
+  @override
+  String get statusClinic => 'Klinik';
+
+  @override
+  String get statusShelter => 'Internat';
+
+  @override
+  String get statusBarn => 'Lade';
+
+  @override
+  String get valueCat => 'Kat';
+
+  @override
+  String get otherOption => 'Andet…';
 }

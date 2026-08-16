@@ -629,4 +629,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'إيقاف إظهار المخفي';
+
+  @override
+  String get starterSpecies => 'النوع';
+
+  @override
+  String get starterStatus => 'الحالة';
+
+  @override
+  String get statusFoster => 'دار رعاية';
+
+  @override
+  String get statusForeverHome => 'منزل دائم';
+
+  @override
+  String get statusClinic => 'عيادة';
+
+  @override
+  String get statusShelter => 'مأوى';
+
+  @override
+  String get statusBarn => 'حظيرة';
+
+  @override
+  String get valueCat => 'قطة';
+
+  @override
+  String get otherOption => 'أخرى…';
 }

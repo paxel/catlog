@@ -182,5 +182,14 @@
   "hideLabel": "Piilota tällä laitteella",
   "unhideLabel": "Näytä uudelleen",
   "showHiddenLabel": "Näytä piilotetut",
-  "stopShowingHidden": "Lopeta piilotettujen näyttäminen"
+  "stopShowingHidden": "Lopeta piilotettujen näyttäminen",
+  "starterSpecies": "Laji",
+  "starterStatus": "Tila",
+  "statusFoster": "Sijaiskoti",
+  "statusForeverHome": "Ikuinen koti",
+  "statusClinic": "Klinikka",
+  "statusShelter": "Löytöeläintalo",
+  "statusBarn": "Lato",
+  "valueCat": "Kissa",
+  "otherOption": "Muu…"
 }

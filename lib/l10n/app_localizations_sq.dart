@@ -631,4 +631,31 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Ndalo shfaqjen e të fshehurave';
+
+  @override
+  String get starterSpecies => 'Specia';
+
+  @override
+  String get starterStatus => 'Statusi';
+
+  @override
+  String get statusFoster => 'Shtëpi kujdestarie';
+
+  @override
+  String get statusForeverHome => 'Shtëpi përgjithmonë';
+
+  @override
+  String get statusClinic => 'Klinikë';
+
+  @override
+  String get statusShelter => 'Strehëz';
+
+  @override
+  String get statusBarn => 'Hambar';
+
+  @override
+  String get valueCat => 'Mace';
+
+  @override
+  String get otherOption => 'Tjetër…';
 }

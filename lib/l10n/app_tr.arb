@@ -182,5 +182,14 @@
   "hideLabel": "Bu cihazda gizle",
   "unhideLabel": "Yeniden göster",
   "showHiddenLabel": "Gizlenenleri göster",
-  "stopShowingHidden": "Gizlenenleri göstermeyi bırak"
+  "stopShowingHidden": "Gizlenenleri göstermeyi bırak",
+  "starterSpecies": "Tür",
+  "starterStatus": "Durum",
+  "statusFoster": "Geçici yuva",
+  "statusForeverHome": "Kalıcı yuva",
+  "statusClinic": "Klinik",
+  "statusShelter": "Barınak",
+  "statusBarn": "Ahır",
+  "valueCat": "Kedi",
+  "otherOption": "Diğer…"
 }

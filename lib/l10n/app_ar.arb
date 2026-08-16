@@ -182,5 +182,14 @@
   "hideLabel": "إخفاء على هذا الجهاز",
   "unhideLabel": "إظهار مرة أخرى",
   "showHiddenLabel": "إظهار المخفي",
-  "stopShowingHidden": "إيقاف إظهار المخفي"
+  "stopShowingHidden": "إيقاف إظهار المخفي",
+  "starterSpecies": "النوع",
+  "starterStatus": "الحالة",
+  "statusFoster": "دار رعاية",
+  "statusForeverHome": "منزل دائم",
+  "statusClinic": "عيادة",
+  "statusShelter": "مأوى",
+  "statusBarn": "حظيرة",
+  "valueCat": "قطة",
+  "otherOption": "أخرى…"
 }

@@ -631,4 +631,31 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Nu mai afișa elementele ascunse';
+
+  @override
+  String get starterSpecies => 'Specie';
+
+  @override
+  String get starterStatus => 'Stare';
+
+  @override
+  String get statusFoster => 'Casă de plasament';
+
+  @override
+  String get statusForeverHome => 'Cămin definitiv';
+
+  @override
+  String get statusClinic => 'Clinică';
+
+  @override
+  String get statusShelter => 'Adăpost';
+
+  @override
+  String get statusBarn => 'Hambar';
+
+  @override
+  String get valueCat => 'Pisică';
+
+  @override
+  String get otherOption => 'Altele…';
 }

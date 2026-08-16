@@ -182,5 +182,14 @@
   "hideLabel": "Скрыть на этом устройстве",
   "unhideLabel": "Показать снова",
   "showHiddenLabel": "Показать скрытые",
-  "stopShowingHidden": "Перестать показывать скрытые"
+  "stopShowingHidden": "Перестать показывать скрытые",
+  "starterSpecies": "Вид",
+  "starterStatus": "Статус",
+  "statusFoster": "Передержка",
+  "statusForeverHome": "Постоянный дом",
+  "statusClinic": "Клиника",
+  "statusShelter": "Приют",
+  "statusBarn": "Сарай",
+  "valueCat": "Кошка",
+  "otherOption": "Другое…"
 }

@@ -630,4 +630,31 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Przestań pokazywać ukryte';
+
+  @override
+  String get starterSpecies => 'Gatunek';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Dom tymczasowy';
+
+  @override
+  String get statusForeverHome => 'Dom na zawsze';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Schronisko';
+
+  @override
+  String get statusBarn => 'Stodoła';
+
+  @override
+  String get valueCat => 'Kot';
+
+  @override
+  String get otherOption => 'Inne…';
 }

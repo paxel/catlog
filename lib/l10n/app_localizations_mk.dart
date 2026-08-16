@@ -631,4 +631,31 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Престани да прикажуваш скриени';
+
+  @override
+  String get starterSpecies => 'Вид';
+
+  @override
+  String get starterStatus => 'Статус';
+
+  @override
+  String get statusFoster => 'Згрижувачки дом';
+
+  @override
+  String get statusForeverHome => 'Постојан дом';
+
+  @override
+  String get statusClinic => 'Клиника';
+
+  @override
+  String get statusShelter => 'Прифатилиште';
+
+  @override
+  String get statusBarn => 'Штала';
+
+  @override
+  String get valueCat => 'Мачка';
+
+  @override
+  String get otherOption => 'Друго…';
 }

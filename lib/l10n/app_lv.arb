@@ -182,5 +182,14 @@
   "hideLabel": "Paslēpt šajā ierīcē",
   "unhideLabel": "Rādīt atkal",
   "showHiddenLabel": "Rādīt paslēptos",
-  "stopShowingHidden": "Pārtraukt rādīt paslēptos"
+  "stopShowingHidden": "Pārtraukt rādīt paslēptos",
+  "starterSpecies": "Suga",
+  "starterStatus": "Statuss",
+  "statusFoster": "Pagaidu mājas",
+  "statusForeverHome": "Pastāvīgās mājas",
+  "statusClinic": "Klīnika",
+  "statusShelter": "Patversme",
+  "statusBarn": "Šķūnis",
+  "valueCat": "Kaķis",
+  "otherOption": "Cits…"
 }

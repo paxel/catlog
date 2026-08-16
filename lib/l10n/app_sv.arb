@@ -182,5 +182,14 @@
   "hideLabel": "Dölj på den här enheten",
   "unhideLabel": "Visa igen",
   "showHiddenLabel": "Visa dolda",
-  "stopShowingHidden": "Sluta visa dolda"
+  "stopShowingHidden": "Sluta visa dolda",
+  "starterSpecies": "Art",
+  "starterStatus": "Status",
+  "statusFoster": "Jourhem",
+  "statusForeverHome": "För-alltid-hem",
+  "statusClinic": "Klinik",
+  "statusShelter": "Katthem",
+  "statusBarn": "Lada",
+  "valueCat": "Katt",
+  "otherOption": "Annat…"
 }

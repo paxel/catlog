@@ -182,5 +182,14 @@
   "hideLabel": "Slėpti šiame įrenginyje",
   "unhideLabel": "Rodyti vėl",
   "showHiddenLabel": "Rodyti paslėptus",
-  "stopShowingHidden": "Nustoti rodyti paslėptus"
+  "stopShowingHidden": "Nustoti rodyti paslėptus",
+  "starterSpecies": "Rūšis",
+  "starterStatus": "Būsena",
+  "statusFoster": "Laikinieji namai",
+  "statusForeverHome": "Nuolatiniai namai",
+  "statusClinic": "Klinika",
+  "statusShelter": "Prieglauda",
+  "statusBarn": "Daržinė",
+  "valueCat": "Katė",
+  "otherOption": "Kita…"
 }

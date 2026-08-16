@@ -630,4 +630,31 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Prestani prikazivati skriveno';
+
+  @override
+  String get starterSpecies => 'Vrsta';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Udomiteljski dom';
+
+  @override
+  String get statusForeverHome => 'Trajni dom';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Sklonište';
+
+  @override
+  String get statusBarn => 'Štala';
+
+  @override
+  String get valueCat => 'Mačka';
+
+  @override
+  String get otherOption => 'Drugo…';
 }

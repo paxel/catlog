@@ -631,4 +631,31 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Stop rudaí folaithe a thaispeáint';
+
+  @override
+  String get starterSpecies => 'Speiceas';
+
+  @override
+  String get starterStatus => 'Stádas';
+
+  @override
+  String get statusFoster => 'Teach altrama';
+
+  @override
+  String get statusForeverHome => 'Baile buan';
+
+  @override
+  String get statusClinic => 'Clinic';
+
+  @override
+  String get statusShelter => 'Tearmann';
+
+  @override
+  String get statusBarn => 'Scioból';
+
+  @override
+  String get valueCat => 'Cat';
+
+  @override
+  String get otherOption => 'Eile…';
 }

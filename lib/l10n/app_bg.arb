@@ -182,5 +182,14 @@
   "hideLabel": "Скрий на това устройство",
   "unhideLabel": "Покажи отново",
   "showHiddenLabel": "Покажи скритите",
-  "stopShowingHidden": "Спри показването на скритите"
+  "stopShowingHidden": "Спри показването на скритите",
+  "starterSpecies": "Вид",
+  "starterStatus": "Статус",
+  "statusFoster": "Приемен дом",
+  "statusForeverHome": "Постоянен дом",
+  "statusClinic": "Клиника",
+  "statusShelter": "Приют",
+  "statusBarn": "Плевня",
+  "valueCat": "Котка",
+  "otherOption": "Друго…"
 }

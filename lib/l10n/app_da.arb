@@ -182,5 +182,14 @@
   "hideLabel": "Skjul på denne enhed",
   "unhideLabel": "Vis igen",
   "showHiddenLabel": "Vis skjulte",
-  "stopShowingHidden": "Stop med at vise skjulte"
+  "stopShowingHidden": "Stop med at vise skjulte",
+  "starterSpecies": "Art",
+  "starterStatus": "Status",
+  "statusFoster": "Plejehjem",
+  "statusForeverHome": "For-evigt-hjem",
+  "statusClinic": "Klinik",
+  "statusShelter": "Internat",
+  "statusBarn": "Lade",
+  "valueCat": "Kat",
+  "otherOption": "Andet…"
 }

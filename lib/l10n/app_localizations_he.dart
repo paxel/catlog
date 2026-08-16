@@ -627,4 +627,31 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'הפסק להציג מוסתרים';
+
+  @override
+  String get starterSpecies => 'מין';
+
+  @override
+  String get starterStatus => 'סטטוס';
+
+  @override
+  String get statusFoster => 'בית אומנה';
+
+  @override
+  String get statusForeverHome => 'בית לתמיד';
+
+  @override
+  String get statusClinic => 'מרפאה';
+
+  @override
+  String get statusShelter => 'מקלט';
+
+  @override
+  String get statusBarn => 'אסם';
+
+  @override
+  String get valueCat => 'חתול';
+
+  @override
+  String get otherOption => 'אחר…';
 }

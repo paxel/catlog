@@ -182,5 +182,14 @@
   "hideLabel": "Sakrij na ovom uređaju",
   "unhideLabel": "Prikaži ponovo",
   "showHiddenLabel": "Prikaži skriveno",
-  "stopShowingHidden": "Prestani prikazivati skriveno"
+  "stopShowingHidden": "Prestani prikazivati skriveno",
+  "starterSpecies": "Vrsta",
+  "starterStatus": "Status",
+  "statusFoster": "Udomiteljski dom",
+  "statusForeverHome": "Trajni dom",
+  "statusClinic": "Klinika",
+  "statusShelter": "Sklonište",
+  "statusBarn": "Štala",
+  "valueCat": "Mačka",
+  "otherOption": "Drugo…"
 }

@@ -182,5 +182,14 @@
   "hideLabel": "Folaigh ar an ngléas seo",
   "unhideLabel": "Taispeáin arís",
   "showHiddenLabel": "Taispeáin rudaí folaithe",
-  "stopShowingHidden": "Stop rudaí folaithe a thaispeáint"
+  "stopShowingHidden": "Stop rudaí folaithe a thaispeáint",
+  "starterSpecies": "Speiceas",
+  "starterStatus": "Stádas",
+  "statusFoster": "Teach altrama",
+  "statusForeverHome": "Baile buan",
+  "statusClinic": "Clinic",
+  "statusShelter": "Tearmann",
+  "statusBarn": "Scioból",
+  "valueCat": "Cat",
+  "otherOption": "Eile…"
 }

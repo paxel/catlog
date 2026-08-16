@@ -632,4 +632,31 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Ieqaf uri l-moħbija';
+
+  @override
+  String get starterSpecies => 'Speċi';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Dar tal-fostering';
+
+  @override
+  String get statusForeverHome => 'Dar għal dejjem';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Kenn';
+
+  @override
+  String get statusBarn => 'Maqjel';
+
+  @override
+  String get valueCat => 'Qattus';
+
+  @override
+  String get otherOption => 'Ieħor…';
 }

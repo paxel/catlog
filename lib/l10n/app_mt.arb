@@ -182,5 +182,14 @@
   "hideLabel": "Aħbi fuq dan l-apparat",
   "unhideLabel": "Erġa' uri",
   "showHiddenLabel": "Uri l-moħbija",
-  "stopShowingHidden": "Ieqaf uri l-moħbija"
+  "stopShowingHidden": "Ieqaf uri l-moħbija",
+  "starterSpecies": "Speċi",
+  "starterStatus": "Status",
+  "statusFoster": "Dar tal-fostering",
+  "statusForeverHome": "Dar għal dejjem",
+  "statusClinic": "Klinika",
+  "statusShelter": "Kenn",
+  "statusBarn": "Maqjel",
+  "valueCat": "Qattus",
+  "otherOption": "Ieħor…"
 }

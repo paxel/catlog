@@ -629,4 +629,31 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Deixar de mostrar ocultos';
+
+  @override
+  String get starterSpecies => 'Espécie';
+
+  @override
+  String get starterStatus => 'Estado';
+
+  @override
+  String get statusFoster => 'Família de acolhimento';
+
+  @override
+  String get statusForeverHome => 'Lar definitivo';
+
+  @override
+  String get statusClinic => 'Clínica';
+
+  @override
+  String get statusShelter => 'Abrigo';
+
+  @override
+  String get statusBarn => 'Celeiro';
+
+  @override
+  String get valueCat => 'Gato';
+
+  @override
+  String get otherOption => 'Outro…';
 }

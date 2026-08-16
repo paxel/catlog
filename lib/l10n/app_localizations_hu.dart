@@ -630,4 +630,31 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Rejtettek elrejtése újra';
+
+  @override
+  String get starterSpecies => 'Faj';
+
+  @override
+  String get starterStatus => 'Állapot';
+
+  @override
+  String get statusFoster => 'Ideiglenes befogadó';
+
+  @override
+  String get statusForeverHome => 'Örökbefogadó otthon';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Menhely';
+
+  @override
+  String get statusBarn => 'Pajta';
+
+  @override
+  String get valueCat => 'Macska';
+
+  @override
+  String get otherOption => 'Egyéb…';
 }

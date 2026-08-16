@@ -182,5 +182,14 @@
   "hideLabel": "この端末で非表示にする",
   "unhideLabel": "再表示する",
   "showHiddenLabel": "非表示の項目を表示",
-  "stopShowingHidden": "非表示の項目を隠す"
+  "stopShowingHidden": "非表示の項目を隠す",
+  "starterSpecies": "種類",
+  "starterStatus": "ステータス",
+  "statusFoster": "預かり宅",
+  "statusForeverHome": "永遠のおうち",
+  "statusClinic": "クリニック",
+  "statusShelter": "保護施設",
+  "statusBarn": "納屋",
+  "valueCat": "猫",
+  "otherOption": "その他…"
 }

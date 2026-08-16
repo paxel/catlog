@@ -631,4 +631,31 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Verborgen items weer verbergen';
+
+  @override
+  String get starterSpecies => 'Soort';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Opvanggezin';
+
+  @override
+  String get statusForeverHome => 'Voor-altijd-thuis';
+
+  @override
+  String get statusClinic => 'Kliniek';
+
+  @override
+  String get statusShelter => 'Asiel';
+
+  @override
+  String get statusBarn => 'Schuur';
+
+  @override
+  String get valueCat => 'Kat';
+
+  @override
+  String get otherOption => 'Anders…';
 }

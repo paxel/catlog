@@ -182,5 +182,14 @@
   "hideLabel": "Elrejtés ezen az eszközön",
   "unhideLabel": "Újra megjelenítés",
   "showHiddenLabel": "Rejtettek megjelenítése",
-  "stopShowingHidden": "Rejtettek elrejtése újra"
+  "stopShowingHidden": "Rejtettek elrejtése újra",
+  "starterSpecies": "Faj",
+  "starterStatus": "Állapot",
+  "statusFoster": "Ideiglenes befogadó",
+  "statusForeverHome": "Örökbefogadó otthon",
+  "statusClinic": "Klinika",
+  "statusShelter": "Menhely",
+  "statusBarn": "Pajta",
+  "valueCat": "Macska",
+  "otherOption": "Egyéb…"
 }

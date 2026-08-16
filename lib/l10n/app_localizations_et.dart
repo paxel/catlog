@@ -629,4 +629,31 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Lõpeta peidetute näitamine';
+
+  @override
+  String get starterSpecies => 'Liik';
+
+  @override
+  String get starterStatus => 'Staatus';
+
+  @override
+  String get statusFoster => 'Hoiukodu';
+
+  @override
+  String get statusForeverHome => 'Päriskodu';
+
+  @override
+  String get statusClinic => 'Kliinik';
+
+  @override
+  String get statusShelter => 'Varjupaik';
+
+  @override
+  String get statusBarn => 'Küün';
+
+  @override
+  String get valueCat => 'Kass';
+
+  @override
+  String get otherOption => 'Muu…';
 }

@@ -629,4 +629,31 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Prestať zobrazovať skryté';
+
+  @override
+  String get starterSpecies => 'Druh';
+
+  @override
+  String get starterStatus => 'Stav';
+
+  @override
+  String get statusFoster => 'Dočasná starostlivosť';
+
+  @override
+  String get statusForeverHome => 'Domov navždy';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Útulok';
+
+  @override
+  String get statusBarn => 'Stodola';
+
+  @override
+  String get valueCat => 'Mačka';
+
+  @override
+  String get otherOption => 'Iné…';
 }

@@ -630,4 +630,31 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Nustoti rodyti paslėptus';
+
+  @override
+  String get starterSpecies => 'Rūšis';
+
+  @override
+  String get starterStatus => 'Būsena';
+
+  @override
+  String get statusFoster => 'Laikinieji namai';
+
+  @override
+  String get statusForeverHome => 'Nuolatiniai namai';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Prieglauda';
+
+  @override
+  String get statusBarn => 'Daržinė';
+
+  @override
+  String get valueCat => 'Katė';
+
+  @override
+  String get otherOption => 'Kita…';
 }

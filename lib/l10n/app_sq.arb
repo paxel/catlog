@@ -182,5 +182,14 @@
   "hideLabel": "Fshih në këtë pajisje",
   "unhideLabel": "Shfaq përsëri",
   "showHiddenLabel": "Shfaq të fshehurat",
-  "stopShowingHidden": "Ndalo shfaqjen e të fshehurave"
+  "stopShowingHidden": "Ndalo shfaqjen e të fshehurave",
+  "starterSpecies": "Specia",
+  "starterStatus": "Statusi",
+  "statusFoster": "Shtëpi kujdestarie",
+  "statusForeverHome": "Shtëpi përgjithmonë",
+  "statusClinic": "Klinikë",
+  "statusShelter": "Strehëz",
+  "statusBarn": "Hambar",
+  "valueCat": "Mace",
+  "otherOption": "Tjetër…"
 }

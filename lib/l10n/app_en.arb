@@ -406,5 +406,14 @@
   "hideLabel": "Hide on this device",
   "unhideLabel": "Show again",
   "showHiddenLabel": "Show hidden",
-  "stopShowingHidden": "Stop showing hidden"
+  "stopShowingHidden": "Stop showing hidden",
+  "starterSpecies": "Species",
+  "starterStatus": "Status",
+  "statusFoster": "Foster home",
+  "statusForeverHome": "Forever home",
+  "statusClinic": "Clinic",
+  "statusShelter": "Shelter",
+  "statusBarn": "Barn",
+  "valueCat": "Cat",
+  "otherOption": "Other…"
 }

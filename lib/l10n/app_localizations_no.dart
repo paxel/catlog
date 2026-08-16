@@ -629,4 +629,31 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Slutt å vise skjulte';
+
+  @override
+  String get starterSpecies => 'Art';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Fosterhjem';
+
+  @override
+  String get statusForeverHome => 'For-alltid-hjem';
+
+  @override
+  String get statusClinic => 'Klinikk';
+
+  @override
+  String get statusShelter => 'Dyrehjem';
+
+  @override
+  String get statusBarn => 'Låve';
+
+  @override
+  String get valueCat => 'Katt';
+
+  @override
+  String get otherOption => 'Annet…';
 }

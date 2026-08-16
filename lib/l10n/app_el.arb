@@ -182,5 +182,14 @@
   "hideLabel": "Απόκρυψη σε αυτήν τη συσκευή",
   "unhideLabel": "Εμφάνιση ξανά",
   "showHiddenLabel": "Εμφάνιση κρυφών",
-  "stopShowingHidden": "Διακοπή εμφάνισης κρυφών"
+  "stopShowingHidden": "Διακοπή εμφάνισης κρυφών",
+  "starterSpecies": "Είδος",
+  "starterStatus": "Κατάσταση",
+  "statusFoster": "Ανάδοχο σπίτι",
+  "statusForeverHome": "Μόνιμο σπίτι",
+  "statusClinic": "Κλινική",
+  "statusShelter": "Καταφύγιο",
+  "statusBarn": "Αχυρώνας",
+  "valueCat": "Γάτα",
+  "otherOption": "Άλλο…"
 }

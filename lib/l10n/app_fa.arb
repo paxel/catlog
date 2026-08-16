@@ -182,5 +182,14 @@
   "hideLabel": "پنهان کردن در این دستگاه",
   "unhideLabel": "نمایش دوباره",
   "showHiddenLabel": "نمایش موارد پنهان",
-  "stopShowingHidden": "توقف نمایش موارد پنهان"
+  "stopShowingHidden": "توقف نمایش موارد پنهان",
+  "starterSpecies": "گونه",
+  "starterStatus": "وضعیت",
+  "statusFoster": "خانه موقت",
+  "statusForeverHome": "خانه همیشگی",
+  "statusClinic": "درمانگاه",
+  "statusShelter": "پناهگاه",
+  "statusBarn": "انبار",
+  "valueCat": "گربه",
+  "otherOption": "دیگر…"
 }

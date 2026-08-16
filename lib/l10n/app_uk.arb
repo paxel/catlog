@@ -182,5 +182,14 @@
   "hideLabel": "Сховати на цьому пристрої",
   "unhideLabel": "Показати знову",
   "showHiddenLabel": "Показати приховані",
-  "stopShowingHidden": "Не показувати приховані"
+  "stopShowingHidden": "Не показувати приховані",
+  "starterSpecies": "Вид",
+  "starterStatus": "Статус",
+  "statusFoster": "Тимчасовий дім",
+  "statusForeverHome": "Постійний дім",
+  "statusClinic": "Клініка",
+  "statusShelter": "Притулок",
+  "statusBarn": "Стодола",
+  "valueCat": "Кіт",
+  "otherOption": "Інше…"
 }

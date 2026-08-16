@@ -182,5 +182,14 @@
   "hideLabel": "Masquer sur cet appareil",
   "unhideLabel": "Afficher à nouveau",
   "showHiddenLabel": "Afficher les éléments masqués",
-  "stopShowingHidden": "Ne plus afficher les éléments masqués"
+  "stopShowingHidden": "Ne plus afficher les éléments masqués",
+  "starterSpecies": "Espèce",
+  "starterStatus": "Statut",
+  "statusFoster": "Famille d'accueil",
+  "statusForeverHome": "Foyer définitif",
+  "statusClinic": "Clinique",
+  "statusShelter": "Refuge",
+  "statusBarn": "Grange",
+  "valueCat": "Chat",
+  "otherOption": "Autre…"
 }

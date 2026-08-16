@@ -631,4 +631,31 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Διακοπή εμφάνισης κρυφών';
+
+  @override
+  String get starterSpecies => 'Είδος';
+
+  @override
+  String get starterStatus => 'Κατάσταση';
+
+  @override
+  String get statusFoster => 'Ανάδοχο σπίτι';
+
+  @override
+  String get statusForeverHome => 'Μόνιμο σπίτι';
+
+  @override
+  String get statusClinic => 'Κλινική';
+
+  @override
+  String get statusShelter => 'Καταφύγιο';
+
+  @override
+  String get statusBarn => 'Αχυρώνας';
+
+  @override
+  String get valueCat => 'Γάτα';
+
+  @override
+  String get otherOption => 'Άλλο…';
 }

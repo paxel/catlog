@@ -629,4 +629,31 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Не показувати приховані';
+
+  @override
+  String get starterSpecies => 'Вид';
+
+  @override
+  String get starterStatus => 'Статус';
+
+  @override
+  String get statusFoster => 'Тимчасовий дім';
+
+  @override
+  String get statusForeverHome => 'Постійний дім';
+
+  @override
+  String get statusClinic => 'Клініка';
+
+  @override
+  String get statusShelter => 'Притулок';
+
+  @override
+  String get statusBarn => 'Стодола';
+
+  @override
+  String get valueCat => 'Кіт';
+
+  @override
+  String get otherOption => 'Інше…';
 }

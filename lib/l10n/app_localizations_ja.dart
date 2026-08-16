@@ -620,4 +620,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stopShowingHidden => '非表示の項目を隠す';
+
+  @override
+  String get starterSpecies => '種類';
+
+  @override
+  String get starterStatus => 'ステータス';
+
+  @override
+  String get statusFoster => '預かり宅';
+
+  @override
+  String get statusForeverHome => '永遠のおうち';
+
+  @override
+  String get statusClinic => 'クリニック';
+
+  @override
+  String get statusShelter => '保護施設';
+
+  @override
+  String get statusBarn => '納屋';
+
+  @override
+  String get valueCat => '猫';
+
+  @override
+  String get otherOption => 'その他…';
 }

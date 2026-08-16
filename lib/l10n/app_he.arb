@@ -182,5 +182,14 @@
   "hideLabel": "הסתר במכשיר זה",
   "unhideLabel": "הצג שוב",
   "showHiddenLabel": "הצג מוסתרים",
-  "stopShowingHidden": "הפסק להציג מוסתרים"
+  "stopShowingHidden": "הפסק להציג מוסתרים",
+  "starterSpecies": "מין",
+  "starterStatus": "סטטוס",
+  "statusFoster": "בית אומנה",
+  "statusForeverHome": "בית לתמיד",
+  "statusClinic": "מרפאה",
+  "statusShelter": "מקלט",
+  "statusBarn": "אסם",
+  "valueCat": "חתול",
+  "otherOption": "אחר…"
 }

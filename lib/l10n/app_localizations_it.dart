@@ -631,4 +631,31 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Smetti di mostrare i nascosti';
+
+  @override
+  String get starterSpecies => 'Specie';
+
+  @override
+  String get starterStatus => 'Stato';
+
+  @override
+  String get statusFoster => 'Casa affidataria';
+
+  @override
+  String get statusForeverHome => 'Casa per sempre';
+
+  @override
+  String get statusClinic => 'Clinica';
+
+  @override
+  String get statusShelter => 'Rifugio';
+
+  @override
+  String get statusBarn => 'Fienile';
+
+  @override
+  String get valueCat => 'Gatto';
+
+  @override
+  String get otherOption => 'Altro…';
 }

@@ -629,4 +629,31 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Přestat zobrazovat skryté';
+
+  @override
+  String get starterSpecies => 'Druh';
+
+  @override
+  String get starterStatus => 'Stav';
+
+  @override
+  String get statusFoster => 'Dočasná péče';
+
+  @override
+  String get statusForeverHome => 'Domov navždy';
+
+  @override
+  String get statusClinic => 'Klinika';
+
+  @override
+  String get statusShelter => 'Útulek';
+
+  @override
+  String get statusBarn => 'Stodola';
+
+  @override
+  String get valueCat => 'Kočka';
+
+  @override
+  String get otherOption => 'Jiné…';
 }

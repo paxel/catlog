@@ -631,4 +631,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stopShowingHidden => 'Ausgeblendetes wieder verbergen';
+
+  @override
+  String get starterSpecies => 'Tierart';
+
+  @override
+  String get starterStatus => 'Status';
+
+  @override
+  String get statusFoster => 'Pflegestelle';
+
+  @override
+  String get statusForeverHome => 'Für-immer-Zuhause';
+
+  @override
+  String get statusClinic => 'Klinik';
+
+  @override
+  String get statusShelter => 'Tierheim';
+
+  @override
+  String get statusBarn => 'Scheune';
+
+  @override
+  String get valueCat => 'Katze';
+
+  @override
+  String get otherOption => 'Anderes…';
 }

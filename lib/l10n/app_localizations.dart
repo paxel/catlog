@@ -1267,6 +1267,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stop showing hidden'**
   String get stopShowingHidden;
+
+  /// No description provided for @starterSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Species'**
+  String get starterSpecies;
+
+  /// No description provided for @starterStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get starterStatus;
+
+  /// No description provided for @statusFoster.
+  ///
+  /// In en, this message translates to:
+  /// **'Foster home'**
+  String get statusFoster;
+
+  /// No description provided for @statusForeverHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Forever home'**
+  String get statusForeverHome;
+
+  /// No description provided for @statusClinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic'**
+  String get statusClinic;
+
+  /// No description provided for @statusShelter.
+  ///
+  /// In en, this message translates to:
+  /// **'Shelter'**
+  String get statusShelter;
+
+  /// No description provided for @statusBarn.
+  ///
+  /// In en, this message translates to:
+  /// **'Barn'**
+  String get statusBarn;
+
+  /// No description provided for @valueCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat'**
+  String get valueCat;
+
+  /// No description provided for @otherOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Other…'**
+  String get otherOption;
 }
 
 class _AppLocalizationsDelegate

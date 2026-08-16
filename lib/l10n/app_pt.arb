@@ -182,5 +182,14 @@
   "hideLabel": "Ocultar neste dispositivo",
   "unhideLabel": "Mostrar novamente",
   "showHiddenLabel": "Mostrar ocultos",
-  "stopShowingHidden": "Deixar de mostrar ocultos"
+  "stopShowingHidden": "Deixar de mostrar ocultos",
+  "starterSpecies": "Espécie",
+  "starterStatus": "Estado",
+  "statusFoster": "Família de acolhimento",
+  "statusForeverHome": "Lar definitivo",
+  "statusClinic": "Clínica",
+  "statusShelter": "Abrigo",
+  "statusBarn": "Celeiro",
+  "valueCat": "Gato",
+  "otherOption": "Outro…"
 }
