@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} megszökött",
   "toastMoved": "{cat} átköltözött: {home}",
   "notACatlogFile": "Ez nem cat(a)log-fájl",
-  "nothingNewInBundle": "Semmi új a fájlban — már mindened megvan"
+  "nothingNewInBundle": "Semmi új a fájlban — már mindened megvan",
+  "syncChooserInPerson": "Személyesen",
+  "syncChooserInPersonSub": "Egy szobában vagytok — kód beolvasása, kész másodpercek alatt",
+  "syncChooserRemote": "Távolról",
+  "syncChooserRemoteSub": "Megosztott mappán át, mint a Dropbox vagy egy pendrive",
+  "syncChooserMessenger": "Üzenetküldő",
+  "syncChooserMessengerSub": "Küldj mindent egyetlen fájlként bármely üzenetküldővel",
+  "connectToWifiFirst": "Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást",
+  "trustQuestion": "{author} ({device}) szinkronizálni szeretne",
+  "trustBothWaysNote": "A katalógusok mindkét irányban kicserélődnek.",
+  "allowOnce": "Engedélyez",
+  "allowAlways": "Mindig engedélyezd ezt a készüléket",
+  "declineAction": "Elutasít",
+  "syncDeclined": "A másik készülék elutasította a szinkronizálást",
+  "trustedDevicesSection": "Mindig engedélyezett készülékek",
+  "removeTrust": "Eltávolítás"
 }

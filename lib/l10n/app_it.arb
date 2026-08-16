@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} è scappato",
   "toastMoved": "{cat} si è trasferito da {home}",
   "notACatlogFile": "Questo non è un file cat(a)log",
-  "nothingNewInBundle": "Niente di nuovo nel file — hai già tutto"
+  "nothingNewInBundle": "Niente di nuovo nel file — hai già tutto",
+  "syncChooserInPerson": "Di persona",
+  "syncChooserInPersonSub": "Siete nella stessa stanza — scansiona un codice, fatto in secondi",
+  "syncChooserRemote": "A distanza",
+  "syncChooserRemoteSub": "Tramite una cartella condivisa come Dropbox o una chiavetta USB",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Invia tutto come un unico file con qualsiasi messenger",
+  "connectToWifiFirst": "Collegati prima a una Wi-Fi — così i dispositivi si trovano",
+  "trustQuestion": "{author} ({device}) vuole sincronizzare",
+  "trustBothWaysNote": "I cataloghi verranno scambiati in entrambe le direzioni.",
+  "allowOnce": "Consenti",
+  "allowAlways": "Consenti sempre questo dispositivo",
+  "declineAction": "Rifiuta",
+  "syncDeclined": "L'altro dispositivo ha rifiutato la sincronizzazione",
+  "trustedDevicesSection": "Dispositivi sempre consentiti",
+  "removeTrust": "Rimuovi"
 }

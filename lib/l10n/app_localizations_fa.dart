@@ -808,4 +808,55 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'چیز جدیدی در فایل نیست — همه چیز را دارید';
+
+  @override
+  String get syncChooserInPerson => 'حضوری';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'در یک اتاق هستید — کد را اسکن کنید، در چند ثانیه تمام';
+
+  @override
+  String get syncChooserRemote => 'از راه دور';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'از طریق پوشه مشترک مانند Dropbox یا فلش USB';
+
+  @override
+  String get syncChooserMessenger => 'پیام‌رسان';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید';
+
+  @override
+  String get connectToWifiFirst =>
+      'اول به Wi-Fi وصل شوید — سپس دستگاه‌ها یکدیگر را پیدا می‌کنند';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) می‌خواهد همگام‌سازی کند';
+  }
+
+  @override
+  String get trustBothWaysNote => 'دفترها در هر دو جهت مبادله می‌شوند.';
+
+  @override
+  String get allowOnce => 'اجازه';
+
+  @override
+  String get allowAlways => 'همیشه به این دستگاه اجازه بده';
+
+  @override
+  String get declineAction => 'رد';
+
+  @override
+  String get syncDeclined => 'دستگاه دیگر همگام‌سازی را رد کرد';
+
+  @override
+  String get trustedDevicesSection => 'دستگاه‌های همیشه مجاز';
+
+  @override
+  String get removeTrust => 'حذف';
 }

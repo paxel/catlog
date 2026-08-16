@@ -809,4 +809,55 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Ništa novo u datoteci — već imaš sve';
+
+  @override
+  String get syncChooserInPerson => 'Uživo';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'U istoj ste prostoriji — skeniraj kod, gotovo za nekoliko sekundi';
+
+  @override
+  String get syncChooserRemote => 'Na daljinu';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Preko dijeljene mape poput Dropboxa ili USB sticka';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Pošalji sve kao jednu datoteku bilo kojim messengerom';
+
+  @override
+  String get connectToWifiFirst =>
+      'Prvo se spoji na Wi-Fi — tada se uređaji pronalaze';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) želi sinkronizaciju';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalozi će se razmijeniti u oba smjera.';
+
+  @override
+  String get allowOnce => 'Dopusti';
+
+  @override
+  String get allowAlways => 'Uvijek dopusti ovaj uređaj';
+
+  @override
+  String get declineAction => 'Odbij';
+
+  @override
+  String get syncDeclined => 'Drugi uređaj je odbio sinkronizaciju';
+
+  @override
+  String get trustedDevicesSection => 'Uvijek dopušteni uređaji';
+
+  @override
+  String get removeTrust => 'Ukloni';
 }

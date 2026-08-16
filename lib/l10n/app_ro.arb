@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} a evadat",
   "toastMoved": "{cat} s-a mutat la {home}",
   "notACatlogFile": "Acesta nu este un fișier cat(a)log",
-  "nothingNewInBundle": "Nimic nou în fișier — ai deja totul"
+  "nothingNewInBundle": "Nimic nou în fișier — ai deja totul",
+  "syncChooserInPerson": "Față în față",
+  "syncChooserInPersonSub": "Sunteți în aceeași cameră — scanează un cod, gata în secunde",
+  "syncChooserRemote": "De la distanță",
+  "syncChooserRemoteSub": "Printr-un dosar partajat precum Dropbox sau un stick USB",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Trimite totul ca un singur fișier prin orice messenger",
+  "connectToWifiFirst": "Conectează-te mai întâi la Wi-Fi — apoi dispozitivele se găsesc",
+  "trustQuestion": "{author} ({device}) vrea să sincronizeze",
+  "trustBothWaysNote": "Cataloagele vor fi schimbate în ambele direcții.",
+  "allowOnce": "Permite",
+  "allowAlways": "Permite mereu acest dispozitiv",
+  "declineAction": "Refuză",
+  "syncDeclined": "Celălalt dispozitiv a refuzat sincronizarea",
+  "trustedDevicesSection": "Dispozitive permise mereu",
+  "removeTrust": "Elimină"
 }

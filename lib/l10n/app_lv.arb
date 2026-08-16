@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} aizbēga",
   "toastMoved": "{cat} pārcēlās uz {home}",
   "notACatlogFile": "Tas nav cat(a)log fails",
-  "nothingNewInBundle": "Failā nekā jauna — viss jau ir"
+  "nothingNewInBundle": "Failā nekā jauna — viss jau ir",
+  "syncChooserInPerson": "Klātienē",
+  "syncChooserInPersonSub": "Esat vienā telpā — noskenē kodu, gatavs sekundēs",
+  "syncChooserRemote": "Attālināti",
+  "syncChooserRemoteSub": "Caur koplietotu mapi kā Dropbox vai USB zibatmiņu",
+  "syncChooserMessenger": "Ziņotne",
+  "syncChooserMessengerSub": "Sūti visu kā vienu failu ar jebkuru ziņotni",
+  "connectToWifiFirst": "Vispirms pieslēdzies Wi-Fi — tad ierīces atradīs viena otru",
+  "trustQuestion": "{author} ({device}) vēlas sinhronizēt",
+  "trustBothWaysNote": "Katalogi tiks apmainīti abos virzienos.",
+  "allowOnce": "Atļaut",
+  "allowAlways": "Vienmēr atļaut šo ierīci",
+  "declineAction": "Noraidīt",
+  "syncDeclined": "Otra ierīce noraidīja sinhronizāciju",
+  "trustedDevicesSection": "Vienmēr atļautās ierīces",
+  "removeTrust": "Noņemt"
 }

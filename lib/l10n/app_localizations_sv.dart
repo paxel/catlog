@@ -808,4 +808,55 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Inget nytt i filen — du har redan allt';
+
+  @override
+  String get syncChooserInPerson => 'Ansikte mot ansikte';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Ni är i samma rum — skanna en kod, klart på sekunder';
+
+  @override
+  String get syncChooserRemote => 'På distans';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Via en delad mapp som Dropbox eller ett USB-minne';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Skicka allt som en fil genom valfri messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Anslut till Wi-Fi först — då hittar enheterna varandra';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) vill synkronisera';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Era kataloger utbyts i båda riktningarna.';
+
+  @override
+  String get allowOnce => 'Tillåt';
+
+  @override
+  String get allowAlways => 'Tillåt alltid den här enheten';
+
+  @override
+  String get declineAction => 'Avböj';
+
+  @override
+  String get syncDeclined => 'Den andra enheten avböjde synkroniseringen';
+
+  @override
+  String get trustedDevicesSection => 'Alltid tillåtna enheter';
+
+  @override
+  String get removeTrust => 'Ta bort';
 }

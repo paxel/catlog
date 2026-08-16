@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} ħarab",
   "toastMoved": "{cat} mar joqgħod {home}",
   "notACatlogFile": "Dan mhux fajl ta' cat(a)log",
-  "nothingNewInBundle": "Xejn ġdid fil-fajl — għandek kollox diġà"
+  "nothingNewInBundle": "Xejn ġdid fil-fajl — għandek kollox diġà",
+  "syncChooserInPerson": "Wiċċ imb wiċċ",
+  "syncChooserInPersonSub": "Qegħdin fl-istess kamra — skennja kodiċi, lest f'sekondi",
+  "syncChooserRemote": "Mill-bogħod",
+  "syncChooserRemoteSub": "Permezz ta' folder kondiviż bħal Dropbox jew USB",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Ibgħat kollox bħala fajl wieħed bi kwalunkwe messenger",
+  "connectToWifiFirst": "L-ewwel aqbad ma' Wi-Fi — imbagħad l-apparati jsibu lil xulxin",
+  "trustQuestion": "{author} ({device}) irid jissinkronizza",
+  "trustBothWaysNote": "Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.",
+  "allowOnce": "Ħalli",
+  "allowAlways": "Dejjem ħalli dan l-apparat",
+  "declineAction": "Irrifjuta",
+  "syncDeclined": "L-apparat l-ieħor irrifjuta s-sinkronizzazzjoni",
+  "trustedDevicesSection": "Apparati dejjem permessi",
+  "removeTrust": "Neħħi"
 }

@@ -46,4 +46,48 @@ void main() {
     expect(() => lanSync(b, '127.0.0.1', host.port, '000000'),
         throwsA(isA<SyncException>()));
   });
+
+
+  test('declined join reaches the joiner as declined, nothing applied',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'stranger';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    b.createCat('Poison');
+
+    final host = LanSyncHost(a, '123456',
+        onJoinRequest: (author, device) async {
+      expect(author, 'stranger');
+      return const JoinDecision(false, false);
+    });
+    await host.start();
+    addTearDown(host.stop);
+
+    await expectLater(
+      lanSync(b, '127.0.0.1', host.port, '123456'),
+      throwsA(isA<SyncException>()
+          .having((e) => e.message, 'message', 'declined')),
+    );
+    expect(a.cats(), isEmpty);
+  });
+
+  test('include-private decision from the trust gate is honored',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'tablet';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final secret = a.createCat('Secret');
+    a.setPrivate(secret, true);
+
+    final host = LanSyncHost(a, '123456',
+        onJoinRequest: (_, __) async => const JoinDecision(true, true));
+    await host.start();
+    addTearDown(host.stop);
+
+    await lanSync(b, '127.0.0.1', host.port, '123456');
+    expect(b.cats().map((c) => c.id), contains(secret));
+    expect(b.isPrivate(secret), isTrue);
+  });
 }

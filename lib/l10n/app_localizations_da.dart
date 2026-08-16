@@ -809,4 +809,56 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Intet nyt i filen — du har allerede alt';
+
+  @override
+  String get syncChooserInPerson => 'Personligt';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'I er i samme rum — scan en kode, færdig på sekunder';
+
+  @override
+  String get syncChooserRemote => 'På afstand';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Via en delt mappe som Dropbox eller et USB-stik';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Send alt som én fil gennem enhver messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Forbind til Wi-Fi først — så kan enhederne finde hinanden';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) vil synkronisere';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Jeres kataloger udveksles i begge retninger.';
+
+  @override
+  String get allowOnce => 'Tillad';
+
+  @override
+  String get allowAlways => 'Tillad altid denne enhed';
+
+  @override
+  String get declineAction => 'Afvis';
+
+  @override
+  String get syncDeclined => 'Den anden enhed afviste synkroniseringen';
+
+  @override
+  String get trustedDevicesSection => 'Altid tilladte enheder';
+
+  @override
+  String get removeTrust => 'Fjern';
 }

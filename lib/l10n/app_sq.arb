@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} u arratis",
   "toastMoved": "{cat} u zhvendos te {home}",
   "notACatlogFile": "Ky nuk është skedar cat(a)log",
-  "nothingNewInBundle": "Asgjë e re në skedar — i ke të gjitha"
+  "nothingNewInBundle": "Asgjë e re në skedar — i ke të gjitha",
+  "syncChooserInPerson": "Personalisht",
+  "syncChooserInPersonSub": "Jeni në të njëjtën dhomë — skano një kod, gati për sekonda",
+  "syncChooserRemote": "Në distancë",
+  "syncChooserRemoteSub": "Përmes një dosjeje të përbashkët si Dropbox ose USB",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Dërgo gjithçka si një skedar me çdo messenger",
+  "connectToWifiFirst": "Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën",
+  "trustQuestion": "{author} ({device}) do të sinkronizojë",
+  "trustBothWaysNote": "Katalogët do të shkëmbehen në të dyja drejtimet.",
+  "allowOnce": "Lejo",
+  "allowAlways": "Lejo gjithmonë këtë pajisje",
+  "declineAction": "Refuzo",
+  "syncDeclined": "Pajisja tjetër e refuzoi sinkronizimin",
+  "trustedDevicesSection": "Pajisjet e lejuara gjithmonë",
+  "removeTrust": "Hiq"
 }

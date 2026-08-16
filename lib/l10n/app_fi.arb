@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} on karannut",
   "toastMoved": "{cat} muutti: {home}",
   "notACatlogFile": "Tuo ei ole cat(a)log-tiedosto",
-  "nothingNewInBundle": "Ei mitään uutta — sinulla on jo kaikki"
+  "nothingNewInBundle": "Ei mitään uutta — sinulla on jo kaikki",
+  "syncChooserInPerson": "Kasvokkain",
+  "syncChooserInPersonSub": "Olette samassa huoneessa — skannaa koodi, valmis sekunneissa",
+  "syncChooserRemote": "Etänä",
+  "syncChooserRemoteSub": "Jaetun kansion kautta, kuten Dropbox tai USB-tikku",
+  "syncChooserMessenger": "Viestisovellus",
+  "syncChooserMessengerSub": "Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä",
+  "connectToWifiFirst": "Yhdistä ensin Wi-Fiin — sitten laitteet löytävät toisensa",
+  "trustQuestion": "{author} ({device}) haluaa synkronoida",
+  "trustBothWaysNote": "Luettelot vaihdetaan molempiin suuntiin.",
+  "allowOnce": "Salli",
+  "allowAlways": "Salli tämä laite aina",
+  "declineAction": "Hylkää",
+  "syncDeclined": "Toinen laite hylkäsi synkronoinnin",
+  "trustedDevicesSection": "Aina sallitut laitteet",
+  "removeTrust": "Poista"
 }

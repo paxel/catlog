@@ -810,4 +810,56 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Nimic nou în fișier — ai deja totul';
+
+  @override
+  String get syncChooserInPerson => 'Față în față';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Sunteți în aceeași cameră — scanează un cod, gata în secunde';
+
+  @override
+  String get syncChooserRemote => 'De la distanță';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Printr-un dosar partajat precum Dropbox sau un stick USB';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Trimite totul ca un singur fișier prin orice messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Conectează-te mai întâi la Wi-Fi — apoi dispozitivele se găsesc';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) vrea să sincronizeze';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Cataloagele vor fi schimbate în ambele direcții.';
+
+  @override
+  String get allowOnce => 'Permite';
+
+  @override
+  String get allowAlways => 'Permite mereu acest dispozitiv';
+
+  @override
+  String get declineAction => 'Refuză';
+
+  @override
+  String get syncDeclined => 'Celălalt dispozitiv a refuzat sincronizarea';
+
+  @override
+  String get trustedDevicesSection => 'Dispozitive permise mereu';
+
+  @override
+  String get removeTrust => 'Elimină';
 }

@@ -808,4 +808,55 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'V súbore nič nové — všetko už máš';
+
+  @override
+  String get syncChooserInPerson => 'Osobne';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Ste v jednej miestnosti — naskenuj kód, hotovo za pár sekúnd';
+
+  @override
+  String get syncChooserRemote => 'Na diaľku';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Cez zdieľaný priečinok ako Dropbox alebo USB kľúč';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Pošli všetko ako jeden súbor ľubovoľným messengerom';
+
+  @override
+  String get connectToWifiFirst =>
+      'Najprv sa pripoj k Wi-Fi — potom sa zariadenia nájdu';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) chce synchronizovať';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalógy sa vymenia oboma smermi.';
+
+  @override
+  String get allowOnce => 'Povoliť';
+
+  @override
+  String get allowAlways => 'Vždy povoliť toto zariadenie';
+
+  @override
+  String get declineAction => 'Odmietnuť';
+
+  @override
+  String get syncDeclined => 'Druhé zariadenie synchronizáciu odmietlo';
+
+  @override
+  String get trustedDevicesSection => 'Vždy povolené zariadenia';
+
+  @override
+  String get removeTrust => 'Odstrániť';
 }

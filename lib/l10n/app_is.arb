@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} strauk",
   "toastMoved": "{cat} flutti til {home}",
   "notACatlogFile": "Þetta er ekki cat(a)log-skrá",
-  "nothingNewInBundle": "Ekkert nýtt í skránni — þú átt allt nú þegar"
+  "nothingNewInBundle": "Ekkert nýtt í skránni — þú átt allt nú þegar",
+  "syncChooserInPerson": "Í eigin persónu",
+  "syncChooserInPersonSub": "Þið eruð í sama herbergi — skannaðu kóða, tilbúið á sekúndum",
+  "syncChooserRemote": "Fjarlægt",
+  "syncChooserRemoteSub": "Í gegnum sameiginlega möppu eins og Dropbox eða USB-lykil",
+  "syncChooserMessenger": "Skilaboðaforrit",
+  "syncChooserMessengerSub": "Sendu allt sem eina skrá með hvaða skilaboðaforriti sem er",
+  "connectToWifiFirst": "Tengstu fyrst Wi-Fi — þá finna tækin hvort annað",
+  "trustQuestion": "{author} ({device}) vill samstilla",
+  "trustBothWaysNote": "Skrárnar ykkar skiptast í báðar áttir.",
+  "allowOnce": "Leyfa",
+  "allowAlways": "Alltaf leyfa þessu tæki",
+  "declineAction": "Hafna",
+  "syncDeclined": "Hitt tækið hafnaði samstillingunni",
+  "trustedDevicesSection": "Alltaf leyfð tæki",
+  "removeTrust": "Fjarlægja"
 }

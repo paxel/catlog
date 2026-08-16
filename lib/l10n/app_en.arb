@@ -502,5 +502,26 @@
     }
   },
   "notACatlogFile": "That's not a cat(a)log file",
-  "nothingNewInBundle": "Nothing new in that file — you already have everything"
+  "nothingNewInBundle": "Nothing new in that file — you already have everything",
+  "syncChooserInPerson": "In person",
+  "syncChooserInPersonSub": "You're in the same room — scan a code, done in seconds",
+  "syncChooserRemote": "Remote",
+  "syncChooserRemoteSub": "Via a shared folder like Dropbox or a USB stick",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Send everything as one file through any messenger",
+  "connectToWifiFirst": "Connect to a Wi-Fi first — then devices can find each other",
+  "trustQuestion": "{author} ({device}) wants to sync",
+  "trustBothWaysNote": "Your catalogs will be exchanged in both directions.",
+  "allowOnce": "Allow",
+  "allowAlways": "Always allow this device",
+  "declineAction": "Decline",
+  "syncDeclined": "The other device declined the sync",
+  "trustedDevicesSection": "Always-allowed devices",
+  "removeTrust": "Remove",
+  "@trustQuestion": {
+    "placeholders": {
+      "author": {},
+      "device": {}
+    }
+  }
 }

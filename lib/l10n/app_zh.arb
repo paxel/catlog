@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} 走失了",
   "toastMoved": "{cat} 搬到了 {home}",
   "notACatlogFile": "这不是 cat(a)log 文件",
-  "nothingNewInBundle": "文件中没有新内容——您已拥有全部数据"
+  "nothingNewInBundle": "文件中没有新内容——您已拥有全部数据",
+  "syncChooserInPerson": "面对面",
+  "syncChooserInPersonSub": "你们在同一房间——扫码即可，几秒完成",
+  "syncChooserRemote": "远程",
+  "syncChooserRemoteSub": "通过 Dropbox 或 U 盘等共享文件夹",
+  "syncChooserMessenger": "通讯软件",
+  "syncChooserMessengerSub": "将全部数据作为一个文件通过任意通讯软件发送",
+  "connectToWifiFirst": "请先连接 Wi-Fi——设备才能互相发现",
+  "trustQuestion": "{author}（{device}）请求同步",
+  "trustBothWaysNote": "双方的目录将双向交换。",
+  "allowOnce": "允许",
+  "allowAlways": "始终允许此设备",
+  "declineAction": "拒绝",
+  "syncDeclined": "对方设备拒绝了同步",
+  "trustedDevicesSection": "始终允许的设备",
+  "removeTrust": "移除"
 }

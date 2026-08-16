@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} kaçtı",
   "toastMoved": "{cat}, {home} adresine taşındı",
   "notACatlogFile": "Bu bir cat(a)log dosyası değil",
-  "nothingNewInBundle": "Dosyada yeni bir şey yok — zaten her şeye sahipsin"
+  "nothingNewInBundle": "Dosyada yeni bir şey yok — zaten her şeye sahipsin",
+  "syncChooserInPerson": "Yüz yüze",
+  "syncChooserInPersonSub": "Aynı odadasınız — kodu tarayın, saniyeler içinde biter",
+  "syncChooserRemote": "Uzaktan",
+  "syncChooserRemoteSub": "Dropbox veya USB bellek gibi paylaşılan bir klasör üzerinden",
+  "syncChooserMessenger": "Mesajlaşma",
+  "syncChooserMessengerSub": "Her şeyi tek dosya olarak herhangi bir uygulamayla gönderin",
+  "connectToWifiFirst": "Önce bir Wi-Fi'ye bağlanın — cihazlar birbirini o zaman bulur",
+  "trustQuestion": "{author} ({device}) eşitlemek istiyor",
+  "trustBothWaysNote": "Kataloglarınız iki yönde de değiştirilecek.",
+  "allowOnce": "İzin ver",
+  "allowAlways": "Bu cihaza her zaman izin ver",
+  "declineAction": "Reddet",
+  "syncDeclined": "Diğer cihaz eşitlemeyi reddetti",
+  "trustedDevicesSection": "Her zaman izinli cihazlar",
+  "removeTrust": "Kaldır"
 }

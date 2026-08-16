@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} har rømt",
   "toastMoved": "{cat} flyttet til {home}",
   "notACatlogFile": "Det er ikke en cat(a)log-fil",
-  "nothingNewInBundle": "Ikke noe nytt i filen — du har alt allerede"
+  "nothingNewInBundle": "Ikke noe nytt i filen — du har alt allerede",
+  "syncChooserInPerson": "Ansikt til ansikt",
+  "syncChooserInPersonSub": "Dere er i samme rom — skann en kode, ferdig på sekunder",
+  "syncChooserRemote": "På avstand",
+  "syncChooserRemoteSub": "Via en delt mappe som Dropbox eller en USB-pinne",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Send alt som én fil gjennom hvilken som helst messenger",
+  "connectToWifiFirst": "Koble til Wi-Fi først — da finner enhetene hverandre",
+  "trustQuestion": "{author} ({device}) vil synkronisere",
+  "trustBothWaysNote": "Katalogene utveksles i begge retninger.",
+  "allowOnce": "Tillat",
+  "allowAlways": "Tillat alltid denne enheten",
+  "declineAction": "Avslå",
+  "syncDeclined": "Den andre enheten avslo synkroniseringen",
+  "trustedDevicesSection": "Alltid tillatte enheter",
+  "removeTrust": "Fjern"
 }

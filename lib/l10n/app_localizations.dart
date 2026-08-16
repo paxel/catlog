@@ -1591,6 +1591,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nothing new in that file — you already have everything'**
   String get nothingNewInBundle;
+
+  /// No description provided for @syncChooserInPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'In person'**
+  String get syncChooserInPerson;
+
+  /// No description provided for @syncChooserInPersonSub.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re in the same room — scan a code, done in seconds'**
+  String get syncChooserInPersonSub;
+
+  /// No description provided for @syncChooserRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote'**
+  String get syncChooserRemote;
+
+  /// No description provided for @syncChooserRemoteSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Via a shared folder like Dropbox or a USB stick'**
+  String get syncChooserRemoteSub;
+
+  /// No description provided for @syncChooserMessenger.
+  ///
+  /// In en, this message translates to:
+  /// **'Messenger'**
+  String get syncChooserMessenger;
+
+  /// No description provided for @syncChooserMessengerSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Send everything as one file through any messenger'**
+  String get syncChooserMessengerSub;
+
+  /// No description provided for @connectToWifiFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to a Wi-Fi first — then devices can find each other'**
+  String get connectToWifiFirst;
+
+  /// No description provided for @trustQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'{author} ({device}) wants to sync'**
+  String trustQuestion(Object author, Object device);
+
+  /// No description provided for @trustBothWaysNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your catalogs will be exchanged in both directions.'**
+  String get trustBothWaysNote;
+
+  /// No description provided for @allowOnce.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allowOnce;
+
+  /// No description provided for @allowAlways.
+  ///
+  /// In en, this message translates to:
+  /// **'Always allow this device'**
+  String get allowAlways;
+
+  /// No description provided for @declineAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline'**
+  String get declineAction;
+
+  /// No description provided for @syncDeclined.
+  ///
+  /// In en, this message translates to:
+  /// **'The other device declined the sync'**
+  String get syncDeclined;
+
+  /// No description provided for @trustedDevicesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Always-allowed devices'**
+  String get trustedDevicesSection;
+
+  /// No description provided for @removeTrust.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get removeTrust;
 }
 
 class _AppLocalizationsDelegate

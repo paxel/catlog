@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} فرار کرد",
   "toastMoved": "{cat} به {home} نقل مکان کرد",
   "notACatlogFile": "این یک فایل cat(a)log نیست",
-  "nothingNewInBundle": "چیز جدیدی در فایل نیست — همه چیز را دارید"
+  "nothingNewInBundle": "چیز جدیدی در فایل نیست — همه چیز را دارید",
+  "syncChooserInPerson": "حضوری",
+  "syncChooserInPersonSub": "در یک اتاق هستید — کد را اسکن کنید، در چند ثانیه تمام",
+  "syncChooserRemote": "از راه دور",
+  "syncChooserRemoteSub": "از طریق پوشه مشترک مانند Dropbox یا فلش USB",
+  "syncChooserMessenger": "پیام‌رسان",
+  "syncChooserMessengerSub": "همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید",
+  "connectToWifiFirst": "اول به Wi-Fi وصل شوید — سپس دستگاه‌ها یکدیگر را پیدا می‌کنند",
+  "trustQuestion": "{author} ({device}) می‌خواهد همگام‌سازی کند",
+  "trustBothWaysNote": "دفترها در هر دو جهت مبادله می‌شوند.",
+  "allowOnce": "اجازه",
+  "allowAlways": "همیشه به این دستگاه اجازه بده",
+  "declineAction": "رد",
+  "syncDeclined": "دستگاه دیگر همگام‌سازی را رد کرد",
+  "trustedDevicesSection": "دستگاه‌های همیشه مجاز",
+  "removeTrust": "حذف"
 }

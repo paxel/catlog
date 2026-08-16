@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} utekla",
   "toastMoved": "{cat} se přestěhovala do {home}",
   "notACatlogFile": "To není soubor cat(a)log",
-  "nothingNewInBundle": "V souboru nic nového — všechno už máš"
+  "nothingNewInBundle": "V souboru nic nového — všechno už máš",
+  "syncChooserInPerson": "Osobně",
+  "syncChooserInPersonSub": "Jste ve stejné místnosti — naskenuj kód, hotovo za pár vteřin",
+  "syncChooserRemote": "Na dálku",
+  "syncChooserRemoteSub": "Přes sdílenou složku jako Dropbox nebo USB disk",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Pošli vše jako jeden soubor libovolným messengerem",
+  "connectToWifiFirst": "Nejprve se připoj k Wi-Fi — pak se zařízení najdou",
+  "trustQuestion": "{author} ({device}) chce synchronizovat",
+  "trustBothWaysNote": "Katalogy se vymění oběma směry.",
+  "allowOnce": "Povolit",
+  "allowAlways": "Vždy povolit toto zařízení",
+  "declineAction": "Odmítnout",
+  "syncDeclined": "Druhé zařízení synchronizaci odmítlo",
+  "trustedDevicesSection": "Vždy povolená zařízení",
+  "removeTrust": "Odebrat"
 }

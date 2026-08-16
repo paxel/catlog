@@ -809,4 +809,55 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Ei mitään uutta — sinulla on jo kaikki';
+
+  @override
+  String get syncChooserInPerson => 'Kasvokkain';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Olette samassa huoneessa — skannaa koodi, valmis sekunneissa';
+
+  @override
+  String get syncChooserRemote => 'Etänä';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Jaetun kansion kautta, kuten Dropbox tai USB-tikku';
+
+  @override
+  String get syncChooserMessenger => 'Viestisovellus';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä';
+
+  @override
+  String get connectToWifiFirst =>
+      'Yhdistä ensin Wi-Fiin — sitten laitteet löytävät toisensa';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) haluaa synkronoida';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Luettelot vaihdetaan molempiin suuntiin.';
+
+  @override
+  String get allowOnce => 'Salli';
+
+  @override
+  String get allowAlways => 'Salli tämä laite aina';
+
+  @override
+  String get declineAction => 'Hylkää';
+
+  @override
+  String get syncDeclined => 'Toinen laite hylkäsi synkronoinnin';
+
+  @override
+  String get trustedDevicesSection => 'Aina sallitut laitteet';
+
+  @override
+  String get removeTrust => 'Poista';
 }

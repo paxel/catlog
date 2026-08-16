@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} је побегла",
   "toastMoved": "{cat} се преселила у {home}",
   "notACatlogFile": "Ово није cat(a)log датотека",
-  "nothingNewInBundle": "Ништа ново у датотеци — већ имаш све"
+  "nothingNewInBundle": "Ништа ново у датотеци — већ имаш све",
+  "syncChooserInPerson": "Уживо",
+  "syncChooserInPersonSub": "У истој сте просторији — скенирај код, готово за секунде",
+  "syncChooserRemote": "На даљину",
+  "syncChooserRemoteSub": "Преко дељене фасцикле попут Dropbox-а или USB-а",
+  "syncChooserMessenger": "Месинџер",
+  "syncChooserMessengerSub": "Пошаљи све као једну датотеку било којим месинџером",
+  "connectToWifiFirst": "Прво се повежи на Wi-Fi — тада се уређаји проналазе",
+  "trustQuestion": "{author} ({device}) жели синхронизацију",
+  "trustBothWaysNote": "Каталози ће се разменити у оба смера.",
+  "allowOnce": "Дозволи",
+  "allowAlways": "Увек дозволи овај уређај",
+  "declineAction": "Одбиј",
+  "syncDeclined": "Други уређај је одбио синхронизацију",
+  "trustedDevicesSection": "Увек дозвољени уређаји",
+  "removeTrust": "Уклони"
 }

@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} je pobjegla",
   "toastMoved": "{cat} se preselila u {home}",
   "notACatlogFile": "Ovo nije cat(a)log datoteka",
-  "nothingNewInBundle": "Ništa novo u datoteci — već imaš sve"
+  "nothingNewInBundle": "Ništa novo u datoteci — već imaš sve",
+  "syncChooserInPerson": "Uživo",
+  "syncChooserInPersonSub": "U istoj ste prostoriji — skeniraj kod, gotovo za nekoliko sekundi",
+  "syncChooserRemote": "Na daljinu",
+  "syncChooserRemoteSub": "Preko dijeljene mape poput Dropboxa ili USB sticka",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Pošalji sve kao jednu datoteku bilo kojim messengerom",
+  "connectToWifiFirst": "Prvo se spoji na Wi-Fi — tada se uređaji pronalaze",
+  "trustQuestion": "{author} ({device}) želi sinkronizaciju",
+  "trustBothWaysNote": "Katalozi će se razmijeniti u oba smjera.",
+  "allowOnce": "Dopusti",
+  "allowAlways": "Uvijek dopusti ovaj uređaj",
+  "declineAction": "Odbij",
+  "syncDeclined": "Drugi uređaj je odbio sinkronizaciju",
+  "trustedDevicesSection": "Uvijek dopušteni uređaji",
+  "removeTrust": "Ukloni"
 }

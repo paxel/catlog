@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} втік",
   "toastMoved": "{cat} переїхав до {home}",
   "notACatlogFile": "Це не файл cat(a)log",
-  "nothingNewInBundle": "Нічого нового у файлі — у вас уже все є"
+  "nothingNewInBundle": "Нічого нового у файлі — у вас уже все є",
+  "syncChooserInPerson": "Особисто",
+  "syncChooserInPersonSub": "Ви в одній кімнаті — відскануйте код, готово за секунди",
+  "syncChooserRemote": "Віддалено",
+  "syncChooserRemoteSub": "Через спільну папку на кшталт Dropbox чи USB-флешки",
+  "syncChooserMessenger": "Месенджер",
+  "syncChooserMessengerSub": "Надішліть усе одним файлом через будь-який месенджер",
+  "connectToWifiFirst": "Спершу підключіться до Wi-Fi — тоді пристрої знайдуть одне одного",
+  "trustQuestion": "{author} ({device}) хоче синхронізуватися",
+  "trustBothWaysNote": "Каталоги буде обміняно в обох напрямках.",
+  "allowOnce": "Дозволити",
+  "allowAlways": "Завжди дозволяти цьому пристрою",
+  "declineAction": "Відхилити",
+  "syncDeclined": "Інший пристрій відхилив синхронізацію",
+  "trustedDevicesSection": "Завжди дозволені пристрої",
+  "removeTrust": "Прибрати"
 }

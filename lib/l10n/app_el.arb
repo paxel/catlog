@@ -236,5 +236,20 @@
   "toastEscaped": "Η {cat} δραπέτευσε",
   "toastMoved": "Η {cat} μετακόμισε στο {home}",
   "notACatlogFile": "Αυτό δεν είναι αρχείο cat(a)log",
-  "nothingNewInBundle": "Τίποτα νέο στο αρχείο — τα έχεις ήδη όλα"
+  "nothingNewInBundle": "Τίποτα νέο στο αρχείο — τα έχεις ήδη όλα",
+  "syncChooserInPerson": "Από κοντά",
+  "syncChooserInPersonSub": "Είστε στον ίδιο χώρο — σκανάρετε έναν κωδικό, έτοιμο σε δευτερόλεπτα",
+  "syncChooserRemote": "Απομακρυσμένα",
+  "syncChooserRemoteSub": "Μέσω κοινόχρηστου φακέλου όπως Dropbox ή USB",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Στείλτε τα όλα ως ένα αρχείο με οποιονδήποτε messenger",
+  "connectToWifiFirst": "Συνδεθείτε πρώτα σε Wi-Fi — τότε οι συσκευές βρίσκονται",
+  "trustQuestion": "{author} ({device}) θέλει συγχρονισμό",
+  "trustBothWaysNote": "Οι κατάλογοι θα ανταλλαγούν και προς τις δύο κατευθύνσεις.",
+  "allowOnce": "Επιτρέπω",
+  "allowAlways": "Πάντα να επιτρέπεται αυτή η συσκευή",
+  "declineAction": "Απόρριψη",
+  "syncDeclined": "Η άλλη συσκευή απέρριψε τον συγχρονισμό",
+  "trustedDevicesSection": "Πάντα επιτρεπόμενες συσκευές",
+  "removeTrust": "Αφαίρεση"
 }

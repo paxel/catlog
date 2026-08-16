@@ -808,4 +808,55 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'V souboru nic nového — všechno už máš';
+
+  @override
+  String get syncChooserInPerson => 'Osobně';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Jste ve stejné místnosti — naskenuj kód, hotovo za pár vteřin';
+
+  @override
+  String get syncChooserRemote => 'Na dálku';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Přes sdílenou složku jako Dropbox nebo USB disk';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Pošli vše jako jeden soubor libovolným messengerem';
+
+  @override
+  String get connectToWifiFirst =>
+      'Nejprve se připoj k Wi-Fi — pak se zařízení najdou';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) chce synchronizovat';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalogy se vymění oběma směry.';
+
+  @override
+  String get allowOnce => 'Povolit';
+
+  @override
+  String get allowAlways => 'Vždy povolit toto zařízení';
+
+  @override
+  String get declineAction => 'Odmítnout';
+
+  @override
+  String get syncDeclined => 'Druhé zařízení synchronizaci odmítlo';
+
+  @override
+  String get trustedDevicesSection => 'Vždy povolená zařízení';
+
+  @override
+  String get removeTrust => 'Odebrat';
 }

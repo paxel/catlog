@@ -812,4 +812,55 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Níl aon rud nua sa chomhad — tá gach rud agat cheana';
+
+  @override
+  String get syncChooserInPerson => 'Go pearsanta';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Tá sibh sa seomra céanna — scan cód, déanta i soicindí';
+
+  @override
+  String get syncChooserRemote => 'I gcéin';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Trí fhillteán roinnte cosúil le Dropbox nó méaróg USB';
+
+  @override
+  String get syncChooserMessenger => 'Teachtaire';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Seol gach rud mar chomhad amháin trí theachtaire ar bith';
+
+  @override
+  String get connectToWifiFirst =>
+      'Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return 'Ba mhaith le $author ($device) sioncronú';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Malartófar bhur gcatalóga sa dá threo.';
+
+  @override
+  String get allowOnce => 'Ceadaigh';
+
+  @override
+  String get allowAlways => 'Ceadaigh an gléas seo i gcónaí';
+
+  @override
+  String get declineAction => 'Diúltaigh';
+
+  @override
+  String get syncDeclined => 'Dhiúltaigh an gléas eile don sioncronú';
+
+  @override
+  String get trustedDevicesSection => 'Gléasanna a cheadaítear i gcónaí';
+
+  @override
+  String get removeTrust => 'Bain';
 }

@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} pabėgo",
   "toastMoved": "{cat} persikėlė į {home}",
   "notACatlogFile": "Tai ne cat(a)log failas",
-  "nothingNewInBundle": "Faile nieko naujo — viską jau turite"
+  "nothingNewInBundle": "Faile nieko naujo — viską jau turite",
+  "syncChooserInPerson": "Gyvai",
+  "syncChooserInPersonSub": "Esate tame pačiame kambaryje — nuskenuok kodą, baigta per sekundes",
+  "syncChooserRemote": "Nuotoliniu būdu",
+  "syncChooserRemoteSub": "Per bendrinamą aplanką, pvz., Dropbox ar USB atmintinę",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Siųsk viską kaip vieną failą bet kuria programėle",
+  "connectToWifiFirst": "Pirmiausia prisijunk prie Wi-Fi — tada įrenginiai susiras",
+  "trustQuestion": "{author} ({device}) nori sinchronizuoti",
+  "trustBothWaysNote": "Katalogai bus apsikeisti abiem kryptimis.",
+  "allowOnce": "Leisti",
+  "allowAlways": "Visada leisti šį įrenginį",
+  "declineAction": "Atmesti",
+  "syncDeclined": "Kitas įrenginys atmetė sinchronizavimą",
+  "trustedDevicesSection": "Visada leidžiami įrenginiai",
+  "removeTrust": "Pašalinti"
 }

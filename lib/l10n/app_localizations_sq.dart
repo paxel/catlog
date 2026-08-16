@@ -810,4 +810,56 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Asgjë e re në skedar — i ke të gjitha';
+
+  @override
+  String get syncChooserInPerson => 'Personalisht';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Jeni në të njëjtën dhomë — skano një kod, gati për sekonda';
+
+  @override
+  String get syncChooserRemote => 'Në distancë';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Përmes një dosjeje të përbashkët si Dropbox ose USB';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Dërgo gjithçka si një skedar me çdo messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) do të sinkronizojë';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Katalogët do të shkëmbehen në të dyja drejtimet.';
+
+  @override
+  String get allowOnce => 'Lejo';
+
+  @override
+  String get allowAlways => 'Lejo gjithmonë këtë pajisje';
+
+  @override
+  String get declineAction => 'Refuzo';
+
+  @override
+  String get syncDeclined => 'Pajisja tjetër e refuzoi sinkronizimin';
+
+  @override
+  String get trustedDevicesSection => 'Pajisjet e lejuara gjithmonë';
+
+  @override
+  String get removeTrust => 'Hiq';
 }

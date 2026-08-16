@@ -810,4 +810,55 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Ништо ново во датотеката — веќе имаш сè';
+
+  @override
+  String get syncChooserInPerson => 'Во живо';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Во иста просторија сте — скенирај код, готово за секунди';
+
+  @override
+  String get syncChooserRemote => 'Од далечина';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Преку споделена папка како Dropbox или USB';
+
+  @override
+  String get syncChooserMessenger => 'Месинџер';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Испрати сè како една датотека преку кој било месинџер';
+
+  @override
+  String get connectToWifiFirst =>
+      'Прво поврзи се на Wi-Fi — тогаш уредите се наоѓаат';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) сака да синхронизира';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Каталозите ќе се разменат во двете насоки.';
+
+  @override
+  String get allowOnce => 'Дозволи';
+
+  @override
+  String get allowAlways => 'Секогаш дозволи го овој уред';
+
+  @override
+  String get declineAction => 'Одбиј';
+
+  @override
+  String get syncDeclined => 'Другиот уред ја одби синхронизацијата';
+
+  @override
+  String get trustedDevicesSection => 'Секогаш дозволени уреди';
+
+  @override
+  String get removeTrust => 'Отстрани';
 }

@@ -795,4 +795,51 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => '文件中没有新内容——您已拥有全部数据';
+
+  @override
+  String get syncChooserInPerson => '面对面';
+
+  @override
+  String get syncChooserInPersonSub => '你们在同一房间——扫码即可，几秒完成';
+
+  @override
+  String get syncChooserRemote => '远程';
+
+  @override
+  String get syncChooserRemoteSub => '通过 Dropbox 或 U 盘等共享文件夹';
+
+  @override
+  String get syncChooserMessenger => '通讯软件';
+
+  @override
+  String get syncChooserMessengerSub => '将全部数据作为一个文件通过任意通讯软件发送';
+
+  @override
+  String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author（$device）请求同步';
+  }
+
+  @override
+  String get trustBothWaysNote => '双方的目录将双向交换。';
+
+  @override
+  String get allowOnce => '允许';
+
+  @override
+  String get allowAlways => '始终允许此设备';
+
+  @override
+  String get declineAction => '拒绝';
+
+  @override
+  String get syncDeclined => '对方设备拒绝了同步';
+
+  @override
+  String get trustedDevicesSection => '始终允许的设备';
+
+  @override
+  String get removeTrust => '移除';
 }

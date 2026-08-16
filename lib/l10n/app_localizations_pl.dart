@@ -809,4 +809,55 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Nic nowego w pliku — masz już wszystko';
+
+  @override
+  String get syncChooserInPerson => 'Osobiście';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Jesteście w tym samym pokoju — zeskanuj kod, gotowe w sekundy';
+
+  @override
+  String get syncChooserRemote => 'Zdalnie';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Przez wspólny folder jak Dropbox lub pendrive';
+
+  @override
+  String get syncChooserMessenger => 'Komunikator';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Wyślij wszystko jako jeden plik dowolnym komunikatorem';
+
+  @override
+  String get connectToWifiFirst =>
+      'Najpierw połącz się z Wi-Fi — wtedy urządzenia się znajdą';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) chce synchronizować';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalogi zostaną wymienione w obie strony.';
+
+  @override
+  String get allowOnce => 'Zezwól';
+
+  @override
+  String get allowAlways => 'Zawsze zezwalaj temu urządzeniu';
+
+  @override
+  String get declineAction => 'Odrzuć';
+
+  @override
+  String get syncDeclined => 'Drugie urządzenie odrzuciło synchronizację';
+
+  @override
+  String get trustedDevicesSection => 'Zawsze dozwolone urządzenia';
+
+  @override
+  String get removeTrust => 'Usuń';
 }

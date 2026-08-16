@@ -808,4 +808,55 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Failā nekā jauna — viss jau ir';
+
+  @override
+  String get syncChooserInPerson => 'Klātienē';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Esat vienā telpā — noskenē kodu, gatavs sekundēs';
+
+  @override
+  String get syncChooserRemote => 'Attālināti';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Caur koplietotu mapi kā Dropbox vai USB zibatmiņu';
+
+  @override
+  String get syncChooserMessenger => 'Ziņotne';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Sūti visu kā vienu failu ar jebkuru ziņotni';
+
+  @override
+  String get connectToWifiFirst =>
+      'Vispirms pieslēdzies Wi-Fi — tad ierīces atradīs viena otru';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) vēlas sinhronizēt';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalogi tiks apmainīti abos virzienos.';
+
+  @override
+  String get allowOnce => 'Atļaut';
+
+  @override
+  String get allowAlways => 'Vienmēr atļaut šo ierīci';
+
+  @override
+  String get declineAction => 'Noraidīt';
+
+  @override
+  String get syncDeclined => 'Otra ierīce noraidīja sinhronizāciju';
+
+  @override
+  String get trustedDevicesSection => 'Vienmēr atļautās ierīces';
+
+  @override
+  String get removeTrust => 'Noņemt';
 }

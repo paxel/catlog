@@ -812,4 +812,55 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Ekkert nýtt í skránni — þú átt allt nú þegar';
+
+  @override
+  String get syncChooserInPerson => 'Í eigin persónu';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Þið eruð í sama herbergi — skannaðu kóða, tilbúið á sekúndum';
+
+  @override
+  String get syncChooserRemote => 'Fjarlægt';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Í gegnum sameiginlega möppu eins og Dropbox eða USB-lykil';
+
+  @override
+  String get syncChooserMessenger => 'Skilaboðaforrit';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Sendu allt sem eina skrá með hvaða skilaboðaforriti sem er';
+
+  @override
+  String get connectToWifiFirst =>
+      'Tengstu fyrst Wi-Fi — þá finna tækin hvort annað';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) vill samstilla';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Skrárnar ykkar skiptast í báðar áttir.';
+
+  @override
+  String get allowOnce => 'Leyfa';
+
+  @override
+  String get allowAlways => 'Alltaf leyfa þessu tæki';
+
+  @override
+  String get declineAction => 'Hafna';
+
+  @override
+  String get syncDeclined => 'Hitt tækið hafnaði samstillingunni';
+
+  @override
+  String get trustedDevicesSection => 'Alltaf leyfð tæki';
+
+  @override
+  String get removeTrust => 'Fjarlægja';
 }

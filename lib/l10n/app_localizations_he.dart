@@ -805,4 +805,52 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'אין חדש בקובץ — הכול כבר אצלך';
+
+  @override
+  String get syncChooserInPerson => 'פנים אל פנים';
+
+  @override
+  String get syncChooserInPersonSub => 'אתם באותו חדר — סרקו קוד, מוכן בשניות';
+
+  @override
+  String get syncChooserRemote => 'מרחוק';
+
+  @override
+  String get syncChooserRemoteSub => 'דרך תיקייה משותפת כמו Dropbox או USB';
+
+  @override
+  String get syncChooserMessenger => 'מסנג\'ר';
+
+  @override
+  String get syncChooserMessengerSub => 'שלחו הכול כקובץ אחד בכל מסנג\'ר';
+
+  @override
+  String get connectToWifiFirst =>
+      'התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) רוצה לסנכרן';
+  }
+
+  @override
+  String get trustBothWaysNote => 'הקטלוגים יוחלפו בשני הכיוונים.';
+
+  @override
+  String get allowOnce => 'אפשר';
+
+  @override
+  String get allowAlways => 'אפשר תמיד למכשיר זה';
+
+  @override
+  String get declineAction => 'דחה';
+
+  @override
+  String get syncDeclined => 'המכשיר השני דחה את הסנכרון';
+
+  @override
+  String get trustedDevicesSection => 'מכשירים מאושרים תמיד';
+
+  @override
+  String get removeTrust => 'הסר';
 }

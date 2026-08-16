@@ -808,4 +808,54 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'لا جديد في هذا الملف — لديك كل شيء بالفعل';
+
+  @override
+  String get syncChooserInPerson => 'وجهًا لوجه';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'أنتما في نفس الغرفة — امسح الرمز وينتهي الأمر في ثوانٍ';
+
+  @override
+  String get syncChooserRemote => 'عن بُعد';
+
+  @override
+  String get syncChooserRemoteSub => 'عبر مجلد مشترك مثل Dropbox أو ذاكرة USB';
+
+  @override
+  String get syncChooserMessenger => 'المراسلة';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة';
+
+  @override
+  String get connectToWifiFirst =>
+      'اتصل بشبكة Wi-Fi أولًا — حينها تجد الأجهزة بعضها';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) يريد المزامنة';
+  }
+
+  @override
+  String get trustBothWaysNote => 'سيتم تبادل السجلات في الاتجاهين.';
+
+  @override
+  String get allowOnce => 'السماح';
+
+  @override
+  String get allowAlways => 'السماح دائمًا لهذا الجهاز';
+
+  @override
+  String get declineAction => 'رفض';
+
+  @override
+  String get syncDeclined => 'رفض الجهاز الآخر المزامنة';
+
+  @override
+  String get trustedDevicesSection => 'الأجهزة المسموح بها دائمًا';
+
+  @override
+  String get removeTrust => 'إزالة';
 }

@@ -811,4 +811,56 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Nada nuevo en ese archivo — ya lo tienes todo';
+
+  @override
+  String get syncChooserInPerson => 'En persona';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Estáis en la misma habitación — escanea un código y listo';
+
+  @override
+  String get syncChooserRemote => 'A distancia';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'A través de una carpeta compartida como Dropbox o un USB';
+
+  @override
+  String get syncChooserMessenger => 'Mensajería';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Envía todo como un archivo por cualquier mensajería';
+
+  @override
+  String get connectToWifiFirst =>
+      'Conéctate primero a una Wi-Fi — así los dispositivos se encuentran';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) quiere sincronizar';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Los catálogos se intercambiarán en ambas direcciones.';
+
+  @override
+  String get allowOnce => 'Permitir';
+
+  @override
+  String get allowAlways => 'Permitir siempre este dispositivo';
+
+  @override
+  String get declineAction => 'Rechazar';
+
+  @override
+  String get syncDeclined => 'El otro dispositivo rechazó la sincronización';
+
+  @override
+  String get trustedDevicesSection => 'Dispositivos siempre permitidos';
+
+  @override
+  String get removeTrust => 'Quitar';
 }

@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} is ontsnapt",
   "toastMoved": "{cat} is verhuisd naar {home}",
   "notACatlogFile": "Dat is geen cat(a)log-bestand",
-  "nothingNewInBundle": "Niets nieuws in dat bestand — je hebt alles al"
+  "nothingNewInBundle": "Niets nieuws in dat bestand — je hebt alles al",
+  "syncChooserInPerson": "In dezelfde kamer",
+  "syncChooserInPersonSub": "Jullie zijn in dezelfde ruimte — scan een code, klaar in seconden",
+  "syncChooserRemote": "Op afstand",
+  "syncChooserRemoteSub": "Via een gedeelde map zoals Dropbox of een USB-stick",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Stuur alles als één bestand via elke messenger",
+  "connectToWifiFirst": "Maak eerst verbinding met wifi — dan vinden de apparaten elkaar",
+  "trustQuestion": "{author} ({device}) wil synchroniseren",
+  "trustBothWaysNote": "Jullie catalogi worden in beide richtingen uitgewisseld.",
+  "allowOnce": "Toestaan",
+  "allowAlways": "Dit apparaat altijd toestaan",
+  "declineAction": "Weigeren",
+  "syncDeclined": "Het andere apparaat weigerde de synchronisatie",
+  "trustedDevicesSection": "Altijd toegestane apparaten",
+  "removeTrust": "Verwijderen"
 }

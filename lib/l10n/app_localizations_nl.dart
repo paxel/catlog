@@ -812,4 +812,56 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Niets nieuws in dat bestand — je hebt alles al';
+
+  @override
+  String get syncChooserInPerson => 'In dezelfde kamer';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Jullie zijn in dezelfde ruimte — scan een code, klaar in seconden';
+
+  @override
+  String get syncChooserRemote => 'Op afstand';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Via een gedeelde map zoals Dropbox of een USB-stick';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Stuur alles als één bestand via elke messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Maak eerst verbinding met wifi — dan vinden de apparaten elkaar';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) wil synchroniseren';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Jullie catalogi worden in beide richtingen uitgewisseld.';
+
+  @override
+  String get allowOnce => 'Toestaan';
+
+  @override
+  String get allowAlways => 'Dit apparaat altijd toestaan';
+
+  @override
+  String get declineAction => 'Weigeren';
+
+  @override
+  String get syncDeclined => 'Het andere apparaat weigerde de synchronisatie';
+
+  @override
+  String get trustedDevicesSection => 'Altijd toegestane apparaten';
+
+  @override
+  String get removeTrust => 'Verwijderen';
 }

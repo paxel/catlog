@@ -810,4 +810,55 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Dosyada yeni bir şey yok — zaten her şeye sahipsin';
+
+  @override
+  String get syncChooserInPerson => 'Yüz yüze';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Aynı odadasınız — kodu tarayın, saniyeler içinde biter';
+
+  @override
+  String get syncChooserRemote => 'Uzaktan';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Dropbox veya USB bellek gibi paylaşılan bir klasör üzerinden';
+
+  @override
+  String get syncChooserMessenger => 'Mesajlaşma';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Her şeyi tek dosya olarak herhangi bir uygulamayla gönderin';
+
+  @override
+  String get connectToWifiFirst =>
+      'Önce bir Wi-Fi\'ye bağlanın — cihazlar birbirini o zaman bulur';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) eşitlemek istiyor';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Kataloglarınız iki yönde de değiştirilecek.';
+
+  @override
+  String get allowOnce => 'İzin ver';
+
+  @override
+  String get allowAlways => 'Bu cihaza her zaman izin ver';
+
+  @override
+  String get declineAction => 'Reddet';
+
+  @override
+  String get syncDeclined => 'Diğer cihaz eşitlemeyi reddetti';
+
+  @override
+  String get trustedDevicesSection => 'Her zaman izinli cihazlar';
+
+  @override
+  String get removeTrust => 'Kaldır';
 }

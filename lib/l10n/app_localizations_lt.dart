@@ -810,4 +810,55 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Faile nieko naujo — viską jau turite';
+
+  @override
+  String get syncChooserInPerson => 'Gyvai';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Esate tame pačiame kambaryje — nuskenuok kodą, baigta per sekundes';
+
+  @override
+  String get syncChooserRemote => 'Nuotoliniu būdu';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Per bendrinamą aplanką, pvz., Dropbox ar USB atmintinę';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Siųsk viską kaip vieną failą bet kuria programėle';
+
+  @override
+  String get connectToWifiFirst =>
+      'Pirmiausia prisijunk prie Wi-Fi — tada įrenginiai susiras';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) nori sinchronizuoti';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Katalogai bus apsikeisti abiem kryptimis.';
+
+  @override
+  String get allowOnce => 'Leisti';
+
+  @override
+  String get allowAlways => 'Visada leisti šį įrenginį';
+
+  @override
+  String get declineAction => 'Atmesti';
+
+  @override
+  String get syncDeclined => 'Kitas įrenginys atmetė sinchronizavimą';
+
+  @override
+  String get trustedDevicesSection => 'Visada leidžiami įrenginiai';
+
+  @override
+  String get removeTrust => 'Pašalinti';
 }

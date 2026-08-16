@@ -810,4 +810,56 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Semmi új a fájlban — már mindened megvan';
+
+  @override
+  String get syncChooserInPerson => 'Személyesen';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Egy szobában vagytok — kód beolvasása, kész másodpercek alatt';
+
+  @override
+  String get syncChooserRemote => 'Távolról';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Megosztott mappán át, mint a Dropbox vagy egy pendrive';
+
+  @override
+  String get syncChooserMessenger => 'Üzenetküldő';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Küldj mindent egyetlen fájlként bármely üzenetküldővel';
+
+  @override
+  String get connectToWifiFirst =>
+      'Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) szinkronizálni szeretne';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'A katalógusok mindkét irányban kicserélődnek.';
+
+  @override
+  String get allowOnce => 'Engedélyez';
+
+  @override
+  String get allowAlways => 'Mindig engedélyezd ezt a készüléket';
+
+  @override
+  String get declineAction => 'Elutasít';
+
+  @override
+  String get syncDeclined => 'A másik készülék elutasította a szinkronizálást';
+
+  @override
+  String get trustedDevicesSection => 'Mindig engedélyezett készülékek';
+
+  @override
+  String get removeTrust => 'Eltávolítás';
 }

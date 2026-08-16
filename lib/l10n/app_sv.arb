@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} har rymt",
   "toastMoved": "{cat} flyttade till {home}",
   "notACatlogFile": "Det är inte en cat(a)log-fil",
-  "nothingNewInBundle": "Inget nytt i filen — du har redan allt"
+  "nothingNewInBundle": "Inget nytt i filen — du har redan allt",
+  "syncChooserInPerson": "Ansikte mot ansikte",
+  "syncChooserInPersonSub": "Ni är i samma rum — skanna en kod, klart på sekunder",
+  "syncChooserRemote": "På distans",
+  "syncChooserRemoteSub": "Via en delad mapp som Dropbox eller ett USB-minne",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Skicka allt som en fil genom valfri messenger",
+  "connectToWifiFirst": "Anslut till Wi-Fi först — då hittar enheterna varandra",
+  "trustQuestion": "{author} ({device}) vill synkronisera",
+  "trustBothWaysNote": "Era kataloger utbyts i båda riktningarna.",
+  "allowOnce": "Tillåt",
+  "allowAlways": "Tillåt alltid den här enheten",
+  "declineAction": "Avböj",
+  "syncDeclined": "Den andra enheten avböjde synkroniseringen",
+  "trustedDevicesSection": "Alltid tillåtna enheter",
+  "removeTrust": "Ta bort"
 }

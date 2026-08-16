@@ -217,6 +217,21 @@ class CatalogStore {
     ];
   }
 
+  /// All local settings under a prefix, as (suffix, value) —
+  /// e.g. the always-allowed sync devices under 'trust:'.
+  List<(String, String)> localSettingsByPrefix(String prefix) => [
+        for (final r in _db.select(
+            "SELECT key, value FROM local_settings WHERE key LIKE ?",
+            ['u:$prefix%']))
+          (
+            (r['key'] as String).substring('u:'.length + prefix.length),
+            r['value'] as String
+          )
+      ];
+
+  void removeLocalSetting(String key) =>
+      _db.execute('DELETE FROM local_settings WHERE key = ?', ['u:$key']);
+
   /// Canonical ids currently hidden on this device.
   List<String> hiddenIds() => [
         for (final r in _db.select(

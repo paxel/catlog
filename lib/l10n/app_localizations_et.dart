@@ -809,4 +809,55 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get nothingNewInBundle =>
       'Failis pole midagi uut — sul on kõik olemas';
+
+  @override
+  String get syncChooserInPerson => 'Kohapeal';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Olete samas ruumis — skanni kood, valmis sekunditega';
+
+  @override
+  String get syncChooserRemote => 'Eemalt';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Jagatud kausta kaudu nagu Dropbox või USB-pulk';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Saada kõik ühe failina mis tahes messengeriga';
+
+  @override
+  String get connectToWifiFirst =>
+      'Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) soovib sünkroonida';
+  }
+
+  @override
+  String get trustBothWaysNote => 'Kataloogid vahetatakse mõlemas suunas.';
+
+  @override
+  String get allowOnce => 'Luba';
+
+  @override
+  String get allowAlways => 'Luba see seade alati';
+
+  @override
+  String get declineAction => 'Keeldu';
+
+  @override
+  String get syncDeclined => 'Teine seade keeldus sünkroonimisest';
+
+  @override
+  String get trustedDevicesSection => 'Alati lubatud seadmed';
+
+  @override
+  String get removeTrust => 'Eemalda';
 }

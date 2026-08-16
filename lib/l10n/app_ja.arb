@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} が脱走しました",
   "toastMoved": "{cat} が {home} に引っ越しました",
   "notACatlogFile": "cat(a)log のファイルではありません",
-  "nothingNewInBundle": "新しい内容はありません — すべて既にあります"
+  "nothingNewInBundle": "新しい内容はありません — すべて既にあります",
+  "syncChooserInPerson": "対面",
+  "syncChooserInPersonSub": "同じ部屋にいるとき — コードをスキャンして数秒で完了",
+  "syncChooserRemote": "リモート",
+  "syncChooserRemoteSub": "Dropbox や USB メモリなどの共有フォルダ経由",
+  "syncChooserMessenger": "メッセンジャー",
+  "syncChooserMessengerSub": "すべてを1つのファイルとして任意のメッセンジャーで送信",
+  "connectToWifiFirst": "まず Wi-Fi に接続してください — 端末同士が見つかります",
+  "trustQuestion": "{author}（{device}）が同期を求めています",
+  "trustBothWaysNote": "カタログは双方向で交換されます。",
+  "allowOnce": "許可",
+  "allowAlways": "この端末を常に許可",
+  "declineAction": "拒否",
+  "syncDeclined": "相手の端末が同期を拒否しました",
+  "trustedDevicesSection": "常に許可された端末",
+  "removeTrust": "削除"
 }

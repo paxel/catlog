@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} ברח",
   "toastMoved": "{cat} עבר אל {home}",
   "notACatlogFile": "זה לא קובץ cat(a)log",
-  "nothingNewInBundle": "אין חדש בקובץ — הכול כבר אצלך"
+  "nothingNewInBundle": "אין חדש בקובץ — הכול כבר אצלך",
+  "syncChooserInPerson": "פנים אל פנים",
+  "syncChooserInPersonSub": "אתם באותו חדר — סרקו קוד, מוכן בשניות",
+  "syncChooserRemote": "מרחוק",
+  "syncChooserRemoteSub": "דרך תיקייה משותפת כמו Dropbox או USB",
+  "syncChooserMessenger": "מסנג'ר",
+  "syncChooserMessengerSub": "שלחו הכול כקובץ אחד בכל מסנג'ר",
+  "connectToWifiFirst": "התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה",
+  "trustQuestion": "{author} ({device}) רוצה לסנכרן",
+  "trustBothWaysNote": "הקטלוגים יוחלפו בשני הכיוונים.",
+  "allowOnce": "אפשר",
+  "allowAlways": "אפשר תמיד למכשיר זה",
+  "declineAction": "דחה",
+  "syncDeclined": "המכשיר השני דחה את הסנכרון",
+  "trustedDevicesSection": "מכשירים מאושרים תמיד",
+  "removeTrust": "הסר"
 }

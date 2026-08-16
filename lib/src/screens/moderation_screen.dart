@@ -104,6 +104,31 @@ class _ModerationScreenState extends State<ModerationScreen> {
                     onPressed: () => _hardDelete(row),
                   ),
           ),
+        if (store.localSettingsByPrefix('trust:').isNotEmpty) ...[
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(t.trustedDevicesSection,
+                style: Theme.of(context).textTheme.titleMedium),
+          ),
+          for (final (deviceId, value)
+              in store.localSettingsByPrefix('trust:'))
+            ListTile(
+              leading: Icon(value.startsWith('private')
+                  ? Icons.lock_open
+                  : Icons.devices_outlined),
+              title: Text(value.split('|').length > 2
+                  ? '${value.split('|')[1]} · ${value.split('|')[2]}'
+                  : deviceId),
+              trailing: TextButton(
+                onPressed: () {
+                  store.removeLocalSetting('trust:$deviceId');
+                  setState(() {});
+                },
+                child: Text(t.removeTrust),
+              ),
+            ),
+        ],
         if (bans.isNotEmpty) ...[
           const Divider(),
           Padding(

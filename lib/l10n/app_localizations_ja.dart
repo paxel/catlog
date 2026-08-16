@@ -798,4 +798,51 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => '新しい内容はありません — すべて既にあります';
+
+  @override
+  String get syncChooserInPerson => '対面';
+
+  @override
+  String get syncChooserInPersonSub => '同じ部屋にいるとき — コードをスキャンして数秒で完了';
+
+  @override
+  String get syncChooserRemote => 'リモート';
+
+  @override
+  String get syncChooserRemoteSub => 'Dropbox や USB メモリなどの共有フォルダ経由';
+
+  @override
+  String get syncChooserMessenger => 'メッセンジャー';
+
+  @override
+  String get syncChooserMessengerSub => 'すべてを1つのファイルとして任意のメッセンジャーで送信';
+
+  @override
+  String get connectToWifiFirst => 'まず Wi-Fi に接続してください — 端末同士が見つかります';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author（$device）が同期を求めています';
+  }
+
+  @override
+  String get trustBothWaysNote => 'カタログは双方向で交換されます。';
+
+  @override
+  String get allowOnce => '許可';
+
+  @override
+  String get allowAlways => 'この端末を常に許可';
+
+  @override
+  String get declineAction => '拒否';
+
+  @override
+  String get syncDeclined => '相手の端末が同期を拒否しました';
+
+  @override
+  String get trustedDevicesSection => '常に許可された端末';
+
+  @override
+  String get removeTrust => '削除';
 }

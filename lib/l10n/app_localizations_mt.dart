@@ -811,4 +811,56 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Xejn ġdid fil-fajl — għandek kollox diġà';
+
+  @override
+  String get syncChooserInPerson => 'Wiċċ imb wiċċ';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Qegħdin fl-istess kamra — skennja kodiċi, lest f\'sekondi';
+
+  @override
+  String get syncChooserRemote => 'Mill-bogħod';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Permezz ta\' folder kondiviż bħal Dropbox jew USB';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Ibgħat kollox bħala fajl wieħed bi kwalunkwe messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'L-ewwel aqbad ma\' Wi-Fi — imbagħad l-apparati jsibu lil xulxin';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) irid jissinkronizza';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.';
+
+  @override
+  String get allowOnce => 'Ħalli';
+
+  @override
+  String get allowAlways => 'Dejjem ħalli dan l-apparat';
+
+  @override
+  String get declineAction => 'Irrifjuta';
+
+  @override
+  String get syncDeclined => 'L-apparat l-ieħor irrifjuta s-sinkronizzazzjoni';
+
+  @override
+  String get trustedDevicesSection => 'Apparati dejjem permessi';
+
+  @override
+  String get removeTrust => 'Neħħi';
 }

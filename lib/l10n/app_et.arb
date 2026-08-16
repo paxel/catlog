@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} on põgenenud",
   "toastMoved": "{cat} kolis: {home}",
   "notACatlogFile": "See pole cat(a)logi fail",
-  "nothingNewInBundle": "Failis pole midagi uut — sul on kõik olemas"
+  "nothingNewInBundle": "Failis pole midagi uut — sul on kõik olemas",
+  "syncChooserInPerson": "Kohapeal",
+  "syncChooserInPersonSub": "Olete samas ruumis — skanni kood, valmis sekunditega",
+  "syncChooserRemote": "Eemalt",
+  "syncChooserRemoteSub": "Jagatud kausta kaudu nagu Dropbox või USB-pulk",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Saada kõik ühe failina mis tahes messengeriga",
+  "connectToWifiFirst": "Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise",
+  "trustQuestion": "{author} ({device}) soovib sünkroonida",
+  "trustBothWaysNote": "Kataloogid vahetatakse mõlemas suunas.",
+  "allowOnce": "Luba",
+  "allowAlways": "Luba see seade alati",
+  "declineAction": "Keeldu",
+  "syncDeclined": "Teine seade keeldus sünkroonimisest",
+  "trustedDevicesSection": "Alati lubatud seadmed",
+  "removeTrust": "Eemalda"
 }

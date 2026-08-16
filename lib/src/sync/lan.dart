@@ -30,13 +30,22 @@ const _pinHeader = 'x-catlog-pin';
 /// Hosts a sync session on the LAN: a small HTTP server the joiner
 /// drives. The PIN gates every request — it prevents accidents in a
 /// trusted group, not attackers (ADR-0002 threat model).
+/// The host's answer to "may this device sync, and with privates?".
+class JoinDecision {
+  final bool allow;
+  final bool includePrivate;
+  const JoinDecision(this.allow, this.includePrivate);
+}
+
 class LanSyncHost {
   final CatalogStore store;
   final String pin;
 
-  /// Whether this host's outbound entries include Private data — the
-  /// host's own choice; the joiner's outbound is governed by its own flag.
-  final bool includePrivate;
+  /// Asked once per incoming /sync with the joiner's author and device
+  /// name — the human trust gate. Null allows everyone, public-only
+  /// (used by tests).
+  final Future<JoinDecision> Function(String author, String device)?
+      onJoinRequest;
 
   /// Called after a joiner completed a session; receives what actually
   /// landed, so the host can show the import summary too.
@@ -44,8 +53,7 @@ class LanSyncHost {
 
   HttpServer? _server;
 
-  LanSyncHost(this.store, this.pin,
-      {this.includePrivate = false, this.onSession});
+  LanSyncHost(this.store, this.pin, {this.onJoinRequest, this.onSession});
 
   int get port => _server!.port;
 
@@ -76,6 +84,17 @@ class LanSyncHost {
       } else if (req.method == 'POST' && path == '/sync') {
         final body =
             jsonDecode(await utf8.decoder.bind(req).join()) as Map;
+        final decision = onJoinRequest == null
+            ? const JoinDecision(true, false)
+            : await onJoinRequest!(
+                body['author'] as String? ?? '?',
+                '${body['deviceName'] as String? ?? '?'}'
+                '|${body['deviceId'] as String? ?? ''}');
+        if (!decision.allow) {
+          req.response.statusCode = HttpStatus.forbidden;
+          req.response.write('declined');
+          return;
+        }
         final joinerVector = (body['vector'] as Map)
             .map((k, v) => MapEntry(k as String, v as int));
         final incoming = [
@@ -88,7 +107,7 @@ class LanSyncHost {
         req.response.write(jsonEncode({
           'entries': [
             for (final e in store.entriesSince(joinerVector,
-                includePrivate: includePrivate))
+                includePrivate: decision.includePrivate))
               e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),
@@ -141,7 +160,9 @@ Future<SyncResult> lanSync(
       }
       final res = await req.close();
       if (res.statusCode == HttpStatus.forbidden) {
-        throw const SyncException('Wrong PIN');
+        final body = await utf8.decoder.bind(res).join();
+        throw SyncException(
+            body.contains('declined') ? 'declined' : 'Wrong PIN');
       }
       if (res.statusCode != HttpStatus.ok) {
         throw SyncException('Peer answered ${res.statusCode}');
@@ -166,6 +187,9 @@ Future<SyncResult> lanSync(
     final response = await call('POST', '/sync', body: {
       'vector': myVector,
       'entries': [for (final e in toSend) e.toJson()],
+      'author': store.author ?? '?',
+      'deviceName': Platform.localHostname,
+      'deviceId': store.deviceId,
     }) as Map;
 
     final received = [

@@ -236,5 +236,20 @@
   "toastEscaped": "D'éalaigh {cat}",
   "toastMoved": "Bhog {cat} go {home}",
   "notACatlogFile": "Ní comhad cat(a)log é sin",
-  "nothingNewInBundle": "Níl aon rud nua sa chomhad — tá gach rud agat cheana"
+  "nothingNewInBundle": "Níl aon rud nua sa chomhad — tá gach rud agat cheana",
+  "syncChooserInPerson": "Go pearsanta",
+  "syncChooserInPersonSub": "Tá sibh sa seomra céanna — scan cód, déanta i soicindí",
+  "syncChooserRemote": "I gcéin",
+  "syncChooserRemoteSub": "Trí fhillteán roinnte cosúil le Dropbox nó méaróg USB",
+  "syncChooserMessenger": "Teachtaire",
+  "syncChooserMessengerSub": "Seol gach rud mar chomhad amháin trí theachtaire ar bith",
+  "connectToWifiFirst": "Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile",
+  "trustQuestion": "Ba mhaith le {author} ({device}) sioncronú",
+  "trustBothWaysNote": "Malartófar bhur gcatalóga sa dá threo.",
+  "allowOnce": "Ceadaigh",
+  "allowAlways": "Ceadaigh an gléas seo i gcónaí",
+  "declineAction": "Diúltaigh",
+  "syncDeclined": "Dhiúltaigh an gléas eile don sioncronú",
+  "trustedDevicesSection": "Gléasanna a cheadaítear i gcónaí",
+  "removeTrust": "Bain"
 }

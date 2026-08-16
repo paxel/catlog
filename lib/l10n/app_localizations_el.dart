@@ -810,4 +810,56 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get nothingNewInBundle => 'Τίποτα νέο στο αρχείο — τα έχεις ήδη όλα';
+
+  @override
+  String get syncChooserInPerson => 'Από κοντά';
+
+  @override
+  String get syncChooserInPersonSub =>
+      'Είστε στον ίδιο χώρο — σκανάρετε έναν κωδικό, έτοιμο σε δευτερόλεπτα';
+
+  @override
+  String get syncChooserRemote => 'Απομακρυσμένα';
+
+  @override
+  String get syncChooserRemoteSub =>
+      'Μέσω κοινόχρηστου φακέλου όπως Dropbox ή USB';
+
+  @override
+  String get syncChooserMessenger => 'Messenger';
+
+  @override
+  String get syncChooserMessengerSub =>
+      'Στείλτε τα όλα ως ένα αρχείο με οποιονδήποτε messenger';
+
+  @override
+  String get connectToWifiFirst =>
+      'Συνδεθείτε πρώτα σε Wi-Fi — τότε οι συσκευές βρίσκονται';
+
+  @override
+  String trustQuestion(Object author, Object device) {
+    return '$author ($device) θέλει συγχρονισμό';
+  }
+
+  @override
+  String get trustBothWaysNote =>
+      'Οι κατάλογοι θα ανταλλαγούν και προς τις δύο κατευθύνσεις.';
+
+  @override
+  String get allowOnce => 'Επιτρέπω';
+
+  @override
+  String get allowAlways => 'Πάντα να επιτρέπεται αυτή η συσκευή';
+
+  @override
+  String get declineAction => 'Απόρριψη';
+
+  @override
+  String get syncDeclined => 'Η άλλη συσκευή απέρριψε τον συγχρονισμό';
+
+  @override
+  String get trustedDevicesSection => 'Πάντα επιτρεπόμενες συσκευές';
+
+  @override
+  String get removeTrust => 'Αφαίρεση';
 }

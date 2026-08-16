@@ -236,5 +236,20 @@
   "toastEscaped": "{cat} ist entlaufen",
   "toastMoved": "{cat} ist umgezogen zu {home}",
   "notACatlogFile": "Das ist keine cat(a)log-Datei",
-  "nothingNewInBundle": "Nichts Neues in der Datei — du hast schon alles"
+  "nothingNewInBundle": "Nichts Neues in der Datei — du hast schon alles",
+  "syncChooserInPerson": "Persönlich",
+  "syncChooserInPersonSub": "Ihr seid im selben Raum — Code scannen, in Sekunden fertig",
+  "syncChooserRemote": "Entfernt",
+  "syncChooserRemoteSub": "Über einen geteilten Ordner wie Dropbox oder einen USB-Stick",
+  "syncChooserMessenger": "Messenger",
+  "syncChooserMessengerSub": "Alles als eine Datei über einen beliebigen Messenger senden",
+  "connectToWifiFirst": "Verbinde dich zuerst mit einem WLAN — dann finden sich die Geräte",
+  "trustQuestion": "{author} ({device}) möchte synchronisieren",
+  "trustBothWaysNote": "Eure Kataloge werden in beide Richtungen ausgetauscht.",
+  "allowOnce": "Erlauben",
+  "allowAlways": "Dieses Gerät immer erlauben",
+  "declineAction": "Ablehnen",
+  "syncDeclined": "Das andere Gerät hat die Synchronisierung abgelehnt",
+  "trustedDevicesSection": "Immer erlaubte Geräte",
+  "removeTrust": "Entfernen"
 }
