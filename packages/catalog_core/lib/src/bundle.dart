@@ -21,17 +21,20 @@ class BundleResult {
   String toString() => '$entriesIn entries + $blobsIn photos in';
 }
 
-/// Writes the bundle zip and returns its path.
-String writeBundle(CatalogStore store, String path) {
+/// Writes the bundle zip and returns its path. Private entities and
+/// their photos stay out unless [includePrivate] is set.
+String writeBundle(CatalogStore store, String path,
+    {bool includePrivate = false}) {
   final archive = Archive();
   final jsonl = store
-      .entriesSince(const {})
+      .entriesSince(const {}, includePrivate: includePrivate)
       .map((e) => jsonEncode(e.toJson()))
       .join('\n');
   final jsonlBytes = utf8.encode(jsonl);
   archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
   final seen = <String>{};
   for (final cat in store.cats()) {
+    if (!includePrivate && store.isPrivate(cat.id)) continue;
     for (final hash in store.images(cat.id)) {
       if (!seen.add(hash)) continue;
       final bytes = store.imageBytes(hash);

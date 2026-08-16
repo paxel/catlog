@@ -27,7 +27,8 @@ class FolderSyncResult {
 /// read-only through the same idempotent engine as LAN sync. Each file
 /// carries its writer's full knowledge, so any pair of devices sharing
 /// the folder converges without meeting.
-FolderSyncResult folderSync(CatalogStore store, String folderPath) {
+FolderSyncResult folderSync(CatalogStore store, String folderPath,
+    {bool includePrivate = false}) {
   final root = Directory('$folderPath/catlog-sync');
   final blobDir = Directory('${root.path}/blobs');
   root.createSync(recursive: true);
@@ -61,7 +62,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath) {
   // ---- write own file: full knowledge, atomically via temp + rename
   final own = File('${root.path}/${store.deviceId}.jsonl');
   final previousLines = own.existsSync() ? own.readAsLinesSync().length : 0;
-  final all = store.entriesSince(const {});
+  final all = store.entriesSince(const {}, includePrivate: includePrivate);
   final tmp = File('${own.path}.tmp');
   tmp.writeAsStringSync(
       all.map((e) => jsonEncode(e.toJson())).join('\n'));
@@ -80,6 +81,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath) {
   }
   final live = <String>{};
   for (final cat in store.cats()) {
+    if (!includePrivate && store.isPrivate(cat.id)) continue;
     live.addAll(store.images(cat.id));
   }
   for (final hash in live) {
@@ -109,7 +111,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath) {
 /// True when this store has seen a deletion marker for [hash] and no
 /// live reference remains — only then is removing the shared bytes safe.
 bool _knownDeleted(CatalogStore store, String hash) {
-  final history = store.entriesSince(const {});
+  final history = store.entriesSince(const {}, includePrivate: true);
   var sawMarker = false;
   for (final e in history) {
     if (e.field == Keys.image(hash) && e.value == 'deleted') {

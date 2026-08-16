@@ -338,29 +338,40 @@ class CatalogStore {
   /// effective date first.
   List<Entry> timeline(String entity) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
-    return _db
+    return _dedupe(_db
         .select(
           'SELECT * FROM entries '
           'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
           entities,
         )
-        .map(_entry)
-        .toList();
+        .map(_entry));
+  }
+
+  /// Collapses re-asserted copies (identical fact, different device/dseq)
+  /// so unmark-private and merge re-assertions never double diary rows.
+  List<Entry> _dedupe(Iterable<Entry> rows) {
+    final seen = <String>{};
+    return [
+      for (final e in rows)
+        if (seen.add(
+            '${e.entity} ${e.field} ${e.value} '
+            '${_iso(e.date)} ${e.author} ${_iso(e.recorded)}'))
+          e
+    ];
   }
 
   /// Every entry of one field of an entity, newest effective date first.
   List<Entry> fieldHistory(String entity, String field) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     final keys = _keysFor(field);
-    return _db
+    return _dedupe(_db
         .select(
           'SELECT * FROM entries '
           'WHERE entity IN (${_placeholders(entities.length)}) '
           'AND field IN (${_placeholders(keys.length)}) $_latest',
           [...entities, ...keys],
         )
-        .map(_entry)
-        .toList();
+        .map(_entry));
   }
 
   bool isDeleted(String entity) => current(entity, Keys.deleted) == 'true';
@@ -686,14 +697,106 @@ class CatalogStore {
       };
 
   /// Every entry a peer with [vector] is missing, ordered (device, dseq).
-  List<Entry> entriesSince(Map<String, int> vector) {
+  ///
+  /// Defaults to public-only: Private entities, their entries, entries of
+  /// Private field definitions, and all $private markers are stripped —
+  /// forgetting the flag can never leak. Own-device consumers (backup,
+  /// history scans) pass [includePrivate] true.
+  List<Entry> entriesSince(Map<String, int> vector,
+      {bool includePrivate = false}) {
+    final private = includePrivate ? const <String>{} : _privateEntities();
     final all = _db
         .select('SELECT * FROM entries ORDER BY device, dseq')
         .map(_entry);
     return [
       for (final e in all)
-        if (e.dseq > (vector[e.device] ?? 0)) e
+        if (e.dseq > (vector[e.device] ?? 0) &&
+            (includePrivate || !_isPrivateEntry(e, private)))
+          e
     ];
+  }
+
+  /// Canonical ids of every entity whose latest $private marker is `yes`.
+  Set<String> _privateEntities() {
+    final rows = _db.select(
+      'SELECT * FROM entries WHERE field = ? $_latest',
+      [Keys.private],
+    );
+    final latest = <String, String?>{};
+    for (final r in rows) {
+      latest.putIfAbsent(r['entity'] as String, () => r['value'] as String?);
+    }
+    return {
+      for (final e in latest.entries)
+        if (e.value == 'yes') resolveEntity(e.key)
+    };
+  }
+
+  bool _isPrivateEntry(Entry e, Set<String> private) {
+    if (e.field == Keys.private) return true;
+    if (private.isEmpty) return false;
+    if (private.contains(resolveEntity(e.entity))) return true;
+    if (e.field.startsWith('f:')) {
+      return private
+          .contains(resolveEntity('fielddef:${e.field.substring(2)}'));
+    }
+    return false;
+  }
+
+  /// True when the entity carries a Private marker.
+  bool isPrivate(String id) =>
+      current(resolveEntity(id), Keys.private) == 'yes';
+
+  /// Marks or unmarks an entity (Cat, Clowder, field definition) Private.
+  ///
+  /// Unmarking re-asserts the entity's whole history under fresh
+  /// (device, dseq) rows: peers' version vectors advanced past the
+  /// withheld originals while the entity was private, so only new rows
+  /// reach them (same trick as merge re-assertion).
+  void setPrivate(String id, bool private, {DateTime? date}) {
+    final canonical = resolveEntity(id);
+    append(canonical, Keys.private, private ? 'yes' : 'no', date: date);
+    if (!private) _reassertGroup(canonical);
+  }
+
+  void _reassertGroup(String canonical) {
+    final entities = _group(canonical);
+    var where =
+        'entity IN (${_placeholders(entities.length)})';
+    final args = <Object?>[...entities];
+    if (canonical.startsWith('fielddef:')) {
+      final keys = _keysFor('f:${canonical.substring('fielddef:'.length)}');
+      where += ' OR field IN (${_placeholders(keys.length)})';
+      args.addAll(keys);
+    }
+    final rows = _db
+        .select(
+            'SELECT * FROM entries WHERE ($where) AND field != ? '
+            'ORDER BY device, dseq',
+            [...args, Keys.private])
+        .map(_entry)
+        .toList();
+    final device = deviceId;
+    var next = _db.select(
+      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
+      [device],
+    ).first['n'] as int;
+    for (final e in rows) {
+      _db.execute(
+        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [
+          device,
+          next++,
+          e.entity,
+          e.field,
+          e.value,
+          _iso(e.date),
+          e.author,
+          _iso(e.recorded),
+        ],
+      );
+    }
   }
 
   /// Imports foreign entries idempotently — (device, dseq) already seen

@@ -29,6 +29,11 @@ abstract final class Keys {
   /// Per-image presence marker: `$image:<hash>`, value `added`/`deleted`.
   static const imagePrefix = r'$image:';
 
+  /// `yes` while the entity is Private: it and all its entries stay off
+  /// the wire unless a sync explicitly includes private data. The marker
+  /// itself travels only in such syncs.
+  static const private = r'$private';
+
   /// Field-definition properties.
   static const fieldType = 'type';
   static const fieldScope = 'scope';
