@@ -5,7 +5,75 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [0.2.0] - 2026-08-16
 
-In development.
+### Added
+
+- **Private cats, clowders, and fields**: marked private, they never leave
+  your device unless you explicitly include private data in a sync — every
+  sync asks, the default is always public-only.
+- **A trust question before syncing**: the hosting device shows who wants
+  to connect and asks Allow / Always allow / Decline before anything flows.
+  Always-allowed devices are listed under About → Authors & bans.
+- **Hide what you don't care about**: cats, clowders, and fields can be
+  hidden on your device only — the data keeps syncing for everyone else,
+  and "Show hidden" brings anything back.
+- **Choose what's on a card**: tick photo, home, and fields before sharing;
+  the position is never on a card unless you put it there.
+- **Family**: mother and father can be set on every cat; the cat page shows
+  littermates, siblings, and kittens, all tappable.
+- **Clowder status** (foster home, forever home, clinic, shelter, barn —
+  or your own words) shown as colored chips.
+- **Adoption party**: moving a cat into a forever home throws confetti and
+  a cheer (About page switch turns it off).
+- **What arrived after a sync**: a summary lists adopted, deceased,
+  escaped, and new animals plus conflicts to resolve — and little toasts
+  announce adoptions and births (deaths, escapes, and moves can be enabled
+  too).
+- **Search on the map**: find cats, clowders, and people from your catalog;
+  the position picker gained a place/address search and opens at your
+  location instead of a country map.
+- **Cat name proposals**: new cats arrive with a suggested name from a big
+  list of classics, ancient names, and jokes — the dice rerolls; no name is
+  proposed twice.
+- **Remove a person's data for good**: About → Authors & bans deletes
+  everything an author wrote from this device and can ban them and their
+  photos from ever coming back — for the day someone poisons the catalog.
+- **Received .catsync files open directly** in the import screen from
+  Signal, WhatsApp, mail, or a file manager (Android, iPhone/iPad, Linux;
+  Windows via Scoop).
+- **Sync without any Wi-Fi** between two Android phones: one hosts a
+  temporary hotspot, the other scans one QR code — connects, syncs, and
+  disconnects by itself.
+- **A real desktop layout**: wide windows (and iPad landscape) show the
+  clowder list and details side by side; windows remember their size;
+  Ctrl+F searches, Esc goes back, right-click opens context menus.
+- **A short intro** on first start (skippable, replayable from About) and
+  small **what's-new spotlights** that point out new features once.
+- **Clowder cards show who lives there**: cat faces, a count, and the
+  status chip.
+
+### Changed
+
+- The sync page became three clear choices: **In person** (same room, QR),
+  **Remote** (shared folder), **Messenger** (one file). Options that can't
+  work right now say why instead of failing later.
+- Positions show as "on the map" with a jump button — raw coordinates are
+  gone from the app.
+- The map and the position picker no longer rotate — north stays up.
+- Deceased cats appear dimmed with a small dated note instead of vanishing
+  among the living.
+- Map pins show faces and homes: photoless cats get a drawn cat silhouette
+  and clowders show their own photo; the house icon is only a placeholder.
+- Fields of different types can now be merged — the surviving field's type
+  wins, old values stay readable.
+- Error messages name the problem: "Couldn't reach the other device — are
+  both on the same Wi-Fi?" instead of raw error codes.
+
+### Fixed
+
+- Clowder photos now travel through shared-folder and file syncs (they
+  previously only arrived over direct Wi-Fi sync).
+- The map's long-press sheet shows each stray's photo instead of a row of
+  identical paw icons.
 
 ---
 
