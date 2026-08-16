@@ -64,7 +64,7 @@ void main() {
     await tester.tap(find.text('Home'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Cats'), findsOneWidget);
+    expect(find.textContaining('Cats'), findsOneWidget);
     expect(find.text('Miezi'), findsOneWidget);
 
     // Open the cat and rename it; the change is authored and historic.

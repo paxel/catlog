@@ -217,7 +217,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text(context.t.cats,
+            child: Text('${context.t.cats} (${cats.length})',
                 style: Theme.of(context).textTheme.titleMedium),
           ),
           GridView.builder(

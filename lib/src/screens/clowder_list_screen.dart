@@ -11,6 +11,8 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../language_dialog.dart';
 import '../name_date_dialog.dart';
+import '../widgets/cat_avatar.dart';
+import '../widgets/status_chip.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
@@ -237,23 +239,29 @@ class _ClowderCard extends StatelessWidget {
             ),
           Padding(
             padding: const EdgeInsets.all(10),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                clowder.name,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: cover != null ? Colors.white : scheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                  shadows: cover != null
-                      ? const [
-                          Shadow(blurRadius: 6, color: Colors.black87),
-                          Shadow(blurRadius: 2, color: Colors.black),
-                        ]
-                      : null,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  clowder.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: cover != null ? Colors.white : scheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                    shadows: cover != null
+                        ? const [
+                            Shadow(blurRadius: 6, color: Colors.black87),
+                            Shadow(blurRadius: 2, color: Colors.black),
+                          ]
+                        : null,
+                  ),
                 ),
-              ),
+                StatusChip(store: store, clowderId: clowder.id),
+                const Spacer(),
+                _FaceRow(store: store, clowderId: clowder.id,
+                    onLight: cover != null),
+              ],
             ),
           ),
         ]),
@@ -262,3 +270,43 @@ class _ClowderCard extends StatelessWidget {
   }
 }
 
+
+
+/// Up to five little faces plus a count — who lives here, at a glance.
+class _FaceRow extends StatelessWidget {
+  final CatalogStore store;
+  final String clowderId;
+  final bool onLight;
+
+  const _FaceRow(
+      {required this.store, required this.clowderId, required this.onLight});
+
+  @override
+  Widget build(BuildContext context) {
+    final cats = store.visibleCats(clowderId: clowderId);
+    if (cats.isEmpty) return const SizedBox.shrink();
+    const shown = 5;
+    return Row(children: [
+      for (final cat in cats.take(shown))
+        Padding(
+          padding: const EdgeInsets.only(right: 2),
+          child: CatAvatar(store: store, catId: cat.id, size: 26),
+        ),
+      Padding(
+          padding: const EdgeInsets.only(left: 2),
+          child: Text(
+            cats.length > shown
+                ? '+${cats.length - shown}'
+                : '${cats.length}',
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+              color: onLight ? Colors.white : null,
+              fontWeight: FontWeight.bold,
+              shadows: onLight
+                  ? const [Shadow(blurRadius: 4, color: Colors.black87)]
+                  : null,
+            ),
+          ),
+        ),
+    ]);
+  }
+}
