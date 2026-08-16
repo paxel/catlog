@@ -595,4 +595,17 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。';
+
+  @override
+  String get markPrivate => 'プライベートに設定';
+
+  @override
+  String get unmarkPrivate => 'プライベート設定を解除';
+
+  @override
+  String get includePrivate => 'プライベートデータを含める';
+
+  @override
+  String get includePrivateExplainer =>
+      'プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。';
 }

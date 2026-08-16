@@ -606,4 +606,17 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Se continua a fallire su iPhone/iPad: Impostazioni → Privacy e sicurezza → Rete locale → consenti cat(a)log, poi riprova.';
+
+  @override
+  String get markPrivate => 'Segna come privato';
+
+  @override
+  String get unmarkPrivate => 'Rimuovi contrassegno privato';
+
+  @override
+  String get includePrivate => 'Includi dati privati';
+
+  @override
+  String get includePrivateExplainer =>
+      'Anche gatti, clowder e campi privati vengono condivisi — attivalo solo quando sincronizzi i tuoi dispositivi.';
 }

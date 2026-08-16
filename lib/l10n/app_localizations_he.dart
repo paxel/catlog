@@ -602,4 +602,17 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'אם זה ממשיך להיכשל ב-iPhone/iPad: הגדרות → פרטיות ואבטחה → רשת מקומית → אפשרו ל-cat(a)log ונסו שוב.';
+
+  @override
+  String get markPrivate => 'סמן כפרטי';
+
+  @override
+  String get unmarkPrivate => 'הסר סימון פרטי';
+
+  @override
+  String get includePrivate => 'כלול נתונים פרטיים';
+
+  @override
+  String get includePrivateExplainer =>
+      'חתולים, קבוצות ושדות פרטיים משותפים גם הם — הפעל רק בעת סנכרון המכשירים שלך.';
 }

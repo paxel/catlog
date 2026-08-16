@@ -606,4 +606,17 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer.';
+
+  @override
+  String get markPrivate => 'Marquer comme privé';
+
+  @override
+  String get unmarkPrivate => 'Retirer le marquage privé';
+
+  @override
+  String get includePrivate => 'Inclure les données privées';
+
+  @override
+  String get includePrivateExplainer =>
+      'Les chats, clowders et champs privés sont aussi partagés — n\'activez ceci que pour synchroniser vos propres appareils.';
 }

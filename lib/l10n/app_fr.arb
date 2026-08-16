@@ -174,5 +174,9 @@
   "useMyLocation": "Utiliser ma position",
   "language": "Langue",
   "systemDefault": "Langue du système",
-  "iosLocalNetworkHint": "Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer."
+  "iosLocalNetworkHint": "Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer.",
+  "markPrivate": "Marquer comme privé",
+  "unmarkPrivate": "Retirer le marquage privé",
+  "includePrivate": "Inclure les données privées",
+  "includePrivateExplainer": "Les chats, clowders et champs privés sont aussi partagés — n'activez ceci que pour synchroniser vos propres appareils."
 }

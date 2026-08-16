@@ -593,4 +593,16 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       '如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。';
+
+  @override
+  String get markPrivate => '标记为私密';
+
+  @override
+  String get unmarkPrivate => '取消私密标记';
+
+  @override
+  String get includePrivate => '包含私密数据';
+
+  @override
+  String get includePrivateExplainer => '私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。';
 }

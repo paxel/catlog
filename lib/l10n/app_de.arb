@@ -174,5 +174,9 @@
   "useMyLocation": "Meinen Standort verwenden",
   "language": "Sprache",
   "systemDefault": "Systemstandard",
-  "iosLocalNetworkHint": "Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen."
+  "iosLocalNetworkHint": "Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen.",
+  "markPrivate": "Als privat markieren",
+  "unmarkPrivate": "Privat-Markierung entfernen",
+  "includePrivate": "Private Daten einbeziehen",
+  "includePrivateExplainer": "Private Katzen, Clowder und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst."
 }

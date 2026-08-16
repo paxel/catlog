@@ -604,4 +604,17 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'إذا استمر الفشل على iPhone/iPad: الإعدادات → الخصوصية والأمن → الشبكة المحلية → اسمح لـ cat(a)log ثم أعد المحاولة.';
+
+  @override
+  String get markPrivate => 'وضع علامة خاص';
+
+  @override
+  String get unmarkPrivate => 'إزالة علامة الخصوصية';
+
+  @override
+  String get includePrivate => 'تضمين البيانات الخاصة';
+
+  @override
+  String get includePrivateExplainer =>
+      'تتم مشاركة القطط والمجموعات والحقول الخاصة أيضًا — فعّل هذا فقط عند المزامنة بين أجهزتك الخاصة.';
 }

@@ -606,4 +606,17 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.';
+
+  @override
+  String get markPrivate => 'Marchează ca privat';
+
+  @override
+  String get unmarkPrivate => 'Elimină marcajul privat';
+
+  @override
+  String get includePrivate => 'Include datele private';
+
+  @override
+  String get includePrivateExplainer =>
+      'Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive.';
 }

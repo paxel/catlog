@@ -604,4 +604,17 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'اگر در iPhone/iPad همچنان ناموفق است: تنظیمات → حریم خصوصی و امنیت → شبکه محلی → به cat(a)log اجازه دهید و دوباره امتحان کنید.';
+
+  @override
+  String get markPrivate => 'علامت‌گذاری به‌عنوان خصوصی';
+
+  @override
+  String get unmarkPrivate => 'حذف علامت خصوصی';
+
+  @override
+  String get includePrivate => 'شامل کردن داده‌های خصوصی';
+
+  @override
+  String get includePrivateExplainer =>
+      'گربه‌ها، گروه‌ها و فیلدهای خصوصی هم به اشتراک گذاشته می‌شوند — فقط هنگام همگام‌سازی دستگاه‌های خودتان روشن کنید.';
 }

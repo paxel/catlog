@@ -1219,6 +1219,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.'**
   String get iosLocalNetworkHint;
+
+  /// No description provided for @markPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as private'**
+  String get markPrivate;
+
+  /// No description provided for @unmarkPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove private mark'**
+  String get unmarkPrivate;
+
+  /// No description provided for @includePrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Include private data'**
+  String get includePrivate;
+
+  /// No description provided for @includePrivateExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.'**
+  String get includePrivateExplainer;
 }
 
 class _AppLocalizationsDelegate

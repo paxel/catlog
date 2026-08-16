@@ -604,4 +604,17 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'iPhone/iPad\'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log\'a izin ver, sonra tekrar dene.';
+
+  @override
+  String get markPrivate => 'Özel olarak işaretle';
+
+  @override
+  String get unmarkPrivate => 'Özel işaretini kaldır';
+
+  @override
+  String get includePrivate => 'Özel verileri dahil et';
+
+  @override
+  String get includePrivateExplainer =>
+      'Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın.';
 }

@@ -604,4 +604,17 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Якщо на iPhone/iPad далі не вдається: Параметри → Конфіденційність і безпека → Локальна мережа → дозвольте cat(a)log і спробуйте ще раз.';
+
+  @override
+  String get markPrivate => 'Позначити як особисте';
+
+  @override
+  String get unmarkPrivate => 'Зняти особисту позначку';
+
+  @override
+  String get includePrivate => 'Включити особисті дані';
+
+  @override
+  String get includePrivateExplainer =>
+      'Особисті коти, групи та поля теж передаються — вмикайте лише під час синхронізації власних пристроїв.';
 }

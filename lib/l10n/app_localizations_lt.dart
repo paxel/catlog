@@ -605,4 +605,17 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Jei iPhone/iPad vis nepavyksta: Nustatymai → Privatumas ir sauga → Vietinis tinklas → leisti cat(a)log ir bandyti dar kartą.';
+
+  @override
+  String get markPrivate => 'Pažymėti kaip privatų';
+
+  @override
+  String get unmarkPrivate => 'Pašalinti privatumo žymą';
+
+  @override
+  String get includePrivate => 'Įtraukti privačius duomenis';
+
+  @override
+  String get includePrivateExplainer =>
+      'Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius.';
 }

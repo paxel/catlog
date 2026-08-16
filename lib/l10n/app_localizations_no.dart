@@ -604,4 +604,17 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.';
+
+  @override
+  String get markPrivate => 'Merk som privat';
+
+  @override
+  String get unmarkPrivate => 'Fjern privat merking';
+
+  @override
+  String get includePrivate => 'Ta med private data';
+
+  @override
+  String get includePrivateExplainer =>
+      'Private katter, grupper og felt deles også — slå bare på når du synkroniserer dine egne enheter.';
 }

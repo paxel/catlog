@@ -174,5 +174,9 @@
   "useMyLocation": "Kasuta minu asukohta",
   "language": "Keel",
   "systemDefault": "Süsteemi vaikimisi",
-  "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti."
+  "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.",
+  "markPrivate": "Märgi privaatseks",
+  "unmarkPrivate": "Eemalda privaatsuse märge",
+  "includePrivate": "Kaasa privaatsed andmed",
+  "includePrivateExplainer": "Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel."
 }

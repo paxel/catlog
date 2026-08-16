@@ -398,5 +398,9 @@
   "useMyLocation": "Use my location",
   "language": "Language",
   "systemDefault": "System default",
-  "iosLocalNetworkHint": "If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again."
+  "iosLocalNetworkHint": "If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.",
+  "markPrivate": "Mark as private",
+  "unmarkPrivate": "Remove private mark",
+  "includePrivate": "Include private data",
+  "includePrivateExplainer": "Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices."
 }

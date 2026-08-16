@@ -606,4 +606,17 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.';
+
+  @override
+  String get markPrivate => 'Shëno si private';
+
+  @override
+  String get unmarkPrivate => 'Hiq shënimin privat';
+
+  @override
+  String get includePrivate => 'Përfshi të dhënat private';
+
+  @override
+  String get includePrivateExplainer =>
+      'Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua.';
 }

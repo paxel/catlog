@@ -607,4 +607,17 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.';
+
+  @override
+  String get markPrivate => 'Merkja sem einka';
+
+  @override
+  String get unmarkPrivate => 'Fjarlægja einkamerki';
+
+  @override
+  String get includePrivate => 'Taka einkagögn með';
+
+  @override
+  String get includePrivateExplainer =>
+      'Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki.';
 }

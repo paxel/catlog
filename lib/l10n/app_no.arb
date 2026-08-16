@@ -174,5 +174,9 @@
   "useMyLocation": "Bruk min posisjon",
   "language": "Språk",
   "systemDefault": "Systemstandard",
-  "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen."
+  "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.",
+  "markPrivate": "Merk som privat",
+  "unmarkPrivate": "Fjern privat merking",
+  "includePrivate": "Ta med private data",
+  "includePrivateExplainer": "Private katter, grupper og felt deles også — slå bare på når du synkroniserer dine egne enheter."
 }

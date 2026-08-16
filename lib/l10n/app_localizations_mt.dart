@@ -607,4 +607,17 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Jekk jibqa\' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa\' pprova.';
+
+  @override
+  String get markPrivate => 'Immarka bħala privat';
+
+  @override
+  String get unmarkPrivate => 'Neħħi l-marka privata';
+
+  @override
+  String get includePrivate => 'Inkludi data privata';
+
+  @override
+  String get includePrivateExplainer =>
+      'Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess.';
 }

@@ -174,5 +174,9 @@
   "useMyLocation": "Përdor vendndodhjen time",
   "language": "Gjuha",
   "systemDefault": "Parazgjedhja e sistemit",
-  "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish."
+  "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.",
+  "markPrivate": "Shëno si private",
+  "unmarkPrivate": "Hiq shënimin privat",
+  "includePrivate": "Përfshi të dhënat private",
+  "includePrivateExplainer": "Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua."
 }

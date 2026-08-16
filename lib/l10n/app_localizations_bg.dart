@@ -605,4 +605,17 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ако на iPhone/iPad продължава да не успява: Настройки → Поверителност и сигурност → Локална мрежа → разреши cat(a)log и опитай пак.';
+
+  @override
+  String get markPrivate => 'Отбележи като лично';
+
+  @override
+  String get unmarkPrivate => 'Премахни личната отметка';
+
+  @override
+  String get includePrivate => 'Включи личните данни';
+
+  @override
+  String get includePrivateExplainer =>
+      'Личните котки, групи и полета също се споделят — включвай само при синхронизиране на собствените си устройства.';
 }

@@ -174,5 +174,9 @@
   "useMyLocation": "Folosește locația mea",
   "language": "Limbă",
   "systemDefault": "Implicit sistem",
-  "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou."
+  "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.",
+  "markPrivate": "Marchează ca privat",
+  "unmarkPrivate": "Elimină marcajul privat",
+  "includePrivate": "Include datele private",
+  "includePrivateExplainer": "Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive."
 }

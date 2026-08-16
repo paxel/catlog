@@ -605,4 +605,17 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.';
+
+  @override
+  String get markPrivate => 'Megjelölés privátként';
+
+  @override
+  String get unmarkPrivate => 'Privát jelölés eltávolítása';
+
+  @override
+  String get includePrivate => 'Privát adatok belefoglalása';
+
+  @override
+  String get includePrivateExplainer =>
+      'A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be.';
 }

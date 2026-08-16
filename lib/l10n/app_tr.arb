@@ -174,5 +174,9 @@
   "useMyLocation": "Konumumu kullan",
   "language": "Dil",
   "systemDefault": "Sistem varsayılanı",
-  "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene."
+  "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene.",
+  "markPrivate": "Özel olarak işaretle",
+  "unmarkPrivate": "Özel işaretini kaldır",
+  "includePrivate": "Özel verileri dahil et",
+  "includePrivateExplainer": "Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın."
 }

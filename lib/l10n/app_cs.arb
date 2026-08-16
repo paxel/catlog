@@ -174,5 +174,9 @@
   "useMyLocation": "Použít moji polohu",
   "language": "Jazyk",
   "systemDefault": "Výchozí systému",
-  "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu."
+  "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.",
+  "markPrivate": "Označit jako soukromé",
+  "unmarkPrivate": "Odebrat soukromé označení",
+  "includePrivate": "Zahrnout soukromá data",
+  "includePrivateExplainer": "Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení."
 }

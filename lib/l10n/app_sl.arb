@@ -174,5 +174,9 @@
   "useMyLocation": "Uporabi mojo lokacijo",
   "language": "Jezik",
   "systemDefault": "Sistemsko privzeto",
-  "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova."
+  "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.",
+  "markPrivate": "Označi kot zasebno",
+  "unmarkPrivate": "Odstrani zasebno oznako",
+  "includePrivate": "Vključi zasebne podatke",
+  "includePrivateExplainer": "Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav."
 }

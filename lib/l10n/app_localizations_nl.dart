@@ -606,4 +606,17 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.';
+
+  @override
+  String get markPrivate => 'Markeren als privé';
+
+  @override
+  String get unmarkPrivate => 'Privémarkering verwijderen';
+
+  @override
+  String get includePrivate => 'Privégegevens meenemen';
+
+  @override
+  String get includePrivateExplainer =>
+      'Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten.';
 }

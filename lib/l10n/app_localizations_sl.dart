@@ -605,4 +605,17 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.';
+
+  @override
+  String get markPrivate => 'Označi kot zasebno';
+
+  @override
+  String get unmarkPrivate => 'Odstrani zasebno oznako';
+
+  @override
+  String get includePrivate => 'Vključi zasebne podatke';
+
+  @override
+  String get includePrivateExplainer =>
+      'Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav.';
 }

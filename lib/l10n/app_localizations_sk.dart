@@ -604,4 +604,17 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova.';
+
+  @override
+  String get markPrivate => 'Označiť ako súkromné';
+
+  @override
+  String get unmarkPrivate => 'Odstrániť súkromné označenie';
+
+  @override
+  String get includePrivate => 'Zahrnúť súkromné údaje';
+
+  @override
+  String get includePrivateExplainer =>
+      'Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení.';
 }

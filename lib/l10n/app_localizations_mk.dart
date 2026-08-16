@@ -606,4 +606,17 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ако и понатаму не успева на iPhone/iPad: Поставки → Приватност и безбедност → Локална мрежа → дозволи cat(a)log и обиди се пак.';
+
+  @override
+  String get markPrivate => 'Означи како приватно';
+
+  @override
+  String get unmarkPrivate => 'Отстрани приватна ознака';
+
+  @override
+  String get includePrivate => 'Вклучи приватни податоци';
+
+  @override
+  String get includePrivateExplainer =>
+      'Приватните мачки, групи и полиња исто така се споделуваат — вклучете само при синхронизација на сопствените уреди.';
 }

@@ -606,4 +606,17 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Αν συνεχίζει να αποτυγχάνει σε iPhone/iPad: Ρυθμίσεις → Απόρρητο και ασφάλεια → Τοπικό δίκτυο → επιτρέψτε το cat(a)log και δοκιμάστε ξανά.';
+
+  @override
+  String get markPrivate => 'Σήμανση ως ιδιωτικό';
+
+  @override
+  String get unmarkPrivate => 'Αφαίρεση ιδιωτικής σήμανσης';
+
+  @override
+  String get includePrivate => 'Συμπερίληψη ιδιωτικών δεδομένων';
+
+  @override
+  String get includePrivateExplainer =>
+      'Ιδιωτικές γάτες, ομάδες και πεδία κοινοποιούνται επίσης — ενεργοποιήστε το μόνο όταν συγχρονίζετε δικές σας συσκευές.';
 }

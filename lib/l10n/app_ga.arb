@@ -174,5 +174,9 @@
   "useMyLocation": "Úsáid mo shuíomh",
   "language": "Teanga",
   "systemDefault": "Réamhshocrú an chórais",
-  "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as."
+  "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.",
+  "markPrivate": "Marcáil mar phríobháideach",
+  "unmarkPrivate": "Bain an marc príobháideach",
+  "includePrivate": "Cuir sonraí príobháideacha san áireamh",
+  "includePrivateExplainer": "Roinntear cait, grúpaí agus réimsí príobháideacha freisin — cas air seo ach amháin agus do ghléasanna féin á sioncronú agat."
 }

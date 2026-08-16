@@ -174,5 +174,9 @@
   "useMyLocation": "現在地を使う",
   "language": "言語",
   "systemDefault": "システムの既定",
-  "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。"
+  "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。",
+  "markPrivate": "プライベートに設定",
+  "unmarkPrivate": "プライベート設定を解除",
+  "includePrivate": "プライベートデータを含める",
+  "includePrivateExplainer": "プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。"
 }

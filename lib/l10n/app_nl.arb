@@ -174,5 +174,9 @@
   "useMyLocation": "Mijn locatie gebruiken",
   "language": "Taal",
   "systemDefault": "Systeemstandaard",
-  "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen."
+  "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.",
+  "markPrivate": "Markeren als privé",
+  "unmarkPrivate": "Privémarkering verwijderen",
+  "includePrivate": "Privégegevens meenemen",
+  "includePrivateExplainer": "Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten."
 }

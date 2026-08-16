@@ -605,4 +605,17 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Если на iPhone/iPad всё ещё не получается: Настройки → Конфиденциальность и безопасность → Локальная сеть → разрешите cat(a)log и попробуйте снова.';
+
+  @override
+  String get markPrivate => 'Пометить как личное';
+
+  @override
+  String get unmarkPrivate => 'Убрать пометку личного';
+
+  @override
+  String get includePrivate => 'Включить личные данные';
+
+  @override
+  String get includePrivateExplainer =>
+      'Личные кошки, группы и поля тоже передаются — включайте только при синхронизации собственных устройств.';
 }

@@ -606,4 +606,17 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.';
+
+  @override
+  String get markPrivate => 'Marcáil mar phríobháideach';
+
+  @override
+  String get unmarkPrivate => 'Bain an marc príobháideach';
+
+  @override
+  String get includePrivate => 'Cuir sonraí príobháideacha san áireamh';
+
+  @override
+  String get includePrivateExplainer =>
+      'Roinntear cait, grúpaí agus réimsí príobháideacha freisin — cas air seo ach amháin agus do ghléasanna féin á sioncronú agat.';
 }

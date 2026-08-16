@@ -605,4 +605,17 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.';
+
+  @override
+  String get markPrivate => 'Merkitse yksityiseksi';
+
+  @override
+  String get unmarkPrivate => 'Poista yksityisyysmerkintä';
+
+  @override
+  String get includePrivate => 'Sisällytä yksityiset tiedot';
+
+  @override
+  String get includePrivateExplainer =>
+      'Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa.';
 }

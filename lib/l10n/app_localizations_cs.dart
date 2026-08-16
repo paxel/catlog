@@ -604,4 +604,17 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.';
+
+  @override
+  String get markPrivate => 'Označit jako soukromé';
+
+  @override
+  String get unmarkPrivate => 'Odebrat soukromé označení';
+
+  @override
+  String get includePrivate => 'Zahrnout soukromá data';
+
+  @override
+  String get includePrivateExplainer =>
+      'Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení.';
 }

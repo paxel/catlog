@@ -174,5 +174,9 @@
   "useMyLocation": "Izmantot manu atrašanās vietu",
   "language": "Valoda",
   "systemDefault": "Sistēmas noklusējums",
-  "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz."
+  "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.",
+  "markPrivate": "Atzīmēt kā privātu",
+  "unmarkPrivate": "Noņemt privātuma atzīmi",
+  "includePrivate": "Iekļaut privātos datus",
+  "includePrivateExplainer": "Privātie kaķi, grupas un lauki arī tiek kopīgoti — ieslēdziet tikai sinhronizējot savas ierīces."
 }

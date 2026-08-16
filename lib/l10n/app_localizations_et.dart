@@ -604,4 +604,17 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Kui iPhone\'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.';
+
+  @override
+  String get markPrivate => 'Märgi privaatseks';
+
+  @override
+  String get unmarkPrivate => 'Eemalda privaatsuse märge';
+
+  @override
+  String get includePrivate => 'Kaasa privaatsed andmed';
+
+  @override
+  String get includePrivateExplainer =>
+      'Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel.';
 }
