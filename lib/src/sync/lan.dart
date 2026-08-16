@@ -30,12 +30,17 @@ class LanSyncHost {
   final CatalogStore store;
   final String pin;
 
+  /// Whether this host's outbound entries include Private data — the
+  /// host's own choice; the joiner's outbound is governed by its own flag.
+  final bool includePrivate;
+
   /// Called after a joiner completed a session (data may have changed).
   final VoidCallback? onSession;
 
   HttpServer? _server;
 
-  LanSyncHost(this.store, this.pin, {this.onSession});
+  LanSyncHost(this.store, this.pin,
+      {this.includePrivate = false, this.onSession});
 
   int get port => _server!.port;
 
@@ -76,7 +81,9 @@ class LanSyncHost {
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode({
           'entries': [
-            for (final e in store.entriesSince(joinerVector)) e.toJson()
+            for (final e in store.entriesSince(joinerVector,
+                includePrivate: includePrivate))
+              e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),
         }));
@@ -111,7 +118,8 @@ class LanSyncHost {
 /// Joins a hosted session and runs a full two-way sync: entries both
 /// directions, then photos both directions.
 Future<SyncResult> lanSync(
-    CatalogStore store, String host, int port, String pin) async {
+    CatalogStore store, String host, int port, String pin,
+    {bool includePrivate = false}) async {
   // Generous timeout: on iOS the first-ever local connection blocks on
   // the Local Network permission prompt until the user answers it.
   final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
@@ -146,7 +154,8 @@ Future<SyncResult> lanSync(
     final hostVector = (await call('GET', '/vector') as Map)
         .map((k, v) => MapEntry(k as String, v as int));
     final myVector = store.versionVector();
-    final toSend = store.entriesSince(hostVector);
+    final toSend =
+        store.entriesSince(hostVector, includePrivate: includePrivate);
 
     final response = await call('POST', '/sync', body: {
       'vector': myVector,

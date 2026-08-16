@@ -34,6 +34,10 @@ class _SyncScreenState extends State<SyncScreen> {
   bool _joining = false;
   String? _lastResult;
 
+  /// Per-session choice, deliberately NOT persisted: sharing private
+  /// data must be re-decided every time (spec: default public only).
+  bool _includePrivate = false;
+
   @override
   void initState() {
     super.initState();
@@ -73,7 +77,8 @@ class _SyncScreenState extends State<SyncScreen> {
       return;
     }
     final pin = (Random.secure().nextInt(900000) + 100000).toString();
-    final host = LanSyncHost(widget.store, pin, onSession: () {
+    final host = LanSyncHost(widget.store, pin,
+        includePrivate: _includePrivate, onSession: () {
       if (mounted) setState(() => _sessions++);
     });
     final address = await host.start();
@@ -95,8 +100,9 @@ class _SyncScreenState extends State<SyncScreen> {
       _lastResult = null;
     });
     try {
-      final result =
-          await lanSync(widget.store, info.host, info.port, info.pin);
+      final result = await lanSync(
+          widget.store, info.host, info.port, info.pin,
+          includePrivate: _includePrivate);
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
@@ -125,7 +131,9 @@ class _SyncScreenState extends State<SyncScreen> {
     try {
       final dir = await getTemporaryDirectory();
       final stamp = DateTime.now().toIso8601String().substring(0, 10);
-      final path = writeBundle(widget.store, '${dir.path}/catlog-$stamp.catsync');
+      final path = writeBundle(
+          widget.store, '${dir.path}/catlog-$stamp.catsync',
+          includePrivate: _includePrivate);
       await Share.shareXFiles([XFile(path, mimeType: 'application/zip')]);
     } catch (e) {
       setState(() => _lastResult = t.syncFailed('$e'));
@@ -155,6 +163,20 @@ class _SyncScreenState extends State<SyncScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          SwitchListTile(
+            value: _includePrivate,
+            onChanged: (v) async {
+              // A running host keeps its old flag — restart it.
+              if (_host != null) await _toggleHost();
+              setState(() => _includePrivate = v);
+            },
+            secondary: Icon(
+                _includePrivate ? Icons.lock_open : Icons.lock_outline),
+            title: Text(t.includePrivate),
+            subtitle: Text(t.includePrivateExplainer),
+            contentPadding: EdgeInsets.zero,
+          ),
+          const Divider(height: 24),
           Text(t.host, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
           Text(t.hostExplainer),
@@ -313,7 +335,8 @@ class _SyncScreenState extends State<SyncScreen> {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
-      final result = folderSync(widget.store, folder);
+      final result =
+          folderSync(widget.store, folder, includePrivate: _includePrivate);
       setState(() => _lastResult = t.folderSynced('$result'));
     } catch (e) {
       setState(() => _lastResult = t.folderSyncFailed('$e'));

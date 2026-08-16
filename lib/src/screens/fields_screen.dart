@@ -85,7 +85,9 @@ class _FieldsScreenState extends State<FieldsScreen> {
         children: [
           for (final def in defs)
             ListTile(
-              leading: const Icon(Icons.label_outline),
+              leading: Icon(widget.store.isPrivate(def.id)
+                  ? Icons.lock
+                  : Icons.label_outline),
               title: Text(fieldDefName(context.t, def)),
               subtitle: Text([
                 def.type.name,
@@ -96,10 +98,19 @@ class _FieldsScreenState extends State<FieldsScreen> {
                 onSelected: (v) {
                   if (v == 'rename') _renameField(def);
                   if (v == 'merge') _mergeField(def);
+                  if (v == 'private') {
+                    setState(() => widget.store.setPrivate(
+                        def.id, !widget.store.isPrivate(def.id)));
+                  }
                 },
                 itemBuilder: (context) => [
                   PopupMenuItem(
                       value: 'rename', child: Text(context.t.rename)),
+                  PopupMenuItem(
+                      value: 'private',
+                      child: Text(widget.store.isPrivate(def.id)
+                          ? context.t.unmarkPrivate
+                          : context.t.markPrivate)),
                   PopupMenuItem(
                       value: 'merge', child: Text(context.t.mergeInto)),
                 ],

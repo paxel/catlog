@@ -117,12 +117,23 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               builder: (_) => TimelineScreen(store: store, entityId: id),
             )),
           ),
+          if (store.isPrivate(id))
+            Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteClowder();
               if (v == 'merge') _mergeClowder();
+              if (v == 'private') {
+                setState(() =>
+                    store.setPrivate(id, !store.isPrivate(id)));
+              }
             },
             itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 'private',
+                  child: Text(store.isPrivate(id)
+                      ? context.t.unmarkPrivate
+                      : context.t.markPrivate)),
               PopupMenuItem(
                   value: 'merge', child: Text(context.t.mergeInto)),
               PopupMenuItem(

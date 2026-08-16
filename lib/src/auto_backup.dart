@@ -16,7 +16,9 @@ Future<void> autoBackup(CatalogStore store) async {
     if (store.localSetting('lastBackupVector') == vector) return;
 
     final tmp = await getTemporaryDirectory();
-    final path = writeBundle(store, '${tmp.path}/catlog-backup.catsync');
+    // Own-device safety net: the backup always carries Private data too.
+    final path = writeBundle(store, '${tmp.path}/catlog-backup.catsync',
+        includePrivate: true);
 
     if (Platform.isAndroid) {
       // Tiny platform channel instead of a plugin: MediaStore insert

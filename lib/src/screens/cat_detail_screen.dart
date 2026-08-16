@@ -247,15 +247,26 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,
               onPressed: _openTimeline),
+          if (store.isPrivate(id))
+            Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
+              if (v == 'private') {
+                setState(() =>
+                    store.setPrivate(id, !store.isPrivate(id)));
+              }
             },
             itemBuilder: (context) => [
               PopupMenuItem(
                   value: 'seen', child: Text(context.t.seenHereNow)),
+              PopupMenuItem(
+                  value: 'private',
+                  child: Text(store.isPrivate(id)
+                      ? context.t.unmarkPrivate
+                      : context.t.markPrivate)),
               PopupMenuItem(
                   value: 'merge', child: Text(context.t.mergeInto)),
               PopupMenuItem(
