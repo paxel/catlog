@@ -216,5 +216,11 @@
   "summaryEscaped": "Utečené",
   "summaryNew": "Nové",
   "summaryConflicts": "Konflikty k vyřešení",
-  "summaryOther": "…a {n} dalších změn"
+  "summaryOther": "…a {n} dalších změn",
+  "starterMother": "Matka",
+  "starterFather": "Otec",
+  "familySection": "Rodina",
+  "littermatesLabel": "Z jednoho vrhu",
+  "siblingsLabel": "Sourozenci",
+  "kittensLabel": "Koťata"
 }

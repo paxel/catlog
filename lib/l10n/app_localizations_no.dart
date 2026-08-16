@@ -738,4 +738,22 @@ class AppLocalizationsNo extends AppLocalizations {
   String summaryOther(Object n) {
     return '…og $n andre endringer';
   }
+
+  @override
+  String get starterMother => 'Mor';
+
+  @override
+  String get starterFather => 'Far';
+
+  @override
+  String get familySection => 'Familie';
+
+  @override
+  String get littermatesLabel => 'Kullsøsken';
+
+  @override
+  String get siblingsLabel => 'Søsken';
+
+  @override
+  String get kittensLabel => 'Kattunger';
 }

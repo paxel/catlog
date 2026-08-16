@@ -739,4 +739,22 @@ class AppLocalizationsBg extends AppLocalizations {
   String summaryOther(Object n) {
     return '…и още $n промени';
   }
+
+  @override
+  String get starterMother => 'Майка';
+
+  @override
+  String get starterFather => 'Баща';
+
+  @override
+  String get familySection => 'Семейство';
+
+  @override
+  String get littermatesLabel => 'От едно котило';
+
+  @override
+  String get siblingsLabel => 'Братя и сестри';
+
+  @override
+  String get kittensLabel => 'Котенца';
 }

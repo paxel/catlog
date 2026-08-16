@@ -740,4 +740,22 @@ class AppLocalizationsHu extends AppLocalizations {
   String summaryOther(Object n) {
     return '…és még $n változás';
   }
+
+  @override
+  String get starterMother => 'Anya';
+
+  @override
+  String get starterFather => 'Apa';
+
+  @override
+  String get familySection => 'Család';
+
+  @override
+  String get littermatesLabel => 'Alomtestvérek';
+
+  @override
+  String get siblingsLabel => 'Testvérek';
+
+  @override
+  String get kittensLabel => 'Kiscicák';
 }

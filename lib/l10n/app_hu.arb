@@ -216,5 +216,11 @@
   "summaryEscaped": "Megszökött",
   "summaryNew": "Új",
   "summaryConflicts": "Feloldandó ütközések",
-  "summaryOther": "…és még {n} változás"
+  "summaryOther": "…és még {n} változás",
+  "starterMother": "Anya",
+  "starterFather": "Apa",
+  "familySection": "Család",
+  "littermatesLabel": "Alomtestvérek",
+  "siblingsLabel": "Testvérek",
+  "kittensLabel": "Kiscicák"
 }

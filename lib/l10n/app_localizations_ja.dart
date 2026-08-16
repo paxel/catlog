@@ -728,4 +728,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String summaryOther(Object n) {
     return '…他 $n 件の変更';
   }
+
+  @override
+  String get starterMother => '母';
+
+  @override
+  String get starterFather => '父';
+
+  @override
+  String get familySection => '家族';
+
+  @override
+  String get littermatesLabel => '同腹の兄弟';
+
+  @override
+  String get siblingsLabel => '兄弟姉妹';
+
+  @override
+  String get kittensLabel => '子猫';
 }

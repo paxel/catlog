@@ -455,5 +455,11 @@
     "placeholders": {
       "n": {}
     }
-  }
+  },
+  "starterMother": "Mother",
+  "starterFather": "Father",
+  "familySection": "Family",
+  "littermatesLabel": "Littermates",
+  "siblingsLabel": "Siblings",
+  "kittensLabel": "Kittens"
 }

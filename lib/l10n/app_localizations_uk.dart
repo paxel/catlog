@@ -738,4 +738,22 @@ class AppLocalizationsUk extends AppLocalizations {
   String summaryOther(Object n) {
     return '…і ще $n змін';
   }
+
+  @override
+  String get starterMother => 'Мати';
+
+  @override
+  String get starterFather => 'Батько';
+
+  @override
+  String get familySection => 'Сім\'я';
+
+  @override
+  String get littermatesLabel => 'З одного приплоду';
+
+  @override
+  String get siblingsLabel => 'Брати й сестри';
+
+  @override
+  String get kittensLabel => 'Кошенята';
 }

@@ -1135,6 +1135,56 @@ class CatalogStore {
     _blobs.put(hash, bytes);
   }
 
+  // ---------------------------------------------------------------- family
+
+  /// Family relations, all derived from the Mother reference plus birth
+  /// date (CONTEXT.md): littermates share mother AND birth date,
+  /// siblings share only the mother, kittens name this cat as mother.
+  /// Father is display/navigation only.
+  ({
+    String? mother,
+    String? father,
+    List<String> littermates,
+    List<String> siblings,
+    List<String> kittens
+  }) family(String catId) {
+    final id = resolveEntity(catId);
+    String? ref(String entity, String field) {
+      final v = current(entity, field);
+      return v == null ? null : resolveEntity(v);
+    }
+
+    final mother = ref(id, 'f:mother');
+    final father = ref(id, 'f:father');
+    final birth = current(id, 'f:birthdate');
+    final littermates = <String>[];
+    final siblings = <String>[];
+    final kittens = <String>[];
+    for (final c in cats()) {
+      final cid = resolveEntity(c.id);
+      if (cid == id) continue;
+      final m = ref(cid, 'f:mother');
+      if (m == id) {
+        kittens.add(cid);
+        continue;
+      }
+      if (mother != null && m == mother) {
+        if (birth != null && current(cid, 'f:birthdate') == birth) {
+          littermates.add(cid);
+        } else {
+          siblings.add(cid);
+        }
+      }
+    }
+    return (
+      mother: mother,
+      father: father,
+      littermates: littermates,
+      siblings: siblings,
+      kittens: kittens
+    );
+  }
+
   // --------------------------------------------------------------- deletes
 
   /// True while any entity still shows [hash] as an added image.

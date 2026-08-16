@@ -738,4 +738,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String summaryOther(Object n) {
     return '…och $n andra ändringar';
   }
+
+  @override
+  String get starterMother => 'Mamma';
+
+  @override
+  String get starterFather => 'Pappa';
+
+  @override
+  String get familySection => 'Familj';
+
+  @override
+  String get littermatesLabel => 'Kullsyskon';
+
+  @override
+  String get siblingsLabel => 'Syskon';
+
+  @override
+  String get kittensLabel => 'Kattungar';
 }

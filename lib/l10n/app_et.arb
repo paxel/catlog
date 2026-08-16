@@ -216,5 +216,11 @@
   "summaryEscaped": "Põgenenud",
   "summaryNew": "Uued",
   "summaryConflicts": "Lahendamist vajavad konfliktid",
-  "summaryOther": "…ja veel {n} muudatust"
+  "summaryOther": "…ja veel {n} muudatust",
+  "starterMother": "Ema",
+  "starterFather": "Isa",
+  "familySection": "Perekond",
+  "littermatesLabel": "Pesakonnakaaslased",
+  "siblingsLabel": "Õed-vennad",
+  "kittensLabel": "Kassipojad"
 }

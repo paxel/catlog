@@ -216,5 +216,11 @@
   "summaryEscaped": "Rymda",
   "summaryNew": "Nya",
   "summaryConflicts": "Konflikter att lösa",
-  "summaryOther": "…och {n} andra ändringar"
+  "summaryOther": "…och {n} andra ändringar",
+  "starterMother": "Mamma",
+  "starterFather": "Pappa",
+  "familySection": "Familj",
+  "littermatesLabel": "Kullsyskon",
+  "siblingsLabel": "Syskon",
+  "kittensLabel": "Kattungar"
 }

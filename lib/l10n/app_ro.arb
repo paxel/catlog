@@ -216,5 +216,11 @@
   "summaryEscaped": "Evadate",
   "summaryNew": "Noi",
   "summaryConflicts": "Conflicte de rezolvat",
-  "summaryOther": "…și încă {n} modificări"
+  "summaryOther": "…și încă {n} modificări",
+  "starterMother": "Mamă",
+  "starterFather": "Tată",
+  "familySection": "Familie",
+  "littermatesLabel": "Din aceeași serie",
+  "siblingsLabel": "Frați",
+  "kittensLabel": "Pisoi"
 }

@@ -206,7 +206,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                   return;
                 }
                 final edit = await editFieldValue(
-                    context, def, store.current(id, def.key));
+                    context, def, store.current(id, def.key),
+                    store: store, excludeId: id);
                 if (edit == null) return;
                 store.append(id, def.key, edit.value, date: edit.date);
                 setState(() {});

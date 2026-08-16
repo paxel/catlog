@@ -725,4 +725,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String summaryOther(Object n) {
     return '…及其他 $n 项变更';
   }
+
+  @override
+  String get starterMother => '母亲';
+
+  @override
+  String get starterFather => '父亲';
+
+  @override
+  String get familySection => '家庭';
+
+  @override
+  String get littermatesLabel => '同窝伙伴';
+
+  @override
+  String get siblingsLabel => '兄弟姐妹';
+
+  @override
+  String get kittensLabel => '小猫';
 }

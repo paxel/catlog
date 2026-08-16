@@ -741,4 +741,22 @@ class AppLocalizationsIs extends AppLocalizations {
   String summaryOther(Object n) {
     return '…og $n aðrar breytingar';
   }
+
+  @override
+  String get starterMother => 'Móðir';
+
+  @override
+  String get starterFather => 'Faðir';
+
+  @override
+  String get familySection => 'Fjölskylda';
+
+  @override
+  String get littermatesLabel => 'Úr sama goti';
+
+  @override
+  String get siblingsLabel => 'Systkini';
+
+  @override
+  String get kittensLabel => 'Kettlingar';
 }

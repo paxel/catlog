@@ -18,10 +18,12 @@ class FieldEdit {
 /// Every editor carries an "as of" date so entries can be backdated
 /// ("spayed on 3 May", entered today).
 Future<FieldEdit?> editFieldValue(
-    BuildContext context, FieldDef def, String? current) {
+    BuildContext context, FieldDef def, String? current,
+    {CatalogStore? store, String? excludeId}) {
   return showDialog<FieldEdit>(
     context: context,
-    builder: (context) => _FieldEditDialog(def: def, current: current),
+    builder: (context) => _FieldEditDialog(
+        def: def, current: current, store: store, excludeId: excludeId),
   );
 }
 
@@ -29,7 +31,14 @@ class _FieldEditDialog extends StatefulWidget {
   final FieldDef def;
   final String? current;
 
-  const _FieldEditDialog({required this.def, required this.current});
+  /// Needed for cat-reference fields (picker of existing cats).
+  final CatalogStore? store;
+
+  /// The entity being edited — a cat never references itself.
+  final String? excludeId;
+
+  const _FieldEditDialog(
+      {required this.def, required this.current, this.store, this.excludeId});
 
   @override
   State<_FieldEditDialog> createState() => _FieldEditDialogState();
@@ -140,6 +149,26 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           autofocus: true,
           decoration: InputDecoration(labelText: context.t.value),
         );
+      case FieldType.cat:
+        final store = widget.store;
+        if (store == null) return const SizedBox.shrink();
+        final cats = [
+          for (final c in store.cats())
+            if (store.resolveEntity(c.id) !=
+                store.resolveEntity(widget.excludeId ?? ''))
+              c
+        ];
+        return ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 320),
+          child: RadioGroup<String>(
+            groupValue: _choice,
+            onChanged: (v) => setState(() => _choice = v),
+            child: ListView(shrinkWrap: true, children: [
+              for (final c in cats)
+                RadioListTile<String>(title: Text(c.name), value: c.id),
+            ]),
+          ),
+        );
     }
   }
 
@@ -147,6 +176,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
     switch (def.type) {
       case FieldType.yesNo:
       case FieldType.date:
+      case FieldType.cat:
         return _choice;
       case FieldType.choice:
         final other = _text.text.trim();

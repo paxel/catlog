@@ -216,5 +216,11 @@
   "summaryEscaped": "ברחו",
   "summaryNew": "חדשים",
   "summaryConflicts": "קונפליקטים לפתרון",
-  "summaryOther": "…ועוד {n} שינויים"
+  "summaryOther": "…ועוד {n} שינויים",
+  "starterMother": "אם",
+  "starterFather": "אב",
+  "familySection": "משפחה",
+  "littermatesLabel": "מאותה המלטה",
+  "siblingsLabel": "אחים",
+  "kittensLabel": "גורים"
 }

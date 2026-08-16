@@ -740,4 +740,22 @@ class AppLocalizationsEl extends AppLocalizations {
   String summaryOther(Object n) {
     return '…και $n άλλες αλλαγές';
   }
+
+  @override
+  String get starterMother => 'Μητέρα';
+
+  @override
+  String get starterFather => 'Πατέρας';
+
+  @override
+  String get familySection => 'Οικογένεια';
+
+  @override
+  String get littermatesLabel => 'Από την ίδια γέννα';
+
+  @override
+  String get siblingsLabel => 'Αδέλφια';
+
+  @override
+  String get kittensLabel => 'Γατάκια';
 }

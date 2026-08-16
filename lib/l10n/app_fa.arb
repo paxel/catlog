@@ -216,5 +216,11 @@
   "summaryEscaped": "فراری",
   "summaryNew": "جدید",
   "summaryConflicts": "تعارض‌های حل‌نشده",
-  "summaryOther": "…و {n} تغییر دیگر"
+  "summaryOther": "…و {n} تغییر دیگر",
+  "starterMother": "مادر",
+  "starterFather": "پدر",
+  "familySection": "خانواده",
+  "littermatesLabel": "هم‌شکم",
+  "siblingsLabel": "خواهر و برادر",
+  "kittensLabel": "بچه‌گربه‌ها"
 }

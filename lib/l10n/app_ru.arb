@@ -216,5 +216,11 @@
   "summaryEscaped": "Сбежали",
   "summaryNew": "Новые",
   "summaryConflicts": "Конфликты для решения",
-  "summaryOther": "…и ещё {n} изменений"
+  "summaryOther": "…и ещё {n} изменений",
+  "starterMother": "Мать",
+  "starterFather": "Отец",
+  "familySection": "Семья",
+  "littermatesLabel": "Из одного помёта",
+  "siblingsLabel": "Братья и сёстры",
+  "kittensLabel": "Котята"
 }

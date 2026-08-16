@@ -216,5 +216,11 @@
   "summaryEscaped": "Pabėgę",
   "summaryNew": "Nauji",
   "summaryConflicts": "Spręstini konfliktai",
-  "summaryOther": "…ir dar {n} pakeitimų"
+  "summaryOther": "…ir dar {n} pakeitimų",
+  "starterMother": "Motina",
+  "starterFather": "Tėvas",
+  "familySection": "Šeima",
+  "littermatesLabel": "Iš tos pačios vados",
+  "siblingsLabel": "Broliai ir seserys",
+  "kittensLabel": "Kačiukai"
 }

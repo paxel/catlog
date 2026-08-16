@@ -216,5 +216,11 @@
   "summaryEscaped": "Karanneet",
   "summaryNew": "Uudet",
   "summaryConflicts": "Ratkaistavat ristiriidat",
-  "summaryOther": "…ja {n} muuta muutosta"
+  "summaryOther": "…ja {n} muuta muutosta",
+  "starterMother": "Emo",
+  "starterFather": "Isä",
+  "familySection": "Perhe",
+  "littermatesLabel": "Pentuesisarukset",
+  "siblingsLabel": "Sisarukset",
+  "kittensLabel": "Pennut"
 }

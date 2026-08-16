@@ -216,5 +216,11 @@
   "summaryEscaped": "Ħarbu",
   "summaryNew": "Ġodda",
   "summaryConflicts": "Kunflitti x'jissolvew",
-  "summaryOther": "…u {n} bidliet oħra"
+  "summaryOther": "…u {n} bidliet oħra",
+  "starterMother": "Omm",
+  "starterFather": "Missier",
+  "familySection": "Familja",
+  "littermatesLabel": "Mill-istess boton",
+  "siblingsLabel": "Aħwa",
+  "kittensLabel": "Frieħ"
 }

@@ -739,4 +739,22 @@ class AppLocalizationsDa extends AppLocalizations {
   String summaryOther(Object n) {
     return '…og $n andre ændringer';
   }
+
+  @override
+  String get starterMother => 'Mor';
+
+  @override
+  String get starterFather => 'Far';
+
+  @override
+  String get familySection => 'Familie';
+
+  @override
+  String get littermatesLabel => 'Kuldsøskende';
+
+  @override
+  String get siblingsLabel => 'Søskende';
+
+  @override
+  String get kittensLabel => 'Killinger';
 }

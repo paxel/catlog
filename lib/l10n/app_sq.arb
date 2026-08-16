@@ -216,5 +216,11 @@
   "summaryEscaped": "Të arratisura",
   "summaryNew": "Të reja",
   "summaryConflicts": "Konflikte për zgjidhje",
-  "summaryOther": "…dhe {n} ndryshime të tjera"
+  "summaryOther": "…dhe {n} ndryshime të tjera",
+  "starterMother": "Nëna",
+  "starterFather": "Babai",
+  "familySection": "Familja",
+  "littermatesLabel": "Nga e njëjta pjellë",
+  "siblingsLabel": "Vëllezër e motra",
+  "kittensLabel": "Kotelet"
 }

@@ -216,5 +216,11 @@
   "summaryEscaped": "Aizbēguši",
   "summaryNew": "Jauni",
   "summaryConflicts": "Risināmi konflikti",
-  "summaryOther": "…un vēl {n} izmaiņas"
+  "summaryOther": "…un vēl {n} izmaiņas",
+  "starterMother": "Māte",
+  "starterFather": "Tēvs",
+  "familySection": "Ģimene",
+  "littermatesLabel": "No viena metiena",
+  "siblingsLabel": "Brāļi un māsas",
+  "kittensLabel": "Kaķēni"
 }

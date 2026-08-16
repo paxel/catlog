@@ -735,4 +735,22 @@ class AppLocalizationsHe extends AppLocalizations {
   String summaryOther(Object n) {
     return '…ועוד $n שינויים';
   }
+
+  @override
+  String get starterMother => 'אם';
+
+  @override
+  String get starterFather => 'אב';
+
+  @override
+  String get familySection => 'משפחה';
+
+  @override
+  String get littermatesLabel => 'מאותה המלטה';
+
+  @override
+  String get siblingsLabel => 'אחים';
+
+  @override
+  String get kittensLabel => 'גורים';
 }

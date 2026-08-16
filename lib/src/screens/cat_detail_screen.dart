@@ -113,7 +113,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
 
   Future<void> _editField(FieldDef def) async {
     final edit =
-        await editFieldValue(context, def, store.current(id, def.key));
+        await editFieldValue(context, def, store.current(id, def.key),
+            store: store, excludeId: id);
     if (edit == null) return;
     store.append(id, def.key, edit.value, date: edit.date);
     setState(() {});
@@ -237,6 +238,52 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (merged && mounted) Navigator.of(context).pop();
   }
 
+
+  bool _hasFamily() {
+    final f = store.family(id);
+    return f.mother != null ||
+        f.father != null ||
+        f.littermates.isNotEmpty ||
+        f.siblings.isNotEmpty ||
+        f.kittens.isNotEmpty;
+  }
+
+  Widget _familyRow(String label, List<String> catIds) => ListTile(
+        dense: true,
+        title: Text(label),
+        subtitle: Wrap(spacing: 8, children: [
+          for (final catId in catIds)
+            ActionChip(
+              avatar: CatAvatar(store: store, catId: catId, size: 24),
+              label:
+                  Text(store.current(catId, Keys.name) ?? '?'),
+              onPressed: () async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) =>
+                      CatDetailScreen(store: store, catId: catId),
+                ));
+                setState(() {});
+              },
+            ),
+        ]),
+      );
+
+  List<Widget> _familyRows() {
+    final f = store.family(id);
+    return [
+      if (f.mother != null)
+        _familyRow(context.t.starterMother, [f.mother!]),
+      if (f.father != null)
+        _familyRow(context.t.starterFather, [f.father!]),
+      if (f.littermates.isNotEmpty)
+        _familyRow(context.t.littermatesLabel, f.littermates),
+      if (f.siblings.isNotEmpty)
+        _familyRow(context.t.siblingsLabel, f.siblings),
+      if (f.kittens.isNotEmpty)
+        _familyRow(context.t.kittensLabel, f.kittens),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
@@ -333,8 +380,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           for (final def in defs)
             ListTile(
               title: Text(fieldDefName(context.t, def)),
-              subtitle: Text(fieldValueDisplay(
-                  context.t, def, store.current(id, def.key))),
+              subtitle: Text(def.type == FieldType.cat &&
+                      store.current(id, def.key) != null
+                  ? store.current(
+                          store.resolveEntity(
+                              store.current(id, def.key)!),
+                          Keys.name) ??
+                      '?'
+                  : fieldValueDisplay(
+                      context.t, def, store.current(id, def.key))),
               trailing: store.hasConflict(id, def.key)
                   ? const Icon(Icons.warning_amber, color: Colors.amber)
                   : def.type == FieldType.location &&
@@ -354,6 +408,17 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   : () => _editField(def),
               onLongPress: () => _openTimeline(field: def.key),
             ),
+          if (_hasFamily())
+            ...[
+              const Divider(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Text(context.t.familySection,
+                    style: Theme.of(context).textTheme.titleMedium),
+              ),
+              ..._familyRows(),
+            ],
           const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

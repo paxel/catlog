@@ -216,5 +216,11 @@
   "summaryEscaped": "Éalaithe",
   "summaryNew": "Nua",
   "summaryConflicts": "Coinbhleachtaí le réiteach",
-  "summaryOther": "…agus {n} athrú eile"
+  "summaryOther": "…agus {n} athrú eile",
+  "starterMother": "Máthair",
+  "starterFather": "Athair",
+  "familySection": "Teaghlach",
+  "littermatesLabel": "Ál céanna",
+  "siblingsLabel": "Deartháireacha is deirfiúracha",
+  "kittensLabel": "Piscíní"
 }

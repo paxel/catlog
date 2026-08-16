@@ -216,5 +216,11 @@
   "summaryEscaped": "Pobegle",
   "summaryNew": "Novo",
   "summaryConflicts": "Konflikti za rešitev",
-  "summaryOther": "…in še {n} sprememb"
+  "summaryOther": "…in še {n} sprememb",
+  "starterMother": "Mati",
+  "starterFather": "Oče",
+  "familySection": "Družina",
+  "littermatesLabel": "Iz istega legla",
+  "siblingsLabel": "Sorojenci",
+  "kittensLabel": "Mladiči"
 }

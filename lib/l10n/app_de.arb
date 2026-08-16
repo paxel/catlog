@@ -216,5 +216,11 @@
   "summaryEscaped": "Entlaufen",
   "summaryNew": "Neu",
   "summaryConflicts": "Zu klärende Konflikte",
-  "summaryOther": "…und {n} weitere Änderungen"
+  "summaryOther": "…und {n} weitere Änderungen",
+  "starterMother": "Mutter",
+  "starterFather": "Vater",
+  "familySection": "Familie",
+  "littermatesLabel": "Wurfgeschwister",
+  "siblingsLabel": "Geschwister",
+  "kittensLabel": "Kitten"
 }

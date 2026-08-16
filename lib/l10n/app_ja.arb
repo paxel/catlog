@@ -216,5 +216,11 @@
   "summaryEscaped": "脱走",
   "summaryNew": "新規",
   "summaryConflicts": "要解決の競合",
-  "summaryOther": "…他 {n} 件の変更"
+  "summaryOther": "…他 {n} 件の変更",
+  "starterMother": "母",
+  "starterFather": "父",
+  "familySection": "家族",
+  "littermatesLabel": "同腹の兄弟",
+  "siblingsLabel": "兄弟姉妹",
+  "kittensLabel": "子猫"
 }

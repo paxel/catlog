@@ -216,5 +216,11 @@
   "summaryEscaped": "Втекли",
   "summaryNew": "Нові",
   "summaryConflicts": "Конфлікти для вирішення",
-  "summaryOther": "…і ще {n} змін"
+  "summaryOther": "…і ще {n} змін",
+  "starterMother": "Мати",
+  "starterFather": "Батько",
+  "familySection": "Сім'я",
+  "littermatesLabel": "З одного приплоду",
+  "siblingsLabel": "Брати й сестри",
+  "kittensLabel": "Кошенята"
 }

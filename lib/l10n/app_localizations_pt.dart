@@ -738,4 +738,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String summaryOther(Object n) {
     return '…e mais $n alterações';
   }
+
+  @override
+  String get starterMother => 'Mãe';
+
+  @override
+  String get starterFather => 'Pai';
+
+  @override
+  String get familySection => 'Família';
+
+  @override
+  String get littermatesLabel => 'Da mesma ninhada';
+
+  @override
+  String get siblingsLabel => 'Irmãos';
+
+  @override
+  String get kittensLabel => 'Gatinhos';
 }

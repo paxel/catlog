@@ -739,4 +739,22 @@ class AppLocalizationsFi extends AppLocalizations {
   String summaryOther(Object n) {
     return '…ja $n muuta muutosta';
   }
+
+  @override
+  String get starterMother => 'Emo';
+
+  @override
+  String get starterFather => 'Isä';
+
+  @override
+  String get familySection => 'Perhe';
+
+  @override
+  String get littermatesLabel => 'Pentuesisarukset';
+
+  @override
+  String get siblingsLabel => 'Sisarukset';
+
+  @override
+  String get kittensLabel => 'Pennut';
 }

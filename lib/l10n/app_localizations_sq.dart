@@ -740,4 +740,22 @@ class AppLocalizationsSq extends AppLocalizations {
   String summaryOther(Object n) {
     return '…dhe $n ndryshime të tjera';
   }
+
+  @override
+  String get starterMother => 'Nëna';
+
+  @override
+  String get starterFather => 'Babai';
+
+  @override
+  String get familySection => 'Familja';
+
+  @override
+  String get littermatesLabel => 'Nga e njëjta pjellë';
+
+  @override
+  String get siblingsLabel => 'Vëllezër e motra';
+
+  @override
+  String get kittensLabel => 'Kotelet';
 }

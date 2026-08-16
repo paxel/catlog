@@ -216,5 +216,11 @@
   "summaryEscaped": "هاربة",
   "summaryNew": "جديد",
   "summaryConflicts": "تعارضات للحل",
-  "summaryOther": "…و{n} تغييرات أخرى"
+  "summaryOther": "…و{n} تغييرات أخرى",
+  "starterMother": "الأم",
+  "starterFather": "الأب",
+  "familySection": "العائلة",
+  "littermatesLabel": "إخوة البطن",
+  "siblingsLabel": "الأشقاء",
+  "kittensLabel": "الصغار"
 }

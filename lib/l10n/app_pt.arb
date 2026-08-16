@@ -216,5 +216,11 @@
   "summaryEscaped": "Fugidos",
   "summaryNew": "Novos",
   "summaryConflicts": "Conflitos por resolver",
-  "summaryOther": "…e mais {n} alterações"
+  "summaryOther": "…e mais {n} alterações",
+  "starterMother": "Mãe",
+  "starterFather": "Pai",
+  "familySection": "Família",
+  "littermatesLabel": "Da mesma ninhada",
+  "siblingsLabel": "Irmãos",
+  "kittensLabel": "Gatinhos"
 }

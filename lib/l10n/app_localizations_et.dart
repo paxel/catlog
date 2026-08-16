@@ -738,4 +738,22 @@ class AppLocalizationsEt extends AppLocalizations {
   String summaryOther(Object n) {
     return '…ja veel $n muudatust';
   }
+
+  @override
+  String get starterMother => 'Ema';
+
+  @override
+  String get starterFather => 'Isa';
+
+  @override
+  String get familySection => 'Perekond';
+
+  @override
+  String get littermatesLabel => 'Pesakonnakaaslased';
+
+  @override
+  String get siblingsLabel => 'Õed-vennad';
+
+  @override
+  String get kittensLabel => 'Kassipojad';
 }

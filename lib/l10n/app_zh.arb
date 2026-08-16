@@ -216,5 +216,11 @@
   "summaryEscaped": "走失",
   "summaryNew": "新增",
   "summaryConflicts": "待解决的冲突",
-  "summaryOther": "…及其他 {n} 项变更"
+  "summaryOther": "…及其他 {n} 项变更",
+  "starterMother": "母亲",
+  "starterFather": "父亲",
+  "familySection": "家庭",
+  "littermatesLabel": "同窝伙伴",
+  "siblingsLabel": "兄弟姐妹",
+  "kittensLabel": "小猫"
 }

@@ -739,4 +739,22 @@ class AppLocalizationsHr extends AppLocalizations {
   String summaryOther(Object n) {
     return '…i još $n promjena';
   }
+
+  @override
+  String get starterMother => 'Majka';
+
+  @override
+  String get starterFather => 'Otac';
+
+  @override
+  String get familySection => 'Obitelj';
+
+  @override
+  String get littermatesLabel => 'Iz istog legla';
+
+  @override
+  String get siblingsLabel => 'Braća i sestre';
+
+  @override
+  String get kittensLabel => 'Mačići';
 }

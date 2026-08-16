@@ -51,7 +51,7 @@ abstract final class Kinds {
 }
 
 /// The type of a user-defined Field (see CONTEXT.md: Field).
-enum FieldType { text, yesNo, date, number, choice, location }
+enum FieldType { text, yesNo, date, number, choice, location, cat }
 
 /// Where a Field is offered in the UI. Values are still stored uniformly.
 enum FieldScope { cat, clowder, both }
@@ -98,6 +98,8 @@ const starterFields = [
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'species', name: 'Species', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'mother', name: 'Mother', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'father', name: 'Father', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),
   (slug: 'address', name: 'Address', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'responsible', name: 'Responsible person', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),

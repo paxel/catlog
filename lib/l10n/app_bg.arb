@@ -216,5 +216,11 @@
   "summaryEscaped": "Избягали",
   "summaryNew": "Нови",
   "summaryConflicts": "Конфликти за решаване",
-  "summaryOther": "…и още {n} промени"
+  "summaryOther": "…и още {n} промени",
+  "starterMother": "Майка",
+  "starterFather": "Баща",
+  "familySection": "Семейство",
+  "littermatesLabel": "От едно котило",
+  "siblingsLabel": "Братя и сестри",
+  "kittensLabel": "Котенца"
 }

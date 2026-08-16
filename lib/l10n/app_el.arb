@@ -216,5 +216,11 @@
   "summaryEscaped": "Δραπέτευσαν",
   "summaryNew": "Νέα",
   "summaryConflicts": "Συγκρούσεις προς επίλυση",
-  "summaryOther": "…και {n} άλλες αλλαγές"
+  "summaryOther": "…και {n} άλλες αλλαγές",
+  "starterMother": "Μητέρα",
+  "starterFather": "Πατέρας",
+  "familySection": "Οικογένεια",
+  "littermatesLabel": "Από την ίδια γέννα",
+  "siblingsLabel": "Αδέλφια",
+  "kittensLabel": "Γατάκια"
 }

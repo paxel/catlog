@@ -216,5 +216,11 @@
   "summaryEscaped": "Strokin",
   "summaryNew": "Ný",
   "summaryConflicts": "Árekstrar til að leysa",
-  "summaryOther": "…og {n} aðrar breytingar"
+  "summaryOther": "…og {n} aðrar breytingar",
+  "starterMother": "Móðir",
+  "starterFather": "Faðir",
+  "familySection": "Fjölskylda",
+  "littermatesLabel": "Úr sama goti",
+  "siblingsLabel": "Systkini",
+  "kittensLabel": "Kettlingar"
 }

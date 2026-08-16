@@ -741,4 +741,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String summaryOther(Object n) {
     return '…en $n andere wijzigingen';
   }
+
+  @override
+  String get starterMother => 'Moeder';
+
+  @override
+  String get starterFather => 'Vader';
+
+  @override
+  String get familySection => 'Familie';
+
+  @override
+  String get littermatesLabel => 'Nestgenoten';
+
+  @override
+  String get siblingsLabel => 'Broers en zussen';
+
+  @override
+  String get kittensLabel => 'Kittens';
 }

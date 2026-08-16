@@ -741,4 +741,22 @@ class AppLocalizationsMt extends AppLocalizations {
   String summaryOther(Object n) {
     return '…u $n bidliet oħra';
   }
+
+  @override
+  String get starterMother => 'Omm';
+
+  @override
+  String get starterFather => 'Missier';
+
+  @override
+  String get familySection => 'Familja';
+
+  @override
+  String get littermatesLabel => 'Mill-istess boton';
+
+  @override
+  String get siblingsLabel => 'Aħwa';
+
+  @override
+  String get kittensLabel => 'Frieħ';
 }

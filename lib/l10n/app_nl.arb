@@ -216,5 +216,11 @@
   "summaryEscaped": "Ontsnapt",
   "summaryNew": "Nieuw",
   "summaryConflicts": "Op te lossen conflicten",
-  "summaryOther": "…en {n} andere wijzigingen"
+  "summaryOther": "…en {n} andere wijzigingen",
+  "starterMother": "Moeder",
+  "starterFather": "Vader",
+  "familySection": "Familie",
+  "littermatesLabel": "Nestgenoten",
+  "siblingsLabel": "Broers en zussen",
+  "kittensLabel": "Kittens"
 }

@@ -216,5 +216,11 @@
   "summaryEscaped": "Kaçtı",
   "summaryNew": "Yeni",
   "summaryConflicts": "Çözülecek çakışmalar",
-  "summaryOther": "…ve {n} değişiklik daha"
+  "summaryOther": "…ve {n} değişiklik daha",
+  "starterMother": "Anne",
+  "starterFather": "Baba",
+  "familySection": "Aile",
+  "littermatesLabel": "Aynı batından",
+  "siblingsLabel": "Kardeşler",
+  "kittensLabel": "Yavrular"
 }

@@ -740,4 +740,22 @@ class AppLocalizationsRo extends AppLocalizations {
   String summaryOther(Object n) {
     return '…și încă $n modificări';
   }
+
+  @override
+  String get starterMother => 'Mamă';
+
+  @override
+  String get starterFather => 'Tată';
+
+  @override
+  String get familySection => 'Familie';
+
+  @override
+  String get littermatesLabel => 'Din aceeași serie';
+
+  @override
+  String get siblingsLabel => 'Frați';
+
+  @override
+  String get kittensLabel => 'Pisoi';
 }

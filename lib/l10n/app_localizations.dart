@@ -1471,6 +1471,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'…and {n} other changes'**
   String summaryOther(Object n);
+
+  /// No description provided for @starterMother.
+  ///
+  /// In en, this message translates to:
+  /// **'Mother'**
+  String get starterMother;
+
+  /// No description provided for @starterFather.
+  ///
+  /// In en, this message translates to:
+  /// **'Father'**
+  String get starterFather;
+
+  /// No description provided for @familySection.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get familySection;
+
+  /// No description provided for @littermatesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Littermates'**
+  String get littermatesLabel;
+
+  /// No description provided for @siblingsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Siblings'**
+  String get siblingsLabel;
+
+  /// No description provided for @kittensLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Kittens'**
+  String get kittensLabel;
 }
 
 class _AppLocalizationsDelegate

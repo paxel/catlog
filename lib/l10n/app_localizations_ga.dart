@@ -740,4 +740,22 @@ class AppLocalizationsGa extends AppLocalizations {
   String summaryOther(Object n) {
     return '…agus $n athrú eile';
   }
+
+  @override
+  String get starterMother => 'Máthair';
+
+  @override
+  String get starterFather => 'Athair';
+
+  @override
+  String get familySection => 'Teaghlach';
+
+  @override
+  String get littermatesLabel => 'Ál céanna';
+
+  @override
+  String get siblingsLabel => 'Deartháireacha is deirfiúracha';
+
+  @override
+  String get kittensLabel => 'Piscíní';
 }

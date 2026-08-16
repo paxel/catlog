@@ -216,5 +216,11 @@
   "summaryEscaped": "Rømte",
   "summaryNew": "Nye",
   "summaryConflicts": "Konflikter å løse",
-  "summaryOther": "…og {n} andre endringer"
+  "summaryOther": "…og {n} andre endringer",
+  "starterMother": "Mor",
+  "starterFather": "Far",
+  "familySection": "Familie",
+  "littermatesLabel": "Kullsøsken",
+  "siblingsLabel": "Søsken",
+  "kittensLabel": "Kattunger"
 }

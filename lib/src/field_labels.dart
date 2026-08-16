@@ -66,6 +66,8 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'birthdate' => t.starterBirthdate,
       'deceased' => t.starterDeceased,
       'species' => t.starterSpecies,
+      'mother' => t.starterMother,
+      'father' => t.starterFather,
       'status' => t.starterStatus,
       'address' => t.starterAddress,
       'responsible' => t.starterResponsible,
@@ -101,6 +103,9 @@ String valueLabel(
       def = d;
       break;
     }
+  }
+  if (def?.type == FieldType.cat) {
+    return store.current(store.resolveEntity(value), Keys.name) ?? value;
   }
   return fieldValueDisplay(t, def, value);
 }

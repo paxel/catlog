@@ -738,4 +738,22 @@ class AppLocalizationsFa extends AppLocalizations {
   String summaryOther(Object n) {
     return '…و $n تغییر دیگر';
   }
+
+  @override
+  String get starterMother => 'مادر';
+
+  @override
+  String get starterFather => 'پدر';
+
+  @override
+  String get familySection => 'خانواده';
+
+  @override
+  String get littermatesLabel => 'هم‌شکم';
+
+  @override
+  String get siblingsLabel => 'خواهر و برادر';
+
+  @override
+  String get kittensLabel => 'بچه‌گربه‌ها';
 }
