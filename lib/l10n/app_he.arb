@@ -178,5 +178,9 @@
   "markPrivate": "סמן כפרטי",
   "unmarkPrivate": "הסר סימון פרטי",
   "includePrivate": "כלול נתונים פרטיים",
-  "includePrivateExplainer": "חתולים, קבוצות ושדות פרטיים משותפים גם הם — הפעל רק בעת סנכרון המכשירים שלך."
+  "includePrivateExplainer": "חתולים, קבוצות ושדות פרטיים משותפים גם הם — הפעל רק בעת סנכרון המכשירים שלך.",
+  "hideLabel": "הסתר במכשיר זה",
+  "unhideLabel": "הצג שוב",
+  "showHiddenLabel": "הצג מוסתרים",
+  "stopShowingHidden": "הפסק להציג מוסתרים"
 }

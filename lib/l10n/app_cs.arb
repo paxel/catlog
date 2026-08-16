@@ -178,5 +178,9 @@
   "markPrivate": "Označit jako soukromé",
   "unmarkPrivate": "Odebrat soukromé označení",
   "includePrivate": "Zahrnout soukromá data",
-  "includePrivateExplainer": "Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení."
+  "includePrivateExplainer": "Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení.",
+  "hideLabel": "Skrýt na tomto zařízení",
+  "unhideLabel": "Znovu zobrazit",
+  "showHiddenLabel": "Zobrazit skryté",
+  "stopShowingHidden": "Přestat zobrazovat skryté"
 }

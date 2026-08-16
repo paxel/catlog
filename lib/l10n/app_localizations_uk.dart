@@ -617,4 +617,16 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Особисті коти, групи та поля теж передаються — вмикайте лише під час синхронізації власних пристроїв.';
+
+  @override
+  String get hideLabel => 'Сховати на цьому пристрої';
+
+  @override
+  String get unhideLabel => 'Показати знову';
+
+  @override
+  String get showHiddenLabel => 'Показати приховані';
+
+  @override
+  String get stopShowingHidden => 'Не показувати приховані';
 }

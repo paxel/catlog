@@ -619,4 +619,16 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive.';
+
+  @override
+  String get hideLabel => 'Ascunde pe acest dispozitiv';
+
+  @override
+  String get unhideLabel => 'Afișează din nou';
+
+  @override
+  String get showHiddenLabel => 'Afișează elementele ascunse';
+
+  @override
+  String get stopShowingHidden => 'Nu mai afișa elementele ascunse';
 }

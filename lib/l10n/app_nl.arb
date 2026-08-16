@@ -178,5 +178,9 @@
   "markPrivate": "Markeren als privé",
   "unmarkPrivate": "Privémarkering verwijderen",
   "includePrivate": "Privégegevens meenemen",
-  "includePrivateExplainer": "Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten."
+  "includePrivateExplainer": "Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten.",
+  "hideLabel": "Verbergen op dit apparaat",
+  "unhideLabel": "Opnieuw tonen",
+  "showHiddenLabel": "Verborgen items tonen",
+  "stopShowingHidden": "Verborgen items weer verbergen"
 }

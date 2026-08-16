@@ -178,5 +178,9 @@
   "markPrivate": "Segna come privato",
   "unmarkPrivate": "Rimuovi contrassegno privato",
   "includePrivate": "Includi dati privati",
-  "includePrivateExplainer": "Anche gatti, clowder e campi privati vengono condivisi — attivalo solo quando sincronizzi i tuoi dispositivi."
+  "includePrivateExplainer": "Anche gatti, clowder e campi privati vengono condivisi — attivalo solo quando sincronizzi i tuoi dispositivi.",
+  "hideLabel": "Nascondi su questo dispositivo",
+  "unhideLabel": "Mostra di nuovo",
+  "showHiddenLabel": "Mostra nascosti",
+  "stopShowingHidden": "Smetti di mostrare i nascosti"
 }

@@ -178,5 +178,9 @@
   "markPrivate": "Als privat markieren",
   "unmarkPrivate": "Privat-Markierung entfernen",
   "includePrivate": "Private Daten einbeziehen",
-  "includePrivateExplainer": "Private Katzen, Clowder und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst."
+  "includePrivateExplainer": "Private Katzen, Clowder und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst.",
+  "hideLabel": "Auf diesem Gerät ausblenden",
+  "unhideLabel": "Wieder anzeigen",
+  "showHiddenLabel": "Ausgeblendetes anzeigen",
+  "stopShowingHidden": "Ausgeblendetes wieder verbergen"
 }

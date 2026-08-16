@@ -617,4 +617,16 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Privata katter, grupper och fält delas också — slå bara på när du synkroniserar dina egna enheter.';
+
+  @override
+  String get hideLabel => 'Dölj på den här enheten';
+
+  @override
+  String get unhideLabel => 'Visa igen';
+
+  @override
+  String get showHiddenLabel => 'Visa dolda';
+
+  @override
+  String get stopShowingHidden => 'Sluta visa dolda';
 }

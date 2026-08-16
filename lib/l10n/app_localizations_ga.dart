@@ -619,4 +619,16 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Roinntear cait, grúpaí agus réimsí príobháideacha freisin — cas air seo ach amháin agus do ghléasanna féin á sioncronú agat.';
+
+  @override
+  String get hideLabel => 'Folaigh ar an ngléas seo';
+
+  @override
+  String get unhideLabel => 'Taispeáin arís';
+
+  @override
+  String get showHiddenLabel => 'Taispeáin rudaí folaithe';
+
+  @override
+  String get stopShowingHidden => 'Stop rudaí folaithe a thaispeáint';
 }

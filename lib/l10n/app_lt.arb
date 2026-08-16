@@ -178,5 +178,9 @@
   "markPrivate": "Pažymėti kaip privatų",
   "unmarkPrivate": "Pašalinti privatumo žymą",
   "includePrivate": "Įtraukti privačius duomenis",
-  "includePrivateExplainer": "Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius."
+  "includePrivateExplainer": "Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius.",
+  "hideLabel": "Slėpti šiame įrenginyje",
+  "unhideLabel": "Rodyti vėl",
+  "showHiddenLabel": "Rodyti paslėptus",
+  "stopShowingHidden": "Nustoti rodyti paslėptus"
 }

@@ -617,4 +617,16 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Privātie kaķi, grupas un lauki arī tiek kopīgoti — ieslēdziet tikai sinhronizējot savas ierīces.';
+
+  @override
+  String get hideLabel => 'Paslēpt šajā ierīcē';
+
+  @override
+  String get unhideLabel => 'Rādīt atkal';
+
+  @override
+  String get showHiddenLabel => 'Rādīt paslēptos';
+
+  @override
+  String get stopShowingHidden => 'Pārtraukt rādīt paslēptos';
 }

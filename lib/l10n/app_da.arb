@@ -178,5 +178,9 @@
   "markPrivate": "Markér som privat",
   "unmarkPrivate": "Fjern privat markering",
   "includePrivate": "Medtag private data",
-  "includePrivateExplainer": "Private katte, grupper og felter deles også — slå kun til, når du synkroniserer dine egne enheder."
+  "includePrivateExplainer": "Private katte, grupper og felter deles også — slå kun til, når du synkroniserer dine egne enheder.",
+  "hideLabel": "Skjul på denne enhed",
+  "unhideLabel": "Vis igen",
+  "showHiddenLabel": "Vis skjulte",
+  "stopShowingHidden": "Stop med at vise skjulte"
 }

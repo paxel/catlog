@@ -178,5 +178,9 @@
   "markPrivate": "Oznacz jako prywatne",
   "unmarkPrivate": "Usuń oznaczenie prywatne",
   "includePrivate": "Uwzględnij dane prywatne",
-  "includePrivateExplainer": "Prywatne koty, grupy i pola też są udostępniane — włączaj tylko przy synchronizacji własnych urządzeń."
+  "includePrivateExplainer": "Prywatne koty, grupy i pola też są udostępniane — włączaj tylko przy synchronizacji własnych urządzeń.",
+  "hideLabel": "Ukryj na tym urządzeniu",
+  "unhideLabel": "Pokaż ponownie",
+  "showHiddenLabel": "Pokaż ukryte",
+  "stopShowingHidden": "Przestań pokazywać ukryte"
 }

@@ -617,4 +617,16 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení.';
+
+  @override
+  String get hideLabel => 'Skrýt na tomto zařízení';
+
+  @override
+  String get unhideLabel => 'Znovu zobrazit';
+
+  @override
+  String get showHiddenLabel => 'Zobrazit skryté';
+
+  @override
+  String get stopShowingHidden => 'Přestat zobrazovat skryté';
 }

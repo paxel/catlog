@@ -618,4 +618,16 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Prywatne koty, grupy i pola też są udostępniane — włączaj tylko przy synchronizacji własnych urządzeń.';
+
+  @override
+  String get hideLabel => 'Ukryj na tym urządzeniu';
+
+  @override
+  String get unhideLabel => 'Pokaż ponownie';
+
+  @override
+  String get showHiddenLabel => 'Pokaż ukryte';
+
+  @override
+  String get stopShowingHidden => 'Przestań pokazywać ukryte';
 }

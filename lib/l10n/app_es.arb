@@ -178,5 +178,9 @@
   "markPrivate": "Marcar como privado",
   "unmarkPrivate": "Quitar marca privada",
   "includePrivate": "Incluir datos privados",
-  "includePrivateExplainer": "Los gatos, clowders y campos privados también se comparten — actívalo solo al sincronizar tus propios dispositivos."
+  "includePrivateExplainer": "Los gatos, clowders y campos privados también se comparten — actívalo solo al sincronizar tus propios dispositivos.",
+  "hideLabel": "Ocultar en este dispositivo",
+  "unhideLabel": "Mostrar de nuevo",
+  "showHiddenLabel": "Mostrar ocultos",
+  "stopShowingHidden": "Dejar de mostrar ocultos"
 }

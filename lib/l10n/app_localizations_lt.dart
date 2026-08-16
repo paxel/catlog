@@ -618,4 +618,16 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius.';
+
+  @override
+  String get hideLabel => 'Slėpti šiame įrenginyje';
+
+  @override
+  String get unhideLabel => 'Rodyti vėl';
+
+  @override
+  String get showHiddenLabel => 'Rodyti paslėptus';
+
+  @override
+  String get stopShowingHidden => 'Nustoti rodyti paslėptus';
 }

@@ -619,4 +619,16 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Private Katzen, Clowder und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst.';
+
+  @override
+  String get hideLabel => 'Auf diesem Gerät ausblenden';
+
+  @override
+  String get unhideLabel => 'Wieder anzeigen';
+
+  @override
+  String get showHiddenLabel => 'Ausgeblendetes anzeigen';
+
+  @override
+  String get stopShowingHidden => 'Ausgeblendetes wieder verbergen';
 }

@@ -617,4 +617,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.';
+
+  @override
+  String get hideLabel => 'Hide on this device';
+
+  @override
+  String get unhideLabel => 'Show again';
+
+  @override
+  String get showHiddenLabel => 'Show hidden';
+
+  @override
+  String get stopShowingHidden => 'Stop showing hidden';
 }

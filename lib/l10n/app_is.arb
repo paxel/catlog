@@ -178,5 +178,9 @@
   "markPrivate": "Merkja sem einka",
   "unmarkPrivate": "Fjarlægja einkamerki",
   "includePrivate": "Taka einkagögn með",
-  "includePrivateExplainer": "Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki."
+  "includePrivateExplainer": "Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki.",
+  "hideLabel": "Fela á þessu tæki",
+  "unhideLabel": "Sýna aftur",
+  "showHiddenLabel": "Sýna falið",
+  "stopShowingHidden": "Hætta að sýna falið"
 }

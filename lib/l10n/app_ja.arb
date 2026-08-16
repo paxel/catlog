@@ -178,5 +178,9 @@
   "markPrivate": "プライベートに設定",
   "unmarkPrivate": "プライベート設定を解除",
   "includePrivate": "プライベートデータを含める",
-  "includePrivateExplainer": "プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。"
+  "includePrivateExplainer": "プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。",
+  "hideLabel": "この端末で非表示にする",
+  "unhideLabel": "再表示する",
+  "showHiddenLabel": "非表示の項目を表示",
+  "stopShowingHidden": "非表示の項目を隠す"
 }

@@ -178,5 +178,9 @@
   "markPrivate": "标记为私密",
   "unmarkPrivate": "取消私密标记",
   "includePrivate": "包含私密数据",
-  "includePrivateExplainer": "私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。"
+  "includePrivateExplainer": "私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。",
+  "hideLabel": "在此设备上隐藏",
+  "unhideLabel": "重新显示",
+  "showHiddenLabel": "显示隐藏项",
+  "stopShowingHidden": "停止显示隐藏项"
 }

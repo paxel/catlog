@@ -178,5 +178,9 @@
   "markPrivate": "Atzīmēt kā privātu",
   "unmarkPrivate": "Noņemt privātuma atzīmi",
   "includePrivate": "Iekļaut privātos datus",
-  "includePrivateExplainer": "Privātie kaķi, grupas un lauki arī tiek kopīgoti — ieslēdziet tikai sinhronizējot savas ierīces."
+  "includePrivateExplainer": "Privātie kaķi, grupas un lauki arī tiek kopīgoti — ieslēdziet tikai sinhronizējot savas ierīces.",
+  "hideLabel": "Paslēpt šajā ierīcē",
+  "unhideLabel": "Rādīt atkal",
+  "showHiddenLabel": "Rādīt paslēptos",
+  "stopShowingHidden": "Pārtraukt rādīt paslēptos"
 }

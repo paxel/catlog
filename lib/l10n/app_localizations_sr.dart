@@ -618,4 +618,16 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Приватне мачке, групе и поља се такође деле — укључите само при синхронизацији сопствених уређаја.';
+
+  @override
+  String get hideLabel => 'Сакриј на овом уређају';
+
+  @override
+  String get unhideLabel => 'Прикажи поново';
+
+  @override
+  String get showHiddenLabel => 'Прикажи скривене';
+
+  @override
+  String get stopShowingHidden => 'Престани да приказујеш скривене';
 }

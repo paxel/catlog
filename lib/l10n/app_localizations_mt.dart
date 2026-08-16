@@ -620,4 +620,16 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess.';
+
+  @override
+  String get hideLabel => 'Aħbi fuq dan l-apparat';
+
+  @override
+  String get unhideLabel => 'Erġa\' uri';
+
+  @override
+  String get showHiddenLabel => 'Uri l-moħbija';
+
+  @override
+  String get stopShowingHidden => 'Ieqaf uri l-moħbija';
 }

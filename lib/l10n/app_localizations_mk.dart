@@ -619,4 +619,16 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Приватните мачки, групи и полиња исто така се споделуваат — вклучете само при синхронизација на сопствените уреди.';
+
+  @override
+  String get hideLabel => 'Сокриј на овој уред';
+
+  @override
+  String get unhideLabel => 'Прикажи повторно';
+
+  @override
+  String get showHiddenLabel => 'Прикажи скриени';
+
+  @override
+  String get stopShowingHidden => 'Престани да прикажуваш скриени';
 }

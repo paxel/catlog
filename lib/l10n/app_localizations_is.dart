@@ -620,4 +620,16 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki.';
+
+  @override
+  String get hideLabel => 'Fela á þessu tæki';
+
+  @override
+  String get unhideLabel => 'Sýna aftur';
+
+  @override
+  String get showHiddenLabel => 'Sýna falið';
+
+  @override
+  String get stopShowingHidden => 'Hætta að sýna falið';
 }

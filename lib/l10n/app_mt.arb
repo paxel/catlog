@@ -178,5 +178,9 @@
   "markPrivate": "Immarka bħala privat",
   "unmarkPrivate": "Neħħi l-marka privata",
   "includePrivate": "Inkludi data privata",
-  "includePrivateExplainer": "Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess."
+  "includePrivateExplainer": "Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess.",
+  "hideLabel": "Aħbi fuq dan l-apparat",
+  "unhideLabel": "Erġa' uri",
+  "showHiddenLabel": "Uri l-moħbija",
+  "stopShowingHidden": "Ieqaf uri l-moħbija"
 }

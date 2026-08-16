@@ -619,4 +619,16 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Ιδιωτικές γάτες, ομάδες και πεδία κοινοποιούνται επίσης — ενεργοποιήστε το μόνο όταν συγχρονίζετε δικές σας συσκευές.';
+
+  @override
+  String get hideLabel => 'Απόκρυψη σε αυτήν τη συσκευή';
+
+  @override
+  String get unhideLabel => 'Εμφάνιση ξανά';
+
+  @override
+  String get showHiddenLabel => 'Εμφάνιση κρυφών';
+
+  @override
+  String get stopShowingHidden => 'Διακοπή εμφάνισης κρυφών';
 }

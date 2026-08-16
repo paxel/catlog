@@ -619,4 +619,16 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten.';
+
+  @override
+  String get hideLabel => 'Verbergen op dit apparaat';
+
+  @override
+  String get unhideLabel => 'Opnieuw tonen';
+
+  @override
+  String get showHiddenLabel => 'Verborgen items tonen';
+
+  @override
+  String get stopShowingHidden => 'Verborgen items weer verbergen';
 }

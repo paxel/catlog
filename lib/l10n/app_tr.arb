@@ -178,5 +178,9 @@
   "markPrivate": "Özel olarak işaretle",
   "unmarkPrivate": "Özel işaretini kaldır",
   "includePrivate": "Özel verileri dahil et",
-  "includePrivateExplainer": "Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın."
+  "includePrivateExplainer": "Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın.",
+  "hideLabel": "Bu cihazda gizle",
+  "unhideLabel": "Yeniden göster",
+  "showHiddenLabel": "Gizlenenleri göster",
+  "stopShowingHidden": "Gizlenenleri göstermeyi bırak"
 }

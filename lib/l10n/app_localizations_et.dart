@@ -617,4 +617,16 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel.';
+
+  @override
+  String get hideLabel => 'Peida selles seadmes';
+
+  @override
+  String get unhideLabel => 'Näita uuesti';
+
+  @override
+  String get showHiddenLabel => 'Näita peidetuid';
+
+  @override
+  String get stopShowingHidden => 'Lõpeta peidetute näitamine';
 }

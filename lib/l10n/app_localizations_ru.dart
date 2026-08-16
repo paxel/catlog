@@ -618,4 +618,16 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Личные кошки, группы и поля тоже передаются — включайте только при синхронизации собственных устройств.';
+
+  @override
+  String get hideLabel => 'Скрыть на этом устройстве';
+
+  @override
+  String get unhideLabel => 'Показать снова';
+
+  @override
+  String get showHiddenLabel => 'Показать скрытые';
+
+  @override
+  String get stopShowingHidden => 'Перестать показывать скрытые';
 }

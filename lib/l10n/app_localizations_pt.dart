@@ -617,4 +617,16 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Gatos, clowders e campos privados também são partilhados — ative apenas ao sincronizar os seus próprios dispositivos.';
+
+  @override
+  String get hideLabel => 'Ocultar neste dispositivo';
+
+  @override
+  String get unhideLabel => 'Mostrar novamente';
+
+  @override
+  String get showHiddenLabel => 'Mostrar ocultos';
+
+  @override
+  String get stopShowingHidden => 'Deixar de mostrar ocultos';
 }

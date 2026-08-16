@@ -615,4 +615,16 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'חתולים, קבוצות ושדות פרטיים משותפים גם הם — הפעל רק בעת סנכרון המכשירים שלך.';
+
+  @override
+  String get hideLabel => 'הסתר במכשיר זה';
+
+  @override
+  String get unhideLabel => 'הצג שוב';
+
+  @override
+  String get showHiddenLabel => 'הצג מוסתרים';
+
+  @override
+  String get stopShowingHidden => 'הפסק להציג מוסתרים';
 }

@@ -618,4 +618,16 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Private katte, grupper og felter deles også — slå kun til, når du synkroniserer dine egne enheder.';
+
+  @override
+  String get hideLabel => 'Skjul på denne enhed';
+
+  @override
+  String get unhideLabel => 'Vis igen';
+
+  @override
+  String get showHiddenLabel => 'Vis skjulte';
+
+  @override
+  String get stopShowingHidden => 'Stop med at vise skjulte';
 }

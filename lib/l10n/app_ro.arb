@@ -178,5 +178,9 @@
   "markPrivate": "Marchează ca privat",
   "unmarkPrivate": "Elimină marcajul privat",
   "includePrivate": "Include datele private",
-  "includePrivateExplainer": "Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive."
+  "includePrivateExplainer": "Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive.",
+  "hideLabel": "Ascunde pe acest dispozitiv",
+  "unhideLabel": "Afișează din nou",
+  "showHiddenLabel": "Afișează elementele ascunse",
+  "stopShowingHidden": "Nu mai afișa elementele ascunse"
 }

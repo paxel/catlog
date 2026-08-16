@@ -619,4 +619,16 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua.';
+
+  @override
+  String get hideLabel => 'Fshih në këtë pajisje';
+
+  @override
+  String get unhideLabel => 'Shfaq përsëri';
+
+  @override
+  String get showHiddenLabel => 'Shfaq të fshehurat';
+
+  @override
+  String get stopShowingHidden => 'Ndalo shfaqjen e të fshehurave';
 }

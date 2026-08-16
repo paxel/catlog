@@ -1243,6 +1243,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.'**
   String get includePrivateExplainer;
+
+  /// No description provided for @hideLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide on this device'**
+  String get hideLabel;
+
+  /// No description provided for @unhideLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Show again'**
+  String get unhideLabel;
+
+  /// No description provided for @showHiddenLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Show hidden'**
+  String get showHiddenLabel;
+
+  /// No description provided for @stopShowingHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop showing hidden'**
+  String get stopShowingHidden;
 }
 
 class _AppLocalizationsDelegate

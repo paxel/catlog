@@ -618,4 +618,16 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be.';
+
+  @override
+  String get hideLabel => 'Elrejtés ezen az eszközön';
+
+  @override
+  String get unhideLabel => 'Újra megjelenítés';
+
+  @override
+  String get showHiddenLabel => 'Rejtettek megjelenítése';
+
+  @override
+  String get stopShowingHidden => 'Rejtettek elrejtése újra';
 }

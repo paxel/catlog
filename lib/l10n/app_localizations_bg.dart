@@ -618,4 +618,16 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Личните котки, групи и полета също се споделят — включвай само при синхронизиране на собствените си устройства.';
+
+  @override
+  String get hideLabel => 'Скрий на това устройство';
+
+  @override
+  String get unhideLabel => 'Покажи отново';
+
+  @override
+  String get showHiddenLabel => 'Покажи скритите';
+
+  @override
+  String get stopShowingHidden => 'Спри показването на скритите';
 }

@@ -619,4 +619,16 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Les chats, clowders et champs privés sont aussi partagés — n\'activez ceci que pour synchroniser vos propres appareils.';
+
+  @override
+  String get hideLabel => 'Masquer sur cet appareil';
+
+  @override
+  String get unhideLabel => 'Afficher à nouveau';
+
+  @override
+  String get showHiddenLabel => 'Afficher les éléments masqués';
+
+  @override
+  String get stopShowingHidden => 'Ne plus afficher les éléments masqués';
 }

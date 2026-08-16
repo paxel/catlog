@@ -617,4 +617,16 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'تتم مشاركة القطط والمجموعات والحقول الخاصة أيضًا — فعّل هذا فقط عند المزامنة بين أجهزتك الخاصة.';
+
+  @override
+  String get hideLabel => 'إخفاء على هذا الجهاز';
+
+  @override
+  String get unhideLabel => 'إظهار مرة أخرى';
+
+  @override
+  String get showHiddenLabel => 'إظهار المخفي';
+
+  @override
+  String get stopShowingHidden => 'إيقاف إظهار المخفي';
 }

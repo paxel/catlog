@@ -178,5 +178,9 @@
   "markPrivate": "Označi kot zasebno",
   "unmarkPrivate": "Odstrani zasebno oznako",
   "includePrivate": "Vključi zasebne podatke",
-  "includePrivateExplainer": "Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav."
+  "includePrivateExplainer": "Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav.",
+  "hideLabel": "Skrij na tej napravi",
+  "unhideLabel": "Znova prikaži",
+  "showHiddenLabel": "Prikaži skrite",
+  "stopShowingHidden": "Nehaj prikazovati skrite"
 }

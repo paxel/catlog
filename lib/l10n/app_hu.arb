@@ -178,5 +178,9 @@
   "markPrivate": "Megjelölés privátként",
   "unmarkPrivate": "Privát jelölés eltávolítása",
   "includePrivate": "Privát adatok belefoglalása",
-  "includePrivateExplainer": "A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be."
+  "includePrivateExplainer": "A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be.",
+  "hideLabel": "Elrejtés ezen az eszközön",
+  "unhideLabel": "Újra megjelenítés",
+  "showHiddenLabel": "Rejtettek megjelenítése",
+  "stopShowingHidden": "Rejtettek elrejtése újra"
 }

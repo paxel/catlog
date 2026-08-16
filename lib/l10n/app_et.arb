@@ -178,5 +178,9 @@
   "markPrivate": "Märgi privaatseks",
   "unmarkPrivate": "Eemalda privaatsuse märge",
   "includePrivate": "Kaasa privaatsed andmed",
-  "includePrivateExplainer": "Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel."
+  "includePrivateExplainer": "Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel.",
+  "hideLabel": "Peida selles seadmes",
+  "unhideLabel": "Näita uuesti",
+  "showHiddenLabel": "Näita peidetuid",
+  "stopShowingHidden": "Lõpeta peidetute näitamine"
 }

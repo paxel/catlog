@@ -178,5 +178,9 @@
   "markPrivate": "Merkitse yksityiseksi",
   "unmarkPrivate": "Poista yksityisyysmerkintä",
   "includePrivate": "Sisällytä yksityiset tiedot",
-  "includePrivateExplainer": "Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa."
+  "includePrivateExplainer": "Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa.",
+  "hideLabel": "Piilota tällä laitteella",
+  "unhideLabel": "Näytä uudelleen",
+  "showHiddenLabel": "Näytä piilotetut",
+  "stopShowingHidden": "Lopeta piilotettujen näyttäminen"
 }

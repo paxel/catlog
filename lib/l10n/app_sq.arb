@@ -178,5 +178,9 @@
   "markPrivate": "Shëno si private",
   "unmarkPrivate": "Hiq shënimin privat",
   "includePrivate": "Përfshi të dhënat private",
-  "includePrivateExplainer": "Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua."
+  "includePrivateExplainer": "Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua.",
+  "hideLabel": "Fshih në këtë pajisje",
+  "unhideLabel": "Shfaq përsëri",
+  "showHiddenLabel": "Shfaq të fshehurat",
+  "stopShowingHidden": "Ndalo shfaqjen e të fshehurave"
 }

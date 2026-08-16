@@ -402,5 +402,9 @@
   "markPrivate": "Mark as private",
   "unmarkPrivate": "Remove private mark",
   "includePrivate": "Include private data",
-  "includePrivateExplainer": "Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices."
+  "includePrivateExplainer": "Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.",
+  "hideLabel": "Hide on this device",
+  "unhideLabel": "Show again",
+  "showHiddenLabel": "Show hidden",
+  "stopShowingHidden": "Stop showing hidden"
 }

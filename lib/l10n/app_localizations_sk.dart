@@ -617,4 +617,16 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení.';
+
+  @override
+  String get hideLabel => 'Skryť na tomto zariadení';
+
+  @override
+  String get unhideLabel => 'Znova zobraziť';
+
+  @override
+  String get showHiddenLabel => 'Zobraziť skryté';
+
+  @override
+  String get stopShowingHidden => 'Prestať zobrazovať skryté';
 }

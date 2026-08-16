@@ -605,4 +605,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get includePrivateExplainer => '私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。';
+
+  @override
+  String get hideLabel => '在此设备上隐藏';
+
+  @override
+  String get unhideLabel => '重新显示';
+
+  @override
+  String get showHiddenLabel => '显示隐藏项';
+
+  @override
+  String get stopShowingHidden => '停止显示隐藏项';
 }

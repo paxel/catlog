@@ -617,4 +617,16 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın.';
+
+  @override
+  String get hideLabel => 'Bu cihazda gizle';
+
+  @override
+  String get unhideLabel => 'Yeniden göster';
+
+  @override
+  String get showHiddenLabel => 'Gizlenenleri göster';
+
+  @override
+  String get stopShowingHidden => 'Gizlenenleri göstermeyi bırak';
 }

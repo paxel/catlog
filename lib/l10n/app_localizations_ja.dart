@@ -608,4 +608,16 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。';
+
+  @override
+  String get hideLabel => 'この端末で非表示にする';
+
+  @override
+  String get unhideLabel => '再表示する';
+
+  @override
+  String get showHiddenLabel => '非表示の項目を表示';
+
+  @override
+  String get stopShowingHidden => '非表示の項目を隠す';
 }

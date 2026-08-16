@@ -618,4 +618,16 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa.';
+
+  @override
+  String get hideLabel => 'Piilota tällä laitteella';
+
+  @override
+  String get unhideLabel => 'Näytä uudelleen';
+
+  @override
+  String get showHiddenLabel => 'Näytä piilotetut';
+
+  @override
+  String get stopShowingHidden => 'Lopeta piilotettujen näyttäminen';
 }

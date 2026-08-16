@@ -178,5 +178,9 @@
   "markPrivate": "Označiť ako súkromné",
   "unmarkPrivate": "Odstrániť súkromné označenie",
   "includePrivate": "Zahrnúť súkromné údaje",
-  "includePrivateExplainer": "Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení."
+  "includePrivateExplainer": "Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení.",
+  "hideLabel": "Skryť na tomto zariadení",
+  "unhideLabel": "Znova zobraziť",
+  "showHiddenLabel": "Zobraziť skryté",
+  "stopShowingHidden": "Prestať zobrazovať skryté"
 }

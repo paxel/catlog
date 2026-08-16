@@ -617,4 +617,16 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get includePrivateExplainer =>
       'گربه‌ها، گروه‌ها و فیلدهای خصوصی هم به اشتراک گذاشته می‌شوند — فقط هنگام همگام‌سازی دستگاه‌های خودتان روشن کنید.';
+
+  @override
+  String get hideLabel => 'پنهان کردن در این دستگاه';
+
+  @override
+  String get unhideLabel => 'نمایش دوباره';
+
+  @override
+  String get showHiddenLabel => 'نمایش موارد پنهان';
+
+  @override
+  String get stopShowingHidden => 'توقف نمایش موارد پنهان';
 }
