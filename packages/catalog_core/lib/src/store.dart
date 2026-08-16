@@ -179,6 +179,35 @@ class CatalogStore {
         ['u:$key', value],
       );
 
+  // ------------------------------------------- hidden (display filter)
+
+  /// Hidden is a per-device display filter: hidden Cats, Clowders, and
+  /// field definitions keep syncing unchanged — they are only not shown.
+
+  bool isHidden(String id) =>
+      localSetting('hidden:${resolveEntity(id)}') == '1';
+
+  void setHidden(String id, bool hidden) {
+    final key = 'u:hidden:${resolveEntity(id)}';
+    if (hidden) {
+      _db.execute(
+        'INSERT INTO local_settings (key, value) VALUES (?, ?) '
+        'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+        [key, '1'],
+      );
+    } else {
+      _db.execute('DELETE FROM local_settings WHERE key = ?', [key]);
+    }
+  }
+
+  /// Canonical ids currently hidden on this device.
+  List<String> hiddenIds() => [
+        for (final r in _db.select(
+            "SELECT key FROM local_settings WHERE key LIKE 'u:hidden:%' "
+            "AND value = '1'"))
+          (r['key'] as String).substring('u:hidden:'.length)
+      ];
+
   // ------------------------------------------------------------------- log
 
   /// Appends one immutable fact. [date] is the effective (backdatable)
