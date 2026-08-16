@@ -906,4 +906,32 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'معرفی سریع';
+
+  @override
+  String get spotHomeSync =>
+      'جدید: همگام‌سازی حالا سه راه روشن دارد — و یک سؤال اعتماد قبل از انتقال هر چیزی.';
+
+  @override
+  String get spotMapSearch =>
+      'جدید: اینجا گربه‌ها، گروه‌ها و افراد را جستجو کنید — مستقیم روی نقشه.';
+
+  @override
+  String get spotCardChips =>
+      'جدید: قبل از اشتراک‌گذاری انتخاب کنید چه چیزی روی کارت باشد.';
+
+  @override
+  String get spotCatMenu =>
+      'جدید: گربه‌ای را خصوصی علامت بزنید (هرگز دستگاه را ترک نمی‌کند) یا اینجا پنهانش کنید.';
+
+  @override
+  String get spotDone => 'متوجه شدم';
+
+  @override
+  String get spotReplayTitle => 'تور تازه‌ها';
+
+  @override
+  String get spotReplaySubtitle => 'نمایش دوباره راهنماها در هر صفحه';
+
+  @override
+  String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
 }

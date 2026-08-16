@@ -265,5 +265,13 @@
   "introSkip": "Überspringen",
   "introNext": "Weiter",
   "introDone": "Los geht's",
-  "introReplayTitle": "Kurze Einführung"
+  "introReplayTitle": "Kurze Einführung",
+  "spotHomeSync": "Neu: Synchronisieren bietet drei klare Wege — und eine Vertrauensfrage, bevor etwas fließt.",
+  "spotMapSearch": "Neu: Suche hier nach Katzen, Clowdern und Personen — direkt auf der Karte.",
+  "spotCardChips": "Neu: Wähle vor dem Teilen aus, was auf der Karte steht.",
+  "spotCatMenu": "Neu: Markiere eine Katze hier als privat (verlässt nie dein Gerät) oder blende sie aus.",
+  "spotDone": "Verstanden",
+  "spotReplayTitle": "Was-ist-neu-Tour",
+  "spotReplaySubtitle": "Hinweise auf jeder Seite erneut zeigen",
+  "spotReplayDone": "Die Hinweise erscheinen wieder"
 }

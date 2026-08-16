@@ -265,5 +265,13 @@
   "introSkip": "Praleisti",
   "introNext": "Toliau",
   "introDone": "Pirmyn",
-  "introReplayTitle": "Greita pažintis"
+  "introReplayTitle": "Greita pažintis",
+  "spotHomeSync": "Nauja: sinchronizavimas dabar siūlo tris aiškius kelius — ir pasitikėjimo klausimą prieš kam nors keliaujant.",
+  "spotMapSearch": "Nauja: ieškok čia kačių, clowderių ir žmonių — tiesiai žemėlapyje.",
+  "spotCardChips": "Nauja: prieš dalindamasis pasirink, kas bus kortelėje.",
+  "spotCatMenu": "Nauja: pažymėk katę kaip privačią (niekada nepalieka įrenginio) arba paslėpk ją čia.",
+  "spotDone": "Supratau",
+  "spotReplayTitle": "Naujienų turas",
+  "spotReplaySubtitle": "Vėl rodyti patarimus kiekviename puslapyje",
+  "spotReplayDone": "Patarimai bus rodomi vėl"
 }

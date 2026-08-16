@@ -909,4 +909,32 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Hyrje e shpejtë';
+
+  @override
+  String get spotHomeSync =>
+      'E re: sinkronizimi tani ofron tri rrugë të qarta — dhe një pyetje besimi para se të rrjedhë gjë.';
+
+  @override
+  String get spotMapSearch =>
+      'E re: kërko këtu mace, clowdera dhe persona — direkt në hartë.';
+
+  @override
+  String get spotCardChips =>
+      'E re: zgjidh çfarë shfaqet në kartë para se ta ndash.';
+
+  @override
+  String get spotCatMenu =>
+      'E re: shëno një mace si private (nuk e lë kurrë pajisjen) ose fshihe këtu.';
+
+  @override
+  String get spotDone => 'Kuptova';
+
+  @override
+  String get spotReplayTitle => 'Turi i risive';
+
+  @override
+  String get spotReplaySubtitle => 'Shfaq këshillat sërish në çdo faqe';
+
+  @override
+  String get spotReplayDone => 'Këshillat do të shfaqen sërish';
 }

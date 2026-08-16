@@ -265,5 +265,13 @@
   "introSkip": "Spring over",
   "introNext": "Næste",
   "introDone": "Kom i gang",
-  "introReplayTitle": "Hurtig intro"
+  "introReplayTitle": "Hurtig intro",
+  "spotHomeSync": "Nyt: synkronisering har nu tre klare veje — og et tillidsspørgsmål, før noget flyder.",
+  "spotMapSearch": "Nyt: søg efter katte, clowdere og personer her — direkte på kortet.",
+  "spotCardChips": "Nyt: vælg hvad der står på kortet, før du deler det.",
+  "spotCatMenu": "Nyt: markér en kat som privat (forlader aldrig din enhed) eller skjul den her.",
+  "spotDone": "Forstået",
+  "spotReplayTitle": "Nyheds-rundtur",
+  "spotReplaySubtitle": "Vis tips igen på hver side",
+  "spotReplayDone": "Tipsene vises igen"
 }

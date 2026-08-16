@@ -265,5 +265,13 @@
   "introSkip": "Preskoči",
   "introNext": "Naprej",
   "introDone": "Gremo",
-  "introReplayTitle": "Hiter uvod"
+  "introReplayTitle": "Hiter uvod",
+  "spotHomeSync": "Novo: sinhronizacija zdaj ponuja tri jasne poti — in vprašanje zaupanja, preden karkoli steče.",
+  "spotMapSearch": "Novo: tukaj išči mačke, clowdere in osebe — neposredno na zemljevidu.",
+  "spotCardChips": "Novo: pred deljenjem izberi, kaj bo na kartici.",
+  "spotCatMenu": "Novo: označi mačko kot zasebno (nikoli ne zapusti naprave) ali jo tukaj skrij.",
+  "spotDone": "Razumem",
+  "spotReplayTitle": "Ogled novosti",
+  "spotReplaySubtitle": "Znova pokaži namige na vsaki strani",
+  "spotReplayDone": "Namigi se bodo znova prikazali"
 }

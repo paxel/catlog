@@ -911,4 +911,32 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Korte intro';
+
+  @override
+  String get spotHomeSync =>
+      'Nieuw: synchroniseren biedt nu drie duidelijke wegen — en een vertrouwensvraag voordat er iets stroomt.';
+
+  @override
+  String get spotMapSearch =>
+      'Nieuw: zoek hier katten, clowders en personen — direct op de kaart.';
+
+  @override
+  String get spotCardChips =>
+      'Nieuw: kies wat er op de kaart staat voordat je hem deelt.';
+
+  @override
+  String get spotCatMenu =>
+      'Nieuw: markeer een kat als privé (verlaat nooit je apparaat) of verberg hem hier.';
+
+  @override
+  String get spotDone => 'Begrepen';
+
+  @override
+  String get spotReplayTitle => 'Wat-is-nieuw-tour';
+
+  @override
+  String get spotReplaySubtitle => 'Tips opnieuw tonen op elke pagina';
+
+  @override
+  String get spotReplayDone => 'De tips worden opnieuw getoond';
 }

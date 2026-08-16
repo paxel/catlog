@@ -11,6 +11,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../language_dialog.dart';
 import '../name_date_dialog.dart';
+import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/status_chip.dart';
 import 'about_screen.dart';
@@ -41,6 +42,13 @@ class ClowderListScreen extends StatefulWidget {
 }
 
 class _ClowderListScreenState extends State<ClowderListScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, widget.store, 'home'));
+  }
+
   Future<void> _exportCsv() async {
     final csv = exportCsv(widget.store);
     try {
@@ -102,15 +110,18 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               setState(() {});
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.sync),
-            tooltip: context.t.sync,
-            onPressed: () async {
-              await Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => SyncScreen(store: widget.store),
-              ));
-              setState(() {});
-            },
+          Spotlight(
+            id: 'home-sync',
+            child: IconButton(
+              icon: const Icon(Icons.sync),
+              tooltip: context.t.sync,
+              onPressed: () async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => SyncScreen(store: widget.store),
+                ));
+                setState(() {});
+              },
+            ),
           ),
           IconButton(
             icon: const Icon(Icons.tune),

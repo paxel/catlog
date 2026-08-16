@@ -891,4 +891,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'クイック紹介';
+
+  @override
+  String get spotHomeSync => '新機能: 同期は3つのわかりやすい方法に。共有前に信頼の確認もあります。';
+
+  @override
+  String get spotMapSearch => '新機能: ここで猫・グループ・人を検索 — 地図上ですぐ見つかります。';
+
+  @override
+  String get spotCardChips => '新機能: 共有する前にカードに載せる内容を選べます。';
+
+  @override
+  String get spotCatMenu => '新機能: 猫をプライベートに設定（端末から出ません）したり、ここで非表示にできます。';
+
+  @override
+  String get spotDone => 'OK';
+
+  @override
+  String get spotReplayTitle => '新機能ツアー';
+
+  @override
+  String get spotReplaySubtitle => '各ページでヒントを再表示';
+
+  @override
+  String get spotReplayDone => 'ヒントを再表示します';
 }

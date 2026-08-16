@@ -910,4 +910,33 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Réamhrá tapa';
+
+  @override
+  String get spotHomeSync =>
+      'Nua: tá trí bhealach shoiléire ag an sioncronú anois — agus ceist mhuiníne sula ngluaiseann aon rud.';
+
+  @override
+  String get spotMapSearch =>
+      'Nua: cuardaigh cait, clowders agus daoine anseo — díreach ar an léarscáil.';
+
+  @override
+  String get spotCardChips =>
+      'Nua: roghnaigh cad a bheidh ar an gcárta sula roinneann tú é.';
+
+  @override
+  String get spotCatMenu =>
+      'Nua: marcáil cat mar phríobháideach (ní fhágann sé do ghléas riamh) nó folaigh anseo é.';
+
+  @override
+  String get spotDone => 'Tuigim';
+
+  @override
+  String get spotReplayTitle => 'Turas na nuachta';
+
+  @override
+  String get spotReplaySubtitle =>
+      'Taispeáin na leideanna arís ar gach leathanach';
+
+  @override
+  String get spotReplayDone => 'Taispeánfar na leideanna arís';
 }

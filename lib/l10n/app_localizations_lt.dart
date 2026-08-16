@@ -908,4 +908,32 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Greita pažintis';
+
+  @override
+  String get spotHomeSync =>
+      'Nauja: sinchronizavimas dabar siūlo tris aiškius kelius — ir pasitikėjimo klausimą prieš kam nors keliaujant.';
+
+  @override
+  String get spotMapSearch =>
+      'Nauja: ieškok čia kačių, clowderių ir žmonių — tiesiai žemėlapyje.';
+
+  @override
+  String get spotCardChips =>
+      'Nauja: prieš dalindamasis pasirink, kas bus kortelėje.';
+
+  @override
+  String get spotCatMenu =>
+      'Nauja: pažymėk katę kaip privačią (niekada nepalieka įrenginio) arba paslėpk ją čia.';
+
+  @override
+  String get spotDone => 'Supratau';
+
+  @override
+  String get spotReplayTitle => 'Naujienų turas';
+
+  @override
+  String get spotReplaySubtitle => 'Vėl rodyti patarimus kiekviename puslapyje';
+
+  @override
+  String get spotReplayDone => 'Patarimai bus rodomi vėl';
 }

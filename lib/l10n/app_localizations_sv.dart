@@ -906,4 +906,32 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Snabb intro';
+
+  @override
+  String get spotHomeSync =>
+      'Nytt: synkronisering erbjuder nu tre tydliga vägar — och en förtroendefråga innan något flödar.';
+
+  @override
+  String get spotMapSearch =>
+      'Nytt: sök katter, clowdrar och personer här — direkt på kartan.';
+
+  @override
+  String get spotCardChips =>
+      'Nytt: välj vad som visas på kortet innan du delar det.';
+
+  @override
+  String get spotCatMenu =>
+      'Nytt: markera en katt som privat (lämnar aldrig din enhet) eller dölj den här.';
+
+  @override
+  String get spotDone => 'Uppfattat';
+
+  @override
+  String get spotReplayTitle => 'Nyhetstur';
+
+  @override
+  String get spotReplaySubtitle => 'Visa tipsen igen på varje sida';
+
+  @override
+  String get spotReplayDone => 'Tipsen visas igen';
 }

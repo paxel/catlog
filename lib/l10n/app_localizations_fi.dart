@@ -907,4 +907,32 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Pikaesittely';
+
+  @override
+  String get spotHomeSync =>
+      'Uutta: synkronointi tarjoaa nyt kolme selkeää tapaa — ja luottamuskysymyksen ennen kuin mitään liikkuu.';
+
+  @override
+  String get spotMapSearch =>
+      'Uutta: hae täältä kissoja, clowdereita ja henkilöitä — suoraan kartalla.';
+
+  @override
+  String get spotCardChips =>
+      'Uutta: valitse mitä kortilla näkyy ennen jakamista.';
+
+  @override
+  String get spotCatMenu =>
+      'Uutta: merkitse kissa yksityiseksi (ei koskaan poistu laitteeltasi) tai piilota se täällä.';
+
+  @override
+  String get spotDone => 'Selvä';
+
+  @override
+  String get spotReplayTitle => 'Uutuuskierros';
+
+  @override
+  String get spotReplaySubtitle => 'Näytä vinkit uudelleen joka sivulla';
+
+  @override
+  String get spotReplayDone => 'Vinkit näytetään uudelleen';
 }

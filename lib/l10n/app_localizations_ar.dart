@@ -905,4 +905,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'مقدمة سريعة';
+
+  @override
+  String get spotHomeSync =>
+      'جديد: المزامنة الآن بثلاث طرق واضحة — مع سؤال ثقة قبل أن ينتقل أي شيء.';
+
+  @override
+  String get spotMapSearch =>
+      'جديد: ابحث هنا عن القطط والمجموعات والأشخاص — مباشرة على الخريطة.';
+
+  @override
+  String get spotCardChips => 'جديد: اختر ما يظهر على البطاقة قبل مشاركتها.';
+
+  @override
+  String get spotCatMenu =>
+      'جديد: علّم قطة كخاصة (لا تغادر جهازك أبدًا) أو أخفها من العرض هنا.';
+
+  @override
+  String get spotDone => 'فهمت';
+
+  @override
+  String get spotReplayTitle => 'جولة الجديد';
+
+  @override
+  String get spotReplaySubtitle => 'إظهار الإرشادات مجددًا في كل صفحة';
+
+  @override
+  String get spotReplayDone => 'ستظهر الإرشادات مرة أخرى';
 }

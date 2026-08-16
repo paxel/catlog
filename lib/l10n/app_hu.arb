@@ -265,5 +265,13 @@
   "introSkip": "Kihagyás",
   "introNext": "Tovább",
   "introDone": "Vágjunk bele",
-  "introReplayTitle": "Gyors bemutató"
+  "introReplayTitle": "Gyors bemutató",
+  "spotHomeSync": "Új: a szinkronizálás most három világos utat kínál — és bizalmi kérdést, mielőtt bármi átmenne.",
+  "spotMapSearch": "Új: keress itt macskákat, clowdereket és személyeket — közvetlenül a térképen.",
+  "spotCardChips": "Új: válaszd ki, mi kerüljön a kártyára, mielőtt megosztod.",
+  "spotCatMenu": "Új: jelölj egy macskát privátnak (sosem hagyja el a készüléked), vagy rejtsd el itt.",
+  "spotDone": "Értem",
+  "spotReplayTitle": "Újdonság-túra",
+  "spotReplaySubtitle": "Tippek újbóli megjelenítése minden oldalon",
+  "spotReplayDone": "A tippek újra megjelennek"
 }

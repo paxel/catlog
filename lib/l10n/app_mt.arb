@@ -265,5 +265,13 @@
   "introSkip": "Aqbeż",
   "introNext": "Li jmiss",
   "introDone": "Ejja",
-  "introReplayTitle": "Introduzzjoni mgħaġġla"
+  "introReplayTitle": "Introduzzjoni mgħaġġla",
+  "spotHomeSync": "Ġdid: is-sinkronizzazzjoni issa toffri tliet toroq ċari — u mistoqsija ta' fiduċja qabel ma jgħaddi xejn.",
+  "spotMapSearch": "Ġdid: fittex qtates, gruppi u nies hawn — direttament fuq il-mappa.",
+  "spotCardChips": "Ġdid: agħżel x'jidher fuq il-karta qabel ma taqsamha.",
+  "spotCatMenu": "Ġdid: immarka qattus bħala privat (qatt ma jitlaq mill-apparat) jew aħbih hawn.",
+  "spotDone": "Fhimt",
+  "spotReplayTitle": "Dawra tal-ġodda",
+  "spotReplaySubtitle": "Erġa' uri s-suġġerimenti f'kull paġna",
+  "spotReplayDone": "Is-suġġerimenti jerġgħu jidhru"
 }

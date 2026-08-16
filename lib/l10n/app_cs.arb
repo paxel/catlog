@@ -265,5 +265,13 @@
   "introSkip": "Přeskočit",
   "introNext": "Dále",
   "introDone": "Jdeme na to",
-  "introReplayTitle": "Rychlý úvod"
+  "introReplayTitle": "Rychlý úvod",
+  "spotHomeSync": "Nové: synchronizace teď nabízí tři jasné cesty — a otázku důvěry, než cokoli odteče.",
+  "spotMapSearch": "Nové: hledej tady kočky, clowdery i osoby — přímo na mapě.",
+  "spotCardChips": "Nové: před sdílením vyber, co na kartě bude.",
+  "spotCatMenu": "Nové: označ kočku jako soukromou (nikdy neopustí zařízení) nebo ji tady skryj.",
+  "spotDone": "Rozumím",
+  "spotReplayTitle": "Prohlídka novinek",
+  "spotReplaySubtitle": "Znovu ukázat tipy na každé stránce",
+  "spotReplayDone": "Tipy se znovu zobrazí"
 }

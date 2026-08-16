@@ -908,4 +908,32 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Hurtig intro';
+
+  @override
+  String get spotHomeSync =>
+      'Nyt: synkronisering har nu tre klare veje — og et tillidsspørgsmål, før noget flyder.';
+
+  @override
+  String get spotMapSearch =>
+      'Nyt: søg efter katte, clowdere og personer her — direkte på kortet.';
+
+  @override
+  String get spotCardChips =>
+      'Nyt: vælg hvad der står på kortet, før du deler det.';
+
+  @override
+  String get spotCatMenu =>
+      'Nyt: markér en kat som privat (forlader aldrig din enhed) eller skjul den her.';
+
+  @override
+  String get spotDone => 'Forstået';
+
+  @override
+  String get spotReplayTitle => 'Nyheds-rundtur';
+
+  @override
+  String get spotReplaySubtitle => 'Vis tips igen på hver side';
+
+  @override
+  String get spotReplayDone => 'Tipsene vises igen';
 }

@@ -906,4 +906,31 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Rychlý úvod';
+
+  @override
+  String get spotHomeSync =>
+      'Nové: synchronizace teď nabízí tři jasné cesty — a otázku důvěry, než cokoli odteče.';
+
+  @override
+  String get spotMapSearch =>
+      'Nové: hledej tady kočky, clowdery i osoby — přímo na mapě.';
+
+  @override
+  String get spotCardChips => 'Nové: před sdílením vyber, co na kartě bude.';
+
+  @override
+  String get spotCatMenu =>
+      'Nové: označ kočku jako soukromou (nikdy neopustí zařízení) nebo ji tady skryj.';
+
+  @override
+  String get spotDone => 'Rozumím';
+
+  @override
+  String get spotReplayTitle => 'Prohlídka novinek';
+
+  @override
+  String get spotReplaySubtitle => 'Znovu ukázat tipy na každé stránce';
+
+  @override
+  String get spotReplayDone => 'Tipy se znovu zobrazí';
 }

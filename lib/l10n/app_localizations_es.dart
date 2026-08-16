@@ -910,4 +910,32 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Introducción rápida';
+
+  @override
+  String get spotHomeSync =>
+      'Nuevo: sincronizar ofrece ahora tres vías claras — y una pregunta de confianza antes de que fluya nada.';
+
+  @override
+  String get spotMapSearch =>
+      'Nuevo: busca aquí gatos, clowders y personas — directamente en el mapa.';
+
+  @override
+  String get spotCardChips =>
+      'Nuevo: elige qué aparece en la ficha antes de compartirla.';
+
+  @override
+  String get spotCatMenu =>
+      'Nuevo: marca un gato como privado (nunca sale de tu dispositivo) u ocúltalo aquí.';
+
+  @override
+  String get spotDone => 'Entendido';
+
+  @override
+  String get spotReplayTitle => 'Tour de novedades';
+
+  @override
+  String get spotReplaySubtitle => 'Mostrar las pistas de nuevo en cada página';
+
+  @override
+  String get spotReplayDone => 'Las pistas volverán a mostrarse';
 }

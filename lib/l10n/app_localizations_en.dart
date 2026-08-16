@@ -908,4 +908,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Quick intro';
+
+  @override
+  String get spotHomeSync =>
+      'New: sync now offers three clear ways to share — and a trust question before anything flows.';
+
+  @override
+  String get spotMapSearch =>
+      'New: search cats, clowders, and people here — or find any of them on the map.';
+
+  @override
+  String get spotCardChips =>
+      'New: choose what appears on the card before sharing it.';
+
+  @override
+  String get spotCatMenu =>
+      'New: mark a cat as private (never leaves your device) or hide it from your view here.';
+
+  @override
+  String get spotDone => 'Got it';
+
+  @override
+  String get spotReplayTitle => 'What\'s new tour';
+
+  @override
+  String get spotReplaySubtitle => 'Show the highlights again on each page';
+
+  @override
+  String get spotReplayDone => 'The highlights will show again';
 }

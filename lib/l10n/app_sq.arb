@@ -265,5 +265,13 @@
   "introSkip": "Kapërce",
   "introNext": "Tjetra",
   "introDone": "Nisemi",
-  "introReplayTitle": "Hyrje e shpejtë"
+  "introReplayTitle": "Hyrje e shpejtë",
+  "spotHomeSync": "E re: sinkronizimi tani ofron tri rrugë të qarta — dhe një pyetje besimi para se të rrjedhë gjë.",
+  "spotMapSearch": "E re: kërko këtu mace, clowdera dhe persona — direkt në hartë.",
+  "spotCardChips": "E re: zgjidh çfarë shfaqet në kartë para se ta ndash.",
+  "spotCatMenu": "E re: shëno një mace si private (nuk e lë kurrë pajisjen) ose fshihe këtu.",
+  "spotDone": "Kuptova",
+  "spotReplayTitle": "Turi i risive",
+  "spotReplaySubtitle": "Shfaq këshillat sërish në çdo faqe",
+  "spotReplayDone": "Këshillat do të shfaqen sërish"
 }

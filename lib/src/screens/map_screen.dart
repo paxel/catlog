@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
+import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -60,6 +61,8 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, store, 'map'));
     if (widget.tileProvider != null) {
       _tiles = widget.tileProvider;
     } else {
@@ -221,7 +224,9 @@ class _MapScreenState extends State<MapScreen> {
         title: Text(context.t.map),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
-          child: Padding(
+          child: Spotlight(
+            id: 'map-search',
+            child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
             child: TextField(
               controller: _search,
@@ -241,6 +246,7 @@ class _MapScreenState extends State<MapScreen> {
                 prefixIcon: const Icon(Icons.search),
               ),
             ),
+          ),
           ),
         ),
       ),

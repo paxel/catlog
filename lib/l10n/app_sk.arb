@@ -265,5 +265,13 @@
   "introSkip": "Preskočiť",
   "introNext": "Ďalej",
   "introDone": "Poďme na to",
-  "introReplayTitle": "Rýchly úvod"
+  "introReplayTitle": "Rýchly úvod",
+  "spotHomeSync": "Nové: synchronizácia teraz ponúka tri jasné cesty — a otázku dôvery, kým čokoľvek odtečie.",
+  "spotMapSearch": "Nové: hľadaj tu mačky, clowdery a osoby — priamo na mape.",
+  "spotCardChips": "Nové: pred zdieľaním vyber, čo bude na karte.",
+  "spotCatMenu": "Nové: označ mačku ako súkromnú (nikdy neopustí zariadenie) alebo ju tu skry.",
+  "spotDone": "Rozumiem",
+  "spotReplayTitle": "Prehliadka noviniek",
+  "spotReplaySubtitle": "Znova ukázať tipy na každej stránke",
+  "spotReplayDone": "Tipy sa zobrazia znova"
 }

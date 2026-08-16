@@ -910,4 +910,32 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Snögg kynning';
+
+  @override
+  String get spotHomeSync =>
+      'Nýtt: samstilling býður nú þrjár skýrar leiðir — og traustsspurningu áður en nokkuð flæðir.';
+
+  @override
+  String get spotMapSearch =>
+      'Nýtt: leitaðu hér að köttum, hópum og fólki — beint á kortinu.';
+
+  @override
+  String get spotCardChips =>
+      'Nýtt: veldu hvað birtist á spjaldinu áður en þú deilir því.';
+
+  @override
+  String get spotCatMenu =>
+      'Nýtt: merktu kött sem einka (fer aldrei af tækinu) eða feldu hann hér.';
+
+  @override
+  String get spotDone => 'Skilið';
+
+  @override
+  String get spotReplayTitle => 'Nýjungaferð';
+
+  @override
+  String get spotReplaySubtitle => 'Sýna ábendingar aftur á hverri síðu';
+
+  @override
+  String get spotReplayDone => 'Ábendingarnar birtast aftur';
 }

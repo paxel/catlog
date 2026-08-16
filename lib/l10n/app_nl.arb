@@ -265,5 +265,13 @@
   "introSkip": "Overslaan",
   "introNext": "Volgende",
   "introDone": "Aan de slag",
-  "introReplayTitle": "Korte intro"
+  "introReplayTitle": "Korte intro",
+  "spotHomeSync": "Nieuw: synchroniseren biedt nu drie duidelijke wegen — en een vertrouwensvraag voordat er iets stroomt.",
+  "spotMapSearch": "Nieuw: zoek hier katten, clowders en personen — direct op de kaart.",
+  "spotCardChips": "Nieuw: kies wat er op de kaart staat voordat je hem deelt.",
+  "spotCatMenu": "Nieuw: markeer een kat als privé (verlaat nooit je apparaat) of verberg hem hier.",
+  "spotDone": "Begrepen",
+  "spotReplayTitle": "Wat-is-nieuw-tour",
+  "spotReplaySubtitle": "Tips opnieuw tonen op elke pagina",
+  "spotReplayDone": "De tips worden opnieuw getoond"
 }

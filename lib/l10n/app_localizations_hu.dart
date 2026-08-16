@@ -909,4 +909,32 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Gyors bemutató';
+
+  @override
+  String get spotHomeSync =>
+      'Új: a szinkronizálás most három világos utat kínál — és bizalmi kérdést, mielőtt bármi átmenne.';
+
+  @override
+  String get spotMapSearch =>
+      'Új: keress itt macskákat, clowdereket és személyeket — közvetlenül a térképen.';
+
+  @override
+  String get spotCardChips =>
+      'Új: válaszd ki, mi kerüljön a kártyára, mielőtt megosztod.';
+
+  @override
+  String get spotCatMenu =>
+      'Új: jelölj egy macskát privátnak (sosem hagyja el a készüléked), vagy rejtsd el itt.';
+
+  @override
+  String get spotDone => 'Értem';
+
+  @override
+  String get spotReplayTitle => 'Újdonság-túra';
+
+  @override
+  String get spotReplaySubtitle => 'Tippek újbóli megjelenítése minden oldalon';
+
+  @override
+  String get spotReplayDone => 'A tippek újra megjelennek';
 }

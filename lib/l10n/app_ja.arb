@@ -265,5 +265,13 @@
   "introSkip": "スキップ",
   "introNext": "次へ",
   "introDone": "はじめる",
-  "introReplayTitle": "クイック紹介"
+  "introReplayTitle": "クイック紹介",
+  "spotHomeSync": "新機能: 同期は3つのわかりやすい方法に。共有前に信頼の確認もあります。",
+  "spotMapSearch": "新機能: ここで猫・グループ・人を検索 — 地図上ですぐ見つかります。",
+  "spotCardChips": "新機能: 共有する前にカードに載せる内容を選べます。",
+  "spotCatMenu": "新機能: 猫をプライベートに設定（端末から出ません）したり、ここで非表示にできます。",
+  "spotDone": "OK",
+  "spotReplayTitle": "新機能ツアー",
+  "spotReplaySubtitle": "各ページでヒントを再表示",
+  "spotReplayDone": "ヒントを再表示します"
 }

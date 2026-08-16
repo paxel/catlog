@@ -265,5 +265,13 @@
   "introSkip": "Jäta vahele",
   "introNext": "Edasi",
   "introDone": "Alustame",
-  "introReplayTitle": "Kiire tutvustus"
+  "introReplayTitle": "Kiire tutvustus",
+  "spotHomeSync": "Uus: sünkroonimine pakub nüüd kolme selget teed — ja usaldusküsimust enne, kui midagi liigub.",
+  "spotMapSearch": "Uus: otsi siit kasse, clowdereid ja inimesi — otse kaardil.",
+  "spotCardChips": "Uus: vali enne jagamist, mis kaardile jõuab.",
+  "spotCatMenu": "Uus: märgi kass privaatseks (ei lahku kunagi seadmest) või peida ta siit.",
+  "spotDone": "Selge",
+  "spotReplayTitle": "Uuenduste tuur",
+  "spotReplaySubtitle": "Näita vihjeid igal lehel uuesti",
+  "spotReplayDone": "Vihjed kuvatakse uuesti"
 }

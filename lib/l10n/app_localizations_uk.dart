@@ -907,4 +907,32 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Швидке знайомство';
+
+  @override
+  String get spotHomeSync =>
+      'Нове: синхронізація тепер пропонує три зрозумілі шляхи — і питання довіри, перш ніж щось піде.';
+
+  @override
+  String get spotMapSearch =>
+      'Нове: шукайте тут котів, клаудери та людей — просто на карті.';
+
+  @override
+  String get spotCardChips =>
+      'Нове: виберіть, що потрапить на картку, перш ніж ділитися нею.';
+
+  @override
+  String get spotCatMenu =>
+      'Нове: позначте кота як особистого (ніколи не покидає пристрій) або сховайте його тут.';
+
+  @override
+  String get spotDone => 'Зрозуміло';
+
+  @override
+  String get spotReplayTitle => 'Тур новинками';
+
+  @override
+  String get spotReplaySubtitle => 'Показати підказки знову на кожній сторінці';
+
+  @override
+  String get spotReplayDone => 'Підказки з\'являться знову';
 }

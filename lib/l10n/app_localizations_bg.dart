@@ -907,4 +907,33 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Кратко въведение';
+
+  @override
+  String get spotHomeSync =>
+      'Ново: синхронизирането предлага три ясни начина — и въпрос за доверие, преди нещо да тръгне.';
+
+  @override
+  String get spotMapSearch =>
+      'Ново: търси тук котки, клаудъри и хора — направо на картата.';
+
+  @override
+  String get spotCardChips =>
+      'Ново: избери какво да има на картата, преди да я споделиш.';
+
+  @override
+  String get spotCatMenu =>
+      'Ново: отбележи котка като лична (никога не напуска устройството ти) или я скрий оттук.';
+
+  @override
+  String get spotDone => 'Ясно';
+
+  @override
+  String get spotReplayTitle => 'Обиколка на новото';
+
+  @override
+  String get spotReplaySubtitle =>
+      'Покажи подсказките отново на всяка страница';
+
+  @override
+  String get spotReplayDone => 'Подсказките ще се покажат отново';
 }

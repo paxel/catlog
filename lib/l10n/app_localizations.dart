@@ -1765,6 +1765,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Quick intro'**
   String get introReplayTitle;
+
+  /// No description provided for @spotHomeSync.
+  ///
+  /// In en, this message translates to:
+  /// **'New: sync now offers three clear ways to share — and a trust question before anything flows.'**
+  String get spotHomeSync;
+
+  /// No description provided for @spotMapSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'New: search cats, clowders, and people here — or find any of them on the map.'**
+  String get spotMapSearch;
+
+  /// No description provided for @spotCardChips.
+  ///
+  /// In en, this message translates to:
+  /// **'New: choose what appears on the card before sharing it.'**
+  String get spotCardChips;
+
+  /// No description provided for @spotCatMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'New: mark a cat as private (never leaves your device) or hide it from your view here.'**
+  String get spotCatMenu;
+
+  /// No description provided for @spotDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get spotDone;
+
+  /// No description provided for @spotReplayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new tour'**
+  String get spotReplayTitle;
+
+  /// No description provided for @spotReplaySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the highlights again on each page'**
+  String get spotReplaySubtitle;
+
+  /// No description provided for @spotReplayDone.
+  ///
+  /// In en, this message translates to:
+  /// **'The highlights will show again'**
+  String get spotReplayDone;
 }
 
 class _AppLocalizationsDelegate

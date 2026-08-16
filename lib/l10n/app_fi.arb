@@ -265,5 +265,13 @@
   "introSkip": "Ohita",
   "introNext": "Seuraava",
   "introDone": "Aloitetaan",
-  "introReplayTitle": "Pikaesittely"
+  "introReplayTitle": "Pikaesittely",
+  "spotHomeSync": "Uutta: synkronointi tarjoaa nyt kolme selkeää tapaa — ja luottamuskysymyksen ennen kuin mitään liikkuu.",
+  "spotMapSearch": "Uutta: hae täältä kissoja, clowdereita ja henkilöitä — suoraan kartalla.",
+  "spotCardChips": "Uutta: valitse mitä kortilla näkyy ennen jakamista.",
+  "spotCatMenu": "Uutta: merkitse kissa yksityiseksi (ei koskaan poistu laitteeltasi) tai piilota se täällä.",
+  "spotDone": "Selvä",
+  "spotReplayTitle": "Uutuuskierros",
+  "spotReplaySubtitle": "Näytä vinkit uudelleen joka sivulla",
+  "spotReplayDone": "Vinkit näytetään uudelleen"
 }

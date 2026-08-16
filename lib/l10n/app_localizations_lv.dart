@@ -906,4 +906,32 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Ātrs ievads';
+
+  @override
+  String get spotHomeSync =>
+      'Jauns: sinhronizācija tagad piedāvā trīs skaidrus ceļus — un uzticības jautājumu, pirms kaut kas plūst.';
+
+  @override
+  String get spotMapSearch =>
+      'Jauns: meklē šeit kaķus, clowderus un cilvēkus — tieši kartē.';
+
+  @override
+  String get spotCardChips =>
+      'Jauns: pirms kopīgošanas izvēlies, kas būs kartītē.';
+
+  @override
+  String get spotCatMenu =>
+      'Jauns: atzīmē kaķi kā privātu (nekad neatstāj ierīci) vai paslēp to šeit.';
+
+  @override
+  String get spotDone => 'Skaidrs';
+
+  @override
+  String get spotReplayTitle => 'Jaunumu tūre';
+
+  @override
+  String get spotReplaySubtitle => 'Rādīt padomus atkal katrā lapā';
+
+  @override
+  String get spotReplayDone => 'Padomi tiks rādīti atkal';
 }

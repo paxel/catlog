@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import '../spotlight.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -42,6 +43,8 @@ class _CardScreenState extends State<CardScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, store, 'card'));
     final saved = store.localSetting('cardFields');
     if (saved != null) {
       _selected = saved.split('\n').where((k) => k.isNotEmpty).toSet();
@@ -98,7 +101,9 @@ class _CardScreenState extends State<CardScreen> {
         if (store.current(id, def.key) != null)
           (def.key, fieldDefName(t, def)),
     ];
-    return Padding(
+    return Spotlight(
+      id: 'card-chips',
+      child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Wrap(
         spacing: 8,
@@ -112,6 +117,7 @@ class _CardScreenState extends State<CardScreen> {
               visualDensity: VisualDensity.compact,
             ),
         ],
+      ),
       ),
     );
   }

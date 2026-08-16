@@ -265,5 +265,13 @@
   "introSkip": "Pomiń",
   "introNext": "Dalej",
   "introDone": "Zaczynamy",
-  "introReplayTitle": "Szybkie wprowadzenie"
+  "introReplayTitle": "Szybkie wprowadzenie",
+  "spotHomeSync": "Nowość: synchronizacja oferuje teraz trzy jasne drogi — i pytanie o zaufanie, zanim cokolwiek popłynie.",
+  "spotMapSearch": "Nowość: szukaj tu kotów, clowderów i osób — bezpośrednio na mapie.",
+  "spotCardChips": "Nowość: wybierz, co znajdzie się na karcie, zanim ją udostępnisz.",
+  "spotCatMenu": "Nowość: oznacz kota jako prywatnego (nigdy nie opuszcza urządzenia) albo ukryj go tutaj.",
+  "spotDone": "Rozumiem",
+  "spotReplayTitle": "Przegląd nowości",
+  "spotReplaySubtitle": "Pokaż wskazówki ponownie na każdej stronie",
+  "spotReplayDone": "Wskazówki pojawią się ponownie"
 }

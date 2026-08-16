@@ -265,5 +265,13 @@
   "introSkip": "Saltar",
   "introNext": "Seguinte",
   "introDone": "Vamos lá",
-  "introReplayTitle": "Introdução rápida"
+  "introReplayTitle": "Introdução rápida",
+  "spotHomeSync": "Novo: a sincronização oferece agora três caminhos claros — e uma pergunta de confiança antes de algo fluir.",
+  "spotMapSearch": "Novo: procure aqui gatos, clowders e pessoas — diretamente no mapa.",
+  "spotCardChips": "Novo: escolha o que aparece na ficha antes de a partilhar.",
+  "spotCatMenu": "Novo: marque um gato como privado (nunca sai do seu dispositivo) ou oculte-o aqui.",
+  "spotDone": "Entendi",
+  "spotReplayTitle": "Tour das novidades",
+  "spotReplaySubtitle": "Mostrar as dicas novamente em cada página",
+  "spotReplayDone": "As dicas voltarão a aparecer"
 }

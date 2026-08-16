@@ -908,4 +908,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Hızlı tanıtım';
+
+  @override
+  String get spotHomeSync =>
+      'Yeni: eşitleme artık üç net yol sunuyor — ve bir şey akmadan önce güven sorusu.';
+
+  @override
+  String get spotMapSearch =>
+      'Yeni: burada kedi, grup ve kişi arayın — doğrudan haritada.';
+
+  @override
+  String get spotCardChips =>
+      'Yeni: paylaşmadan önce kartta ne görüneceğini seçin.';
+
+  @override
+  String get spotCatMenu =>
+      'Yeni: bir kediyi özel olarak işaretleyin (cihazınızdan asla çıkmaz) veya burada gizleyin.';
+
+  @override
+  String get spotDone => 'Anladım';
+
+  @override
+  String get spotReplayTitle => 'Yenilik turu';
+
+  @override
+  String get spotReplaySubtitle => 'İpuçlarını her sayfada yeniden göster';
+
+  @override
+  String get spotReplayDone => 'İpuçları yeniden gösterilecek';
 }

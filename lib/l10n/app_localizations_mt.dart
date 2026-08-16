@@ -910,4 +910,32 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Introduzzjoni mgħaġġla';
+
+  @override
+  String get spotHomeSync =>
+      'Ġdid: is-sinkronizzazzjoni issa toffri tliet toroq ċari — u mistoqsija ta\' fiduċja qabel ma jgħaddi xejn.';
+
+  @override
+  String get spotMapSearch =>
+      'Ġdid: fittex qtates, gruppi u nies hawn — direttament fuq il-mappa.';
+
+  @override
+  String get spotCardChips =>
+      'Ġdid: agħżel x\'jidher fuq il-karta qabel ma taqsamha.';
+
+  @override
+  String get spotCatMenu =>
+      'Ġdid: immarka qattus bħala privat (qatt ma jitlaq mill-apparat) jew aħbih hawn.';
+
+  @override
+  String get spotDone => 'Fhimt';
+
+  @override
+  String get spotReplayTitle => 'Dawra tal-ġodda';
+
+  @override
+  String get spotReplaySubtitle => 'Erġa\' uri s-suġġerimenti f\'kull paġna';
+
+  @override
+  String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
 }

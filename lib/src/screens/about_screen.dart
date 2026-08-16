@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../celebration.dart';
 import '../l10n.dart';
 import '../event_toasts.dart';
+import '../spotlight.dart';
 import 'intro_screen.dart';
 import 'moderation_screen.dart';
 
@@ -102,6 +103,16 @@ class _AboutScreenState extends State<AboutScreen> {
             subtitle: Text(t.coffeeSubtitle),
             onTap: () => _open(_donateUrl),
           ),
+        ListTile(
+          leading: const Icon(Icons.new_releases_outlined),
+          title: Text(t.spotReplayTitle),
+          subtitle: Text(t.spotReplaySubtitle),
+          onTap: () {
+            resetSpotlights(widget.store);
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(t.spotReplayDone)));
+          },
+        ),
         ListTile(
           leading: const Icon(Icons.slideshow_outlined),
           title: Text(t.introReplayTitle),

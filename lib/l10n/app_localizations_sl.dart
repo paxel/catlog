@@ -907,4 +907,31 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Hiter uvod';
+
+  @override
+  String get spotHomeSync =>
+      'Novo: sinhronizacija zdaj ponuja tri jasne poti — in vprašanje zaupanja, preden karkoli steče.';
+
+  @override
+  String get spotMapSearch =>
+      'Novo: tukaj išči mačke, clowdere in osebe — neposredno na zemljevidu.';
+
+  @override
+  String get spotCardChips => 'Novo: pred deljenjem izberi, kaj bo na kartici.';
+
+  @override
+  String get spotCatMenu =>
+      'Novo: označi mačko kot zasebno (nikoli ne zapusti naprave) ali jo tukaj skrij.';
+
+  @override
+  String get spotDone => 'Razumem';
+
+  @override
+  String get spotReplayTitle => 'Ogled novosti';
+
+  @override
+  String get spotReplaySubtitle => 'Znova pokaži namige na vsaki strani';
+
+  @override
+  String get spotReplayDone => 'Namigi se bodo znova prikazali';
 }

@@ -265,5 +265,13 @@
   "introSkip": "Atla",
   "introNext": "İleri",
   "introDone": "Başlayalım",
-  "introReplayTitle": "Hızlı tanıtım"
+  "introReplayTitle": "Hızlı tanıtım",
+  "spotHomeSync": "Yeni: eşitleme artık üç net yol sunuyor — ve bir şey akmadan önce güven sorusu.",
+  "spotMapSearch": "Yeni: burada kedi, grup ve kişi arayın — doğrudan haritada.",
+  "spotCardChips": "Yeni: paylaşmadan önce kartta ne görüneceğini seçin.",
+  "spotCatMenu": "Yeni: bir kediyi özel olarak işaretleyin (cihazınızdan asla çıkmaz) veya burada gizleyin.",
+  "spotDone": "Anladım",
+  "spotReplayTitle": "Yenilik turu",
+  "spotReplaySubtitle": "İpuçlarını her sayfada yeniden göster",
+  "spotReplayDone": "İpuçları yeniden gösterilecek"
 }

@@ -265,5 +265,13 @@
   "introSkip": "Izlaist",
   "introNext": "Tālāk",
   "introDone": "Aiziet",
-  "introReplayTitle": "Ātrs ievads"
+  "introReplayTitle": "Ātrs ievads",
+  "spotHomeSync": "Jauns: sinhronizācija tagad piedāvā trīs skaidrus ceļus — un uzticības jautājumu, pirms kaut kas plūst.",
+  "spotMapSearch": "Jauns: meklē šeit kaķus, clowderus un cilvēkus — tieši kartē.",
+  "spotCardChips": "Jauns: pirms kopīgošanas izvēlies, kas būs kartītē.",
+  "spotCatMenu": "Jauns: atzīmē kaķi kā privātu (nekad neatstāj ierīci) vai paslēp to šeit.",
+  "spotDone": "Skaidrs",
+  "spotReplayTitle": "Jaunumu tūre",
+  "spotReplaySubtitle": "Rādīt padomus atkal katrā lapā",
+  "spotReplayDone": "Padomi tiks rādīti atkal"
 }

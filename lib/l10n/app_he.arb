@@ -265,5 +265,13 @@
   "introSkip": "דלג",
   "introNext": "הבא",
   "introDone": "קדימה",
-  "introReplayTitle": "היכרות מהירה"
+  "introReplayTitle": "היכרות מהירה",
+  "spotHomeSync": "חדש: לסנכרון יש עכשיו שלוש דרכים ברורות — ושאלת אמון לפני שמשהו זורם.",
+  "spotMapSearch": "חדש: חפשו כאן חתולים, קבוצות ואנשים — ישירות על המפה.",
+  "spotCardChips": "חדש: בחרו מה יופיע בכרטיס לפני השיתוף.",
+  "spotCatMenu": "חדש: סמנו חתול כפרטי (לעולם לא עוזב את המכשיר) או הסתירו אותו כאן.",
+  "spotDone": "הבנתי",
+  "spotReplayTitle": "סיור חידושים",
+  "spotReplaySubtitle": "הצג את הרמזים שוב בכל עמוד",
+  "spotReplayDone": "הרמזים יוצגו שוב"
 }

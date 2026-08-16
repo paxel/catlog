@@ -907,4 +907,31 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Kiire tutvustus';
+
+  @override
+  String get spotHomeSync =>
+      'Uus: sünkroonimine pakub nüüd kolme selget teed — ja usaldusküsimust enne, kui midagi liigub.';
+
+  @override
+  String get spotMapSearch =>
+      'Uus: otsi siit kasse, clowdereid ja inimesi — otse kaardil.';
+
+  @override
+  String get spotCardChips => 'Uus: vali enne jagamist, mis kaardile jõuab.';
+
+  @override
+  String get spotCatMenu =>
+      'Uus: märgi kass privaatseks (ei lahku kunagi seadmest) või peida ta siit.';
+
+  @override
+  String get spotDone => 'Selge';
+
+  @override
+  String get spotReplayTitle => 'Uuenduste tuur';
+
+  @override
+  String get spotReplaySubtitle => 'Näita vihjeid igal lehel uuesti';
+
+  @override
+  String get spotReplayDone => 'Vihjed kuvatakse uuesti';
 }

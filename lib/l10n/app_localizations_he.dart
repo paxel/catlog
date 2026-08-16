@@ -900,4 +900,31 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'היכרות מהירה';
+
+  @override
+  String get spotHomeSync =>
+      'חדש: לסנכרון יש עכשיו שלוש דרכים ברורות — ושאלת אמון לפני שמשהו זורם.';
+
+  @override
+  String get spotMapSearch =>
+      'חדש: חפשו כאן חתולים, קבוצות ואנשים — ישירות על המפה.';
+
+  @override
+  String get spotCardChips => 'חדש: בחרו מה יופיע בכרטיס לפני השיתוף.';
+
+  @override
+  String get spotCatMenu =>
+      'חדש: סמנו חתול כפרטי (לעולם לא עוזב את המכשיר) או הסתירו אותו כאן.';
+
+  @override
+  String get spotDone => 'הבנתי';
+
+  @override
+  String get spotReplayTitle => 'סיור חידושים';
+
+  @override
+  String get spotReplaySubtitle => 'הצג את הרמזים שוב בכל עמוד';
+
+  @override
+  String get spotReplayDone => 'הרמזים יוצגו שוב';
 }

@@ -909,4 +909,32 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Γρήγορη εισαγωγή';
+
+  @override
+  String get spotHomeSync =>
+      'Νέο: ο συγχρονισμός προσφέρει τρεις καθαρούς τρόπους — και μια ερώτηση εμπιστοσύνης πριν ρεύσει οτιδήποτε.';
+
+  @override
+  String get spotMapSearch =>
+      'Νέο: αναζήτησε εδώ γάτες, ομάδες και άτομα — κατευθείαν στον χάρτη.';
+
+  @override
+  String get spotCardChips =>
+      'Νέο: διάλεξε τι εμφανίζεται στην κάρτα πριν τη μοιραστείς.';
+
+  @override
+  String get spotCatMenu =>
+      'Νέο: σήμανε μια γάτα ως ιδιωτική (δεν φεύγει ποτέ από τη συσκευή) ή κρύψ\' τη εδώ.';
+
+  @override
+  String get spotDone => 'Κατάλαβα';
+
+  @override
+  String get spotReplayTitle => 'Περιήγηση στα νέα';
+
+  @override
+  String get spotReplaySubtitle => 'Εμφάνιση των οδηγιών ξανά σε κάθε σελίδα';
+
+  @override
+  String get spotReplayDone => 'Οι οδηγίες θα εμφανιστούν ξανά';
 }

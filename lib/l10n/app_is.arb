@@ -265,5 +265,13 @@
   "introSkip": "Sleppa",
   "introNext": "Áfram",
   "introDone": "Byrjum",
-  "introReplayTitle": "Snögg kynning"
+  "introReplayTitle": "Snögg kynning",
+  "spotHomeSync": "Nýtt: samstilling býður nú þrjár skýrar leiðir — og traustsspurningu áður en nokkuð flæðir.",
+  "spotMapSearch": "Nýtt: leitaðu hér að köttum, hópum og fólki — beint á kortinu.",
+  "spotCardChips": "Nýtt: veldu hvað birtist á spjaldinu áður en þú deilir því.",
+  "spotCatMenu": "Nýtt: merktu kött sem einka (fer aldrei af tækinu) eða feldu hann hér.",
+  "spotDone": "Skilið",
+  "spotReplayTitle": "Nýjungaferð",
+  "spotReplaySubtitle": "Sýna ábendingar aftur á hverri síðu",
+  "spotReplayDone": "Ábendingarnar birtast aftur"
 }

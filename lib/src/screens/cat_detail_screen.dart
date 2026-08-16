@@ -14,6 +14,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'card_screen.dart';
@@ -50,6 +51,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, store, 'cat'));
     if (widget.promptPhoto) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _addPhoto());
     }
@@ -312,7 +315,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               onPressed: _openTimeline),
           if (store.isPrivate(id))
             Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
-          PopupMenuButton<String>(
+          Spotlight(
+            id: 'cat-menu',
+            child: PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
               if (v == 'merge') _mergeCat();
@@ -349,6 +354,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               PopupMenuItem(
                   value: 'delete', child: Text(context.t.deleteCat)),
             ],
+          ),
           ),
         ],
       ),

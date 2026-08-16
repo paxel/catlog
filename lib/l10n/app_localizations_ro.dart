@@ -909,4 +909,32 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Introducere rapidă';
+
+  @override
+  String get spotHomeSync =>
+      'Nou: sincronizarea oferă acum trei căi clare — și o întrebare de încredere înainte să curgă ceva.';
+
+  @override
+  String get spotMapSearch =>
+      'Nou: caută aici pisici, clowdere și persoane — direct pe hartă.';
+
+  @override
+  String get spotCardChips =>
+      'Nou: alege ce apare pe fișă înainte s-o distribui.';
+
+  @override
+  String get spotCatMenu =>
+      'Nou: marchează o pisică drept privată (nu părăsește niciodată dispozitivul) sau ascunde-o aici.';
+
+  @override
+  String get spotDone => 'Am înțeles';
+
+  @override
+  String get spotReplayTitle => 'Turul noutăților';
+
+  @override
+  String get spotReplaySubtitle => 'Arată indiciile din nou pe fiecare pagină';
+
+  @override
+  String get spotReplayDone => 'Indiciile vor apărea din nou';
 }

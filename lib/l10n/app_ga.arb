@@ -265,5 +265,13 @@
   "introSkip": "Scipeáil",
   "introNext": "Ar aghaidh",
   "introDone": "Ar aghaidh linn",
-  "introReplayTitle": "Réamhrá tapa"
+  "introReplayTitle": "Réamhrá tapa",
+  "spotHomeSync": "Nua: tá trí bhealach shoiléire ag an sioncronú anois — agus ceist mhuiníne sula ngluaiseann aon rud.",
+  "spotMapSearch": "Nua: cuardaigh cait, clowders agus daoine anseo — díreach ar an léarscáil.",
+  "spotCardChips": "Nua: roghnaigh cad a bheidh ar an gcárta sula roinneann tú é.",
+  "spotCatMenu": "Nua: marcáil cat mar phríobháideach (ní fhágann sé do ghléas riamh) nó folaigh anseo é.",
+  "spotDone": "Tuigim",
+  "spotReplayTitle": "Turas na nuachta",
+  "spotReplaySubtitle": "Taispeáin na leideanna arís ar gach leathanach",
+  "spotReplayDone": "Taispeánfar na leideanna arís"
 }

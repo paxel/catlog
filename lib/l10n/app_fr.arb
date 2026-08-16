@@ -265,5 +265,13 @@
   "introSkip": "Passer",
   "introNext": "Suivant",
   "introDone": "C'est parti",
-  "introReplayTitle": "Intro rapide"
+  "introReplayTitle": "Intro rapide",
+  "spotHomeSync": "Nouveau : la synchronisation propose trois voies claires — et une question de confiance avant tout échange.",
+  "spotMapSearch": "Nouveau : cherchez ici chats, clowders et personnes — directement sur la carte.",
+  "spotCardChips": "Nouveau : choisissez ce qui figure sur la fiche avant de la partager.",
+  "spotCatMenu": "Nouveau : marquez un chat comme privé (il ne quitte jamais votre appareil) ou masquez-le ici.",
+  "spotDone": "Compris",
+  "spotReplayTitle": "Visite des nouveautés",
+  "spotReplaySubtitle": "Réafficher les astuces sur chaque page",
+  "spotReplayDone": "Les astuces s'afficheront à nouveau"
 }

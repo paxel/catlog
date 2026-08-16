@@ -908,4 +908,33 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Брз вовед';
+
+  @override
+  String get spotHomeSync =>
+      'Ново: синхронизацијата сега нуди три јасни начини — и прашање за доверба пред нешто да тргне.';
+
+  @override
+  String get spotMapSearch =>
+      'Ново: барај тука мачки, клаудери и луѓе — директно на картата.';
+
+  @override
+  String get spotCardChips =>
+      'Ново: избери што се гледа на картичката пред да ја споделиш.';
+
+  @override
+  String get spotCatMenu =>
+      'Ново: означи мачка како приватна (никогаш не го напушта уредот) или сокриј ја тука.';
+
+  @override
+  String get spotDone => 'Јасно';
+
+  @override
+  String get spotReplayTitle => 'Тура низ новото';
+
+  @override
+  String get spotReplaySubtitle =>
+      'Прикажи ги советите повторно на секоја страница';
+
+  @override
+  String get spotReplayDone => 'Советите ќе се прикажат повторно';
 }

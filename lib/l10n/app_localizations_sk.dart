@@ -906,4 +906,31 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Rýchly úvod';
+
+  @override
+  String get spotHomeSync =>
+      'Nové: synchronizácia teraz ponúka tri jasné cesty — a otázku dôvery, kým čokoľvek odtečie.';
+
+  @override
+  String get spotMapSearch =>
+      'Nové: hľadaj tu mačky, clowdery a osoby — priamo na mape.';
+
+  @override
+  String get spotCardChips => 'Nové: pred zdieľaním vyber, čo bude na karte.';
+
+  @override
+  String get spotCatMenu =>
+      'Nové: označ mačku ako súkromnú (nikdy neopustí zariadenie) alebo ju tu skry.';
+
+  @override
+  String get spotDone => 'Rozumiem';
+
+  @override
+  String get spotReplayTitle => 'Prehliadka noviniek';
+
+  @override
+  String get spotReplaySubtitle => 'Znova ukázať tipy na každej stránke';
+
+  @override
+  String get spotReplayDone => 'Tipy sa zobrazia znova';
 }

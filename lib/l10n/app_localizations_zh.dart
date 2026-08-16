@@ -886,4 +886,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get introReplayTitle => '快速介绍';
+
+  @override
+  String get spotHomeSync => '新功能：同步现在提供三种清晰方式——数据流动前还会先询问信任。';
+
+  @override
+  String get spotMapSearch => '新功能：在这里搜索猫、猫群和人员——直接定位到地图上。';
+
+  @override
+  String get spotCardChips => '新功能：分享前可选择卡片上显示的内容。';
+
+  @override
+  String get spotCatMenu => '新功能：在这里将猫标记为私密（绝不离开你的设备）或隐藏它。';
+
+  @override
+  String get spotDone => '知道了';
+
+  @override
+  String get spotReplayTitle => '新功能导览';
+
+  @override
+  String get spotReplaySubtitle => '在每个页面重新显示提示';
+
+  @override
+  String get spotReplayDone => '提示将重新显示';
 }

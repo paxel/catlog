@@ -265,5 +265,13 @@
   "introSkip": "Sari peste",
   "introNext": "Înainte",
   "introDone": "Să începem",
-  "introReplayTitle": "Introducere rapidă"
+  "introReplayTitle": "Introducere rapidă",
+  "spotHomeSync": "Nou: sincronizarea oferă acum trei căi clare — și o întrebare de încredere înainte să curgă ceva.",
+  "spotMapSearch": "Nou: caută aici pisici, clowdere și persoane — direct pe hartă.",
+  "spotCardChips": "Nou: alege ce apare pe fișă înainte s-o distribui.",
+  "spotCatMenu": "Nou: marchează o pisică drept privată (nu părăsește niciodată dispozitivul) sau ascunde-o aici.",
+  "spotDone": "Am înțeles",
+  "spotReplayTitle": "Turul noutăților",
+  "spotReplaySubtitle": "Arată indiciile din nou pe fiecare pagină",
+  "spotReplayDone": "Indiciile vor apărea din nou"
 }

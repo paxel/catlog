@@ -912,4 +912,32 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introReplayTitle => 'Intro rapide';
+
+  @override
+  String get spotHomeSync =>
+      'Nouveau : la synchronisation propose trois voies claires — et une question de confiance avant tout échange.';
+
+  @override
+  String get spotMapSearch =>
+      'Nouveau : cherchez ici chats, clowders et personnes — directement sur la carte.';
+
+  @override
+  String get spotCardChips =>
+      'Nouveau : choisissez ce qui figure sur la fiche avant de la partager.';
+
+  @override
+  String get spotCatMenu =>
+      'Nouveau : marquez un chat comme privé (il ne quitte jamais votre appareil) ou masquez-le ici.';
+
+  @override
+  String get spotDone => 'Compris';
+
+  @override
+  String get spotReplayTitle => 'Visite des nouveautés';
+
+  @override
+  String get spotReplaySubtitle => 'Réafficher les astuces sur chaque page';
+
+  @override
+  String get spotReplayDone => 'Les astuces s\'afficheront à nouveau';
 }

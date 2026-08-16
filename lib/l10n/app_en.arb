@@ -537,5 +537,13 @@
   "introSkip": "Skip",
   "introNext": "Next",
   "introDone": "Let's go",
-  "introReplayTitle": "Quick intro"
+  "introReplayTitle": "Quick intro",
+  "spotHomeSync": "New: sync now offers three clear ways to share — and a trust question before anything flows.",
+  "spotMapSearch": "New: search cats, clowders, and people here — or find any of them on the map.",
+  "spotCardChips": "New: choose what appears on the card before sharing it.",
+  "spotCatMenu": "New: mark a cat as private (never leaves your device) or hide it from your view here.",
+  "spotDone": "Got it",
+  "spotReplayTitle": "What's new tour",
+  "spotReplaySubtitle": "Show the highlights again on each page",
+  "spotReplayDone": "The highlights will show again"
 }

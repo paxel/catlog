@@ -265,5 +265,13 @@
   "introSkip": "Preskoči",
   "introNext": "Dalje",
   "introDone": "Krenimo",
-  "introReplayTitle": "Kratki uvod"
+  "introReplayTitle": "Kratki uvod",
+  "spotHomeSync": "Novo: sinkronizacija sada nudi tri jasna puta — i pitanje povjerenja prije nego išta poteče.",
+  "spotMapSearch": "Novo: traži mačke, clowdere i osobe ovdje — izravno na karti.",
+  "spotCardChips": "Novo: odaberi što se vidi na kartici prije dijeljenja.",
+  "spotCatMenu": "Novo: označi mačku kao privatnu (nikad ne napušta uređaj) ili je sakrij ovdje.",
+  "spotDone": "Jasno",
+  "spotReplayTitle": "Tura kroz novosti",
+  "spotReplaySubtitle": "Ponovno prikaži savjete na svakoj stranici",
+  "spotReplayDone": "Savjeti će se ponovno prikazati"
 }
