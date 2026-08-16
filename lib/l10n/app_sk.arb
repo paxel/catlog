@@ -198,5 +198,6 @@
   "showOnMap": "Zobraziť na mape",
   "searchPlaceHint": "Hľadať miesto alebo adresu",
   "noPlacesFound": "Žiadne miesta sa nenašli",
-  "mapSearchHint": "Hľadať mačky, skupiny, osoby"
+  "mapSearchHint": "Hľadať mačky, skupiny, osoby",
+  "proposeAnotherName": "Navrhnúť iné meno"
 }

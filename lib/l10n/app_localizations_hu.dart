@@ -679,4 +679,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Macskák, csoportok, személyek keresése';
+
+  @override
+  String get proposeAnotherName => 'Másik név javaslata';
 }

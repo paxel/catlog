@@ -198,5 +198,6 @@
   "showOnMap": "Afficher sur la carte",
   "searchPlaceHint": "Rechercher un lieu ou une adresse",
   "noPlacesFound": "Aucun lieu trouvé",
-  "mapSearchHint": "Chercher chats, clowders, personnes"
+  "mapSearchHint": "Chercher chats, clowders, personnes",
+  "proposeAnotherName": "Proposer un autre nom"
 }

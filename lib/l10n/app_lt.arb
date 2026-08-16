@@ -198,5 +198,6 @@
   "showOnMap": "Rodyti žemėlapyje",
   "searchPlaceHint": "Ieškoti vietos ar adreso",
   "noPlacesFound": "Vietų nerasta",
-  "mapSearchHint": "Ieškoti kačių, grupių, žmonių"
+  "mapSearchHint": "Ieškoti kačių, grupių, žmonių",
+  "proposeAnotherName": "Pasiūlyti kitą vardą"
 }

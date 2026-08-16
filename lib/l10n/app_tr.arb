@@ -198,5 +198,6 @@
   "showOnMap": "Haritada göster",
   "searchPlaceHint": "Yer veya adres ara",
   "noPlacesFound": "Yer bulunamadı",
-  "mapSearchHint": "Kedi, grup, kişi ara"
+  "mapSearchHint": "Kedi, grup, kişi ara",
+  "proposeAnotherName": "Başka bir isim öner"
 }

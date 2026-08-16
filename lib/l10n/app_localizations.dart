@@ -1363,6 +1363,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search cats, clowders, people'**
   String get mapSearchHint;
+
+  /// No description provided for @proposeAnotherName.
+  ///
+  /// In en, this message translates to:
+  /// **'Propose another name'**
+  String get proposeAnotherName;
 }
 
 class _AppLocalizationsDelegate

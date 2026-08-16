@@ -198,5 +198,6 @@
   "showOnMap": "Sýna á korti",
   "searchPlaceHint": "Leita að stað eða heimilisfangi",
   "noPlacesFound": "Engir staðir fundust",
-  "mapSearchHint": "Leita að köttum, hópum, fólki"
+  "mapSearchHint": "Leita að köttum, hópum, fólki",
+  "proposeAnotherName": "Stinga upp á öðru nafni"
 }

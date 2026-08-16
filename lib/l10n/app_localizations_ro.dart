@@ -680,4 +680,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Caută pisici, grupuri, persoane';
+
+  @override
+  String get proposeAnotherName => 'Propune alt nume';
 }

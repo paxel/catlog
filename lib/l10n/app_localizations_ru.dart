@@ -679,4 +679,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Искать кошек, группы, людей';
+
+  @override
+  String get proposeAnotherName => 'Предложить другое имя';
 }

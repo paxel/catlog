@@ -680,4 +680,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Kërko mace, grupe, persona';
+
+  @override
+  String get proposeAnotherName => 'Propozo një emër tjetër';
 }

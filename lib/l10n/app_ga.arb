@@ -198,5 +198,6 @@
   "showOnMap": "Taispeáin ar an léarscáil",
   "searchPlaceHint": "Cuardaigh áit nó seoladh",
   "noPlacesFound": "Níor aimsíodh áiteanna",
-  "mapSearchHint": "Cuardaigh cait, grúpaí, daoine"
+  "mapSearchHint": "Cuardaigh cait, grúpaí, daoine",
+  "proposeAnotherName": "Mol ainm eile"
 }

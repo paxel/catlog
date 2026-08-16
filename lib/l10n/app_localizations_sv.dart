@@ -678,4 +678,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Sök katter, grupper, personer';
+
+  @override
+  String get proposeAnotherName => 'Föreslå ett annat namn';
 }

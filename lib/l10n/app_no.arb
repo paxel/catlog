@@ -198,5 +198,6 @@
   "showOnMap": "Vis på kart",
   "searchPlaceHint": "Søk sted eller adresse",
   "noPlacesFound": "Ingen steder funnet",
-  "mapSearchHint": "Søk katter, grupper, personer"
+  "mapSearchHint": "Søk katter, grupper, personer",
+  "proposeAnotherName": "Foreslå et annet navn"
 }

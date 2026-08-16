@@ -679,4 +679,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Išči mačke, skupine, osebe';
+
+  @override
+  String get proposeAnotherName => 'Predlagaj drugo ime';
 }

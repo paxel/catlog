@@ -679,4 +679,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Søg katte, grupper, personer';
+
+  @override
+  String get proposeAnotherName => 'Foreslå et andet navn';
 }

@@ -198,5 +198,6 @@
   "showOnMap": "Uri fuq il-mappa",
   "searchPlaceHint": "Fittex post jew indirizz",
   "noPlacesFound": "Ma nstabux postijiet",
-  "mapSearchHint": "Fittex qtates, gruppi, nies"
+  "mapSearchHint": "Fittex qtates, gruppi, nies",
+  "proposeAnotherName": "Ipproponi isem ieħor"
 }

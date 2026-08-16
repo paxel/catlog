@@ -198,5 +198,6 @@
   "showOnMap": "Toon op kaart",
   "searchPlaceHint": "Zoek plaats of adres",
   "noPlacesFound": "Geen plaatsen gevonden",
-  "mapSearchHint": "Zoek katten, clowders, personen"
+  "mapSearchHint": "Zoek katten, clowders, personen",
+  "proposeAnotherName": "Stel een andere naam voor"
 }

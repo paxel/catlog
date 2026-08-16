@@ -198,5 +198,6 @@
   "showOnMap": "Покажи на картата",
   "searchPlaceHint": "Търси място или адрес",
   "noPlacesFound": "Няма намерени места",
-  "mapSearchHint": "Търси котки, групи, хора"
+  "mapSearchHint": "Търси котки, групи, хора",
+  "proposeAnotherName": "Предложи друго име"
 }

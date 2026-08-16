@@ -678,4 +678,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Kedi, grup, kişi ara';
+
+  @override
+  String get proposeAnotherName => 'Başka bir isim öner';
 }

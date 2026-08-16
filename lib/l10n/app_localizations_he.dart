@@ -675,4 +675,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'חפש חתולים, קבוצות, אנשים';
+
+  @override
+  String get proposeAnotherName => 'הצע שם אחר';
 }

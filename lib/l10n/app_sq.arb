@@ -198,5 +198,6 @@
   "showOnMap": "Shfaq në hartë",
   "searchPlaceHint": "Kërko vend ose adresë",
   "noPlacesFound": "Nuk u gjetën vende",
-  "mapSearchHint": "Kërko mace, grupe, persona"
+  "mapSearchHint": "Kërko mace, grupe, persona",
+  "proposeAnotherName": "Propozo një emër tjetër"
 }

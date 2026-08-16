@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'image_import.dart';
+import 'name_proposals.dart';
 import 'l10n.dart';
 
 /// The device's position, or null when the service is off or denied.
@@ -40,8 +41,12 @@ Future<String?> strayCam(BuildContext context, CatalogStore store) async {
     }
     return null;
   }
-  final now = DateTime.now();
-  final name = 'Stray ${now.toIso8601String().substring(0, 16).replaceFirst('T', ' ')}';
+  String? name;
+  if (context.mounted) {
+    name = await proposeCatName(store, Localizations.localeOf(context));
+  }
+  name ??=
+      'Stray ${DateTime.now().toIso8601String().substring(0, 16).replaceFirst('T', ' ')}';
   final catId = store.createCat(name);
   store.recordPosition(catId, position.$1, position.$2);
   if (context.mounted) {

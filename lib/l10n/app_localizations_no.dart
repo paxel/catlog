@@ -678,4 +678,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Søk katter, grupper, personer';
+
+  @override
+  String get proposeAnotherName => 'Foreslå et annet navn';
 }

@@ -681,4 +681,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Fittex qtates, gruppi, nies';
+
+  @override
+  String get proposeAnotherName => 'Ipproponi isem ieħor';
 }

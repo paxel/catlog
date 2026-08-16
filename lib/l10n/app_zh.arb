@@ -198,5 +198,6 @@
   "showOnMap": "在地图上显示",
   "searchPlaceHint": "搜索地点或地址",
   "noPlacesFound": "未找到地点",
-  "mapSearchHint": "搜索猫、猫群、人员"
+  "mapSearchHint": "搜索猫、猫群、人员",
+  "proposeAnotherName": "换一个名字"
 }

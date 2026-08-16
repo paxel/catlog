@@ -53,6 +53,38 @@ void main() {
     expect(find.text('Foster Home South'), findsOneWidget);
   });
 
+  testWidgets('new cat dialog proposes a name; dice rerolls; no reuse',
+      (tester) async {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Home');
+
+    await tester.pumpWidget(CatlogApp(store: store));
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pumpAndSettle();
+
+    final field = tester.widget<TextField>(find.byType(TextField).first);
+    final proposed = field.controller!.text;
+    expect(proposed, isNotEmpty);
+    expect(
+        store.cats().map((c) => c.name.toLowerCase()),
+        isNot(contains(proposed.toLowerCase())));
+
+    await tester.tap(find.byTooltip('Propose another name'));
+    await tester.pumpAndSettle();
+    expect(
+        tester.widget<TextField>(find.byType(TextField).first)
+            .controller!.text,
+        isNotEmpty);
+
+    await tester.tap(find.text('Create'));
+    await tester.pumpAndSettle();
+    expect(store.cats(clowderId: home).single.name, isNotEmpty);
+  });
+
   testWidgets('adding a cat shows it in the clowder grid', (tester) async {
     final store = CatalogStore.inMemory();
     addTearDown(store.close);

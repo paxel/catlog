@@ -668,4 +668,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mapSearchHint => '猫・グループ・人を検索';
+
+  @override
+  String get proposeAnotherName => '別の名前を提案';
 }

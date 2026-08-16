@@ -422,5 +422,6 @@
   "showOnMap": "Show on map",
   "searchPlaceHint": "Search place or address",
   "noPlacesFound": "No places found",
-  "mapSearchHint": "Search cats, clowders, people"
+  "mapSearchHint": "Search cats, clowders, people",
+  "proposeAnotherName": "Propose another name"
 }

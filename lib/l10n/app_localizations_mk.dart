@@ -680,4 +680,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Барај мачки, групи, луѓе';
+
+  @override
+  String get proposeAnotherName => 'Предложи друго име';
 }

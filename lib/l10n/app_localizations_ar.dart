@@ -678,4 +678,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'ابحث عن قطط ومجموعات وأشخاص';
+
+  @override
+  String get proposeAnotherName => 'اقترح اسمًا آخر';
 }

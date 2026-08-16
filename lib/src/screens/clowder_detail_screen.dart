@@ -9,6 +9,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/status_chip.dart';
 import 'cat_detail_screen.dart';
@@ -42,7 +43,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   }
 
   Future<void> _addCat() async {
-    final result = await askNameAndDate(context, context.t.newCat);
+    final locale = Localizations.localeOf(context);
+    final result = await askNameAndDate(context, context.t.newCat,
+        propose: () => proposeCatName(store, locale));
     if (result == null || !mounted) return;
     final catId =
         store.createCat(result.name, clowderId: id, date: result.date);

@@ -665,4 +665,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mapSearchHint => '搜索猫、猫群、人员';
+
+  @override
+  String get proposeAnotherName => '换一个名字';
 }

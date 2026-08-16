@@ -679,4 +679,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Hae kissoja, ryhmiä, henkilöitä';
+
+  @override
+  String get proposeAnotherName => 'Ehdota toista nimeä';
 }

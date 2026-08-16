@@ -198,5 +198,6 @@
   "showOnMap": "Прикажи на карти",
   "searchPlaceHint": "Тражи место или адресу",
   "noPlacesFound": "Нема пронађених места",
-  "mapSearchHint": "Тражи мачке, групе, особе"
+  "mapSearchHint": "Тражи мачке, групе, особе",
+  "proposeAnotherName": "Предложи друго име"
 }

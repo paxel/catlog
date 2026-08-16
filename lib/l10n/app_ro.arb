@@ -198,5 +198,6 @@
   "showOnMap": "Arată pe hartă",
   "searchPlaceHint": "Caută loc sau adresă",
   "noPlacesFound": "Niciun loc găsit",
-  "mapSearchHint": "Caută pisici, grupuri, persoane"
+  "mapSearchHint": "Caută pisici, grupuri, persoane",
+  "proposeAnotherName": "Propune alt nume"
 }

@@ -680,4 +680,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Cerca gatti, clowder, persone';
+
+  @override
+  String get proposeAnotherName => 'Proponi un altro nome';
 }

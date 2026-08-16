@@ -678,4 +678,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Otsi kasse, rühmi, inimesi';
+
+  @override
+  String get proposeAnotherName => 'Paku teine nimi';
 }

@@ -678,4 +678,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Meklēt kaķus, grupas, cilvēkus';
+
+  @override
+  String get proposeAnotherName => 'Ieteikt citu vārdu';
 }

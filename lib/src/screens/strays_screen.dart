@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
+import '../name_proposals.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -21,7 +22,9 @@ class StraysScreen extends StatefulWidget {
 
 class _StraysScreenState extends State<StraysScreen> {
   Future<void> _addStray() async {
-    final result = await askNameAndDate(context, context.t.newStray);
+    final locale = Localizations.localeOf(context);
+    final result = await askNameAndDate(context, context.t.newStray,
+        propose: () => proposeCatName(widget.store, locale));
     if (result == null || !mounted) return;
     final catId = widget.store.createCat(result.name, date: result.date);
     setState(() {});

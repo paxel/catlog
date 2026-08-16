@@ -198,5 +198,6 @@
   "showOnMap": "Pokaži na zemljevidu",
   "searchPlaceHint": "Išči kraj ali naslov",
   "noPlacesFound": "Ni najdenih krajev",
-  "mapSearchHint": "Išči mačke, skupine, osebe"
+  "mapSearchHint": "Išči mačke, skupine, osebe",
+  "proposeAnotherName": "Predlagaj drugo ime"
 }

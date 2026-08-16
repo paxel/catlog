@@ -12,16 +12,21 @@ class NameAndDate {
 /// Name plus an "as of" date — so a clowder that has existed for ten
 /// years, or a cat that moved in long ago, carries its real date from
 /// the start instead of today's.
-Future<NameAndDate?> askNameAndDate(BuildContext context, String title) {
+Future<NameAndDate?> askNameAndDate(BuildContext context, String title,
+    {Future<String?> Function()? propose}) {
   return showDialog<NameAndDate>(
     context: context,
-    builder: (context) => _NameDateDialog(title: title),
+    builder: (context) => _NameDateDialog(title: title, propose: propose),
   );
 }
 
 class _NameDateDialog extends StatefulWidget {
   final String title;
-  const _NameDateDialog({required this.title});
+
+  /// When set, prefills the name with a proposal; the dice rerolls.
+  final Future<String?> Function()? propose;
+
+  const _NameDateDialog({required this.title, this.propose});
 
   @override
   State<_NameDateDialog> createState() => _NameDateDialogState();
@@ -30,6 +35,21 @@ class _NameDateDialog extends StatefulWidget {
 class _NameDateDialogState extends State<_NameDateDialog> {
   final _name = TextEditingController();
   DateTime _asOf = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.propose != null) _reroll();
+  }
+
+  Future<void> _reroll() async {
+    final name = await widget.propose!();
+    if (name == null || !mounted) return;
+    _name.text = name;
+    // Selected, so typing replaces the proposal without extra taps.
+    _name.selection =
+        TextSelection(baseOffset: 0, extentOffset: name.length);
+  }
 
   @override
   void dispose() {
@@ -52,7 +72,16 @@ class _NameDateDialogState extends State<_NameDateDialog> {
         TextField(
           controller: _name,
           autofocus: true,
-          decoration: InputDecoration(labelText: context.t.name),
+          decoration: InputDecoration(
+            labelText: context.t.name,
+            suffixIcon: widget.propose == null
+                ? null
+                : IconButton(
+                    icon: const Icon(Icons.casino_outlined),
+                    tooltip: context.t.proposeAnotherName,
+                    onPressed: _reroll,
+                  ),
+          ),
           onSubmitted: (_) => _submit(),
         ),
         const SizedBox(height: 8),

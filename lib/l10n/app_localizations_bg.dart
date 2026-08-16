@@ -679,4 +679,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Търси котки, групи, хора';
+
+  @override
+  String get proposeAnotherName => 'Предложи друго име';
 }

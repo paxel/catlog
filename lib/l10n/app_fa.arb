@@ -198,5 +198,6 @@
   "showOnMap": "نمایش روی نقشه",
   "searchPlaceHint": "جستجوی مکان یا نشانی",
   "noPlacesFound": "مکانی یافت نشد",
-  "mapSearchHint": "جستجوی گربه‌ها، گروه‌ها، افراد"
+  "mapSearchHint": "جستجوی گربه‌ها، گروه‌ها، افراد",
+  "proposeAnotherName": "پیشنهاد نام دیگر"
 }

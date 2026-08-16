@@ -680,4 +680,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Αναζήτηση γατών, ομάδων, ατόμων';
+
+  @override
+  String get proposeAnotherName => 'Πρότεινε άλλο όνομα';
 }

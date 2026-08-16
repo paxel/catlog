@@ -679,4 +679,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Ieškoti kačių, grupių, žmonių';
+
+  @override
+  String get proposeAnotherName => 'Pasiūlyti kitą vardą';
 }

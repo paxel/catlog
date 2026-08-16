@@ -680,4 +680,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Cuardaigh cait, grúpaí, daoine';
+
+  @override
+  String get proposeAnotherName => 'Mol ainm eile';
 }

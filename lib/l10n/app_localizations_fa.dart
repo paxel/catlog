@@ -678,4 +678,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'جستجوی گربه‌ها، گروه‌ها، افراد';
+
+  @override
+  String get proposeAnotherName => 'پیشنهاد نام دیگر';
 }

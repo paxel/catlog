@@ -681,4 +681,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Leita að köttum, hópum, fólki';
+
+  @override
+  String get proposeAnotherName => 'Stinga upp á öðru nafni';
 }

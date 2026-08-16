@@ -198,5 +198,6 @@
   "showOnMap": "Näytä kartalla",
   "searchPlaceHint": "Hae paikkaa tai osoitetta",
   "noPlacesFound": "Paikkoja ei löytynyt",
-  "mapSearchHint": "Hae kissoja, ryhmiä, henkilöitä"
+  "mapSearchHint": "Hae kissoja, ryhmiä, henkilöitä",
+  "proposeAnotherName": "Ehdota toista nimeä"
 }

@@ -198,5 +198,6 @@
   "showOnMap": "Показать на карте",
   "searchPlaceHint": "Искать место или адрес",
   "noPlacesFound": "Места не найдены",
-  "mapSearchHint": "Искать кошек, группы, людей"
+  "mapSearchHint": "Искать кошек, группы, людей",
+  "proposeAnotherName": "Предложить другое имя"
 }
