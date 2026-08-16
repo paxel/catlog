@@ -199,5 +199,15 @@
   "searchPlaceHint": "Hľadať miesto alebo adresu",
   "noPlacesFound": "Žiadne miesta sa nenašli",
   "mapSearchHint": "Hľadať mačky, skupiny, osoby",
-  "proposeAnotherName": "Navrhnúť iné meno"
+  "proposeAnotherName": "Navrhnúť iné meno",
+  "moderationTitle": "Autori a zákazy",
+  "moderationSubtitle": "Natrvalo odstrániť údaje osoby",
+  "authorsSection": "Kto písal do katalógu",
+  "hardDeleteAction": "Zmazať všetko od tohto autora",
+  "hardDeleteWarning": "Odstráni každý záznam a fotku od {name} z tohto zariadenia. Ostatné zariadenia si svoje ponechajú. Nedá sa vrátiť.",
+  "typeToConfirm": "Na potvrdenie napíšte {name}",
+  "alsoBan": "Aj zakázať — už nikdy neprijímať údaje",
+  "bansSection": "Zákazy",
+  "unbanAction": "Zrušiť zákaz",
+  "deletedDone": "Zmazané."
 }

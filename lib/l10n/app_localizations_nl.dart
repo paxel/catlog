@@ -683,4 +683,39 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Stel een andere naam voor';
+
+  @override
+  String get moderationTitle => 'Auteurs & blokkades';
+
+  @override
+  String get moderationSubtitle =>
+      'Gegevens van een persoon voorgoed verwijderen';
+
+  @override
+  String get authorsSection => 'Wie in deze catalogus schreef';
+
+  @override
+  String get hardDeleteAction => 'Alles van deze auteur verwijderen';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Verwijdert elke invoer en foto van $name van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Typ $name om te bevestigen';
+  }
+
+  @override
+  String get alsoBan => 'Ook blokkeren — nooit meer gegevens accepteren';
+
+  @override
+  String get bansSection => 'Blokkades';
+
+  @override
+  String get unbanAction => 'Blokkade opheffen';
+
+  @override
+  String get deletedDone => 'Verwijderd.';
 }

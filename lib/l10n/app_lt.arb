@@ -199,5 +199,15 @@
   "searchPlaceHint": "Ieškoti vietos ar adreso",
   "noPlacesFound": "Vietų nerasta",
   "mapSearchHint": "Ieškoti kačių, grupių, žmonių",
-  "proposeAnotherName": "Pasiūlyti kitą vardą"
+  "proposeAnotherName": "Pasiūlyti kitą vardą",
+  "moderationTitle": "Autoriai ir draudimai",
+  "moderationSubtitle": "Visam laikui pašalinti asmens duomenis",
+  "authorsSection": "Kas rašė į šį katalogą",
+  "hardDeleteAction": "Ištrinti viską iš šio autoriaus",
+  "hardDeleteWarning": "Pašalina visus {name} įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.",
+  "typeToConfirm": "Patvirtinimui įveskite {name}",
+  "alsoBan": "Taip pat uždrausti — daugiau niekada nepriimti duomenų",
+  "bansSection": "Draudimai",
+  "unbanAction": "Pašalinti draudimą",
+  "deletedDone": "Ištrinta."
 }

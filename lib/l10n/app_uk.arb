@@ -199,5 +199,15 @@
   "searchPlaceHint": "Шукати місце чи адресу",
   "noPlacesFound": "Місць не знайдено",
   "mapSearchHint": "Шукати котів, групи, людей",
-  "proposeAnotherName": "Запропонувати інше ім'я"
+  "proposeAnotherName": "Запропонувати інше ім'я",
+  "moderationTitle": "Автори та заборони",
+  "moderationSubtitle": "Назавжди видалити дані людини",
+  "authorsSection": "Хто писав у цей каталог",
+  "hardDeleteAction": "Видалити все від цього автора",
+  "hardDeleteWarning": "Видаляє кожен запис і фото від {name} з цього пристрою. Інші пристрої зберігають свої. Неможливо скасувати.",
+  "typeToConfirm": "Введіть {name} для підтвердження",
+  "alsoBan": "Також заборонити — більше ніколи не приймати дані",
+  "bansSection": "Заборони",
+  "unbanAction": "Зняти заборону",
+  "deletedDone": "Видалено."
 }

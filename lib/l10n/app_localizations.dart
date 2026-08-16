@@ -1369,6 +1369,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Propose another name'**
   String get proposeAnotherName;
+
+  /// No description provided for @moderationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Authors & bans'**
+  String get moderationTitle;
+
+  /// No description provided for @moderationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove a person\'s data for good'**
+  String get moderationSubtitle;
+
+  /// No description provided for @authorsSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Who wrote into this catalog'**
+  String get authorsSection;
+
+  /// No description provided for @hardDeleteAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete everything by this author'**
+  String get hardDeleteAction;
+
+  /// No description provided for @hardDeleteWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.'**
+  String hardDeleteWarning(Object name);
+
+  /// No description provided for @typeToConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Type {name} to confirm'**
+  String typeToConfirm(Object name);
+
+  /// No description provided for @alsoBan.
+  ///
+  /// In en, this message translates to:
+  /// **'Also ban — never accept their data again'**
+  String get alsoBan;
+
+  /// No description provided for @bansSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Bans'**
+  String get bansSection;
+
+  /// No description provided for @unbanAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove ban'**
+  String get unbanAction;
+
+  /// No description provided for @deletedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted.'**
+  String get deletedDone;
 }
 
 class _AppLocalizationsDelegate

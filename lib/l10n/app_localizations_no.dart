@@ -681,4 +681,38 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Foreslå et annet navn';
+
+  @override
+  String get moderationTitle => 'Forfattere & utestengelser';
+
+  @override
+  String get moderationSubtitle => 'Fjern en persons data for godt';
+
+  @override
+  String get authorsSection => 'Hvem har skrevet i katalogen';
+
+  @override
+  String get hardDeleteAction => 'Slett alt fra denne forfatteren';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Fjerner alle oppføringer og bilder fra $name på denne enheten. Andre enheter beholder sine. Kan ikke angres.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Skriv $name for å bekrefte';
+  }
+
+  @override
+  String get alsoBan => 'Utesteng også — aldri motta data igjen';
+
+  @override
+  String get bansSection => 'Utestengelser';
+
+  @override
+  String get unbanAction => 'Fjern utestengelse';
+
+  @override
+  String get deletedDone => 'Slettet.';
 }

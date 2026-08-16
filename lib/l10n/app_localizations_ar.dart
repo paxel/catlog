@@ -681,4 +681,38 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'اقترح اسمًا آخر';
+
+  @override
+  String get moderationTitle => 'المؤلفون والحظر';
+
+  @override
+  String get moderationSubtitle => 'إزالة بيانات شخص نهائيًا';
+
+  @override
+  String get authorsSection => 'من كتب في هذا السجل';
+
+  @override
+  String get hardDeleteAction => 'حذف كل شيء من هذا المؤلف';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'يزيل كل إدخال وصورة من $name من هذا الجهاز. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع عن ذلك.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'اكتب $name للتأكيد';
+  }
+
+  @override
+  String get alsoBan => 'حظر أيضًا — عدم قبول بياناته مجددًا';
+
+  @override
+  String get bansSection => 'المحظورون';
+
+  @override
+  String get unbanAction => 'إزالة الحظر';
+
+  @override
+  String get deletedDone => 'تم الحذف.';
 }

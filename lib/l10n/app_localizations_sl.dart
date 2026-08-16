@@ -682,4 +682,38 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Predlagaj drugo ime';
+
+  @override
+  String get moderationTitle => 'Avtorji in prepovedi';
+
+  @override
+  String get moderationSubtitle => 'Trajno odstrani podatke osebe';
+
+  @override
+  String get authorsSection => 'Kdo je pisal v ta katalog';
+
+  @override
+  String get hardDeleteAction => 'Izbriši vse od tega avtorja';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Odstrani vsak vnos in fotografijo od $name s te naprave. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Za potrditev vpiši $name';
+  }
+
+  @override
+  String get alsoBan => 'Tudi prepovej — nikoli več ne sprejmi podatkov';
+
+  @override
+  String get bansSection => 'Prepovedi';
+
+  @override
+  String get unbanAction => 'Odstrani prepoved';
+
+  @override
+  String get deletedDone => 'Izbrisano.';
 }

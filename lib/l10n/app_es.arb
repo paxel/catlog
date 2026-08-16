@@ -199,5 +199,15 @@
   "searchPlaceHint": "Buscar lugar o dirección",
   "noPlacesFound": "No se encontraron lugares",
   "mapSearchHint": "Buscar gatos, clowders, personas",
-  "proposeAnotherName": "Proponer otro nombre"
+  "proposeAnotherName": "Proponer otro nombre",
+  "moderationTitle": "Autores y bloqueos",
+  "moderationSubtitle": "Eliminar los datos de una persona para siempre",
+  "authorsSection": "Quién escribió en este catálogo",
+  "hardDeleteAction": "Borrar todo de este autor",
+  "hardDeleteWarning": "Elimina cada entrada y foto de {name} de este dispositivo. Los demás dispositivos conservan las suyas. No se puede deshacer.",
+  "typeToConfirm": "Escribe {name} para confirmar",
+  "alsoBan": "También bloquear — no aceptar nunca más sus datos",
+  "bansSection": "Bloqueos",
+  "unbanAction": "Quitar bloqueo",
+  "deletedDone": "Borrado."
 }

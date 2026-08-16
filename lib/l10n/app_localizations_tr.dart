@@ -681,4 +681,39 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Başka bir isim öner';
+
+  @override
+  String get moderationTitle => 'Yazarlar ve yasaklar';
+
+  @override
+  String get moderationSubtitle =>
+      'Bir kişinin verilerini kalıcı olarak kaldır';
+
+  @override
+  String get authorsSection => 'Bu kataloğa kim yazdı';
+
+  @override
+  String get hardDeleteAction => 'Bu yazarın her şeyini sil';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return '$name tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Onaylamak için $name yazın';
+  }
+
+  @override
+  String get alsoBan => 'Ayrıca yasakla — bir daha asla veri kabul etme';
+
+  @override
+  String get bansSection => 'Yasaklar';
+
+  @override
+  String get unbanAction => 'Yasağı kaldır';
+
+  @override
+  String get deletedDone => 'Silindi.';
 }

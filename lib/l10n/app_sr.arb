@@ -199,5 +199,15 @@
   "searchPlaceHint": "Тражи место или адресу",
   "noPlacesFound": "Нема пронађених места",
   "mapSearchHint": "Тражи мачке, групе, особе",
-  "proposeAnotherName": "Предложи друго име"
+  "proposeAnotherName": "Предложи друго име",
+  "moderationTitle": "Аутори и забране",
+  "moderationSubtitle": "Трајно уклони податке особе",
+  "authorsSection": "Ко је писао у овај каталог",
+  "hardDeleteAction": "Обриши све од овог аутора",
+  "hardDeleteWarning": "Уклања сваки унос и фотографију од {name} са овог уређаја. Други уређаји задржавају своје. Не може се опозвати.",
+  "typeToConfirm": "Упиши {name} за потврду",
+  "alsoBan": "Такође забрани — никад више не прихватај податке",
+  "bansSection": "Забране",
+  "unbanAction": "Уклони забрану",
+  "deletedDone": "Обрисано."
 }

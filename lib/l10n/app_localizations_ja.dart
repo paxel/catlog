@@ -671,4 +671,38 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get proposeAnotherName => '別の名前を提案';
+
+  @override
+  String get moderationTitle => '作成者とブロック';
+
+  @override
+  String get moderationSubtitle => 'ある人のデータを完全に削除';
+
+  @override
+  String get authorsSection => 'このカタログに書き込んだ人';
+
+  @override
+  String get hardDeleteAction => 'この作成者のすべてを削除';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return '$name のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return '確認のため $name と入力';
+  }
+
+  @override
+  String get alsoBan => 'ブロックもする — 今後データを受け取らない';
+
+  @override
+  String get bansSection => 'ブロック';
+
+  @override
+  String get unbanAction => 'ブロック解除';
+
+  @override
+  String get deletedDone => '削除しました。';
 }

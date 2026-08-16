@@ -199,5 +199,15 @@
   "searchPlaceHint": "場所や住所を検索",
   "noPlacesFound": "場所が見つかりません",
   "mapSearchHint": "猫・グループ・人を検索",
-  "proposeAnotherName": "別の名前を提案"
+  "proposeAnotherName": "別の名前を提案",
+  "moderationTitle": "作成者とブロック",
+  "moderationSubtitle": "ある人のデータを完全に削除",
+  "authorsSection": "このカタログに書き込んだ人",
+  "hardDeleteAction": "この作成者のすべてを削除",
+  "hardDeleteWarning": "{name} のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。",
+  "typeToConfirm": "確認のため {name} と入力",
+  "alsoBan": "ブロックもする — 今後データを受け取らない",
+  "bansSection": "ブロック",
+  "unbanAction": "ブロック解除",
+  "deletedDone": "削除しました。"
 }

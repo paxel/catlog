@@ -199,5 +199,15 @@
   "searchPlaceHint": "搜索地点或地址",
   "noPlacesFound": "未找到地点",
   "mapSearchHint": "搜索猫、猫群、人员",
-  "proposeAnotherName": "换一个名字"
+  "proposeAnotherName": "换一个名字",
+  "moderationTitle": "作者与封禁",
+  "moderationSubtitle": "永久移除某人的数据",
+  "authorsSection": "谁写入过此目录",
+  "hardDeleteAction": "删除该作者的全部内容",
+  "hardDeleteWarning": "从此设备移除 {name} 的所有记录和照片。其他设备保留其副本。无法撤销。",
+  "typeToConfirm": "输入 {name} 以确认",
+  "alsoBan": "同时封禁——不再接收其数据",
+  "bansSection": "封禁",
+  "unbanAction": "解除封禁",
+  "deletedDone": "已删除。"
 }

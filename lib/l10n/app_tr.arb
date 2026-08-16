@@ -199,5 +199,15 @@
   "searchPlaceHint": "Yer veya adres ara",
   "noPlacesFound": "Yer bulunamadı",
   "mapSearchHint": "Kedi, grup, kişi ara",
-  "proposeAnotherName": "Başka bir isim öner"
+  "proposeAnotherName": "Başka bir isim öner",
+  "moderationTitle": "Yazarlar ve yasaklar",
+  "moderationSubtitle": "Bir kişinin verilerini kalıcı olarak kaldır",
+  "authorsSection": "Bu kataloğa kim yazdı",
+  "hardDeleteAction": "Bu yazarın her şeyini sil",
+  "hardDeleteWarning": "{name} tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
+  "typeToConfirm": "Onaylamak için {name} yazın",
+  "alsoBan": "Ayrıca yasakla — bir daha asla veri kabul etme",
+  "bansSection": "Yasaklar",
+  "unbanAction": "Yasağı kaldır",
+  "deletedDone": "Silindi."
 }

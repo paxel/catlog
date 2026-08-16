@@ -682,4 +682,39 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Pasiūlyti kitą vardą';
+
+  @override
+  String get moderationTitle => 'Autoriai ir draudimai';
+
+  @override
+  String get moderationSubtitle => 'Visam laikui pašalinti asmens duomenis';
+
+  @override
+  String get authorsSection => 'Kas rašė į šį katalogą';
+
+  @override
+  String get hardDeleteAction => 'Ištrinti viską iš šio autoriaus';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Pašalina visus $name įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Patvirtinimui įveskite $name';
+  }
+
+  @override
+  String get alsoBan =>
+      'Taip pat uždrausti — daugiau niekada nepriimti duomenų';
+
+  @override
+  String get bansSection => 'Draudimai';
+
+  @override
+  String get unbanAction => 'Pašalinti draudimą';
+
+  @override
+  String get deletedDone => 'Ištrinta.';
 }

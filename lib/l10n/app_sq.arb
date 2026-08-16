@@ -199,5 +199,15 @@
   "searchPlaceHint": "Kërko vend ose adresë",
   "noPlacesFound": "Nuk u gjetën vende",
   "mapSearchHint": "Kërko mace, grupe, persona",
-  "proposeAnotherName": "Propozo një emër tjetër"
+  "proposeAnotherName": "Propozo një emër tjetër",
+  "moderationTitle": "Autorët & ndalimet",
+  "moderationSubtitle": "Hiq përgjithmonë të dhënat e një personi",
+  "authorsSection": "Kush ka shkruar në këtë katalog",
+  "hardDeleteAction": "Fshi gjithçka nga ky autor",
+  "hardDeleteWarning": "Heq çdo hyrje dhe foto të {name} nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.",
+  "typeToConfirm": "Shkruaj {name} për konfirmim",
+  "alsoBan": "Ndalo gjithashtu — mos prano më kurrë të dhëna",
+  "bansSection": "Ndalimet",
+  "unbanAction": "Hiq ndalimin",
+  "deletedDone": "U fshi."
 }

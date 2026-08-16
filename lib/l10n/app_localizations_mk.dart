@@ -683,4 +683,38 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Предложи друго име';
+
+  @override
+  String get moderationTitle => 'Автори и забрани';
+
+  @override
+  String get moderationSubtitle => 'Трајно отстрани податоци на личност';
+
+  @override
+  String get authorsSection => 'Кој пишувал во каталогот';
+
+  @override
+  String get hardDeleteAction => 'Избриши сè од овој автор';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Ги отстранува сите записи и фотографии од $name од овој уред. Другите уреди ги задржуваат своите. Не може да се врати.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Внеси $name за потврда';
+  }
+
+  @override
+  String get alsoBan => 'Исто така забрани — никогаш повеќе податоци';
+
+  @override
+  String get bansSection => 'Забрани';
+
+  @override
+  String get unbanAction => 'Отстрани забрана';
+
+  @override
+  String get deletedDone => 'Избришано.';
 }

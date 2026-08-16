@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../celebration.dart';
 import '../l10n.dart';
+import 'moderation_screen.dart';
 
 const _repoUrl = 'https://github.com/paxel/catlog';
 const _issuesUrl = '$_repoUrl/issues';
@@ -99,6 +100,14 @@ class _AboutScreenState extends State<AboutScreen> {
             subtitle: Text(t.coffeeSubtitle),
             onTap: () => _open(_donateUrl),
           ),
+        ListTile(
+          leading: const Icon(Icons.person_off_outlined),
+          title: Text(t.moderationTitle),
+          subtitle: Text(t.moderationSubtitle),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => ModerationScreen(store: widget.store),
+          )),
+        ),
         ListTile(
           leading: const Icon(Icons.description_outlined),
           title: Text(t.openSourceLicenses),

@@ -682,4 +682,38 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Ehdota toista nimeä';
+
+  @override
+  String get moderationTitle => 'Tekijät ja estot';
+
+  @override
+  String get moderationSubtitle => 'Poista henkilön tiedot pysyvästi';
+
+  @override
+  String get authorsSection => 'Kuka on kirjoittanut luetteloon';
+
+  @override
+  String get hardDeleteAction => 'Poista kaikki tältä tekijältä';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Poistaa kaikki $name merkinnät ja kuvat tältä laitteelta. Muut laitteet pitävät omansa. Ei voi perua.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Vahvista kirjoittamalla $name';
+  }
+
+  @override
+  String get alsoBan => 'Estä myös — älä koskaan enää vastaanota tietoja';
+
+  @override
+  String get bansSection => 'Estot';
+
+  @override
+  String get unbanAction => 'Poista esto';
+
+  @override
+  String get deletedDone => 'Poistettu.';
 }

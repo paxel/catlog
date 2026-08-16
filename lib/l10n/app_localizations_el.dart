@@ -683,4 +683,38 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Πρότεινε άλλο όνομα';
+
+  @override
+  String get moderationTitle => 'Συντάκτες & αποκλεισμοί';
+
+  @override
+  String get moderationSubtitle => 'Οριστική αφαίρεση δεδομένων ατόμου';
+
+  @override
+  String get authorsSection => 'Ποιος έγραψε στον κατάλογο';
+
+  @override
+  String get hardDeleteAction => 'Διαγραφή όλων από αυτόν τον συντάκτη';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Αφαιρεί κάθε καταχώρηση και φωτογραφία του $name από αυτήν τη συσκευή. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Πληκτρολογήστε $name για επιβεβαίωση';
+  }
+
+  @override
+  String get alsoBan => 'Και αποκλεισμός — ποτέ ξανά δεδομένα του';
+
+  @override
+  String get bansSection => 'Αποκλεισμοί';
+
+  @override
+  String get unbanAction => 'Άρση αποκλεισμού';
+
+  @override
+  String get deletedDone => 'Διαγράφηκε.';
 }

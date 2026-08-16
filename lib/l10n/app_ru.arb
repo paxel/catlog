@@ -199,5 +199,15 @@
   "searchPlaceHint": "Искать место или адрес",
   "noPlacesFound": "Места не найдены",
   "mapSearchHint": "Искать кошек, группы, людей",
-  "proposeAnotherName": "Предложить другое имя"
+  "proposeAnotherName": "Предложить другое имя",
+  "moderationTitle": "Авторы и запреты",
+  "moderationSubtitle": "Удалить данные человека навсегда",
+  "authorsSection": "Кто писал в этот каталог",
+  "hardDeleteAction": "Удалить всё от этого автора",
+  "hardDeleteWarning": "Удаляет каждую запись и фото от {name} с этого устройства. Другие устройства сохраняют свои. Отменить нельзя.",
+  "typeToConfirm": "Введите {name} для подтверждения",
+  "alsoBan": "Также запретить — никогда больше не принимать данные",
+  "bansSection": "Запреты",
+  "unbanAction": "Снять запрет",
+  "deletedDone": "Удалено."
 }

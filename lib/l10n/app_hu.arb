@@ -199,5 +199,15 @@
   "searchPlaceHint": "Hely vagy cím keresése",
   "noPlacesFound": "Nincs találat",
   "mapSearchHint": "Macskák, csoportok, személyek keresése",
-  "proposeAnotherName": "Másik név javaslata"
+  "proposeAnotherName": "Másik név javaslata",
+  "moderationTitle": "Szerzők és tiltások",
+  "moderationSubtitle": "Egy személy adatainak végleges eltávolítása",
+  "authorsSection": "Ki írt ebbe a katalógusba",
+  "hardDeleteAction": "Minden törlése ettől a szerzőtől",
+  "hardDeleteWarning": "Eltávolítja {name} minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.",
+  "typeToConfirm": "Megerősítéshez írd be: {name}",
+  "alsoBan": "Tiltás is — soha többé ne fogadj tőle adatot",
+  "bansSection": "Tiltások",
+  "unbanAction": "Tiltás feloldása",
+  "deletedDone": "Törölve."
 }

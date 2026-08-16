@@ -682,4 +682,38 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Foreslå et andet navn';
+
+  @override
+  String get moderationTitle => 'Forfattere & udelukkelser';
+
+  @override
+  String get moderationSubtitle => 'Fjern en persons data for altid';
+
+  @override
+  String get authorsSection => 'Hvem har skrevet i kataloget';
+
+  @override
+  String get hardDeleteAction => 'Slet alt fra denne forfatter';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Fjerner alle poster og fotos fra $name på denne enhed. Andre enheder beholder deres. Kan ikke fortrydes.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Skriv $name for at bekræfte';
+  }
+
+  @override
+  String get alsoBan => 'Udeluk også — modtag aldrig data igen';
+
+  @override
+  String get bansSection => 'Udelukkelser';
+
+  @override
+  String get unbanAction => 'Fjern udelukkelse';
+
+  @override
+  String get deletedDone => 'Slettet.';
 }

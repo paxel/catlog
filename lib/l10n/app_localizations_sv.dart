@@ -681,4 +681,38 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Föreslå ett annat namn';
+
+  @override
+  String get moderationTitle => 'Författare & spärrar';
+
+  @override
+  String get moderationSubtitle => 'Ta bort en persons data för gott';
+
+  @override
+  String get authorsSection => 'Vem som skrivit i katalogen';
+
+  @override
+  String get hardDeleteAction => 'Radera allt från denna författare';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Tar bort alla poster och foton från $name på den här enheten. Andra enheter behåller sina. Kan inte ångras.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Skriv $name för att bekräfta';
+  }
+
+  @override
+  String get alsoBan => 'Spärra också — ta aldrig emot data igen';
+
+  @override
+  String get bansSection => 'Spärrar';
+
+  @override
+  String get unbanAction => 'Ta bort spärr';
+
+  @override
+  String get deletedDone => 'Raderat.';
 }

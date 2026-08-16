@@ -199,5 +199,15 @@
   "searchPlaceHint": "Търси място или адрес",
   "noPlacesFound": "Няма намерени места",
   "mapSearchHint": "Търси котки, групи, хора",
-  "proposeAnotherName": "Предложи друго име"
+  "proposeAnotherName": "Предложи друго име",
+  "moderationTitle": "Автори и забрани",
+  "moderationSubtitle": "Премахни данните на човек завинаги",
+  "authorsSection": "Кой е писал в този каталог",
+  "hardDeleteAction": "Изтрий всичко от този автор",
+  "hardDeleteWarning": "Премахва всеки запис и снимка от {name} от това устройство. Другите устройства запазват своите. Не може да се отмени.",
+  "typeToConfirm": "Въведи {name} за потвърждение",
+  "alsoBan": "Също забрани — никога повече данни от него",
+  "bansSection": "Забрани",
+  "unbanAction": "Премахни забраната",
+  "deletedDone": "Изтрито."
 }

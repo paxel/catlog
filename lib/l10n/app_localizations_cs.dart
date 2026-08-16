@@ -681,4 +681,38 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Navrhnout jiné jméno';
+
+  @override
+  String get moderationTitle => 'Autoři a zákazy';
+
+  @override
+  String get moderationSubtitle => 'Trvale odstranit data osoby';
+
+  @override
+  String get authorsSection => 'Kdo do katalogu psal';
+
+  @override
+  String get hardDeleteAction => 'Smazat vše od tohoto autora';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Odstraní každý záznam a fotku od $name z tohoto zařízení. Ostatní zařízení si své ponechají. Nelze vrátit zpět.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Pro potvrzení napište $name';
+  }
+
+  @override
+  String get alsoBan => 'Také zakázat — už nikdy nepřijímat data';
+
+  @override
+  String get bansSection => 'Zákazy';
+
+  @override
+  String get unbanAction => 'Zrušit zákaz';
+
+  @override
+  String get deletedDone => 'Smazáno.';
 }

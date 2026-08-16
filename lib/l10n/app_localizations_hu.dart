@@ -682,4 +682,39 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Másik név javaslata';
+
+  @override
+  String get moderationTitle => 'Szerzők és tiltások';
+
+  @override
+  String get moderationSubtitle =>
+      'Egy személy adatainak végleges eltávolítása';
+
+  @override
+  String get authorsSection => 'Ki írt ebbe a katalógusba';
+
+  @override
+  String get hardDeleteAction => 'Minden törlése ettől a szerzőtől';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Eltávolítja $name minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Megerősítéshez írd be: $name';
+  }
+
+  @override
+  String get alsoBan => 'Tiltás is — soha többé ne fogadj tőle adatot';
+
+  @override
+  String get bansSection => 'Tiltások';
+
+  @override
+  String get unbanAction => 'Tiltás feloldása';
+
+  @override
+  String get deletedDone => 'Törölve.';
 }

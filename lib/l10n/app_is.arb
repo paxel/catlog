@@ -199,5 +199,15 @@
   "searchPlaceHint": "Leita að stað eða heimilisfangi",
   "noPlacesFound": "Engir staðir fundust",
   "mapSearchHint": "Leita að köttum, hópum, fólki",
-  "proposeAnotherName": "Stinga upp á öðru nafni"
+  "proposeAnotherName": "Stinga upp á öðru nafni",
+  "moderationTitle": "Höfundar & bönn",
+  "moderationSubtitle": "Fjarlægja gögn einstaklings varanlega",
+  "authorsSection": "Hver skrifaði í skrána",
+  "hardDeleteAction": "Eyða öllu frá þessum höfundi",
+  "hardDeleteWarning": "Fjarlægir allar færslur og myndir frá {name} af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.",
+  "typeToConfirm": "Sláðu inn {name} til að staðfesta",
+  "alsoBan": "Banna líka — aldrei taka við gögnum aftur",
+  "bansSection": "Bönn",
+  "unbanAction": "Fjarlægja bann",
+  "deletedDone": "Eytt."
 }

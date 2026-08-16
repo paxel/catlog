@@ -225,6 +225,105 @@ class CatalogStore {
           (r['key'] as String).substring('u:hidden:'.length)
       ];
 
+  // -------------------------------- moderation (ADR-0006, local only)
+
+  /// Authors and devices with their entry counts, for the moderation UI.
+  List<({String author, String device, int count})> authorsOverview() => [
+        for (final r in _db.select(
+            'SELECT author, device, COUNT(*) AS n FROM entries '
+            'GROUP BY author, device ORDER BY author, device'))
+          (
+            author: r['author'] as String,
+            device: r['device'] as String,
+            count: r['n'] as int
+          )
+      ];
+
+  /// Physically deletes every entry (and orphaned photo bytes) of one
+  /// author — optionally narrowed to one device. THE append-only
+  /// exception (ADR-0006): for abusive or illegal material only.
+  /// Returns the blob hashes that were removed, so callers can ban them.
+  List<String> hardDeleteAuthor(String author, {String? device}) {
+    final where =
+        device == null ? 'author = ?' : 'author = ? AND device = ?';
+    final args = device == null ? [author] : [author, device];
+    final touched = <String>{
+      for (final r in _db.select(
+          "SELECT DISTINCT field FROM entries WHERE $where AND field LIKE ?",
+          [...args, '${Keys.imagePrefix}%']))
+        (r['field'] as String).substring(Keys.imagePrefix.length)
+    };
+    _db.execute('BEGIN');
+    try {
+      _db.execute('DELETE FROM entries WHERE $where', args);
+      _db.execute('COMMIT');
+    } catch (_) {
+      _db.execute('ROLLBACK');
+      rethrow;
+    }
+    final removed = <String>[];
+    for (final hash in touched) {
+      if (!_imageReferenced(hash) && _blobs.get(hash) != null) {
+        _blobs.remove(hash);
+        removed.add(hash);
+      }
+    }
+    return removed;
+  }
+
+  /// The local ban list: banned material is received and discarded on
+  /// every transport — sync bookkeeping still advances (see
+  /// [versionVector]), so peers stop re-offering it. Never synced.
+  void ban({String? author, String? device, String? blobHash}) {
+    if (author != null) setLocalSetting('ban:author:$author', '1');
+    if (device != null) setLocalSetting('ban:device:$device', '1');
+    if (blobHash != null) setLocalSetting('ban:blob:$blobHash', '1');
+  }
+
+  void unban({String? author, String? device, String? blobHash}) {
+    for (final key in [
+      if (author != null) 'u:ban:author:$author',
+      if (device != null) 'u:ban:device:$device',
+      if (blobHash != null) 'u:ban:blob:$blobHash',
+    ]) {
+      _db.execute('DELETE FROM local_settings WHERE key = ?', [key]);
+    }
+  }
+
+  /// All ban entries as (kind, value) — kind is author/device/blob.
+  List<(String, String)> bans() => [
+        for (final r in _db.select(
+            "SELECT key FROM local_settings WHERE key LIKE 'u:ban:%'"))
+          (
+            (r['key'] as String).split(':')[2],
+            (r['key'] as String).split(':').sublist(3).join(':')
+          )
+      ];
+
+  bool _isBannedEntry(Entry e) =>
+      localSetting('ban:author:${e.author}') == '1' ||
+      localSetting('ban:device:${e.device}') == '1' ||
+      (e.field.startsWith(Keys.imagePrefix) &&
+          localSetting(
+                  'ban:blob:${e.field.substring(Keys.imagePrefix.length)}') ==
+              '1');
+
+  /// Records that dseqs up to [dseq] of [device] were seen-and-discarded,
+  /// so the merged version vector advances past banned rows.
+  void _recordDiscarded(String device, int dseq) {
+    final key = 'banvector:$device';
+    final current = int.tryParse(localSetting(key) ?? '') ?? 0;
+    if (dseq > current) setLocalSetting(key, '$dseq');
+  }
+
+  Map<String, int> _discardedVector() => {
+        for (final r in _db.select(
+            "SELECT key, value FROM local_settings "
+            "WHERE key LIKE 'u:banvector:%'"))
+          (r['key'] as String).substring('u:banvector:'.length):
+              int.tryParse(r['value'] as String) ?? 0
+      };
+
   // ------------------------------------------------------------------- log
 
   /// Appends one immutable fact. [date] is the effective (backdatable)
@@ -737,11 +836,19 @@ class CatalogStore {
   // ------------------------------------------------------------------ sync
 
   /// What this store has seen: max dseq per known device (ADR-0002).
-  Map<String, int> versionVector() => {
-        for (final r in _db.select(
-            'SELECT device, MAX(dseq) AS m FROM entries GROUP BY device'))
-          r['device'] as String: r['m'] as int
-      };
+  /// Includes dseqs of banned entries that were received-and-discarded,
+  /// so peers stop re-offering banned material.
+  Map<String, int> versionVector() {
+    final vector = {
+      for (final r in _db.select(
+          'SELECT device, MAX(dseq) AS m FROM entries GROUP BY device'))
+        r['device'] as String: r['m'] as int
+    };
+    for (final e in _discardedVector().entries) {
+      if (e.value > (vector[e.key] ?? 0)) vector[e.key] = e.value;
+    }
+    return vector;
+  }
 
   /// Every entry a peer with [vector] is missing, ordered (device, dseq).
   ///
@@ -873,6 +980,10 @@ class CatalogStore {
     }
     final imported = <Entry>[];
     for (final e in entries) {
+      if (_isBannedEntry(e)) {
+        _recordDiscarded(e.device, e.dseq);
+        continue;
+      }
       _db.execute(
         'INSERT OR IGNORE INTO entries '
         '(device, dseq, entity, field, value, date, author, recorded) '
@@ -1019,6 +1130,8 @@ class CatalogStore {
     if (sha256.convert(bytes).toString() != hash) {
       throw ArgumentError('Blob content does not match hash $hash');
     }
+    // Banned photo bytes are dropped silently — received and discarded.
+    if (localSetting('ban:blob:$hash') == '1') return;
     _blobs.put(hash, bytes);
   }
 

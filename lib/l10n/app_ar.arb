@@ -199,5 +199,15 @@
   "searchPlaceHint": "ابحث عن مكان أو عنوان",
   "noPlacesFound": "لم يتم العثور على أماكن",
   "mapSearchHint": "ابحث عن قطط ومجموعات وأشخاص",
-  "proposeAnotherName": "اقترح اسمًا آخر"
+  "proposeAnotherName": "اقترح اسمًا آخر",
+  "moderationTitle": "المؤلفون والحظر",
+  "moderationSubtitle": "إزالة بيانات شخص نهائيًا",
+  "authorsSection": "من كتب في هذا السجل",
+  "hardDeleteAction": "حذف كل شيء من هذا المؤلف",
+  "hardDeleteWarning": "يزيل كل إدخال وصورة من {name} من هذا الجهاز. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع عن ذلك.",
+  "typeToConfirm": "اكتب {name} للتأكيد",
+  "alsoBan": "حظر أيضًا — عدم قبول بياناته مجددًا",
+  "bansSection": "المحظورون",
+  "unbanAction": "إزالة الحظر",
+  "deletedDone": "تم الحذف."
 }

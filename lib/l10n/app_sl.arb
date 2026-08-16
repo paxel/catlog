@@ -199,5 +199,15 @@
   "searchPlaceHint": "Išči kraj ali naslov",
   "noPlacesFound": "Ni najdenih krajev",
   "mapSearchHint": "Išči mačke, skupine, osebe",
-  "proposeAnotherName": "Predlagaj drugo ime"
+  "proposeAnotherName": "Predlagaj drugo ime",
+  "moderationTitle": "Avtorji in prepovedi",
+  "moderationSubtitle": "Trajno odstrani podatke osebe",
+  "authorsSection": "Kdo je pisal v ta katalog",
+  "hardDeleteAction": "Izbriši vse od tega avtorja",
+  "hardDeleteWarning": "Odstrani vsak vnos in fotografijo od {name} s te naprave. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
+  "typeToConfirm": "Za potrditev vpiši {name}",
+  "alsoBan": "Tudi prepovej — nikoli več ne sprejmi podatkov",
+  "bansSection": "Prepovedi",
+  "unbanAction": "Odstrani prepoved",
+  "deletedDone": "Izbrisano."
 }

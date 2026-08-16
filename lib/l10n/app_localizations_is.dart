@@ -684,4 +684,38 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Stinga upp á öðru nafni';
+
+  @override
+  String get moderationTitle => 'Höfundar & bönn';
+
+  @override
+  String get moderationSubtitle => 'Fjarlægja gögn einstaklings varanlega';
+
+  @override
+  String get authorsSection => 'Hver skrifaði í skrána';
+
+  @override
+  String get hardDeleteAction => 'Eyða öllu frá þessum höfundi';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Fjarlægir allar færslur og myndir frá $name af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Sláðu inn $name til að staðfesta';
+  }
+
+  @override
+  String get alsoBan => 'Banna líka — aldrei taka við gögnum aftur';
+
+  @override
+  String get bansSection => 'Bönn';
+
+  @override
+  String get unbanAction => 'Fjarlægja bann';
+
+  @override
+  String get deletedDone => 'Eytt.';
 }

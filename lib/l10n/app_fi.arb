@@ -199,5 +199,15 @@
   "searchPlaceHint": "Hae paikkaa tai osoitetta",
   "noPlacesFound": "Paikkoja ei löytynyt",
   "mapSearchHint": "Hae kissoja, ryhmiä, henkilöitä",
-  "proposeAnotherName": "Ehdota toista nimeä"
+  "proposeAnotherName": "Ehdota toista nimeä",
+  "moderationTitle": "Tekijät ja estot",
+  "moderationSubtitle": "Poista henkilön tiedot pysyvästi",
+  "authorsSection": "Kuka on kirjoittanut luetteloon",
+  "hardDeleteAction": "Poista kaikki tältä tekijältä",
+  "hardDeleteWarning": "Poistaa kaikki {name} merkinnät ja kuvat tältä laitteelta. Muut laitteet pitävät omansa. Ei voi perua.",
+  "typeToConfirm": "Vahvista kirjoittamalla {name}",
+  "alsoBan": "Estä myös — älä koskaan enää vastaanota tietoja",
+  "bansSection": "Estot",
+  "unbanAction": "Poista esto",
+  "deletedDone": "Poistettu."
 }

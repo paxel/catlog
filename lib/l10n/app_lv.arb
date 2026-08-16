@@ -199,5 +199,15 @@
   "searchPlaceHint": "Meklēt vietu vai adresi",
   "noPlacesFound": "Vietas nav atrastas",
   "mapSearchHint": "Meklēt kaķus, grupas, cilvēkus",
-  "proposeAnotherName": "Ieteikt citu vārdu"
+  "proposeAnotherName": "Ieteikt citu vārdu",
+  "moderationTitle": "Autori un aizliegumi",
+  "moderationSubtitle": "Neatgriezeniski noņemt personas datus",
+  "authorsSection": "Kurš rakstīja šajā katalogā",
+  "hardDeleteAction": "Dzēst visu no šī autora",
+  "hardDeleteWarning": "Noņem visus {name} ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.",
+  "typeToConfirm": "Apstiprināšanai ierakstiet {name}",
+  "alsoBan": "Arī aizliegt — nekad vairs nepieņemt datus",
+  "bansSection": "Aizliegumi",
+  "unbanAction": "Noņemt aizliegumu",
+  "deletedDone": "Dzēsts."
 }

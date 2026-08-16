@@ -683,4 +683,38 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Propozo një emër tjetër';
+
+  @override
+  String get moderationTitle => 'Autorët & ndalimet';
+
+  @override
+  String get moderationSubtitle => 'Hiq përgjithmonë të dhënat e një personi';
+
+  @override
+  String get authorsSection => 'Kush ka shkruar në këtë katalog';
+
+  @override
+  String get hardDeleteAction => 'Fshi gjithçka nga ky autor';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Heq çdo hyrje dhe foto të $name nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Shkruaj $name për konfirmim';
+  }
+
+  @override
+  String get alsoBan => 'Ndalo gjithashtu — mos prano më kurrë të dhëna';
+
+  @override
+  String get bansSection => 'Ndalimet';
+
+  @override
+  String get unbanAction => 'Hiq ndalimin';
+
+  @override
+  String get deletedDone => 'U fshi.';
 }

@@ -668,4 +668,38 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get proposeAnotherName => '换一个名字';
+
+  @override
+  String get moderationTitle => '作者与封禁';
+
+  @override
+  String get moderationSubtitle => '永久移除某人的数据';
+
+  @override
+  String get authorsSection => '谁写入过此目录';
+
+  @override
+  String get hardDeleteAction => '删除该作者的全部内容';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return '从此设备移除 $name 的所有记录和照片。其他设备保留其副本。无法撤销。';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return '输入 $name 以确认';
+  }
+
+  @override
+  String get alsoBan => '同时封禁——不再接收其数据';
+
+  @override
+  String get bansSection => '封禁';
+
+  @override
+  String get unbanAction => '解除封禁';
+
+  @override
+  String get deletedDone => '已删除。';
 }

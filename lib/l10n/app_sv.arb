@@ -199,5 +199,15 @@
   "searchPlaceHint": "Sök plats eller adress",
   "noPlacesFound": "Inga platser hittades",
   "mapSearchHint": "Sök katter, grupper, personer",
-  "proposeAnotherName": "Föreslå ett annat namn"
+  "proposeAnotherName": "Föreslå ett annat namn",
+  "moderationTitle": "Författare & spärrar",
+  "moderationSubtitle": "Ta bort en persons data för gott",
+  "authorsSection": "Vem som skrivit i katalogen",
+  "hardDeleteAction": "Radera allt från denna författare",
+  "hardDeleteWarning": "Tar bort alla poster och foton från {name} på den här enheten. Andra enheter behåller sina. Kan inte ångras.",
+  "typeToConfirm": "Skriv {name} för att bekräfta",
+  "alsoBan": "Spärra också — ta aldrig emot data igen",
+  "bansSection": "Spärrar",
+  "unbanAction": "Ta bort spärr",
+  "deletedDone": "Raderat."
 }

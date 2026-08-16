@@ -199,5 +199,15 @@
   "searchPlaceHint": "Søg sted eller adresse",
   "noPlacesFound": "Ingen steder fundet",
   "mapSearchHint": "Søg katte, grupper, personer",
-  "proposeAnotherName": "Foreslå et andet navn"
+  "proposeAnotherName": "Foreslå et andet navn",
+  "moderationTitle": "Forfattere & udelukkelser",
+  "moderationSubtitle": "Fjern en persons data for altid",
+  "authorsSection": "Hvem har skrevet i kataloget",
+  "hardDeleteAction": "Slet alt fra denne forfatter",
+  "hardDeleteWarning": "Fjerner alle poster og fotos fra {name} på denne enhed. Andre enheder beholder deres. Kan ikke fortrydes.",
+  "typeToConfirm": "Skriv {name} for at bekræfte",
+  "alsoBan": "Udeluk også — modtag aldrig data igen",
+  "bansSection": "Udelukkelser",
+  "unbanAction": "Fjern udelukkelse",
+  "deletedDone": "Slettet."
 }

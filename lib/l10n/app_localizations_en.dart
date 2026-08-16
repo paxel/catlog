@@ -681,4 +681,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Propose another name';
+
+  @override
+  String get moderationTitle => 'Authors & bans';
+
+  @override
+  String get moderationSubtitle => 'Remove a person\'s data for good';
+
+  @override
+  String get authorsSection => 'Who wrote into this catalog';
+
+  @override
+  String get hardDeleteAction => 'Delete everything by this author';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Removes every entry and photo by $name from this device. Other devices keep theirs. This cannot be undone.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Type $name to confirm';
+  }
+
+  @override
+  String get alsoBan => 'Also ban — never accept their data again';
+
+  @override
+  String get bansSection => 'Bans';
+
+  @override
+  String get unbanAction => 'Remove ban';
+
+  @override
+  String get deletedDone => 'Deleted.';
 }

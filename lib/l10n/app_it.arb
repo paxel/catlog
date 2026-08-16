@@ -199,5 +199,15 @@
   "searchPlaceHint": "Cerca luogo o indirizzo",
   "noPlacesFound": "Nessun luogo trovato",
   "mapSearchHint": "Cerca gatti, clowder, persone",
-  "proposeAnotherName": "Proponi un altro nome"
+  "proposeAnotherName": "Proponi un altro nome",
+  "moderationTitle": "Autori e blocchi",
+  "moderationSubtitle": "Rimuovere per sempre i dati di una persona",
+  "authorsSection": "Chi ha scritto in questo catalogo",
+  "hardDeleteAction": "Elimina tutto di questo autore",
+  "hardDeleteWarning": "Rimuove ogni voce e foto di {name} da questo dispositivo. Gli altri dispositivi conservano le loro. Irreversibile.",
+  "typeToConfirm": "Digita {name} per confermare",
+  "alsoBan": "Blocca anche — mai più accettare i suoi dati",
+  "bansSection": "Blocchi",
+  "unbanAction": "Rimuovi blocco",
+  "deletedDone": "Eliminato."
 }

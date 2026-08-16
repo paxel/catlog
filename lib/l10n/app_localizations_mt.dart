@@ -684,4 +684,38 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Ipproponi isem ieħor';
+
+  @override
+  String get moderationTitle => 'Awturi u projbizzjonijiet';
+
+  @override
+  String get moderationSubtitle => 'Neħħi d-data ta\' persuna għal dejjem';
+
+  @override
+  String get authorsSection => 'Min kiteb f\'dan il-katalgu';
+
+  @override
+  String get hardDeleteAction => 'Ħassar kollox minn dan l-awtur';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Ineħħi kull entrata u ritratt ta\' $name minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa\' lura.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Ikteb $name biex tikkonferma';
+  }
+
+  @override
+  String get alsoBan => 'Ipprojbixxi wkoll — qatt iżjed data mingħandu';
+
+  @override
+  String get bansSection => 'Projbizzjonijiet';
+
+  @override
+  String get unbanAction => 'Neħħi l-projbizzjoni';
+
+  @override
+  String get deletedDone => 'Imħassar.';
 }

@@ -199,5 +199,15 @@
   "searchPlaceHint": "Szukaj miejsca lub adresu",
   "noPlacesFound": "Nie znaleziono miejsc",
   "mapSearchHint": "Szukaj kotów, grup, osób",
-  "proposeAnotherName": "Zaproponuj inne imię"
+  "proposeAnotherName": "Zaproponuj inne imię",
+  "moderationTitle": "Autorzy i blokady",
+  "moderationSubtitle": "Trwale usuń dane osoby",
+  "authorsSection": "Kto pisał w tym katalogu",
+  "hardDeleteAction": "Usuń wszystko od tego autora",
+  "hardDeleteWarning": "Usuwa każdy wpis i zdjęcie od {name} z tego urządzenia. Inne urządzenia zachowują swoje. Nie można cofnąć.",
+  "typeToConfirm": "Wpisz {name}, aby potwierdzić",
+  "alsoBan": "Także zablokuj — nigdy więcej nie przyjmuj danych",
+  "bansSection": "Blokady",
+  "unbanAction": "Usuń blokadę",
+  "deletedDone": "Usunięto."
 }

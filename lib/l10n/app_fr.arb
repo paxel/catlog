@@ -199,5 +199,15 @@
   "searchPlaceHint": "Rechercher un lieu ou une adresse",
   "noPlacesFound": "Aucun lieu trouvé",
   "mapSearchHint": "Chercher chats, clowders, personnes",
-  "proposeAnotherName": "Proposer un autre nom"
+  "proposeAnotherName": "Proposer un autre nom",
+  "moderationTitle": "Auteurs et blocages",
+  "moderationSubtitle": "Supprimer définitivement les données d'une personne",
+  "authorsSection": "Qui a écrit dans ce catalogue",
+  "hardDeleteAction": "Tout supprimer de cet auteur",
+  "hardDeleteWarning": "Supprime chaque entrée et photo de {name} de cet appareil. Les autres appareils gardent les leurs. Irréversible.",
+  "typeToConfirm": "Tapez {name} pour confirmer",
+  "alsoBan": "Bloquer aussi — ne plus jamais accepter ses données",
+  "bansSection": "Blocages",
+  "unbanAction": "Retirer le blocage",
+  "deletedDone": "Supprimé."
 }

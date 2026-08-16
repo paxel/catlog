@@ -683,4 +683,38 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Anderen Namen vorschlagen';
+
+  @override
+  String get moderationTitle => 'Autoren & Sperren';
+
+  @override
+  String get moderationSubtitle => 'Daten einer Person endgültig entfernen';
+
+  @override
+  String get authorsSection => 'Wer in diesen Katalog geschrieben hat';
+
+  @override
+  String get hardDeleteAction => 'Alles von dieser Person löschen';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Entfernt jeden Eintrag und jedes Foto von $name von diesem Gerät. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Zum Bestätigen $name eintippen';
+  }
+
+  @override
+  String get alsoBan => 'Auch sperren — nie wieder Daten annehmen';
+
+  @override
+  String get bansSection => 'Sperren';
+
+  @override
+  String get unbanAction => 'Sperre aufheben';
+
+  @override
+  String get deletedDone => 'Gelöscht.';
 }

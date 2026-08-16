@@ -199,5 +199,15 @@
   "searchPlaceHint": "Zoek plaats of adres",
   "noPlacesFound": "Geen plaatsen gevonden",
   "mapSearchHint": "Zoek katten, clowders, personen",
-  "proposeAnotherName": "Stel een andere naam voor"
+  "proposeAnotherName": "Stel een andere naam voor",
+  "moderationTitle": "Auteurs & blokkades",
+  "moderationSubtitle": "Gegevens van een persoon voorgoed verwijderen",
+  "authorsSection": "Wie in deze catalogus schreef",
+  "hardDeleteAction": "Alles van deze auteur verwijderen",
+  "hardDeleteWarning": "Verwijdert elke invoer en foto van {name} van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.",
+  "typeToConfirm": "Typ {name} om te bevestigen",
+  "alsoBan": "Ook blokkeren — nooit meer gegevens accepteren",
+  "bansSection": "Blokkades",
+  "unbanAction": "Blokkade opheffen",
+  "deletedDone": "Verwijderd."
 }

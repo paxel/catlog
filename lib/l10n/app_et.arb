@@ -199,5 +199,15 @@
   "searchPlaceHint": "Otsi kohta või aadressi",
   "noPlacesFound": "Kohti ei leitud",
   "mapSearchHint": "Otsi kasse, rühmi, inimesi",
-  "proposeAnotherName": "Paku teine nimi"
+  "proposeAnotherName": "Paku teine nimi",
+  "moderationTitle": "Autorid ja keelud",
+  "moderationSubtitle": "Eemalda inimese andmed jäädavalt",
+  "authorsSection": "Kes on kataloogi kirjutanud",
+  "hardDeleteAction": "Kustuta kõik sellelt autorilt",
+  "hardDeleteWarning": "Eemaldab kõik {name} kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.",
+  "typeToConfirm": "Kinnitamiseks kirjuta {name}",
+  "alsoBan": "Keela ka — ära võta enam kunagi andmeid vastu",
+  "bansSection": "Keelud",
+  "unbanAction": "Eemalda keeld",
+  "deletedDone": "Kustutatud."
 }

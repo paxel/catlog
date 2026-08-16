@@ -681,4 +681,38 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Ieteikt citu vārdu';
+
+  @override
+  String get moderationTitle => 'Autori un aizliegumi';
+
+  @override
+  String get moderationSubtitle => 'Neatgriezeniski noņemt personas datus';
+
+  @override
+  String get authorsSection => 'Kurš rakstīja šajā katalogā';
+
+  @override
+  String get hardDeleteAction => 'Dzēst visu no šī autora';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Noņem visus $name ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Apstiprināšanai ierakstiet $name';
+  }
+
+  @override
+  String get alsoBan => 'Arī aizliegt — nekad vairs nepieņemt datus';
+
+  @override
+  String get bansSection => 'Aizliegumi';
+
+  @override
+  String get unbanAction => 'Noņemt aizliegumu';
+
+  @override
+  String get deletedDone => 'Dzēsts.';
 }

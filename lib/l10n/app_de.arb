@@ -199,5 +199,15 @@
   "searchPlaceHint": "Ort oder Adresse suchen",
   "noPlacesFound": "Keine Orte gefunden",
   "mapSearchHint": "Katzen, Clowder, Personen suchen",
-  "proposeAnotherName": "Anderen Namen vorschlagen"
+  "proposeAnotherName": "Anderen Namen vorschlagen",
+  "moderationTitle": "Autoren & Sperren",
+  "moderationSubtitle": "Daten einer Person endgültig entfernen",
+  "authorsSection": "Wer in diesen Katalog geschrieben hat",
+  "hardDeleteAction": "Alles von dieser Person löschen",
+  "hardDeleteWarning": "Entfernt jeden Eintrag und jedes Foto von {name} von diesem Gerät. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.",
+  "typeToConfirm": "Zum Bestätigen {name} eintippen",
+  "alsoBan": "Auch sperren — nie wieder Daten annehmen",
+  "bansSection": "Sperren",
+  "unbanAction": "Sperre aufheben",
+  "deletedDone": "Gelöscht."
 }

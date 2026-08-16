@@ -199,5 +199,15 @@
   "searchPlaceHint": "Cuardaigh áit nó seoladh",
   "noPlacesFound": "Níor aimsíodh áiteanna",
   "mapSearchHint": "Cuardaigh cait, grúpaí, daoine",
-  "proposeAnotherName": "Mol ainm eile"
+  "proposeAnotherName": "Mol ainm eile",
+  "moderationTitle": "Údair & coisc",
+  "moderationSubtitle": "Bain sonraí duine go deo",
+  "authorsSection": "Cé a scríobh sa chatalóg",
+  "hardDeleteAction": "Scrios gach rud ón údar seo",
+  "hardDeleteWarning": "Baineann sé gach iontráil agus grianghraf le {name} den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.",
+  "typeToConfirm": "Clóscríobh {name} le deimhniú",
+  "alsoBan": "Cosc freisin — ná glac sonraí uaidh arís",
+  "bansSection": "Coisc",
+  "unbanAction": "Bain an cosc",
+  "deletedDone": "Scriosta."
 }

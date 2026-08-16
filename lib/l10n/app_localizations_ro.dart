@@ -683,4 +683,38 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Propune alt nume';
+
+  @override
+  String get moderationTitle => 'Autori și interdicții';
+
+  @override
+  String get moderationSubtitle => 'Elimină definitiv datele unei persoane';
+
+  @override
+  String get authorsSection => 'Cine a scris în acest catalog';
+
+  @override
+  String get hardDeleteAction => 'Șterge tot de la acest autor';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Elimină fiecare intrare și fotografie de la $name de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Tastează $name pentru confirmare';
+  }
+
+  @override
+  String get alsoBan => 'Interzice și — nu mai accepta niciodată datele';
+
+  @override
+  String get bansSection => 'Interdicții';
+
+  @override
+  String get unbanAction => 'Elimină interdicția';
+
+  @override
+  String get deletedDone => 'Șters.';
 }

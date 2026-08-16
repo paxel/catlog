@@ -683,4 +683,38 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Mol ainm eile';
+
+  @override
+  String get moderationTitle => 'Údair & coisc';
+
+  @override
+  String get moderationSubtitle => 'Bain sonraí duine go deo';
+
+  @override
+  String get authorsSection => 'Cé a scríobh sa chatalóg';
+
+  @override
+  String get hardDeleteAction => 'Scrios gach rud ón údar seo';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Baineann sé gach iontráil agus grianghraf le $name den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Clóscríobh $name le deimhniú';
+  }
+
+  @override
+  String get alsoBan => 'Cosc freisin — ná glac sonraí uaidh arís';
+
+  @override
+  String get bansSection => 'Coisc';
+
+  @override
+  String get unbanAction => 'Bain an cosc';
+
+  @override
+  String get deletedDone => 'Scriosta.';
 }

@@ -678,4 +678,38 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'הצע שם אחר';
+
+  @override
+  String get moderationTitle => 'מחברים וחסימות';
+
+  @override
+  String get moderationSubtitle => 'הסרת נתוני אדם לצמיתות';
+
+  @override
+  String get authorsSection => 'מי כתב בקטלוג הזה';
+
+  @override
+  String get hardDeleteAction => 'מחק הכול מהמחבר הזה';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'מסיר כל רשומה ותמונה של $name מהמכשיר הזה. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'הקלד $name לאישור';
+  }
+
+  @override
+  String get alsoBan => 'גם לחסום — לעולם לא לקבל עוד נתונים';
+
+  @override
+  String get bansSection => 'חסימות';
+
+  @override
+  String get unbanAction => 'הסר חסימה';
+
+  @override
+  String get deletedDone => 'נמחק.';
 }

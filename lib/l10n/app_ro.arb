@@ -199,5 +199,15 @@
   "searchPlaceHint": "Caută loc sau adresă",
   "noPlacesFound": "Niciun loc găsit",
   "mapSearchHint": "Caută pisici, grupuri, persoane",
-  "proposeAnotherName": "Propune alt nume"
+  "proposeAnotherName": "Propune alt nume",
+  "moderationTitle": "Autori și interdicții",
+  "moderationSubtitle": "Elimină definitiv datele unei persoane",
+  "authorsSection": "Cine a scris în acest catalog",
+  "hardDeleteAction": "Șterge tot de la acest autor",
+  "hardDeleteWarning": "Elimină fiecare intrare și fotografie de la {name} de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.",
+  "typeToConfirm": "Tastează {name} pentru confirmare",
+  "alsoBan": "Interzice și — nu mai accepta niciodată datele",
+  "bansSection": "Interdicții",
+  "unbanAction": "Elimină interdicția",
+  "deletedDone": "Șters."
 }

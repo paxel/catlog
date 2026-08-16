@@ -681,4 +681,38 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'Paku teine nimi';
+
+  @override
+  String get moderationTitle => 'Autorid ja keelud';
+
+  @override
+  String get moderationSubtitle => 'Eemalda inimese andmed jäädavalt';
+
+  @override
+  String get authorsSection => 'Kes on kataloogi kirjutanud';
+
+  @override
+  String get hardDeleteAction => 'Kustuta kõik sellelt autorilt';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'Eemaldab kõik $name kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'Kinnitamiseks kirjuta $name';
+  }
+
+  @override
+  String get alsoBan => 'Keela ka — ära võta enam kunagi andmeid vastu';
+
+  @override
+  String get bansSection => 'Keelud';
+
+  @override
+  String get unbanAction => 'Eemalda keeld';
+
+  @override
+  String get deletedDone => 'Kustutatud.';
 }

@@ -681,4 +681,38 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get proposeAnotherName => 'پیشنهاد نام دیگر';
+
+  @override
+  String get moderationTitle => 'نویسندگان و مسدودی‌ها';
+
+  @override
+  String get moderationSubtitle => 'حذف همیشگی داده‌های یک نفر';
+
+  @override
+  String get authorsSection => 'چه کسی در این دفتر نوشته';
+
+  @override
+  String get hardDeleteAction => 'حذف همهٔ موارد این نویسنده';
+
+  @override
+  String hardDeleteWarning(Object name) {
+    return 'هر ورودی و عکس $name را از این دستگاه حذف می‌کند. دستگاه‌های دیگر نسخهٔ خود را نگه می‌دارند. قابل بازگشت نیست.';
+  }
+
+  @override
+  String typeToConfirm(Object name) {
+    return 'برای تأیید $name را بنویسید';
+  }
+
+  @override
+  String get alsoBan => 'مسدود هم بشود — دیگر هرگز داده نپذیر';
+
+  @override
+  String get bansSection => 'مسدودی‌ها';
+
+  @override
+  String get unbanAction => 'رفع مسدودی';
+
+  @override
+  String get deletedDone => 'حذف شد.';
 }
