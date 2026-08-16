@@ -74,17 +74,31 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       case FieldType.choice:
         final options =
             def.type == FieldType.yesNo ? const ['yes', 'no'] : def.options;
-        return RadioGroup<String>(
-          groupValue: _choice,
-          onChanged: (v) => setState(() => _choice = v),
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            for (final option in options)
-              RadioListTile<String>(
-                  title: Text(
-                      fieldValueDisplay(context.t, def, option)),
-                  value: option),
-          ]),
-        );
+        return Column(mainAxisSize: MainAxisSize.min, children: [
+          RadioGroup<String>(
+            groupValue: _choice,
+            onChanged: (v) => setState(() {
+              _choice = v;
+              _text.clear();
+            }),
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              for (final option in options)
+                RadioListTile<String>(
+                    title: Text(
+                        fieldValueDisplay(context.t, def, option)),
+                    value: option),
+            ]),
+          ),
+          if (def.type == FieldType.choice)
+            TextField(
+              controller: _text,
+              decoration:
+                  InputDecoration(labelText: context.t.otherOption),
+              onChanged: (v) => setState(() {
+                if (v.trim().isNotEmpty) _choice = null;
+              }),
+            ),
+        ]);
       case FieldType.date:
         return CalendarDatePicker(
           initialDate: DateTime.tryParse(widget.current ?? '') ?? DateTime.now(),
@@ -132,9 +146,11 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   String? _result() {
     switch (def.type) {
       case FieldType.yesNo:
-      case FieldType.choice:
       case FieldType.date:
         return _choice;
+      case FieldType.choice:
+        final other = _text.text.trim();
+        return other.isNotEmpty ? other : _choice;
       case FieldType.text:
       case FieldType.location:
       case FieldType.number:

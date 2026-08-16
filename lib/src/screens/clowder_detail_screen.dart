@@ -9,6 +9,7 @@ import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/status_chip.dart';
 import 'cat_detail_screen.dart';
 import 'timeline_screen.dart';
 
@@ -159,6 +160,14 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       ),
       body: ListView(
         children: [
+          if (store.current(id, 'f:status') != null)
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 8),
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: StatusChip(store: store, clowderId: id),
+              ),
+            ),
           for (final def in defs)
             ListTile(
               title: Text(fieldDefName(context.t, def)),

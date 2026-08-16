@@ -2,6 +2,17 @@ import 'package:catalog_core/catalog_core.dart';
 
 import '../l10n/app_localizations.dart';
 
+/// Localized display for a canonical Clowder status value, or null when
+/// the value is free text the app does not recognize.
+String? statusDisplay(AppLocalizations t, String value) => switch (value) {
+      'foster' => t.statusFoster,
+      'forever-home' => t.statusForeverHome,
+      'clinic' => t.statusClinic,
+      'shelter' => t.statusShelter,
+      'barn' => t.statusBarn,
+      _ => null,
+    };
+
 /// Display-time translation of starter Fields (ADR-0005): seeded names
 /// and canonical values stay English in the data; the UI shows the
 /// device language — unless the user renamed the field, then the typed
@@ -29,6 +40,11 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
       return def?.slug == 'gender' ? t.valueMale : value;
     case 'unknown':
       return def?.slug == 'gender' ? t.valueUnknown : value;
+    case 'cat':
+      return def?.slug == 'species' ? t.valueCat : value;
+  }
+  if (def?.slug == 'status') {
+    return statusDisplay(t, value) ?? value;
   }
   return value;
 }
@@ -47,6 +63,8 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'pregnant' => t.starterPregnant,
       'birthdate' => t.starterBirthdate,
       'deceased' => t.starterDeceased,
+      'species' => t.starterSpecies,
+      'status' => t.starterStatus,
       'address' => t.starterAddress,
       'responsible' => t.starterResponsible,
       'position' => t.starterPosition,
