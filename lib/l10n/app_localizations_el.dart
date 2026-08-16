@@ -665,4 +665,16 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο μόνιμο σπίτι της';
+
+  @override
+  String get onMapLabel => 'Στον χάρτη';
+
+  @override
+  String get showOnMap => 'Εμφάνιση στον χάρτη';
+
+  @override
+  String get searchPlaceHint => 'Αναζήτηση τοποθεσίας ή διεύθυνσης';
+
+  @override
+  String get noPlacesFound => 'Δεν βρέθηκαν τοποθεσίες';
 }

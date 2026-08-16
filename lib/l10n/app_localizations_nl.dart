@@ -665,4 +665,16 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist';
+
+  @override
+  String get onMapLabel => 'Op de kaart';
+
+  @override
+  String get showOnMap => 'Toon op kaart';
+
+  @override
+  String get searchPlaceHint => 'Zoek plaats of adres';
+
+  @override
+  String get noPlacesFound => 'Geen plaatsen gevonden';
 }

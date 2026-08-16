@@ -663,4 +663,16 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'کاغذرنگی و هلهله وقتی گربه‌ای به خانه همیشگی‌اش می‌رود';
+
+  @override
+  String get onMapLabel => 'روی نقشه';
+
+  @override
+  String get showOnMap => 'نمایش روی نقشه';
+
+  @override
+  String get searchPlaceHint => 'جستجوی مکان یا نشانی';
+
+  @override
+  String get noPlacesFound => 'مکانی یافت نشد';
 }

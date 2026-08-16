@@ -29,6 +29,8 @@ String fieldDefName(AppLocalizations t, FieldDef def) {
 /// values (yes/no, gender options). Everything else displays as stored.
 String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (value == null) return '—';
+  // Coordinates never face the user: positions live on the map.
+  if (def?.type == FieldType.location) return t.onMapLabel;
   switch (value) {
     case 'yes':
       return t.valueYes;

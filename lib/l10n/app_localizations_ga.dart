@@ -665,4 +665,16 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan';
+
+  @override
+  String get onMapLabel => 'Ar an léarscáil';
+
+  @override
+  String get showOnMap => 'Taispeáin ar an léarscáil';
+
+  @override
+  String get searchPlaceHint => 'Cuardaigh áit nó seoladh';
+
+  @override
+  String get noPlacesFound => 'Níor aimsíodh áiteanna';
 }

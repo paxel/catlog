@@ -663,4 +663,16 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Bir kedi kalıcı yuvasına taşındığında konfeti ve tezahürat';
+
+  @override
+  String get onMapLabel => 'Haritada';
+
+  @override
+  String get showOnMap => 'Haritada göster';
+
+  @override
+  String get searchPlaceHint => 'Yer veya adres ara';
+
+  @override
+  String get noPlacesFound => 'Yer bulunamadı';
 }

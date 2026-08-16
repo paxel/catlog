@@ -193,5 +193,9 @@
   "valueCat": "Kat",
   "otherOption": "Anders…",
   "celebrationsToggle": "Adopties vieren",
-  "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist"
+  "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist",
+  "onMapLabel": "Op de kaart",
+  "showOnMap": "Toon op kaart",
+  "searchPlaceHint": "Zoek plaats of adres",
+  "noPlacesFound": "Geen plaatsen gevonden"
 }

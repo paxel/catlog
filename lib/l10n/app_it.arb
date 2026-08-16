@@ -193,5 +193,9 @@
   "valueCat": "Gatto",
   "otherOption": "Altro…",
   "celebrationsToggle": "Festeggia le adozioni",
-  "celebrationsSubtitle": "Coriandoli e applausi quando un gatto trasloca nella casa per sempre"
+  "celebrationsSubtitle": "Coriandoli e applausi quando un gatto trasloca nella casa per sempre",
+  "onMapLabel": "Sulla mappa",
+  "showOnMap": "Mostra sulla mappa",
+  "searchPlaceHint": "Cerca luogo o indirizzo",
+  "noPlacesFound": "Nessun luogo trovato"
 }

@@ -664,4 +664,16 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Конфети и радост, когато котка се мести в постоянен дом';
+
+  @override
+  String get onMapLabel => 'На картата';
+
+  @override
+  String get showOnMap => 'Покажи на картата';
+
+  @override
+  String get searchPlaceHint => 'Търси място или адрес';
+
+  @override
+  String get noPlacesFound => 'Няма намерени места';
 }

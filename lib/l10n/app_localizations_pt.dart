@@ -663,4 +663,16 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetes e vivas quando um gato se muda para o lar definitivo';
+
+  @override
+  String get onMapLabel => 'No mapa';
+
+  @override
+  String get showOnMap => 'Mostrar no mapa';
+
+  @override
+  String get searchPlaceHint => 'Procurar lugar ou morada';
+
+  @override
+  String get noPlacesFound => 'Nenhum lugar encontrado';
 }

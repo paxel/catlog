@@ -664,4 +664,16 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfeti ir šūksniai, kai katė persikelia į nuolatinius namus';
+
+  @override
+  String get onMapLabel => 'Žemėlapyje';
+
+  @override
+  String get showOnMap => 'Rodyti žemėlapyje';
+
+  @override
+  String get searchPlaceHint => 'Ieškoti vietos ar adreso';
+
+  @override
+  String get noPlacesFound => 'Vietų nerasta';
 }

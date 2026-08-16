@@ -666,4 +666,16 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetti u ferħ meta qattus imur f\'dar għal dejjem';
+
+  @override
+  String get onMapLabel => 'Fuq il-mappa';
+
+  @override
+  String get showOnMap => 'Uri fuq il-mappa';
+
+  @override
+  String get searchPlaceHint => 'Fittex post jew indirizz';
+
+  @override
+  String get noPlacesFound => 'Ma nstabux postijiet';
 }

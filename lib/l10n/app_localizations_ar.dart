@@ -663,4 +663,16 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم';
+
+  @override
+  String get onMapLabel => 'على الخريطة';
+
+  @override
+  String get showOnMap => 'إظهار على الخريطة';
+
+  @override
+  String get searchPlaceHint => 'ابحث عن مكان أو عنوان';
+
+  @override
+  String get noPlacesFound => 'لم يتم العثور على أماكن';
 }

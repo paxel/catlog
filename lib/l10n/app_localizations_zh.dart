@@ -650,4 +650,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle => '猫咪搬进永久的家时撒彩纸并欢呼';
+
+  @override
+  String get onMapLabel => '在地图上';
+
+  @override
+  String get showOnMap => '在地图上显示';
+
+  @override
+  String get searchPlaceHint => '搜索地点或地址';
+
+  @override
+  String get noPlacesFound => '未找到地点';
 }

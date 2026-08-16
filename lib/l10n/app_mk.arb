@@ -193,5 +193,9 @@
   "valueCat": "Мачка",
   "otherOption": "Друго…",
   "celebrationsToggle": "Прославувај посвојувања",
-  "celebrationsSubtitle": "Конфети и радост кога мачка се сели во постојан дом"
+  "celebrationsSubtitle": "Конфети и радост кога мачка се сели во постојан дом",
+  "onMapLabel": "На картата",
+  "showOnMap": "Прикажи на картата",
+  "searchPlaceHint": "Барај место или адреса",
+  "noPlacesFound": "Не се најдени места"
 }

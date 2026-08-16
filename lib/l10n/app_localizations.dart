@@ -1333,6 +1333,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
+
+  /// No description provided for @onMapLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'On the map'**
+  String get onMapLabel;
+
+  /// No description provided for @showOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Show on map'**
+  String get showOnMap;
+
+  /// No description provided for @searchPlaceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search place or address'**
+  String get searchPlaceHint;
+
+  /// No description provided for @noPlacesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No places found'**
+  String get noPlacesFound;
 }
 
 class _AppLocalizationsDelegate

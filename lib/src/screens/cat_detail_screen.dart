@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../celebration.dart';
 import '../conflict_dialog.dart';
@@ -16,6 +17,7 @@ import '../name_date_dialog.dart';
 import '../stray_cam.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
+import 'map_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
@@ -114,6 +116,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (edit == null) return;
     store.append(id, def.key, edit.value, date: edit.date);
     setState(() {});
+  }
+
+
+  void _showOnMap(String value) {
+    final pos = CatalogStore.parsePosition(value);
+    if (pos == null) return;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => MapScreen(
+          store: store, initialCenter: LatLng(pos.$1, pos.$2)),
+    ));
   }
 
   void _openTimeline({String? field}) {
@@ -312,7 +324,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   context.t, def, store.current(id, def.key))),
               trailing: store.hasConflict(id, def.key)
                   ? const Icon(Icons.warning_amber, color: Colors.amber)
-                  : const Icon(Icons.edit_outlined),
+                  : def.type == FieldType.location &&
+                          store.current(id, def.key) != null
+                      ? IconButton(
+                          icon: const Icon(Icons.map_outlined),
+                          tooltip: context.t.showOnMap,
+                          onPressed: () => _showOnMap(
+                              store.current(id, def.key)!),
+                        )
+                      : const Icon(Icons.edit_outlined),
               onTap: store.hasConflict(id, def.key)
                   ? () async {
                       await showConflictDialog(context, store, id, def.key);

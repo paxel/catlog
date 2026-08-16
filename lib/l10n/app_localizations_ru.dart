@@ -664,4 +664,16 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Конфетти и ликование, когда кошка переезжает в постоянный дом';
+
+  @override
+  String get onMapLabel => 'На карте';
+
+  @override
+  String get showOnMap => 'Показать на карте';
+
+  @override
+  String get searchPlaceHint => 'Искать место или адрес';
+
+  @override
+  String get noPlacesFound => 'Места не найдены';
 }

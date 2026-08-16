@@ -193,5 +193,9 @@
   "valueCat": "Mačka",
   "otherOption": "Drugo…",
   "celebrationsToggle": "Praznuj posvojitve",
-  "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v dom za vedno"
+  "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v dom za vedno",
+  "onMapLabel": "Na zemljevidu",
+  "showOnMap": "Pokaži na zemljevidu",
+  "searchPlaceHint": "Išči kraj ali naslov",
+  "noPlacesFound": "Ni najdenih krajev"
 }

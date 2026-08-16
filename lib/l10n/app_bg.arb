@@ -193,5 +193,9 @@
   "valueCat": "Котка",
   "otherOption": "Друго…",
   "celebrationsToggle": "Празнувай осиновяванията",
-  "celebrationsSubtitle": "Конфети и радост, когато котка се мести в постоянен дом"
+  "celebrationsSubtitle": "Конфети и радост, когато котка се мести в постоянен дом",
+  "onMapLabel": "На картата",
+  "showOnMap": "Покажи на картата",
+  "searchPlaceHint": "Търси място или адрес",
+  "noPlacesFound": "Няма намерени места"
 }

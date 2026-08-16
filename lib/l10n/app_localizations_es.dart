@@ -664,4 +664,16 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confeti y vítores cuando un gato se muda a su hogar definitivo';
+
+  @override
+  String get onMapLabel => 'En el mapa';
+
+  @override
+  String get showOnMap => 'Mostrar en el mapa';
+
+  @override
+  String get searchPlaceHint => 'Buscar lugar o dirección';
+
+  @override
+  String get noPlacesFound => 'No se encontraron lugares';
 }

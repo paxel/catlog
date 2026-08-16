@@ -193,5 +193,9 @@
   "valueCat": "Kissa",
   "otherOption": "Muu…",
   "celebrationsToggle": "Juhli adoptioita",
-  "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa"
+  "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa",
+  "onMapLabel": "Kartalla",
+  "showOnMap": "Näytä kartalla",
+  "searchPlaceHint": "Hae paikkaa tai osoitetta",
+  "noPlacesFound": "Paikkoja ei löytynyt"
 }

@@ -664,4 +664,16 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik';
+
+  @override
+  String get onMapLabel => 'A térképen';
+
+  @override
+  String get showOnMap => 'Mutasd a térképen';
+
+  @override
+  String get searchPlaceHint => 'Hely vagy cím keresése';
+
+  @override
+  String get noPlacesFound => 'Nincs találat';
 }

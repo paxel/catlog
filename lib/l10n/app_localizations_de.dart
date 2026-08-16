@@ -665,4 +665,16 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetti und Jubel, wenn eine Katze in ihr Für-immer-Zuhause zieht';
+
+  @override
+  String get onMapLabel => 'Auf der Karte';
+
+  @override
+  String get showOnMap => 'Auf Karte zeigen';
+
+  @override
+  String get searchPlaceHint => 'Ort oder Adresse suchen';
+
+  @override
+  String get noPlacesFound => 'Keine Orte gefunden';
 }

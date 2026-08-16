@@ -193,5 +193,9 @@
   "valueCat": "Mačka",
   "otherOption": "Drugo…",
   "celebrationsToggle": "Slavi udomljavanja",
-  "celebrationsSubtitle": "Konfeti i klicanje kada mačka pređe u trajni dom"
+  "celebrationsSubtitle": "Konfeti i klicanje kada mačka pređe u trajni dom",
+  "onMapLabel": "Na karti",
+  "showOnMap": "Prikaži na karti",
+  "searchPlaceHint": "Traži mjesto ili adresu",
+  "noPlacesFound": "Nema pronađenih mjesta"
 }

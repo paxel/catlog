@@ -193,5 +193,9 @@
   "valueCat": "Katė",
   "otherOption": "Kita…",
   "celebrationsToggle": "Švęsti priglaudimus",
-  "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į nuolatinius namus"
+  "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į nuolatinius namus",
+  "onMapLabel": "Žemėlapyje",
+  "showOnMap": "Rodyti žemėlapyje",
+  "searchPlaceHint": "Ieškoti vietos ar adreso",
+  "noPlacesFound": "Vietų nerasta"
 }

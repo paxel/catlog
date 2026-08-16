@@ -665,4 +665,16 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confettis et acclamations quand un chat rejoint son foyer définitif';
+
+  @override
+  String get onMapLabel => 'Sur la carte';
+
+  @override
+  String get showOnMap => 'Afficher sur la carte';
+
+  @override
+  String get searchPlaceHint => 'Rechercher un lieu ou une adresse';
+
+  @override
+  String get noPlacesFound => 'Aucun lieu trouvé';
 }

@@ -193,5 +193,9 @@
   "valueCat": "Kočka",
   "otherOption": "Jiné…",
   "celebrationsToggle": "Slavit adopce",
-  "celebrationsSubtitle": "Konfety a jásot, když se kočka stěhuje do domova navždy"
+  "celebrationsSubtitle": "Konfety a jásot, když se kočka stěhuje do domova navždy",
+  "onMapLabel": "Na mapě",
+  "showOnMap": "Zobrazit na mapě",
+  "searchPlaceHint": "Hledat místo nebo adresu",
+  "noPlacesFound": "Žádná místa nenalezena"
 }

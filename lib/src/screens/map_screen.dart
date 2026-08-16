@@ -21,7 +21,12 @@ class MapScreen extends StatefulWidget {
   /// Test override; defaults to disk-cached OSM tiles.
   final TileProvider? tileProvider;
 
-  const MapScreen({super.key, required this.store, this.tileProvider});
+  /// Opens centered here (e.g. from a position chip) instead of on the
+  /// first positioned entity.
+  final LatLng? initialCenter;
+
+  const MapScreen(
+      {super.key, required this.store, this.tileProvider, this.initialCenter});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -139,8 +144,8 @@ class _MapScreenState extends State<MapScreen> {
     final strays = _positioned(store.visibleStrays());
     final clowders = _positioned(store.visibleClowders());
     final all = [...strays, ...clowders];
-    final center =
-        all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2;
+    final center = widget.initialCenter ??
+        (all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2);
     return Scaffold(
       appBar: AppBar(title: Text(context.t.map)),
       floatingActionButton: FloatingActionButton.extended(
@@ -159,8 +164,12 @@ class _MapScreenState extends State<MapScreen> {
       body: FlutterMap(
         options: MapOptions(
           initialCenter: center,
-          initialZoom: all.isEmpty ? 6 : 13,
+          initialZoom:
+              widget.initialCenter != null ? 15 : (all.isEmpty ? 6 : 13),
           onLongPress: (_, point) => _longPress(point),
+          interactionOptions: const InteractionOptions(
+            flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+          ),
         ),
         children: [
           TileLayer(

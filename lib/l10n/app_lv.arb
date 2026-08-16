@@ -193,5 +193,9 @@
   "valueCat": "Kaķis",
   "otherOption": "Cits…",
   "celebrationsToggle": "Svinēt adopcijas",
-  "celebrationsSubtitle": "Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām"
+  "celebrationsSubtitle": "Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām",
+  "onMapLabel": "Kartē",
+  "showOnMap": "Rādīt kartē",
+  "searchPlaceHint": "Meklēt vietu vai adresi",
+  "noPlacesFound": "Vietas nav atrastas"
 }

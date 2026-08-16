@@ -193,5 +193,9 @@
   "valueCat": "Cat",
   "otherOption": "Eile…",
   "celebrationsToggle": "Ceiliúradh uchtálacha",
-  "celebrationsSubtitle": "Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan"
+  "celebrationsSubtitle": "Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan",
+  "onMapLabel": "Ar an léarscáil",
+  "showOnMap": "Taispeáin ar an léarscáil",
+  "searchPlaceHint": "Cuardaigh áit nó seoladh",
+  "noPlacesFound": "Níor aimsíodh áiteanna"
 }

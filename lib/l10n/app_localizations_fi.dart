@@ -664,4 +664,16 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa';
+
+  @override
+  String get onMapLabel => 'Kartalla';
+
+  @override
+  String get showOnMap => 'Näytä kartalla';
+
+  @override
+  String get searchPlaceHint => 'Hae paikkaa tai osoitetta';
+
+  @override
+  String get noPlacesFound => 'Paikkoja ei löytynyt';
 }

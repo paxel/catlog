@@ -665,4 +665,16 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Coriandoli e applausi quando un gatto trasloca nella casa per sempre';
+
+  @override
+  String get onMapLabel => 'Sulla mappa';
+
+  @override
+  String get showOnMap => 'Mostra sulla mappa';
+
+  @override
+  String get searchPlaceHint => 'Cerca luogo o indirizzo';
+
+  @override
+  String get noPlacesFound => 'Nessun luogo trovato';
 }

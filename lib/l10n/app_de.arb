@@ -193,5 +193,9 @@
   "valueCat": "Katze",
   "otherOption": "Anderes…",
   "celebrationsToggle": "Adoptionen feiern",
-  "celebrationsSubtitle": "Konfetti und Jubel, wenn eine Katze in ihr Für-immer-Zuhause zieht"
+  "celebrationsSubtitle": "Konfetti und Jubel, wenn eine Katze in ihr Für-immer-Zuhause zieht",
+  "onMapLabel": "Auf der Karte",
+  "showOnMap": "Auf Karte zeigen",
+  "searchPlaceHint": "Ort oder Adresse suchen",
+  "noPlacesFound": "Keine Orte gefunden"
 }

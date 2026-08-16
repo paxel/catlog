@@ -193,5 +193,9 @@
   "valueCat": "Кіт",
   "otherOption": "Інше…",
   "celebrationsToggle": "Святкувати прилаштування",
-  "celebrationsSubtitle": "Конфеті та радість, коли кіт переїжджає в постійний дім"
+  "celebrationsSubtitle": "Конфеті та радість, коли кіт переїжджає в постійний дім",
+  "onMapLabel": "На карті",
+  "showOnMap": "Показати на карті",
+  "searchPlaceHint": "Шукати місце чи адресу",
+  "noPlacesFound": "Місць не знайдено"
 }

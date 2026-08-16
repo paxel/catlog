@@ -1,5 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
@@ -11,6 +12,7 @@ import '../name_date_dialog.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/status_chip.dart';
 import 'cat_detail_screen.dart';
+import 'map_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
@@ -89,6 +91,16 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     if (sure != true || !mounted) return;
     store.deleteClowder(id);
     Navigator.of(context).pop();
+  }
+
+
+  void _showOnMap(String value) {
+    final pos = CatalogStore.parsePosition(value);
+    if (pos == null) return;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => MapScreen(
+          store: store, initialCenter: LatLng(pos.$1, pos.$2)),
+    ));
   }
 
   Future<void> _openCat(String catId) async {
@@ -175,7 +187,15 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                   context.t, def, store.current(id, def.key))),
               trailing: store.hasConflict(id, def.key)
                   ? const Icon(Icons.warning_amber, color: Colors.amber)
-                  : const Icon(Icons.edit_outlined),
+                  : def.type == FieldType.location &&
+                          store.current(id, def.key) != null
+                      ? IconButton(
+                          icon: const Icon(Icons.map_outlined),
+                          tooltip: context.t.showOnMap,
+                          onPressed: () => _showOnMap(
+                              store.current(id, def.key)!),
+                        )
+                      : const Icon(Icons.edit_outlined),
               onTap: () async {
                 if (store.hasConflict(id, def.key)) {
                   await showConflictDialog(context, store, id, def.key);

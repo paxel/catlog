@@ -663,4 +663,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetti and a cheer when a cat moves into a forever home';
+
+  @override
+  String get onMapLabel => 'On the map';
+
+  @override
+  String get showOnMap => 'Show on map';
+
+  @override
+  String get searchPlaceHint => 'Search place or address';
+
+  @override
+  String get noPlacesFound => 'No places found';
 }

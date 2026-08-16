@@ -193,5 +193,9 @@
   "valueCat": "Köttur",
   "otherOption": "Annað…",
   "celebrationsToggle": "Fagna ættleiðingum",
-  "celebrationsSubtitle": "Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili"
+  "celebrationsSubtitle": "Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili",
+  "onMapLabel": "Á kortinu",
+  "showOnMap": "Sýna á korti",
+  "searchPlaceHint": "Leita að stað eða heimilisfangi",
+  "noPlacesFound": "Engir staðir fundust"
 }

@@ -663,4 +663,16 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetti og jubel når en katt flytter til sitt for-alltid-hjem';
+
+  @override
+  String get onMapLabel => 'På kartet';
+
+  @override
+  String get showOnMap => 'Vis på kart';
+
+  @override
+  String get searchPlaceHint => 'Søk sted eller adresse';
+
+  @override
+  String get noPlacesFound => 'Ingen steder funnet';
 }

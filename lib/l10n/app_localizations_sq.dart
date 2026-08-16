@@ -665,4 +665,16 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e përhershme';
+
+  @override
+  String get onMapLabel => 'Në hartë';
+
+  @override
+  String get showOnMap => 'Shfaq në hartë';
+
+  @override
+  String get searchPlaceHint => 'Kërko vend ose adresë';
+
+  @override
+  String get noPlacesFound => 'Nuk u gjetën vende';
 }

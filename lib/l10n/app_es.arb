@@ -193,5 +193,9 @@
   "valueCat": "Gato",
   "otherOption": "Otro…",
   "celebrationsToggle": "Celebrar adopciones",
-  "celebrationsSubtitle": "Confeti y vítores cuando un gato se muda a su hogar definitivo"
+  "celebrationsSubtitle": "Confeti y vítores cuando un gato se muda a su hogar definitivo",
+  "onMapLabel": "En el mapa",
+  "showOnMap": "Mostrar en el mapa",
+  "searchPlaceHint": "Buscar lugar o dirección",
+  "noPlacesFound": "No se encontraron lugares"
 }

@@ -193,5 +193,9 @@
   "valueCat": "قطة",
   "otherOption": "أخرى…",
   "celebrationsToggle": "الاحتفال بالتبني",
-  "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم"
+  "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم",
+  "onMapLabel": "على الخريطة",
+  "showOnMap": "إظهار على الخريطة",
+  "searchPlaceHint": "ابحث عن مكان أو عنوان",
+  "noPlacesFound": "لم يتم العثور على أماكن"
 }

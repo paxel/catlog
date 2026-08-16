@@ -664,4 +664,16 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Конфете и клицање када се мачка сели у трајни дом';
+
+  @override
+  String get onMapLabel => 'На карти';
+
+  @override
+  String get showOnMap => 'Прикажи на карти';
+
+  @override
+  String get searchPlaceHint => 'Тражи место или адресу';
+
+  @override
+  String get noPlacesFound => 'Нема пронађених места';
 }

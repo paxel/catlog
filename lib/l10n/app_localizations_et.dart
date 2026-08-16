@@ -663,4 +663,16 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetid ja hõisked, kui kass kolib päriskoju';
+
+  @override
+  String get onMapLabel => 'Kaardil';
+
+  @override
+  String get showOnMap => 'Näita kaardil';
+
+  @override
+  String get searchPlaceHint => 'Otsi kohta või aadressi';
+
+  @override
+  String get noPlacesFound => 'Kohti ei leitud';
 }

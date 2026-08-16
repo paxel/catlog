@@ -653,4 +653,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle => '猫が永遠のおうちに移るときに紙吹雪と歓声';
+
+  @override
+  String get onMapLabel => '地図上';
+
+  @override
+  String get showOnMap => '地図で表示';
+
+  @override
+  String get searchPlaceHint => '場所や住所を検索';
+
+  @override
+  String get noPlacesFound => '場所が見つかりません';
 }

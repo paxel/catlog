@@ -664,4 +664,16 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfeti in vzkliki, ko se mačka preseli v dom za vedno';
+
+  @override
+  String get onMapLabel => 'Na zemljevidu';
+
+  @override
+  String get showOnMap => 'Pokaži na zemljevidu';
+
+  @override
+  String get searchPlaceHint => 'Išči kraj ali naslov';
+
+  @override
+  String get noPlacesFound => 'Ni najdenih krajev';
 }

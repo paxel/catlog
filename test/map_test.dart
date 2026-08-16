@@ -3,7 +3,9 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/geocode.dart';
 import 'package:catlog/src/screens/map_screen.dart';
+import 'package:catlog/src/screens/position_picker_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -55,5 +57,41 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
     expect(find.textContaining('Trail: Roamer'), findsOneWidget);
     expect(find.textContaining('sightings'), findsOneWidget);
+  });
+
+
+  testWidgets('picker geocode search jumps the map via the stub',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_picker');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+
+    final queries = <String>[];
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: PositionPickerScreen(
+        tileProvider: _FakeTileProvider(tile),
+        geocode: (q) async {
+          queries.add(q);
+          return const [GeoHit('Lisbon, Portugal', 38.72, -9.14)];
+        },
+      ),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.enterText(find.byType(TextField), 'Lisbon');
+    await tester.testTextInput.receiveAction(TextInputAction.search);
+    await tester.pump(const Duration(seconds: 1));
+
+    expect(queries, ['Lisbon']);
+    expect(find.text('Lisbon, Portugal'), findsOneWidget);
+
+    await tester.tap(find.text('Lisbon, Portugal'));
+    await tester.pump(const Duration(seconds: 1));
+    // Result list gone; the map moved (no pin dropped yet, save disabled).
+    expect(find.text('Lisbon, Portugal'), findsNothing);
   });
 }

@@ -666,4 +666,16 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili';
+
+  @override
+  String get onMapLabel => 'Á kortinu';
+
+  @override
+  String get showOnMap => 'Sýna á korti';
+
+  @override
+  String get searchPlaceHint => 'Leita að stað eða heimilisfangi';
+
+  @override
+  String get noPlacesFound => 'Engir staðir fundust';
 }

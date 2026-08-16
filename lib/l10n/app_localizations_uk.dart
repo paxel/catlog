@@ -663,4 +663,16 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Конфеті та радість, коли кіт переїжджає в постійний дім';
+
+  @override
+  String get onMapLabel => 'На карті';
+
+  @override
+  String get showOnMap => 'Показати на карті';
+
+  @override
+  String get searchPlaceHint => 'Шукати місце чи адресу';
+
+  @override
+  String get noPlacesFound => 'Місць не знайдено';
 }

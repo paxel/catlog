@@ -193,5 +193,9 @@
   "valueCat": "Macska",
   "otherOption": "Egyéb…",
   "celebrationsToggle": "Örökbefogadás ünneplése",
-  "celebrationsSubtitle": "Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik"
+  "celebrationsSubtitle": "Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik",
+  "onMapLabel": "A térképen",
+  "showOnMap": "Mutasd a térképen",
+  "searchPlaceHint": "Hely vagy cím keresése",
+  "noPlacesFound": "Nincs találat"
 }

@@ -665,4 +665,16 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetti și urale când o pisică se mută în căminul definitiv';
+
+  @override
+  String get onMapLabel => 'Pe hartă';
+
+  @override
+  String get showOnMap => 'Arată pe hartă';
+
+  @override
+  String get searchPlaceHint => 'Caută loc sau adresă';
+
+  @override
+  String get noPlacesFound => 'Niciun loc găsit';
 }

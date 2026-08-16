@@ -663,4 +663,16 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfety a jásot, když se kočka stěhuje do domova navždy';
+
+  @override
+  String get onMapLabel => 'Na mapě';
+
+  @override
+  String get showOnMap => 'Zobrazit na mapě';
+
+  @override
+  String get searchPlaceHint => 'Hledat místo nebo adresu';
+
+  @override
+  String get noPlacesFound => 'Žádná místa nenalezena';
 }

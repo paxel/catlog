@@ -664,4 +664,16 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfetti i wiwaty, gdy kot przeprowadza się do domu na zawsze';
+
+  @override
+  String get onMapLabel => 'Na mapie';
+
+  @override
+  String get showOnMap => 'Pokaż na mapie';
+
+  @override
+  String get searchPlaceHint => 'Szukaj miejsca lub adresu';
+
+  @override
+  String get noPlacesFound => 'Nie znaleziono miejsc';
 }

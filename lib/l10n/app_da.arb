@@ -193,5 +193,9 @@
   "valueCat": "Kat",
   "otherOption": "Andet…",
   "celebrationsToggle": "Fejr adoptioner",
-  "celebrationsSubtitle": "Konfetti og jubel, når en kat flytter til sit for-evigt-hjem"
+  "celebrationsSubtitle": "Konfetti og jubel, når en kat flytter til sit for-evigt-hjem",
+  "onMapLabel": "På kortet",
+  "showOnMap": "Vis på kort",
+  "searchPlaceHint": "Søg sted eller adresse",
+  "noPlacesFound": "Ingen steder fundet"
 }

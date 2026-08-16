@@ -660,4 +660,16 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית לתמיד';
+
+  @override
+  String get onMapLabel => 'על המפה';
+
+  @override
+  String get showOnMap => 'הצג על המפה';
+
+  @override
+  String get searchPlaceHint => 'חפש מקום או כתובת';
+
+  @override
+  String get noPlacesFound => 'לא נמצאו מקומות';
 }

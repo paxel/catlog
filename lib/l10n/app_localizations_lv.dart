@@ -663,4 +663,16 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām';
+
+  @override
+  String get onMapLabel => 'Kartē';
+
+  @override
+  String get showOnMap => 'Rādīt kartē';
+
+  @override
+  String get searchPlaceHint => 'Meklēt vietu vai adresi';
+
+  @override
+  String get noPlacesFound => 'Vietas nav atrastas';
 }

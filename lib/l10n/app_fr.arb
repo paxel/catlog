@@ -193,5 +193,9 @@
   "valueCat": "Chat",
   "otherOption": "Autre…",
   "celebrationsToggle": "Fêter les adoptions",
-  "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer définitif"
+  "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer définitif",
+  "onMapLabel": "Sur la carte",
+  "showOnMap": "Afficher sur la carte",
+  "searchPlaceHint": "Rechercher un lieu ou une adresse",
+  "noPlacesFound": "Aucun lieu trouvé"
 }

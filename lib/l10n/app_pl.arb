@@ -193,5 +193,9 @@
   "valueCat": "Kot",
   "otherOption": "Inne…",
   "celebrationsToggle": "Świętuj adopcje",
-  "celebrationsSubtitle": "Konfetti i wiwaty, gdy kot przeprowadza się do domu na zawsze"
+  "celebrationsSubtitle": "Konfetti i wiwaty, gdy kot przeprowadza się do domu na zawsze",
+  "onMapLabel": "Na mapie",
+  "showOnMap": "Pokaż na mapie",
+  "searchPlaceHint": "Szukaj miejsca lub adresu",
+  "noPlacesFound": "Nie znaleziono miejsc"
 }

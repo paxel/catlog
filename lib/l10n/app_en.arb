@@ -417,5 +417,9 @@
   "valueCat": "Cat",
   "otherOption": "Other…",
   "celebrationsToggle": "Celebrate adoptions",
-  "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home"
+  "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
+  "onMapLabel": "On the map",
+  "showOnMap": "Show on map",
+  "searchPlaceHint": "Search place or address",
+  "noPlacesFound": "No places found"
 }
