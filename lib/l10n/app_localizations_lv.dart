@@ -656,4 +656,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get otherOption => 'Cits…';
+
+  @override
+  String get celebrationsToggle => 'Svinēt adopcijas';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām';
 }

@@ -191,5 +191,7 @@
   "statusShelter": "Athvarf",
   "statusBarn": "Hlaða",
   "valueCat": "Köttur",
-  "otherOption": "Annað…"
+  "otherOption": "Annað…",
+  "celebrationsToggle": "Fagna ættleiðingum",
+  "celebrationsSubtitle": "Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili"
 }

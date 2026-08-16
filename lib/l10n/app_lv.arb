@@ -191,5 +191,7 @@
   "statusShelter": "Patversme",
   "statusBarn": "Šķūnis",
   "valueCat": "Kaķis",
-  "otherOption": "Cits…"
+  "otherOption": "Cits…",
+  "celebrationsToggle": "Svinēt adopcijas",
+  "celebrationsSubtitle": "Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām"
 }

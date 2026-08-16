@@ -657,4 +657,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get otherOption => 'Muu…';
+
+  @override
+  String get celebrationsToggle => 'Juhli adoptioita';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa';
 }

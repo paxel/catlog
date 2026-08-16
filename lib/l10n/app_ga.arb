@@ -191,5 +191,7 @@
   "statusShelter": "Tearmann",
   "statusBarn": "Scioból",
   "valueCat": "Cat",
-  "otherOption": "Eile…"
+  "otherOption": "Eile…",
+  "celebrationsToggle": "Ceiliúradh uchtálacha",
+  "celebrationsSubtitle": "Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan"
 }

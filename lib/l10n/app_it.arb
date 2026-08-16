@@ -191,5 +191,7 @@
   "statusShelter": "Rifugio",
   "statusBarn": "Fienile",
   "valueCat": "Gatto",
-  "otherOption": "Altro…"
+  "otherOption": "Altro…",
+  "celebrationsToggle": "Festeggia le adozioni",
+  "celebrationsSubtitle": "Coriandoli e applausi quando un gatto trasloca nella casa per sempre"
 }

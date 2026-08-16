@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../field_labels.dart';
@@ -104,6 +105,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (asOf == null) return;
     store.moveCat(id, destination, date: asOf);
     setState(() {});
+    if (mounted) maybeCelebrateAdoption(context, store, destination);
   }
 
   Future<void> _editField(FieldDef def) async {

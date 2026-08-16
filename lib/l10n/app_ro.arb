@@ -191,5 +191,7 @@
   "statusShelter": "Adăpost",
   "statusBarn": "Hambar",
   "valueCat": "Pisică",
-  "otherOption": "Altele…"
+  "otherOption": "Altele…",
+  "celebrationsToggle": "Sărbătorește adopțiile",
+  "celebrationsSubtitle": "Confetti și urale când o pisică se mută în căminul definitiv"
 }

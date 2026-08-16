@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../celebration.dart';
 import '../l10n.dart';
 
 const _repoUrl = 'https://github.com/paxel/catlog';
@@ -15,8 +17,16 @@ const _feedbackMail = 'taum@tuta.io';
 /// In-App Purchase for developer tips there (App Store rule 3.1.1).
 const _donateUrl = 'https://ko-fi.com/paxel7';
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+class AboutScreen extends StatefulWidget {
+  final CatalogStore store;
+
+  const AboutScreen({super.key, required this.store});
+
+  @override
+  State<AboutScreen> createState() => _AboutScreenState();
+}
+
+class _AboutScreenState extends State<AboutScreen> {
 
   Future<void> _open(String url) =>
       launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
@@ -55,6 +65,14 @@ class AboutScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
+        SwitchListTile(
+          secondary: const Icon(Icons.celebration_outlined),
+          title: Text(t.celebrationsToggle),
+          subtitle: Text(t.celebrationsSubtitle),
+          value: celebrationsEnabled(widget.store),
+          onChanged: (v) =>
+              setState(() => setCelebrationsEnabled(widget.store, v)),
+        ),
         ListTile(
           leading: const Icon(Icons.code),
           title: Text(t.sourceCode),

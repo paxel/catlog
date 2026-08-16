@@ -191,5 +191,7 @@
   "statusShelter": "Καταφύγιο",
   "statusBarn": "Αχυρώνας",
   "valueCat": "Γάτα",
-  "otherOption": "Άλλο…"
+  "otherOption": "Άλλο…",
+  "celebrationsToggle": "Γιορτή υιοθεσιών",
+  "celebrationsSubtitle": "Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο μόνιμο σπίτι της"
 }

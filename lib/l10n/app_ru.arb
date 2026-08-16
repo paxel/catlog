@@ -191,5 +191,7 @@
   "statusShelter": "Приют",
   "statusBarn": "Сарай",
   "valueCat": "Кошка",
-  "otherOption": "Другое…"
+  "otherOption": "Другое…",
+  "celebrationsToggle": "Праздновать пристройство",
+  "celebrationsSubtitle": "Конфетти и ликование, когда кошка переезжает в постоянный дом"
 }

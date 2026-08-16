@@ -191,5 +191,7 @@
   "statusShelter": "Schronisko",
   "statusBarn": "Stodoła",
   "valueCat": "Kot",
-  "otherOption": "Inne…"
+  "otherOption": "Inne…",
+  "celebrationsToggle": "Świętuj adopcje",
+  "celebrationsSubtitle": "Konfetti i wiwaty, gdy kot przeprowadza się do domu na zawsze"
 }

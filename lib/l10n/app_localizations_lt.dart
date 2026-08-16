@@ -657,4 +657,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get otherOption => 'Kita…';
+
+  @override
+  String get celebrationsToggle => 'Švęsti priglaudimus';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfeti ir šūksniai, kai katė persikelia į nuolatinius namus';
 }

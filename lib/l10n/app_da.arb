@@ -191,5 +191,7 @@
   "statusShelter": "Internat",
   "statusBarn": "Lade",
   "valueCat": "Kat",
-  "otherOption": "Andet…"
+  "otherOption": "Andet…",
+  "celebrationsToggle": "Fejr adoptioner",
+  "celebrationsSubtitle": "Konfetti og jubel, når en kat flytter til sit for-evigt-hjem"
 }

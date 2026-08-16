@@ -191,5 +191,7 @@
   "statusShelter": "Prieglauda",
   "statusBarn": "Daržinė",
   "valueCat": "Katė",
-  "otherOption": "Kita…"
+  "otherOption": "Kita…",
+  "celebrationsToggle": "Švęsti priglaudimus",
+  "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į nuolatinius namus"
 }

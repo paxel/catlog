@@ -656,4 +656,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get otherOption => 'Muu…';
+
+  @override
+  String get celebrationsToggle => 'Tähista lapsendamisi';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfetid ja hõisked, kui kass kolib päriskoju';
 }

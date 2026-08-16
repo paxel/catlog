@@ -657,4 +657,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get otherOption => 'Andet…';
+
+  @override
+  String get celebrationsToggle => 'Fejr adoptioner';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfetti og jubel, når en kat flytter til sit for-evigt-hjem';
 }

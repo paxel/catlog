@@ -191,5 +191,7 @@
   "statusShelter": "收容所",
   "statusBarn": "谷仓",
   "valueCat": "猫",
-  "otherOption": "其他…"
+  "otherOption": "其他…",
+  "celebrationsToggle": "庆祝领养",
+  "celebrationsSubtitle": "猫咪搬进永久的家时撒彩纸并欢呼"
 }

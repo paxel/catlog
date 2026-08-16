@@ -191,5 +191,7 @@
   "statusShelter": "مأوى",
   "statusBarn": "حظيرة",
   "valueCat": "قطة",
-  "otherOption": "أخرى…"
+  "otherOption": "أخرى…",
+  "celebrationsToggle": "الاحتفال بالتبني",
+  "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم"
 }

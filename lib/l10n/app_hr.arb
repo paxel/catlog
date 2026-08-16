@@ -191,5 +191,7 @@
   "statusShelter": "Sklonište",
   "statusBarn": "Štala",
   "valueCat": "Mačka",
-  "otherOption": "Drugo…"
+  "otherOption": "Drugo…",
+  "celebrationsToggle": "Slavi udomljavanja",
+  "celebrationsSubtitle": "Konfeti i klicanje kada mačka pređe u trajni dom"
 }

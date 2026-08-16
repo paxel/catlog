@@ -191,5 +191,7 @@
   "statusShelter": "Refugio",
   "statusBarn": "Granero",
   "valueCat": "Gato",
-  "otherOption": "Otro…"
+  "otherOption": "Otro…",
+  "celebrationsToggle": "Celebrar adopciones",
+  "celebrationsSubtitle": "Confeti y vítores cuando un gato se muda a su hogar definitivo"
 }

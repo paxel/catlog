@@ -191,5 +191,7 @@
   "statusShelter": "Tierheim",
   "statusBarn": "Scheune",
   "valueCat": "Katze",
-  "otherOption": "Anderes…"
+  "otherOption": "Anderes…",
+  "celebrationsToggle": "Adoptionen feiern",
+  "celebrationsSubtitle": "Konfetti und Jubel, wenn eine Katze in ihr Für-immer-Zuhause zieht"
 }

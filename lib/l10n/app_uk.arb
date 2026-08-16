@@ -191,5 +191,7 @@
   "statusShelter": "Притулок",
   "statusBarn": "Стодола",
   "valueCat": "Кіт",
-  "otherOption": "Інше…"
+  "otherOption": "Інше…",
+  "celebrationsToggle": "Святкувати прилаштування",
+  "celebrationsSubtitle": "Конфеті та радість, коли кіт переїжджає в постійний дім"
 }

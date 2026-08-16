@@ -656,4 +656,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get otherOption => 'Iné…';
+
+  @override
+  String get celebrationsToggle => 'Oslavovať adopcie';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfety a jasot, keď sa mačka sťahuje do domova navždy';
 }

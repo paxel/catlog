@@ -191,5 +191,7 @@
   "statusShelter": "Löytöeläintalo",
   "statusBarn": "Lato",
   "valueCat": "Kissa",
-  "otherOption": "Muu…"
+  "otherOption": "Muu…",
+  "celebrationsToggle": "Juhli adoptioita",
+  "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa"
 }

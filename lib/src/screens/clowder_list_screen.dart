@@ -115,7 +115,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
               if (v == 'about') {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => const AboutScreen(),
+                  builder: (_) => AboutScreen(store: widget.store),
                 ));
               }
             },

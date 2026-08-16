@@ -191,5 +191,7 @@
   "statusShelter": "Strehëz",
   "statusBarn": "Hambar",
   "valueCat": "Mace",
-  "otherOption": "Tjetër…"
+  "otherOption": "Tjetër…",
+  "celebrationsToggle": "Festo birësimet",
+  "celebrationsSubtitle": "Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e përhershme"
 }

@@ -191,5 +191,7 @@
   "statusShelter": "Abrigo",
   "statusBarn": "Celeiro",
   "valueCat": "Gato",
-  "otherOption": "Outro…"
+  "otherOption": "Outro…",
+  "celebrationsToggle": "Celebrar adoções",
+  "celebrationsSubtitle": "Confetes e vivas quando um gato se muda para o lar definitivo"
 }

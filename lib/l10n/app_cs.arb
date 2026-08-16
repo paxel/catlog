@@ -191,5 +191,7 @@
   "statusShelter": "Útulek",
   "statusBarn": "Stodola",
   "valueCat": "Kočka",
-  "otherOption": "Jiné…"
+  "otherOption": "Jiné…",
+  "celebrationsToggle": "Slavit adopce",
+  "celebrationsSubtitle": "Konfety a jásot, když se kočka stěhuje do domova navždy"
 }

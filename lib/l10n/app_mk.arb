@@ -191,5 +191,7 @@
   "statusShelter": "Прифатилиште",
   "statusBarn": "Штала",
   "valueCat": "Мачка",
-  "otherOption": "Друго…"
+  "otherOption": "Друго…",
+  "celebrationsToggle": "Прославувај посвојувања",
+  "celebrationsSubtitle": "Конфети и радост кога мачка се сели во постојан дом"
 }

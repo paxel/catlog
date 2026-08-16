@@ -658,4 +658,11 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get otherOption => 'Друго…';
+
+  @override
+  String get celebrationsToggle => 'Прославувај посвојувања';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Конфети и радост кога мачка се сели во постојан дом';
 }

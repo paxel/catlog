@@ -657,4 +657,11 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get otherOption => 'Друго…';
+
+  @override
+  String get celebrationsToggle => 'Прослави усвајања';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Конфете и клицање када се мачка сели у трајни дом';
 }

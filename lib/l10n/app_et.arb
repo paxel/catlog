@@ -191,5 +191,7 @@
   "statusShelter": "Varjupaik",
   "statusBarn": "Küün",
   "valueCat": "Kass",
-  "otherOption": "Muu…"
+  "otherOption": "Muu…",
+  "celebrationsToggle": "Tähista lapsendamisi",
+  "celebrationsSubtitle": "Konfetid ja hõisked, kui kass kolib päriskoju"
 }

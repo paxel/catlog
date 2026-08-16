@@ -654,4 +654,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get otherOption => 'אחר…';
+
+  @override
+  String get celebrationsToggle => 'חגיגת אימוצים';
+
+  @override
+  String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית לתמיד';
 }

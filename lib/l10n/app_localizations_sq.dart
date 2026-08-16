@@ -658,4 +658,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get otherOption => 'Tjetër…';
+
+  @override
+  String get celebrationsToggle => 'Festo birësimet';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e përhershme';
 }

@@ -191,5 +191,7 @@
   "statusShelter": "Barınak",
   "statusBarn": "Ahır",
   "valueCat": "Kedi",
-  "otherOption": "Diğer…"
+  "otherOption": "Diğer…",
+  "celebrationsToggle": "Sahiplendirmeleri kutla",
+  "celebrationsSubtitle": "Bir kedi kalıcı yuvasına taşındığında konfeti ve tezahürat"
 }

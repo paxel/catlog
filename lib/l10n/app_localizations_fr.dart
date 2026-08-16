@@ -658,4 +658,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get otherOption => 'Autre…';
+
+  @override
+  String get celebrationsToggle => 'Fêter les adoptions';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Confettis et acclamations quand un chat rejoint son foyer définitif';
 }

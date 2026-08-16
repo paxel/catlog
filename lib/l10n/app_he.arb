@@ -191,5 +191,7 @@
   "statusShelter": "מקלט",
   "statusBarn": "אסם",
   "valueCat": "חתול",
-  "otherOption": "אחר…"
+  "otherOption": "אחר…",
+  "celebrationsToggle": "חגיגת אימוצים",
+  "celebrationsSubtitle": "קונפטי ותרועות כשחתול עובר לבית לתמיד"
 }

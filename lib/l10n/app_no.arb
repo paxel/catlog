@@ -191,5 +191,7 @@
   "statusShelter": "Dyrehjem",
   "statusBarn": "Låve",
   "valueCat": "Katt",
-  "otherOption": "Annet…"
+  "otherOption": "Annet…",
+  "celebrationsToggle": "Feir adopsjoner",
+  "celebrationsSubtitle": "Konfetti og jubel når en katt flytter til sitt for-alltid-hjem"
 }

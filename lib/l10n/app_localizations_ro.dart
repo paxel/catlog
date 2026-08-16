@@ -658,4 +658,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get otherOption => 'Altele…';
+
+  @override
+  String get celebrationsToggle => 'Sărbătorește adopțiile';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Confetti și urale când o pisică se mută în căminul definitiv';
 }

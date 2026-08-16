@@ -658,4 +658,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get otherOption => 'Anders…';
+
+  @override
+  String get celebrationsToggle => 'Adopties vieren';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist';
 }

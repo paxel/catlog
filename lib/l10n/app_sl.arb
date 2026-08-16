@@ -191,5 +191,7 @@
   "statusShelter": "Zavetišče",
   "statusBarn": "Skedenj",
   "valueCat": "Mačka",
-  "otherOption": "Drugo…"
+  "otherOption": "Drugo…",
+  "celebrationsToggle": "Praznuj posvojitve",
+  "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v dom za vedno"
 }

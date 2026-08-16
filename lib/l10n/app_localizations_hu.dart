@@ -657,4 +657,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get otherOption => 'Egyéb…';
+
+  @override
+  String get celebrationsToggle => 'Örökbefogadás ünneplése';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik';
 }

@@ -656,4 +656,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get otherOption => 'أخرى…';
+
+  @override
+  String get celebrationsToggle => 'الاحتفال بالتبني';
+
+  @override
+  String get celebrationsSubtitle =>
+      'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم';
 }

@@ -656,4 +656,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get otherOption => 'Інше…';
+
+  @override
+  String get celebrationsToggle => 'Святкувати прилаштування';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Конфеті та радість, коли кіт переїжджає в постійний дім';
 }

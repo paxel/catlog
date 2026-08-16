@@ -657,4 +657,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get otherOption => 'Otro…';
+
+  @override
+  String get celebrationsToggle => 'Celebrar adopciones';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Confeti y vítores cuando un gato se muda a su hogar definitivo';
 }

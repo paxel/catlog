@@ -644,4 +644,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get otherOption => '其他…';
+
+  @override
+  String get celebrationsToggle => '庆祝领养';
+
+  @override
+  String get celebrationsSubtitle => '猫咪搬进永久的家时撒彩纸并欢呼';
 }

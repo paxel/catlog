@@ -1321,6 +1321,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other…'**
   String get otherOption;
+
+  /// No description provided for @celebrationsToggle.
+  ///
+  /// In en, this message translates to:
+  /// **'Celebrate adoptions'**
+  String get celebrationsToggle;
+
+  /// No description provided for @celebrationsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confetti and a cheer when a cat moves into a forever home'**
+  String get celebrationsSubtitle;
 }
 
 class _AppLocalizationsDelegate

@@ -658,4 +658,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get otherOption => 'Άλλο…';
+
+  @override
+  String get celebrationsToggle => 'Γιορτή υιοθεσιών';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο μόνιμο σπίτι της';
 }

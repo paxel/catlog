@@ -191,5 +191,7 @@
   "statusShelter": "Katthem",
   "statusBarn": "Lada",
   "valueCat": "Katt",
-  "otherOption": "Annat…"
+  "otherOption": "Annat…",
+  "celebrationsToggle": "Fira adoptioner",
+  "celebrationsSubtitle": "Konfetti och jubel när en katt flyttar till sitt för-alltid-hem"
 }

@@ -656,4 +656,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get otherOption => 'دیگر…';
+
+  @override
+  String get celebrationsToggle => 'جشن گرفتن واگذاری‌ها';
+
+  @override
+  String get celebrationsSubtitle =>
+      'کاغذرنگی و هلهله وقتی گربه‌ای به خانه همیشگی‌اش می‌رود';
 }

@@ -656,4 +656,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get otherOption => 'Diğer…';
+
+  @override
+  String get celebrationsToggle => 'Sahiplendirmeleri kutla';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Bir kedi kalıcı yuvasına taşındığında konfeti ve tezahürat';
 }

@@ -191,5 +191,7 @@
   "statusShelter": "Приют",
   "statusBarn": "Плевня",
   "valueCat": "Котка",
-  "otherOption": "Друго…"
+  "otherOption": "Друго…",
+  "celebrationsToggle": "Празнувай осиновяванията",
+  "celebrationsSubtitle": "Конфети и радост, когато котка се мести в постоянен дом"
 }

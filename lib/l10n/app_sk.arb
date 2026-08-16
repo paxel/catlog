@@ -191,5 +191,7 @@
   "statusShelter": "Útulok",
   "statusBarn": "Stodola",
   "valueCat": "Mačka",
-  "otherOption": "Iné…"
+  "otherOption": "Iné…",
+  "celebrationsToggle": "Oslavovať adopcie",
+  "celebrationsSubtitle": "Konfety a jasot, keď sa mačka sťahuje do domova navždy"
 }

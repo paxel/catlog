@@ -191,5 +191,7 @@
   "statusShelter": "Kenn",
   "statusBarn": "Maqjel",
   "valueCat": "Qattus",
-  "otherOption": "Ieħor…"
+  "otherOption": "Ieħor…",
+  "celebrationsToggle": "Iċċelebra l-adozzjonijiet",
+  "celebrationsSubtitle": "Konfetti u ferħ meta qattus imur f'dar għal dejjem"
 }

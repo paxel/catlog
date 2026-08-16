@@ -656,4 +656,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get otherOption => 'Outro…';
+
+  @override
+  String get celebrationsToggle => 'Celebrar adoções';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Confetes e vivas quando um gato se muda para o lar definitivo';
 }

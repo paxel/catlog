@@ -191,5 +191,7 @@
   "statusShelter": "Asiel",
   "statusBarn": "Schuur",
   "valueCat": "Kat",
-  "otherOption": "Anders…"
+  "otherOption": "Anders…",
+  "celebrationsToggle": "Adopties vieren",
+  "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist"
 }

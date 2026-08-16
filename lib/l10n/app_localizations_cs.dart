@@ -656,4 +656,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get otherOption => 'Jiné…';
+
+  @override
+  String get celebrationsToggle => 'Slavit adopce';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfety a jásot, když se kočka stěhuje do domova navždy';
 }

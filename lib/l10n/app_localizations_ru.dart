@@ -657,4 +657,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get otherOption => 'Другое…';
+
+  @override
+  String get celebrationsToggle => 'Праздновать пристройство';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Конфетти и ликование, когда кошка переезжает в постоянный дом';
 }

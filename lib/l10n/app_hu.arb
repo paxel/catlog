@@ -191,5 +191,7 @@
   "statusShelter": "Menhely",
   "statusBarn": "Pajta",
   "valueCat": "Macska",
-  "otherOption": "Egyéb…"
+  "otherOption": "Egyéb…",
+  "celebrationsToggle": "Örökbefogadás ünneplése",
+  "celebrationsSubtitle": "Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik"
 }

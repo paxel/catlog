@@ -659,4 +659,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get otherOption => 'Annað…';
+
+  @override
+  String get celebrationsToggle => 'Fagna ættleiðingum';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili';
 }

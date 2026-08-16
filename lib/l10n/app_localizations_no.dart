@@ -656,4 +656,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get otherOption => 'Annet…';
+
+  @override
+  String get celebrationsToggle => 'Feir adopsjoner';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfetti og jubel når en katt flytter til sitt for-alltid-hjem';
 }

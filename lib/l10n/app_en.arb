@@ -415,5 +415,7 @@
   "statusShelter": "Shelter",
   "statusBarn": "Barn",
   "valueCat": "Cat",
-  "otherOption": "Other…"
+  "otherOption": "Other…",
+  "celebrationsToggle": "Celebrate adoptions",
+  "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home"
 }

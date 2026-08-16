@@ -191,5 +191,7 @@
   "statusShelter": "Refuge",
   "statusBarn": "Grange",
   "valueCat": "Chat",
-  "otherOption": "Autre…"
+  "otherOption": "Autre…",
+  "celebrationsToggle": "Fêter les adoptions",
+  "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer définitif"
 }

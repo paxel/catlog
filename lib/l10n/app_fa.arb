@@ -191,5 +191,7 @@
   "statusShelter": "پناهگاه",
   "statusBarn": "انبار",
   "valueCat": "گربه",
-  "otherOption": "دیگر…"
+  "otherOption": "دیگر…",
+  "celebrationsToggle": "جشن گرفتن واگذاری‌ها",
+  "celebrationsSubtitle": "کاغذرنگی و هلهله وقتی گربه‌ای به خانه همیشگی‌اش می‌رود"
 }

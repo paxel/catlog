@@ -647,4 +647,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get otherOption => 'その他…';
+
+  @override
+  String get celebrationsToggle => '譲渡をお祝いする';
+
+  @override
+  String get celebrationsSubtitle => '猫が永遠のおうちに移るときに紙吹雪と歓声';
 }

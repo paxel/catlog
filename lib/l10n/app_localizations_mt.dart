@@ -659,4 +659,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get otherOption => 'Ieħor…';
+
+  @override
+  String get celebrationsToggle => 'Iċċelebra l-adozzjonijiet';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Konfetti u ferħ meta qattus imur f\'dar għal dejjem';
 }

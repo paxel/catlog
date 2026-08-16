@@ -658,4 +658,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get otherOption => 'Eile…';
+
+  @override
+  String get celebrationsToggle => 'Ceiliúradh uchtálacha';
+
+  @override
+  String get celebrationsSubtitle =>
+      'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan';
 }
