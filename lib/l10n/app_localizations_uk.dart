@@ -675,4 +675,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Місць не знайдено';
+
+  @override
+  String get mapSearchHint => 'Шукати котів, групи, людей';
 }

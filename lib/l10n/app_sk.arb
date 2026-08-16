@@ -197,5 +197,6 @@
   "onMapLabel": "Na mape",
   "showOnMap": "Zobraziť na mape",
   "searchPlaceHint": "Hľadať miesto alebo adresu",
-  "noPlacesFound": "Žiadne miesta sa nenašli"
+  "noPlacesFound": "Žiadne miesta sa nenašli",
+  "mapSearchHint": "Hľadať mačky, skupiny, osoby"
 }

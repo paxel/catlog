@@ -677,4 +677,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Níor aimsíodh áiteanna';
+
+  @override
+  String get mapSearchHint => 'Cuardaigh cait, grúpaí, daoine';
 }

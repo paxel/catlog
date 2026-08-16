@@ -676,4 +676,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Няма намерени места';
+
+  @override
+  String get mapSearchHint => 'Търси котки, групи, хора';
 }

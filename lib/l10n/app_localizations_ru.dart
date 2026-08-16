@@ -676,4 +676,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Места не найдены';
+
+  @override
+  String get mapSearchHint => 'Искать кошек, группы, людей';
 }

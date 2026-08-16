@@ -675,4 +675,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'لم يتم العثور على أماكن';
+
+  @override
+  String get mapSearchHint => 'ابحث عن قطط ومجموعات وأشخاص';
 }

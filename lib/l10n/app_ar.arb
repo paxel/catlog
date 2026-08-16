@@ -197,5 +197,6 @@
   "onMapLabel": "على الخريطة",
   "showOnMap": "إظهار على الخريطة",
   "searchPlaceHint": "ابحث عن مكان أو عنوان",
-  "noPlacesFound": "لم يتم العثور على أماكن"
+  "noPlacesFound": "لم يتم العثور على أماكن",
+  "mapSearchHint": "ابحث عن قطط ومجموعات وأشخاص"
 }

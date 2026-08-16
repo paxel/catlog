@@ -677,4 +677,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Geen plaatsen gevonden';
+
+  @override
+  String get mapSearchHint => 'Zoek katten, clowders, personen';
 }

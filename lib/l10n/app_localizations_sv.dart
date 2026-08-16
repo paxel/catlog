@@ -675,4 +675,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Inga platser hittades';
+
+  @override
+  String get mapSearchHint => 'Sök katter, grupper, personer';
 }

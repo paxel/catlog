@@ -675,4 +675,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'مکانی یافت نشد';
+
+  @override
+  String get mapSearchHint => 'جستجوی گربه‌ها، گروه‌ها، افراد';
 }

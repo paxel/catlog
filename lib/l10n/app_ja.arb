@@ -197,5 +197,6 @@
   "onMapLabel": "地図上",
   "showOnMap": "地図で表示",
   "searchPlaceHint": "場所や住所を検索",
-  "noPlacesFound": "場所が見つかりません"
+  "noPlacesFound": "場所が見つかりません",
+  "mapSearchHint": "猫・グループ・人を検索"
 }

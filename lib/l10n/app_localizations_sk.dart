@@ -675,4 +675,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Žiadne miesta sa nenašli';
+
+  @override
+  String get mapSearchHint => 'Hľadať mačky, skupiny, osoby';
 }

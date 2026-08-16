@@ -197,5 +197,6 @@
   "onMapLabel": "Sur la carte",
   "showOnMap": "Afficher sur la carte",
   "searchPlaceHint": "Rechercher un lieu ou une adresse",
-  "noPlacesFound": "Aucun lieu trouvé"
+  "noPlacesFound": "Aucun lieu trouvé",
+  "mapSearchHint": "Chercher chats, clowders, personnes"
 }

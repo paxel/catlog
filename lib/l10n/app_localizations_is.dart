@@ -678,4 +678,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Engir staðir fundust';
+
+  @override
+  String get mapSearchHint => 'Leita að köttum, hópum, fólki';
 }

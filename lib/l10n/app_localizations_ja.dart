@@ -665,4 +665,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noPlacesFound => '場所が見つかりません';
+
+  @override
+  String get mapSearchHint => '猫・グループ・人を検索';
 }

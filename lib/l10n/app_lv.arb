@@ -197,5 +197,6 @@
   "onMapLabel": "Kartē",
   "showOnMap": "Rādīt kartē",
   "searchPlaceHint": "Meklēt vietu vai adresi",
-  "noPlacesFound": "Vietas nav atrastas"
+  "noPlacesFound": "Vietas nav atrastas",
+  "mapSearchHint": "Meklēt kaķus, grupas, cilvēkus"
 }

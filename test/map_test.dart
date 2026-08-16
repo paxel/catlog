@@ -39,6 +39,9 @@ void main() {
     store.recordPosition(home, 52.52, 13.40);
     final stray = store.createCat('Roamer');
     store.recordPosition(stray, 52.53, 13.41);
+    store.addImage(stray,
+        CatalogStore.compressImage(Uint8List.fromList(
+            img.encodeJpg(img.Image(width: 60, height: 60)))));
 
     await tester.pumpWidget(MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -50,6 +53,8 @@ void main() {
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Roamer'), findsOneWidget);
     expect(find.text('OpenStreetMap contributors'), findsOneWidget);
+    // A stray WITH a photo shows its face ring, never the paw fallback.
+    expect(find.byIcon(Icons.pets), findsNothing);
 
     // Tapping the stray pin shows its movement trail.
     store.recordPosition(stray, 52.54, 13.42);

@@ -197,5 +197,6 @@
   "onMapLabel": "På kartan",
   "showOnMap": "Visa på karta",
   "searchPlaceHint": "Sök plats eller adress",
-  "noPlacesFound": "Inga platser hittades"
+  "noPlacesFound": "Inga platser hittades",
+  "mapSearchHint": "Sök katter, grupper, personer"
 }

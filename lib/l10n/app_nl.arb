@@ -197,5 +197,6 @@
   "onMapLabel": "Op de kaart",
   "showOnMap": "Toon op kaart",
   "searchPlaceHint": "Zoek plaats of adres",
-  "noPlacesFound": "Geen plaatsen gevonden"
+  "noPlacesFound": "Geen plaatsen gevonden",
+  "mapSearchHint": "Zoek katten, clowders, personen"
 }

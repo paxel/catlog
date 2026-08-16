@@ -677,4 +677,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Nuk u gjetën vende';
+
+  @override
+  String get mapSearchHint => 'Kërko mace, grupe, persona';
 }

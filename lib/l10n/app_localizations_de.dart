@@ -677,4 +677,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Keine Orte gefunden';
+
+  @override
+  String get mapSearchHint => 'Katzen, Clowder, Personen suchen';
 }

@@ -675,4 +675,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Kohti ei leitud';
+
+  @override
+  String get mapSearchHint => 'Otsi kasse, rühmi, inimesi';
 }

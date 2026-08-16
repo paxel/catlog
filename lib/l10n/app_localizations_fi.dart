@@ -676,4 +676,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Paikkoja ei löytynyt';
+
+  @override
+  String get mapSearchHint => 'Hae kissoja, ryhmiä, henkilöitä';
 }

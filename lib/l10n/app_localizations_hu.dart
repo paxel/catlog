@@ -676,4 +676,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Nincs találat';
+
+  @override
+  String get mapSearchHint => 'Macskák, csoportok, személyek keresése';
 }

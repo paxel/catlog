@@ -677,4 +677,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Δεν βρέθηκαν τοποθεσίες';
+
+  @override
+  String get mapSearchHint => 'Αναζήτηση γατών, ομάδων, ατόμων';
 }

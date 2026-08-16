@@ -676,4 +676,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Ingen steder fundet';
+
+  @override
+  String get mapSearchHint => 'Søg katte, grupper, personer';
 }

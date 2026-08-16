@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../stray_cam.dart';
+import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 
@@ -34,6 +36,9 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   TileProvider? _tiles;
+  final _controller = MapController();
+  final _search = TextEditingController();
+  List<(EntityView, LatLng)>? _hits;
 
   /// Cat whose movement trail is drawn; tap its pin to toggle.
   String? _trailCat;
@@ -90,7 +95,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           for (final s in strays)
             ListTile(
-              leading: const Icon(Icons.pets),
+              leading: CatAvatar(store: store, catId: s.id, size: 40),
               title: Text(s.name),
               onTap: () => Navigator.of(context).pop(('stray', s.id)),
             ),
@@ -101,7 +106,8 @@ class _MapScreenState extends State<MapScreen> {
             ),
           for (final c in clowders)
             ListTile(
-              leading: const Icon(Icons.home),
+              leading: SizedBox(
+                  width: 40, height: 40, child: _clowderFace(c.id)),
               title: Text(c.name),
               onTap: () => Navigator.of(context).pop(('clowder', c.id)),
             ),
@@ -130,10 +136,64 @@ class _MapScreenState extends State<MapScreen> {
         backgroundColor: Colors.white,
         backgroundImage: bytes != null ? MemoryImage(bytes) : null,
         child: bytes == null
-            ? const Icon(Icons.pets, size: 20, color: Colors.deepOrange)
+            ? const CustomPaint(
+                size: Size(24, 24),
+                painter: _CatSilhouettePainter(Colors.deepOrange))
             : null,
       ),
     );
+  }
+
+  /// A clowder's own photo in a rounded-square ring — visually distinct
+  /// from the round cat faces; house silhouette only as placeholder.
+  Widget _clowderFace(String clowderId) {
+    final images = store.images(clowderId);
+    final bytes =
+        images.isEmpty ? null : store.imageBytes(images.first);
+    final color = Theme.of(context).colorScheme.primary;
+    return Container(
+      width: 42,
+      height: 42,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: color, width: 3),
+        color: bytes == null ? color : Colors.white,
+        image: bytes != null
+            ? DecorationImage(
+                image: MemoryImage(bytes), fit: BoxFit.cover)
+            : null,
+      ),
+      child: bytes == null
+          ? const Icon(Icons.home, size: 22, color: Colors.white)
+          : null,
+    );
+  }
+
+  void _runSearch() {
+    final query = _search.text.trim().toLowerCase();
+    if (query.isEmpty) {
+      setState(() => _hits = null);
+      return;
+    }
+    final byAuthor = store.entitiesTouchedBy(query).toSet();
+    bool matches(EntityView e) =>
+        e.name.toLowerCase().contains(query) || byAuthor.contains(e.id);
+    final found = <(EntityView, LatLng)>[
+      for (final entry in [
+        ..._positioned(store.visibleCats()),
+        ..._positioned(store.visibleClowders()),
+      ])
+        if (matches(entry.$1)) entry
+    ];
+    setState(() => _hits = found);
+    if (found.length == 1) {
+      _controller.move(found.single.$2, 15);
+    } else if (found.length > 1) {
+      _controller.fitCamera(CameraFit.bounds(
+        bounds: LatLngBounds.fromPoints([for (final f in found) f.$2]),
+        padding: const EdgeInsets.all(64),
+      ));
+    }
   }
 
   @override
@@ -147,7 +207,33 @@ class _MapScreenState extends State<MapScreen> {
     final center = widget.initialCenter ??
         (all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2);
     return Scaffold(
-      appBar: AppBar(title: Text(context.t.map)),
+      appBar: AppBar(
+        title: Text(context.t.map),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(56),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+            child: TextField(
+              controller: _search,
+              textInputAction: TextInputAction.search,
+              onSubmitted: (_) => _runSearch(),
+              onChanged: (v) {
+                if (v.isEmpty) setState(() => _hits = null);
+              },
+              decoration: InputDecoration(
+                hintText: context.t.mapSearchHint,
+                isDense: true,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: BorderSide.none,
+                ),
+                prefixIcon: const Icon(Icons.search),
+              ),
+            ),
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           final catId = await strayCam(context, store);
@@ -161,7 +247,9 @@ class _MapScreenState extends State<MapScreen> {
         icon: const Icon(Icons.photo_camera),
         label: Text(context.t.strayCam),
       ),
-      body: FlutterMap(
+      body: Stack(children: [
+        FlutterMap(
+        mapController: _controller,
         options: MapOptions(
           initialCenter: center,
           initialZoom:
@@ -250,6 +338,28 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ],
       ),
+        if (_hits != null && _hits!.length != 1)
+          Material(
+            elevation: 4,
+            child: _hits!.isEmpty
+                ? ListTile(title: Text(context.t.noPlacesFound))
+                : ListView(shrinkWrap: true, children: [
+                    for (final (entity, point) in _hits!)
+                      ListTile(
+                        dense: true,
+                        leading: Icon(entity.id.startsWith('cat:')
+                            ? Icons.pets
+                            : Icons.home_outlined),
+                        title: Text(entity.name),
+                        onTap: () {
+                          setState(() => _hits = null);
+                          FocusScope.of(context).unfocus();
+                          _controller.move(point, 15);
+                        },
+                      ),
+                  ]),
+          ),
+      ]),
       bottomNavigationBar: _trailCat == null
           ? null
           : BottomAppBar(
@@ -325,4 +435,35 @@ class _MapPin extends StatelessWidget {
       ]),
     );
   }
+}
+
+
+/// Minimal cat-head silhouette (round head, two ears) — the placeholder
+/// for photoless cats; deliberately not a symbol from any icon font.
+class _CatSilhouettePainter extends CustomPainter {
+  final Color color;
+
+  const _CatSilhouettePainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..color = color;
+    final w = size.width, h = size.height;
+    canvas.drawCircle(Offset(w / 2, h * 0.58), w * 0.38, paint);
+    final leftEar = ui.Path()
+      ..moveTo(w * 0.18, h * 0.42)
+      ..lineTo(w * 0.24, h * 0.06)
+      ..lineTo(w * 0.46, h * 0.26)
+      ..close();
+    final rightEar = ui.Path()
+      ..moveTo(w * 0.82, h * 0.42)
+      ..lineTo(w * 0.76, h * 0.06)
+      ..lineTo(w * 0.54, h * 0.26)
+      ..close();
+    canvas.drawPath(leftEar, paint);
+    canvas.drawPath(rightEar, paint);
+  }
+
+  @override
+  bool shouldRepaint(_CatSilhouettePainter old) => old.color != color;
 }

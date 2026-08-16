@@ -197,5 +197,6 @@
   "onMapLabel": "Në hartë",
   "showOnMap": "Shfaq në hartë",
   "searchPlaceHint": "Kërko vend ose adresë",
-  "noPlacesFound": "Nuk u gjetën vende"
+  "noPlacesFound": "Nuk u gjetën vende",
+  "mapSearchHint": "Kërko mace, grupe, persona"
 }

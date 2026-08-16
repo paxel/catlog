@@ -197,5 +197,6 @@
   "onMapLabel": "Žemėlapyje",
   "showOnMap": "Rodyti žemėlapyje",
   "searchPlaceHint": "Ieškoti vietos ar adreso",
-  "noPlacesFound": "Vietų nerasta"
+  "noPlacesFound": "Vietų nerasta",
+  "mapSearchHint": "Ieškoti kačių, grupių, žmonių"
 }

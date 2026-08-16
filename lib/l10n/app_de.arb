@@ -197,5 +197,6 @@
   "onMapLabel": "Auf der Karte",
   "showOnMap": "Auf Karte zeigen",
   "searchPlaceHint": "Ort oder Adresse suchen",
-  "noPlacesFound": "Keine Orte gefunden"
+  "noPlacesFound": "Keine Orte gefunden",
+  "mapSearchHint": "Katzen, Clowder, Personen suchen"
 }

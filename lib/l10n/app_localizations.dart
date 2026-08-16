@@ -1357,6 +1357,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No places found'**
   String get noPlacesFound;
+
+  /// No description provided for @mapSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search cats, clowders, people'**
+  String get mapSearchHint;
 }
 
 class _AppLocalizationsDelegate

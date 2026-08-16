@@ -197,5 +197,6 @@
   "onMapLabel": "На карті",
   "showOnMap": "Показати на карті",
   "searchPlaceHint": "Шукати місце чи адресу",
-  "noPlacesFound": "Місць не знайдено"
+  "noPlacesFound": "Місць не знайдено",
+  "mapSearchHint": "Шукати котів, групи, людей"
 }

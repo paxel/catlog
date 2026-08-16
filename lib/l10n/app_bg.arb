@@ -197,5 +197,6 @@
   "onMapLabel": "На картата",
   "showOnMap": "Покажи на картата",
   "searchPlaceHint": "Търси място или адрес",
-  "noPlacesFound": "Няма намерени места"
+  "noPlacesFound": "Няма намерени места",
+  "mapSearchHint": "Търси котки, групи, хора"
 }

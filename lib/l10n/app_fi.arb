@@ -197,5 +197,6 @@
   "onMapLabel": "Kartalla",
   "showOnMap": "Näytä kartalla",
   "searchPlaceHint": "Hae paikkaa tai osoitetta",
-  "noPlacesFound": "Paikkoja ei löytynyt"
+  "noPlacesFound": "Paikkoja ei löytynyt",
+  "mapSearchHint": "Hae kissoja, ryhmiä, henkilöitä"
 }

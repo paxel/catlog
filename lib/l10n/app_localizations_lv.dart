@@ -675,4 +675,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Vietas nav atrastas';
+
+  @override
+  String get mapSearchHint => 'Meklēt kaķus, grupas, cilvēkus';
 }

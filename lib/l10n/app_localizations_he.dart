@@ -672,4 +672,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'לא נמצאו מקומות';
+
+  @override
+  String get mapSearchHint => 'חפש חתולים, קבוצות, אנשים';
 }

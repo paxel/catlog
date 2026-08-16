@@ -197,5 +197,6 @@
   "onMapLabel": "Fuq il-mappa",
   "showOnMap": "Uri fuq il-mappa",
   "searchPlaceHint": "Fittex post jew indirizz",
-  "noPlacesFound": "Ma nstabux postijiet"
+  "noPlacesFound": "Ma nstabux postijiet",
+  "mapSearchHint": "Fittex qtates, gruppi, nies"
 }

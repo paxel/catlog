@@ -421,5 +421,6 @@
   "onMapLabel": "On the map",
   "showOnMap": "Show on map",
   "searchPlaceHint": "Search place or address",
-  "noPlacesFound": "No places found"
+  "noPlacesFound": "No places found",
+  "mapSearchHint": "Search cats, clowders, people"
 }

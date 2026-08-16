@@ -197,5 +197,6 @@
   "onMapLabel": "No mapa",
   "showOnMap": "Mostrar no mapa",
   "searchPlaceHint": "Procurar lugar ou morada",
-  "noPlacesFound": "Nenhum lugar encontrado"
+  "noPlacesFound": "Nenhum lugar encontrado",
+  "mapSearchHint": "Procurar gatos, clowders, pessoas"
 }

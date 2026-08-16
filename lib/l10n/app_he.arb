@@ -197,5 +197,6 @@
   "onMapLabel": "על המפה",
   "showOnMap": "הצג על המפה",
   "searchPlaceHint": "חפש מקום או כתובת",
-  "noPlacesFound": "לא נמצאו מקומות"
+  "noPlacesFound": "לא נמצאו מקומות",
+  "mapSearchHint": "חפש חתולים, קבוצות, אנשים"
 }

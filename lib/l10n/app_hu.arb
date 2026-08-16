@@ -197,5 +197,6 @@
   "onMapLabel": "A térképen",
   "showOnMap": "Mutasd a térképen",
   "searchPlaceHint": "Hely vagy cím keresése",
-  "noPlacesFound": "Nincs találat"
+  "noPlacesFound": "Nincs találat",
+  "mapSearchHint": "Macskák, csoportok, személyek keresése"
 }

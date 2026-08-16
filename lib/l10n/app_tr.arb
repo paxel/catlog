@@ -197,5 +197,6 @@
   "onMapLabel": "Haritada",
   "showOnMap": "Haritada göster",
   "searchPlaceHint": "Yer veya adres ara",
-  "noPlacesFound": "Yer bulunamadı"
+  "noPlacesFound": "Yer bulunamadı",
+  "mapSearchHint": "Kedi, grup, kişi ara"
 }

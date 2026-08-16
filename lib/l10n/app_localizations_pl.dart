@@ -676,4 +676,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Nie znaleziono miejsc';
+
+  @override
+  String get mapSearchHint => 'Szukaj kotów, grup, osób';
 }

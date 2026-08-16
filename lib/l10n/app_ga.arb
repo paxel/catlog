@@ -197,5 +197,6 @@
   "onMapLabel": "Ar an léarscáil",
   "showOnMap": "Taispeáin ar an léarscáil",
   "searchPlaceHint": "Cuardaigh áit nó seoladh",
-  "noPlacesFound": "Níor aimsíodh áiteanna"
+  "noPlacesFound": "Níor aimsíodh áiteanna",
+  "mapSearchHint": "Cuardaigh cait, grúpaí, daoine"
 }

@@ -200,6 +200,23 @@ class CatalogStore {
     }
   }
 
+  /// Canonical ids of Cats and Clowders an author whose name matches
+  /// [query] (case-insensitive substring) has written entries for —
+  /// "I only remember the person" search.
+  List<String> entitiesTouchedBy(String query) {
+    final rows = _db.select(
+      "SELECT DISTINCT entity FROM entries WHERE author LIKE ? AND "
+      "(entity LIKE 'cat:%' OR entity LIKE 'clowder:%')",
+      ['%$query%'],
+    );
+    final seen = <String>{};
+    return [
+      for (final r in rows)
+        if (seen.add(resolveEntity(r['entity'] as String)))
+          resolveEntity(r['entity'] as String)
+    ];
+  }
+
   /// Canonical ids currently hidden on this device.
   List<String> hiddenIds() => [
         for (final r in _db.select(

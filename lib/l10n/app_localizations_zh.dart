@@ -662,4 +662,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noPlacesFound => '未找到地点';
+
+  @override
+  String get mapSearchHint => '搜索猫、猫群、人员';
 }

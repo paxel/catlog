@@ -677,4 +677,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Niciun loc găsit';
+
+  @override
+  String get mapSearchHint => 'Caută pisici, grupuri, persoane';
 }

@@ -197,5 +197,6 @@
   "onMapLabel": "Na mapie",
   "showOnMap": "Pokaż na mapie",
   "searchPlaceHint": "Szukaj miejsca lub adresu",
-  "noPlacesFound": "Nie znaleziono miejsc"
+  "noPlacesFound": "Nie znaleziono miejsc",
+  "mapSearchHint": "Szukaj kotów, grup, osób"
 }

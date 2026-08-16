@@ -197,5 +197,6 @@
   "onMapLabel": "Kaardil",
   "showOnMap": "Näita kaardil",
   "searchPlaceHint": "Otsi kohta või aadressi",
-  "noPlacesFound": "Kohti ei leitud"
+  "noPlacesFound": "Kohti ei leitud",
+  "mapSearchHint": "Otsi kasse, rühmi, inimesi"
 }

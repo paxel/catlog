@@ -678,4 +678,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Ma nstabux postijiet';
+
+  @override
+  String get mapSearchHint => 'Fittex qtates, gruppi, nies';
 }

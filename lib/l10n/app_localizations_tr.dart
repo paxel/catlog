@@ -675,4 +675,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noPlacesFound => 'Yer bulunamadı';
+
+  @override
+  String get mapSearchHint => 'Kedi, grup, kişi ara';
 }

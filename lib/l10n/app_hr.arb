@@ -197,5 +197,6 @@
   "onMapLabel": "Na karti",
   "showOnMap": "Prikaži na karti",
   "searchPlaceHint": "Traži mjesto ili adresu",
-  "noPlacesFound": "Nema pronađenih mjesta"
+  "noPlacesFound": "Nema pronađenih mjesta",
+  "mapSearchHint": "Traži mačke, grupe, osobe"
 }
