@@ -80,9 +80,9 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
     }
   }
   final live = <String>{};
-  for (final cat in store.cats()) {
-    if (!includePrivate && store.isPrivate(cat.id)) continue;
-    live.addAll(store.images(cat.id));
+  for (final entity in [...store.cats(), ...store.clowders()]) {
+    if (!includePrivate && store.isPrivate(entity.id)) continue;
+    live.addAll(store.images(entity.id));
   }
   for (final hash in live) {
     final f = File('${blobDir.path}/$hash.jpg');

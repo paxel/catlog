@@ -33,9 +33,9 @@ String writeBundle(CatalogStore store, String path,
   final jsonlBytes = utf8.encode(jsonl);
   archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
   final seen = <String>{};
-  for (final cat in store.cats()) {
-    if (!includePrivate && store.isPrivate(cat.id)) continue;
-    for (final hash in store.images(cat.id)) {
+  for (final entity in [...store.cats(), ...store.clowders()]) {
+    if (!includePrivate && store.isPrivate(entity.id)) continue;
+    for (final hash in store.images(entity.id)) {
       if (!seen.add(hash)) continue;
       final bytes = store.imageBytes(hash);
       if (bytes != null) {

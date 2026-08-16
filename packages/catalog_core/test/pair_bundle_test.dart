@@ -91,4 +91,21 @@ void main() {
       expect(a.hasConflict(cat, Keys.name), isTrue);
     });
   });
+
+
+  test('clowder photos survive a bundle round-trip', () {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'ben';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final home = a.createClowder('Home');
+    a.addImage(home, CatalogStore.compressImage(jpeg(40, 40)));
+
+    final dir = Directory.systemTemp.createTempSync('catlog-clowder-blob');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    importBundle(b, writeBundle(a, '${dir.path}/x.catsync'));
+
+    expect(b.images(home), a.images(home));
+    expect(b.missingBlobs(), isEmpty);
+  });
 }
