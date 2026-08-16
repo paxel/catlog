@@ -1,9 +1,10 @@
 # One-off: Play Store app bundle from this branch (v0.1.0 predates the
-# appbundle step in release.yml). Dispatch on release/010/google.
+# appbundle step in release.yml). Runs on every push to this branch.
 name: Play AAB
 
 on:
-  workflow_dispatch:
+  push:
+    branches: ["release/010/google"]
 
 jobs:
   build-aab:
