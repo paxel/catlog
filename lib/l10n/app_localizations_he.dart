@@ -853,4 +853,15 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get removeTrust => 'הסר';
+
+  @override
+  String get hostWithoutWifi => 'אירוח ללא Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'יוצר חיבור ישיר זמני לטלפון השני (ללא אינטרנט). רק cat(a)log משתמש בו והוא מתנתק לבד אחרי הסנכרון.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'הקוד הזה דורש שני טלפוני אנדרואיד — ב-iPhone/iPad השתמשו ב-Wi-Fi משותף';
 }

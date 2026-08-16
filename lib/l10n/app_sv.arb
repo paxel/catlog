@@ -251,5 +251,8 @@
   "declineAction": "Avböj",
   "syncDeclined": "Den andra enheten avböjde synkroniseringen",
   "trustedDevicesSection": "Alltid tillåtna enheter",
-  "removeTrust": "Ta bort"
+  "removeTrust": "Ta bort",
+  "hostWithoutWifi": "Var värd utan Wi-Fi",
+  "hotspotJoinNote": "Skapar en tillfällig direktanslutning till den andra telefonen (utan internet). Bara cat(a)log använder den och den kopplas ner av sig själv efter synkroniseringen.",
+  "hotspotAndroidOnly": "Den här koden kräver två Android-telefoner — använd ett delat Wi-Fi på iPhone/iPad"
 }

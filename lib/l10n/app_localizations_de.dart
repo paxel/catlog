@@ -865,4 +865,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get removeTrust => 'Entfernen';
+
+  @override
+  String get hostWithoutWifi => 'Ohne WLAN hosten';
+
+  @override
+  String get hotspotJoinNote =>
+      'Stellt eine vorübergehende Direktverbindung zum anderen Handy her (ohne Internet). Nur cat(a)log nutzt sie, nach der Synchronisierung trennt sie sich von selbst.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen';
 }

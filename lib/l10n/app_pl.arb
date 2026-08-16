@@ -251,5 +251,8 @@
   "declineAction": "Odrzuć",
   "syncDeclined": "Drugie urządzenie odrzuciło synchronizację",
   "trustedDevicesSection": "Zawsze dozwolone urządzenia",
-  "removeTrust": "Usuń"
+  "removeTrust": "Usuń",
+  "hostWithoutWifi": "Hostuj bez Wi-Fi",
+  "hotspotJoinNote": "Tworzy tymczasowe bezpośrednie połączenie z drugim telefonem (bez internetu). Korzysta z niego tylko cat(a)log i rozłącza się samo po synchronizacji.",
+  "hotspotAndroidOnly": "Ten kod wymaga dwóch telefonów z Androidem — na iPhonie/iPadzie użyj wspólnego Wi-Fi"
 }

@@ -251,5 +251,8 @@
   "declineAction": "Elutasít",
   "syncDeclined": "A másik készülék elutasította a szinkronizálást",
   "trustedDevicesSection": "Mindig engedélyezett készülékek",
-  "removeTrust": "Eltávolítás"
+  "removeTrust": "Eltávolítás",
+  "hostWithoutWifi": "Hosztolás Wi-Fi nélkül",
+  "hotspotJoinNote": "Ideiglenes közvetlen kapcsolatot létesít a másik telefonnal (internet nélkül). Csak a cat(a)log használja, és a szinkronizálás után magától bontja.",
+  "hotspotAndroidOnly": "Ehhez a kódhoz két Android telefon kell — iPhone-on/iPaden használj közös Wi-Fi-t"
 }

@@ -862,4 +862,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get removeTrust => 'Hiq';
+
+  @override
+  String get hostWithoutWifi => 'Prit pa Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Krijon një lidhje të drejtpërdrejtë të përkohshme me telefonin tjetër (pa internet). E përdor vetëm cat(a)log dhe shkëputet vetë pas sinkronizimit.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Ky kod kërkon dy telefona Android — në iPhone/iPad përdor një Wi-Fi të përbashkët';
 }

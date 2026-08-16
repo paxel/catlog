@@ -27,6 +27,9 @@ class MainActivity : FlutterActivity() {
             }
         }
         intent?.let { handleViewIntent(it) }
+        val hotspot = HotspotChannel(this)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/hotspot")
+            .setMethodCallHandler { call, result -> hotspot.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
                 if (call.method == "saveToDownloads") {

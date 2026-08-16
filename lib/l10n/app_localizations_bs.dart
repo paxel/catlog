@@ -860,4 +860,15 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get removeTrust => 'Ukloni';
+
+  @override
+  String get hostWithoutWifi => 'Hostuj bez Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Uspostavlja privremenu direktnu vezu s drugim telefonom (bez interneta). Koristi je samo cat(a)log i sama se prekida nakon sinhronizacije.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Ovaj kod zahtijeva dva Android telefona — na iPhone/iPad koristi zajednički Wi-Fi';
 }

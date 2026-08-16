@@ -861,4 +861,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get removeTrust => 'Kaldır';
+
+  @override
+  String get hostWithoutWifi => 'Wi-Fi olmadan barındır';
+
+  @override
+  String get hotspotJoinNote =>
+      'Diğer telefonla geçici doğrudan bağlantı kurar (internet yok). Yalnızca cat(a)log kullanır ve eşitlemeden sonra kendiliğinden kesilir.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Bu kod iki Android telefon gerektirir — iPhone/iPad\'de ortak Wi-Fi kullanın';
 }

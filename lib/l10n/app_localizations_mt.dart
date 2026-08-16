@@ -863,4 +863,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get removeTrust => 'Neħħi';
+
+  @override
+  String get hostWithoutWifi => 'Ospita mingħajr Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Joħloq konnessjoni diretta temporanja mat-telefown l-ieħor (mingħajr internet). Juża biss cat(a)log u tinqata\' waħedha wara s-sinkronizzazzjoni.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Dan il-kodiċi jeħtieġ żewġ telefowns Android — fuq iPhone/iPad uża Wi-Fi kondiviż';
 }

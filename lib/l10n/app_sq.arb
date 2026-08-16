@@ -251,5 +251,8 @@
   "declineAction": "Refuzo",
   "syncDeclined": "Pajisja tjetër e refuzoi sinkronizimin",
   "trustedDevicesSection": "Pajisjet e lejuara gjithmonë",
-  "removeTrust": "Hiq"
+  "removeTrust": "Hiq",
+  "hostWithoutWifi": "Prit pa Wi-Fi",
+  "hotspotJoinNote": "Krijon një lidhje të drejtpërdrejtë të përkohshme me telefonin tjetër (pa internet). E përdor vetëm cat(a)log dhe shkëputet vetë pas sinkronizimit.",
+  "hotspotAndroidOnly": "Ky kod kërkon dy telefona Android — në iPhone/iPad përdor një Wi-Fi të përbashkët"
 }

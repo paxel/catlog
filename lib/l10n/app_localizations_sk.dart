@@ -859,4 +859,15 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get removeTrust => 'Odstrániť';
+
+  @override
+  String get hostWithoutWifi => 'Hostovať bez Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Vytvorí dočasné priame spojenie s druhým telefónom (bez internetu). Používa ho iba cat(a)log a po synchronizácii sa samo odpojí.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Tento kód vyžaduje dva telefóny s Androidom — na iPhone/iPade použi spoločnú Wi-Fi';
 }

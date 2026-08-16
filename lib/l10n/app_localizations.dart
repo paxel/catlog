@@ -1681,6 +1681,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove'**
   String get removeTrust;
+
+  /// No description provided for @hostWithoutWifi.
+  ///
+  /// In en, this message translates to:
+  /// **'Host without Wi-Fi'**
+  String get hostWithoutWifi;
+
+  /// No description provided for @hotspotJoinNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Joins a temporary direct connection to the other phone (no internet). Only cat(a)log uses it, and it disconnects by itself after the sync.'**
+  String get hotspotJoinNote;
+
+  /// No description provided for @hotspotAndroidOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'This code needs two Android phones — on iPhone/iPad, use a shared Wi-Fi instead'**
+  String get hotspotAndroidOnly;
 }
 
 class _AppLocalizationsDelegate

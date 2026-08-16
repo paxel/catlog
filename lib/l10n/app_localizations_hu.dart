@@ -862,4 +862,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get removeTrust => 'Eltávolítás';
+
+  @override
+  String get hostWithoutWifi => 'Hosztolás Wi-Fi nélkül';
+
+  @override
+  String get hotspotJoinNote =>
+      'Ideiglenes közvetlen kapcsolatot létesít a másik telefonnal (internet nélkül). Csak a cat(a)log használja, és a szinkronizálás után magától bontja.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Ehhez a kódhoz két Android telefon kell — iPhone-on/iPaden használj közös Wi-Fi-t';
 }

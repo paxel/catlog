@@ -859,4 +859,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get removeTrust => 'حذف';
+
+  @override
+  String get hostWithoutWifi => 'میزبانی بدون Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'یک اتصال مستقیم موقت با گوشی دیگر برقرار می‌کند (بدون اینترنت). فقط cat(a)log از آن استفاده می‌کند و پس از همگام‌سازی خودش قطع می‌شود.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'این کد به دو گوشی اندروید نیاز دارد — در iPhone/iPad از Wi-Fi مشترک استفاده کنید';
 }

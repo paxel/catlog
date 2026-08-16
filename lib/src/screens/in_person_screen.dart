@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../import_summary.dart';
+import '../sync/hotspot.dart';
 import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
@@ -28,6 +29,10 @@ class InPersonScreen extends StatefulWidget {
 class _InPersonScreenState extends State<InPersonScreen> {
   LanSyncHost? _host;
   String? _pairCode;
+
+  /// Set while hosting over our own LocalOnlyHotspot: the QR then
+  /// carries the hotspot credentials too (Android-to-Android only).
+  String? _hotspotQr;
   int _sessions = 0;
 
   final TextEditingController _code = TextEditingController();
@@ -68,6 +73,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
   @override
   void dispose() {
     _host?.stop();
+    if (_hotspotQr != null) stopHotspot();
     _code.dispose();
     super.dispose();
   }
@@ -131,9 +137,11 @@ class _InPersonScreenState extends State<InPersonScreen> {
   Future<void> _toggleHost() async {
     if (_host != null) {
       await _host!.stop();
+      if (_hotspotQr != null) await stopHotspot();
       setState(() {
         _host = null;
         _pairCode = null;
+        _hotspotQr = null;
       });
       return;
     }
@@ -152,6 +160,78 @@ class _InPersonScreenState extends State<InPersonScreen> {
       _pairCode = encodePairCode(address, host.port, pin);
       _sessions = 0;
     });
+  }
+
+  /// Android without shared Wi-Fi: our own hotspot carries the sync.
+  Future<void> _hostViaHotspot() async {
+    try {
+      final info = await startHotspot();
+      final pin = (Random.secure().nextInt(900000) + 100000).toString();
+      final host = LanSyncHost(widget.store, pin,
+          onJoinRequest: _onJoinRequest, onSession: (applied) {
+        if (!mounted) return;
+        setState(() => _sessions++);
+        if (applied.isNotEmpty) {
+          showImportSummary(context, widget.store, applied);
+        }
+      });
+      await host.start();
+      final pairCode = encodePairCode(info.ip, host.port, pin);
+      setState(() {
+        _host = host;
+        _pairCode = pairCode;
+        _hotspotQr = hotspotQrPayload(info, pairCode);
+        _sessions = 0;
+      });
+    } catch (e) {
+      if (mounted) {
+        setState(
+            () => _lastResult = context.t.syncFailed('$e'));
+      }
+    }
+  }
+
+  /// One scan on the joiner: low-key consent, app-scoped join, sync,
+  /// automatic disconnect.
+  Future<void> _joinHotspotFlow(
+      ({String ssid, String pass, String pairCode}) info) async {
+    if (!Platform.isAndroid) {
+      setState(() => _lastResult = context.t.hotspotAndroidOnly);
+      return;
+    }
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(context.t.hostWithoutWifi),
+        content: Text(context.t.hotspotJoinNote),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(context.t.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(context.t.allowOnce),
+          ),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    setState(() => _joining = true);
+    try {
+      final joined = await joinHotspot(info.ssid, info.pass);
+      if (!joined) {
+        if (mounted) {
+          setState(
+              () => _lastResult = context.t.syncFailed('hotspot'));
+        }
+        return;
+      }
+      await _joinWith(info.pairCode);
+    } finally {
+      await leaveHotspot();
+      if (mounted) setState(() => _joining = false);
+    }
   }
 
   Future<void> _joinWith(String raw) async {
@@ -194,10 +274,14 @@ class _InPersonScreenState extends State<InPersonScreen> {
   Future<void> _scan() async {
     final value = await Navigator.of(context)
         .push<String>(MaterialPageRoute(builder: (_) => const ScanScreen()));
-    if (value != null) {
-      _code.text = value;
-      await _joinWith(value);
+    if (value == null) return;
+    final hotspot = parseHotspotQr(value);
+    if (hotspot != null) {
+      await _joinHotspotFlow(hotspot);
+      return;
     }
+    _code.text = value;
+    await _joinWith(value);
   }
 
   bool get _canScan => Platform.isAndroid || Platform.isIOS;
@@ -247,12 +331,20 @@ class _InPersonScreenState extends State<InPersonScreen> {
                 label:
                     Text(_host == null ? t.startHosting : t.stopHosting),
               )
+            else if (Platform.isAndroid)
+              FilledButton.icon(
+                onPressed: _host == null ? _hostViaHotspot : _toggleHost,
+                icon: Icon(_host == null
+                    ? Icons.wifi_tethering
+                    : Icons.stop),
+                label: Text(
+                    _host == null ? t.hostWithoutWifi : t.stopHosting),
+              )
             else
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.wifi_off),
                 title: Text(t.connectToWifiFirst),
-                subtitle: Text(t.hotspotHint),
               ),
             if (_pairCode != null) ...[
               const SizedBox(height: 12),
@@ -261,7 +353,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Column(children: [
                     QrImageView(
-                      data: _pairCode!,
+                      data: _hotspotQr ?? _pairCode!,
                       size: 220,
                       backgroundColor: Colors.white,
                     ),

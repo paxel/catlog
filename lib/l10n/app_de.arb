@@ -251,5 +251,8 @@
   "declineAction": "Ablehnen",
   "syncDeclined": "Das andere Gerät hat die Synchronisierung abgelehnt",
   "trustedDevicesSection": "Immer erlaubte Geräte",
-  "removeTrust": "Entfernen"
+  "removeTrust": "Entfernen",
+  "hostWithoutWifi": "Ohne WLAN hosten",
+  "hotspotJoinNote": "Stellt eine vorübergehende Direktverbindung zum anderen Handy her (ohne Internet). Nur cat(a)log nutzt sie, nach der Synchronisierung trennt sie sich von selbst.",
+  "hotspotAndroidOnly": "Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen"
 }

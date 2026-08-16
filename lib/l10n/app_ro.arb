@@ -251,5 +251,8 @@
   "declineAction": "Refuză",
   "syncDeclined": "Celălalt dispozitiv a refuzat sincronizarea",
   "trustedDevicesSection": "Dispozitive permise mereu",
-  "removeTrust": "Elimină"
+  "removeTrust": "Elimină",
+  "hostWithoutWifi": "Găzduiește fără Wi-Fi",
+  "hotspotJoinNote": "Creează o conexiune directă temporară cu celălalt telefon (fără internet). O folosește doar cat(a)log și se deconectează singură după sincronizare.",
+  "hotspotAndroidOnly": "Acest cod necesită două telefoane Android — pe iPhone/iPad folosește un Wi-Fi comun"
 }

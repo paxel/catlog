@@ -251,5 +251,8 @@
   "declineAction": "Hafna",
   "syncDeclined": "Hitt tækið hafnaði samstillingunni",
   "trustedDevicesSection": "Alltaf leyfð tæki",
-  "removeTrust": "Fjarlægja"
+  "removeTrust": "Fjarlægja",
+  "hostWithoutWifi": "Hýsa án Wi-Fi",
+  "hotspotJoinNote": "Kemur á tímabundinni beintengingu við hinn símann (án internets). Aðeins cat(a)log notar hana og hún aftengist sjálf eftir samstillinguna.",
+  "hotspotAndroidOnly": "Þessi kóði þarf tvo Android síma — á iPhone/iPad notaðu sameiginlegt Wi-Fi"
 }

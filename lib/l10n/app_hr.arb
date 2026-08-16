@@ -251,5 +251,8 @@
   "declineAction": "Odbij",
   "syncDeclined": "Drugi uređaj je odbio sinkronizaciju",
   "trustedDevicesSection": "Uvijek dopušteni uređaji",
-  "removeTrust": "Ukloni"
+  "removeTrust": "Ukloni",
+  "hostWithoutWifi": "Hostiraj bez Wi-Fi",
+  "hotspotJoinNote": "Uspostavlja privremenu izravnu vezu s drugim telefonom (bez interneta). Koristi je samo cat(a)log i sama se prekida nakon sinkronizacije.",
+  "hotspotAndroidOnly": "Ovaj kod zahtijeva dva Android telefona — na iPhoneu/iPadu koristi zajednički Wi-Fi"
 }

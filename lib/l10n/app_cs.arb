@@ -251,5 +251,8 @@
   "declineAction": "Odmítnout",
   "syncDeclined": "Druhé zařízení synchronizaci odmítlo",
   "trustedDevicesSection": "Vždy povolená zařízení",
-  "removeTrust": "Odebrat"
+  "removeTrust": "Odebrat",
+  "hostWithoutWifi": "Hostovat bez Wi-Fi",
+  "hotspotJoinNote": "Naváže dočasné přímé spojení s druhým telefonem (bez internetu). Používá ho jen cat(a)log a po synchronizaci se samo odpojí.",
+  "hotspotAndroidOnly": "Tento kód vyžaduje dva telefony s Androidem — na iPhonu/iPadu použij společnou Wi-Fi"
 }

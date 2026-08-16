@@ -861,4 +861,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get removeTrust => 'Pašalinti';
+
+  @override
+  String get hostWithoutWifi => 'Prieglobstis be Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Sukuria laikiną tiesioginį ryšį su kitu telefonu (be interneto). Jį naudoja tik cat(a)log ir po sinchronizavimo jis atsijungia pats.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Šiam kodui reikia dviejų Android telefonų — iPhone/iPad naudokite bendrą Wi-Fi';
 }

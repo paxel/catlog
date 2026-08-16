@@ -251,5 +251,8 @@
   "declineAction": "דחה",
   "syncDeclined": "המכשיר השני דחה את הסנכרון",
   "trustedDevicesSection": "מכשירים מאושרים תמיד",
-  "removeTrust": "הסר"
+  "removeTrust": "הסר",
+  "hostWithoutWifi": "אירוח ללא Wi-Fi",
+  "hotspotJoinNote": "יוצר חיבור ישיר זמני לטלפון השני (ללא אינטרנט). רק cat(a)log משתמש בו והוא מתנתק לבד אחרי הסנכרון.",
+  "hotspotAndroidOnly": "הקוד הזה דורש שני טלפוני אנדרואיד — ב-iPhone/iPad השתמשו ב-Wi-Fi משותף"
 }

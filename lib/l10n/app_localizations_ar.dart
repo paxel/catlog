@@ -858,4 +858,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get removeTrust => 'إزالة';
+
+  @override
+  String get hostWithoutWifi => 'استضافة بدون Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'ينشئ اتصالًا مباشرًا مؤقتًا بالهاتف الآخر (بدون إنترنت). يستخدمه cat(a)log فقط وينقطع تلقائيًا بعد المزامنة.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'هذا الرمز يتطلب هاتفي أندرويد — على iPhone/iPad استخدم شبكة Wi-Fi مشتركة';
 }

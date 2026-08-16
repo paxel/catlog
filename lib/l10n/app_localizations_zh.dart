@@ -842,4 +842,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get removeTrust => '移除';
+
+  @override
+  String get hostWithoutWifi => '无 Wi-Fi 主持';
+
+  @override
+  String get hotspotJoinNote => '与另一部手机建立临时直连（无互联网）。仅 cat(a)log 使用，同步后自动断开。';
+
+  @override
+  String get hotspotAndroidOnly =>
+      '此二维码需要两部 Android 手机——iPhone/iPad 请改用共享 Wi-Fi';
 }

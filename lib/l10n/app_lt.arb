@@ -251,5 +251,8 @@
   "declineAction": "Atmesti",
   "syncDeclined": "Kitas įrenginys atmetė sinchronizavimą",
   "trustedDevicesSection": "Visada leidžiami įrenginiai",
-  "removeTrust": "Pašalinti"
+  "removeTrust": "Pašalinti",
+  "hostWithoutWifi": "Prieglobstis be Wi-Fi",
+  "hotspotJoinNote": "Sukuria laikiną tiesioginį ryšį su kitu telefonu (be interneto). Jį naudoja tik cat(a)log ir po sinchronizavimo jis atsijungia pats.",
+  "hotspotAndroidOnly": "Šiam kodui reikia dviejų Android telefonų — iPhone/iPad naudokite bendrą Wi-Fi"
 }

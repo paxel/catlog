@@ -859,4 +859,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get removeTrust => 'Ta bort';
+
+  @override
+  String get hostWithoutWifi => 'Var värd utan Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Skapar en tillfällig direktanslutning till den andra telefonen (utan internet). Bara cat(a)log använder den och den kopplas ner av sig själv efter synkroniseringen.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Den här koden kräver två Android-telefoner — använd ett delat Wi-Fi på iPhone/iPad';
 }

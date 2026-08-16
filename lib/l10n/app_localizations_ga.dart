@@ -863,4 +863,15 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get removeTrust => 'Bain';
+
+  @override
+  String get hostWithoutWifi => 'Óstáil gan Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Cruthaíonn sé nasc díreach sealadach leis an bhfón eile (gan idirlíon). Ní úsáideann ach cat(a)log é agus dícheanglaíonn sé é féin tar éis an tsioncronaithe.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Tá dhá fhón Android de dhíth ar an gcód seo — ar iPhone/iPad úsáid Wi-Fi comhroinnte';
 }

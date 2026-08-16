@@ -860,4 +860,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get removeTrust => 'Eemalda';
+
+  @override
+  String get hostWithoutWifi => 'Majuta ilma Wi-Fi-ta';
+
+  @override
+  String get hotspotJoinNote =>
+      'Loob ajutise otseühenduse teise telefoniga (ilma internetita). Ainult cat(a)log kasutab seda ja see katkeb pärast sünkroonimist ise.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'See kood vajab kahte Androidi telefoni — iPhone\'is/iPadis kasuta ühist Wi-Fi-t';
 }

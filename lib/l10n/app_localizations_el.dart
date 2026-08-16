@@ -862,4 +862,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get removeTrust => 'Αφαίρεση';
+
+  @override
+  String get hostWithoutWifi => 'Φιλοξενία χωρίς Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Δημιουργεί μια προσωρινή απευθείας σύνδεση με το άλλο τηλέφωνο (χωρίς ίντερνετ). Μόνο το cat(a)log τη χρησιμοποιεί και αποσυνδέεται μόνη της μετά τον συγχρονισμό.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Αυτός ο κωδικός χρειάζεται δύο Android — σε iPhone/iPad χρησιμοποιήστε κοινό Wi-Fi';
 }

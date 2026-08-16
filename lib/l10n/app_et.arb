@@ -251,5 +251,8 @@
   "declineAction": "Keeldu",
   "syncDeclined": "Teine seade keeldus sünkroonimisest",
   "trustedDevicesSection": "Alati lubatud seadmed",
-  "removeTrust": "Eemalda"
+  "removeTrust": "Eemalda",
+  "hostWithoutWifi": "Majuta ilma Wi-Fi-ta",
+  "hotspotJoinNote": "Loob ajutise otseühenduse teise telefoniga (ilma internetita). Ainult cat(a)log kasutab seda ja see katkeb pärast sünkroonimist ise.",
+  "hotspotAndroidOnly": "See kood vajab kahte Androidi telefoni — iPhone'is/iPadis kasuta ühist Wi-Fi-t"
 }

@@ -863,4 +863,15 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get removeTrust => 'Fjarlægja';
+
+  @override
+  String get hostWithoutWifi => 'Hýsa án Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Kemur á tímabundinni beintengingu við hinn símann (án internets). Aðeins cat(a)log notar hana og hún aftengist sjálf eftir samstillinguna.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Þessi kóði þarf tvo Android síma — á iPhone/iPad notaðu sameiginlegt Wi-Fi';
 }

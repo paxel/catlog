@@ -82,7 +82,7 @@ void main() {
     a.setPrivate(secret, true);
 
     final host = LanSyncHost(a, '123456',
-        onJoinRequest: (_, __) async => const JoinDecision(true, true));
+        onJoinRequest: (_, _) async => const JoinDecision(true, true));
     await host.start();
     addTearDown(host.stop);
 

@@ -845,4 +845,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get removeTrust => '削除';
+
+  @override
+  String get hostWithoutWifi => 'Wi-Fi なしでホスト';
+
+  @override
+  String get hotspotJoinNote =>
+      '相手の端末との一時的な直接接続を作ります（インターネットなし）。cat(a)log だけが使用し、同期後は自動的に切断されます。';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'このコードは Android 2台が必要です — iPhone/iPad では共有 Wi-Fi を使ってください';
 }

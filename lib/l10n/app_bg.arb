@@ -251,5 +251,8 @@
   "declineAction": "Откажи",
   "syncDeclined": "Другото устройство отказа синхронизацията",
   "trustedDevicesSection": "Винаги позволени устройства",
-  "removeTrust": "Премахни"
+  "removeTrust": "Премахни",
+  "hostWithoutWifi": "Хостване без Wi-Fi",
+  "hotspotJoinNote": "Създава временна директна връзка с другия телефон (без интернет). Само cat(a)log я използва и се прекъсва сама след синхронизацията.",
+  "hotspotAndroidOnly": "Този код изисква два Android телефона — на iPhone/iPad използвай обща Wi-Fi мрежа"
 }

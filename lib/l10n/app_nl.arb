@@ -251,5 +251,8 @@
   "declineAction": "Weigeren",
   "syncDeclined": "Het andere apparaat weigerde de synchronisatie",
   "trustedDevicesSection": "Altijd toegestane apparaten",
-  "removeTrust": "Verwijderen"
+  "removeTrust": "Verwijderen",
+  "hostWithoutWifi": "Hosten zonder wifi",
+  "hotspotJoinNote": "Maakt een tijdelijke directe verbinding met de andere telefoon (zonder internet). Alleen cat(a)log gebruikt hem en hij verbreekt zichzelf na de synchronisatie.",
+  "hotspotAndroidOnly": "Deze code vereist twee Android-telefoons — gebruik op iPhone/iPad een gedeelde wifi"
 }

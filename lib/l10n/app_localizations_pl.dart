@@ -860,4 +860,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get removeTrust => 'Usuń';
+
+  @override
+  String get hostWithoutWifi => 'Hostuj bez Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Tworzy tymczasowe bezpośrednie połączenie z drugim telefonem (bez internetu). Korzysta z niego tylko cat(a)log i rozłącza się samo po synchronizacji.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Ten kod wymaga dwóch telefonów z Androidem — na iPhonie/iPadzie użyj wspólnego Wi-Fi';
 }

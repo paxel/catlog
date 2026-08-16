@@ -862,4 +862,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get removeTrust => 'Elimină';
+
+  @override
+  String get hostWithoutWifi => 'Găzduiește fără Wi-Fi';
+
+  @override
+  String get hotspotJoinNote =>
+      'Creează o conexiune directă temporară cu celălalt telefon (fără internet). O folosește doar cat(a)log și se deconectează singură după sincronizare.';
+
+  @override
+  String get hotspotAndroidOnly =>
+      'Acest cod necesită două telefoane Android — pe iPhone/iPad folosește un Wi-Fi comun';
 }
