@@ -15,6 +15,7 @@ import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
 import '../stray_cam.dart';
+import '../widgets/cat_avatar.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
@@ -306,6 +307,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
       body: ListView(
         children: [
+          if (isDeceased(store, id))
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 8),
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Chip(
+                  label: Text(
+                      '${context.t.starterDeceased} · ${store.current(id, 'f:deceased')}'),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+            ),
           ListTile(
             leading: Icon(clowderId == null ? Icons.explore : Icons.home),
             title: Text(context.t.clowderLabel),

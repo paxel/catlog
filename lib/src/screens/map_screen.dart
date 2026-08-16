@@ -124,8 +124,13 @@ class _MapScreenState extends State<MapScreen> {
   Widget _catFace(String catId, bool highlighted) {
     final hash = store.profileImage(catId);
     final bytes = hash == null ? null : store.imageBytes(hash);
-    final ring = highlighted ? Colors.red : Colors.deepOrange;
-    return Container(
+    final dead = isDeceased(store, catId);
+    final ring = highlighted
+        ? Colors.red
+        : dead
+            ? Colors.grey
+            : Colors.deepOrange;
+    final face = Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: ring, width: 3),
@@ -141,6 +146,11 @@ class _MapScreenState extends State<MapScreen> {
                 painter: _CatSilhouettePainter(Colors.deepOrange))
             : null,
       ),
+    );
+    if (!dead) return face;
+    return Opacity(
+      opacity: 0.65,
+      child: ColorFiltered(colorFilter: greyscale, child: face),
     );
   }
 
