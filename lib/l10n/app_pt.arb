@@ -222,5 +222,17 @@
   "familySection": "Família",
   "littermatesLabel": "Da mesma ninhada",
   "siblingsLabel": "Irmãos",
-  "kittensLabel": "Gatinhos"
+  "kittensLabel": "Gatinhos",
+  "toastSettingsTitle": "O que anunciar",
+  "toastSettingsSubtitle": "Pequenas mensagens após uma sincronização",
+  "toastKindAdoptions": "Adoções",
+  "toastKindBirths": "Nascimentos",
+  "toastKindDeaths": "Falecimentos",
+  "toastKindEscapes": "Fugas",
+  "toastKindMoves": "Mudanças",
+  "toastAdopted": "💚 {cat} adotado por {home} 💚",
+  "toastBorn": "✨ Novo gatinho: {cat} ✨",
+  "toastDeceased": "{cat} faleceu",
+  "toastEscaped": "{cat} fugiu",
+  "toastMoved": "{cat} mudou-se para {home}"
 }

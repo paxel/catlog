@@ -756,4 +756,50 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kassipojad';
+
+  @override
+  String get toastSettingsTitle => 'Millest teatada';
+
+  @override
+  String get toastSettingsSubtitle => 'Väikesed teated pärast sünkroonimist';
+
+  @override
+  String get toastKindAdoptions => 'Lapsendamised';
+
+  @override
+  String get toastKindBirths => 'Sünnid';
+
+  @override
+  String get toastKindDeaths => 'Surmad';
+
+  @override
+  String get toastKindEscapes => 'Põgenemised';
+
+  @override
+  String get toastKindMoves => 'Kolimised';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat lapsendati perre $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Uus kassipoeg: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat on surnud';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat on põgenenud';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat kolis: $home';
+  }
 }

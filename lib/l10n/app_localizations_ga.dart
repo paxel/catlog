@@ -758,4 +758,51 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Piscíní';
+
+  @override
+  String get toastSettingsTitle => 'Cad atá le fógairt';
+
+  @override
+  String get toastSettingsSubtitle =>
+      'Teachtaireachtaí beaga tar éis sioncronaithe';
+
+  @override
+  String get toastKindAdoptions => 'Uchtálacha';
+
+  @override
+  String get toastKindBirths => 'Breitheanna';
+
+  @override
+  String get toastKindDeaths => 'Básanna';
+
+  @override
+  String get toastKindEscapes => 'Éalúcháin';
+
+  @override
+  String get toastKindMoves => 'Aistrithe';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat uchtaithe ag $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Piscín nua: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return 'Fuair $cat bás';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return 'D\'éalaigh $cat';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return 'Bhog $cat go $home';
+  }
 }

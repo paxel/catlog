@@ -757,4 +757,50 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Котята';
+
+  @override
+  String get toastSettingsTitle => 'О чём сообщать';
+
+  @override
+  String get toastSettingsSubtitle => 'Короткие сообщения после синхронизации';
+
+  @override
+  String get toastKindAdoptions => 'Пристройства';
+
+  @override
+  String get toastKindBirths => 'Рождения';
+
+  @override
+  String get toastKindDeaths => 'Смерти';
+
+  @override
+  String get toastKindEscapes => 'Побеги';
+
+  @override
+  String get toastKindMoves => 'Переезды';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat пристроен в $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Новый котёнок: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat умер';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat сбежал';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat переехал в $home';
+  }
 }

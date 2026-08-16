@@ -757,4 +757,50 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Pennut';
+
+  @override
+  String get toastSettingsTitle => 'Mitä ilmoitetaan';
+
+  @override
+  String get toastSettingsSubtitle => 'Pienet viestit synkronoinnin jälkeen';
+
+  @override
+  String get toastKindAdoptions => 'Adoptiot';
+
+  @override
+  String get toastKindBirths => 'Syntymät';
+
+  @override
+  String get toastKindDeaths => 'Kuolemat';
+
+  @override
+  String get toastKindEscapes => 'Karkaamiset';
+
+  @override
+  String get toastKindMoves => 'Muutot';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adoptoitu: $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Uusi pentu: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat on kuollut';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat on karannut';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat muutti: $home';
+  }
 }

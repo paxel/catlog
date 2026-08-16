@@ -222,5 +222,17 @@
   "familySection": "Familj",
   "littermatesLabel": "Kullsyskon",
   "siblingsLabel": "Syskon",
-  "kittensLabel": "Kattungar"
+  "kittensLabel": "Kattungar",
+  "toastSettingsTitle": "Vad som meddelas",
+  "toastSettingsSubtitle": "Små meddelanden efter en synkronisering",
+  "toastKindAdoptions": "Adoptioner",
+  "toastKindBirths": "Födslar",
+  "toastKindDeaths": "Dödsfall",
+  "toastKindEscapes": "Rymningar",
+  "toastKindMoves": "Flyttar",
+  "toastAdopted": "💚 {cat} adopterad av {home} 💚",
+  "toastBorn": "✨ Ny kattunge: {cat} ✨",
+  "toastDeceased": "{cat} har dött",
+  "toastEscaped": "{cat} har rymt",
+  "toastMoved": "{cat} flyttade till {home}"
 }

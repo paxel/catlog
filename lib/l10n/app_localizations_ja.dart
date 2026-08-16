@@ -746,4 +746,50 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get kittensLabel => '子猫';
+
+  @override
+  String get toastSettingsTitle => 'お知らせする内容';
+
+  @override
+  String get toastSettingsSubtitle => '同期後の小さなお知らせ';
+
+  @override
+  String get toastKindAdoptions => '譲渡';
+
+  @override
+  String get toastKindBirths => '誕生';
+
+  @override
+  String get toastKindDeaths => '死亡';
+
+  @override
+  String get toastKindEscapes => '脱走';
+
+  @override
+  String get toastKindMoves => '引っ越し';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat が $home に譲渡されました 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ 新しい子猫: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat が亡くなりました';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat が脱走しました';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat が $home に引っ越しました';
+  }
 }

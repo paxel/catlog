@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
 import 'widgets/cat_avatar.dart';
@@ -98,6 +99,8 @@ Future<void> showImportSummary(
     builder: (context) =>
         _SummarySheet(store: store, summary: summary, applied: applied),
   );
+  // The emotional echo after the sober digest.
+  if (context.mounted) showEventToasts(context, store, applied);
 }
 
 class _SummarySheet extends StatefulWidget {

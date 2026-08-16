@@ -222,5 +222,17 @@
   "familySection": "Ģimene",
   "littermatesLabel": "No viena metiena",
   "siblingsLabel": "Brāļi un māsas",
-  "kittensLabel": "Kaķēni"
+  "kittensLabel": "Kaķēni",
+  "toastSettingsTitle": "Ko paziņot",
+  "toastSettingsSubtitle": "Mazas ziņas pēc sinhronizācijas",
+  "toastKindAdoptions": "Adopcijas",
+  "toastKindBirths": "Dzimšanas",
+  "toastKindDeaths": "Nāves",
+  "toastKindEscapes": "Bēgšanas",
+  "toastKindMoves": "Pārcelšanās",
+  "toastAdopted": "💚 {cat} adoptēja {home} 💚",
+  "toastBorn": "✨ Jauns kaķēns: {cat} ✨",
+  "toastDeceased": "{cat} ir miris",
+  "toastEscaped": "{cat} aizbēga",
+  "toastMoved": "{cat} pārcēlās uz {home}"
 }

@@ -756,4 +756,50 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get kittensLabel => 'الصغار';
+
+  @override
+  String get toastSettingsTitle => 'ما الذي يُعلن';
+
+  @override
+  String get toastSettingsSubtitle => 'رسائل صغيرة بعد المزامنة';
+
+  @override
+  String get toastKindAdoptions => 'التبني';
+
+  @override
+  String get toastKindBirths => 'الولادات';
+
+  @override
+  String get toastKindDeaths => 'الوفيات';
+
+  @override
+  String get toastKindEscapes => 'الهروب';
+
+  @override
+  String get toastKindMoves => 'الانتقالات';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 تم تبني $cat من $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ هريرة جديدة: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat فارقت الحياة';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat هربت';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat انتقلت إلى $home';
+  }
 }

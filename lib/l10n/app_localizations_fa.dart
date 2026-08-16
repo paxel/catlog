@@ -756,4 +756,50 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get kittensLabel => 'بچه‌گربه‌ها';
+
+  @override
+  String get toastSettingsTitle => 'چه چیزی اعلام شود';
+
+  @override
+  String get toastSettingsSubtitle => 'پیام‌های کوچک پس از همگام‌سازی';
+
+  @override
+  String get toastKindAdoptions => 'واگذاری‌ها';
+
+  @override
+  String get toastKindBirths => 'تولدها';
+
+  @override
+  String get toastKindDeaths => 'مرگ‌ها';
+
+  @override
+  String get toastKindEscapes => 'فرارها';
+
+  @override
+  String get toastKindMoves => 'جابه‌جایی‌ها';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat توسط $home به فرزندی گرفته شد 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ بچه‌گربه جدید: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat درگذشت';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat فرار کرد';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat به $home نقل مکان کرد';
+  }
 }

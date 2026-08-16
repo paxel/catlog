@@ -222,5 +222,17 @@
   "familySection": "Οικογένεια",
   "littermatesLabel": "Από την ίδια γέννα",
   "siblingsLabel": "Αδέλφια",
-  "kittensLabel": "Γατάκια"
+  "kittensLabel": "Γατάκια",
+  "toastSettingsTitle": "Τι ανακοινώνεται",
+  "toastSettingsSubtitle": "Μικρά μηνύματα μετά τον συγχρονισμό",
+  "toastKindAdoptions": "Υιοθεσίες",
+  "toastKindBirths": "Γέννες",
+  "toastKindDeaths": "Θάνατοι",
+  "toastKindEscapes": "Αποδράσεις",
+  "toastKindMoves": "Μετακομίσεις",
+  "toastAdopted": "💚 Η {cat} υιοθετήθηκε από {home} 💚",
+  "toastBorn": "✨ Νέο γατάκι: {cat} ✨",
+  "toastDeceased": "Η {cat} έφυγε από τη ζωή",
+  "toastEscaped": "Η {cat} δραπέτευσε",
+  "toastMoved": "Η {cat} μετακόμισε στο {home}"
 }

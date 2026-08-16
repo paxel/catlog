@@ -759,4 +759,50 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kettlingar';
+
+  @override
+  String get toastSettingsTitle => 'Hverju á að tilkynna';
+
+  @override
+  String get toastSettingsSubtitle => 'Litlar tilkynningar eftir samstillingu';
+
+  @override
+  String get toastKindAdoptions => 'Ættleiðingar';
+
+  @override
+  String get toastKindBirths => 'Fæðingar';
+
+  @override
+  String get toastKindDeaths => 'Andlát';
+
+  @override
+  String get toastKindEscapes => 'Strok';
+
+  @override
+  String get toastKindMoves => 'Flutningar';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat ættleidd af $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Nýr kettlingur: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat er látin';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat strauk';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat flutti til $home';
+  }
 }

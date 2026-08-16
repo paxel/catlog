@@ -461,5 +461,44 @@
   "familySection": "Family",
   "littermatesLabel": "Littermates",
   "siblingsLabel": "Siblings",
-  "kittensLabel": "Kittens"
+  "kittensLabel": "Kittens",
+  "toastSettingsTitle": "What to announce",
+  "toastSettingsSubtitle": "Little messages after a sync",
+  "toastKindAdoptions": "Adoptions",
+  "toastKindBirths": "Births",
+  "toastKindDeaths": "Deaths",
+  "toastKindEscapes": "Escapes",
+  "toastKindMoves": "Moves",
+  "toastAdopted": "💚 {cat} adopted by {home} 💚",
+  "toastBorn": "✨ New kitten: {cat} ✨",
+  "toastDeceased": "{cat} has passed away",
+  "toastEscaped": "{cat} has escaped",
+  "toastMoved": "{cat} moved to {home}",
+  "@toastAdopted": {
+    "placeholders": {
+      "cat": {},
+      "home": {}
+    }
+  },
+  "@toastBorn": {
+    "placeholders": {
+      "cat": {}
+    }
+  },
+  "@toastDeceased": {
+    "placeholders": {
+      "cat": {}
+    }
+  },
+  "@toastEscaped": {
+    "placeholders": {
+      "cat": {}
+    }
+  },
+  "@toastMoved": {
+    "placeholders": {
+      "cat": {},
+      "home": {}
+    }
+  }
 }

@@ -222,5 +222,17 @@
   "familySection": "خانواده",
   "littermatesLabel": "هم‌شکم",
   "siblingsLabel": "خواهر و برادر",
-  "kittensLabel": "بچه‌گربه‌ها"
+  "kittensLabel": "بچه‌گربه‌ها",
+  "toastSettingsTitle": "چه چیزی اعلام شود",
+  "toastSettingsSubtitle": "پیام‌های کوچک پس از همگام‌سازی",
+  "toastKindAdoptions": "واگذاری‌ها",
+  "toastKindBirths": "تولدها",
+  "toastKindDeaths": "مرگ‌ها",
+  "toastKindEscapes": "فرارها",
+  "toastKindMoves": "جابه‌جایی‌ها",
+  "toastAdopted": "💚 {cat} توسط {home} به فرزندی گرفته شد 💚",
+  "toastBorn": "✨ بچه‌گربه جدید: {cat} ✨",
+  "toastDeceased": "{cat} درگذشت",
+  "toastEscaped": "{cat} فرار کرد",
+  "toastMoved": "{cat} به {home} نقل مکان کرد"
 }

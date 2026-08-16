@@ -743,4 +743,50 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get kittensLabel => '小猫';
+
+  @override
+  String get toastSettingsTitle => '播报内容';
+
+  @override
+  String get toastSettingsSubtitle => '同步后的小提示';
+
+  @override
+  String get toastKindAdoptions => '领养';
+
+  @override
+  String get toastKindBirths => '出生';
+
+  @override
+  String get toastKindDeaths => '离世';
+
+  @override
+  String get toastKindEscapes => '走失';
+
+  @override
+  String get toastKindMoves => '搬家';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat 被 $home 领养了 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ 新的小猫：$cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat 离世了';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat 走失了';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat 搬到了 $home';
+  }
 }

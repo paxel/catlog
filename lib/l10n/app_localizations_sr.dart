@@ -757,4 +757,50 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Мачићи';
+
+  @override
+  String get toastSettingsTitle => 'Шта најавити';
+
+  @override
+  String get toastSettingsSubtitle => 'Мале поруке након синхронизације';
+
+  @override
+  String get toastKindAdoptions => 'Усвајања';
+
+  @override
+  String get toastKindBirths => 'Рођења';
+
+  @override
+  String get toastKindDeaths => 'Смрти';
+
+  @override
+  String get toastKindEscapes => 'Бегови';
+
+  @override
+  String get toastKindMoves => 'Селидбе';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat удомљена код $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Ново маче: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat је угинула';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat је побегла';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat се преселила у $home';
+  }
 }

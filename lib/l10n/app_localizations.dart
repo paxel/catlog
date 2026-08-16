@@ -1507,6 +1507,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Kittens'**
   String get kittensLabel;
+
+  /// No description provided for @toastSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What to announce'**
+  String get toastSettingsTitle;
+
+  /// No description provided for @toastSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Little messages after a sync'**
+  String get toastSettingsSubtitle;
+
+  /// No description provided for @toastKindAdoptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Adoptions'**
+  String get toastKindAdoptions;
+
+  /// No description provided for @toastKindBirths.
+  ///
+  /// In en, this message translates to:
+  /// **'Births'**
+  String get toastKindBirths;
+
+  /// No description provided for @toastKindDeaths.
+  ///
+  /// In en, this message translates to:
+  /// **'Deaths'**
+  String get toastKindDeaths;
+
+  /// No description provided for @toastKindEscapes.
+  ///
+  /// In en, this message translates to:
+  /// **'Escapes'**
+  String get toastKindEscapes;
+
+  /// No description provided for @toastKindMoves.
+  ///
+  /// In en, this message translates to:
+  /// **'Moves'**
+  String get toastKindMoves;
+
+  /// No description provided for @toastAdopted.
+  ///
+  /// In en, this message translates to:
+  /// **'💚 {cat} adopted by {home} 💚'**
+  String toastAdopted(Object cat, Object home);
+
+  /// No description provided for @toastBorn.
+  ///
+  /// In en, this message translates to:
+  /// **'✨ New kitten: {cat} ✨'**
+  String toastBorn(Object cat);
+
+  /// No description provided for @toastDeceased.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} has passed away'**
+  String toastDeceased(Object cat);
+
+  /// No description provided for @toastEscaped.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} has escaped'**
+  String toastEscaped(Object cat);
+
+  /// No description provided for @toastMoved.
+  ///
+  /// In en, this message translates to:
+  /// **'{cat} moved to {home}'**
+  String toastMoved(Object cat, Object home);
 }
 
 class _AppLocalizationsDelegate

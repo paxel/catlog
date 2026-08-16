@@ -222,5 +222,17 @@
   "familySection": "Perhe",
   "littermatesLabel": "Pentuesisarukset",
   "siblingsLabel": "Sisarukset",
-  "kittensLabel": "Pennut"
+  "kittensLabel": "Pennut",
+  "toastSettingsTitle": "Mitä ilmoitetaan",
+  "toastSettingsSubtitle": "Pienet viestit synkronoinnin jälkeen",
+  "toastKindAdoptions": "Adoptiot",
+  "toastKindBirths": "Syntymät",
+  "toastKindDeaths": "Kuolemat",
+  "toastKindEscapes": "Karkaamiset",
+  "toastKindMoves": "Muutot",
+  "toastAdopted": "💚 {cat} adoptoitu: {home} 💚",
+  "toastBorn": "✨ Uusi pentu: {cat} ✨",
+  "toastDeceased": "{cat} on kuollut",
+  "toastEscaped": "{cat} on karannut",
+  "toastMoved": "{cat} muutti: {home}"
 }

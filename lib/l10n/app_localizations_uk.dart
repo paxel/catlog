@@ -756,4 +756,51 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Кошенята';
+
+  @override
+  String get toastSettingsTitle => 'Про що повідомляти';
+
+  @override
+  String get toastSettingsSubtitle =>
+      'Короткі повідомлення після синхронізації';
+
+  @override
+  String get toastKindAdoptions => 'Прилаштування';
+
+  @override
+  String get toastKindBirths => 'Народження';
+
+  @override
+  String get toastKindDeaths => 'Смерті';
+
+  @override
+  String get toastKindEscapes => 'Втечі';
+
+  @override
+  String get toastKindMoves => 'Переїзди';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat прилаштовано в $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Нове кошеня: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat помер';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat втік';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat переїхав до $home';
+  }
 }

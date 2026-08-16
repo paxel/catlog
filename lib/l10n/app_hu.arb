@@ -222,5 +222,17 @@
   "familySection": "Család",
   "littermatesLabel": "Alomtestvérek",
   "siblingsLabel": "Testvérek",
-  "kittensLabel": "Kiscicák"
+  "kittensLabel": "Kiscicák",
+  "toastSettingsTitle": "Mit jelentsen be",
+  "toastSettingsSubtitle": "Kis üzenetek szinkronizálás után",
+  "toastKindAdoptions": "Örökbefogadások",
+  "toastKindBirths": "Születések",
+  "toastKindDeaths": "Elhalálozások",
+  "toastKindEscapes": "Szökések",
+  "toastKindMoves": "Költözések",
+  "toastAdopted": "💚 {cat} örökbefogadva: {home} 💚",
+  "toastBorn": "✨ Új kiscica: {cat} ✨",
+  "toastDeceased": "{cat} elpusztult",
+  "toastEscaped": "{cat} megszökött",
+  "toastMoved": "{cat} átköltözött: {home}"
 }

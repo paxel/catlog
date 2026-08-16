@@ -756,4 +756,50 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Mačiatka';
+
+  @override
+  String get toastSettingsTitle => 'Čo oznamovať';
+
+  @override
+  String get toastSettingsSubtitle => 'Krátke správy po synchronizácii';
+
+  @override
+  String get toastKindAdoptions => 'Adopcie';
+
+  @override
+  String get toastKindBirths => 'Narodenia';
+
+  @override
+  String get toastKindDeaths => 'Úmrtia';
+
+  @override
+  String get toastKindEscapes => 'Úteky';
+
+  @override
+  String get toastKindMoves => 'Sťahovania';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adoptovaná do $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Nové mačiatko: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat uhynula';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat utiekla';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat sa presťahovala do $home';
+  }
 }

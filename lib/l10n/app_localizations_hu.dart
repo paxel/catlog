@@ -758,4 +758,50 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kiscicák';
+
+  @override
+  String get toastSettingsTitle => 'Mit jelentsen be';
+
+  @override
+  String get toastSettingsSubtitle => 'Kis üzenetek szinkronizálás után';
+
+  @override
+  String get toastKindAdoptions => 'Örökbefogadások';
+
+  @override
+  String get toastKindBirths => 'Születések';
+
+  @override
+  String get toastKindDeaths => 'Elhalálozások';
+
+  @override
+  String get toastKindEscapes => 'Szökések';
+
+  @override
+  String get toastKindMoves => 'Költözések';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat örökbefogadva: $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Új kiscica: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat elpusztult';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat megszökött';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat átköltözött: $home';
+  }
 }

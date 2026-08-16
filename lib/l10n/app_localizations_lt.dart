@@ -758,4 +758,50 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kačiukai';
+
+  @override
+  String get toastSettingsTitle => 'Ką pranešti';
+
+  @override
+  String get toastSettingsSubtitle => 'Maži pranešimai po sinchronizavimo';
+
+  @override
+  String get toastKindAdoptions => 'Priglaudimai';
+
+  @override
+  String get toastKindBirths => 'Gimimai';
+
+  @override
+  String get toastKindDeaths => 'Mirtys';
+
+  @override
+  String get toastKindEscapes => 'Pabėgimai';
+
+  @override
+  String get toastKindMoves => 'Persikėlimai';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat priglaudė $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Naujas kačiukas: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat nugaišo';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat pabėgo';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat persikėlė į $home';
+  }
 }

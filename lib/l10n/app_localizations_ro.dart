@@ -758,4 +758,50 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Pisoi';
+
+  @override
+  String get toastSettingsTitle => 'Ce se anunță';
+
+  @override
+  String get toastSettingsSubtitle => 'Mesaje scurte după o sincronizare';
+
+  @override
+  String get toastKindAdoptions => 'Adopții';
+
+  @override
+  String get toastKindBirths => 'Nașteri';
+
+  @override
+  String get toastKindDeaths => 'Decese';
+
+  @override
+  String get toastKindEscapes => 'Evadări';
+
+  @override
+  String get toastKindMoves => 'Mutări';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adoptată de $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Pisoi nou: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat a murit';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat a evadat';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat s-a mutat la $home';
+  }
 }

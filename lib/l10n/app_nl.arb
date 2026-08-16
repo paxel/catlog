@@ -222,5 +222,17 @@
   "familySection": "Familie",
   "littermatesLabel": "Nestgenoten",
   "siblingsLabel": "Broers en zussen",
-  "kittensLabel": "Kittens"
+  "kittensLabel": "Kittens",
+  "toastSettingsTitle": "Wat te melden",
+  "toastSettingsSubtitle": "Kleine berichtjes na een synchronisatie",
+  "toastKindAdoptions": "Adopties",
+  "toastKindBirths": "Geboortes",
+  "toastKindDeaths": "Overlijdens",
+  "toastKindEscapes": "Ontsnappingen",
+  "toastKindMoves": "Verhuizingen",
+  "toastAdopted": "💚 {cat} geadopteerd door {home} 💚",
+  "toastBorn": "✨ Nieuwe kitten: {cat} ✨",
+  "toastDeceased": "{cat} is overleden",
+  "toastEscaped": "{cat} is ontsnapt",
+  "toastMoved": "{cat} is verhuisd naar {home}"
 }

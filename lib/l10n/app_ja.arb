@@ -222,5 +222,17 @@
   "familySection": "家族",
   "littermatesLabel": "同腹の兄弟",
   "siblingsLabel": "兄弟姉妹",
-  "kittensLabel": "子猫"
+  "kittensLabel": "子猫",
+  "toastSettingsTitle": "お知らせする内容",
+  "toastSettingsSubtitle": "同期後の小さなお知らせ",
+  "toastKindAdoptions": "譲渡",
+  "toastKindBirths": "誕生",
+  "toastKindDeaths": "死亡",
+  "toastKindEscapes": "脱走",
+  "toastKindMoves": "引っ越し",
+  "toastAdopted": "💚 {cat} が {home} に譲渡されました 💚",
+  "toastBorn": "✨ 新しい子猫: {cat} ✨",
+  "toastDeceased": "{cat} が亡くなりました",
+  "toastEscaped": "{cat} が脱走しました",
+  "toastMoved": "{cat} が {home} に引っ越しました"
 }

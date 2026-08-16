@@ -222,5 +222,17 @@
   "familySection": "Rodina",
   "littermatesLabel": "Z jedného vrhu",
   "siblingsLabel": "Súrodenci",
-  "kittensLabel": "Mačiatka"
+  "kittensLabel": "Mačiatka",
+  "toastSettingsTitle": "Čo oznamovať",
+  "toastSettingsSubtitle": "Krátke správy po synchronizácii",
+  "toastKindAdoptions": "Adopcie",
+  "toastKindBirths": "Narodenia",
+  "toastKindDeaths": "Úmrtia",
+  "toastKindEscapes": "Úteky",
+  "toastKindMoves": "Sťahovania",
+  "toastAdopted": "💚 {cat} adoptovaná do {home} 💚",
+  "toastBorn": "✨ Nové mačiatko: {cat} ✨",
+  "toastDeceased": "{cat} uhynula",
+  "toastEscaped": "{cat} utiekla",
+  "toastMoved": "{cat} sa presťahovala do {home}"
 }

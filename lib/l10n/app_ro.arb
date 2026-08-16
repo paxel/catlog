@@ -222,5 +222,17 @@
   "familySection": "Familie",
   "littermatesLabel": "Din aceeași serie",
   "siblingsLabel": "Frați",
-  "kittensLabel": "Pisoi"
+  "kittensLabel": "Pisoi",
+  "toastSettingsTitle": "Ce se anunță",
+  "toastSettingsSubtitle": "Mesaje scurte după o sincronizare",
+  "toastKindAdoptions": "Adopții",
+  "toastKindBirths": "Nașteri",
+  "toastKindDeaths": "Decese",
+  "toastKindEscapes": "Evadări",
+  "toastKindMoves": "Mutări",
+  "toastAdopted": "💚 {cat} adoptată de {home} 💚",
+  "toastBorn": "✨ Pisoi nou: {cat} ✨",
+  "toastDeceased": "{cat} a murit",
+  "toastEscaped": "{cat} a evadat",
+  "toastMoved": "{cat} s-a mutat la {home}"
 }

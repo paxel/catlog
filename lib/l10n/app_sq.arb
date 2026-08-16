@@ -222,5 +222,17 @@
   "familySection": "Familja",
   "littermatesLabel": "Nga e njëjta pjellë",
   "siblingsLabel": "Vëllezër e motra",
-  "kittensLabel": "Kotelet"
+  "kittensLabel": "Kotelet",
+  "toastSettingsTitle": "Çfarë të njoftohet",
+  "toastSettingsSubtitle": "Mesazhe të vogla pas sinkronizimit",
+  "toastKindAdoptions": "Birësimet",
+  "toastKindBirths": "Lindjet",
+  "toastKindDeaths": "Vdekjet",
+  "toastKindEscapes": "Arratisjet",
+  "toastKindMoves": "Zhvendosjet",
+  "toastAdopted": "💚 {cat} u birësua nga {home} 💚",
+  "toastBorn": "✨ Kotele e re: {cat} ✨",
+  "toastDeceased": "{cat} ndërroi jetë",
+  "toastEscaped": "{cat} u arratis",
+  "toastMoved": "{cat} u zhvendos te {home}"
 }

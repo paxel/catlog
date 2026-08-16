@@ -222,5 +222,17 @@
   "familySection": "Šeima",
   "littermatesLabel": "Iš tos pačios vados",
   "siblingsLabel": "Broliai ir seserys",
-  "kittensLabel": "Kačiukai"
+  "kittensLabel": "Kačiukai",
+  "toastSettingsTitle": "Ką pranešti",
+  "toastSettingsSubtitle": "Maži pranešimai po sinchronizavimo",
+  "toastKindAdoptions": "Priglaudimai",
+  "toastKindBirths": "Gimimai",
+  "toastKindDeaths": "Mirtys",
+  "toastKindEscapes": "Pabėgimai",
+  "toastKindMoves": "Persikėlimai",
+  "toastAdopted": "💚 {cat} priglaudė {home} 💚",
+  "toastBorn": "✨ Naujas kačiukas: {cat} ✨",
+  "toastDeceased": "{cat} nugaišo",
+  "toastEscaped": "{cat} pabėgo",
+  "toastMoved": "{cat} persikėlė į {home}"
 }

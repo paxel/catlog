@@ -222,5 +222,17 @@
   "familySection": "Teaghlach",
   "littermatesLabel": "Ál céanna",
   "siblingsLabel": "Deartháireacha is deirfiúracha",
-  "kittensLabel": "Piscíní"
+  "kittensLabel": "Piscíní",
+  "toastSettingsTitle": "Cad atá le fógairt",
+  "toastSettingsSubtitle": "Teachtaireachtaí beaga tar éis sioncronaithe",
+  "toastKindAdoptions": "Uchtálacha",
+  "toastKindBirths": "Breitheanna",
+  "toastKindDeaths": "Básanna",
+  "toastKindEscapes": "Éalúcháin",
+  "toastKindMoves": "Aistrithe",
+  "toastAdopted": "💚 {cat} uchtaithe ag {home} 💚",
+  "toastBorn": "✨ Piscín nua: {cat} ✨",
+  "toastDeceased": "Fuair {cat} bás",
+  "toastEscaped": "D'éalaigh {cat}",
+  "toastMoved": "Bhog {cat} go {home}"
 }

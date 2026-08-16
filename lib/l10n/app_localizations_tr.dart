@@ -757,4 +757,50 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Yavrular';
+
+  @override
+  String get toastSettingsTitle => 'Neler duyurulsun';
+
+  @override
+  String get toastSettingsSubtitle => 'Eşitlemeden sonra küçük mesajlar';
+
+  @override
+  String get toastKindAdoptions => 'Sahiplendirmeler';
+
+  @override
+  String get toastKindBirths => 'Doğumlar';
+
+  @override
+  String get toastKindDeaths => 'Ölümler';
+
+  @override
+  String get toastKindEscapes => 'Kaçışlar';
+
+  @override
+  String get toastKindMoves => 'Taşınmalar';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat, $home tarafından sahiplenildi 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Yeni yavru: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat vefat etti';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat kaçtı';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat, $home adresine taşındı';
+  }
 }

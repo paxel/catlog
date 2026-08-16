@@ -222,5 +222,17 @@
   "familySection": "Семья",
   "littermatesLabel": "Из одного помёта",
   "siblingsLabel": "Братья и сёстры",
-  "kittensLabel": "Котята"
+  "kittensLabel": "Котята",
+  "toastSettingsTitle": "О чём сообщать",
+  "toastSettingsSubtitle": "Короткие сообщения после синхронизации",
+  "toastKindAdoptions": "Пристройства",
+  "toastKindBirths": "Рождения",
+  "toastKindDeaths": "Смерти",
+  "toastKindEscapes": "Побеги",
+  "toastKindMoves": "Переезды",
+  "toastAdopted": "💚 {cat} пристроен в {home} 💚",
+  "toastBorn": "✨ Новый котёнок: {cat} ✨",
+  "toastDeceased": "{cat} умер",
+  "toastEscaped": "{cat} сбежал",
+  "toastMoved": "{cat} переехал в {home}"
 }

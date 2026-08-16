@@ -758,4 +758,50 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Γατάκια';
+
+  @override
+  String get toastSettingsTitle => 'Τι ανακοινώνεται';
+
+  @override
+  String get toastSettingsSubtitle => 'Μικρά μηνύματα μετά τον συγχρονισμό';
+
+  @override
+  String get toastKindAdoptions => 'Υιοθεσίες';
+
+  @override
+  String get toastKindBirths => 'Γέννες';
+
+  @override
+  String get toastKindDeaths => 'Θάνατοι';
+
+  @override
+  String get toastKindEscapes => 'Αποδράσεις';
+
+  @override
+  String get toastKindMoves => 'Μετακομίσεις';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 Η $cat υιοθετήθηκε από $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Νέο γατάκι: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return 'Η $cat έφυγε από τη ζωή';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return 'Η $cat δραπέτευσε';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return 'Η $cat μετακόμισε στο $home';
+  }
 }

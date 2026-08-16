@@ -222,5 +222,17 @@
   "familySection": "العائلة",
   "littermatesLabel": "إخوة البطن",
   "siblingsLabel": "الأشقاء",
-  "kittensLabel": "الصغار"
+  "kittensLabel": "الصغار",
+  "toastSettingsTitle": "ما الذي يُعلن",
+  "toastSettingsSubtitle": "رسائل صغيرة بعد المزامنة",
+  "toastKindAdoptions": "التبني",
+  "toastKindBirths": "الولادات",
+  "toastKindDeaths": "الوفيات",
+  "toastKindEscapes": "الهروب",
+  "toastKindMoves": "الانتقالات",
+  "toastAdopted": "💚 تم تبني {cat} من {home} 💚",
+  "toastBorn": "✨ هريرة جديدة: {cat} ✨",
+  "toastDeceased": "{cat} فارقت الحياة",
+  "toastEscaped": "{cat} هربت",
+  "toastMoved": "{cat} انتقلت إلى {home}"
 }

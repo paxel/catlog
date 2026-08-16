@@ -222,5 +222,17 @@
   "familySection": "Fjölskylda",
   "littermatesLabel": "Úr sama goti",
   "siblingsLabel": "Systkini",
-  "kittensLabel": "Kettlingar"
+  "kittensLabel": "Kettlingar",
+  "toastSettingsTitle": "Hverju á að tilkynna",
+  "toastSettingsSubtitle": "Litlar tilkynningar eftir samstillingu",
+  "toastKindAdoptions": "Ættleiðingar",
+  "toastKindBirths": "Fæðingar",
+  "toastKindDeaths": "Andlát",
+  "toastKindEscapes": "Strok",
+  "toastKindMoves": "Flutningar",
+  "toastAdopted": "💚 {cat} ættleidd af {home} 💚",
+  "toastBorn": "✨ Nýr kettlingur: {cat} ✨",
+  "toastDeceased": "{cat} er látin",
+  "toastEscaped": "{cat} strauk",
+  "toastMoved": "{cat} flutti til {home}"
 }

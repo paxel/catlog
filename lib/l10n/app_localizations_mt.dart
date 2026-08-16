@@ -759,4 +759,50 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Frieħ';
+
+  @override
+  String get toastSettingsTitle => 'X\'għandu jitħabbar';
+
+  @override
+  String get toastSettingsSubtitle => 'Messaġġi żgħar wara sinkronizzazzjoni';
+
+  @override
+  String get toastKindAdoptions => 'Adozzjonijiet';
+
+  @override
+  String get toastKindBirths => 'Twelid';
+
+  @override
+  String get toastKindDeaths => 'Imwiet';
+
+  @override
+  String get toastKindEscapes => 'Ħarbiet';
+
+  @override
+  String get toastKindMoves => 'Ċaqliq';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adottat minn $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Fellus ġdid: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat miet';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat ħarab';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat mar joqgħod $home';
+  }
 }

@@ -222,5 +222,17 @@
   "familySection": "Družina",
   "littermatesLabel": "Iz istega legla",
   "siblingsLabel": "Sorojenci",
-  "kittensLabel": "Mladiči"
+  "kittensLabel": "Mladiči",
+  "toastSettingsTitle": "Kaj naznaniti",
+  "toastSettingsSubtitle": "Kratka sporočila po sinhronizaciji",
+  "toastKindAdoptions": "Posvojitve",
+  "toastKindBirths": "Rojstva",
+  "toastKindDeaths": "Smrti",
+  "toastKindEscapes": "Pobegi",
+  "toastKindMoves": "Selitve",
+  "toastAdopted": "💚 {cat} posvojena: {home} 💚",
+  "toastBorn": "✨ Nov mladiček: {cat} ✨",
+  "toastDeceased": "{cat} je poginila",
+  "toastEscaped": "{cat} je pobegnila",
+  "toastMoved": "{cat} se je preselila v {home}"
 }

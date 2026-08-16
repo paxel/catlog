@@ -756,4 +756,50 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kattungar';
+
+  @override
+  String get toastSettingsTitle => 'Vad som meddelas';
+
+  @override
+  String get toastSettingsSubtitle => 'Små meddelanden efter en synkronisering';
+
+  @override
+  String get toastKindAdoptions => 'Adoptioner';
+
+  @override
+  String get toastKindBirths => 'Födslar';
+
+  @override
+  String get toastKindDeaths => 'Dödsfall';
+
+  @override
+  String get toastKindEscapes => 'Rymningar';
+
+  @override
+  String get toastKindMoves => 'Flyttar';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adopterad av $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Ny kattunge: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat har dött';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat har rymt';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat flyttade till $home';
+  }
 }

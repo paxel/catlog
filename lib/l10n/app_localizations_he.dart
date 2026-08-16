@@ -753,4 +753,50 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get kittensLabel => 'גורים';
+
+  @override
+  String get toastSettingsTitle => 'מה להכריז';
+
+  @override
+  String get toastSettingsSubtitle => 'הודעות קטנות אחרי סנכרון';
+
+  @override
+  String get toastKindAdoptions => 'אימוצים';
+
+  @override
+  String get toastKindBirths => 'לידות';
+
+  @override
+  String get toastKindDeaths => 'מקרי מוות';
+
+  @override
+  String get toastKindEscapes => 'בריחות';
+
+  @override
+  String get toastKindMoves => 'מעברים';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat אומץ על ידי $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ גור חדש: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat הלך לעולמו';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat ברח';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat עבר אל $home';
+  }
 }

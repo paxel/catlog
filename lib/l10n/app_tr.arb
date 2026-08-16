@@ -222,5 +222,17 @@
   "familySection": "Aile",
   "littermatesLabel": "Aynı batından",
   "siblingsLabel": "Kardeşler",
-  "kittensLabel": "Yavrular"
+  "kittensLabel": "Yavrular",
+  "toastSettingsTitle": "Neler duyurulsun",
+  "toastSettingsSubtitle": "Eşitlemeden sonra küçük mesajlar",
+  "toastKindAdoptions": "Sahiplendirmeler",
+  "toastKindBirths": "Doğumlar",
+  "toastKindDeaths": "Ölümler",
+  "toastKindEscapes": "Kaçışlar",
+  "toastKindMoves": "Taşınmalar",
+  "toastAdopted": "💚 {cat}, {home} tarafından sahiplenildi 💚",
+  "toastBorn": "✨ Yeni yavru: {cat} ✨",
+  "toastDeceased": "{cat} vefat etti",
+  "toastEscaped": "{cat} kaçtı",
+  "toastMoved": "{cat}, {home} adresine taşındı"
 }

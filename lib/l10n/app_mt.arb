@@ -222,5 +222,17 @@
   "familySection": "Familja",
   "littermatesLabel": "Mill-istess boton",
   "siblingsLabel": "Aħwa",
-  "kittensLabel": "Frieħ"
+  "kittensLabel": "Frieħ",
+  "toastSettingsTitle": "X'għandu jitħabbar",
+  "toastSettingsSubtitle": "Messaġġi żgħar wara sinkronizzazzjoni",
+  "toastKindAdoptions": "Adozzjonijiet",
+  "toastKindBirths": "Twelid",
+  "toastKindDeaths": "Imwiet",
+  "toastKindEscapes": "Ħarbiet",
+  "toastKindMoves": "Ċaqliq",
+  "toastAdopted": "💚 {cat} adottat minn {home} 💚",
+  "toastBorn": "✨ Fellus ġdid: {cat} ✨",
+  "toastDeceased": "{cat} miet",
+  "toastEscaped": "{cat} ħarab",
+  "toastMoved": "{cat} mar joqgħod {home}"
 }

@@ -757,4 +757,50 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kocięta';
+
+  @override
+  String get toastSettingsTitle => 'Co ogłaszać';
+
+  @override
+  String get toastSettingsSubtitle => 'Krótkie wiadomości po synchronizacji';
+
+  @override
+  String get toastKindAdoptions => 'Adopcje';
+
+  @override
+  String get toastKindBirths => 'Narodziny';
+
+  @override
+  String get toastKindDeaths => 'Zgony';
+
+  @override
+  String get toastKindEscapes => 'Ucieczki';
+
+  @override
+  String get toastKindMoves => 'Przeprowadzki';
+
+  @override
+  String toastAdopted(Object cat, Object home) {
+    return '💚 $cat adoptowany przez $home 💚';
+  }
+
+  @override
+  String toastBorn(Object cat) {
+    return '✨ Nowy kociak: $cat ✨';
+  }
+
+  @override
+  String toastDeceased(Object cat) {
+    return '$cat odszedł';
+  }
+
+  @override
+  String toastEscaped(Object cat) {
+    return '$cat uciekł';
+  }
+
+  @override
+  String toastMoved(Object cat, Object home) {
+    return '$cat przeniósł się do $home';
+  }
 }

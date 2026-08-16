@@ -222,5 +222,17 @@
   "familySection": "משפחה",
   "littermatesLabel": "מאותה המלטה",
   "siblingsLabel": "אחים",
-  "kittensLabel": "גורים"
+  "kittensLabel": "גורים",
+  "toastSettingsTitle": "מה להכריז",
+  "toastSettingsSubtitle": "הודעות קטנות אחרי סנכרון",
+  "toastKindAdoptions": "אימוצים",
+  "toastKindBirths": "לידות",
+  "toastKindDeaths": "מקרי מוות",
+  "toastKindEscapes": "בריחות",
+  "toastKindMoves": "מעברים",
+  "toastAdopted": "💚 {cat} אומץ על ידי {home} 💚",
+  "toastBorn": "✨ גור חדש: {cat} ✨",
+  "toastDeceased": "{cat} הלך לעולמו",
+  "toastEscaped": "{cat} ברח",
+  "toastMoved": "{cat} עבר אל {home}"
 }

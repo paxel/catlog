@@ -222,5 +222,17 @@
   "familySection": "Семејство",
   "littermatesLabel": "Од исто легло",
   "siblingsLabel": "Браќа и сестри",
-  "kittensLabel": "Мачиња"
+  "kittensLabel": "Мачиња",
+  "toastSettingsTitle": "Што да се објавува",
+  "toastSettingsSubtitle": "Мали пораки по синхронизација",
+  "toastKindAdoptions": "Посвојувања",
+  "toastKindBirths": "Раѓања",
+  "toastKindDeaths": "Смртни случаи",
+  "toastKindEscapes": "Бегства",
+  "toastKindMoves": "Преселби",
+  "toastAdopted": "💚 {cat} посвоена од {home} 💚",
+  "toastBorn": "✨ Ново маче: {cat} ✨",
+  "toastDeceased": "{cat} почина",
+  "toastEscaped": "{cat} избега",
+  "toastMoved": "{cat} се пресели во {home}"
 }

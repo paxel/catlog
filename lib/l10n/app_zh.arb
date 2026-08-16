@@ -222,5 +222,17 @@
   "familySection": "家庭",
   "littermatesLabel": "同窝伙伴",
   "siblingsLabel": "兄弟姐妹",
-  "kittensLabel": "小猫"
+  "kittensLabel": "小猫",
+  "toastSettingsTitle": "播报内容",
+  "toastSettingsSubtitle": "同步后的小提示",
+  "toastKindAdoptions": "领养",
+  "toastKindBirths": "出生",
+  "toastKindDeaths": "离世",
+  "toastKindEscapes": "走失",
+  "toastKindMoves": "搬家",
+  "toastAdopted": "💚 {cat} 被 {home} 领养了 💚",
+  "toastBorn": "✨ 新的小猫：{cat} ✨",
+  "toastDeceased": "{cat} 离世了",
+  "toastEscaped": "{cat} 走失了",
+  "toastMoved": "{cat} 搬到了 {home}"
 }

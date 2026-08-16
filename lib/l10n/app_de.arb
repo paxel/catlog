@@ -222,5 +222,17 @@
   "familySection": "Familie",
   "littermatesLabel": "Wurfgeschwister",
   "siblingsLabel": "Geschwister",
-  "kittensLabel": "Kitten"
+  "kittensLabel": "Kitten",
+  "toastSettingsTitle": "Was gemeldet wird",
+  "toastSettingsSubtitle": "Kleine Meldungen nach einer Synchronisierung",
+  "toastKindAdoptions": "Adoptionen",
+  "toastKindBirths": "Geburten",
+  "toastKindDeaths": "Todesfälle",
+  "toastKindEscapes": "Ausbrüche",
+  "toastKindMoves": "Umzüge",
+  "toastAdopted": "💚 {cat} adoptiert von {home} 💚",
+  "toastBorn": "✨ Neues Kitten: {cat} ✨",
+  "toastDeceased": "{cat} ist gestorben",
+  "toastEscaped": "{cat} ist entlaufen",
+  "toastMoved": "{cat} ist umgezogen zu {home}"
 }
