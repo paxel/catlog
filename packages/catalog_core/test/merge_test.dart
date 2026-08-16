@@ -130,10 +130,23 @@ void main() {
       expect(store.current(cat, 'f:number-of-legs'), '3');
     });
 
-    test('different types refuse to merge', () {
+    test('different types merge; the survivor type wins', () {
       final a = store.defineField('Weight', FieldType.number);
       final b = store.defineField('Notes', FieldType.text);
-      expect(() => store.mergeField(a, b), throwsArgumentError);
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:weight', '4.2', date: DateTime.utc(2026, 1, 1));
+      store.mergeField(a, b);
+      // Old numeric value resolves through the alias to the text field.
+      expect(store.current(cat, 'f:notes'), '4.2');
+      expect(store.fieldDefs().where((d) => d.slug == 'weight'), isEmpty);
+      final notes = store.fieldDefs().firstWhere((d) => d.slug == 'notes');
+      expect(notes.type, FieldType.text);
+    });
+
+    test('non-field entities still refuse to merge with fields', () {
+      final a = store.defineField('Weight', FieldType.number);
+      final cat = store.createCat('Miezi');
+      expect(() => store.mergeField(a, cat), throwsArgumentError);
     });
   });
 }

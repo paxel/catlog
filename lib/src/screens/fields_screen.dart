@@ -47,9 +47,8 @@ class _FieldsScreenState extends State<FieldsScreen> {
   }
 
   Future<void> _mergeField(FieldDef def) async {
-    final sameType = widget.store
+    final candidates = widget.store
         .fieldDefs()
-        .where((d) => d.type == def.type)
         .map((d) => EntityView(d.id, d.name))
         .toList();
     final merged = await showMergeDialog(
@@ -57,7 +56,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       store: widget.store,
       loserId: def.id,
       kindLabel: context.t.kindField,
-      candidates: sameType,
+      candidates: candidates,
       merge: widget.store.mergeField,
     );
     if (merged) setState(() {});

@@ -938,9 +938,8 @@ class CatalogStore {
     if (lt == null || st == null) {
       throw ArgumentError('Not field definitions: $loserDefId, $survivorDefId');
     }
-    if (lt != st) {
-      throw ArgumentError('Cannot merge $lt field into $st field');
-    }
+    // Value types may differ: the survivor's type wins, values are
+    // strings on the wire, and non-conforming ones render raw.
     _merge(loserDefId, survivorDefId, 'fielddef:', date, reassert: false);
   }
 
