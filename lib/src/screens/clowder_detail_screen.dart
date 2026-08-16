@@ -12,6 +12,7 @@ import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/status_chip.dart';
+import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'map_screen.dart';
 import 'timeline_screen.dart';
@@ -239,6 +240,30 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               final cat = cats[i];
               return InkWell(
                 onTap: () => _openCat(cat.id),
+                onSecondaryTapDown: (d) async {
+                  final action = await showMenu<String>(
+                    context: context,
+                    position: RelativeRect.fromLTRB(
+                        d.globalPosition.dx,
+                        d.globalPosition.dy,
+                        d.globalPosition.dx,
+                        d.globalPosition.dy),
+                    items: [
+                      PopupMenuItem(
+                          value: 'open', child: Text(context.t.open)),
+                      PopupMenuItem(
+                          value: 'card', child: Text(context.t.card)),
+                    ],
+                  );
+                  if (!context.mounted) return;
+                  if (action == 'open') _openCat(cat.id);
+                  if (action == 'card') {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) =>
+                          CardScreen(store: store, catId: cat.id),
+                    ));
+                  }
+                },
                 borderRadius: BorderRadius.circular(12),
                 child: Column(children: [
                   Expanded(

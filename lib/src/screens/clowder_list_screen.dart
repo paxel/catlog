@@ -175,6 +175,37 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 store: widget.store,
                 clowder: clowder,
                 selected: clowder.id == widget.selectedClowderId,
+                onContextMenu: (position) async {
+                  final action = await showMenu<String>(
+                    context: context,
+                    position: RelativeRect.fromLTRB(position.dx,
+                        position.dy, position.dx, position.dy),
+                    items: [
+                      PopupMenuItem(
+                          value: 'open', child: Text(context.t.open)),
+                      PopupMenuItem(
+                          value: 'hide',
+                          child: Text(widget.store.isHidden(clowder.id)
+                              ? context.t.unhideLabel
+                              : context.t.hideLabel)),
+                    ],
+                  );
+                  if (action == 'hide') {
+                    setState(() => widget.store.setHidden(clowder.id,
+                        !widget.store.isHidden(clowder.id)));
+                  }
+                  if (action == 'open' && context.mounted) {
+                    if (widget.onOpenClowder != null) {
+                      widget.onOpenClowder!(clowder.id);
+                    } else {
+                      await Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => ClowderDetailScreen(
+                            store: widget.store, clowderId: clowder.id),
+                      ));
+                    }
+                    setState(() {});
+                  }
+                },
                 onTap: () async {
                   if (widget.onOpenClowder != null) {
                     widget.onOpenClowder!(clowder.id);
@@ -219,12 +250,14 @@ class _ClowderCard extends StatelessWidget {
   final CatalogStore store;
   final EntityView clowder;
   final VoidCallback onTap;
+  final void Function(Offset globalPosition)? onContextMenu;
   final bool selected;
 
   const _ClowderCard(
       {required this.store,
       required this.clowder,
       required this.onTap,
+      this.onContextMenu,
       this.selected = false});
 
   /// Background: profile image of the first cat in the clowder that has one.
@@ -256,6 +289,9 @@ class _ClowderCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
+        onSecondaryTapDown: onContextMenu == null
+            ? null
+            : (d) => onContextMenu!(d.globalPosition),
         child: Stack(fit: StackFit.expand, children: [
           if (cover != null)
             Opacity(

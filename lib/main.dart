@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -10,6 +11,8 @@ import 'src/incoming_file.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/home_shell.dart';
+import 'src/screens/search_screen.dart';
+import 'src/screens/sync_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -99,6 +102,26 @@ class _CatlogAppState extends State<CatlogApp>
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
         title: 'cat(a)log',
+        // Desktop keyboard manners: Ctrl+F search, Ctrl+K sync,
+        // Ctrl+B backup now, Esc back. Arrows/Enter come from Flutter's
+        // default desktop focus traversal (cards are focusable).
+        builder: (context, child) => CallbackShortcuts(
+          bindings: {
+            const SingleActivator(LogicalKeyboardKey.keyF, control: true):
+                () => navigatorKey.currentState?.push(MaterialPageRoute(
+                      builder: (_) => SearchScreen(store: widget.store),
+                    )),
+            const SingleActivator(LogicalKeyboardKey.keyK, control: true):
+                () => navigatorKey.currentState?.push(MaterialPageRoute(
+                      builder: (_) => SyncScreen(store: widget.store),
+                    )),
+            const SingleActivator(LogicalKeyboardKey.keyB, control: true):
+                () => autoBackup(widget.store),
+            const SingleActivator(LogicalKeyboardKey.escape): () =>
+                navigatorKey.currentState?.maybePop(),
+          },
+          child: child ?? const SizedBox.shrink(),
+        ),
         locale: locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
