@@ -12,7 +12,10 @@ _Avoid_: litter, home, placement, household, group
 An individual animal being tracked, with a name, images, and field values that change over time.
 
 **Litter**:
-Kittens born to the same mother in one birth. Reserved for a possible future "born together" link between Cats — never a housing group.
+Kittens born to the same mother in one birth. Not stored — derived: same Mother and same birth date. Never a housing group.
+
+**Mother / Father**:
+Starter Fields of type cat-reference linking a Cat to its parents. Family relations — littermates, siblings, kittens — are derived from Mother plus birth date; Father is display and navigation only.
 
 **Stray**:
 A Cat currently in no Clowder; tracked by map positions instead. A state, not a kind — any Cat becomes a Stray by leaving its Clowder (running away, Clowder deleted) and stops being one on a Move into a Clowder.
