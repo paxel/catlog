@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import '../field_labels.dart';
+import '../hidden.dart';
 import '../l10n.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -43,7 +44,7 @@ class _CardScreenState extends State<CardScreen> {
           ? t.stray
           : store.current(clowderId, Keys.name) ?? t.unnamed
     ));
-    for (final def in store.fieldDefs(scope: FieldScope.cat)) {
+    for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
       final value = store.current(id, def.key);
       if (value != null) {
         facts.add(

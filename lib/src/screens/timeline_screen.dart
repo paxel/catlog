@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../field_labels.dart';
+import '../hidden.dart';
 import '../l10n.dart';
 
 /// The timeline of an entity: every change in date order with Author —
@@ -60,7 +61,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
     final rows = <_Row>[
       for (final e in entries.where((e) =>
           e.field != Keys.type &&
-          !e.field.startsWith(Keys.conflictPrefix)))
+          e.field != Keys.private &&
+          !e.field.startsWith(Keys.conflictPrefix) &&
+          (showHidden.value ||
+              !e.field.startsWith('f:') ||
+              !store.isHidden('fielddef:${e.field.substring(2)}'))))
         if (e.field == Keys.clowder)
           _membershipRow(e)
         else if (e.field == Keys.mergedInto)

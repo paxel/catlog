@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
 import '../stray_cam.dart';
@@ -33,7 +34,7 @@ class _StraysScreenState extends State<StraysScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final strays = widget.store.strays();
+    final strays = widget.store.visibleStrays();
     return Scaffold(
       appBar: AppBar(title: Text(context.t.strays)),
       floatingActionButton:

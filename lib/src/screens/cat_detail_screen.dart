@@ -8,6 +8,7 @@ import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../field_labels.dart';
 import '../image_import.dart';
+import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -226,7 +227,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final images = store.images(id);
     final profile = store.profileImage(id);
-    final defs = store.fieldDefs(scope: FieldScope.cat);
+    final defs = store.visibleFieldDefs(scope: FieldScope.cat);
     final clowderId = store.current(id, Keys.clowder);
     return Scaffold(
       appBar: AppBar(
@@ -258,6 +259,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 setState(() =>
                     store.setPrivate(id, !store.isPrivate(id)));
               }
+              if (v == 'hide') {
+                final wasHidden = store.isHidden(id);
+                store.setHidden(id, !wasHidden);
+                if (wasHidden || showHidden.value) {
+                  setState(() {});
+                } else {
+                  Navigator.of(context).pop();
+                }
+              }
             },
             itemBuilder: (context) => [
               PopupMenuItem(
@@ -267,6 +277,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   child: Text(store.isPrivate(id)
                       ? context.t.unmarkPrivate
                       : context.t.markPrivate)),
+              PopupMenuItem(
+                  value: 'hide',
+                  child: Text(store.isHidden(id)
+                      ? context.t.unhideLabel
+                      : context.t.hideLabel)),
               PopupMenuItem(
                   value: 'merge', child: Text(context.t.mergeInto)),
               PopupMenuItem(

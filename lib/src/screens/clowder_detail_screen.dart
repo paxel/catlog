@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../field_labels.dart';
+import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -99,8 +100,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
-    final defs = store.fieldDefs(scope: FieldScope.clowder);
-    final cats = store.cats(clowderId: id);
+    final defs = store.visibleFieldDefs(scope: FieldScope.clowder);
+    final cats = store.visibleCats(clowderId: id);
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
@@ -127,6 +128,15 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 setState(() =>
                     store.setPrivate(id, !store.isPrivate(id)));
               }
+              if (v == 'hide') {
+                final wasHidden = store.isHidden(id);
+                store.setHidden(id, !wasHidden);
+                if (wasHidden || showHidden.value) {
+                  setState(() {});
+                } else {
+                  Navigator.of(context).pop();
+                }
+              }
             },
             itemBuilder: (context) => [
               PopupMenuItem(
@@ -134,6 +144,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                   child: Text(store.isPrivate(id)
                       ? context.t.unmarkPrivate
                       : context.t.markPrivate)),
+              PopupMenuItem(
+                  value: 'hide',
+                  child: Text(store.isHidden(id)
+                      ? context.t.unhideLabel
+                      : context.t.hideLabel)),
               PopupMenuItem(
                   value: 'merge', child: Text(context.t.mergeInto)),
               PopupMenuItem(

@@ -6,6 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../hidden.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../stray_cam.dart';
@@ -71,8 +72,8 @@ class _MapScreenState extends State<MapScreen> {
       ];
 
   Future<void> _longPress(LatLng point) async {
-    final clowders = store.clowders();
-    final strays = store.strays();
+    final clowders = store.visibleClowders();
+    final strays = store.visibleStrays();
     final action = await showModalBottomSheet<(String, String)>(
       context: context,
       builder: (context) => SafeArea(
@@ -135,8 +136,8 @@ class _MapScreenState extends State<MapScreen> {
     if (_tiles == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final strays = _positioned(store.strays());
-    final clowders = _positioned(store.clowders());
+    final strays = _positioned(store.visibleStrays());
+    final clowders = _positioned(store.visibleClowders());
     final all = [...strays, ...clowders];
     final center =
         all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2;

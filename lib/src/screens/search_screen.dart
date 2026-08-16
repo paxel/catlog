@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../hidden.dart';
 import '../l10n.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -21,7 +22,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final results = widget.store.searchCats(_query);
+    final results = [
+      for (final c in widget.store.searchCats(_query))
+        if (widget.store.visible(c.id)) c
+    ];
     return Scaffold(
       appBar: AppBar(
         title: TextField(

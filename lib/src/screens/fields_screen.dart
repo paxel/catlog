@@ -85,9 +85,11 @@ class _FieldsScreenState extends State<FieldsScreen> {
         children: [
           for (final def in defs)
             ListTile(
-              leading: Icon(widget.store.isPrivate(def.id)
-                  ? Icons.lock
-                  : Icons.label_outline),
+              leading: Icon(widget.store.isHidden(def.id)
+                  ? Icons.visibility_off_outlined
+                  : widget.store.isPrivate(def.id)
+                      ? Icons.lock
+                      : Icons.label_outline),
               title: Text(fieldDefName(context.t, def)),
               subtitle: Text([
                 def.type.name,
@@ -102,6 +104,10 @@ class _FieldsScreenState extends State<FieldsScreen> {
                     setState(() => widget.store.setPrivate(
                         def.id, !widget.store.isPrivate(def.id)));
                   }
+                  if (v == 'hide') {
+                    setState(() => widget.store.setHidden(
+                        def.id, !widget.store.isHidden(def.id)));
+                  }
                 },
                 itemBuilder: (context) => [
                   PopupMenuItem(
@@ -111,6 +117,11 @@ class _FieldsScreenState extends State<FieldsScreen> {
                       child: Text(widget.store.isPrivate(def.id)
                           ? context.t.unmarkPrivate
                           : context.t.markPrivate)),
+                  PopupMenuItem(
+                      value: 'hide',
+                      child: Text(widget.store.isHidden(def.id)
+                          ? context.t.unhideLabel
+                          : context.t.hideLabel)),
                   PopupMenuItem(
                       value: 'merge', child: Text(context.t.mergeInto)),
                 ],

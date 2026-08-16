@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../hidden.dart';
 import '../l10n.dart';
 import '../language_dialog.dart';
 import '../name_date_dialog.dart';
@@ -62,9 +63,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final clowders = widget.store.clowders()
+    final clowders = widget.store.visibleClowders()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-    final strays = widget.store.strays();
+    final strays = widget.store.visibleStrays();
     return Scaffold(
       appBar: AppBar(
         title: Text(context.t.clowders),
@@ -109,6 +110,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               if (v == 'language') {
                 showLanguageDialog(context, widget.store);
               }
+              if (v == 'hidden') {
+                setState(() => showHidden.value = !showHidden.value);
+              }
               if (v == 'about') {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) => const AboutScreen(),
@@ -116,6 +120,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
             },
             itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 'hidden',
+                  child: Text(showHidden.value
+                      ? context.t.stopShowingHidden
+                      : context.t.showHiddenLabel)),
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
               PopupMenuItem(
@@ -195,7 +204,7 @@ class _ClowderCard extends StatelessWidget {
 
   /// Background: profile image of the first cat in the clowder that has one.
   Uint8List? _cover() {
-    for (final cat in store.cats(clowderId: clowder.id)) {
+    for (final cat in store.visibleCats(clowderId: clowder.id)) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {
         final bytes = store.imageBytes(hash);
