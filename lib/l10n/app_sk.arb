@@ -6,7 +6,7 @@
   "yourName": "Vaše meno",
   "start": "Začať",
   "clowders": "Clowdery",
-  "noClowdersYet": "Zatiaľ žiadne clowdery.\nVytvorte prvý nižšie.",
+  "noClowdersYet": "Zatiaľ žiadne clowdery. Clowder je miesto, kde mačky žijú — tvoja dočasná starostlivosť, byt osvojiteľa. Založ prvý nižšie.",
   "strays": "Túlavé mačky",
   "searchCats": "Hľadať mačky",
   "map": "Mapa",
@@ -53,7 +53,7 @@
   "deletePhoto": "Vymazať fotku",
   "deletePhotoTitle": "Vymazať fotku?",
   "deletePhotoBody": "Dáta fotky sa nenávratne vymažú — nedá sa to vrátiť.",
-  "deleteCatBody": "Mačka zmizne zo všetkých zoznamov. Jej fotky sa nenávratne vymažú.",
+  "deleteCatBody": "Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu a po ďalšej synchronizácii aj u tvojich pomocníkov.",
   "sightingRecorded": "Pozorovanie zaznamenané na vašej pozícii.",
   "noLocationAvailable": "Poloha nie je k dispozícii — namiesto toho podržte prst na mape.",
   "moveTo": "Presunúť do",
@@ -273,5 +273,8 @@
   "spotDone": "Rozumiem",
   "spotReplayTitle": "Prehliadka noviniek",
   "spotReplaySubtitle": "Znova ukázať tipy na každej stránke",
-  "spotReplayDone": "Tipy sa zobrazia znova"
+  "spotReplayDone": "Tipy sa zobrazia znova",
+  "searchNoResults": "Mačka s týmto menom sa nenašla",
+  "syncUnreachable": "Druhé zariadenie je nedostupné. Sú obe na rovnakej Wi-Fi?",
+  "folderUnreachable": "Priečinok je nedostupný. Existuje ešte disk alebo cloudový priečinok?"
 }

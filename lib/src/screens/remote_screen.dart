@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +32,8 @@ class _RemoteScreenState extends State<RemoteScreen> {
         await showImportSummary(context, widget.store, result.applied);
       }
       setState(() => _lastResult = t.folderSynced('$result'));
+    } on FileSystemException {
+      setState(() => _lastResult = t.folderUnreachable);
     } catch (e) {
       setState(() => _lastResult = t.folderSyncFailed('$e'));
     }

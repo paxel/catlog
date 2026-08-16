@@ -6,7 +6,7 @@
   "yourName": "Twoje imię",
   "start": "Start",
   "clowders": "Clowdery",
-  "noClowdersYet": "Nie ma jeszcze clowderów.\nUtwórz pierwszy poniżej.",
+  "noClowdersYet": "Nie ma jeszcze clowderów. Clowder to miejsce, gdzie mieszkają koty — twój dom tymczasowy, mieszkanie adoptującego. Utwórz pierwszy poniżej.",
   "strays": "Bezdomne",
   "searchCats": "Szukaj kotów",
   "map": "Mapa",
@@ -53,7 +53,7 @@
   "deletePhoto": "Usuń zdjęcie",
   "deletePhotoTitle": "Usunąć zdjęcie?",
   "deletePhotoBody": "Dane zdjęcia zostaną usunięte na zawsze — nie można tego cofnąć.",
-  "deleteCatBody": "Kot zniknie ze wszystkich list. Jego zdjęcia zostaną usunięte na zawsze.",
+  "deleteCatBody": "Kot znika ze wszystkich list, a jego zdjęcia są usuwane — tutaj i, po następnej synchronizacji, także u twoich pomocników.",
   "sightingRecorded": "Zapisano obserwację w Twojej pozycji.",
   "noLocationAvailable": "Brak lokalizacji — zamiast tego przytrzymaj mapę.",
   "moveTo": "Przenieś do",
@@ -273,5 +273,8 @@
   "spotDone": "Rozumiem",
   "spotReplayTitle": "Przegląd nowości",
   "spotReplaySubtitle": "Pokaż wskazówki ponownie na każdej stronie",
-  "spotReplayDone": "Wskazówki pojawią się ponownie"
+  "spotReplayDone": "Wskazówki pojawią się ponownie",
+  "searchNoResults": "Nie znaleziono kota o tym imieniu",
+  "syncUnreachable": "Nie można połączyć się z drugim urządzeniem. Czy oba są w tej samej sieci Wi-Fi?",
+  "folderUnreachable": "Nie można otworzyć folderu. Czy dysk lub folder w chmurze nadal istnieje?"
 }

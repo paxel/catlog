@@ -6,7 +6,7 @@
   "yourName": "Je naam",
   "start": "Beginnen",
   "clowders": "Clowders",
-  "noClowdersYet": "Nog geen clowders.\nMaak hieronder de eerste aan.",
+  "noClowdersYet": "Nog geen clowders. Een clowder is een plek waar katten wonen — jouw opvang, de flat van een adoptant. Maak de eerste hieronder.",
   "strays": "Zwerfkatten",
   "searchCats": "Katten zoeken",
   "map": "Kaart",
@@ -53,7 +53,7 @@
   "deletePhoto": "Foto verwijderen",
   "deletePhotoTitle": "Foto verwijderen?",
   "deletePhotoBody": "De fotogegevens worden definitief verwijderd — dit kan niet ongedaan worden gemaakt.",
-  "deleteCatBody": "De kat verdwijnt uit alle lijsten. Zijn foto's worden definitief verwijderd.",
+  "deleteCatBody": "De kat verdwijnt uit alle lijsten en zijn foto's worden verwijderd — hier en, na de volgende synchronisatie, ook bij je helpers.",
   "sightingRecorded": "Waarneming vastgelegd op je positie.",
   "noLocationAvailable": "Geen locatie beschikbaar — houd in plaats daarvan de kaart ingedrukt.",
   "moveTo": "Verplaatsen naar",
@@ -273,5 +273,8 @@
   "spotDone": "Begrepen",
   "spotReplayTitle": "Wat-is-nieuw-tour",
   "spotReplaySubtitle": "Tips opnieuw tonen op elke pagina",
-  "spotReplayDone": "De tips worden opnieuw getoond"
+  "spotReplayDone": "De tips worden opnieuw getoond",
+  "searchNoResults": "Geen kat gevonden met die naam",
+  "syncUnreachable": "Kon het andere apparaat niet bereiken. Zitten beide op dezelfde wifi?",
+  "folderUnreachable": "Kon de map niet bereiken. Bestaat de schijf of cloudmap nog?"
 }

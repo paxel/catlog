@@ -29,7 +29,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get clowders => 'Clowderek';
 
   @override
-  String get noClowdersYet => 'Még nincs clowder.\nHozd létre az elsőt alább.';
+  String get noClowdersYet =>
+      'Még nincs clowder. A clowder egy hely, ahol macskák élnek — az ideiglenes befogadód, egy örökbefogadó lakása. Hozd létre az elsőt lent.';
 
   @override
   String get strays => 'Kóbor macskák';
@@ -180,7 +181,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'A macska eltűnik minden listáról. Fotói végleg törlődnek.';
+      'A macska eltűnik minden listáról és a fotói törlődnek — itt, és a következő szinkronizálás után a segítőidnél is.';
 
   @override
   String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
@@ -937,4 +938,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'A tippek újra megjelennek';
+
+  @override
+  String get searchNoResults => 'Nincs ilyen nevű macska';
+
+  @override
+  String get syncUnreachable =>
+      'A másik készülék nem érhető el. Mindkettő ugyanazon a Wi-Fi-n van?';
+
+  @override
+  String get folderUnreachable =>
+      'A mappa nem érhető el. Megvan még a meghajtó vagy a felhőmappa?';
 }

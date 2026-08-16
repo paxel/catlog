@@ -29,7 +29,8 @@ class AppLocalizationsLv extends AppLocalizations {
   String get clowders => 'Klauderi';
 
   @override
-  String get noClowdersYet => 'Klauderu vēl nav.\nIzveidojiet pirmo zemāk.';
+  String get noClowdersYet =>
+      'Vēl nav neviena clowdera. Clowder ir vieta, kur dzīvo kaķi — tavas pagaidu mājas, adoptētāja dzīvoklis. Izveido pirmo zemāk.';
 
   @override
   String get strays => 'Klaiņojošie kaķi';
@@ -180,7 +181,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kaķis pazūd no visiem sarakstiem. Tā fotoattēli tiek dzēsti neatgriezeniski.';
+      'Kaķis pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī pie taviem palīgiem.';
 
   @override
   String get sightingRecorded => 'Novērojums ierakstīts jūsu pozīcijā.';
@@ -934,4 +935,15 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Padomi tiks rādīti atkal';
+
+  @override
+  String get searchNoResults => 'Kaķis ar šādu vārdu nav atrasts';
+
+  @override
+  String get syncUnreachable =>
+      'Neizdevās sasniegt otru ierīci. Vai abas ir vienā Wi-Fi tīklā?';
+
+  @override
+  String get folderUnreachable =>
+      'Neizdevās sasniegt mapi. Vai disks vai mākoņa mape vēl pastāv?';
 }

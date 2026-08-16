@@ -6,7 +6,7 @@
   "yourName": "Tu nombre",
   "start": "Empezar",
   "clowders": "Clowders",
-  "noClowdersYet": "Aún no hay clowders.\nCrea el primero abajo.",
+  "noClowdersYet": "Aún no hay clowders. Un clowder es un lugar donde viven gatos — tu casa de acogida, el piso de un adoptante. Crea el primero abajo.",
   "strays": "Callejeros",
   "searchCats": "Buscar gatos",
   "map": "Mapa",
@@ -53,7 +53,7 @@
   "deletePhoto": "Eliminar foto",
   "deletePhotoTitle": "¿Eliminar foto?",
   "deletePhotoBody": "Los datos de la foto se eliminan para siempre — no se puede deshacer.",
-  "deleteCatBody": "El gato desaparece de todas las listas. Sus fotos se eliminan para siempre.",
+  "deleteCatBody": "El gato desaparece de todas las listas y sus fotos se eliminan — aquí y, tras la próxima sincronización, también en los dispositivos de tus ayudantes.",
   "sightingRecorded": "Avistamiento registrado en tu posición.",
   "noLocationAvailable": "Sin ubicación disponible — mantén pulsado el mapa en su lugar.",
   "moveTo": "Mover a",
@@ -273,5 +273,8 @@
   "spotDone": "Entendido",
   "spotReplayTitle": "Tour de novedades",
   "spotReplaySubtitle": "Mostrar las pistas de nuevo en cada página",
-  "spotReplayDone": "Las pistas volverán a mostrarse"
+  "spotReplayDone": "Las pistas volverán a mostrarse",
+  "searchNoResults": "No se encontró ningún gato con ese nombre",
+  "syncUnreachable": "No se pudo conectar con el otro dispositivo. ¿Están ambos en la misma Wi-Fi?",
+  "folderUnreachable": "No se pudo acceder a la carpeta. ¿Sigue existiendo la unidad o la carpeta en la nube?"
 }

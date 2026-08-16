@@ -37,7 +37,9 @@ class _SearchScreenState extends State<SearchScreen> {
           onChanged: (v) => setState(() => _query = v),
         ),
       ),
-      body: ListView.builder(
+      body: _query.trim().isNotEmpty && results.isEmpty
+          ? Center(child: Text(context.t.searchNoResults))
+          : ListView.builder(
         itemCount: results.length,
         itemBuilder: (context, i) {
           final cat = results[i];

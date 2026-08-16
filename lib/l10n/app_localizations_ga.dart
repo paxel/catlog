@@ -30,7 +30,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Níl aon chlowdar fós.\nCruthaigh an chéad cheann thíos.';
+      'Níl clowder ar bith fós. Áit é clowder ina gcónaíonn cait — do theach altrama, árasán uchtaitheora. Cruthaigh an chéad cheann thíos.';
 
   @override
   String get strays => 'Cait fáin';
@@ -181,7 +181,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Imíonn an cat de gach liosta. Scriostar a ghrianghraif go deo.';
+      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar ghléasanna do chúntóirí freisin.';
 
   @override
   String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
@@ -939,4 +939,15 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Taispeánfar na leideanna arís';
+
+  @override
+  String get searchNoResults => 'Níor aimsíodh cat leis an ainm sin';
+
+  @override
+  String get syncUnreachable =>
+      'Níorbh fhéidir an gléas eile a shroicheadh. An bhfuil an bheirt ar an Wi-Fi céanna?';
+
+  @override
+  String get folderUnreachable =>
+      'Níorbh fhéidir an fillteán a shroicheadh. An ann fós don tiomántán nó don fhillteán néil?';
 }

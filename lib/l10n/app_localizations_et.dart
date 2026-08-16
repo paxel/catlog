@@ -29,7 +29,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get clowders => 'Klaudrid';
 
   @override
-  String get noClowdersYet => 'Klaudreid pole veel.\nLoo esimene allpool.';
+  String get noClowdersYet =>
+      'Veel pole ühtegi clowderit. Clowder on koht, kus kassid elavad — sinu hoiukodu, lapsendaja korter. Loo esimene allpool.';
 
   @override
   String get strays => 'Hulkuvad kassid';
@@ -180,7 +181,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kass kaob kõigist loenditest. Tema fotod kustutatakse jäädavalt.';
+      'Kass kaob kõigist nimekirjadest ja tema fotod eemaldatakse — siin ja pärast järgmist sünkroonimist ka su abiliste seadmetes.';
 
   @override
   String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
@@ -934,4 +935,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Vihjed kuvatakse uuesti';
+
+  @override
+  String get searchNoResults => 'Selle nimega kassi ei leitud';
+
+  @override
+  String get syncUnreachable =>
+      'Teist seadet ei õnnestunud kätte saada. Kas mõlemad on samas Wi-Fi võrgus?';
+
+  @override
+  String get folderUnreachable =>
+      'Kausta ei õnnestunud kätte saada. Kas ketas või pilvekaust on veel olemas?';
 }

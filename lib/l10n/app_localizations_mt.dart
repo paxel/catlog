@@ -30,7 +30,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Għad m\'hemmx clowders.\nOħloq l-ewwel wieħed hawn taħt.';
+      'Għad m\'hemmx clowders. Clowder huwa post fejn jgħixu l-qtates — id-dar tal-fostering tiegħek, appartament ta\' min jadotta. Oħloq l-ewwel wieħed hawn taħt.';
 
   @override
   String get strays => 'Qtates tat-triq';
@@ -181,7 +181,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Il-qattus jisparixxi mil-listi kollha. Ir-ritratti tiegħu jitħassru għal dejjem.';
+      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sinkronizzazzjoni li jmiss, għand l-għajnuniet tiegħek ukoll.';
 
   @override
   String get sightingRecorded =>
@@ -938,4 +938,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Is-suġġerimenti jerġgħu jidhru';
+
+  @override
+  String get searchNoResults => 'Ma nstab l-ebda qattus b\'dak l-isem';
+
+  @override
+  String get syncUnreachable =>
+      'Ma setax jintlaħaq l-apparat l-ieħor. It-tnejn fuq l-istess Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Ma setgħetx tintlaħaq il-folder. Id-drive jew il-folder tal-cloud għadu hemm?';
 }

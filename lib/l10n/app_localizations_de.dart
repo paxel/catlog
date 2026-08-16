@@ -29,7 +29,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get clowders => 'Clowder';
 
   @override
-  String get noClowdersYet => 'Noch keine Clowder.\nLege unten den ersten an.';
+  String get noClowdersYet =>
+      'Noch keine Clowder. Ein Clowder ist ein Ort, an dem Katzen leben — deine Pflegestelle, die Wohnung eines Adoptanten. Lege unten den ersten an.';
 
   @override
   String get strays => 'Streuner';
@@ -181,7 +182,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Die Katze verschwindet aus allen Listen. Ihre Fotos werden endgültig entfernt.';
+      'Die Katze verschwindet aus allen Listen und ihre Fotos werden entfernt — hier und nach der nächsten Synchronisierung auch bei deinen Helfern.';
 
   @override
   String get sightingRecorded => 'Sichtung an deiner Position gespeichert.';
@@ -940,4 +941,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Die Hinweise erscheinen wieder';
+
+  @override
+  String get searchNoResults => 'Keine Katze mit diesem Namen gefunden';
+
+  @override
+  String get syncUnreachable =>
+      'Das andere Gerät ist nicht erreichbar. Sind beide im selben WLAN?';
+
+  @override
+  String get folderUnreachable =>
+      'Der Ordner ist nicht erreichbar. Ist das Laufwerk oder der Cloud-Ordner noch da?';
 }

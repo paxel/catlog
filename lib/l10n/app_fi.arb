@@ -6,7 +6,7 @@
   "yourName": "Nimesi",
   "start": "Aloita",
   "clowders": "Clowderit",
-  "noClowdersYet": "Ei vielä clowdereita.\nLuo ensimmäinen alta.",
+  "noClowdersYet": "Ei vielä clowdereita. Clowder on paikka, jossa kissat asuvat — sijaiskotisi, adoptoijan asunto. Luo ensimmäinen alta.",
   "strays": "Kulkukissat",
   "searchCats": "Etsi kissoja",
   "map": "Kartta",
@@ -53,7 +53,7 @@
   "deletePhoto": "Poista kuva",
   "deletePhotoTitle": "Poistetaanko kuva?",
   "deletePhotoBody": "Kuvan tiedot poistetaan pysyvästi — tätä ei voi perua.",
-  "deleteCatBody": "Kissa katoaa kaikista luetteloista. Sen kuvat poistetaan pysyvästi.",
+  "deleteCatBody": "Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös auttajiesi laitteilta.",
   "sightingRecorded": "Havainto tallennettu sijaintiisi.",
   "noLocationAvailable": "Sijainti ei saatavilla — paina sen sijaan karttaa pitkään.",
   "moveTo": "Siirrä kohteeseen",
@@ -273,5 +273,8 @@
   "spotDone": "Selvä",
   "spotReplayTitle": "Uutuuskierros",
   "spotReplaySubtitle": "Näytä vinkit uudelleen joka sivulla",
-  "spotReplayDone": "Vinkit näytetään uudelleen"
+  "spotReplayDone": "Vinkit näytetään uudelleen",
+  "searchNoResults": "Sillä nimellä ei löytynyt kissaa",
+  "syncUnreachable": "Toista laitetta ei tavoitettu. Ovatko molemmat samassa Wi-Fissä?",
+  "folderUnreachable": "Kansiota ei tavoitettu. Onko asema tai pilvikansio yhä olemassa?"
 }

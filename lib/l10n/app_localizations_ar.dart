@@ -29,7 +29,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clowders => 'المجموعات';
 
   @override
-  String get noClowdersYet => 'لا توجد مجموعات بعد.\nأنشئ الأولى أدناه.';
+  String get noClowdersYet =>
+      'لا مجموعات بعد. المجموعة هي مكان تعيش فيه القطط — دار الرعاية أو شقة المتبني. أنشئ الأولى أدناه.';
 
   @override
   String get strays => 'القطط الضالة';
@@ -180,7 +181,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'ستختفي القطة من كل القوائم، وتُحذف صورها نهائيًا.';
+      'تختفي القطة من كل القوائم وتُزال صورها — هنا، وبعد المزامنة التالية على أجهزة مساعديك أيضًا.';
 
   @override
   String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
@@ -932,4 +933,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'ستظهر الإرشادات مرة أخرى';
+
+  @override
+  String get searchNoResults => 'لم يتم العثور على قطة بهذا الاسم';
+
+  @override
+  String get syncUnreachable =>
+      'تعذر الوصول إلى الجهاز الآخر. هل كلاهما على نفس شبكة Wi-Fi؟';
+
+  @override
+  String get folderUnreachable =>
+      'تعذر الوصول إلى المجلد. هل القرص أو مجلد السحابة ما زال موجودًا؟';
 }

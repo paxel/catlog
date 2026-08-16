@@ -209,7 +209,7 @@ abstract class AppLocalizations {
   /// No description provided for @noClowdersYet.
   ///
   /// In en, this message translates to:
-  /// **'No clowders yet.\nCreate the first one below.'**
+  /// **'No clowders yet. A clowder is a place where cats live — your foster home, an adopter\'s flat. Create the first one below.'**
   String get noClowdersYet;
 
   /// No description provided for @strays.
@@ -491,7 +491,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteCatBody.
   ///
   /// In en, this message translates to:
-  /// **'The cat disappears from all lists. Its photos are removed for good.'**
+  /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers\' devices too.'**
   String get deleteCatBody;
 
   /// No description provided for @sightingRecorded.
@@ -1813,6 +1813,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The highlights will show again'**
   String get spotReplayDone;
+
+  /// No description provided for @searchNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No cat found with that name'**
+  String get searchNoResults;
+
+  /// No description provided for @syncUnreachable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t reach the other device. Are both on the same Wi-Fi?'**
+  String get syncUnreachable;
+
+  /// No description provided for @folderUnreachable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t reach the folder. Is the drive or cloud folder still there?'**
+  String get folderUnreachable;
 }
 
 class _AppLocalizationsDelegate

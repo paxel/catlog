@@ -30,7 +30,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Сè уште нема клаудери.\nСоздадете го првиот подолу.';
+      'Сè уште нема клаудери. Клаудер е место каде живеат мачки — твојот згрижувачки дом, станот на посвоител. Направи го првиот подолу.';
 
   @override
   String get strays => 'Скитници';
@@ -181,7 +181,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Мачката исчезнува од сите списоци. Нејзините фотографии се бришат засекогаш.';
+      'Мачката исчезнува од сите листи и нејзините слики се отстрануваат — тука и, по следната синхронизација, и кај твоите помагачи.';
 
   @override
   String get sightingRecorded => 'Видувањето е запишано на вашата позиција.';
@@ -937,4 +937,15 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Советите ќе се прикажат повторно';
+
+  @override
+  String get searchNoResults => 'Не е најдена мачка со тоа име';
+
+  @override
+  String get syncUnreachable =>
+      'Другиот уред е недостапен. Дали двата се на иста Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Папката е недостапна. Дали дискот или облак-папката сè уште постои?';
 }

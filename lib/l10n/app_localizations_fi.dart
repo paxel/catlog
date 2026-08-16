@@ -29,7 +29,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get clowders => 'Clowderit';
 
   @override
-  String get noClowdersYet => 'Ei vielä clowdereita.\nLuo ensimmäinen alta.';
+  String get noClowdersYet =>
+      'Ei vielä clowdereita. Clowder on paikka, jossa kissat asuvat — sijaiskotisi, adoptoijan asunto. Luo ensimmäinen alta.';
 
   @override
   String get strays => 'Kulkukissat';
@@ -180,7 +181,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kissa katoaa kaikista luetteloista. Sen kuvat poistetaan pysyvästi.';
+      'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös auttajiesi laitteilta.';
 
   @override
   String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
@@ -935,4 +936,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Vinkit näytetään uudelleen';
+
+  @override
+  String get searchNoResults => 'Sillä nimellä ei löytynyt kissaa';
+
+  @override
+  String get syncUnreachable =>
+      'Toista laitetta ei tavoitettu. Ovatko molemmat samassa Wi-Fissä?';
+
+  @override
+  String get folderUnreachable =>
+      'Kansiota ei tavoitettu. Onko asema tai pilvikansio yhä olemassa?';
 }

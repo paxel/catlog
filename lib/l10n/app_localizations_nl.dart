@@ -30,7 +30,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Nog geen clowders.\nMaak hieronder de eerste aan.';
+      'Nog geen clowders. Een clowder is een plek waar katten wonen — jouw opvang, de flat van een adoptant. Maak de eerste hieronder.';
 
   @override
   String get strays => 'Zwerfkatten';
@@ -181,7 +181,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'De kat verdwijnt uit alle lijsten. Zijn foto\'s worden definitief verwijderd.';
+      'De kat verdwijnt uit alle lijsten en zijn foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook bij je helpers.';
 
   @override
   String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
@@ -939,4 +939,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'De tips worden opnieuw getoond';
+
+  @override
+  String get searchNoResults => 'Geen kat gevonden met die naam';
+
+  @override
+  String get syncUnreachable =>
+      'Kon het andere apparaat niet bereiken. Zitten beide op dezelfde wifi?';
+
+  @override
+  String get folderUnreachable =>
+      'Kon de map niet bereiken. Bestaat de schijf of cloudmap nog?';
 }

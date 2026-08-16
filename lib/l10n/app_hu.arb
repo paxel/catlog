@@ -6,7 +6,7 @@
   "yourName": "A neved",
   "start": "Kezdés",
   "clowders": "Clowderek",
-  "noClowdersYet": "Még nincs clowder.\nHozd létre az elsőt alább.",
+  "noClowdersYet": "Még nincs clowder. A clowder egy hely, ahol macskák élnek — az ideiglenes befogadód, egy örökbefogadó lakása. Hozd létre az elsőt lent.",
   "strays": "Kóbor macskák",
   "searchCats": "Macskák keresése",
   "map": "Térkép",
@@ -53,7 +53,7 @@
   "deletePhoto": "Fotó törlése",
   "deletePhotoTitle": "Törlöd a fotót?",
   "deletePhotoBody": "A fotó adatai végleg törlődnek — nem vonható vissza.",
-  "deleteCatBody": "A macska eltűnik minden listáról. Fotói végleg törlődnek.",
+  "deleteCatBody": "A macska eltűnik minden listáról és a fotói törlődnek — itt, és a következő szinkronizálás után a segítőidnél is.",
   "sightingRecorded": "Észlelés rögzítve a pozíciódnál.",
   "noLocationAvailable": "Nincs helyadat — helyette nyomd hosszan a térképet.",
   "moveTo": "Áthelyezés ide",
@@ -273,5 +273,8 @@
   "spotDone": "Értem",
   "spotReplayTitle": "Újdonság-túra",
   "spotReplaySubtitle": "Tippek újbóli megjelenítése minden oldalon",
-  "spotReplayDone": "A tippek újra megjelennek"
+  "spotReplayDone": "A tippek újra megjelennek",
+  "searchNoResults": "Nincs ilyen nevű macska",
+  "syncUnreachable": "A másik készülék nem érhető el. Mindkettő ugyanazon a Wi-Fi-n van?",
+  "folderUnreachable": "A mappa nem érhető el. Megvan még a meghajtó vagy a felhőmappa?"
 }

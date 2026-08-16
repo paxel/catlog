@@ -260,11 +260,16 @@ class _InPersonScreenState extends State<InPersonScreen> {
             ? context.t.syncDeclined
             : context.t.syncFailed(e.message));
       }
-    } catch (e) {
+    } on SocketException {
       if (mounted) {
         final hint =
             Platform.isIOS ? '\n${context.t.iosLocalNetworkHint}' : '';
-        setState(() => _lastResult = context.t.syncFailed('$e$hint'));
+        setState(
+            () => _lastResult = '${context.t.syncUnreachable}$hint');
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _lastResult = context.t.syncFailed('$e'));
       }
     } finally {
       if (mounted) setState(() => _joining = false);

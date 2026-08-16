@@ -29,7 +29,8 @@ class AppLocalizationsSk extends AppLocalizations {
   String get clowders => 'Clowdery';
 
   @override
-  String get noClowdersYet => 'Zatiaľ žiadne clowdery.\nVytvorte prvý nižšie.';
+  String get noClowdersYet =>
+      'Zatiaľ žiadne clowdery. Clowder je miesto, kde mačky žijú — tvoja dočasná starostlivosť, byt osvojiteľa. Založ prvý nižšie.';
 
   @override
   String get strays => 'Túlavé mačky';
@@ -180,7 +181,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka zmizne zo všetkých zoznamov. Jej fotky sa nenávratne vymažú.';
+      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu a po ďalšej synchronizácii aj u tvojich pomocníkov.';
 
   @override
   String get sightingRecorded => 'Pozorovanie zaznamenané na vašej pozícii.';
@@ -933,4 +934,15 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Tipy sa zobrazia znova';
+
+  @override
+  String get searchNoResults => 'Mačka s týmto menom sa nenašla';
+
+  @override
+  String get syncUnreachable =>
+      'Druhé zariadenie je nedostupné. Sú obe na rovnakej Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Priečinok je nedostupný. Existuje ešte disk alebo cloudový priečinok?';
 }

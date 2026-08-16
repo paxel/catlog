@@ -29,7 +29,8 @@ class AppLocalizationsLt extends AppLocalizations {
   String get clowders => 'Klauderiai';
 
   @override
-  String get noClowdersYet => 'Klauderių dar nėra.\nSukurkite pirmąjį žemiau.';
+  String get noClowdersYet =>
+      'Kol kas nėra clowderių. Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas. Sukurk pirmąjį žemiau.';
 
   @override
   String get strays => 'Benamės katės';
@@ -180,7 +181,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katė dingsta iš visų sąrašų. Jos nuotraukos ištrinamos visam laikui.';
+      'Katė dingsta iš visų sąrašų, o jos nuotraukos pašalinamos — čia ir po kito sinchronizavimo pas tavo pagalbininkus.';
 
   @override
   String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
@@ -936,4 +937,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Patarimai bus rodomi vėl';
+
+  @override
+  String get searchNoResults => 'Katės tokiu vardu nerasta';
+
+  @override
+  String get syncUnreachable =>
+      'Nepavyko pasiekti kito įrenginio. Ar abu tame pačiame Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Nepavyko pasiekti aplanko. Ar diskas arba debesies aplankas dar yra?';
 }

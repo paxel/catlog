@@ -6,7 +6,7 @@
   "yourName": "Ditt namn",
   "start": "Börja",
   "clowders": "Clowdrar",
-  "noClowdersYet": "Inga clowdrar ännu.\nSkapa den första nedan.",
+  "noClowdersYet": "Inga clowdrar ännu. En clowder är en plats där katter bor — ditt jourhem, en adoptörs lägenhet. Skapa den första nedan.",
   "strays": "Hemlösa katter",
   "searchCats": "Sök katter",
   "map": "Karta",
@@ -53,7 +53,7 @@
   "deletePhoto": "Radera foto",
   "deletePhotoTitle": "Radera foto?",
   "deletePhotoBody": "Fotodata raderas för alltid — det går inte att ångra.",
-  "deleteCatBody": "Katten försvinner från alla listor. Dess foton raderas för alltid.",
+  "deleteCatBody": "Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synkronisering, även hos dina hjälpare.",
   "sightingRecorded": "Observation sparad på din position.",
   "noLocationAvailable": "Ingen plats tillgänglig — håll in kartan i stället.",
   "moveTo": "Flytta till",
@@ -273,5 +273,8 @@
   "spotDone": "Uppfattat",
   "spotReplayTitle": "Nyhetstur",
   "spotReplaySubtitle": "Visa tipsen igen på varje sida",
-  "spotReplayDone": "Tipsen visas igen"
+  "spotReplayDone": "Tipsen visas igen",
+  "searchNoResults": "Ingen katt hittades med det namnet",
+  "syncUnreachable": "Kunde inte nå den andra enheten. Är båda på samma Wi-Fi?",
+  "folderUnreachable": "Kunde inte nå mappen. Finns enheten eller molnmappen kvar?"
 }

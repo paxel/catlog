@@ -30,7 +30,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Ende nuk ka clowder-ë.\nKrijoni të parin më poshtë.';
+      'Ende asnjë clowder. Clowder është një vend ku jetojnë macet — shtëpia jote e kujdestarisë, banesa e një birësuesi. Krijo të parin më poshtë.';
 
   @override
   String get strays => 'Macet endacake';
@@ -181,7 +181,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Macja zhduket nga të gjitha listat. Fotot e saj fshihen përgjithmonë.';
+      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe te ndihmësit e tu.';
 
   @override
   String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
@@ -937,4 +937,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Këshillat do të shfaqen sërish';
+
+  @override
+  String get searchNoResults => 'Nuk u gjet mace me atë emër';
+
+  @override
+  String get syncUnreachable =>
+      'Pajisja tjetër nuk arrihet. A janë të dyja në të njëjtin Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Dosja nuk arrihet. A ekziston ende disku ose dosja cloud?';
 }

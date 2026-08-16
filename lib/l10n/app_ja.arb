@@ -6,7 +6,7 @@
   "yourName": "あなたの名前",
   "start": "はじめる",
   "clowders": "クラウダー",
-  "noClowdersYet": "まだクラウダーがありません。\n下から最初のひとつを作成してください。",
+  "noClowdersYet": "まだグループがありません。グループとは猫が暮らす場所 — 預かり宅や里親の部屋。下から最初のグループを作りましょう。",
   "strays": "野良猫",
   "searchCats": "猫を検索",
   "map": "地図",
@@ -53,7 +53,7 @@
   "deletePhoto": "写真を削除",
   "deletePhotoTitle": "写真を削除しますか？",
   "deletePhotoBody": "写真データは完全に削除され、元に戻せません。",
-  "deleteCatBody": "猫はすべての一覧から消え、写真は完全に削除されます。",
+  "deleteCatBody": "この猫はすべてのリストから消え、写真も削除されます — この端末でも、次の同期後には仲間の端末でも。",
   "sightingRecorded": "現在地で目撃を記録しました。",
   "noLocationAvailable": "位置情報がありません — 代わりに地図を長押ししてください。",
   "moveTo": "移動先",
@@ -273,5 +273,8 @@
   "spotDone": "OK",
   "spotReplayTitle": "新機能ツアー",
   "spotReplaySubtitle": "各ページでヒントを再表示",
-  "spotReplayDone": "ヒントを再表示します"
+  "spotReplayDone": "ヒントを再表示します",
+  "searchNoResults": "その名前の猫は見つかりません",
+  "syncUnreachable": "相手の端末に接続できません。両方とも同じ Wi-Fi ですか？",
+  "folderUnreachable": "フォルダにアクセスできません。ドライブやクラウドフォルダはまだありますか？"
 }

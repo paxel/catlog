@@ -29,7 +29,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clowders => 'Clowder\'lar';
 
   @override
-  String get noClowdersYet => 'Henüz clowder yok.\nAşağıdan ilkini oluşturun.';
+  String get noClowdersYet =>
+      'Henüz clowder yok. Clowder, kedilerin yaşadığı yerdir — geçici yuvanız, sahiplenen kişinin evi. İlkini aşağıda oluşturun.';
 
   @override
   String get strays => 'Sokak kedileri';
@@ -180,7 +181,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kedi tüm listelerden kaybolur. Fotoğrafları kalıcı olarak silinir.';
+      'Kedi tüm listelerden kaybolur ve fotoğrafları kaldırılır — burada ve bir sonraki eşitlemeden sonra yardımcılarınızın cihazlarında da.';
 
   @override
   String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
@@ -936,4 +937,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'İpuçları yeniden gösterilecek';
+
+  @override
+  String get searchNoResults => 'Bu isimde kedi bulunamadı';
+
+  @override
+  String get syncUnreachable =>
+      'Diğer cihaza ulaşılamadı. İkisi de aynı Wi-Fi\'de mi?';
+
+  @override
+  String get folderUnreachable =>
+      'Klasöre ulaşılamadı. Sürücü veya bulut klasörü hâlâ var mı?';
 }

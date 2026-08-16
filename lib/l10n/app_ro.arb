@@ -6,7 +6,7 @@
   "yourName": "Numele tău",
   "start": "Începe",
   "clowders": "Clowdere",
-  "noClowdersYet": "Încă nu există clowdere.\nCreează-l pe primul mai jos.",
+  "noClowdersYet": "Încă niciun clowder. Un clowder e un loc unde trăiesc pisici — casa ta de plasament, apartamentul unui adoptator. Creează-l pe primul mai jos.",
   "strays": "Pisici fără stăpân",
   "searchCats": "Caută pisici",
   "map": "Hartă",
@@ -53,7 +53,7 @@
   "deletePhoto": "Șterge poza",
   "deletePhotoTitle": "Ștergi poza?",
   "deletePhotoBody": "Datele pozei se șterg definitiv — nu se poate anula.",
-  "deleteCatBody": "Pisica dispare din toate listele. Pozele ei se șterg definitiv.",
+  "deleteCatBody": "Pisica dispare din toate listele și fotografiile ei sunt eliminate — aici și, după următoarea sincronizare, și la ajutoarele tale.",
   "sightingRecorded": "Observație înregistrată la poziția ta.",
   "noLocationAvailable": "Locație indisponibilă — apasă lung pe hartă în schimb.",
   "moveTo": "Mută în",
@@ -273,5 +273,8 @@
   "spotDone": "Am înțeles",
   "spotReplayTitle": "Turul noutăților",
   "spotReplaySubtitle": "Arată indiciile din nou pe fiecare pagină",
-  "spotReplayDone": "Indiciile vor apărea din nou"
+  "spotReplayDone": "Indiciile vor apărea din nou",
+  "searchNoResults": "Nicio pisică găsită cu acest nume",
+  "syncUnreachable": "Celălalt dispozitiv nu poate fi contactat. Sunt ambele pe același Wi-Fi?",
+  "folderUnreachable": "Dosarul nu poate fi accesat. Discul sau dosarul cloud mai există?"
 }

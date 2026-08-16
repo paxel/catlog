@@ -30,7 +30,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Încă nu există clowdere.\nCreează-l pe primul mai jos.';
+      'Încă niciun clowder. Un clowder e un loc unde trăiesc pisici — casa ta de plasament, apartamentul unui adoptator. Creează-l pe primul mai jos.';
 
   @override
   String get strays => 'Pisici fără stăpân';
@@ -181,7 +181,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Pisica dispare din toate listele. Pozele ei se șterg definitiv.';
+      'Pisica dispare din toate listele și fotografiile ei sunt eliminate — aici și, după următoarea sincronizare, și la ajutoarele tale.';
 
   @override
   String get sightingRecorded => 'Observație înregistrată la poziția ta.';
@@ -937,4 +937,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Indiciile vor apărea din nou';
+
+  @override
+  String get searchNoResults => 'Nicio pisică găsită cu acest nume';
+
+  @override
+  String get syncUnreachable =>
+      'Celălalt dispozitiv nu poate fi contactat. Sunt ambele pe același Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Dosarul nu poate fi accesat. Discul sau dosarul cloud mai există?';
 }

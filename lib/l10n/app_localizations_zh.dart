@@ -28,7 +28,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clowders => '猫群';
 
   @override
-  String get noClowdersYet => '还没有猫群。\n在下方创建第一个吧。';
+  String get noClowdersYet => '还没有猫群。猫群是猫居住的地方——你的寄养家庭、领养人的公寓。在下方创建第一个吧。';
 
   @override
   String get strays => '流浪猫';
@@ -177,7 +177,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deletePhotoBody => '照片数据将被永久删除——无法撤销。';
 
   @override
-  String get deleteCatBody => '这只猫会从所有列表中消失，照片将被永久删除。';
+  String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本设备以及下次同步后伙伴们的设备上都是如此。';
 
   @override
   String get sightingRecorded => '已在你的位置记录目击。';
@@ -910,4 +910,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spotReplayDone => '提示将重新显示';
+
+  @override
+  String get searchNoResults => '没有找到这个名字的猫';
+
+  @override
+  String get syncUnreachable => '无法连接另一台设备。两台设备在同一个 Wi-Fi 上吗？';
+
+  @override
+  String get folderUnreachable => '无法访问文件夹。硬盘或云文件夹还在吗？';
 }

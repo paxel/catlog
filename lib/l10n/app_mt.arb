@@ -6,7 +6,7 @@
   "yourName": "Ismek",
   "start": "Ibda",
   "clowders": "Clowders",
-  "noClowdersYet": "Għad m'hemmx clowders.\nOħloq l-ewwel wieħed hawn taħt.",
+  "noClowdersYet": "Għad m'hemmx clowders. Clowder huwa post fejn jgħixu l-qtates — id-dar tal-fostering tiegħek, appartament ta' min jadotta. Oħloq l-ewwel wieħed hawn taħt.",
   "strays": "Qtates tat-triq",
   "searchCats": "Fittex qtates",
   "map": "Mappa",
@@ -53,7 +53,7 @@
   "deletePhoto": "Ħassar ir-ritratt",
   "deletePhotoTitle": "Tħassar ir-ritratt?",
   "deletePhotoBody": "Id-data tar-ritratt titħassar għal dejjem — ma tistax terġa' lura.",
-  "deleteCatBody": "Il-qattus jisparixxi mil-listi kollha. Ir-ritratti tiegħu jitħassru għal dejjem.",
+  "deleteCatBody": "Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sinkronizzazzjoni li jmiss, għand l-għajnuniet tiegħek ukoll.",
   "sightingRecorded": "Id-dehra ġiet irreġistrata fil-pożizzjoni tiegħek.",
   "noLocationAvailable": "M'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.",
   "moveTo": "Mexxi lejn",
@@ -273,5 +273,8 @@
   "spotDone": "Fhimt",
   "spotReplayTitle": "Dawra tal-ġodda",
   "spotReplaySubtitle": "Erġa' uri s-suġġerimenti f'kull paġna",
-  "spotReplayDone": "Is-suġġerimenti jerġgħu jidhru"
+  "spotReplayDone": "Is-suġġerimenti jerġgħu jidhru",
+  "searchNoResults": "Ma nstab l-ebda qattus b'dak l-isem",
+  "syncUnreachable": "Ma setax jintlaħaq l-apparat l-ieħor. It-tnejn fuq l-istess Wi-Fi?",
+  "folderUnreachable": "Ma setgħetx tintlaħaq il-folder. Id-drive jew il-folder tal-cloud għadu hemm?"
 }

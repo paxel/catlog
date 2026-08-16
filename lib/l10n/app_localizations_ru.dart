@@ -29,7 +29,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get clowders => 'Клаудеры';
 
   @override
-  String get noClowdersYet => 'Клаудеров пока нет.\nСоздайте первый ниже.';
+  String get noClowdersYet =>
+      'Клаудеров пока нет. Клаудер — это место, где живут кошки: ваша передержка, квартира усыновителя. Создайте первый ниже.';
 
   @override
   String get strays => 'Бездомные';
@@ -180,7 +181,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Кошка исчезнет из всех списков. Её фото удаляются навсегда.';
+      'Кошка исчезает из всех списков, её фото удаляются — здесь, а после следующей синхронизации и у ваших помощников.';
 
   @override
   String get sightingRecorded => 'Встреча записана в вашей позиции.';
@@ -936,4 +937,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Подсказки появятся снова';
+
+  @override
+  String get searchNoResults => 'Кошка с таким именем не найдена';
+
+  @override
+  String get syncUnreachable =>
+      'Не удалось связаться с другим устройством. Оба ли в одной сети Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Не удалось открыть папку. Диск или облачная папка ещё существует?';
 }

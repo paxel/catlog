@@ -30,7 +30,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Ingen clowdere endnu.\nOpret den første nedenfor.';
+      'Ingen clowdere endnu. En clowder er et sted, hvor katte bor — dit plejehjem, en adoptants lejlighed. Opret den første nedenfor.';
 
   @override
   String get strays => 'Herreløse katte';
@@ -181,7 +181,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katten forsvinder fra alle lister. Dens fotos fjernes for altid.';
+      'Katten forsvinder fra alle lister og dens fotos fjernes — her og, efter næste synkronisering, også hos dine hjælpere.';
 
   @override
   String get sightingRecorded => 'Observation registreret på din position.';
@@ -936,4 +936,15 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Tipsene vises igen';
+
+  @override
+  String get searchNoResults => 'Ingen kat fundet med det navn';
+
+  @override
+  String get syncUnreachable =>
+      'Kunne ikke nå den anden enhed. Er begge på samme Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Kunne ikke nå mappen. Findes drevet eller cloud-mappen stadig?';
 }

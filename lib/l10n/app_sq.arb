@@ -6,7 +6,7 @@
   "yourName": "Emri juaj",
   "start": "Fillo",
   "clowders": "Clowder-ët",
-  "noClowdersYet": "Ende nuk ka clowder-ë.\nKrijoni të parin më poshtë.",
+  "noClowdersYet": "Ende asnjë clowder. Clowder është një vend ku jetojnë macet — shtëpia jote e kujdestarisë, banesa e një birësuesi. Krijo të parin më poshtë.",
   "strays": "Macet endacake",
   "searchCats": "Kërko mace",
   "map": "Harta",
@@ -53,7 +53,7 @@
   "deletePhoto": "Fshi foton",
   "deletePhotoTitle": "Të fshihet fotoja?",
   "deletePhotoBody": "Të dhënat e fotos fshihen përgjithmonë — nuk kthehet mbrapsht.",
-  "deleteCatBody": "Macja zhduket nga të gjitha listat. Fotot e saj fshihen përgjithmonë.",
+  "deleteCatBody": "Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe te ndihmësit e tu.",
   "sightingRecorded": "Vëzhgimi u regjistrua në pozicionin tuaj.",
   "noLocationAvailable": "Vendndodhja s'është e disponueshme — mbani shtypur hartën në vend të saj.",
   "moveTo": "Zhvendos te",
@@ -273,5 +273,8 @@
   "spotDone": "Kuptova",
   "spotReplayTitle": "Turi i risive",
   "spotReplaySubtitle": "Shfaq këshillat sërish në çdo faqe",
-  "spotReplayDone": "Këshillat do të shfaqen sërish"
+  "spotReplayDone": "Këshillat do të shfaqen sërish",
+  "searchNoResults": "Nuk u gjet mace me atë emër",
+  "syncUnreachable": "Pajisja tjetër nuk arrihet. A janë të dyja në të njëjtin Wi-Fi?",
+  "folderUnreachable": "Dosja nuk arrihet. A ekziston ende disku ose dosja cloud?"
 }

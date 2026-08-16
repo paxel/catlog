@@ -30,7 +30,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Pas encore de clowder.\nCrée le premier ci-dessous.';
+      'Pas encore de clowder. Un clowder est un lieu où vivent des chats — votre famille d\'accueil, l\'appartement d\'un adoptant. Créez le premier ci-dessous.';
 
   @override
   String get strays => 'Chats errants';
@@ -181,7 +181,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Le chat disparaît de toutes les listes. Ses photos sont supprimées définitivement.';
+      'Le chat disparaît de toutes les listes et ses photos sont supprimées — ici et, après la prochaine synchronisation, chez vos aides aussi.';
 
   @override
   String get sightingRecorded => 'Observation enregistrée à ta position.';
@@ -940,4 +940,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Les astuces s\'afficheront à nouveau';
+
+  @override
+  String get searchNoResults => 'Aucun chat trouvé avec ce nom';
+
+  @override
+  String get syncUnreachable =>
+      'Impossible de joindre l\'autre appareil. Sont-ils sur le même Wi-Fi ?';
+
+  @override
+  String get folderUnreachable =>
+      'Impossible d\'accéder au dossier. Le disque ou le dossier cloud existe-t-il encore ?';
 }

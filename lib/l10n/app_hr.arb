@@ -6,7 +6,7 @@
   "yourName": "Vaše ime",
   "start": "Počni",
   "clowders": "Clowderi",
-  "noClowdersYet": "Još nema clowdera.\nStvorite prvi ispod.",
+  "noClowdersYet": "Još nema clowdera. Clowder je mjesto gdje mačke žive — tvoj udomiteljski dom, stan posvojitelja. Stvori prvi ispod.",
   "strays": "Lutalice",
   "searchCats": "Traži mačke",
   "map": "Karta",
@@ -53,7 +53,7 @@
   "deletePhoto": "Izbriši fotografiju",
   "deletePhotoTitle": "Izbrisati fotografiju?",
   "deletePhotoBody": "Podaci fotografije trajno se brišu — nema povratka.",
-  "deleteCatBody": "Mačka nestaje sa svih popisa. Njezine fotografije trajno se brišu.",
+  "deleteCatBody": "Mačka nestaje sa svih popisa i njezine se fotografije uklanjaju — ovdje i, nakon sljedeće sinkronizacije, kod tvojih pomoćnika.",
   "sightingRecorded": "Viđenje zabilježeno na vašoj poziciji.",
   "noLocationAvailable": "Lokacija nedostupna — umjesto toga dugo pritisnite kartu.",
   "moveTo": "Premjesti u",
@@ -273,5 +273,8 @@
   "spotDone": "Jasno",
   "spotReplayTitle": "Tura kroz novosti",
   "spotReplaySubtitle": "Ponovno prikaži savjete na svakoj stranici",
-  "spotReplayDone": "Savjeti će se ponovno prikazati"
+  "spotReplayDone": "Savjeti će se ponovno prikazati",
+  "searchNoResults": "Nije pronađena mačka s tim imenom",
+  "syncUnreachable": "Drugi uređaj nije dostupan. Jesu li oba na istom Wi-Fi-ju?",
+  "folderUnreachable": "Mapa nije dostupna. Postoji li još disk ili cloud mapa?"
 }

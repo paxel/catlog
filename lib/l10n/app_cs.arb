@@ -6,7 +6,7 @@
   "yourName": "Vaše jméno",
   "start": "Začít",
   "clowders": "Clowdery",
-  "noClowdersYet": "Zatím žádné clowdery.\nVytvořte první níže.",
+  "noClowdersYet": "Zatím žádné clowdery. Clowder je místo, kde kočky žijí — tvoje dočasná péče, byt osvojitele. Založ první níže.",
   "strays": "Toulavé kočky",
   "searchCats": "Hledat kočky",
   "map": "Mapa",
@@ -53,7 +53,7 @@
   "deletePhoto": "Smazat fotku",
   "deletePhotoTitle": "Smazat fotku?",
   "deletePhotoBody": "Data fotky se nenávratně smažou — nelze vzít zpět.",
-  "deleteCatBody": "Kočka zmizí ze všech seznamů. Její fotky se nenávratně smažou.",
+  "deleteCatBody": "Kočka zmizí ze všech seznamů a její fotky se odstraní — tady a po další synchronizaci i u tvých pomocníků.",
   "sightingRecorded": "Pozorování zaznamenáno na vaší pozici.",
   "noLocationAvailable": "Poloha není k dispozici — místo toho podržte prst na mapě.",
   "moveTo": "Přesunout do",
@@ -273,5 +273,8 @@
   "spotDone": "Rozumím",
   "spotReplayTitle": "Prohlídka novinek",
   "spotReplaySubtitle": "Znovu ukázat tipy na každé stránce",
-  "spotReplayDone": "Tipy se znovu zobrazí"
+  "spotReplayDone": "Tipy se znovu zobrazí",
+  "searchNoResults": "Kočka s tímto jménem nenalezena",
+  "syncUnreachable": "Druhé zařízení není dosažitelné. Jsou obě na stejné Wi-Fi?",
+  "folderUnreachable": "Složka není dosažitelná. Existuje ještě disk nebo cloudová složka?"
 }

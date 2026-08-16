@@ -6,7 +6,7 @@
   "yourName": "Navnet ditt",
   "start": "Start",
   "clowders": "Clowdere",
-  "noClowdersYet": "Ingen clowdere ennå.\nOpprett den første nedenfor.",
+  "noClowdersYet": "Ingen clowdere ennå. En clowder er et sted der katter bor — fosterhjemmet ditt, leiligheten til en adoptant. Opprett den første nedenfor.",
   "strays": "Hjemløse katter",
   "searchCats": "Søk etter katter",
   "map": "Kart",
@@ -53,7 +53,7 @@
   "deletePhoto": "Slett bilde",
   "deletePhotoTitle": "Slette bildet?",
   "deletePhotoBody": "Bildedataene fjernes for alltid — det kan ikke angres.",
-  "deleteCatBody": "Katten forsvinner fra alle lister. Bildene dens fjernes for alltid.",
+  "deleteCatBody": "Katten forsvinner fra alle lister og bildene fjernes — her og, etter neste synkronisering, også hos hjelperne dine.",
   "sightingRecorded": "Observasjon registrert på posisjonen din.",
   "noLocationAvailable": "Ingen posisjon tilgjengelig — hold inne kartet i stedet.",
   "moveTo": "Flytt til",
@@ -273,5 +273,8 @@
   "spotDone": "Skjønner",
   "spotReplayTitle": "Nyhetstur",
   "spotReplaySubtitle": "Vis tipsene igjen på hver side",
-  "spotReplayDone": "Tipsene vises igjen"
+  "spotReplayDone": "Tipsene vises igjen",
+  "searchNoResults": "Ingen katt funnet med det navnet",
+  "syncUnreachable": "Fikk ikke kontakt med den andre enheten. Er begge på samme Wi-Fi?",
+  "folderUnreachable": "Fikk ikke tilgang til mappen. Finnes disken eller skymappen fortsatt?"
 }

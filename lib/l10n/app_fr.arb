@@ -6,7 +6,7 @@
   "yourName": "Ton nom",
   "start": "Commencer",
   "clowders": "Clowders",
-  "noClowdersYet": "Pas encore de clowder.\nCrée le premier ci-dessous.",
+  "noClowdersYet": "Pas encore de clowder. Un clowder est un lieu où vivent des chats — votre famille d'accueil, l'appartement d'un adoptant. Créez le premier ci-dessous.",
   "strays": "Chats errants",
   "searchCats": "Chercher des chats",
   "map": "Carte",
@@ -53,7 +53,7 @@
   "deletePhoto": "Supprimer la photo",
   "deletePhotoTitle": "Supprimer la photo ?",
   "deletePhotoBody": "Les données de la photo sont supprimées définitivement — c'est irréversible.",
-  "deleteCatBody": "Le chat disparaît de toutes les listes. Ses photos sont supprimées définitivement.",
+  "deleteCatBody": "Le chat disparaît de toutes les listes et ses photos sont supprimées — ici et, après la prochaine synchronisation, chez vos aides aussi.",
   "sightingRecorded": "Observation enregistrée à ta position.",
   "noLocationAvailable": "Pas de position disponible — appuie longuement sur la carte à la place.",
   "moveTo": "Déplacer vers",
@@ -273,5 +273,8 @@
   "spotDone": "Compris",
   "spotReplayTitle": "Visite des nouveautés",
   "spotReplaySubtitle": "Réafficher les astuces sur chaque page",
-  "spotReplayDone": "Les astuces s'afficheront à nouveau"
+  "spotReplayDone": "Les astuces s'afficheront à nouveau",
+  "searchNoResults": "Aucun chat trouvé avec ce nom",
+  "syncUnreachable": "Impossible de joindre l'autre appareil. Sont-ils sur le même Wi-Fi ?",
+  "folderUnreachable": "Impossible d'accéder au dossier. Le disque ou le dossier cloud existe-t-il encore ?"
 }

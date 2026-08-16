@@ -30,7 +30,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Δεν υπάρχουν ομάδες ακόμα.\nΔημιουργήστε την πρώτη παρακάτω.';
+      'Κανένα clowder ακόμη. Το clowder είναι ένα μέρος όπου ζουν γάτες — το ανάδοχο σπίτι σου, το διαμέρισμα ενός υιοθέτη. Φτιάξε το πρώτο παρακάτω.';
 
   @override
   String get strays => 'Αδέσποτα';
@@ -181,7 +181,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Η γάτα εξαφανίζεται από όλες τις λίστες. Οι φωτογραφίες της διαγράφονται οριστικά.';
+      'Η γάτα εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες της αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στους βοηθούς σου.';
 
   @override
   String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
@@ -937,4 +937,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Οι οδηγίες θα εμφανιστούν ξανά';
+
+  @override
+  String get searchNoResults => 'Δεν βρέθηκε γάτα με αυτό το όνομα';
+
+  @override
+  String get syncUnreachable =>
+      'Αδύνατη η σύνδεση με την άλλη συσκευή. Είναι και οι δύο στο ίδιο Wi-Fi;';
+
+  @override
+  String get folderUnreachable =>
+      'Αδύνατη η πρόσβαση στον φάκελο. Υπάρχει ακόμη ο δίσκος ή ο φάκελος cloud;';
 }

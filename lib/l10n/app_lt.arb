@@ -6,7 +6,7 @@
   "yourName": "Jūsų vardas",
   "start": "Pradėti",
   "clowders": "Klauderiai",
-  "noClowdersYet": "Klauderių dar nėra.\nSukurkite pirmąjį žemiau.",
+  "noClowdersYet": "Kol kas nėra clowderių. Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas. Sukurk pirmąjį žemiau.",
   "strays": "Benamės katės",
   "searchCats": "Ieškoti kačių",
   "map": "Žemėlapis",
@@ -53,7 +53,7 @@
   "deletePhoto": "Ištrinti nuotrauką",
   "deletePhotoTitle": "Ištrinti nuotrauką?",
   "deletePhotoBody": "Nuotraukos duomenys ištrinami visam laikui — atšaukti negalima.",
-  "deleteCatBody": "Katė dingsta iš visų sąrašų. Jos nuotraukos ištrinamos visam laikui.",
+  "deleteCatBody": "Katė dingsta iš visų sąrašų, o jos nuotraukos pašalinamos — čia ir po kito sinchronizavimo pas tavo pagalbininkus.",
   "sightingRecorded": "Pastebėjimas įrašytas jūsų pozicijoje.",
   "noLocationAvailable": "Vietos nėra — vietoj to palaikykite nuspaudę žemėlapį.",
   "moveTo": "Perkelti į",
@@ -273,5 +273,8 @@
   "spotDone": "Supratau",
   "spotReplayTitle": "Naujienų turas",
   "spotReplaySubtitle": "Vėl rodyti patarimus kiekviename puslapyje",
-  "spotReplayDone": "Patarimai bus rodomi vėl"
+  "spotReplayDone": "Patarimai bus rodomi vėl",
+  "searchNoResults": "Katės tokiu vardu nerasta",
+  "syncUnreachable": "Nepavyko pasiekti kito įrenginio. Ar abu tame pačiame Wi-Fi?",
+  "folderUnreachable": "Nepavyko pasiekti aplanko. Ar diskas arba debesies aplankas dar yra?"
 }

@@ -29,7 +29,8 @@ class AppLocalizationsFa extends AppLocalizations {
   String get clowders => 'گروه‌ها';
 
   @override
-  String get noClowdersYet => 'هنوز گروهی نیست.\nاولین را در پایین بسازید.';
+  String get noClowdersYet =>
+      'هنوز گروهی نیست. گروه جایی است که گربه‌ها زندگی می‌کنند — خانه موقت شما، آپارتمان سرپرست. اولی را در پایین بسازید.';
 
   @override
   String get strays => 'گربه‌های ولگرد';
@@ -180,7 +181,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'گربه از همهٔ فهرست‌ها ناپدید می‌شود و عکس‌هایش برای همیشه پاک می‌شوند.';
+      'گربه از همه فهرست‌ها ناپدید می‌شود و عکس‌هایش حذف می‌شوند — اینجا و پس از همگام‌سازی بعدی، در دستگاه یارانتان هم.';
 
   @override
   String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
@@ -934,4 +935,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'راهنماها دوباره نمایش داده می‌شوند';
+
+  @override
+  String get searchNoResults => 'گربه‌ای با این نام یافت نشد';
+
+  @override
+  String get syncUnreachable =>
+      'دستگاه دیگر در دسترس نیست. آیا هر دو در یک Wi-Fi هستند؟';
+
+  @override
+  String get folderUnreachable =>
+      'پوشه در دسترس نیست. آیا درایو یا پوشه ابری هنوز وجود دارد؟';
 }

@@ -29,7 +29,8 @@ class AppLocalizationsBg extends AppLocalizations {
   String get clowders => 'Клаудери';
 
   @override
-  String get noClowdersYet => 'Още няма клаудери.\nСъздайте първия по-долу.';
+  String get noClowdersYet =>
+      'Още няма клаудъри. Клаудърът е място, където живеят котки — приемният ти дом, жилището на осиновител. Създай първия по-долу.';
 
   @override
   String get strays => 'Бездомни котки';
@@ -180,7 +181,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Котката изчезва от всички списъци. Снимките ѝ се изтриват завинаги.';
+      'Котката изчезва от всички списъци и снимките ѝ се премахват — тук и след следващата синхронизация и при помощниците ти.';
 
   @override
   String get sightingRecorded => 'Забелязването е записано на вашата позиция.';
@@ -936,4 +937,15 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Подсказките ще се покажат отново';
+
+  @override
+  String get searchNoResults => 'Няма котка с това име';
+
+  @override
+  String get syncUnreachable =>
+      'Другото устройство е недостъпно. И двете ли са в една Wi-Fi мрежа?';
+
+  @override
+  String get folderUnreachable =>
+      'Папката е недостъпна. Дискът или облачната папка още ли съществува?';
 }

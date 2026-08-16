@@ -29,7 +29,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get clowders => 'קבוצות';
 
   @override
-  String get noClowdersYet => 'אין עדיין קבוצות.\nצרו את הראשונה למטה.';
+  String get noClowdersYet =>
+      'אין עדיין קבוצות. קבוצה היא מקום שבו חתולים גרים — בית האומנה שלך, דירת מאמץ. צרו את הראשונה למטה.';
 
   @override
   String get strays => 'חתולי רחוב';
@@ -179,7 +180,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'החתול ייעלם מכל הרשימות. תמונותיו נמחקות לצמיתות.';
+      'החתול נעלם מכל הרשימות ותמונותיו מוסרות — כאן, ואחרי הסנכרון הבא גם אצל העוזרים שלך.';
 
   @override
   String get sightingRecorded => 'התצפית נרשמה במיקומך.';
@@ -927,4 +928,15 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'הרמזים יוצגו שוב';
+
+  @override
+  String get searchNoResults => 'לא נמצא חתול בשם הזה';
+
+  @override
+  String get syncUnreachable =>
+      'אין גישה למכשיר השני. האם שניהם באותה רשת Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'אין גישה לתיקייה. האם הכונן או תיקיית הענן עדיין קיימים?';
 }

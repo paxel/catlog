@@ -6,7 +6,7 @@
   "yourName": "Jūsu vārds",
   "start": "Sākt",
   "clowders": "Klauderi",
-  "noClowdersYet": "Klauderu vēl nav.\nIzveidojiet pirmo zemāk.",
+  "noClowdersYet": "Vēl nav neviena clowdera. Clowder ir vieta, kur dzīvo kaķi — tavas pagaidu mājas, adoptētāja dzīvoklis. Izveido pirmo zemāk.",
   "strays": "Klaiņojošie kaķi",
   "searchCats": "Meklēt kaķus",
   "map": "Karte",
@@ -53,7 +53,7 @@
   "deletePhoto": "Dzēst fotoattēlu",
   "deletePhotoTitle": "Dzēst fotoattēlu?",
   "deletePhotoBody": "Fotoattēla dati tiek dzēsti neatgriezeniski — to nevar atsaukt.",
-  "deleteCatBody": "Kaķis pazūd no visiem sarakstiem. Tā fotoattēli tiek dzēsti neatgriezeniski.",
+  "deleteCatBody": "Kaķis pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī pie taviem palīgiem.",
   "sightingRecorded": "Novērojums ierakstīts jūsu pozīcijā.",
   "noLocationAvailable": "Atrašanās vieta nav pieejama — tā vietā turiet nospiestu karti.",
   "moveTo": "Pārvietot uz",
@@ -273,5 +273,8 @@
   "spotDone": "Skaidrs",
   "spotReplayTitle": "Jaunumu tūre",
   "spotReplaySubtitle": "Rādīt padomus atkal katrā lapā",
-  "spotReplayDone": "Padomi tiks rādīti atkal"
+  "spotReplayDone": "Padomi tiks rādīti atkal",
+  "searchNoResults": "Kaķis ar šādu vārdu nav atrasts",
+  "syncUnreachable": "Neizdevās sasniegt otru ierīci. Vai abas ir vienā Wi-Fi tīklā?",
+  "folderUnreachable": "Neizdevās sasniegt mapi. Vai disks vai mākoņa mape vēl pastāv?"
 }

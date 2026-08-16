@@ -6,7 +6,7 @@
   "yourName": "Sinu nimi",
   "start": "Alusta",
   "clowders": "Klaudrid",
-  "noClowdersYet": "Klaudreid pole veel.\nLoo esimene allpool.",
+  "noClowdersYet": "Veel pole ühtegi clowderit. Clowder on koht, kus kassid elavad — sinu hoiukodu, lapsendaja korter. Loo esimene allpool.",
   "strays": "Hulkuvad kassid",
   "searchCats": "Otsi kasse",
   "map": "Kaart",
@@ -53,7 +53,7 @@
   "deletePhoto": "Kustuta foto",
   "deletePhotoTitle": "Kustutada foto?",
   "deletePhotoBody": "Foto andmed kustutatakse jäädavalt — seda ei saa tagasi võtta.",
-  "deleteCatBody": "Kass kaob kõigist loenditest. Tema fotod kustutatakse jäädavalt.",
+  "deleteCatBody": "Kass kaob kõigist nimekirjadest ja tema fotod eemaldatakse — siin ja pärast järgmist sünkroonimist ka su abiliste seadmetes.",
   "sightingRecorded": "Vaatlus salvestatud sinu asukohas.",
   "noLocationAvailable": "Asukoht pole saadaval — hoia selle asemel kaarti all.",
   "moveTo": "Liiguta",
@@ -273,5 +273,8 @@
   "spotDone": "Selge",
   "spotReplayTitle": "Uuenduste tuur",
   "spotReplaySubtitle": "Näita vihjeid igal lehel uuesti",
-  "spotReplayDone": "Vihjed kuvatakse uuesti"
+  "spotReplayDone": "Vihjed kuvatakse uuesti",
+  "searchNoResults": "Selle nimega kassi ei leitud",
+  "syncUnreachable": "Teist seadet ei õnnestunud kätte saada. Kas mõlemad on samas Wi-Fi võrgus?",
+  "folderUnreachable": "Kausta ei õnnestunud kätte saada. Kas ketas või pilvekaust on veel olemas?"
 }

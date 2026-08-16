@@ -6,7 +6,7 @@
   "yourName": "Nafnið þitt",
   "start": "Byrja",
   "clowders": "Clowder-hópar",
-  "noClowdersYet": "Engir hópar ennþá.\nBúðu til þann fyrsta hér fyrir neðan.",
+  "noClowdersYet": "Engir clowderar enn. Clowder er staður þar sem kettir búa — fósturheimilið þitt, íbúð ættleiðanda. Búðu til þann fyrsta hér fyrir neðan.",
   "strays": "Flækingskettir",
   "searchCats": "Leita að köttum",
   "map": "Kort",
@@ -53,7 +53,7 @@
   "deletePhoto": "Eyða mynd",
   "deletePhotoTitle": "Eyða myndinni?",
   "deletePhotoBody": "Myndgögnunum er eytt varanlega — það er ekki hægt að afturkalla.",
-  "deleteCatBody": "Kötturinn hverfur af öllum listum. Myndum hans er eytt varanlega.",
+  "deleteCatBody": "Kötturinn hverfur af öllum listum og myndir hans fjarlægðar — hér og, eftir næstu samstillingu, líka hjá hjálparfólkinu þínu.",
   "sightingRecorded": "Skráð að kötturinn sást á staðsetningu þinni.",
   "noLocationAvailable": "Engin staðsetning — haltu þess í stað fingri á kortinu.",
   "moveTo": "Færa í",
@@ -273,5 +273,8 @@
   "spotDone": "Skilið",
   "spotReplayTitle": "Nýjungaferð",
   "spotReplaySubtitle": "Sýna ábendingar aftur á hverri síðu",
-  "spotReplayDone": "Ábendingarnar birtast aftur"
+  "spotReplayDone": "Ábendingarnar birtast aftur",
+  "searchNoResults": "Enginn köttur fannst með þessu nafni",
+  "syncUnreachable": "Náðist ekki í hitt tækið. Eru bæði á sama Wi-Fi?",
+  "folderUnreachable": "Náðist ekki í möppuna. Er drifið eða skýjamappan enn til?"
 }

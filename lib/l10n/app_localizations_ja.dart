@@ -28,7 +28,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clowders => 'クラウダー';
 
   @override
-  String get noClowdersYet => 'まだクラウダーがありません。\n下から最初のひとつを作成してください。';
+  String get noClowdersYet =>
+      'まだグループがありません。グループとは猫が暮らす場所 — 預かり宅や里親の部屋。下から最初のグループを作りましょう。';
 
   @override
   String get strays => '野良猫';
@@ -177,7 +178,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deletePhotoBody => '写真データは完全に削除され、元に戻せません。';
 
   @override
-  String get deleteCatBody => '猫はすべての一覧から消え、写真は完全に削除されます。';
+  String get deleteCatBody =>
+      'この猫はすべてのリストから消え、写真も削除されます — この端末でも、次の同期後には仲間の端末でも。';
 
   @override
   String get sightingRecorded => '現在地で目撃を記録しました。';
@@ -915,4 +917,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'ヒントを再表示します';
+
+  @override
+  String get searchNoResults => 'その名前の猫は見つかりません';
+
+  @override
+  String get syncUnreachable => '相手の端末に接続できません。両方とも同じ Wi-Fi ですか？';
+
+  @override
+  String get folderUnreachable => 'フォルダにアクセスできません。ドライブやクラウドフォルダはまだありますか？';
 }

@@ -30,7 +30,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noClowdersYet =>
-      'Engir hópar ennþá.\nBúðu til þann fyrsta hér fyrir neðan.';
+      'Engir clowderar enn. Clowder er staður þar sem kettir búa — fósturheimilið þitt, íbúð ættleiðanda. Búðu til þann fyrsta hér fyrir neðan.';
 
   @override
   String get strays => 'Flækingskettir';
@@ -181,7 +181,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kötturinn hverfur af öllum listum. Myndum hans er eytt varanlega.';
+      'Kötturinn hverfur af öllum listum og myndir hans fjarlægðar — hér og, eftir næstu samstillingu, líka hjá hjálparfólkinu þínu.';
 
   @override
   String get sightingRecorded =>
@@ -938,4 +938,15 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Ábendingarnar birtast aftur';
+
+  @override
+  String get searchNoResults => 'Enginn köttur fannst með þessu nafni';
+
+  @override
+  String get syncUnreachable =>
+      'Náðist ekki í hitt tækið. Eru bæði á sama Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Náðist ekki í möppuna. Er drifið eða skýjamappan enn til?';
 }

@@ -29,7 +29,8 @@ class AppLocalizationsSv extends AppLocalizations {
   String get clowders => 'Clowdrar';
 
   @override
-  String get noClowdersYet => 'Inga clowdrar ännu.\nSkapa den första nedan.';
+  String get noClowdersYet =>
+      'Inga clowdrar ännu. En clowder är en plats där katter bor — ditt jourhem, en adoptörs lägenhet. Skapa den första nedan.';
 
   @override
   String get strays => 'Hemlösa katter';
@@ -180,7 +181,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katten försvinner från alla listor. Dess foton raderas för alltid.';
+      'Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synkronisering, även hos dina hjälpare.';
 
   @override
   String get sightingRecorded => 'Observation sparad på din position.';
@@ -934,4 +935,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Tipsen visas igen';
+
+  @override
+  String get searchNoResults => 'Ingen katt hittades med det namnet';
+
+  @override
+  String get syncUnreachable =>
+      'Kunde inte nå den andra enheten. Är båda på samma Wi-Fi?';
+
+  @override
+  String get folderUnreachable =>
+      'Kunde inte nå mappen. Finns enheten eller molnmappen kvar?';
 }

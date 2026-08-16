@@ -6,7 +6,7 @@
   "yourName": "Adınız",
   "start": "Başla",
   "clowders": "Clowder'lar",
-  "noClowdersYet": "Henüz clowder yok.\nAşağıdan ilkini oluşturun.",
+  "noClowdersYet": "Henüz clowder yok. Clowder, kedilerin yaşadığı yerdir — geçici yuvanız, sahiplenen kişinin evi. İlkini aşağıda oluşturun.",
   "strays": "Sokak kedileri",
   "searchCats": "Kedi ara",
   "map": "Harita",
@@ -53,7 +53,7 @@
   "deletePhoto": "Fotoğrafı sil",
   "deletePhotoTitle": "Fotoğraf silinsin mi?",
   "deletePhotoBody": "Fotoğraf verileri kalıcı olarak silinir — geri alınamaz.",
-  "deleteCatBody": "Kedi tüm listelerden kaybolur. Fotoğrafları kalıcı olarak silinir.",
+  "deleteCatBody": "Kedi tüm listelerden kaybolur ve fotoğrafları kaldırılır — burada ve bir sonraki eşitlemeden sonra yardımcılarınızın cihazlarında da.",
   "sightingRecorded": "Görülme, konumunuzda kaydedildi.",
   "noLocationAvailable": "Konum alınamadı — bunun yerine haritaya uzun basın.",
   "moveTo": "Şuraya taşı",
@@ -273,5 +273,8 @@
   "spotDone": "Anladım",
   "spotReplayTitle": "Yenilik turu",
   "spotReplaySubtitle": "İpuçlarını her sayfada yeniden göster",
-  "spotReplayDone": "İpuçları yeniden gösterilecek"
+  "spotReplayDone": "İpuçları yeniden gösterilecek",
+  "searchNoResults": "Bu isimde kedi bulunamadı",
+  "syncUnreachable": "Diğer cihaza ulaşılamadı. İkisi de aynı Wi-Fi'de mi?",
+  "folderUnreachable": "Klasöre ulaşılamadı. Sürücü veya bulut klasörü hâlâ var mı?"
 }

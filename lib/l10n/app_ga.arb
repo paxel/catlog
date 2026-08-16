@@ -6,7 +6,7 @@
   "yourName": "D'ainm",
   "start": "Tosaigh",
   "clowders": "Clowdair",
-  "noClowdersYet": "Níl aon chlowdar fós.\nCruthaigh an chéad cheann thíos.",
+  "noClowdersYet": "Níl clowder ar bith fós. Áit é clowder ina gcónaíonn cait — do theach altrama, árasán uchtaitheora. Cruthaigh an chéad cheann thíos.",
   "strays": "Cait fáin",
   "searchCats": "Cuardaigh cait",
   "map": "Léarscáil",
@@ -53,7 +53,7 @@
   "deletePhoto": "Scrios an grianghraf",
   "deletePhotoTitle": "Scrios an grianghraf?",
   "deletePhotoBody": "Scriostar sonraí an ghrianghraif go deo — ní féidir é a chealú.",
-  "deleteCatBody": "Imíonn an cat de gach liosta. Scriostar a ghrianghraif go deo.",
+  "deleteCatBody": "Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar ghléasanna do chúntóirí freisin.",
   "sightingRecorded": "Feiceáil taifeadta ag do shuíomh.",
   "noLocationAvailable": "Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.",
   "moveTo": "Bog go",
@@ -273,5 +273,8 @@
   "spotDone": "Tuigim",
   "spotReplayTitle": "Turas na nuachta",
   "spotReplaySubtitle": "Taispeáin na leideanna arís ar gach leathanach",
-  "spotReplayDone": "Taispeánfar na leideanna arís"
+  "spotReplayDone": "Taispeánfar na leideanna arís",
+  "searchNoResults": "Níor aimsíodh cat leis an ainm sin",
+  "syncUnreachable": "Níorbh fhéidir an gléas eile a shroicheadh. An bhfuil an bheirt ar an Wi-Fi céanna?",
+  "folderUnreachable": "Níorbh fhéidir an fillteán a shroicheadh. An ann fós don tiomántán nó don fhillteán néil?"
 }

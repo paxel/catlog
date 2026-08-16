@@ -29,7 +29,8 @@ class AppLocalizationsHr extends AppLocalizations {
   String get clowders => 'Clowderi';
 
   @override
-  String get noClowdersYet => 'Još nema clowdera.\nStvorite prvi ispod.';
+  String get noClowdersYet =>
+      'Još nema clowdera. Clowder je mjesto gdje mačke žive — tvoj udomiteljski dom, stan posvojitelja. Stvori prvi ispod.';
 
   @override
   String get strays => 'Lutalice';
@@ -180,7 +181,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka nestaje sa svih popisa. Njezine fotografije trajno se brišu.';
+      'Mačka nestaje sa svih popisa i njezine se fotografije uklanjaju — ovdje i, nakon sljedeće sinkronizacije, kod tvojih pomoćnika.';
 
   @override
   String get sightingRecorded => 'Viđenje zabilježeno na vašoj poziciji.';
@@ -935,4 +936,15 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotReplayDone => 'Savjeti će se ponovno prikazati';
+
+  @override
+  String get searchNoResults => 'Nije pronađena mačka s tim imenom';
+
+  @override
+  String get syncUnreachable =>
+      'Drugi uređaj nije dostupan. Jesu li oba na istom Wi-Fi-ju?';
+
+  @override
+  String get folderUnreachable =>
+      'Mapa nije dostupna. Postoji li još disk ili cloud mapa?';
 }
