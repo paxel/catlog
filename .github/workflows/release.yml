@@ -98,7 +98,7 @@ jobs:
           mv "$d/app-x86_64-release.apk"      "dist/catlog-$v-android-x86_64.apk"
           mv "$d/app-release.apk"             "dist/catlog-$v-android-universal.apk"
           mv build/app/outputs/bundle/release/app-release.aab "dist/catlog-$v-android-playstore.aab"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: android
           path: dist/*
@@ -135,7 +135,7 @@ jobs:
           bundle=$(ls -d build/linux/*/release/bundle | head -1)
           cp packaging/linux/catlog.desktop packaging/linux/catlog-mime.xml "$bundle/"
           tar -C "$bundle" -czf "dist/catlog-$v-linux-${{ matrix.arch }}.tar.gz" .
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: linux-${{ matrix.arch }}
           path: dist/*
@@ -159,7 +159,7 @@ jobs:
           New-Item -ItemType Directory -Force dist | Out-Null
           Compress-Archive -Path build\windows\x64\runner\Release\*, LICENSE-APACHE, LICENSE-MIT `
                            -DestinationPath "dist/catlog-$v-windows-x86_64.zip"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: windows
           path: dist/*
@@ -193,7 +193,7 @@ jobs:
           ln -s /Applications dmgroot/Applications
           hdiutil create -volname "cat(a)log" -srcfolder dmgroot -ov -format UDZO \
             "dist/catlog-$v-macos-${{ matrix.arch }}.dmg"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: macos-${{ matrix.arch }}
           path: dist/*
@@ -206,7 +206,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v7
         with:
           path: dist
           merge-multiple: true
@@ -240,7 +240,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v7
         with:
           path: dist
           merge-multiple: true
