@@ -3,7 +3,7 @@
 All notable changes to cat(a)log are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [SemVer](https://semver.org/).
 
-## [0.1.2] - Unreleased
+## [0.1.2] - 2026-08-17
 
 ### Added
 
