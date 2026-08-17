@@ -190,10 +190,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'הגישה למיקום חסומה. יש לאפשר אותה בהגדרות המערכת כדי להשתמש ב-Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'פתיחת הגדרות';
 
   @override
   String get moveTo => 'העברה אל';
@@ -290,7 +290,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get optionsOnePerLine => 'אפשרויות (אחת בכל שורה)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'ערך משלך';
 
   @override
   String get renameField => 'שינוי שם השדה';
@@ -493,10 +493,37 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterGender => 'מין';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'גזע';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'מעורב';
+
+  @override
+  String get breedEuropeanShorthair => 'אירופאי קצר שיער';
+
+  @override
+  String get breedMaineCoon => 'מיין קון';
+
+  @override
+  String get breedBritishShorthair => 'בריטי קצר שיער';
+
+  @override
+  String get breedNorwegianForestCat => 'חתול יער נורווגי';
+
+  @override
+  String get breedRagdoll => 'רגדול';
+
+  @override
+  String get breedSiamese => 'סיאמי';
+
+  @override
+  String get breedPersian => 'פרסי';
+
+  @override
+  String get breedBengal => 'בנגלי';
+
+  @override
+  String get breedSphynx => 'ספינקס';
 
   @override
   String get starterColor => 'צבע';
@@ -544,7 +571,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get markTitle => 'סימון החתול';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'חיתוך';
 
   @override
   String get useFullPhoto => 'שימוש בתמונה המלאה';
@@ -596,6 +623,11 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'החבילה יובאה: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'הגיבוי האוטומטי האחרון נכשל: $error';
   }
 
   @override

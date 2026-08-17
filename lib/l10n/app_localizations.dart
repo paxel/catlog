@@ -1022,6 +1022,60 @@ abstract class AppLocalizations {
   /// **'mixed'**
   String get valueMixed;
 
+  /// No description provided for @breedEuropeanShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'European Shorthair'**
+  String get breedEuropeanShorthair;
+
+  /// No description provided for @breedMaineCoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Maine Coon'**
+  String get breedMaineCoon;
+
+  /// No description provided for @breedBritishShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'British Shorthair'**
+  String get breedBritishShorthair;
+
+  /// No description provided for @breedNorwegianForestCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Norwegian Forest Cat'**
+  String get breedNorwegianForestCat;
+
+  /// No description provided for @breedRagdoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Ragdoll'**
+  String get breedRagdoll;
+
+  /// No description provided for @breedSiamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Siamese'**
+  String get breedSiamese;
+
+  /// No description provided for @breedPersian.
+  ///
+  /// In en, this message translates to:
+  /// **'Persian'**
+  String get breedPersian;
+
+  /// No description provided for @breedBengal.
+  ///
+  /// In en, this message translates to:
+  /// **'Bengal'**
+  String get breedBengal;
+
+  /// No description provided for @breedSphynx.
+  ///
+  /// In en, this message translates to:
+  /// **'Sphynx'**
+  String get breedSphynx;
+
   /// No description provided for @starterColor.
   ///
   /// In en, this message translates to:
@@ -1213,6 +1267,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bundle imported: {result}'**
   String bundleImported(String result);
+
+  /// No description provided for @lastBackupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Last automatic backup failed: {error}'**
+  String lastBackupFailed(String error);
 
   /// No description provided for @bundleImportFailed.
   ///

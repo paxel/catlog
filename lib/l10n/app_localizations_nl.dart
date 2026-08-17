@@ -192,10 +192,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Locatietoegang is geblokkeerd. Sta het toe in de systeeminstellingen om Stray Cam te gebruiken.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Instellingen openen';
 
   @override
   String get moveTo => 'Verplaatsen naar';
@@ -292,7 +292,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get optionsOnePerLine => 'Opties (één per regel)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Eigen waarde';
 
   @override
   String get renameField => 'Veld hernoemen';
@@ -497,10 +497,37 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterGender => 'Geslacht';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Ras';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'gemengd';
+
+  @override
+  String get breedEuropeanShorthair => 'Europese korthaar';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britse korthaar';
+
+  @override
+  String get breedNorwegianForestCat => 'Noorse boskat';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamees';
+
+  @override
+  String get breedPersian => 'Pers';
+
+  @override
+  String get breedBengal => 'Bengaal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Kleur';
@@ -548,7 +575,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get markTitle => 'Kat markeren';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Bijsnijden';
 
   @override
   String get useFullPhoto => 'Hele foto gebruiken';
@@ -600,6 +627,11 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakket geïmporteerd: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Laatste automatische back-up mislukt: $error';
   }
 
   @override

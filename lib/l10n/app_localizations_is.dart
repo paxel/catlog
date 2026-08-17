@@ -193,10 +193,10 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Aðgangur að staðsetningu er læstur. Leyfðu hann í kerfisstillingum til að nota Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Opna stillingar';
 
   @override
   String get moveTo => 'Færa í';
@@ -293,7 +293,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get optionsOnePerLine => 'Valkostir (einn í línu)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Eigið gildi';
 
   @override
   String get renameField => 'Endurnefna svæði';
@@ -498,10 +498,37 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterGender => 'Kyn';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Tegund';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'blendingur';
+
+  @override
+  String get breedEuropeanShorthair => 'Evrópskt stutthár';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Breskt stutthár';
+
+  @override
+  String get breedNorwegianForestCat => 'Norskur skógarköttur';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Síamsköttur';
+
+  @override
+  String get breedPersian => 'Persaköttur';
+
+  @override
+  String get breedBengal => 'Bengalköttur';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Litur';
@@ -549,7 +576,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get markTitle => 'Merkja köttinn';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Skera';
 
   @override
   String get useFullPhoto => 'Nota alla myndina';
@@ -601,6 +628,11 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakki fluttur inn: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Síðasta sjálfvirka öryggisafritið mistókst: $error';
   }
 
   @override

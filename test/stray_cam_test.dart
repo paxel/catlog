@@ -73,7 +73,7 @@ void main() {
     expect(result, isNull);
     expect(store.cats(), isEmpty,
         reason: 'the cat must only exist once a photo arrived');
-    expect(store.localSetting('strayCamPending'), isEmpty);
+    expect(store.localSetting(strayCamPendingKey), isEmpty);
   });
 
   testWidgets('photo taken: cat with position and image', (tester) async {
@@ -89,7 +89,8 @@ void main() {
 
   testWidgets('killed capture is completed from lost data on next start',
       (tester) async {
-    store.setLocalSetting('strayCamPending', '48.1,11.5,Stray 2026-08-17');
+    store.setLocalSetting(strayCamPendingKey,
+        '{"lat": 48.1, "lon": 11.5, "name": "Stray 2026-08-17"}');
     await tester.runAsync(() => recoverStrayCam(store,
         retrieve: () async =>
             LostDataResponse(file: XFile.fromData(_jpeg()))));
@@ -97,14 +98,26 @@ void main() {
     expect(cat.name, 'Stray 2026-08-17');
     expect(store.positionOf(cat.id), (48.1, 11.5));
     expect(store.images(cat.id), isNotEmpty);
-    expect(store.localSetting('strayCamPending'), isEmpty);
+    expect(store.localSetting(strayCamPendingKey), isEmpty);
+  });
+
+  testWidgets('failed retrieval keeps the parked capture for next start',
+      (tester) async {
+    store.setLocalSetting(strayCamPendingKey,
+        '{"lat": 48.1, "lon": 11.5, "name": "Stray X"}');
+    await tester.runAsync(() => recoverStrayCam(store,
+        retrieve: () async => throw Exception('no channel')));
+    expect(store.cats(), isEmpty);
+    expect(store.localSetting(strayCamPendingKey), isNotEmpty,
+        reason: 'a failed retrieval must not discard the capture');
   });
 
   testWidgets('no lost data: pending marker just clears', (tester) async {
-    store.setLocalSetting('strayCamPending', '48.1,11.5,Stray X');
+    store.setLocalSetting(strayCamPendingKey,
+        '{"lat": 48.1, "lon": 11.5, "name": "Stray X"}');
     await tester.runAsync(() => recoverStrayCam(store,
         retrieve: () async => LostDataResponse()));
     expect(store.cats(), isEmpty);
-    expect(store.localSetting('strayCamPending'), isEmpty);
+    expect(store.localSetting(strayCamPendingKey), isEmpty);
   });
 }

@@ -191,10 +191,10 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Sijainnin käyttö on estetty. Salli se järjestelmäasetuksissa käyttääksesi Stray Camia.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Avaa asetukset';
 
   @override
   String get moveTo => 'Siirrä kohteeseen';
@@ -291,7 +291,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get optionsOnePerLine => 'Vaihtoehdot (yksi per rivi)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Oma arvo';
 
   @override
   String get renameField => 'Nimeä kenttä uudelleen';
@@ -496,10 +496,37 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterGender => 'Sukupuoli';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Rotu';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'sekarotuinen';
+
+  @override
+  String get breedEuropeanShorthair => 'Eurooppalainen lyhytkarva';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brittiläinen lyhytkarva';
+
+  @override
+  String get breedNorwegianForestCat => 'Norjalainen metsäkissa';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamilainen';
+
+  @override
+  String get breedPersian => 'Persialainen';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sfinksi';
 
   @override
   String get starterColor => 'Väri';
@@ -547,7 +574,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get markTitle => 'Merkitse kissa';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Rajaa';
 
   @override
   String get useFullPhoto => 'Käytä koko kuvaa';
@@ -599,6 +626,11 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketti tuotu: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Viimeisin automaattinen varmuuskopio epäonnistui: $error';
   }
 
   @override

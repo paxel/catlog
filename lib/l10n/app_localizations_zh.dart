@@ -186,11 +186,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noLocationAvailable => '无法获取位置——请改为长按地图。';
 
   @override
-  String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+  String get locationDeniedForever => '位置权限已被禁止。请在系统设置中允许，以使用 Stray Cam。';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => '打开设置';
 
   @override
   String get moveTo => '移动到';
@@ -286,7 +285,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get optionsOnePerLine => '选项（每行一个）';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => '自定义值';
 
   @override
   String get renameField => '重命名字段';
@@ -485,10 +484,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterGender => '性别';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => '品种';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => '混种';
+
+  @override
+  String get breedEuropeanShorthair => '欧洲短毛猫';
+
+  @override
+  String get breedMaineCoon => '缅因猫';
+
+  @override
+  String get breedBritishShorthair => '英国短毛猫';
+
+  @override
+  String get breedNorwegianForestCat => '挪威森林猫';
+
+  @override
+  String get breedRagdoll => '布偶猫';
+
+  @override
+  String get breedSiamese => '暹罗猫';
+
+  @override
+  String get breedPersian => '波斯猫';
+
+  @override
+  String get breedBengal => '孟加拉猫';
+
+  @override
+  String get breedSphynx => '斯芬克斯猫';
 
   @override
   String get starterColor => '毛色';
@@ -536,7 +562,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get markTitle => '标记这只猫';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => '裁剪';
 
   @override
   String get useFullPhoto => '使用整张照片';
@@ -587,6 +613,11 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return '已导入同步包：$result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return '上次自动备份失败：$error';
   }
 
   @override

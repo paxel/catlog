@@ -192,10 +192,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Accesul la locație este blocat. Permiteți-l în setările sistemului pentru a folosi Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Deschide setările';
 
   @override
   String get moveTo => 'Mută în';
@@ -292,7 +292,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get optionsOnePerLine => 'Opțiuni (una pe linie)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Valoare proprie';
 
   @override
   String get renameField => 'Redenumește câmpul';
@@ -497,10 +497,37 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterGender => 'Sex';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Rasă';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'metis';
+
+  @override
+  String get breedEuropeanShorthair => 'European cu păr scurt';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanic cu păr scurt';
+
+  @override
+  String get breedNorwegianForestCat => 'Pisică de pădure norvegiană';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siameză';
+
+  @override
+  String get breedPersian => 'Persană';
+
+  @override
+  String get breedBengal => 'Bengaleză';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Culoare';
@@ -548,7 +575,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get markTitle => 'Marchează pisica';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Decupează';
 
   @override
   String get useFullPhoto => 'Folosește toată poza';
@@ -600,6 +627,11 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pachet importat: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Ultima copie de rezervă automată a eșuat: $error';
   }
 
   @override

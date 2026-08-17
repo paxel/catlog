@@ -18,6 +18,21 @@ String fieldDefName(AppLocalizations t, FieldDef def) {
 /// values (yes/no, gender options). Everything else displays as stored.
 String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (value == null) return '—';
+  if (def?.slug == 'breed') {
+    return switch (value) {
+      'European Shorthair' => t.breedEuropeanShorthair,
+      'Maine Coon' => t.breedMaineCoon,
+      'British Shorthair' => t.breedBritishShorthair,
+      'Norwegian Forest Cat' => t.breedNorwegianForestCat,
+      'Ragdoll' => t.breedRagdoll,
+      'Siamese' => t.breedSiamese,
+      'Persian' => t.breedPersian,
+      'Bengal' => t.breedBengal,
+      'Sphynx' => t.breedSphynx,
+      'mixed' => t.valueMixed,
+      _ => value,
+    };
+  }
   switch (value) {
     case 'yes':
       return t.valueYes;
@@ -29,8 +44,6 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
       return def?.slug == 'gender' ? t.valueMale : value;
     case 'unknown':
       return def?.slug == 'gender' ? t.valueUnknown : value;
-    case 'mixed':
-      return def?.slug == 'breed' ? t.valueMixed : value;
   }
   return value;
 }

@@ -191,10 +191,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Достъпът до местоположението е блокиран. Разрешете го в системните настройки, за да използвате Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Отвори настройките';
 
   @override
   String get moveTo => 'Премести в';
@@ -291,7 +291,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get optionsOnePerLine => 'Опции (по една на ред)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Собствена стойност';
 
   @override
   String get renameField => 'Преименувай полето';
@@ -496,10 +496,37 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterGender => 'Пол';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Порода';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'смесена';
+
+  @override
+  String get breedEuropeanShorthair => 'Европейска късокосместа';
+
+  @override
+  String get breedMaineCoon => 'Мейн куун';
+
+  @override
+  String get breedBritishShorthair => 'Британска късокосместа';
+
+  @override
+  String get breedNorwegianForestCat => 'Норвежка горска котка';
+
+  @override
+  String get breedRagdoll => 'Рагдол';
+
+  @override
+  String get breedSiamese => 'Сиамска';
+
+  @override
+  String get breedPersian => 'Персийска';
+
+  @override
+  String get breedBengal => 'Бенгалска';
+
+  @override
+  String get breedSphynx => 'Сфинкс';
 
   @override
   String get starterColor => 'Цвят';
@@ -547,7 +574,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get markTitle => 'Маркирай котката';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Изрязване';
 
   @override
   String get useFullPhoto => 'Използвай цялата снимка';
@@ -599,6 +626,11 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Пакетът е импортиран: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Последното автоматично архивиране се провали: $error';
   }
 
   @override

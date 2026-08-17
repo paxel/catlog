@@ -192,10 +192,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'L\'accès à la position est bloqué. Autorisez-le dans les réglages du système pour utiliser Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Ouvrir les réglages';
 
   @override
   String get moveTo => 'Déplacer vers';
@@ -292,7 +292,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get optionsOnePerLine => 'Options (une par ligne)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Valeur personnalisée';
 
   @override
   String get renameField => 'Renommer le champ';
@@ -497,10 +497,37 @@ class AppLocalizationsFr extends AppLocalizations {
   String get starterGender => 'Sexe';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Race';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'croisé';
+
+  @override
+  String get breedEuropeanShorthair => 'Européen à poil court';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'British Shorthair';
+
+  @override
+  String get breedNorwegianForestCat => 'Chat des forêts norvégiennes';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamois';
+
+  @override
+  String get breedPersian => 'Persan';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Couleur';
@@ -548,7 +575,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get markTitle => 'Marquer le chat';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Rogner';
 
   @override
   String get useFullPhoto => 'Utiliser la photo entière';
@@ -600,6 +627,11 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paquet importé : $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'La dernière sauvegarde automatique a échoué : $error';
   }
 
   @override

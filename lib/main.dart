@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'src/auto_backup.dart';
 import 'src/crash_guard.dart';
+import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
 import 'src/l10n.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -14,7 +15,7 @@ import 'src/screens/clowder_list_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     final dir = await getApplicationSupportDirectory();
@@ -31,6 +32,7 @@ Future<void> main() async {
     markRunning();
     // A Stray Cam capture the OS killed mid-camera completes here.
     unawaited(recoverStrayCam(store));
+    initIncomingFiles(navigatorKey, store, args);
     runApp(CatlogApp(store: store, diedLastRun: diedLastRun));
   }, (error, stack) {
     // Anything that escapes everything else still gets the friendly

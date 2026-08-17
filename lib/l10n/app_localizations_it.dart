@@ -192,10 +192,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'L\'accesso alla posizione è bloccato. Consentilo nelle impostazioni di sistema per usare Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Apri impostazioni';
 
   @override
   String get moveTo => 'Sposta in';
@@ -292,7 +292,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get optionsOnePerLine => 'Opzioni (una per riga)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Valore personalizzato';
 
   @override
   String get renameField => 'Rinomina campo';
@@ -497,10 +497,37 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterGender => 'Sesso';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Razza';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'meticcio';
+
+  @override
+  String get breedEuropeanShorthair => 'Europeo a pelo corto';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'British Shorthair';
+
+  @override
+  String get breedNorwegianForestCat => 'Gatto delle foreste norvegesi';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamese';
+
+  @override
+  String get breedPersian => 'Persiano';
+
+  @override
+  String get breedBengal => 'Bengala';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Colore';
@@ -548,7 +575,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get markTitle => 'Contrassegna il gatto';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Ritaglia';
 
   @override
   String get useFullPhoto => 'Usa la foto intera';
@@ -600,6 +627,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pacchetto importato: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'L\'ultimo backup automatico non è riuscito: $error';
   }
 
   @override

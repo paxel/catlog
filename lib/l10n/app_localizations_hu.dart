@@ -191,10 +191,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'A helyhozzáférés le van tiltva. Engedélyezze a rendszerbeállításokban a Stray Cam használatához.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Beállítások megnyitása';
 
   @override
   String get moveTo => 'Áthelyezés ide';
@@ -291,7 +291,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get optionsOnePerLine => 'Lehetőségek (soronként egy)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Saját érték';
 
   @override
   String get renameField => 'Mező átnevezése';
@@ -496,10 +496,37 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterGender => 'Ivar';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Fajta';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'keverék';
+
+  @override
+  String get breedEuropeanShorthair => 'Európai rövidszőrű';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brit rövidszőrű';
+
+  @override
+  String get breedNorwegianForestCat => 'Norvég erdei macska';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sziámi';
+
+  @override
+  String get breedPersian => 'Perzsa';
+
+  @override
+  String get breedBengal => 'Bengáli';
+
+  @override
+  String get breedSphynx => 'Szfinx';
 
   @override
   String get starterColor => 'Szín';
@@ -547,7 +574,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get markTitle => 'Macska megjelölése';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Kivágás';
 
   @override
   String get useFullPhoto => 'Teljes fotó használata';
@@ -599,6 +626,11 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Csomag importálva: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Az utolsó automatikus biztonsági mentés sikertelen: $error';
   }
 
   @override

@@ -191,10 +191,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Konum erişimi engellendi. Stray Cam kullanmak için sistem ayarlarından izin verin.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Ayarları aç';
 
   @override
   String get moveTo => 'Şuraya taşı';
@@ -291,7 +291,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get optionsOnePerLine => 'Seçenekler (her satıra bir tane)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Kendi değeriniz';
 
   @override
   String get renameField => 'Alanı yeniden adlandır';
@@ -495,10 +495,37 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterGender => 'Cinsiyet';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Irk';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'melez';
+
+  @override
+  String get breedEuropeanShorthair => 'Avrupa kısa tüylü';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'İngiliz kısa tüylü';
+
+  @override
+  String get breedNorwegianForestCat => 'Norveç orman kedisi';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siyam';
+
+  @override
+  String get breedPersian => 'İran kedisi';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sfenks';
 
   @override
   String get starterColor => 'Renk';
@@ -546,7 +573,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get markTitle => 'Kediyi işaretle';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Kırp';
 
   @override
   String get useFullPhoto => 'Fotoğrafın tamamını kullan';
@@ -598,6 +625,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket içe aktarıldı: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Son otomatik yedekleme başarısız oldu: $error';
   }
 
   @override

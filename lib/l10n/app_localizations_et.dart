@@ -191,10 +191,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Juurdepääs asukohale on blokeeritud. Luba see süsteemi seadetes, et kasutada Stray Cami.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Ava seaded';
 
   @override
   String get moveTo => 'Liiguta';
@@ -291,7 +291,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get optionsOnePerLine => 'Valikud (üks rea kohta)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Oma väärtus';
 
   @override
   String get renameField => 'Nimeta väli ümber';
@@ -495,10 +495,37 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterGender => 'Sugu';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Tõug';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'segavereline';
+
+  @override
+  String get breedEuropeanShorthair => 'Euroopa lühikarvaline';
+
+  @override
+  String get breedMaineCoon => 'Maine kass';
+
+  @override
+  String get breedBritishShorthair => 'Briti lühikarvaline';
+
+  @override
+  String get breedNorwegianForestCat => 'Norra metskass';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siiami';
+
+  @override
+  String get breedPersian => 'Pärsia';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sfinks';
 
   @override
   String get starterColor => 'Värv';
@@ -546,7 +573,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get markTitle => 'Märgi kass';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Kärbi';
 
   @override
   String get useFullPhoto => 'Kasuta tervet fotot';
@@ -598,6 +625,11 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakett imporditud: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Viimane automaatne varundus ebaõnnestus: $error';
   }
 
   @override

@@ -310,6 +310,18 @@ class _SyncScreenState extends State<SyncScreen> {
               ),
             ),
           ]),
+          // The auto-backup runs silently on pause; a failure is only
+          // discoverable here, next to the restore button it affects.
+          if ((widget.store.localSetting('lastBackupError') ?? '')
+              .isNotEmpty) ...[
+            const SizedBox(height: 12),
+            Text(
+              t.lastBackupFailed(
+                  widget.store.localSetting('lastBackupError')!),
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.error),
+            ),
+          ],
         ],
       ),
     );

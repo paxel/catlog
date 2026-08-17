@@ -192,10 +192,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Qasja në vendndodhje është e bllokuar. Lejojeni në cilësimet e sistemit për të përdorur Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Hap cilësimet';
 
   @override
   String get moveTo => 'Zhvendos te';
@@ -292,7 +292,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get optionsOnePerLine => 'Opsionet (një për rresht)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Vlerë e vetja';
 
   @override
   String get renameField => 'Riemërto fushën';
@@ -497,10 +497,37 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterGender => 'Gjinia';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Raca';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'i përzier';
+
+  @override
+  String get breedEuropeanShorthair => 'Evropiane fleshkurtër';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanike fleshkurtër';
+
+  @override
+  String get breedNorwegianForestCat => 'Macja e pyllit norvegjez';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siameze';
+
+  @override
+  String get breedPersian => 'Persiane';
+
+  @override
+  String get breedBengal => 'Bengale';
+
+  @override
+  String get breedSphynx => 'Sfinks';
 
   @override
   String get starterColor => 'Ngjyra';
@@ -548,7 +575,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get markTitle => 'Shëno macen';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Prit';
 
   @override
   String get useFullPhoto => 'Përdor foton e plotë';
@@ -600,6 +627,11 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketa u importua: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Kopja rezervë automatike e fundit dështoi: $error';
   }
 
   @override

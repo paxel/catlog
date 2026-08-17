@@ -15,6 +15,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   canceled camera no longer leaves an empty stray behind.
 - When location access is permanently blocked, Stray Cam explains it and
   offers to open the system settings instead of failing quietly.
+- Opening a `.catsync` file now actually imports it — 0.1.2 only made
+  the app appear in the chooser.
+- Breed choices display in the device language (e.g. "Europäisch
+  Kurzhaar" on German devices).
+- A failed automatic backup is shown on the Sync screen instead of
+  disappearing silently.
 
 ---
 

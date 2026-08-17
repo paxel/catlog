@@ -47,7 +47,9 @@ jobs:
           EOF
           done
       - name: Build signed IPA
-        run: flutter build ipa --release --build-number=$GITHUB_RUN_NUMBER --export-options-plist=ios/ExportOptions.plist
+        # Same +100 floor as release.yml so a future second iOS-uploading
+        # workflow can't collide with the numbers used so far (#39).
+        run: flutter build ipa --release --build-number=$((GITHUB_RUN_NUMBER + 100)) --export-options-plist=ios/ExportOptions.plist
       - name: Upload to TestFlight
         uses: apple-actions/upload-testflight-build@v3
         with:

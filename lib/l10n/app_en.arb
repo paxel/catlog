@@ -352,6 +352,15 @@
   "starterGender": "Gender",
   "starterBreed": "Breed",
   "valueMixed": "mixed",
+  "breedEuropeanShorthair": "European Shorthair",
+  "breedMaineCoon": "Maine Coon",
+  "breedBritishShorthair": "British Shorthair",
+  "breedNorwegianForestCat": "Norwegian Forest Cat",
+  "breedRagdoll": "Ragdoll",
+  "breedSiamese": "Siamese",
+  "breedPersian": "Persian",
+  "breedBengal": "Bengal",
+  "breedSphynx": "Sphynx",
   "starterColor": "Color",
   "starterNeutered": "Neutered",
   "starterPregnant": "Pregnant",
@@ -387,6 +396,14 @@
   "@bundleImported": {
     "placeholders": {
       "result": {
+        "type": "String"
+      }
+    }
+  },
+  "lastBackupFailed": "Last automatic backup failed: {error}",
+  "@lastBackupFailed": {
+    "placeholders": {
+      "error": {
         "type": "String"
       }
     }

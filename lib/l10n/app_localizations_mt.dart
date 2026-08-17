@@ -193,10 +193,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'L-aċċess għall-post huwa mblukkat. Ħallih fis-settings tas-sistema biex tuża Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Iftaħ is-settings';
 
   @override
   String get moveTo => 'Mexxi lejn';
@@ -293,7 +293,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get optionsOnePerLine => 'Għażliet (waħda f\'kull linja)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Valur tiegħek';
 
   @override
   String get renameField => 'Ibdel isem il-qasam';
@@ -498,10 +498,37 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterGender => 'Sess';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Razza';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'imħallat';
+
+  @override
+  String get breedEuropeanShorthair => 'Ewropew tax-xagħar qasir';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brittaniku tax-xagħar qasir';
+
+  @override
+  String get breedNorwegianForestCat => 'Qattus tal-Foresta Norveġiża';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sjamiż';
+
+  @override
+  String get breedPersian => 'Persjan';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Kulur';
@@ -549,7 +576,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get markTitle => 'Immarka l-qattus';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Aqta';
 
   @override
   String get useFullPhoto => 'Uża r-ritratt kollu';
@@ -601,6 +628,11 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakkett importat: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'L-aħħar backup awtomatiku falla: $error';
   }
 
   @override

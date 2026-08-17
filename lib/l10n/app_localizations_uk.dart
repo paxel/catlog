@@ -191,10 +191,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Доступ до місцезнаходження заблоковано. Дозвольте його в налаштуваннях системи, щоб користуватися Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Відкрити налаштування';
 
   @override
   String get moveTo => 'Перемістити до';
@@ -291,7 +291,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get optionsOnePerLine => 'Варіанти (по одному в рядку)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Власне значення';
 
   @override
   String get renameField => 'Перейменувати поле';
@@ -495,10 +495,37 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterGender => 'Стать';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Порода';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'метис';
+
+  @override
+  String get breedEuropeanShorthair => 'Європейська короткошерста';
+
+  @override
+  String get breedMaineCoon => 'Мейн-кун';
+
+  @override
+  String get breedBritishShorthair => 'Британська короткошерста';
+
+  @override
+  String get breedNorwegianForestCat => 'Норвезька лісова';
+
+  @override
+  String get breedRagdoll => 'Регдол';
+
+  @override
+  String get breedSiamese => 'Сіамська';
+
+  @override
+  String get breedPersian => 'Перська';
+
+  @override
+  String get breedBengal => 'Бенгальська';
+
+  @override
+  String get breedSphynx => 'Сфінкс';
 
   @override
   String get starterColor => 'Забарвлення';
@@ -546,7 +573,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get markTitle => 'Позначити кота';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Обрізати';
 
   @override
   String get useFullPhoto => 'Використати все фото';
@@ -598,6 +625,11 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Пакет імпортовано: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Останнє автоматичне резервне копіювання не вдалося: $error';
   }
 
   @override

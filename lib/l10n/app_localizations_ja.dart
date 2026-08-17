@@ -187,10 +187,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      '位置情報へのアクセスがブロックされています。Stray Cam を使うにはシステム設定で許可してください。';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => '設定を開く';
 
   @override
   String get moveTo => '移動先';
@@ -286,7 +286,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get optionsOnePerLine => '選択肢（1 行に 1 つ）';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => '独自の値';
 
   @override
   String get renameField => '項目名を変更';
@@ -486,10 +486,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterGender => '性別';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => '品種';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => '雑種';
+
+  @override
+  String get breedEuropeanShorthair => 'ヨーロピアンショートヘア';
+
+  @override
+  String get breedMaineCoon => 'メインクーン';
+
+  @override
+  String get breedBritishShorthair => 'ブリティッシュショートヘア';
+
+  @override
+  String get breedNorwegianForestCat => 'ノルウェージャンフォレストキャット';
+
+  @override
+  String get breedRagdoll => 'ラグドール';
+
+  @override
+  String get breedSiamese => 'シャム';
+
+  @override
+  String get breedPersian => 'ペルシャ';
+
+  @override
+  String get breedBengal => 'ベンガル';
+
+  @override
+  String get breedSphynx => 'スフィンクス';
 
   @override
   String get starterColor => '毛色';
@@ -537,7 +564,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get markTitle => '猫に印を付ける';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => '切り抜く';
 
   @override
   String get useFullPhoto => '写真全体を使う';
@@ -589,6 +616,11 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'パッケージを取り込みました: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return '前回の自動バックアップに失敗しました: $error';
   }
 
   @override

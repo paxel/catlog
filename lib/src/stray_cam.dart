@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'dart:io';
-import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -16,10 +16,10 @@ typedef PositionOutcome = ({(double, double)? pos, bool deniedForever});
 
 typedef Locator = Future<PositionOutcome> Function();
 
-/// The local setting parking an in-flight Stray Cam capture while the
-/// system camera is open, so a capture the OS killed can be completed
-/// on the next start (see [recoverStrayCam]).
-const _pendingKey = 'strayCamPending';
+/// The local setting parking an in-flight Stray Cam capture (as JSON:
+/// lat, lon, name) while the system camera is open, so a capture the OS
+/// killed can be completed on the next start (see [recoverStrayCam]).
+const strayCamPendingKey = 'strayCamPending';
 
 /// The device's position, or why there is none. Denial degrades
 /// gracefully — the map's long-press pin still works.
@@ -96,21 +96,19 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
       'Stray ${now.toIso8601String().substring(0, 16).replaceFirst('T', ' ')}';
   // Park the capture: if Android kills the app behind the camera, the
   // photo arrives on next start as image_picker "lost data".
-  store.setLocalSetting(
-      _pendingKey, '${position.$1},${position.$2},$name');
+  store.setLocalSetting(strayCamPendingKey,
+      jsonEncode({'lat': position.$1, 'lon': position.$2, 'name': name}));
   Uint8List? bytes;
   if (context.mounted) {
     // Field speed beats framing: Stray Cam skips the crop step.
     bytes = await (pickPhoto ??
         ((c) => pickImageBytes(c, allowCrop: false)))(context);
   }
-  store.setLocalSetting(_pendingKey, '');
+  store.setLocalSetting(strayCamPendingKey, '');
   if (bytes == null) return null;
   final catId = store.createCat(name);
   store.recordPosition(catId, position.$1, position.$2);
-  final data = bytes;
-  final jpeg = await Isolate.run(() => CatalogStore.compressImage(data));
-  store.addImage(catId, jpeg);
+  await addCompressedImage(store, catId, bytes);
   return catId;
 }
 
@@ -119,24 +117,34 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
 /// start, the position and name were parked in [_pendingKey].
 Future<void> recoverStrayCam(CatalogStore store,
     {Future<LostDataResponse> Function()? retrieve}) async {
-  final pending = store.localSetting(_pendingKey);
+  final pending = store.localSetting(strayCamPendingKey);
   if (pending == null || pending.isEmpty) return;
-  store.setLocalSetting(_pendingKey, '');
-  if (retrieve == null && !Platform.isAndroid) return;
-  final response =
-      await (retrieve ?? ImagePicker().retrieveLostData)();
+  if (retrieve == null && !Platform.isAndroid) {
+    store.setLocalSetting(strayCamPendingKey, '');
+    return;
+  }
+  final LostDataResponse response;
+  try {
+    response = await (retrieve ?? ImagePicker().retrieveLostData)();
+  } catch (_) {
+    // Retrieval failed — keep the parked capture for the next start.
+    return;
+  }
+  store.setLocalSetting(strayCamPendingKey, '');
   final file = response.file;
   if (file == null) return;
-  final parts = pending.split(',');
-  if (parts.length < 3) return;
-  final lat = double.tryParse(parts[0]);
-  final lon = double.tryParse(parts[1]);
-  if (lat == null || lon == null) return;
+  final Map<String, dynamic> capture;
+  try {
+    capture = jsonDecode(pending) as Map<String, dynamic>;
+  } catch (_) {
+    return;
+  }
+  final lat = capture['lat'], lon = capture['lon'], name = capture['name'];
+  if (lat is! num || lon is! num || name is! String) return;
   final bytes = await file.readAsBytes();
-  final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
-  final catId = store.createCat(parts.sublist(2).join(','));
-  store.recordPosition(catId, lat, lon);
-  store.addImage(catId, jpeg);
+  final catId = store.createCat(name);
+  store.recordPosition(catId, lat.toDouble(), lon.toDouble());
+  await addCompressedImage(store, catId, bytes);
 }
 
 /// Records a sighting of an existing cat at the device's position.

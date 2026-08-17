@@ -192,10 +192,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Tá rochtain ar an suíomh coiscthe. Ceadaigh í i socruithe an chórais chun Stray Cam a úsáid.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Oscail socruithe';
 
   @override
   String get moveTo => 'Bog go';
@@ -292,7 +292,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get optionsOnePerLine => 'Roghanna (ceann in aghaidh na líne)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Luach féin';
 
   @override
   String get renameField => 'Athainmnigh an réimse';
@@ -497,10 +497,37 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterGender => 'Gnéas';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Pór';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'measctha';
+
+  @override
+  String get breedEuropeanShorthair => 'Gearrghruagach Eorpach';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Gearrghruagach Briotanach';
+
+  @override
+  String get breedNorwegianForestCat => 'Cat Foraoise na hIorua';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamach';
+
+  @override
+  String get breedPersian => 'Peirseach';
+
+  @override
+  String get breedBengal => 'Beangálach';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Dath';
@@ -548,7 +575,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get markTitle => 'Marcáil an cat';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Bearr';
 
   @override
   String get useFullPhoto => 'Úsáid an grianghraf iomlán';
@@ -600,6 +627,11 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paca iompórtáilte: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Theip ar an gcúltaca uathoibríoch deireanach: $error';
   }
 
   @override

@@ -503,6 +503,33 @@ class AppLocalizationsDe extends AppLocalizations {
   String get valueMixed => 'Mischling';
 
   @override
+  String get breedEuropeanShorthair => 'Europäisch Kurzhaar';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britisch Kurzhaar';
+
+  @override
+  String get breedNorwegianForestCat => 'Norwegische Waldkatze';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamkatze';
+
+  @override
+  String get breedPersian => 'Perserkatze';
+
+  @override
+  String get breedBengal => 'Bengalkatze';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Farbe';
 
   @override
@@ -600,6 +627,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket importiert: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Letztes automatisches Backup fehlgeschlagen: $error';
   }
 
   @override

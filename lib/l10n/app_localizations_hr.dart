@@ -191,10 +191,10 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Pristup lokaciji je blokiran. Dopustite ga u postavkama sustava kako biste koristili Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Otvori postavke';
 
   @override
   String get moveTo => 'Premjesti u';
@@ -291,7 +291,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get optionsOnePerLine => 'Opcije (jedna po retku)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Vlastita vrijednost';
 
   @override
   String get renameField => 'Preimenuj polje';
@@ -496,10 +496,37 @@ class AppLocalizationsHr extends AppLocalizations {
   String get starterGender => 'Spol';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Pasmina';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'mješanac';
+
+  @override
+  String get breedEuropeanShorthair => 'Europska kratkodlaka';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanska kratkodlaka';
+
+  @override
+  String get breedNorwegianForestCat => 'Norveška šumska mačka';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sijamska';
+
+  @override
+  String get breedPersian => 'Perzijska';
+
+  @override
+  String get breedBengal => 'Bengalska';
+
+  @override
+  String get breedSphynx => 'Sfinks';
 
   @override
   String get starterColor => 'Boja';
@@ -547,7 +574,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get markTitle => 'Označi mačku';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Izreži';
 
   @override
   String get useFullPhoto => 'Koristi cijelu fotografiju';
@@ -599,6 +626,11 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket uvezen: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Posljednja automatska sigurnosna kopija nije uspjela: $error';
   }
 
   @override

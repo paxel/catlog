@@ -192,10 +192,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Η πρόσβαση στην τοποθεσία είναι αποκλεισμένη. Επιτρέψτε την στις ρυθμίσεις συστήματος για να χρησιμοποιήσετε το Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Άνοιγμα ρυθμίσεων';
 
   @override
   String get moveTo => 'Μετακίνηση σε';
@@ -292,7 +292,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get optionsOnePerLine => 'Επιλογές (μία ανά γραμμή)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Δική σας τιμή';
 
   @override
   String get renameField => 'Μετονομασία πεδίου';
@@ -497,10 +497,37 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterGender => 'Φύλο';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Ράτσα';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'ημίαιμη';
+
+  @override
+  String get breedEuropeanShorthair => 'Ευρωπαϊκή κοντότριχη';
+
+  @override
+  String get breedMaineCoon => 'Μέιν Κουν';
+
+  @override
+  String get breedBritishShorthair => 'Βρετανική κοντότριχη';
+
+  @override
+  String get breedNorwegianForestCat => 'Γάτα του Νορβηγικού Δάσους';
+
+  @override
+  String get breedRagdoll => 'Ράγκντολ';
+
+  @override
+  String get breedSiamese => 'Σιαμαία';
+
+  @override
+  String get breedPersian => 'Περσική';
+
+  @override
+  String get breedBengal => 'Βεγγάλης';
+
+  @override
+  String get breedSphynx => 'Σφίγγα';
 
   @override
   String get starterColor => 'Χρώμα';
@@ -548,7 +575,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get markTitle => 'Σήμανση της γάτας';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Περικοπή';
 
   @override
   String get useFullPhoto => 'Χρήση ολόκληρης της φωτογραφίας';
@@ -600,6 +627,11 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Το πακέτο εισήχθη: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Το τελευταίο αυτόματο αντίγραφο ασφαλείας απέτυχε: $error';
   }
 
   @override

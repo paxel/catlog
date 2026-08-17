@@ -18,7 +18,12 @@ Future<String?> pickAndAddImage(
     {bool allowCrop = true}) async {
   final raw = await pickImageBytes(context, allowCrop: allowCrop);
   if (raw == null) return null;
-  final bytes = raw;
+  return addCompressedImage(store, catId, raw);
+}
+
+/// Compresses off the UI thread and stores the photo on the cat.
+Future<String> addCompressedImage(
+    CatalogStore store, String catId, Uint8List bytes) async {
   final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
   return store.addImage(catId, jpeg);
 }

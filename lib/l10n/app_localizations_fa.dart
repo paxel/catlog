@@ -191,10 +191,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'دسترسی به موقعیت مکانی مسدود است. برای استفاده از Stray Cam آن را در تنظیمات سیستم مجاز کنید.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'باز کردن تنظیمات';
 
   @override
   String get moveTo => 'انتقال به';
@@ -291,7 +291,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get optionsOnePerLine => 'گزینه‌ها (هر خط یکی)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'مقدار دلخواه';
 
   @override
   String get renameField => 'تغییر نام فیلد';
@@ -495,10 +495,37 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterGender => 'جنسیت';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'نژاد';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'مخلوط';
+
+  @override
+  String get breedEuropeanShorthair => 'اروپایی موکوتاه';
+
+  @override
+  String get breedMaineCoon => 'مین کون';
+
+  @override
+  String get breedBritishShorthair => 'بریتانیایی موکوتاه';
+
+  @override
+  String get breedNorwegianForestCat => 'گربه جنگلی نروژی';
+
+  @override
+  String get breedRagdoll => 'رگدال';
+
+  @override
+  String get breedSiamese => 'سیامی';
+
+  @override
+  String get breedPersian => 'ایرانی';
+
+  @override
+  String get breedBengal => 'بنگال';
+
+  @override
+  String get breedSphynx => 'اسفینکس';
 
   @override
   String get starterColor => 'رنگ';
@@ -546,7 +573,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get markTitle => 'نشانه‌گذاری گربه';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'برش';
 
   @override
   String get useFullPhoto => 'استفاده از کل عکس';
@@ -598,6 +625,11 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'بسته وارد شد: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'آخرین پشتیبان‌گیری خودکار ناموفق بود: $error';
   }
 
   @override

@@ -192,10 +192,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Dostęp do lokalizacji jest zablokowany. Zezwól na niego w ustawieniach systemu, aby korzystać ze Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Otwórz ustawienia';
 
   @override
   String get moveTo => 'Przenieś do';
@@ -292,7 +292,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get optionsOnePerLine => 'Opcje (jedna na wiersz)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Własna wartość';
 
   @override
   String get renameField => 'Zmień nazwę pola';
@@ -496,10 +496,37 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterGender => 'Płeć';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Rasa';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'mieszaniec';
+
+  @override
+  String get breedEuropeanShorthair => 'Europejski krótkowłosy';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brytyjski krótkowłosy';
+
+  @override
+  String get breedNorwegianForestCat => 'Kot norweski leśny';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Syjamski';
+
+  @override
+  String get breedPersian => 'Perski';
+
+  @override
+  String get breedBengal => 'Bengalski';
+
+  @override
+  String get breedSphynx => 'Sfinks';
 
   @override
   String get starterColor => 'Umaszczenie';
@@ -547,7 +574,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get markTitle => 'Zaznacz kota';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Przytnij';
 
   @override
   String get useFullPhoto => 'Użyj całego zdjęcia';
@@ -599,6 +626,11 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakiet zaimportowany: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Ostatnia automatyczna kopia zapasowa nie powiodła się: $error';
   }
 
   @override

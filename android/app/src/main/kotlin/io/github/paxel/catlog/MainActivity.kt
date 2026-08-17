@@ -1,6 +1,8 @@
 package io.github.paxel.catlog
 
 import android.content.ContentValues
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
@@ -10,8 +12,21 @@ import io.flutter.plugin.common.MethodChannel
 import java.io.File
 
 class MainActivity : FlutterActivity() {
+    private var openChannel: MethodChannel? = null
+    private var pendingOpen: String? = null
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        openChannel = MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger, "catlog/openfile")
+        openChannel!!.setMethodCallHandler { call, result ->
+            if (call.method == "pending") {
+                result.success(pendingOpen.also { pendingOpen = null })
+            } else {
+                result.notImplemented()
+            }
+        }
+        intent?.let { handleViewIntent(it) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
                 if (call.method == "saveToDownloads") {
@@ -26,6 +41,29 @@ class MainActivity : FlutterActivity() {
                     result.notImplemented()
                 }
             }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleViewIntent(intent)
+    }
+
+    /// Copies a viewed .catsync (content: or file: URI) into the cache
+    /// and hands the local path to Dart; queued until Dart asks when the
+    /// app is cold-starting.
+    private fun handleViewIntent(intent: Intent) {
+        if (intent.action != Intent.ACTION_VIEW) return
+        val uri: Uri = intent.data ?: return
+        try {
+            val target = File(cacheDir, "incoming.catsync")
+            contentResolver.openInputStream(uri)!!.use { input ->
+                target.outputStream().use { input.copyTo(it) }
+            }
+            pendingOpen = target.absolutePath
+            openChannel?.invokeMethod("open", target.absolutePath)
+        } catch (_: Exception) {
+            // Unreadable share — the import screen stays reachable manually.
+        }
     }
 
     /// Writes into MediaStore Downloads/catlog — system-owned storage

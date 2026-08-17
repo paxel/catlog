@@ -191,10 +191,10 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Prieiga prie vietos užblokuota. Leiskite ją sistemos nustatymuose, kad galėtumėte naudoti Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Atidaryti nustatymus';
 
   @override
   String get moveTo => 'Perkelti į';
@@ -291,7 +291,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get optionsOnePerLine => 'Parinktys (po vieną eilutėje)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Sava reikšmė';
 
   @override
   String get renameField => 'Pervadinti lauką';
@@ -496,10 +496,37 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterGender => 'Lytis';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Veislė';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'mišrūnas';
+
+  @override
+  String get breedEuropeanShorthair => 'Europos trumpaplaukė';
+
+  @override
+  String get breedMaineCoon => 'Meino meškėnas';
+
+  @override
+  String get breedBritishShorthair => 'Britų trumpaplaukė';
+
+  @override
+  String get breedNorwegianForestCat => 'Norvegų miško katė';
+
+  @override
+  String get breedRagdoll => 'Ragdolas';
+
+  @override
+  String get breedSiamese => 'Siamo';
+
+  @override
+  String get breedPersian => 'Persų';
+
+  @override
+  String get breedBengal => 'Bengalijos';
+
+  @override
+  String get breedSphynx => 'Sfinksas';
 
   @override
   String get starterColor => 'Spalva';
@@ -547,7 +574,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get markTitle => 'Pažymėti katę';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Apkirpti';
 
   @override
   String get useFullPhoto => 'Naudoti visą nuotrauką';
@@ -599,6 +626,11 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketas importuotas: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Paskutinė automatinė atsarginė kopija nepavyko: $error';
   }
 
   @override

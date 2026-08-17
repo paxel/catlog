@@ -191,10 +191,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'الوصول إلى الموقع محظور. اسمح به في إعدادات النظام لاستخدام Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'فتح الإعدادات';
 
   @override
   String get moveTo => 'نقل إلى';
@@ -291,7 +291,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get optionsOnePerLine => 'الخيارات (خيار في كل سطر)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'قيمة خاصة';
 
   @override
   String get renameField => 'إعادة تسمية الحقل';
@@ -495,10 +495,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterGender => 'الجنس';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'السلالة';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'مختلط';
+
+  @override
+  String get breedEuropeanShorthair => 'أوروبية قصيرة الشعر';
+
+  @override
+  String get breedMaineCoon => 'مين كون';
+
+  @override
+  String get breedBritishShorthair => 'بريطانية قصيرة الشعر';
+
+  @override
+  String get breedNorwegianForestCat => 'قطة الغابات النرويجية';
+
+  @override
+  String get breedRagdoll => 'راغدول';
+
+  @override
+  String get breedSiamese => 'سيامية';
+
+  @override
+  String get breedPersian => 'شيرازية';
+
+  @override
+  String get breedBengal => 'بنغالية';
+
+  @override
+  String get breedSphynx => 'سفينكس';
 
   @override
   String get starterColor => 'اللون';
@@ -546,7 +573,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get markTitle => 'تحديد القطة';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'قصّ';
 
   @override
   String get useFullPhoto => 'استخدام الصورة كاملة';
@@ -598,6 +625,11 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'تم استيراد الحزمة: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'فشل آخر نسخ احتياطي تلقائي: $error';
   }
 
   @override

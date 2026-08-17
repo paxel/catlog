@@ -191,10 +191,10 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Piekļuve atrašanās vietai ir bloķēta. Atļaujiet to sistēmas iestatījumos, lai izmantotu Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Atvērt iestatījumus';
 
   @override
   String get moveTo => 'Pārvietot uz';
@@ -291,7 +291,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get optionsOnePerLine => 'Iespējas (pa vienai rindā)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Sava vērtība';
 
   @override
   String get renameField => 'Pārdēvēt lauku';
@@ -495,10 +495,37 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterGender => 'Dzimums';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Šķirne';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'jauktenis';
+
+  @override
+  String get breedEuropeanShorthair => 'Eiropas īsspalvainā';
+
+  @override
+  String get breedMaineCoon => 'Meinkūns';
+
+  @override
+  String get breedBritishShorthair => 'Britu īsspalvainā';
+
+  @override
+  String get breedNorwegianForestCat => 'Norvēģijas meža kaķis';
+
+  @override
+  String get breedRagdoll => 'Regdolls';
+
+  @override
+  String get breedSiamese => 'Siāmas';
+
+  @override
+  String get breedPersian => 'Persu';
+
+  @override
+  String get breedBengal => 'Bengālijas';
+
+  @override
+  String get breedSphynx => 'Sfinkss';
 
   @override
   String get starterColor => 'Krāsa';
@@ -546,7 +573,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get markTitle => 'Atzīmēt kaķi';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Apgriezt';
 
   @override
   String get useFullPhoto => 'Izmantot visu foto';
@@ -598,6 +625,11 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paka importēta: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Pēdējā automātiskā dublēšana neizdevās: $error';
   }
 
   @override

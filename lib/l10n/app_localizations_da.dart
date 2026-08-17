@@ -192,10 +192,10 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Adgang til placering er blokeret. Tillad den i systemindstillingerne for at bruge Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Åbn indstillinger';
 
   @override
   String get moveTo => 'Flyt til';
@@ -292,7 +292,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get optionsOnePerLine => 'Muligheder (én pr. linje)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Egen værdi';
 
   @override
   String get renameField => 'Omdøb felt';
@@ -496,10 +496,37 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterGender => 'Køn';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Race';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'blanding';
+
+  @override
+  String get breedEuropeanShorthair => 'Europæisk korthår';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britisk korthår';
+
+  @override
+  String get breedNorwegianForestCat => 'Norsk skovkat';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siameser';
+
+  @override
+  String get breedPersian => 'Perser';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Farve';
@@ -547,7 +574,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get markTitle => 'Markér katten';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Beskær';
 
   @override
   String get useFullPhoto => 'Brug hele fotoet';
@@ -599,6 +626,11 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakke importeret: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Seneste automatiske backup mislykkedes: $error';
   }
 
   @override

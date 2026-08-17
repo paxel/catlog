@@ -191,10 +191,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get locationDeniedForever =>
-      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+      'Přístup k poloze je zablokován. Povolte ho v nastavení systému, abyste mohli používat Stray Cam.';
 
   @override
-  String get openSettings => 'Open settings';
+  String get openSettings => 'Otevřít nastavení';
 
   @override
   String get moveTo => 'Přesunout do';
@@ -291,7 +291,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get optionsOnePerLine => 'Možnosti (jedna na řádek)';
 
   @override
-  String get ownValue => 'Own value';
+  String get ownValue => 'Vlastní hodnota';
 
   @override
   String get renameField => 'Přejmenovat pole';
@@ -495,10 +495,37 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterGender => 'Pohlaví';
 
   @override
-  String get starterBreed => 'Breed';
+  String get starterBreed => 'Plemeno';
 
   @override
-  String get valueMixed => 'mixed';
+  String get valueMixed => 'kříženec';
+
+  @override
+  String get breedEuropeanShorthair => 'Evropská krátkosrstá';
+
+  @override
+  String get breedMaineCoon => 'Mainská mývalí';
+
+  @override
+  String get breedBritishShorthair => 'Britská krátkosrstá';
+
+  @override
+  String get breedNorwegianForestCat => 'Norská lesní';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamská';
+
+  @override
+  String get breedPersian => 'Perská';
+
+  @override
+  String get breedBengal => 'Bengálská';
+
+  @override
+  String get breedSphynx => 'Sphynx';
 
   @override
   String get starterColor => 'Barva';
@@ -546,7 +573,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get markTitle => 'Označit kočku';
 
   @override
-  String get applyCrop => 'Crop';
+  String get applyCrop => 'Oříznout';
 
   @override
   String get useFullPhoto => 'Použít celou fotku';
@@ -598,6 +625,11 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Balíček importován: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Poslední automatická záloha selhala: $error';
   }
 
   @override
