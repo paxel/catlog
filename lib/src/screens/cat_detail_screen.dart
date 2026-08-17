@@ -318,7 +318,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               return GestureDetector(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) => PhotoViewerScreen(
-                      store: store, hashes: images, initialIndex: i),
+                      store: store,
+                      hashes: images,
+                      initialIndex: i,
+                      name: store.current(id, Keys.name) ?? 'cat'),
                 )),
                 onLongPress: () => _imageMenu(hash),
                 child: Stack(fit: StackFit.expand, children: [

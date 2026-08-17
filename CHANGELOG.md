@@ -12,6 +12,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   be added.
 - Tapping a cat photo opens it full-screen with zoom and swiping; the
   photo menu (profile, crop, mark, delete) moved to long-press.
+- Photos can be shared or saved from the full-screen view.
 
 ### Changed
 
