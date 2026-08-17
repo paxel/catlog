@@ -533,6 +533,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get markTitle => 'Označiť mačku';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Použiť celú fotku';
 
   @override

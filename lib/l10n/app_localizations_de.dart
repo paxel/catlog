@@ -535,6 +535,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get markTitle => 'Katze markieren';
 
   @override
+  String get applyCrop => 'Zuschneiden';
+
+  @override
   String get useFullPhoto => 'Ganzes Foto verwenden';
 
   @override

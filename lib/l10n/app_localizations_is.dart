@@ -536,6 +536,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get markTitle => 'Merkja köttinn';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Nota alla myndina';
 
   @override

@@ -534,6 +534,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get markTitle => 'Označi mačku';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Koristi cijelu fotografiju';
 
   @override

@@ -534,6 +534,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get markTitle => 'Marcar el gato';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Usar la foto completa';
 
   @override

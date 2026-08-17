@@ -535,6 +535,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get markTitle => 'Marchează pisica';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Folosește toată poza';
 
   @override

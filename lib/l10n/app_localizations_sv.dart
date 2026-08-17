@@ -533,6 +533,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get markTitle => 'Markera katten';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Använd hela fotot';
 
   @override

@@ -535,6 +535,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get markTitle => 'Marcáil an cat';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Úsáid an grianghraf iomlán';
 
   @override

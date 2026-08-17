@@ -533,6 +533,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get markTitle => 'Позначити кота';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Використати все фото';
 
   @override

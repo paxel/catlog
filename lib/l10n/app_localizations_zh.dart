@@ -523,6 +523,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get markTitle => '标记这只猫';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => '使用整张照片';
 
   @override

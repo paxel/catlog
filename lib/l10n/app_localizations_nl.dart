@@ -535,6 +535,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get markTitle => 'Kat markeren';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Hele foto gebruiken';
 
   @override

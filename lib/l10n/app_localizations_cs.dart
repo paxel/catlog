@@ -533,6 +533,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get markTitle => 'Označit kočku';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Použít celou fotku';
 
   @override

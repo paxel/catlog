@@ -363,6 +363,7 @@
   "valueUnknown": "unknown",
   "cropTitle": "Crop photo",
   "markTitle": "Mark the cat",
+  "applyCrop": "Crop",
   "useFullPhoto": "Use full photo",
   "dragToSelect": "Drag a rectangle around the cat",
   "dragOverTheCat": "Drag an ellipse over the cat",

@@ -535,6 +535,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get markTitle => 'Σήμανση της γάτας';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Χρήση ολόκληρης της φωτογραφίας';
 
   @override

@@ -536,6 +536,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get markTitle => 'Immarka l-qattus';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Uża r-ritratt kollu';
 
   @override

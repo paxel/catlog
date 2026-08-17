@@ -534,6 +534,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get markTitle => 'Zaznacz kota';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Użyj całego zdjęcia';
 
   @override

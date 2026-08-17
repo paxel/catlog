@@ -533,6 +533,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get markTitle => 'تحديد القطة';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'استخدام الصورة كاملة';
 
   @override

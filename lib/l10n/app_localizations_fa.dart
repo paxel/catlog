@@ -533,6 +533,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get markTitle => 'نشانه‌گذاری گربه';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'استفاده از کل عکس';
 
   @override

@@ -524,6 +524,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get markTitle => '猫に印を付ける';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => '写真全体を使う';
 
   @override

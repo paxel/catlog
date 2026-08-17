@@ -535,6 +535,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get markTitle => 'Marquer le chat';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Utiliser la photo entière';
 
   @override

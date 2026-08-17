@@ -534,6 +534,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get markTitle => 'Отметить кошку';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Использовать всё фото';
 
   @override

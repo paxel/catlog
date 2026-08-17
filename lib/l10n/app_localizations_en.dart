@@ -533,6 +533,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get markTitle => 'Mark the cat';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Use full photo';
 
   @override

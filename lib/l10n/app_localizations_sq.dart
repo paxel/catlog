@@ -535,6 +535,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get markTitle => 'Shëno macen';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Përdor foton e plotë';
 
   @override

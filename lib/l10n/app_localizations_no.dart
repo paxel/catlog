@@ -533,6 +533,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get markTitle => 'Marker katten';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Bruk hele bildet';
 
   @override

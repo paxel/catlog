@@ -534,6 +534,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get markTitle => 'Означи мачку';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Користи целу фотографију';
 
   @override

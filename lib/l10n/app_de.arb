@@ -153,6 +153,7 @@
   "valueUnknown": "unbekannt",
   "cropTitle": "Foto zuschneiden",
   "markTitle": "Katze markieren",
+  "applyCrop": "Zuschneiden",
   "useFullPhoto": "Ganzes Foto verwenden",
   "dragToSelect": "Ziehe ein Rechteck um die Katze",
   "dragOverTheCat": "Ziehe eine Ellipse über die Katze",

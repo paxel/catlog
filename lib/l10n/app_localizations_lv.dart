@@ -533,6 +533,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get markTitle => 'Atzīmēt kaķi';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Izmantot visu foto';
 
   @override

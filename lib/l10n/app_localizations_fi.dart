@@ -534,6 +534,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get markTitle => 'Merkitse kissa';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Käytä koko kuvaa';
 
   @override

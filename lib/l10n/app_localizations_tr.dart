@@ -533,6 +533,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get markTitle => 'Kediyi işaretle';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Fotoğrafın tamamını kullan';
 
   @override

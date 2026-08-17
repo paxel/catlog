@@ -1088,6 +1088,12 @@ abstract class AppLocalizations {
   /// **'Mark the cat'**
   String get markTitle;
 
+  /// No description provided for @applyCrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop'**
+  String get applyCrop;
+
   /// No description provided for @useFullPhoto.
   ///
   /// In en, this message translates to:

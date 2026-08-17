@@ -531,6 +531,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get markTitle => 'סימון החתול';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'שימוש בתמונה המלאה';
 
   @override

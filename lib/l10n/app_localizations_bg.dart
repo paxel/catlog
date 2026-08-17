@@ -534,6 +534,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get markTitle => 'Маркирай котката';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Използвай цялата снимка';
 
   @override

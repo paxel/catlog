@@ -534,6 +534,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get markTitle => 'Markér katten';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Brug hele fotoet';
 
   @override

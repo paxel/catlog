@@ -535,6 +535,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get markTitle => 'Означи ја мачката';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Користи ја целата фотографија';
 
   @override

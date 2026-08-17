@@ -533,6 +533,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get markTitle => 'Märgi kass';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Kasuta tervet fotot';
 
   @override

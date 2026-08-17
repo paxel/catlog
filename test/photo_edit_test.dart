@@ -51,12 +51,12 @@ void main() {
     await gesture.up();
     await tester.pump(const Duration(milliseconds: 300));
 
-    final check = tester.widget<IconButton>(
-        find.widgetWithIcon(IconButton, Icons.check));
-    expect(check.onPressed, isNotNull,
+    final confirm = tester.widget<TextButton>(
+        find.widgetWithText(TextButton, 'Crop'));
+    expect(confirm.onPressed, isNotNull,
         reason: 'drag should have produced a selection');
 
-    await tester.tap(find.byIcon(Icons.check));
+    await tester.tap(find.widgetWithText(TextButton, 'Crop'));
     await tester.pump();
     // Real time for the crop isolate to finish.
     await tester.runAsync(

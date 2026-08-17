@@ -534,6 +534,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get markTitle => 'Macska megjelölése';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Teljes fotó használata';
 
   @override

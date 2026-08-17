@@ -534,6 +534,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get markTitle => 'Označi mačko';
 
   @override
+  String get applyCrop => 'Crop';
+
+  @override
   String get useFullPhoto => 'Uporabi celo fotografijo';
 
   @override
