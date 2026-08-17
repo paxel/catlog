@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [0.1.2] - Unreleased
 
+### Added
+
+- Install and update via any F-Droid client: add
+  `https://paxel.github.io/catlog/fdroid/repo` as a repository — every
+  release lands there automatically. (Same signature as the GitHub APKs;
+  a Play-installed app must be uninstalled first, and vice versa.)
+
 ### Changed
 
 - Crop and Mark screens confirm with a labeled button ("Crop" / "Save")
