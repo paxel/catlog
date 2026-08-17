@@ -29,6 +29,16 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- Open .catsync bundles straight from messengers/file apps.
+                 Messengers strip MIME to octet-stream, so match by suffix
+                 across the usual schemes. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content" android:mimeType="application/zip"/>
+                <data android:scheme="content" android:mimeType="application/octet-stream"/>
+                <data android:scheme="file" android:mimeType="*/*" android:pathPattern=".*\\.catsync"/>
+            </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
