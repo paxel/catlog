@@ -1,7 +1,9 @@
-# Release on tag: `git tag v0.1.0 && git push --tags` produces everything.
-# Mirrors the dedup-rs release pipeline, adapted to Flutter:
+# The one Android/store pipeline. A branch push builds the signed app
+# bundle for Play internal testing; a tag additionally runs the gate and
+# everything below. One workflow means one run counter, so version codes
+# from internal and release builds can never collide (#39).
 #
-#   gate           — full Linux gate once more (analyze fatal-infos, all tests)
+#   gate           — full Linux gate, tags only (analyze fatal-infos, all tests)
 #   build-android  — signed per-ABI + universal APKs
 #   build-linux    — bundle tar.gz per arch (x86_64 + arm64)
 #   build-windows  — zip with catlog.exe + runtime
@@ -17,6 +19,7 @@ name: Release
 
 on:
   push:
+    branches: ["release/010/google"]
     tags: ["v*"]
   # Releasing from the Actions UI: Run workflow → type the tag. `gh release
   # create` makes the tag at HEAD when it doesn't exist yet, so the button
@@ -33,6 +36,7 @@ env:
 jobs:
   gate:
     name: Gate (Linux, full)
+    if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -59,9 +63,10 @@ jobs:
           flutter analyze --fatal-infos
           flutter test
 
+  # Runs on every branch push AND every tag — the gate blocks the
+  # release-only jobs, not the internal-testing bundle.
   build-android:
     name: Android APKs
-    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -83,12 +88,24 @@ jobs:
           keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           EOF
       - run: flutter pub get
-      - name: Build signed APKs
+      # $GITHUB_RUN_NUMBER of THIS workflow is the only version-code
+      # source. The +100 floors it above the codes burned while two
+      # workflows still had counters of their own (#39).
+      - name: Build the Play app bundle
+        run: flutter build appbundle --release --build-number=$((GITHUB_RUN_NUMBER + 100))
+      - name: Upload internal-testing bundle
+        if: github.ref_type == 'branch' && github.event_name == 'push'
+        uses: actions/upload-artifact@v6
+        with:
+          name: catlog-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+      - name: Build release APKs
+        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
         run: |
-          flutter build apk --release --split-per-abi --build-number=$GITHUB_RUN_NUMBER
-          flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
-          flutter build appbundle --release --build-number=$GITHUB_RUN_NUMBER
+          flutter build apk --release --split-per-abi --build-number=$((GITHUB_RUN_NUMBER + 100))
+          flutter build apk --release --build-number=$((GITHUB_RUN_NUMBER + 100))
       - name: Rename artifacts
+        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
         run: |
           v="${RELEASE_TAG#v}"
           d=build/app/outputs/flutter-apk
@@ -99,6 +116,7 @@ jobs:
           mv "$d/app-release.apk"             "dist/catlog-$v-android-universal.apk"
           mv build/app/outputs/bundle/release/app-release.aab "dist/catlog-$v-android-playstore.aab"
       - uses: actions/upload-artifact@v6
+        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
         with:
           name: android
           path: dist/*
@@ -200,7 +218,7 @@ jobs:
 
   fdroid:
     name: F-Droid repo
-    needs: build-android
+    needs: [gate, build-android]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -250,7 +268,7 @@ jobs:
 
   release:
     name: GitHub Release
-    needs: [build-android, build-linux, build-windows, build-macos]
+    needs: [gate, build-android, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
     permissions:
       contents: write
