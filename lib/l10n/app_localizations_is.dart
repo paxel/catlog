@@ -192,6 +192,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'Engin staðsetning — haltu þess í stað fingri á kortinu.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Færa í';
 
   @override

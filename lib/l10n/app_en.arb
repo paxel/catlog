@@ -84,6 +84,8 @@
   "deleteCatBody": "The cat disappears from all lists. Its photos are removed for good.",
   "sightingRecorded": "Sighting recorded at your position.",
   "noLocationAvailable": "No location available — long-press the map instead.",
+  "locationDeniedForever": "Location access is blocked. Allow it in the system settings to use Stray Cam.",
+  "openSettings": "Open settings",
   "moveTo": "Move to",
   "noClowderStrayOption": "No clowder — stray / ran away",
   "timelineOf": "Timeline — {name}",

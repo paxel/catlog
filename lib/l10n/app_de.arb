@@ -56,6 +56,8 @@
   "deleteCatBody": "Die Katze verschwindet aus allen Listen. Ihre Fotos werden endgültig entfernt.",
   "sightingRecorded": "Sichtung an deiner Position gespeichert.",
   "noLocationAvailable": "Kein Standort verfügbar — halte stattdessen die Karte gedrückt.",
+  "locationDeniedForever": "Der Standortzugriff ist blockiert. Erlaube ihn in den Systemeinstellungen, um die Streuner-Cam zu nutzen.",
+  "openSettings": "Einstellungen öffnen",
   "moveTo": "Verschieben nach",
   "noClowderStrayOption": "Keine Kolonie — Streuner / weggelaufen",
   "timelineOf": "Verlauf — {name}",

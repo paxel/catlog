@@ -190,6 +190,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Sijainti ei saatavilla — paina sen sijaan karttaa pitkään.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Siirrä kohteeseen';
 
   @override

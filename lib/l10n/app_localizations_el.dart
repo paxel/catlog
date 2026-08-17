@@ -191,6 +191,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν υπάρχει τοποθεσία — πατήστε παρατεταμένα στον χάρτη.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Μετακίνηση σε';
 
   @override

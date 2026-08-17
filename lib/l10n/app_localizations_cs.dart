@@ -190,6 +190,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Poloha není k dispozici — místo toho podržte prst na mapě.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Přesunout do';
 
   @override

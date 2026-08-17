@@ -191,6 +191,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'Locație indisponibilă — apasă lung pe hartă în schimb.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Mută în';
 
   @override

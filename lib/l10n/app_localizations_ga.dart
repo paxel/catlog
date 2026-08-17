@@ -191,6 +191,13 @@ class AppLocalizationsGa extends AppLocalizations {
       'Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Bog go';
 
   @override

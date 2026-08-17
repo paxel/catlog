@@ -191,6 +191,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'Kein Standort verfügbar — halte stattdessen die Karte gedrückt.';
 
   @override
+  String get locationDeniedForever =>
+      'Der Standortzugriff ist blockiert. Erlaube ihn in den Systemeinstellungen, um die Streuner-Cam zu nutzen.';
+
+  @override
+  String get openSettings => 'Einstellungen öffnen';
+
+  @override
   String get moveTo => 'Verschieben nach';
 
   @override

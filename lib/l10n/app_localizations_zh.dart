@@ -186,6 +186,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noLocationAvailable => '无法获取位置——请改为长按地图。';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => '移动到';
 
   @override

@@ -190,6 +190,13 @@ class AppLocalizationsFa extends AppLocalizations {
       'موقعیت در دسترس نیست — به‌جای آن روی نقشه لمس طولانی کنید.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'انتقال به';
 
   @override

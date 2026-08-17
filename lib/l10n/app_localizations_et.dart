@@ -190,6 +190,13 @@ class AppLocalizationsEt extends AppLocalizations {
       'Asukoht pole saadaval — hoia selle asemel kaarti all.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Liiguta';
 
   @override

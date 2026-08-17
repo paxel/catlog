@@ -186,6 +186,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noLocationAvailable => '位置情報がありません — 代わりに地図を長押ししてください。';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => '移動先';
 
   @override

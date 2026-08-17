@@ -192,6 +192,13 @@ class AppLocalizationsMt extends AppLocalizations {
       'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Mexxi lejn';
 
   @override

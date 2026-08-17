@@ -190,6 +190,13 @@ class AppLocalizationsLv extends AppLocalizations {
       'Atrašanās vieta nav pieejama — tā vietā turiet nospiestu karti.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Pārvietot uz';
 
   @override

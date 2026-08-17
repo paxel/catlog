@@ -190,6 +190,13 @@ class AppLocalizationsBg extends AppLocalizations {
       'Няма местоположение — вместо това задръжте върху картата.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Премести в';
 
   @override

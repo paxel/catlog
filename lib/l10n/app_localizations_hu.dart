@@ -190,6 +190,13 @@ class AppLocalizationsHu extends AppLocalizations {
       'Nincs helyadat — helyette nyomd hosszan a térképet.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Áthelyezés ide';
 
   @override

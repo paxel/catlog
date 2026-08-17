@@ -190,6 +190,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'No location available — long-press the map instead.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Move to';
 
   @override

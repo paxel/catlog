@@ -191,6 +191,13 @@ class AppLocalizationsMk extends AppLocalizations {
       'Нема локација — наместо тоа задржете на мапата.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Премести во';
 
   @override

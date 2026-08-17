@@ -506,6 +506,18 @@ abstract class AppLocalizations {
   /// **'No location available — long-press the map instead.'**
   String get noLocationAvailable;
 
+  /// No description provided for @locationDeniedForever.
+  ///
+  /// In en, this message translates to:
+  /// **'Location access is blocked. Allow it in the system settings to use Stray Cam.'**
+  String get locationDeniedForever;
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open settings'**
+  String get openSettings;
+
   /// No description provided for @moveTo.
   ///
   /// In en, this message translates to:

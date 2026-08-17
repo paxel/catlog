@@ -191,6 +191,13 @@ class AppLocalizationsDa extends AppLocalizations {
       'Ingen placering tilgængelig — hold i stedet kortet nede.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Flyt til';
 
   @override

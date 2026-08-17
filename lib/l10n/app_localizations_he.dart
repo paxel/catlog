@@ -189,6 +189,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'אין מיקום זמין — במקום זאת לחצו לחיצה ארוכה על המפה.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'העברה אל';
 
   @override

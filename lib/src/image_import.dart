@@ -16,6 +16,17 @@ import 'screens/photo_edit_screen.dart';
 Future<String?> pickAndAddImage(
     BuildContext context, CatalogStore store, String catId,
     {bool allowCrop = true}) async {
+  final raw = await pickImageBytes(context, allowCrop: allowCrop);
+  if (raw == null) return null;
+  final bytes = raw;
+  final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
+  return store.addImage(catId, jpeg);
+}
+
+/// Picks or takes a photo and returns the (optionally cropped) raw
+/// bytes, or null if the user canceled.
+Future<Uint8List?> pickImageBytes(BuildContext context,
+    {bool allowCrop = true}) async {
   final canUseCamera = Platform.isAndroid || Platform.isIOS;
   ImageSource source = ImageSource.gallery;
   if (canUseCamera) {
@@ -55,7 +66,5 @@ Future<String?> pickAndAddImage(
     raw = edited;
   }
 
-  final bytes = raw;
-  final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
-  return store.addImage(catId, jpeg);
+  return raw;
 }

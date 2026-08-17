@@ -190,6 +190,13 @@ class AppLocalizationsSv extends AppLocalizations {
       'Ingen plats tillgänglig — håll in kartan i stället.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
   String get moveTo => 'Flytta till';
 
   @override
