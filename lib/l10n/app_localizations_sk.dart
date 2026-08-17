@@ -945,4 +945,21 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Priečinok je nedostupný. Existuje ešte disk alebo cloudový priečinok?';
+
+  @override
+  String get crashTitle => 'Toto sa nemalo stať';
+
+  @override
+  String get crashBody =>
+      'cat(a)log narazil na nečakanú chybu. Tvoje dáta sú v bezpečí — všetko sa ukladá hneď pri zmene. Reštartuj aplikáciu, a ak sa to opakuje, pošli hlásenie, aby sa to dalo opraviť.';
+
+  @override
+  String get crashRestart => 'Reštartovať aplikáciu';
+
+  @override
+  String get crashSendReport => 'Poslať hlásenie vývojárovi';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log sa minule nečakane ukončil — najskôr došla pamäť. Poslať krátke hlásenie, aby sa to dalo opraviť?';
 }

@@ -949,4 +949,21 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Náðist ekki í möppuna. Er drifið eða skýjamappan enn til?';
+
+  @override
+  String get crashTitle => 'Þetta hefði ekki átt að gerast';
+
+  @override
+  String get crashBody =>
+      'cat(a)log rakst á óvænta villu. Gögnin þín eru örugg — allt vistast um leið og þú breytir því. Endurræstu forritið og ef þetta endurtekur sig, sendu skýrsluna svo hægt sé að laga það.';
+
+  @override
+  String get crashRestart => 'Endurræsa forritið';
+
+  @override
+  String get crashSendReport => 'Senda skýrslu til þróanda';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?';
 }

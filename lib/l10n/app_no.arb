@@ -276,5 +276,10 @@
   "spotReplayDone": "Tipsene vises igjen",
   "searchNoResults": "Ingen katt funnet med det navnet",
   "syncUnreachable": "Fikk ikke kontakt med den andre enheten. Er begge på samme Wi-Fi?",
-  "folderUnreachable": "Fikk ikke tilgang til mappen. Finnes disken eller skymappen fortsatt?"
+  "folderUnreachable": "Fikk ikke tilgang til mappen. Finnes disken eller skymappen fortsatt?",
+  "crashTitle": "Dette burde ikke ha skjedd",
+  "crashBody": "cat(a)log støtte på en uventet feil. Dataene dine er trygge — alt lagres i det øyeblikket du endrer det. Start appen på nytt, og send rapporten hvis det gjentar seg, så det kan fikses.",
+  "crashRestart": "Start appen på nytt",
+  "crashSendReport": "Send rapport til utvikleren",
+  "crashLastRunBody": "cat(a)log stoppet uventet sist — sannsynligvis gikk den tom for minne. Sende en kort rapport så det kan fikses?"
 }

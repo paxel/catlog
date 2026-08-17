@@ -947,4 +947,21 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Не вдалося відкрити папку. Чи диск або хмарна папка ще існує?';
+
+  @override
+  String get crashTitle => 'Цього не мало статися';
+
+  @override
+  String get crashBody =>
+      'cat(a)log натрапив на неочікувану помилку. Ваші дані в безпеці — усе зберігається в момент зміни. Перезапустіть застосунок, а якщо повториться — надішліть звіт, щоб це виправити.';
+
+  @override
+  String get crashRestart => 'Перезапустити застосунок';
+
+  @override
+  String get crashSendReport => 'Надіслати звіт розробнику';
+
+  @override
+  String get crashLastRunBody =>
+      'Минулого разу cat(a)log неочікувано зупинився — найімовірніше, забракло пам\'яті. Надіслати короткий звіт, щоб виправити?';
 }

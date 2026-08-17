@@ -945,4 +945,21 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Složka není dosažitelná. Existuje ještě disk nebo cloudová složka?';
+
+  @override
+  String get crashTitle => 'Tohle se nemělo stát';
+
+  @override
+  String get crashBody =>
+      'cat(a)log narazil na nečekanou chybu. Tvá data jsou v bezpečí — vše se ukládá hned při změně. Restartuj aplikaci, a pokud se to opakuje, pošli hlášení, ať se to dá opravit.';
+
+  @override
+  String get crashRestart => 'Restartovat aplikaci';
+
+  @override
+  String get crashSendReport => 'Poslat hlášení vývojáři';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?';
 }

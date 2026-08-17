@@ -948,4 +948,21 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Папката е недостъпна. Дискът или облачната папка още ли съществува?';
+
+  @override
+  String get crashTitle => 'Това не биваше да се случва';
+
+  @override
+  String get crashBody =>
+      'cat(a)log срещна неочаквана грешка. Данните ти са в безопасност — всичко се записва в момента на промяната. Рестартирай приложението и ако се повтаря, изпрати доклада, за да бъде поправено.';
+
+  @override
+  String get crashRestart => 'Рестартирай приложението';
+
+  @override
+  String get crashSendReport => 'Изпрати доклад на разработчика';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log спря неочаквано миналия път — най-вероятно свърши паметта. Да изпратим ли кратък доклад, за да се поправи?';
 }

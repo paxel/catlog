@@ -276,5 +276,10 @@
   "spotReplayDone": "Die Hinweise erscheinen wieder",
   "searchNoResults": "Keine Katze mit diesem Namen gefunden",
   "syncUnreachable": "Das andere Gerät ist nicht erreichbar. Sind beide im selben WLAN?",
-  "folderUnreachable": "Der Ordner ist nicht erreichbar. Ist das Laufwerk oder der Cloud-Ordner noch da?"
+  "folderUnreachable": "Der Ordner ist nicht erreichbar. Ist das Laufwerk oder der Cloud-Ordner noch da?",
+  "crashTitle": "Das hätte nicht passieren dürfen",
+  "crashBody": "cat(a)log ist auf einen unerwarteten Fehler gestoßen. Deine Daten sind sicher — alles wird sofort beim Ändern gespeichert. Starte die App neu, und wenn es wieder passiert, schick den Bericht, damit es behoben werden kann.",
+  "crashRestart": "App neu starten",
+  "crashSendReport": "Bericht an den Entwickler senden",
+  "crashLastRunBody": "cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?"
 }

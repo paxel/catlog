@@ -276,5 +276,10 @@
   "spotReplayDone": "Vihjed kuvatakse uuesti",
   "searchNoResults": "Selle nimega kassi ei leitud",
   "syncUnreachable": "Teist seadet ei õnnestunud kätte saada. Kas mõlemad on samas Wi-Fi võrgus?",
-  "folderUnreachable": "Kausta ei õnnestunud kätte saada. Kas ketas või pilvekaust on veel olemas?"
+  "folderUnreachable": "Kausta ei õnnestunud kätte saada. Kas ketas või pilvekaust on veel olemas?",
+  "crashTitle": "Seda poleks tohtinud juhtuda",
+  "crashBody": "cat(a)log sattus ootamatule veale. Sinu andmed on kaitstud — kõik salvestatakse muutmise hetkel. Taaskäivita rakendus ja kui see kordub, saada raport, et saaks parandada.",
+  "crashRestart": "Taaskäivita rakendus",
+  "crashSendReport": "Saada raport arendajale",
+  "crashLastRunBody": "cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?"
 }

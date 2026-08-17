@@ -276,5 +276,10 @@
   "spotReplayDone": "Vinkit näytetään uudelleen",
   "searchNoResults": "Sillä nimellä ei löytynyt kissaa",
   "syncUnreachable": "Toista laitetta ei tavoitettu. Ovatko molemmat samassa Wi-Fissä?",
-  "folderUnreachable": "Kansiota ei tavoitettu. Onko asema tai pilvikansio yhä olemassa?"
+  "folderUnreachable": "Kansiota ei tavoitettu. Onko asema tai pilvikansio yhä olemassa?",
+  "crashTitle": "Tämän ei olisi pitänyt tapahtua",
+  "crashBody": "cat(a)log kohtasi odottamattoman virheen. Tietosi ovat turvassa — kaikki tallentuu heti muutoshetkellä. Käynnistä sovellus uudelleen, ja jos tämä toistuu, lähetä raportti korjaamista varten.",
+  "crashRestart": "Käynnistä sovellus uudelleen",
+  "crashSendReport": "Lähetä raportti kehittäjälle",
+  "crashLastRunBody": "cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?"
 }

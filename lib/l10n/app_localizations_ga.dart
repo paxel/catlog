@@ -950,4 +950,21 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Níorbh fhéidir an fillteán a shroicheadh. An ann fós don tiomántán nó don fhillteán néil?';
+
+  @override
+  String get crashTitle => 'Níor cheart go dtarlódh sé sin';
+
+  @override
+  String get crashBody =>
+      'Bhuail cat(a)log earráid gan choinne. Tá do shonraí slán — sábháiltear gach rud an nóiméad a athraíonn tú é. Atosaigh an aip, agus má tharlaíonn sé arís, seol an tuairisc le go ndeiseofar é.';
+
+  @override
+  String get crashRestart => 'Atosaigh an aip';
+
+  @override
+  String get crashSendReport => 'Seol tuairisc chuig an bhforbróir';
+
+  @override
+  String get crashLastRunBody =>
+      'Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?';
 }

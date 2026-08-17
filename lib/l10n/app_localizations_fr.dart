@@ -951,4 +951,21 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Impossible d\'accéder au dossier. Le disque ou le dossier cloud existe-t-il encore ?';
+
+  @override
+  String get crashTitle => 'Cela n\'aurait pas dû arriver';
+
+  @override
+  String get crashBody =>
+      'cat(a)log a rencontré une erreur inattendue. Vos données sont en sécurité — tout est enregistré dès la modification. Redémarrez l\'app et, si cela se reproduit, envoyez le rapport pour que ce soit corrigé.';
+
+  @override
+  String get crashRestart => 'Redémarrer l\'app';
+
+  @override
+  String get crashSendReport => 'Envoyer le rapport au développeur';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log s\'est arrêté de façon inattendue la dernière fois — probablement à court de mémoire. Envoyer un court rapport pour corriger ?';
 }

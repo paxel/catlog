@@ -276,5 +276,10 @@
   "spotReplayDone": "Padomi tiks rādīti atkal",
   "searchNoResults": "Kaķis ar šādu vārdu nav atrasts",
   "syncUnreachable": "Neizdevās sasniegt otru ierīci. Vai abas ir vienā Wi-Fi tīklā?",
-  "folderUnreachable": "Neizdevās sasniegt mapi. Vai disks vai mākoņa mape vēl pastāv?"
+  "folderUnreachable": "Neizdevās sasniegt mapi. Vai disks vai mākoņa mape vēl pastāv?",
+  "crashTitle": "Tam nevajadzēja notikt",
+  "crashBody": "cat(a)log saskārās ar negaidītu kļūdu. Tavi dati ir drošībā — viss saglabājas izmaiņu brīdī. Restartē lietotni, un ja tas atkārtojas, nosūti ziņojumu, lai to var izlabot.",
+  "crashRestart": "Restartēt lietotni",
+  "crashSendReport": "Nosūtīt ziņojumu izstrādātājam",
+  "crashLastRunBody": "cat(a)log pagājušajā reizē negaidīti apstājās — visticamāk pietrūka atmiņas. Nosūtīt īsu ziņojumu, lai izlabotu?"
 }

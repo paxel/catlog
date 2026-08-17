@@ -276,5 +276,10 @@
   "spotReplayDone": "Tipy se znovu zobrazí",
   "searchNoResults": "Kočka s tímto jménem nenalezena",
   "syncUnreachable": "Druhé zařízení není dosažitelné. Jsou obě na stejné Wi-Fi?",
-  "folderUnreachable": "Složka není dosažitelná. Existuje ještě disk nebo cloudová složka?"
+  "folderUnreachable": "Složka není dosažitelná. Existuje ještě disk nebo cloudová složka?",
+  "crashTitle": "Tohle se nemělo stát",
+  "crashBody": "cat(a)log narazil na nečekanou chybu. Tvá data jsou v bezpečí — vše se ukládá hned při změně. Restartuj aplikaci, a pokud se to opakuje, pošli hlášení, ať se to dá opravit.",
+  "crashRestart": "Restartovat aplikaci",
+  "crashSendReport": "Poslat hlášení vývojáři",
+  "crashLastRunBody": "cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?"
 }

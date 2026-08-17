@@ -276,5 +276,10 @@
   "spotReplayDone": "Tipsen visas igen",
   "searchNoResults": "Ingen katt hittades med det namnet",
   "syncUnreachable": "Kunde inte nå den andra enheten. Är båda på samma Wi-Fi?",
-  "folderUnreachable": "Kunde inte nå mappen. Finns enheten eller molnmappen kvar?"
+  "folderUnreachable": "Kunde inte nå mappen. Finns enheten eller molnmappen kvar?",
+  "crashTitle": "Det här borde inte ha hänt",
+  "crashBody": "cat(a)log stötte på ett oväntat fel. Dina data är säkra — allt sparas i samma stund du ändrar det. Starta om appen, och händer det igen, skicka rapporten så det kan lagas.",
+  "crashRestart": "Starta om appen",
+  "crashSendReport": "Skicka rapport till utvecklaren",
+  "crashLastRunBody": "cat(a)log stannade oväntat förra gången — troligen tog minnet slut. Skicka en kort rapport så det kan lagas?"
 }

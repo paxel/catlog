@@ -276,5 +276,10 @@
   "spotReplayDone": "Tipy sa zobrazia znova",
   "searchNoResults": "Mačka s týmto menom sa nenašla",
   "syncUnreachable": "Druhé zariadenie je nedostupné. Sú obe na rovnakej Wi-Fi?",
-  "folderUnreachable": "Priečinok je nedostupný. Existuje ešte disk alebo cloudový priečinok?"
+  "folderUnreachable": "Priečinok je nedostupný. Existuje ešte disk alebo cloudový priečinok?",
+  "crashTitle": "Toto sa nemalo stať",
+  "crashBody": "cat(a)log narazil na nečakanú chybu. Tvoje dáta sú v bezpečí — všetko sa ukladá hneď pri zmene. Reštartuj aplikáciu, a ak sa to opakuje, pošli hlásenie, aby sa to dalo opraviť.",
+  "crashRestart": "Reštartovať aplikáciu",
+  "crashSendReport": "Poslať hlásenie vývojárovi",
+  "crashLastRunBody": "cat(a)log sa minule nečakane ukončil — najskôr došla pamäť. Poslať krátke hlásenie, aby sa to dalo opraviť?"
 }

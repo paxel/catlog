@@ -276,5 +276,10 @@
   "spotReplayDone": "Is-suġġerimenti jerġgħu jidhru",
   "searchNoResults": "Ma nstab l-ebda qattus b'dak l-isem",
   "syncUnreachable": "Ma setax jintlaħaq l-apparat l-ieħor. It-tnejn fuq l-istess Wi-Fi?",
-  "folderUnreachable": "Ma setgħetx tintlaħaq il-folder. Id-drive jew il-folder tal-cloud għadu hemm?"
+  "folderUnreachable": "Ma setgħetx tintlaħaq il-folder. Id-drive jew il-folder tal-cloud għadu hemm?",
+  "crashTitle": "Dan ma kellux jiġri",
+  "crashBody": "cat(a)log iltaqa' ma' żball mhux mistenni. Id-data tiegħek hija sikura — kollox jiġi salvat fil-mument li tibdlu. Erġa' ibda l-app, u jekk jerġa' jiġri, ibgħat ir-rapport biex ikun jista' jissewwa.",
+  "crashRestart": "Erġa' ibda l-app",
+  "crashSendReport": "Ibgħat rapport lill-iżviluppatur",
+  "crashLastRunBody": "cat(a)log waqaf għal għarrieda l-aħħar darba — x'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?"
 }

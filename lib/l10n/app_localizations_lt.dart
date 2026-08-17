@@ -948,4 +948,21 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Nepavyko pasiekti aplanko. Ar diskas arba debesies aplankas dar yra?';
+
+  @override
+  String get crashTitle => 'Tai neturėjo nutikti';
+
+  @override
+  String get crashBody =>
+      'cat(a)log susidūrė su netikėta klaida. Tavo duomenys saugūs — viskas išsaugoma keitimo akimirką. Paleisk programą iš naujo, o jei kartojasi — atsiųsk ataskaitą, kad būtų pataisyta.';
+
+  @override
+  String get crashRestart => 'Paleisti programą iš naujo';
+
+  @override
+  String get crashSendReport => 'Siųsti ataskaitą kūrėjui';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?';
 }

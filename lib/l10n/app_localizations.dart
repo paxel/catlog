@@ -1831,6 +1831,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t reach the folder. Is the drive or cloud folder still there?'**
   String get folderUnreachable;
+
+  /// No description provided for @crashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'That should not have happened'**
+  String get crashTitle;
+
+  /// No description provided for @crashBody.
+  ///
+  /// In en, this message translates to:
+  /// **'cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.'**
+  String get crashBody;
+
+  /// No description provided for @crashRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Restart the app'**
+  String get crashRestart;
+
+  /// No description provided for @crashSendReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Send report to the developer'**
+  String get crashSendReport;
+
+  /// No description provided for @crashLastRunBody.
+  ///
+  /// In en, this message translates to:
+  /// **'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?'**
+  String get crashLastRunBody;
 }
 
 class _AppLocalizationsDelegate

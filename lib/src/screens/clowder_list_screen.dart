@@ -307,7 +307,8 @@ class _ClowderCard extends StatelessWidget {
           if (cover != null)
             Opacity(
               opacity: 0.55,
-              child: Image.memory(cover, fit: BoxFit.cover),
+              child: Image.memory(cover,
+                  fit: BoxFit.cover, cacheWidth: 800),
             )
           else
             Center(

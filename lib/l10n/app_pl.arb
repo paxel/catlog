@@ -276,5 +276,10 @@
   "spotReplayDone": "Wskazówki pojawią się ponownie",
   "searchNoResults": "Nie znaleziono kota o tym imieniu",
   "syncUnreachable": "Nie można połączyć się z drugim urządzeniem. Czy oba są w tej samej sieci Wi-Fi?",
-  "folderUnreachable": "Nie można otworzyć folderu. Czy dysk lub folder w chmurze nadal istnieje?"
+  "folderUnreachable": "Nie można otworzyć folderu. Czy dysk lub folder w chmurze nadal istnieje?",
+  "crashTitle": "To nie powinno było się zdarzyć",
+  "crashBody": "cat(a)log napotkał nieoczekiwany błąd. Twoje dane są bezpieczne — wszystko zapisuje się w chwili zmiany. Uruchom aplikację ponownie, a jeśli się powtarza, wyślij raport, żeby dało się to naprawić.",
+  "crashRestart": "Uruchom aplikację ponownie",
+  "crashSendReport": "Wyślij raport do dewelopera",
+  "crashLastRunBody": "cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?"
 }

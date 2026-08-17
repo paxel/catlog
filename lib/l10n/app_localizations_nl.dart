@@ -950,4 +950,21 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Kon de map niet bereiken. Bestaat de schijf of cloudmap nog?';
+
+  @override
+  String get crashTitle => 'Dit had niet mogen gebeuren';
+
+  @override
+  String get crashBody =>
+      'cat(a)log liep tegen een onverwachte fout aan. Je gegevens zijn veilig — alles wordt opgeslagen op het moment dat je het wijzigt. Herstart de app en stuur bij herhaling het rapport, zodat het gemaakt kan worden.';
+
+  @override
+  String get crashRestart => 'App herstarten';
+
+  @override
+  String get crashSendReport => 'Rapport naar de ontwikkelaar sturen';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?';
 }

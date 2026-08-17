@@ -946,4 +946,21 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Mape ni mogoče doseči. Ali disk ali oblačna mapa še obstaja?';
+
+  @override
+  String get crashTitle => 'To se ne bi smelo zgoditi';
+
+  @override
+  String get crashBody =>
+      'cat(a)log je naletel na nepričakovano napako. Tvoji podatki so varni — vse se shrani v trenutku spremembe. Znova zaženi aplikacijo, in če se ponavlja, pošlji poročilo, da se lahko popravi.';
+
+  @override
+  String get crashRestart => 'Znova zaženi aplikacijo';
+
+  @override
+  String get crashSendReport => 'Pošlji poročilo razvijalcu';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?';
 }

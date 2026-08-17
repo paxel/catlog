@@ -939,4 +939,21 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'אין גישה לתיקייה. האם הכונן או תיקיית הענן עדיין קיימים?';
+
+  @override
+  String get crashTitle => 'זה לא היה אמור לקרות';
+
+  @override
+  String get crashBody =>
+      'cat(a)log נתקל בשגיאה בלתי צפויה. הנתונים שלך בטוחים — הכול נשמר ברגע השינוי. הפעל מחדש את האפליקציה, ואם זה חוזר, שלח את הדוח כדי שנוכל לתקן.';
+
+  @override
+  String get crashRestart => 'הפעל מחדש את האפליקציה';
+
+  @override
+  String get crashSendReport => 'שלח דוח למפתח';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log נעצר באופן בלתי צפוי בפעם הקודמת — כנראה נגמר הזיכרון. לשלוח דוח קצר כדי שנוכל לתקן?';
 }

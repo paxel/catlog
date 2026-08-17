@@ -276,5 +276,10 @@
   "spotReplayDone": "As dicas voltarão a aparecer",
   "searchNoResults": "Nenhum gato encontrado com esse nome",
   "syncUnreachable": "Não foi possível contactar o outro dispositivo. Estão ambos na mesma Wi-Fi?",
-  "folderUnreachable": "Não foi possível aceder à pasta. O disco ou a pasta na nuvem ainda existe?"
+  "folderUnreachable": "Não foi possível aceder à pasta. O disco ou a pasta na nuvem ainda existe?",
+  "crashTitle": "Isto não devia ter acontecido",
+  "crashBody": "O cat(a)log encontrou um erro inesperado. Os seus dados estão seguros — tudo é guardado no momento em que altera. Reinicie a app e, se se repetir, envie o relatório para que possa ser corrigido.",
+  "crashRestart": "Reiniciar a app",
+  "crashSendReport": "Enviar relatório ao programador",
+  "crashLastRunBody": "O cat(a)log parou inesperadamente da última vez — provavelmente ficou sem memória. Enviar um relatório curto para corrigir?"
 }

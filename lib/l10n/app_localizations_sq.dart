@@ -948,4 +948,21 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Dosja nuk arrihet. A ekziston ende disku ose dosja cloud?';
+
+  @override
+  String get crashTitle => 'Kjo nuk duhej të ndodhte';
+
+  @override
+  String get crashBody =>
+      'cat(a)log hasi një gabim të papritur. Të dhënat e tua janë të sigurta — gjithçka ruhet në çastin që e ndryshon. Rinise aplikacionin dhe nëse përsëritet, dërgo raportin që të rregullohet.';
+
+  @override
+  String get crashRestart => 'Rinis aplikacionin';
+
+  @override
+  String get crashSendReport => 'Dërgo raport te zhvilluesi';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?';
 }

@@ -949,4 +949,21 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'A mappa nem érhető el. Megvan még a meghajtó vagy a felhőmappa?';
+
+  @override
+  String get crashTitle => 'Ennek nem lett volna szabad megtörténnie';
+
+  @override
+  String get crashBody =>
+      'A cat(a)log váratlan hibába ütközött. Az adataid biztonságban vannak — minden a módosítás pillanatában mentődik. Indítsd újra az appot, és ha ismétlődik, küldd el a jelentést, hogy javítható legyen.';
+
+  @override
+  String get crashRestart => 'App újraindítása';
+
+  @override
+  String get crashSendReport => 'Jelentés küldése a fejlesztőnek';
+
+  @override
+  String get crashLastRunBody =>
+      'A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?';
 }

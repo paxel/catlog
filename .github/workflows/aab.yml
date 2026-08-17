@@ -1,0 +1,37 @@
+# One-off: Play Store app bundle from this branch (v0.1.0 predates the
+# appbundle step in release.yml). Runs on every push to this branch.
+name: Play AAB
+
+on:
+  push:
+    branches: ["release/010/google"]
+
+jobs:
+  build-aab:
+    name: Android app bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Write signing config from secrets
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > "$RUNNER_TEMP/upload.jks"
+          cat > android/key.properties <<EOF
+          storeFile=$RUNNER_TEMP/upload.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=catlog
+          keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          EOF
+      - run: flutter pub get
+      - run: flutter build appbundle --release --build-number=$GITHUB_RUN_NUMBER
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catlog-aab
+          path: build/app/outputs/bundle/release/app-release.aab

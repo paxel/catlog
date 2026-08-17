@@ -276,5 +276,10 @@
   "spotReplayDone": "Këshillat do të shfaqen sërish",
   "searchNoResults": "Nuk u gjet mace me atë emër",
   "syncUnreachable": "Pajisja tjetër nuk arrihet. A janë të dyja në të njëjtin Wi-Fi?",
-  "folderUnreachable": "Dosja nuk arrihet. A ekziston ende disku ose dosja cloud?"
+  "folderUnreachable": "Dosja nuk arrihet. A ekziston ende disku ose dosja cloud?",
+  "crashTitle": "Kjo nuk duhej të ndodhte",
+  "crashBody": "cat(a)log hasi një gabim të papritur. Të dhënat e tua janë të sigurta — gjithçka ruhet në çastin që e ndryshon. Rinise aplikacionin dhe nëse përsëritet, dërgo raportin që të rregullohet.",
+  "crashRestart": "Rinis aplikacionin",
+  "crashSendReport": "Dërgo raport te zhvilluesi",
+  "crashLastRunBody": "cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?"
 }

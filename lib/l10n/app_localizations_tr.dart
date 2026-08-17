@@ -948,4 +948,21 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Klasöre ulaşılamadı. Sürücü veya bulut klasörü hâlâ var mı?';
+
+  @override
+  String get crashTitle => 'Bunun olmaması gerekirdi';
+
+  @override
+  String get crashBody =>
+      'cat(a)log beklenmedik bir hatayla karşılaştı. Verileriniz güvende — her şey değiştirdiğiniz anda kaydedilir. Uygulamayı yeniden başlatın, tekrarlanırsa düzeltilebilmesi için raporu gönderin.';
+
+  @override
+  String get crashRestart => 'Uygulamayı yeniden başlat';
+
+  @override
+  String get crashSendReport => 'Geliştiriciye rapor gönder';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?';
 }

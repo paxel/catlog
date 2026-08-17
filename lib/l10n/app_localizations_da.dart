@@ -947,4 +947,21 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Kunne ikke nå mappen. Findes drevet eller cloud-mappen stadig?';
+
+  @override
+  String get crashTitle => 'Det burde ikke være sket';
+
+  @override
+  String get crashBody =>
+      'cat(a)log stødte på en uventet fejl. Dine data er sikre — alt gemmes i samme øjeblik du ændrer det. Genstart appen, og sker det igen, så send rapporten, så det kan rettes.';
+
+  @override
+  String get crashRestart => 'Genstart appen';
+
+  @override
+  String get crashSendReport => 'Send rapport til udvikleren';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stoppede uventet sidste gang — sandsynligvis løb den tør for hukommelse. Send en kort rapport, så det kan rettes?';
 }

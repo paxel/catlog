@@ -946,4 +946,21 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Kunde inte nå mappen. Finns enheten eller molnmappen kvar?';
+
+  @override
+  String get crashTitle => 'Det här borde inte ha hänt';
+
+  @override
+  String get crashBody =>
+      'cat(a)log stötte på ett oväntat fel. Dina data är säkra — allt sparas i samma stund du ändrar det. Starta om appen, och händer det igen, skicka rapporten så det kan lagas.';
+
+  @override
+  String get crashRestart => 'Starta om appen';
+
+  @override
+  String get crashSendReport => 'Skicka rapport till utvecklaren';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stannade oväntat förra gången — troligen tog minnet slut. Skicka en kort rapport så det kan lagas?';
 }

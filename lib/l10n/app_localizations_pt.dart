@@ -948,4 +948,21 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Não foi possível aceder à pasta. O disco ou a pasta na nuvem ainda existe?';
+
+  @override
+  String get crashTitle => 'Isto não devia ter acontecido';
+
+  @override
+  String get crashBody =>
+      'O cat(a)log encontrou um erro inesperado. Os seus dados estão seguros — tudo é guardado no momento em que altera. Reinicie a app e, se se repetir, envie o relatório para que possa ser corrigido.';
+
+  @override
+  String get crashRestart => 'Reiniciar a app';
+
+  @override
+  String get crashSendReport => 'Enviar relatório ao programador';
+
+  @override
+  String get crashLastRunBody =>
+      'O cat(a)log parou inesperadamente da última vez — provavelmente ficou sem memória. Enviar um relatório curto para corrigir?';
 }

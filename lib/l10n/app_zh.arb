@@ -276,5 +276,10 @@
   "spotReplayDone": "提示将重新显示",
   "searchNoResults": "没有找到这个名字的猫",
   "syncUnreachable": "无法连接另一台设备。两台设备在同一个 Wi-Fi 上吗？",
-  "folderUnreachable": "无法访问文件夹。硬盘或云文件夹还在吗？"
+  "folderUnreachable": "无法访问文件夹。硬盘或云文件夹还在吗？",
+  "crashTitle": "这本不该发生",
+  "crashBody": "cat(a)log 遇到了意外错误。您的数据是安全的——所有更改都会立即保存。请重启应用；如果反复出现，请发送报告以便修复。",
+  "crashRestart": "重启应用",
+  "crashSendReport": "向开发者发送报告",
+  "crashLastRunBody": "上次 cat(a)log 意外停止了——很可能是内存不足。发送一份简短报告以便修复吗？"
 }

@@ -276,5 +276,10 @@
   "spotReplayDone": "Savjeti će se ponovno prikazati",
   "searchNoResults": "Nije pronađena mačka s tim imenom",
   "syncUnreachable": "Drugi uređaj nije dostupan. Jesu li oba na istom Wi-Fi-ju?",
-  "folderUnreachable": "Mapa nije dostupna. Postoji li još disk ili cloud mapa?"
+  "folderUnreachable": "Mapa nije dostupna. Postoji li još disk ili cloud mapa?",
+  "crashTitle": "Ovo se nije smjelo dogoditi",
+  "crashBody": "cat(a)log je naišao na neočekivanu grešku. Tvoji su podaci sigurni — sve se sprema čim se promijeni. Ponovno pokreni aplikaciju, a ako se ponavlja, pošalji izvještaj da se popravi.",
+  "crashRestart": "Ponovno pokreni aplikaciju",
+  "crashSendReport": "Pošalji izvještaj razvijatelju",
+  "crashLastRunBody": "cat(a)log se prošli put neočekivano zaustavio — najvjerojatnije je ponestalo memorije. Poslati kratak izvještaj da se popravi?"
 }

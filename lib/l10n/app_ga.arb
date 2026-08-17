@@ -276,5 +276,10 @@
   "spotReplayDone": "Taispeánfar na leideanna arís",
   "searchNoResults": "Níor aimsíodh cat leis an ainm sin",
   "syncUnreachable": "Níorbh fhéidir an gléas eile a shroicheadh. An bhfuil an bheirt ar an Wi-Fi céanna?",
-  "folderUnreachable": "Níorbh fhéidir an fillteán a shroicheadh. An ann fós don tiomántán nó don fhillteán néil?"
+  "folderUnreachable": "Níorbh fhéidir an fillteán a shroicheadh. An ann fós don tiomántán nó don fhillteán néil?",
+  "crashTitle": "Níor cheart go dtarlódh sé sin",
+  "crashBody": "Bhuail cat(a)log earráid gan choinne. Tá do shonraí slán — sábháiltear gach rud an nóiméad a athraíonn tú é. Atosaigh an aip, agus má tharlaíonn sé arís, seol an tuairisc le go ndeiseofar é.",
+  "crashRestart": "Atosaigh an aip",
+  "crashSendReport": "Seol tuairisc chuig an bhforbróir",
+  "crashLastRunBody": "Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?"
 }

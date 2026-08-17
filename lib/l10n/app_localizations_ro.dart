@@ -948,4 +948,21 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Dosarul nu poate fi accesat. Discul sau dosarul cloud mai există?';
+
+  @override
+  String get crashTitle => 'Asta nu trebuia să se întâmple';
+
+  @override
+  String get crashBody =>
+      'cat(a)log a întâlnit o eroare neașteptată. Datele tale sunt în siguranță — totul se salvează în momentul modificării. Repornește aplicația și, dacă se repetă, trimite raportul ca să poată fi reparat.';
+
+  @override
+  String get crashRestart => 'Repornește aplicația';
+
+  @override
+  String get crashSendReport => 'Trimite raport dezvoltatorului';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?';
 }

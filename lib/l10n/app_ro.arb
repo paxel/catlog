@@ -276,5 +276,10 @@
   "spotReplayDone": "Indiciile vor apărea din nou",
   "searchNoResults": "Nicio pisică găsită cu acest nume",
   "syncUnreachable": "Celălalt dispozitiv nu poate fi contactat. Sunt ambele pe același Wi-Fi?",
-  "folderUnreachable": "Dosarul nu poate fi accesat. Discul sau dosarul cloud mai există?"
+  "folderUnreachable": "Dosarul nu poate fi accesat. Discul sau dosarul cloud mai există?",
+  "crashTitle": "Asta nu trebuia să se întâmple",
+  "crashBody": "cat(a)log a întâlnit o eroare neașteptată. Datele tale sunt în siguranță — totul se salvează în momentul modificării. Repornește aplicația și, dacă se repetă, trimite raportul ca să poată fi reparat.",
+  "crashRestart": "Repornește aplicația",
+  "crashSendReport": "Trimite raport dezvoltatorului",
+  "crashLastRunBody": "cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?"
 }

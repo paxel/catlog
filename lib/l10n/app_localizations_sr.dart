@@ -947,4 +947,21 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Фасцикла је недоступна. Да ли диск или клауд фасцикла још постоји?';
+
+  @override
+  String get crashTitle => 'Ово није смело да се деси';
+
+  @override
+  String get crashBody =>
+      'cat(a)log је наишао на неочекивану грешку. Твоји подаци су безбедни — све се чува чим се промени. Рестартуј апликацију, а ако се понавља, пошаљи извештај да се поправи.';
+
+  @override
+  String get crashRestart => 'Рестартуј апликацију';
+
+  @override
+  String get crashSendReport => 'Пошаљи извештај програмеру';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log се прошли пут неочекивано зауставио — највероватније је нестало меморије. Послати кратак извештај да се поправи?';
 }

@@ -947,4 +947,21 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Fascikla nije dostupna. Postoji li još disk ili cloud fascikla?';
+
+  @override
+  String get crashTitle => 'Ovo se nije smjelo desiti';
+
+  @override
+  String get crashBody =>
+      'cat(a)log je naišao na neočekivanu grešku. Tvoji podaci su sigurni — sve se snima čim se promijeni. Restartuj aplikaciju, a ako se ponavlja, pošalji izvještaj da se popravi.';
+
+  @override
+  String get crashRestart => 'Restartuj aplikaciju';
+
+  @override
+  String get crashSendReport => 'Pošalji izvještaj programeru';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log se prošli put neočekivano zaustavio — najvjerovatnije je nestalo memorije. Poslati kratak izvještaj da se popravi?';
 }

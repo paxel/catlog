@@ -276,5 +276,10 @@
   "spotReplayDone": "Ábendingarnar birtast aftur",
   "searchNoResults": "Enginn köttur fannst með þessu nafni",
   "syncUnreachable": "Náðist ekki í hitt tækið. Eru bæði á sama Wi-Fi?",
-  "folderUnreachable": "Náðist ekki í möppuna. Er drifið eða skýjamappan enn til?"
+  "folderUnreachable": "Náðist ekki í möppuna. Er drifið eða skýjamappan enn til?",
+  "crashTitle": "Þetta hefði ekki átt að gerast",
+  "crashBody": "cat(a)log rakst á óvænta villu. Gögnin þín eru örugg — allt vistast um leið og þú breytir því. Endurræstu forritið og ef þetta endurtekur sig, sendu skýrsluna svo hægt sé að laga það.",
+  "crashRestart": "Endurræsa forritið",
+  "crashSendReport": "Senda skýrslu til þróanda",
+  "crashLastRunBody": "cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?"
 }

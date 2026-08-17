@@ -548,5 +548,10 @@
   "spotReplayDone": "The highlights will show again",
   "searchNoResults": "No cat found with that name",
   "syncUnreachable": "Couldn't reach the other device. Are both on the same Wi-Fi?",
-  "folderUnreachable": "Couldn't reach the folder. Is the drive or cloud folder still there?"
+  "folderUnreachable": "Couldn't reach the folder. Is the drive or cloud folder still there?",
+  "crashTitle": "That should not have happened",
+  "crashBody": "cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.",
+  "crashRestart": "Restart the app",
+  "crashSendReport": "Send report to the developer",
+  "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?"
 }

@@ -948,4 +948,21 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Couldn\'t reach the folder. Is the drive or cloud folder still there?';
+
+  @override
+  String get crashTitle => 'That should not have happened';
+
+  @override
+  String get crashBody =>
+      'cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.';
+
+  @override
+  String get crashRestart => 'Restart the app';
+
+  @override
+  String get crashSendReport => 'Send report to the developer';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?';
 }

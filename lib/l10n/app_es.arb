@@ -276,5 +276,10 @@
   "spotReplayDone": "Las pistas volverán a mostrarse",
   "searchNoResults": "No se encontró ningún gato con ese nombre",
   "syncUnreachable": "No se pudo conectar con el otro dispositivo. ¿Están ambos en la misma Wi-Fi?",
-  "folderUnreachable": "No se pudo acceder a la carpeta. ¿Sigue existiendo la unidad o la carpeta en la nube?"
+  "folderUnreachable": "No se pudo acceder a la carpeta. ¿Sigue existiendo la unidad o la carpeta en la nube?",
+  "crashTitle": "Esto no debería haber pasado",
+  "crashBody": "cat(a)log encontró un error inesperado. Tus datos están a salvo — todo se guarda en el momento en que lo cambias. Reinicia la app y, si se repite, envía el informe para poder arreglarlo.",
+  "crashRestart": "Reiniciar la app",
+  "crashSendReport": "Enviar informe al desarrollador",
+  "crashLastRunBody": "cat(a)log se detuvo inesperadamente la última vez — probablemente se quedó sin memoria. ¿Enviar un informe breve para arreglarlo?"
 }

@@ -946,4 +946,21 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Neizdevās sasniegt mapi. Vai disks vai mākoņa mape vēl pastāv?';
+
+  @override
+  String get crashTitle => 'Tam nevajadzēja notikt';
+
+  @override
+  String get crashBody =>
+      'cat(a)log saskārās ar negaidītu kļūdu. Tavi dati ir drošībā — viss saglabājas izmaiņu brīdī. Restartē lietotni, un ja tas atkārtojas, nosūti ziņojumu, lai to var izlabot.';
+
+  @override
+  String get crashRestart => 'Restartēt lietotni';
+
+  @override
+  String get crashSendReport => 'Nosūtīt ziņojumu izstrādātājam';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log pagājušajā reizē negaidīti apstājās — visticamāk pietrūka atmiņas. Nosūtīt īsu ziņojumu, lai izlabotu?';
 }

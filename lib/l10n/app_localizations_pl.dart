@@ -946,4 +946,21 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get folderUnreachable =>
       'Nie można otworzyć folderu. Czy dysk lub folder w chmurze nadal istnieje?';
+
+  @override
+  String get crashTitle => 'To nie powinno było się zdarzyć';
+
+  @override
+  String get crashBody =>
+      'cat(a)log napotkał nieoczekiwany błąd. Twoje dane są bezpieczne — wszystko zapisuje się w chwili zmiany. Uruchom aplikację ponownie, a jeśli się powtarza, wyślij raport, żeby dało się to naprawić.';
+
+  @override
+  String get crashRestart => 'Uruchom aplikację ponownie';
+
+  @override
+  String get crashSendReport => 'Wyślij raport do dewelopera';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?';
 }
