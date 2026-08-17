@@ -75,15 +75,19 @@ class MainActivity : FlutterActivity() {
         val resolver = contentResolver
         val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            // Drop older copies of the same backup file.
+            // Drop older copies of the same backup file. LIKE, not =:
+            // earlier releases used a zip MIME type, and MediaStore renamed
+            // those files to "$name.zip" (plus " (1)" duplicates).
             resolver.delete(
                 MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME}=?",
-                arrayOf("$relativePath/", name)
+                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
+                arrayOf("$relativePath/", "$name%")
             )
             val values = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-                put(MediaStore.MediaColumns.MIME_TYPE, "application/zip")
+                // A recognized MIME type would make MediaStore force its
+                // extension onto the file; octet-stream keeps ".catsync".
+                put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
                 put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath)
             }
             val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)

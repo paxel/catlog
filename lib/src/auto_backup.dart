@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -14,6 +15,11 @@ Future<void> autoBackup(CatalogStore store) async {
     // Only when something actually changed since the last backup.
     final vector = store.versionVector().toString();
     if (store.localSetting('lastBackupVector') == vector) return;
+
+    // A catalog without cats and clowders backs up nothing worth keeping —
+    // and a fresh install must not shadow the pre-uninstall backup the
+    // user is about to restore. (Seeded starter Fields alone don't count.)
+    if (store.cats().isEmpty && store.clowders().isEmpty) return;
 
     final tmp = await getTemporaryDirectory();
     // Own-device safety net: the backup always carries Private data too.
@@ -37,8 +43,13 @@ Future<void> autoBackup(CatalogStore store) async {
       File(path).copySync('${docs.path}/catlog-backup.catsync');
     }
     store.setLocalSetting('lastBackupVector', vector);
-  } catch (_) {
+    store.setLocalSetting('lastBackupError', '');
+  } catch (e) {
     // A failed background backup must never crash the app; the next
-    // pause tries again.
+    // pause tries again. Recorded so the failure is discoverable.
+    debugPrint('autoBackup failed: $e');
+    try {
+      store.setLocalSetting('lastBackupError', e.toString());
+    } catch (_) {}
   }
 }
