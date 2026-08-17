@@ -604,4 +604,21 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'اگر در iPhone/iPad همچنان ناموفق است: تنظیمات → حریم خصوصی و امنیت → شبکه محلی → به cat(a)log اجازه دهید و دوباره امتحان کنید.';
+
+  @override
+  String get crashTitle => 'این نباید اتفاق می‌افتاد';
+
+  @override
+  String get crashBody =>
+      'cat(a)log با خطای غیرمنتظره‌ای روبه‌رو شد. داده‌های شما امن است — همه چیز در لحظه تغییر ذخیره می‌شود. برنامه را دوباره راه‌اندازی کنید و اگر تکرار شد، گزارش را بفرستید تا برطرف شود.';
+
+  @override
+  String get crashRestart => 'راه‌اندازی دوباره برنامه';
+
+  @override
+  String get crashSendReport => 'ارسال گزارش به توسعه‌دهنده';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log دفعه قبل به‌طور غیرمنتظره متوقف شد — احتمالاً حافظه تمام شد. گزارش کوتاهی فرستاده شود تا برطرف شود؟';
 }

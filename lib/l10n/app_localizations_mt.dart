@@ -607,4 +607,21 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Jekk jibqa\' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa\' pprova.';
+
+  @override
+  String get crashTitle => 'Dan ma kellux jiġri';
+
+  @override
+  String get crashBody =>
+      'cat(a)log iltaqa\' ma\' żball mhux mistenni. Id-data tiegħek hija sikura — kollox jiġi salvat fil-mument li tibdlu. Erġa\' ibda l-app, u jekk jerġa\' jiġri, ibgħat ir-rapport biex ikun jista\' jissewwa.';
+
+  @override
+  String get crashRestart => 'Erġa\' ibda l-app';
+
+  @override
+  String get crashSendReport => 'Ibgħat rapport lill-iżviluppatur';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log waqaf għal għarrieda l-aħħar darba — x\'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?';
 }

@@ -606,4 +606,21 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen.';
+
+  @override
+  String get crashTitle => 'Das hätte nicht passieren dürfen';
+
+  @override
+  String get crashBody =>
+      'cat(a)log ist auf einen unerwarteten Fehler gestoßen. Deine Daten sind sicher — alles wird sofort beim Ändern gespeichert. Starte die App neu, und wenn es wieder passiert, schick den Bericht, damit es behoben werden kann.';
+
+  @override
+  String get crashRestart => 'App neu starten';
+
+  @override
+  String get crashSendReport => 'Bericht an den Entwickler senden';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?';
 }

@@ -174,5 +174,10 @@
   "useMyLocation": "Nota staðsetningu mína",
   "language": "Tungumál",
   "systemDefault": "Sjálfgefið kerfis",
-  "iosLocalNetworkHint": "Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur."
+  "iosLocalNetworkHint": "Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.",
+  "crashTitle": "Þetta hefði ekki átt að gerast",
+  "crashBody": "cat(a)log rakst á óvænta villu. Gögnin þín eru örugg — allt vistast um leið og þú breytir því. Endurræstu forritið og ef þetta endurtekur sig, sendu skýrsluna svo hægt sé að laga það.",
+  "crashRestart": "Endurræsa forritið",
+  "crashSendReport": "Senda skýrslu til þróanda",
+  "crashLastRunBody": "cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?"
 }

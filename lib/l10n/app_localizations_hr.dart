@@ -605,4 +605,21 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dopusti cat(a)log pa pokušaj ponovno.';
+
+  @override
+  String get crashTitle => 'Ovo se nije smjelo dogoditi';
+
+  @override
+  String get crashBody =>
+      'cat(a)log je naišao na neočekivanu grešku. Tvoji su podaci sigurni — sve se sprema čim se promijeni. Ponovno pokreni aplikaciju, a ako se ponavlja, pošalji izvještaj da se popravi.';
+
+  @override
+  String get crashRestart => 'Ponovno pokreni aplikaciju';
+
+  @override
+  String get crashSendReport => 'Pošalji izvještaj razvijatelju';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log se prošli put neočekivano zaustavio — najvjerojatnije je ponestalo memorije. Poslati kratak izvještaj da se popravi?';
 }

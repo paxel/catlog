@@ -398,5 +398,10 @@
   "useMyLocation": "Use my location",
   "language": "Language",
   "systemDefault": "System default",
-  "iosLocalNetworkHint": "If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again."
+  "iosLocalNetworkHint": "If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.",
+  "crashTitle": "That should not have happened",
+  "crashBody": "cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.",
+  "crashRestart": "Restart the app",
+  "crashSendReport": "Send report to the developer",
+  "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?"
 }

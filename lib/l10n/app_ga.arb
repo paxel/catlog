@@ -174,5 +174,10 @@
   "useMyLocation": "Úsáid mo shuíomh",
   "language": "Teanga",
   "systemDefault": "Réamhshocrú an chórais",
-  "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as."
+  "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.",
+  "crashTitle": "Níor cheart go dtarlódh sé sin",
+  "crashBody": "Bhuail cat(a)log earráid gan choinne. Tá do shonraí slán — sábháiltear gach rud an nóiméad a athraíonn tú é. Atosaigh an aip, agus má tharlaíonn sé arís, seol an tuairisc le go ndeiseofar é.",
+  "crashRestart": "Atosaigh an aip",
+  "crashSendReport": "Seol tuairisc chuig an bhforbróir",
+  "crashLastRunBody": "Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?"
 }

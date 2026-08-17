@@ -604,4 +604,21 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Kui iPhone\'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.';
+
+  @override
+  String get crashTitle => 'Seda poleks tohtinud juhtuda';
+
+  @override
+  String get crashBody =>
+      'cat(a)log sattus ootamatule veale. Sinu andmed on kaitstud — kõik salvestatakse muutmise hetkel. Taaskäivita rakendus ja kui see kordub, saada raport, et saaks parandada.';
+
+  @override
+  String get crashRestart => 'Taaskäivita rakendus';
+
+  @override
+  String get crashSendReport => 'Saada raport arendajale';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?';
 }

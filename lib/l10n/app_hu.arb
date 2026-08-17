@@ -174,5 +174,10 @@
   "useMyLocation": "Saját helyzetem használata",
   "language": "Nyelv",
   "systemDefault": "Rendszer alapértelmezés",
-  "iosLocalNetworkHint": "Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra."
+  "iosLocalNetworkHint": "Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.",
+  "crashTitle": "Ennek nem lett volna szabad megtörténnie",
+  "crashBody": "A cat(a)log váratlan hibába ütközött. Az adataid biztonságban vannak — minden a módosítás pillanatában mentődik. Indítsd újra az appot, és ha ismétlődik, küldd el a jelentést, hogy javítható legyen.",
+  "crashRestart": "App újraindítása",
+  "crashSendReport": "Jelentés küldése a fejlesztőnek",
+  "crashLastRunBody": "A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?"
 }

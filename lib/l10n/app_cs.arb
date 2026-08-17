@@ -174,5 +174,10 @@
   "useMyLocation": "Použít moji polohu",
   "language": "Jazyk",
   "systemDefault": "Výchozí systému",
-  "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu."
+  "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.",
+  "crashTitle": "Tohle se nemělo stát",
+  "crashBody": "cat(a)log narazil na nečekanou chybu. Tvá data jsou v bezpečí — vše se ukládá hned při změně. Restartuj aplikaci, a pokud se to opakuje, pošli hlášení, ať se to dá opravit.",
+  "crashRestart": "Restartovat aplikaci",
+  "crashSendReport": "Poslat hlášení vývojáři",
+  "crashLastRunBody": "cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?"
 }

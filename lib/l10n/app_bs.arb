@@ -174,5 +174,10 @@
   "useMyLocation": "Koristi moju lokaciju",
   "language": "Jezik",
   "systemDefault": "Zadano sistemom",
-  "iosLocalNetworkHint": "Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dozvoli cat(a)log pa pokušaj ponovo."
+  "iosLocalNetworkHint": "Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dozvoli cat(a)log pa pokušaj ponovo.",
+  "crashTitle": "Ovo se nije smjelo desiti",
+  "crashBody": "cat(a)log je naišao na neočekivanu grešku. Tvoji podaci su sigurni — sve se snima čim se promijeni. Restartuj aplikaciju, a ako se ponavlja, pošalji izvještaj da se popravi.",
+  "crashRestart": "Restartuj aplikaciju",
+  "crashSendReport": "Pošalji izvještaj programeru",
+  "crashLastRunBody": "cat(a)log se prošli put neočekivano zaustavio — najvjerovatnije je nestalo memorije. Poslati kratak izvještaj da se popravi?"
 }

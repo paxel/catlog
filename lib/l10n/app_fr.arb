@@ -174,5 +174,10 @@
   "useMyLocation": "Utiliser ma position",
   "language": "Langue",
   "systemDefault": "Langue du système",
-  "iosLocalNetworkHint": "Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer."
+  "iosLocalNetworkHint": "Si ça échoue encore sur iPhone/iPad : Réglages → Confidentialité et sécurité → Réseau local → autoriser cat(a)log, puis réessayer.",
+  "crashTitle": "Cela n'aurait pas dû arriver",
+  "crashBody": "cat(a)log a rencontré une erreur inattendue. Vos données sont en sécurité — tout est enregistré dès la modification. Redémarrez l'app et, si cela se reproduit, envoyez le rapport pour que ce soit corrigé.",
+  "crashRestart": "Redémarrer l'app",
+  "crashSendReport": "Envoyer le rapport au développeur",
+  "crashLastRunBody": "cat(a)log s'est arrêté de façon inattendue la dernière fois — probablement à court de mémoire. Envoyer un court rapport pour corriger ?"
 }
