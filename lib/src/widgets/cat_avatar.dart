@@ -24,7 +24,10 @@ class CatAvatar extends StatelessWidget {
               child: Icon(Icons.pets, size: size / 2),
             )
           : Image.memory(bytes,
-              width: size, height: size, fit: BoxFit.cover),
+              width: size,
+              height: size,
+              fit: BoxFit.cover,
+              cacheWidth: (size * 3).round()),
     );
   }
 }

@@ -13,6 +13,13 @@ const tileUserAgent = 'catlog/0.1 (+https://github.com/paxel/catlog)';
 class DiskCachingTileProvider extends TileProvider {
   final Directory cacheDir;
 
+  /// Memoized providers for cache hits. A fresh MemoryImage per request
+  /// has no stable equality, so Flutter's image cache re-decoded every
+  /// tile on every pan — memory climbed until Android killed the app.
+  /// Same tile → same provider instance → real cache hits. Bounded:
+  /// ~120 tiles ≈ a few MB of raw bytes.
+  final _hits = <String, MemoryImage>{};
+
   DiskCachingTileProvider(this.cacheDir) {
     cacheDir.createSync(recursive: true);
   }
@@ -25,7 +32,18 @@ class DiskCachingTileProvider extends TileProvider {
     // Cache hits load synchronously as MemoryImage — tiles are tiny,
     // and this is the one image pipeline that renders reliably both on
     // devices and under the widget-test clock (screenshot generator).
-    if (file.existsSync()) return MemoryImage(file.readAsBytesSync());
+    if (file.existsSync()) {
+      final key = file.path;
+      final memoized = _hits.remove(key);
+      if (memoized != null) {
+        _hits[key] = memoized; // refresh LRU position
+        return memoized;
+      }
+      final image = MemoryImage(file.readAsBytesSync());
+      _hits[key] = image;
+      if (_hits.length > 120) _hits.remove(_hits.keys.first);
+      return image;
+    }
     return _CachedTileImage(url, file);
   }
 }
