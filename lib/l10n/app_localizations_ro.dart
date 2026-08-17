@@ -490,6 +490,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterGender => 'Sex';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Culoare';
 
   @override

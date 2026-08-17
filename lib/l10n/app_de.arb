@@ -138,6 +138,8 @@
   "labelProfileImage": "Profilbild",
   "labelPhoto": "Foto",
   "starterGender": "Geschlecht",
+  "starterBreed": "Rasse",
+  "valueMixed": "Mischling",
   "starterColor": "Farbe",
   "starterNeutered": "Kastriert",
   "starterPregnant": "Trächtig",

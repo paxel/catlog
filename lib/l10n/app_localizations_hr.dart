@@ -489,6 +489,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get starterGender => 'Spol';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Boja';
 
   @override

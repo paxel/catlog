@@ -488,6 +488,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterGender => 'Pohlavie';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Farba';
 
   @override

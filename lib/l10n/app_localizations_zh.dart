@@ -478,6 +478,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterGender => '性别';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => '毛色';
 
   @override

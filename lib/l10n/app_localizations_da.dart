@@ -489,6 +489,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterGender => 'Køn';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Farve';
 
   @override

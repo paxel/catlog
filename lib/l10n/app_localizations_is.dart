@@ -491,6 +491,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterGender => 'Kyn';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Litur';
 
   @override

@@ -488,6 +488,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterGender => 'Kön';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Färg';
 
   @override

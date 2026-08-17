@@ -488,6 +488,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterGender => 'Sugu';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Värv';
 
   @override

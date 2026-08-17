@@ -488,6 +488,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterGender => 'Pohlaví';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Barva';
 
   @override

@@ -348,6 +348,8 @@
   "labelProfileImage": "Profile image",
   "labelPhoto": "Photo",
   "starterGender": "Gender",
+  "starterBreed": "Breed",
+  "valueMixed": "mixed",
   "starterColor": "Color",
   "starterNeutered": "Neutered",
   "starterPregnant": "Pregnant",

@@ -488,6 +488,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterGender => 'جنسیت';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'رنگ';
 
   @override

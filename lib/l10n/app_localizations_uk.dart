@@ -488,6 +488,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterGender => 'Стать';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Забарвлення';
 
   @override

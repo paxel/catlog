@@ -29,6 +29,8 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
       return def?.slug == 'gender' ? t.valueMale : value;
     case 'unknown':
       return def?.slug == 'gender' ? t.valueUnknown : value;
+    case 'mixed':
+      return def?.slug == 'breed' ? t.valueMixed : value;
   }
   return value;
 }
@@ -43,6 +45,7 @@ String? _canonicalName(String slug) {
 String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'gender' => t.starterGender,
       'color' => t.starterColor,
+      'breed' => t.starterBreed,
       'neutered' => t.starterNeutered,
       'pregnant' => t.starterPregnant,
       'birthdate' => t.starterBirthdate,

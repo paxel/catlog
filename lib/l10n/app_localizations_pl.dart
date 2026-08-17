@@ -489,6 +489,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterGender => 'Płeć';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Umaszczenie';
 
   @override

@@ -488,6 +488,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterGender => 'الجنس';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'اللون';
 
   @override

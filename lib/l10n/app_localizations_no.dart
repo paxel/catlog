@@ -488,6 +488,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get starterGender => 'Kjønn';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Farge';
 
   @override

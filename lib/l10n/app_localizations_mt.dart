@@ -491,6 +491,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterGender => 'Sess';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Kulur';
 
   @override

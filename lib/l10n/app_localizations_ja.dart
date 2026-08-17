@@ -479,6 +479,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterGender => '性別';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => '毛色';
 
   @override

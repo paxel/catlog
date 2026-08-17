@@ -490,6 +490,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterGender => 'Geslacht';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Kleur';
 
   @override

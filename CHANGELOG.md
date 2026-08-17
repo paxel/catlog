@@ -8,6 +8,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ### Added
 
 - The app can be installed via F-Droid from the project's own repository.
+- Cats have a Breed field with common breeds as choices; own entries can
+  be added.
 
 ### Changed
 

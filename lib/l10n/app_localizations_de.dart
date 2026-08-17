@@ -490,6 +490,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get starterGender => 'Geschlecht';
 
   @override
+  String get starterBreed => 'Rasse';
+
+  @override
+  String get valueMixed => 'Mischling';
+
+  @override
   String get starterColor => 'Farbe';
 
   @override

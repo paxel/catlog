@@ -490,6 +490,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterGender => 'Φύλο';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Χρώμα';
 
   @override

@@ -488,6 +488,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterGender => 'Sexo';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Cor';
 
   @override

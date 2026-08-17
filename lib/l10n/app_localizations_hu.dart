@@ -489,6 +489,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterGender => 'Ivar';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
   String get starterColor => 'Szín';
 
   @override

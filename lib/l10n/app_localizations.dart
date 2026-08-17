@@ -998,6 +998,18 @@ abstract class AppLocalizations {
   /// **'Gender'**
   String get starterGender;
 
+  /// No description provided for @starterBreed.
+  ///
+  /// In en, this message translates to:
+  /// **'Breed'**
+  String get starterBreed;
+
+  /// No description provided for @valueMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'mixed'**
+  String get valueMixed;
+
   /// No description provided for @starterColor.
   ///
   /// In en, this message translates to:
