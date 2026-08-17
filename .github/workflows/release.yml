@@ -87,6 +87,7 @@ jobs:
         run: |
           flutter build apk --release --split-per-abi --build-number=$GITHUB_RUN_NUMBER
           flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
+          flutter build appbundle --release --build-number=$GITHUB_RUN_NUMBER
       - name: Rename artifacts
         run: |
           v="${RELEASE_TAG#v}"
@@ -96,6 +97,7 @@ jobs:
           mv "$d/app-armeabi-v7a-release.apk" "dist/catlog-$v-android-armeabi-v7a.apk"
           mv "$d/app-x86_64-release.apk"      "dist/catlog-$v-android-x86_64.apk"
           mv "$d/app-release.apk"             "dist/catlog-$v-android-universal.apk"
+          mv build/app/outputs/bundle/release/app-release.aab "dist/catlog-$v-android-playstore.aab"
       - uses: actions/upload-artifact@v4
         with:
           name: android
@@ -118,10 +120,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
+      # No packaged Flutter SDK exists for linux-arm64; a stable-branch
+      # clone bootstraps the right Dart SDK on both architectures.
+      - name: Install Flutter from git (works on arm64)
+        run: |
+          git clone --depth 1 -b stable https://github.com/flutter/flutter "$HOME/flutter"
+          echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
       - run: flutter pub get
       - run: flutter build linux --release
       - name: Pack
@@ -129,6 +133,7 @@ jobs:
           v="${RELEASE_TAG#v}"
           mkdir -p dist
           bundle=$(ls -d build/linux/*/release/bundle | head -1)
+          cp packaging/linux/catlog.desktop packaging/linux/catlog-mime.xml "$bundle/"
           tar -C "$bundle" -czf "dist/catlog-$v-linux-${{ matrix.arch }}.tar.gz" .
       - uses: actions/upload-artifact@v4
         with:
