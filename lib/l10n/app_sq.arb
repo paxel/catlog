@@ -174,5 +174,10 @@
   "useMyLocation": "Përdor vendndodhjen time",
   "language": "Gjuha",
   "systemDefault": "Parazgjedhja e sistemit",
-  "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish."
+  "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.",
+  "crashTitle": "Kjo nuk duhej të ndodhte",
+  "crashBody": "cat(a)log hasi një gabim të papritur. Të dhënat e tua janë të sigurta — gjithçka ruhet në çastin që e ndryshon. Rinise aplikacionin dhe nëse përsëritet, dërgo raportin që të rregullohet.",
+  "crashRestart": "Rinis aplikacionin",
+  "crashSendReport": "Dërgo raport te zhvilluesi",
+  "crashLastRunBody": "cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?"
 }

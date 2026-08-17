@@ -593,4 +593,20 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       '如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。';
+
+  @override
+  String get crashTitle => '这本不该发生';
+
+  @override
+  String get crashBody =>
+      'cat(a)log 遇到了意外错误。您的数据是安全的——所有更改都会立即保存。请重启应用；如果反复出现，请发送报告以便修复。';
+
+  @override
+  String get crashRestart => '重启应用';
+
+  @override
+  String get crashSendReport => '向开发者发送报告';
+
+  @override
+  String get crashLastRunBody => '上次 cat(a)log 意外停止了——很可能是内存不足。发送一份简短报告以便修复吗？';
 }

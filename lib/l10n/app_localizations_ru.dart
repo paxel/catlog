@@ -605,4 +605,21 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Если на iPhone/iPad всё ещё не получается: Настройки → Конфиденциальность и безопасность → Локальная сеть → разрешите cat(a)log и попробуйте снова.';
+
+  @override
+  String get crashTitle => 'Этого не должно было случиться';
+
+  @override
+  String get crashBody =>
+      'cat(a)log столкнулся с неожиданной ошибкой. Ваши данные в безопасности — всё сохраняется в момент изменения. Перезапустите приложение, а если повторится — отправьте отчёт, чтобы это исправить.';
+
+  @override
+  String get crashRestart => 'Перезапустить приложение';
+
+  @override
+  String get crashSendReport => 'Отправить отчёт разработчику';
+
+  @override
+  String get crashLastRunBody =>
+      'В прошлый раз cat(a)log неожиданно остановился — скорее всего, кончилась память. Отправить короткий отчёт, чтобы исправить?';
 }

@@ -604,4 +604,21 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.';
+
+  @override
+  String get crashTitle => 'Tohle se nemělo stát';
+
+  @override
+  String get crashBody =>
+      'cat(a)log narazil na nečekanou chybu. Tvá data jsou v bezpečí — vše se ukládá hned při změně. Restartuj aplikaci, a pokud se to opakuje, pošli hlášení, ať se to dá opravit.';
+
+  @override
+  String get crashRestart => 'Restartovat aplikaci';
+
+  @override
+  String get crashSendReport => 'Poslat hlášení vývojáři';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?';
 }

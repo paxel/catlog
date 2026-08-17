@@ -174,5 +174,10 @@
   "useMyLocation": "Použiť moju polohu",
   "language": "Jazyk",
   "systemDefault": "Predvolený systém",
-  "iosLocalNetworkHint": "Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova."
+  "iosLocalNetworkHint": "Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova.",
+  "crashTitle": "Toto sa nemalo stať",
+  "crashBody": "cat(a)log narazil na nečakanú chybu. Tvoje dáta sú v bezpečí — všetko sa ukladá hneď pri zmene. Reštartuj aplikáciu, a ak sa to opakuje, pošli hlásenie, aby sa to dalo opraviť.",
+  "crashRestart": "Reštartovať aplikáciu",
+  "crashSendReport": "Poslať hlásenie vývojárovi",
+  "crashLastRunBody": "cat(a)log sa minule nečakane ukončil — najskôr došla pamäť. Poslať krátke hlásenie, aby sa to dalo opraviť?"
 }

@@ -606,4 +606,21 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.';
+
+  @override
+  String get crashTitle => 'Dit had niet mogen gebeuren';
+
+  @override
+  String get crashBody =>
+      'cat(a)log liep tegen een onverwachte fout aan. Je gegevens zijn veilig — alles wordt opgeslagen op het moment dat je het wijzigt. Herstart de app en stuur bij herhaling het rapport, zodat het gemaakt kan worden.';
+
+  @override
+  String get crashRestart => 'App herstarten';
+
+  @override
+  String get crashSendReport => 'Rapport naar de ontwikkelaar sturen';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?';
 }

@@ -122,7 +122,11 @@ class _MapScreenState extends State<MapScreen> {
       child: CircleAvatar(
         radius: 18,
         backgroundColor: Colors.white,
-        backgroundImage: bytes != null ? MemoryImage(bytes) : null,
+        // Decode at pin size — full-resolution photos (2560px ≈ 26MB
+        // decoded) in a 40px circle were the other leg of the OOM.
+        backgroundImage: bytes != null
+            ? ResizeImage(MemoryImage(bytes), width: 96)
+            : null,
         child: bytes == null
             ? const Icon(Icons.pets, size: 20, color: Colors.deepOrange)
             : null,

@@ -174,5 +174,10 @@
   "useMyLocation": "Mijn locatie gebruiken",
   "language": "Taal",
   "systemDefault": "Systeemstandaard",
-  "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen."
+  "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.",
+  "crashTitle": "Dit had niet mogen gebeuren",
+  "crashBody": "cat(a)log liep tegen een onverwachte fout aan. Je gegevens zijn veilig — alles wordt opgeslagen op het moment dat je het wijzigt. Herstart de app en stuur bij herhaling het rapport, zodat het gemaakt kan worden.",
+  "crashRestart": "App herstarten",
+  "crashSendReport": "Rapport naar de ontwikkelaar sturen",
+  "crashLastRunBody": "cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?"
 }

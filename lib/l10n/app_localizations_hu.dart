@@ -605,4 +605,21 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.';
+
+  @override
+  String get crashTitle => 'Ennek nem lett volna szabad megtörténnie';
+
+  @override
+  String get crashBody =>
+      'A cat(a)log váratlan hibába ütközött. Az adataid biztonságban vannak — minden a módosítás pillanatában mentődik. Indítsd újra az appot, és ha ismétlődik, küldd el a jelentést, hogy javítható legyen.';
+
+  @override
+  String get crashRestart => 'App újraindítása';
+
+  @override
+  String get crashSendReport => 'Jelentés küldése a fejlesztőnek';
+
+  @override
+  String get crashLastRunBody =>
+      'A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?';
 }

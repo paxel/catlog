@@ -174,5 +174,10 @@
   "useMyLocation": "現在地を使う",
   "language": "言語",
   "systemDefault": "システムの既定",
-  "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。"
+  "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。",
+  "crashTitle": "これは起きてはいけないことでした",
+  "crashBody": "cat(a)log で予期しないエラーが発生しました。データは安全です — 変更した瞬間に保存されています。アプリを再起動し、繰り返す場合はレポートを送信してください。修正に役立ちます。",
+  "crashRestart": "アプリを再起動",
+  "crashSendReport": "開発者にレポートを送信",
+  "crashLastRunBody": "前回 cat(a)log が予期せず停止しました — おそらくメモリ不足です。修正のため簡単なレポートを送信しますか？"
 }

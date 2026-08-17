@@ -174,5 +174,10 @@
   "useMyLocation": "Bruk min posisjon",
   "language": "Språk",
   "systemDefault": "Systemstandard",
-  "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen."
+  "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.",
+  "crashTitle": "Dette burde ikke ha skjedd",
+  "crashBody": "cat(a)log støtte på en uventet feil. Dataene dine er trygge — alt lagres i det øyeblikket du endrer det. Start appen på nytt, og send rapporten hvis det gjentar seg, så det kan fikses.",
+  "crashRestart": "Start appen på nytt",
+  "crashSendReport": "Send rapport til utvikleren",
+  "crashLastRunBody": "cat(a)log stoppet uventet sist — sannsynligvis gikk den tom for minne. Sende en kort rapport så det kan fikses?"
 }

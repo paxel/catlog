@@ -605,4 +605,21 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.';
+
+  @override
+  String get crashTitle => 'Tämän ei olisi pitänyt tapahtua';
+
+  @override
+  String get crashBody =>
+      'cat(a)log kohtasi odottamattoman virheen. Tietosi ovat turvassa — kaikki tallentuu heti muutoshetkellä. Käynnistä sovellus uudelleen, ja jos tämä toistuu, lähetä raportti korjaamista varten.';
+
+  @override
+  String get crashRestart => 'Käynnistä sovellus uudelleen';
+
+  @override
+  String get crashSendReport => 'Lähetä raportti kehittäjälle';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?';
 }

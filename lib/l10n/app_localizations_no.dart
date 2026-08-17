@@ -604,4 +604,21 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.';
+
+  @override
+  String get crashTitle => 'Dette burde ikke ha skjedd';
+
+  @override
+  String get crashBody =>
+      'cat(a)log støtte på en uventet feil. Dataene dine er trygge — alt lagres i det øyeblikket du endrer det. Start appen på nytt, og send rapporten hvis det gjentar seg, så det kan fikses.';
+
+  @override
+  String get crashRestart => 'Start appen på nytt';
+
+  @override
+  String get crashSendReport => 'Send rapport til utvikleren';
+
+  @override
+  String get crashLastRunBody =>
+      'cat(a)log stoppet uventet sist — sannsynligvis gikk den tom for minne. Sende en kort rapport så det kan fikses?';
 }

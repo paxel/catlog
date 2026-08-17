@@ -174,5 +174,10 @@
   "useMyLocation": "Meinen Standort verwenden",
   "language": "Sprache",
   "systemDefault": "Systemstandard",
-  "iosLocalNetworkHint": "Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen."
+  "iosLocalNetworkHint": "Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen.",
+  "crashTitle": "Das hätte nicht passieren dürfen",
+  "crashBody": "cat(a)log ist auf einen unerwarteten Fehler gestoßen. Deine Daten sind sicher — alles wird sofort beim Ändern gespeichert. Starte die App neu, und wenn es wieder passiert, schick den Bericht, damit es behoben werden kann.",
+  "crashRestart": "App neu starten",
+  "crashSendReport": "Bericht an den Entwickler senden",
+  "crashLastRunBody": "cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?"
 }

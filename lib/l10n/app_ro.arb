@@ -174,5 +174,10 @@
   "useMyLocation": "Folosește locația mea",
   "language": "Limbă",
   "systemDefault": "Implicit sistem",
-  "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou."
+  "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.",
+  "crashTitle": "Asta nu trebuia să se întâmple",
+  "crashBody": "cat(a)log a întâlnit o eroare neașteptată. Datele tale sunt în siguranță — totul se salvează în momentul modificării. Repornește aplicația și, dacă se repetă, trimite raportul ca să poată fi reparat.",
+  "crashRestart": "Repornește aplicația",
+  "crashSendReport": "Trimite raport dezvoltatorului",
+  "crashLastRunBody": "cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?"
 }

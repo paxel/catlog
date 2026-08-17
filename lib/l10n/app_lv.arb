@@ -174,5 +174,10 @@
   "useMyLocation": "Izmantot manu atrašanās vietu",
   "language": "Valoda",
   "systemDefault": "Sistēmas noklusējums",
-  "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz."
+  "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.",
+  "crashTitle": "Tam nevajadzēja notikt",
+  "crashBody": "cat(a)log saskārās ar negaidītu kļūdu. Tavi dati ir drošībā — viss saglabājas izmaiņu brīdī. Restartē lietotni, un ja tas atkārtojas, nosūti ziņojumu, lai to var izlabot.",
+  "crashRestart": "Restartēt lietotni",
+  "crashSendReport": "Nosūtīt ziņojumu izstrādātājam",
+  "crashLastRunBody": "cat(a)log pagājušajā reizē negaidīti apstājās — visticamāk pietrūka atmiņas. Nosūtīt īsu ziņojumu, lai izlabotu?"
 }

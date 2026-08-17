@@ -174,5 +174,10 @@
   "useMyLocation": "Konumumu kullan",
   "language": "Dil",
   "systemDefault": "Sistem varsayılanı",
-  "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene."
+  "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene.",
+  "crashTitle": "Bunun olmaması gerekirdi",
+  "crashBody": "cat(a)log beklenmedik bir hatayla karşılaştı. Verileriniz güvende — her şey değiştirdiğiniz anda kaydedilir. Uygulamayı yeniden başlatın, tekrarlanırsa düzeltilebilmesi için raporu gönderin.",
+  "crashRestart": "Uygulamayı yeniden başlat",
+  "crashSendReport": "Geliştiriciye rapor gönder",
+  "crashLastRunBody": "cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?"
 }

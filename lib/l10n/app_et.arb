@@ -174,5 +174,10 @@
   "useMyLocation": "Kasuta minu asukohta",
   "language": "Keel",
   "systemDefault": "Süsteemi vaikimisi",
-  "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti."
+  "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.",
+  "crashTitle": "Seda poleks tohtinud juhtuda",
+  "crashBody": "cat(a)log sattus ootamatule veale. Sinu andmed on kaitstud — kõik salvestatakse muutmise hetkel. Taaskäivita rakendus ja kui see kordub, saada raport, et saaks parandada.",
+  "crashRestart": "Taaskäivita rakendus",
+  "crashSendReport": "Saada raport arendajale",
+  "crashLastRunBody": "cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?"
 }

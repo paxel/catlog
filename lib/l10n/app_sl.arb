@@ -174,5 +174,10 @@
   "useMyLocation": "Uporabi mojo lokacijo",
   "language": "Jezik",
   "systemDefault": "Sistemsko privzeto",
-  "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova."
+  "iosLocalNetworkHint": "Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.",
+  "crashTitle": "To se ne bi smelo zgoditi",
+  "crashBody": "cat(a)log je naletel na nepričakovano napako. Tvoji podatki so varni — vse se shrani v trenutku spremembe. Znova zaženi aplikacijo, in če se ponavlja, pošlji poročilo, da se lahko popravi.",
+  "crashRestart": "Znova zaženi aplikacijo",
+  "crashSendReport": "Pošlji poročilo razvijalcu",
+  "crashLastRunBody": "cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?"
 }

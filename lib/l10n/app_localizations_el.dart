@@ -606,4 +606,21 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'Αν συνεχίζει να αποτυγχάνει σε iPhone/iPad: Ρυθμίσεις → Απόρρητο και ασφάλεια → Τοπικό δίκτυο → επιτρέψτε το cat(a)log και δοκιμάστε ξανά.';
+
+  @override
+  String get crashTitle => 'Αυτό δεν έπρεπε να συμβεί';
+
+  @override
+  String get crashBody =>
+      'Το cat(a)log συνάντησε ένα απρόσμενο σφάλμα. Τα δεδομένα σου είναι ασφαλή — όλα αποθηκεύονται τη στιγμή της αλλαγής. Επανεκκίνησε την εφαρμογή και αν επαναλαμβάνεται, στείλε την αναφορά για να διορθωθεί.';
+
+  @override
+  String get crashRestart => 'Επανεκκίνηση εφαρμογής';
+
+  @override
+  String get crashSendReport => 'Αποστολή αναφοράς στον προγραμματιστή';
+
+  @override
+  String get crashLastRunBody =>
+      'Το cat(a)log σταμάτησε απρόσμενα την τελευταία φορά — μάλλον εξαντλήθηκε η μνήμη. Να σταλεί σύντομη αναφορά για να διορθωθεί;';
 }

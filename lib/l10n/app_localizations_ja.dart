@@ -595,4 +595,21 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get iosLocalNetworkHint =>
       'iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。';
+
+  @override
+  String get crashTitle => 'これは起きてはいけないことでした';
+
+  @override
+  String get crashBody =>
+      'cat(a)log で予期しないエラーが発生しました。データは安全です — 変更した瞬間に保存されています。アプリを再起動し、繰り返す場合はレポートを送信してください。修正に役立ちます。';
+
+  @override
+  String get crashRestart => 'アプリを再起動';
+
+  @override
+  String get crashSendReport => '開発者にレポートを送信';
+
+  @override
+  String get crashLastRunBody =>
+      '前回 cat(a)log が予期せず停止しました — おそらくメモリ不足です。修正のため簡単なレポートを送信しますか？';
 }
