@@ -144,6 +144,7 @@ class _MapScreenState extends State<MapScreen> {
               builder: (_) => CatDetailScreen(store: store, catId: catId),
             ));
           }
+          if (!mounted) return;
           setState(() {});
         },
         icon: const Icon(Icons.photo_camera),
@@ -252,6 +253,7 @@ class _MapScreenState extends State<MapScreen> {
                       builder: (_) => CatDetailScreen(
                           store: store, catId: _trailCat!),
                     ));
+                    if (!mounted) return;
                     setState(() {});
                   },
                   child: Text(context.t.open),

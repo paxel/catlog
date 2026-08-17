@@ -57,6 +57,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => ClowderDetailScreen(store: widget.store, clowderId: id),
     ));
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -83,6 +84,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               await Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => MapScreen(store: widget.store),
               ));
+              if (!mounted) return;
               setState(() {});
             },
           ),
@@ -93,6 +95,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               await Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => SyncScreen(store: widget.store),
               ));
+              if (!mounted) return;
               setState(() {});
             },
           ),
@@ -155,6 +158,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     builder: (_) => ClowderDetailScreen(
                         store: widget.store, clowderId: clowder.id),
                   ));
+                  if (!mounted) return;
                   setState(() {});
                 },
               );
@@ -169,6 +173,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               await Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => StraysScreen(store: widget.store),
               ));
+              if (!mounted) return;
               setState(() {});
             },
           ),

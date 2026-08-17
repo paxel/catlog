@@ -77,6 +77,7 @@ class _SyncScreenState extends State<SyncScreen> {
       if (mounted) setState(() => _sessions++);
     });
     final address = await host.start();
+    if (!mounted) return;
     setState(() {
       _host = host;
       _pairCode = encodePairCode(address, host.port, pin);
@@ -99,6 +100,7 @@ class _SyncScreenState extends State<SyncScreen> {
           await lanSync(widget.store, info.host, info.port, info.pin);
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
+      if (!mounted) return;
       setState(() => _lastResult = context.t.syncedResult('$result'));
     } catch (e) {
       if (mounted) {
@@ -128,6 +130,7 @@ class _SyncScreenState extends State<SyncScreen> {
       final path = writeBundle(widget.store, '${dir.path}/catlog-$stamp.catsync');
       await Share.shareXFiles([XFile(path, mimeType: 'application/zip')]);
     } catch (e) {
+      if (!mounted) return;
       setState(() => _lastResult = t.syncFailed('$e'));
     }
   }
@@ -139,8 +142,10 @@ class _SyncScreenState extends State<SyncScreen> {
     if (path == null) return;
     try {
       final result = importBundle(widget.store, path);
+      if (!mounted) return;
       setState(() => _lastResult = t.bundleImported('$result'));
     } catch (e) {
+      if (!mounted) return;
       setState(() => _lastResult = t.bundleImportFailed('$e'));
     }
   }
@@ -267,6 +272,7 @@ class _SyncScreenState extends State<SyncScreen> {
                 final path = await FilePicker.platform.getDirectoryPath();
                 if (path != null) {
                   widget.store.setLocalSetting('syncFolder', path);
+                  if (!mounted) return;
                   setState(() {});
                 }
               },

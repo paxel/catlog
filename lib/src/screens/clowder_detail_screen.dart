@@ -34,6 +34,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         await _askForText(context, context.t.renameClowder, current);
     if (name == null || name.isEmpty || name == current) return;
     store.append(id, Keys.name, name);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -47,6 +48,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       builder: (_) =>
           CatDetailScreen(store: store, catId: catId, promptPhoto: true),
     ));
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -93,6 +95,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CatDetailScreen(store: store, catId: catId),
     ));
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -144,6 +147,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               onTap: () async {
                 if (store.hasConflict(id, def.key)) {
                   await showConflictDialog(context, store, id, def.key);
+                  if (!mounted) return;
                   setState(() {});
                   return;
                 }
@@ -151,6 +155,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                     context, def, store.current(id, def.key));
                 if (edit == null) return;
                 store.append(id, def.key, edit.value, date: edit.date);
+                if (!mounted) return;
                 setState(() {});
               },
               onLongPress: () =>

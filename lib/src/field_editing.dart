@@ -71,6 +71,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       firstDate: DateTime(2000),
       lastDate: DateTime.now().add(const Duration(days: 1)),
     );
+    if (!mounted) return;
     if (picked != null) setState(() => _asOf = picked);
   }
 
@@ -139,6 +140,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                         _text.text.isEmpty ? null : _text.text),
               ),
             );
+            if (!mounted) return;
             if (picked != null) setState(() => _text.text = picked);
           },
         );

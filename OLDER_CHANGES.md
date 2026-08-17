@@ -2,6 +2,37 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [0.1.2] - 2026-08-17
+
+### Added
+
+- The app can be installed via F-Droid from the project's own repository.
+- Cats have a Breed field with common breeds as choices.
+- Choice fields accept a freely typed value besides the preset options.
+- Tapping a cat photo opens it full-screen with zoom and swiping; the
+  photo menu (profile, crop, mark, delete) moved to long-press.
+- Photos can be shared or saved from the full-screen view.
+- Android offers cat(a)log when opening a `.catsync` file from a
+  messenger or file app.
+
+### Changed
+
+- Crop and Mark screens confirm with a labeled button ("Crop" / "Save")
+  instead of a bare checkmark.
+
+### Removed
+
+- Placing an existing clowder from the map's long-press menu — a
+  clowder's position is set via its Position field.
+
+### Fixed
+
+- The automatic backup keeps its `.catsync` name instead of being renamed
+  to `.zip`, replaces the previous backup instead of piling up copies,
+  and cleans up old `.zip` leftovers.
+- A fresh install no longer overwrites the surviving backup with an
+  empty one.
+
 ## [0.1.1] - 2026-08-17
 
 ### Added

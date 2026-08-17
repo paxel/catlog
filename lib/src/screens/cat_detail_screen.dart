@@ -56,11 +56,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final name = await _askForText(context, context.t.renameCat, current);
     if (name == null || name.isEmpty || name == current) return;
     store.append(id, Keys.name, name);
+    if (!mounted) return;
     setState(() {});
   }
 
   Future<void> _addPhoto() async {
     final hash = await pickAndAddImage(context, store, id);
+    if (!mounted) return;
     if (hash != null) setState(() {});
   }
 
@@ -103,6 +105,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final asOf = await askAsOfDate(context, context.t.moveTo);
     if (asOf == null) return;
     store.moveCat(id, destination, date: asOf);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -111,6 +114,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         await editFieldValue(context, def, store.current(id, def.key));
     if (edit == null) return;
     store.append(id, def.key, edit.value, date: edit.date);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -187,6 +191,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final compressed =
         await Isolate.run(() => CatalogStore.compressImage(edited));
     store.addImage(id, compressed);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -289,6 +294,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               onTap: store.hasConflict(id, def.key)
                   ? () async {
                       await showConflictDialog(context, store, id, def.key);
+                      if (!mounted) return;
                       setState(() {});
                     }
                   : () => _editField(def),

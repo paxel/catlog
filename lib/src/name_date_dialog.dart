@@ -72,6 +72,7 @@ class _NameDateDialogState extends State<_NameDateDialog> {
               firstDate: DateTime(1990),
               lastDate: DateTime.now().add(const Duration(days: 1)),
             );
+            if (!mounted) return;
             if (picked != null) setState(() => _asOf = picked);
           },
         ),
@@ -128,6 +129,7 @@ class _AsOfDialogState extends State<_AsOfDialog> {
             firstDate: DateTime(1990),
             lastDate: DateTime.now().add(const Duration(days: 1)),
           );
+          if (!mounted) return;
           if (picked != null) setState(() => _asOf = picked);
         },
       ),

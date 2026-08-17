@@ -52,6 +52,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 builder: (_) =>
                     CatDetailScreen(store: widget.store, catId: cat.id),
               ));
+              if (!mounted) return;
               setState(() {});
             },
           );

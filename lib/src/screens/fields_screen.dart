@@ -43,6 +43,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
     );
     if (name == null || name.isEmpty || name == def.name) return;
     widget.store.renameField(def.id, name);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -60,6 +61,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       candidates: sameType,
       merge: widget.store.mergeField,
     );
+    if (!mounted) return;
     if (merged) setState(() {});
   }
 
@@ -68,6 +70,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       context: context,
       builder: (context) => _NewFieldDialog(store: widget.store),
     );
+    if (!mounted) return;
     if (created == true) setState(() {});
   }
 

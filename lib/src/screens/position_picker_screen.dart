@@ -55,6 +55,7 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
       }
       return;
     }
+    if (!mounted) return;
     setState(() => _picked = LatLng(position.$1, position.$2));
     _controller.move(_picked!, 15);
   }
