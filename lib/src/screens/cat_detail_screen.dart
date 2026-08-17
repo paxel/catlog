@@ -14,6 +14,7 @@ import '../name_date_dialog.dart';
 import '../stray_cam.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
+import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
@@ -312,8 +313,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             itemBuilder: (context, i) {
               final hash = images[i];
               final bytes = store.imageBytes(hash);
+              // Tap = quick action (view full-size), long-press = menu —
+              // the app-wide gesture convention.
               return GestureDetector(
-                onTap: () => _imageMenu(hash),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => PhotoViewerScreen(
+                      store: store, hashes: images, initialIndex: i),
+                )),
+                onLongPress: () => _imageMenu(hash),
                 child: Stack(fit: StackFit.expand, children: [
                   if (bytes != null)
                     ClipRRect(
