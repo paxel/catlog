@@ -26,10 +26,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get start => 'Los geht\'s';
 
   @override
-  String get clowders => 'Clowder';
+  String get clowders => 'Kolonien';
 
   @override
-  String get noClowdersYet => 'Noch keine Clowder.\nLege unten den ersten an.';
+  String get noClowdersYet => 'Noch keine Kolonien.\nLege unten die erste an.';
 
   @override
   String get strays => 'Streuner';
@@ -53,7 +53,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aboutAndFeedback => 'Über & Feedback';
 
   @override
-  String get newClowder => 'Neuer Clowder';
+  String get newClowder => 'Neue Kolonie';
 
   @override
   String get name => 'Name';
@@ -85,7 +85,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get renameClowder => 'Clowder umbenennen';
+  String get renameClowder => 'Kolonie umbenennen';
 
   @override
   String get rename => 'Umbenennen';
@@ -97,7 +97,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get mergeInto => 'Zusammenführen mit…';
 
   @override
-  String get deleteClowder => 'Clowder löschen';
+  String get deleteClowder => 'Kolonie löschen';
 
   @override
   String get cats => 'Katzen';
@@ -115,11 +115,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteClowderEmptyBody =>
-      'Der Clowder verschwindet aus der Liste.';
+      'Die Kolonie verschwindet aus der Liste.';
 
   @override
   String deleteClowderBody(int count) {
-    return 'Seine $count Katze(n) werden nicht gelöscht — sie werden zu Streunern. Verschiebe sie vorher in einen anderen Clowder, falls das nicht gewollt ist.';
+    return 'Ihre $count Katze(n) werden nicht gelöscht — sie werden zu Streunern. Verschiebe sie vorher in eine andere Kolonie, falls das nicht gewollt ist.';
   }
 
   @override
@@ -149,10 +149,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteCat => 'Katze löschen';
 
   @override
-  String get clowderLabel => 'Clowder';
+  String get clowderLabel => 'Kolonie';
 
   @override
-  String get strayNoClowder => 'Streuner — kein Clowder';
+  String get strayNoClowder => 'Streuner — keine Kolonie';
 
   @override
   String get stray => 'Streuner';
@@ -194,7 +194,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get moveTo => 'Verschieben nach';
 
   @override
-  String get noClowderStrayOption => 'Kein Clowder — Streuner / weggelaufen';
+  String get noClowderStrayOption => 'Keine Kolonie — Streuner / weggelaufen';
 
   @override
   String timelineOf(String name) {
@@ -276,7 +276,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get forCats => 'Katzen';
 
   @override
-  String get forClowders => 'Clowder';
+  String get forClowders => 'Kolonien';
 
   @override
   String get forBoth => 'beide';
@@ -386,7 +386,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get recordSightingHere => 'Hier eine Sichtung eintragen:';
 
   @override
-  String get orPlaceClowderHere => 'Oder einen Clowder hierher setzen:';
+  String get orPlaceClowderHere => 'Oder eine Kolonie hierher setzen:';
 
   @override
   String trailOf(String name, int count) {
@@ -426,7 +426,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get kindCat => 'Katze';
 
   @override
-  String get kindClowder => 'Clowder';
+  String get kindClowder => 'Kolonie';
 
   @override
   String get kindField => 'Feld';

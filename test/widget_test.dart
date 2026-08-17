@@ -197,7 +197,7 @@ void main() {
     ));
     await tester.pumpAndSettle();
 
-    expect(find.text('Clowder'), findsWidgets); // German plural title
+    expect(find.text('Kolonien'), findsWidgets); // German plural title
     await tester.tap(find.text('Zuhause'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Miezi'));
