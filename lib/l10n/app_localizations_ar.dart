@@ -388,9 +388,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get recordSightingHere => 'سجّل مشاهدة هنا:';
 
   @override
-  String get orPlaceClowderHere => 'أو ضع مجموعة هنا:';
-
-  @override
   String trailOf(String name, int count) {
     return 'المسار: $name (المشاهدات: $count)';
   }

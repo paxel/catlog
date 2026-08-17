@@ -388,9 +388,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get recordSightingHere => 'Zapisz obserwację tutaj:';
 
   @override
-  String get orPlaceClowderHere => 'Albo umieść tu clowder:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Trasa: $name ($count obserwacji)';
   }

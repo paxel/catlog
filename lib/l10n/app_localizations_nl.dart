@@ -389,9 +389,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get recordSightingHere => 'Hier een waarneming vastleggen:';
 
   @override
-  String get orPlaceClowderHere => 'Of hier een clowder plaatsen:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Route: $name ($count waarnemingen)';
   }

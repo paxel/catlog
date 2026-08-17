@@ -388,9 +388,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get recordSightingHere => 'Zabeleži opažanje tukaj:';
 
   @override
-  String get orPlaceClowderHere => 'Ali sem postavi clowder:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Pot: $name ($count opažanj)';
   }

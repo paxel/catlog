@@ -388,9 +388,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get recordSightingHere => 'Запиши забелязване тук:';
 
   @override
-  String get orPlaceClowderHere => 'Или постави клаудер тук:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Маршрут: $name ($count забелязвания)';
   }

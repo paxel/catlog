@@ -70,10 +70,11 @@ class _MapScreenState extends State<MapScreen> {
             )
       ];
 
+  // Only sightings are recorded from the map; a clowder's position is set
+  // via its Position field — clowders move far too rarely for a map menu.
   Future<void> _longPress(LatLng point) async {
-    final clowders = store.clowders();
     final strays = store.strays();
-    final action = await showModalBottomSheet<(String, String)>(
+    final catId = await showModalBottomSheet<String>(
       context: context,
       builder: (context) => SafeArea(
         child: ListView(shrinkWrap: true, children: [
@@ -86,24 +87,13 @@ class _MapScreenState extends State<MapScreen> {
             ListTile(
               leading: const Icon(Icons.pets),
               title: Text(s.name),
-              onTap: () => Navigator.of(context).pop(('stray', s.id)),
-            ),
-          if (clowders.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(context.t.orPlaceClowderHere),
-            ),
-          for (final c in clowders)
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: Text(c.name),
-              onTap: () => Navigator.of(context).pop(('clowder', c.id)),
+              onTap: () => Navigator.of(context).pop(s.id),
             ),
         ]),
       ),
     );
-    if (action == null) return;
-    store.recordPosition(action.$2, point.latitude, point.longitude);
+    if (catId == null) return;
+    store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
   }
 

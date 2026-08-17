@@ -388,9 +388,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get recordSightingHere => 'Salvesta vaatlus siin:';
 
   @override
-  String get orPlaceClowderHere => 'Või aseta klauder siia:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Rada: $name ($count vaatlust)';
   }

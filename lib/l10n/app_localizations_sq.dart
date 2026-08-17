@@ -388,9 +388,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get recordSightingHere => 'Regjistro një vëzhgim këtu:';
 
   @override
-  String get orPlaceClowderHere => 'Ose vendos një clowder këtu:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Gjurma: $name ($count vëzhgime)';
   }

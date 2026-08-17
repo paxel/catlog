@@ -389,9 +389,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get recordSightingHere => 'Hier eine Sichtung eintragen:';
 
   @override
-  String get orPlaceClowderHere => 'Oder eine Kolonie hierher setzen:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Route: $name ($count Sichtungen)';
   }

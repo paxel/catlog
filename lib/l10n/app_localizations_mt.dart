@@ -390,9 +390,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get recordSightingHere => 'Irreġistra dehra hawn:';
 
   @override
-  String get orPlaceClowderHere => 'Jew poġġi clowder hawn:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Rotta: $name ($count dehriet)';
   }

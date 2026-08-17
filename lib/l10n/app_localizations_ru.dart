@@ -388,9 +388,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get recordSightingHere => 'Записать встречу здесь:';
 
   @override
-  String get orPlaceClowderHere => 'Или разместить клаудер здесь:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Маршрут: $name (встреч: $count)';
   }

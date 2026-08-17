@@ -388,9 +388,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get recordSightingHere => 'Észlelés rögzítése itt:';
 
   @override
-  String get orPlaceClowderHere => 'Vagy clowder elhelyezése itt:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Útvonal: $name ($count észlelés)';
   }

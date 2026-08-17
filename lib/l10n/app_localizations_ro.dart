@@ -389,9 +389,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get recordSightingHere => 'Înregistrează o observație aici:';
 
   @override
-  String get orPlaceClowderHere => 'Sau plasează un clowder aici:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Traseu: $name ($count observații)';
   }

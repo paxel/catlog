@@ -387,9 +387,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get recordSightingHere => 'Zaznamenať pozorovanie tu:';
 
   @override
-  String get orPlaceClowderHere => 'Alebo sem umiestniť clowder:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Trasa: $name ($count pozorovaní)';
   }

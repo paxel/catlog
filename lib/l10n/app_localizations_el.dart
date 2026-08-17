@@ -389,9 +389,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get recordSightingHere => 'Καταγραφή παρατήρησης εδώ:';
 
   @override
-  String get orPlaceClowderHere => 'Ή τοποθέτηση ομάδας εδώ:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Διαδρομή: $name ($count παρατηρήσεις)';
   }

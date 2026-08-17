@@ -387,9 +387,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get recordSightingHere => 'Burada bir görülme kaydet:';
 
   @override
-  String get orPlaceClowderHere => 'Ya da buraya bir clowder yerleştir:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Rota: $name ($count görülme)';
   }

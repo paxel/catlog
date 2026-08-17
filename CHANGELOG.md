@@ -19,6 +19,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - Crop and Mark screens confirm with a labeled button ("Crop" / "Save")
   instead of a bare checkmark.
 
+### Removed
+
+- Placing an existing clowder from the map's long-press menu — a
+  clowder's position is set via its Position field.
+
 ### Fixed
 
 - The automatic backup keeps its `.catsync` name instead of being renamed

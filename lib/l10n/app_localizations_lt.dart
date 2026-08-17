@@ -388,9 +388,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get recordSightingHere => 'Įrašyti pastebėjimą čia:';
 
   @override
-  String get orPlaceClowderHere => 'Arba čia padėti klauderį:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Maršrutas: $name ($count pastebėjimai)';
   }

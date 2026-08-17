@@ -381,9 +381,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get recordSightingHere => 'ここで目撃を記録:';
 
   @override
-  String get orPlaceClowderHere => 'またはここにクラウダーを配置:';
-
-  @override
   String trailOf(String name, int count) {
     return '経路: $name（目撃 $count 件）';
   }

@@ -380,9 +380,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get recordSightingHere => '在这里记录目击：';
 
   @override
-  String get orPlaceClowderHere => '或在这里放置猫群：';
-
-  @override
   String trailOf(String name, int count) {
     return '路线：$name（目击 $count 次）';
   }

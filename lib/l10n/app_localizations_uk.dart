@@ -387,9 +387,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get recordSightingHere => 'Записати зустріч тут:';
 
   @override
-  String get orPlaceClowderHere => 'Або розмістити клаудер тут:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Маршрут: $name (зустрічей: $count)';
   }

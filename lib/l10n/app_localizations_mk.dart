@@ -389,9 +389,6 @@ class AppLocalizationsMk extends AppLocalizations {
   String get recordSightingHere => 'Запиши видување тука:';
 
   @override
-  String get orPlaceClowderHere => 'Или постави клаудер тука:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Патека: $name ($count видувања)';
   }

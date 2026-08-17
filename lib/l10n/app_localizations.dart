@@ -830,12 +830,6 @@ abstract class AppLocalizations {
   /// **'Record a sighting here:'**
   String get recordSightingHere;
 
-  /// No description provided for @orPlaceClowderHere.
-  ///
-  /// In en, this message translates to:
-  /// **'Or place a clowder here:'**
-  String get orPlaceClowderHere;
-
   /// No description provided for @trailOf.
   ///
   /// In en, this message translates to:

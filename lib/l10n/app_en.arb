@@ -265,7 +265,6 @@
     }
   },
   "recordSightingHere": "Record a sighting here:",
-  "orPlaceClowderHere": "Or place a clowder here:",
   "trailOf": "Trail: {name} ({count} sightings)",
   "@trailOf": {
     "placeholders": {

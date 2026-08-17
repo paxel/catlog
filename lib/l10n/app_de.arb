@@ -110,7 +110,6 @@
   "folderSynced": "Ordner synchronisiert: {result}",
   "folderSyncFailed": "Ordner-Sync fehlgeschlagen: {error}",
   "recordSightingHere": "Hier eine Sichtung eintragen:",
-  "orPlaceClowderHere": "Oder eine Kolonie hierher setzen:",
   "trailOf": "Route: {name} ({count} Sichtungen)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "An zwei Orten gleichzeitig geändert. Wähle, was stimmt:",

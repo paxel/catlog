@@ -386,9 +386,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get recordSightingHere => 'רישום תצפית כאן:';
 
   @override
-  String get orPlaceClowderHere => 'או הצבת קבוצה כאן:';
-
-  @override
   String trailOf(String name, int count) {
     return 'מסלול: $name (תצפיות: $count)';
   }

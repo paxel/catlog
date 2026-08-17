@@ -388,9 +388,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get recordSightingHere => 'Kirjaa havainto tähän:';
 
   @override
-  String get orPlaceClowderHere => 'Tai sijoita clowder tähän:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Reitti: $name ($count havaintoa)';
   }

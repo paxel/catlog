@@ -390,9 +390,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get recordSightingHere => 'Skrá að köttur sást hér:';
 
   @override
-  String get orPlaceClowderHere => 'Eða setja hóp hér:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Slóð: $name ($count skráningar)';
   }

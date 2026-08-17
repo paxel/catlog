@@ -387,9 +387,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get recordSightingHere => 'اینجا یک مشاهده ثبت کن:';
 
   @override
-  String get orPlaceClowderHere => 'یا اینجا یک گروه بگذار:';
-
-  @override
   String trailOf(String name, int count) {
     return 'مسیر: $name (مشاهده‌ها: $count)';
   }

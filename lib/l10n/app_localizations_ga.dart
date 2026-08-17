@@ -389,9 +389,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get recordSightingHere => 'Taifead feiceáil anseo:';
 
   @override
-  String get orPlaceClowderHere => 'Nó cuir clowdar anseo:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Rian: $name ($count feiceáil)';
   }
