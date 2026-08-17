@@ -26,6 +26,21 @@ Cutting one cat out of a photo. Happens in the import flow (skippable; Stray Cam
 **Mark**:
 A highlight (ellipse/arrow) baked into a copy of a photo to point at one cat when cropping cannot isolate it — an ordinary new photo, synced and printed like any other.
 
+**Flier**:
+A missing-cat poster captured into the catalog. Capturing one creates a Missing Cat plus its owner's Clowder, and the place it was photographed becomes a Flier Position on that cat.
+_Avoid_: poster, notice, report
+
+**Missing Cat**:
+A Stray known only from a Flier — no sighting yet. Its history records leaving the owner's Clowder on the missing-since date; it stops being missing the ordinary way, by a Move or a Merge with a sighted cat.
+_Avoid_: lost cat record, flier cat
+
+**Flier Position**:
+The place a Flier was photographed — where the poster hangs, not where the cat was seen. Never shown as a sighting pin; it only anchors the Possible Stray Area.
+
+**Possible Stray Area**:
+A toggleable map overlay for a Missing Cat: the union of 500 m circles around its Flier Positions, marking where the cat is likely to roam (three quarters of lost cats are found within 500 m).
+_Avoid_: search radius, home range
+
 **Stray Cam**:
 One-tap capture of a new Stray: creates the Cat at the device's current position with a photo (system camera or picked from the device), no further input required.
 
@@ -39,8 +54,20 @@ The presentation of one Cat — as a detail screen in the app, and as a shareabl
 The one image of a Cat shown in lists and on its Card; choosable, defaults to the first image.
 
 **Field**:
-A typed, user-defined attribute (text, yes/no, date, number, choice, location) attachable to Cats and Clowders. Definitions are global to the catalog; values carry a date and an Author, and every change is kept as history.
+A typed, user-defined attribute (text, yes/no, date, number, choice, location, ID) attachable to Cats and Clowders. Definitions are global to the catalog; values carry a date and an Author, and every change is kept as history.
 _Avoid_: property, column, tag
+
+**ID Field**:
+A Field type holding an external identifier, entered by hand or camera scan and shown on the Card in a display format picked at field creation (plain, QR, or barcode). ID values match other records exactly or not at all — never fuzzily.
+_Avoid_: code, reference number
+
+**Chip ID**:
+A starter ID Field on Cats for the 15-digit transponder number. The prime exact-match key between a Missing Cat and a found cat.
+_Avoid_: microchip number, transponder
+
+**Remarks**:
+A starter multiline text Field on Cats and Clowders for free notes — including text read off a Flier.
+_Avoid_: notes, comments, description
 
 **Move**:
 A change of a Cat's Clowder membership, recorded as a dated field change like any other. A Cat's movement history is the history of this field.
@@ -53,7 +80,7 @@ _Avoid_: adopted state, adoption record
 The self-chosen name a device carries; every change is attributed to an Author. There are no accounts and no authentication.
 
 **Status**:
-A Clowder Field with suggested canonical values (foster, forever home, clinic/vet, shelter, barn) the app recognizes for display and behavior (e.g. Adoption). Free text beyond the suggestions is allowed and stays an ordinary value.
+A Clowder Field with suggested canonical values (foster, forever home, clinic/vet, shelter, barn, owner) the app recognizes for display and behavior (e.g. Adoption). Free text beyond the suggestions is allowed and stays an ordinary value.
 _Avoid_: clowder type, category
 
 **Private**:
