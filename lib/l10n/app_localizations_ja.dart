@@ -279,6 +279,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get optionsOnePerLine => '選択肢（1 行に 1 つ）';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => '項目名を変更';
 
   @override

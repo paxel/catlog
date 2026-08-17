@@ -284,6 +284,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get optionsOnePerLine => 'Alternativ (ett per rad)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Byt namn på fält';
 
   @override

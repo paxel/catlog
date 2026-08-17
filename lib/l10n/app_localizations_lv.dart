@@ -284,6 +284,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get optionsOnePerLine => 'Iespējas (pa vienai rindā)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Pārdēvēt lauku';
 
   @override

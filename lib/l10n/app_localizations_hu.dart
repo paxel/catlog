@@ -284,6 +284,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get optionsOnePerLine => 'Lehetőségek (soronként egy)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Mező átnevezése';
 
   @override

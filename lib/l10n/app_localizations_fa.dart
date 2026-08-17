@@ -284,6 +284,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get optionsOnePerLine => 'گزینه‌ها (هر خط یکی)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'تغییر نام فیلد';
 
   @override

@@ -285,6 +285,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get optionsOnePerLine => 'Alternativer (ett per linje)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Gi feltet nytt navn';
 
   @override

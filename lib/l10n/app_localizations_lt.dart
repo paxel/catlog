@@ -284,6 +284,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get optionsOnePerLine => 'Parinktys (po vieną eilutėje)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Pervadinti lauką';
 
   @override

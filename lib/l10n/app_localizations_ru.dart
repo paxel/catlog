@@ -284,6 +284,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get optionsOnePerLine => 'Варианты (по одному в строке)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Переименовать поле';
 
   @override

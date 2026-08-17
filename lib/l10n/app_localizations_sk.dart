@@ -284,6 +284,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get optionsOnePerLine => 'Možnosti (jedna na riadok)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Premenovať pole';
 
   @override

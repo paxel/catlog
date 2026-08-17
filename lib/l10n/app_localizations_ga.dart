@@ -285,6 +285,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get optionsOnePerLine => 'Roghanna (ceann in aghaidh na líne)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Athainmnigh an réimse';
 
   @override

@@ -285,6 +285,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get optionsOnePerLine => 'Optionen (eine pro Zeile)';
 
   @override
+  String get ownValue => 'Eigener Wert';
+
+  @override
   String get renameField => 'Feld umbenennen';
 
   @override

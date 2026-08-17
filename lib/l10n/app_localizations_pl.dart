@@ -285,6 +285,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get optionsOnePerLine => 'Opcje (jedna na wiersz)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Zmień nazwę pola';
 
   @override

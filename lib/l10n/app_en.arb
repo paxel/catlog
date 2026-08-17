@@ -184,6 +184,7 @@
   "forClowders": "clowders",
   "forBoth": "both",
   "optionsOnePerLine": "Options (one per line)",
+  "ownValue": "Own value",
   "renameField": "Rename field",
   "noStraysRightNow": "No strays right now.",
   "strayCam": "Stray Cam",

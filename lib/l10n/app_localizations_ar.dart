@@ -284,6 +284,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get optionsOnePerLine => 'الخيارات (خيار في كل سطر)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'إعادة تسمية الحقل';
 
   @override

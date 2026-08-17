@@ -285,6 +285,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get optionsOnePerLine => 'Opties (één per regel)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Veld hernoemen';
 
   @override

@@ -279,6 +279,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get optionsOnePerLine => '选项（每行一个）';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => '重命名字段';
 
   @override

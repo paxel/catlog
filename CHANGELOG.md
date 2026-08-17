@@ -8,8 +8,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ### Added
 
 - The app can be installed via F-Droid from the project's own repository.
-- Cats have a Breed field with common breeds as choices; own entries can
-  be added.
+- Cats have a Breed field with common breeds as choices.
+- Choice fields accept a freely typed value besides the preset options.
 - Tapping a cat photo opens it full-screen with zoom and swiping; the
   photo menu (profile, crop, mark, delete) moved to long-press.
 - Photos can be shared or saved from the full-screen view.

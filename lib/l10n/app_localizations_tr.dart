@@ -284,6 +284,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get optionsOnePerLine => 'Seçenekler (her satıra bir tane)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Alanı yeniden adlandır';
 
   @override

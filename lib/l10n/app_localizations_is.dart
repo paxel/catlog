@@ -286,6 +286,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get optionsOnePerLine => 'Valkostir (einn í línu)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Endurnefna svæði';
 
   @override

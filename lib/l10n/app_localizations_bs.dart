@@ -284,6 +284,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get optionsOnePerLine => 'Opcije (jedna po redu)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Preimenuj polje';
 
   @override

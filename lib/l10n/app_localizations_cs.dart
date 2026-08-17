@@ -284,6 +284,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get optionsOnePerLine => 'Možnosti (jedna na řádek)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Přejmenovat pole';
 
   @override

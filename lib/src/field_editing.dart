@@ -47,6 +47,12 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   void initState() {
     super.initState();
     _choice = widget.current;
+    // For choice fields the text controller holds only off-list values;
+    // a current value that IS an option belongs to the radios alone.
+    if (def.type == FieldType.choice &&
+        def.options.contains(widget.current)) {
+      _text.clear();
+    }
   }
 
   @override
@@ -76,13 +82,29 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
             def.type == FieldType.yesNo ? const ['yes', 'no'] : def.options;
         return RadioGroup<String>(
           groupValue: _choice,
-          onChanged: (v) => setState(() => _choice = v),
+          onChanged: (v) => setState(() {
+            _choice = v;
+            _text.clear();
+          }),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             for (final option in options)
               RadioListTile<String>(
                   title: Text(
                       fieldValueDisplay(context.t, def, option)),
                   value: option),
+            // Choice values are suggestions, not a closed list — a freely
+            // typed value wins over the radio selection.
+            if (def.type == FieldType.choice)
+              TextField(
+                controller: _text,
+                decoration:
+                    InputDecoration(labelText: context.t.ownValue),
+                onChanged: (v) {
+                  if (v.trim().isNotEmpty) {
+                    setState(() => _choice = null);
+                  }
+                },
+              ),
           ]),
         );
       case FieldType.date:
@@ -131,8 +153,10 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
 
   String? _result() {
     switch (def.type) {
-      case FieldType.yesNo:
       case FieldType.choice:
+        final free = _text.text.trim();
+        return free.isNotEmpty ? free : _choice;
+      case FieldType.yesNo:
       case FieldType.date:
         return _choice;
       case FieldType.text:

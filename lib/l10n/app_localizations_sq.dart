@@ -285,6 +285,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get optionsOnePerLine => 'Opsionet (një për rresht)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Riemërto fushën';
 
   @override

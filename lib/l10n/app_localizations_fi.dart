@@ -284,6 +284,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get optionsOnePerLine => 'Vaihtoehdot (yksi per rivi)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Nimeä kenttä uudelleen';
 
   @override

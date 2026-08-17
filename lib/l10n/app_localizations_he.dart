@@ -283,6 +283,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get optionsOnePerLine => 'אפשרויות (אחת בכל שורה)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'שינוי שם השדה';
 
   @override

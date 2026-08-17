@@ -285,6 +285,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get optionsOnePerLine => 'Επιλογές (μία ανά γραμμή)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Μετονομασία πεδίου';
 
   @override

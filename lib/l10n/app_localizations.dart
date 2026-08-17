@@ -656,6 +656,12 @@ abstract class AppLocalizations {
   /// **'Options (one per line)'**
   String get optionsOnePerLine;
 
+  /// No description provided for @ownValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Own value'**
+  String get ownValue;
+
   /// No description provided for @renameField.
   ///
   /// In en, this message translates to:

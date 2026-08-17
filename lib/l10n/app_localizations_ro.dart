@@ -285,6 +285,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get optionsOnePerLine => 'Opțiuni (una pe linie)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Redenumește câmpul';
 
   @override

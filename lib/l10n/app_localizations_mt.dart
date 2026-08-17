@@ -286,6 +286,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get optionsOnePerLine => 'Għażliet (waħda f\'kull linja)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Ibdel isem il-qasam';
 
   @override

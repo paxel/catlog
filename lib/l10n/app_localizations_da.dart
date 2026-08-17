@@ -285,6 +285,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get optionsOnePerLine => 'Muligheder (én pr. linje)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Omdøb felt';
 
   @override

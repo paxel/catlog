@@ -284,6 +284,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get optionsOnePerLine => 'Valikud (üks rea kohta)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Nimeta väli ümber';
 
   @override
