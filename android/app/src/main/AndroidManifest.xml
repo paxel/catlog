@@ -30,13 +30,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <!-- Open .catsync bundles straight from messengers/file apps.
-                 Messengers strip MIME to octet-stream, so match by suffix
-                 across the usual schemes. -->
+                 Messengers strip MIME to octet-stream, so match by MIME on
+                 content URIs and by suffix on file URIs — in SEPARATE
+                 filters: Android pools all <data> attributes within one
+                 filter, and content + the file entry's mimeType="*/*"
+                 made the app claim every content URI, calendar links
+                 included (#42). -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="content" android:mimeType="application/zip"/>
                 <data android:scheme="content" android:mimeType="application/octet-stream"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="file" android:mimeType="*/*" android:pathPattern=".*\\.catsync"/>
             </intent-filter>
         </activity>
