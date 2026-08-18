@@ -220,34 +220,34 @@ jobs:
     name: F-Droid repo
     needs: [gate, build-android]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      # GitHub Pages serves summer:/docs, so the repo index lives there —
-      # this job runs on the release tag but commits to summer.
-      - uses: actions/checkout@v5
-        with:
-          ref: summer
+      # Channel-repo pattern like Homebrew/Scoop: the index and APK live
+      # in paxel/fdroid (own Pages), not in this repo's history.
       - uses: actions/download-artifact@v7
         with:
           name: android
           path: apks
       - name: Install fdroidserver
         run: pip install --quiet fdroidserver
-      - name: Build and sign the repo index
+      - name: Publish to the channel repo
         env:
+          GH_TOKEN: ${{ secrets.CHANNEL_PAT }}
           KEYSTORE_B64: ${{ secrets.FDROID_KEYSTORE_BASE64 }}
           KEYSTORE_PASS: ${{ secrets.FDROID_KEYSTORE_PASS }}
         run: |
           v="${RELEASE_TAG#v}"
+          git config --global user.name "catlog-release-bot"
+          git config --global user.email "taum@tuta.io"
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/paxel/fdroid.git" channel
           echo "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/fdroid.p12"
-          cd docs/fdroid
+          cd channel
+          mkdir -p repo
           # Only the latest release stays in the repo; clients that lag
           # simply get the newest version, and Pages stays small.
           rm -f repo/*.apk
           cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-universal.apk" repo/
           cat > config.yml <<EOF
-          repo_url: https://paxel.github.io/catlog/fdroid/repo
+          repo_url: https://paxel.github.io/fdroid/repo
           repo_name: cat(a)log
           repo_description: Releases of cat(a)log, the local-first catalog for people fostering cats.
           repo_keyalias: repokey
@@ -258,13 +258,9 @@ jobs:
           EOF
           fdroid update --create-metadata
           rm config.yml
-      - name: Commit the updated repo to summer
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@users.noreply.github.com
-          git add docs/fdroid
-          git commit -m "Publish $RELEASE_TAG to the F-Droid repo"
-          git push origin summer
+          git add -A
+          git commit -m "catlog $v"
+          git push
 
   release:
     name: GitHub Release
