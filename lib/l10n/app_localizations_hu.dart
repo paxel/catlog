@@ -297,6 +297,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get renameField => 'Mező átnevezése';
 
   @override
+  String get editOptions => 'Lehetőségek szerkesztése…';
+
+  @override
   String get noStraysRightNow => 'Most nincs kóbor macska.';
 
   @override

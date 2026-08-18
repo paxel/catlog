@@ -82,6 +82,7 @@
   "forBoth": "ambos",
   "optionsOnePerLine": "Opciones (una por línea)",
   "renameField": "Renombrar campo",
+  "editOptions": "Editar opciones…",
   "noStraysRightNow": "No hay callejeros ahora mismo.",
   "strayCam": "Stray Cam",
   "addStray": "Añadir callejero",

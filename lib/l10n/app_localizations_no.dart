@@ -298,6 +298,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get renameField => 'Gi feltet nytt navn';
 
   @override
+  String get editOptions => 'Rediger alternativer…';
+
+  @override
   String get noStraysRightNow => 'Ingen hjemløse katter akkurat nå.';
 
   @override

@@ -82,6 +82,7 @@
   "forBoth": "mõlemal",
   "optionsOnePerLine": "Valikud (üks rea kohta)",
   "renameField": "Nimeta väli ümber",
+  "editOptions": "Muuda valikuid…",
   "noStraysRightNow": "Praegu hulkuvaid kasse pole.",
   "strayCam": "Stray Cam",
   "addStray": "Lisa hulkuja",

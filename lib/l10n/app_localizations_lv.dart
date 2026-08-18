@@ -297,6 +297,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get renameField => 'Pārdēvēt lauku';
 
   @override
+  String get editOptions => 'Rediģēt opcijas…';
+
+  @override
   String get noStraysRightNow => 'Šobrīd klaiņojošu kaķu nav.';
 
   @override

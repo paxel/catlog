@@ -297,6 +297,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get renameField => 'Přejmenovat pole';
 
   @override
+  String get editOptions => 'Upravit možnosti…';
+
+  @override
   String get noStraysRightNow => 'Momentálně žádné toulavé kočky.';
 
   @override

@@ -298,6 +298,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get renameField => 'Athainmnigh an réimse';
 
   @override
+  String get editOptions => 'Cuir roghanna in eagar…';
+
+  @override
   String get noStraysRightNow => 'Níl aon chat fáin faoi láthair.';
 
   @override

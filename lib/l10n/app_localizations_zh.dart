@@ -291,6 +291,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get renameField => '重命名字段';
 
   @override
+  String get editOptions => '编辑选项…';
+
+  @override
   String get noStraysRightNow => '现在没有流浪猫。';
 
   @override

@@ -34,9 +34,13 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
 
 Future<void> _import(GlobalKey<NavigatorState> navigator,
     CatalogStore store, String path) async {
-  // The first frame may not be up yet on a cold start.
-  await Future<void>.delayed(const Duration(milliseconds: 300));
-  final context = navigator.currentContext;
+  // The first frame may not be up yet on a cold start — poll instead of
+  // one fixed delay, or a slow start silently swallows the file.
+  BuildContext? context;
+  for (var i = 0; i < 40 && context == null; i++) {
+    await Future<void>.delayed(const Duration(milliseconds: 250));
+    context = navigator.currentContext;
+  }
   if (context == null || !context.mounted) return;
   try {
     final result = importBundle(store, path);

@@ -82,6 +82,7 @@
   "forBoth": "molemmille",
   "optionsOnePerLine": "Vaihtoehdot (yksi per rivi)",
   "renameField": "Nimeä kenttä uudelleen",
+  "editOptions": "Muokkaa vaihtoehtoja…",
   "noStraysRightNow": "Ei kulkukissoja juuri nyt.",
   "strayCam": "Stray Cam",
   "addStray": "Lisää kulkukissa",

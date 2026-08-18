@@ -297,6 +297,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get renameField => 'Byt namn på fält';
 
   @override
+  String get editOptions => 'Redigera alternativ…';
+
+  @override
   String get noStraysRightNow => 'Inga hemlösa katter just nu.';
 
   @override

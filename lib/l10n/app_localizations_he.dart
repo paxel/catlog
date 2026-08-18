@@ -296,6 +296,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get renameField => 'שינוי שם השדה';
 
   @override
+  String get editOptions => 'עריכת אפשרויות…';
+
+  @override
   String get noStraysRightNow => 'אין חתולי רחוב כרגע.';
 
   @override

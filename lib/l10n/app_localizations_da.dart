@@ -298,6 +298,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get renameField => 'Omdøb felt';
 
   @override
+  String get editOptions => 'Redigér valgmuligheder…';
+
+  @override
   String get noStraysRightNow => 'Ingen herreløse katte lige nu.';
 
   @override

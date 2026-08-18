@@ -90,6 +90,9 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
           initialCenter: _picked ?? const LatLng(51.0, 10.0),
           initialZoom: _picked == null ? 6 : 14,
           onTap: (_, point) => setState(() => _picked = point),
+          // North stays up, same as the main map.
+          interactionOptions: const InteractionOptions(
+              flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
         ),
         children: [
           TileLayer(

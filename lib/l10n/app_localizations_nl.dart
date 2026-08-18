@@ -298,6 +298,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get renameField => 'Veld hernoemen';
 
   @override
+  String get editOptions => 'Opties bewerken…';
+
+  @override
   String get noStraysRightNow => 'Momenteel geen zwerfkatten.';
 
   @override

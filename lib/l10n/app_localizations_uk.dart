@@ -297,6 +297,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get renameField => 'Перейменувати поле';
 
   @override
+  String get editOptions => 'Змінити варіанти…';
+
+  @override
   String get noStraysRightNow => 'Зараз безпритульних немає.';
 
   @override

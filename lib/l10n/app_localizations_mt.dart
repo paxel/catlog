@@ -299,6 +299,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get renameField => 'Ibdel isem il-qasam';
 
   @override
+  String get editOptions => 'Editja l-għażliet…';
+
+  @override
   String get noStraysRightNow => 'M\'hemmx qtates tat-triq bħalissa.';
 
   @override

@@ -297,6 +297,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get renameField => 'Renombrar campo';
 
   @override
+  String get editOptions => 'Editar opciones…';
+
+  @override
   String get noStraysRightNow => 'No hay callejeros ahora mismo.';
 
   @override

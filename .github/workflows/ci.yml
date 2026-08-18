@@ -53,7 +53,7 @@ jobs:
           keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           EOF
       - run: flutter pub get
-      - run: flutter build apk --release --build-number=$GITHUB_RUN_NUMBER
+      - run: flutter build apk --release --build-number=$((GITHUB_RUN_NUMBER + 100))
       - uses: actions/upload-artifact@v6
         with:
           name: catlog-apk

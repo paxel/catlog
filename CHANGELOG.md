@@ -5,6 +5,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [0.1.3] - Unreleased
 
+### Added
+
+- The option list of a choice field (e.g. Breed) can be edited from the
+  Fields screen.
+
+### Changed
+
+- The map no longer rotates on a two-finger twist; north stays up.
+
 ### Fixed
 
 - No more crash when returning to the app after the system camera (or
@@ -21,6 +30,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   Kurzhaar" on German devices).
 - A failed automatic backup is shown on the Sync screen instead of
   disappearing silently.
+- Each Sync-screen section shows its own result — a folder sync no
+  longer reports under the QR section.
 
 ---
 

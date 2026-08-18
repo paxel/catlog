@@ -297,6 +297,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get renameField => 'Nimeä kenttä uudelleen';
 
   @override
+  String get editOptions => 'Muokkaa vaihtoehtoja…';
+
+  @override
   String get noStraysRightNow => 'Ei kulkukissoja juuri nyt.';
 
   @override

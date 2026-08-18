@@ -298,6 +298,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get renameField => 'Renommer le champ';
 
   @override
+  String get editOptions => 'Modifier les options…';
+
+  @override
   String get noStraysRightNow => 'Pas d\'errants pour le moment.';
 
   @override

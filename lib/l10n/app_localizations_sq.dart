@@ -298,6 +298,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get renameField => 'Riemërto fushën';
 
   @override
+  String get editOptions => 'Ndrysho opsionet…';
+
+  @override
   String get noStraysRightNow => 'S\'ka mace endacake tani.';
 
   @override

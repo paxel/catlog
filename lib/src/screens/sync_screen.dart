@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../auto_backup.dart';
 import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
@@ -32,7 +33,11 @@ class _SyncScreenState extends State<SyncScreen> {
 
   final TextEditingController _code = TextEditingController();
   bool _joining = false;
-  String? _lastResult;
+  // One result line per transport section, so a folder sync's outcome
+  // never shows up under the QR/join area.
+  String? _joinResult;
+  String? _folderResult;
+  String? _bundleResult;
 
   @override
   void initState() {
@@ -66,6 +71,7 @@ class _SyncScreenState extends State<SyncScreen> {
   Future<void> _toggleHost() async {
     if (_host != null) {
       await _host!.stop();
+      if (!mounted) return;
       setState(() {
         _host = null;
         _pairCode = null;
@@ -88,12 +94,12 @@ class _SyncScreenState extends State<SyncScreen> {
   Future<void> _joinWith(String raw) async {
     final info = decodePairCode(raw);
     if (info == null) {
-      setState(() => _lastResult = context.t.invalidCode);
+      setState(() => _joinResult = context.t.invalidCode);
       return;
     }
     setState(() {
       _joining = true;
-      _lastResult = null;
+      _joinResult = null;
     });
     try {
       final result =
@@ -101,12 +107,12 @@ class _SyncScreenState extends State<SyncScreen> {
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       if (!mounted) return;
-      setState(() => _lastResult = context.t.syncedResult('$result'));
+      setState(() => _joinResult = context.t.syncedResult('$result'));
     } catch (e) {
       if (mounted) {
         final hint =
             Platform.isIOS ? '\n${context.t.iosLocalNetworkHint}' : '';
-        setState(() => _lastResult = context.t.syncFailed('$e$hint'));
+        setState(() => _joinResult = context.t.syncFailed('$e$hint'));
       }
     } finally {
       if (mounted) setState(() => _joining = false);
@@ -131,7 +137,7 @@ class _SyncScreenState extends State<SyncScreen> {
       await Share.shareXFiles([XFile(path, mimeType: 'application/zip')]);
     } catch (e) {
       if (!mounted) return;
-      setState(() => _lastResult = t.syncFailed('$e'));
+      setState(() => _bundleResult = t.syncFailed('$e'));
     }
   }
 
@@ -143,10 +149,10 @@ class _SyncScreenState extends State<SyncScreen> {
     try {
       final result = importBundle(widget.store, path);
       if (!mounted) return;
-      setState(() => _lastResult = t.bundleImported('$result'));
+      setState(() => _bundleResult = t.bundleImported('$result'));
     } catch (e) {
       if (!mounted) return;
-      setState(() => _lastResult = t.bundleImportFailed('$e'));
+      setState(() => _bundleResult = t.bundleImportFailed('$e'));
     }
   }
 
@@ -249,9 +255,9 @@ class _SyncScreenState extends State<SyncScreen> {
               if (!_joining && decodePairCode(v) != null) _joinWith(v);
             },
           ),
-          if (_lastResult != null) ...[
+          if (_joinResult != null) ...[
             const SizedBox(height: 12),
-            Text(_lastResult!),
+            Text(_joinResult!),
           ],
           const Divider(height: 40),
           Text(t.sharedFolder,
@@ -287,6 +293,10 @@ class _SyncScreenState extends State<SyncScreen> {
             icon: const Icon(Icons.folder_copy_outlined),
             label: Text(t.syncFolderNow),
           ),
+          if (_folderResult != null) ...[
+            const SizedBox(height: 12),
+            Text(_folderResult!),
+          ],
           const Divider(height: 40),
           Text(t.byMessenger,
               style: Theme.of(context).textTheme.titleMedium),
@@ -310,14 +320,18 @@ class _SyncScreenState extends State<SyncScreen> {
               ),
             ),
           ]),
+          if (_bundleResult != null) ...[
+            const SizedBox(height: 12),
+            Text(_bundleResult!),
+          ],
           // The auto-backup runs silently on pause; a failure is only
           // discoverable here, next to the restore button it affects.
-          if ((widget.store.localSetting('lastBackupError') ?? '')
+          if ((widget.store.localSetting(backupErrorKey) ?? '')
               .isNotEmpty) ...[
             const SizedBox(height: 12),
             Text(
               t.lastBackupFailed(
-                  widget.store.localSetting('lastBackupError')!),
+                  widget.store.localSetting(backupErrorKey)!),
               style: TextStyle(
                   color: Theme.of(context).colorScheme.error),
             ),
@@ -332,9 +346,9 @@ class _SyncScreenState extends State<SyncScreen> {
     final folder = widget.store.localSetting('syncFolder')!;
     try {
       final result = folderSync(widget.store, folder);
-      setState(() => _lastResult = t.folderSynced('$result'));
+      setState(() => _folderResult = t.folderSynced('$result'));
     } catch (e) {
-      setState(() => _lastResult = t.folderSyncFailed('$e'));
+      setState(() => _folderResult = t.folderSyncFailed('$e'));
     }
   }
 }

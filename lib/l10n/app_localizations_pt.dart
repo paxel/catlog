@@ -297,6 +297,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get renameField => 'Renomear campo';
 
   @override
+  String get editOptions => 'Editar opções…';
+
+  @override
   String get noStraysRightNow => 'Sem vadios de momento.';
 
   @override

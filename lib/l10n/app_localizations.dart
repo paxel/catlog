@@ -680,6 +680,12 @@ abstract class AppLocalizations {
   /// **'Rename field'**
   String get renameField;
 
+  /// No description provided for @editOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit options…'**
+  String get editOptions;
+
   /// No description provided for @noStraysRightNow.
   ///
   /// In en, this message translates to:

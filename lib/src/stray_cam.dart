@@ -114,7 +114,7 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
 
 /// Completes a Stray Cam capture whose camera never returned because
 /// the OS killed the app: image_picker hands the photo over on the next
-/// start, the position and name were parked in [_pendingKey].
+/// start, the position and name were parked in [strayCamPendingKey].
 Future<void> recoverStrayCam(CatalogStore store,
     {Future<LostDataResponse> Function()? retrieve}) async {
   final pending = store.localSetting(strayCamPendingKey);

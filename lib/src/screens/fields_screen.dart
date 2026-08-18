@@ -47,6 +47,44 @@ class _FieldsScreenState extends State<FieldsScreen> {
     setState(() {});
   }
 
+  Future<void> _editOptions(FieldDef def) async {
+    final controller =
+        TextEditingController(text: def.options.join('\n'));
+    final text = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(context.t.editOptions),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          maxLines: 8,
+          decoration:
+              InputDecoration(labelText: context.t.optionsOnePerLine),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(context.t.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(controller.text),
+            child: Text(context.t.save),
+          ),
+        ],
+      ),
+    );
+    if (text == null) return;
+    final options = text
+        .split('\n')
+        .map((l) => l.trim())
+        .where((l) => l.isNotEmpty)
+        .toList();
+    if (options.isEmpty) return;
+    widget.store.setFieldOptions(def.id, options);
+    if (!mounted) return;
+    setState(() {});
+  }
+
   Future<void> _mergeField(FieldDef def) async {
     final sameType = widget.store
         .fieldDefs()
@@ -98,11 +136,16 @@ class _FieldsScreenState extends State<FieldsScreen> {
               trailing: PopupMenuButton<String>(
                 onSelected: (v) {
                   if (v == 'rename') _renameField(def);
+                  if (v == 'options') _editOptions(def);
                   if (v == 'merge') _mergeField(def);
                 },
                 itemBuilder: (context) => [
                   PopupMenuItem(
                       value: 'rename', child: Text(context.t.rename)),
+                  if (def.type == FieldType.choice)
+                    PopupMenuItem(
+                        value: 'options',
+                        child: Text(context.t.editOptions)),
                   PopupMenuItem(
                       value: 'merge', child: Text(context.t.mergeInto)),
                 ],

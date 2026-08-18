@@ -297,6 +297,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get renameField => 'Pervadinti lauką';
 
   @override
+  String get editOptions => 'Redaguoti parinktis…';
+
+  @override
   String get noStraysRightNow => 'Šiuo metu benamių kačių nėra.';
 
   @override

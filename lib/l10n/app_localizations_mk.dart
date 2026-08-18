@@ -298,6 +298,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get renameField => 'Преименувај поле';
 
   @override
+  String get editOptions => 'Уреди опции…';
+
+  @override
   String get noStraysRightNow => 'Моментално нема скитници.';
 
   @override

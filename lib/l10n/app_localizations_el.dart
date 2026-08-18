@@ -298,6 +298,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get renameField => 'Μετονομασία πεδίου';
 
   @override
+  String get editOptions => 'Επεξεργασία επιλογών…';
+
+  @override
   String get noStraysRightNow => 'Δεν υπάρχουν αδέσποτα αυτή τη στιγμή.';
 
   @override

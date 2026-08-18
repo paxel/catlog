@@ -297,6 +297,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get renameField => 'إعادة تسمية الحقل';
 
   @override
+  String get editOptions => 'تعديل الخيارات…';
+
+  @override
   String get noStraysRightNow => 'لا قطط ضالة حاليًا.';
 
   @override

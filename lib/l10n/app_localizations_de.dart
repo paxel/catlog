@@ -298,6 +298,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get renameField => 'Feld umbenennen';
 
   @override
+  String get editOptions => 'Optionen bearbeiten…';
+
+  @override
   String get noStraysRightNow => 'Gerade keine Streuner.';
 
   @override

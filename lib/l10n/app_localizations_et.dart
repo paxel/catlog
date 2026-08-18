@@ -297,6 +297,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get renameField => 'Nimeta väli ümber';
 
   @override
+  String get editOptions => 'Muuda valikuid…';
+
+  @override
   String get noStraysRightNow => 'Praegu hulkuvaid kasse pole.';
 
   @override

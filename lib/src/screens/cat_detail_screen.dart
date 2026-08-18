@@ -1,4 +1,3 @@
-import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -188,9 +187,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
     );
     if (edited == null) return;
-    final compressed =
-        await Isolate.run(() => CatalogStore.compressImage(edited));
-    store.addImage(id, compressed);
+    await addCompressedImage(store, id, edited);
     if (!mounted) return;
     setState(() {});
   }

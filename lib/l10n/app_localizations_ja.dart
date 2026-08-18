@@ -292,6 +292,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get renameField => '項目名を変更';
 
   @override
+  String get editOptions => '選択肢を編集…';
+
+  @override
   String get noStraysRightNow => '現在、野良猫はいません。';
 
   @override

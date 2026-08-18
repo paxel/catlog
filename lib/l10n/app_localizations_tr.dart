@@ -297,6 +297,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get renameField => 'Alanı yeniden adlandır';
 
   @override
+  String get editOptions => 'Seçenekleri düzenle…';
+
+  @override
   String get noStraysRightNow => 'Şu anda sokak kedisi yok.';
 
   @override

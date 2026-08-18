@@ -155,6 +155,10 @@ class _MapScreenState extends State<MapScreen> {
           initialCenter: center,
           initialZoom: all.isEmpty ? 6 : 13,
           onLongPress: (_, point) => _longPress(point),
+          // North stays up: accidental two-finger rotation kept leaving
+          // testers with a tilted map and no way back.
+          interactionOptions: const InteractionOptions(
+              flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
         ),
         children: [
           TileLayer(

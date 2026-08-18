@@ -299,6 +299,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get renameField => 'Endurnefna svæði';
 
   @override
+  String get editOptions => 'Breyta valkostum…';
+
+  @override
   String get noStraysRightNow => 'Engir flækingskettir núna.';
 
   @override

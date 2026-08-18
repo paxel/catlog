@@ -297,6 +297,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get renameField => 'Преименуј поље';
 
   @override
+  String get editOptions => 'Uredi opcije…';
+
+  @override
   String get noStraysRightNow => 'Тренутно нема луталица.';
 
   @override

@@ -298,6 +298,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get renameField => 'Zmień nazwę pola';
 
   @override
+  String get editOptions => 'Edytuj opcje…';
+
+  @override
   String get noStraysRightNow => 'Obecnie brak bezdomnych.';
 
   @override

@@ -297,6 +297,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get renameField => 'تغییر نام فیلد';
 
   @override
+  String get editOptions => 'ویرایش گزینه‌ها…';
+
+  @override
   String get noStraysRightNow => 'فعلاً گربهٔ ولگردی نیست.';
 
   @override

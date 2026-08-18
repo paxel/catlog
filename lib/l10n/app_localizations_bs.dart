@@ -297,6 +297,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get renameField => 'Preimenuj polje';
 
   @override
+  String get editOptions => 'Uredi opcije…';
+
+  @override
   String get noStraysRightNow => 'Trenutno nema lutalica.';
 
   @override

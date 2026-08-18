@@ -298,6 +298,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get renameField => 'Redenumește câmpul';
 
   @override
+  String get editOptions => 'Editează opțiunile…';
+
+  @override
   String get noStraysRightNow => 'Nicio pisică fără stăpân momentan.';
 
   @override
