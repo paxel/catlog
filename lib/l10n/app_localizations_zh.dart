@@ -189,6 +189,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get locationDeniedForever => '位置权限已被禁止。请在系统设置中允许，以使用 Stray Cam。';
 
   @override
+  String get locationServiceOff => '此设备的定位已关闭。请在设置中开启后重试。';
+
+  @override
+  String get locationDenied => 'cat(a)log 没有使用您位置的权限。请重试，并在询问时允许。';
+
+  @override
+  String get locationNoFix => '当前无法确定您的位置。请到户外重试——GPS 需要开阔的天空视野。';
+
+  @override
+  String get ok => '好';
+
+  @override
   String get openSettings => '打开设置';
 
   @override

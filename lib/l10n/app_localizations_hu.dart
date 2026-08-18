@@ -194,6 +194,21 @@ class AppLocalizationsHu extends AppLocalizations {
       'A helyhozzáférés le van tiltva. Engedélyezze a rendszerbeállításokban a Stray Cam használatához.';
 
   @override
+  String get locationServiceOff =>
+      'A helymeghatározás ki van kapcsolva ezen az eszközön. Kapcsolja be a beállításokban, és próbálja újra.';
+
+  @override
+  String get locationDenied =>
+      'A cat(a)log nem használhatja a tartózkodási helyét. Próbálja újra, és engedélyezze, amikor a rendszer rákérdez.';
+
+  @override
+  String get locationNoFix =>
+      'A pozícióját most nem sikerült meghatározni. Próbálja újra a szabadban — a GPS-nek szabad rálátás kell az égboltra.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Beállítások megnyitása';
 
   @override

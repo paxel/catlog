@@ -194,6 +194,21 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prieiga prie vietos užblokuota. Leiskite ją sistemos nustatymuose, kad galėtumėte naudoti Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Šiame įrenginyje vietos nustatymas išjungtas. Įjunkite jį nustatymuose ir bandykite dar kartą.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log neturi leidimo naudoti jūsų vietos. Bandykite dar kartą ir leiskite, kai bus paklausta.';
+
+  @override
+  String get locationNoFix =>
+      'Jūsų padėties dabar nepavyko nustatyti. Bandykite dar kartą lauke — GPS reikia atviro dangaus vaizdo.';
+
+  @override
+  String get ok => 'Gerai';
+
+  @override
   String get openSettings => 'Atidaryti nustatymus';
 
   @override

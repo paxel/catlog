@@ -194,6 +194,21 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přístup k poloze je zablokován. Povolte ho v nastavení systému, abyste mohli používat Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Poloha je na tomto zařízení vypnutá. Zapněte ji v nastavení a zkuste to znovu.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nemá oprávnění používat vaši polohu. Zkuste to znovu a na dotaz ji povolte.';
+
+  @override
+  String get locationNoFix =>
+      'Vaši polohu se teď nepodařilo zjistit. Zkuste to znovu venku — GPS potřebuje volný výhled na oblohu.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Otevřít nastavení';
 
   @override

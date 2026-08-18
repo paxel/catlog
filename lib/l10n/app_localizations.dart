@@ -512,6 +512,30 @@ abstract class AppLocalizations {
   /// **'Location access is blocked. Allow it in the system settings to use Stray Cam.'**
   String get locationDeniedForever;
 
+  /// No description provided for @locationServiceOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is turned off on this device. Turn it on in the settings and try again.'**
+  String get locationServiceOff;
+
+  /// No description provided for @locationDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'cat(a)log has no permission to use your location. Try again and allow it when asked.'**
+  String get locationDenied;
+
+  /// No description provided for @locationNoFix.
+  ///
+  /// In en, this message translates to:
+  /// **'Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.'**
+  String get locationNoFix;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
   /// No description provided for @openSettings.
   ///
   /// In en, this message translates to:

@@ -10,9 +10,12 @@ import 'package:image_picker/image_picker.dart';
 import 'image_import.dart';
 import 'l10n.dart';
 
-/// What a position request came back with; [deniedForever] means only
-/// the system settings can change the user's mind.
-typedef PositionOutcome = ({(double, double)? pos, bool deniedForever});
+/// Why there is no position — each case gets its own explanation, and
+/// where the user can fix it, the matching settings screen.
+enum LocationFailure { serviceOff, denied, deniedForever, noFix }
+
+/// What a position request came back with; [failure] is null on success.
+typedef PositionOutcome = ({(double, double)? pos, LocationFailure? failure});
 
 typedef Locator = Future<PositionOutcome> Function();
 
@@ -21,35 +24,72 @@ typedef Locator = Future<PositionOutcome> Function();
 /// killed can be completed on the next start (see [recoverStrayCam]).
 const strayCamPendingKey = 'strayCamPending';
 
-/// The device's position, or why there is none. Denial degrades
-/// gracefully — the map's long-press pin still works.
+/// The device's position, or why there is none.
 Future<PositionOutcome> locateDevice() async {
   if (!await Geolocator.isLocationServiceEnabled()) {
-    return (pos: null, deniedForever: false);
+    return (pos: null, failure: LocationFailure.serviceOff);
   }
   var permission = await Geolocator.checkPermission();
   if (permission == LocationPermission.denied) {
     permission = await Geolocator.requestPermission();
   }
   if (permission == LocationPermission.deniedForever) {
-    return (pos: null, deniedForever: true);
+    return (pos: null, failure: LocationFailure.deniedForever);
   }
   if (permission == LocationPermission.denied) {
-    return (pos: null, deniedForever: false);
+    return (pos: null, failure: LocationFailure.denied);
   }
   try {
     final p = await Geolocator.getCurrentPosition(
         locationSettings:
             const LocationSettings(accuracy: LocationAccuracy.high));
-    return (pos: (p.latitude, p.longitude), deniedForever: false);
+    return (pos: (p.latitude, p.longitude), failure: null);
   } catch (_) {
-    return (pos: null, deniedForever: false);
+    return (pos: null, failure: LocationFailure.noFix);
   }
 }
 
-/// The device's position, or null when the service is off or denied.
-Future<(double, double)?> currentPosition() async =>
-    (await locateDevice()).pos;
+/// Explains why there is no position, offering the settings screen that
+/// fixes it where one exists. Anything is acceptable to users as long
+/// as the reason is explained.
+Future<void> explainLocationFailure(
+    BuildContext context, LocationFailure failure,
+    {Future<bool> Function() openAppSettings = Geolocator.openAppSettings,
+    Future<bool> Function() openLocationSettings =
+        Geolocator.openLocationSettings}) {
+  final t = context.t;
+  final message = switch (failure) {
+    LocationFailure.serviceOff => t.locationServiceOff,
+    LocationFailure.denied => t.locationDenied,
+    LocationFailure.deniedForever => t.locationDeniedForever,
+    LocationFailure.noFix => t.locationNoFix,
+  };
+  final openSettings = switch (failure) {
+    LocationFailure.serviceOff => openLocationSettings,
+    LocationFailure.deniedForever => openAppSettings,
+    _ => null,
+  };
+  return showDialog<void>(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: Text(message),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(openSettings == null ? t.ok : t.cancel),
+        ),
+        if (openSettings != null)
+          FilledButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              openSettings();
+            },
+            child: Text(t.openSettings),
+          ),
+      ],
+    ),
+  );
+}
 
 /// Stray Cam (CONTEXT.md): one tap — a new Stray exists at the current
 /// position with a photo. No photo means no cat: the record is created
@@ -58,36 +98,17 @@ Future<(double, double)?> currentPosition() async =>
 Future<String?> strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
-    Future<bool> Function() openSettings = Geolocator.openAppSettings}) async {
+    Future<bool> Function() openSettings = Geolocator.openAppSettings,
+    Future<bool> Function() openLocationSettings =
+        Geolocator.openLocationSettings}) async {
   final outcome = await locate();
   final position = outcome.pos;
   if (position == null) {
     if (context.mounted) {
-      if (outcome.deniedForever) {
-        await showDialog<void>(
-          context: context,
-          builder: (context) => AlertDialog(
-            content: Text(context.t.locationDeniedForever),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text(context.t.cancel),
-              ),
-              FilledButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  openSettings();
-                },
-                child: Text(context.t.openSettings),
-              ),
-            ],
-          ),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(context.t.noLocationAvailable),
-        ));
-      }
+      await explainLocationFailure(
+          context, outcome.failure ?? LocationFailure.noFix,
+          openAppSettings: openSettings,
+          openLocationSettings: openLocationSettings);
     }
     return null;
   }
@@ -148,10 +169,11 @@ Future<void> recoverStrayCam(CatalogStore store,
 }
 
 /// Records a sighting of an existing cat at the device's position.
-/// Returns false when no location was available.
-Future<bool> seenHereNow(CatalogStore store, String catId) async {
-  final position = await currentPosition();
-  if (position == null) return false;
+/// Returns null on success, otherwise why no position was available.
+Future<LocationFailure?> seenHereNow(CatalogStore store, String catId) async {
+  final outcome = await locateDevice();
+  final position = outcome.pos;
+  if (position == null) return outcome.failure ?? LocationFailure.noFix;
   store.recordPosition(catId, position.$1, position.$2);
-  return true;
+  return null;
 }

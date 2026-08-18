@@ -194,6 +194,21 @@ class AppLocalizationsAr extends AppLocalizations {
       'الوصول إلى الموقع محظور. اسمح به في إعدادات النظام لاستخدام Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'خدمة الموقع مُعطَّلة على هذا الجهاز. فعِّلها في الإعدادات ثم حاول مجددًا.';
+
+  @override
+  String get locationDenied =>
+      'لا يملك cat(a)log إذن استخدام موقعك. حاول مجددًا واسمح بذلك عند السؤال.';
+
+  @override
+  String get locationNoFix =>
+      'تعذّر تحديد موقعك الآن. حاول مجددًا في الخارج — يحتاج GPS إلى رؤية واضحة للسماء.';
+
+  @override
+  String get ok => 'حسنًا';
+
+  @override
   String get openSettings => 'فتح الإعدادات';
 
   @override

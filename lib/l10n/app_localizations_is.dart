@@ -196,6 +196,21 @@ class AppLocalizationsIs extends AppLocalizations {
       'Aðgangur að staðsetningu er læstur. Leyfðu hann í kerfisstillingum til að nota Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Slökkt er á staðsetningu á þessu tæki. Kveiktu á henni í stillingum og reyndu aftur.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log hefur ekki heimild til að nota staðsetningu þína. Reyndu aftur og leyfðu það þegar spurt er.';
+
+  @override
+  String get locationNoFix =>
+      'Ekki tókst að ákvarða staðsetningu þína núna. Reyndu aftur utandyra — GPS þarf óhindrað útsýni til himins.';
+
+  @override
+  String get ok => 'Í lagi';
+
+  @override
   String get openSettings => 'Opna stillingar';
 
   @override

@@ -193,6 +193,21 @@ class AppLocalizationsHe extends AppLocalizations {
       'הגישה למיקום חסומה. יש לאפשר אותה בהגדרות המערכת כדי להשתמש ב-Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'המיקום כבוי במכשיר הזה. הפעילו אותו בהגדרות ונסו שוב.';
+
+  @override
+  String get locationDenied =>
+      'ל‑cat(a)log אין הרשאה להשתמש במיקום שלכם. נסו שוב ואשרו כשתישאלו.';
+
+  @override
+  String get locationNoFix =>
+      'לא ניתן היה לקבוע את מיקומכם כרגע. נסו שוב בחוץ — ה‑GPS זקוק לקו ראייה פתוח לשמיים.';
+
+  @override
+  String get ok => 'אישור';
+
+  @override
   String get openSettings => 'פתיחת הגדרות';
 
   @override

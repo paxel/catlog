@@ -195,6 +195,21 @@ class AppLocalizationsIt extends AppLocalizations {
       'L\'accesso alla posizione è bloccato. Consentilo nelle impostazioni di sistema per usare Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'La posizione è disattivata su questo dispositivo. Attivala nelle impostazioni e riprova.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log non ha il permesso di usare la tua posizione. Riprova e consentilo quando richiesto.';
+
+  @override
+  String get locationNoFix =>
+      'Non è stato possibile determinare la tua posizione. Riprova all\'aperto — il GPS ha bisogno di una visuale libera del cielo.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Apri impostazioni';
 
   @override

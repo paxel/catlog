@@ -11,6 +11,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - Typing a date now shows the expected format when the input doesn't parse.
 - Sharing photos, cards, sync bundles, and the CSV export works on iPad.
 - Fixed an occasional crash while photos were still loading.
+- Location features explain why no position is available (service off, permission denied, no GPS fix) and open the right settings screen.
 
 ---
 

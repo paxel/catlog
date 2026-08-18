@@ -195,6 +195,21 @@ class AppLocalizationsEl extends AppLocalizations {
       'Η πρόσβαση στην τοποθεσία είναι αποκλεισμένη. Επιτρέψτε την στις ρυθμίσεις συστήματος για να χρησιμοποιήσετε το Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Η τοποθεσία είναι απενεργοποιημένη σε αυτήν τη συσκευή. Ενεργοποιήστε την στις ρυθμίσεις και δοκιμάστε ξανά.';
+
+  @override
+  String get locationDenied =>
+      'Το cat(a)log δεν έχει άδεια να χρησιμοποιεί την τοποθεσία σας. Δοκιμάστε ξανά και επιτρέψτε την όταν ερωτηθείτε.';
+
+  @override
+  String get locationNoFix =>
+      'Η θέση σας δεν μπόρεσε να προσδιοριστεί τώρα. Δοκιμάστε ξανά σε ανοιχτό χώρο — το GPS χρειάζεται καθαρή θέα στον ουρανό.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Άνοιγμα ρυθμίσεων';
 
   @override

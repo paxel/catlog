@@ -195,6 +195,21 @@ class AppLocalizationsSq extends AppLocalizations {
       'Qasja në vendndodhje është e bllokuar. Lejojeni në cilësimet e sistemit për të përdorur Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Vendndodhja është e fikur në këtë pajisje. Ndizeni te cilësimet dhe provoni sërish.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nuk ka leje të përdorë vendndodhjen tuaj. Provoni sërish dhe lejojeni kur t\'ju pyetet.';
+
+  @override
+  String get locationNoFix =>
+      'Pozicioni juaj nuk mund të përcaktohej tani. Provoni sërish në natyrë — GPS ka nevojë për pamje të lirë të qiellit.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Hap cilësimet';
 
   @override

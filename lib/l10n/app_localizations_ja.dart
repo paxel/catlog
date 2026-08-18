@@ -190,6 +190,21 @@ class AppLocalizationsJa extends AppLocalizations {
       '位置情報へのアクセスがブロックされています。Stray Cam を使うにはシステム設定で許可してください。';
 
   @override
+  String get locationServiceOff =>
+      'この端末では位置情報がオフになっています。設定でオンにしてから、もう一度お試しください。';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log に位置情報の使用許可がありません。もう一度試して、確認されたら許可してください。';
+
+  @override
+  String get locationNoFix =>
+      '現在地を特定できませんでした。屋外でもう一度お試しください — GPS には空への見通しが必要です。';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => '設定を開く';
 
   @override

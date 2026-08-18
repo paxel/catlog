@@ -194,6 +194,21 @@ class AppLocalizationsFa extends AppLocalizations {
       'دسترسی به موقعیت مکانی مسدود است. برای استفاده از Stray Cam آن را در تنظیمات سیستم مجاز کنید.';
 
   @override
+  String get locationServiceOff =>
+      'موقعیت مکانی در این دستگاه خاموش است. آن را در تنظیمات روشن کنید و دوباره تلاش کنید.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log اجازهٔ استفاده از موقعیت شما را ندارد. دوباره تلاش کنید و هنگام پرسش اجازه دهید.';
+
+  @override
+  String get locationNoFix =>
+      'موقعیت شما اکنون قابل تعیین نیست. در فضای باز دوباره تلاش کنید — GPS به دید باز آسمان نیاز دارد.';
+
+  @override
+  String get ok => 'باشه';
+
+  @override
   String get openSettings => 'باز کردن تنظیمات';
 
   @override

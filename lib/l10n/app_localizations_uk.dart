@@ -194,6 +194,21 @@ class AppLocalizationsUk extends AppLocalizations {
       'Доступ до місцезнаходження заблоковано. Дозвольте його в налаштуваннях системи, щоб користуватися Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Геолокацію на цьому пристрої вимкнено. Увімкніть її в налаштуваннях і спробуйте ще раз.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log не має дозволу використовувати ваше місцезнаходження. Спробуйте ще раз і надайте дозвіл, коли з\'явиться запит.';
+
+  @override
+  String get locationNoFix =>
+      'Не вдалося визначити вашу позицію. Спробуйте ще раз просто неба — GPS потрібен відкритий огляд неба.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Відкрити налаштування';
 
   @override

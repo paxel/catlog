@@ -47,11 +47,12 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
   }
 
   Future<void> _useMyLocation() async {
-    final position = await currentPosition();
+    final outcome = await locateDevice();
+    final position = outcome.pos;
     if (position == null) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.t.noLocationAvailable)));
+        await explainLocationFailure(
+            context, outcome.failure ?? LocationFailure.noFix);
       }
       return;
     }

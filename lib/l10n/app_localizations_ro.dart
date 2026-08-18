@@ -195,6 +195,21 @@ class AppLocalizationsRo extends AppLocalizations {
       'Accesul la locație este blocat. Permiteți-l în setările sistemului pentru a folosi Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Localizarea este oprită pe acest dispozitiv. Porniți-o din setări și încercați din nou.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nu are permisiunea de a folosi locația dvs. Încercați din nou și permiteți-o când vi se cere.';
+
+  @override
+  String get locationNoFix =>
+      'Poziția dvs. nu a putut fi determinată acum. Încercați din nou în aer liber — GPS-ul are nevoie de vedere liberă spre cer.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Deschide setările';
 
   @override

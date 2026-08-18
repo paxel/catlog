@@ -203,12 +203,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _seenHere() async {
-    final ok = await seenHereNow(store, id);
+    final failure = await seenHereNow(store, id);
     if (!mounted) return;
+    if (failure != null) {
+      await explainLocationFailure(context, failure);
+      return;
+    }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(ok
-          ? context.t.sightingRecorded
-          : context.t.noLocationAvailable),
+      content: Text(context.t.sightingRecorded),
     ));
     setState(() {});
   }

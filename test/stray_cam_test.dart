@@ -32,16 +32,48 @@ void main() {
 
   tearDown(() => store.close());
 
-  testWidgets('location denied: no cat, snackbar explains', (tester) async {
+  testWidgets('location denied: no cat, dialog explains', (tester) async {
     final context = await _pumpHost(tester);
-    final result = await strayCam(context, store,
-        locate: () async => (pos: null, deniedForever: false),
-        pickPhoto: (_) async => fail('camera must not open'));
-    await tester.pump();
+    String? result = 'sentinel';
+    strayCam(context, store,
+            locate: () async => (pos: null, failure: LocationFailure.denied),
+            pickPhoto: (_) async => fail('camera must not open'))
+        .then((r) => result = r);
+    await tester.pumpAndSettle();
+    expect(
+        find.text('cat(a)log has no permission to use your location. '
+            'Try again and allow it when asked.'),
+        findsOneWidget);
+    await tester.tap(find.text('OK'));
+    await tester.pumpAndSettle();
     expect(result, isNull);
     expect(store.cats(), isEmpty);
-    expect(find.text('No location available — long-press the map instead.'),
+  });
+
+  testWidgets('location service off: dialog opens location settings',
+      (tester) async {
+    final context = await _pumpHost(tester);
+    var opened = false;
+    String? result = 'sentinel';
+    strayCam(context, store,
+            locate: () async =>
+                (pos: null, failure: LocationFailure.serviceOff),
+            pickPhoto: (_) async => fail('camera must not open'),
+            openLocationSettings: () async {
+              opened = true;
+              return true;
+            })
+        .then((r) => result = r);
+    await tester.pumpAndSettle();
+    expect(
+        find.text('Location is turned off on this device. '
+            'Turn it on in the settings and try again.'),
         findsOneWidget);
+    await tester.tap(find.text('Open settings'));
+    await tester.pumpAndSettle();
+    expect(opened, isTrue);
+    expect(result, isNull);
+    expect(store.cats(), isEmpty);
   });
 
   testWidgets('permanently denied: settings dialog, no cat', (tester) async {
@@ -49,7 +81,8 @@ void main() {
     var opened = false;
     String? result = 'sentinel';
     strayCam(context, store,
-            locate: () async => (pos: null, deniedForever: true),
+            locate: () async =>
+                (pos: null, failure: LocationFailure.deniedForever),
             pickPhoto: (_) async => fail('camera must not open'),
             openSettings: () async {
               opened = true;
@@ -68,7 +101,7 @@ void main() {
   testWidgets('camera canceled or killed: no orphan cat', (tester) async {
     final context = await _pumpHost(tester);
     final result = await strayCam(context, store,
-        locate: () async => (pos: (48.1, 11.5), deniedForever: false),
+        locate: () async => (pos: (48.1, 11.5), failure: null),
         pickPhoto: (_) async => null);
     expect(result, isNull);
     expect(store.cats(), isEmpty,
@@ -79,7 +112,7 @@ void main() {
   testWidgets('photo taken: cat with position and image', (tester) async {
     final context = await _pumpHost(tester);
     final result = await tester.runAsync(() => strayCam(context, store,
-        locate: () async => (pos: (48.1, 11.5), deniedForever: false),
+        locate: () async => (pos: (48.1, 11.5), failure: null),
         pickPhoto: (_) async => _jpeg()));
     expect(result, isNotNull);
     final cat = store.cats().single;

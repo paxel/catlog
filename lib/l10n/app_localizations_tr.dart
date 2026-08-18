@@ -194,6 +194,21 @@ class AppLocalizationsTr extends AppLocalizations {
       'Konum erişimi engellendi. Stray Cam kullanmak için sistem ayarlarından izin verin.';
 
   @override
+  String get locationServiceOff =>
+      'Bu cihazda konum kapalı. Ayarlardan açın ve yeniden deneyin.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log konumunuzu kullanma iznine sahip değil. Yeniden deneyin ve sorulduğunda izin verin.';
+
+  @override
+  String get locationNoFix =>
+      'Konumunuz şu anda belirlenemedi. Açık havada yeniden deneyin — GPS gökyüzünü net görmelidir.';
+
+  @override
+  String get ok => 'Tamam';
+
+  @override
   String get openSettings => 'Ayarları aç';
 
   @override

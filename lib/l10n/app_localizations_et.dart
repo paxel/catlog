@@ -194,6 +194,21 @@ class AppLocalizationsEt extends AppLocalizations {
       'Juurdepääs asukohale on blokeeritud. Luba see süsteemi seadetes, et kasutada Stray Cami.';
 
   @override
+  String get locationServiceOff =>
+      'Asukoht on selles seadmes välja lülitatud. Lülita see seadetes sisse ja proovi uuesti.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log ei tohi sinu asukohta kasutada. Proovi uuesti ja luba see, kui küsitakse.';
+
+  @override
+  String get locationNoFix =>
+      'Sinu asukohta ei õnnestunud praegu määrata. Proovi uuesti õues — GPS vajab vaba vaadet taevale.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Ava seaded';
 
   @override

@@ -194,6 +194,21 @@ class AppLocalizationsBg extends AppLocalizations {
       'Достъпът до местоположението е блокиран. Разрешете го в системните настройки, за да използвате Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Местоположението е изключено на това устройство. Включете го в настройките и опитайте отново.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log няма разрешение да използва местоположението ви. Опитайте отново и го разрешете при запитване.';
+
+  @override
+  String get locationNoFix =>
+      'Позицията ви не можа да бъде определена сега. Опитайте отново на открито — GPS се нуждае от чист изглед към небето.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Отвори настройките';
 
   @override

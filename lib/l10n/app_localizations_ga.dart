@@ -195,6 +195,21 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tá rochtain ar an suíomh coiscthe. Ceadaigh í i socruithe an chórais chun Stray Cam a úsáid.';
 
   @override
+  String get locationServiceOff =>
+      'Tá an suíomh múchta ar an ngléas seo. Cuir air é sna socruithe agus bain triail eile as.';
+
+  @override
+  String get locationDenied =>
+      'Níl cead ag cat(a)log do shuíomh a úsáid. Bain triail eile as agus ceadaigh é nuair a iarrtar ort.';
+
+  @override
+  String get locationNoFix =>
+      'Níorbh fhéidir do shuíomh a dhéanamh amach anois. Bain triail eile as amuigh faoin aer — teastaíonn radharc glan ar an spéir ón GPS.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Oscail socruithe';
 
   @override

@@ -195,6 +195,21 @@ class AppLocalizationsNl extends AppLocalizations {
       'Locatietoegang is geblokkeerd. Sta het toe in de systeeminstellingen om Stray Cam te gebruiken.';
 
   @override
+  String get locationServiceOff =>
+      'Locatie staat uit op dit apparaat. Zet hem aan in de instellingen en probeer het opnieuw.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log heeft geen toestemming om je locatie te gebruiken. Probeer het opnieuw en sta het toe wanneer erom wordt gevraagd.';
+
+  @override
+  String get locationNoFix =>
+      'Je positie kon nu niet worden bepaald. Probeer het buiten opnieuw — GPS heeft vrij zicht op de hemel nodig.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Instellingen openen';
 
   @override

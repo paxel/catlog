@@ -196,6 +196,21 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-aċċess għall-post huwa mblukkat. Ħallih fis-settings tas-sistema biex tuża Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Il-post huwa mitfi fuq dan l-apparat. Ixegħlu fis-settings u erġa\' pprova.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log m\'għandux permess juża l-post tiegħek. Erġa\' pprova u ħallih meta tiġi mistoqsi.';
+
+  @override
+  String get locationNoFix =>
+      'Il-pożizzjoni tiegħek ma setgħetx tiġi determinata bħalissa. Erġa\' pprova barra — il-GPS jeħtieġ veduta ċara tas-sema.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Iftaħ is-settings';
 
   @override

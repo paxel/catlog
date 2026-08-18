@@ -195,6 +195,21 @@ class AppLocalizationsDe extends AppLocalizations {
       'Der Standortzugriff ist blockiert. Erlaube ihn in den Systemeinstellungen, um die Streuner-Cam zu nutzen.';
 
   @override
+  String get locationServiceOff =>
+      'Der Standort ist auf diesem Gerät ausgeschaltet. Schalte ihn in den Einstellungen ein und versuche es erneut.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log darf deinen Standort nicht verwenden. Versuche es erneut und erlaube es, wenn du gefragt wirst.';
+
+  @override
+  String get locationNoFix =>
+      'Deine Position konnte gerade nicht bestimmt werden. Versuche es im Freien erneut — GPS braucht freie Sicht zum Himmel.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Einstellungen öffnen';
 
   @override

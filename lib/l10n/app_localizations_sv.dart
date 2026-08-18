@@ -194,6 +194,21 @@ class AppLocalizationsSv extends AppLocalizations {
       'Platsåtkomst är blockerad. Tillåt den i systeminställningarna för att använda Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Plats är avstängd på den här enheten. Slå på den i inställningarna och försök igen.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log har inte tillstånd att använda din plats. Försök igen och tillåt det när du tillfrågas.';
+
+  @override
+  String get locationNoFix =>
+      'Din position kunde inte bestämmas just nu. Försök igen utomhus — GPS behöver fri sikt mot himlen.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Öppna inställningar';
 
   @override

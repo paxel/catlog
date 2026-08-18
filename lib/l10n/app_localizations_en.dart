@@ -194,6 +194,21 @@ class AppLocalizationsEn extends AppLocalizations {
       'Location access is blocked. Allow it in the system settings to use Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Location is turned off on this device. Turn it on in the settings and try again.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log has no permission to use your location. Try again and allow it when asked.';
+
+  @override
+  String get locationNoFix =>
+      'Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Open settings';
 
   @override

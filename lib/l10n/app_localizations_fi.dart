@@ -194,6 +194,21 @@ class AppLocalizationsFi extends AppLocalizations {
       'Sijainnin käyttö on estetty. Salli se järjestelmäasetuksissa käyttääksesi Stray Camia.';
 
   @override
+  String get locationServiceOff =>
+      'Sijainti on pois päältä tällä laitteella. Kytke se päälle asetuksista ja yritä uudelleen.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log ei saa käyttää sijaintiasi. Yritä uudelleen ja salli se kysyttäessä.';
+
+  @override
+  String get locationNoFix =>
+      'Sijaintiasi ei juuri nyt voitu määrittää. Yritä uudelleen ulkona — GPS tarvitsee esteettömän näkymän taivaalle.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Avaa asetukset';
 
   @override

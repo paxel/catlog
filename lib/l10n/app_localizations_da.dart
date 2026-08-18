@@ -195,6 +195,21 @@ class AppLocalizationsDa extends AppLocalizations {
       'Adgang til placering er blokeret. Tillad den i systemindstillingerne for at bruge Stray Cam.';
 
   @override
+  String get locationServiceOff =>
+      'Placering er slået fra på denne enhed. Slå den til i indstillingerne og prøv igen.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log har ikke tilladelse til at bruge din placering. Prøv igen og tillad det, når du bliver spurgt.';
+
+  @override
+  String get locationNoFix =>
+      'Din position kunne ikke bestemmes lige nu. Prøv igen udendørs — GPS kræver frit udsyn til himlen.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
   String get openSettings => 'Åbn indstillinger';
 
   @override
