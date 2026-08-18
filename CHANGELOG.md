@@ -32,6 +32,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   disappearing silently.
 - Each Sync-screen section shows its own result — a folder sync no
   longer reports under the QR section.
+- Swiping through the full-screen gallery no longer flickers.
 
 ---
 

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
@@ -28,6 +30,14 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
       PageController(initialPage: widget.initialIndex);
   late int _current = widget.initialIndex;
 
+  /// Bytes per hash, fetched once: a fresh Uint8List on every rebuild
+  /// would give MemoryImage a new cache key — the image re-decodes and
+  /// the page flickers on every swipe (the counter rebuild).
+  final _bytes = <String, Uint8List?>{};
+
+  Uint8List? _bytesFor(String hash) =>
+      _bytes.putIfAbsent(hash, () => widget.store.imageBytes(hash));
+
   @override
   void dispose() {
     _pages.dispose();
@@ -46,8 +56,7 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
           IconButton(
             icon: const Icon(Icons.share),
             onPressed: () {
-              final bytes =
-                  widget.store.imageBytes(widget.hashes[_current]);
+              final bytes = _bytesFor(widget.hashes[_current]);
               if (bytes == null) return;
               Share.shareXFiles([
                 XFile.fromData(bytes,
@@ -63,11 +72,13 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
         itemCount: widget.hashes.length,
         onPageChanged: (i) => setState(() => _current = i),
         itemBuilder: (context, i) {
-          final bytes = widget.store.imageBytes(widget.hashes[i]);
+          final bytes = _bytesFor(widget.hashes[i]);
           if (bytes == null) return const SizedBox.shrink();
           return InteractiveViewer(
             maxScale: 8,
-            child: Center(child: Image.memory(bytes, fit: BoxFit.contain)),
+            child: Center(
+                child: Image.memory(bytes,
+                    fit: BoxFit.contain, gaplessPlayback: true)),
           );
         },
       ),
