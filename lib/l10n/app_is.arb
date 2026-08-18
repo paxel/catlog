@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Tvítak sameinað",
   "asOfToday": "Miðað við í dag",
   "asOfDate": "Miðað við {date}",
+  "dateFormatError": "Rangt snið — notaðu {format}",
   "value": "Gildi",
   "latitudeLongitude": "breiddargráða, lengdargráða",
   "newField": "Nýtt svæði",

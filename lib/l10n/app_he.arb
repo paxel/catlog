@@ -72,6 +72,7 @@
   "duplicateMergedIn": "רשומה כפולה מוזגה",
   "asOfToday": "נכון להיום",
   "asOfDate": "נכון ל-{date}",
+  "dateFormatError": "פורמט שגוי — יש להשתמש ב-{format}",
   "value": "ערך",
   "latitudeLongitude": "קו רוחב, קו אורך",
   "newField": "שדה חדש",

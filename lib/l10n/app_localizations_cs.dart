@@ -264,6 +264,11 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Špatný formát — použijte $format';
+  }
+
+  @override
   String get value => 'Hodnota';
 
   @override

@@ -265,6 +265,11 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format i gabuar — përdorni $format';
+  }
+
+  @override
   String get value => 'Vlera';
 
   @override

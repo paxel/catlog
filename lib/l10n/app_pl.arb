@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Scalono duplikat",
   "asOfToday": "Na dziś",
   "asOfDate": "Na dzień {date}",
+  "dateFormatError": "Zły format — użyj {format}",
   "value": "Wartość",
   "latitudeLongitude": "szerokość, długość geogr.",
   "newField": "Nowe pole",

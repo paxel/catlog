@@ -264,6 +264,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Yanlış biçim — $format kullanın';
+  }
+
+  @override
   String get value => 'Değer';
 
   @override

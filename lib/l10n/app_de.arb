@@ -74,6 +74,7 @@
   "duplicateMergedIn": "Duplikat wurde zusammengeführt",
   "asOfToday": "Stand: heute",
   "asOfDate": "Stand: {date}",
+  "dateFormatError": "Falsches Format — bitte {format} verwenden",
   "value": "Wert",
   "latitudeLongitude": "Breitengrad, Längengrad",
   "newField": "Neues Feld",

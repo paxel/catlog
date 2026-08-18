@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplikat magħqud",
   "asOfToday": "Mil-lum",
   "asOfDate": "Mid-data {date}",
+  "dateFormatError": "Format ħażin — uża {format}",
   "value": "Valur",
   "latitudeLongitude": "latitudni, lonġitudni",
   "newField": "Qasam ġdid",

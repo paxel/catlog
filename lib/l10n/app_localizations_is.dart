@@ -266,6 +266,11 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Rangt snið — notaðu $format';
+  }
+
+  @override
   String get value => 'Gildi';
 
   @override

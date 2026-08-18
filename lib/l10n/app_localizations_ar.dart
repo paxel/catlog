@@ -264,6 +264,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'تنسيق خاطئ — استخدم $format';
+  }
+
+  @override
   String get value => 'القيمة';
 
   @override

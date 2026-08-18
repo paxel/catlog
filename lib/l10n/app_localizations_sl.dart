@@ -264,6 +264,11 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Napačna oblika — uporabite $format';
+  }
+
+  @override
   String get value => 'Vrednost';
 
   @override

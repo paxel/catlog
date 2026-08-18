@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplikat slått sammen",
   "asOfToday": "Per i dag",
   "asOfDate": "Per {date}",
+  "dateFormatError": "Feil format — bruk {format}",
   "value": "Verdi",
   "latitudeLongitude": "breddegrad, lengdegrad",
   "newField": "Nytt felt",

@@ -266,6 +266,11 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format ħażin — uża $format';
+  }
+
+  @override
   String get value => 'Valur';
 
   @override

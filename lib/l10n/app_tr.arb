@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Kopya kayıt birleştirildi",
   "asOfToday": "Bugün itibarıyla",
   "asOfDate": "{date} itibarıyla",
+  "dateFormatError": "Yanlış biçim — {format} kullanın",
   "value": "Değer",
   "latitudeLongitude": "enlem, boylam",
   "newField": "Yeni alan",

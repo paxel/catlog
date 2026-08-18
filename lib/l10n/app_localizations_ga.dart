@@ -265,6 +265,11 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Formáid mhícheart — úsáid $format';
+  }
+
+  @override
   String get value => 'Luach';
 
   @override

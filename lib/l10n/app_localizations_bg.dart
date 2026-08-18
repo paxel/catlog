@@ -264,6 +264,11 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Грешен формат — използвайте $format';
+  }
+
+  @override
   String get value => 'Стойност';
 
   @override

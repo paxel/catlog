@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Dublikāts apvienots",
   "asOfToday": "Ar šodienas datumu",
   "asOfDate": "Ar datumu {date}",
+  "dateFormatError": "Nepareizs formāts — izmantojiet {format}",
   "value": "Vērtība",
   "latitudeLongitude": "platums, garums",
   "newField": "Jauns lauks",

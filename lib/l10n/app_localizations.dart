@@ -614,6 +614,12 @@ abstract class AppLocalizations {
   /// **'As of {date}'**
   String asOfDate(String date);
 
+  /// No description provided for @dateFormatError.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong format — use {format}'**
+  String dateFormatError(String format);
+
   /// No description provided for @value.
   ///
   /// In en, this message translates to:

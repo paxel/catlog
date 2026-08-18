@@ -258,6 +258,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return '格式错误，请使用 $format';
+  }
+
+  @override
   String get value => '值';
 
   @override

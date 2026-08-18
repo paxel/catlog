@@ -265,6 +265,11 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format greșit — folosiți $format';
+  }
+
+  @override
   String get value => 'Valoare';
 
   @override

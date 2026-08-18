@@ -264,6 +264,11 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Nepareizs formāts — izmantojiet $format';
+  }
+
+  @override
   String get value => 'Vērtība';
 
   @override

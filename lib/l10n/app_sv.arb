@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Dubblett ihopslagen",
   "asOfToday": "Per i dag",
   "asOfDate": "Per {date}",
+  "dateFormatError": "Fel format — använd {format}",
   "value": "Värde",
   "latitudeLongitude": "latitud, longitud",
   "newField": "Nytt fält",

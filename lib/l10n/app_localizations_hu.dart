@@ -264,6 +264,11 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Hibás formátum — használja: $format';
+  }
+
+  @override
   String get value => 'Érték';
 
   @override

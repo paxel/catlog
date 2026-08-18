@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Dublet flettet ind",
   "asOfToday": "Pr. i dag",
   "asOfDate": "Pr. {date}",
+  "dateFormatError": "Forkert format — brug {format}",
   "value": "Værdi",
   "latitudeLongitude": "breddegrad, længdegrad",
   "newField": "Nyt felt",

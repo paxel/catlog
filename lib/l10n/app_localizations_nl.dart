@@ -265,6 +265,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Verkeerd formaat — gebruik $format';
+  }
+
+  @override
   String get value => 'Waarde';
 
   @override

@@ -72,6 +72,7 @@
   "duplicateMergedIn": "رکورد تکراری ادغام شد",
   "asOfToday": "به تاریخ امروز",
   "asOfDate": "به تاریخ {date}",
+  "dateFormatError": "قالب نادرست — از {format} استفاده کنید",
   "value": "مقدار",
   "latitudeLongitude": "عرض جغرافیایی، طول جغرافیایی",
   "newField": "فیلد جدید",

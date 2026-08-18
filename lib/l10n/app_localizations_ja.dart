@@ -259,6 +259,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return '形式が正しくありません。$format の形式で入力してください';
+  }
+
+  @override
   String get value => '値';
 
   @override

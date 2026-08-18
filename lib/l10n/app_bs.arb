@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplikat spojen",
   "asOfToday": "Sa današnjim datumom",
   "asOfDate": "Sa datumom {date}",
+  "dateFormatError": "Pogrešan format — koristite {format}",
   "value": "Vrijednost",
   "latitudeLongitude": "geografska širina, dužina",
   "newField": "Novo polje",

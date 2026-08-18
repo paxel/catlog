@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Дубликат объединён",
   "asOfToday": "По состоянию на сегодня",
   "asOfDate": "По состоянию на {date}",
+  "dateFormatError": "Неверный формат — используйте {format}",
   "value": "Значение",
   "latitudeLongitude": "широта, долгота",
   "newField": "Новое поле",

@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Dublikatas sujungtas",
   "asOfToday": "Šios dienos data",
   "asOfDate": "Data: {date}",
+  "dateFormatError": "Neteisingas formatas — naudokite {format}",
   "value": "Reikšmė",
   "latitudeLongitude": "platuma, ilguma",
   "newField": "Naujas laukas",

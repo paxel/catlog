@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplicitný záznam zlúčený",
   "asOfToday": "K dnešnému dňu",
   "asOfDate": "Ku dňu {date}",
+  "dateFormatError": "Nesprávny formát — použite {format}",
   "value": "Hodnota",
   "latitudeLongitude": "zemepisná šírka, dĺžka",
   "newField": "Nové pole",

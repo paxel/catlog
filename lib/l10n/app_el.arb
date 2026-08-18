@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Συγχωνεύτηκε διπλότυπο",
   "asOfToday": "Με σημερινή ημερομηνία",
   "asOfDate": "Με ημερομηνία {date}",
+  "dateFormatError": "Λάθος μορφή — χρησιμοποιήστε {format}",
   "value": "Τιμή",
   "latitudeLongitude": "γεωγρ. πλάτος, μήκος",
   "newField": "Νέο πεδίο",

@@ -264,6 +264,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Wrong format — use $format';
+  }
+
+  @override
   String get value => 'Value';
 
   @override

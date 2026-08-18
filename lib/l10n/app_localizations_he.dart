@@ -263,6 +263,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'פורמט שגוי — יש להשתמש ב-$format';
+  }
+
+  @override
   String get value => 'ערך';
 
   @override

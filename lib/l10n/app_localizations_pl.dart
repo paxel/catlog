@@ -265,6 +265,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Zły format — użyj $format';
+  }
+
+  @override
   String get value => 'Wartość';
 
   @override

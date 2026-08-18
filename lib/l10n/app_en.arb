@@ -177,6 +177,14 @@
       }
     }
   },
+  "dateFormatError": "Wrong format — use {format}",
+  "@dateFormatError": {
+    "placeholders": {
+      "format": {
+        "type": "String"
+      }
+    }
+  },
   "value": "Value",
   "latitudeLongitude": "latitude, longitude",
   "newField": "New field",

@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Dublikata u bashkua",
   "asOfToday": "Me datën e sotme",
   "asOfDate": "Me datë {date}",
+  "dateFormatError": "Format i gabuar — përdorni {format}",
   "value": "Vlera",
   "latitudeLongitude": "gjerësia, gjatësia gjeografike",
   "newField": "Fushë e re",

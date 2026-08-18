@@ -264,6 +264,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Väärä muoto — käytä muotoa $format';
+  }
+
+  @override
   String get value => 'Arvo';
 
   @override

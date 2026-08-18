@@ -70,6 +70,10 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       initialDate: _asOf,
       firstDate: DateTime(2000),
       lastDate: DateTime.now().add(const Duration(days: 1)),
+      // The picker falls back to a text field (e.g. with screen readers);
+      // the stock error doesn't say which format is expected.
+      errorFormatText: context.t
+          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
     );
     if (!mounted) return;
     if (picked != null) setState(() => _asOf = picked);

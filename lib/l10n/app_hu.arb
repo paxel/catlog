@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplikátum egyesítve",
   "asOfToday": "Mai dátummal",
   "asOfDate": "Dátum: {date}",
+  "dateFormatError": "Hibás formátum — használja: {format}",
   "value": "Érték",
   "latitudeLongitude": "szélesség, hosszúság",
   "newField": "Új mező",

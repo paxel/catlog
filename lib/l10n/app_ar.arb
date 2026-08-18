@@ -72,6 +72,7 @@
   "duplicateMergedIn": "دُمج سجل مكرر",
   "asOfToday": "بتاريخ اليوم",
   "asOfDate": "بتاريخ {date}",
+  "dateFormatError": "تنسيق خاطئ — استخدم {format}",
   "value": "القيمة",
   "latitudeLongitude": "خط العرض، خط الطول",
   "newField": "حقل جديد",

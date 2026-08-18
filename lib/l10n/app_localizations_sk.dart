@@ -264,6 +264,11 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Nesprávny formát — použite $format';
+  }
+
+  @override
   String get value => 'Hodnota';
 
   @override

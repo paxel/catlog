@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Дупликатот е споен",
   "asOfToday": "Со денешен датум",
   "asOfDate": "Со датум {date}",
+  "dateFormatError": "Погрешен формат — користете {format}",
   "value": "Вредност",
   "latitudeLongitude": "географска ширина, должина",
   "newField": "Ново поле",

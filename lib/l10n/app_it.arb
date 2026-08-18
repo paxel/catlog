@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplicato unito",
   "asOfToday": "In data odierna",
   "asOfDate": "In data {date}",
+  "dateFormatError": "Formato errato — usa {format}",
   "value": "Valore",
   "latitudeLongitude": "latitudine, longitudine",
   "newField": "Nuovo campo",

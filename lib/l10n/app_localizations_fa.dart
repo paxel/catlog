@@ -264,6 +264,11 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'قالب نادرست — از $format استفاده کنید';
+  }
+
+  @override
   String get value => 'مقدار';
 
   @override

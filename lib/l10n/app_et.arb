@@ -72,6 +72,7 @@
   "duplicateMergedIn": "Duplikaat ühendatud",
   "asOfToday": "Tänase seisuga",
   "asOfDate": "Seisuga {date}",
+  "dateFormatError": "Vale vorming — kasuta {format}",
   "value": "Väärtus",
   "latitudeLongitude": "laius, pikkus",
   "newField": "Uus väli",

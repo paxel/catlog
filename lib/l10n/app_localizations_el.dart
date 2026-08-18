@@ -265,6 +265,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Λάθος μορφή — χρησιμοποιήστε $format';
+  }
+
+  @override
   String get value => 'Τιμή';
 
   @override

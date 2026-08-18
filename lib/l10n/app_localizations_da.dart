@@ -265,6 +265,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Forkert format — brug $format';
+  }
+
+  @override
   String get value => 'Værdi';
 
   @override

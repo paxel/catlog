@@ -264,6 +264,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Неверный формат — используйте $format';
+  }
+
+  @override
   String get value => 'Значение';
 
   @override
