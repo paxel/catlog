@@ -6,6 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../stray_cam.dart';
@@ -101,7 +102,7 @@ class _MapScreenState extends State<MapScreen> {
   /// as fallback.
   Widget _catFace(String catId, bool highlighted) {
     final hash = store.profileImage(catId);
-    final bytes = hash == null ? null : store.imageBytes(hash);
+    final photo = hash == null ? null : imageProviderFor(store, hash);
     final ring = highlighted ? Colors.red : Colors.deepOrange;
     return Container(
       decoration: BoxDecoration(
@@ -114,10 +115,9 @@ class _MapScreenState extends State<MapScreen> {
         backgroundColor: Colors.white,
         // Decode at pin size — full-resolution photos (2560px ≈ 26MB
         // decoded) in a 40px circle were the other leg of the OOM.
-        backgroundImage: bytes != null
-            ? ResizeImage(MemoryImage(bytes), width: 96)
-            : null,
-        child: bytes == null
+        backgroundImage:
+            photo != null ? ResizeImage(photo, width: 96) : null,
+        child: photo == null
             ? const Icon(Icons.pets, size: 20, color: Colors.deepOrange)
             : null,
       ),

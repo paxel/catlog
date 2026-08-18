@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../auto_backup.dart';
 import '../l10n.dart';
+import '../share.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
 
@@ -134,7 +135,8 @@ class _SyncScreenState extends State<SyncScreen> {
       final dir = await getTemporaryDirectory();
       final stamp = DateTime.now().toIso8601String().substring(0, 10);
       final path = writeBundle(widget.store, '${dir.path}/catlog-$stamp.catsync');
-      await Share.shareXFiles([XFile(path, mimeType: 'application/zip')]);
+      if (!mounted) return;
+      await shareFiles(context, [XFile(path, mimeType: 'application/zip')]);
     } catch (e) {
       if (!mounted) return;
       setState(() => _bundleResult = t.syncFailed('$e'));

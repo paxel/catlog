@@ -4,6 +4,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../share.dart';
+
 /// Full-screen gallery: swipe through a cat's photos, pinch to zoom.
 /// Tap on a thumbnail lands here; the action menu stays on long-press.
 class PhotoViewerScreen extends StatefulWidget {
@@ -58,7 +60,7 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
             onPressed: () {
               final bytes = _bytesFor(widget.hashes[_current]);
               if (bytes == null) return;
-              Share.shareXFiles([
+              shareFiles(context, [
                 XFile.fromData(bytes,
                     mimeType: 'image/jpeg',
                     name: '${widget.name}-${_current + 1}.jpg'),

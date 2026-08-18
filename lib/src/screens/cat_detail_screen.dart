@@ -7,6 +7,7 @@ import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../field_labels.dart';
 import '../image_import.dart';
+import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -315,7 +316,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             itemCount: images.length,
             itemBuilder: (context, i) {
               final hash = images[i];
-              final bytes = store.imageBytes(hash);
+              final photo = imageProviderFor(store, hash);
               // Tap = quick action (view full-size), long-press = menu —
               // the app-wide gesture convention.
               return GestureDetector(
@@ -328,10 +329,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 )),
                 onLongPress: () => _imageMenu(hash),
                 child: Stack(fit: StackFit.expand, children: [
-                  if (bytes != null)
+                  if (photo != null)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.memory(bytes, fit: BoxFit.cover),
+                      // Decode at grid-tile size, not full resolution.
+                      child: Image(
+                          image: ResizeImage(photo, width: 480),
+                          fit: BoxFit.cover),
                     ),
                   if (hash == profile)
                     const Align(

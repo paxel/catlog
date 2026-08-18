@@ -7,9 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../language_dialog.dart';
 import '../name_date_dialog.dart';
+import '../share.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'fields_screen.dart';
@@ -32,7 +34,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   Future<void> _exportCsv() async {
     final csv = exportCsv(widget.store);
     try {
-      await Share.shareXFiles([
+      await shareFiles(context, [
         XFile.fromData(Uint8List.fromList(utf8.encode(csv)),
             mimeType: 'text/csv', name: 'catlog.csv'),
       ]);
@@ -199,12 +201,12 @@ class _ClowderCard extends StatelessWidget {
       {required this.store, required this.clowder, required this.onTap});
 
   /// Background: profile image of the first cat in the clowder that has one.
-  Uint8List? _cover() {
+  ImageProvider? _cover() {
     for (final cat in store.cats(clowderId: clowder.id)) {
       final hash = store.profileImage(cat.id);
       if (hash != null) {
-        final bytes = store.imageBytes(hash);
-        if (bytes != null) return bytes;
+        final photo = imageProviderFor(store, hash);
+        if (photo != null) return photo;
       }
     }
     return null;
@@ -224,8 +226,9 @@ class _ClowderCard extends StatelessWidget {
           if (cover != null)
             Opacity(
               opacity: 0.55,
-              child: Image.memory(cover,
-                  fit: BoxFit.cover, cacheWidth: 800),
+              child: Image(
+                  image: ResizeImage(cover, width: 800),
+                  fit: BoxFit.cover),
             )
           else
             Center(
