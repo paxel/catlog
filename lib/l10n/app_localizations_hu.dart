@@ -212,6 +212,29 @@ class AppLocalizationsHu extends AppLocalizations {
   String get openSettings => 'Beállítások megnyitása';
 
   @override
+  String get notSaved => 'Nincs mentve';
+
+  @override
+  String get birthdateInFuture => 'A születési dátum nem lehet a jövőben.';
+
+  @override
+  String get deceasedInFuture => 'Az elhalálozás dátuma nem lehet a jövőben.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Az elhalálozás dátuma nem lehet a születési dátum ($date) előtt.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'A születési dátum nem lehet az elhalálozás dátuma ($date) után.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ez a macska kandúrként van nyilvántartva — kandúr nem lehet vemhes. Először ellenőrizze az ivart.';
+
+  @override
   String get moveTo => 'Áthelyezés ide';
 
   @override

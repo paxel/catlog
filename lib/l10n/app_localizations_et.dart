@@ -212,6 +212,29 @@ class AppLocalizationsEt extends AppLocalizations {
   String get openSettings => 'Ava seaded';
 
   @override
+  String get notSaved => 'Salvestamata';
+
+  @override
+  String get birthdateInFuture => 'Sünnikuupäev ei saa olla tulevikus.';
+
+  @override
+  String get deceasedInFuture => 'Surmakuupäev ei saa olla tulevikus.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Surmakuupäev ei saa olla enne sünnikuupäeva ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Sünnikuupäev ei saa olla pärast surmakuupäeva ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
+
+  @override
   String get moveTo => 'Liiguta';
 
   @override

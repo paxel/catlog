@@ -212,6 +212,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get openSettings => 'فتح الإعدادات';
 
   @override
+  String get notSaved => 'لم يُحفَظ';
+
+  @override
+  String get birthdateInFuture => 'لا يمكن أن يكون تاريخ الميلاد في المستقبل.';
+
+  @override
+  String get deceasedInFuture => 'لا يمكن أن يكون تاريخ النفوق في المستقبل.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'لا يمكن أن يكون تاريخ النفوق قبل تاريخ الميلاد ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'لا يمكن أن يكون تاريخ الميلاد بعد تاريخ النفوق ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
+
+  @override
   String get moveTo => 'نقل إلى';
 
   @override

@@ -212,6 +212,29 @@ class AppLocalizationsFa extends AppLocalizations {
   String get openSettings => 'باز کردن تنظیمات';
 
   @override
+  String get notSaved => 'ذخیره نشد';
+
+  @override
+  String get birthdateInFuture => 'تاریخ تولد نمی‌تواند در آینده باشد.';
+
+  @override
+  String get deceasedInFuture => 'تاریخ مرگ نمی‌تواند در آینده باشد.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'تاریخ مرگ نمی‌تواند پیش از تاریخ تولد ($date) باشد.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'تاریخ تولد نمی‌تواند پس از تاریخ مرگ ($date) باشد.';
+  }
+
+  @override
+  String get malePregnant =>
+      'این گربه به‌عنوان نر ثبت شده است — گربهٔ نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
+
+  @override
   String get moveTo => 'انتقال به';
 
   @override

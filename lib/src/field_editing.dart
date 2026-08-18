@@ -113,12 +113,27 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           ]),
         );
       case FieldType.date:
-        return CalendarDatePicker(
-          initialDate: DateTime.tryParse(widget.current ?? '') ?? DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime(2100),
-          onDateChanged: (d) =>
-              _choice = d.toIso8601String().substring(0, 10),
+        // Birth and death dates can't lie in the future; other date
+        // fields legitimately can (appointments, due dates).
+        final pastOnly = def.slug == 'birthdate' || def.slug == 'deceased';
+        final last = pastOnly ? DateUtils.dateOnly(DateTime.now()) : DateTime(2100);
+        var initial =
+            DateTime.tryParse(widget.current ?? '') ?? DateTime.now();
+        if (initial.isAfter(last)) initial = last;
+        // The picker pages months in a viewport, which cannot answer the
+        // intrinsic-width question AlertDialog asks. Unbounded, its page
+        // metrics degenerate and the month arrows jump several months
+        // per tap — a fixed box restores sane paging.
+        return SizedBox(
+          width: 328,
+          height: 346,
+          child: CalendarDatePicker(
+            initialDate: initial,
+            firstDate: DateTime(2000),
+            lastDate: last,
+            onDateChanged: (d) =>
+                _choice = d.toIso8601String().substring(0, 10),
+          ),
         );
       case FieldType.number:
         return TextField(

@@ -213,6 +213,31 @@ class AppLocalizationsGa extends AppLocalizations {
   String get openSettings => 'Oscail socruithe';
 
   @override
+  String get notSaved => 'Gan sábháil';
+
+  @override
+  String get birthdateInFuture =>
+      'Ní féidir leis an dáta breithe a bheith san am atá le teacht.';
+
+  @override
+  String get deceasedInFuture =>
+      'Ní féidir leis an dáta báis a bheith san am atá le teacht.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Ní féidir leis an dáta báis a bheith roimh an dáta breithe ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Ní féidir leis an dáta breithe a bheith i ndiaidh an dáta báis ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
+
+  @override
   String get moveTo => 'Bog go';
 
   @override

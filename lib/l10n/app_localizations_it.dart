@@ -213,6 +213,30 @@ class AppLocalizationsIt extends AppLocalizations {
   String get openSettings => 'Apri impostazioni';
 
   @override
+  String get notSaved => 'Non salvato';
+
+  @override
+  String get birthdateInFuture =>
+      'La data di nascita non può essere nel futuro.';
+
+  @override
+  String get deceasedInFuture => 'La data di morte non può essere nel futuro.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'La data di morte non può precedere la data di nascita ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'La data di nascita non può seguire la data di morte ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Questo gatto è registrato come maschio — un maschio non può essere gravido. Controlla prima il sesso.';
+
+  @override
   String get moveTo => 'Sposta in';
 
   @override

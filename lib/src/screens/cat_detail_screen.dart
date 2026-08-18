@@ -8,6 +8,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../image_import.dart';
 import '../image_provider_cache.dart';
+import '../plausibility.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -112,7 +113,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   Future<void> _editField(FieldDef def) async {
     final edit =
         await editFieldValue(context, def, store.current(id, def.key));
-    if (edit == null) return;
+    if (edit == null || !mounted) return;
+    final objection = starterFieldObjection(store, id, def, edit.value);
+    if (objection != null) {
+      await explainObjection(context, objection);
+      return;
+    }
     store.append(id, def.key, edit.value, date: edit.date);
     if (!mounted) return;
     setState(() {});

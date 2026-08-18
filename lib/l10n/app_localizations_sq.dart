@@ -213,6 +213,31 @@ class AppLocalizationsSq extends AppLocalizations {
   String get openSettings => 'Hap cilësimet';
 
   @override
+  String get notSaved => 'Nuk u ruajt';
+
+  @override
+  String get birthdateInFuture =>
+      'Data e lindjes nuk mund të jetë në të ardhmen.';
+
+  @override
+  String get deceasedInFuture =>
+      'Data e ngordhjes nuk mund të jetë në të ardhmen.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data e ngordhjes nuk mund të jetë para datës së lindjes ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data e lindjes nuk mund të jetë pas datës së ngordhjes ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
+
+  @override
   String get moveTo => 'Zhvendos te';
 
   @override

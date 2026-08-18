@@ -542,6 +542,42 @@ abstract class AppLocalizations {
   /// **'Open settings'**
   String get openSettings;
 
+  /// No description provided for @notSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Not saved'**
+  String get notSaved;
+
+  /// No description provided for @birthdateInFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'The birth date can\'t be in the future.'**
+  String get birthdateInFuture;
+
+  /// No description provided for @deceasedInFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'The date of death can\'t be in the future.'**
+  String get deceasedInFuture;
+
+  /// No description provided for @deceasedBeforeBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'The date of death can\'t be before the birth date ({date}).'**
+  String deceasedBeforeBirth(String date);
+
+  /// No description provided for @bornAfterDeceased.
+  ///
+  /// In en, this message translates to:
+  /// **'The birth date can\'t be after the date of death ({date}).'**
+  String bornAfterDeceased(String date);
+
+  /// No description provided for @malePregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.'**
+  String get malePregnant;
+
   /// No description provided for @moveTo.
   ///
   /// In en, this message translates to:

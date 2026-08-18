@@ -212,6 +212,29 @@ class AppLocalizationsLt extends AppLocalizations {
   String get openSettings => 'Atidaryti nustatymus';
 
   @override
+  String get notSaved => 'Neišsaugota';
+
+  @override
+  String get birthdateInFuture => 'Gimimo data negali būti ateityje.';
+
+  @override
+  String get deceasedInFuture => 'Mirties data negali būti ateityje.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Mirties data negali būti ankstesnė už gimimo datą ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Gimimo data negali būti vėlesnė už mirties datą ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ši katė užregistruota kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
+
+  @override
   String get moveTo => 'Perkelti į';
 
   @override

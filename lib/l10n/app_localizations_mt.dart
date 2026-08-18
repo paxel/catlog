@@ -214,6 +214,30 @@ class AppLocalizationsMt extends AppLocalizations {
   String get openSettings => 'Iftaħ is-settings';
 
   @override
+  String get notSaved => 'Ma ġiex salvat';
+
+  @override
+  String get birthdateInFuture =>
+      'Id-data tat-twelid ma tistax tkun fil-futur.';
+
+  @override
+  String get deceasedInFuture => 'Id-data tal-mewt ma tistax tkun fil-futur.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Id-data tal-mewt ma tistax tkun qabel id-data tat-twelid ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Id-data tat-twelid ma tistax tkun wara d-data tal-mewt ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
+
+  @override
   String get moveTo => 'Mexxi lejn';
 
   @override

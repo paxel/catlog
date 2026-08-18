@@ -213,6 +213,31 @@ class AppLocalizationsEl extends AppLocalizations {
   String get openSettings => 'Άνοιγμα ρυθμίσεων';
 
   @override
+  String get notSaved => 'Δεν αποθηκεύτηκε';
+
+  @override
+  String get birthdateInFuture =>
+      'Η ημερομηνία γέννησης δεν μπορεί να είναι στο μέλλον.';
+
+  @override
+  String get deceasedInFuture =>
+      'Η ημερομηνία θανάτου δεν μπορεί να είναι στο μέλλον.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Η ημερομηνία θανάτου δεν μπορεί να είναι πριν από την ημερομηνία γέννησης ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Η ημερομηνία γέννησης δεν μπορεί να είναι μετά την ημερομηνία θανάτου ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως αρσενική — ένας αρσενικός γάτος δεν μπορεί να είναι έγκυος. Ελέγξτε πρώτα το φύλο.';
+
+  @override
   String get moveTo => 'Μετακίνηση σε';
 
   @override

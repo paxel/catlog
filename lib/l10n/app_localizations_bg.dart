@@ -212,6 +212,29 @@ class AppLocalizationsBg extends AppLocalizations {
   String get openSettings => 'Отвори настройките';
 
   @override
+  String get notSaved => 'Не е запазено';
+
+  @override
+  String get birthdateInFuture => 'Датата на раждане не може да е в бъдещето.';
+
+  @override
+  String get deceasedInFuture => 'Датата на смъртта не може да е в бъдещето.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Датата на смъртта не може да е преди датата на раждане ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Датата на раждане не може да е след датата на смъртта ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Тази котка е записана като мъжка — мъжка котка не може да е бременна. Първо проверете пола.';
+
+  @override
   String get moveTo => 'Премести в';
 
   @override

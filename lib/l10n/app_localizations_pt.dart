@@ -212,6 +212,31 @@ class AppLocalizationsPt extends AppLocalizations {
   String get openSettings => 'Abrir definições';
 
   @override
+  String get notSaved => 'Não guardado';
+
+  @override
+  String get birthdateInFuture =>
+      'A data de nascimento não pode estar no futuro.';
+
+  @override
+  String get deceasedInFuture =>
+      'A data de falecimento não pode estar no futuro.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'A data de falecimento não pode ser anterior à data de nascimento ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'A data de nascimento não pode ser posterior à data de falecimento ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Este gato está registado como macho — um macho não pode estar prenhe. Verifique primeiro o sexo.';
+
+  @override
   String get moveTo => 'Mover para';
 
   @override

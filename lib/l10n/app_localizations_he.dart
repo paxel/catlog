@@ -211,6 +211,29 @@ class AppLocalizationsHe extends AppLocalizations {
   String get openSettings => 'פתיחת הגדרות';
 
   @override
+  String get notSaved => 'לא נשמר';
+
+  @override
+  String get birthdateInFuture => 'תאריך הלידה לא יכול להיות בעתיד.';
+
+  @override
+  String get deceasedInFuture => 'תאריך המוות לא יכול להיות בעתיד.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'תאריך המוות לא יכול להיות לפני תאריך הלידה ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'תאריך הלידה לא יכול להיות אחרי תאריך המוות ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'החתול הזה רשום כזכר — זכר לא יכול להיות בהיריון. בדקו קודם את המין.';
+
+  @override
   String get moveTo => 'העברה אל';
 
   @override

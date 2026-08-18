@@ -212,6 +212,29 @@ class AppLocalizationsTr extends AppLocalizations {
   String get openSettings => 'Ayarları aç';
 
   @override
+  String get notSaved => 'Kaydedilmedi';
+
+  @override
+  String get birthdateInFuture => 'Doğum tarihi gelecekte olamaz.';
+
+  @override
+  String get deceasedInFuture => 'Ölüm tarihi gelecekte olamaz.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Ölüm tarihi doğum tarihinden ($date) önce olamaz.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Doğum tarihi ölüm tarihinden ($date) sonra olamaz.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Bu kedi erkek olarak kayıtlı — erkek kedi gebe olamaz. Önce cinsiyeti kontrol edin.';
+
+  @override
   String get moveTo => 'Şuraya taşı';
 
   @override

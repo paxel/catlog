@@ -212,6 +212,29 @@ class AppLocalizationsSk extends AppLocalizations {
   String get openSettings => 'Otvoriť nastavenia';
 
   @override
+  String get notSaved => 'Neuložené';
+
+  @override
+  String get birthdateInFuture => 'Dátum narodenia nemôže byť v budúcnosti.';
+
+  @override
+  String get deceasedInFuture => 'Dátum úmrtia nemôže byť v budúcnosti.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dátum úmrtia nemôže byť pred dátumom narodenia ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Dátum narodenia nemôže byť po dátume úmrtia ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Táto mačka je vedená ako kocúr — kocúr nemôže byť gravidný. Najprv skontrolujte pohlavie.';
+
+  @override
   String get moveTo => 'Presunúť do';
 
   @override

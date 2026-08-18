@@ -204,6 +204,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get openSettings => '打开设置';
 
   @override
+  String get notSaved => '未保存';
+
+  @override
+  String get birthdateInFuture => '出生日期不能是未来的日期。';
+
+  @override
+  String get deceasedInFuture => '死亡日期不能是未来的日期。';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return '死亡日期不能早于出生日期（$date）。';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return '出生日期不能晚于死亡日期（$date）。';
+  }
+
+  @override
+  String get malePregnant => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
+
+  @override
   String get moveTo => '移动到';
 
   @override

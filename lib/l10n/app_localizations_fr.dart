@@ -213,6 +213,31 @@ class AppLocalizationsFr extends AppLocalizations {
   String get openSettings => 'Ouvrir les réglages';
 
   @override
+  String get notSaved => 'Non enregistré';
+
+  @override
+  String get birthdateInFuture =>
+      'La date de naissance ne peut pas être dans le futur.';
+
+  @override
+  String get deceasedInFuture =>
+      'La date de décès ne peut pas être dans le futur.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'La date de décès ne peut pas précéder la date de naissance ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'La date de naissance ne peut pas suivre la date de décès ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ce chat est enregistré comme mâle — un mâle ne peut pas être gestant. Vérifiez d\'abord le sexe.';
+
+  @override
   String get moveTo => 'Déplacer vers';
 
   @override

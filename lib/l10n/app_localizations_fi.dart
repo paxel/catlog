@@ -212,6 +212,29 @@ class AppLocalizationsFi extends AppLocalizations {
   String get openSettings => 'Avaa asetukset';
 
   @override
+  String get notSaved => 'Ei tallennettu';
+
+  @override
+  String get birthdateInFuture => 'Syntymäpäivä ei voi olla tulevaisuudessa.';
+
+  @override
+  String get deceasedInFuture => 'Kuolinpäivä ei voi olla tulevaisuudessa.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Kuolinpäivä ei voi olla ennen syntymäpäivää ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Syntymäpäivä ei voi olla kuolinpäivän ($date) jälkeen.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tämä kissa on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
+
+  @override
   String get moveTo => 'Siirrä kohteeseen';
 
   @override

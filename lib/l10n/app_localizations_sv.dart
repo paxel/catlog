@@ -212,6 +212,29 @@ class AppLocalizationsSv extends AppLocalizations {
   String get openSettings => 'Öppna inställningar';
 
   @override
+  String get notSaved => 'Inte sparat';
+
+  @override
+  String get birthdateInFuture => 'Födelsedatumet kan inte ligga i framtiden.';
+
+  @override
+  String get deceasedInFuture => 'Dödsdatumet kan inte ligga i framtiden.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dödsdatumet kan inte ligga före födelsedatumet ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Födelsedatumet kan inte ligga efter dödsdatumet ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Den här katten är registrerad som hane — en hankatt kan inte vara dräktig. Kontrollera könet först.';
+
+  @override
   String get moveTo => 'Flytta till';
 
   @override

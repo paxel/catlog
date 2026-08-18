@@ -213,6 +213,29 @@ class AppLocalizationsRo extends AppLocalizations {
   String get openSettings => 'Deschide setările';
 
   @override
+  String get notSaved => 'Nesalvat';
+
+  @override
+  String get birthdateInFuture => 'Data nașterii nu poate fi în viitor.';
+
+  @override
+  String get deceasedInFuture => 'Data decesului nu poate fi în viitor.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data decesului nu poate fi înaintea datei nașterii ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data nașterii nu poate fi după data decesului ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
+
+  @override
   String get moveTo => 'Mută în';
 
   @override

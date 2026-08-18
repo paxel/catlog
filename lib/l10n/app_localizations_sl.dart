@@ -212,6 +212,29 @@ class AppLocalizationsSl extends AppLocalizations {
   String get openSettings => 'Odpri nastavitve';
 
   @override
+  String get notSaved => 'Ni shranjeno';
+
+  @override
+  String get birthdateInFuture => 'Datum rojstva ne more biti v prihodnosti.';
+
+  @override
+  String get deceasedInFuture => 'Datum smrti ne more biti v prihodnosti.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Datum smrti ne more biti pred datumom rojstva ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Datum rojstva ne more biti po datumu smrti ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ta mačka je zavedena kot samec — samec ne more biti breja. Najprej preverite spol.';
+
+  @override
   String get moveTo => 'Premakni v';
 
   @override

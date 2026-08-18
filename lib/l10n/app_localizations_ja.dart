@@ -208,6 +208,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get openSettings => '設定を開く';
 
   @override
+  String get notSaved => '保存されませんでした';
+
+  @override
+  String get birthdateInFuture => '誕生日を未来の日付にはできません。';
+
+  @override
+  String get deceasedInFuture => '死亡日を未来の日付にはできません。';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return '死亡日を誕生日（$date）より前にはできません。';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return '誕生日を死亡日（$date）より後にはできません。';
+  }
+
+  @override
+  String get malePregnant => 'この猫はオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
+
+  @override
   String get moveTo => '移動先';
 
   @override

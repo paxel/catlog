@@ -213,6 +213,29 @@ class AppLocalizationsPl extends AppLocalizations {
   String get openSettings => 'Otwórz ustawienia';
 
   @override
+  String get notSaved => 'Nie zapisano';
+
+  @override
+  String get birthdateInFuture => 'Data urodzenia nie może być w przyszłości.';
+
+  @override
+  String get deceasedInFuture => 'Data śmierci nie może być w przyszłości.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data śmierci nie może być wcześniejsza niż data urodzenia ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data urodzenia nie może być późniejsza niż data śmierci ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ten kot jest zapisany jako samiec — samiec nie może być w ciąży. Najpierw sprawdź płeć.';
+
+  @override
   String get moveTo => 'Przenieś do';
 
   @override

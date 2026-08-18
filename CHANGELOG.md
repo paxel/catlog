@@ -5,7 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [0.1.4] - Unreleased
 
+### Added
+
+- Implausible starter-field values are refused with an explanation: birth or death dates in the future, death before birth, and pregnancy for a male cat.
+
 ### Fixed
+
+- The month arrows in date fields no longer skip several months per tap.
 
 - Android no longer offers cat(a)log when opening calendar links.
 - Typing a date now shows the expected format when the input doesn't parse.

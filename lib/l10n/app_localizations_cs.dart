@@ -212,6 +212,29 @@ class AppLocalizationsCs extends AppLocalizations {
   String get openSettings => 'Otevřít nastavení';
 
   @override
+  String get notSaved => 'Neuloženo';
+
+  @override
+  String get birthdateInFuture => 'Datum narození nemůže být v budoucnosti.';
+
+  @override
+  String get deceasedInFuture => 'Datum úmrtí nemůže být v budoucnosti.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Datum úmrtí nemůže být před datem narození ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Datum narození nemůže být po datu úmrtí ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tato kočka je vedena jako kocour — kocour nemůže být březí. Nejdřív zkontrolujte pohlaví.';
+
+  @override
   String get moveTo => 'Přesunout do';
 
   @override

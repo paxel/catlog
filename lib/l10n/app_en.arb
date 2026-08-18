@@ -90,6 +90,26 @@
   "locationNoFix": "Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.",
   "ok": "OK",
   "openSettings": "Open settings",
+  "notSaved": "Not saved",
+  "birthdateInFuture": "The birth date can't be in the future.",
+  "deceasedInFuture": "The date of death can't be in the future.",
+  "deceasedBeforeBirth": "The date of death can't be before the birth date ({date}).",
+  "@deceasedBeforeBirth": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "bornAfterDeceased": "The birth date can't be after the date of death ({date}).",
+  "@bornAfterDeceased": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "malePregnant": "This cat is recorded as male — a male cat can't be pregnant. Check the gender first.",
   "moveTo": "Move to",
   "noClowderStrayOption": "No clowder — stray / ran away",
   "timelineOf": "Timeline — {name}",

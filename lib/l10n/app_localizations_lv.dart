@@ -212,6 +212,29 @@ class AppLocalizationsLv extends AppLocalizations {
   String get openSettings => 'Atvērt iestatījumus';
 
   @override
+  String get notSaved => 'Nav saglabāts';
+
+  @override
+  String get birthdateInFuture => 'Dzimšanas datums nevar būt nākotnē.';
+
+  @override
+  String get deceasedInFuture => 'Nāves datums nevar būt nākotnē.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Nāves datums nevar būt pirms dzimšanas datuma ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Dzimšanas datums nevar būt pēc nāves datuma ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Šis kaķis ir reģistrēts kā runcis — runcis nevar būt grūsns. Vispirms pārbaudiet dzimumu.';
+
+  @override
   String get moveTo => 'Pārvietot uz';
 
   @override

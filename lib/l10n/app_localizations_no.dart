@@ -213,6 +213,29 @@ class AppLocalizationsNo extends AppLocalizations {
   String get openSettings => 'Åpne innstillinger';
 
   @override
+  String get notSaved => 'Ikke lagret';
+
+  @override
+  String get birthdateInFuture => 'Fødselsdatoen kan ikke ligge i fremtiden.';
+
+  @override
+  String get deceasedInFuture => 'Dødsdatoen kan ikke ligge i fremtiden.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dødsdatoen kan ikke ligge før fødselsdatoen ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Fødselsdatoen kan ikke ligge etter dødsdatoen ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Denne katten er registrert som hann — en hannkatt kan ikke være drektig. Sjekk kjønnet først.';
+
+  @override
   String get moveTo => 'Flytt til';
 
   @override

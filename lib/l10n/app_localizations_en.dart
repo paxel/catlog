@@ -212,6 +212,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get openSettings => 'Open settings';
 
   @override
+  String get notSaved => 'Not saved';
+
+  @override
+  String get birthdateInFuture => 'The birth date can\'t be in the future.';
+
+  @override
+  String get deceasedInFuture => 'The date of death can\'t be in the future.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'The date of death can\'t be before the birth date ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'The birth date can\'t be after the date of death ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.';
+
+  @override
   String get moveTo => 'Move to';
 
   @override

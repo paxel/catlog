@@ -212,6 +212,29 @@ class AppLocalizationsSr extends AppLocalizations {
   String get openSettings => 'Otvori podešavanja';
 
   @override
+  String get notSaved => 'Није сачувано';
+
+  @override
+  String get birthdateInFuture => 'Датум рођења не може бити у будућности.';
+
+  @override
+  String get deceasedInFuture => 'Датум смрти не може бити у будућности.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Датум смрти не може бити пре датума рођења ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Датум рођења не може бити после датума смрти ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ова мачка је уписана као мужјак — мужјак не може бити гравидан. Прво проверите пол.';
+
+  @override
   String get moveTo => 'Премести у';
 
   @override

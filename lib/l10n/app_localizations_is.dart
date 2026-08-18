@@ -214,6 +214,30 @@ class AppLocalizationsIs extends AppLocalizations {
   String get openSettings => 'Opna stillingar';
 
   @override
+  String get notSaved => 'Ekki vistað';
+
+  @override
+  String get birthdateInFuture =>
+      'Fæðingardagur getur ekki verið í framtíðinni.';
+
+  @override
+  String get deceasedInFuture => 'Dánardagur getur ekki verið í framtíðinni.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dánardagur getur ekki verið á undan fæðingardegi ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Fæðingardagur getur ekki verið á eftir dánardegi ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Þessi köttur er skráður sem fress — fress getur ekki verið kettlingafullt. Athugaðu fyrst kynið.';
+
+  @override
   String get moveTo => 'Færa í';
 
   @override
