@@ -372,6 +372,29 @@ class AppLocalizationsPl extends AppLocalizations {
       'Ten kot jest zapisany jako samiec — samiec nie może być w ciąży. Najpierw sprawdź płeć.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name jest zapisana jako samica i nie może być ojcem. Najpierw sprawdź płeć.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name jest zapisany jako samiec i nie może być matką. Najpierw sprawdź płeć.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name urodził się $date — rodzic nie może urodzić się po swoim kociaku.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ten kot jest zapisany jako ojciec innych kotów — ojciec nie może być samicą. Najpierw sprawdź rodzinę.';
+
+  @override
+  String get genderMotherMale =>
+      'Ten kot jest zapisany jako matka innych kotów — matka nie może być samcem. Najpierw sprawdź rodzinę.';
+
+  @override
   String get moveTo => 'Przenieś do';
 
   @override

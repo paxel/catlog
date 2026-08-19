@@ -358,6 +358,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get malePregnant => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name登记为母猫，不能作为父亲。请先检查性别。';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name登记为公猫，不能作为母亲。请先检查性别。';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name出生于$date——父母不可能晚于幼崽出生。';
+  }
+
+  @override
+  String get genderFatherFemale => '这只猫登记为其他猫的父亲——父亲不能是母猫。请先检查家庭关系。';
+
+  @override
+  String get genderMotherMale => '这只猫登记为其他猫的母亲——母亲不能是公猫。请先检查家庭关系。';
+
+  @override
   String get moveTo => '移动到';
 
   @override

@@ -374,6 +374,29 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze kat staat geregistreerd als mannetje — een kater kan niet drachtig zijn. Controleer eerst het geslacht.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name staat geregistreerd als vrouwtje en kan niet de vader zijn. Controleer eerst het geslacht.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name staat geregistreerd als mannetje en kan niet de moeder zijn. Controleer eerst het geslacht.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name is geboren op $date — een ouder kan niet na zijn kitten geboren zijn.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Deze kat staat geregistreerd als vader van andere katten — de vader kan geen vrouwtje zijn. Controleer eerst de familie.';
+
+  @override
+  String get genderMotherMale =>
+      'Deze kat staat geregistreerd als moeder van andere katten — de moeder kan geen mannetje zijn. Controleer eerst de familie.';
+
+  @override
   String get moveTo => 'Verplaatsen naar';
 
   @override

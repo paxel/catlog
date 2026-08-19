@@ -375,6 +375,29 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αυτή η γάτα είναι καταχωρισμένη ως αρσενική — ένας αρσενικός γάτος δεν μπορεί να είναι έγκυος. Ελέγξτε πρώτα το φύλο.';
 
   @override
+  String fatherNotMale(String name) {
+    return 'Η $name είναι καταχωρισμένη ως θηλυκή και δεν μπορεί να είναι ο πατέρας. Ελέγξτε πρώτα το φύλο.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return 'Ο $name είναι καταχωρισμένος ως αρσενικός και δεν μπορεί να είναι η μητέρα. Ελέγξτε πρώτα το φύλο.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'Ο/Η $name γεννήθηκε στις $date — ένας γονιός δεν μπορεί να γεννηθεί μετά το μικρό του.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως πατέρας άλλων γατών — ο πατέρας δεν μπορεί να είναι θηλυκός. Ελέγξτε πρώτα την οικογένεια.';
+
+  @override
+  String get genderMotherMale =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως μητέρα άλλων γατών — η μητέρα δεν μπορεί να είναι αρσενική. Ελέγξτε πρώτα την οικογένεια.';
+
+  @override
   String get moveTo => 'Μετακίνηση σε';
 
   @override

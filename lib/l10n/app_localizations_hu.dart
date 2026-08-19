@@ -372,6 +372,29 @@ class AppLocalizationsHu extends AppLocalizations {
       'Ez a macska kandúrként van nyilvántartva — kandúr nem lehet vemhes. Először ellenőrizze az ivart.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name nőstényként van nyilvántartva, így nem lehet az apa. Először ellenőrizze az ivart.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name kandúrként van nyilvántartva, így nem lehet az anya. Először ellenőrizze az ivart.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name $date született — a szülő nem születhet a kölyke után.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ez a macska más macskák apjaként szerepel — az apa nem lehet nőstény. Először ellenőrizze a családot.';
+
+  @override
+  String get genderMotherMale =>
+      'Ez a macska más macskák anyjaként szerepel — az anya nem lehet kandúr. Először ellenőrizze a családot.';
+
+  @override
   String get moveTo => 'Áthelyezés ide';
 
   @override

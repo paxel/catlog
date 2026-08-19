@@ -371,6 +371,29 @@ class AppLocalizationsHe extends AppLocalizations {
       'החתול הזה רשום כזכר — זכר לא יכול להיות בהיריון. בדקו קודם את המין.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name רשומה כנקבה ולא יכולה להיות האב. בדקו קודם את המין.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name רשום כזכר ולא יכול להיות האם. בדקו קודם את המין.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name נולד ב-$date — הורה לא יכול להיוולד אחרי הגור שלו.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'החתול הזה רשום כאב של חתולים אחרים — האב לא יכול להיות נקבה. בדקו קודם את המשפחה.';
+
+  @override
+  String get genderMotherMale =>
+      'החתול הזה רשום כאם של חתולים אחרים — האם לא יכולה להיות זכר. בדקו קודם את המשפחה.';
+
+  @override
   String get moveTo => 'העברה אל';
 
   @override

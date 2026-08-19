@@ -375,6 +375,29 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name është regjistruar si femër dhe s\'mund të jetë babai. Kontrolloni fillimisht gjininë.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name është regjistruar si mashkull dhe s\'mund të jetë nëna. Kontrolloni fillimisht gjininë.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name ka lindur më $date — një prind s\'mund të lindë pas të voglit të tij.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Kjo mace është regjistruar si babai i maceve të tjera — babai s\'mund të jetë femër. Kontrolloni fillimisht familjen.';
+
+  @override
+  String get genderMotherMale =>
+      'Kjo mace është regjistruar si nëna e maceve të tjera — nëna s\'mund të jetë mashkull. Kontrolloni fillimisht familjen.';
+
+  @override
   String get moveTo => 'Zhvendos te';
 
   @override

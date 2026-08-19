@@ -376,6 +376,29 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ce chat est enregistré comme mâle — un mâle ne peut pas être gestant. Vérifiez d\'abord le sexe.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name est enregistrée comme femelle et ne peut pas être le père. Vérifiez d\'abord le sexe.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name est enregistré comme mâle et ne peut pas être la mère. Vérifiez d\'abord le sexe.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name est né le $date — un parent ne peut pas naître après son chaton.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ce chat est enregistré comme père d\'autres chats — le père ne peut pas être femelle. Vérifiez d\'abord la famille.';
+
+  @override
+  String get genderMotherMale =>
+      'Ce chat est enregistré comme mère d\'autres chats — la mère ne peut pas être mâle. Vérifiez d\'abord la famille.';
+
+  @override
   String get moveTo => 'Déplacer vers';
 
   @override

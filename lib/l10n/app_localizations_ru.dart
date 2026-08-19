@@ -373,6 +373,29 @@ class AppLocalizationsRu extends AppLocalizations {
       'Этот кот записан как самец — самец не может быть беременным. Сначала проверьте пол.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name записана как самка и не может быть отцом. Сначала проверьте пол.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name записан как самец и не может быть матерью. Сначала проверьте пол.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name родился $date — родитель не может родиться после своего котёнка.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Этот кот записан как отец других кошек — отец не может быть самкой. Сначала проверьте семью.';
+
+  @override
+  String get genderMotherMale =>
+      'Эта кошка записана как мать других кошек — мать не может быть самцом. Сначала проверьте семью.';
+
+  @override
   String get moveTo => 'Переместить в';
 
   @override

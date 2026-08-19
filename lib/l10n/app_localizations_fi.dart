@@ -373,6 +373,29 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tämä kissa on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name on merkitty naaraaksi eikä voi olla isä. Tarkista ensin sukupuoli.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name on merkitty urokseksi eikä voi olla emo. Tarkista ensin sukupuoli.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name syntyi $date — vanhempi ei voi syntyä pentunsa jälkeen.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Tämä kissa on merkitty muiden kissojen isäksi — isä ei voi olla naaras. Tarkista ensin perhe.';
+
+  @override
+  String get genderMotherMale =>
+      'Tämä kissa on merkitty muiden kissojen emoksi — emo ei voi olla uros. Tarkista ensin perhe.';
+
+  @override
   String get moveTo => 'Siirrä kohteeseen';
 
   @override

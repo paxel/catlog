@@ -375,6 +375,29 @@ class AppLocalizationsMt extends AppLocalizations {
       'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name hija rreġistrata bħala mara u ma tistax tkun il-missier. L-ewwel iċċekkja s-sess.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name huwa rreġistrat bħala raġel u ma jistax ikun l-omm. L-ewwel iċċekkja s-sess.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name twieled fi $date — ġenitur ma jistax jitwieled wara l-ferħ tiegħu.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Dan il-qattus huwa rreġistrat bħala missier ta\' qtates oħra — il-missier ma jistax ikun mara. L-ewwel iċċekkja l-familja.';
+
+  @override
+  String get genderMotherMale =>
+      'Dan il-qattus huwa rreġistrat bħala omm ta\' qtates oħra — l-omm ma tistax tkun raġel. L-ewwel iċċekkja l-familja.';
+
+  @override
   String get moveTo => 'Mexxi lejn';
 
   @override

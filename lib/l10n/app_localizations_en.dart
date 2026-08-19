@@ -372,6 +372,29 @@ class AppLocalizationsEn extends AppLocalizations {
       'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name is recorded as female and can\'t be the father. Check the gender first.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name is recorded as male and can\'t be the mother. Check the gender first.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name was born $date — a parent can\'t be born after its kitten.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.';
+
+  @override
+  String get genderMotherMale =>
+      'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.';
+
+  @override
   String get moveTo => 'Move to';
 
   @override

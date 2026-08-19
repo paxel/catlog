@@ -373,6 +373,29 @@ class AppLocalizationsSk extends AppLocalizations {
       'Táto mačka je vedená ako kocúr — kocúr nemôže byť gravidný. Najprv skontrolujte pohlavie.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name je vedená ako mačka (samica) a nemôže byť otcom. Najprv skontrolujte pohlavie.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name je vedený ako kocúr a nemôže byť matkou. Najprv skontrolujte pohlavie.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name sa narodil $date — rodič sa nemôže narodiť po svojom mačati.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Táto mačka je vedená ako otec iných mačiek — otec nemôže byť samica. Najprv skontrolujte rodinu.';
+
+  @override
+  String get genderMotherMale =>
+      'Táto mačka je vedená ako matka iných mačiek — matka nemôže byť samec. Najprv skontrolujte rodinu.';
+
+  @override
   String get moveTo => 'Presunúť do';
 
   @override

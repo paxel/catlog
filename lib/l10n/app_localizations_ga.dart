@@ -376,6 +376,29 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
 
   @override
+  String fatherNotMale(String name) {
+    return 'Tá $name cláraithe mar bhaineannach agus ní féidir léi a bheith ina hathair. Seiceáil an gnéas ar dtús.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return 'Tá $name cláraithe mar fhireannach agus ní féidir leis a bheith ina mháthair. Seiceáil an gnéas ar dtús.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'Rugadh $name ar $date — ní féidir tuismitheoir a bhreith i ndiaidh a phiscín.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Tá an cat seo cláraithe mar athair cat eile — ní féidir leis an athair a bheith baineann. Seiceáil an teaghlach ar dtús.';
+
+  @override
+  String get genderMotherMale =>
+      'Tá an cat seo cláraithe mar mháthair cat eile — ní féidir leis an máthair a bheith fireann. Seiceáil an teaghlach ar dtús.';
+
+  @override
   String get moveTo => 'Bog go';
 
   @override

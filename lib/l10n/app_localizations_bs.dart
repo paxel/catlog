@@ -372,6 +372,29 @@ class AppLocalizationsBs extends AppLocalizations {
       'Ova mačka je zavedena kao mužjak — mužjak ne može biti gravidan. Prvo provjerite spol.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name je zavedena kao ženka i ne može biti otac. Prvo provjerite spol.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name je zaveden kao mužjak i ne može biti majka. Prvo provjerite spol.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name je rođen $date — roditelj ne može biti rođen poslije svog mladunca.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ova mačka je zavedena kao otac drugih mačaka — otac ne može biti ženka. Prvo provjerite porodicu.';
+
+  @override
+  String get genderMotherMale =>
+      'Ova mačka je zavedena kao majka drugih mačaka — majka ne može biti mužjak. Prvo provjerite porodicu.';
+
+  @override
   String get moveTo => 'Premjesti u';
 
   @override

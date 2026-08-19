@@ -372,6 +372,29 @@ class AppLocalizationsLv extends AppLocalizations {
       'Šis kaķis ir reģistrēts kā runcis — runcis nevar būt grūsns. Vispirms pārbaudiet dzimumu.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name ir reģistrēta kā kaķene un nevar būt tēvs. Vispirms pārbaudiet dzimumu.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name ir reģistrēts kā runcis un nevar būt māte. Vispirms pārbaudiet dzimumu.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name dzimis $date — vecāks nevar piedzimt pēc sava kaķēna.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Šis kaķis ir reģistrēts kā citu kaķu tēvs — tēvs nevar būt kaķene. Vispirms pārbaudiet ģimeni.';
+
+  @override
+  String get genderMotherMale =>
+      'Šis kaķis ir reģistrēts kā citu kaķu māte — māte nevar būt runcis. Vispirms pārbaudiet ģimeni.';
+
+  @override
   String get moveTo => 'Pārvietot uz';
 
   @override

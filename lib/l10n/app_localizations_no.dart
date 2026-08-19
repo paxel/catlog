@@ -373,6 +373,29 @@ class AppLocalizationsNo extends AppLocalizations {
       'Denne katten er registrert som hann — en hannkatt kan ikke være drektig. Sjekk kjønnet først.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name er registrert som hunn og kan ikke være faren. Sjekk kjønnet først.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name er registrert som hann og kan ikke være moren. Sjekk kjønnet først.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name ble født $date — en forelder kan ikke være født etter kattungen sin.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Denne katten er registrert som far til andre katter — faren kan ikke være hunn. Sjekk familien først.';
+
+  @override
+  String get genderMotherMale =>
+      'Denne katten er registrert som mor til andre katter — moren kan ikke være hann. Sjekk familien først.';
+
+  @override
   String get moveTo => 'Flytt til';
 
   @override

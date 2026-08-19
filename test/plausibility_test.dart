@@ -37,14 +37,14 @@ void main() {
     store.append(cat, def('birthdate').key, '2020-05-01');
     final objection = check('deceased', '2019-01-01');
     expect(objection?.kind, ObjectionKind.deceasedBeforeBirth);
-    expect(objection?.other, DateTime(2020, 5, 1));
+    expect(objection?.date, DateTime(2020, 5, 1));
   });
 
   test('birth after death is refused, with the death date named', () {
     store.append(cat, def('deceased').key, '2020-05-01');
     final objection = check('birthdate', '2021-01-01');
     expect(objection?.kind, ObjectionKind.bornAfterDeceased);
-    expect(objection?.other, DateTime(2020, 5, 1));
+    expect(objection?.date, DateTime(2020, 5, 1));
   });
 
   test('a male cat cannot be pregnant', () {
@@ -65,6 +65,49 @@ void main() {
     store.append(cat, def('birthdate').key, '2020-05-01');
     expect(check('birthdate', null), isNull);
     expect(check('deceased', ''), isNull);
+  });
+
+  test('a female cat cannot be the father, nor a male one the mother',
+      () {
+    final dad = store.createCat('Kater');
+    store.append(dad, Keys.userField('gender'), 'female');
+    final objection = check('father', dad);
+    expect(objection?.kind, ObjectionKind.fatherNotMale);
+    expect(objection?.name, 'Kater');
+
+    final mom = store.createCat('Miez');
+    store.append(mom, Keys.userField('gender'), 'male');
+    expect(check('mother', mom)?.kind, ObjectionKind.motherNotFemale);
+  });
+
+  test('a parent cannot be born after its kitten', () {
+    final dad = store.createCat('Kater');
+    store.append(dad, Keys.userField('gender'), 'male');
+    store.append(dad, Keys.userField('birthdate'), '2024-01-01');
+    store.append(cat, Keys.userField('birthdate'), '2022-01-01');
+    final objection = check('father', dad);
+    expect(objection?.kind, ObjectionKind.parentBornAfterKitten);
+    expect(objection?.date, DateTime(2024, 1, 1));
+    // Older parent is fine.
+    store.append(dad, Keys.userField('birthdate'), '2020-01-01');
+    expect(check('father', dad), isNull);
+  });
+
+  test('a recorded parent role pins the plausible gender', () {
+    final dad = store.createCat('Kater');
+    store.append(cat, Keys.userField('father'), dad);
+    expect(
+        starterFieldObjection(store, dad,
+            store.fieldDefs().firstWhere((d) => d.slug == 'gender'),
+            'female',
+            today: DateTime(2026, 8, 18))?.kind,
+        ObjectionKind.genderFatherFemale);
+    expect(
+        starterFieldObjection(store, dad,
+            store.fieldDefs().firstWhere((d) => d.slug == 'gender'),
+            'male',
+            today: DateTime(2026, 8, 18)),
+        isNull);
   });
 
   test('custom fields are never checked', () {

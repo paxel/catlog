@@ -373,6 +373,29 @@ class AppLocalizationsLt extends AppLocalizations {
       'Ši katė užregistruota kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name užregistruota kaip patelė ir negali būti tėvas. Pirmiausia patikrinkite lytį.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name užregistruotas kaip patinas ir negali būti motina. Pirmiausia patikrinkite lytį.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name gimė $date — tėvai negali gimti po savo kačiuko.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ši katė užregistruota kaip kitų kačių tėvas — tėvas negali būti patelė. Pirmiausia patikrinkite šeimą.';
+
+  @override
+  String get genderMotherMale =>
+      'Ši katė užregistruota kaip kitų kačių motina — motina negali būti patinas. Pirmiausia patikrinkite šeimą.';
+
+  @override
   String get moveTo => 'Perkelti į';
 
   @override

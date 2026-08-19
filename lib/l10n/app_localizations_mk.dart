@@ -375,6 +375,29 @@ class AppLocalizationsMk extends AppLocalizations {
       'Оваа мачка е запишана како машка — машка мачка не може да биде бремена. Прво проверете го полот.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name е запишана како женка и не може да биде таткото. Прво проверете го полот.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name е запишан како мажјак и не може да биде мајката. Прво проверете го полот.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name е роден на $date — родител не може да се роди по своето маче.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Оваа мачка е запишана како татко на други мачки — таткото не може да биде женка. Прво проверете го семејството.';
+
+  @override
+  String get genderMotherMale =>
+      'Оваа мачка е запишана како мајка на други мачки — мајката не може да биде мажјак. Прво проверете го семејството.';
+
+  @override
   String get moveTo => 'Премести во';
 
   @override

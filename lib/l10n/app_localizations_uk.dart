@@ -373,6 +373,29 @@ class AppLocalizationsUk extends AppLocalizations {
       'Цього кота записано як самця — самець не може бути вагітним. Спершу перевірте стать.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name записана як самка і не може бути батьком. Спершу перевірте стать.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name записаний як самець і не може бути матір\'ю. Спершу перевірте стать.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name народився $date — батько чи мати не можуть народитися після свого кошеняти.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Цього кота записано як батька інших котів — батько не може бути самкою. Спершу перевірте родину.';
+
+  @override
+  String get genderMotherMale =>
+      'Цю кішку записано як матір інших котів — мати не може бути самцем. Спершу перевірте родину.';
+
+  @override
   String get moveTo => 'Перемістити до';
 
   @override

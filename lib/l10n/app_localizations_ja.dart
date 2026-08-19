@@ -365,6 +365,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get malePregnant => 'この猫はオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
 
   @override
+  String fatherNotMale(String name) {
+    return '$nameはメスとして登録されているため父親にはなれません。まず性別を確認してください。';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$nameはオスとして登録されているため母親にはなれません。まず性別を確認してください。';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$nameの誕生日は$dateです。親が子より後に生まれることはできません。';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'この猫は他の猫の父親として登録されています。父親はメスにできません。まず家族を確認してください。';
+
+  @override
+  String get genderMotherMale =>
+      'この猫は他の猫の母親として登録されています。母親はオスにできません。まず家族を確認してください。';
+
+  @override
   String get moveTo => '移動先';
 
   @override

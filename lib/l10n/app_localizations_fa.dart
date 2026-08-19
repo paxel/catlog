@@ -372,6 +372,29 @@ class AppLocalizationsFa extends AppLocalizations {
       'این گربه به‌عنوان نر ثبت شده است — گربهٔ نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name به‌عنوان ماده ثبت شده و نمی‌تواند پدر باشد. ابتدا جنسیت را بررسی کنید.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name به‌عنوان نر ثبت شده و نمی‌تواند مادر باشد. ابتدا جنسیت را بررسی کنید.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name در $date به دنیا آمده — والد نمی‌تواند بعد از بچه‌اش متولد شود.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'این گربه به‌عنوان پدر گربه‌های دیگر ثبت شده — پدر نمی‌تواند ماده باشد. ابتدا خانواده را بررسی کنید.';
+
+  @override
+  String get genderMotherMale =>
+      'این گربه به‌عنوان مادر گربه‌های دیگر ثبت شده — مادر نمی‌تواند نر باشد. ابتدا خانواده را بررسی کنید.';
+
+  @override
   String get moveTo => 'انتقال به';
 
   @override

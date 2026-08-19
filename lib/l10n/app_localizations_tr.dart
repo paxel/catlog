@@ -372,6 +372,29 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu kedi erkek olarak kayıtlı — erkek kedi gebe olamaz. Önce cinsiyeti kontrol edin.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name dişi olarak kayıtlı ve baba olamaz. Önce cinsiyeti kontrol edin.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name erkek olarak kayıtlı ve anne olamaz. Önce cinsiyeti kontrol edin.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name $date doğdu — bir ebeveyn yavrusundan sonra doğamaz.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Bu kedi başka kedilerin babası olarak kayıtlı — baba dişi olamaz. Önce aileyi kontrol edin.';
+
+  @override
+  String get genderMotherMale =>
+      'Bu kedi başka kedilerin annesi olarak kayıtlı — anne erkek olamaz. Önce aileyi kontrol edin.';
+
+  @override
   String get moveTo => 'Şuraya taşı';
 
   @override

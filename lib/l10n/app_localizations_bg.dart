@@ -372,6 +372,29 @@ class AppLocalizationsBg extends AppLocalizations {
       'Тази котка е записана като мъжка — мъжка котка не може да е бременна. Първо проверете пола.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name е записана като женска и не може да е бащата. Първо проверете пола.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name е записан като мъжки и не може да е майката. Първо проверете пола.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name е роден на $date — родител не може да се роди след котето си.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Тази котка е записана като баща на други котки — бащата не може да е женски. Първо проверете семейството.';
+
+  @override
+  String get genderMotherMale =>
+      'Тази котка е записана като майка на други котки — майката не може да е мъжки. Първо проверете семейството.';
+
+  @override
   String get moveTo => 'Премести в';
 
   @override

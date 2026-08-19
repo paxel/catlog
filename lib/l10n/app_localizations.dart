@@ -830,6 +830,36 @@ abstract class AppLocalizations {
   /// **'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.'**
   String get malePregnant;
 
+  /// No description provided for @fatherNotMale.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is recorded as female and can\'t be the father. Check the gender first.'**
+  String fatherNotMale(String name);
+
+  /// No description provided for @motherNotFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is recorded as male and can\'t be the mother. Check the gender first.'**
+  String motherNotFemale(String name);
+
+  /// No description provided for @parentBornAfterKitten.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} was born {date} — a parent can\'t be born after its kitten.'**
+  String parentBornAfterKitten(String name, String date);
+
+  /// No description provided for @genderFatherFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.'**
+  String get genderFatherFemale;
+
+  /// No description provided for @genderMotherMale.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.'**
+  String get genderMotherMale;
+
   /// No description provided for @moveTo.
   ///
   /// In en, this message translates to:

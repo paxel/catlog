@@ -372,6 +372,29 @@ class AppLocalizationsEt extends AppLocalizations {
       'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name on kirjas emasena ega saa olla isa. Kontrolli esmalt sugu.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name on kirjas isasena ega saa olla ema. Kontrolli esmalt sugu.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name sündis $date — vanem ei saa sündida pärast oma poega.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'See kass on kirjas teiste kasside isana — isa ei saa olla emane. Kontrolli esmalt perekonda.';
+
+  @override
+  String get genderMotherMale =>
+      'See kass on kirjas teiste kasside emana — ema ei saa olla isane. Kontrolli esmalt perekonda.';
+
+  @override
   String get moveTo => 'Liiguta';
 
   @override

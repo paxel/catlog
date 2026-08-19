@@ -375,6 +375,29 @@ class AppLocalizationsIs extends AppLocalizations {
       'Þessi köttur er skráður sem fress — fress getur ekki verið kettlingafullt. Athugaðu fyrst kynið.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name er skráð sem læða og getur ekki verið faðirinn. Athugaðu fyrst kynið.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name er skráður sem fress og getur ekki verið móðirin. Athugaðu fyrst kynið.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name fæddist $date — foreldri getur ekki fæðst á eftir kettlingnum sínum.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Þessi köttur er skráður faðir annarra katta — faðirinn getur ekki verið læða. Athugaðu fyrst fjölskylduna.';
+
+  @override
+  String get genderMotherMale =>
+      'Þessi köttur er skráður móðir annarra katta — móðirin getur ekki verið fress. Athugaðu fyrst fjölskylduna.';
+
+  @override
   String get moveTo => 'Færa í';
 
   @override

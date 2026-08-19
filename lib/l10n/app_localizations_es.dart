@@ -375,6 +375,29 @@ class AppLocalizationsEs extends AppLocalizations {
       'Este gato está registrado como macho — un macho no puede estar preñado. Comprueba primero el sexo.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name está registrada como hembra y no puede ser el padre. Comprueba primero el sexo.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name está registrado como macho y no puede ser la madre. Comprueba primero el sexo.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name nació el $date — un progenitor no puede nacer después de su cría.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Este gato está registrado como padre de otros gatos — el padre no puede ser hembra. Comprueba primero la familia.';
+
+  @override
+  String get genderMotherMale =>
+      'Este gato está registrado como madre de otros gatos — la madre no puede ser macho. Comprueba primero la familia.';
+
+  @override
   String get moveTo => 'Mover a';
 
   @override

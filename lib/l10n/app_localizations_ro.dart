@@ -373,6 +373,29 @@ class AppLocalizationsRo extends AppLocalizations {
       'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name este înregistrată ca femelă și nu poate fi tatăl. Verificați mai întâi sexul.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name este înregistrat ca mascul și nu poate fi mama. Verificați mai întâi sexul.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name s-a născut la $date — un părinte nu se poate naște după puiul său.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Această pisică este înregistrată ca tată al altor pisici — tatăl nu poate fi femelă. Verificați mai întâi familia.';
+
+  @override
+  String get genderMotherMale =>
+      'Această pisică este înregistrată ca mamă a altor pisici — mama nu poate fi mascul. Verificați mai întâi familia.';
+
+  @override
   String get moveTo => 'Mută în';
 
   @override

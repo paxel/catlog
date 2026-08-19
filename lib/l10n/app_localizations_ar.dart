@@ -372,6 +372,29 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
 
   @override
+  String fatherNotMale(String name) {
+    return '$name مسجّلة كأنثى ولا يمكن أن تكون الأب. تحقّق من الجنس أولًا.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name مسجّل كذكر ولا يمكن أن يكون الأم. تحقّق من الجنس أولًا.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'وُلد $name في $date — لا يمكن أن يولد أحد الوالدين بعد صغيره.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'هذه القطة مسجّلة كأب لقطط أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
+
+  @override
+  String get genderMotherMale =>
+      'هذه القطة مسجّلة كأم لقطط أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
+
+  @override
   String get moveTo => 'نقل إلى';
 
   @override
