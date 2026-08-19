@@ -1144,6 +1144,37 @@ class AppLocalizationsEt extends AppLocalizations {
       'Uus: sünkroonimine pakub nüüd kolme selget teed — ja usaldusküsimust enne, kui midagi liigub.';
 
   @override
+  String get spotHomeStrays =>
+      'Uus: hulkujatel on siin üleval oma kaart — arv, näod, ava puudutusega.';
+
+  @override
+  String get spotHomeMenu =>
+      'Uus: see menüü leiab topeltkassid ja -kolooniad ning liidab nad.';
+
+  @override
+  String get spotCatEdit =>
+      'Uus: leht on kirjutuskaitstud — pliiats lülitab muutmisele, pikk vajutus väljal muudab seda otse.';
+
+  @override
+  String get spotMapLayers =>
+      'Uus: kuva 500 m otsinguringid kadunud kassi kuulutuste kohtade ümber.';
+
+  @override
+  String get spotStraysFlier =>
+      'Uus: pildista kadunud kassi kuulutust — sellest saavad kass, omanik ja kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Uus: skanni kuulutuselt cat(a)log kood ja impordi kass otse.';
+
+  @override
+  String get introTitle4 => 'Kadunud kassid';
+
+  @override
+  String get introBody4 =>
+      'Pildista kuulutust ja kadunud kass jõuab kataloogi koos omaniku kontaktiga. Nägemised, otsinguringid ja vastete soovitused aitavad ta koju tuua.';
+
+  @override
   String get spotMapSearch =>
       'Uus: otsi siit kasse, clowdereid ja inimesi — otse kaardil.';
 

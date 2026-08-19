@@ -45,8 +45,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - **A real desktop layout**: wide windows (and iPad landscape) show the
   clowder list and details side by side; windows remember their size;
   Ctrl+F searches, Esc goes back, right-click opens context menus.
-- **A short intro** on first start (skippable, replayable from About) and
-  small **what's-new spotlights** that point out new features once.
+- **A short intro** on first start (skippable, replayable from About) —
+  now with a missing-cats page — and small **what's-new spotlights** that
+  point out each new feature once: the strays card, the edit pencil, the
+  flier and share tools, the map overlay, and the duplicates finder.
 - **Clowder cards show who lives there**: cat faces, a count, and the
   status chip.
 

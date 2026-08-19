@@ -1146,6 +1146,37 @@ class AppLocalizationsRo extends AppLocalizations {
       'Nou: sincronizarea oferă acum trei căi clare — și o întrebare de încredere înainte să curgă ceva.';
 
   @override
+  String get spotHomeStrays =>
+      'Nou: pisicile vagaboande au propriul card aici sus — număr, boturi, atingeți pentru a deschide.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nou: acest meniu găsește pisicile și coloniile duplicate și le unește.';
+
+  @override
+  String get spotCatEdit =>
+      'Nou: pagina este doar pentru citire — creionul trece la editare, iar apăsarea lungă pe un câmp îl editează direct.';
+
+  @override
+  String get spotMapLayers =>
+      'Nou: afișați cercuri de căutare de 500 m în jurul locurilor afișelor unei pisici dispărute.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nou: fotografiați afișul unei pisici dispărute — devine pisica, stăpânul și contactul.';
+
+  @override
+  String get spotStraysScan =>
+      'Nou: scanați un cod cat(a)log de pe un afiș pentru a importa pisica direct.';
+
+  @override
+  String get introTitle4 => 'Pisici dispărute';
+
+  @override
+  String get introBody4 =>
+      'Fotografiați un afiș și pisica dispărută intră în catalog cu contactul stăpânului. Observațiile, cercurile de căutare și sugestiile de potrivire o ajută să ajungă acasă.';
+
+  @override
   String get spotMapSearch =>
       'Nou: caută aici pisici, clowdere și persoane — direct pe hartă.';
 

@@ -1150,6 +1150,37 @@ class AppLocalizationsIt extends AppLocalizations {
       'Novità: la sincronizzazione offre ora tre vie chiare — e una domanda di fiducia prima che qualcosa fluisca.';
 
   @override
+  String get spotHomeStrays =>
+      'Novità: i randagi hanno la loro scheda qui in alto — numero, musetti, tocca per aprire.';
+
+  @override
+  String get spotHomeMenu =>
+      'Novità: questo menu trova gatti e colonie duplicati e li unisce.';
+
+  @override
+  String get spotCatEdit =>
+      'Novità: la pagina è in sola lettura — la matita passa alla modifica, la pressione lunga su un campo lo modifica direttamente.';
+
+  @override
+  String get spotMapLayers =>
+      'Novità: mostra cerchi di ricerca di 500 m attorno ai volantini di un gatto scomparso.';
+
+  @override
+  String get spotStraysFlier =>
+      'Novità: fotografa il volantino di un gatto scomparso — diventa il gatto, il proprietario e il contatto.';
+
+  @override
+  String get spotStraysScan =>
+      'Novità: scansiona un codice cat(a)log da un volantino per importare il gatto direttamente.';
+
+  @override
+  String get introTitle4 => 'Gatti scomparsi';
+
+  @override
+  String get introBody4 =>
+      'Fotografa un volantino e il gatto scomparso entra nel catalogo con il contatto del proprietario. Avvistamenti, cerchi di ricerca e suggerimenti di corrispondenza aiutano a riportarlo a casa.';
+
+  @override
   String get spotMapSearch =>
       'Novità: cerca qui gatti, clowder e persone — direttamente sulla mappa.';
 

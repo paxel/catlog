@@ -1144,6 +1144,37 @@ class AppLocalizationsSk extends AppLocalizations {
       'Nové: synchronizácia teraz ponúka tri jasné cesty — a otázku dôvery, kým čokoľvek odtečie.';
 
   @override
+  String get spotHomeStrays =>
+      'Nové: túlavé mačky majú tu hore vlastnú kartu — počet, tváričky, ťuknutím otvoríte.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nové: toto menu nájde duplicitné mačky a kolónie a zlúči ich.';
+
+  @override
+  String get spotCatEdit =>
+      'Nové: stránka je len na čítanie — ceruzka prepne na úpravy, dlhé podržanie poľa ho upraví priamo.';
+
+  @override
+  String get spotMapLayers =>
+      'Nové: zobrazte 500 m pátracie kruhy okolo miest letákov nezvestnej mačky.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nové: odfoťte leták nezvestnej mačky — vznikne mačka, majiteľ aj kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Nové: naskenujte cat(a)log kód z letáka a mačku rovno importujte.';
+
+  @override
+  String get introTitle4 => 'Nezvestné mačky';
+
+  @override
+  String get introBody4 =>
+      'Odfoťte leták a nezvestná mačka sa ocitne v katalógu s kontaktom majiteľa. Pozorovania, pátracie kruhy a návrhy zhôd jej pomáhajú domov.';
+
+  @override
   String get spotMapSearch =>
       'Nové: hľadaj tu mačky, clowdery a osoby — priamo na mape.';
 

@@ -1137,6 +1137,37 @@ class AppLocalizationsHe extends AppLocalizations {
       'חדש: לסנכרון יש עכשיו שלוש דרכים ברורות — ושאלת אמון לפני שמשהו זורם.';
 
   @override
+  String get spotHomeStrays =>
+      'חדש: לחתולי הרחוב יש כרטיס משלהם כאן למעלה — מספר, פרצופים, הקישו לפתיחה.';
+
+  @override
+  String get spotHomeMenu =>
+      'חדש: התפריט הזה מוצא חתולים ומושבות כפולים וממזג אותם.';
+
+  @override
+  String get spotCatEdit =>
+      'חדש: הדף לקריאה בלבד — העיפרון עובר לעריכה, ולחיצה ארוכה על שדה עורכת אותו ישירות.';
+
+  @override
+  String get spotMapLayers =>
+      'חדש: הציגו מעגלי חיפוש של 500 מ\' סביב מיקומי המודעות של חתול נעדר.';
+
+  @override
+  String get spotStraysFlier =>
+      'חדש: צלמו מודעת חתול נעדר — היא הופכת לחתול, לבעלים ולפרטי הקשר.';
+
+  @override
+  String get spotStraysScan =>
+      'חדש: סרקו קוד cat(a)log ממודעה לייבוא החתול ישירות.';
+
+  @override
+  String get introTitle4 => 'חתולים נעדרים';
+
+  @override
+  String get introBody4 =>
+      'צלמו מודעה והחתול הנעדר נכנס לקטלוג עם פרטי הקשר של בעליו. תצפיות, מעגלי חיפוש והצעות התאמה עוזרים להחזירו הביתה.';
+
+  @override
   String get spotMapSearch =>
       'חדש: חפשו כאן חתולים, קבוצות ואנשים — ישירות על המפה.';
 

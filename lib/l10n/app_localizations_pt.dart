@@ -1148,6 +1148,37 @@ class AppLocalizationsPt extends AppLocalizations {
       'Novo: a sincronização oferece agora três caminhos claros — e uma pergunta de confiança antes de algo fluir.';
 
   @override
+  String get spotHomeStrays =>
+      'Novo: os vadios têm o seu próprio cartão aqui em cima — número, focinhos, toque para abrir.';
+
+  @override
+  String get spotHomeMenu =>
+      'Novo: este menu encontra gatos e colónias duplicados e funde-os.';
+
+  @override
+  String get spotCatEdit =>
+      'Novo: a página é só de leitura — o lápis muda para edição, e premir longamente um campo edita-o diretamente.';
+
+  @override
+  String get spotMapLayers =>
+      'Novo: mostre círculos de busca de 500 m à volta dos cartazes de um gato desaparecido.';
+
+  @override
+  String get spotStraysFlier =>
+      'Novo: fotografe um cartaz de gato desaparecido — torna-se o gato, o dono e o contacto.';
+
+  @override
+  String get spotStraysScan =>
+      'Novo: leia um código cat(a)log de um cartaz para importar o gato diretamente.';
+
+  @override
+  String get introTitle4 => 'Gatos desaparecidos';
+
+  @override
+  String get introBody4 =>
+      'Fotografe um cartaz e o gato desaparecido entra no catálogo com o contacto do dono. Avistamentos, círculos de busca e sugestões de correspondência ajudam-no a voltar a casa.';
+
+  @override
   String get spotMapSearch =>
       'Novo: procure aqui gatos, clowders e pessoas — diretamente no mapa.';
 

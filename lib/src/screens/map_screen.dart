@@ -275,10 +275,13 @@ class _MapScreenState extends State<MapScreen> {
       appBar: AppBar(
         title: Text(context.t.map),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.layers_outlined),
-            tooltip: context.t.strayAreaLabel,
-            onPressed: _pickStrayAreas,
+          Spotlight(
+            id: 'map-layers',
+            child: IconButton(
+              icon: const Icon(Icons.layers_outlined),
+              tooltip: context.t.strayAreaLabel,
+              onPressed: _pickStrayAreas,
+            ),
           ),
         ],
         bottom: PreferredSize(

@@ -1145,6 +1145,37 @@ class AppLocalizationsDa extends AppLocalizations {
       'Nyt: synkronisering har nu tre klare veje — og et tillidsspørgsmål, før noget flyder.';
 
   @override
+  String get spotHomeStrays =>
+      'Nyt: strejfere har deres eget kort heroppe — antal, ansigter, tryk for at åbne.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nyt: denne menu finder dublet-katte og -kolonier og fletter dem.';
+
+  @override
+  String get spotCatEdit =>
+      'Nyt: siden er skrivebeskyttet — blyanten skifter til redigering, langt tryk på et felt redigerer det direkte.';
+
+  @override
+  String get spotMapLayers =>
+      'Nyt: vis 500 m søgecirkler omkring en savnet kats opslagssteder.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nyt: fotografér et opslag om en savnet kat — det bliver til katten, ejeren og kontakten.';
+
+  @override
+  String get spotStraysScan =>
+      'Nyt: scan en cat(a)log-kode fra et opslag og importér katten direkte.';
+
+  @override
+  String get introTitle4 => 'Savnede katte';
+
+  @override
+  String get introBody4 =>
+      'Fotografér et opslag, og den savnede kat kommer i kataloget med ejerens kontakt. Observationer, søgecirkler og matchforslag hjælper den hjem.';
+
+  @override
   String get spotMapSearch =>
       'Nyt: søg efter katte, clowdere og personer her — direkte på kortet.';
 

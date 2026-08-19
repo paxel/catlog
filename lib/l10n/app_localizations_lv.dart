@@ -1143,6 +1143,37 @@ class AppLocalizationsLv extends AppLocalizations {
       'Jauns: sinhronizācija tagad piedāvā trīs skaidrus ceļus — un uzticības jautājumu, pirms kaut kas plūst.';
 
   @override
+  String get spotHomeStrays =>
+      'Jauns: klaiņotājiem šeit augšā ir sava kartīte — skaits, purniņi, pieskarieties, lai atvērtu.';
+
+  @override
+  String get spotHomeMenu =>
+      'Jauns: šī izvēlne atrod dublētos kaķus un kolonijas un tos apvieno.';
+
+  @override
+  String get spotCatEdit =>
+      'Jauns: lapa ir tikai lasāma — zīmulis pārslēdz uz rediģēšanu, ilgs spiediens uz lauka to rediģē uzreiz.';
+
+  @override
+  String get spotMapLayers =>
+      'Jauns: rādiet 500 m meklēšanas apļus ap pazuduša kaķa sludinājumu vietām.';
+
+  @override
+  String get spotStraysFlier =>
+      'Jauns: nofotografējiet pazuduša kaķa sludinājumu — tas kļūst par kaķi, saimnieku un kontaktu.';
+
+  @override
+  String get spotStraysScan =>
+      'Jauns: noskenējiet cat(a)log kodu no sludinājuma un importējiet kaķi uzreiz.';
+
+  @override
+  String get introTitle4 => 'Pazudušie kaķi';
+
+  @override
+  String get introBody4 =>
+      'Nofotografējiet sludinājumu, un pazudušais kaķis nonāk katalogā ar saimnieka kontaktu. Novērojumi, meklēšanas apļi un sakritību ieteikumi palīdz tam atgriezties mājās.';
+
+  @override
   String get spotMapSearch =>
       'Jauns: meklē šeit kaķus, clowderus un cilvēkus — tieši kartē.';
 

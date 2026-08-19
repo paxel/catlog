@@ -1145,6 +1145,37 @@ class AppLocalizationsEn extends AppLocalizations {
       'New: sync now offers three clear ways to share — and a trust question before anything flows.';
 
   @override
+  String get spotHomeStrays =>
+      'New: strays live in their own card up here — count, faces, tap to open.';
+
+  @override
+  String get spotHomeMenu =>
+      'New: this menu finds duplicate cats and clowders and merges them.';
+
+  @override
+  String get spotCatEdit =>
+      'New: the page is read-only — this pencil switches to editing, long-pressing a field edits it directly.';
+
+  @override
+  String get spotMapLayers =>
+      'New: overlay 500 m search circles around a missing cat\'s flier spots.';
+
+  @override
+  String get spotStraysFlier =>
+      'New: photograph a missing-cat flier — it becomes the cat, its owner, and their contact.';
+
+  @override
+  String get spotStraysScan =>
+      'New: scan a cat(a)log share code from a flier to import the cat directly.';
+
+  @override
+  String get introTitle4 => 'Missing cats';
+
+  @override
+  String get introBody4 =>
+      'Photograph a flier and the missing cat joins the catalog with its owner\'s contact. Sightings, search circles, and match suggestions help bring it home.';
+
+  @override
   String get spotMapSearch =>
       'New: search cats, clowders, and people here — or find any of them on the map.';
 

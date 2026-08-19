@@ -1146,6 +1146,37 @@ class AppLocalizationsHu extends AppLocalizations {
       'Új: a szinkronizálás most három világos utat kínál — és bizalmi kérdést, mielőtt bármi átmenne.';
 
   @override
+  String get spotHomeStrays =>
+      'Új: a kóborok saját kártyát kaptak itt fent — létszám, pofik, koppintásra nyílik.';
+
+  @override
+  String get spotHomeMenu =>
+      'Új: ez a menü megtalálja és összevonja a duplikált macskákat és kolóniákat.';
+
+  @override
+  String get spotCatEdit =>
+      'Új: az oldal csak olvasható — a ceruza vált szerkesztésre, egy mező hosszú nyomása pedig rögtön szerkeszti.';
+
+  @override
+  String get spotMapLayers =>
+      'Új: 500 m-es keresőkörök egy eltűnt macska plakáthelyei körül.';
+
+  @override
+  String get spotStraysFlier =>
+      'Új: fotózzon le egy eltűnt-macska plakátot — macska, gazda és elérhetőség lesz belőle.';
+
+  @override
+  String get spotStraysScan =>
+      'Új: olvasson be egy cat(a)log kódot a plakátról, és importálja a macskát közvetlenül.';
+
+  @override
+  String get introTitle4 => 'Eltűnt macskák';
+
+  @override
+  String get introBody4 =>
+      'Fotózzon le egy plakátot, és az eltűnt macska a gazdája elérhetőségével együtt a katalógusba kerül. Észlelések, keresőkörök és találati javaslatok segítik hazajutni.';
+
+  @override
   String get spotMapSearch =>
       'Új: keress itt macskákat, clowdereket és személyeket — közvetlenül a térképen.';
 

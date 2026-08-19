@@ -1143,6 +1143,37 @@ class AppLocalizationsPl extends AppLocalizations {
       'Nowość: synchronizacja oferuje teraz trzy jasne drogi — i pytanie o zaufanie, zanim cokolwiek popłynie.';
 
   @override
+  String get spotHomeStrays =>
+      'Nowość: bezdomniaki mają tu na górze własną kartę — liczba, pyszczki, dotknij, by otworzyć.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nowość: to menu znajduje zduplikowane koty i kolonie i je scala.';
+
+  @override
+  String get spotCatEdit =>
+      'Nowość: strona jest tylko do odczytu — ołówek przełącza na edycję, a długie przytrzymanie pola edytuje je od razu.';
+
+  @override
+  String get spotMapLayers =>
+      'Nowość: pokaż 500-metrowe okręgi poszukiwań wokół miejsc ogłoszeń zaginionego kota.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nowość: sfotografuj ogłoszenie o zaginionym kocie — powstanie kot, właściciel i kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Nowość: zeskanuj kod cat(a)log z ogłoszenia i zaimportuj kota bezpośrednio.';
+
+  @override
+  String get introTitle4 => 'Zaginione koty';
+
+  @override
+  String get introBody4 =>
+      'Sfotografuj ogłoszenie, a zaginiony kot trafi do katalogu z kontaktem właściciela. Obserwacje, okręgi poszukiwań i propozycje dopasowań pomagają wrócić mu do domu.';
+
+  @override
   String get spotMapSearch =>
       'Nowość: szukaj tu kotów, clowderów i osób — bezpośrednio na mapie.';
 

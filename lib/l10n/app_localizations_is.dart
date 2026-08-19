@@ -1148,6 +1148,37 @@ class AppLocalizationsIs extends AppLocalizations {
       'Nýtt: samstilling býður nú þrjár skýrar leiðir — og traustsspurningu áður en nokkuð flæðir.';
 
   @override
+  String get spotHomeStrays =>
+      'Nýtt: flækingar hafa sitt eigið spjald hér uppi — fjöldi, andlit, ýttu til að opna.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nýtt: þessi valmynd finnur tvítekna ketti og nýlendur og sameinar þau.';
+
+  @override
+  String get spotCatEdit =>
+      'Nýtt: síðan er skrifvarin — blýanturinn skiptir í breytingar og löng snerting á reit breytir honum beint.';
+
+  @override
+  String get spotMapLayers =>
+      'Nýtt: sýndu 500 m leitarhringi um auglýsingastaði týnds kattar.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nýtt: myndaðu auglýsingu um týndan kött — úr verður kötturinn, eigandinn og tengiliðurinn.';
+
+  @override
+  String get spotStraysScan =>
+      'Nýtt: skannaðu cat(a)log-kóða af auglýsingu og flyttu köttinn beint inn.';
+
+  @override
+  String get introTitle4 => 'Týndir kettir';
+
+  @override
+  String get introBody4 =>
+      'Myndaðu auglýsingu og týndi kötturinn fer í skrána með tengilið eigandans. Athuganir, leitarhringir og samsvörunartillögur hjálpa honum heim.';
+
+  @override
   String get spotMapSearch =>
       'Nýtt: leitaðu hér að köttum, hópum og fólki — beint á kortinu.';
 

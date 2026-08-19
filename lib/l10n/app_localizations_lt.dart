@@ -1146,6 +1146,37 @@ class AppLocalizationsLt extends AppLocalizations {
       'Nauja: sinchronizavimas dabar siūlo tris aiškius kelius — ir pasitikėjimo klausimą prieš kam nors keliaujant.';
 
   @override
+  String get spotHomeStrays =>
+      'Nauja: benamiai turi savo kortelę čia viršuje — skaičius, snukučiai, palieskite atidaryti.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nauja: šis meniu randa besidubliuojančias kates bei kolonijas ir jas sujungia.';
+
+  @override
+  String get spotCatEdit =>
+      'Nauja: puslapis tik skaitymui — pieštukas įjungia redagavimą, ilgas lauko paspaudimas redaguoja jį tiesiogiai.';
+
+  @override
+  String get spotMapLayers =>
+      'Nauja: rodykite 500 m paieškos apskritimus aplink dingusios katės skelbimų vietas.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nauja: nufotografuokite dingusios katės skelbimą — jis virsta kate, šeimininku ir kontaktu.';
+
+  @override
+  String get spotStraysScan =>
+      'Nauja: nuskaitykite cat(a)log kodą nuo skelbimo ir importuokite katę tiesiogiai.';
+
+  @override
+  String get introTitle4 => 'Dingusios katės';
+
+  @override
+  String get introBody4 =>
+      'Nufotografuokite skelbimą — dingusi katė pateks į katalogą su šeimininko kontaktu. Pastebėjimai, paieškos apskritimai ir atitikmenų pasiūlymai padeda jai grįžti namo.';
+
+  @override
   String get spotMapSearch =>
       'Nauja: ieškok čia kačių, clowderių ir žmonių — tiesiai žemėlapyje.';
 

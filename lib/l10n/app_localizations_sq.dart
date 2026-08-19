@@ -1148,6 +1148,37 @@ class AppLocalizationsSq extends AppLocalizations {
       'E re: sinkronizimi tani ofron tri rrugë të qarta — dhe një pyetje besimi para se të rrjedhë gjë.';
 
   @override
+  String get spotHomeStrays =>
+      'E re: endacakët kanë kartën e tyre këtu lart — numri, surratet, prekni për të hapur.';
+
+  @override
+  String get spotHomeMenu =>
+      'E re: kjo meny gjen macet dhe kolonitë e dyfishuara dhe i bashkon.';
+
+  @override
+  String get spotCatEdit =>
+      'E re: faqja është vetëm për lexim — lapsi kalon në redaktim, shtypja e gjatë mbi një fushë e redakton direkt.';
+
+  @override
+  String get spotMapLayers =>
+      'E re: shfaqni rrathë kërkimi 500 m rreth vendeve të fletushkave të një maceje të humbur.';
+
+  @override
+  String get spotStraysFlier =>
+      'E re: fotografoni fletushkën e një maceje të humbur — bëhet macja, pronari dhe kontakti.';
+
+  @override
+  String get spotStraysScan =>
+      'E re: skanoni një kod cat(a)log nga fletushka për ta importuar macen direkt.';
+
+  @override
+  String get introTitle4 => 'Macet e humbura';
+
+  @override
+  String get introBody4 =>
+      'Fotografoni një fletushkë dhe macja e humbur hyn në katalog me kontaktin e pronarit. Vëzhgimet, rrathët e kërkimit dhe sugjerimet e përputhjes e ndihmojnë të kthehet në shtëpi.';
+
+  @override
   String get spotMapSearch =>
       'E re: kërko këtu mace, clowdera dhe persona — direkt në hartë.';
 

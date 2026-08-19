@@ -135,7 +135,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               builder: (_) => FieldsScreen(store: widget.store),
             )),
           ),
-          PopupMenuButton<String>(
+          Spotlight(
+            id: 'home-menu',
+            child: PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
@@ -175,6 +177,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],
           ),
+          ),
         ],
       ),
       body: ListView(
@@ -200,7 +203,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               // Slot 0: the strays pseudo-clowder (#52) — strays are a
               // place too, just one without an address.
               if (i == 0) {
-                return _StraysCard(
+                return Spotlight(
+                    id: 'home-strays',
+                    child: _StraysCard(
                   store: widget.store,
                   onTap: () async {
                     await Navigator.of(context).push(MaterialPageRoute(
@@ -210,7 +215,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     if (!mounted) return;
                     setState(() {});
                   },
-                );
+                ));
               }
               final clowder = clowders[i - 1];
               return _ClowderCard(

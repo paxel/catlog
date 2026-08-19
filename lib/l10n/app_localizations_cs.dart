@@ -1144,6 +1144,37 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nové: synchronizace teď nabízí tři jasné cesty — a otázku důvěry, než cokoli odteče.';
 
   @override
+  String get spotHomeStrays =>
+      'Nové: toulavé kočky mají nahoře vlastní kartu — počet, tváře, klepnutím otevřete.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nové: tato nabídka najde duplicitní kočky a kolonie a sloučí je.';
+
+  @override
+  String get spotCatEdit =>
+      'Nové: stránka je jen pro čtení — tužka přepne do úprav, dlouhý stisk pole ho rovnou upraví.';
+
+  @override
+  String get spotMapLayers =>
+      'Nové: zobrazte 500m pátrací kruhy kolem míst letáků pohřešované kočky.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nové: vyfoťte leták pohřešované kočky — vznikne kočka, majitel i kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Nové: naskenujte cat(a)log kód z letáku a kočku rovnou importujte.';
+
+  @override
+  String get introTitle4 => 'Pohřešované kočky';
+
+  @override
+  String get introBody4 =>
+      'Vyfoťte leták a pohřešovaná kočka se ocitne v katalogu i s kontaktem na majitele. Pozorování, pátrací kruhy a návrhy shod pomáhají dostat ji domů.';
+
+  @override
   String get spotMapSearch =>
       'Nové: hledej tady kočky, clowdery i osoby — přímo na mapě.';
 

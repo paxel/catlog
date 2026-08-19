@@ -1149,6 +1149,37 @@ class AppLocalizationsNl extends AppLocalizations {
       'Nieuw: synchroniseren biedt nu drie duidelijke wegen — en een vertrouwensvraag voordat er iets stroomt.';
 
   @override
+  String get spotHomeStrays =>
+      'Nieuw: zwervers hebben hier bovenaan hun eigen kaart — aantal, snoetjes, tik om te openen.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nieuw: dit menu vindt dubbele katten en kolonies en voegt ze samen.';
+
+  @override
+  String get spotCatEdit =>
+      'Nieuw: de pagina is alleen-lezen — het potlood schakelt naar bewerken, lang drukken op een veld bewerkt het direct.';
+
+  @override
+  String get spotMapLayers =>
+      'Nieuw: toon zoekcirkels van 500 m rond de posterlocaties van een vermiste kat.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nieuw: fotografeer een poster van een vermiste kat — die wordt de kat, de eigenaar en het contact.';
+
+  @override
+  String get spotStraysScan =>
+      'Nieuw: scan een cat(a)log-code van een poster om de kat direct te importeren.';
+
+  @override
+  String get introTitle4 => 'Vermiste katten';
+
+  @override
+  String get introBody4 =>
+      'Fotografeer een poster en de vermiste kat komt in de catalogus met het contact van de eigenaar. Waarnemingen, zoekcirkels en matchsuggesties helpen hem thuis te brengen.';
+
+  @override
   String get spotMapSearch =>
       'Nieuw: zoek hier katten, clowders en personen — direct op de kaart.';
 

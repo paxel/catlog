@@ -1145,6 +1145,37 @@ class AppLocalizationsFi extends AppLocalizations {
       'Uutta: synkronointi tarjoaa nyt kolme selkeää tapaa — ja luottamuskysymyksen ennen kuin mitään liikkuu.';
 
   @override
+  String get spotHomeStrays =>
+      'Uutta: kulkukissoilla on oma kortti täällä ylhäällä — määrä, naamat, avaa napauttamalla.';
+
+  @override
+  String get spotHomeMenu =>
+      'Uutta: tämä valikko löytää kaksois-kissat ja -yhdyskunnat ja yhdistää ne.';
+
+  @override
+  String get spotCatEdit =>
+      'Uutta: sivu on vain luku -tilassa — kynä vaihtaa muokkaukseen, kentän pitkä painallus muokkaa sitä suoraan.';
+
+  @override
+  String get spotMapLayers =>
+      'Uutta: näytä 500 m etsintäympyrät kadonneen kissan ilmoituspaikkojen ympärillä.';
+
+  @override
+  String get spotStraysFlier =>
+      'Uutta: kuvaa kadonneen kissan ilmoitus — siitä syntyy kissa, omistaja ja yhteystieto.';
+
+  @override
+  String get spotStraysScan =>
+      'Uutta: skannaa ilmoituksesta cat(a)log-koodi ja tuo kissa suoraan.';
+
+  @override
+  String get introTitle4 => 'Kadonneet kissat';
+
+  @override
+  String get introBody4 =>
+      'Kuvaa ilmoitus, ja kadonnut kissa liittyy katalogiin omistajan yhteystiedoin. Havainnot, etsintäympyrät ja osumaehdotukset auttavat saamaan sen kotiin.';
+
+  @override
   String get spotMapSearch =>
       'Uutta: hae täältä kissoja, clowdereita ja henkilöitä — suoraan kartalla.';
 

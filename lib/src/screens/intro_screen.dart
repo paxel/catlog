@@ -38,6 +38,7 @@ class _IntroScreenState extends State<IntroScreen> {
       (Icons.pets, t.introTitle1, t.introBody1),
       (Icons.phonelink_lock_outlined, t.introTitle2, t.introBody2),
       (Icons.sync, t.introTitle3, t.introBody3),
+      (Icons.assignment_outlined, t.introTitle4, t.introBody4),
     ];
     return Scaffold(
       body: SafeArea(

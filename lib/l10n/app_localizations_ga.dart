@@ -1150,6 +1150,37 @@ class AppLocalizationsGa extends AppLocalizations {
       'Nua: tá trí bhealach shoiléire ag an sioncronú anois — agus ceist mhuiníne sula ngluaiseann aon rud.';
 
   @override
+  String get spotHomeStrays =>
+      'Nua: tá a gcárta féin ag na fáin anseo thuas — líon, aghaidheanna, tapáil le hoscailt.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nua: aimsíonn an roghchlár seo cait agus coilíneachtaí dúbailte agus cumascann iad.';
+
+  @override
+  String get spotCatEdit =>
+      'Nua: tá an leathanach inléite amháin — athraíonn an peann luaidhe go heagarthóireacht, agus cuireann brú fada ar réimse in eagar é go díreach.';
+
+  @override
+  String get spotMapLayers =>
+      'Nua: taispeáin ciorcail chuardaigh 500 m timpeall láithreacha bileog cait ar iarraidh.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nua: glac grianghraf de bhileog cait ar iarraidh — déantar an cat, an t-úinéir agus an teagmháil de.';
+
+  @override
+  String get spotStraysScan =>
+      'Nua: scan cód cat(a)log ó bhileog chun an cat a iompórtáil go díreach.';
+
+  @override
+  String get introTitle4 => 'Cait ar iarraidh';
+
+  @override
+  String get introBody4 =>
+      'Glac grianghraf de bhileog agus tagann an cat ar iarraidh isteach sa chatalóg le teagmháil a úinéara. Cabhraíonn amhairc, ciorcail chuardaigh agus moltaí meaitseála é a thabhairt abhaile.';
+
+  @override
   String get spotMapSearch =>
       'Nua: cuardaigh cait, clowders agus daoine anseo — díreach ar an léarscáil.';
 

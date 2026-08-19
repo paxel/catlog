@@ -1124,6 +1124,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotHomeSync => '新機能: 同期は3つのわかりやすい方法に。共有前に信頼の確認もあります。';
 
   @override
+  String get spotHomeStrays => '新機能：野良猫はここに専用カード — 数と顔、タップで開きます。';
+
+  @override
+  String get spotHomeMenu => '新機能：このメニューで重複した猫やコロニーを見つけて統合できます。';
+
+  @override
+  String get spotCatEdit => '新機能：ページは閲覧専用 — 鉛筆で編集モードに。項目を長押しすると直接編集できます。';
+
+  @override
+  String get spotMapLayers => '新機能：迷子猫のチラシ地点の周りに500mの捜索円を表示。';
+
+  @override
+  String get spotStraysFlier => '新機能：迷子猫のチラシを撮影 — 猫・飼い主・連絡先として登録されます。';
+
+  @override
+  String get spotStraysScan => '新機能：チラシのcat(a)logコードをスキャンして猫を直接取り込み。';
+
+  @override
+  String get introTitle4 => '迷子の猫';
+
+  @override
+  String get introBody4 =>
+      'チラシを撮影すると、迷子猫が飼い主の連絡先と一緒にカタログに加わります。目撃情報、捜索円、一致候補が帰り道を助けます。';
+
+  @override
   String get spotMapSearch => '新機能: ここで猫・グループ・人を検索 — 地図上ですぐ見つかります。';
 
   @override

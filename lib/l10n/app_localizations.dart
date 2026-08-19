@@ -2186,6 +2186,54 @@ abstract class AppLocalizations {
   /// **'New: sync now offers three clear ways to share — and a trust question before anything flows.'**
   String get spotHomeSync;
 
+  /// No description provided for @spotHomeStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'New: strays live in their own card up here — count, faces, tap to open.'**
+  String get spotHomeStrays;
+
+  /// No description provided for @spotHomeMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'New: this menu finds duplicate cats and clowders and merges them.'**
+  String get spotHomeMenu;
+
+  /// No description provided for @spotCatEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'New: the page is read-only — this pencil switches to editing, long-pressing a field edits it directly.'**
+  String get spotCatEdit;
+
+  /// No description provided for @spotMapLayers.
+  ///
+  /// In en, this message translates to:
+  /// **'New: overlay 500 m search circles around a missing cat\'s flier spots.'**
+  String get spotMapLayers;
+
+  /// No description provided for @spotStraysFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'New: photograph a missing-cat flier — it becomes the cat, its owner, and their contact.'**
+  String get spotStraysFlier;
+
+  /// No description provided for @spotStraysScan.
+  ///
+  /// In en, this message translates to:
+  /// **'New: scan a cat(a)log share code from a flier to import the cat directly.'**
+  String get spotStraysScan;
+
+  /// No description provided for @introTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing cats'**
+  String get introTitle4;
+
+  /// No description provided for @introBody4.
+  ///
+  /// In en, this message translates to:
+  /// **'Photograph a flier and the missing cat joins the catalog with its owner\'s contact. Sightings, search circles, and match suggestions help bring it home.'**
+  String get introBody4;
+
   /// No description provided for @spotMapSearch.
   ///
   /// In en, this message translates to:

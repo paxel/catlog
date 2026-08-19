@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -9,35 +10,53 @@ import 'l10n.dart';
 /// element, one short sentence, Next chains, Skip ends the screen's
 /// tour. Never traps input behind an unskippable tutorial.
 ///
-/// Fresh installs see every item of a screen on first visit; upgraders
-/// only items newer than the screen's seen version. Items carry a
-/// `since` version; the comparison is lexicographic, which holds for
-/// our single-digit versions.
-const _currentVersion = '0.2.0';
-
+/// Seen-tracking is PER ITEM (a CSV of item ids under `spot2:<screen>`),
+/// so features added later in the same version still get their tour.
+/// The legacy `spot:<screen>` version mark seeds the original items as
+/// seen once, then stops mattering.
 class SpotlightItem {
   final String id;
-  final String since;
   final String Function(AppLocalizations t) text;
 
-  const SpotlightItem(this.id, this.since, this.text);
+  const SpotlightItem(this.id, this.text);
 }
+
+/// The items the legacy version-mark implies were already shown.
+const _legacyItems = {'home-sync', 'map-search', 'card-chips', 'cat-menu'};
 
 /// Every feature ticket appends its screen's entries here.
 final Map<String, List<SpotlightItem>> spotlightManifest = {
   'home': [
-    SpotlightItem('home-sync', '0.2.0', (t) => t.spotHomeSync),
+    SpotlightItem('home-strays', (t) => t.spotHomeStrays),
+    SpotlightItem('home-sync', (t) => t.spotHomeSync),
+    SpotlightItem('home-menu', (t) => t.spotHomeMenu),
   ],
   'map': [
-    SpotlightItem('map-search', '0.2.0', (t) => t.spotMapSearch),
+    SpotlightItem('map-search', (t) => t.spotMapSearch),
+    SpotlightItem('map-layers', (t) => t.spotMapLayers),
   ],
   'card': [
-    SpotlightItem('card-chips', '0.2.0', (t) => t.spotCardChips),
+    SpotlightItem('card-chips', (t) => t.spotCardChips),
   ],
   'cat': [
-    SpotlightItem('cat-menu', '0.2.0', (t) => t.spotCatMenu),
+    SpotlightItem('cat-edit', (t) => t.spotCatEdit),
+    SpotlightItem('cat-menu', (t) => t.spotCatMenu),
+  ],
+  'strays': [
+    SpotlightItem('strays-flier', (t) => t.spotStraysFlier),
+    SpotlightItem('strays-scan', (t) => t.spotStraysScan),
   ],
 };
+
+/// Pure due-computation, unit-testable: everything not yet in the
+/// seen CSV, in manifest order.
+List<SpotlightItem> dueSpotlights(String seenCsv, List<SpotlightItem> items) {
+  final seen = seenCsv.split(',').toSet();
+  return [
+    for (final item in items)
+      if (!seen.contains(item.id)) item
+  ];
+}
 
 /// Live anchors: Spotlight widgets register their keys here.
 final Map<String, GlobalKey> _anchors = {};
@@ -77,7 +96,16 @@ class _SpotlightState extends State<Spotlight> {
 void resetSpotlights(CatalogStore store) {
   for (final screen in spotlightManifest.keys) {
     store.removeLocalSetting('spot:$screen');
+    store.removeLocalSetting('spot2:$screen');
   }
+}
+
+String _seen(CatalogStore store, String screenId) {
+  final seen = store.localSetting('spot2:$screenId') ?? '';
+  if (seen.isNotEmpty) return seen;
+  // Legacy version mark: those tours showed the original items already.
+  final legacy = store.localSetting('spot:$screenId') ?? '';
+  return legacy.isEmpty ? '' : _legacyItems.join(',');
 }
 
 /// Call after the screen's first frame; shows due items sequentially.
@@ -87,21 +115,45 @@ Future<void> runSpotlights(
   if (Platform.environment.containsKey('FLUTTER_TEST')) return;
   final items = spotlightManifest[screenId];
   if (items == null) return;
-  final seen = store.localSetting('spot:$screenId') ?? '';
   final due = [
-    for (final item in items)
-      if (item.since.compareTo(seen) > 0 && _anchors.containsKey(item.id))
-        item
+    for (final item in dueSpotlights(_seen(store, screenId), items))
+      if (_anchors.containsKey(item.id)) item
   ];
   if (due.isEmpty) return;
-  // Mark first: even an aborted tour never nags again.
-  store.setLocalSetting('spot:$screenId', _currentVersion);
+
+  // Anchors move while the page-transition runs — measuring early put
+  // the highlight on the wrong spot. Wait for the route to settle.
+  final route = ModalRoute.of(context);
+  final animation = route?.animation;
+  if (animation != null &&
+      animation.status == AnimationStatus.forward) {
+    final settled = Completer<void>();
+    void listener(AnimationStatus status) {
+      if (status == AnimationStatus.completed && !settled.isCompleted) {
+        settled.complete();
+      }
+    }
+
+    animation.addStatusListener(listener);
+    await settled.future
+        .timeout(const Duration(seconds: 2), onTimeout: () {});
+    animation.removeStatusListener(listener);
+  }
+  await WidgetsBinding.instance.endOfFrame;
+  if (!context.mounted) return;
+
+  final shown = <String>{
+    ..._seen(store, screenId).split(',').where((s) => s.isNotEmpty)
+  };
   for (final item in due) {
     if (!context.mounted) return;
     final key = _anchors[item.id];
     final box = key?.currentContext?.findRenderObject() as RenderBox?;
     if (box == null || !box.attached) continue;
     final rect = box.localToGlobal(Offset.zero) & box.size;
+    // Mark before showing: even an aborted tour never nags again.
+    shown.add(item.id);
+    store.setLocalSetting('spot2:$screenId', shown.join(','));
     final next = await showDialog<bool>(
       context: context,
       barrierColor: Colors.transparent,
@@ -111,7 +163,14 @@ Future<void> runSpotlights(
         isLast: item == due.last,
       ),
     );
-    if (next != true) return; // Skip ends this screen's tour.
+    if (next != true) {
+      // Skip ends this screen's tour and marks the rest seen.
+      for (final rest in due) {
+        shown.add(rest.id);
+      }
+      store.setLocalSetting('spot2:$screenId', shown.join(','));
+      return;
+    }
   }
 }
 

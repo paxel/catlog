@@ -347,11 +347,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => CardScreen(store: store, catId: id),
                   ))),
-          IconButton(
-              icon: Icon(_editing ? Icons.check : Icons.edit),
-              tooltip:
-                  _editing ? context.t.doneLabel : context.t.editLabel,
-              onPressed: () => setState(() => _editing = !_editing)),
+          Spotlight(
+            id: 'cat-edit',
+            child: IconButton(
+                icon: Icon(_editing ? Icons.check : Icons.edit),
+                tooltip:
+                    _editing ? context.t.doneLabel : context.t.editLabel,
+                onPressed: () => setState(() => _editing = !_editing)),
+          ),
           IconButton(
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,

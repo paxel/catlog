@@ -1112,6 +1112,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotHomeSync => '新功能：同步现在提供三种清晰方式——数据流动前还会先询问信任。';
 
   @override
+  String get spotHomeStrays => '新功能：流浪猫在顶部有了自己的卡片——数量、面孔，点按打开。';
+
+  @override
+  String get spotHomeMenu => '新功能：此菜单可查找重复的猫和聚落并合并它们。';
+
+  @override
+  String get spotCatEdit => '新功能：页面默认只读——铅笔切换到编辑，长按字段可直接编辑。';
+
+  @override
+  String get spotMapLayers => '新功能：在走失猫的启事位置周围显示500米搜寻圈。';
+
+  @override
+  String get spotStraysFlier => '新功能：拍摄寻猫启事——自动生成猫、主人和联系方式。';
+
+  @override
+  String get spotStraysScan => '新功能：扫描启事上的cat(a)log码，直接导入这只猫。';
+
+  @override
+  String get introTitle4 => '走失的猫';
+
+  @override
+  String get introBody4 => '拍下一张启事，走失的猫就会连同主人的联系方式进入目录。目击记录、搜寻圈和匹配建议帮助它回家。';
+
+  @override
   String get spotMapSearch => '新功能：在这里搜索猫、猫群和人员——直接定位到地图上。';
 
   @override

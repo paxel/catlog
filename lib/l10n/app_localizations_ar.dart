@@ -1142,6 +1142,37 @@ class AppLocalizationsAr extends AppLocalizations {
       'جديد: المزامنة الآن بثلاث طرق واضحة — مع سؤال ثقة قبل أن ينتقل أي شيء.';
 
   @override
+  String get spotHomeStrays =>
+      'جديد: القطط الضالة لها بطاقة خاصة هنا — العدد والوجوه، وانقر للفتح.';
+
+  @override
+  String get spotHomeMenu =>
+      'جديد: هذه القائمة تجد القطط والمستعمرات المكررة وتدمجها.';
+
+  @override
+  String get spotCatEdit =>
+      'جديد: الصفحة للقراءة فقط — القلم يبدّل إلى التحرير، والضغط المطوّل على حقل يحرّره مباشرة.';
+
+  @override
+  String get spotMapLayers =>
+      'جديد: أظهر دوائر بحث بنصف قطر 500 م حول مواقع منشورات قطة مفقودة.';
+
+  @override
+  String get spotStraysFlier =>
+      'جديد: صوّر منشور قطة مفقودة — يتحول إلى القطة ومالكها وبيانات التواصل.';
+
+  @override
+  String get spotStraysScan =>
+      'جديد: امسح رمز cat(a)log من المنشور لاستيراد القطة مباشرة.';
+
+  @override
+  String get introTitle4 => 'القطط المفقودة';
+
+  @override
+  String get introBody4 =>
+      'صوّر منشورًا فتنضم القطة المفقودة إلى الكتالوج مع بيانات مالكها. المشاهدات ودوائر البحث واقتراحات التطابق تساعد على إعادتها إلى البيت.';
+
+  @override
   String get spotMapSearch =>
       'جديد: ابحث هنا عن القطط والمجموعات والأشخاص — مباشرة على الخريطة.';
 

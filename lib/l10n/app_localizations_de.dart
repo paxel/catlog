@@ -1152,6 +1152,37 @@ class AppLocalizationsDe extends AppLocalizations {
       'Neu: Synchronisieren bietet drei klare Wege — und eine Vertrauensfrage, bevor etwas fließt.';
 
   @override
+  String get spotHomeStrays =>
+      'Neu: Streuner haben hier oben ihre eigene Karte — Anzahl, Gesichter, Antippen öffnet.';
+
+  @override
+  String get spotHomeMenu =>
+      'Neu: Dieses Menü findet doppelte Katzen und Kolonien und führt sie zusammen.';
+
+  @override
+  String get spotCatEdit =>
+      'Neu: Die Seite ist schreibgeschützt — der Stift wechselt zum Bearbeiten, langes Drücken auf ein Feld bearbeitet es direkt.';
+
+  @override
+  String get spotMapLayers =>
+      'Neu: 500-m-Suchkreise um die Aushang-Orte einer vermissten Katze einblenden.';
+
+  @override
+  String get spotStraysFlier =>
+      'Neu: Fotografiere einen Vermisst-Aushang — daraus werden Katze, Besitzer und Kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Neu: Scanne einen cat(a)log-Code vom Aushang und importiere die Katze direkt.';
+
+  @override
+  String get introTitle4 => 'Vermisste Katzen';
+
+  @override
+  String get introBody4 =>
+      'Fotografiere einen Aushang und die vermisste Katze landet mit dem Kontakt ihres Besitzers im Katalog. Sichtungen, Suchkreise und Treffervorschläge helfen, sie nach Hause zu bringen.';
+
+  @override
   String get spotMapSearch =>
       'Neu: Suche hier nach Katzen, Kolonien und Personen — direkt auf der Karte.';
 

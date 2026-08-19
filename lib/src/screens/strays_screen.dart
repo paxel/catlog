@@ -7,6 +7,7 @@ import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../flier_capture.dart';
 import '../share_import.dart';
+import '../spotlight.dart';
 import '../video_frames_io.dart';
 import 'match_candidates_screen.dart';
 import '../field_labels.dart';
@@ -29,6 +30,13 @@ enum _StraySort { name, gender, color }
 
 class _StraysScreenState extends State<StraysScreen> {
   _StraySort _sort = _StraySort.name;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, widget.store, 'strays'));
+  }
 
   String _field(String catId, String slug) =>
       widget.store.current(catId, Keys.userField(slug)) ?? '';
@@ -82,14 +90,17 @@ class _StraysScreenState extends State<StraysScreen> {
           });
     return Scaffold(
       appBar: AppBar(title: Text(context.t.strays), actions: [
-        IconButton(
-          icon: const Icon(Icons.qr_code_scanner),
-          tooltip: context.t.scanShareLabel,
-          onPressed: () async {
-            await scanShareCode(context, widget.store);
-            if (!mounted) return;
-            setState(() {});
-          },
+        Spotlight(
+          id: 'strays-scan',
+          child: IconButton(
+            icon: const Icon(Icons.qr_code_scanner),
+            tooltip: context.t.scanShareLabel,
+            onPressed: () async {
+              await scanShareCode(context, widget.store);
+              if (!mounted) return;
+              setState(() {});
+            },
+          ),
         ),
         PopupMenuButton<_StraySort>(
           icon: const Icon(Icons.sort),
@@ -121,7 +132,9 @@ class _StraysScreenState extends State<StraysScreen> {
       ]),
       floatingActionButton:
           Column(mainAxisSize: MainAxisSize.min, children: [
-        FloatingActionButton.extended(
+        Spotlight(
+          id: 'strays-flier',
+          child: FloatingActionButton.extended(
           heroTag: 'flier',
           onPressed: () async {
             final catId = await Navigator.of(context).push<String>(
@@ -139,6 +152,7 @@ class _StraysScreenState extends State<StraysScreen> {
           },
           icon: const Icon(Icons.assignment_outlined),
           label: Text(context.t.captureFlier),
+          ),
         ),
         const SizedBox(height: 12),
         GestureDetector(

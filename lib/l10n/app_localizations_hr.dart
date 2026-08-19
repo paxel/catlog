@@ -1144,6 +1144,37 @@ class AppLocalizationsHr extends AppLocalizations {
       'Novo: sinkronizacija sada nudi tri jasna puta — i pitanje povjerenja prije nego išta poteče.';
 
   @override
+  String get spotHomeStrays =>
+      'Novo: lutalice imaju svoju karticu ovdje gore — broj, lica, dodirnite za otvaranje.';
+
+  @override
+  String get spotHomeMenu =>
+      'Novo: ovaj izbornik pronalazi duple mačke i kolonije i spaja ih.';
+
+  @override
+  String get spotCatEdit =>
+      'Novo: stranica je samo za čitanje — olovka prebacuje na uređivanje, dugi pritisak na polje uređuje ga izravno.';
+
+  @override
+  String get spotMapLayers =>
+      'Novo: prikažite krugove pretrage od 500 m oko mjesta letaka nestale mačke.';
+
+  @override
+  String get spotStraysFlier =>
+      'Novo: fotografirajte letak nestale mačke — postaje mačka, vlasnik i kontakt.';
+
+  @override
+  String get spotStraysScan =>
+      'Novo: skenirajte cat(a)log kod s letka i izravno uvezite mačku.';
+
+  @override
+  String get introTitle4 => 'Nestale mačke';
+
+  @override
+  String get introBody4 =>
+      'Fotografirajte letak i nestala mačka ulazi u katalog s kontaktom vlasnika. Viđenja, krugovi pretrage i prijedlozi podudaranja pomažu joj kući.';
+
+  @override
   String get spotMapSearch =>
       'Novo: traži mačke, clowdere i osobe ovdje — izravno na karti.';
 

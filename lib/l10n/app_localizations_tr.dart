@@ -1145,6 +1145,37 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeni: eşitleme artık üç net yol sunuyor — ve bir şey akmadan önce güven sorusu.';
 
   @override
+  String get spotHomeStrays =>
+      'Yeni: sokak kedilerinin burada üstte kendi kartı var — sayı, yüzler, açmak için dokunun.';
+
+  @override
+  String get spotHomeMenu =>
+      'Yeni: bu menü kopya kedileri ve kolonileri bulup birleştirir.';
+
+  @override
+  String get spotCatEdit =>
+      'Yeni: sayfa salt okunur — kalem düzenlemeye geçirir, bir alana uzun basmak onu doğrudan düzenler.';
+
+  @override
+  String get spotMapLayers =>
+      'Yeni: kayıp bir kedinin ilan noktaları çevresinde 500 m arama daireleri gösterin.';
+
+  @override
+  String get spotStraysFlier =>
+      'Yeni: kayıp kedi ilanını fotoğraflayın — kediye, sahibine ve iletişime dönüşür.';
+
+  @override
+  String get spotStraysScan =>
+      'Yeni: ilandan bir cat(a)log kodu tarayıp kediyi doğrudan içe aktarın.';
+
+  @override
+  String get introTitle4 => 'Kayıp kediler';
+
+  @override
+  String get introBody4 =>
+      'Bir ilanı fotoğraflayın; kayıp kedi, sahibinin iletişimiyle kataloğa girer. Görülmeler, arama daireleri ve eşleşme önerileri eve dönmesine yardım eder.';
+
+  @override
   String get spotMapSearch =>
       'Yeni: burada kedi, grup ve kişi arayın — doğrudan haritada.';
 

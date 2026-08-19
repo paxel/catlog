@@ -1148,6 +1148,37 @@ class AppLocalizationsMt extends AppLocalizations {
       'Ġdid: is-sinkronizzazzjoni issa toffri tliet toroq ċari — u mistoqsija ta\' fiduċja qabel ma jgħaddi xejn.';
 
   @override
+  String get spotHomeStrays =>
+      'Ġdid: il-qtates tat-triq għandhom il-kard tagħhom hawn fuq — għadd, uċuħ, għafas biex tiftaħ.';
+
+  @override
+  String get spotHomeMenu =>
+      'Ġdid: dan il-menu jsib qtates u kolonji duplikati u jgħaqqadhom.';
+
+  @override
+  String get spotCatEdit =>
+      'Ġdid: il-paġna hija għall-qari biss — il-lapes jaqleb għall-editjar, u għafsa twila fuq qasam teditjah direttament.';
+
+  @override
+  String get spotMapLayers =>
+      'Ġdid: uri ċrieki ta\' tfittxija ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf.';
+
+  @override
+  String get spotStraysFlier =>
+      'Ġdid: ħu ritratt ta\' flier ta\' qattus mitluf — isir il-qattus, sidu u l-kuntatt.';
+
+  @override
+  String get spotStraysScan =>
+      'Ġdid: skennja kodiċi cat(a)log minn flier biex timporta l-qattus direttament.';
+
+  @override
+  String get introTitle4 => 'Qtates mitlufa';
+
+  @override
+  String get introBody4 =>
+      'Ħu ritratt ta\' flier u l-qattus mitluf jidħol fil-katalgu bil-kuntatt ta\' sidu. Osservazzjonijiet, ċrieki ta\' tfittxija u suġġerimenti ta\' tqabbil jgħinuh imur id-dar.';
+
+  @override
   String get spotMapSearch =>
       'Ġdid: fittex qtates, gruppi u nies hawn — direttament fuq il-mappa.';
 

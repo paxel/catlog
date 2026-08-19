@@ -1152,6 +1152,37 @@ class AppLocalizationsFr extends AppLocalizations {
       'Nouveau : la synchronisation propose trois voies claires — et une question de confiance avant tout échange.';
 
   @override
+  String get spotHomeStrays =>
+      'Nouveau : les errants ont leur propre carte ici en haut — nombre, frimousses, touchez pour ouvrir.';
+
+  @override
+  String get spotHomeMenu =>
+      'Nouveau : ce menu trouve les chats et colonies en double et les fusionne.';
+
+  @override
+  String get spotCatEdit =>
+      'Nouveau : la page est en lecture seule — le crayon passe en édition, un appui long sur un champ l\'édite directement.';
+
+  @override
+  String get spotMapLayers =>
+      'Nouveau : affichez des cercles de recherche de 500 m autour des affiches d\'un chat disparu.';
+
+  @override
+  String get spotStraysFlier =>
+      'Nouveau : photographiez l\'affiche d\'un chat disparu — elle devient le chat, son propriétaire et son contact.';
+
+  @override
+  String get spotStraysScan =>
+      'Nouveau : scannez un code cat(a)log sur une affiche pour importer le chat directement.';
+
+  @override
+  String get introTitle4 => 'Chats disparus';
+
+  @override
+  String get introBody4 =>
+      'Photographiez une affiche et le chat disparu rejoint le catalogue avec le contact de son propriétaire. Observations, cercles de recherche et suggestions de correspondance aident à le ramener chez lui.';
+
+  @override
   String get spotMapSearch =>
       'Nouveau : cherchez ici chats, clowders et personnes — directement sur la carte.';
 
