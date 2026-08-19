@@ -225,6 +225,43 @@ class AppLocalizationsGa extends AppLocalizations {
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override
+  String get sharePublicly => 'Comhroinn go poiblí…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Ní fhágann ach na réimsí ticeáilte do chatalóg. Fanann gach rud eile sa bhaile.';
+
+  @override
+  String get exportShareFile => 'Easpórtáil comhad comhroinnte…';
+
+  @override
+  String get hostedLink => 'Nasc óstáilte (URL an chomhaid uaslódáilte)';
+
+  @override
+  String get inlineQr => 'QR ionleabaithe (téacs amháin, gan ghrianghraif)';
+
+  @override
+  String get inlineTooBig =>
+      'An iomarca sonraí do chód ionleabaithe — díthiceáil réimsí nó úsáid nasc óstáilte.';
+
+  @override
+  String get scanShareLabel => 'Scan cód comhroinnte';
+
+  @override
+  String get notAShareCode => 'Ní comhroinnt cat(a)log é an cód sin.';
+
+  @override
+  String get importShareTitle => 'An cat seo a iompórtáil?';
+
+  @override
+  String shareSource(String url) {
+    return 'Foinse: $url';
+  }
+
+  @override
+  String get importLabel => 'Iompórtáil';
+
+  @override
   String get strayAreaLabel => 'Limistéar fánaíochta féideartha';
 
   @override

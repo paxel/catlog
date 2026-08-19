@@ -226,6 +226,43 @@ class AppLocalizationsDe extends AppLocalizations {
   String get matchCandidatesTitle => 'Mögliche Treffer';
 
   @override
+  String get sharePublicly => 'Öffentlich teilen…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Nur die angehakten Felder verlassen deinen Katalog. Alles andere bleibt zu Hause.';
+
+  @override
+  String get exportShareFile => 'Teil-Datei exportieren…';
+
+  @override
+  String get hostedLink => 'Gehosteter Link (URL der hochgeladenen Datei)';
+
+  @override
+  String get inlineQr => 'Inline-QR (nur Text, keine Fotos)';
+
+  @override
+  String get inlineTooBig =>
+      'Zu viele Daten für einen Inline-Code — Felder abwählen oder einen gehosteten Link verwenden.';
+
+  @override
+  String get scanShareLabel => 'Teil-Code scannen';
+
+  @override
+  String get notAShareCode => 'Dieser Code ist kein cat(a)log-Share.';
+
+  @override
+  String get importShareTitle => 'Diese Katze importieren?';
+
+  @override
+  String shareSource(String url) {
+    return 'Quelle: $url';
+  }
+
+  @override
+  String get importLabel => 'Importieren';
+
+  @override
   String get strayAreaLabel => 'Mögliches Streifgebiet';
 
   @override

@@ -225,6 +225,43 @@ class AppLocalizationsFi extends AppLocalizations {
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override
+  String get sharePublicly => 'Jaa julkisesti…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Vain valitut kentät lähtevät katalogista. Kaikki muu jää kotiin.';
+
+  @override
+  String get exportShareFile => 'Vie jakotiedosto…';
+
+  @override
+  String get hostedLink => 'Isännöity linkki (ladatun tiedoston URL)';
+
+  @override
+  String get inlineQr => 'Upotettu QR (vain tekstiä, ei kuvia)';
+
+  @override
+  String get inlineTooBig =>
+      'Liikaa dataa upotettuun koodiin — poista kenttiä tai käytä isännöityä linkkiä.';
+
+  @override
+  String get scanShareLabel => 'Skannaa jakokoodi';
+
+  @override
+  String get notAShareCode => 'Tuo koodi ei ole cat(a)log-jako.';
+
+  @override
+  String get importShareTitle => 'Tuodaanko tämä kissa?';
+
+  @override
+  String shareSource(String url) {
+    return 'Lähde: $url';
+  }
+
+  @override
+  String get importLabel => 'Tuo';
+
+  @override
   String get strayAreaLabel => 'Mahdollinen kulkualue';
 
   @override

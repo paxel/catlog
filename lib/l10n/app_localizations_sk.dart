@@ -225,6 +225,43 @@ class AppLocalizationsSk extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override
+  String get sharePublicly => 'Zdieľať verejne…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalóg opustia len zaškrtnuté polia. Všetko ostatné zostáva doma.';
+
+  @override
+  String get exportShareFile => 'Exportovať súbor zdieľania…';
+
+  @override
+  String get hostedLink => 'Hostovaný odkaz (URL nahraného súboru)';
+
+  @override
+  String get inlineQr => 'Vložené QR (len text, bez fotiek)';
+
+  @override
+  String get inlineTooBig =>
+      'Priveľa dát pre vložený kód — odškrtnite polia alebo použite hostovaný odkaz.';
+
+  @override
+  String get scanShareLabel => 'Naskenovať kód zdieľania';
+
+  @override
+  String get notAShareCode => 'Tento kód nie je zdieľanie cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importovať túto mačku?';
+
+  @override
+  String shareSource(String url) {
+    return 'Zdroj: $url';
+  }
+
+  @override
+  String get importLabel => 'Importovať';
+
+  @override
   String get strayAreaLabel => 'Možná oblasť túlania';
 
   @override

@@ -225,6 +225,43 @@ class AppLocalizationsSq extends AppLocalizations {
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override
+  String get sharePublicly => 'Ndaje publikisht…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Vetëm fushat e shënuara largohen nga katalogu. Gjithçka tjetër mbetet në shtëpi.';
+
+  @override
+  String get exportShareFile => 'Eksporto skedarin e ndarjes…';
+
+  @override
+  String get hostedLink => 'Lidhje e strehuar (URL e skedarit të ngarkuar)';
+
+  @override
+  String get inlineQr => 'QR i integruar (vetëm tekst, pa foto)';
+
+  @override
+  String get inlineTooBig =>
+      'Shumë të dhëna për një kod të integruar — hiqni fusha ose përdorni një lidhje të strehuar.';
+
+  @override
+  String get scanShareLabel => 'Skano kodin e ndarjes';
+
+  @override
+  String get notAShareCode => 'Ai kod nuk është ndarje cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Të importohet kjo mace?';
+
+  @override
+  String shareSource(String url) {
+    return 'Burimi: $url';
+  }
+
+  @override
+  String get importLabel => 'Importo';
+
+  @override
   String get strayAreaLabel => 'Zona e mundshme e endjes';
 
   @override

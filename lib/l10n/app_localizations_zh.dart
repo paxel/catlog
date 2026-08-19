@@ -216,6 +216,41 @@ class AppLocalizationsZh extends AppLocalizations {
   String get matchCandidatesTitle => '疑似匹配';
 
   @override
+  String get sharePublicly => '公开分享…';
+
+  @override
+  String get shareWhitelistExplainer => '只有勾选的字段会离开目录，其余全部留在本地。';
+
+  @override
+  String get exportShareFile => '导出分享文件…';
+
+  @override
+  String get hostedLink => '托管链接（上传文件的 URL）';
+
+  @override
+  String get inlineQr => '内嵌二维码（仅文本，无照片）';
+
+  @override
+  String get inlineTooBig => '数据太多，无法生成内嵌码——请减少字段或使用托管链接。';
+
+  @override
+  String get scanShareLabel => '扫描分享码';
+
+  @override
+  String get notAShareCode => '该二维码不是 cat(a)log 分享。';
+
+  @override
+  String get importShareTitle => '导入这只猫？';
+
+  @override
+  String shareSource(String url) {
+    return '来源：$url';
+  }
+
+  @override
+  String get importLabel => '导入';
+
+  @override
   String get strayAreaLabel => '可能的活动范围';
 
   @override

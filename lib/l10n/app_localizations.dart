@@ -566,6 +566,72 @@ abstract class AppLocalizations {
   /// **'Match candidates'**
   String get matchCandidatesTitle;
 
+  /// No description provided for @sharePublicly.
+  ///
+  /// In en, this message translates to:
+  /// **'Share publicly…'**
+  String get sharePublicly;
+
+  /// No description provided for @shareWhitelistExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the ticked fields leave your catalog. Everything else stays home.'**
+  String get shareWhitelistExplainer;
+
+  /// No description provided for @exportShareFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Export share file…'**
+  String get exportShareFile;
+
+  /// No description provided for @hostedLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Hosted link (URL of the uploaded file)'**
+  String get hostedLink;
+
+  /// No description provided for @inlineQr.
+  ///
+  /// In en, this message translates to:
+  /// **'Inline QR (text only, no photos)'**
+  String get inlineQr;
+
+  /// No description provided for @inlineTooBig.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much data for an inline code — untick some fields or use a hosted link.'**
+  String get inlineTooBig;
+
+  /// No description provided for @scanShareLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan share code'**
+  String get scanShareLabel;
+
+  /// No description provided for @notAShareCode.
+  ///
+  /// In en, this message translates to:
+  /// **'That code is not a cat(a)log share.'**
+  String get notAShareCode;
+
+  /// No description provided for @importShareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import this cat?'**
+  String get importShareTitle;
+
+  /// No description provided for @shareSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: {url}'**
+  String shareSource(String url);
+
+  /// No description provided for @importLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get importLabel;
+
   /// No description provided for @strayAreaLabel.
   ///
   /// In en, this message translates to:

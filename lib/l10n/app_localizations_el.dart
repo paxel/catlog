@@ -225,6 +225,44 @@ class AppLocalizationsEl extends AppLocalizations {
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override
+  String get sharePublicly => 'Δημόσια κοινοποίηση…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Μόνο τα επιλεγμένα πεδία φεύγουν από τον κατάλογο. Όλα τα άλλα μένουν σπίτι.';
+
+  @override
+  String get exportShareFile => 'Εξαγωγή αρχείου κοινοποίησης…';
+
+  @override
+  String get hostedLink => 'Φιλοξενούμενος σύνδεσμος (URL του αρχείου)';
+
+  @override
+  String get inlineQr => 'Ενσωματωμένο QR (μόνο κείμενο, χωρίς φωτογραφίες)';
+
+  @override
+  String get inlineTooBig =>
+      'Πολλά δεδομένα για ενσωματωμένο κώδικα — αποεπιλέξτε πεδία ή χρησιμοποιήστε σύνδεσμο.';
+
+  @override
+  String get scanShareLabel => 'Σάρωση κωδικού κοινοποίησης';
+
+  @override
+  String get notAShareCode =>
+      'Αυτός ο κωδικός δεν είναι κοινοποίηση cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Εισαγωγή αυτής της γάτας;';
+
+  @override
+  String shareSource(String url) {
+    return 'Πηγή: $url';
+  }
+
+  @override
+  String get importLabel => 'Εισαγωγή';
+
+  @override
   String get strayAreaLabel => 'Πιθανή περιοχή περιπλάνησης';
 
   @override

@@ -225,6 +225,43 @@ class AppLocalizationsEt extends AppLocalizations {
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override
+  String get sharePublicly => 'Jaga avalikult…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Kataloogist lahkuvad ainult märgitud väljad. Kõik muu jääb koju.';
+
+  @override
+  String get exportShareFile => 'Ekspordi jagamisfail…';
+
+  @override
+  String get hostedLink => 'Hostitud link (üleslaaditud faili URL)';
+
+  @override
+  String get inlineQr => 'Sisseehitatud QR (ainult tekst, ilma fotodeta)';
+
+  @override
+  String get inlineTooBig =>
+      'Liiga palju andmeid sisseehitatud koodi jaoks — eemalda välju või kasuta hostitud linki.';
+
+  @override
+  String get scanShareLabel => 'Skanni jagamiskoodi';
+
+  @override
+  String get notAShareCode => 'See kood pole cat(a)log jagamine.';
+
+  @override
+  String get importShareTitle => 'Kas importida see kass?';
+
+  @override
+  String shareSource(String url) {
+    return 'Allikas: $url';
+  }
+
+  @override
+  String get importLabel => 'Impordi';
+
+  @override
   String get strayAreaLabel => 'Võimalik uitamisala';
 
   @override

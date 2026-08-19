@@ -226,6 +226,43 @@ class AppLocalizationsMt extends AppLocalizations {
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override
+  String get sharePublicly => 'Aqsam pubblikament…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Il-katalgu jitilqu biss l-oqsma mmarkati. Kollox ieħor jibqa\' d-dar.';
+
+  @override
+  String get exportShareFile => 'Esporta l-fajl tal-qsim…';
+
+  @override
+  String get hostedLink => 'Link ospitat (URL tal-fajl imtella\')';
+
+  @override
+  String get inlineQr => 'QR inkorporat (test biss, mingħajr ritratti)';
+
+  @override
+  String get inlineTooBig =>
+      'Wisq data għal kodiċi inkorporat — neħħi oqsma jew uża link ospitat.';
+
+  @override
+  String get scanShareLabel => 'Skennja l-kodiċi tal-qsim';
+
+  @override
+  String get notAShareCode => 'Dak il-kodiċi mhux qsim ta\' cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Timporta dan il-qattus?';
+
+  @override
+  String shareSource(String url) {
+    return 'Sors: $url';
+  }
+
+  @override
+  String get importLabel => 'Importa';
+
+  @override
   String get strayAreaLabel => 'Żona possibbli ta\' vagabondaġġ';
 
   @override

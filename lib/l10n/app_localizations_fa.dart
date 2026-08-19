@@ -225,6 +225,43 @@ class AppLocalizationsFa extends AppLocalizations {
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override
+  String get sharePublicly => 'اشتراک عمومی…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'فقط فیلدهای علامت‌خورده از کاتالوگ خارج می‌شوند. بقیه در خانه می‌مانند.';
+
+  @override
+  String get exportShareFile => 'خروجی فایل اشتراک…';
+
+  @override
+  String get hostedLink => 'پیوند میزبانی‌شده (نشانی فایل بارگذاری‌شده)';
+
+  @override
+  String get inlineQr => 'QR داخلی (فقط متن، بدون عکس)';
+
+  @override
+  String get inlineTooBig =>
+      'داده‌ها برای کد داخلی زیاد است — فیلدها را کم کنید یا از پیوند میزبانی‌شده استفاده کنید.';
+
+  @override
+  String get scanShareLabel => 'اسکن کد اشتراک';
+
+  @override
+  String get notAShareCode => 'این کد اشتراک cat(a)log نیست.';
+
+  @override
+  String get importShareTitle => 'این گربه وارد شود؟';
+
+  @override
+  String shareSource(String url) {
+    return 'منبع: $url';
+  }
+
+  @override
+  String get importLabel => 'وارد کردن';
+
+  @override
   String get strayAreaLabel => 'محدودهٔ احتمالی پرسه‌زنی';
 
   @override

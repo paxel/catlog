@@ -6,6 +6,7 @@ import '../l10n.dart';
 import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../flier_capture.dart';
+import '../share_import.dart';
 import 'match_candidates_screen.dart';
 import '../field_labels.dart';
 import '../stray_cam.dart';
@@ -80,6 +81,15 @@ class _StraysScreenState extends State<StraysScreen> {
           });
     return Scaffold(
       appBar: AppBar(title: Text(context.t.strays), actions: [
+        IconButton(
+          icon: const Icon(Icons.qr_code_scanner),
+          tooltip: context.t.scanShareLabel,
+          onPressed: () async {
+            await scanShareCode(context, widget.store);
+            if (!mounted) return;
+            setState(() {});
+          },
+        ),
         PopupMenuButton<_StraySort>(
           icon: const Icon(Icons.sort),
           tooltip: context.t.sortLabel,

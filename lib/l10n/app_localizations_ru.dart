@@ -225,6 +225,43 @@ class AppLocalizationsRu extends AppLocalizations {
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override
+  String get sharePublicly => 'Поделиться публично…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Каталог покидают только отмеченные поля. Всё остальное остаётся дома.';
+
+  @override
+  String get exportShareFile => 'Экспортировать файл обмена…';
+
+  @override
+  String get hostedLink => 'Размещённая ссылка (URL загруженного файла)';
+
+  @override
+  String get inlineQr => 'Встроенный QR (только текст, без фото)';
+
+  @override
+  String get inlineTooBig =>
+      'Слишком много данных для встроенного кода — снимите поля или используйте размещённую ссылку.';
+
+  @override
+  String get scanShareLabel => 'Сканировать код обмена';
+
+  @override
+  String get notAShareCode => 'Этот код — не обмен cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Импортировать эту кошку?';
+
+  @override
+  String shareSource(String url) {
+    return 'Источник: $url';
+  }
+
+  @override
+  String get importLabel => 'Импортировать';
+
+  @override
   String get strayAreaLabel => 'Возможная зона блуждания';
 
   @override

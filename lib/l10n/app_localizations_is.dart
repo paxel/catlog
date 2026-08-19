@@ -226,6 +226,43 @@ class AppLocalizationsIs extends AppLocalizations {
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override
+  String get sharePublicly => 'Deila opinberlega…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Aðeins merktu reitirnir yfirgefa skrána. Allt annað verður heima.';
+
+  @override
+  String get exportShareFile => 'Flytja út deiliskrá…';
+
+  @override
+  String get hostedLink => 'Hýstur hlekkur (URL upphlaðinnar skráar)';
+
+  @override
+  String get inlineQr => 'Innfellt QR (aðeins texti, engar myndir)';
+
+  @override
+  String get inlineTooBig =>
+      'Of mikil gögn fyrir innfelldan kóða — afmerktu reiti eða notaðu hýstan hlekk.';
+
+  @override
+  String get scanShareLabel => 'Skanna deilikóða';
+
+  @override
+  String get notAShareCode => 'Þessi kóði er ekki cat(a)log-deiling.';
+
+  @override
+  String get importShareTitle => 'Flytja inn þennan kött?';
+
+  @override
+  String shareSource(String url) {
+    return 'Uppruni: $url';
+  }
+
+  @override
+  String get importLabel => 'Flytja inn';
+
+  @override
   String get strayAreaLabel => 'Mögulegt flakkssvæði';
 
   @override

@@ -224,6 +224,43 @@ class AppLocalizationsHe extends AppLocalizations {
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override
+  String get sharePublicly => 'שיתוף ציבורי…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'רק השדות המסומנים עוזבים את הקטלוג. כל השאר נשאר בבית.';
+
+  @override
+  String get exportShareFile => 'ייצוא קובץ שיתוף…';
+
+  @override
+  String get hostedLink => 'קישור מאוחסן (כתובת הקובץ שהועלה)';
+
+  @override
+  String get inlineQr => 'QR מוטמע (טקסט בלבד, ללא תמונות)';
+
+  @override
+  String get inlineTooBig =>
+      'יותר מדי נתונים לקוד מוטמע — בטלו סימון שדות או השתמשו בקישור מאוחסן.';
+
+  @override
+  String get scanShareLabel => 'סריקת קוד שיתוף';
+
+  @override
+  String get notAShareCode => 'הקוד הזה אינו שיתוף של cat(a)log.';
+
+  @override
+  String get importShareTitle => 'לייבא את החתול הזה?';
+
+  @override
+  String shareSource(String url) {
+    return 'מקור: $url';
+  }
+
+  @override
+  String get importLabel => 'ייבוא';
+
+  @override
   String get strayAreaLabel => 'אזור שיטוט אפשרי';
 
   @override

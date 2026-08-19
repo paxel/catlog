@@ -225,6 +225,43 @@ class AppLocalizationsNl extends AppLocalizations {
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override
+  String get sharePublicly => 'Openbaar delen…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Alleen de aangevinkte velden verlaten je catalogus. Al het andere blijft thuis.';
+
+  @override
+  String get exportShareFile => 'Deelbestand exporteren…';
+
+  @override
+  String get hostedLink => 'Gehoste link (URL van het geüploade bestand)';
+
+  @override
+  String get inlineQr => 'Ingesloten QR (alleen tekst, geen foto\'s)';
+
+  @override
+  String get inlineTooBig =>
+      'Te veel gegevens voor een ingesloten code — vink velden uit of gebruik een gehoste link.';
+
+  @override
+  String get scanShareLabel => 'Deelcode scannen';
+
+  @override
+  String get notAShareCode => 'Die code is geen cat(a)log-share.';
+
+  @override
+  String get importShareTitle => 'Deze kat importeren?';
+
+  @override
+  String shareSource(String url) {
+    return 'Bron: $url';
+  }
+
+  @override
+  String get importLabel => 'Importeren';
+
+  @override
   String get strayAreaLabel => 'Mogelijk zwerfgebied';
 
   @override

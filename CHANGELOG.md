@@ -67,6 +67,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   animal — exact chip/ID matches first, then cats seen within 500 m of a
   flier or of each other, filterable by species. Confirming a pair is the
   familiar merge, with the survivor of your choice.
+- **Share publicly for fliers**: export one cat with only the fields you
+  tick as an ordinary sync file, print a QR of its hosted link (or a tiny
+  text-only inline QR that needs no hosting) — a finder scans it with
+  cat(a)log, sees a preview with the source, and imports the cat and its
+  owner's contact with one tap. Partial imports are safe: a later real
+  sync still delivers everything that stayed home, and references to cats
+  not included simply wait until they arrive.
 - **Possible stray area**: toggle a 500 m circle overlay around a missing
   cat's flier positions on the map — the radius most lost cats are found
   within.

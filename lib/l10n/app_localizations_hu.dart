@@ -225,6 +225,43 @@ class AppLocalizationsHu extends AppLocalizations {
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override
+  String get sharePublicly => 'Nyilvános megosztás…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Csak a bejelölt mezők hagyják el a katalógust. Minden más otthon marad.';
+
+  @override
+  String get exportShareFile => 'Megosztási fájl exportálása…';
+
+  @override
+  String get hostedLink => 'Tárolt link (a feltöltött fájl URL-je)';
+
+  @override
+  String get inlineQr => 'Beágyazott QR (csak szöveg, fotók nélkül)';
+
+  @override
+  String get inlineTooBig =>
+      'Túl sok adat a beágyazott kódhoz — vegyen ki mezőket, vagy használjon tárolt linket.';
+
+  @override
+  String get scanShareLabel => 'Megosztási kód beolvasása';
+
+  @override
+  String get notAShareCode => 'Ez a kód nem cat(a)log-megosztás.';
+
+  @override
+  String get importShareTitle => 'Importálja ezt a macskát?';
+
+  @override
+  String shareSource(String url) {
+    return 'Forrás: $url';
+  }
+
+  @override
+  String get importLabel => 'Importálás';
+
+  @override
   String get strayAreaLabel => 'Lehetséges kóborlási terület';
 
   @override

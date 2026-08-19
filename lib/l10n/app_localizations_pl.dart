@@ -225,6 +225,43 @@ class AppLocalizationsPl extends AppLocalizations {
   String get matchCandidatesTitle => 'Możliwe dopasowania';
 
   @override
+  String get sharePublicly => 'Udostępnij publicznie…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalog opuszczają tylko zaznaczone pola. Cała reszta zostaje w domu.';
+
+  @override
+  String get exportShareFile => 'Eksportuj plik udostępniania…';
+
+  @override
+  String get hostedLink => 'Hostowany link (URL wgranego pliku)';
+
+  @override
+  String get inlineQr => 'Wbudowany QR (tylko tekst, bez zdjęć)';
+
+  @override
+  String get inlineTooBig =>
+      'Za dużo danych na wbudowany kod — odznacz pola lub użyj hostowanego linku.';
+
+  @override
+  String get scanShareLabel => 'Skanuj kod udostępniania';
+
+  @override
+  String get notAShareCode => 'Ten kod nie jest udostępnieniem cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Zaimportować tego kota?';
+
+  @override
+  String shareSource(String url) {
+    return 'Źródło: $url';
+  }
+
+  @override
+  String get importLabel => 'Importuj';
+
+  @override
   String get strayAreaLabel => 'Możliwy obszar wędrówki';
 
   @override

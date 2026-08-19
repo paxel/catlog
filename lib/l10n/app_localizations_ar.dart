@@ -225,6 +225,43 @@ class AppLocalizationsAr extends AppLocalizations {
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override
+  String get sharePublicly => 'مشاركة علنية…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'فقط الحقول المحددة تغادر الكتالوج. كل شيء آخر يبقى عندك.';
+
+  @override
+  String get exportShareFile => 'تصدير ملف المشاركة…';
+
+  @override
+  String get hostedLink => 'رابط مستضاف (عنوان الملف المرفوع)';
+
+  @override
+  String get inlineQr => 'رمز QR مضمّن (نص فقط، بدون صور)';
+
+  @override
+  String get inlineTooBig =>
+      'بيانات كثيرة على رمز مضمّن — ألغِ تحديد بعض الحقول أو استخدم رابطًا مستضافًا.';
+
+  @override
+  String get scanShareLabel => 'مسح رمز المشاركة';
+
+  @override
+  String get notAShareCode => 'هذا الرمز ليس مشاركة cat(a)log.';
+
+  @override
+  String get importShareTitle => 'استيراد هذه القطة؟';
+
+  @override
+  String shareSource(String url) {
+    return 'المصدر: $url';
+  }
+
+  @override
+  String get importLabel => 'استيراد';
+
+  @override
   String get strayAreaLabel => 'منطقة التواجد المحتملة';
 
   @override

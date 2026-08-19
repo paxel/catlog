@@ -225,6 +225,43 @@ class AppLocalizationsTr extends AppLocalizations {
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override
+  String get sharePublicly => 'Herkese açık paylaş…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalogdan yalnızca işaretli alanlar çıkar. Gerisi evde kalır.';
+
+  @override
+  String get exportShareFile => 'Paylaşım dosyasını dışa aktar…';
+
+  @override
+  String get hostedLink => 'Barındırılan bağlantı (yüklenen dosyanın URL\'si)';
+
+  @override
+  String get inlineQr => 'Gömülü QR (yalnızca metin, fotoğraf yok)';
+
+  @override
+  String get inlineTooBig =>
+      'Gömülü kod için çok fazla veri — alanları azaltın veya barındırılan bağlantı kullanın.';
+
+  @override
+  String get scanShareLabel => 'Paylaşım kodunu tara';
+
+  @override
+  String get notAShareCode => 'Bu kod bir cat(a)log paylaşımı değil.';
+
+  @override
+  String get importShareTitle => 'Bu kedi içe aktarılsın mı?';
+
+  @override
+  String shareSource(String url) {
+    return 'Kaynak: $url';
+  }
+
+  @override
+  String get importLabel => 'İçe aktar';
+
+  @override
   String get strayAreaLabel => 'Olası dolaşma alanı';
 
   @override

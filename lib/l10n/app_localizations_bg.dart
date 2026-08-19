@@ -225,6 +225,43 @@ class AppLocalizationsBg extends AppLocalizations {
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override
+  String get sharePublicly => 'Публично споделяне…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Само отбелязаните полета напускат каталога. Всичко останало си остава у вас.';
+
+  @override
+  String get exportShareFile => 'Експортиране на файл за споделяне…';
+
+  @override
+  String get hostedLink => 'Хостван линк (URL на качения файл)';
+
+  @override
+  String get inlineQr => 'Вграден QR (само текст, без снимки)';
+
+  @override
+  String get inlineTooBig =>
+      'Твърде много данни за вграден код — махнете полета или използвайте хостван линк.';
+
+  @override
+  String get scanShareLabel => 'Сканиране на код за споделяне';
+
+  @override
+  String get notAShareCode => 'Този код не е споделяне на cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Импортиране на тази котка?';
+
+  @override
+  String shareSource(String url) {
+    return 'Източник: $url';
+  }
+
+  @override
+  String get importLabel => 'Импортиране';
+
+  @override
   String get strayAreaLabel => 'Възможна зона на скитане';
 
   @override

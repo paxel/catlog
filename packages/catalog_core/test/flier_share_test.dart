@@ -1,0 +1,108 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:catalog_core/catalog_core.dart';
+import 'package:test/test.dart';
+
+void main() {
+  setUpAll(useSystemSqlite);
+
+  late CatalogStore owner;
+  late CatalogStore finder;
+  late String cat;
+  late String home;
+
+  setUp(() {
+    owner = CatalogStore.inMemory();
+    owner.author = 'owner';
+    finder = CatalogStore.inMemory();
+    finder.author = 'finder';
+    home = owner.createClowder('Familie Huber');
+    owner.append(home, Keys.userField('address'), 'Main St 1');
+    cat = owner.createCat('Minka', clowderId: home);
+    owner.append(cat, Keys.userField('gender'), 'female');
+    owner.append(cat, Keys.userField('chipid'), '276098102345678');
+    owner.append(cat, Keys.userField('remarks'), 'secret vet history');
+  });
+
+  tearDown(() {
+    owner.close();
+    finder.close();
+  });
+
+  String shareFile(Set<String> fields) {
+    final dir = Directory.systemTemp.createTempSync('catlog_share');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    return writeCatShare(owner, '${dir.path}/share.catsync',
+        catId: cat, fields: fields);
+  }
+
+  test('the whitelist decides what leaves the catalog', () {
+    final path = shareFile(
+        {Keys.userField('gender'), Keys.userField('address')});
+    importBundle(finder, path);
+    final imported = finder.cats().single;
+    expect(imported.name, 'Minka');
+    expect(finder.current(imported.id, Keys.userField('gender')),
+        'female');
+    // Not whitelisted — never left home.
+    expect(finder.current(imported.id, Keys.userField('chipid')), isNull);
+    expect(
+        finder.current(imported.id, Keys.userField('remarks')), isNull);
+    // The owner clowder travelled with its whitelisted address.
+    final clowder = finder.clowders().single;
+    expect(clowder.name, 'Familie Huber');
+    expect(finder.current(clowder.id, Keys.userField('address')),
+        'Main St 1');
+  });
+
+  test('a partial import never poisons a later full sync', () {
+    final path = shareFile({Keys.userField('gender')});
+    importBundle(finder, path);
+    // The share came from a fresh device id, so the finder's vector
+    // knows nothing about the owner's real device...
+    expect(
+        finder.versionVector().keys.any((d) => d.startsWith('share-')),
+        isTrue);
+    // ...and a later full sync still delivers everything withheld.
+    finder.applyEntries(owner.entriesSince(finder.versionVector()),
+        senderVector: owner.versionVector());
+    final imported = finder.cats().single;
+    expect(finder.current(imported.id, Keys.userField('chipid')),
+        '276098102345678');
+    expect(finder.current(imported.id, Keys.userField('remarks')),
+        'secret vet history');
+    // Still exactly one cat — the share and the sync converge.
+    expect(finder.cats(), hasLength(1));
+  });
+
+  test('dangling references import without crashing and stay dangling',
+      () {
+    // Whitelist the mother reference but not the mother herself.
+    final mother = owner.createCat('Mutti');
+    owner.append(cat, Keys.userField('mother'), mother);
+    final path = shareFile({Keys.userField('mother')});
+    importBundle(finder, path);
+    final imported = finder.cats().single;
+    // The reference is stored verbatim; the target is simply unknown.
+    expect(finder.current(imported.id, Keys.userField('mother')), mother);
+    expect(finder.current(mother, Keys.name), isNull);
+  });
+
+  test('QR payloads round-trip and reject garbage', () {
+    expect(decodeShareQr(encodeShareUrl('https://x.example/f.catsync'))!
+        .url,
+        'https://x.example/f.catsync');
+    final bytes = catShareBytes(owner,
+        catId: cat,
+        fields: {Keys.userField('gender')},
+        includePhotos: false);
+    expect(decodeShareQr(encodeShareData(bytes))!.data, bytes);
+    expect(decodeShareQr('https://random.example'), isNull);
+    expect(decodeShareQr('catlog-share:u:!!!'), isNull);
+    expect(
+        decodeShareQr(
+            'catlog-share:u:${base64Url.encode(utf8.encode('ftp://x'))}'),
+        isNull);
+  });
+}

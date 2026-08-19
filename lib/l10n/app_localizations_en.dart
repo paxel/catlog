@@ -225,6 +225,43 @@ class AppLocalizationsEn extends AppLocalizations {
   String get matchCandidatesTitle => 'Match candidates';
 
   @override
+  String get sharePublicly => 'Share publicly…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Only the ticked fields leave your catalog. Everything else stays home.';
+
+  @override
+  String get exportShareFile => 'Export share file…';
+
+  @override
+  String get hostedLink => 'Hosted link (URL of the uploaded file)';
+
+  @override
+  String get inlineQr => 'Inline QR (text only, no photos)';
+
+  @override
+  String get inlineTooBig =>
+      'Too much data for an inline code — untick some fields or use a hosted link.';
+
+  @override
+  String get scanShareLabel => 'Scan share code';
+
+  @override
+  String get notAShareCode => 'That code is not a cat(a)log share.';
+
+  @override
+  String get importShareTitle => 'Import this cat?';
+
+  @override
+  String shareSource(String url) {
+    return 'Source: $url';
+  }
+
+  @override
+  String get importLabel => 'Import';
+
+  @override
   String get strayAreaLabel => 'Possible stray area';
 
   @override

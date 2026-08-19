@@ -225,6 +225,43 @@ class AppLocalizationsLv extends AppLocalizations {
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override
+  String get sharePublicly => 'Kopīgot publiski…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalogu pamet tikai atzīmētie lauki. Viss pārējais paliek mājās.';
+
+  @override
+  String get exportShareFile => 'Eksportēt kopīgošanas failu…';
+
+  @override
+  String get hostedLink => 'Mitināta saite (augšupielādētā faila URL)';
+
+  @override
+  String get inlineQr => 'Iegultais QR (tikai teksts, bez fotoattēliem)';
+
+  @override
+  String get inlineTooBig =>
+      'Pārāk daudz datu iegultam kodam — noņemiet laukus vai izmantojiet mitinātu saiti.';
+
+  @override
+  String get scanShareLabel => 'Skenēt kopīgošanas kodu';
+
+  @override
+  String get notAShareCode => 'Šis kods nav cat(a)log kopīgošana.';
+
+  @override
+  String get importShareTitle => 'Importēt šo kaķi?';
+
+  @override
+  String shareSource(String url) {
+    return 'Avots: $url';
+  }
+
+  @override
+  String get importLabel => 'Importēt';
+
+  @override
   String get strayAreaLabel => 'Iespējamā klejošanas zona';
 
   @override

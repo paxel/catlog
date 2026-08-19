@@ -12,6 +12,7 @@ import '../image_import.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../plausibility.dart';
+import '../share_publicly.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -365,6 +366,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
               if (v == 'flier') _addFlier();
+              if (v == 'share') {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) =>
+                      SharePubliclyScreen(store: store, catId: id),
+                ));
+              }
               if (v == 'private') {
                 setState(() =>
                     store.setPrivate(id, !store.isPrivate(id)));
@@ -384,6 +391,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   value: 'seen', child: Text(context.t.seenHereNow)),
               PopupMenuItem(
                   value: 'flier', child: Text(context.t.addFlier)),
+              PopupMenuItem(
+                  value: 'share',
+                  child: Text(context.t.sharePublicly)),
               PopupMenuItem(
                   value: 'private',
                   child: Text(store.isPrivate(id)

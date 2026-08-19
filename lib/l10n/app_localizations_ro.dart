@@ -225,6 +225,43 @@ class AppLocalizationsRo extends AppLocalizations {
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override
+  String get sharePublicly => 'Distribuie public…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Doar câmpurile bifate părăsesc catalogul. Restul rămâne acasă.';
+
+  @override
+  String get exportShareFile => 'Exportă fișierul de distribuire…';
+
+  @override
+  String get hostedLink => 'Link găzduit (URL-ul fișierului încărcat)';
+
+  @override
+  String get inlineQr => 'QR încorporat (doar text, fără fotografii)';
+
+  @override
+  String get inlineTooBig =>
+      'Prea multe date pentru un cod încorporat — debifați câmpuri sau folosiți un link găzduit.';
+
+  @override
+  String get scanShareLabel => 'Scanează codul de distribuire';
+
+  @override
+  String get notAShareCode => 'Acest cod nu este o distribuire cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importați această pisică?';
+
+  @override
+  String shareSource(String url) {
+    return 'Sursă: $url';
+  }
+
+  @override
+  String get importLabel => 'Importă';
+
+  @override
   String get strayAreaLabel => 'Zonă posibilă de hoinăreală';
 
   @override

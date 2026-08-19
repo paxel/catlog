@@ -225,6 +225,43 @@ class AppLocalizationsFr extends AppLocalizations {
   String get matchCandidatesTitle => 'Correspondances possibles';
 
   @override
+  String get sharePublicly => 'Partager publiquement…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Seuls les champs cochés quittent votre catalogue. Tout le reste reste chez vous.';
+
+  @override
+  String get exportShareFile => 'Exporter le fichier de partage…';
+
+  @override
+  String get hostedLink => 'Lien hébergé (URL du fichier téléversé)';
+
+  @override
+  String get inlineQr => 'QR intégré (texte seul, sans photos)';
+
+  @override
+  String get inlineTooBig =>
+      'Trop de données pour un code intégré — décochez des champs ou utilisez un lien hébergé.';
+
+  @override
+  String get scanShareLabel => 'Scanner un code de partage';
+
+  @override
+  String get notAShareCode => 'Ce code n\'est pas un partage cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importer ce chat ?';
+
+  @override
+  String shareSource(String url) {
+    return 'Source : $url';
+  }
+
+  @override
+  String get importLabel => 'Importer';
+
+  @override
   String get strayAreaLabel => 'Zone d\'errance possible';
 
   @override

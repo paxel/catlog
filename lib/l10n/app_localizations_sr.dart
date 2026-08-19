@@ -225,6 +225,43 @@ class AppLocalizationsSr extends AppLocalizations {
   String get matchCandidatesTitle => 'Могући парови';
 
   @override
+  String get sharePublicly => 'Подели јавно…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Каталог напуштају само штиклирана поља. Све остало остаје код куће.';
+
+  @override
+  String get exportShareFile => 'Извези датотеку за дељење…';
+
+  @override
+  String get hostedLink => 'Хостована веза (URL отпремљене датотеке)';
+
+  @override
+  String get inlineQr => 'Уграђени QR (само текст, без фотографија)';
+
+  @override
+  String get inlineTooBig =>
+      'Превише података за уграђени код — уклоните поља или користите хостовану везу.';
+
+  @override
+  String get scanShareLabel => 'Скенирај код за дељење';
+
+  @override
+  String get notAShareCode => 'Тај код није cat(a)log дељење.';
+
+  @override
+  String get importShareTitle => 'Увести ову мачку?';
+
+  @override
+  String shareSource(String url) {
+    return 'Извор: $url';
+  }
+
+  @override
+  String get importLabel => 'Увези';
+
+  @override
   String get strayAreaLabel => 'Могућа зона лутања';
 
   @override

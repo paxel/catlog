@@ -225,6 +225,43 @@ class AppLocalizationsUk extends AppLocalizations {
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override
+  String get sharePublicly => 'Поділитися публічно…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Каталог покидають лише позначені поля. Решта залишається вдома.';
+
+  @override
+  String get exportShareFile => 'Експортувати файл обміну…';
+
+  @override
+  String get hostedLink => 'Розміщене посилання (URL завантаженого файлу)';
+
+  @override
+  String get inlineQr => 'Вбудований QR (лише текст, без фото)';
+
+  @override
+  String get inlineTooBig =>
+      'Забагато даних для вбудованого коду — зніміть поля або скористайтеся розміщеним посиланням.';
+
+  @override
+  String get scanShareLabel => 'Сканувати код обміну';
+
+  @override
+  String get notAShareCode => 'Цей код — не обмін cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Імпортувати цю кішку?';
+
+  @override
+  String shareSource(String url) {
+    return 'Джерело: $url';
+  }
+
+  @override
+  String get importLabel => 'Імпортувати';
+
+  @override
   String get strayAreaLabel => 'Можлива зона блукання';
 
   @override

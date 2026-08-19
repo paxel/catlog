@@ -54,8 +54,13 @@ String writeBundle(CatalogStore store, String path,
 
 /// Imports a bundle file; unknown entries and missing photos land,
 /// everything else is ignored.
-BundleResult importBundle(CatalogStore store, String path) {
-  final archive = ZipDecoder().decodeBytes(File(path).readAsBytesSync());
+BundleResult importBundle(CatalogStore store, String path) =>
+    importBundleBytes(store, File(path).readAsBytesSync());
+
+/// Same import from in-memory bytes — QR share payloads never touch
+/// disk (#40).
+BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
+  final archive = ZipDecoder().decodeBytes(zipBytes);
   final entries = <Entry>[];
   final blobs = <String, List<int>>{};
   for (final file in archive.files) {

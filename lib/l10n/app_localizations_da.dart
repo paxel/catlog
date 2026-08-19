@@ -225,6 +225,43 @@ class AppLocalizationsDa extends AppLocalizations {
   String get matchCandidatesTitle => 'Mulige match';
 
   @override
+  String get sharePublicly => 'Del offentligt…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Kun de markerede felter forlader dit katalog. Alt andet bliver hjemme.';
+
+  @override
+  String get exportShareFile => 'Eksportér delingsfil…';
+
+  @override
+  String get hostedLink => 'Hostet link (URL til den uploadede fil)';
+
+  @override
+  String get inlineQr => 'Indlejret QR (kun tekst, ingen fotos)';
+
+  @override
+  String get inlineTooBig =>
+      'For mange data til en indlejret kode — fravælg felter eller brug et hostet link.';
+
+  @override
+  String get scanShareLabel => 'Scan delingskode';
+
+  @override
+  String get notAShareCode => 'Denne kode er ikke en cat(a)log-deling.';
+
+  @override
+  String get importShareTitle => 'Importér denne kat?';
+
+  @override
+  String shareSource(String url) {
+    return 'Kilde: $url';
+  }
+
+  @override
+  String get importLabel => 'Importér';
+
+  @override
   String get strayAreaLabel => 'Muligt strejfområde';
 
   @override

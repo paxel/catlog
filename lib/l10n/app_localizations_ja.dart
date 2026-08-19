@@ -222,6 +222,41 @@ class AppLocalizationsJa extends AppLocalizations {
   String get matchCandidatesTitle => '一致候補';
 
   @override
+  String get sharePublicly => '公開共有…';
+
+  @override
+  String get shareWhitelistExplainer => 'チェックした項目だけがカタログの外に出ます。それ以外は手元に残ります。';
+
+  @override
+  String get exportShareFile => '共有ファイルを書き出す…';
+
+  @override
+  String get hostedLink => 'ホスト済みリンク（アップロードしたファイルのURL）';
+
+  @override
+  String get inlineQr => '埋め込みQR（テキストのみ・写真なし）';
+
+  @override
+  String get inlineTooBig => '埋め込みコードにはデータが多すぎます。項目を減らすか、ホスト済みリンクを使ってください。';
+
+  @override
+  String get scanShareLabel => '共有コードをスキャン';
+
+  @override
+  String get notAShareCode => 'このコードはcat(a)logの共有ではありません。';
+
+  @override
+  String get importShareTitle => 'この猫を取り込みますか？';
+
+  @override
+  String shareSource(String url) {
+    return '提供元: $url';
+  }
+
+  @override
+  String get importLabel => 'インポート';
+
+  @override
   String get strayAreaLabel => '想定される行動範囲';
 
   @override

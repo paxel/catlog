@@ -225,6 +225,43 @@ class AppLocalizationsCs extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné shody';
 
   @override
+  String get sharePublicly => 'Sdílet veřejně…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalog opustí jen zaškrtnutá pole. Vše ostatní zůstává doma.';
+
+  @override
+  String get exportShareFile => 'Exportovat soubor sdílení…';
+
+  @override
+  String get hostedLink => 'Hostovaný odkaz (URL nahraného souboru)';
+
+  @override
+  String get inlineQr => 'Vložené QR (jen text, bez fotek)';
+
+  @override
+  String get inlineTooBig =>
+      'Příliš mnoho dat pro vložený kód — odškrtněte pole nebo použijte hostovaný odkaz.';
+
+  @override
+  String get scanShareLabel => 'Naskenovat kód sdílení';
+
+  @override
+  String get notAShareCode => 'Tento kód není sdílení cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importovat tuto kočku?';
+
+  @override
+  String shareSource(String url) {
+    return 'Zdroj: $url';
+  }
+
+  @override
+  String get importLabel => 'Importovat';
+
+  @override
   String get strayAreaLabel => 'Možná oblast toulání';
 
   @override

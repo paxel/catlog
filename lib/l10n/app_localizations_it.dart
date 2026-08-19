@@ -225,6 +225,43 @@ class AppLocalizationsIt extends AppLocalizations {
   String get matchCandidatesTitle => 'Possibili corrispondenze';
 
   @override
+  String get sharePublicly => 'Condividi pubblicamente…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Solo i campi selezionati lasciano il catalogo. Tutto il resto resta a casa.';
+
+  @override
+  String get exportShareFile => 'Esporta file di condivisione…';
+
+  @override
+  String get hostedLink => 'Link ospitato (URL del file caricato)';
+
+  @override
+  String get inlineQr => 'QR integrato (solo testo, senza foto)';
+
+  @override
+  String get inlineTooBig =>
+      'Troppi dati per un codice integrato — deseleziona campi o usa un link ospitato.';
+
+  @override
+  String get scanShareLabel => 'Scansiona codice di condivisione';
+
+  @override
+  String get notAShareCode => 'Quel codice non è una condivisione cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importare questo gatto?';
+
+  @override
+  String shareSource(String url) {
+    return 'Fonte: $url';
+  }
+
+  @override
+  String get importLabel => 'Importa';
+
+  @override
   String get strayAreaLabel => 'Possibile area di vagabondaggio';
 
   @override

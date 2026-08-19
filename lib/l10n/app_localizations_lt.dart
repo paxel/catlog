@@ -225,6 +225,43 @@ class AppLocalizationsLt extends AppLocalizations {
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override
+  String get sharePublicly => 'Bendrinti viešai…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Katalogą palieka tik pažymėti laukai. Visa kita lieka namie.';
+
+  @override
+  String get exportShareFile => 'Eksportuoti bendrinimo failą…';
+
+  @override
+  String get hostedLink => 'Talpinama nuoroda (įkelto failo URL)';
+
+  @override
+  String get inlineQr => 'Įterptas QR (tik tekstas, be nuotraukų)';
+
+  @override
+  String get inlineTooBig =>
+      'Per daug duomenų įterptam kodui — nuimkite laukų arba naudokite talpinamą nuorodą.';
+
+  @override
+  String get scanShareLabel => 'Skenuoti bendrinimo kodą';
+
+  @override
+  String get notAShareCode => 'Šis kodas nėra cat(a)log bendrinimas.';
+
+  @override
+  String get importShareTitle => 'Importuoti šią katę?';
+
+  @override
+  String shareSource(String url) {
+    return 'Šaltinis: $url';
+  }
+
+  @override
+  String get importLabel => 'Importuoti';
+
+  @override
   String get strayAreaLabel => 'Galima klajojimo zona';
 
   @override

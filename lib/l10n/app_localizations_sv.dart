@@ -225,6 +225,43 @@ class AppLocalizationsSv extends AppLocalizations {
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override
+  String get sharePublicly => 'Dela offentligt…';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Bara de ikryssade fälten lämnar katalogen. Allt annat stannar hemma.';
+
+  @override
+  String get exportShareFile => 'Exportera delningsfil…';
+
+  @override
+  String get hostedLink => 'Värdlänk (URL till den uppladdade filen)';
+
+  @override
+  String get inlineQr => 'Inbäddad QR (endast text, inga foton)';
+
+  @override
+  String get inlineTooBig =>
+      'För mycket data för en inbäddad kod — kryssa ur fält eller använd en värdlänk.';
+
+  @override
+  String get scanShareLabel => 'Skanna delningskod';
+
+  @override
+  String get notAShareCode => 'Den koden är ingen cat(a)log-delning.';
+
+  @override
+  String get importShareTitle => 'Importera den här katten?';
+
+  @override
+  String shareSource(String url) {
+    return 'Källa: $url';
+  }
+
+  @override
+  String get importLabel => 'Importera';
+
+  @override
   String get strayAreaLabel => 'Möjligt strövområde';
 
   @override
