@@ -85,6 +85,21 @@ void main() {
     expect(store.images(cat.id), isNotEmpty);
   });
 
+  testWidgets('double-tapping save creates exactly one owner and cat',
+      (tester) async {
+    await pump(tester);
+    await tester.runAsync(() async {
+      // Two rapid taps on the save check while compression runs.
+      await tester.tap(find.byIcon(Icons.check).first);
+      await tester.pump();
+      await tester.tap(find.byIcon(Icons.check).first, warnIfMissed: false);
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    });
+    await tester.pumpAndSettle();
+    expect(store.cats(), hasLength(1));
+    expect(store.clowders(), hasLength(1));
+  });
+
   testWidgets('add flier to an existing cat appends, never re-creates',
       (tester) async {
     final cat = store.createCat('Minka');

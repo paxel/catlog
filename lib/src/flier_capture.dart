@@ -77,6 +77,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   final _remarks = TextEditingController();
   bool _ocrTried = false;
 
+  /// Double-submit guard: saving compresses images for a noticeable
+  /// moment — a second tap must not create a second owner and cat.
+  bool _saving = false;
+
   @override
   void initState() {
     super.initState();
@@ -165,7 +169,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
 
   Future<void> _save() async {
     final photo = _photo;
-    if (photo == null) return;
+    if (photo == null || _saving) return;
+    setState(() => _saving = true);
     final t = context.t;
     String catId;
     if (widget.existingCatId == null) {
@@ -223,6 +228,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     }
     if (!mounted) return;
     Navigator.of(context).pop(catId);
+    // No _saving reset: the screen pops; a failed pop keeps it guarded.
   }
 
   @override
@@ -237,7 +243,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
             IconButton(
                 icon: const Icon(Icons.check),
                 tooltip: t.save,
-                onPressed: photo == null ? null : _save),
+                onPressed: photo == null || _saving ? null : _save),
           ]),
       body: photo == null
           ? const Center(child: CircularProgressIndicator())
@@ -311,7 +317,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
               FilledButton.icon(
                   icon: const Icon(Icons.check),
                   label: Text(t.save),
-                  onPressed: _save),
+                  onPressed: _saving ? null : _save),
             ]),
     );
   }
