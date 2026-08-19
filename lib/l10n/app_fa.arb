@@ -161,6 +161,7 @@
   "starterChipId": "شمارهٔ تراشه",
   "starterRemarks": "یادداشت‌ها",
   "captureFlier": "عکس از آگهی",
+  "sortLabel": "مرتب‌سازی",
   "matchCandidatesTitle": "موارد تطبیق احتمالی",
   "noMatchCandidates": "در حال حاضر موردی برای تطبیق نیست.",
   "sameIdField": "{field} یکسان",

@@ -219,6 +219,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get captureFlier => 'Fotografér opslag';
 
   @override
+  String get sortLabel => 'Sortér';
+
+  @override
   String get matchCandidatesTitle => 'Mulige match';
 
   @override

@@ -219,6 +219,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get sortLabel => 'مرتب‌سازی';
+
+  @override
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override

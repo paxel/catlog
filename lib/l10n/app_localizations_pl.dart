@@ -219,6 +219,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get captureFlier => 'Sfotografuj ogłoszenie';
 
   @override
+  String get sortLabel => 'Sortuj';
+
+  @override
   String get matchCandidatesTitle => 'Możliwe dopasowania';
 
   @override

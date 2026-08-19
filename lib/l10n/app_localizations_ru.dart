@@ -219,6 +219,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get captureFlier => 'Сфотографировать объявление';
 
   @override
+  String get sortLabel => 'Сортировка';
+
+  @override
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override

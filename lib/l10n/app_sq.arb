@@ -161,6 +161,7 @@
   "starterChipId": "Numri i çipit",
   "starterRemarks": "Shënime",
   "captureFlier": "Fotografo fletushkën",
+  "sortLabel": "Rendit",
   "matchCandidatesTitle": "Përputhje të mundshme",
   "noMatchCandidates": "Aktualisht s'ka përputhje të mundshme.",
   "sameIdField": "I njëjti {field}",

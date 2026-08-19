@@ -161,6 +161,7 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Opmerkingen",
   "captureFlier": "Poster fotograferen",
+  "sortLabel": "Sorteren",
   "matchCandidatesTitle": "Mogelijke matches",
   "noMatchCandidates": "Momenteel geen mogelijke matches.",
   "sameIdField": "Zelfde {field}",

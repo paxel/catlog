@@ -161,6 +161,7 @@
   "starterChipId": "Mikroshēmas numurs",
   "starterRemarks": "Piezīmes",
   "captureFlier": "Nofotografēt sludinājumu",
+  "sortLabel": "Kārtot",
   "matchCandidatesTitle": "Iespējamās sakritības",
   "noMatchCandidates": "Šobrīd nav iespējamu sakritību.",
   "sameIdField": "Tas pats {field}",

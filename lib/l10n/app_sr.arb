@@ -161,6 +161,7 @@
   "starterChipId": "Број чипа",
   "starterRemarks": "Напомене",
   "captureFlier": "Сликај оглас",
+  "sortLabel": "Сортирај",
   "matchCandidatesTitle": "Могући парови",
   "noMatchCandidates": "Тренутно нема могућих парова.",
   "sameIdField": "Исти {field}",

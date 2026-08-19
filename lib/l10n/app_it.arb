@@ -161,6 +161,7 @@
   "starterChipId": "Numero di chip",
   "starterRemarks": "Note",
   "captureFlier": "Fotografa volantino",
+  "sortLabel": "Ordina",
   "matchCandidatesTitle": "Possibili corrispondenze",
   "noMatchCandidates": "Nessuna possibile corrispondenza al momento.",
   "sameIdField": "Stesso {field}",

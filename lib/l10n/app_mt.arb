@@ -161,6 +161,7 @@
   "starterChipId": "Numru taċ-ċippa",
   "starterRemarks": "Rimarki",
   "captureFlier": "Ħu ritratt tal-flier",
+  "sortLabel": "Issortja",
   "matchCandidatesTitle": "Tqabbil possibbli",
   "noMatchCandidates": "M'hemm l-ebda tqabbil possibbli bħalissa.",
   "sameIdField": "L-istess {field}",

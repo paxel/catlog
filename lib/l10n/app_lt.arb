@@ -161,6 +161,7 @@
   "starterChipId": "Lusto numeris",
   "starterRemarks": "Pastabos",
   "captureFlier": "Nufotografuoti skelbimą",
+  "sortLabel": "Rikiuoti",
   "matchCandidatesTitle": "Galimi atitikmenys",
   "noMatchCandidates": "Šiuo metu galimų atitikmenų nėra.",
   "sameIdField": "Tas pats {field}",

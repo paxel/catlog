@@ -210,6 +210,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get sortLabel => '排序';
+
+  @override
   String get matchCandidatesTitle => '疑似匹配';
 
   @override

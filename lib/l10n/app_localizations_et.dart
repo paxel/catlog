@@ -219,6 +219,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get captureFlier => 'Pildista kuulutust';
 
   @override
+  String get sortLabel => 'Sordi';
+
+  @override
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override

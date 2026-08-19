@@ -161,6 +161,7 @@
   "starterChipId": "Uimhir slise",
   "starterRemarks": "Nótaí",
   "captureFlier": "Grianghraf den bhileog",
+  "sortLabel": "Sórtáil",
   "matchCandidatesTitle": "Meaitseálacha féideartha",
   "noMatchCandidates": "Níl aon mheaitseáil fhéideartha faoi láthair.",
   "sameIdField": "{field} céanna",

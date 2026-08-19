@@ -219,6 +219,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get captureFlier => 'Odfotiť leták';
 
   @override
+  String get sortLabel => 'Zoradiť';
+
+  @override
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override

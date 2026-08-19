@@ -7,6 +7,7 @@ import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../flier_capture.dart';
 import 'match_candidates_screen.dart';
+import '../field_labels.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -22,7 +23,31 @@ class StraysScreen extends StatefulWidget {
   State<StraysScreen> createState() => _StraysScreenState();
 }
 
+enum _StraySort { name, gender, color }
+
 class _StraysScreenState extends State<StraysScreen> {
+  _StraySort _sort = _StraySort.name;
+
+  String _field(String catId, String slug) =>
+      widget.store.current(catId, Keys.userField(slug)) ?? '';
+
+  /// Gender and color under the name — the details one scans a stray
+  /// list for (#52).
+  String _subtitle(BuildContext context, String catId) {
+    final t = context.t;
+    final defs = widget.store.fieldDefs();
+    String display(String slug) {
+      final value = _field(catId, slug);
+      if (value.isEmpty) return '';
+      final def = defs.where((d) => d.slug == slug).firstOrNull;
+      return fieldValueDisplay(t, def, value);
+    }
+
+    return [display('gender'), display('color')]
+        .where((s) => s.isNotEmpty)
+        .join(' · ');
+  }
+
   Future<void> _addStray() async {
     final locale = Localizations.localeOf(context);
     final result = await askNameAndDate(context, context.t.newStray,
@@ -43,9 +68,33 @@ class _StraysScreenState extends State<StraysScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final strays = widget.store.visibleStrays();
+    final strays = widget.store.visibleStrays()
+      ..sort((a, b) => switch (_sort) {
+            _StraySort.name => a.name
+                .toLowerCase()
+                .compareTo(b.name.toLowerCase()),
+            _StraySort.gender => _field(a.id, 'gender')
+                .compareTo(_field(b.id, 'gender')),
+            _StraySort.color =>
+              _field(a.id, 'color').compareTo(_field(b.id, 'color')),
+          });
     return Scaffold(
       appBar: AppBar(title: Text(context.t.strays), actions: [
+        PopupMenuButton<_StraySort>(
+          icon: const Icon(Icons.sort),
+          tooltip: context.t.sortLabel,
+          onSelected: (s) => setState(() => _sort = s),
+          itemBuilder: (context) => [
+            PopupMenuItem(
+                value: _StraySort.name, child: Text(context.t.name)),
+            PopupMenuItem(
+                value: _StraySort.gender,
+                child: Text(context.t.starterGender)),
+            PopupMenuItem(
+                value: _StraySort.color,
+                child: Text(context.t.starterColor)),
+          ],
+        ),
         IconButton(
           icon: const Icon(Icons.join_inner),
           tooltip: context.t.matchCandidatesTitle,
@@ -113,10 +162,12 @@ class _StraysScreenState extends State<StraysScreen> {
               itemCount: strays.length,
               itemBuilder: (context, i) {
                 final cat = strays[i];
+                final details = _subtitle(context, cat.id);
                 return ListTile(
                   leading: CatAvatar(
                       store: widget.store, catId: cat.id, size: 40),
                   title: Text(cat.name),
+                  subtitle: details.isEmpty ? null : Text(details),
                   onTap: () async {
                     await Navigator.of(context).push(MaterialPageRoute(
                       builder: (_) => CatDetailScreen(

@@ -216,6 +216,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get sortLabel => '並べ替え';
+
+  @override
   String get matchCandidatesTitle => '一致候補';
 
   @override

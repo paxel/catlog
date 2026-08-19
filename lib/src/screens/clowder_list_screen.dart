@@ -91,7 +91,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   Widget build(BuildContext context) {
     final clowders = widget.store.visibleClowders()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-    final strays = widget.store.visibleStrays();
     return Scaffold(
       appBar: AppBar(
         title: Text(context.t.clowders),
@@ -184,9 +183,24 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               crossAxisSpacing: 8,
               childAspectRatio: 1.4,
             ),
-            itemCount: clowders.length,
+            itemCount: clowders.length + 1,
             itemBuilder: (context, i) {
-              final clowder = clowders[i];
+              // Slot 0: the strays pseudo-clowder (#52) — strays are a
+              // place too, just one without an address.
+              if (i == 0) {
+                return _StraysCard(
+                  store: widget.store,
+                  onTap: () async {
+                    await Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) =>
+                          StraysScreen(store: widget.store),
+                    ));
+                    if (!mounted) return;
+                    setState(() {});
+                  },
+                );
+              }
+              final clowder = clowders[i - 1];
               return _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
@@ -236,19 +250,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   setState(() {});
                 },
               );
-            },
-          ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.explore),
-            title: Text(context.t.strays),
-            trailing: Text('${strays.length}'),
-            onTap: () async {
-              await Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => StraysScreen(store: widget.store),
-              ));
-              if (!mounted) return;
-              setState(() {});
             },
           ),
         ],
@@ -359,6 +360,104 @@ class _ClowderCard extends StatelessWidget {
 
 
 /// Up to five little faces plus a count — who lives here, at a glance.
+/// The Strays pseudo-clowder card: pinned first in the grid, cover from
+/// the first stray with a photo, faces and count below (#52).
+class _StraysCard extends StatelessWidget {
+  final CatalogStore store;
+  final VoidCallback onTap;
+
+  const _StraysCard({required this.store, required this.onTap});
+
+  ImageProvider? _cover(List<EntityView> strays) {
+    for (final cat in strays) {
+      final hash = store.profileImage(cat.id);
+      if (hash != null) {
+        final photo = imageProviderFor(store, hash);
+        if (photo != null) return photo;
+      }
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final strays = store.visibleStrays();
+    final cover = _cover(strays);
+    final scheme = Theme.of(context).colorScheme;
+    const shown = 5;
+    return Material(
+      clipBehavior: Clip.antiAlias,
+      color: scheme.surfaceContainerHighest,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: scheme.tertiary, width: 2),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        child: Stack(fit: StackFit.expand, children: [
+          if (cover != null)
+            Opacity(
+              opacity: 0.55,
+              child: Image(
+                  image: ResizeImage(cover, width: 800),
+                  fit: BoxFit.cover),
+            )
+          else
+            Center(
+              child: Icon(Icons.explore,
+                  size: 40,
+                  color: scheme.onSurfaceVariant.withValues(alpha: 0.4)),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${context.t.strays} (${strays.length})',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style:
+                      Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color:
+                        cover != null ? Colors.white : scheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                    shadows: cover != null
+                        ? const [
+                            Shadow(blurRadius: 6, color: Colors.black87),
+                            Shadow(blurRadius: 2, color: Colors.black),
+                          ]
+                        : null,
+                  ),
+                ),
+                const Spacer(),
+                if (strays.isNotEmpty)
+                  Row(children: [
+                    for (final cat in strays.take(shown))
+                      Padding(
+                        padding: const EdgeInsets.only(right: 2),
+                        child: CatAvatar(
+                            store: store, catId: cat.id, size: 26),
+                      ),
+                    if (strays.length > shown)
+                      Text('+${strays.length - shown}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelSmall
+                              ?.copyWith(
+                                color: cover != null ? Colors.white : null,
+                                fontWeight: FontWeight.bold,
+                              )),
+                  ]),
+              ],
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
 class _FaceRow extends StatelessWidget {
   final CatalogStore store;
   final String clowderId;

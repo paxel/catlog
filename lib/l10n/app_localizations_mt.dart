@@ -220,6 +220,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get sortLabel => 'Issortja';
+
+  @override
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override

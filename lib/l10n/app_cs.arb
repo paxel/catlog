@@ -161,6 +161,7 @@
   "starterChipId": "Číslo čipu",
   "starterRemarks": "Poznámky",
   "captureFlier": "Vyfotit leták",
+  "sortLabel": "Řazení",
   "matchCandidatesTitle": "Možné shody",
   "noMatchCandidates": "Momentálně žádné možné shody.",
   "sameIdField": "Stejné {field}",

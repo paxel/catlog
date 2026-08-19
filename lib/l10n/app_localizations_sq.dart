@@ -219,6 +219,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get sortLabel => 'Rendit';
+
+  @override
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override

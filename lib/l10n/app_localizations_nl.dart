@@ -219,6 +219,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get captureFlier => 'Poster fotograferen';
 
   @override
+  String get sortLabel => 'Sorteren';
+
+  @override
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override

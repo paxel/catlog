@@ -219,6 +219,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get captureFlier => 'Fotografiar cartel';
 
   @override
+  String get sortLabel => 'Ordenar';
+
+  @override
   String get matchCandidatesTitle => 'Posibles coincidencias';
 
   @override

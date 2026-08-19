@@ -161,6 +161,7 @@
   "starterChipId": "Αριθμός τσιπ",
   "starterRemarks": "Σημειώσεις",
   "captureFlier": "Φωτογράφιση αφίσας",
+  "sortLabel": "Ταξινόμηση",
   "matchCandidatesTitle": "Πιθανές αντιστοιχίες",
   "noMatchCandidates": "Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.",
   "sameIdField": "Ίδιο {field}",

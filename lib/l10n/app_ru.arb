@@ -161,6 +161,7 @@
   "starterChipId": "Номер чипа",
   "starterRemarks": "Заметки",
   "captureFlier": "Сфотографировать объявление",
+  "sortLabel": "Сортировка",
   "matchCandidatesTitle": "Возможные совпадения",
   "noMatchCandidates": "Сейчас возможных совпадений нет.",
   "sameIdField": "Одинаковый {field}",

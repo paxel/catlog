@@ -161,6 +161,7 @@
   "starterChipId": "Broj čipa",
   "starterRemarks": "Napomene",
   "captureFlier": "Slikaj letak",
+  "sortLabel": "Sortiraj",
   "matchCandidatesTitle": "Mogući parovi",
   "noMatchCandidates": "Trenutno nema mogućih parova.",
   "sameIdField": "Isti {field}",

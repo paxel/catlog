@@ -219,6 +219,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get captureFlier => 'Fotografa volantino';
 
   @override
+  String get sortLabel => 'Ordina';
+
+  @override
   String get matchCandidatesTitle => 'Possibili corrispondenze';
 
   @override

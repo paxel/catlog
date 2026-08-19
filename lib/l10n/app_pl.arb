@@ -161,6 +161,7 @@
   "starterChipId": "Numer czipa",
   "starterRemarks": "Uwagi",
   "captureFlier": "Sfotografuj ogłoszenie",
+  "sortLabel": "Sortuj",
   "matchCandidatesTitle": "Możliwe dopasowania",
   "noMatchCandidates": "Obecnie brak możliwych dopasowań.",
   "sameIdField": "Ten sam {field}",

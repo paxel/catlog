@@ -219,6 +219,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get captureFlier => 'Slikaj letak';
 
   @override
+  String get sortLabel => 'Sortiraj';
+
+  @override
   String get matchCandidatesTitle => 'Mogući parovi';
 
   @override

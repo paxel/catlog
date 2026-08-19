@@ -554,6 +554,12 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @sortLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sortLabel;
+
   /// No description provided for @matchCandidatesTitle.
   ///
   /// In en, this message translates to:

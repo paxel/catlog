@@ -219,6 +219,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get captureFlier => 'Fotografiază afișul';
 
   @override
+  String get sortLabel => 'Sortare';
+
+  @override
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override

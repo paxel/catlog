@@ -219,6 +219,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get sortLabel => 'Rikiuoti';
+
+  @override
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override

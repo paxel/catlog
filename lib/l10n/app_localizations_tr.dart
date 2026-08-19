@@ -219,6 +219,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get sortLabel => 'Sırala';
+
+  @override
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override

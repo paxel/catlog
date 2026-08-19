@@ -161,6 +161,7 @@
   "starterChipId": "芯片号",
   "starterRemarks": "备注",
   "captureFlier": "拍摄寻猫启事",
+  "sortLabel": "排序",
   "matchCandidatesTitle": "疑似匹配",
   "noMatchCandidates": "当前没有疑似匹配。",
   "sameIdField": "相同的{field}",

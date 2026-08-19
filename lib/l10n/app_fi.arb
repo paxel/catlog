@@ -161,6 +161,7 @@
   "starterChipId": "Sirunumero",
   "starterRemarks": "Huomautukset",
   "captureFlier": "Kuvaa ilmoitus",
+  "sortLabel": "Järjestä",
   "matchCandidatesTitle": "Mahdolliset osumat",
   "noMatchCandidates": "Ei mahdollisia osumia juuri nyt.",
   "sameIdField": "Sama {field}",

@@ -219,6 +219,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get captureFlier => 'Заснемане на обява';
 
   @override
+  String get sortLabel => 'Сортиране';
+
+  @override
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override

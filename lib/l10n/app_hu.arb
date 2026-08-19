@@ -161,6 +161,7 @@
   "starterChipId": "Chipszám",
   "starterRemarks": "Megjegyzések",
   "captureFlier": "Plakát lefotózása",
+  "sortLabel": "Rendezés",
   "matchCandidatesTitle": "Lehetséges egyezések",
   "noMatchCandidates": "Jelenleg nincs lehetséges egyezés.",
   "sameIdField": "Azonos {field}",

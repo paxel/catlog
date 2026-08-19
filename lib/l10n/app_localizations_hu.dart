@@ -219,6 +219,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get sortLabel => 'Rendezés';
+
+  @override
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override

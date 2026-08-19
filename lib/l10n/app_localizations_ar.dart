@@ -219,6 +219,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get sortLabel => 'فرز';
+
+  @override
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override

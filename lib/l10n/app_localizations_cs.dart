@@ -219,6 +219,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get captureFlier => 'Vyfotit leták';
 
   @override
+  String get sortLabel => 'Řazení';
+
+  @override
   String get matchCandidatesTitle => 'Možné shody';
 
   @override

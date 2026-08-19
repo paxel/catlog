@@ -219,6 +219,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get sortLabel => 'Sórtáil';
+
+  @override
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override

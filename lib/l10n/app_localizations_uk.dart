@@ -219,6 +219,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get captureFlier => 'Сфотографувати оголошення';
 
   @override
+  String get sortLabel => 'Сортування';
+
+  @override
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override

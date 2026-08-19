@@ -219,6 +219,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get captureFlier => 'Photographier l\'affiche';
 
   @override
+  String get sortLabel => 'Trier';
+
+  @override
   String get matchCandidatesTitle => 'Correspondances possibles';
 
   @override

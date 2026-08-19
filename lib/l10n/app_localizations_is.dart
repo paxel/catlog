@@ -220,6 +220,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get captureFlier => 'Mynda auglýsingu';
 
   @override
+  String get sortLabel => 'Raða';
+
+  @override
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override

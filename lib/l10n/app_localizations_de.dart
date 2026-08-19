@@ -220,6 +220,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get captureFlier => 'Aushang erfassen';
 
   @override
+  String get sortLabel => 'Sortieren';
+
+  @override
   String get matchCandidatesTitle => 'Mögliche Treffer';
 
   @override

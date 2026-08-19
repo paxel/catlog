@@ -161,6 +161,7 @@
   "starterChipId": "Številka čipa",
   "starterRemarks": "Opombe",
   "captureFlier": "Fotografiraj letak",
+  "sortLabel": "Razvrsti",
   "matchCandidatesTitle": "Možna ujemanja",
   "noMatchCandidates": "Trenutno ni možnih ujemanj.",
   "sameIdField": "Enak {field}",

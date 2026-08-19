@@ -219,6 +219,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get captureFlier => 'Сликај оглас';
 
   @override
+  String get sortLabel => 'Сортирај';
+
+  @override
   String get matchCandidatesTitle => 'Могући парови';
 
   @override

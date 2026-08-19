@@ -92,6 +92,7 @@
   "starterChipId": "Chip ID",
   "starterRemarks": "Remarks",
   "captureFlier": "Capture flier",
+  "sortLabel": "Sort",
   "matchCandidatesTitle": "Match candidates",
   "noMatchCandidates": "No match candidates right now.",
   "sameIdField": "Same {field}",

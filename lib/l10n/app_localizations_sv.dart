@@ -219,6 +219,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get captureFlier => 'Fotografera anslag';
 
   @override
+  String get sortLabel => 'Sortera';
+
+  @override
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override

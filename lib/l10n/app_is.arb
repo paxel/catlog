@@ -161,6 +161,7 @@
   "starterChipId": "Örflögunúmer",
   "starterRemarks": "Athugasemdir",
   "captureFlier": "Mynda auglýsingu",
+  "sortLabel": "Raða",
   "matchCandidatesTitle": "Mögulegar samsvaranir",
   "noMatchCandidates": "Engar mögulegar samsvaranir núna.",
   "sameIdField": "Sama {field}",

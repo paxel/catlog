@@ -219,6 +219,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get captureFlier => 'Capture flier';
 
   @override
+  String get sortLabel => 'Sort';
+
+  @override
   String get matchCandidatesTitle => 'Match candidates';
 
   @override

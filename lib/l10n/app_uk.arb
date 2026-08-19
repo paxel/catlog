@@ -161,6 +161,7 @@
   "starterChipId": "Номер чипа",
   "starterRemarks": "Нотатки",
   "captureFlier": "Сфотографувати оголошення",
+  "sortLabel": "Сортування",
   "matchCandidatesTitle": "Можливі збіги",
   "noMatchCandidates": "Наразі можливих збігів немає.",
   "sameIdField": "Однаковий {field}",

@@ -219,6 +219,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get sortLabel => 'Kārtot';
+
+  @override
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override

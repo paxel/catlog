@@ -161,6 +161,7 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Merknader",
   "captureFlier": "Fotografer oppslag",
+  "sortLabel": "Sorter",
   "matchCandidatesTitle": "Mulige treff",
   "noMatchCandidates": "Ingen mulige treff akkurat nå.",
   "sameIdField": "Samme {field}",

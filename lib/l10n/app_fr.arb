@@ -161,6 +161,7 @@
   "starterChipId": "Numéro de puce",
   "starterRemarks": "Remarques",
   "captureFlier": "Photographier l'affiche",
+  "sortLabel": "Trier",
   "matchCandidatesTitle": "Correspondances possibles",
   "noMatchCandidates": "Aucune correspondance possible pour le moment.",
   "sameIdField": "Même {field}",

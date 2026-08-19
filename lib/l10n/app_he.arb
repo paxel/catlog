@@ -161,6 +161,7 @@
   "starterChipId": "מספר שבב",
   "starterRemarks": "הערות",
   "captureFlier": "צילום מודעה",
+  "sortLabel": "מיון",
   "matchCandidatesTitle": "התאמות אפשריות",
   "noMatchCandidates": "אין התאמות אפשריות כרגע.",
   "sameIdField": "{field} זהה",

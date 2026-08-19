@@ -161,6 +161,7 @@
   "starterChipId": "Çip numarası",
   "starterRemarks": "Notlar",
   "captureFlier": "İlanı fotoğrafla",
+  "sortLabel": "Sırala",
   "matchCandidatesTitle": "Olası eşleşmeler",
   "noMatchCandidates": "Şu anda olası eşleşme yok.",
   "sameIdField": "Aynı {field}",

@@ -161,6 +161,7 @@
   "starterChipId": "Número de chip",
   "starterRemarks": "Observaciones",
   "captureFlier": "Fotografiar cartel",
+  "sortLabel": "Ordenar",
   "matchCandidatesTitle": "Posibles coincidencias",
   "noMatchCandidates": "No hay posibles coincidencias ahora mismo.",
   "sameIdField": "Mismo {field}",

@@ -161,6 +161,7 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Bemærkninger",
   "captureFlier": "Fotografér opslag",
+  "sortLabel": "Sortér",
   "matchCandidatesTitle": "Mulige match",
   "noMatchCandidates": "Ingen mulige match lige nu.",
   "sameIdField": "Samme {field}",

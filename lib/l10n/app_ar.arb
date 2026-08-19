@@ -161,6 +161,7 @@
   "starterChipId": "رقم الشريحة",
   "starterRemarks": "ملاحظات",
   "captureFlier": "التقاط منشور",
+  "sortLabel": "فرز",
   "matchCandidatesTitle": "مرشّحو التطابق",
   "noMatchCandidates": "لا يوجد مرشّحون للتطابق حاليًا.",
   "sameIdField": "نفس {field}",

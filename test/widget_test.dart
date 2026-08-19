@@ -217,8 +217,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();
-    expect(find.text('Strays'), findsOneWidget);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Strays (1)'), findsOneWidget);
   });
 
   testWidgets('a stray can be created directly from the strays screen',
@@ -228,7 +227,7 @@ void main() {
     store.author = 'axel';
 
     await tester.pumpWidget(CatlogApp(store: store));
-    await tester.tap(find.text('Strays'));
+    await tester.tap(find.textContaining('Strays'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add stray'));
     await tester.pumpAndSettle();

@@ -161,6 +161,7 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Anmärkningar",
   "captureFlier": "Fotografera anslag",
+  "sortLabel": "Sortera",
   "matchCandidatesTitle": "Möjliga matchningar",
   "noMatchCandidates": "Inga möjliga matchningar just nu.",
   "sameIdField": "Samma {field}",

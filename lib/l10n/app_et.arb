@@ -161,6 +161,7 @@
   "starterChipId": "Kiibi number",
   "starterRemarks": "Märkused",
   "captureFlier": "Pildista kuulutust",
+  "sortLabel": "Sordi",
   "matchCandidatesTitle": "Võimalikud vasted",
   "noMatchCandidates": "Praegu pole võimalikke vasteid.",
   "sameIdField": "Sama {field}",

@@ -219,6 +219,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get sortLabel => 'Ταξινόμηση';
+
+  @override
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override

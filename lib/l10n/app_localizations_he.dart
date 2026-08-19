@@ -218,6 +218,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get sortLabel => 'מיון';
+
+  @override
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override

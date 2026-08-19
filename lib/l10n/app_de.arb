@@ -64,6 +64,7 @@
   "starterChipId": "Chip-Nummer",
   "starterRemarks": "Bemerkungen",
   "captureFlier": "Aushang erfassen",
+  "sortLabel": "Sortieren",
   "matchCandidatesTitle": "Mögliche Treffer",
   "noMatchCandidates": "Gerade keine möglichen Treffer.",
   "sameIdField": "Gleiche {field}",

@@ -219,6 +219,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get captureFlier => 'Kuvaa ilmoitus';
 
   @override
+  String get sortLabel => 'Järjestä';
+
+  @override
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override
