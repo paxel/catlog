@@ -62,7 +62,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   with the flier photo as provenance, an optional cropped portrait as the
   face, the location as a flier position, and scanned or recognized text
   prefilling chip ID, phone, and remarks (text recognition on Android and
-  iOS; editable everywhere). "Add flier" on a cat appends further fliers.
+  iOS, Latin-script text only; editable everywhere). "Add flier" on a cat appends further fliers.
 - **Match candidates**: a screen listing cats that might be the same
   animal — exact chip/ID matches first, then cats seen within 500 m of a
   flier or of each other, filterable by species. Confirming a pair is the
