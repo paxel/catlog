@@ -90,6 +90,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   Flier positions never appear as sighting pins, and a stray without any
   sighting is valid — it lives in lists and search, just not on the map.
 
+- Plausibility now also guards the family: a female father or male
+  mother, a parent born after its kitten, and gender changes that
+  contradict recorded parenthood are refused with the reason.
+
 ### Changed
 
 - Cat and clowder pages open read-only showing only filled fields, nicely
