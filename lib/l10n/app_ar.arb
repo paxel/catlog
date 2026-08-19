@@ -163,6 +163,8 @@
   "captureFlier": "التقاط منشور",
   "sortLabel": "فرز",
   "matchCandidatesTitle": "مرشّحو التطابق",
+  "strayAreaLabel": "منطقة التواجد المحتملة",
+  "noMissingCats": "لا توجد قطط مفقودة بمواقع منشورات بعد.",
   "noMatchCandidates": "لا يوجد مرشّحون للتطابق حاليًا.",
   "sameIdField": "نفس {field}",
   "metersApart": "يبعدان {distance} م",

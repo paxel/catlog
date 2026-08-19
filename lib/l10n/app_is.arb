@@ -163,6 +163,8 @@
   "captureFlier": "Mynda auglýsingu",
   "sortLabel": "Raða",
   "matchCandidatesTitle": "Mögulegar samsvaranir",
+  "strayAreaLabel": "Mögulegt flakkssvæði",
+  "noMissingCats": "Engir týndir kettir með auglýsingastaðsetningar enn.",
   "noMatchCandidates": "Engar mögulegar samsvaranir núna.",
   "sameIdField": "Sama {field}",
   "metersApart": "{distance} m á milli",

@@ -225,6 +225,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override
+  String get strayAreaLabel => 'Võimalik uitamisala';
+
+  @override
+  String get noMissingCats => 'Veel pole kadunud kasse kuulutuse asukohtadega.';
+
+  @override
   String get noMatchCandidates => 'Praegu pole võimalikke vasteid.';
 
   @override

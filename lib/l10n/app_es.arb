@@ -163,6 +163,8 @@
   "captureFlier": "Fotografiar cartel",
   "sortLabel": "Ordenar",
   "matchCandidatesTitle": "Posibles coincidencias",
+  "strayAreaLabel": "Posible zona de deambulación",
+  "noMissingCats": "Aún no hay gatos desaparecidos con posiciones de carteles.",
   "noMatchCandidates": "No hay posibles coincidencias ahora mismo.",
   "sameIdField": "Mismo {field}",
   "metersApart": "A {distance} m de distancia",

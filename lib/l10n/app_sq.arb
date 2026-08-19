@@ -163,6 +163,8 @@
   "captureFlier": "Fotografo fletushkën",
   "sortLabel": "Rendit",
   "matchCandidatesTitle": "Përputhje të mundshme",
+  "strayAreaLabel": "Zona e mundshme e endjes",
+  "noMissingCats": "Ende asnjë mace e humbur me pozicione fletushkash.",
   "noMatchCandidates": "Aktualisht s'ka përputhje të mundshme.",
   "sameIdField": "I njëjti {field}",
   "metersApart": "{distance} m larg njëri-tjetrit",

@@ -225,6 +225,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get matchCandidatesTitle => 'Możliwe dopasowania';
 
   @override
+  String get strayAreaLabel => 'Możliwy obszar wędrówki';
+
+  @override
+  String get noMissingCats => 'Brak zaginionych kotów z pozycjami ogłoszeń.';
+
+  @override
   String get noMatchCandidates => 'Obecnie brak możliwych dopasowań.';
 
   @override

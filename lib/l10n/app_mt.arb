@@ -163,6 +163,8 @@
   "captureFlier": "Ħu ritratt tal-flier",
   "sortLabel": "Issortja",
   "matchCandidatesTitle": "Tqabbil possibbli",
+  "strayAreaLabel": "Żona possibbli ta' vagabondaġġ",
+  "noMissingCats": "Għad m'hemmx qtates mitlufa b'pożizzjonijiet ta' fliers.",
   "noMatchCandidates": "M'hemm l-ebda tqabbil possibbli bħalissa.",
   "sameIdField": "L-istess {field}",
   "metersApart": "{distance} m 'il bogħod",

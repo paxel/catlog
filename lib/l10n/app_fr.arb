@@ -163,6 +163,8 @@
   "captureFlier": "Photographier l'affiche",
   "sortLabel": "Trier",
   "matchCandidatesTitle": "Correspondances possibles",
+  "strayAreaLabel": "Zone d'errance possible",
+  "noMissingCats": "Pas encore de chats disparus avec des positions d'affiches.",
   "noMatchCandidates": "Aucune correspondance possible pour le moment.",
   "sameIdField": "Même {field}",
   "metersApart": "À {distance} m l'un de l'autre",

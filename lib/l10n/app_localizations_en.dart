@@ -225,6 +225,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get matchCandidatesTitle => 'Match candidates';
 
   @override
+  String get strayAreaLabel => 'Possible stray area';
+
+  @override
+  String get noMissingCats => 'No missing cats with flier positions yet.';
+
+  @override
   String get noMatchCandidates => 'No match candidates right now.';
 
   @override

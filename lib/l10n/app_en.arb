@@ -94,6 +94,8 @@
   "captureFlier": "Capture flier",
   "sortLabel": "Sort",
   "matchCandidatesTitle": "Match candidates",
+  "strayAreaLabel": "Possible stray area",
+  "noMissingCats": "No missing cats with flier positions yet.",
   "noMatchCandidates": "No match candidates right now.",
   "sameIdField": "Same {field}",
   "metersApart": "{distance} m apart",

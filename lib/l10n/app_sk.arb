@@ -163,6 +163,8 @@
   "captureFlier": "Odfotiť leták",
   "sortLabel": "Zoradiť",
   "matchCandidatesTitle": "Možné zhody",
+  "strayAreaLabel": "Možná oblasť túlania",
+  "noMissingCats": "Zatiaľ žiadne nezvestné mačky s pozíciami letákov.",
   "noMatchCandidates": "Momentálne žiadne možné zhody.",
   "sameIdField": "Rovnaké {field}",
   "metersApart": "Vzdialené {distance} m",

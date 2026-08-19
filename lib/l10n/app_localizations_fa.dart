@@ -225,6 +225,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override
+  String get strayAreaLabel => 'محدودهٔ احتمالی پرسه‌زنی';
+
+  @override
+  String get noMissingCats => 'هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.';
+
+  @override
   String get noMatchCandidates => 'در حال حاضر موردی برای تطبیق نیست.';
 
   @override

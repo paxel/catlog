@@ -225,6 +225,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override
+  String get strayAreaLabel => 'Galima klajojimo zona';
+
+  @override
+  String get noMissingCats =>
+      'Kol kas nėra dingusių kačių su skelbimų vietomis.';
+
+  @override
   String get noMatchCandidates => 'Šiuo metu galimų atitikmenų nėra.';
 
   @override

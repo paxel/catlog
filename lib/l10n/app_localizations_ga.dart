@@ -225,6 +225,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override
+  String get strayAreaLabel => 'Limistéar fánaíochta féideartha';
+
+  @override
+  String get noMissingCats =>
+      'Níl aon chait ar iarraidh le suíomhanna bileog fós.';
+
+  @override
   String get noMatchCandidates =>
       'Níl aon mheaitseáil fhéideartha faoi láthair.';
 

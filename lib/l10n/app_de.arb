@@ -66,6 +66,8 @@
   "captureFlier": "Aushang erfassen",
   "sortLabel": "Sortieren",
   "matchCandidatesTitle": "Mögliche Treffer",
+  "strayAreaLabel": "Mögliches Streifgebiet",
+  "noMissingCats": "Noch keine vermissten Katzen mit Aushang-Positionen.",
   "noMatchCandidates": "Gerade keine möglichen Treffer.",
   "sameIdField": "Gleiche {field}",
   "metersApart": "{distance} m voneinander entfernt",

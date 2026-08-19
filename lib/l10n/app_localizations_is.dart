@@ -226,6 +226,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override
+  String get strayAreaLabel => 'Mögulegt flakkssvæði';
+
+  @override
+  String get noMissingCats =>
+      'Engir týndir kettir með auglýsingastaðsetningar enn.';
+
+  @override
   String get noMatchCandidates => 'Engar mögulegar samsvaranir núna.';
 
   @override

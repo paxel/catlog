@@ -163,6 +163,8 @@
   "captureFlier": "Sfotografuj ogłoszenie",
   "sortLabel": "Sortuj",
   "matchCandidatesTitle": "Możliwe dopasowania",
+  "strayAreaLabel": "Możliwy obszar wędrówki",
+  "noMissingCats": "Brak zaginionych kotów z pozycjami ogłoszeń.",
   "noMatchCandidates": "Obecnie brak możliwych dopasowań.",
   "sameIdField": "Ten sam {field}",
   "metersApart": "W odległości {distance} m",

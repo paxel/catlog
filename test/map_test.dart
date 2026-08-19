@@ -65,6 +65,43 @@ void main() {
   });
 
 
+  testWidgets('the stray-area overlay draws 500 m flier circles',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_area');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final missing = store.createCat('Minka');
+    store.recordPosition(missing, 48.1, 11.5, kind: PositionKind.flier);
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    // No circles until the overlay is toggled on.
+    expect(find.byType(CircleLayer), findsNothing);
+    await tester.tap(find.byTooltip('Possible stray area'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(CheckboxListTile));
+    await tester.pumpAndSettle();
+    // Close the sheet.
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
+    final layer =
+        tester.widget<CircleLayer>(find.byType(CircleLayer));
+    expect(layer.circles, hasLength(1));
+    expect(layer.circles.single.radius, 500.0);
+    expect(layer.circles.single.useRadiusInMeter, isTrue);
+  });
+
   testWidgets('picker geocode search jumps the map via the stub',
       (tester) async {
     final dir = Directory.systemTemp.createTempSync('catlog_picker');

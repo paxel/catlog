@@ -163,6 +163,8 @@
   "captureFlier": "Nufotografuoti skelbimą",
   "sortLabel": "Rikiuoti",
   "matchCandidatesTitle": "Galimi atitikmenys",
+  "strayAreaLabel": "Galima klajojimo zona",
+  "noMissingCats": "Kol kas nėra dingusių kačių su skelbimų vietomis.",
   "noMatchCandidates": "Šiuo metu galimų atitikmenų nėra.",
   "sameIdField": "Tas pats {field}",
   "metersApart": "{distance} m atstumu",

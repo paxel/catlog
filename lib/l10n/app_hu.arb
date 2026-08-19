@@ -163,6 +163,8 @@
   "captureFlier": "Plakát lefotózása",
   "sortLabel": "Rendezés",
   "matchCandidatesTitle": "Lehetséges egyezések",
+  "strayAreaLabel": "Lehetséges kóborlási terület",
+  "noMissingCats": "Még nincs eltűnt macska plakátpozícióval.",
   "noMatchCandidates": "Jelenleg nincs lehetséges egyezés.",
   "sameIdField": "Azonos {field}",
   "metersApart": "{distance} m-re egymástól",

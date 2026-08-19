@@ -163,6 +163,8 @@
   "captureFlier": "Fotografa volantino",
   "sortLabel": "Ordina",
   "matchCandidatesTitle": "Possibili corrispondenze",
+  "strayAreaLabel": "Possibile area di vagabondaggio",
+  "noMissingCats": "Ancora nessun gatto scomparso con posizioni di volantini.",
   "noMatchCandidates": "Nessuna possibile corrispondenza al momento.",
   "sameIdField": "Stesso {field}",
   "metersApart": "A {distance} m di distanza",

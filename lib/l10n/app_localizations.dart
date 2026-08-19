@@ -566,6 +566,18 @@ abstract class AppLocalizations {
   /// **'Match candidates'**
   String get matchCandidatesTitle;
 
+  /// No description provided for @strayAreaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Possible stray area'**
+  String get strayAreaLabel;
+
+  /// No description provided for @noMissingCats.
+  ///
+  /// In en, this message translates to:
+  /// **'No missing cats with flier positions yet.'**
+  String get noMissingCats;
+
   /// No description provided for @noMatchCandidates.
   ///
   /// In en, this message translates to:

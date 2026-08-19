@@ -163,6 +163,8 @@
   "captureFlier": "Grianghraf den bhileog",
   "sortLabel": "Sórtáil",
   "matchCandidatesTitle": "Meaitseálacha féideartha",
+  "strayAreaLabel": "Limistéar fánaíochta féideartha",
+  "noMissingCats": "Níl aon chait ar iarraidh le suíomhanna bileog fós.",
   "noMatchCandidates": "Níl aon mheaitseáil fhéideartha faoi láthair.",
   "sameIdField": "{field} céanna",
   "metersApart": "{distance} m óna chéile",

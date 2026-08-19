@@ -216,6 +216,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get matchCandidatesTitle => '疑似匹配';
 
   @override
+  String get strayAreaLabel => '可能的活动范围';
+
+  @override
+  String get noMissingCats => '还没有带启事位置的走失猫。';
+
+  @override
   String get noMatchCandidates => '当前没有疑似匹配。';
 
   @override

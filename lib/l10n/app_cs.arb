@@ -163,6 +163,8 @@
   "captureFlier": "Vyfotit leták",
   "sortLabel": "Řazení",
   "matchCandidatesTitle": "Možné shody",
+  "strayAreaLabel": "Možná oblast toulání",
+  "noMissingCats": "Zatím žádné pohřešované kočky s pozicemi letáků.",
   "noMatchCandidates": "Momentálně žádné možné shody.",
   "sameIdField": "Stejné {field}",
   "metersApart": "Vzdálenost {distance} m",

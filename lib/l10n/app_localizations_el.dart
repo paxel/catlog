@@ -225,6 +225,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override
+  String get strayAreaLabel => 'Πιθανή περιοχή περιπλάνησης';
+
+  @override
+  String get noMissingCats => 'Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.';
+
+  @override
   String get noMatchCandidates => 'Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.';
 
   @override

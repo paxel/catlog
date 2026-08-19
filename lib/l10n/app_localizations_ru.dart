@@ -225,6 +225,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override
+  String get strayAreaLabel => 'Возможная зона блуждания';
+
+  @override
+  String get noMissingCats =>
+      'Пока нет пропавших кошек с позициями объявлений.';
+
+  @override
   String get noMatchCandidates => 'Сейчас возможных совпадений нет.';
 
   @override

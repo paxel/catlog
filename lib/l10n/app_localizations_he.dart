@@ -224,6 +224,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override
+  String get strayAreaLabel => 'אזור שיטוט אפשרי';
+
+  @override
+  String get noMissingCats => 'אין עדיין חתולים נעדרים עם מיקומי מודעות.';
+
+  @override
   String get noMatchCandidates => 'אין התאמות אפשריות כרגע.';
 
   @override

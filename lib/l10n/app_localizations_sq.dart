@@ -225,6 +225,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override
+  String get strayAreaLabel => 'Zona e mundshme e endjes';
+
+  @override
+  String get noMissingCats =>
+      'Ende asnjë mace e humbur me pozicione fletushkash.';
+
+  @override
   String get noMatchCandidates => 'Aktualisht s\'ka përputhje të mundshme.';
 
   @override

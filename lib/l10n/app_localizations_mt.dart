@@ -226,6 +226,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override
+  String get strayAreaLabel => 'Żona possibbli ta\' vagabondaġġ';
+
+  @override
+  String get noMissingCats =>
+      'Għad m\'hemmx qtates mitlufa b\'pożizzjonijiet ta\' fliers.';
+
+  @override
   String get noMatchCandidates => 'M\'hemm l-ebda tqabbil possibbli bħalissa.';
 
   @override

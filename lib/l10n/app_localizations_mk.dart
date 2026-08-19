@@ -225,6 +225,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get matchCandidatesTitle => 'Можни совпаѓања';
 
   @override
+  String get strayAreaLabel => 'Можна зона на талкање';
+
+  @override
+  String get noMissingCats =>
+      'Сè уште нема исчезнати мачки со позиции на огласи.';
+
+  @override
   String get noMatchCandidates => 'Моментално нема можни совпаѓања.';
 
   @override

@@ -225,6 +225,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override
+  String get strayAreaLabel => 'Möjligt strövområde';
+
+  @override
+  String get noMissingCats =>
+      'Inga försvunna katter med anslagspositioner ännu.';
+
+  @override
   String get noMatchCandidates => 'Inga möjliga matchningar just nu.';
 
   @override

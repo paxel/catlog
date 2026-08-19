@@ -225,6 +225,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override
+  String get strayAreaLabel => 'Možná oblasť túlania';
+
+  @override
+  String get noMissingCats =>
+      'Zatiaľ žiadne nezvestné mačky s pozíciami letákov.';
+
+  @override
   String get noMatchCandidates => 'Momentálne žiadne možné zhody.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "Slikaj letak",
   "sortLabel": "Sortiraj",
   "matchCandidatesTitle": "Mogući parovi",
+  "strayAreaLabel": "Moguće područje lutanja",
+  "noMissingCats": "Još nema nestalih mačaka s pozicijama letaka.",
   "noMatchCandidates": "Trenutno nema mogućih parova.",
   "sameIdField": "Isti {field}",
   "metersApart": "Udaljeni {distance} m",

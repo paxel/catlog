@@ -225,6 +225,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override
+  String get strayAreaLabel => 'Mogelijk zwerfgebied';
+
+  @override
+  String get noMissingCats => 'Nog geen vermiste katten met posterposities.';
+
+  @override
   String get noMatchCandidates => 'Momenteel geen mogelijke matches.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "チラシを撮影",
   "sortLabel": "並べ替え",
   "matchCandidatesTitle": "一致候補",
+  "strayAreaLabel": "想定される行動範囲",
+  "noMissingCats": "チラシの位置が登録された迷子猫はまだいません。",
   "noMatchCandidates": "現在、一致候補はありません。",
   "sameIdField": "同じ{field}",
   "metersApart": "{distance} m 離れています",

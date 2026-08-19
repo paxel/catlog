@@ -163,6 +163,8 @@
   "captureFlier": "عکس از آگهی",
   "sortLabel": "مرتب‌سازی",
   "matchCandidatesTitle": "موارد تطبیق احتمالی",
+  "strayAreaLabel": "محدودهٔ احتمالی پرسه‌زنی",
+  "noMissingCats": "هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.",
   "noMatchCandidates": "در حال حاضر موردی برای تطبیق نیست.",
   "sameIdField": "{field} یکسان",
   "metersApart": "{distance} متر فاصله",

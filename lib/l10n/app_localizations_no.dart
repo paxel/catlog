@@ -225,6 +225,13 @@ class AppLocalizationsNo extends AppLocalizations {
   String get matchCandidatesTitle => 'Mulige treff';
 
   @override
+  String get strayAreaLabel => 'Mulig streifområde';
+
+  @override
+  String get noMissingCats =>
+      'Ingen savnede katter med oppslagsposisjoner ennå.';
+
+  @override
   String get noMatchCandidates => 'Ingen mulige treff akkurat nå.';
 
   @override

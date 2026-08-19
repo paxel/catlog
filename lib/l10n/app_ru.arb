@@ -163,6 +163,8 @@
   "captureFlier": "Сфотографировать объявление",
   "sortLabel": "Сортировка",
   "matchCandidatesTitle": "Возможные совпадения",
+  "strayAreaLabel": "Возможная зона блуждания",
+  "noMissingCats": "Пока нет пропавших кошек с позициями объявлений.",
   "noMatchCandidates": "Сейчас возможных совпадений нет.",
   "sameIdField": "Одинаковый {field}",
   "metersApart": "В {distance} м друг от друга",

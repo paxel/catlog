@@ -225,6 +225,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get matchCandidatesTitle => 'Possíveis correspondências';
 
   @override
+  String get strayAreaLabel => 'Possível zona de deambulação';
+
+  @override
+  String get noMissingCats =>
+      'Ainda sem gatos desaparecidos com posições de cartazes.';
+
+  @override
   String get noMatchCandidates => 'Sem possíveis correspondências de momento.';
 
   @override

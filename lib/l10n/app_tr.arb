@@ -163,6 +163,8 @@
   "captureFlier": "İlanı fotoğrafla",
   "sortLabel": "Sırala",
   "matchCandidatesTitle": "Olası eşleşmeler",
+  "strayAreaLabel": "Olası dolaşma alanı",
+  "noMissingCats": "Henüz ilan konumu olan kayıp kedi yok.",
   "noMatchCandidates": "Şu anda olası eşleşme yok.",
   "sameIdField": "Aynı {field}",
   "metersApart": "Aralarında {distance} m var",

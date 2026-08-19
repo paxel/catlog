@@ -225,6 +225,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override
+  String get strayAreaLabel => 'Mahdollinen kulkualue';
+
+  @override
+  String get noMissingCats =>
+      'Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.';
+
+  @override
   String get noMatchCandidates => 'Ei mahdollisia osumia juuri nyt.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "Fotografiază afișul",
   "sortLabel": "Sortare",
   "matchCandidatesTitle": "Potriviri posibile",
+  "strayAreaLabel": "Zonă posibilă de hoinăreală",
+  "noMissingCats": "Încă nicio pisică dispărută cu poziții de afișe.",
   "noMatchCandidates": "Nicio potrivire posibilă momentan.",
   "sameIdField": "Același {field}",
   "metersApart": "La {distance} m distanță",

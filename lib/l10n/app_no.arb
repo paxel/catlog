@@ -163,6 +163,8 @@
   "captureFlier": "Fotografer oppslag",
   "sortLabel": "Sorter",
   "matchCandidatesTitle": "Mulige treff",
+  "strayAreaLabel": "Mulig streifområde",
+  "noMissingCats": "Ingen savnede katter med oppslagsposisjoner ennå.",
   "noMatchCandidates": "Ingen mulige treff akkurat nå.",
   "sameIdField": "Samme {field}",
   "metersApart": "{distance} m fra hverandre",

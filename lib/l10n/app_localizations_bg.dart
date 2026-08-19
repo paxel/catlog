@@ -225,6 +225,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override
+  String get strayAreaLabel => 'Възможна зона на скитане';
+
+  @override
+  String get noMissingCats => 'Още няма изчезнали котки с позиции на обяви.';
+
+  @override
   String get noMatchCandidates => 'В момента няма кандидати за съвпадение.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "צילום מודעה",
   "sortLabel": "מיון",
   "matchCandidatesTitle": "התאמות אפשריות",
+  "strayAreaLabel": "אזור שיטוט אפשרי",
+  "noMissingCats": "אין עדיין חתולים נעדרים עם מיקומי מודעות.",
   "noMatchCandidates": "אין התאמות אפשריות כרגע.",
   "sameIdField": "{field} זהה",
   "metersApart": "במרחק {distance} מ' זה מזה",

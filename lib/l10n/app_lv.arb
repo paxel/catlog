@@ -163,6 +163,8 @@
   "captureFlier": "Nofotografēt sludinājumu",
   "sortLabel": "Kārtot",
   "matchCandidatesTitle": "Iespējamās sakritības",
+  "strayAreaLabel": "Iespējamā klejošanas zona",
+  "noMissingCats": "Vēl nav pazudušu kaķu ar sludinājumu pozīcijām.",
   "noMatchCandidates": "Šobrīd nav iespējamu sakritību.",
   "sameIdField": "Tas pats {field}",
   "metersApart": "{distance} m attālumā",

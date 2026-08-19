@@ -45,6 +45,10 @@ class _MapScreenState extends State<MapScreen> {
   /// Cat whose movement trail is drawn; tap its pin to toggle.
   String? _trailCat;
 
+  /// Missing cats whose possible stray area (500 m circles around their
+  /// flier positions) is overlaid (#31).
+  final _strayAreas = <String>{};
+
   CatalogStore get store => widget.store;
 
   /// Dated sighting positions of a cat, oldest first — flier positions
@@ -117,6 +121,52 @@ class _MapScreenState extends State<MapScreen> {
     if (catId == null) return;
     store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
+  }
+
+  /// Missing cats (any cat with flier positions) offered as overlay
+  /// toggles; the chosen ones get their 500 m circles drawn.
+  Future<void> _pickStrayAreas() async {
+    final missing = [
+      for (final cat in store.visibleCats())
+        if (store.flierPositions(cat.id).isNotEmpty) cat
+    ];
+    await showModalBottomSheet<void>(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setSheet) => SafeArea(
+          child: ListView(shrinkWrap: true, children: [
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(context.t.strayAreaLabel,
+                  style: Theme.of(context).textTheme.titleMedium),
+            ),
+            if (missing.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(context.t.noMissingCats),
+              ),
+            for (final cat in missing)
+              CheckboxListTile(
+                value: _strayAreas.contains(cat.id),
+                title: Text(cat.name),
+                secondary:
+                    CatAvatar(store: store, catId: cat.id, size: 36),
+                onChanged: (on) {
+                  setSheet(() {});
+                  setState(() {
+                    if (on == true) {
+                      _strayAreas.add(cat.id);
+                    } else {
+                      _strayAreas.remove(cat.id);
+                    }
+                  });
+                },
+              ),
+          ]),
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
   }
 
   /// A stray's face for its map pin: profile photo in a ring, paw icon
@@ -224,6 +274,13 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.t.map),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.layers_outlined),
+            tooltip: context.t.strayAreaLabel,
+            onPressed: _pickStrayAreas,
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
           child: Spotlight(
@@ -290,6 +347,21 @@ class _MapScreenState extends State<MapScreen> {
             // delays them (and never finishes under the test clock).
             tileDisplay: const TileDisplay.instantaneous(),
           ),
+          if (_strayAreas.isNotEmpty)
+            CircleLayer(circles: [
+              // The union of fixed 500 m circles around each selected
+              // missing cat's flier positions — no radius knob (#31).
+              for (final catId in _strayAreas)
+                for (final pos in store.flierPositions(catId))
+                  CircleMarker(
+                    point: LatLng(pos.$1, pos.$2),
+                    radius: strayAreaRadiusMeters,
+                    useRadiusInMeter: true,
+                    color: Colors.orange.withValues(alpha: 0.18),
+                    borderColor: Colors.deepOrange,
+                    borderStrokeWidth: 2,
+                  ),
+            ]),
           MarkerLayer(markers: [
             for (final (clowder, point) in clowders)
               Marker(

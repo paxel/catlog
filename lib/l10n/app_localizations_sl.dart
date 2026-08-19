@@ -225,6 +225,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get matchCandidatesTitle => 'Možna ujemanja';
 
   @override
+  String get strayAreaLabel => 'Možno območje potepanja';
+
+  @override
+  String get noMissingCats => 'Še ni pogrešanih mačk s položaji letakov.';
+
+  @override
   String get noMatchCandidates => 'Trenutno ni možnih ujemanj.';
 
   @override

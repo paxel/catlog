@@ -225,6 +225,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override
+  String get strayAreaLabel => 'Iespējamā klejošanas zona';
+
+  @override
+  String get noMissingCats => 'Vēl nav pazudušu kaķu ar sludinājumu pozīcijām.';
+
+  @override
   String get noMatchCandidates => 'Šobrīd nav iespējamu sakritību.';
 
   @override

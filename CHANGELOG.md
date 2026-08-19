@@ -67,6 +67,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   animal — exact chip/ID matches first, then cats seen within 500 m of a
   flier or of each other, filterable by species. Confirming a pair is the
   familiar merge, with the survivor of your choice.
+- **Possible stray area**: toggle a 500 m circle overlay around a missing
+  cat's flier positions on the map — the radius most lost cats are found
+  within.
 - Positions now know their kind: live sightings versus flier locations.
   Flier positions never appear as sighting pins, and a stray without any
   sighting is valid — it lives in lists and search, just not on the map.

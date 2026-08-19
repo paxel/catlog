@@ -163,6 +163,8 @@
   "captureFlier": "Pildista kuulutust",
   "sortLabel": "Sordi",
   "matchCandidatesTitle": "Võimalikud vasted",
+  "strayAreaLabel": "Võimalik uitamisala",
+  "noMissingCats": "Veel pole kadunud kasse kuulutuse asukohtadega.",
   "noMatchCandidates": "Praegu pole võimalikke vasteid.",
   "sameIdField": "Sama {field}",
   "metersApart": "{distance} m kaugusel",

@@ -163,6 +163,8 @@
   "captureFlier": "Φωτογράφιση αφίσας",
   "sortLabel": "Ταξινόμηση",
   "matchCandidatesTitle": "Πιθανές αντιστοιχίες",
+  "strayAreaLabel": "Πιθανή περιοχή περιπλάνησης",
+  "noMissingCats": "Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.",
   "noMatchCandidates": "Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.",
   "sameIdField": "Ίδιο {field}",
   "metersApart": "Απέχουν {distance} μ.",

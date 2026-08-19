@@ -225,6 +225,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné shody';
 
   @override
+  String get strayAreaLabel => 'Možná oblast toulání';
+
+  @override
+  String get noMissingCats =>
+      'Zatím žádné pohřešované kočky s pozicemi letáků.';
+
+  @override
   String get noMatchCandidates => 'Momentálně žádné možné shody.';
 
   @override

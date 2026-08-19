@@ -225,6 +225,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override
+  String get strayAreaLabel => 'Zonă posibilă de hoinăreală';
+
+  @override
+  String get noMissingCats =>
+      'Încă nicio pisică dispărută cu poziții de afișe.';
+
+  @override
   String get noMatchCandidates => 'Nicio potrivire posibilă momentan.';
 
   @override

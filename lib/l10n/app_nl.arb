@@ -163,6 +163,8 @@
   "captureFlier": "Poster fotograferen",
   "sortLabel": "Sorteren",
   "matchCandidatesTitle": "Mogelijke matches",
+  "strayAreaLabel": "Mogelijk zwerfgebied",
+  "noMissingCats": "Nog geen vermiste katten met posterposities.",
   "noMatchCandidates": "Momenteel geen mogelijke matches.",
   "sameIdField": "Zelfde {field}",
   "metersApart": "{distance} m van elkaar",

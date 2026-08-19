@@ -163,6 +163,8 @@
   "captureFlier": "Kuvaa ilmoitus",
   "sortLabel": "Järjestä",
   "matchCandidatesTitle": "Mahdolliset osumat",
+  "strayAreaLabel": "Mahdollinen kulkualue",
+  "noMissingCats": "Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.",
   "noMatchCandidates": "Ei mahdollisia osumia juuri nyt.",
   "sameIdField": "Sama {field}",
   "metersApart": "{distance} m päässä toisistaan",

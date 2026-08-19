@@ -225,6 +225,12 @@ class AppLocalizationsBs extends AppLocalizations {
   String get matchCandidatesTitle => 'Mogući parovi';
 
   @override
+  String get strayAreaLabel => 'Moguće područje lutanja';
+
+  @override
+  String get noMissingCats => 'Još nema nestalih mačaka s pozicijama letaka.';
+
+  @override
   String get noMatchCandidates => 'Trenutno nema mogućih parova.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "Fotografiraj letak",
   "sortLabel": "Razvrsti",
   "matchCandidatesTitle": "Možna ujemanja",
+  "strayAreaLabel": "Možno območje potepanja",
+  "noMissingCats": "Še ni pogrešanih mačk s položaji letakov.",
   "noMatchCandidates": "Trenutno ni možnih ujemanj.",
   "sameIdField": "Enak {field}",
   "metersApart": "{distance} m narazen",

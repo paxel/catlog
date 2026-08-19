@@ -163,6 +163,8 @@
   "captureFlier": "Fotografar cartaz",
   "sortLabel": "Ordenar",
   "matchCandidatesTitle": "Possíveis correspondências",
+  "strayAreaLabel": "Possível zona de deambulação",
+  "noMissingCats": "Ainda sem gatos desaparecidos com posições de cartazes.",
   "noMatchCandidates": "Sem possíveis correspondências de momento.",
   "sameIdField": "Mesmo {field}",
   "metersApart": "A {distance} m de distância",

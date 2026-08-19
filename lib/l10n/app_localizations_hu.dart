@@ -225,6 +225,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override
+  String get strayAreaLabel => 'Lehetséges kóborlási terület';
+
+  @override
+  String get noMissingCats => 'Még nincs eltűnt macska plakátpozícióval.';
+
+  @override
   String get noMatchCandidates => 'Jelenleg nincs lehetséges egyezés.';
 
   @override

@@ -222,6 +222,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get matchCandidatesTitle => '一致候補';
 
   @override
+  String get strayAreaLabel => '想定される行動範囲';
+
+  @override
+  String get noMissingCats => 'チラシの位置が登録された迷子猫はまだいません。';
+
+  @override
   String get noMatchCandidates => '現在、一致候補はありません。';
 
   @override

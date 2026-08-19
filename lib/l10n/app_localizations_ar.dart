@@ -225,6 +225,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override
+  String get strayAreaLabel => 'منطقة التواجد المحتملة';
+
+  @override
+  String get noMissingCats => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
+
+  @override
   String get noMatchCandidates => 'لا يوجد مرشّحون للتطابق حاليًا.';
 
   @override

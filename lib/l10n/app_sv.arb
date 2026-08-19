@@ -163,6 +163,8 @@
   "captureFlier": "Fotografera anslag",
   "sortLabel": "Sortera",
   "matchCandidatesTitle": "Möjliga matchningar",
+  "strayAreaLabel": "Möjligt strövområde",
+  "noMissingCats": "Inga försvunna katter med anslagspositioner ännu.",
   "noMatchCandidates": "Inga möjliga matchningar just nu.",
   "sameIdField": "Samma {field}",
   "metersApart": "{distance} m ifrån varandra",

@@ -225,6 +225,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override
+  String get strayAreaLabel => 'Можлива зона блукання';
+
+  @override
+  String get noMissingCats =>
+      'Поки немає зниклих котів із позиціями оголошень.';
+
+  @override
   String get noMatchCandidates => 'Наразі можливих збігів немає.';
 
   @override

@@ -163,6 +163,8 @@
   "captureFlier": "Заснемане на обява",
   "sortLabel": "Сортиране",
   "matchCandidatesTitle": "Кандидати за съвпадение",
+  "strayAreaLabel": "Възможна зона на скитане",
+  "noMissingCats": "Още няма изчезнали котки с позиции на обяви.",
   "noMatchCandidates": "В момента няма кандидати за съвпадение.",
   "sameIdField": "Еднакъв {field}",
   "metersApart": "На {distance} м един от друг",

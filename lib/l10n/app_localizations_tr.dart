@@ -225,6 +225,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override
+  String get strayAreaLabel => 'Olası dolaşma alanı';
+
+  @override
+  String get noMissingCats => 'Henüz ilan konumu olan kayıp kedi yok.';
+
+  @override
   String get noMatchCandidates => 'Şu anda olası eşleşme yok.';
 
   @override

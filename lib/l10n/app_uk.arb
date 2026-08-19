@@ -163,6 +163,8 @@
   "captureFlier": "Сфотографувати оголошення",
   "sortLabel": "Сортування",
   "matchCandidatesTitle": "Можливі збіги",
+  "strayAreaLabel": "Можлива зона блукання",
+  "noMissingCats": "Поки немає зниклих котів із позиціями оголошень.",
   "noMatchCandidates": "Наразі можливих збігів немає.",
   "sameIdField": "Однаковий {field}",
   "metersApart": "На відстані {distance} м",
