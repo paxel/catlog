@@ -159,6 +159,7 @@
   "locationNoFix": "Не вдалося визначити вашу позицію. Спробуйте ще раз просто неба — GPS потрібен відкритий огляд неба.",
   "ok": "OK",
   "starterChipId": "Номер чипа",
+  "starterRemarks": "Нотатки",
   "displayFormat": "Показується як",
   "displayPlain": "Звичайний текст",
   "displayQr": "QR-код",

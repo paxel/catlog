@@ -159,6 +159,7 @@
   "locationNoFix": "Níorbh fhéidir do shuíomh a dhéanamh amach anois. Bain triail eile as amuigh faoin aer — teastaíonn radharc glan ar an spéir ón GPS.",
   "ok": "OK",
   "starterChipId": "Uimhir slise",
+  "starterRemarks": "Nótaí",
   "displayFormat": "Taispeántar mar",
   "displayPlain": "Gnáth-théacs",
   "displayQr": "Cód QR",

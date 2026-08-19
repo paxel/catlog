@@ -213,6 +213,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterChipId => 'Chip ID';
 
   @override
+  String get starterRemarks => 'Remarks';
+
+  @override
   String get displayFormat => 'Shown as';
 
   @override

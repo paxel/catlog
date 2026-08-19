@@ -213,6 +213,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterChipId => 'Chipnummer';
 
   @override
+  String get starterRemarks => 'Bemærkninger';
+
+  @override
   String get displayFormat => 'Vises som';
 
   @override

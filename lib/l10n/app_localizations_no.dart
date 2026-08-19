@@ -213,6 +213,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get starterChipId => 'Chipnummer';
 
   @override
+  String get starterRemarks => 'Merknader';
+
+  @override
   String get displayFormat => 'Vises som';
 
   @override

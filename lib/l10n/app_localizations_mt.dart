@@ -214,6 +214,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterChipId => 'Numru taċ-ċippa';
 
   @override
+  String get starterRemarks => 'Rimarki';
+
+  @override
   String get displayFormat => 'Muri bħala';
 
   @override

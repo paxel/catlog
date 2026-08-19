@@ -159,6 +159,7 @@
   "locationNoFix": "تعذّر تحديد موقعك الآن. حاول مجددًا في الخارج — يحتاج GPS إلى رؤية واضحة للسماء.",
   "ok": "حسنًا",
   "starterChipId": "رقم الشريحة",
+  "starterRemarks": "ملاحظات",
   "displayFormat": "يعرض كـ",
   "displayPlain": "نص عادي",
   "displayQr": "رمز QR",

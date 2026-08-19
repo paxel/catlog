@@ -214,6 +214,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get starterChipId => 'Chip-Nummer';
 
   @override
+  String get starterRemarks => 'Bemerkungen';
+
+  @override
   String get displayFormat => 'Angezeigt als';
 
   @override

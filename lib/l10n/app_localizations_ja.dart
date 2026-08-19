@@ -210,6 +210,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterChipId => 'チップ番号';
 
   @override
+  String get starterRemarks => '備考';
+
+  @override
   String get displayFormat => '表示形式';
 
   @override

@@ -159,6 +159,7 @@
   "locationNoFix": "Vaši polohu se teď nepodařilo zjistit. Zkuste to znovu venku — GPS potřebuje volný výhled na oblohu.",
   "ok": "OK",
   "starterChipId": "Číslo čipu",
+  "starterRemarks": "Poznámky",
   "displayFormat": "Zobrazit jako",
   "displayPlain": "Prostý text",
   "displayQr": "QR kód",

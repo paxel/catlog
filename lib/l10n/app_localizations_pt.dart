@@ -213,6 +213,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterChipId => 'Número do chip';
 
   @override
+  String get starterRemarks => 'Observações';
+
+  @override
   String get displayFormat => 'Mostrado como';
 
   @override

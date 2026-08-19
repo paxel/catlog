@@ -213,6 +213,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterChipId => 'Chipszám';
 
   @override
+  String get starterRemarks => 'Megjegyzések';
+
+  @override
   String get displayFormat => 'Megjelenítés';
 
   @override

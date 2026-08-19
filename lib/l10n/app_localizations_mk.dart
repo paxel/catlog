@@ -213,6 +213,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get starterChipId => 'Број на чип';
 
   @override
+  String get starterRemarks => 'Забелешки';
+
+  @override
   String get displayFormat => 'Прикажано како';
 
   @override

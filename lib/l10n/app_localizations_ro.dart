@@ -213,6 +213,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterChipId => 'Număr cip';
 
   @override
+  String get starterRemarks => 'Observații';
+
+  @override
   String get displayFormat => 'Afișat ca';
 
   @override

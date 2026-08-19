@@ -159,6 +159,7 @@
   "locationNoFix": "当前无法确定您的位置。请到户外重试——GPS 需要开阔的天空视野。",
   "ok": "好",
   "starterChipId": "芯片号",
+  "starterRemarks": "备注",
   "displayFormat": "显示为",
   "displayPlain": "纯文本",
   "displayQr": "二维码",

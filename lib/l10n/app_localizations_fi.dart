@@ -213,6 +213,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterChipId => 'Sirunumero';
 
   @override
+  String get starterRemarks => 'Huomautukset';
+
+  @override
   String get displayFormat => 'Näytetään muodossa';
 
   @override

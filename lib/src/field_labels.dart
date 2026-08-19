@@ -89,6 +89,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'address' => t.starterAddress,
       'responsible' => t.starterResponsible,
       'position' => t.starterPosition,
+      'remarks' => t.starterRemarks,
       _ => null,
     };
 

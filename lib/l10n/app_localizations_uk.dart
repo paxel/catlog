@@ -213,6 +213,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterChipId => 'Номер чипа';
 
   @override
+  String get starterRemarks => 'Нотатки';
+
+  @override
   String get displayFormat => 'Показується як';
 
   @override

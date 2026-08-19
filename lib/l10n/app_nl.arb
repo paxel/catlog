@@ -159,6 +159,7 @@
   "locationNoFix": "Je positie kon nu niet worden bepaald. Probeer het buiten opnieuw — GPS heeft vrij zicht op de hemel nodig.",
   "ok": "OK",
   "starterChipId": "Chipnummer",
+  "starterRemarks": "Opmerkingen",
   "displayFormat": "Weergegeven als",
   "displayPlain": "Platte tekst",
   "displayQr": "QR-code",

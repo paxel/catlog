@@ -204,6 +204,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterChipId => '芯片号';
 
   @override
+  String get starterRemarks => '备注';
+
+  @override
   String get displayFormat => '显示为';
 
   @override

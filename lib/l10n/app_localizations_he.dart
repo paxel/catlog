@@ -212,6 +212,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterChipId => 'מספר שבב';
 
   @override
+  String get starterRemarks => 'הערות';
+
+  @override
   String get displayFormat => 'מוצג בתור';
 
   @override

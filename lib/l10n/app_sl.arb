@@ -159,6 +159,7 @@
   "locationNoFix": "Vašega položaja trenutno ni bilo mogoče določiti. Poskusite znova na prostem — GPS potrebuje prost pogled na nebo.",
   "ok": "V redu",
   "starterChipId": "Številka čipa",
+  "starterRemarks": "Opombe",
   "displayFormat": "Prikazano kot",
   "displayPlain": "Navadno besedilo",
   "displayQr": "Koda QR",

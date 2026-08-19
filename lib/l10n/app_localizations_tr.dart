@@ -213,6 +213,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterChipId => 'Çip numarası';
 
   @override
+  String get starterRemarks => 'Notlar';
+
+  @override
   String get displayFormat => 'Şu şekilde gösterilir';
 
   @override

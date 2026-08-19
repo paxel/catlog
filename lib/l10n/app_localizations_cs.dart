@@ -213,6 +213,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterChipId => 'Číslo čipu';
 
   @override
+  String get starterRemarks => 'Poznámky';
+
+  @override
   String get displayFormat => 'Zobrazit jako';
 
   @override

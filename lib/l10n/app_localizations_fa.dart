@@ -213,6 +213,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterChipId => 'شمارهٔ تراشه';
 
   @override
+  String get starterRemarks => 'یادداشت‌ها';
+
+  @override
   String get displayFormat => 'نمایش به‌صورت';
 
   @override

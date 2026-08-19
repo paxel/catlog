@@ -213,6 +213,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterChipId => 'Kiibi number';
 
   @override
+  String get starterRemarks => 'Märkused';
+
+  @override
   String get displayFormat => 'Kuvatakse kui';
 
   @override

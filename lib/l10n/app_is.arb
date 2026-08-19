@@ -159,6 +159,7 @@
   "locationNoFix": "Ekki tókst að ákvarða staðsetningu þína núna. Reyndu aftur utandyra — GPS þarf óhindrað útsýni til himins.",
   "ok": "Í lagi",
   "starterChipId": "Örflögunúmer",
+  "starterRemarks": "Athugasemdir",
   "displayFormat": "Birt sem",
   "displayPlain": "Venjulegur texti",
   "displayQr": "QR-kóði",

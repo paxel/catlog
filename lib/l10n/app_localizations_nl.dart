@@ -213,6 +213,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterChipId => 'Chipnummer';
 
   @override
+  String get starterRemarks => 'Opmerkingen';
+
+  @override
   String get displayFormat => 'Weergegeven als';
 
   @override

@@ -159,6 +159,7 @@
   "locationNoFix": "現在地を特定できませんでした。屋外でもう一度お試しください — GPS には空への見通しが必要です。",
   "ok": "OK",
   "starterChipId": "チップ番号",
+  "starterRemarks": "備考",
   "displayFormat": "表示形式",
   "displayPlain": "テキスト",
   "displayQr": "QRコード",

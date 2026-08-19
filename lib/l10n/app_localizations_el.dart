@@ -213,6 +213,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterChipId => 'Αριθμός τσιπ';
 
   @override
+  String get starterRemarks => 'Σημειώσεις';
+
+  @override
   String get displayFormat => 'Εμφάνιση ως';
 
   @override

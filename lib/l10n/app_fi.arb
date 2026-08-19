@@ -159,6 +159,7 @@
   "locationNoFix": "Sijaintiasi ei juuri nyt voitu määrittää. Yritä uudelleen ulkona — GPS tarvitsee esteettömän näkymän taivaalle.",
   "ok": "OK",
   "starterChipId": "Sirunumero",
+  "starterRemarks": "Huomautukset",
   "displayFormat": "Näytetään muodossa",
   "displayPlain": "Pelkkä teksti",
   "displayQr": "QR-koodi",

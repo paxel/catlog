@@ -213,6 +213,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterChipId => 'Chipnummer';
 
   @override
+  String get starterRemarks => 'Anmärkningar';
+
+  @override
   String get displayFormat => 'Visas som';
 
   @override

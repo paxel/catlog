@@ -159,6 +159,7 @@
   "locationNoFix": "Pozicioni juaj nuk mund të përcaktohej tani. Provoni sërish në natyrë — GPS ka nevojë për pamje të lirë të qiellit.",
   "ok": "OK",
   "starterChipId": "Numri i çipit",
+  "starterRemarks": "Shënime",
   "displayFormat": "Shfaqet si",
   "displayPlain": "Tekst i thjeshtë",
   "displayQr": "Kod QR",

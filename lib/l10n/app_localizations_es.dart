@@ -213,6 +213,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get starterChipId => 'Número de chip';
 
   @override
+  String get starterRemarks => 'Observaciones';
+
+  @override
   String get displayFormat => 'Se muestra como';
 
   @override

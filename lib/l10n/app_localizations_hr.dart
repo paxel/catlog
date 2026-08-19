@@ -213,6 +213,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get starterChipId => 'Broj čipa';
 
   @override
+  String get starterRemarks => 'Napomene';
+
+  @override
   String get displayFormat => 'Prikazano kao';
 
   @override

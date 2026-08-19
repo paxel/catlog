@@ -159,6 +159,7 @@
   "locationNoFix": "Jūsų padėties dabar nepavyko nustatyti. Bandykite dar kartą lauke — GPS reikia atviro dangaus vaizdo.",
   "ok": "Gerai",
   "starterChipId": "Lusto numeris",
+  "starterRemarks": "Pastabos",
   "displayFormat": "Rodoma kaip",
   "displayPlain": "Paprastas tekstas",
   "displayQr": "QR kodas",

@@ -213,6 +213,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterChipId => 'Чип номер';
 
   @override
+  String get starterRemarks => 'Бележки';
+
+  @override
   String get displayFormat => 'Показва се като';
 
   @override

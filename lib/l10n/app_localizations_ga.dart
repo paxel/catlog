@@ -213,6 +213,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterChipId => 'Uimhir slise';
 
   @override
+  String get starterRemarks => 'Nótaí';
+
+  @override
   String get displayFormat => 'Taispeántar mar';
 
   @override

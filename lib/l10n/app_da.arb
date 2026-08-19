@@ -159,6 +159,7 @@
   "locationNoFix": "Din position kunne ikke bestemmes lige nu. Prøv igen udendørs — GPS kræver frit udsyn til himlen.",
   "ok": "OK",
   "starterChipId": "Chipnummer",
+  "starterRemarks": "Bemærkninger",
   "displayFormat": "Vises som",
   "displayPlain": "Almindelig tekst",
   "displayQr": "QR-kode",

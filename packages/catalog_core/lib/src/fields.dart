@@ -118,4 +118,5 @@ const starterFields = [
   (slug: 'address', name: 'Address', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'responsible', name: 'Responsible person', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'position', name: 'Position', type: FieldType.location, scope: FieldScope.both, options: <String>[]),
+  (slug: 'remarks', name: 'Remarks', type: FieldType.text, scope: FieldScope.both, options: <String>[]),
 ];

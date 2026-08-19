@@ -55,6 +55,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   or barcode as chosen at field creation. Cats start with a **Chip ID**
   field rendered as a barcode.
 
+- **Remarks**: a multiline notes field on every cat and clowder; search
+  finds cats by their remarks too.
+
 ### Changed
 
 - Cat and clowder pages open read-only showing only filled fields, nicely

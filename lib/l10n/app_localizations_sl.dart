@@ -213,6 +213,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterChipId => 'Številka čipa';
 
   @override
+  String get starterRemarks => 'Opombe';
+
+  @override
   String get displayFormat => 'Prikazano kot';
 
   @override

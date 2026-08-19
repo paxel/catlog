@@ -213,6 +213,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterChipId => 'Numri i çipit';
 
   @override
+  String get starterRemarks => 'Shënime';
+
+  @override
   String get displayFormat => 'Shfaqet si';
 
   @override

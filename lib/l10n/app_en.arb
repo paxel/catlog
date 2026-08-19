@@ -90,6 +90,7 @@
   "locationNoFix": "Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.",
   "ok": "OK",
   "starterChipId": "Chip ID",
+  "starterRemarks": "Remarks",
   "displayFormat": "Shown as",
   "displayPlain": "Plain text",
   "displayQr": "QR code",

@@ -159,6 +159,7 @@
   "locationNoFix": "Nie udało się teraz ustalić twojej pozycji. Spróbuj ponownie na zewnątrz — GPS potrzebuje czystego widoku nieba.",
   "ok": "OK",
   "starterChipId": "Numer czipa",
+  "starterRemarks": "Uwagi",
   "displayFormat": "Wyświetlane jako",
   "displayPlain": "Zwykły tekst",
   "displayQr": "Kod QR",

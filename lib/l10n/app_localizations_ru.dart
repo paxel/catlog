@@ -213,6 +213,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get starterChipId => 'Номер чипа';
 
   @override
+  String get starterRemarks => 'Заметки';
+
+  @override
   String get displayFormat => 'Отображается как';
 
   @override

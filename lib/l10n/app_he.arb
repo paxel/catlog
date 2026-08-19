@@ -159,6 +159,7 @@
   "locationNoFix": "לא ניתן היה לקבוע את מיקומכם כרגע. נסו שוב בחוץ — ה‑GPS זקוק לקו ראייה פתוח לשמיים.",
   "ok": "אישור",
   "starterChipId": "מספר שבב",
+  "starterRemarks": "הערות",
   "displayFormat": "מוצג בתור",
   "displayPlain": "טקסט רגיל",
   "displayQr": "קוד QR",

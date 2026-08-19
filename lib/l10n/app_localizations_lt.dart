@@ -213,6 +213,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterChipId => 'Lusto numeris';
 
   @override
+  String get starterRemarks => 'Pastabos';
+
+  @override
   String get displayFormat => 'Rodoma kaip';
 
   @override

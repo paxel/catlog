@@ -213,6 +213,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get starterChipId => 'Numéro de puce';
 
   @override
+  String get starterRemarks => 'Remarques';
+
+  @override
   String get displayFormat => 'Affiché comme';
 
   @override

@@ -159,6 +159,7 @@
   "locationNoFix": "A pozícióját most nem sikerült meghatározni. Próbálja újra a szabadban — a GPS-nek szabad rálátás kell az égboltra.",
   "ok": "OK",
   "starterChipId": "Chipszám",
+  "starterRemarks": "Megjegyzések",
   "displayFormat": "Megjelenítés",
   "displayPlain": "Egyszerű szöveg",
   "displayQr": "QR-kód",

@@ -213,6 +213,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterChipId => 'Numer czipa';
 
   @override
+  String get starterRemarks => 'Uwagi';
+
+  @override
   String get displayFormat => 'Wyświetlane jako';
 
   @override

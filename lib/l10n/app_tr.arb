@@ -159,6 +159,7 @@
   "locationNoFix": "Konumunuz şu anda belirlenemedi. Açık havada yeniden deneyin — GPS gökyüzünü net görmelidir.",
   "ok": "Tamam",
   "starterChipId": "Çip numarası",
+  "starterRemarks": "Notlar",
   "displayFormat": "Şu şekilde gösterilir",
   "displayPlain": "Düz metin",
   "displayQr": "QR kodu",

@@ -159,6 +159,7 @@
   "locationNoFix": "Poziția dvs. nu a putut fi determinată acum. Încercați din nou în aer liber — GPS-ul are nevoie de vedere liberă spre cer.",
   "ok": "OK",
   "starterChipId": "Număr cip",
+  "starterRemarks": "Observații",
   "displayFormat": "Afișat ca",
   "displayPlain": "Text simplu",
   "displayQr": "Cod QR",

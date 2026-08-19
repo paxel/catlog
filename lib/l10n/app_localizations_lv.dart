@@ -213,6 +213,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterChipId => 'Mikroshēmas numurs';
 
   @override
+  String get starterRemarks => 'Piezīmes';
+
+  @override
   String get displayFormat => 'Rādīt kā';
 
   @override

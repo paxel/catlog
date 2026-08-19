@@ -62,6 +62,7 @@
   "locationNoFix": "Deine Position konnte gerade nicht bestimmt werden. Versuche es im Freien erneut — GPS braucht freie Sicht zum Himmel.",
   "ok": "OK",
   "starterChipId": "Chip-Nummer",
+  "starterRemarks": "Bemerkungen",
   "displayFormat": "Angezeigt als",
   "displayPlain": "Klartext",
   "displayQr": "QR-Code",

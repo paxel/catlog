@@ -214,6 +214,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterChipId => 'Örflögunúmer';
 
   @override
+  String get starterRemarks => 'Athugasemdir';
+
+  @override
   String get displayFormat => 'Birt sem';
 
   @override

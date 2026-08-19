@@ -174,9 +174,13 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           },
         );
       case FieldType.text:
+        // Remarks holds whole notes (OCR dumps included) — multiline.
+        final multiline = def.slug == 'remarks';
         return TextField(
           controller: _text,
           autofocus: true,
+          minLines: multiline ? 3 : 1,
+          maxLines: multiline ? 8 : 1,
           decoration: InputDecoration(labelText: context.t.value),
         );
       case FieldType.id:

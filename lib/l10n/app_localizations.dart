@@ -542,6 +542,12 @@ abstract class AppLocalizations {
   /// **'Chip ID'**
   String get starterChipId;
 
+  /// No description provided for @starterRemarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Remarks'**
+  String get starterRemarks;
+
   /// No description provided for @displayFormat.
   ///
   /// In en, this message translates to:

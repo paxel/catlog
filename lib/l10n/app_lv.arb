@@ -159,6 +159,7 @@
   "locationNoFix": "Jūsu pozīciju šobrīd neizdevās noteikt. Mēģiniet vēlreiz ārā — GPS ir vajadzīgs brīvs skats uz debesīm.",
   "ok": "Labi",
   "starterChipId": "Mikroshēmas numurs",
+  "starterRemarks": "Piezīmes",
   "displayFormat": "Rādīt kā",
   "displayPlain": "Vienkāršs teksts",
   "displayQr": "QR kods",

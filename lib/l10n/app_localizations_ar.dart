@@ -213,6 +213,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterChipId => 'رقم الشريحة';
 
   @override
+  String get starterRemarks => 'ملاحظات';
+
+  @override
   String get displayFormat => 'يعرض كـ';
 
   @override

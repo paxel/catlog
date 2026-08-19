@@ -705,14 +705,19 @@ class CatalogStore {
           {DateTime? date}) =>
       append(entityId, positionKey, '$lat,$lon', date: date);
 
-  /// Cats whose current name contains [query], case-insensitive —
-  /// across all Clowders and Strays. Deleted Cats never appear.
+  /// Cats whose current name or Remarks contain [query],
+  /// case-insensitive — across all Clowders and Strays. Deleted Cats
+  /// never appear.
   List<EntityView> searchCats(String query) {
     final q = query.trim().toLowerCase();
     if (q.isEmpty) return const [];
     return [
       for (final view in cats())
-        if (view.name.toLowerCase().contains(q)) view
+        if (view.name.toLowerCase().contains(q) ||
+            (current(view.id, Keys.userField('remarks')) ?? '')
+                .toLowerCase()
+                .contains(q))
+          view
     ];
   }
 

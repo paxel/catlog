@@ -159,6 +159,7 @@
   "locationNoFix": "Il-pożizzjoni tiegħek ma setgħetx tiġi determinata bħalissa. Erġa' pprova barra — il-GPS jeħtieġ veduta ċara tas-sema.",
   "ok": "OK",
   "starterChipId": "Numru taċ-ċippa",
+  "starterRemarks": "Rimarki",
   "displayFormat": "Muri bħala",
   "displayPlain": "Test sempliċi",
   "displayQr": "Kodiċi QR",

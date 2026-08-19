@@ -159,6 +159,7 @@
   "locationNoFix": "Votre position n'a pas pu être déterminée pour le moment. Réessayez en extérieur — le GPS a besoin d'une vue dégagée du ciel.",
   "ok": "OK",
   "starterChipId": "Numéro de puce",
+  "starterRemarks": "Remarques",
   "displayFormat": "Affiché comme",
   "displayPlain": "Texte simple",
   "displayQr": "Code QR",
