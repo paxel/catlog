@@ -45,4 +45,15 @@ void main() {
     expect(defs.firstWhere((d) => d.slug == 'mother').type, FieldType.cat);
     expect(defs.firstWhere((d) => d.slug == 'father').type, FieldType.cat);
   });
+
+  test('the father sees his kittens too', () {
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'test';
+    final dad = store.createCat('Kater');
+    final kitten = store.createCat('Junges');
+    store.append(kitten, Keys.userField('father'), dad);
+    expect(store.family(dad).kittens, [kitten]);
+    expect(store.family(kitten).father, dad);
+  });
 }

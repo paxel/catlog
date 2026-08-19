@@ -1223,7 +1223,9 @@ class CatalogStore {
       final cid = resolveEntity(c.id);
       if (cid == id) continue;
       final m = ref(cid, 'f:mother');
-      if (m == id) {
+      // Kittens name this cat as mother OR father — dads see their
+      // litter too.
+      if (m == id || ref(cid, 'f:father') == id) {
         kittens.add(cid);
         continue;
       }
