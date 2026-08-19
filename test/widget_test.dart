@@ -73,9 +73,14 @@ void main() {
     await tester.tap(find.text('Create'));
     await tester.pumpAndSettle();
 
-    // Detail screen opens for the new clowder.
+    // Detail screen opens for the new clowder, read-only (#46).
     expect(find.text('Foster Home South'), findsOneWidget);
+    expect(find.text('Address'), findsNothing);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     expect(find.text('Address'), findsOneWidget);
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
 
     // Back on the list it is present too.
     await tester.pageBack();

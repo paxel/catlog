@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
+import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -82,6 +83,40 @@ void main() {
     expect(find.byType(CatDetailScreen), findsOneWidget);
     expect(find.text('Breed'), findsNothing);
     expect(state, isNotNull);
+  });
+
+  testWidgets('clowder opens read-only with the gallery before the fields',
+      (tester) async {
+    final home = store.createClowder('Home');
+    store.moveCat(cat, home);
+    store.append(home, Keys.userField('address'), 'Main St 1');
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: ClowderDetailScreen(store: store, clowderId: home),
+    ));
+    await tester.pumpAndSettle();
+
+    // Filled field shows, empty one doesn't, no edit icons.
+    expect(find.text('Main St 1'), findsOneWidget);
+    expect(find.text('Responsible person'), findsNothing);
+    expect(find.byIcon(Icons.edit_outlined), findsNothing);
+    // Gallery renders above the fields.
+    final galleryY = tester.getTopLeft(find.text('Sissi')).dy;
+    final fieldY = tester.getTopLeft(find.text('Main St 1')).dy;
+    expect(galleryY, lessThan(fieldY));
+
+    // Pencil: fields first, all definitions, edit icons back.
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    expect(find.text('Responsible person'), findsOneWidget);
+    expect(find.byIcon(Icons.edit_outlined), findsWidgets);
+    final editFieldY = tester.getTopLeft(find.text('Main St 1')).dy;
+    final editGalleryY = tester.getTopLeft(find.text('Sissi')).dy;
+    expect(editFieldY, lessThan(editGalleryY));
+    // Add cat stays available in both modes.
+    expect(find.text('Add cat'), findsOneWidget);
   });
 
   testWidgets('conflict row shows and resolves in read mode',

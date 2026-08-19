@@ -52,8 +52,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
-- The cat page opens read-only showing only filled fields, nicely formatted;
-  the pencil switches to the full edit view, and renaming lives there too.
+- Cat and clowder pages open read-only showing only filled fields, nicely
+  formatted; the pencil switches to the full edit view, and renaming lives
+  there too. Clowders lead with their cat gallery.
 - The sync page became three clear choices: **In person** (same room, QR),
   **Remote** (shared folder), **Messenger** (one file). Options that can't
   work right now say why instead of failing later.
