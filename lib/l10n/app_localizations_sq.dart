@@ -210,6 +210,21 @@ class AppLocalizationsSq extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numri i çipit';
+
+  @override
+  String get displayFormat => 'Shfaqet si';
+
+  @override
+  String get displayPlain => 'Tekst i thjeshtë';
+
+  @override
+  String get displayQr => 'Kod QR';
+
+  @override
+  String get displayBarcode => 'Barkod';
+
+  @override
   String get editLabel => 'Redakto';
 
   @override

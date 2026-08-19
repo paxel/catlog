@@ -210,6 +210,21 @@ class AppLocalizationsPl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numer czipa';
+
+  @override
+  String get displayFormat => 'Wyświetlane jako';
+
+  @override
+  String get displayPlain => 'Zwykły tekst';
+
+  @override
+  String get displayQr => 'Kod QR';
+
+  @override
+  String get displayBarcode => 'Kod kreskowy';
+
+  @override
   String get editLabel => 'Edytuj';
 
   @override

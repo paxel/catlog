@@ -38,6 +38,7 @@ abstract final class Keys {
   static const fieldType = 'type';
   static const fieldScope = 'scope';
   static const fieldOptions = 'options';
+  static const fieldIdDisplay = 'iddisplay';
 
   static String image(String hash) => '$imagePrefix$hash';
   static String userField(String slug) => 'f:$slug';
@@ -51,7 +52,16 @@ abstract final class Kinds {
 }
 
 /// The type of a user-defined Field (see CONTEXT.md: Field).
-enum FieldType { text, yesNo, date, number, choice, location, cat }
+enum FieldType { text, yesNo, date, number, choice, location, cat, id }
+
+/// How an ID Field renders on the Card: plain text, QR, or 1D barcode.
+enum IdDisplay { plain, qr, barcode }
+
+/// Canonical form for matching ID values: matching is exact after
+/// normalization (trim, case-fold, strip spaces and hyphens) — never
+/// fuzzy (#28).
+String normalizeId(String value) =>
+    value.trim().toLowerCase().replaceAll(RegExp(r'[\s-]+'), '');
 
 /// Where a Field is offered in the UI. Values are still stored uniformly.
 enum FieldScope { cat, clowder, both }
@@ -64,6 +74,7 @@ class FieldDef {
   final FieldType type;
   final FieldScope scope;
   final List<String> options; // for FieldType.choice
+  final IdDisplay idDisplay; // for FieldType.id
 
   const FieldDef({
     required this.id,
@@ -72,6 +83,7 @@ class FieldDef {
     required this.type,
     required this.scope,
     this.options = const [],
+    this.idDisplay = IdDisplay.plain,
   });
 
   /// The key under which values of this Field live on Cats/Clowders.
@@ -94,6 +106,7 @@ const starterFields = [
   (slug: 'gender', name: 'Gender', type: FieldType.choice, scope: FieldScope.cat, options: ['female', 'male', 'unknown']),
   (slug: 'color', name: 'Color', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
   (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: ['European Shorthair', 'Maine Coon', 'British Shorthair', 'Norwegian Forest Cat', 'Ragdoll', 'Siamese', 'Persian', 'Bengal', 'Sphynx', 'mixed']),
+  (slug: 'chipid', name: 'Chip ID', type: FieldType.id, scope: FieldScope.cat, options: <String>[]),
   (slug: 'neutered', name: 'Neutered', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),

@@ -210,6 +210,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Αριθμός τσιπ';
+
+  @override
+  String get displayFormat => 'Εμφάνιση ως';
+
+  @override
+  String get displayPlain => 'Απλό κείμενο';
+
+  @override
+  String get displayQr => 'Κωδικός QR';
+
+  @override
+  String get displayBarcode => 'Γραμμωτός κώδικας';
+
+  @override
   String get editLabel => 'Επεξεργασία';
 
   @override

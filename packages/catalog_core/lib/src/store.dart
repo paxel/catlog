@@ -1258,6 +1258,8 @@ class CatalogStore {
             .split('\n')
             .where((o) => o.isNotEmpty)
             .toList(),
+        idDisplay: IdDisplay.values.asNameMap()[fields[Keys.fieldIdDisplay]] ??
+            IdDisplay.plain,
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);
@@ -1272,6 +1274,7 @@ class CatalogStore {
   String defineField(String name, FieldType type,
       {FieldScope scope = FieldScope.both,
       List<String> options = const [],
+      IdDisplay idDisplay = IdDisplay.plain,
       DateTime? date}) {
     final slug = slugify(name);
     if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
@@ -1285,6 +1288,9 @@ class CatalogStore {
     append(id, Keys.fieldScope, scope.name, date: date);
     if (options.isNotEmpty) {
       append(id, Keys.fieldOptions, options.join('\n'), date: date);
+    }
+    if (type == FieldType.id && idDisplay != IdDisplay.plain) {
+      append(id, Keys.fieldIdDisplay, idDisplay.name, date: date);
     }
     return id;
   }
@@ -1327,6 +1333,11 @@ class CatalogStore {
       append(id, Keys.fieldScope, f.scope.name, as: seedAuthor);
       if (f.options.isNotEmpty) {
         append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+      }
+      // Chip IDs are transponder numbers — the Card shows them scannable.
+      if (f.type == FieldType.id) {
+        append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name,
+            as: seedAuthor);
       }
     }
   }

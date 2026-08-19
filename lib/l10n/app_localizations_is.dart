@@ -211,6 +211,21 @@ class AppLocalizationsIs extends AppLocalizations {
   String get ok => 'Í lagi';
 
   @override
+  String get starterChipId => 'Örflögunúmer';
+
+  @override
+  String get displayFormat => 'Birt sem';
+
+  @override
+  String get displayPlain => 'Venjulegur texti';
+
+  @override
+  String get displayQr => 'QR-kóði';
+
+  @override
+  String get displayBarcode => 'Strikamerki';
+
+  @override
   String get editLabel => 'Breyta';
 
   @override

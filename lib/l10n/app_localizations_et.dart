@@ -210,6 +210,21 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Kiibi number';
+
+  @override
+  String get displayFormat => 'Kuvatakse kui';
+
+  @override
+  String get displayPlain => 'Lihttekst';
+
+  @override
+  String get displayQr => 'QR-kood';
+
+  @override
+  String get displayBarcode => 'Vöötkood';
+
+  @override
   String get editLabel => 'Muuda';
 
   @override

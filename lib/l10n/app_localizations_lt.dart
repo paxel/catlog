@@ -210,6 +210,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get ok => 'Gerai';
 
   @override
+  String get starterChipId => 'Lusto numeris';
+
+  @override
+  String get displayFormat => 'Rodoma kaip';
+
+  @override
+  String get displayPlain => 'Paprastas tekstas';
+
+  @override
+  String get displayQr => 'QR kodas';
+
+  @override
+  String get displayBarcode => 'Brūkšninis kodas';
+
+  @override
   String get editLabel => 'Redaguoti';
 
   @override

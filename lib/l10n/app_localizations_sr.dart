@@ -210,6 +210,21 @@ class AppLocalizationsSr extends AppLocalizations {
   String get ok => 'У реду';
 
   @override
+  String get starterChipId => 'Број чипа';
+
+  @override
+  String get displayFormat => 'Приказано као';
+
+  @override
+  String get displayPlain => 'Обичан текст';
+
+  @override
+  String get displayQr => 'QR код';
+
+  @override
+  String get displayBarcode => 'Бар-код';
+
+  @override
   String get editLabel => 'Уреди';
 
   @override

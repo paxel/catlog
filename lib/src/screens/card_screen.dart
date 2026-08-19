@@ -11,9 +11,11 @@ import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../share.dart';
 import '../spotlight.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 /// A Cat's Card: photo plus current facts on one screen, exportable as
@@ -92,6 +94,33 @@ class _CardScreenState extends State<CardScreen> {
     return facts;
   }
 
+  /// Selected, filled ID Fields that render scannable (QR/barcode, #28).
+  List<(FieldDef, String)> _scannableIds() => [
+        for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+          if (def.type == FieldType.id &&
+              def.idDisplay != IdDisplay.plain &&
+              _selected.contains(def.key) &&
+              store.current(id, def.key) != null)
+            (def, store.current(id, def.key)!)
+      ];
+
+  Widget _scannable(FieldDef def, String value) => Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Column(children: [
+          if (def.idDisplay == IdDisplay.qr)
+            QrImageView(data: value, size: 110)
+          else
+            BarcodeWidget(
+              barcode: Barcode.code128(),
+              data: value,
+              width: 220,
+              height: 64,
+            ),
+          Text('${fieldDefName(context.t, def)}: $value',
+              style: Theme.of(context).textTheme.bodySmall),
+        ]),
+      );
+
   /// Chips for everything that could be on the card: photo, clowder,
   /// and each filled field of this cat.
   Widget _contentPicker() {
@@ -142,6 +171,7 @@ class _CardScreenState extends State<CardScreen> {
   }
 
   Future<pw.Document> _buildPdf() async {
+    final t = context.t;
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final hash =
         _selected.contains(_photoKey) ? store.profileImage(id) : null;
@@ -184,6 +214,23 @@ class _CardScreenState extends State<CardScreen> {
                   pw.Expanded(
                       child: pw.Text(value,
                           style: const pw.TextStyle(fontSize: 12))),
+                ]),
+              ),
+            for (final (def, value) in _scannableIds())
+              pw.Padding(
+                padding: const pw.EdgeInsets.only(top: 10),
+                child: pw.Column(children: [
+                  pw.BarcodeWidget(
+                    barcode: def.idDisplay == IdDisplay.qr
+                        ? pw.Barcode.qrCode()
+                        : pw.Barcode.code128(),
+                    data: value,
+                    width: def.idDisplay == IdDisplay.qr ? 80 : 180,
+                    height: def.idDisplay == IdDisplay.qr ? 80 : 44,
+                  ),
+                  pw.Text('${fieldDefName(t, def)}: $value',
+                      style: const pw.TextStyle(
+                          fontSize: 9, color: PdfColors.grey700)),
                 ]),
               ),
             pw.Spacer(),
@@ -285,6 +332,8 @@ class _CardScreenState extends State<CardScreen> {
                         ],
                       ),
                     ),
+                  for (final (def, value) in _scannableIds())
+                    Center(child: _scannable(def, value)),
                 ],
               ),
             ),

@@ -210,6 +210,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Número do chip';
+
+  @override
+  String get displayFormat => 'Mostrado como';
+
+  @override
+  String get displayPlain => 'Texto simples';
+
+  @override
+  String get displayQr => 'Código QR';
+
+  @override
+  String get displayBarcode => 'Código de barras';
+
+  @override
   String get editLabel => 'Editar';
 
   @override

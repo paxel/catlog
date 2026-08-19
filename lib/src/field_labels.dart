@@ -77,6 +77,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'gender' => t.starterGender,
       'color' => t.starterColor,
       'breed' => t.starterBreed,
+      'chipid' => t.starterChipId,
       'neutered' => t.starterNeutered,
       'pregnant' => t.starterPregnant,
       'birthdate' => t.starterBirthdate,

@@ -210,6 +210,21 @@ class AppLocalizationsHu extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipszám';
+
+  @override
+  String get displayFormat => 'Megjelenítés';
+
+  @override
+  String get displayPlain => 'Egyszerű szöveg';
+
+  @override
+  String get displayQr => 'QR-kód';
+
+  @override
+  String get displayBarcode => 'Vonalkód';
+
+  @override
   String get editLabel => 'Szerkesztés';
 
   @override

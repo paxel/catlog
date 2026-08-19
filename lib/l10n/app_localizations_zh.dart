@@ -201,6 +201,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ok => '好';
 
   @override
+  String get starterChipId => '芯片号';
+
+  @override
+  String get displayFormat => '显示为';
+
+  @override
+  String get displayPlain => '纯文本';
+
+  @override
+  String get displayQr => '二维码';
+
+  @override
+  String get displayBarcode => '条形码';
+
+  @override
   String get editLabel => '编辑';
 
   @override

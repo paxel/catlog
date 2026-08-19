@@ -210,6 +210,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipnummer';
+
+  @override
+  String get displayFormat => 'Weergegeven als';
+
+  @override
+  String get displayPlain => 'Platte tekst';
+
+  @override
+  String get displayQr => 'QR-code';
+
+  @override
+  String get displayBarcode => 'Streepjescode';
+
+  @override
   String get editLabel => 'Bewerken';
 
   @override

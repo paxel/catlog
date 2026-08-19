@@ -2,6 +2,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:test/test.dart';
 
 void main() {
+  setUpAll(useSystemSqlite);
+
   late CatalogStore store;
 
   setUp(() => store = CatalogStore.inMemory()..author = 'anna');

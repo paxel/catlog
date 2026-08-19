@@ -30,6 +30,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
   final _options = TextEditingController();
   FieldType _type = FieldType.text;
   late FieldScope _scope = widget.initialScope;
+  IdDisplay _idDisplay = IdDisplay.plain;
   String? _error;
 
   @override
@@ -45,6 +46,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
         _name.text,
         _type,
         scope: _scope,
+        idDisplay: _idDisplay,
         options: _options.text
             .split('\n')
             .map((o) => o.trim())
@@ -103,6 +105,25 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
                 labelText: context.t.optionsOnePerLine,
                 alignLabelWithHint: true,
               ),
+            ),
+          ],
+          if (_type == FieldType.id) ...[
+            const SizedBox(height: 12),
+            DropdownButtonFormField<IdDisplay>(
+              initialValue: _idDisplay,
+              decoration:
+                  InputDecoration(labelText: context.t.displayFormat),
+              items: [
+                DropdownMenuItem(
+                    value: IdDisplay.plain,
+                    child: Text(context.t.displayPlain)),
+                DropdownMenuItem(
+                    value: IdDisplay.qr, child: Text(context.t.displayQr)),
+                DropdownMenuItem(
+                    value: IdDisplay.barcode,
+                    child: Text(context.t.displayBarcode)),
+              ],
+              onChanged: (d) => setState(() => _idDisplay = d ?? _idDisplay),
             ),
           ],
         ]),

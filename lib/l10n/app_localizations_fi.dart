@@ -210,6 +210,21 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Sirunumero';
+
+  @override
+  String get displayFormat => 'Näytetään muodossa';
+
+  @override
+  String get displayPlain => 'Pelkkä teksti';
+
+  @override
+  String get displayQr => 'QR-koodi';
+
+  @override
+  String get displayBarcode => 'Viivakoodi';
+
+  @override
   String get editLabel => 'Muokkaa';
 
   @override

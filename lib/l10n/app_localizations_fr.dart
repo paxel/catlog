@@ -210,6 +210,21 @@ class AppLocalizationsFr extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numéro de puce';
+
+  @override
+  String get displayFormat => 'Affiché comme';
+
+  @override
+  String get displayPlain => 'Texte simple';
+
+  @override
+  String get displayQr => 'Code QR';
+
+  @override
+  String get displayBarcode => 'Code-barres';
+
+  @override
   String get editLabel => 'Modifier';
 
   @override

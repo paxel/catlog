@@ -536,6 +536,36 @@ abstract class AppLocalizations {
   /// **'OK'**
   String get ok;
 
+  /// No description provided for @starterChipId.
+  ///
+  /// In en, this message translates to:
+  /// **'Chip ID'**
+  String get starterChipId;
+
+  /// No description provided for @displayFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Shown as'**
+  String get displayFormat;
+
+  /// No description provided for @displayPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'Plain text'**
+  String get displayPlain;
+
+  /// No description provided for @displayQr.
+  ///
+  /// In en, this message translates to:
+  /// **'QR code'**
+  String get displayQr;
+
+  /// No description provided for @displayBarcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode'**
+  String get displayBarcode;
+
   /// No description provided for @editLabel.
   ///
   /// In en, this message translates to:

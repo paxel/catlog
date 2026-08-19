@@ -211,6 +211,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chip-Nummer';
+
+  @override
+  String get displayFormat => 'Angezeigt als';
+
+  @override
+  String get displayPlain => 'Klartext';
+
+  @override
+  String get displayQr => 'QR-Code';
+
+  @override
+  String get displayBarcode => 'Barcode';
+
+  @override
   String get editLabel => 'Bearbeiten';
 
   @override

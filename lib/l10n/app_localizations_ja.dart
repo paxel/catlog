@@ -207,6 +207,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'チップ番号';
+
+  @override
+  String get displayFormat => '表示形式';
+
+  @override
+  String get displayPlain => 'テキスト';
+
+  @override
+  String get displayQr => 'QRコード';
+
+  @override
+  String get displayBarcode => 'バーコード';
+
+  @override
   String get editLabel => '編集';
 
   @override

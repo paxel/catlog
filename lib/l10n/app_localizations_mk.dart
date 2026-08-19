@@ -210,6 +210,21 @@ class AppLocalizationsMk extends AppLocalizations {
   String get ok => 'Во ред';
 
   @override
+  String get starterChipId => 'Број на чип';
+
+  @override
+  String get displayFormat => 'Прикажано како';
+
+  @override
+  String get displayPlain => 'Обичен текст';
+
+  @override
+  String get displayQr => 'QR-код';
+
+  @override
+  String get displayBarcode => 'Баркод';
+
+  @override
   String get editLabel => 'Уреди';
 
   @override

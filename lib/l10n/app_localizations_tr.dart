@@ -210,6 +210,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ok => 'Tamam';
 
   @override
+  String get starterChipId => 'Çip numarası';
+
+  @override
+  String get displayFormat => 'Şu şekilde gösterilir';
+
+  @override
+  String get displayPlain => 'Düz metin';
+
+  @override
+  String get displayQr => 'QR kodu';
+
+  @override
+  String get displayBarcode => 'Barkod';
+
+  @override
   String get editLabel => 'Düzenle';
 
   @override

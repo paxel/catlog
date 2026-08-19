@@ -210,6 +210,21 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ok => 'ОК';
 
   @override
+  String get starterChipId => 'Номер чипа';
+
+  @override
+  String get displayFormat => 'Отображается как';
+
+  @override
+  String get displayPlain => 'Обычный текст';
+
+  @override
+  String get displayQr => 'QR-код';
+
+  @override
+  String get displayBarcode => 'Штрихкод';
+
+  @override
   String get editLabel => 'Редактировать';
 
   @override

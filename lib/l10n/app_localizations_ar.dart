@@ -210,6 +210,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ok => 'حسنًا';
 
   @override
+  String get starterChipId => 'رقم الشريحة';
+
+  @override
+  String get displayFormat => 'يعرض كـ';
+
+  @override
+  String get displayPlain => 'نص عادي';
+
+  @override
+  String get displayQr => 'رمز QR';
+
+  @override
+  String get displayBarcode => 'باركود';
+
+  @override
   String get editLabel => 'تحرير';
 
   @override

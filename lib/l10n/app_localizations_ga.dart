@@ -210,6 +210,21 @@ class AppLocalizationsGa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Uimhir slise';
+
+  @override
+  String get displayFormat => 'Taispeántar mar';
+
+  @override
+  String get displayPlain => 'Gnáth-théacs';
+
+  @override
+  String get displayQr => 'Cód QR';
+
+  @override
+  String get displayBarcode => 'Barrachód';
+
+  @override
   String get editLabel => 'Cuir in eagar';
 
   @override

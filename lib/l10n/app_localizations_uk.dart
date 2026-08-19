@@ -210,6 +210,21 @@ class AppLocalizationsUk extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Номер чипа';
+
+  @override
+  String get displayFormat => 'Показується як';
+
+  @override
+  String get displayPlain => 'Звичайний текст';
+
+  @override
+  String get displayQr => 'QR-код';
+
+  @override
+  String get displayBarcode => 'Штрихкод';
+
+  @override
   String get editLabel => 'Редагувати';
 
   @override

@@ -210,6 +210,21 @@ class AppLocalizationsLv extends AppLocalizations {
   String get ok => 'Labi';
 
   @override
+  String get starterChipId => 'Mikroshēmas numurs';
+
+  @override
+  String get displayFormat => 'Rādīt kā';
+
+  @override
+  String get displayPlain => 'Vienkāršs teksts';
+
+  @override
+  String get displayQr => 'QR kods';
+
+  @override
+  String get displayBarcode => 'Svītrkods';
+
+  @override
   String get editLabel => 'Rediģēt';
 
   @override

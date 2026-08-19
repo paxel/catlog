@@ -210,6 +210,21 @@ class AppLocalizationsNo extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipnummer';
+
+  @override
+  String get displayFormat => 'Vises som';
+
+  @override
+  String get displayPlain => 'Ren tekst';
+
+  @override
+  String get displayQr => 'QR-kode';
+
+  @override
+  String get displayBarcode => 'Strekkode';
+
+  @override
   String get editLabel => 'Rediger';
 
   @override

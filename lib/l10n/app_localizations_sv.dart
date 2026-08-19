@@ -210,6 +210,21 @@ class AppLocalizationsSv extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipnummer';
+
+  @override
+  String get displayFormat => 'Visas som';
+
+  @override
+  String get displayPlain => 'Vanlig text';
+
+  @override
+  String get displayQr => 'QR-kod';
+
+  @override
+  String get displayBarcode => 'Streckkod';
+
+  @override
   String get editLabel => 'Redigera';
 
   @override

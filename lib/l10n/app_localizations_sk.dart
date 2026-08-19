@@ -210,6 +210,21 @@ class AppLocalizationsSk extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Číslo čipu';
+
+  @override
+  String get displayFormat => 'Zobraziť ako';
+
+  @override
+  String get displayPlain => 'Obyčajný text';
+
+  @override
+  String get displayQr => 'QR kód';
+
+  @override
+  String get displayBarcode => 'Čiarový kód';
+
+  @override
   String get editLabel => 'Upraviť';
 
   @override

@@ -210,6 +210,21 @@ class AppLocalizationsFa extends AppLocalizations {
   String get ok => 'باشه';
 
   @override
+  String get starterChipId => 'شمارهٔ تراشه';
+
+  @override
+  String get displayFormat => 'نمایش به‌صورت';
+
+  @override
+  String get displayPlain => 'متن ساده';
+
+  @override
+  String get displayQr => 'کد QR';
+
+  @override
+  String get displayBarcode => 'بارکد';
+
+  @override
   String get editLabel => 'ویرایش';
 
   @override

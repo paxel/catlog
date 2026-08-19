@@ -210,6 +210,21 @@ class AppLocalizationsBg extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Чип номер';
+
+  @override
+  String get displayFormat => 'Показва се като';
+
+  @override
+  String get displayPlain => 'Обикновен текст';
+
+  @override
+  String get displayQr => 'QR код';
+
+  @override
+  String get displayBarcode => 'Баркод';
+
+  @override
   String get editLabel => 'Редактиране';
 
   @override

@@ -210,6 +210,21 @@ class AppLocalizationsBs extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Broj čipa';
+
+  @override
+  String get displayFormat => 'Prikazano kao';
+
+  @override
+  String get displayPlain => 'Običan tekst';
+
+  @override
+  String get displayQr => 'QR kod';
+
+  @override
+  String get displayBarcode => 'Barkod';
+
+  @override
   String get editLabel => 'Uredi';
 
   @override

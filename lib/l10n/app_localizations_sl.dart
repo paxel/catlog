@@ -210,6 +210,21 @@ class AppLocalizationsSl extends AppLocalizations {
   String get ok => 'V redu';
 
   @override
+  String get starterChipId => 'Številka čipa';
+
+  @override
+  String get displayFormat => 'Prikazano kot';
+
+  @override
+  String get displayPlain => 'Navadno besedilo';
+
+  @override
+  String get displayQr => 'Koda QR';
+
+  @override
+  String get displayBarcode => 'Črtna koda';
+
+  @override
   String get editLabel => 'Uredi';
 
   @override

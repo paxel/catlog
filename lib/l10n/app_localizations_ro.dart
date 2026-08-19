@@ -210,6 +210,21 @@ class AppLocalizationsRo extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Număr cip';
+
+  @override
+  String get displayFormat => 'Afișat ca';
+
+  @override
+  String get displayPlain => 'Text simplu';
+
+  @override
+  String get displayQr => 'Cod QR';
+
+  @override
+  String get displayBarcode => 'Cod de bare';
+
+  @override
   String get editLabel => 'Editează';
 
   @override

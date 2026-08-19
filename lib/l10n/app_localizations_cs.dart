@@ -210,6 +210,21 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Číslo čipu';
+
+  @override
+  String get displayFormat => 'Zobrazit jako';
+
+  @override
+  String get displayPlain => 'Prostý text';
+
+  @override
+  String get displayQr => 'QR kód';
+
+  @override
+  String get displayBarcode => 'Čárový kód';
+
+  @override
   String get editLabel => 'Upravit';
 
   @override

@@ -209,6 +209,21 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ok => 'אישור';
 
   @override
+  String get starterChipId => 'מספר שבב';
+
+  @override
+  String get displayFormat => 'מוצג בתור';
+
+  @override
+  String get displayPlain => 'טקסט רגיל';
+
+  @override
+  String get displayQr => 'קוד QR';
+
+  @override
+  String get displayBarcode => 'ברקוד';
+
+  @override
   String get editLabel => 'עריכה';
 
   @override

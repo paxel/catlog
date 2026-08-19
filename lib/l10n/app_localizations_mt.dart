@@ -211,6 +211,21 @@ class AppLocalizationsMt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numru taċ-ċippa';
+
+  @override
+  String get displayFormat => 'Muri bħala';
+
+  @override
+  String get displayPlain => 'Test sempliċi';
+
+  @override
+  String get displayQr => 'Kodiċi QR';
+
+  @override
+  String get displayBarcode => 'Barcode';
+
+  @override
   String get editLabel => 'Editja';
 
   @override
