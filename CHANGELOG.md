@@ -20,8 +20,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   the position is never on a card unless you put it there.
 - **Family**: mother and father can be set on every cat; the cat page shows
   littermates, siblings, and kittens, all tappable.
-- **Clowder status** (foster home, forever home, clinic, shelter, barn —
-  or your own words) shown as colored chips.
+- **Clowder type** (foster home, forever home, clinic, shelter, barn,
+  owner — or your own words) shown as colored chips.
 - **Adoption party**: moving a cat into a forever home throws confetti and
   a cheer (About page switch turns it off).
 - **What arrived after a sync**: a summary lists adopted, deceased,
@@ -99,8 +99,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
-- The starter fields read clearer: "Position" became **Location** and the
-  clowder's "Status" became **Type**.
+- The "Position" starter field is now labeled **Location**.
 - Saving a captured flier shows a spinner, a nameless owner is named
   after the cat ("Owner of Minka"), and the owner card carries the
   flier's text and phone itself.
