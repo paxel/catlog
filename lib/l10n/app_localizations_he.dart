@@ -209,6 +209,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ok => 'אישור';
 
   @override
+  String get editLabel => 'עריכה';
+
+  @override
+  String get doneLabel => 'סיום';
+
+  @override
   String get openSettings => 'פתיחת הגדרות';
 
   @override

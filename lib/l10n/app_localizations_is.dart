@@ -211,6 +211,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get ok => 'Í lagi';
 
   @override
+  String get editLabel => 'Breyta';
+
+  @override
+  String get doneLabel => 'Lokið';
+
+  @override
   String get openSettings => 'Opna stillingar';
 
   @override

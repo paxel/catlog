@@ -210,6 +210,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Redakto';
+
+  @override
+  String get doneLabel => 'U krye';
+
+  @override
   String get openSettings => 'Hap cilësimet';
 
   @override

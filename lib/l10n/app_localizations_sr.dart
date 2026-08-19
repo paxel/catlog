@@ -210,6 +210,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get ok => 'У реду';
 
   @override
+  String get editLabel => 'Уреди';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Otvori podešavanja';
 
   @override

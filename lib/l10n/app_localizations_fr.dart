@@ -210,6 +210,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Modifier';
+
+  @override
+  String get doneLabel => 'Terminé';
+
+  @override
   String get openSettings => 'Ouvrir les réglages';
 
   @override

@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nema dozvolu za korištenje vaše lokacije. Pokušajte ponovo i dozvolite kad budete upitani.",
   "locationNoFix": "Vaša pozicija se trenutno ne može odrediti. Pokušajte ponovo na otvorenom — GPS treba čist pogled na nebo.",
   "ok": "OK",
+  "editLabel": "Uredi",
+  "doneLabel": "Gotovo",
   "openSettings": "Otvori postavke",
   "notSaved": "Nije sačuvano",
   "birthdateInFuture": "Datum rođenja ne može biti u budućnosti.",

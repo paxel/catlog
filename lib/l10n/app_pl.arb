@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nie ma uprawnień do korzystania z twojej lokalizacji. Spróbuj ponownie i zezwól, gdy pojawi się pytanie.",
   "locationNoFix": "Nie udało się teraz ustalić twojej pozycji. Spróbuj ponownie na zewnątrz — GPS potrzebuje czystego widoku nieba.",
   "ok": "OK",
+  "editLabel": "Edytuj",
+  "doneLabel": "Gotowe",
   "openSettings": "Otwórz ustawienia",
   "notSaved": "Nie zapisano",
   "birthdateInFuture": "Data urodzenia nie może być w przyszłości.",

@@ -210,6 +210,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Редактиране';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Отвори настройките';
 
   @override

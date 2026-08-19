@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log heeft geen toestemming om je locatie te gebruiken. Probeer het opnieuw en sta het toe wanneer erom wordt gevraagd.",
   "locationNoFix": "Je positie kon nu niet worden bepaald. Probeer het buiten opnieuw — GPS heeft vrij zicht op de hemel nodig.",
   "ok": "OK",
+  "editLabel": "Bewerken",
+  "doneLabel": "Klaar",
   "openSettings": "Instellingen openen",
   "notSaved": "Niet opgeslagen",
   "birthdateInFuture": "De geboortedatum kan niet in de toekomst liggen.",

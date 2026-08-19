@@ -211,6 +211,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Editja';
+
+  @override
+  String get doneLabel => 'Lest';
+
+  @override
   String get openSettings => 'Iftaħ is-settings';
 
   @override

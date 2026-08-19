@@ -210,6 +210,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get ok => 'Gerai';
 
   @override
+  String get editLabel => 'Redaguoti';
+
+  @override
+  String get doneLabel => 'Atlikta';
+
+  @override
   String get openSettings => 'Atidaryti nustatymus';
 
   @override

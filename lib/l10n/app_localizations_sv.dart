@@ -210,6 +210,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Redigera';
+
+  @override
+  String get doneLabel => 'Klar';
+
+  @override
   String get openSettings => 'Öppna inställningar';
 
   @override

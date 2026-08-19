@@ -132,7 +132,10 @@ void main() {
     // Open the cat and rename it; the change is authored and historic.
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Rename'));
+    // Renaming lives in edit mode: pencil first, then the title (#46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Mizzi');
     await tester.tap(find.text('Save'));
@@ -157,7 +160,9 @@ void main() {
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
 
-    // Set gender via the typed editor.
+    // Set gender via the typed editor (edit mode first, #46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Gender'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('female'));
@@ -186,6 +191,9 @@ void main() {
     await tester.tap(find.text('Runner'));
     await tester.pumpAndSettle();
 
+    // Moving is an edit: enter edit mode first (#46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Clowder'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('No clowder — stray / ran away'));
@@ -197,7 +205,9 @@ void main() {
     expect(store.strays().single.id, cat);
     expect(find.text('Stray — no clowder'), findsOneWidget);
 
-    // Home screen shows the stray count.
+    // Leave edit mode, then navigate home.
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();
     await tester.pageBack();
@@ -263,6 +273,9 @@ void main() {
     await tester.tap(find.text('Zuhause'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    // Empty starter fields only show in edit mode (#46).
+    await tester.tap(find.byTooltip('Bearbeiten'));
     await tester.pumpAndSettle();
     // Starter field name shows in German (ADR-0005 display-time).
     expect(find.text('Geschlecht'), findsOneWidget);

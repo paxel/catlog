@@ -201,6 +201,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ok => '好';
 
   @override
+  String get editLabel => '编辑';
+
+  @override
+  String get doneLabel => '完成';
+
+  @override
   String get openSettings => '打开设置';
 
   @override

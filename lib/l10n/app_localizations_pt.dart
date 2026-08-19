@@ -210,6 +210,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Editar';
+
+  @override
+  String get doneLabel => 'Concluído';
+
+  @override
   String get openSettings => 'Abrir definições';
 
   @override

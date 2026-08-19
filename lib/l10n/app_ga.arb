@@ -158,6 +158,8 @@
   "locationDenied": "Níl cead ag cat(a)log do shuíomh a úsáid. Bain triail eile as agus ceadaigh é nuair a iarrtar ort.",
   "locationNoFix": "Níorbh fhéidir do shuíomh a dhéanamh amach anois. Bain triail eile as amuigh faoin aer — teastaíonn radharc glan ar an spéir ón GPS.",
   "ok": "OK",
+  "editLabel": "Cuir in eagar",
+  "doneLabel": "Déanta",
   "openSettings": "Oscail socruithe",
   "notSaved": "Gan sábháil",
   "birthdateInFuture": "Ní féidir leis an dáta breithe a bheith san am atá le teacht.",

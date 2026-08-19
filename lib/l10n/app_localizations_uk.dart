@@ -210,6 +210,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Редагувати';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Відкрити налаштування';
 
   @override

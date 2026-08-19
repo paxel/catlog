@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nav atļaujas izmantot jūsu atrašanās vietu. Mēģiniet vēlreiz un atļaujiet, kad tiks jautāts.",
   "locationNoFix": "Jūsu pozīciju šobrīd neizdevās noteikt. Mēģiniet vēlreiz ārā — GPS ir vajadzīgs brīvs skats uz debesīm.",
   "ok": "Labi",
+  "editLabel": "Rediģēt",
+  "doneLabel": "Gatavs",
   "openSettings": "Atvērt iestatījumus",
   "notSaved": "Nav saglabāts",
   "birthdateInFuture": "Dzimšanas datums nevar būt nākotnē.",

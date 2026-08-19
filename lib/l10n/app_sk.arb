@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nemá povolenie používať vašu polohu. Skúste to znova a povoľte ju, keď sa zobrazí otázka.",
   "locationNoFix": "Vašu polohu sa teraz nepodarilo zistiť. Skúste to znova vonku — GPS potrebuje voľný výhľad na oblohu.",
   "ok": "OK",
+  "editLabel": "Upraviť",
+  "doneLabel": "Hotovo",
   "openSettings": "Otvoriť nastavenia",
   "notSaved": "Neuložené",
   "birthdateInFuture": "Dátum narodenia nemôže byť v budúcnosti.",

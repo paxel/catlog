@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log ei tohi sinu asukohta kasutada. Proovi uuesti ja luba see, kui küsitakse.",
   "locationNoFix": "Sinu asukohta ei õnnestunud praegu määrata. Proovi uuesti õues — GPS vajab vaba vaadet taevale.",
   "ok": "OK",
+  "editLabel": "Muuda",
+  "doneLabel": "Valmis",
   "openSettings": "Ava seaded",
   "notSaved": "Salvestamata",
   "birthdateInFuture": "Sünnikuupäev ei saa olla tulevikus.",

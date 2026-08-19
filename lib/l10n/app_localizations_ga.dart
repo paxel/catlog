@@ -210,6 +210,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Cuir in eagar';
+
+  @override
+  String get doneLabel => 'Déanta';
+
+  @override
   String get openSettings => 'Oscail socruithe';
 
   @override

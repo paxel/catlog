@@ -210,6 +210,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Szerkesztés';
+
+  @override
+  String get doneLabel => 'Kész';
+
+  @override
   String get openSettings => 'Beállítások megnyitása';
 
   @override

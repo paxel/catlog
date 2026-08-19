@@ -207,6 +207,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => '編集';
+
+  @override
+  String get doneLabel => '完了';
+
+  @override
   String get openSettings => '設定を開く';
 
   @override

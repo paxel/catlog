@@ -211,6 +211,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Bearbeiten';
+
+  @override
+  String get doneLabel => 'Fertig';
+
+  @override
   String get openSettings => 'Einstellungen öffnen';
 
   @override

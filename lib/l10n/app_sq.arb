@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nuk ka leje të përdorë vendndodhjen tuaj. Provoni sërish dhe lejojeni kur t'ju pyetet.",
   "locationNoFix": "Pozicioni juaj nuk mund të përcaktohej tani. Provoni sërish në natyrë — GPS ka nevojë për pamje të lirë të qiellit.",
   "ok": "OK",
+  "editLabel": "Redakto",
+  "doneLabel": "U krye",
   "openSettings": "Hap cilësimet",
   "notSaved": "Nuk u ruajt",
   "birthdateInFuture": "Data e lindjes nuk mund të jetë në të ardhmen.",

@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log neturi leidimo naudoti jūsų vietos. Bandykite dar kartą ir leiskite, kai bus paklausta.",
   "locationNoFix": "Jūsų padėties dabar nepavyko nustatyti. Bandykite dar kartą lauke — GPS reikia atviro dangaus vaizdo.",
   "ok": "Gerai",
+  "editLabel": "Redaguoti",
+  "doneLabel": "Atlikta",
   "openSettings": "Atidaryti nustatymus",
   "notSaved": "Neišsaugota",
   "birthdateInFuture": "Gimimo data negali būti ateityje.",

@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log har ikke tillatelse til å bruke posisjonen din. Prøv igjen og tillat det når du blir spurt.",
   "locationNoFix": "Posisjonen din kunne ikke bestemmes akkurat nå. Prøv igjen utendørs — GPS trenger fri sikt til himmelen.",
   "ok": "OK",
+  "editLabel": "Rediger",
+  "doneLabel": "Ferdig",
   "openSettings": "Åpne innstillinger",
   "notSaved": "Ikke lagret",
   "birthdateInFuture": "Fødselsdatoen kan ikke ligge i fremtiden.",

@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nu are permisiunea de a folosi locația dvs. Încercați din nou și permiteți-o când vi se cere.",
   "locationNoFix": "Poziția dvs. nu a putut fi determinată acum. Încercați din nou în aer liber — GPS-ul are nevoie de vedere liberă spre cer.",
   "ok": "OK",
+  "editLabel": "Editează",
+  "doneLabel": "Gata",
   "openSettings": "Deschide setările",
   "notSaved": "Nesalvat",
   "birthdateInFuture": "Data nașterii nu poate fi în viitor.",

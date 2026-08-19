@@ -210,6 +210,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ok => 'Tamam';
 
   @override
+  String get editLabel => 'Düzenle';
+
+  @override
+  String get doneLabel => 'Bitti';
+
+  @override
   String get openSettings => 'Ayarları aç';
 
   @override

@@ -210,6 +210,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Muokkaa';
+
+  @override
+  String get doneLabel => 'Valmis';
+
+  @override
   String get openSettings => 'Avaa asetukset';
 
   @override

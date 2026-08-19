@@ -89,6 +89,8 @@
   "locationDenied": "cat(a)log has no permission to use your location. Try again and allow it when asked.",
   "locationNoFix": "Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.",
   "ok": "OK",
+  "editLabel": "Edit",
+  "doneLabel": "Done",
   "openSettings": "Open settings",
   "notSaved": "Not saved",
   "birthdateInFuture": "The birth date can't be in the future.",

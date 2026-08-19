@@ -210,6 +210,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get ok => 'Labi';
 
   @override
+  String get editLabel => 'Rediģēt';
+
+  @override
+  String get doneLabel => 'Gatavs';
+
+  @override
   String get openSettings => 'Atvērt iestatījumus';
 
   @override

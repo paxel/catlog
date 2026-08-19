@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log konumunuzu kullanma iznine sahip değil. Yeniden deneyin ve sorulduğunda izin verin.",
   "locationNoFix": "Konumunuz şu anda belirlenemedi. Açık havada yeniden deneyin — GPS gökyüzünü net görmelidir.",
   "ok": "Tamam",
+  "editLabel": "Düzenle",
+  "doneLabel": "Bitti",
   "openSettings": "Ayarları aç",
   "notSaved": "Kaydedilmedi",
   "birthdateInFuture": "Doğum tarihi gelecekte olamaz.",

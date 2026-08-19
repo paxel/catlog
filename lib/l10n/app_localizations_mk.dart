@@ -210,6 +210,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get ok => 'Во ред';
 
   @override
+  String get editLabel => 'Уреди';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Отвори поставки';
 
   @override

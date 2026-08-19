@@ -210,6 +210,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get ok => 'باشه';
 
   @override
+  String get editLabel => 'ویرایش';
+
+  @override
+  String get doneLabel => 'انجام شد';
+
+  @override
   String get openSettings => 'باز کردن تنظیمات';
 
   @override

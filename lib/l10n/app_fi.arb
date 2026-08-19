@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log ei saa käyttää sijaintiasi. Yritä uudelleen ja salli se kysyttäessä.",
   "locationNoFix": "Sijaintiasi ei juuri nyt voitu määrittää. Yritä uudelleen ulkona — GPS tarvitsee esteettömän näkymän taivaalle.",
   "ok": "OK",
+  "editLabel": "Muokkaa",
+  "doneLabel": "Valmis",
   "openSettings": "Avaa asetukset",
   "notSaved": "Ei tallennettu",
   "birthdateInFuture": "Syntymäpäivä ei voi olla tulevaisuudessa.",

@@ -210,6 +210,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Rediger';
+
+  @override
+  String get doneLabel => 'Ferdig';
+
+  @override
   String get openSettings => 'Åpne innstillinger';
 
   @override

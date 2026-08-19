@@ -210,6 +210,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Επεξεργασία';
+
+  @override
+  String get doneLabel => 'Έτοιμο';
+
+  @override
   String get openSettings => 'Άνοιγμα ρυθμίσεων';
 
   @override

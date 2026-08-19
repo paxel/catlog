@@ -158,6 +158,8 @@
   "locationDenied": "cat(a)log nima dovoljenja za uporabo vaše lokacije. Poskusite znova in dovolite, ko boste vprašani.",
   "locationNoFix": "Vašega položaja trenutno ni bilo mogoče določiti. Poskusite znova na prostem — GPS potrebuje prost pogled na nebo.",
   "ok": "V redu",
+  "editLabel": "Uredi",
+  "doneLabel": "Končano",
   "openSettings": "Odpri nastavitve",
   "notSaved": "Ni shranjeno",
   "birthdateInFuture": "Datum rojstva ne more biti v prihodnosti.",

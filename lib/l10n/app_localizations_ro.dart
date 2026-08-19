@@ -210,6 +210,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Editează';
+
+  @override
+  String get doneLabel => 'Gata';
+
+  @override
   String get openSettings => 'Deschide setările';
 
   @override

@@ -210,6 +210,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ok => 'ОК';
 
   @override
+  String get editLabel => 'Редактировать';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Открыть настройки';
 
   @override

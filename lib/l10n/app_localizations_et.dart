@@ -210,6 +210,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Muuda';
+
+  @override
+  String get doneLabel => 'Valmis';
+
+  @override
   String get openSettings => 'Ava seaded';
 
   @override

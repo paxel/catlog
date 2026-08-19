@@ -210,6 +210,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get ok => 'V redu';
 
   @override
+  String get editLabel => 'Uredi';
+
+  @override
+  String get doneLabel => 'Končano';
+
+  @override
   String get openSettings => 'Odpri nastavitve';
 
   @override

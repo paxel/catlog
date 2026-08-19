@@ -210,6 +210,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Upravit';
+
+  @override
+  String get doneLabel => 'Hotovo';
+
+  @override
   String get openSettings => 'Otevřít nastavení';
 
   @override

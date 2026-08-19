@@ -210,6 +210,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Bewerken';
+
+  @override
+  String get doneLabel => 'Klaar';
+
+  @override
   String get openSettings => 'Instellingen openen';
 
   @override

@@ -210,6 +210,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get editLabel => 'Upraviť';
+
+  @override
+  String get doneLabel => 'Hotovo';
+
+  @override
   String get openSettings => 'Otvoriť nastavenia';
 
   @override

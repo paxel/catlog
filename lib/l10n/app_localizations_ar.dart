@@ -210,6 +210,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ok => 'حسنًا';
 
   @override
+  String get editLabel => 'تحرير';
+
+  @override
+  String get doneLabel => 'تم';
+
+  @override
   String get openSettings => 'فتح الإعدادات';
 
   @override

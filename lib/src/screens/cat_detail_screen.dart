@@ -7,7 +7,6 @@ import 'package:latlong2/latlong.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
-import '../field_labels.dart';
 import '../image_import.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -18,6 +17,7 @@ import '../name_date_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/field_list.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
@@ -49,6 +49,9 @@ const _strayMarker = '\$stray';
 class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
+
+  /// Read-only until the pencil is pressed (#46); every visit starts calm.
+  bool _editing = false;
 
   @override
   void initState() {
@@ -306,9 +309,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final profile = store.profileImage(id);
     final defs = store.visibleFieldDefs(scope: FieldScope.cat);
     final clowderId = store.current(id, Keys.clowder);
-    return Scaffold(
+    return PopScope(
+      // Back leaves edit mode before it leaves the page.
+      canPop: !_editing,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) setState(() => _editing = false);
+      },
+      child: Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        // Renaming lives in edit mode: the title becomes tappable there.
+        title: _editing
+            ? InkWell(onTap: _rename, child: Text(name))
+            : Text(name),
         actions: [
           IconButton(
               icon: const Icon(Icons.badge_outlined),
@@ -318,9 +330,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                     builder: (_) => CardScreen(store: store, catId: id),
                   ))),
           IconButton(
-              icon: const Icon(Icons.edit),
-              tooltip: context.t.rename,
-              onPressed: _rename),
+              icon: Icon(_editing ? Icons.check : Icons.edit),
+              tooltip:
+                  _editing ? context.t.doneLabel : context.t.editLabel,
+              onPressed: () => setState(() => _editing = !_editing)),
           IconButton(
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,
@@ -390,43 +403,26 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             subtitle: Text(clowderId == null
                 ? context.t.strayNoClowder
                 : store.current(clowderId, Keys.name) ?? context.t.unnamed),
-            trailing: const Icon(Icons.drive_file_move_outline),
-            onTap: _move,
+            trailing:
+                _editing ? const Icon(Icons.drive_file_move_outline) : null,
+            onTap: _editing ? _move : null,
             onLongPress: () => _openTimeline(field: Keys.clowder),
           ),
           const Divider(),
-          for (final def in defs)
-            ListTile(
-              title: Text(fieldDefName(context.t, def)),
-              subtitle: Text(def.type == FieldType.cat &&
-                      store.current(id, def.key) != null
-                  ? store.current(
-                          store.resolveEntity(
-                              store.current(id, def.key)!),
-                          Keys.name) ??
-                      '?'
-                  : fieldValueDisplay(
-                      context.t, def, store.current(id, def.key))),
-              trailing: store.hasConflict(id, def.key)
-                  ? const Icon(Icons.warning_amber, color: Colors.amber)
-                  : def.type == FieldType.location &&
-                          store.current(id, def.key) != null
-                      ? IconButton(
-                          icon: const Icon(Icons.map_outlined),
-                          tooltip: context.t.showOnMap,
-                          onPressed: () => _showOnMap(
-                              store.current(id, def.key)!),
-                        )
-                      : const Icon(Icons.edit_outlined),
-              onTap: store.hasConflict(id, def.key)
-                  ? () async {
-                      await showConflictDialog(context, store, id, def.key);
-                      if (!mounted) return;
-                      setState(() {});
-                    }
-                  : () => _editField(def),
-              onLongPress: () => _openTimeline(field: def.key),
-            ),
+          FieldList(
+            store: store,
+            entityId: id,
+            defs: defs,
+            editing: _editing,
+            onEdit: _editField,
+            onConflict: (def) async {
+              await showConflictDialog(context, store, id, def.key);
+              if (!mounted) return;
+              setState(() {});
+            },
+            onHistory: (def) => _openTimeline(field: def.key),
+            onShowMap: _showOnMap,
+          ),
           if (_hasFamily())
             ...[
               const Divider(),
@@ -496,6 +492,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         onPressed: _addPhoto,
         tooltip: context.t.addPhoto,
         child: const Icon(Icons.add_a_photo),
+      ),
       ),
     );
   }
