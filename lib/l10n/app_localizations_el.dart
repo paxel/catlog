@@ -216,6 +216,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterRemarks => 'Σημειώσεις';
 
   @override
+  String get captureFlier => 'Φωτογράφιση αφίσας';
+
+  @override
+  String get addFlier => 'Προσθήκη αφίσας';
+
+  @override
+  String get missingSinceLabel => 'Αγνοείται από';
+
+  @override
+  String get phoneLabel => 'Τηλέφωνο';
+
+  @override
+  String get cropPortrait => 'Περικοπή πορτρέτου';
+
+  @override
+  String get statusOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get ocrUnavailable =>
+      'Η αναγνώριση κειμένου δεν είναι διαθέσιμη σε αυτήν τη συσκευή — πληκτρολογήστε το κείμενο της αφίσας.';
+
+  @override
   String get displayFormat => 'Εμφάνιση ως';
 
   @override

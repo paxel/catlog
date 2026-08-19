@@ -216,6 +216,28 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterRemarks => 'Бележки';
 
   @override
+  String get captureFlier => 'Заснемане на обява';
+
+  @override
+  String get addFlier => 'Добавяне на обява';
+
+  @override
+  String get missingSinceLabel => 'Изчезнал от';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Изрязване на портрет';
+
+  @override
+  String get statusOwner => 'Собственик';
+
+  @override
+  String get ocrUnavailable =>
+      'Разпознаването на текст не е налично на това устройство — въведете текста на обявата сами.';
+
+  @override
   String get displayFormat => 'Показва се като';
 
   @override

@@ -216,6 +216,28 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterRemarks => 'یادداشت‌ها';
 
   @override
+  String get captureFlier => 'عکس از آگهی';
+
+  @override
+  String get addFlier => 'افزودن آگهی';
+
+  @override
+  String get missingSinceLabel => 'گم‌شده از';
+
+  @override
+  String get phoneLabel => 'تلفن';
+
+  @override
+  String get cropPortrait => 'برش چهره';
+
+  @override
+  String get statusOwner => 'صاحب';
+
+  @override
+  String get ocrUnavailable =>
+      'تشخیص متن در این دستگاه در دسترس نیست — متن آگهی را خودتان بنویسید.';
+
+  @override
   String get displayFormat => 'نمایش به‌صورت';
 
   @override

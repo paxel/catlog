@@ -216,6 +216,28 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterRemarks => 'Nótaí';
 
   @override
+  String get captureFlier => 'Grianghraf den bhileog';
+
+  @override
+  String get addFlier => 'Cuir bileog leis';
+
+  @override
+  String get missingSinceLabel => 'Ar iarraidh ó';
+
+  @override
+  String get phoneLabel => 'Teileafón';
+
+  @override
+  String get cropPortrait => 'Bearr an phortráid';
+
+  @override
+  String get statusOwner => 'Úinéir';
+
+  @override
+  String get ocrUnavailable =>
+      'Níl aithint téacs ar fáil ar an ngléas seo — clóscríobh téacs na bileoige tú féin.';
+
+  @override
   String get displayFormat => 'Taispeántar mar';
 
   @override

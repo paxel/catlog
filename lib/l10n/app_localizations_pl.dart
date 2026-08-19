@@ -216,6 +216,28 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterRemarks => 'Uwagi';
 
   @override
+  String get captureFlier => 'Sfotografuj ogłoszenie';
+
+  @override
+  String get addFlier => 'Dodaj ogłoszenie';
+
+  @override
+  String get missingSinceLabel => 'Zaginiony od';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Przytnij portret';
+
+  @override
+  String get statusOwner => 'Właściciel';
+
+  @override
+  String get ocrUnavailable =>
+      'Rozpoznawanie tekstu nie jest dostępne na tym urządzeniu — wpisz treść ogłoszenia ręcznie.';
+
+  @override
   String get displayFormat => 'Wyświetlane jako';
 
   @override

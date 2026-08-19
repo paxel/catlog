@@ -217,6 +217,28 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterRemarks => 'Athugasemdir';
 
   @override
+  String get captureFlier => 'Mynda auglýsingu';
+
+  @override
+  String get addFlier => 'Bæta við auglýsingu';
+
+  @override
+  String get missingSinceLabel => 'Týndur síðan';
+
+  @override
+  String get phoneLabel => 'Sími';
+
+  @override
+  String get cropPortrait => 'Skera andlitsmynd';
+
+  @override
+  String get statusOwner => 'Eigandi';
+
+  @override
+  String get ocrUnavailable =>
+      'Textagreining er ekki í boði á þessu tæki — sláðu sjálf(ur) inn texta auglýsingarinnar.';
+
+  @override
   String get displayFormat => 'Birt sem';
 
   @override

@@ -213,6 +213,27 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterRemarks => '備考';
 
   @override
+  String get captureFlier => 'チラシを撮影';
+
+  @override
+  String get addFlier => 'チラシを追加';
+
+  @override
+  String get missingSinceLabel => '行方不明になった日';
+
+  @override
+  String get phoneLabel => '電話';
+
+  @override
+  String get cropPortrait => '顔写真を切り抜く';
+
+  @override
+  String get statusOwner => '飼い主';
+
+  @override
+  String get ocrUnavailable => 'この端末では文字認識を利用できません。チラシの文章を手入力してください。';
+
+  @override
   String get displayFormat => '表示形式';
 
   @override

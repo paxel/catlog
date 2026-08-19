@@ -207,6 +207,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterRemarks => '备注';
 
   @override
+  String get captureFlier => '拍摄寻猫启事';
+
+  @override
+  String get addFlier => '添加启事';
+
+  @override
+  String get missingSinceLabel => '失踪日期';
+
+  @override
+  String get phoneLabel => '电话';
+
+  @override
+  String get cropPortrait => '裁剪头像';
+
+  @override
+  String get statusOwner => '主人';
+
+  @override
+  String get ocrUnavailable => '此设备不支持文字识别——请自行输入启事内容。';
+
+  @override
   String get displayFormat => '显示为';
 
   @override

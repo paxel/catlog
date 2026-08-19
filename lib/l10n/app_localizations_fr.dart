@@ -216,6 +216,28 @@ class AppLocalizationsFr extends AppLocalizations {
   String get starterRemarks => 'Remarques';
 
   @override
+  String get captureFlier => 'Photographier l\'affiche';
+
+  @override
+  String get addFlier => 'Ajouter une affiche';
+
+  @override
+  String get missingSinceLabel => 'Disparu depuis';
+
+  @override
+  String get phoneLabel => 'Téléphone';
+
+  @override
+  String get cropPortrait => 'Recadrer le portrait';
+
+  @override
+  String get statusOwner => 'Propriétaire';
+
+  @override
+  String get ocrUnavailable =>
+      'La reconnaissance de texte n\'est pas disponible sur cet appareil — saisissez le texte de l\'affiche vous-même.';
+
+  @override
   String get displayFormat => 'Affiché comme';
 
   @override

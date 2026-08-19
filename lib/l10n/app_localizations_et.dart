@@ -216,6 +216,28 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterRemarks => 'Märkused';
 
   @override
+  String get captureFlier => 'Pildista kuulutust';
+
+  @override
+  String get addFlier => 'Lisa kuulutus';
+
+  @override
+  String get missingSinceLabel => 'Kadunud alates';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Kärbi portree';
+
+  @override
+  String get statusOwner => 'Omanik';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstituvastus pole selles seadmes saadaval — sisesta kuulutuse tekst ise.';
+
+  @override
   String get displayFormat => 'Kuvatakse kui';
 
   @override

@@ -216,6 +216,28 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterRemarks => 'Bemærkninger';
 
   @override
+  String get captureFlier => 'Fotografér opslag';
+
+  @override
+  String get addFlier => 'Tilføj opslag';
+
+  @override
+  String get missingSinceLabel => 'Savnet siden';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Beskær portræt';
+
+  @override
+  String get statusOwner => 'Ejer';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstgenkendelse er ikke tilgængelig på denne enhed — skriv selv opslagets tekst.';
+
+  @override
   String get displayFormat => 'Vises som';
 
   @override

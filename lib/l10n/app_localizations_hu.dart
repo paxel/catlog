@@ -216,6 +216,28 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterRemarks => 'Megjegyzések';
 
   @override
+  String get captureFlier => 'Plakát lefotózása';
+
+  @override
+  String get addFlier => 'Plakát hozzáadása';
+
+  @override
+  String get missingSinceLabel => 'Eltűnt ekkortól';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Portré kivágása';
+
+  @override
+  String get statusOwner => 'Gazda';
+
+  @override
+  String get ocrUnavailable =>
+      'A szövegfelismerés ezen az eszközön nem érhető el — írja be a plakát szövegét kézzel.';
+
+  @override
   String get displayFormat => 'Megjelenítés';
 
   @override

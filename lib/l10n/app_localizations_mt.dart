@@ -217,6 +217,28 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterRemarks => 'Rimarki';
 
   @override
+  String get captureFlier => 'Ħu ritratt tal-flier';
+
+  @override
+  String get addFlier => 'Żid flier';
+
+  @override
+  String get missingSinceLabel => 'Mitluf minn';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Aqta\' r-ritratt';
+
+  @override
+  String get statusOwner => 'Sid';
+
+  @override
+  String get ocrUnavailable =>
+      'L-għarfien tat-test mhux disponibbli fuq dan l-apparat — ikteb it-test tal-flier int stess.';
+
+  @override
   String get displayFormat => 'Muri bħala';
 
   @override

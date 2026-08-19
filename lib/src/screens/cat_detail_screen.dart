@@ -7,6 +7,7 @@ import 'package:latlong2/latlong.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../flier_capture.dart';
 import '../image_import.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -237,6 +238,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     Navigator.of(context).pop();
   }
 
+  /// "Add flier" on an existing missing cat: appends flier positions,
+  /// IDs, and remarks from another flier of the same cat (#32).
+  Future<void> _addFlier() async {
+    await Navigator.of(context).push<String>(MaterialPageRoute(
+        builder: (_) =>
+            FlierCaptureScreen(store: store, existingCatId: id)));
+    if (!mounted) return;
+    setState(() {});
+  }
+
   Future<void> _seenHere() async {
     final failure = await seenHereNow(store, id);
     if (!mounted) return;
@@ -353,6 +364,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               if (v == 'delete') _deleteCat();
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
+              if (v == 'flier') _addFlier();
               if (v == 'private') {
                 setState(() =>
                     store.setPrivate(id, !store.isPrivate(id)));
@@ -370,6 +382,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             itemBuilder: (context) => [
               PopupMenuItem(
                   value: 'seen', child: Text(context.t.seenHereNow)),
+              PopupMenuItem(
+                  value: 'flier', child: Text(context.t.addFlier)),
               PopupMenuItem(
                   value: 'private',
                   child: Text(store.isPrivate(id)

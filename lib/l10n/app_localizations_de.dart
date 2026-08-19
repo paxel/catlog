@@ -217,6 +217,28 @@ class AppLocalizationsDe extends AppLocalizations {
   String get starterRemarks => 'Bemerkungen';
 
   @override
+  String get captureFlier => 'Aushang erfassen';
+
+  @override
+  String get addFlier => 'Aushang hinzufügen';
+
+  @override
+  String get missingSinceLabel => 'Vermisst seit';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Porträt zuschneiden';
+
+  @override
+  String get statusOwner => 'Besitzer';
+
+  @override
+  String get ocrUnavailable =>
+      'Texterkennung ist auf diesem Gerät nicht verfügbar — tippe den Aushangtext selbst ein.';
+
+  @override
   String get displayFormat => 'Angezeigt als';
 
   @override

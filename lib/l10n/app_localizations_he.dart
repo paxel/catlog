@@ -215,6 +215,28 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterRemarks => 'הערות';
 
   @override
+  String get captureFlier => 'צילום מודעה';
+
+  @override
+  String get addFlier => 'הוספת מודעה';
+
+  @override
+  String get missingSinceLabel => 'נעדר מאז';
+
+  @override
+  String get phoneLabel => 'טלפון';
+
+  @override
+  String get cropPortrait => 'חיתוך דיוקן';
+
+  @override
+  String get statusOwner => 'בעלים';
+
+  @override
+  String get ocrUnavailable =>
+      'זיהוי טקסט אינו זמין במכשיר זה — הקלידו את טקסט המודעה בעצמכם.';
+
+  @override
   String get displayFormat => 'מוצג בתור';
 
   @override

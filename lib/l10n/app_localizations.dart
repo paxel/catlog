@@ -548,6 +548,48 @@ abstract class AppLocalizations {
   /// **'Remarks'**
   String get starterRemarks;
 
+  /// No description provided for @captureFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture flier'**
+  String get captureFlier;
+
+  /// No description provided for @addFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Add flier'**
+  String get addFlier;
+
+  /// No description provided for @missingSinceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing since'**
+  String get missingSinceLabel;
+
+  /// No description provided for @phoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phoneLabel;
+
+  /// No description provided for @cropPortrait.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop portrait'**
+  String get cropPortrait;
+
+  /// No description provided for @statusOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get statusOwner;
+
+  /// No description provided for @ocrUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Text recognition is not available on this device — type the flier text yourself.'**
+  String get ocrUnavailable;
+
   /// No description provided for @displayFormat.
   ///
   /// In en, this message translates to:

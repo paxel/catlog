@@ -216,6 +216,28 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterRemarks => 'Shënime';
 
   @override
+  String get captureFlier => 'Fotografo fletushkën';
+
+  @override
+  String get addFlier => 'Shto fletushkë';
+
+  @override
+  String get missingSinceLabel => 'I humbur që nga';
+
+  @override
+  String get phoneLabel => 'Telefoni';
+
+  @override
+  String get cropPortrait => 'Prit portretin';
+
+  @override
+  String get statusOwner => 'Pronari';
+
+  @override
+  String get ocrUnavailable =>
+      'Njohja e tekstit nuk ofrohet në këtë pajisje — shkruajeni vetë tekstin e fletushkës.';
+
+  @override
   String get displayFormat => 'Shfaqet si';
 
   @override

@@ -216,6 +216,28 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterRemarks => 'Poznámky';
 
   @override
+  String get captureFlier => 'Vyfotit leták';
+
+  @override
+  String get addFlier => 'Přidat leták';
+
+  @override
+  String get missingSinceLabel => 'Pohřešován od';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Oříznout portrét';
+
+  @override
+  String get statusOwner => 'Majitel';
+
+  @override
+  String get ocrUnavailable =>
+      'Rozpoznávání textu není na tomto zařízení dostupné — napište text letáku ručně.';
+
+  @override
   String get displayFormat => 'Zobrazit jako';
 
   @override

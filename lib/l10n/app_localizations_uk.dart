@@ -216,6 +216,28 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterRemarks => 'Нотатки';
 
   @override
+  String get captureFlier => 'Сфотографувати оголошення';
+
+  @override
+  String get addFlier => 'Додати оголошення';
+
+  @override
+  String get missingSinceLabel => 'Зник з';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Обрізати портрет';
+
+  @override
+  String get statusOwner => 'Власник';
+
+  @override
+  String get ocrUnavailable =>
+      'Розпізнавання тексту недоступне на цьому пристрої — введіть текст оголошення вручну.';
+
+  @override
   String get displayFormat => 'Показується як';
 
   @override

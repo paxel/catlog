@@ -10,6 +10,7 @@ String? statusDisplay(AppLocalizations t, String value) => switch (value) {
       'clinic' => t.statusClinic,
       'shelter' => t.statusShelter,
       'barn' => t.statusBarn,
+      'owner' => t.statusOwner,
       _ => null,
     };
 

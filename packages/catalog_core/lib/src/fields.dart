@@ -103,6 +103,7 @@ const clowderStatusKeys = [
   'clinic',
   'shelter',
   'barn',
+  'owner',
 ];
 
 /// Starter Fields seeded on first launch as ordinary entries, so a card

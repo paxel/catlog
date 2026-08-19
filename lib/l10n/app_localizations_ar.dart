@@ -216,6 +216,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterRemarks => 'ملاحظات';
 
   @override
+  String get captureFlier => 'التقاط منشور';
+
+  @override
+  String get addFlier => 'إضافة منشور';
+
+  @override
+  String get missingSinceLabel => 'مفقود منذ';
+
+  @override
+  String get phoneLabel => 'الهاتف';
+
+  @override
+  String get cropPortrait => 'قصّ صورة الوجه';
+
+  @override
+  String get statusOwner => 'المالك';
+
+  @override
+  String get ocrUnavailable =>
+      'التعرف على النص غير متاح على هذا الجهاز — اكتب نص المنشور بنفسك.';
+
+  @override
   String get displayFormat => 'يعرض كـ';
 
   @override

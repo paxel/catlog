@@ -216,6 +216,28 @@ class AppLocalizationsRu extends AppLocalizations {
   String get starterRemarks => 'Заметки';
 
   @override
+  String get captureFlier => 'Сфотографировать объявление';
+
+  @override
+  String get addFlier => 'Добавить объявление';
+
+  @override
+  String get missingSinceLabel => 'Пропал с';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Обрезать портрет';
+
+  @override
+  String get statusOwner => 'Хозяин';
+
+  @override
+  String get ocrUnavailable =>
+      'Распознавание текста недоступно на этом устройстве — введите текст объявления вручную.';
+
+  @override
   String get displayFormat => 'Отображается как';
 
   @override

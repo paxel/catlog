@@ -216,6 +216,28 @@ class AppLocalizationsMk extends AppLocalizations {
   String get starterRemarks => 'Забелешки';
 
   @override
+  String get captureFlier => 'Сликај оглас';
+
+  @override
+  String get addFlier => 'Додај оглас';
+
+  @override
+  String get missingSinceLabel => 'Исчезнат од';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Исечи портрет';
+
+  @override
+  String get statusOwner => 'Сопственик';
+
+  @override
+  String get ocrUnavailable =>
+      'Препознавањето текст не е достапно на овој уред — внесете го текстот на огласот сами.';
+
+  @override
   String get displayFormat => 'Прикажано како';
 
   @override

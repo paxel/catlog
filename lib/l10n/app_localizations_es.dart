@@ -216,6 +216,28 @@ class AppLocalizationsEs extends AppLocalizations {
   String get starterRemarks => 'Observaciones';
 
   @override
+  String get captureFlier => 'Fotografiar cartel';
+
+  @override
+  String get addFlier => 'Añadir cartel';
+
+  @override
+  String get missingSinceLabel => 'Desaparecido desde';
+
+  @override
+  String get phoneLabel => 'Teléfono';
+
+  @override
+  String get cropPortrait => 'Recortar retrato';
+
+  @override
+  String get statusOwner => 'Dueño';
+
+  @override
+  String get ocrUnavailable =>
+      'El reconocimiento de texto no está disponible en este dispositivo — escribe tú el texto del cartel.';
+
+  @override
   String get displayFormat => 'Se muestra como';
 
   @override

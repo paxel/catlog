@@ -216,6 +216,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterRemarks => 'Remarks';
 
   @override
+  String get captureFlier => 'Capture flier';
+
+  @override
+  String get addFlier => 'Add flier';
+
+  @override
+  String get missingSinceLabel => 'Missing since';
+
+  @override
+  String get phoneLabel => 'Phone';
+
+  @override
+  String get cropPortrait => 'Crop portrait';
+
+  @override
+  String get statusOwner => 'Owner';
+
+  @override
+  String get ocrUnavailable =>
+      'Text recognition is not available on this device — type the flier text yourself.';
+
+  @override
   String get displayFormat => 'Shown as';
 
   @override

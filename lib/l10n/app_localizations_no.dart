@@ -216,6 +216,28 @@ class AppLocalizationsNo extends AppLocalizations {
   String get starterRemarks => 'Merknader';
 
   @override
+  String get captureFlier => 'Fotografer oppslag';
+
+  @override
+  String get addFlier => 'Legg til oppslag';
+
+  @override
+  String get missingSinceLabel => 'Savnet siden';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Beskjær portrett';
+
+  @override
+  String get statusOwner => 'Eier';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstgjenkjenning er ikke tilgjengelig på denne enheten — skriv inn oppslagsteksten selv.';
+
+  @override
   String get displayFormat => 'Vises som';
 
   @override

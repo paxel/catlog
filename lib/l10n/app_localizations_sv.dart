@@ -216,6 +216,28 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterRemarks => 'Anmärkningar';
 
   @override
+  String get captureFlier => 'Fotografera anslag';
+
+  @override
+  String get addFlier => 'Lägg till anslag';
+
+  @override
+  String get missingSinceLabel => 'Försvunnen sedan';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Beskär porträtt';
+
+  @override
+  String get statusOwner => 'Ägare';
+
+  @override
+  String get ocrUnavailable =>
+      'Textigenkänning är inte tillgänglig på den här enheten — skriv anslags­texten själv.';
+
+  @override
   String get displayFormat => 'Visas som';
 
   @override

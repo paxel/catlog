@@ -216,6 +216,28 @@ class AppLocalizationsBs extends AppLocalizations {
   String get starterRemarks => 'Napomene';
 
   @override
+  String get captureFlier => 'Slikaj letak';
+
+  @override
+  String get addFlier => 'Dodaj letak';
+
+  @override
+  String get missingSinceLabel => 'Nestao od';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Izreži portret';
+
+  @override
+  String get statusOwner => 'Vlasnik';
+
+  @override
+  String get ocrUnavailable =>
+      'Prepoznavanje teksta nije dostupno na ovom uređaju — upišite tekst letka sami.';
+
+  @override
   String get displayFormat => 'Prikazano kao';
 
   @override

@@ -216,6 +216,28 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterRemarks => 'Opmerkingen';
 
   @override
+  String get captureFlier => 'Poster fotograferen';
+
+  @override
+  String get addFlier => 'Poster toevoegen';
+
+  @override
+  String get missingSinceLabel => 'Vermist sinds';
+
+  @override
+  String get phoneLabel => 'Telefoon';
+
+  @override
+  String get cropPortrait => 'Portret bijsnijden';
+
+  @override
+  String get statusOwner => 'Eigenaar';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstherkenning is niet beschikbaar op dit apparaat — typ de postertekst zelf.';
+
+  @override
   String get displayFormat => 'Weergegeven als';
 
   @override

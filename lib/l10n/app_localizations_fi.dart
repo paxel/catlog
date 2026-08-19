@@ -216,6 +216,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterRemarks => 'Huomautukset';
 
   @override
+  String get captureFlier => 'Kuvaa ilmoitus';
+
+  @override
+  String get addFlier => 'Lisää ilmoitus';
+
+  @override
+  String get missingSinceLabel => 'Kadonnut alkaen';
+
+  @override
+  String get phoneLabel => 'Puhelin';
+
+  @override
+  String get cropPortrait => 'Rajaa muotokuva';
+
+  @override
+  String get statusOwner => 'Omistaja';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstintunnistus ei ole käytettävissä tällä laitteella — kirjoita ilmoituksen teksti itse.';
+
+  @override
   String get displayFormat => 'Näytetään muodossa';
 
   @override

@@ -216,6 +216,28 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterRemarks => 'Piezīmes';
 
   @override
+  String get captureFlier => 'Nofotografēt sludinājumu';
+
+  @override
+  String get addFlier => 'Pievienot sludinājumu';
+
+  @override
+  String get missingSinceLabel => 'Pazudis kopš';
+
+  @override
+  String get phoneLabel => 'Tālrunis';
+
+  @override
+  String get cropPortrait => 'Apgriezt portretu';
+
+  @override
+  String get statusOwner => 'Saimnieks';
+
+  @override
+  String get ocrUnavailable =>
+      'Teksta atpazīšana šajā ierīcē nav pieejama — ierakstiet sludinājuma tekstu paši.';
+
+  @override
   String get displayFormat => 'Rādīt kā';
 
   @override

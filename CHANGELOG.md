@@ -57,6 +57,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - **Remarks**: a multiline notes field on every cat and clowder; search
   finds cats by their remarks too.
+- **Flier capture**: photograph a missing-cat flier and it becomes an
+  owner clowder plus a missing cat that went stray on the flier's date —
+  with the flier photo as provenance, an optional cropped portrait as the
+  face, the location as a flier position, and scanned or recognized text
+  prefilling chip ID, phone, and remarks (text recognition on Android and
+  iOS; editable everywhere). "Add flier" on a cat appends further fliers.
 - Positions now know their kind: live sightings versus flier locations.
   Flier positions never appear as sighting pins, and a stray without any
   sighting is valid — it lives in lists and search, just not on the map.

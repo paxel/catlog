@@ -5,6 +5,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
 import '../name_proposals.dart';
+import '../flier_capture.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -46,6 +47,26 @@ class _StraysScreenState extends State<StraysScreen> {
       appBar: AppBar(title: Text(context.t.strays)),
       floatingActionButton:
           Column(mainAxisSize: MainAxisSize.min, children: [
+        FloatingActionButton.extended(
+          heroTag: 'flier',
+          onPressed: () async {
+            final catId = await Navigator.of(context).push<String>(
+                MaterialPageRoute(
+                    builder: (_) =>
+                        FlierCaptureScreen(store: widget.store)));
+            if (catId != null && context.mounted) {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => CatDetailScreen(
+                    store: widget.store, catId: catId),
+              ));
+            }
+            if (!mounted) return;
+            setState(() {});
+          },
+          icon: const Icon(Icons.assignment_outlined),
+          label: Text(context.t.captureFlier),
+        ),
+        const SizedBox(height: 12),
         FloatingActionButton.extended(
           heroTag: 'strayCam',
           onPressed: () async {

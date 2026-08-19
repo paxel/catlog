@@ -216,6 +216,28 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterRemarks => 'Pastabos';
 
   @override
+  String get captureFlier => 'Nufotografuoti skelbimą';
+
+  @override
+  String get addFlier => 'Pridėti skelbimą';
+
+  @override
+  String get missingSinceLabel => 'Dingęs nuo';
+
+  @override
+  String get phoneLabel => 'Telefonas';
+
+  @override
+  String get cropPortrait => 'Apkirpti portretą';
+
+  @override
+  String get statusOwner => 'Šeimininkas';
+
+  @override
+  String get ocrUnavailable =>
+      'Teksto atpažinimas šiame įrenginyje negalimas — įveskite skelbimo tekstą patys.';
+
+  @override
   String get displayFormat => 'Rodoma kaip';
 
   @override

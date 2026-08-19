@@ -216,6 +216,28 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterRemarks => 'Poznámky';
 
   @override
+  String get captureFlier => 'Odfotiť leták';
+
+  @override
+  String get addFlier => 'Pridať leták';
+
+  @override
+  String get missingSinceLabel => 'Nezvestný od';
+
+  @override
+  String get phoneLabel => 'Telefón';
+
+  @override
+  String get cropPortrait => 'Orezať portrét';
+
+  @override
+  String get statusOwner => 'Majiteľ';
+
+  @override
+  String get ocrUnavailable =>
+      'Rozpoznávanie textu nie je na tomto zariadení dostupné — napíšte text letáka ručne.';
+
+  @override
   String get displayFormat => 'Zobraziť ako';
 
   @override

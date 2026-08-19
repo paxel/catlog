@@ -216,6 +216,28 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterRemarks => 'Notlar';
 
   @override
+  String get captureFlier => 'İlanı fotoğrafla';
+
+  @override
+  String get addFlier => 'İlan ekle';
+
+  @override
+  String get missingSinceLabel => 'Kayıp tarihi';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Portreyi kırp';
+
+  @override
+  String get statusOwner => 'Sahip';
+
+  @override
+  String get ocrUnavailable =>
+      'Metin tanıma bu cihazda kullanılamıyor — ilan metnini kendiniz yazın.';
+
+  @override
   String get displayFormat => 'Şu şekilde gösterilir';
 
   @override

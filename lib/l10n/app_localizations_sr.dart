@@ -216,6 +216,28 @@ class AppLocalizationsSr extends AppLocalizations {
   String get starterRemarks => 'Напомене';
 
   @override
+  String get captureFlier => 'Сликај оглас';
+
+  @override
+  String get addFlier => 'Додај оглас';
+
+  @override
+  String get missingSinceLabel => 'Нестао од';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Исеци портрет';
+
+  @override
+  String get statusOwner => 'Власник';
+
+  @override
+  String get ocrUnavailable =>
+      'Препознавање текста није доступно на овом уређају — унесите текст огласа сами.';
+
+  @override
   String get displayFormat => 'Приказано као';
 
   @override

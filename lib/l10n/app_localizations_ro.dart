@@ -216,6 +216,28 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterRemarks => 'Observații';
 
   @override
+  String get captureFlier => 'Fotografiază afișul';
+
+  @override
+  String get addFlier => 'Adaugă afiș';
+
+  @override
+  String get missingSinceLabel => 'Dispărut din';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Decupează portretul';
+
+  @override
+  String get statusOwner => 'Stăpân';
+
+  @override
+  String get ocrUnavailable =>
+      'Recunoașterea textului nu este disponibilă pe acest dispozitiv — tastați singur textul afișului.';
+
+  @override
   String get displayFormat => 'Afișat ca';
 
   @override

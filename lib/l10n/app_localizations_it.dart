@@ -216,6 +216,28 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterRemarks => 'Note';
 
   @override
+  String get captureFlier => 'Fotografa volantino';
+
+  @override
+  String get addFlier => 'Aggiungi volantino';
+
+  @override
+  String get missingSinceLabel => 'Scomparso dal';
+
+  @override
+  String get phoneLabel => 'Telefono';
+
+  @override
+  String get cropPortrait => 'Ritaglia ritratto';
+
+  @override
+  String get statusOwner => 'Proprietario';
+
+  @override
+  String get ocrUnavailable =>
+      'Il riconoscimento del testo non è disponibile su questo dispositivo — digita tu il testo del volantino.';
+
+  @override
   String get displayFormat => 'Mostrato come';
 
   @override

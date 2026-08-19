@@ -36,6 +36,7 @@ dependencies:
   url_launcher: ^6.3.0
   sqlite3_flutter_libs: ^0.5.24
   barcode_widget: ^2.0.4
+  google_mlkit_text_recognition: ^0.17.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

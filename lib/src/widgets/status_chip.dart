@@ -18,6 +18,7 @@ class StatusChip extends StatelessWidget {
     'clinic': Color(0xFF42A5F5),
     'shelter': Color(0xFFFFA726),
     'barn': Color(0xFF8D6E63),
+    'owner': Color(0xFF7E57C2),
   };
 
   static const _icons = <String, IconData>{
@@ -26,6 +27,7 @@ class StatusChip extends StatelessWidget {
     'clinic': Icons.medical_services_outlined,
     'shelter': Icons.night_shelter_outlined,
     'barn': Icons.agriculture_outlined,
+    'owner': Icons.person_outline,
   };
 
   @override

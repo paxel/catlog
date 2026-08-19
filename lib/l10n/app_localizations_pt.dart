@@ -216,6 +216,28 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterRemarks => 'Observações';
 
   @override
+  String get captureFlier => 'Fotografar cartaz';
+
+  @override
+  String get addFlier => 'Adicionar cartaz';
+
+  @override
+  String get missingSinceLabel => 'Desaparecido desde';
+
+  @override
+  String get phoneLabel => 'Telefone';
+
+  @override
+  String get cropPortrait => 'Recortar retrato';
+
+  @override
+  String get statusOwner => 'Dono';
+
+  @override
+  String get ocrUnavailable =>
+      'O reconhecimento de texto não está disponível neste dispositivo — escreva você o texto do cartaz.';
+
+  @override
   String get displayFormat => 'Mostrado como';
 
   @override
