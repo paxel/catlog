@@ -8,6 +8,7 @@ import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../new_field_dialog.dart';
 import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/field_list.dart';
@@ -155,6 +156,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       onReadLongPress: (def) {
         setState(() => _editing = true);
         _editField(def);
+      },
+      onAddField: () async {
+        final created =
+            await showNewFieldDialog(context, store, initialScope: FieldScope.clowder);
+        if (created && mounted) setState(() {});
       },
     );
     final gallery = <Widget>[

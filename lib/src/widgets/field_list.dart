@@ -21,6 +21,9 @@ class FieldList extends StatelessWidget {
   /// Read-mode long-press on a row; null until a screen wires it (#49).
   final void Function(FieldDef def)? onReadLongPress;
 
+  /// Shown as an "Add field" row at the end of the edit-mode list (#50).
+  final VoidCallback? onAddField;
+
   const FieldList(
       {super.key,
       required this.store,
@@ -31,7 +34,8 @@ class FieldList extends StatelessWidget {
       required this.onConflict,
       required this.onHistory,
       required this.onShowMap,
-      this.onReadLongPress});
+      this.onReadLongPress,
+      this.onAddField});
 
   bool _filled(FieldDef def) {
     final value = store.current(entityId, def.key);
@@ -86,6 +90,12 @@ class FieldList extends StatelessWidget {
                     : () => onReadLongPress!(def),
           );
         }),
+      if (editing && onAddField != null)
+        ListTile(
+          leading: const Icon(Icons.add),
+          title: Text(context.t.newField),
+          onTap: onAddField,
+        ),
     ]);
   }
 }

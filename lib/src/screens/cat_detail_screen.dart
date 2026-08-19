@@ -14,6 +14,7 @@ import '../plausibility.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
@@ -427,6 +428,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             onReadLongPress: (def) {
               setState(() => _editing = true);
               _editField(def);
+            },
+            onAddField: () async {
+              final created =
+                  await showNewFieldDialog(context, store, initialScope: FieldScope.cat);
+              if (created && mounted) setState(() {});
             },
           ),
           if (_hasFamily())

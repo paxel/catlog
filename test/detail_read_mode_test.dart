@@ -162,6 +162,28 @@ void main() {
     expect(find.text('Add cat'), findsOneWidget);
   });
 
+  testWidgets('a new field can be created from the page in edit mode',
+      (tester) async {
+    await pump(tester);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('New field'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New field'), warnIfMissed: true);
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+    await tester.enterText(find.byType(TextField).first, 'Vaccinated');
+    await tester.tap(find.text('Create'));
+    await tester.pumpAndSettle();
+    // The new definition appears immediately as an editable row.
+    expect(find.text('Vaccinated'), findsOneWidget);
+    expect(store.fieldDefs().any((d) => d.name == 'Vaccinated'), isTrue);
+    // First value in one motion.
+    await tester.tap(find.text('Vaccinated'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+  });
+
   testWidgets('conflict row shows and resolves in read mode',
       (tester) async {
     final other = CatalogStore.inMemory();
