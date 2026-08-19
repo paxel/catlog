@@ -54,6 +54,11 @@ abstract final class Kinds {
 /// The type of a user-defined Field (see CONTEXT.md: Field).
 enum FieldType { text, yesNo, date, number, choice, location, cat, id }
 
+/// What a position entry records: a live sighting, or where a
+/// missing-cat flier hangs (#30). Flier positions never render as
+/// sighting pins.
+enum PositionKind { sighting, flier }
+
 /// How an ID Field renders on the Card: plain text, QR, or 1D barcode.
 enum IdDisplay { plain, qr, barcode }
 

@@ -57,6 +57,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - **Remarks**: a multiline notes field on every cat and clowder; search
   finds cats by their remarks too.
+- Positions now know their kind: live sightings versus flier locations.
+  Flier positions never appear as sighting pins, and a stray without any
+  sighting is valid — it lives in lists and search, just not on the map.
 
 ### Changed
 

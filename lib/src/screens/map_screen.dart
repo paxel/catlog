@@ -47,11 +47,14 @@ class _MapScreenState extends State<MapScreen> {
 
   CatalogStore get store => widget.store;
 
-  /// Dated positions of a cat, oldest first.
+  /// Dated sighting positions of a cat, oldest first — flier positions
+  /// are not part of the trail (#30).
   List<(DateTime, LatLng)> _trail(String catId) => [
         for (final e
             in store.fieldHistory(catId, CatalogStore.positionKey).reversed)
-          if (CatalogStore.parsePosition(e.value) != null)
+          if (CatalogStore.parsePositionKind(e.value ?? '') ==
+                  PositionKind.sighting &&
+              CatalogStore.parsePosition(e.value) != null)
             (
               e.date,
               LatLng(CatalogStore.parsePosition(e.value)!.$1,
@@ -76,13 +79,17 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  List<(EntityView, LatLng)> _positioned(List<EntityView> entities) => [
+  /// Strays pin at their latest sighting; a flier-only stray stays off
+  /// the map (#30). Clowders pin at their plain position.
+  List<(EntityView, LatLng)> _positioned(List<EntityView> entities,
+          {required bool sightingsOnly}) =>
+      [
         for (final e in entities)
-          if (store.positionOf(e.id) != null)
-            (
-              e,
-              LatLng(store.positionOf(e.id)!.$1, store.positionOf(e.id)!.$2)
-            )
+          if ((sightingsOnly
+                  ? store.sightingPositionOf(e.id)
+                  : store.positionOf(e.id))
+              case final pos?)
+            (e, LatLng(pos.$1, pos.$2))
       ];
 
   // Only sightings are recorded from the map; a clowder's position is set
@@ -186,8 +193,8 @@ class _MapScreenState extends State<MapScreen> {
         e.name.toLowerCase().contains(query) || byAuthor.contains(e.id);
     final found = <(EntityView, LatLng)>[
       for (final entry in [
-        ..._positioned(store.visibleCats()),
-        ..._positioned(store.visibleClowders()),
+        ..._positioned(store.visibleCats(), sightingsOnly: true),
+        ..._positioned(store.visibleClowders(), sightingsOnly: false),
       ])
         if (matches(entry.$1)) entry
     ];
@@ -207,8 +214,10 @@ class _MapScreenState extends State<MapScreen> {
     if (_tiles == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final strays = _positioned(store.visibleStrays());
-    final clowders = _positioned(store.visibleClowders());
+    final strays =
+        _positioned(store.visibleStrays(), sightingsOnly: true);
+    final clowders =
+        _positioned(store.visibleClowders(), sightingsOnly: false);
     final all = [...strays, ...clowders];
     final center = widget.initialCenter ??
         (all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2);

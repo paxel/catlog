@@ -684,13 +684,45 @@ class CatalogStore {
   /// The key of the built-in Position starter field ("lat,lon").
   static const positionKey = 'f:position';
 
-  /// An entity's current position, parsed from the Position field.
+  /// An entity's current position, parsed from the Position field —
+  /// any kind, fliers included.
   (double, double)? positionOf(String entityId) =>
       parsePosition(current(entityId, positionKey));
 
-  /// Parses a "lat,lon" value; null for absent or malformed input.
+  /// The latest SIGHTING position — flier positions never become
+  /// sighting pins (#30). Null for off-map strays.
+  (double, double)? sightingPositionOf(String entityId) {
+    for (final e in fieldHistory(entityId, positionKey)) {
+      if (parsePositionKind(e.value ?? '') != PositionKind.sighting) {
+        continue;
+      }
+      final pos = parsePosition(e.value);
+      if (pos != null) return pos;
+    }
+    return null;
+  }
+
+  /// All flier positions ever recorded on the entity, newest first.
+  List<(double, double)> flierPositions(String entityId) => [
+        for (final e in fieldHistory(entityId, positionKey))
+          if (parsePositionKind(e.value ?? '') == PositionKind.flier)
+            if (parsePosition(e.value) case final pos?) pos
+      ];
+
+  /// The kind marker of a position value; plain "lat,lon" is a sighting.
+  /// Flier positions are stored as "lat,lon@flier" — older versions
+  /// fail to parse the suffix and simply ignore such entries.
+  static PositionKind parsePositionKind(String value) =>
+      value.endsWith('@${PositionKind.flier.name}')
+          ? PositionKind.flier
+          : PositionKind.sighting;
+
+  /// Parses a "lat,lon" value (with or without a "@kind" suffix);
+  /// null for absent or malformed input.
   static (double, double)? parsePosition(String? value) {
     if (value == null) return null;
+    final at = value.indexOf('@');
+    if (at >= 0) value = value.substring(0, at);
     final parts = value.split(',');
     if (parts.length != 2) return null;
     final lat = double.tryParse(parts[0].trim());
@@ -700,10 +732,17 @@ class CatalogStore {
     return (lat, lon);
   }
 
-  /// Records a position sighting at the current (or given) date.
+  /// Records a position at the current (or given) date; sightings are
+  /// stored plain, other kinds carry their marker.
   void recordPosition(String entityId, double lat, double lon,
-          {DateTime? date}) =>
-      append(entityId, positionKey, '$lat,$lon', date: date);
+          {PositionKind kind = PositionKind.sighting, DateTime? date}) =>
+      append(
+          entityId,
+          positionKey,
+          kind == PositionKind.sighting
+              ? '$lat,$lon'
+              : '$lat,$lon@${kind.name}',
+          date: date);
 
   /// Cats whose current name or Remarks contain [query],
   /// case-insensitive — across all Clowders and Strays. Deleted Cats
