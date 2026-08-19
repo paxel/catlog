@@ -228,6 +228,25 @@ class AppLocalizationsSk extends AppLocalizations {
   String get sharePublicly => 'Zdieľať verejne…';
 
   @override
+  String get pickFramesTitle => 'Výber snímok';
+
+  @override
+  String get suggestedFrames => 'Navrhované snímky';
+
+  @override
+  String get scrubFrames => 'Pretáčanie videa';
+
+  @override
+  String get keepThisFrame => 'Ponechať túto snímku';
+
+  @override
+  String get fromVideo => 'Z videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Výber snímok z videa funguje v mobilnej aplikácii (Android a iPhone) — na tomto zariadení zatiaľ nie.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalóg opustia len zaškrtnuté polia. Všetko ostatné zostáva doma.';
 

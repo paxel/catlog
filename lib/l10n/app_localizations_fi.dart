@@ -228,6 +228,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sharePublicly => 'Jaa julkisesti…';
 
   @override
+  String get pickFramesTitle => 'Valitse ruudut';
+
+  @override
+  String get suggestedFrames => 'Ehdotetut ruudut';
+
+  @override
+  String get scrubFrames => 'Kelaa videota';
+
+  @override
+  String get keepThisFrame => 'Pidä tämä ruutu';
+
+  @override
+  String get fromVideo => 'Videosta…';
+
+  @override
+  String get videoMobileOnly =>
+      'Ruutujen poiminta videosta toimii puhelinsovelluksessa (Android ja iPhone) — ei vielä tällä laitteella.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Vain valitut kentät lähtevät katalogista. Kaikki muu jää kotiin.';
 

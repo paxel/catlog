@@ -228,6 +228,25 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sharePublicly => 'Udostępnij publicznie…';
 
   @override
+  String get pickFramesTitle => 'Wybór klatek';
+
+  @override
+  String get suggestedFrames => 'Sugerowane klatki';
+
+  @override
+  String get scrubFrames => 'Przewijanie wideo';
+
+  @override
+  String get keepThisFrame => 'Zachowaj tę klatkę';
+
+  @override
+  String get fromVideo => 'Z wideo…';
+
+  @override
+  String get videoMobileOnly =>
+      'Wybieranie klatek z wideo działa w aplikacji na telefon (Android i iPhone) — na tym urządzeniu jeszcze nie.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalog opuszczają tylko zaznaczone pola. Cała reszta zostaje w domu.';
 

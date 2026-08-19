@@ -228,6 +228,25 @@ class AppLocalizationsBs extends AppLocalizations {
   String get sharePublicly => 'Podijeli javno…';
 
   @override
+  String get pickFramesTitle => 'Odabir kadrova';
+
+  @override
+  String get suggestedFrames => 'Predloženi kadrovi';
+
+  @override
+  String get scrubFrames => 'Premotavanje videa';
+
+  @override
+  String get keepThisFrame => 'Zadrži ovaj kadar';
+
+  @override
+  String get fromVideo => 'Iz videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Odabir kadrova iz videa radi u aplikaciji za telefon (Android i iPhone) — na ovom uređaju još ne.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Samo označena polja napuštaju katalog. Sve ostalo ostaje kod kuće.';
 

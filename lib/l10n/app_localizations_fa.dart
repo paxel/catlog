@@ -228,6 +228,25 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sharePublicly => 'اشتراک عمومی…';
 
   @override
+  String get pickFramesTitle => 'انتخاب فریم‌ها';
+
+  @override
+  String get suggestedFrames => 'فریم‌های پیشنهادی';
+
+  @override
+  String get scrubFrames => 'پیمایش ویدیو';
+
+  @override
+  String get keepThisFrame => 'این فریم را نگه دار';
+
+  @override
+  String get fromVideo => 'از ویدیو…';
+
+  @override
+  String get videoMobileOnly =>
+      'انتخاب فریم از ویدیو در برنامهٔ تلفن (اندروید و آیفون) کار می‌کند — هنوز در این دستگاه نه.';
+
+  @override
   String get shareWhitelistExplainer =>
       'فقط فیلدهای علامت‌خورده از کاتالوگ خارج می‌شوند. بقیه در خانه می‌مانند.';
 

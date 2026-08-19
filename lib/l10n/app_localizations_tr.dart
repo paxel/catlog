@@ -228,6 +228,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sharePublicly => 'Herkese açık paylaş…';
 
   @override
+  String get pickFramesTitle => 'Kare seç';
+
+  @override
+  String get suggestedFrames => 'Önerilen kareler';
+
+  @override
+  String get scrubFrames => 'Videoda gezin';
+
+  @override
+  String get keepThisFrame => 'Bu kareyi tut';
+
+  @override
+  String get fromVideo => 'Videodan…';
+
+  @override
+  String get videoMobileOnly =>
+      'Videodan kare seçme telefon uygulamasında çalışır (Android ve iPhone) — bu cihazda henüz yok.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalogdan yalnızca işaretli alanlar çıkar. Gerisi evde kalır.';
 

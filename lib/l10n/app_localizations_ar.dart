@@ -228,6 +228,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sharePublicly => 'مشاركة علنية…';
 
   @override
+  String get pickFramesTitle => 'اختيار اللقطات';
+
+  @override
+  String get suggestedFrames => 'لقطات مقترحة';
+
+  @override
+  String get scrubFrames => 'تحريك شريط الفيديو';
+
+  @override
+  String get keepThisFrame => 'احتفظ بهذه اللقطة';
+
+  @override
+  String get fromVideo => 'من فيديو…';
+
+  @override
+  String get videoMobileOnly =>
+      'اختيار اللقطات من فيديو يعمل في تطبيق الهاتف (أندرويد وآيفون) — ليس على هذا الجهاز بعد.';
+
+  @override
   String get shareWhitelistExplainer =>
       'فقط الحقول المحددة تغادر الكتالوج. كل شيء آخر يبقى عندك.';
 

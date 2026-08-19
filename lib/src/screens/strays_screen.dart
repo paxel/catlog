@@ -7,6 +7,7 @@ import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../flier_capture.dart';
 import '../share_import.dart';
+import '../video_frames_io.dart';
 import 'match_candidates_screen.dart';
 import '../field_labels.dart';
 import '../stray_cam.dart';
@@ -140,7 +141,21 @@ class _StraysScreenState extends State<StraysScreen> {
           label: Text(context.t.captureFlier),
         ),
         const SizedBox(height: 12),
-        FloatingActionButton.extended(
+        GestureDetector(
+          onLongPress: () async {
+            final catId = await strayCamVideo(context, widget.store);
+            if (catId != null && context.mounted) {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => CatDetailScreen(
+                    store: widget.store,
+                    catId: catId,
+                    startEditing: true),
+              ));
+            }
+            if (!mounted) return;
+            setState(() {});
+          },
+          child: FloatingActionButton.extended(
           heroTag: 'strayCam',
           onPressed: () async {
             final catId = await strayCam(context, widget.store);
@@ -157,6 +172,7 @@ class _StraysScreenState extends State<StraysScreen> {
           },
           icon: const Icon(Icons.photo_camera),
           label: Text(context.t.strayCam),
+          ),
         ),
         const SizedBox(height: 12),
         FloatingActionButton.extended(

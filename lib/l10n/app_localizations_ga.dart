@@ -228,6 +228,25 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sharePublicly => 'Comhroinn go poiblí…';
 
   @override
+  String get pickFramesTitle => 'Roghnaigh frámaí';
+
+  @override
+  String get suggestedFrames => 'Frámaí molta';
+
+  @override
+  String get scrubFrames => 'Scrollaigh tríd an bhfíseán';
+
+  @override
+  String get keepThisFrame => 'Coinnigh an fráma seo';
+
+  @override
+  String get fromVideo => 'Ó fhíseán…';
+
+  @override
+  String get videoMobileOnly =>
+      'Oibríonn frámaí a phiocadh as físeán san aip fóin (Android agus iPhone) — ní ar an ngléas seo go fóill.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Ní fhágann ach na réimsí ticeáilte do chatalóg. Fanann gach rud eile sa bhaile.';
 

@@ -228,6 +228,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sharePublicly => 'Δημόσια κοινοποίηση…';
 
   @override
+  String get pickFramesTitle => 'Επιλογή καρέ';
+
+  @override
+  String get suggestedFrames => 'Προτεινόμενα καρέ';
+
+  @override
+  String get scrubFrames => 'Μετακίνηση στο βίντεο';
+
+  @override
+  String get keepThisFrame => 'Κράτησε αυτό το καρέ';
+
+  @override
+  String get fromVideo => 'Από βίντεο…';
+
+  @override
+  String get videoMobileOnly =>
+      'Η επιλογή καρέ από βίντεο λειτουργεί στην εφαρμογή τηλεφώνου (Android και iPhone) — όχι ακόμη σε αυτήν τη συσκευή.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Μόνο τα επιλεγμένα πεδία φεύγουν από τον κατάλογο. Όλα τα άλλα μένουν σπίτι.';
 

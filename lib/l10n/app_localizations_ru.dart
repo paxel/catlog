@@ -228,6 +228,25 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sharePublicly => 'Поделиться публично…';
 
   @override
+  String get pickFramesTitle => 'Выбор кадров';
+
+  @override
+  String get suggestedFrames => 'Предложенные кадры';
+
+  @override
+  String get scrubFrames => 'Перемотка видео';
+
+  @override
+  String get keepThisFrame => 'Оставить этот кадр';
+
+  @override
+  String get fromVideo => 'Из видео…';
+
+  @override
+  String get videoMobileOnly =>
+      'Выбор кадров из видео работает в телефонном приложении (Android и iPhone) — на этом устройстве пока нет.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Каталог покидают только отмеченные поля. Всё остальное остаётся дома.';
 

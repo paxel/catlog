@@ -229,6 +229,25 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sharePublicly => 'Öffentlich teilen…';
 
   @override
+  String get pickFramesTitle => 'Bilder auswählen';
+
+  @override
+  String get suggestedFrames => 'Vorgeschlagene Bilder';
+
+  @override
+  String get scrubFrames => 'Durchs Video spulen';
+
+  @override
+  String get keepThisFrame => 'Dieses Bild behalten';
+
+  @override
+  String get fromVideo => 'Aus Video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Bilder aus einem Video gehen in der Telefon-App (Android und iPhone) — auf diesem Gerät noch nicht.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Nur die angehakten Felder verlassen deinen Katalog. Alles andere bleibt zu Hause.';
 

@@ -228,6 +228,25 @@ class AppLocalizationsNo extends AppLocalizations {
   String get sharePublicly => 'Del offentlig…';
 
   @override
+  String get pickFramesTitle => 'Velg bilder';
+
+  @override
+  String get suggestedFrames => 'Foreslåtte bilder';
+
+  @override
+  String get scrubFrames => 'Spol i videoen';
+
+  @override
+  String get keepThisFrame => 'Behold dette bildet';
+
+  @override
+  String get fromVideo => 'Fra video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Å velge bilder fra video fungerer i telefonappen (Android og iPhone) — ikke på denne enheten ennå.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Bare de avmerkede feltene forlater katalogen. Alt annet blir hjemme.';
 

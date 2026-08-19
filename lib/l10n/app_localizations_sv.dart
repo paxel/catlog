@@ -228,6 +228,25 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sharePublicly => 'Dela offentligt…';
 
   @override
+  String get pickFramesTitle => 'Välj bildrutor';
+
+  @override
+  String get suggestedFrames => 'Föreslagna bildrutor';
+
+  @override
+  String get scrubFrames => 'Spola i videon';
+
+  @override
+  String get keepThisFrame => 'Behåll den här bildrutan';
+
+  @override
+  String get fromVideo => 'Från video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Att välja bildrutor ur video fungerar i telefonappen (Android och iPhone) — inte på den här enheten ännu.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Bara de ikryssade fälten lämnar katalogen. Allt annat stannar hemma.';
 

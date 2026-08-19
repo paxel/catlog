@@ -228,6 +228,25 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sharePublicly => 'Поділитися публічно…';
 
   @override
+  String get pickFramesTitle => 'Вибір кадрів';
+
+  @override
+  String get suggestedFrames => 'Запропоновані кадри';
+
+  @override
+  String get scrubFrames => 'Перемотування відео';
+
+  @override
+  String get keepThisFrame => 'Залишити цей кадр';
+
+  @override
+  String get fromVideo => 'З відео…';
+
+  @override
+  String get videoMobileOnly =>
+      'Вибір кадрів з відео працює в телефонному застосунку (Android та iPhone) — на цьому пристрої поки ні.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Каталог покидають лише позначені поля. Решта залишається вдома.';
 

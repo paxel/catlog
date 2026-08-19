@@ -228,6 +228,25 @@ class AppLocalizationsSl extends AppLocalizations {
   String get sharePublicly => 'Deli javno…';
 
   @override
+  String get pickFramesTitle => 'Izbira sličic';
+
+  @override
+  String get suggestedFrames => 'Predlagane sličice';
+
+  @override
+  String get scrubFrames => 'Premikanje po videu';
+
+  @override
+  String get keepThisFrame => 'Obdrži to sličico';
+
+  @override
+  String get fromVideo => 'Iz videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Izbiranje sličic iz videa deluje v telefonski aplikaciji (Android in iPhone) — na tej napravi še ne.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalog zapustijo samo odkljukana polja. Vse drugo ostane doma.';
 

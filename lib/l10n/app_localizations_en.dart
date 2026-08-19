@@ -228,6 +228,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sharePublicly => 'Share publicly…';
 
   @override
+  String get pickFramesTitle => 'Pick frames';
+
+  @override
+  String get suggestedFrames => 'Suggested frames';
+
+  @override
+  String get scrubFrames => 'Scrub the video';
+
+  @override
+  String get keepThisFrame => 'Keep this frame';
+
+  @override
+  String get fromVideo => 'From video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Only the ticked fields leave your catalog. Everything else stays home.';
 

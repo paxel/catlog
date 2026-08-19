@@ -228,6 +228,25 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sharePublicly => 'Sdílet veřejně…';
 
   @override
+  String get pickFramesTitle => 'Výběr snímků';
+
+  @override
+  String get suggestedFrames => 'Navržené snímky';
+
+  @override
+  String get scrubFrames => 'Posouvání videa';
+
+  @override
+  String get keepThisFrame => 'Ponechat tento snímek';
+
+  @override
+  String get fromVideo => 'Z videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Výběr snímků z videa funguje v mobilní aplikaci (Android a iPhone) — na tomto zařízení zatím ne.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalog opustí jen zaškrtnutá pole. Vše ostatní zůstává doma.';
 

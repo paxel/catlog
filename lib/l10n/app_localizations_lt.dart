@@ -228,6 +228,25 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sharePublicly => 'Bendrinti viešai…';
 
   @override
+  String get pickFramesTitle => 'Kadrų pasirinkimas';
+
+  @override
+  String get suggestedFrames => 'Siūlomi kadrai';
+
+  @override
+  String get scrubFrames => 'Persukti vaizdo įrašą';
+
+  @override
+  String get keepThisFrame => 'Palikti šį kadrą';
+
+  @override
+  String get fromVideo => 'Iš vaizdo įrašo…';
+
+  @override
+  String get videoMobileOnly =>
+      'Kadrų rinkimas iš vaizdo įrašo veikia telefono programėlėje (Android ir iPhone) — šiame įrenginyje dar ne.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalogą palieka tik pažymėti laukai. Visa kita lieka namie.';
 

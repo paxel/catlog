@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'l10n.dart';
 import 'screens/photo_edit_screen.dart';
+import 'video_frames_io.dart';
 
 /// Lets the user pick or take a photo, offers the crop step (skippable;
 /// Stray Cam passes [allowCrop] false), compresses off the UI thread,
@@ -28,13 +29,61 @@ Future<String> addCompressedImage(
   return store.addImage(catId, jpeg);
 }
 
+/// Photo-add sheet with the video path (#41): camera, gallery, or
+/// frames picked from a video. Returns true when photos landed.
+Future<bool> addPhotosViaSheet(
+    BuildContext context, CatalogStore store, String catId) async {
+  if (!Platform.isAndroid && !Platform.isIOS) {
+    // Desktop keeps the plain picker; video frames are mobile-first.
+    return await pickAndAddImage(context, store, catId) != null;
+  }
+  final choice = await showModalBottomSheet<String>(
+    context: context,
+    builder: (context) => SafeArea(
+      child: Wrap(children: [
+        ListTile(
+          leading: const Icon(Icons.photo_camera),
+          title: Text(context.t.takePhoto),
+          onTap: () => Navigator.of(context).pop('camera'),
+        ),
+        ListTile(
+          leading: const Icon(Icons.photo_library),
+          title: Text(context.t.chooseFromGallery),
+          onTap: () => Navigator.of(context).pop('gallery'),
+        ),
+        ListTile(
+          leading: const Icon(Icons.movie_outlined),
+          title: Text(context.t.fromVideo),
+          onTap: () => Navigator.of(context).pop('video'),
+        ),
+      ]),
+    ),
+  );
+  if (choice == null || !context.mounted) return false;
+  if (choice == 'video') {
+    final frames = await pickVideoFrames(context);
+    if (frames == null || frames.isEmpty) return false;
+    for (final frame in frames) {
+      await addCompressedImage(store, catId, frame);
+    }
+    return true;
+  }
+  final raw = await pickImageBytes(context,
+      source:
+          choice == 'camera' ? ImageSource.camera : ImageSource.gallery);
+  if (raw == null) return false;
+  await addCompressedImage(store, catId, raw);
+  return true;
+}
+
 /// Picks or takes a photo and returns the (optionally cropped) raw
-/// bytes, or null if the user canceled.
+/// bytes, or null if the user canceled. A preselected [source] skips
+/// the sheet.
 Future<Uint8List?> pickImageBytes(BuildContext context,
-    {bool allowCrop = true}) async {
+    {bool allowCrop = true, ImageSource? source}) async {
   final canUseCamera = Platform.isAndroid || Platform.isIOS;
-  ImageSource source = ImageSource.gallery;
-  if (canUseCamera) {
+  var pickedSource = source ?? ImageSource.gallery;
+  if (source == null && canUseCamera) {
     final picked = await showModalBottomSheet<ImageSource>(
       context: context,
       builder: (context) => SafeArea(
@@ -53,10 +102,10 @@ Future<Uint8List?> pickImageBytes(BuildContext context,
       ),
     );
     if (picked == null) return null;
-    source = picked;
+    pickedSource = picked;
   }
 
-  final file = await ImagePicker().pickImage(source: source);
+  final file = await ImagePicker().pickImage(source: pickedSource);
   if (file == null) return null;
   var raw = await file.readAsBytes();
 

@@ -228,6 +228,25 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sharePublicly => 'Compartir públicamente…';
 
   @override
+  String get pickFramesTitle => 'Elegir fotogramas';
+
+  @override
+  String get suggestedFrames => 'Fotogramas sugeridos';
+
+  @override
+  String get scrubFrames => 'Recorrer el vídeo';
+
+  @override
+  String get keepThisFrame => 'Conservar este fotograma';
+
+  @override
+  String get fromVideo => 'Desde vídeo…';
+
+  @override
+  String get videoMobileOnly =>
+      'Elegir fotogramas de un vídeo funciona en la app del teléfono (Android y iPhone) — aún no en este dispositivo.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Solo los campos marcados salen de tu catálogo. Todo lo demás se queda en casa.';
 

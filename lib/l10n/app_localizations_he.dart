@@ -227,6 +227,25 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sharePublicly => 'שיתוף ציבורי…';
 
   @override
+  String get pickFramesTitle => 'בחירת פריימים';
+
+  @override
+  String get suggestedFrames => 'פריימים מוצעים';
+
+  @override
+  String get scrubFrames => 'גלילה בסרטון';
+
+  @override
+  String get keepThisFrame => 'שמור פריים זה';
+
+  @override
+  String get fromVideo => 'מסרטון…';
+
+  @override
+  String get videoMobileOnly =>
+      'בחירת פריימים מסרטון עובדת באפליקציית הטלפון (אנדרואיד ואייפון) — עדיין לא במכשיר הזה.';
+
+  @override
   String get shareWhitelistExplainer =>
       'רק השדות המסומנים עוזבים את הקטלוג. כל השאר נשאר בבית.';
 

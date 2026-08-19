@@ -228,6 +228,25 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sharePublicly => 'Openbaar delen…';
 
   @override
+  String get pickFramesTitle => 'Frames kiezen';
+
+  @override
+  String get suggestedFrames => 'Voorgestelde frames';
+
+  @override
+  String get scrubFrames => 'Door de video spoelen';
+
+  @override
+  String get keepThisFrame => 'Dit frame bewaren';
+
+  @override
+  String get fromVideo => 'Uit video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Frames uit een video kiezen werkt in de telefoon-app (Android en iPhone) — nog niet op dit apparaat.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Alleen de aangevinkte velden verlaten je catalogus. Al het andere blijft thuis.';
 

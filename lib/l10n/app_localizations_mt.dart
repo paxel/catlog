@@ -229,6 +229,25 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sharePublicly => 'Aqsam pubblikament…';
 
   @override
+  String get pickFramesTitle => 'Agħżel frejms';
+
+  @override
+  String get suggestedFrames => 'Frejms issuġġeriti';
+
+  @override
+  String get scrubFrames => 'Skrolja l-video';
+
+  @override
+  String get keepThisFrame => 'Żomm dan il-frejm';
+
+  @override
+  String get fromVideo => 'Minn video…';
+
+  @override
+  String get videoMobileOnly =>
+      'L-għażla ta\' frejms minn video taħdem fl-app tat-telefon (Android u iPhone) — għadha mhux fuq dan l-apparat.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Il-katalgu jitilqu biss l-oqsma mmarkati. Kollox ieħor jibqa\' d-dar.';
 

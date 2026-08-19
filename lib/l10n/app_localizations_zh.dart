@@ -219,6 +219,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sharePublicly => '公开分享…';
 
   @override
+  String get pickFramesTitle => '挑选画面';
+
+  @override
+  String get suggestedFrames => '推荐画面';
+
+  @override
+  String get scrubFrames => '拖动视频';
+
+  @override
+  String get keepThisFrame => '保留此画面';
+
+  @override
+  String get fromVideo => '来自视频…';
+
+  @override
+  String get videoMobileOnly => '从视频挑选画面需要手机应用（Android 和 iPhone）——此设备暂不支持。';
+
+  @override
   String get shareWhitelistExplainer => '只有勾选的字段会离开目录，其余全部留在本地。';
 
   @override

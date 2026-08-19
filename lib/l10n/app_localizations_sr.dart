@@ -228,6 +228,25 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sharePublicly => 'Подели јавно…';
 
   @override
+  String get pickFramesTitle => 'Избор кадрова';
+
+  @override
+  String get suggestedFrames => 'Предложени кадрови';
+
+  @override
+  String get scrubFrames => 'Премотавање видеа';
+
+  @override
+  String get keepThisFrame => 'Задржи овај кадар';
+
+  @override
+  String get fromVideo => 'Из видеа…';
+
+  @override
+  String get videoMobileOnly =>
+      'Избор кадрова из видеа ради у апликацији за телефон (Android и iPhone) — на овом уређају још не.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Каталог напуштају само штиклирана поља. Све остало остаје код куће.';
 

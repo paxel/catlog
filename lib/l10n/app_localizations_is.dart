@@ -229,6 +229,25 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sharePublicly => 'Deila opinberlega…';
 
   @override
+  String get pickFramesTitle => 'Velja ramma';
+
+  @override
+  String get suggestedFrames => 'Tillögur að römmum';
+
+  @override
+  String get scrubFrames => 'Spóla í myndbandinu';
+
+  @override
+  String get keepThisFrame => 'Halda þessum ramma';
+
+  @override
+  String get fromVideo => 'Úr myndbandi…';
+
+  @override
+  String get videoMobileOnly =>
+      'Að velja ramma úr myndbandi virkar í símaforritinu (Android og iPhone) — ekki enn á þessu tæki.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Aðeins merktu reitirnir yfirgefa skrána. Allt annað verður heima.';
 

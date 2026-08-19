@@ -67,6 +67,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   animal — exact chip/ID matches first, then cats seen within 500 m of a
   flier or of each other, filterable by species. Confirming a pair is the
   familiar merge, with the survivor of your choice.
+- **Photos from video** (Android/iPhone): pick a video — or long-press
+  Stray Cam to film one — and keep the good frames as ordinary photos.
+  The app suggests the sharpest frames, a scrubber grabs any moment, and
+  the video itself is never stored. No frame kept, no cat.
 - **Share publicly for fliers**: export one cat with only the fields you
   tick as an ordinary sync file, print a QR of its hosted link (or a tiny
   text-only inline QR that needs no hosting) — a finder scans it with

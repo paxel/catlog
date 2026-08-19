@@ -572,6 +572,42 @@ abstract class AppLocalizations {
   /// **'Share publicly…'**
   String get sharePublicly;
 
+  /// No description provided for @pickFramesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick frames'**
+  String get pickFramesTitle;
+
+  /// No description provided for @suggestedFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested frames'**
+  String get suggestedFrames;
+
+  /// No description provided for @scrubFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Scrub the video'**
+  String get scrubFrames;
+
+  /// No description provided for @keepThisFrame.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep this frame'**
+  String get keepThisFrame;
+
+  /// No description provided for @fromVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'From video…'**
+  String get fromVideo;
+
+  /// No description provided for @videoMobileOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.'**
+  String get videoMobileOnly;
+
   /// No description provided for @shareWhitelistExplainer.
   ///
   /// In en, this message translates to:

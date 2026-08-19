@@ -228,6 +228,25 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sharePublicly => 'Nyilvános megosztás…';
 
   @override
+  String get pickFramesTitle => 'Képkockák kiválasztása';
+
+  @override
+  String get suggestedFrames => 'Javasolt képkockák';
+
+  @override
+  String get scrubFrames => 'Videó léptetése';
+
+  @override
+  String get keepThisFrame => 'Képkocka megtartása';
+
+  @override
+  String get fromVideo => 'Videóból…';
+
+  @override
+  String get videoMobileOnly =>
+      'A videóból való képkocka-kiemelés a telefonos alkalmazásban működik (Android és iPhone) — ezen az eszközön még nem.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Csak a bejelölt mezők hagyják el a katalógust. Minden más otthon marad.';
 

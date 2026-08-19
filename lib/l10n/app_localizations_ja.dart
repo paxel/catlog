@@ -225,6 +225,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sharePublicly => '公開共有…';
 
   @override
+  String get pickFramesTitle => 'フレームを選ぶ';
+
+  @override
+  String get suggestedFrames => 'おすすめフレーム';
+
+  @override
+  String get scrubFrames => '動画をスクラブ';
+
+  @override
+  String get keepThisFrame => 'このフレームを残す';
+
+  @override
+  String get fromVideo => '動画から…';
+
+  @override
+  String get videoMobileOnly =>
+      '動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。';
+
+  @override
   String get shareWhitelistExplainer => 'チェックした項目だけがカタログの外に出ます。それ以外は手元に残ります。';
 
   @override

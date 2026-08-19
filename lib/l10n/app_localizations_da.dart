@@ -228,6 +228,25 @@ class AppLocalizationsDa extends AppLocalizations {
   String get sharePublicly => 'Del offentligt…';
 
   @override
+  String get pickFramesTitle => 'Vælg billeder';
+
+  @override
+  String get suggestedFrames => 'Foreslåede billeder';
+
+  @override
+  String get scrubFrames => 'Spol i videoen';
+
+  @override
+  String get keepThisFrame => 'Behold dette billede';
+
+  @override
+  String get fromVideo => 'Fra video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Billeder fra video virker i telefon-appen (Android og iPhone) — endnu ikke på denne enhed.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Kun de markerede felter forlader dit katalog. Alt andet bliver hjemme.';
 

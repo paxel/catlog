@@ -81,9 +81,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _addPhoto() async {
-    final hash = await pickAndAddImage(context, store, id);
+    final added = await addPhotosViaSheet(context, store, id);
     if (!mounted) return;
-    if (hash != null) setState(() {});
+    if (added) setState(() {});
   }
 
   Future<void> _move() async {

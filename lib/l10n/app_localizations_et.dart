@@ -228,6 +228,25 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sharePublicly => 'Jaga avalikult…';
 
   @override
+  String get pickFramesTitle => 'Kaadrite valik';
+
+  @override
+  String get suggestedFrames => 'Soovitatud kaadrid';
+
+  @override
+  String get scrubFrames => 'Keri videot';
+
+  @override
+  String get keepThisFrame => 'Jäta see kaader alles';
+
+  @override
+  String get fromVideo => 'Videost…';
+
+  @override
+  String get videoMobileOnly =>
+      'Videost kaadrite valimine töötab telefonirakenduses (Android ja iPhone) — selles seadmes veel mitte.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Kataloogist lahkuvad ainult märgitud väljad. Kõik muu jääb koju.';
 

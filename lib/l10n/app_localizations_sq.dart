@@ -228,6 +228,25 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sharePublicly => 'Ndaje publikisht…';
 
   @override
+  String get pickFramesTitle => 'Zgjidh kuadro';
+
+  @override
+  String get suggestedFrames => 'Kuadro të sugjeruara';
+
+  @override
+  String get scrubFrames => 'Lëviz nëpër video';
+
+  @override
+  String get keepThisFrame => 'Mbaje këtë kuadër';
+
+  @override
+  String get fromVideo => 'Nga video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Zgjedhja e kuadrove nga videoja funksionon në aplikacionin e telefonit (Android dhe iPhone) — ende jo në këtë pajisje.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Vetëm fushat e shënuara largohen nga katalogu. Gjithçka tjetër mbetet në shtëpi.';
 

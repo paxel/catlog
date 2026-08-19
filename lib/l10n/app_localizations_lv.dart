@@ -228,6 +228,25 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sharePublicly => 'Kopīgot publiski…';
 
   @override
+  String get pickFramesTitle => 'Kadru izvēle';
+
+  @override
+  String get suggestedFrames => 'Ieteiktie kadri';
+
+  @override
+  String get scrubFrames => 'Pārtīt video';
+
+  @override
+  String get keepThisFrame => 'Paturēt šo kadru';
+
+  @override
+  String get fromVideo => 'No video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Kadru izvēle no video darbojas tālruņa lietotnē (Android un iPhone) — šajā ierīcē vēl ne.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Katalogu pamet tikai atzīmētie lauki. Viss pārējais paliek mājās.';
 

@@ -228,6 +228,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sharePublicly => 'Distribuie public…';
 
   @override
+  String get pickFramesTitle => 'Alege cadre';
+
+  @override
+  String get suggestedFrames => 'Cadre sugerate';
+
+  @override
+  String get scrubFrames => 'Derulează videoclipul';
+
+  @override
+  String get keepThisFrame => 'Păstrează acest cadru';
+
+  @override
+  String get fromVideo => 'Din video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Alegerea cadrelor dintr-un video funcționează în aplicația de telefon (Android și iPhone) — încă nu pe acest dispozitiv.';
+
+  @override
   String get shareWhitelistExplainer =>
       'Doar câmpurile bifate părăsesc catalogul. Restul rămâne acasă.';
 
