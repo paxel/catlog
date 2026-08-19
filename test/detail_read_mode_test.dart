@@ -1,9 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
 
 /// #46/#47: the cat page opens read-only — filled fields only, no edit
 /// affordances — and the pencil flips it into the all-fields edit view.
@@ -83,6 +86,46 @@ void main() {
     expect(find.byType(CatDetailScreen), findsOneWidget);
     expect(find.text('Breed'), findsNothing);
     expect(state, isNotNull);
+  });
+
+  testWidgets('read-mode long-press on a field lands in its editor',
+      (tester) async {
+    await pump(tester);
+    await tester.longPress(find.text('Gender'));
+    await tester.pumpAndSettle();
+    // The field's editor is open…
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('female'), findsWidgets);
+    await tester.tap(find.text('Cancel'));
+    await tester.pumpAndSettle();
+    // …and the page is now in edit mode.
+    expect(find.text('Breed'), findsOneWidget);
+  });
+
+  testWidgets('photo long-press menu works in read mode', (tester) async {
+    await tester.runAsync(() async {
+      final bytes = Uint8List.fromList(
+          img.encodeJpg(img.Image(width: 8, height: 8)));
+      store.addImage(cat, CatalogStore.compressImage(bytes));
+    });
+    await pump(tester);
+    final tile = find.descendant(
+        of: find.byType(GridView),
+        matching: find.byType(GestureDetector));
+    await tester.ensureVisible(tile.first);
+    await tester.pumpAndSettle();
+    // Tap opens the viewer.
+    await tester.tap(tile.first);
+    await tester.pumpAndSettle();
+    expect(find.text('1 / 1'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    // Long-press opens the management menu without entering edit mode.
+    await tester.ensureVisible(tile.first);
+    await tester.pumpAndSettle();
+    await tester.longPress(tile.first);
+    await tester.pumpAndSettle();
+    expect(find.text('This is the profile image'), findsOneWidget);
   });
 
   testWidgets('clowder opens read-only with the gallery before the fields',

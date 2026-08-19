@@ -422,6 +422,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             },
             onHistory: (def) => _openTimeline(field: def.key),
             onShowMap: _showOnMap,
+            // Long-press in read mode: jump into edit mode with the
+            // field's editor open — fix what you just spotted (#46).
+            onReadLongPress: (def) {
+              setState(() => _editing = true);
+              _editField(def);
+            },
           ),
           if (_hasFamily())
             ...[

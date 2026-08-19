@@ -150,6 +150,12 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             TimelineScreen(store: store, entityId: id, field: def.key),
       )),
       onShowMap: _showOnMap,
+      // Long-press in read mode: jump into edit mode with the field's
+      // editor open — fix what you just spotted (#46).
+      onReadLongPress: (def) {
+        setState(() => _editing = true);
+        _editField(def);
+      },
     );
     final gallery = <Widget>[
       Padding(
