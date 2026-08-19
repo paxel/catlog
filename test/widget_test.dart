@@ -237,6 +237,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(store.strays().single.name, 'Foundling');
+    // A fresh cat's page opens in edit mode, ready to fill in (#46).
+    expect(find.byTooltip('Done'), findsOneWidget);
+    expect(find.text('Breed'), findsOneWidget);
   });
 
   testWidgets('a field definition can be renamed', (tester) async {

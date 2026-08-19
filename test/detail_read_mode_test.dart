@@ -184,6 +184,19 @@ void main() {
     expect(find.byType(AlertDialog), findsOneWidget);
   });
 
+  testWidgets('a fresh cat opens in edit mode, existing ones read-only',
+      (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CatDetailScreen(store: store, catId: cat, startEditing: true),
+    ));
+    await tester.pumpAndSettle();
+    // All fields visible right away — no pencil needed.
+    expect(find.text('Breed'), findsOneWidget);
+    expect(find.byTooltip('Done'), findsOneWidget);
+  });
+
   testWidgets('conflict row shows and resolves in read mode',
       (tester) async {
     final other = CatalogStore.inMemory();

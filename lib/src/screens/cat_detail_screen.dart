@@ -34,11 +34,15 @@ class CatDetailScreen extends StatefulWidget {
   /// so name + photo happen in one flow.
   final bool promptPhoto;
 
+  /// Fresh cats open in edit mode: they exist to be filled in (#46).
+  final bool startEditing;
+
   const CatDetailScreen(
       {super.key,
       required this.store,
       required this.catId,
-      this.promptPhoto = false});
+      this.promptPhoto = false,
+      this.startEditing = false});
 
   @override
   State<CatDetailScreen> createState() => _CatDetailScreenState();
@@ -51,8 +55,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
 
-  /// Read-only until the pencil is pressed (#46); every visit starts calm.
-  bool _editing = false;
+  /// Read-only until the pencil is pressed (#46); every visit starts
+  /// calm — except a freshly created cat, which opens ready to fill in.
+  late bool _editing = widget.startEditing;
 
   @override
   void initState() {

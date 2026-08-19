@@ -67,7 +67,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) =>
-          CatDetailScreen(store: store, catId: catId, promptPhoto: true),
+          CatDetailScreen(
+              store: store,
+              catId: catId,
+              promptPhoto: true,
+              startEditing: true),
     ));
     if (!mounted) return;
     setState(() {});

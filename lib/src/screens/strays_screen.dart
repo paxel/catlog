@@ -30,7 +30,10 @@ class _StraysScreenState extends State<StraysScreen> {
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CatDetailScreen(
-          store: widget.store, catId: catId, promptPhoto: true),
+          store: widget.store,
+          catId: catId,
+          promptPhoto: true,
+          startEditing: true),
     ));
     if (!mounted) return;
     setState(() {});
@@ -49,8 +52,10 @@ class _StraysScreenState extends State<StraysScreen> {
             final catId = await strayCam(context, widget.store);
             if (catId != null && context.mounted) {
               await Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) =>
-                    CatDetailScreen(store: widget.store, catId: catId),
+                builder: (_) => CatDetailScreen(
+                    store: widget.store,
+                    catId: catId,
+                    startEditing: true),
               ));
             }
             if (!mounted) return;

@@ -56,7 +56,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   formatted; the pencil switches to the full edit view, and renaming lives
   there too. Clowders lead with their cat gallery, long-pressing a field
   jumps straight into editing it, and new fields can be created right on
-  the page.
+  the page. Freshly created cats open in edit mode, ready to fill in.
 - The sync page became three clear choices: **In person** (same room, QR),
   **Remote** (shared folder), **Messenger** (one file). Options that can't
   work right now say why instead of failing later.

@@ -248,7 +248,8 @@ class _MapScreenState extends State<MapScreen> {
           final catId = await strayCam(context, store);
           if (catId != null && context.mounted) {
             await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CatDetailScreen(store: store, catId: catId),
+              builder: (_) => CatDetailScreen(
+                  store: store, catId: catId, startEditing: true),
             ));
           }
           if (!mounted) return;
