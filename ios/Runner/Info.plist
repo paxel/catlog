@@ -114,5 +114,9 @@
 			</dict>
 		</dict>
 	</array>
+	<!-- .catsync files are IMPORTED (copied into the catalog), never
+	     edited at their original location - hence not in place. -->
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
 </dict>
 </plist>
