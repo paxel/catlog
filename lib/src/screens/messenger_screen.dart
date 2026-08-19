@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../import_summary.dart';
 import '../l10n.dart';
+import '../share.dart';
 
 /// "Messenger": the whole catalog as one .catsync file through WhatsApp,
 /// Signal, mail — anything that moves files.
@@ -30,8 +31,11 @@ class _MessengerScreenState extends State<MessengerScreen> {
       final path = writeBundle(
           widget.store, '${dir.path}/catlog-$stamp.catsync',
           includePrivate: _includePrivate);
-      await Share.shareXFiles([XFile(path, mimeType: 'application/zip')]);
+      if (!mounted) return;
+      // iPads need the popover anchor or the share throws (#43).
+      await shareFiles(context, [XFile(path, mimeType: 'application/zip')]);
     } catch (e) {
+      if (!mounted) return;
       setState(() => _lastResult = t.syncFailed('$e'));
     }
   }

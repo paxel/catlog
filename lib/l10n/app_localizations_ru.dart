@@ -191,6 +191,51 @@ class AppLocalizationsRu extends AppLocalizations {
       'Геолокация недоступна — вместо этого удерживайте палец на карте.';
 
   @override
+  String get locationDeniedForever =>
+      'Доступ к местоположению заблокирован. Разрешите его в настройках системы, чтобы использовать Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Геолокация на этом устройстве выключена. Включите её в настройках и попробуйте снова.';
+
+  @override
+  String get locationDenied =>
+      'У cat(a)log нет разрешения использовать ваше местоположение. Попробуйте снова и разрешите доступ, когда появится запрос.';
+
+  @override
+  String get locationNoFix =>
+      'Не удалось определить ваше местоположение. Попробуйте снова на улице — GPS нужен открытый вид на небо.';
+
+  @override
+  String get ok => 'ОК';
+
+  @override
+  String get openSettings => 'Открыть настройки';
+
+  @override
+  String get notSaved => 'Не сохранено';
+
+  @override
+  String get birthdateInFuture => 'Дата рождения не может быть в будущем.';
+
+  @override
+  String get deceasedInFuture => 'Дата смерти не может быть в будущем.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Дата смерти не может быть раньше даты рождения ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Дата рождения не может быть позже даты смерти ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Этот кот записан как самец — самец не может быть беременным. Сначала проверьте пол.';
+
+  @override
   String get moveTo => 'Переместить в';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Неверный формат — используйте $format';
+  }
+
+  @override
   String get value => 'Значение';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get optionsOnePerLine => 'Варианты (по одному в строке)';
 
   @override
+  String get ownValue => 'Своё значение';
+
+  @override
   String get renameField => 'Переименовать поле';
+
+  @override
+  String get editOptions => 'Изменить варианты…';
 
   @override
   String get noStraysRightNow => 'Сейчас бездомных нет.';
@@ -384,9 +440,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Записать встречу здесь:';
-
-  @override
-  String get orPlaceClowderHere => 'Или разместить клаудер здесь:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsRu extends AppLocalizations {
   String get starterGender => 'Пол';
 
   @override
+  String get starterBreed => 'Порода';
+
+  @override
+  String get valueMixed => 'метис';
+
+  @override
+  String get breedEuropeanShorthair => 'Европейская короткошёрстная';
+
+  @override
+  String get breedMaineCoon => 'Мейн-кун';
+
+  @override
+  String get breedBritishShorthair => 'Британская короткошёрстная';
+
+  @override
+  String get breedNorwegianForestCat => 'Норвежская лесная';
+
+  @override
+  String get breedRagdoll => 'Рэгдолл';
+
+  @override
+  String get breedSiamese => 'Сиамская';
+
+  @override
+  String get breedPersian => 'Персидская';
+
+  @override
+  String get breedBengal => 'Бенгальская';
+
+  @override
+  String get breedSphynx => 'Сфинкс';
+
+  @override
   String get starterColor => 'Окрас';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get markTitle => 'Отметить кошку';
+
+  @override
+  String get applyCrop => 'Обрезать';
 
   @override
   String get useFullPhoto => 'Использовать всё фото';
@@ -584,6 +673,11 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Пакет импортирован: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Последнее автоматическое резервное копирование не удалось: $error';
   }
 
   @override

@@ -7,7 +7,9 @@ import 'package:flutter/rendering.dart';
 
 import '../field_labels.dart';
 import '../hidden.dart';
+import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../share.dart';
 import '../spotlight.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -133,7 +135,8 @@ class _CardScreenState extends State<CardScreen> {
   Future<void> _shareImage() async {
     final png = await _cardAsPng();
     final name = store.current(id, Keys.name) ?? 'cat';
-    await Share.shareXFiles([
+    if (!mounted) return;
+    await shareFiles(context, [
       XFile.fromData(png, mimeType: 'image/png', name: '$name-card.png'),
     ]);
   }
@@ -211,7 +214,7 @@ class _CardScreenState extends State<CardScreen> {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final hash =
         _selected.contains(_photoKey) ? store.profileImage(id) : null;
-    final photo = hash == null ? null : store.imageBytes(hash);
+    final photo = hash == null ? null : imageProviderFor(store, hash);
     final facts = _facts();
     return Scaffold(
       appBar: AppBar(
@@ -255,8 +258,11 @@ class _CardScreenState extends State<CardScreen> {
                   if (photo != null)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.memory(photo,
-                          width: 328, height: 246, fit: BoxFit.cover),
+                      child: Image(
+                          image: photo,
+                          width: 328,
+                          height: 246,
+                          fit: BoxFit.cover),
                     ),
                   const SizedBox(height: 12),
                   Text(name,

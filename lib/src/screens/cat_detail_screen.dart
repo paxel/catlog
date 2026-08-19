@@ -1,4 +1,3 @@
-import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -11,6 +10,8 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../image_import.dart';
 import '../hidden.dart';
+import '../image_provider_cache.dart';
+import '../plausibility.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
@@ -20,6 +21,7 @@ import '../widgets/cat_avatar.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
+import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
@@ -63,11 +65,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final name = await _askForText(context, context.t.renameCat, current);
     if (name == null || name.isEmpty || name == current) return;
     store.append(id, Keys.name, name);
+    if (!mounted) return;
     setState(() {});
   }
 
   Future<void> _addPhoto() async {
     final hash = await pickAndAddImage(context, store, id);
+    if (!mounted) return;
     if (hash != null) setState(() {});
   }
 
@@ -110,6 +114,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final asOf = await askAsOfDate(context, context.t.moveTo);
     if (asOf == null) return;
     store.moveCat(id, destination, date: asOf);
+    if (!mounted) return;
     setState(() {});
     if (mounted) maybeCelebrateAdoption(context, store, destination);
   }
@@ -118,8 +123,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final edit =
         await editFieldValue(context, def, store.current(id, def.key),
             store: store, excludeId: id);
-    if (edit == null) return;
+    if (edit == null || !mounted) return;
+    final objection = starterFieldObjection(store, id, def, edit.value);
+    if (objection != null) {
+      await explainObjection(context, objection);
+      return;
+    }
     store.append(id, def.key, edit.value, date: edit.date);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -203,9 +214,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       ),
     );
     if (edited == null) return;
-    final compressed =
-        await Isolate.run(() => CatalogStore.compressImage(edited));
-    store.addImage(id, compressed);
+    await addCompressedImage(store, id, edited);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -219,12 +229,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _seenHere() async {
-    final ok = await seenHereNow(store, id);
+    final failure = await seenHereNow(store, id);
     if (!mounted) return;
+    if (failure != null) {
+      await explainLocationFailure(context, failure);
+      return;
+    }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(ok
-          ? context.t.sightingRecorded
-          : context.t.noLocationAvailable),
+      content: Text(context.t.sightingRecorded),
     ));
     setState(() {});
   }
@@ -409,6 +421,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               onTap: store.hasConflict(id, def.key)
                   ? () async {
                       await showConflictDialog(context, store, id, def.key);
+                      if (!mounted) return;
                       setState(() {});
                     }
                   : () => _editField(def),
@@ -443,14 +456,26 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             itemCount: images.length,
             itemBuilder: (context, i) {
               final hash = images[i];
-              final bytes = store.imageBytes(hash);
+              final photo = imageProviderFor(store, hash);
+              // Tap = quick action (view full-size), long-press = menu —
+              // the app-wide gesture convention.
               return GestureDetector(
-                onTap: () => _imageMenu(hash),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => PhotoViewerScreen(
+                      store: store,
+                      hashes: images,
+                      initialIndex: i,
+                      name: store.current(id, Keys.name) ?? 'cat'),
+                )),
+                onLongPress: () => _imageMenu(hash),
                 child: Stack(fit: StackFit.expand, children: [
-                  if (bytes != null)
+                  if (photo != null)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.memory(bytes, fit: BoxFit.cover),
+                      // Decode at grid-tile size, not full resolution.
+                      child: Image(
+                          image: ResizeImage(photo, width: 480),
+                          fit: BoxFit.cover),
                     ),
                   if (hash == profile)
                     const Align(

@@ -191,6 +191,53 @@ class AppLocalizationsEs extends AppLocalizations {
       'Sin ubicación disponible — mantén pulsado el mapa en su lugar.';
 
   @override
+  String get locationDeniedForever =>
+      'El acceso a la ubicación está bloqueado. Permítelo en los ajustes del sistema para usar Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'La ubicación está desactivada en este dispositivo. Actívala en los ajustes e inténtalo de nuevo.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log no tiene permiso para usar tu ubicación. Inténtalo de nuevo y permítelo cuando se te pregunte.';
+
+  @override
+  String get locationNoFix =>
+      'No se pudo determinar tu posición ahora mismo. Inténtalo de nuevo al aire libre — el GPS necesita vista despejada del cielo.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Abrir ajustes';
+
+  @override
+  String get notSaved => 'No guardado';
+
+  @override
+  String get birthdateInFuture =>
+      'La fecha de nacimiento no puede estar en el futuro.';
+
+  @override
+  String get deceasedInFuture =>
+      'La fecha de fallecimiento no puede estar en el futuro.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'La fecha de fallecimiento no puede ser anterior a la fecha de nacimiento ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'La fecha de nacimiento no puede ser posterior a la fecha de fallecimiento ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Este gato está registrado como macho — un macho no puede estar preñado. Comprueba primero el sexo.';
+
+  @override
   String get moveTo => 'Mover a';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Formato incorrecto — usa $format';
+  }
+
+  @override
   String get value => 'Valor';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get optionsOnePerLine => 'Opciones (una por línea)';
 
   @override
+  String get ownValue => 'Valor propio';
+
+  @override
   String get renameField => 'Renombrar campo';
+
+  @override
+  String get editOptions => 'Editar opciones…';
 
   @override
   String get noStraysRightNow => 'No hay callejeros ahora mismo.';
@@ -384,9 +442,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Registrar un avistamiento aquí:';
-
-  @override
-  String get orPlaceClowderHere => 'O colocar un clowder aquí:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +545,39 @@ class AppLocalizationsEs extends AppLocalizations {
   String get starterGender => 'Sexo';
 
   @override
+  String get starterBreed => 'Raza';
+
+  @override
+  String get valueMixed => 'mestizo';
+
+  @override
+  String get breedEuropeanShorthair => 'Europeo de pelo corto';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Británico de pelo corto';
+
+  @override
+  String get breedNorwegianForestCat => 'Bosque de Noruega';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamés';
+
+  @override
+  String get breedPersian => 'Persa';
+
+  @override
+  String get breedBengal => 'Bengalí';
+
+  @override
+  String get breedSphynx => 'Esfinge';
+
+  @override
   String get starterColor => 'Color';
 
   @override
@@ -533,6 +621,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get markTitle => 'Marcar el gato';
+
+  @override
+  String get applyCrop => 'Recortar';
 
   @override
   String get useFullPhoto => 'Usar la foto completa';
@@ -584,6 +675,11 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paquete importado: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'La última copia de seguridad automática falló: $error';
   }
 
   @override

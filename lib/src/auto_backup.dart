@@ -10,6 +10,10 @@ import 'package:path_provider/path_provider.dart';
 /// system owns — Android: Downloads/catlog (MediaStore, survives
 /// uninstall), desktop: the user's Downloads folder. Restoring is the
 /// ordinary "import sync bundle" button.
+/// Local setting holding the last auto-backup failure; empty after a
+/// successful run. Shown on the Sync screen.
+const backupErrorKey = 'lastBackupError';
+
 Future<void> autoBackup(CatalogStore store) async {
   try {
     // Only when something actually changed since the last backup.
@@ -43,13 +47,13 @@ Future<void> autoBackup(CatalogStore store) async {
       File(path).copySync('${docs.path}/catlog-backup.catsync');
     }
     store.setLocalSetting('lastBackupVector', vector);
-    store.setLocalSetting('lastBackupError', '');
+    store.setLocalSetting(backupErrorKey, '');
   } catch (e) {
     // A failed background backup must never crash the app; the next
     // pause tries again. Recorded so the failure is discoverable.
     debugPrint('autoBackup failed: $e');
     try {
-      store.setLocalSetting('lastBackupError', e.toString());
+      store.setLocalSetting(backupErrorKey, e.toString());
     } catch (_) {}
   }
 }

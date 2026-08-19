@@ -192,6 +192,52 @@ class AppLocalizationsMt extends AppLocalizations {
       'M\'hemmx lok disponibbli — minflok agħfas fit-tul fuq il-mappa.';
 
   @override
+  String get locationDeniedForever =>
+      'L-aċċess għall-post huwa mblukkat. Ħallih fis-settings tas-sistema biex tuża Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Il-post huwa mitfi fuq dan l-apparat. Ixegħlu fis-settings u erġa\' pprova.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log m\'għandux permess juża l-post tiegħek. Erġa\' pprova u ħallih meta tiġi mistoqsi.';
+
+  @override
+  String get locationNoFix =>
+      'Il-pożizzjoni tiegħek ma setgħetx tiġi determinata bħalissa. Erġa\' pprova barra — il-GPS jeħtieġ veduta ċara tas-sema.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Iftaħ is-settings';
+
+  @override
+  String get notSaved => 'Ma ġiex salvat';
+
+  @override
+  String get birthdateInFuture =>
+      'Id-data tat-twelid ma tistax tkun fil-futur.';
+
+  @override
+  String get deceasedInFuture => 'Id-data tal-mewt ma tistax tkun fil-futur.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Id-data tal-mewt ma tistax tkun qabel id-data tat-twelid ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Id-data tat-twelid ma tistax tkun wara d-data tal-mewt ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
+
+  @override
   String get moveTo => 'Mexxi lejn';
 
   @override
@@ -259,6 +305,11 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format ħażin — uża $format';
+  }
+
+  @override
   String get value => 'Valur';
 
   @override
@@ -286,7 +337,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get optionsOnePerLine => 'Għażliet (waħda f\'kull linja)';
 
   @override
+  String get ownValue => 'Valur tiegħek';
+
+  @override
   String get renameField => 'Ibdel isem il-qasam';
+
+  @override
+  String get editOptions => 'Editja l-għażliet…';
 
   @override
   String get noStraysRightNow => 'M\'hemmx qtates tat-triq bħalissa.';
@@ -385,9 +442,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Irreġistra dehra hawn:';
-
-  @override
-  String get orPlaceClowderHere => 'Jew poġġi clowder hawn:';
 
   @override
   String trailOf(String name, int count) {
@@ -491,6 +545,39 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterGender => 'Sess';
 
   @override
+  String get starterBreed => 'Razza';
+
+  @override
+  String get valueMixed => 'imħallat';
+
+  @override
+  String get breedEuropeanShorthair => 'Ewropew tax-xagħar qasir';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brittaniku tax-xagħar qasir';
+
+  @override
+  String get breedNorwegianForestCat => 'Qattus tal-Foresta Norveġiża';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sjamiż';
+
+  @override
+  String get breedPersian => 'Persjan';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Kulur';
 
   @override
@@ -534,6 +621,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get markTitle => 'Immarka l-qattus';
+
+  @override
+  String get applyCrop => 'Aqta';
 
   @override
   String get useFullPhoto => 'Uża r-ritratt kollu';
@@ -585,6 +675,11 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakkett importat: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'L-aħħar backup awtomatiku falla: $error';
   }
 
   @override

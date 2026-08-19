@@ -191,6 +191,51 @@ class AppLocalizationsPl extends AppLocalizations {
       'Brak lokalizacji — zamiast tego przytrzymaj mapę.';
 
   @override
+  String get locationDeniedForever =>
+      'Dostęp do lokalizacji jest zablokowany. Zezwól na niego w ustawieniach systemu, aby korzystać ze Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Lokalizacja jest wyłączona na tym urządzeniu. Włącz ją w ustawieniach i spróbuj ponownie.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nie ma uprawnień do korzystania z twojej lokalizacji. Spróbuj ponownie i zezwól, gdy pojawi się pytanie.';
+
+  @override
+  String get locationNoFix =>
+      'Nie udało się teraz ustalić twojej pozycji. Spróbuj ponownie na zewnątrz — GPS potrzebuje czystego widoku nieba.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Otwórz ustawienia';
+
+  @override
+  String get notSaved => 'Nie zapisano';
+
+  @override
+  String get birthdateInFuture => 'Data urodzenia nie może być w przyszłości.';
+
+  @override
+  String get deceasedInFuture => 'Data śmierci nie może być w przyszłości.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data śmierci nie może być wcześniejsza niż data urodzenia ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data urodzenia nie może być późniejsza niż data śmierci ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ten kot jest zapisany jako samiec — samiec nie może być w ciąży. Najpierw sprawdź płeć.';
+
+  @override
   String get moveTo => 'Przenieś do';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Zły format — użyj $format';
+  }
+
+  @override
   String get value => 'Wartość';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get optionsOnePerLine => 'Opcje (jedna na wiersz)';
 
   @override
+  String get ownValue => 'Własna wartość';
+
+  @override
   String get renameField => 'Zmień nazwę pola';
+
+  @override
+  String get editOptions => 'Edytuj opcje…';
 
   @override
   String get noStraysRightNow => 'Obecnie brak bezdomnych.';
@@ -383,9 +439,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Zapisz obserwację tutaj:';
-
-  @override
-  String get orPlaceClowderHere => 'Albo umieść tu clowder:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterGender => 'Płeć';
 
   @override
+  String get starterBreed => 'Rasa';
+
+  @override
+  String get valueMixed => 'mieszaniec';
+
+  @override
+  String get breedEuropeanShorthair => 'Europejski krótkowłosy';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brytyjski krótkowłosy';
+
+  @override
+  String get breedNorwegianForestCat => 'Kot norweski leśny';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Syjamski';
+
+  @override
+  String get breedPersian => 'Perski';
+
+  @override
+  String get breedBengal => 'Bengalski';
+
+  @override
+  String get breedSphynx => 'Sfinks';
+
+  @override
   String get starterColor => 'Umaszczenie';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get markTitle => 'Zaznacz kota';
+
+  @override
+  String get applyCrop => 'Przytnij';
 
   @override
   String get useFullPhoto => 'Użyj całego zdjęcia';
@@ -583,6 +672,11 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakiet zaimportowany: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Ostatnia automatyczna kopia zapasowa nie powiodła się: $error';
   }
 
   @override

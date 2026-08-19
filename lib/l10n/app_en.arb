@@ -84,6 +84,32 @@
   "deleteCatBody": "The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers' devices too.",
   "sightingRecorded": "Sighting recorded at your position.",
   "noLocationAvailable": "No location available — long-press the map instead.",
+  "locationDeniedForever": "Location access is blocked. Allow it in the system settings to use Stray Cam.",
+  "locationServiceOff": "Location is turned off on this device. Turn it on in the settings and try again.",
+  "locationDenied": "cat(a)log has no permission to use your location. Try again and allow it when asked.",
+  "locationNoFix": "Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.",
+  "ok": "OK",
+  "openSettings": "Open settings",
+  "notSaved": "Not saved",
+  "birthdateInFuture": "The birth date can't be in the future.",
+  "deceasedInFuture": "The date of death can't be in the future.",
+  "deceasedBeforeBirth": "The date of death can't be before the birth date ({date}).",
+  "@deceasedBeforeBirth": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "bornAfterDeceased": "The birth date can't be after the date of death ({date}).",
+  "@bornAfterDeceased": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "malePregnant": "This cat is recorded as male — a male cat can't be pregnant. Check the gender first.",
   "moveTo": "Move to",
   "noClowderStrayOption": "No clowder — stray / ran away",
   "timelineOf": "Timeline — {name}",
@@ -175,6 +201,14 @@
       }
     }
   },
+  "dateFormatError": "Wrong format — use {format}",
+  "@dateFormatError": {
+    "placeholders": {
+      "format": {
+        "type": "String"
+      }
+    }
+  },
   "value": "Value",
   "latitudeLongitude": "latitude, longitude",
   "newField": "New field",
@@ -184,7 +218,9 @@
   "forClowders": "clowders",
   "forBoth": "both",
   "optionsOnePerLine": "Options (one per line)",
+  "ownValue": "Own value",
   "renameField": "Rename field",
+  "editOptions": "Edit options…",
   "noStraysRightNow": "No strays right now.",
   "strayCam": "Stray Cam",
   "addStray": "Add stray",
@@ -264,7 +300,6 @@
     }
   },
   "recordSightingHere": "Record a sighting here:",
-  "orPlaceClowderHere": "Or place a clowder here:",
   "trailOf": "Trail: {name} ({count} sightings)",
   "@trailOf": {
     "placeholders": {
@@ -348,6 +383,17 @@
   "labelProfileImage": "Profile image",
   "labelPhoto": "Photo",
   "starterGender": "Gender",
+  "starterBreed": "Breed",
+  "valueMixed": "mixed",
+  "breedEuropeanShorthair": "European Shorthair",
+  "breedMaineCoon": "Maine Coon",
+  "breedBritishShorthair": "British Shorthair",
+  "breedNorwegianForestCat": "Norwegian Forest Cat",
+  "breedRagdoll": "Ragdoll",
+  "breedSiamese": "Siamese",
+  "breedPersian": "Persian",
+  "breedBengal": "Bengal",
+  "breedSphynx": "Sphynx",
   "starterColor": "Color",
   "starterNeutered": "Neutered",
   "starterPregnant": "Pregnant",
@@ -363,6 +409,7 @@
   "valueUnknown": "unknown",
   "cropTitle": "Crop photo",
   "markTitle": "Mark the cat",
+  "applyCrop": "Crop",
   "useFullPhoto": "Use full photo",
   "dragToSelect": "Drag a rectangle around the cat",
   "dragOverTheCat": "Drag an ellipse over the cat",
@@ -382,6 +429,14 @@
   "@bundleImported": {
     "placeholders": {
       "result": {
+        "type": "String"
+      }
+    }
+  },
+  "lastBackupFailed": "Last automatic backup failed: {error}",
+  "@lastBackupFailed": {
+    "placeholders": {
+      "error": {
         "type": "String"
       }
     }

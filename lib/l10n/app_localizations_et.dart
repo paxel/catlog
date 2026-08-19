@@ -191,6 +191,51 @@ class AppLocalizationsEt extends AppLocalizations {
       'Asukoht pole saadaval — hoia selle asemel kaarti all.';
 
   @override
+  String get locationDeniedForever =>
+      'Juurdepääs asukohale on blokeeritud. Luba see süsteemi seadetes, et kasutada Stray Cami.';
+
+  @override
+  String get locationServiceOff =>
+      'Asukoht on selles seadmes välja lülitatud. Lülita see seadetes sisse ja proovi uuesti.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log ei tohi sinu asukohta kasutada. Proovi uuesti ja luba see, kui küsitakse.';
+
+  @override
+  String get locationNoFix =>
+      'Sinu asukohta ei õnnestunud praegu määrata. Proovi uuesti õues — GPS vajab vaba vaadet taevale.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Ava seaded';
+
+  @override
+  String get notSaved => 'Salvestamata';
+
+  @override
+  String get birthdateInFuture => 'Sünnikuupäev ei saa olla tulevikus.';
+
+  @override
+  String get deceasedInFuture => 'Surmakuupäev ei saa olla tulevikus.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Surmakuupäev ei saa olla enne sünnikuupäeva ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Sünnikuupäev ei saa olla pärast surmakuupäeva ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
+
+  @override
   String get moveTo => 'Liiguta';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Vale vorming — kasuta $format';
+  }
+
+  @override
   String get value => 'Väärtus';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get optionsOnePerLine => 'Valikud (üks rea kohta)';
 
   @override
+  String get ownValue => 'Oma väärtus';
+
+  @override
   String get renameField => 'Nimeta väli ümber';
+
+  @override
+  String get editOptions => 'Muuda valikuid…';
 
   @override
   String get noStraysRightNow => 'Praegu hulkuvaid kasse pole.';
@@ -384,9 +440,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Salvesta vaatlus siin:';
-
-  @override
-  String get orPlaceClowderHere => 'Või aseta klauder siia:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterGender => 'Sugu';
 
   @override
+  String get starterBreed => 'Tõug';
+
+  @override
+  String get valueMixed => 'segavereline';
+
+  @override
+  String get breedEuropeanShorthair => 'Euroopa lühikarvaline';
+
+  @override
+  String get breedMaineCoon => 'Maine kass';
+
+  @override
+  String get breedBritishShorthair => 'Briti lühikarvaline';
+
+  @override
+  String get breedNorwegianForestCat => 'Norra metskass';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siiami';
+
+  @override
+  String get breedPersian => 'Pärsia';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sfinks';
+
+  @override
   String get starterColor => 'Värv';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get markTitle => 'Märgi kass';
+
+  @override
+  String get applyCrop => 'Kärbi';
 
   @override
   String get useFullPhoto => 'Kasuta tervet fotot';
@@ -583,6 +672,11 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakett imporditud: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Viimane automaatne varundus ebaõnnestus: $error';
   }
 
   @override

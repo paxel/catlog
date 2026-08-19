@@ -191,6 +191,51 @@ class AppLocalizationsEn extends AppLocalizations {
       'No location available — long-press the map instead.';
 
   @override
+  String get locationDeniedForever =>
+      'Location access is blocked. Allow it in the system settings to use Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Location is turned off on this device. Turn it on in the settings and try again.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log has no permission to use your location. Try again and allow it when asked.';
+
+  @override
+  String get locationNoFix =>
+      'Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Open settings';
+
+  @override
+  String get notSaved => 'Not saved';
+
+  @override
+  String get birthdateInFuture => 'The birth date can\'t be in the future.';
+
+  @override
+  String get deceasedInFuture => 'The date of death can\'t be in the future.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'The date of death can\'t be before the birth date ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'The birth date can\'t be after the date of death ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.';
+
+  @override
   String get moveTo => 'Move to';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Wrong format — use $format';
+  }
+
+  @override
   String get value => 'Value';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optionsOnePerLine => 'Options (one per line)';
 
   @override
+  String get ownValue => 'Own value';
+
+  @override
   String get renameField => 'Rename field';
+
+  @override
+  String get editOptions => 'Edit options…';
 
   @override
   String get noStraysRightNow => 'No strays right now.';
@@ -383,9 +439,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Record a sighting here:';
-
-  @override
-  String get orPlaceClowderHere => 'Or place a clowder here:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterGender => 'Gender';
 
   @override
+  String get starterBreed => 'Breed';
+
+  @override
+  String get valueMixed => 'mixed';
+
+  @override
+  String get breedEuropeanShorthair => 'European Shorthair';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'British Shorthair';
+
+  @override
+  String get breedNorwegianForestCat => 'Norwegian Forest Cat';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamese';
+
+  @override
+  String get breedPersian => 'Persian';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Color';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get markTitle => 'Mark the cat';
+
+  @override
+  String get applyCrop => 'Crop';
 
   @override
   String get useFullPhoto => 'Use full photo';
@@ -583,6 +672,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Bundle imported: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Last automatic backup failed: $error';
   }
 
   @override

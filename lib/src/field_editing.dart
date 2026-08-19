@@ -56,6 +56,12 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   void initState() {
     super.initState();
     _choice = widget.current;
+    // For choice fields the text controller holds only off-list values;
+    // a current value that IS an option belongs to the radios alone.
+    if (def.type == FieldType.choice &&
+        def.options.contains(widget.current)) {
+      _text.clear();
+    }
   }
 
   @override
@@ -73,7 +79,12 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       initialDate: _asOf,
       firstDate: DateTime(2000),
       lastDate: DateTime.now().add(const Duration(days: 1)),
+      // The picker falls back to a text field (e.g. with screen readers);
+      // the stock error doesn't say which format is expected.
+      errorFormatText: context.t
+          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
     );
+    if (!mounted) return;
     if (picked != null) setState(() => _asOf = picked);
   }
 
@@ -98,23 +109,40 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                     value: option),
             ]),
           ),
+          // Choice values are suggestions, not a closed list — a freely
+          // typed value wins over the radio selection.
           if (def.type == FieldType.choice)
             TextField(
               controller: _text,
               decoration:
-                  InputDecoration(labelText: context.t.otherOption),
+                  InputDecoration(labelText: context.t.ownValue),
               onChanged: (v) => setState(() {
                 if (v.trim().isNotEmpty) _choice = null;
               }),
             ),
         ]);
       case FieldType.date:
-        return CalendarDatePicker(
-          initialDate: DateTime.tryParse(widget.current ?? '') ?? DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime(2100),
-          onDateChanged: (d) =>
-              _choice = d.toIso8601String().substring(0, 10),
+        // Birth and death dates can't lie in the future; other date
+        // fields legitimately can (appointments, due dates).
+        final pastOnly = def.slug == 'birthdate' || def.slug == 'deceased';
+        final last = pastOnly ? DateUtils.dateOnly(DateTime.now()) : DateTime(2100);
+        var initial =
+            DateTime.tryParse(widget.current ?? '') ?? DateTime.now();
+        if (initial.isAfter(last)) initial = last;
+        // The picker pages months in a viewport, which cannot answer the
+        // intrinsic-width question AlertDialog asks. Unbounded, its page
+        // metrics degenerate and the month arrows jump several months
+        // per tap — a fixed box restores sane paging.
+        return SizedBox(
+          width: 328,
+          height: 346,
+          child: CalendarDatePicker(
+            initialDate: initial,
+            firstDate: DateTime(2000),
+            lastDate: last,
+            onDateChanged: (d) =>
+                _choice = d.toIso8601String().substring(0, 10),
+          ),
         );
       case FieldType.number:
         return TextField(
@@ -140,6 +168,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                         _text.text.isEmpty ? null : _text.text),
               ),
             );
+            if (!mounted) return;
             if (picked != null) setState(() => _text.text = picked);
           },
         );
@@ -174,13 +203,13 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
 
   String? _result() {
     switch (def.type) {
+      case FieldType.choice:
+        final free = _text.text.trim();
+        return free.isNotEmpty ? free : _choice;
       case FieldType.yesNo:
       case FieldType.date:
       case FieldType.cat:
         return _choice;
-      case FieldType.choice:
-        final other = _text.text.trim();
-        return other.isNotEmpty ? other : _choice;
       case FieldType.text:
       case FieldType.location:
       case FieldType.number:

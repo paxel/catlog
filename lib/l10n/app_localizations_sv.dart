@@ -191,6 +191,51 @@ class AppLocalizationsSv extends AppLocalizations {
       'Ingen plats tillgänglig — håll in kartan i stället.';
 
   @override
+  String get locationDeniedForever =>
+      'Platsåtkomst är blockerad. Tillåt den i systeminställningarna för att använda Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Plats är avstängd på den här enheten. Slå på den i inställningarna och försök igen.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log har inte tillstånd att använda din plats. Försök igen och tillåt det när du tillfrågas.';
+
+  @override
+  String get locationNoFix =>
+      'Din position kunde inte bestämmas just nu. Försök igen utomhus — GPS behöver fri sikt mot himlen.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Öppna inställningar';
+
+  @override
+  String get notSaved => 'Inte sparat';
+
+  @override
+  String get birthdateInFuture => 'Födelsedatumet kan inte ligga i framtiden.';
+
+  @override
+  String get deceasedInFuture => 'Dödsdatumet kan inte ligga i framtiden.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dödsdatumet kan inte ligga före födelsedatumet ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Födelsedatumet kan inte ligga efter dödsdatumet ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Den här katten är registrerad som hane — en hankatt kan inte vara dräktig. Kontrollera könet först.';
+
+  @override
   String get moveTo => 'Flytta till';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Fel format — använd $format';
+  }
+
+  @override
   String get value => 'Värde';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get optionsOnePerLine => 'Alternativ (ett per rad)';
 
   @override
+  String get ownValue => 'Eget värde';
+
+  @override
   String get renameField => 'Byt namn på fält';
+
+  @override
+  String get editOptions => 'Redigera alternativ…';
 
   @override
   String get noStraysRightNow => 'Inga hemlösa katter just nu.';
@@ -383,9 +439,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Registrera en observation här:';
-
-  @override
-  String get orPlaceClowderHere => 'Eller placera en clowder här:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterGender => 'Kön';
 
   @override
+  String get starterBreed => 'Ras';
+
+  @override
+  String get valueMixed => 'blandras';
+
+  @override
+  String get breedEuropeanShorthair => 'Europeiskt korthår';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brittiskt korthår';
+
+  @override
+  String get breedNorwegianForestCat => 'Norsk skogkatt';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siames';
+
+  @override
+  String get breedPersian => 'Perser';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Färg';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get markTitle => 'Markera katten';
+
+  @override
+  String get applyCrop => 'Beskär';
 
   @override
   String get useFullPhoto => 'Använd hela fotot';
@@ -583,6 +672,11 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket importerat: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Senaste automatiska säkerhetskopieringen misslyckades: $error';
   }
 
   @override

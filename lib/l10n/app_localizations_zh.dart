@@ -186,6 +186,46 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noLocationAvailable => '无法获取位置——请改为长按地图。';
 
   @override
+  String get locationDeniedForever => '位置权限已被禁止。请在系统设置中允许，以使用 Stray Cam。';
+
+  @override
+  String get locationServiceOff => '此设备的定位已关闭。请在设置中开启后重试。';
+
+  @override
+  String get locationDenied => 'cat(a)log 没有使用您位置的权限。请重试，并在询问时允许。';
+
+  @override
+  String get locationNoFix => '当前无法确定您的位置。请到户外重试——GPS 需要开阔的天空视野。';
+
+  @override
+  String get ok => '好';
+
+  @override
+  String get openSettings => '打开设置';
+
+  @override
+  String get notSaved => '未保存';
+
+  @override
+  String get birthdateInFuture => '出生日期不能是未来的日期。';
+
+  @override
+  String get deceasedInFuture => '死亡日期不能是未来的日期。';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return '死亡日期不能早于出生日期（$date）。';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return '出生日期不能晚于死亡日期（$date）。';
+  }
+
+  @override
+  String get malePregnant => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
+
+  @override
   String get moveTo => '移动到';
 
   @override
@@ -252,6 +292,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return '格式错误，请使用 $format';
+  }
+
+  @override
   String get value => '值';
 
   @override
@@ -279,7 +324,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get optionsOnePerLine => '选项（每行一个）';
 
   @override
+  String get ownValue => '自定义值';
+
+  @override
   String get renameField => '重命名字段';
+
+  @override
+  String get editOptions => '编辑选项…';
 
   @override
   String get noStraysRightNow => '现在没有流浪猫。';
@@ -375,9 +426,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get recordSightingHere => '在这里记录目击：';
-
-  @override
-  String get orPlaceClowderHere => '或在这里放置猫群：';
 
   @override
   String trailOf(String name, int count) {
@@ -478,6 +526,39 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterGender => '性别';
 
   @override
+  String get starterBreed => '品种';
+
+  @override
+  String get valueMixed => '混种';
+
+  @override
+  String get breedEuropeanShorthair => '欧洲短毛猫';
+
+  @override
+  String get breedMaineCoon => '缅因猫';
+
+  @override
+  String get breedBritishShorthair => '英国短毛猫';
+
+  @override
+  String get breedNorwegianForestCat => '挪威森林猫';
+
+  @override
+  String get breedRagdoll => '布偶猫';
+
+  @override
+  String get breedSiamese => '暹罗猫';
+
+  @override
+  String get breedPersian => '波斯猫';
+
+  @override
+  String get breedBengal => '孟加拉猫';
+
+  @override
+  String get breedSphynx => '斯芬克斯猫';
+
+  @override
   String get starterColor => '毛色';
 
   @override
@@ -521,6 +602,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get markTitle => '标记这只猫';
+
+  @override
+  String get applyCrop => '裁剪';
 
   @override
   String get useFullPhoto => '使用整张照片';
@@ -571,6 +655,11 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return '已导入同步包：$result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return '上次自动备份失败：$error';
   }
 
   @override

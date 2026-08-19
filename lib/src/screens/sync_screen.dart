@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../auto_backup.dart';
 import '../l10n.dart';
 import 'in_person_screen.dart';
 import 'messenger_screen.dart';
@@ -16,11 +17,20 @@ class SyncScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
+    final backupError = store.localSetting(backupErrorKey);
     return Scaffold(
       appBar: AppBar(title: Text(t.sync)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          // A silently failing auto-backup must be discoverable somewhere.
+          if (backupError != null && backupError.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Text(t.lastBackupFailed(backupError),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.error)),
+            ),
           _ChooserCard(
             icon: Icons.qr_code,
             title: t.syncChooserInPerson,

@@ -188,6 +188,50 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noLocationAvailable => '位置情報がありません — 代わりに地図を長押ししてください。';
 
   @override
+  String get locationDeniedForever =>
+      '位置情報へのアクセスがブロックされています。Stray Cam を使うにはシステム設定で許可してください。';
+
+  @override
+  String get locationServiceOff =>
+      'この端末では位置情報がオフになっています。設定でオンにしてから、もう一度お試しください。';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log に位置情報の使用許可がありません。もう一度試して、確認されたら許可してください。';
+
+  @override
+  String get locationNoFix =>
+      '現在地を特定できませんでした。屋外でもう一度お試しください — GPS には空への見通しが必要です。';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => '設定を開く';
+
+  @override
+  String get notSaved => '保存されませんでした';
+
+  @override
+  String get birthdateInFuture => '誕生日を未来の日付にはできません。';
+
+  @override
+  String get deceasedInFuture => '死亡日を未来の日付にはできません。';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return '死亡日を誕生日（$date）より前にはできません。';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return '誕生日を死亡日（$date）より後にはできません。';
+  }
+
+  @override
+  String get malePregnant => 'この猫はオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
+
+  @override
   String get moveTo => '移動先';
 
   @override
@@ -254,6 +298,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return '形式が正しくありません。$format の形式で入力してください';
+  }
+
+  @override
   String get value => '値';
 
   @override
@@ -281,7 +330,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get optionsOnePerLine => '選択肢（1 行に 1 つ）';
 
   @override
+  String get ownValue => '独自の値';
+
+  @override
   String get renameField => '項目名を変更';
+
+  @override
+  String get editOptions => '選択肢を編集…';
 
   @override
   String get noStraysRightNow => '現在、野良猫はいません。';
@@ -378,9 +433,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'ここで目撃を記録:';
-
-  @override
-  String get orPlaceClowderHere => 'またはここにクラウダーを配置:';
 
   @override
   String trailOf(String name, int count) {
@@ -481,6 +533,39 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterGender => '性別';
 
   @override
+  String get starterBreed => '品種';
+
+  @override
+  String get valueMixed => '雑種';
+
+  @override
+  String get breedEuropeanShorthair => 'ヨーロピアンショートヘア';
+
+  @override
+  String get breedMaineCoon => 'メインクーン';
+
+  @override
+  String get breedBritishShorthair => 'ブリティッシュショートヘア';
+
+  @override
+  String get breedNorwegianForestCat => 'ノルウェージャンフォレストキャット';
+
+  @override
+  String get breedRagdoll => 'ラグドール';
+
+  @override
+  String get breedSiamese => 'シャム';
+
+  @override
+  String get breedPersian => 'ペルシャ';
+
+  @override
+  String get breedBengal => 'ベンガル';
+
+  @override
+  String get breedSphynx => 'スフィンクス';
+
+  @override
   String get starterColor => '毛色';
 
   @override
@@ -524,6 +609,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get markTitle => '猫に印を付ける';
+
+  @override
+  String get applyCrop => '切り抜く';
 
   @override
   String get useFullPhoto => '写真全体を使う';
@@ -575,6 +663,11 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'パッケージを取り込みました: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return '前回の自動バックアップに失敗しました: $error';
   }
 
   @override

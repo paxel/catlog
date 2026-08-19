@@ -37,9 +37,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - **Remove a person's data for good**: About → Authors & bans deletes
   everything an author wrote from this device and can ban them and their
   photos from ever coming back — for the day someone poisons the catalog.
-- **Received .catsync files open directly** in the import screen from
-  Signal, WhatsApp, mail, or a file manager (Android, iPhone/iPad, Linux;
-  Windows via Scoop).
+- **Received .catsync files open directly** in the import screen also on
+  iPhone/iPad, Linux, and Windows (via Scoop) — no longer Android only.
 - **Sync without any Wi-Fi** between two Android phones: one hosts a
   temporary hotspot, the other scans one QR code — connects, syncs, and
   disconnects by itself.
@@ -58,7 +57,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   work right now say why instead of failing later.
 - Positions show as "on the map" with a jump button — raw coordinates are
   gone from the app.
-- The map and the position picker no longer rotate — north stays up.
 - Deceased cats appear dimmed with a small dated note instead of vanishing
   among the living.
 - Map pins show faces and homes: photoless cats get a drawn cat silhouette

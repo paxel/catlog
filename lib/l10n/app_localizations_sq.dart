@@ -191,6 +191,53 @@ class AppLocalizationsSq extends AppLocalizations {
       'Vendndodhja s\'është e disponueshme — mbani shtypur hartën në vend të saj.';
 
   @override
+  String get locationDeniedForever =>
+      'Qasja në vendndodhje është e bllokuar. Lejojeni në cilësimet e sistemit për të përdorur Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Vendndodhja është e fikur në këtë pajisje. Ndizeni te cilësimet dhe provoni sërish.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nuk ka leje të përdorë vendndodhjen tuaj. Provoni sërish dhe lejojeni kur t\'ju pyetet.';
+
+  @override
+  String get locationNoFix =>
+      'Pozicioni juaj nuk mund të përcaktohej tani. Provoni sërish në natyrë — GPS ka nevojë për pamje të lirë të qiellit.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Hap cilësimet';
+
+  @override
+  String get notSaved => 'Nuk u ruajt';
+
+  @override
+  String get birthdateInFuture =>
+      'Data e lindjes nuk mund të jetë në të ardhmen.';
+
+  @override
+  String get deceasedInFuture =>
+      'Data e ngordhjes nuk mund të jetë në të ardhmen.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data e ngordhjes nuk mund të jetë para datës së lindjes ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data e lindjes nuk mund të jetë pas datës së ngordhjes ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
+
+  @override
   String get moveTo => 'Zhvendos te';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format i gabuar — përdorni $format';
+  }
+
+  @override
   String get value => 'Vlera';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get optionsOnePerLine => 'Opsionet (një për rresht)';
 
   @override
+  String get ownValue => 'Vlerë e vetja';
+
+  @override
   String get renameField => 'Riemërto fushën';
+
+  @override
+  String get editOptions => 'Ndrysho opsionet…';
 
   @override
   String get noStraysRightNow => 'S\'ka mace endacake tani.';
@@ -383,9 +441,6 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Regjistro një vëzhgim këtu:';
-
-  @override
-  String get orPlaceClowderHere => 'Ose vendos një clowder këtu:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +545,39 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterGender => 'Gjinia';
 
   @override
+  String get starterBreed => 'Raca';
+
+  @override
+  String get valueMixed => 'i përzier';
+
+  @override
+  String get breedEuropeanShorthair => 'Evropiane fleshkurtër';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanike fleshkurtër';
+
+  @override
+  String get breedNorwegianForestCat => 'Macja e pyllit norvegjez';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siameze';
+
+  @override
+  String get breedPersian => 'Persiane';
+
+  @override
+  String get breedBengal => 'Bengale';
+
+  @override
+  String get breedSphynx => 'Sfinks';
+
+  @override
   String get starterColor => 'Ngjyra';
 
   @override
@@ -533,6 +621,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get markTitle => 'Shëno macen';
+
+  @override
+  String get applyCrop => 'Prit';
 
   @override
   String get useFullPhoto => 'Përdor foton e plotë';
@@ -584,6 +675,11 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketa u importua: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Kopja rezervë automatike e fundit dështoi: $error';
   }
 
   @override

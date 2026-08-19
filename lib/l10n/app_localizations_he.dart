@@ -190,6 +190,51 @@ class AppLocalizationsHe extends AppLocalizations {
       'אין מיקום זמין — במקום זאת לחצו לחיצה ארוכה על המפה.';
 
   @override
+  String get locationDeniedForever =>
+      'הגישה למיקום חסומה. יש לאפשר אותה בהגדרות המערכת כדי להשתמש ב-Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'המיקום כבוי במכשיר הזה. הפעילו אותו בהגדרות ונסו שוב.';
+
+  @override
+  String get locationDenied =>
+      'ל‑cat(a)log אין הרשאה להשתמש במיקום שלכם. נסו שוב ואשרו כשתישאלו.';
+
+  @override
+  String get locationNoFix =>
+      'לא ניתן היה לקבוע את מיקומכם כרגע. נסו שוב בחוץ — ה‑GPS זקוק לקו ראייה פתוח לשמיים.';
+
+  @override
+  String get ok => 'אישור';
+
+  @override
+  String get openSettings => 'פתיחת הגדרות';
+
+  @override
+  String get notSaved => 'לא נשמר';
+
+  @override
+  String get birthdateInFuture => 'תאריך הלידה לא יכול להיות בעתיד.';
+
+  @override
+  String get deceasedInFuture => 'תאריך המוות לא יכול להיות בעתיד.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'תאריך המוות לא יכול להיות לפני תאריך הלידה ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'תאריך הלידה לא יכול להיות אחרי תאריך המוות ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'החתול הזה רשום כזכר — זכר לא יכול להיות בהיריון. בדקו קודם את המין.';
+
+  @override
   String get moveTo => 'העברה אל';
 
   @override
@@ -257,6 +302,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'פורמט שגוי — יש להשתמש ב-$format';
+  }
+
+  @override
   String get value => 'ערך';
 
   @override
@@ -284,7 +334,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get optionsOnePerLine => 'אפשרויות (אחת בכל שורה)';
 
   @override
+  String get ownValue => 'ערך משלך';
+
+  @override
   String get renameField => 'שינוי שם השדה';
+
+  @override
+  String get editOptions => 'עריכת אפשרויות…';
 
   @override
   String get noStraysRightNow => 'אין חתולי רחוב כרגע.';
@@ -382,9 +438,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'רישום תצפית כאן:';
-
-  @override
-  String get orPlaceClowderHere => 'או הצבת קבוצה כאן:';
 
   @override
   String trailOf(String name, int count) {
@@ -487,6 +540,39 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterGender => 'מין';
 
   @override
+  String get starterBreed => 'גזע';
+
+  @override
+  String get valueMixed => 'מעורב';
+
+  @override
+  String get breedEuropeanShorthair => 'אירופאי קצר שיער';
+
+  @override
+  String get breedMaineCoon => 'מיין קון';
+
+  @override
+  String get breedBritishShorthair => 'בריטי קצר שיער';
+
+  @override
+  String get breedNorwegianForestCat => 'חתול יער נורווגי';
+
+  @override
+  String get breedRagdoll => 'רגדול';
+
+  @override
+  String get breedSiamese => 'סיאמי';
+
+  @override
+  String get breedPersian => 'פרסי';
+
+  @override
+  String get breedBengal => 'בנגלי';
+
+  @override
+  String get breedSphynx => 'ספינקס';
+
+  @override
   String get starterColor => 'צבע';
 
   @override
@@ -530,6 +616,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get markTitle => 'סימון החתול';
+
+  @override
+  String get applyCrop => 'חיתוך';
 
   @override
   String get useFullPhoto => 'שימוש בתמונה המלאה';
@@ -581,6 +670,11 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'החבילה יובאה: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'הגיבוי האוטומטי האחרון נכשל: $error';
   }
 
   @override

@@ -93,6 +93,7 @@ const clowderStatusKeys = [
 const starterFields = [
   (slug: 'gender', name: 'Gender', type: FieldType.choice, scope: FieldScope.cat, options: ['female', 'male', 'unknown']),
   (slug: 'color', name: 'Color', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: ['European Shorthair', 'Maine Coon', 'British Shorthair', 'Norwegian Forest Cat', 'Ragdoll', 'Siamese', 'Persian', 'Bengal', 'Sphynx', 'mixed']),
   (slug: 'neutered', name: 'Neutered', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),

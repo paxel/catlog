@@ -191,6 +191,53 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν υπάρχει τοποθεσία — πατήστε παρατεταμένα στον χάρτη.';
 
   @override
+  String get locationDeniedForever =>
+      'Η πρόσβαση στην τοποθεσία είναι αποκλεισμένη. Επιτρέψτε την στις ρυθμίσεις συστήματος για να χρησιμοποιήσετε το Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Η τοποθεσία είναι απενεργοποιημένη σε αυτήν τη συσκευή. Ενεργοποιήστε την στις ρυθμίσεις και δοκιμάστε ξανά.';
+
+  @override
+  String get locationDenied =>
+      'Το cat(a)log δεν έχει άδεια να χρησιμοποιεί την τοποθεσία σας. Δοκιμάστε ξανά και επιτρέψτε την όταν ερωτηθείτε.';
+
+  @override
+  String get locationNoFix =>
+      'Η θέση σας δεν μπόρεσε να προσδιοριστεί τώρα. Δοκιμάστε ξανά σε ανοιχτό χώρο — το GPS χρειάζεται καθαρή θέα στον ουρανό.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Άνοιγμα ρυθμίσεων';
+
+  @override
+  String get notSaved => 'Δεν αποθηκεύτηκε';
+
+  @override
+  String get birthdateInFuture =>
+      'Η ημερομηνία γέννησης δεν μπορεί να είναι στο μέλλον.';
+
+  @override
+  String get deceasedInFuture =>
+      'Η ημερομηνία θανάτου δεν μπορεί να είναι στο μέλλον.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Η ημερομηνία θανάτου δεν μπορεί να είναι πριν από την ημερομηνία γέννησης ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Η ημερομηνία γέννησης δεν μπορεί να είναι μετά την ημερομηνία θανάτου ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως αρσενική — ένας αρσενικός γάτος δεν μπορεί να είναι έγκυος. Ελέγξτε πρώτα το φύλο.';
+
+  @override
   String get moveTo => 'Μετακίνηση σε';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Λάθος μορφή — χρησιμοποιήστε $format';
+  }
+
+  @override
   String get value => 'Τιμή';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get optionsOnePerLine => 'Επιλογές (μία ανά γραμμή)';
 
   @override
+  String get ownValue => 'Δική σας τιμή';
+
+  @override
   String get renameField => 'Μετονομασία πεδίου';
+
+  @override
+  String get editOptions => 'Επεξεργασία επιλογών…';
 
   @override
   String get noStraysRightNow => 'Δεν υπάρχουν αδέσποτα αυτή τη στιγμή.';
@@ -384,9 +442,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Καταγραφή παρατήρησης εδώ:';
-
-  @override
-  String get orPlaceClowderHere => 'Ή τοποθέτηση ομάδας εδώ:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +545,39 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterGender => 'Φύλο';
 
   @override
+  String get starterBreed => 'Ράτσα';
+
+  @override
+  String get valueMixed => 'ημίαιμη';
+
+  @override
+  String get breedEuropeanShorthair => 'Ευρωπαϊκή κοντότριχη';
+
+  @override
+  String get breedMaineCoon => 'Μέιν Κουν';
+
+  @override
+  String get breedBritishShorthair => 'Βρετανική κοντότριχη';
+
+  @override
+  String get breedNorwegianForestCat => 'Γάτα του Νορβηγικού Δάσους';
+
+  @override
+  String get breedRagdoll => 'Ράγκντολ';
+
+  @override
+  String get breedSiamese => 'Σιαμαία';
+
+  @override
+  String get breedPersian => 'Περσική';
+
+  @override
+  String get breedBengal => 'Βεγγάλης';
+
+  @override
+  String get breedSphynx => 'Σφίγγα';
+
+  @override
   String get starterColor => 'Χρώμα';
 
   @override
@@ -533,6 +621,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get markTitle => 'Σήμανση της γάτας';
+
+  @override
+  String get applyCrop => 'Περικοπή';
 
   @override
   String get useFullPhoto => 'Χρήση ολόκληρης της φωτογραφίας';
@@ -584,6 +675,11 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Το πακέτο εισήχθη: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Το τελευταίο αυτόματο αντίγραφο ασφαλείας απέτυχε: $error';
   }
 
   @override

@@ -506,6 +506,78 @@ abstract class AppLocalizations {
   /// **'No location available — long-press the map instead.'**
   String get noLocationAvailable;
 
+  /// No description provided for @locationDeniedForever.
+  ///
+  /// In en, this message translates to:
+  /// **'Location access is blocked. Allow it in the system settings to use Stray Cam.'**
+  String get locationDeniedForever;
+
+  /// No description provided for @locationServiceOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is turned off on this device. Turn it on in the settings and try again.'**
+  String get locationServiceOff;
+
+  /// No description provided for @locationDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'cat(a)log has no permission to use your location. Try again and allow it when asked.'**
+  String get locationDenied;
+
+  /// No description provided for @locationNoFix.
+  ///
+  /// In en, this message translates to:
+  /// **'Your position could not be determined right now. Try again outdoors — GPS needs a clear view of the sky.'**
+  String get locationNoFix;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open settings'**
+  String get openSettings;
+
+  /// No description provided for @notSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Not saved'**
+  String get notSaved;
+
+  /// No description provided for @birthdateInFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'The birth date can\'t be in the future.'**
+  String get birthdateInFuture;
+
+  /// No description provided for @deceasedInFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'The date of death can\'t be in the future.'**
+  String get deceasedInFuture;
+
+  /// No description provided for @deceasedBeforeBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'The date of death can\'t be before the birth date ({date}).'**
+  String deceasedBeforeBirth(String date);
+
+  /// No description provided for @bornAfterDeceased.
+  ///
+  /// In en, this message translates to:
+  /// **'The birth date can\'t be after the date of death ({date}).'**
+  String bornAfterDeceased(String date);
+
+  /// No description provided for @malePregnant.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.'**
+  String get malePregnant;
+
   /// No description provided for @moveTo.
   ///
   /// In en, this message translates to:
@@ -602,6 +674,12 @@ abstract class AppLocalizations {
   /// **'As of {date}'**
   String asOfDate(String date);
 
+  /// No description provided for @dateFormatError.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong format — use {format}'**
+  String dateFormatError(String format);
+
   /// No description provided for @value.
   ///
   /// In en, this message translates to:
@@ -656,11 +734,23 @@ abstract class AppLocalizations {
   /// **'Options (one per line)'**
   String get optionsOnePerLine;
 
+  /// No description provided for @ownValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Own value'**
+  String get ownValue;
+
   /// No description provided for @renameField.
   ///
   /// In en, this message translates to:
   /// **'Rename field'**
   String get renameField;
+
+  /// No description provided for @editOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit options…'**
+  String get editOptions;
 
   /// No description provided for @noStraysRightNow.
   ///
@@ -823,12 +913,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Record a sighting here:'**
   String get recordSightingHere;
-
-  /// No description provided for @orPlaceClowderHere.
-  ///
-  /// In en, this message translates to:
-  /// **'Or place a clowder here:'**
-  String get orPlaceClowderHere;
 
   /// No description provided for @trailOf.
   ///
@@ -998,6 +1082,72 @@ abstract class AppLocalizations {
   /// **'Gender'**
   String get starterGender;
 
+  /// No description provided for @starterBreed.
+  ///
+  /// In en, this message translates to:
+  /// **'Breed'**
+  String get starterBreed;
+
+  /// No description provided for @valueMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'mixed'**
+  String get valueMixed;
+
+  /// No description provided for @breedEuropeanShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'European Shorthair'**
+  String get breedEuropeanShorthair;
+
+  /// No description provided for @breedMaineCoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Maine Coon'**
+  String get breedMaineCoon;
+
+  /// No description provided for @breedBritishShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'British Shorthair'**
+  String get breedBritishShorthair;
+
+  /// No description provided for @breedNorwegianForestCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Norwegian Forest Cat'**
+  String get breedNorwegianForestCat;
+
+  /// No description provided for @breedRagdoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Ragdoll'**
+  String get breedRagdoll;
+
+  /// No description provided for @breedSiamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Siamese'**
+  String get breedSiamese;
+
+  /// No description provided for @breedPersian.
+  ///
+  /// In en, this message translates to:
+  /// **'Persian'**
+  String get breedPersian;
+
+  /// No description provided for @breedBengal.
+  ///
+  /// In en, this message translates to:
+  /// **'Bengal'**
+  String get breedBengal;
+
+  /// No description provided for @breedSphynx.
+  ///
+  /// In en, this message translates to:
+  /// **'Sphynx'**
+  String get breedSphynx;
+
   /// No description provided for @starterColor.
   ///
   /// In en, this message translates to:
@@ -1087,6 +1237,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mark the cat'**
   String get markTitle;
+
+  /// No description provided for @applyCrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop'**
+  String get applyCrop;
 
   /// No description provided for @useFullPhoto.
   ///
@@ -1183,6 +1339,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bundle imported: {result}'**
   String bundleImported(String result);
+
+  /// No description provided for @lastBackupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Last automatic backup failed: {error}'**
+  String lastBackupFailed(String error);
 
   /// No description provided for @bundleImportFailed.
   ///

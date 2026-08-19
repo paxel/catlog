@@ -191,6 +191,51 @@ class AppLocalizationsHr extends AppLocalizations {
       'Lokacija nedostupna — umjesto toga dugo pritisnite kartu.';
 
   @override
+  String get locationDeniedForever =>
+      'Pristup lokaciji je blokiran. Dopustite ga u postavkama sustava kako biste koristili Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Lokacija je isključena na ovom uređaju. Uključite je u postavkama i pokušajte ponovno.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nema dozvolu za korištenje vaše lokacije. Pokušajte ponovno i dopustite kad budete upitani.';
+
+  @override
+  String get locationNoFix =>
+      'Vaš položaj trenutačno nije moguće odrediti. Pokušajte ponovno na otvorenom — GPS treba čist pogled na nebo.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Otvori postavke';
+
+  @override
+  String get notSaved => 'Nije spremljeno';
+
+  @override
+  String get birthdateInFuture => 'Datum rođenja ne može biti u budućnosti.';
+
+  @override
+  String get deceasedInFuture => 'Datum smrti ne može biti u budućnosti.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Datum smrti ne može biti prije datuma rođenja ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Datum rođenja ne može biti nakon datuma smrti ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ova mačka je zavedena kao mužjak — mužjak ne može biti gravidan. Najprije provjerite spol.';
+
+  @override
   String get moveTo => 'Premjesti u';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Pogrešan format — koristite $format';
+  }
+
+  @override
   String get value => 'Vrijednost';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsHr extends AppLocalizations {
   String get optionsOnePerLine => 'Opcije (jedna po retku)';
 
   @override
+  String get ownValue => 'Vlastita vrijednost';
+
+  @override
   String get renameField => 'Preimenuj polje';
+
+  @override
+  String get editOptions => 'Uredi opcije…';
 
   @override
   String get noStraysRightNow => 'Trenutno nema lutalica.';
@@ -384,9 +440,6 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Zabilježi viđenje ovdje:';
-
-  @override
-  String get orPlaceClowderHere => 'Ili ovdje postavi clowder:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsHr extends AppLocalizations {
   String get starterGender => 'Spol';
 
   @override
+  String get starterBreed => 'Pasmina';
+
+  @override
+  String get valueMixed => 'mješanac';
+
+  @override
+  String get breedEuropeanShorthair => 'Europska kratkodlaka';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanska kratkodlaka';
+
+  @override
+  String get breedNorwegianForestCat => 'Norveška šumska mačka';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sijamska';
+
+  @override
+  String get breedPersian => 'Perzijska';
+
+  @override
+  String get breedBengal => 'Bengalska';
+
+  @override
+  String get breedSphynx => 'Sfinks';
+
+  @override
   String get starterColor => 'Boja';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get markTitle => 'Označi mačku';
+
+  @override
+  String get applyCrop => 'Izreži';
 
   @override
   String get useFullPhoto => 'Koristi cijelu fotografiju';
@@ -584,6 +673,11 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket uvezen: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Posljednja automatska sigurnosna kopija nije uspjela: $error';
   }
 
   @override

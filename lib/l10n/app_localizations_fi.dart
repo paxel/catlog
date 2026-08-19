@@ -191,6 +191,51 @@ class AppLocalizationsFi extends AppLocalizations {
       'Sijainti ei saatavilla — paina sen sijaan karttaa pitkään.';
 
   @override
+  String get locationDeniedForever =>
+      'Sijainnin käyttö on estetty. Salli se järjestelmäasetuksissa käyttääksesi Stray Camia.';
+
+  @override
+  String get locationServiceOff =>
+      'Sijainti on pois päältä tällä laitteella. Kytke se päälle asetuksista ja yritä uudelleen.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log ei saa käyttää sijaintiasi. Yritä uudelleen ja salli se kysyttäessä.';
+
+  @override
+  String get locationNoFix =>
+      'Sijaintiasi ei juuri nyt voitu määrittää. Yritä uudelleen ulkona — GPS tarvitsee esteettömän näkymän taivaalle.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Avaa asetukset';
+
+  @override
+  String get notSaved => 'Ei tallennettu';
+
+  @override
+  String get birthdateInFuture => 'Syntymäpäivä ei voi olla tulevaisuudessa.';
+
+  @override
+  String get deceasedInFuture => 'Kuolinpäivä ei voi olla tulevaisuudessa.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Kuolinpäivä ei voi olla ennen syntymäpäivää ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Syntymäpäivä ei voi olla kuolinpäivän ($date) jälkeen.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tämä kissa on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
+
+  @override
   String get moveTo => 'Siirrä kohteeseen';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Väärä muoto — käytä muotoa $format';
+  }
+
+  @override
   String get value => 'Arvo';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get optionsOnePerLine => 'Vaihtoehdot (yksi per rivi)';
 
   @override
+  String get ownValue => 'Oma arvo';
+
+  @override
   String get renameField => 'Nimeä kenttä uudelleen';
+
+  @override
+  String get editOptions => 'Muokkaa vaihtoehtoja…';
 
   @override
   String get noStraysRightNow => 'Ei kulkukissoja juuri nyt.';
@@ -384,9 +440,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Kirjaa havainto tähän:';
-
-  @override
-  String get orPlaceClowderHere => 'Tai sijoita clowder tähän:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterGender => 'Sukupuoli';
 
   @override
+  String get starterBreed => 'Rotu';
+
+  @override
+  String get valueMixed => 'sekarotuinen';
+
+  @override
+  String get breedEuropeanShorthair => 'Eurooppalainen lyhytkarva';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brittiläinen lyhytkarva';
+
+  @override
+  String get breedNorwegianForestCat => 'Norjalainen metsäkissa';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamilainen';
+
+  @override
+  String get breedPersian => 'Persialainen';
+
+  @override
+  String get breedBengal => 'Bengali';
+
+  @override
+  String get breedSphynx => 'Sfinksi';
+
+  @override
   String get starterColor => 'Väri';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get markTitle => 'Merkitse kissa';
+
+  @override
+  String get applyCrop => 'Rajaa';
 
   @override
   String get useFullPhoto => 'Käytä koko kuvaa';
@@ -584,6 +673,11 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketti tuotu: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Viimeisin automaattinen varmuuskopio epäonnistui: $error';
   }
 
   @override

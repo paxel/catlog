@@ -191,6 +191,51 @@ class AppLocalizationsAr extends AppLocalizations {
       'الموقع غير متاح — اضغط مطولًا على الخريطة بدلًا من ذلك.';
 
   @override
+  String get locationDeniedForever =>
+      'الوصول إلى الموقع محظور. اسمح به في إعدادات النظام لاستخدام Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'خدمة الموقع مُعطَّلة على هذا الجهاز. فعِّلها في الإعدادات ثم حاول مجددًا.';
+
+  @override
+  String get locationDenied =>
+      'لا يملك cat(a)log إذن استخدام موقعك. حاول مجددًا واسمح بذلك عند السؤال.';
+
+  @override
+  String get locationNoFix =>
+      'تعذّر تحديد موقعك الآن. حاول مجددًا في الخارج — يحتاج GPS إلى رؤية واضحة للسماء.';
+
+  @override
+  String get ok => 'حسنًا';
+
+  @override
+  String get openSettings => 'فتح الإعدادات';
+
+  @override
+  String get notSaved => 'لم يُحفَظ';
+
+  @override
+  String get birthdateInFuture => 'لا يمكن أن يكون تاريخ الميلاد في المستقبل.';
+
+  @override
+  String get deceasedInFuture => 'لا يمكن أن يكون تاريخ النفوق في المستقبل.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'لا يمكن أن يكون تاريخ النفوق قبل تاريخ الميلاد ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'لا يمكن أن يكون تاريخ الميلاد بعد تاريخ النفوق ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
+
+  @override
   String get moveTo => 'نقل إلى';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'تنسيق خاطئ — استخدم $format';
+  }
+
+  @override
   String get value => 'القيمة';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get optionsOnePerLine => 'الخيارات (خيار في كل سطر)';
 
   @override
+  String get ownValue => 'قيمة خاصة';
+
+  @override
   String get renameField => 'إعادة تسمية الحقل';
+
+  @override
+  String get editOptions => 'تعديل الخيارات…';
 
   @override
   String get noStraysRightNow => 'لا قطط ضالة حاليًا.';
@@ -384,9 +440,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'سجّل مشاهدة هنا:';
-
-  @override
-  String get orPlaceClowderHere => 'أو ضع مجموعة هنا:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterGender => 'الجنس';
 
   @override
+  String get starterBreed => 'السلالة';
+
+  @override
+  String get valueMixed => 'مختلط';
+
+  @override
+  String get breedEuropeanShorthair => 'أوروبية قصيرة الشعر';
+
+  @override
+  String get breedMaineCoon => 'مين كون';
+
+  @override
+  String get breedBritishShorthair => 'بريطانية قصيرة الشعر';
+
+  @override
+  String get breedNorwegianForestCat => 'قطة الغابات النرويجية';
+
+  @override
+  String get breedRagdoll => 'راغدول';
+
+  @override
+  String get breedSiamese => 'سيامية';
+
+  @override
+  String get breedPersian => 'شيرازية';
+
+  @override
+  String get breedBengal => 'بنغالية';
+
+  @override
+  String get breedSphynx => 'سفينكس';
+
+  @override
   String get starterColor => 'اللون';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get markTitle => 'تحديد القطة';
+
+  @override
+  String get applyCrop => 'قصّ';
 
   @override
   String get useFullPhoto => 'استخدام الصورة كاملة';
@@ -583,6 +672,11 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'تم استيراد الحزمة: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'فشل آخر نسخ احتياطي تلقائي: $error';
   }
 
   @override

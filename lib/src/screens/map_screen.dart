@@ -8,6 +8,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../hidden.dart';
+import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../spotlight.dart';
@@ -84,10 +85,11 @@ class _MapScreenState extends State<MapScreen> {
             )
       ];
 
+  // Only sightings are recorded from the map; a clowder's position is set
+  // via its Position field — clowders move far too rarely for a map menu.
   Future<void> _longPress(LatLng point) async {
-    final clowders = store.visibleClowders();
     final strays = store.visibleStrays();
-    final action = await showModalBottomSheet<(String, String)>(
+    final catId = await showModalBottomSheet<String>(
       context: context,
       builder: (context) => SafeArea(
         child: ListView(shrinkWrap: true, children: [
@@ -100,25 +102,13 @@ class _MapScreenState extends State<MapScreen> {
             ListTile(
               leading: CatAvatar(store: store, catId: s.id, size: 40),
               title: Text(s.name),
-              onTap: () => Navigator.of(context).pop(('stray', s.id)),
-            ),
-          if (clowders.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(context.t.orPlaceClowderHere),
-            ),
-          for (final c in clowders)
-            ListTile(
-              leading: SizedBox(
-                  width: 40, height: 40, child: _clowderFace(c.id)),
-              title: Text(c.name),
-              onTap: () => Navigator.of(context).pop(('clowder', c.id)),
+              onTap: () => Navigator.of(context).pop(s.id),
             ),
         ]),
       ),
     );
-    if (action == null) return;
-    store.recordPosition(action.$2, point.latitude, point.longitude);
+    if (catId == null) return;
+    store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
   }
 
@@ -126,7 +116,7 @@ class _MapScreenState extends State<MapScreen> {
   /// as fallback.
   Widget _catFace(String catId, bool highlighted) {
     final hash = store.profileImage(catId);
-    final bytes = hash == null ? null : store.imageBytes(hash);
+    final photo = hash == null ? null : imageProviderFor(store, hash);
     final dead = isDeceased(store, catId);
     final ring = highlighted
         ? Colors.red
@@ -144,10 +134,9 @@ class _MapScreenState extends State<MapScreen> {
         backgroundColor: Colors.white,
         // Decode at pin size — full-resolution photos (2560px ≈ 26MB
         // decoded) in a 40px circle were the other leg of the OOM.
-        backgroundImage: bytes != null
-            ? ResizeImage(MemoryImage(bytes), width: 96)
-            : null,
-        child: bytes == null
+        backgroundImage:
+            photo != null ? ResizeImage(photo, width: 96) : null,
+        child: photo == null
             ? const CustomPaint(
                 size: Size(24, 24),
                 painter: _CatSilhouettePainter(Colors.deepOrange))
@@ -262,6 +251,7 @@ class _MapScreenState extends State<MapScreen> {
               builder: (_) => CatDetailScreen(store: store, catId: catId),
             ));
           }
+          if (!mounted) return;
           setState(() {});
         },
         icon: const Icon(Icons.photo_camera),
@@ -275,6 +265,8 @@ class _MapScreenState extends State<MapScreen> {
           initialZoom:
               widget.initialCenter != null ? 15 : (all.isEmpty ? 6 : 13),
           onLongPress: (_, point) => _longPress(point),
+          // North stays up: accidental two-finger rotation kept leaving
+          // testers with a tilted map and no way back.
           interactionOptions: const InteractionOptions(
             flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
           ),
@@ -297,13 +289,7 @@ class _MapScreenState extends State<MapScreen> {
                 alignment: Alignment.topCenter,
                 child: _MapPin(
                   label: clowder.name,
-                  child: CircleAvatar(
-                    radius: 20,
-                    backgroundColor:
-                        Theme.of(context).colorScheme.primary,
-                    child: const Icon(Icons.home,
-                        size: 24, color: Colors.white),
-                  ),
+                  child: _clowderFace(clowder.id),
                   onTap: () =>
                       Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => ClowderDetailScreen(
@@ -398,6 +384,7 @@ class _MapScreenState extends State<MapScreen> {
                       builder: (_) => CatDetailScreen(
                           store: store, catId: _trailCat!),
                     ));
+                    if (!mounted) return;
                     setState(() {});
                   },
                   child: Text(context.t.open),

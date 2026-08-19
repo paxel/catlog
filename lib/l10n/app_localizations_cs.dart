@@ -191,6 +191,51 @@ class AppLocalizationsCs extends AppLocalizations {
       'Poloha není k dispozici — místo toho podržte prst na mapě.';
 
   @override
+  String get locationDeniedForever =>
+      'Přístup k poloze je zablokován. Povolte ho v nastavení systému, abyste mohli používat Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Poloha je na tomto zařízení vypnutá. Zapněte ji v nastavení a zkuste to znovu.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nemá oprávnění používat vaši polohu. Zkuste to znovu a na dotaz ji povolte.';
+
+  @override
+  String get locationNoFix =>
+      'Vaši polohu se teď nepodařilo zjistit. Zkuste to znovu venku — GPS potřebuje volný výhled na oblohu.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Otevřít nastavení';
+
+  @override
+  String get notSaved => 'Neuloženo';
+
+  @override
+  String get birthdateInFuture => 'Datum narození nemůže být v budoucnosti.';
+
+  @override
+  String get deceasedInFuture => 'Datum úmrtí nemůže být v budoucnosti.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Datum úmrtí nemůže být před datem narození ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Datum narození nemůže být po datu úmrtí ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tato kočka je vedena jako kocour — kocour nemůže být březí. Nejdřív zkontrolujte pohlaví.';
+
+  @override
   String get moveTo => 'Přesunout do';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Špatný formát — použijte $format';
+  }
+
+  @override
   String get value => 'Hodnota';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get optionsOnePerLine => 'Možnosti (jedna na řádek)';
 
   @override
+  String get ownValue => 'Vlastní hodnota';
+
+  @override
   String get renameField => 'Přejmenovat pole';
+
+  @override
+  String get editOptions => 'Upravit možnosti…';
 
   @override
   String get noStraysRightNow => 'Momentálně žádné toulavé kočky.';
@@ -383,9 +439,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Zaznamenat pozorování zde:';
-
-  @override
-  String get orPlaceClowderHere => 'Nebo sem umístit clowder:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterGender => 'Pohlaví';
 
   @override
+  String get starterBreed => 'Plemeno';
+
+  @override
+  String get valueMixed => 'kříženec';
+
+  @override
+  String get breedEuropeanShorthair => 'Evropská krátkosrstá';
+
+  @override
+  String get breedMaineCoon => 'Mainská mývalí';
+
+  @override
+  String get breedBritishShorthair => 'Britská krátkosrstá';
+
+  @override
+  String get breedNorwegianForestCat => 'Norská lesní';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamská';
+
+  @override
+  String get breedPersian => 'Perská';
+
+  @override
+  String get breedBengal => 'Bengálská';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Barva';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get markTitle => 'Označit kočku';
+
+  @override
+  String get applyCrop => 'Oříznout';
 
   @override
   String get useFullPhoto => 'Použít celou fotku';
@@ -583,6 +672,11 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Balíček importován: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Poslední automatická záloha selhala: $error';
   }
 
   @override

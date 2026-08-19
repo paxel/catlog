@@ -1289,6 +1289,17 @@ class CatalogStore {
     return id;
   }
 
+  /// Replaces a choice Field's option list. Values already stored that
+  /// fall outside the new list keep displaying as text (same rule as
+  /// merge); the change is recorded history like any other.
+  void setFieldOptions(String fieldDefId, List<String> options,
+      {DateTime? date}) {
+    if (current(fieldDefId, Keys.type) != Kinds.fieldDef) {
+      throw ArgumentError('Not a field definition: $fieldDefId');
+    }
+    append(fieldDefId, Keys.fieldOptions, options.join('\n'), date: date);
+  }
+
   /// Renames a Field definition (typo fixes). The slug — and with it the
   /// key values are stored under — never changes, so existing entries
   /// stay attached; only the display name moves, with full history.

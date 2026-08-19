@@ -191,6 +191,51 @@ class AppLocalizationsLt extends AppLocalizations {
       'Vietos nėra — vietoj to palaikykite nuspaudę žemėlapį.';
 
   @override
+  String get locationDeniedForever =>
+      'Prieiga prie vietos užblokuota. Leiskite ją sistemos nustatymuose, kad galėtumėte naudoti Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Šiame įrenginyje vietos nustatymas išjungtas. Įjunkite jį nustatymuose ir bandykite dar kartą.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log neturi leidimo naudoti jūsų vietos. Bandykite dar kartą ir leiskite, kai bus paklausta.';
+
+  @override
+  String get locationNoFix =>
+      'Jūsų padėties dabar nepavyko nustatyti. Bandykite dar kartą lauke — GPS reikia atviro dangaus vaizdo.';
+
+  @override
+  String get ok => 'Gerai';
+
+  @override
+  String get openSettings => 'Atidaryti nustatymus';
+
+  @override
+  String get notSaved => 'Neišsaugota';
+
+  @override
+  String get birthdateInFuture => 'Gimimo data negali būti ateityje.';
+
+  @override
+  String get deceasedInFuture => 'Mirties data negali būti ateityje.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Mirties data negali būti ankstesnė už gimimo datą ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Gimimo data negali būti vėlesnė už mirties datą ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ši katė užregistruota kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
+
+  @override
   String get moveTo => 'Perkelti į';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Neteisingas formatas — naudokite $format';
+  }
+
+  @override
   String get value => 'Reikšmė';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get optionsOnePerLine => 'Parinktys (po vieną eilutėje)';
 
   @override
+  String get ownValue => 'Sava reikšmė';
+
+  @override
   String get renameField => 'Pervadinti lauką';
+
+  @override
+  String get editOptions => 'Redaguoti parinktis…';
 
   @override
   String get noStraysRightNow => 'Šiuo metu benamių kačių nėra.';
@@ -384,9 +440,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Įrašyti pastebėjimą čia:';
-
-  @override
-  String get orPlaceClowderHere => 'Arba čia padėti klauderį:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterGender => 'Lytis';
 
   @override
+  String get starterBreed => 'Veislė';
+
+  @override
+  String get valueMixed => 'mišrūnas';
+
+  @override
+  String get breedEuropeanShorthair => 'Europos trumpaplaukė';
+
+  @override
+  String get breedMaineCoon => 'Meino meškėnas';
+
+  @override
+  String get breedBritishShorthair => 'Britų trumpaplaukė';
+
+  @override
+  String get breedNorwegianForestCat => 'Norvegų miško katė';
+
+  @override
+  String get breedRagdoll => 'Ragdolas';
+
+  @override
+  String get breedSiamese => 'Siamo';
+
+  @override
+  String get breedPersian => 'Persų';
+
+  @override
+  String get breedBengal => 'Bengalijos';
+
+  @override
+  String get breedSphynx => 'Sfinksas';
+
+  @override
   String get starterColor => 'Spalva';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get markTitle => 'Pažymėti katę';
+
+  @override
+  String get applyCrop => 'Apkirpti';
 
   @override
   String get useFullPhoto => 'Naudoti visą nuotrauką';
@@ -584,6 +673,11 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paketas importuotas: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Paskutinė automatinė atsarginė kopija nepavyko: $error';
   }
 
   @override

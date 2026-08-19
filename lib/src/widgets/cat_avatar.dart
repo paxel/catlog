@@ -1,6 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../image_provider_cache.dart';
+
 /// True when the cat's deceased date is set — rendered subdued
 /// everywhere: desaturated photo, no symbols (they don't translate
 /// across cultures), a localized chip where there is room.
@@ -28,21 +30,21 @@ class CatAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hash = store.profileImage(catId);
-    final bytes = hash == null ? null : store.imageBytes(hash);
+    final photo = hash == null ? null : imageProviderFor(store, hash);
     final child = ClipRRect(
       borderRadius: BorderRadius.circular(size / 8),
-      child: bytes == null
+      child: photo == null
           ? Container(
               width: size,
               height: size,
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
               child: Icon(Icons.pets, size: size / 2),
             )
-          : Image.memory(bytes,
+          : Image(
+              image: ResizeImage(photo, width: (size * 3).round()),
               width: size,
               height: size,
-              fit: BoxFit.cover,
-              cacheWidth: (size * 3).round()),
+              fit: BoxFit.cover),
     );
     if (!isDeceased(store, catId)) return child;
     return Opacity(

@@ -191,6 +191,51 @@ class AppLocalizationsFa extends AppLocalizations {
       'موقعیت در دسترس نیست — به‌جای آن روی نقشه لمس طولانی کنید.';
 
   @override
+  String get locationDeniedForever =>
+      'دسترسی به موقعیت مکانی مسدود است. برای استفاده از Stray Cam آن را در تنظیمات سیستم مجاز کنید.';
+
+  @override
+  String get locationServiceOff =>
+      'موقعیت مکانی در این دستگاه خاموش است. آن را در تنظیمات روشن کنید و دوباره تلاش کنید.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log اجازهٔ استفاده از موقعیت شما را ندارد. دوباره تلاش کنید و هنگام پرسش اجازه دهید.';
+
+  @override
+  String get locationNoFix =>
+      'موقعیت شما اکنون قابل تعیین نیست. در فضای باز دوباره تلاش کنید — GPS به دید باز آسمان نیاز دارد.';
+
+  @override
+  String get ok => 'باشه';
+
+  @override
+  String get openSettings => 'باز کردن تنظیمات';
+
+  @override
+  String get notSaved => 'ذخیره نشد';
+
+  @override
+  String get birthdateInFuture => 'تاریخ تولد نمی‌تواند در آینده باشد.';
+
+  @override
+  String get deceasedInFuture => 'تاریخ مرگ نمی‌تواند در آینده باشد.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'تاریخ مرگ نمی‌تواند پیش از تاریخ تولد ($date) باشد.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'تاریخ تولد نمی‌تواند پس از تاریخ مرگ ($date) باشد.';
+  }
+
+  @override
+  String get malePregnant =>
+      'این گربه به‌عنوان نر ثبت شده است — گربهٔ نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
+
+  @override
   String get moveTo => 'انتقال به';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'قالب نادرست — از $format استفاده کنید';
+  }
+
+  @override
   String get value => 'مقدار';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get optionsOnePerLine => 'گزینه‌ها (هر خط یکی)';
 
   @override
+  String get ownValue => 'مقدار دلخواه';
+
+  @override
   String get renameField => 'تغییر نام فیلد';
+
+  @override
+  String get editOptions => 'ویرایش گزینه‌ها…';
 
   @override
   String get noStraysRightNow => 'فعلاً گربهٔ ولگردی نیست.';
@@ -383,9 +439,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'اینجا یک مشاهده ثبت کن:';
-
-  @override
-  String get orPlaceClowderHere => 'یا اینجا یک گروه بگذار:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterGender => 'جنسیت';
 
   @override
+  String get starterBreed => 'نژاد';
+
+  @override
+  String get valueMixed => 'مخلوط';
+
+  @override
+  String get breedEuropeanShorthair => 'اروپایی موکوتاه';
+
+  @override
+  String get breedMaineCoon => 'مین کون';
+
+  @override
+  String get breedBritishShorthair => 'بریتانیایی موکوتاه';
+
+  @override
+  String get breedNorwegianForestCat => 'گربه جنگلی نروژی';
+
+  @override
+  String get breedRagdoll => 'رگدال';
+
+  @override
+  String get breedSiamese => 'سیامی';
+
+  @override
+  String get breedPersian => 'ایرانی';
+
+  @override
+  String get breedBengal => 'بنگال';
+
+  @override
+  String get breedSphynx => 'اسفینکس';
+
+  @override
   String get starterColor => 'رنگ';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get markTitle => 'نشانه‌گذاری گربه';
+
+  @override
+  String get applyCrop => 'برش';
 
   @override
   String get useFullPhoto => 'استفاده از کل عکس';
@@ -583,6 +672,11 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'بسته وارد شد: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'آخرین پشتیبان‌گیری خودکار ناموفق بود: $error';
   }
 
   @override

@@ -191,6 +191,52 @@ class AppLocalizationsIt extends AppLocalizations {
       'Posizione non disponibile — tieni premuto sulla mappa invece.';
 
   @override
+  String get locationDeniedForever =>
+      'L\'accesso alla posizione è bloccato. Consentilo nelle impostazioni di sistema per usare Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'La posizione è disattivata su questo dispositivo. Attivala nelle impostazioni e riprova.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log non ha il permesso di usare la tua posizione. Riprova e consentilo quando richiesto.';
+
+  @override
+  String get locationNoFix =>
+      'Non è stato possibile determinare la tua posizione. Riprova all\'aperto — il GPS ha bisogno di una visuale libera del cielo.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Apri impostazioni';
+
+  @override
+  String get notSaved => 'Non salvato';
+
+  @override
+  String get birthdateInFuture =>
+      'La data di nascita non può essere nel futuro.';
+
+  @override
+  String get deceasedInFuture => 'La data di morte non può essere nel futuro.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'La data di morte non può precedere la data di nascita ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'La data di nascita non può seguire la data di morte ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Questo gatto è registrato come maschio — un maschio non può essere gravido. Controlla prima il sesso.';
+
+  @override
   String get moveTo => 'Sposta in';
 
   @override
@@ -258,6 +304,11 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Formato errato — usa $format';
+  }
+
+  @override
   String get value => 'Valore';
 
   @override
@@ -285,7 +336,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get optionsOnePerLine => 'Opzioni (una per riga)';
 
   @override
+  String get ownValue => 'Valore personalizzato';
+
+  @override
   String get renameField => 'Rinomina campo';
+
+  @override
+  String get editOptions => 'Modifica opzioni…';
 
   @override
   String get noStraysRightNow => 'Nessun randagio al momento.';
@@ -384,9 +441,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Registra un avvistamento qui:';
-
-  @override
-  String get orPlaceClowderHere => 'Oppure metti un clowder qui:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +544,39 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterGender => 'Sesso';
 
   @override
+  String get starterBreed => 'Razza';
+
+  @override
+  String get valueMixed => 'meticcio';
+
+  @override
+  String get breedEuropeanShorthair => 'Europeo a pelo corto';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'British Shorthair';
+
+  @override
+  String get breedNorwegianForestCat => 'Gatto delle foreste norvegesi';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamese';
+
+  @override
+  String get breedPersian => 'Persiano';
+
+  @override
+  String get breedBengal => 'Bengala';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Colore';
 
   @override
@@ -533,6 +620,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get markTitle => 'Contrassegna il gatto';
+
+  @override
+  String get applyCrop => 'Ritaglia';
 
   @override
   String get useFullPhoto => 'Usa la foto intera';
@@ -584,6 +674,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pacchetto importato: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'L\'ultimo backup automatico non è riuscito: $error';
   }
 
   @override

@@ -191,6 +191,51 @@ class AppLocalizationsHu extends AppLocalizations {
       'Nincs helyadat — helyette nyomd hosszan a térképet.';
 
   @override
+  String get locationDeniedForever =>
+      'A helyhozzáférés le van tiltva. Engedélyezze a rendszerbeállításokban a Stray Cam használatához.';
+
+  @override
+  String get locationServiceOff =>
+      'A helymeghatározás ki van kapcsolva ezen az eszközön. Kapcsolja be a beállításokban, és próbálja újra.';
+
+  @override
+  String get locationDenied =>
+      'A cat(a)log nem használhatja a tartózkodási helyét. Próbálja újra, és engedélyezze, amikor a rendszer rákérdez.';
+
+  @override
+  String get locationNoFix =>
+      'A pozícióját most nem sikerült meghatározni. Próbálja újra a szabadban — a GPS-nek szabad rálátás kell az égboltra.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Beállítások megnyitása';
+
+  @override
+  String get notSaved => 'Nincs mentve';
+
+  @override
+  String get birthdateInFuture => 'A születési dátum nem lehet a jövőben.';
+
+  @override
+  String get deceasedInFuture => 'Az elhalálozás dátuma nem lehet a jövőben.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Az elhalálozás dátuma nem lehet a születési dátum ($date) előtt.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'A születési dátum nem lehet az elhalálozás dátuma ($date) után.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ez a macska kandúrként van nyilvántartva — kandúr nem lehet vemhes. Először ellenőrizze az ivart.';
+
+  @override
   String get moveTo => 'Áthelyezés ide';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Hibás formátum — használja: $format';
+  }
+
+  @override
   String get value => 'Érték';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get optionsOnePerLine => 'Lehetőségek (soronként egy)';
 
   @override
+  String get ownValue => 'Saját érték';
+
+  @override
   String get renameField => 'Mező átnevezése';
+
+  @override
+  String get editOptions => 'Lehetőségek szerkesztése…';
 
   @override
   String get noStraysRightNow => 'Most nincs kóbor macska.';
@@ -384,9 +440,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Észlelés rögzítése itt:';
-
-  @override
-  String get orPlaceClowderHere => 'Vagy clowder elhelyezése itt:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterGender => 'Ivar';
 
   @override
+  String get starterBreed => 'Fajta';
+
+  @override
+  String get valueMixed => 'keverék';
+
+  @override
+  String get breedEuropeanShorthair => 'Európai rövidszőrű';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Brit rövidszőrű';
+
+  @override
+  String get breedNorwegianForestCat => 'Norvég erdei macska';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Sziámi';
+
+  @override
+  String get breedPersian => 'Perzsa';
+
+  @override
+  String get breedBengal => 'Bengáli';
+
+  @override
+  String get breedSphynx => 'Szfinx';
+
+  @override
   String get starterColor => 'Szín';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get markTitle => 'Macska megjelölése';
+
+  @override
+  String get applyCrop => 'Kivágás';
 
   @override
   String get useFullPhoto => 'Teljes fotó használata';
@@ -584,6 +673,11 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Csomag importálva: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Az utolsó automatikus biztonsági mentés sikertelen: $error';
   }
 
   @override

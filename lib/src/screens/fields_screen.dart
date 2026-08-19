@@ -43,6 +43,45 @@ class _FieldsScreenState extends State<FieldsScreen> {
     );
     if (name == null || name.isEmpty || name == def.name) return;
     widget.store.renameField(def.id, name);
+    if (!mounted) return;
+    setState(() {});
+  }
+
+  Future<void> _editOptions(FieldDef def) async {
+    final controller =
+        TextEditingController(text: def.options.join('\n'));
+    final text = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(context.t.editOptions),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          maxLines: 8,
+          decoration:
+              InputDecoration(labelText: context.t.optionsOnePerLine),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(context.t.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(controller.text),
+            child: Text(context.t.save),
+          ),
+        ],
+      ),
+    );
+    if (text == null) return;
+    final options = text
+        .split('\n')
+        .map((l) => l.trim())
+        .where((l) => l.isNotEmpty)
+        .toList();
+    if (options.isEmpty) return;
+    widget.store.setFieldOptions(def.id, options);
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -59,6 +98,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       candidates: candidates,
       merge: widget.store.mergeField,
     );
+    if (!mounted) return;
     if (merged) setState(() {});
   }
 
@@ -67,6 +107,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
       context: context,
       builder: (context) => _NewFieldDialog(store: widget.store),
     );
+    if (!mounted) return;
     if (created == true) setState(() {});
   }
 
@@ -98,6 +139,7 @@ class _FieldsScreenState extends State<FieldsScreen> {
               trailing: PopupMenuButton<String>(
                 onSelected: (v) {
                   if (v == 'rename') _renameField(def);
+                  if (v == 'options') _editOptions(def);
                   if (v == 'merge') _mergeField(def);
                   if (v == 'private') {
                     setState(() => widget.store.setPrivate(
@@ -111,6 +153,10 @@ class _FieldsScreenState extends State<FieldsScreen> {
                 itemBuilder: (context) => [
                   PopupMenuItem(
                       value: 'rename', child: Text(context.t.rename)),
+                  if (def.type == FieldType.choice)
+                    PopupMenuItem(
+                        value: 'options',
+                        child: Text(context.t.editOptions)),
                   PopupMenuItem(
                       value: 'private',
                       child: Text(widget.store.isPrivate(def.id)

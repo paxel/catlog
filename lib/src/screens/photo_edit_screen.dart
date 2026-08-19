@@ -95,15 +95,18 @@ class _PhotoEditScreenState extends State<PhotoEditScreen> {
               onPressed: () => Navigator.of(context).pop(widget.bytes),
               child: Text(t.useFullPhoto),
             ),
-          IconButton(
-            icon: _busy
+          // A labeled button, not a bare checkmark: next to "Use full
+          // photo" an icon didn't tell testers it applies the rectangle.
+          TextButton(
+            onPressed: _busy || _selection == null ? null : _apply,
+            child: _busy
                 ? const SizedBox(
                     width: 18,
                     height: 18,
                     child: CircularProgressIndicator(strokeWidth: 2))
-                : const Icon(Icons.check),
-            tooltip: t.save,
-            onPressed: _busy || _selection == null ? null : _apply,
+                : Text(widget.mode == PhotoEditMode.crop
+                    ? t.applyCrop
+                    : t.save),
           ),
         ],
       ),

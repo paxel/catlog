@@ -32,6 +32,7 @@ class _StraysScreenState extends State<StraysScreen> {
       builder: (_) => CatDetailScreen(
           store: widget.store, catId: catId, promptPhoto: true),
     ));
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -52,6 +53,7 @@ class _StraysScreenState extends State<StraysScreen> {
                     CatDetailScreen(store: widget.store, catId: catId),
               ));
             }
+            if (!mounted) return;
             setState(() {});
           },
           icon: const Icon(Icons.photo_camera),
@@ -80,6 +82,7 @@ class _StraysScreenState extends State<StraysScreen> {
                       builder: (_) => CatDetailScreen(
                           store: widget.store, catId: cat.id),
                     ));
+                    if (!mounted) return;
                     setState(() {});
                   },
                 );

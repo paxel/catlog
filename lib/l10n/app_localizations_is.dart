@@ -192,6 +192,52 @@ class AppLocalizationsIs extends AppLocalizations {
       'Engin staðsetning — haltu þess í stað fingri á kortinu.';
 
   @override
+  String get locationDeniedForever =>
+      'Aðgangur að staðsetningu er læstur. Leyfðu hann í kerfisstillingum til að nota Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Slökkt er á staðsetningu á þessu tæki. Kveiktu á henni í stillingum og reyndu aftur.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log hefur ekki heimild til að nota staðsetningu þína. Reyndu aftur og leyfðu það þegar spurt er.';
+
+  @override
+  String get locationNoFix =>
+      'Ekki tókst að ákvarða staðsetningu þína núna. Reyndu aftur utandyra — GPS þarf óhindrað útsýni til himins.';
+
+  @override
+  String get ok => 'Í lagi';
+
+  @override
+  String get openSettings => 'Opna stillingar';
+
+  @override
+  String get notSaved => 'Ekki vistað';
+
+  @override
+  String get birthdateInFuture =>
+      'Fæðingardagur getur ekki verið í framtíðinni.';
+
+  @override
+  String get deceasedInFuture => 'Dánardagur getur ekki verið í framtíðinni.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Dánardagur getur ekki verið á undan fæðingardegi ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Fæðingardagur getur ekki verið á eftir dánardegi ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Þessi köttur er skráður sem fress — fress getur ekki verið kettlingafullt. Athugaðu fyrst kynið.';
+
+  @override
   String get moveTo => 'Færa í';
 
   @override
@@ -259,6 +305,11 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Rangt snið — notaðu $format';
+  }
+
+  @override
   String get value => 'Gildi';
 
   @override
@@ -286,7 +337,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get optionsOnePerLine => 'Valkostir (einn í línu)';
 
   @override
+  String get ownValue => 'Eigið gildi';
+
+  @override
   String get renameField => 'Endurnefna svæði';
+
+  @override
+  String get editOptions => 'Breyta valkostum…';
 
   @override
   String get noStraysRightNow => 'Engir flækingskettir núna.';
@@ -385,9 +442,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Skrá að köttur sást hér:';
-
-  @override
-  String get orPlaceClowderHere => 'Eða setja hóp hér:';
 
   @override
   String trailOf(String name, int count) {
@@ -491,6 +545,39 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterGender => 'Kyn';
 
   @override
+  String get starterBreed => 'Tegund';
+
+  @override
+  String get valueMixed => 'blendingur';
+
+  @override
+  String get breedEuropeanShorthair => 'Evrópskt stutthár';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Breskt stutthár';
+
+  @override
+  String get breedNorwegianForestCat => 'Norskur skógarköttur';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Síamsköttur';
+
+  @override
+  String get breedPersian => 'Persaköttur';
+
+  @override
+  String get breedBengal => 'Bengalköttur';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Litur';
 
   @override
@@ -534,6 +621,9 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get markTitle => 'Merkja köttinn';
+
+  @override
+  String get applyCrop => 'Skera';
 
   @override
   String get useFullPhoto => 'Nota alla myndina';
@@ -585,6 +675,11 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pakki fluttur inn: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Síðasta sjálfvirka öryggisafritið mistókst: $error';
   }
 
   @override

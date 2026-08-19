@@ -191,6 +191,51 @@ class AppLocalizationsTr extends AppLocalizations {
       'Konum alınamadı — bunun yerine haritaya uzun basın.';
 
   @override
+  String get locationDeniedForever =>
+      'Konum erişimi engellendi. Stray Cam kullanmak için sistem ayarlarından izin verin.';
+
+  @override
+  String get locationServiceOff =>
+      'Bu cihazda konum kapalı. Ayarlardan açın ve yeniden deneyin.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log konumunuzu kullanma iznine sahip değil. Yeniden deneyin ve sorulduğunda izin verin.';
+
+  @override
+  String get locationNoFix =>
+      'Konumunuz şu anda belirlenemedi. Açık havada yeniden deneyin — GPS gökyüzünü net görmelidir.';
+
+  @override
+  String get ok => 'Tamam';
+
+  @override
+  String get openSettings => 'Ayarları aç';
+
+  @override
+  String get notSaved => 'Kaydedilmedi';
+
+  @override
+  String get birthdateInFuture => 'Doğum tarihi gelecekte olamaz.';
+
+  @override
+  String get deceasedInFuture => 'Ölüm tarihi gelecekte olamaz.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Ölüm tarihi doğum tarihinden ($date) önce olamaz.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Doğum tarihi ölüm tarihinden ($date) sonra olamaz.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Bu kedi erkek olarak kayıtlı — erkek kedi gebe olamaz. Önce cinsiyeti kontrol edin.';
+
+  @override
   String get moveTo => 'Şuraya taşı';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Yanlış biçim — $format kullanın';
+  }
+
+  @override
   String get value => 'Değer';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get optionsOnePerLine => 'Seçenekler (her satıra bir tane)';
 
   @override
+  String get ownValue => 'Kendi değeriniz';
+
+  @override
   String get renameField => 'Alanı yeniden adlandır';
+
+  @override
+  String get editOptions => 'Seçenekleri düzenle…';
 
   @override
   String get noStraysRightNow => 'Şu anda sokak kedisi yok.';
@@ -383,9 +439,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Burada bir görülme kaydet:';
-
-  @override
-  String get orPlaceClowderHere => 'Ya da buraya bir clowder yerleştir:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +542,39 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterGender => 'Cinsiyet';
 
   @override
+  String get starterBreed => 'Irk';
+
+  @override
+  String get valueMixed => 'melez';
+
+  @override
+  String get breedEuropeanShorthair => 'Avrupa kısa tüylü';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'İngiliz kısa tüylü';
+
+  @override
+  String get breedNorwegianForestCat => 'Norveç orman kedisi';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siyam';
+
+  @override
+  String get breedPersian => 'İran kedisi';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sfenks';
+
+  @override
   String get starterColor => 'Renk';
 
   @override
@@ -532,6 +618,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get markTitle => 'Kediyi işaretle';
+
+  @override
+  String get applyCrop => 'Kırp';
 
   @override
   String get useFullPhoto => 'Fotoğrafın tamamını kullan';
@@ -583,6 +672,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paket içe aktarıldı: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Son otomatik yedekleme başarısız oldu: $error';
   }
 
   @override

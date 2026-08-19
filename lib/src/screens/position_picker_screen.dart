@@ -64,7 +64,8 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
     // No pin to return to: jump to the device position once it arrives,
     // unless the user already moved the map themselves.
     if (_picked == null) {
-      currentPosition().then((p) {
+      locateDevice().then((outcome) {
+        final p = outcome.pos;
         if (p != null && mounted && !_touched && _picked == null) {
           _controller.move(LatLng(p.$1, p.$2), 15);
         }
@@ -79,14 +80,16 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
   }
 
   Future<void> _useMyLocation() async {
-    final position = await currentPosition();
+    final outcome = await locateDevice();
+    final position = outcome.pos;
     if (position == null) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.t.noLocationAvailable)));
+        await explainLocationFailure(
+            context, outcome.failure ?? LocationFailure.noFix);
       }
       return;
     }
+    if (!mounted) return;
     setState(() => _picked = LatLng(position.$1, position.$2));
     _controller.move(_picked!, 15);
   }

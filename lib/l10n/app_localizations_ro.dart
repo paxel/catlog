@@ -191,6 +191,51 @@ class AppLocalizationsRo extends AppLocalizations {
       'Locație indisponibilă — apasă lung pe hartă în schimb.';
 
   @override
+  String get locationDeniedForever =>
+      'Accesul la locație este blocat. Permiteți-l în setările sistemului pentru a folosi Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'Localizarea este oprită pe acest dispozitiv. Porniți-o din setări și încercați din nou.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log nu are permisiunea de a folosi locația dvs. Încercați din nou și permiteți-o când vi se cere.';
+
+  @override
+  String get locationNoFix =>
+      'Poziția dvs. nu a putut fi determinată acum. Încercați din nou în aer liber — GPS-ul are nevoie de vedere liberă spre cer.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Deschide setările';
+
+  @override
+  String get notSaved => 'Nesalvat';
+
+  @override
+  String get birthdateInFuture => 'Data nașterii nu poate fi în viitor.';
+
+  @override
+  String get deceasedInFuture => 'Data decesului nu poate fi în viitor.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Data decesului nu poate fi înaintea datei nașterii ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Data nașterii nu poate fi după data decesului ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
+
+  @override
   String get moveTo => 'Mută în';
 
   @override
@@ -258,6 +303,11 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format greșit — folosiți $format';
+  }
+
+  @override
   String get value => 'Valoare';
 
   @override
@@ -285,7 +335,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get optionsOnePerLine => 'Opțiuni (una pe linie)';
 
   @override
+  String get ownValue => 'Valoare proprie';
+
+  @override
   String get renameField => 'Redenumește câmpul';
+
+  @override
+  String get editOptions => 'Editează opțiunile…';
 
   @override
   String get noStraysRightNow => 'Nicio pisică fără stăpân momentan.';
@@ -384,9 +440,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Înregistrează o observație aici:';
-
-  @override
-  String get orPlaceClowderHere => 'Sau plasează un clowder aici:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +543,39 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterGender => 'Sex';
 
   @override
+  String get starterBreed => 'Rasă';
+
+  @override
+  String get valueMixed => 'metis';
+
+  @override
+  String get breedEuropeanShorthair => 'European cu păr scurt';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britanic cu păr scurt';
+
+  @override
+  String get breedNorwegianForestCat => 'Pisică de pădure norvegiană';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siameză';
+
+  @override
+  String get breedPersian => 'Persană';
+
+  @override
+  String get breedBengal => 'Bengaleză';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Culoare';
 
   @override
@@ -533,6 +619,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get markTitle => 'Marchează pisica';
+
+  @override
+  String get applyCrop => 'Decupează';
 
   @override
   String get useFullPhoto => 'Folosește toată poza';
@@ -584,6 +673,11 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pachet importat: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Ultima copie de rezervă automată a eșuat: $error';
   }
 
   @override

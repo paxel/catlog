@@ -191,6 +191,53 @@ class AppLocalizationsGa extends AppLocalizations {
       'Níl suíomh ar fáil — brúigh go fada ar an léarscáil ina ionad.';
 
   @override
+  String get locationDeniedForever =>
+      'Tá rochtain ar an suíomh coiscthe. Ceadaigh í i socruithe an chórais chun Stray Cam a úsáid.';
+
+  @override
+  String get locationServiceOff =>
+      'Tá an suíomh múchta ar an ngléas seo. Cuir air é sna socruithe agus bain triail eile as.';
+
+  @override
+  String get locationDenied =>
+      'Níl cead ag cat(a)log do shuíomh a úsáid. Bain triail eile as agus ceadaigh é nuair a iarrtar ort.';
+
+  @override
+  String get locationNoFix =>
+      'Níorbh fhéidir do shuíomh a dhéanamh amach anois. Bain triail eile as amuigh faoin aer — teastaíonn radharc glan ar an spéir ón GPS.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Oscail socruithe';
+
+  @override
+  String get notSaved => 'Gan sábháil';
+
+  @override
+  String get birthdateInFuture =>
+      'Ní féidir leis an dáta breithe a bheith san am atá le teacht.';
+
+  @override
+  String get deceasedInFuture =>
+      'Ní féidir leis an dáta báis a bheith san am atá le teacht.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Ní féidir leis an dáta báis a bheith roimh an dáta breithe ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Ní féidir leis an dáta breithe a bheith i ndiaidh an dáta báis ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
+
+  @override
   String get moveTo => 'Bog go';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Formáid mhícheart — úsáid $format';
+  }
+
+  @override
   String get value => 'Luach';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get optionsOnePerLine => 'Roghanna (ceann in aghaidh na líne)';
 
   @override
+  String get ownValue => 'Luach féin';
+
+  @override
   String get renameField => 'Athainmnigh an réimse';
+
+  @override
+  String get editOptions => 'Cuir roghanna in eagar…';
 
   @override
   String get noStraysRightNow => 'Níl aon chat fáin faoi láthair.';
@@ -384,9 +442,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Taifead feiceáil anseo:';
-
-  @override
-  String get orPlaceClowderHere => 'Nó cuir clowdar anseo:';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +545,39 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterGender => 'Gnéas';
 
   @override
+  String get starterBreed => 'Pór';
+
+  @override
+  String get valueMixed => 'measctha';
+
+  @override
+  String get breedEuropeanShorthair => 'Gearrghruagach Eorpach';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Gearrghruagach Briotanach';
+
+  @override
+  String get breedNorwegianForestCat => 'Cat Foraoise na hIorua';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamach';
+
+  @override
+  String get breedPersian => 'Peirseach';
+
+  @override
+  String get breedBengal => 'Beangálach';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Dath';
 
   @override
@@ -533,6 +621,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get markTitle => 'Marcáil an cat';
+
+  @override
+  String get applyCrop => 'Bearr';
 
   @override
   String get useFullPhoto => 'Úsáid an grianghraf iomlán';
@@ -584,6 +675,11 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paca iompórtáilte: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'Theip ar an gcúltaca uathoibríoch deireanach: $error';
   }
 
   @override

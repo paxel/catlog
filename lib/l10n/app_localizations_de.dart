@@ -26,11 +26,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get start => 'Los geht\'s';
 
   @override
-  String get clowders => 'Clowder';
+  String get clowders => 'Kolonien';
 
   @override
   String get noClowdersYet =>
-      'Noch keine Clowder. Ein Clowder ist ein Ort, an dem Katzen leben — deine Pflegestelle, die Wohnung eines Adoptanten. Lege unten den ersten an.';
+      'Noch keine Kolonien. Eine Kolonie ist ein Ort, an dem Katzen leben — deine Pflegestelle, die Wohnung eines Adoptanten. Lege unten die erste an.';
 
   @override
   String get strays => 'Streuner';
@@ -54,7 +54,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aboutAndFeedback => 'Über & Feedback';
 
   @override
-  String get newClowder => 'Neuer Clowder';
+  String get newClowder => 'Neue Kolonie';
 
   @override
   String get name => 'Name';
@@ -86,7 +86,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get renameClowder => 'Clowder umbenennen';
+  String get renameClowder => 'Kolonie umbenennen';
 
   @override
   String get rename => 'Umbenennen';
@@ -98,7 +98,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get mergeInto => 'Zusammenführen mit…';
 
   @override
-  String get deleteClowder => 'Clowder löschen';
+  String get deleteClowder => 'Kolonie löschen';
 
   @override
   String get cats => 'Katzen';
@@ -116,11 +116,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteClowderEmptyBody =>
-      'Der Clowder verschwindet aus der Liste.';
+      'Die Kolonie verschwindet aus der Liste.';
 
   @override
   String deleteClowderBody(int count) {
-    return 'Seine $count Katze(n) werden nicht gelöscht — sie werden zu Streunern. Verschiebe sie vorher in einen anderen Clowder, falls das nicht gewollt ist.';
+    return 'Ihre $count Katze(n) werden nicht gelöscht — sie werden zu Streunern. Verschiebe sie vorher in eine andere Kolonie, falls das nicht gewollt ist.';
   }
 
   @override
@@ -150,10 +150,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteCat => 'Katze löschen';
 
   @override
-  String get clowderLabel => 'Clowder';
+  String get clowderLabel => 'Kolonie';
 
   @override
-  String get strayNoClowder => 'Streuner — kein Clowder';
+  String get strayNoClowder => 'Streuner — keine Kolonie';
 
   @override
   String get stray => 'Streuner';
@@ -192,10 +192,57 @@ class AppLocalizationsDe extends AppLocalizations {
       'Kein Standort verfügbar — halte stattdessen die Karte gedrückt.';
 
   @override
+  String get locationDeniedForever =>
+      'Der Standortzugriff ist blockiert. Erlaube ihn in den Systemeinstellungen, um die Streuner-Cam zu nutzen.';
+
+  @override
+  String get locationServiceOff =>
+      'Der Standort ist auf diesem Gerät ausgeschaltet. Schalte ihn in den Einstellungen ein und versuche es erneut.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log darf deinen Standort nicht verwenden. Versuche es erneut und erlaube es, wenn du gefragt wirst.';
+
+  @override
+  String get locationNoFix =>
+      'Deine Position konnte gerade nicht bestimmt werden. Versuche es im Freien erneut — GPS braucht freie Sicht zum Himmel.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Einstellungen öffnen';
+
+  @override
+  String get notSaved => 'Nicht gespeichert';
+
+  @override
+  String get birthdateInFuture =>
+      'Das Geburtsdatum kann nicht in der Zukunft liegen.';
+
+  @override
+  String get deceasedInFuture =>
+      'Das Todesdatum kann nicht in der Zukunft liegen.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'Das Todesdatum kann nicht vor dem Geburtsdatum ($date) liegen.';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'Das Geburtsdatum kann nicht nach dem Todesdatum ($date) liegen.';
+  }
+
+  @override
+  String get malePregnant =>
+      'Diese Katze ist als männlich eingetragen — ein Kater kann nicht trächtig sein. Prüfe zuerst das Geschlecht.';
+
+  @override
   String get moveTo => 'Verschieben nach';
 
   @override
-  String get noClowderStrayOption => 'Kein Clowder — Streuner / weggelaufen';
+  String get noClowderStrayOption => 'Keine Kolonie — Streuner / weggelaufen';
 
   @override
   String timelineOf(String name) {
@@ -259,6 +306,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Falsches Format — bitte $format verwenden';
+  }
+
+  @override
   String get value => 'Wert';
 
   @override
@@ -277,7 +329,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get forCats => 'Katzen';
 
   @override
-  String get forClowders => 'Clowder';
+  String get forClowders => 'Kolonien';
 
   @override
   String get forBoth => 'beide';
@@ -286,7 +338,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get optionsOnePerLine => 'Optionen (eine pro Zeile)';
 
   @override
+  String get ownValue => 'Eigener Wert';
+
+  @override
   String get renameField => 'Feld umbenennen';
+
+  @override
+  String get editOptions => 'Optionen bearbeiten…';
 
   @override
   String get noStraysRightNow => 'Gerade keine Streuner.';
@@ -387,9 +445,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get recordSightingHere => 'Hier eine Sichtung eintragen:';
 
   @override
-  String get orPlaceClowderHere => 'Oder einen Clowder hierher setzen:';
-
-  @override
   String trailOf(String name, int count) {
     return 'Route: $name ($count Sichtungen)';
   }
@@ -427,7 +482,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get kindCat => 'Katze';
 
   @override
-  String get kindClowder => 'Clowder';
+  String get kindClowder => 'Kolonie';
 
   @override
   String get kindField => 'Feld';
@@ -491,6 +546,39 @@ class AppLocalizationsDe extends AppLocalizations {
   String get starterGender => 'Geschlecht';
 
   @override
+  String get starterBreed => 'Rasse';
+
+  @override
+  String get valueMixed => 'Mischling';
+
+  @override
+  String get breedEuropeanShorthair => 'Europäisch Kurzhaar';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britisch Kurzhaar';
+
+  @override
+  String get breedNorwegianForestCat => 'Norwegische Waldkatze';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamkatze';
+
+  @override
+  String get breedPersian => 'Perserkatze';
+
+  @override
+  String get breedBengal => 'Bengalkatze';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Farbe';
 
   @override
@@ -534,6 +622,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get markTitle => 'Katze markieren';
+
+  @override
+  String get applyCrop => 'Zuschneiden';
 
   @override
   String get useFullPhoto => 'Ganzes Foto verwenden';
@@ -588,6 +679,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String lastBackupFailed(String error) {
+    return 'Letztes automatisches Backup fehlgeschlagen: $error';
+  }
+
+  @override
   String bundleImportFailed(String error) {
     return 'Import fehlgeschlagen: $error';
   }
@@ -619,7 +715,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Private Katzen, Clowder und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst.';
+      'Private Katzen, Kolonien und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst.';
 
   @override
   String get hideLabel => 'Auf diesem Gerät ausblenden';
@@ -680,7 +776,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noPlacesFound => 'Keine Orte gefunden';
 
   @override
-  String get mapSearchHint => 'Katzen, Clowder, Personen suchen';
+  String get mapSearchHint => 'Katzen, Kolonien, Personen suchen';
 
   @override
   String get proposeAnotherName => 'Anderen Namen vorschlagen';
@@ -879,14 +975,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Dieser Code braucht zwei Android-Handys — auf iPhone/iPad stattdessen ein gemeinsames WLAN nutzen';
 
   @override
-  String get selectClowderHint => 'Wähle links einen Clowder';
+  String get selectClowderHint => 'Wähle links eine Kolonie';
 
   @override
-  String get introTitle1 => 'Katzen wohnen in Clowdern';
+  String get introTitle1 => 'Katzen wohnen in Kolonien';
 
   @override
   String get introBody1 =>
-      'Ein Clowder ist ein Ort, an dem Katzen leben: deine Pflegestelle, die Wohnung eines Adoptanten, die Scheune nebenan. Jede Katze bekommt eine Karte mit Foto, Fakten und ihrer ganzen Geschichte.';
+      'Eine Kolonie ist ein Ort, an dem Katzen leben: deine Pflegestelle, die Wohnung eines Adoptanten, die Scheune nebenan. Jede Katze bekommt eine Karte mit Foto, Fakten und ihrer ganzen Geschichte.';
 
   @override
   String get introTitle2 => 'Alles bleibt bei dir';
@@ -920,7 +1016,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotMapSearch =>
-      'Neu: Suche hier nach Katzen, Clowdern und Personen — direkt auf der Karte.';
+      'Neu: Suche hier nach Katzen, Kolonien und Personen — direkt auf der Karte.';
 
   @override
   String get spotCardChips =>

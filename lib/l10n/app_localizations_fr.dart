@@ -191,6 +191,53 @@ class AppLocalizationsFr extends AppLocalizations {
       'Pas de position disponible — appuie longuement sur la carte à la place.';
 
   @override
+  String get locationDeniedForever =>
+      'L\'accès à la position est bloqué. Autorisez-le dans les réglages du système pour utiliser Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'La localisation est désactivée sur cet appareil. Activez-la dans les réglages puis réessayez.';
+
+  @override
+  String get locationDenied =>
+      'cat(a)log n\'a pas l\'autorisation d\'utiliser votre position. Réessayez et autorisez-la quand on vous le demande.';
+
+  @override
+  String get locationNoFix =>
+      'Votre position n\'a pas pu être déterminée pour le moment. Réessayez en extérieur — le GPS a besoin d\'une vue dégagée du ciel.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Ouvrir les réglages';
+
+  @override
+  String get notSaved => 'Non enregistré';
+
+  @override
+  String get birthdateInFuture =>
+      'La date de naissance ne peut pas être dans le futur.';
+
+  @override
+  String get deceasedInFuture =>
+      'La date de décès ne peut pas être dans le futur.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'La date de décès ne peut pas précéder la date de naissance ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'La date de naissance ne peut pas suivre la date de décès ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Ce chat est enregistré comme mâle — un mâle ne peut pas être gestant. Vérifiez d\'abord le sexe.';
+
+  @override
   String get moveTo => 'Déplacer vers';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Format incorrect — utilisez $format';
+  }
+
+  @override
   String get value => 'Valeur';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get optionsOnePerLine => 'Options (une par ligne)';
 
   @override
+  String get ownValue => 'Valeur personnalisée';
+
+  @override
   String get renameField => 'Renommer le champ';
+
+  @override
+  String get editOptions => 'Modifier les options…';
 
   @override
   String get noStraysRightNow => 'Pas d\'errants pour le moment.';
@@ -384,9 +442,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Enregistrer une observation ici :';
-
-  @override
-  String get orPlaceClowderHere => 'Ou placer un clowder ici :';
 
   @override
   String trailOf(String name, int count) {
@@ -490,6 +545,39 @@ class AppLocalizationsFr extends AppLocalizations {
   String get starterGender => 'Sexe';
 
   @override
+  String get starterBreed => 'Race';
+
+  @override
+  String get valueMixed => 'croisé';
+
+  @override
+  String get breedEuropeanShorthair => 'Européen à poil court';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'British Shorthair';
+
+  @override
+  String get breedNorwegianForestCat => 'Chat des forêts norvégiennes';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamois';
+
+  @override
+  String get breedPersian => 'Persan';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Couleur';
 
   @override
@@ -533,6 +621,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get markTitle => 'Marquer le chat';
+
+  @override
+  String get applyCrop => 'Rogner';
 
   @override
   String get useFullPhoto => 'Utiliser la photo entière';
@@ -584,6 +675,11 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Paquet importé : $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'La dernière sauvegarde automatique a échoué : $error';
   }
 
   @override

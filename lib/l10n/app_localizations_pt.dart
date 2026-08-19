@@ -191,6 +191,53 @@ class AppLocalizationsPt extends AppLocalizations {
       'Sem localização disponível — mantém premido o mapa em alternativa.';
 
   @override
+  String get locationDeniedForever =>
+      'O acesso à localização está bloqueado. Permita-o nas definições do sistema para usar o Stray Cam.';
+
+  @override
+  String get locationServiceOff =>
+      'A localização está desativada neste dispositivo. Ative-a nas definições e tente novamente.';
+
+  @override
+  String get locationDenied =>
+      'O cat(a)log não tem permissão para usar a sua localização. Tente novamente e permita quando for perguntado.';
+
+  @override
+  String get locationNoFix =>
+      'Não foi possível determinar a sua posição agora. Tente novamente ao ar livre — o GPS precisa de vista desimpedida do céu.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get openSettings => 'Abrir definições';
+
+  @override
+  String get notSaved => 'Não guardado';
+
+  @override
+  String get birthdateInFuture =>
+      'A data de nascimento não pode estar no futuro.';
+
+  @override
+  String get deceasedInFuture =>
+      'A data de falecimento não pode estar no futuro.';
+
+  @override
+  String deceasedBeforeBirth(String date) {
+    return 'A data de falecimento não pode ser anterior à data de nascimento ($date).';
+  }
+
+  @override
+  String bornAfterDeceased(String date) {
+    return 'A data de nascimento não pode ser posterior à data de falecimento ($date).';
+  }
+
+  @override
+  String get malePregnant =>
+      'Este gato está registado como macho — um macho não pode estar prenhe. Verifique primeiro o sexo.';
+
+  @override
   String get moveTo => 'Mover para';
 
   @override
@@ -258,6 +305,11 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String dateFormatError(String format) {
+    return 'Formato errado — use $format';
+  }
+
+  @override
   String get value => 'Valor';
 
   @override
@@ -285,7 +337,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get optionsOnePerLine => 'Opções (uma por linha)';
 
   @override
+  String get ownValue => 'Valor próprio';
+
+  @override
   String get renameField => 'Renomear campo';
+
+  @override
+  String get editOptions => 'Editar opções…';
 
   @override
   String get noStraysRightNow => 'Sem vadios de momento.';
@@ -383,9 +441,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get recordSightingHere => 'Registar um avistamento aqui:';
-
-  @override
-  String get orPlaceClowderHere => 'Ou colocar um clowder aqui:';
 
   @override
   String trailOf(String name, int count) {
@@ -489,6 +544,39 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterGender => 'Sexo';
 
   @override
+  String get starterBreed => 'Raça';
+
+  @override
+  String get valueMixed => 'misto';
+
+  @override
+  String get breedEuropeanShorthair => 'Europeu de pelo curto';
+
+  @override
+  String get breedMaineCoon => 'Maine Coon';
+
+  @override
+  String get breedBritishShorthair => 'Britânico de pelo curto';
+
+  @override
+  String get breedNorwegianForestCat => 'Gato da floresta norueguesa';
+
+  @override
+  String get breedRagdoll => 'Ragdoll';
+
+  @override
+  String get breedSiamese => 'Siamês';
+
+  @override
+  String get breedPersian => 'Persa';
+
+  @override
+  String get breedBengal => 'Bengal';
+
+  @override
+  String get breedSphynx => 'Sphynx';
+
+  @override
   String get starterColor => 'Cor';
 
   @override
@@ -532,6 +620,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get markTitle => 'Marcar o gato';
+
+  @override
+  String get applyCrop => 'Recortar';
 
   @override
   String get useFullPhoto => 'Usar a foto inteira';
@@ -583,6 +674,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String bundleImported(String result) {
     return 'Pacote importado: $result';
+  }
+
+  @override
+  String lastBackupFailed(String error) {
+    return 'A última cópia de segurança automática falhou: $error';
   }
 
   @override

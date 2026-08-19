@@ -31,6 +31,21 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (value == null) return '—';
   // Coordinates never face the user: positions live on the map.
   if (def?.type == FieldType.location) return t.onMapLabel;
+  if (def?.slug == 'breed') {
+    return switch (value) {
+      'European Shorthair' => t.breedEuropeanShorthair,
+      'Maine Coon' => t.breedMaineCoon,
+      'British Shorthair' => t.breedBritishShorthair,
+      'Norwegian Forest Cat' => t.breedNorwegianForestCat,
+      'Ragdoll' => t.breedRagdoll,
+      'Siamese' => t.breedSiamese,
+      'Persian' => t.breedPersian,
+      'Bengal' => t.breedBengal,
+      'Sphynx' => t.breedSphynx,
+      'mixed' => t.valueMixed,
+      _ => value,
+    };
+  }
   switch (value) {
     case 'yes':
       return t.valueYes;
@@ -61,6 +76,7 @@ String? _canonicalName(String slug) {
 String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'gender' => t.starterGender,
       'color' => t.starterColor,
+      'breed' => t.starterBreed,
       'neutered' => t.starterNeutered,
       'pregnant' => t.starterPregnant,
       'birthdate' => t.starterBirthdate,
