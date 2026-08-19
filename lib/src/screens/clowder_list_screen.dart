@@ -15,7 +15,7 @@ import '../name_date_dialog.dart';
 import '../share.dart';
 import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
-import '../widgets/status_chip.dart';
+import '../field_labels.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
@@ -361,13 +361,34 @@ class _ClowderCard extends StatelessWidget {
                         : null,
                   ),
                 ),
-                StatusChip(store: store, clowderId: clowder.id),
                 const Spacer(),
                 _FaceRow(store: store, clowderId: clowder.id,
                     onLight: cover != null),
               ],
             ),
           ),
+          // The type as a small end-aligned label on the center line —
+          // the chip crowded the card and its text never fit (#54).
+          if (store.current(clowder.id, 'f:status') case final status?)
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(end: 8),
+                child: Text(
+                  statusDisplay(context.t, status) ?? status,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: cover != null ? Colors.white : scheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                    shadows: cover != null
+                        ? const [Shadow(blurRadius: 4, color: Colors.black87)]
+                        : null,
+                  ),
+                ),
+              ),
+            ),
         ]),
       ),
     );

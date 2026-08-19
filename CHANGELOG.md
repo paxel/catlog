@@ -50,7 +50,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   point out each new feature once: the strays card, the edit pencil, the
   flier and share tools, the map overlay, and the duplicates finder.
 - **Clowder cards show who lives there**: cat faces, a count, and the
-  status chip.
+  type as a small label on the card's edge.
 
 - **ID fields**: a new field type for identifiers — typed or scanned with
   the camera (QR and barcodes), shown on the Card as plain text, QR code,
