@@ -219,6 +219,23 @@ class AppLocalizationsFr extends AppLocalizations {
   String get captureFlier => 'Photographier l\'affiche';
 
   @override
+  String get matchCandidatesTitle => 'Correspondances possibles';
+
+  @override
+  String get noMatchCandidates =>
+      'Aucune correspondance possible pour le moment.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Même $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'À $distance m l\'un de l\'autre';
+  }
+
+  @override
   String get addFlier => 'Ajouter une affiche';
 
   @override

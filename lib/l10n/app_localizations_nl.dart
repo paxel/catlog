@@ -219,6 +219,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String get captureFlier => 'Poster fotograferen';
 
   @override
+  String get matchCandidatesTitle => 'Mogelijke matches';
+
+  @override
+  String get noMatchCandidates => 'Momenteel geen mogelijke matches.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Zelfde $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m van elkaar';
+  }
+
+  @override
   String get addFlier => 'Poster toevoegen';
 
   @override

@@ -219,6 +219,22 @@ class AppLocalizationsSl extends AppLocalizations {
   String get captureFlier => 'Fotografiraj letak';
 
   @override
+  String get matchCandidatesTitle => 'Možna ujemanja';
+
+  @override
+  String get noMatchCandidates => 'Trenutno ni možnih ujemanj.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Enak $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m narazen';
+  }
+
+  @override
   String get addFlier => 'Dodaj letak';
 
   @override

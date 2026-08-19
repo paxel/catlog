@@ -216,6 +216,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get matchCandidatesTitle => '一致候補';
+
+  @override
+  String get noMatchCandidates => '現在、一致候補はありません。';
+
+  @override
+  String sameIdField(String field) {
+    return '同じ$field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m 離れています';
+  }
+
+  @override
   String get addFlier => 'チラシを追加';
 
   @override

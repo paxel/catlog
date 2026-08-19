@@ -554,6 +554,30 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @matchCandidatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Match candidates'**
+  String get matchCandidatesTitle;
+
+  /// No description provided for @noMatchCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'No match candidates right now.'**
+  String get noMatchCandidates;
+
+  /// No description provided for @sameIdField.
+  ///
+  /// In en, this message translates to:
+  /// **'Same {field}'**
+  String sameIdField(String field);
+
+  /// No description provided for @metersApart.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} m apart'**
+  String metersApart(String distance);
+
   /// No description provided for @addFlier.
   ///
   /// In en, this message translates to:

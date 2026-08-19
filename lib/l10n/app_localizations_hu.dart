@@ -219,6 +219,22 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get matchCandidatesTitle => 'Lehetséges egyezések';
+
+  @override
+  String get noMatchCandidates => 'Jelenleg nincs lehetséges egyezés.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Azonos $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m-re egymástól';
+  }
+
+  @override
   String get addFlier => 'Plakát hozzáadása';
 
   @override

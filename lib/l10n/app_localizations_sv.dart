@@ -219,6 +219,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get captureFlier => 'Fotografera anslag';
 
   @override
+  String get matchCandidatesTitle => 'Möjliga matchningar';
+
+  @override
+  String get noMatchCandidates => 'Inga möjliga matchningar just nu.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Samma $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m ifrån varandra';
+  }
+
+  @override
   String get addFlier => 'Lägg till anslag';
 
   @override

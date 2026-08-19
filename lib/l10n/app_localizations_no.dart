@@ -219,6 +219,22 @@ class AppLocalizationsNo extends AppLocalizations {
   String get captureFlier => 'Fotografer oppslag';
 
   @override
+  String get matchCandidatesTitle => 'Mulige treff';
+
+  @override
+  String get noMatchCandidates => 'Ingen mulige treff akkurat nå.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Samme $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m fra hverandre';
+  }
+
+  @override
   String get addFlier => 'Legg til oppslag';
 
   @override

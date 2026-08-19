@@ -63,6 +63,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   face, the location as a flier position, and scanned or recognized text
   prefilling chip ID, phone, and remarks (text recognition on Android and
   iOS; editable everywhere). "Add flier" on a cat appends further fliers.
+- **Match candidates**: a screen listing cats that might be the same
+  animal — exact chip/ID matches first, then cats seen within 500 m of a
+  flier or of each other, filterable by species. Confirming a pair is the
+  familiar merge, with the survivor of your choice.
 - Positions now know their kind: live sightings versus flier locations.
   Flier positions never appear as sighting pins, and a stray without any
   sighting is valid — it lives in lists and search, just not on the map.

@@ -218,6 +218,22 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get matchCandidatesTitle => 'התאמות אפשריות';
+
+  @override
+  String get noMatchCandidates => 'אין התאמות אפשריות כרגע.';
+
+  @override
+  String sameIdField(String field) {
+    return '$field זהה';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'במרחק $distance מ\' זה מזה';
+  }
+
+  @override
   String get addFlier => 'הוספת מודעה';
 
   @override

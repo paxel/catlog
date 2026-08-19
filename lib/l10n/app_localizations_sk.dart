@@ -219,6 +219,22 @@ class AppLocalizationsSk extends AppLocalizations {
   String get captureFlier => 'Odfotiť leták';
 
   @override
+  String get matchCandidatesTitle => 'Možné zhody';
+
+  @override
+  String get noMatchCandidates => 'Momentálne žiadne možné zhody.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Rovnaké $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Vzdialené $distance m';
+  }
+
+  @override
   String get addFlier => 'Pridať leták';
 
   @override

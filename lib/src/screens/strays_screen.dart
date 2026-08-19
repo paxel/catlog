@@ -6,6 +6,7 @@ import '../l10n.dart';
 import '../name_date_dialog.dart';
 import '../name_proposals.dart';
 import '../flier_capture.dart';
+import 'match_candidates_screen.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
@@ -44,7 +45,20 @@ class _StraysScreenState extends State<StraysScreen> {
   Widget build(BuildContext context) {
     final strays = widget.store.visibleStrays();
     return Scaffold(
-      appBar: AppBar(title: Text(context.t.strays)),
+      appBar: AppBar(title: Text(context.t.strays), actions: [
+        IconButton(
+          icon: const Icon(Icons.join_inner),
+          tooltip: context.t.matchCandidatesTitle,
+          onPressed: () async {
+            await Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) =>
+                  MatchCandidatesScreen(store: widget.store),
+            ));
+            if (!mounted) return;
+            setState(() {});
+          },
+        ),
+      ]),
       floatingActionButton:
           Column(mainAxisSize: MainAxisSize.min, children: [
         FloatingActionButton.extended(

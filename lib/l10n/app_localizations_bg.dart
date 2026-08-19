@@ -219,6 +219,22 @@ class AppLocalizationsBg extends AppLocalizations {
   String get captureFlier => 'Заснемане на обява';
 
   @override
+  String get matchCandidatesTitle => 'Кандидати за съвпадение';
+
+  @override
+  String get noMatchCandidates => 'В момента няма кандидати за съвпадение.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Еднакъв $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'На $distance м един от друг';
+  }
+
+  @override
   String get addFlier => 'Добавяне на обява';
 
   @override

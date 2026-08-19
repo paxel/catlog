@@ -219,6 +219,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String get captureFlier => 'Sfotografuj ogłoszenie';
 
   @override
+  String get matchCandidatesTitle => 'Możliwe dopasowania';
+
+  @override
+  String get noMatchCandidates => 'Obecnie brak możliwych dopasowań.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Ten sam $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'W odległości $distance m';
+  }
+
+  @override
   String get addFlier => 'Dodaj ogłoszenie';
 
   @override

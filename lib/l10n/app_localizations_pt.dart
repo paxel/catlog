@@ -219,6 +219,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get captureFlier => 'Fotografar cartaz';
 
   @override
+  String get matchCandidatesTitle => 'Possíveis correspondências';
+
+  @override
+  String get noMatchCandidates => 'Sem possíveis correspondências de momento.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Mesmo $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'A $distance m de distância';
+  }
+
+  @override
   String get addFlier => 'Adicionar cartaz';
 
   @override

@@ -219,6 +219,22 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
+
+  @override
+  String get noMatchCandidates => 'در حال حاضر موردی برای تطبیق نیست.';
+
+  @override
+  String sameIdField(String field) {
+    return '$field یکسان';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance متر فاصله';
+  }
+
+  @override
   String get addFlier => 'افزودن آگهی';
 
   @override

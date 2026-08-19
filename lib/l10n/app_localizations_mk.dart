@@ -219,6 +219,22 @@ class AppLocalizationsMk extends AppLocalizations {
   String get captureFlier => 'Сликај оглас';
 
   @override
+  String get matchCandidatesTitle => 'Можни совпаѓања';
+
+  @override
+  String get noMatchCandidates => 'Моментално нема можни совпаѓања.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Ист $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'На $distance м растојание';
+  }
+
+  @override
   String get addFlier => 'Додај оглас';
 
   @override

@@ -220,6 +220,22 @@ class AppLocalizationsIs extends AppLocalizations {
   String get captureFlier => 'Mynda auglýsingu';
 
   @override
+  String get matchCandidatesTitle => 'Mögulegar samsvaranir';
+
+  @override
+  String get noMatchCandidates => 'Engar mögulegar samsvaranir núna.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m á milli';
+  }
+
+  @override
   String get addFlier => 'Bæta við auglýsingu';
 
   @override

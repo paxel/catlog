@@ -219,6 +219,22 @@ class AppLocalizationsFi extends AppLocalizations {
   String get captureFlier => 'Kuvaa ilmoitus';
 
   @override
+  String get matchCandidatesTitle => 'Mahdolliset osumat';
+
+  @override
+  String get noMatchCandidates => 'Ei mahdollisia osumia juuri nyt.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m päässä toisistaan';
+  }
+
+  @override
   String get addFlier => 'Lisää ilmoitus';
 
   @override

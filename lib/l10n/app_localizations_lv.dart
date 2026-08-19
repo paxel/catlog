@@ -219,6 +219,22 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get matchCandidatesTitle => 'Iespējamās sakritības';
+
+  @override
+  String get noMatchCandidates => 'Šobrīd nav iespējamu sakritību.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Tas pats $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m attālumā';
+  }
+
+  @override
   String get addFlier => 'Pievienot sludinājumu';
 
   @override

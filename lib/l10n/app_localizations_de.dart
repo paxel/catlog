@@ -220,6 +220,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get captureFlier => 'Aushang erfassen';
 
   @override
+  String get matchCandidatesTitle => 'Mögliche Treffer';
+
+  @override
+  String get noMatchCandidates => 'Gerade keine möglichen Treffer.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Gleiche $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m voneinander entfernt';
+  }
+
+  @override
   String get addFlier => 'Aushang hinzufügen';
 
   @override

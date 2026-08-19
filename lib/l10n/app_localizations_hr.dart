@@ -219,6 +219,22 @@ class AppLocalizationsHr extends AppLocalizations {
   String get captureFlier => 'Slikaj letak';
 
   @override
+  String get matchCandidatesTitle => 'Mogući parovi';
+
+  @override
+  String get noMatchCandidates => 'Trenutačno nema mogućih parova.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Isti $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Udaljeni $distance m';
+  }
+
+  @override
   String get addFlier => 'Dodaj letak';
 
   @override

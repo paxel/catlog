@@ -220,6 +220,22 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get matchCandidatesTitle => 'Tqabbil possibbli';
+
+  @override
+  String get noMatchCandidates => 'M\'hemm l-ebda tqabbil possibbli bħalissa.';
+
+  @override
+  String sameIdField(String field) {
+    return 'L-istess $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m \'il bogħod';
+  }
+
+  @override
   String get addFlier => 'Żid flier';
 
   @override

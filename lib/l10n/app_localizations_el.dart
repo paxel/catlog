@@ -219,6 +219,22 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
+
+  @override
+  String get noMatchCandidates => 'Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Ίδιο $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Απέχουν $distance μ.';
+  }
+
+  @override
   String get addFlier => 'Προσθήκη αφίσας';
 
   @override

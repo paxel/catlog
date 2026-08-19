@@ -219,6 +219,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get matchCandidatesTitle => 'Olası eşleşmeler';
+
+  @override
+  String get noMatchCandidates => 'Şu anda olası eşleşme yok.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Aynı $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Aralarında $distance m var';
+  }
+
+  @override
   String get addFlier => 'İlan ekle';
 
   @override

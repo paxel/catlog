@@ -219,6 +219,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get captureFlier => 'Capture flier';
 
   @override
+  String get matchCandidatesTitle => 'Match candidates';
+
+  @override
+  String get noMatchCandidates => 'No match candidates right now.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Same $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m apart';
+  }
+
+  @override
   String get addFlier => 'Add flier';
 
   @override

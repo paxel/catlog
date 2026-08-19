@@ -219,6 +219,22 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get matchCandidatesTitle => 'Galimi atitikmenys';
+
+  @override
+  String get noMatchCandidates => 'Šiuo metu galimų atitikmenų nėra.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Tas pats $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m atstumu';
+  }
+
+  @override
   String get addFlier => 'Pridėti skelbimą';
 
   @override

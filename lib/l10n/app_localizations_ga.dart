@@ -219,6 +219,23 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get matchCandidatesTitle => 'Meaitseálacha féideartha';
+
+  @override
+  String get noMatchCandidates =>
+      'Níl aon mheaitseáil fhéideartha faoi láthair.';
+
+  @override
+  String sameIdField(String field) {
+    return '$field céanna';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m óna chéile';
+  }
+
+  @override
   String get addFlier => 'Cuir bileog leis';
 
   @override

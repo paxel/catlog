@@ -210,6 +210,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get matchCandidatesTitle => '疑似匹配';
+
+  @override
+  String get noMatchCandidates => '当前没有疑似匹配。';
+
+  @override
+  String sameIdField(String field) {
+    return '相同的$field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '相距 $distance 米';
+  }
+
+  @override
   String get addFlier => '添加启事';
 
   @override

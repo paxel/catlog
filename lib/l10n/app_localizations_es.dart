@@ -219,6 +219,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get captureFlier => 'Fotografiar cartel';
 
   @override
+  String get matchCandidatesTitle => 'Posibles coincidencias';
+
+  @override
+  String get noMatchCandidates => 'No hay posibles coincidencias ahora mismo.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Mismo $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'A $distance m de distancia';
+  }
+
+  @override
   String get addFlier => 'Añadir cartel';
 
   @override

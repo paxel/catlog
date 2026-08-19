@@ -219,6 +219,22 @@ class AppLocalizationsRo extends AppLocalizations {
   String get captureFlier => 'Fotografiază afișul';
 
   @override
+  String get matchCandidatesTitle => 'Potriviri posibile';
+
+  @override
+  String get noMatchCandidates => 'Nicio potrivire posibilă momentan.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Același $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'La $distance m distanță';
+  }
+
+  @override
   String get addFlier => 'Adaugă afiș';
 
   @override

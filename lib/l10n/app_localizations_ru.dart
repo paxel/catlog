@@ -219,6 +219,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get captureFlier => 'Сфотографировать объявление';
 
   @override
+  String get matchCandidatesTitle => 'Возможные совпадения';
+
+  @override
+  String get noMatchCandidates => 'Сейчас возможных совпадений нет.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Одинаковый $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'В $distance м друг от друга';
+  }
+
+  @override
   String get addFlier => 'Добавить объявление';
 
   @override

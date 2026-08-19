@@ -219,6 +219,22 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get matchCandidatesTitle => 'Përputhje të mundshme';
+
+  @override
+  String get noMatchCandidates => 'Aktualisht s\'ka përputhje të mundshme.';
+
+  @override
+  String sameIdField(String field) {
+    return 'I njëjti $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m larg njëri-tjetrit';
+  }
+
+  @override
   String get addFlier => 'Shto fletushkë';
 
   @override

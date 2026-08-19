@@ -219,6 +219,22 @@ class AppLocalizationsUk extends AppLocalizations {
   String get captureFlier => 'Сфотографувати оголошення';
 
   @override
+  String get matchCandidatesTitle => 'Можливі збіги';
+
+  @override
+  String get noMatchCandidates => 'Наразі можливих збігів немає.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Однаковий $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'На відстані $distance м';
+  }
+
+  @override
   String get addFlier => 'Додати оголошення';
 
   @override

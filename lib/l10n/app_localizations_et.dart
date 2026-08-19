@@ -219,6 +219,22 @@ class AppLocalizationsEt extends AppLocalizations {
   String get captureFlier => 'Pildista kuulutust';
 
   @override
+  String get matchCandidatesTitle => 'Võimalikud vasted';
+
+  @override
+  String get noMatchCandidates => 'Praegu pole võimalikke vasteid.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m kaugusel';
+  }
+
+  @override
   String get addFlier => 'Lisa kuulutus';
 
   @override

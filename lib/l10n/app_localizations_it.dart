@@ -219,6 +219,23 @@ class AppLocalizationsIt extends AppLocalizations {
   String get captureFlier => 'Fotografa volantino';
 
   @override
+  String get matchCandidatesTitle => 'Possibili corrispondenze';
+
+  @override
+  String get noMatchCandidates =>
+      'Nessuna possibile corrispondenza al momento.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Stesso $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'A $distance m di distanza';
+  }
+
+  @override
   String get addFlier => 'Aggiungi volantino';
 
   @override

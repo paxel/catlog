@@ -10,6 +10,7 @@ export 'src/csv_export.dart';
 export 'src/entry.dart';
 export 'src/fields.dart';
 export 'src/folder_sync.dart';
+export 'src/match.dart';
 export 'src/pair_code.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';

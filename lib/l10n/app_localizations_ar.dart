@@ -219,6 +219,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get matchCandidatesTitle => 'مرشّحو التطابق';
+
+  @override
+  String get noMatchCandidates => 'لا يوجد مرشّحون للتطابق حاليًا.';
+
+  @override
+  String sameIdField(String field) {
+    return 'نفس $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'يبعدان $distance م';
+  }
+
+  @override
   String get addFlier => 'إضافة منشور';
 
   @override
