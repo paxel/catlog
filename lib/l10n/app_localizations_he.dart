@@ -218,6 +218,14 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get savingLabel => 'שומר…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'הבעלים של $name';
+  }
+
+  @override
   String get sortLabel => 'מיון';
 
   @override
@@ -886,7 +894,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterSpecies => 'מין';
 
   @override
-  String get starterStatus => 'סטטוס';
+  String get starterStatus => 'סוג';
 
   @override
   String get statusFoster => 'בית אומנה';

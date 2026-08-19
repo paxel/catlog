@@ -94,7 +94,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   mother, a parent born after its kitten, and gender changes that
   contradict recorded parenthood are refused with the reason.
 
+- Cards show a scannable geo QR plus the printable Plus Code for a cat's
+  location — any phone's camera opens it in its maps app.
+
 ### Changed
+
+- The starter fields read clearer: "Position" became **Location** and the
+  clowder's "Status" became **Type**.
+- Saving a captured flier shows a spinner, a nameless owner is named
+  after the cat ("Owner of Minka"), and the owner card carries the
+  flier's text and phone itself.
 
 - Cat and clowder pages open read-only showing only filled fields, nicely
   formatted; the pencil switches to the full edit view, and renaming lives

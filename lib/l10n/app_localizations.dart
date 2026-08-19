@@ -554,6 +554,18 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @savingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get savingLabel;
+
+  /// No description provided for @ownerOfCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner of {name}'**
+  String ownerOfCat(String name);
+
   /// No description provided for @sortLabel.
   ///
   /// In en, this message translates to:
@@ -1475,7 +1487,7 @@ abstract class AppLocalizations {
   /// No description provided for @starterPosition.
   ///
   /// In en, this message translates to:
-  /// **'Position'**
+  /// **'Location'**
   String get starterPosition;
 
   /// No description provided for @valueYes.
@@ -1721,7 +1733,7 @@ abstract class AppLocalizations {
   /// No description provided for @starterStatus.
   ///
   /// In en, this message translates to:
-  /// **'Status'**
+  /// **'Type'**
   String get starterStatus;
 
   /// No description provided for @statusFoster.

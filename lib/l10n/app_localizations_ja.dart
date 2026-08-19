@@ -216,6 +216,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get savingLabel => '保存中…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$nameの飼い主';
+  }
+
+  @override
   String get sortLabel => '並べ替え';
 
   @override
@@ -876,7 +884,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterSpecies => '種類';
 
   @override
-  String get starterStatus => 'ステータス';
+  String get starterStatus => '種別';
 
   @override
   String get statusFoster => '預かり宅';

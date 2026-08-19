@@ -220,6 +220,14 @@ class AppLocalizationsIs extends AppLocalizations {
   String get captureFlier => 'Mynda auglýsingu';
 
   @override
+  String get savingLabel => 'Vista…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Eigandi $name';
+  }
+
+  @override
   String get sortLabel => 'Raða';
 
   @override
@@ -892,7 +900,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterSpecies => 'Tegund';
 
   @override
-  String get starterStatus => 'Staða';
+  String get starterStatus => 'Tegund';
 
   @override
   String get statusFoster => 'Fósturheimili';

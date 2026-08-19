@@ -210,6 +210,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get savingLabel => '正在保存…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name的主人';
+  }
+
+  @override
   String get sortLabel => '排序';
 
   @override
@@ -864,7 +872,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterSpecies => '物种';
 
   @override
-  String get starterStatus => '状态';
+  String get starterStatus => '类型';
 
   @override
   String get statusFoster => '寄养家庭';

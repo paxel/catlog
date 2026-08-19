@@ -173,11 +173,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     setState(() => _saving = true);
     final t = context.t;
     String catId;
+    final catName =
+        _name.text.trim().isEmpty ? t.captureFlier : _name.text.trim();
     if (widget.existingCatId == null) {
-      // Owner clowder first: public flier data, no Private marker.
+      // Owner clowder first: public flier data, no Private marker. A
+      // nameless owner is named after the cat, so the card isn't barren.
       final ownerName = _owner.text.trim();
       final clowderId = store.createClowder(
-          ownerName.isEmpty ? t.captureFlier : ownerName,
+          ownerName.isEmpty ? t.ownerOfCat(catName) : ownerName,
           date: _missingSince);
       store.append(clowderId, Keys.userField('status'), 'owner',
           date: _missingSince);
@@ -190,15 +193,20 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         store.append(clowderId, Keys.userField('responsible'), ownerName,
             date: _missingSince);
       }
-      if (_phone.text.trim().isNotEmpty) {
-        store.append(clowderId, Keys.userField('remarks'),
-            '${t.phoneLabel}: ${_phone.text.trim()}',
+      // The owner card carries the flier's contact and text itself —
+      // it must stand on its own next to the cat.
+      final ownerRemarks = [
+        if (_phone.text.trim().isNotEmpty)
+          '${t.phoneLabel}: ${_phone.text.trim()}',
+        if (_remarks.text.trim().isNotEmpty) _remarks.text.trim(),
+      ].join('\n\n');
+      if (ownerRemarks.isNotEmpty) {
+        store.append(clowderId, Keys.userField('remarks'), ownerRemarks,
             date: _missingSince);
       }
       // The cat lived with its owner until the flier's date — plain
       // Move semantics keep the history reconstructable after a Merge.
-      final name = _name.text.trim();
-      catId = store.createCat(name.isEmpty ? t.captureFlier : name,
+      catId = store.createCat(catName,
           clowderId: clowderId, date: _missingSince);
       store.moveCat(catId, null, date: _missingSince);
     } else {
@@ -241,8 +249,13 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           title: Text(newCat ? t.captureFlier : t.addFlier),
           actions: [
             IconButton(
-                icon: const Icon(Icons.check),
-                tooltip: t.save,
+                icon: _saving
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2))
+                    : const Icon(Icons.check),
+                tooltip: _saving ? t.savingLabel : t.save,
                 onPressed: photo == null || _saving ? null : _save),
           ]),
       body: photo == null
@@ -315,8 +328,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
                 ),
               const SizedBox(height: 24),
               FilledButton.icon(
-                  icon: const Icon(Icons.check),
-                  label: Text(t.save),
+                  icon: _saving
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(
+                              strokeWidth: 2, color: Colors.white))
+                      : const Icon(Icons.check),
+                  label: Text(_saving ? t.savingLabel : t.save),
                   onPressed: _saving ? null : _save),
             ]),
     );

@@ -219,6 +219,14 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get savingLabel => 'Po ruhet…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Pronari i $name';
+  }
+
+  @override
   String get sortLabel => 'Rendit';
 
   @override
@@ -759,7 +767,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterResponsible => 'Personi përgjegjës';
 
   @override
-  String get starterPosition => 'Pozicioni';
+  String get starterPosition => 'Vendndodhja';
 
   @override
   String get valueYes => 'po';
@@ -892,7 +900,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterSpecies => 'Specia';
 
   @override
-  String get starterStatus => 'Statusi';
+  String get starterStatus => 'Lloji';
 
   @override
   String get statusFoster => 'Shtëpi kujdestarie';

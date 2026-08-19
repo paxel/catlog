@@ -74,6 +74,9 @@ void main() {
     expect(store.current(clowder.id, Keys.userField('status')), 'owner');
     expect(store.current(clowder.id, Keys.userField('responsible')),
         'Familie Huber');
+    // The owner card carries the flier text itself.
+    expect(store.current(clowder.id, Keys.userField('remarks')),
+        contains('MISSING: Minka'));
     // Flier position recorded as flier kind — off the sighting map.
     expect(store.flierPositions(cat.id), [(48.1, 11.5)]);
     expect(store.sightingPositionOf(cat.id), isNull);
@@ -85,14 +88,28 @@ void main() {
     expect(store.images(cat.id), isNotEmpty);
   });
 
+  testWidgets('a nameless owner is named after the cat', (tester) async {
+    await pump(tester);
+    await tester.enterText(
+        find.widgetWithText(TextField, '').first, 'Minka');
+    await tester.runAsync(() async {
+      await tester.tap(find.byIcon(Icons.check).first);
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    });
+    await tester.pumpAndSettle();
+    expect(store.clowders().single.name, 'Owner of Minka');
+  });
+
   testWidgets('double-tapping save creates exactly one owner and cat',
       (tester) async {
     await pump(tester);
+    final saveSpot = tester.getCenter(find.byIcon(Icons.check).first);
     await tester.runAsync(() async {
-      // Two rapid taps on the save check while compression runs.
-      await tester.tap(find.byIcon(Icons.check).first);
+      // Two rapid taps on the save spot while compression runs — the
+      // second lands on the (now spinning, disabled) button.
+      await tester.tapAt(saveSpot);
       await tester.pump();
-      await tester.tap(find.byIcon(Icons.check).first, warnIfMissed: false);
+      await tester.tapAt(saveSpot);
       await Future<void>.delayed(const Duration(milliseconds: 500));
     });
     await tester.pumpAndSettle();

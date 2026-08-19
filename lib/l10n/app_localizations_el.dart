@@ -219,6 +219,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get savingLabel => 'Αποθήκευση…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Ιδιοκτήτης του/της $name';
+  }
+
+  @override
   String get sortLabel => 'Ταξινόμηση';
 
   @override
@@ -759,7 +767,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterResponsible => 'Υπεύθυνο άτομο';
 
   @override
-  String get starterPosition => 'Θέση';
+  String get starterPosition => 'Τοποθεσία';
 
   @override
   String get valueYes => 'ναι';
@@ -892,7 +900,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterSpecies => 'Είδος';
 
   @override
-  String get starterStatus => 'Κατάσταση';
+  String get starterStatus => 'Τύπος';
 
   @override
   String get statusFoster => 'Ανάδοχο σπίτι';

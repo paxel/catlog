@@ -219,6 +219,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get savingLabel => 'Kaydediliyor…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name sahibi';
+  }
+
+  @override
   String get sortLabel => 'Sırala';
 
   @override
@@ -888,7 +896,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterSpecies => 'Tür';
 
   @override
-  String get starterStatus => 'Durum';
+  String get starterStatus => 'Tür';
 
   @override
   String get statusFoster => 'Geçici yuva';

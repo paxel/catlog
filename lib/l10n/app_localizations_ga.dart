@@ -219,6 +219,14 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get savingLabel => 'Á shábháil…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Úinéir $name';
+  }
+
+  @override
   String get sortLabel => 'Sórtáil';
 
   @override
@@ -893,7 +901,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterSpecies => 'Speiceas';
 
   @override
-  String get starterStatus => 'Stádas';
+  String get starterStatus => 'Cineál';
 
   @override
   String get statusFoster => 'Teach altrama';

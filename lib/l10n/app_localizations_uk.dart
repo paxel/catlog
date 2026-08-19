@@ -219,6 +219,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get captureFlier => 'Сфотографувати оголошення';
 
   @override
+  String get savingLabel => 'Збереження…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Власник $name';
+  }
+
+  @override
   String get sortLabel => 'Сортування';
 
   @override
@@ -756,7 +764,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterResponsible => 'Відповідальна особа';
 
   @override
-  String get starterPosition => 'Позиція';
+  String get starterPosition => 'Місцезнаходження';
 
   @override
   String get valueYes => 'так';
@@ -889,7 +897,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterSpecies => 'Вид';
 
   @override
-  String get starterStatus => 'Статус';
+  String get starterStatus => 'Тип';
 
   @override
   String get statusFoster => 'Тимчасовий дім';

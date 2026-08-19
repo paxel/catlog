@@ -219,6 +219,14 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get savingLabel => 'Saglabā…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name saimnieks';
+  }
+
+  @override
   String get sortLabel => 'Kārtot';
 
   @override
@@ -755,7 +763,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterResponsible => 'Atbildīgā persona';
 
   @override
-  String get starterPosition => 'Pozīcija';
+  String get starterPosition => 'Atrašanās vieta';
 
   @override
   String get valueYes => 'jā';
@@ -888,7 +896,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterSpecies => 'Suga';
 
   @override
-  String get starterStatus => 'Statuss';
+  String get starterStatus => 'Tips';
 
   @override
   String get statusFoster => 'Pagaidu mājas';

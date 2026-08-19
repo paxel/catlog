@@ -219,6 +219,14 @@ class AppLocalizationsSl extends AppLocalizations {
   String get captureFlier => 'Fotografiraj letak';
 
   @override
+  String get savingLabel => 'Shranjevanje…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Lastnik $name';
+  }
+
+  @override
   String get sortLabel => 'Razvrsti';
 
   @override
@@ -756,7 +764,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterResponsible => 'Odgovorna oseba';
 
   @override
-  String get starterPosition => 'Položaj';
+  String get starterPosition => 'Lokacija';
 
   @override
   String get valueYes => 'da';
@@ -889,7 +897,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterSpecies => 'Vrsta';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Vrsta';
 
   @override
   String get statusFoster => 'Začasni dom';

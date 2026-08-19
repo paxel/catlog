@@ -219,6 +219,14 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get savingLabel => 'Įrašoma…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name šeimininkas';
+  }
+
+  @override
   String get sortLabel => 'Rikiuoti';
 
   @override
@@ -757,7 +765,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterResponsible => 'Atsakingas asmuo';
 
   @override
-  String get starterPosition => 'Pozicija';
+  String get starterPosition => 'Vieta';
 
   @override
   String get valueYes => 'taip';
@@ -890,7 +898,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterSpecies => 'Rūšis';
 
   @override
-  String get starterStatus => 'Būsena';
+  String get starterStatus => 'Tipas';
 
   @override
   String get statusFoster => 'Laikinieji namai';

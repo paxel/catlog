@@ -219,6 +219,14 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get savingLabel => 'در حال ذخیره…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'صاحب $name';
+  }
+
+  @override
   String get sortLabel => 'مرتب‌سازی';
 
   @override
@@ -888,7 +896,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterSpecies => 'گونه';
 
   @override
-  String get starterStatus => 'وضعیت';
+  String get starterStatus => 'نوع';
 
   @override
   String get statusFoster => 'خانه موقت';

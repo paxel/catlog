@@ -220,6 +220,14 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get savingLabel => 'Qed jissejvja…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Sid ta\' $name';
+  }
+
+  @override
   String get sortLabel => 'Issortja';
 
   @override
@@ -759,7 +767,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterResponsible => 'Persuna responsabbli';
 
   @override
-  String get starterPosition => 'Pożizzjoni';
+  String get starterPosition => 'Post';
 
   @override
   String get valueYes => 'iva';
@@ -892,7 +900,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterSpecies => 'Speċi';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Tip';
 
   @override
   String get statusFoster => 'Dar tal-fostering';

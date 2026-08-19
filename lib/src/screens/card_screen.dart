@@ -9,6 +9,7 @@ import '../field_labels.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../plus_code.dart';
 import '../share.dart';
 import '../spotlight.dart';
 import 'package:barcode_widget/barcode_widget.dart';
@@ -85,6 +86,8 @@ class _CardScreenState extends State<CardScreen> {
     }
     for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
       if (!_selected.contains(def.key)) continue;
+      // Location renders as a scannable QR + Plus Code, not as a row.
+      if (def.type == FieldType.location) continue;
       final value = store.current(id, def.key);
       if (value != null) {
         facts.add(
@@ -93,6 +96,18 @@ class _CardScreenState extends State<CardScreen> {
     }
     return facts;
   }
+
+  /// Selected, filled location Fields — the Card shows them as a
+  /// scannable geo QR plus the printable Plus Code, because "on the
+  /// map" means nothing on paper.
+  List<(FieldDef, double, double)> _cardPositions() => [
+        for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+          if (def.type == FieldType.location &&
+              _selected.contains(def.key))
+            if (CatalogStore.parsePosition(store.current(id, def.key))
+                case final pos?)
+              (def, pos.$1, pos.$2)
+      ];
 
   /// Selected, filled ID Fields that render scannable (QR/barcode, #28).
   List<(FieldDef, String)> _scannableIds() => [
@@ -216,6 +231,23 @@ class _CardScreenState extends State<CardScreen> {
                           style: const pw.TextStyle(fontSize: 12))),
                 ]),
               ),
+            for (final (def, lat, lon) in _cardPositions())
+              pw.Padding(
+                padding: const pw.EdgeInsets.only(top: 10),
+                child: pw.Column(children: [
+                  pw.BarcodeWidget(
+                    barcode: pw.Barcode.qrCode(),
+                    data: 'geo:$lat,$lon',
+                    width: 80,
+                    height: 80,
+                  ),
+                  pw.Text(
+                      '${fieldDefName(t, def)}: '
+                      '${encodePlusCode(lat, lon)}',
+                      style: const pw.TextStyle(
+                          fontSize: 9, color: PdfColors.grey700)),
+                ]),
+              ),
             for (final (def, value) in _scannableIds())
               pw.Padding(
                 padding: const pw.EdgeInsets.only(top: 10),
@@ -334,6 +366,24 @@ class _CardScreenState extends State<CardScreen> {
                     ),
                   for (final (def, value) in _scannableIds())
                     Center(child: _scannable(def, value)),
+                  for (final (def, lat, lon) in _cardPositions())
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Column(children: [
+                          QrImageView(
+                              data: 'geo:$lat,$lon',
+                              size: 110,
+                              backgroundColor: Colors.white),
+                          Text(
+                              '${fieldDefName(context.t, def)}: '
+                              '${encodePlusCode(lat, lon)}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall),
+                        ]),
+                      ),
+                    ),
                 ],
               ),
             ),

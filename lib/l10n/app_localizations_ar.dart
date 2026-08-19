@@ -219,6 +219,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get savingLabel => 'جارٍ الحفظ…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'مالك $name';
+  }
+
+  @override
   String get sortLabel => 'فرز';
 
   @override
@@ -888,7 +896,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterSpecies => 'النوع';
 
   @override
-  String get starterStatus => 'الحالة';
+  String get starterStatus => 'النوع';
 
   @override
   String get statusFoster => 'دار رعاية';

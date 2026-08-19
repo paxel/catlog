@@ -219,6 +219,14 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get savingLabel => 'Mentés…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name gazdája';
+  }
+
+  @override
   String get sortLabel => 'Rendezés';
 
   @override
@@ -756,7 +764,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterResponsible => 'Felelős személy';
 
   @override
-  String get starterPosition => 'Pozíció';
+  String get starterPosition => 'Hely';
 
   @override
   String get valueYes => 'igen';
@@ -889,7 +897,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterSpecies => 'Faj';
 
   @override
-  String get starterStatus => 'Állapot';
+  String get starterStatus => 'Típus';
 
   @override
   String get statusFoster => 'Ideiglenes befogadó';

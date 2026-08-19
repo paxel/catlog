@@ -219,6 +219,14 @@ class AppLocalizationsSk extends AppLocalizations {
   String get captureFlier => 'Odfotiť leták';
 
   @override
+  String get savingLabel => 'Ukladá sa…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Majiteľ mačky $name';
+  }
+
+  @override
   String get sortLabel => 'Zoradiť';
 
   @override
@@ -756,7 +764,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterResponsible => 'Zodpovedná osoba';
 
   @override
-  String get starterPosition => 'Pozícia';
+  String get starterPosition => 'Poloha';
 
   @override
   String get valueYes => 'áno';
@@ -889,7 +897,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterSpecies => 'Druh';
 
   @override
-  String get starterStatus => 'Stav';
+  String get starterStatus => 'Typ';
 
   @override
   String get statusFoster => 'Dočasná starostlivosť';
