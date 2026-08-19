@@ -1,7 +1,7 @@
-# The one Android/store pipeline. A branch push builds the signed app
-# bundle for Play internal testing; a tag additionally runs the gate and
-# everything below. One workflow means one run counter, so version codes
-# from internal and release builds can never collide (#39).
+# The one Android/store pipeline, tag-only (plus the manual dispatch
+# button). One workflow means one run counter, so version codes from
+# different builds can never collide (#39). The Play bundle ships with
+# every tag's artifacts — branches get plain CI instead.
 #
 #   gate           — full Linux gate, tags only (analyze fatal-infos, all tests)
 #   build-android  — signed per-ABI + universal APKs
@@ -19,7 +19,6 @@ name: Release
 
 on:
   push:
-    branches: ["release/010/google"]
     tags: ["v*"]
   # Releasing from the Actions UI: Run workflow → type the tag. `gh release
   # create` makes the tag at HEAD when it doesn't exist yet, so the button
@@ -93,12 +92,6 @@ jobs:
       # workflows still had counters of their own (#39).
       - name: Build the Play app bundle
         run: flutter build appbundle --release --build-number=$((GITHUB_RUN_NUMBER + 100))
-      - name: Upload internal-testing bundle
-        if: github.ref_type == 'branch' && github.event_name == 'push'
-        uses: actions/upload-artifact@v6
-        with:
-          name: catlog-aab
-          path: build/app/outputs/bundle/release/app-release.aab
       - name: Build release APKs
         if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
         run: |
