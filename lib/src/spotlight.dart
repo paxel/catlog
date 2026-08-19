@@ -157,6 +157,9 @@ Future<void> runSpotlights(
     final next = await showDialog<bool>(
       context: context,
       barrierColor: Colors.transparent,
+      // The overlay paints in GLOBAL coordinates; the default SafeArea
+      // wrapper would shift it down by the status-bar inset.
+      useSafeArea: false,
       builder: (context) => _SpotlightOverlay(
         target: rect.inflate(6),
         text: item.text(context.t),
