@@ -225,6 +225,15 @@ class AppLocalizationsNo extends AppLocalizations {
   String get matchCandidatesTitle => 'Mulige treff';
 
   @override
+  String get findDuplicates => 'Finn duplikater';
+
+  @override
+  String get noDuplicates => 'Ingen mulige duplikater akkurat nå.';
+
+  @override
+  String get similarName => 'Lignende navn';
+
+  @override
   String get sharePublicly => 'Del offentlig…';
 
   @override

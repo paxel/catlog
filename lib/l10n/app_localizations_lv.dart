@@ -225,6 +225,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override
+  String get findDuplicates => 'Atrast dublikātus';
+
+  @override
+  String get noDuplicates => 'Šobrīd nav iespējamu dublikātu.';
+
+  @override
+  String get similarName => 'Līdzīgs vārds';
+
+  @override
   String get sharePublicly => 'Kopīgot publiski…';
 
   @override

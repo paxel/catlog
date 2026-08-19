@@ -216,6 +216,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get matchCandidatesTitle => '疑似匹配';
 
   @override
+  String get findDuplicates => '查找重复';
+
+  @override
+  String get noDuplicates => '当前没有疑似重复。';
+
+  @override
+  String get similarName => '相似的名字';
+
+  @override
   String get sharePublicly => '公开分享…';
 
   @override

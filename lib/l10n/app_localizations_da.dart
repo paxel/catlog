@@ -225,6 +225,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String get matchCandidatesTitle => 'Mulige match';
 
   @override
+  String get findDuplicates => 'Find dubletter';
+
+  @override
+  String get noDuplicates => 'Ingen mulige dubletter lige nu.';
+
+  @override
+  String get similarName => 'Lignende navn';
+
+  @override
   String get sharePublicly => 'Del offentligt…';
 
   @override

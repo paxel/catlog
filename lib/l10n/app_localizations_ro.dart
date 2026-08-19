@@ -225,6 +225,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override
+  String get findDuplicates => 'Găsește dubluri';
+
+  @override
+  String get noDuplicates => 'Nicio dublură posibilă momentan.';
+
+  @override
+  String get similarName => 'Nume asemănător';
+
+  @override
   String get sharePublicly => 'Distribuie public…';
 
   @override

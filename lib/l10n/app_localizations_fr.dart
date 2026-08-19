@@ -225,6 +225,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get matchCandidatesTitle => 'Correspondances possibles';
 
   @override
+  String get findDuplicates => 'Trouver les doublons';
+
+  @override
+  String get noDuplicates => 'Aucun doublon possible pour le moment.';
+
+  @override
+  String get similarName => 'Nom similaire';
+
+  @override
   String get sharePublicly => 'Partager publiquement…';
 
   @override

@@ -225,6 +225,15 @@ class AppLocalizationsMk extends AppLocalizations {
   String get matchCandidatesTitle => 'Можни совпаѓања';
 
   @override
+  String get findDuplicates => 'Најди дупликати';
+
+  @override
+  String get noDuplicates => 'Моментално нема можни дупликати.';
+
+  @override
+  String get similarName => 'Слично име';
+
+  @override
   String get sharePublicly => 'Сподели јавно…';
 
   @override

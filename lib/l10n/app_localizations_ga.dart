@@ -225,6 +225,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override
+  String get findDuplicates => 'Aimsigh dúblaigh';
+
+  @override
+  String get noDuplicates => 'Níl aon dúblach féideartha faoi láthair.';
+
+  @override
+  String get similarName => 'Ainm cosúil';
+
+  @override
   String get sharePublicly => 'Comhroinn go poiblí…';
 
   @override

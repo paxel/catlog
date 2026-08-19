@@ -225,6 +225,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override
+  String get findDuplicates => 'Rasti dublikatus';
+
+  @override
+  String get noDuplicates => 'Šiuo metu galimų dublikatų nėra.';
+
+  @override
+  String get similarName => 'Panašus vardas';
+
+  @override
   String get sharePublicly => 'Bendrinti viešai…';
 
   @override

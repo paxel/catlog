@@ -225,6 +225,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override
+  String get findDuplicates => 'Знайти дублікати';
+
+  @override
+  String get noDuplicates => 'Наразі можливих дублікатів немає.';
+
+  @override
+  String get similarName => 'Схоже ім\'я';
+
+  @override
   String get sharePublicly => 'Поділитися публічно…';
 
   @override

@@ -226,6 +226,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override
+  String get findDuplicates => 'Sib duplikati';
+
+  @override
+  String get noDuplicates => 'M\'hemm l-ebda duplikat possibbli bħalissa.';
+
+  @override
+  String get similarName => 'Isem simili';
+
+  @override
   String get sharePublicly => 'Aqsam pubblikament…';
 
   @override

@@ -225,6 +225,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override
+  String get findDuplicates => 'Gjej dublikatat';
+
+  @override
+  String get noDuplicates => 'Aktualisht s\'ka dublikata të mundshme.';
+
+  @override
+  String get similarName => 'Emër i ngjashëm';
+
+  @override
   String get sharePublicly => 'Ndaje publikisht…';
 
   @override

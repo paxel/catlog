@@ -225,6 +225,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override
+  String get findDuplicates => 'یافتن موارد تکراری';
+
+  @override
+  String get noDuplicates => 'در حال حاضر مورد تکراری احتمالی نیست.';
+
+  @override
+  String get similarName => 'نام مشابه';
+
+  @override
   String get sharePublicly => 'اشتراک عمومی…';
 
   @override

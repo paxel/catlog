@@ -225,6 +225,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override
+  String get findDuplicates => 'Otsi duplikaate';
+
+  @override
+  String get noDuplicates => 'Praegu pole võimalikke duplikaate.';
+
+  @override
+  String get similarName => 'Sarnane nimi';
+
+  @override
   String get sharePublicly => 'Jaga avalikult…';
 
   @override

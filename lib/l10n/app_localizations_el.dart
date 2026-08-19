@@ -225,6 +225,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override
+  String get findDuplicates => 'Εύρεση διπλότυπων';
+
+  @override
+  String get noDuplicates => 'Κανένα πιθανό διπλότυπο αυτήν τη στιγμή.';
+
+  @override
+  String get similarName => 'Παρόμοιο όνομα';
+
+  @override
   String get sharePublicly => 'Δημόσια κοινοποίηση…';
 
   @override

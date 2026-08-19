@@ -225,6 +225,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override
+  String get findDuplicates => 'Nájsť duplicity';
+
+  @override
+  String get noDuplicates => 'Momentálne žiadne možné duplicity.';
+
+  @override
+  String get similarName => 'Podobné meno';
+
+  @override
   String get sharePublicly => 'Zdieľať verejne…';
 
   @override

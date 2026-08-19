@@ -225,6 +225,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get matchCandidatesTitle => 'Możliwe dopasowania';
 
   @override
+  String get findDuplicates => 'Znajdź duplikaty';
+
+  @override
+  String get noDuplicates => 'Obecnie brak możliwych duplikatów.';
+
+  @override
+  String get similarName => 'Podobne imię';
+
+  @override
   String get sharePublicly => 'Udostępnij publicznie…';
 
   @override

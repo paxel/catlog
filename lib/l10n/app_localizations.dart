@@ -566,6 +566,24 @@ abstract class AppLocalizations {
   /// **'Match candidates'**
   String get matchCandidatesTitle;
 
+  /// No description provided for @findDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Find duplicates'**
+  String get findDuplicates;
+
+  /// No description provided for @noDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'No possible duplicates right now.'**
+  String get noDuplicates;
+
+  /// No description provided for @similarName.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar name'**
+  String get similarName;
+
   /// No description provided for @sharePublicly.
   ///
   /// In en, this message translates to:

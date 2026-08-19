@@ -226,6 +226,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get matchCandidatesTitle => 'Mögliche Treffer';
 
   @override
+  String get findDuplicates => 'Duplikate finden';
+
+  @override
+  String get noDuplicates => 'Gerade keine möglichen Duplikate.';
+
+  @override
+  String get similarName => 'Ähnlicher Name';
+
+  @override
   String get sharePublicly => 'Öffentlich teilen…';
 
   @override

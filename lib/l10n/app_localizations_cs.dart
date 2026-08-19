@@ -225,6 +225,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get matchCandidatesTitle => 'Možné shody';
 
   @override
+  String get findDuplicates => 'Najít duplicity';
+
+  @override
+  String get noDuplicates => 'Momentálně žádné možné duplicity.';
+
+  @override
+  String get similarName => 'Podobné jméno';
+
+  @override
   String get sharePublicly => 'Sdílet veřejně…';
 
   @override

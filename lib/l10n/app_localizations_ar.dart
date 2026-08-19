@@ -225,6 +225,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override
+  String get findDuplicates => 'البحث عن التكرارات';
+
+  @override
+  String get noDuplicates => 'لا توجد تكرارات محتملة حاليًا.';
+
+  @override
+  String get similarName => 'اسم متشابه';
+
+  @override
   String get sharePublicly => 'مشاركة علنية…';
 
   @override

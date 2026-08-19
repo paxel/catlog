@@ -67,6 +67,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   animal — exact chip/ID matches first, then cats seen within 500 m of a
   flier or of each other, filterable by species. Confirming a pair is the
   familiar merge, with the survivor of your choice.
+- **Find duplicates**: a scan for likely twins among cats and clowders —
+  same or nearly-same names, equal chip IDs — resolved pair by pair
+  through the familiar merge.
 - **Photos from video** (Android/iPhone): pick a video — or long-press
   Stray Cam to film one — and keep the good frames as ordinary photos.
   The app suggests the sharpest frames, a scrubber grabs any moment, and

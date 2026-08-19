@@ -225,6 +225,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override
+  String get findDuplicates => 'Търсене на дубликати';
+
+  @override
+  String get noDuplicates => 'В момента няма възможни дубликати.';
+
+  @override
+  String get similarName => 'Подобно име';
+
+  @override
   String get sharePublicly => 'Публично споделяне…';
 
   @override

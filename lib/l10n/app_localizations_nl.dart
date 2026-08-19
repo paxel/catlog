@@ -225,6 +225,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override
+  String get findDuplicates => 'Duplicaten zoeken';
+
+  @override
+  String get noDuplicates => 'Momenteel geen mogelijke duplicaten.';
+
+  @override
+  String get similarName => 'Vergelijkbare naam';
+
+  @override
   String get sharePublicly => 'Openbaar delen…';
 
   @override

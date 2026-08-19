@@ -222,6 +222,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get matchCandidatesTitle => '一致候補';
 
   @override
+  String get findDuplicates => '重複を探す';
+
+  @override
+  String get noDuplicates => '現在、重複の可能性はありません。';
+
+  @override
+  String get similarName => '似た名前';
+
+  @override
   String get sharePublicly => '公開共有…';
 
   @override

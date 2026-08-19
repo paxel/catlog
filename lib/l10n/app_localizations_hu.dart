@@ -225,6 +225,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override
+  String get findDuplicates => 'Duplikátumok keresése';
+
+  @override
+  String get noDuplicates => 'Jelenleg nincs lehetséges duplikátum.';
+
+  @override
+  String get similarName => 'Hasonló név';
+
+  @override
   String get sharePublicly => 'Nyilvános megosztás…';
 
   @override

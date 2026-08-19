@@ -226,6 +226,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override
+  String get findDuplicates => 'Finna tvítök';
+
+  @override
+  String get noDuplicates => 'Engin möguleg tvítök núna.';
+
+  @override
+  String get similarName => 'Svipað nafn';
+
+  @override
   String get sharePublicly => 'Deila opinberlega…';
 
   @override

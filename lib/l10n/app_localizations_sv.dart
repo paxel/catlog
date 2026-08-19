@@ -225,6 +225,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override
+  String get findDuplicates => 'Hitta dubbletter';
+
+  @override
+  String get noDuplicates => 'Inga möjliga dubbletter just nu.';
+
+  @override
+  String get similarName => 'Liknande namn';
+
+  @override
   String get sharePublicly => 'Dela offentligt…';
 
   @override

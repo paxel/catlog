@@ -225,6 +225,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override
+  String get findDuplicates => 'Найти дубликаты';
+
+  @override
+  String get noDuplicates => 'Сейчас возможных дубликатов нет.';
+
+  @override
+  String get similarName => 'Похожее имя';
+
+  @override
   String get sharePublicly => 'Поделиться публично…';
 
   @override

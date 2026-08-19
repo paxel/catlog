@@ -224,6 +224,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override
+  String get findDuplicates => 'איתור כפילויות';
+
+  @override
+  String get noDuplicates => 'אין כפילויות אפשריות כרגע.';
+
+  @override
+  String get similarName => 'שם דומה';
+
+  @override
   String get sharePublicly => 'שיתוף ציבורי…';
 
   @override

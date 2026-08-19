@@ -225,6 +225,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override
+  String get findDuplicates => 'Kopyaları bul';
+
+  @override
+  String get noDuplicates => 'Şu anda olası kopya yok.';
+
+  @override
+  String get similarName => 'Benzer ad';
+
+  @override
   String get sharePublicly => 'Herkese açık paylaş…';
 
   @override

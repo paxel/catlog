@@ -225,6 +225,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override
+  String get findDuplicates => 'Etsi kaksoiskappaleet';
+
+  @override
+  String get noDuplicates => 'Ei mahdollisia kaksoiskappaleita juuri nyt.';
+
+  @override
+  String get similarName => 'Samankaltainen nimi';
+
+  @override
   String get sharePublicly => 'Jaa julkisesti…';
 
   @override

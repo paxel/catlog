@@ -225,6 +225,15 @@ class AppLocalizationsSl extends AppLocalizations {
   String get matchCandidatesTitle => 'Možna ujemanja';
 
   @override
+  String get findDuplicates => 'Poišči dvojnike';
+
+  @override
+  String get noDuplicates => 'Trenutno ni možnih dvojnikov.';
+
+  @override
+  String get similarName => 'Podobno ime';
+
+  @override
   String get sharePublicly => 'Deli javno…';
 
   @override

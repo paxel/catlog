@@ -18,6 +18,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/status_chip.dart';
 import 'about_screen.dart';
 import 'clowder_detail_screen.dart';
+import 'duplicates_screen.dart';
 import 'fields_screen.dart';
 import 'map_screen.dart';
 import 'search_screen.dart';
@@ -137,6 +138,14 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'csv') _exportCsv();
+              if (v == 'duplicates') {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
+                      builder: (_) =>
+                          DuplicatesScreen(store: widget.store),
+                    ))
+                    .then((_) => mounted ? setState(() {}) : null);
+              }
               if (v == 'language') {
                 showLanguageDialog(context, widget.store);
               }
@@ -155,6 +164,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   child: Text(showHidden.value
                       ? context.t.stopShowingHidden
                       : context.t.showHiddenLabel)),
+              PopupMenuItem(
+                  value: 'duplicates',
+                  child: Text(context.t.findDuplicates)),
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
               PopupMenuItem(
