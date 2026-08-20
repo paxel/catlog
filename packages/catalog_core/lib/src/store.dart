@@ -889,6 +889,23 @@ class CatalogStore {
   /// The stored bytes for a content hash, or null if unknown.
   Uint8List? imageBytes(String hash) => _blobs.get(hash);
 
+  /// What this catalog costs on the device: the database, and the photo
+  /// blobs beside it. Photos are what grows — an entry row is bytes,
+  /// a photo is hundreds of kilobytes.
+  ({int dbBytes, int photoBytes, int photoCount, int entries}) storageUsage() {
+    final pages = _db.select('PRAGMA page_count').first.values.first as int;
+    final pageSize = _db.select('PRAGMA page_size').first.values.first as int;
+    final rows =
+        _db.select('SELECT COUNT(*) AS c FROM entries').first['c'] as int;
+    final (photoBytes, photoCount) = _blobs.usage();
+    return (
+      dbBytes: pages * pageSize,
+      photoBytes: photoBytes,
+      photoCount: photoCount,
+      entries: rows,
+    );
+  }
+
   /// Marks [hash] as the Cat's Profile Image.
   void setProfileImage(String catId, String hash, {DateTime? date}) =>
       append(catId, Keys.profileImage, hash, date: date);
@@ -1435,6 +1452,9 @@ abstract interface class _BlobStore {
   void put(String hash, Uint8List bytes);
   Uint8List? get(String hash);
   void remove(String hash);
+
+  /// Bytes and file count currently stored — the About page's size line.
+  (int bytes, int count) usage();
 }
 
 class _FileBlobStore implements _BlobStore {
@@ -1459,6 +1479,18 @@ class _FileBlobStore implements _BlobStore {
   }
 
   @override
+  (int, int) usage() {
+    var bytes = 0, count = 0;
+    for (final f in _dir.listSync()) {
+      if (f is File) {
+        bytes += f.lengthSync();
+        count++;
+      }
+    }
+    return (bytes, count);
+  }
+
+  @override
   void remove(String hash) {
     final f = _file(hash);
     if (f.existsSync()) f.deleteSync();
@@ -1476,4 +1508,13 @@ class _MemoryBlobStore implements _BlobStore {
 
   @override
   void remove(String hash) => _blobs.remove(hash);
+
+  @override
+  (int, int) usage() {
+    var bytes = 0;
+    for (final b in _blobs.values) {
+      bytes += b.length;
+    }
+    return (bytes, _blobs.length);
+  }
 }

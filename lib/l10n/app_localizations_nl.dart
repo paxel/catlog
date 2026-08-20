@@ -937,6 +937,63 @@ class AppLocalizationsNl extends AppLocalizations {
       'Een gefotografeerde poster wordt een kat plus eigenaar. Stap voor stap: gegevens van de kat, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.';
 
   @override
+  String get archiveTitle => 'Archief';
+
+  @override
+  String get archiveExplainer =>
+      'Overleden katten en lege kolonies waar jaren niemand naar omkeek kosten nog steeds ruimte — vooral hun foto\'s. Archiveren schrijft ze naar een bestand dat jij bewaart en verwijdert ze daarna hier.';
+
+  @override
+  String get archiveAction => 'Archiveren';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count items archiveren';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count items archiveren?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names worden naar een bestand geschreven en daarna verwijderd — op jouw apparaat en op elk apparaat waarmee je synchroniseert. Het bestand importeren haalt alles terug; zonder dat bestand zijn ze weg.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count items gearchiveerd en verwijderd';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Er is niets verwijderd: het archiefbestand kon niet geschreven worden ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, foto\'s $photos in $count bestanden';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Al $years jaar stil';
+  }
+
+  @override
+  String get nothingToArchive => 'Niets oud genoeg om te archiveren.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Laatste wijziging $date · foto\'s $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Oude gegevens kosten ruimte, vooral de foto\'s die elk gesynchroniseerd apparaat meesleept. Hier kies je overleden katten en lege kolonies die al jaren stil zijn, schrijf je ze naar een bestand dat je bewaart, en verwijder je ze. De verwijdering bereikt iedereen met wie je synchroniseert; het bestand importeren zet alles terug.';
+
+  @override
   String get locateAddress => 'Adres op de kaart zoeken';
 
   @override

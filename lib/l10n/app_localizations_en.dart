@@ -933,6 +933,63 @@ class AppLocalizationsEn extends AppLocalizations {
       'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.';
 
   @override
+  String get archiveTitle => 'Archive';
+
+  @override
+  String get archiveExplainer =>
+      'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.';
+
+  @override
+  String get archiveAction => 'Archive';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archive $count entries';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archive $count entries?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names will be written into a file and then deleted — on your device and on every device you sync with. Importing the file brings everything back; without it, they are gone.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entries archived and deleted';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nothing was deleted: the archive file could not be written ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, photos $photos in $count files';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Quiet for $years years';
+  }
+
+  @override
+  String get nothingToArchive => 'Nothing old enough to archive.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Last change $date · photos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.';
+
+  @override
   String get locateAddress => 'Find address on the map';
 
   @override

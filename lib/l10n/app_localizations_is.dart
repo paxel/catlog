@@ -938,6 +938,63 @@ class AppLocalizationsIs extends AppLocalizations {
       'Ljósmynduð auglýsing verður að ketti ásamt eiganda. Skref fyrir skref: gögn kattarins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.';
 
   @override
+  String get archiveTitle => 'Safn';
+
+  @override
+  String get archiveExplainer =>
+      'Kettir sem eru dánir og tómar nýlendur sem enginn hefur snert árum saman taka samt pláss — einkum myndirnar þeirra. Söfnun skrifar þau í skrá sem þú geymir og eyðir þeim svo héðan.';
+
+  @override
+  String get archiveAction => 'Setja í safn';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Setja $count færslur í safn';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Setja $count færslur í safn?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names verða skrifuð í skrá og síðan eytt — í tækinu þínu og í hverju tæki sem þú samstillir við. Innflutningur skrárinnar skilar öllu; án hennar eru þau horfin.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count færslur settar í safn og eytt';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Engu var eytt: ekki tókst að skrifa safnskrána ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Gagnagrunnur $db, myndir $photos í $count skrám';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Óbreytt í $years ár';
+  }
+
+  @override
+  String get nothingToArchive => 'Ekkert er nógu gamalt til að setja í safn.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Síðasta breyting $date · myndir $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Gömul gögn kosta pláss, einkum myndirnar sem hvert samstillt tæki ber með sér. Hér velur þú dána ketti og tómar nýlendur sem hafa legið kyrrar árum saman, skrifar þau í skrá sem þú geymir og eyðir þeim. Eyðingin nær til allra sem þú samstillir við; innflutningur skrárinnar endurheimtir allt.';
+
+  @override
   String get locateAddress => 'Finna heimilisfang á korti';
 
   @override

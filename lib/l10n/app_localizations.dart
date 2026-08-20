@@ -1772,6 +1772,84 @@ abstract class AppLocalizations {
   /// **'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.'**
   String get helpFlier;
 
+  /// No description provided for @archiveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get archiveTitle;
+
+  /// No description provided for @archiveExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.'**
+  String get archiveExplainer;
+
+  /// No description provided for @archiveAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get archiveAction;
+
+  /// No description provided for @archiveSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive {count} entries'**
+  String archiveSelected(int count);
+
+  /// No description provided for @archiveConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive {count} entries?'**
+  String archiveConfirmTitle(int count);
+
+  /// No description provided for @archiveConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} will be written into a file and then deleted — on your device and on every device you sync with. Importing the file brings everything back; without it, they are gone.'**
+  String archiveConfirmBody(String names);
+
+  /// No description provided for @archiveDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} entries archived and deleted'**
+  String archiveDone(int count);
+
+  /// No description provided for @archiveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the archive file could not be written ({error}).'**
+  String archiveFailed(String error);
+
+  /// No description provided for @storageLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Database {db}, photos {photos} in {count} files'**
+  String storageLine(String db, String photos, int count);
+
+  /// No description provided for @quietForYears.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet for {years} years'**
+  String quietForYears(int years);
+
+  /// No description provided for @nothingToArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing old enough to archive.'**
+  String get nothingToArchive;
+
+  /// No description provided for @archiveCandidateLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Last change {date} · photos {size}'**
+  String archiveCandidateLine(String date, String size);
+
+  /// No description provided for @helpArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.'**
+  String get helpArchive;
+
   /// No description provided for @locateAddress.
   ///
   /// In en, this message translates to:

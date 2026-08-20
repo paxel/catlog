@@ -930,6 +930,63 @@ class AppLocalizationsHe extends AppLocalizations {
       'מודעה מצולמת הופכת לחתול ולבעלים שלו. שלב אחר שלב: פרטי החתול, פרטי הבעלים, חיתוך הפנים לתמונת הפרופיל, מספרי מרשם מהמודעה, ולבסוף בדיקה. הכול הצעות — תקנו את מה שהמצלמה קראה לא נכון.';
 
   @override
+  String get archiveTitle => 'ארכיון';
+
+  @override
+  String get archiveExplainer =>
+      'חתולים שמתו ומושבות ריקות שאיש לא נגע בהן שנים עדיין תופסים מקום — בעיקר התמונות שלהם. העברה לארכיון כותבת אותם לקובץ שאתם שומרים ואז מוחקת אותם מכאן.';
+
+  @override
+  String get archiveAction => 'לארכיון';
+
+  @override
+  String archiveSelected(int count) {
+    return 'העבר $count רשומות לארכיון';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'להעביר $count רשומות לארכיון?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names ייכתבו לקובץ ואז יימחקו — במכשיר שלכם ובכל מכשיר שאתם מסתנכרנים איתו. ייבוא הקובץ מחזיר הכול; בלעדיו הם אבודים.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count רשומות הועברו לארכיון ונמחקו';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הארכיון ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'מסד נתונים $db, תמונות $photos ב-$count קבצים';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'ללא שינוי $years שנים';
+  }
+
+  @override
+  String get nothingToArchive => 'אין דבר ישן מספיק לארכיון.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'שינוי אחרון $date · תמונות $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'נתונים ישנים עולים מקום, בעיקר התמונות שכל מכשיר מסונכרן נושא. כאן בוחרים חתולים שמתו ומושבות ריקות ששקטו שנים, כותבים אותם לקובץ שאתם שומרים, ומוחקים אותם. המחיקה מגיעה לכל מי שאתם מסתנכרנים איתו; ייבוא הקובץ משחזר הכול.';
+
+  @override
   String get locateAddress => 'מצא את הכתובת במפה';
 
   @override

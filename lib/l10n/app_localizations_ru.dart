@@ -935,6 +935,63 @@ class AppLocalizationsRu extends AppLocalizations {
       'Из сфотографированного объявления получается кошка и её владелец. Шаг за шагом: данные кошки, контакт владельца, обрезка морды для фото профиля, номера реестров с объявления и финальная проверка. Всё это предложения — исправьте то, что камера прочитала неверно.';
 
   @override
+  String get archiveTitle => 'Архив';
+
+  @override
+  String get archiveExplainer =>
+      'Умершие кошки и пустые колонии, к которым годами никто не притрагивался, всё равно занимают место — особенно их фотографии. Архивация записывает их в файл, который вы храните, и затем удаляет их отсюда.';
+
+  @override
+  String get archiveAction => 'Архивировать';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Архивировать $count записей';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Архивировать $count записей?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names будут записаны в файл и затем удалены — на вашем устройстве и на всех, с которыми вы синхронизируетесь. Импорт файла вернёт всё; без него они потеряны.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Архивировано и удалено записей: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Ничего не удалено: файл архива не удалось записать ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'База данных $db, фото $photos в $count файлах';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Без изменений $years лет';
+  }
+
+  @override
+  String get nothingToArchive => 'Нет ничего достаточно старого для архивации.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Последнее изменение $date · фото $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Старые данные занимают место, прежде всего фотографии, которые тащит за собой каждое синхронизированное устройство. Здесь вы выбираете умерших кошек и пустые колонии, годами не менявшиеся, записываете их в файл, который храните, и удаляете. Удаление доходит до всех, с кем вы синхронизируетесь; импорт файла восстанавливает всё.';
+
+  @override
   String get locateAddress => 'Найти адрес на карте';
 
   @override

@@ -937,6 +937,63 @@ class AppLocalizationsSq extends AppLocalizations {
       'Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.';
 
   @override
+  String get archiveTitle => 'Arkivi';
+
+  @override
+  String get archiveExplainer =>
+      'Macet e ngordhura dhe koloni bosh që s\'i ka prekur njeri prej vitesh prapë zënë vend — sidomos fotot e tyre. Arkivimi i shkruan në një skedar që e mban ti dhe pastaj i fshin nga këtu.';
+
+  @override
+  String get archiveAction => 'Arkivo';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivo $count zëra';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Të arkivohen $count zëra?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names do të shkruhen në një skedar dhe pastaj do të fshihen — në pajisjen tënde dhe në çdo pajisje me të cilën sinkronizon. Importimi i skedarit i kthen të gjitha; pa të, humbin.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'U arkivuan dhe u fshinë $count zëra';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nuk u fshi asgjë: skedari i arkivit nuk u shkrua dot ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Baza $db, foto $photos në $count skedarë';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Pa ndryshim prej $years vjetësh';
+  }
+
+  @override
+  String get nothingToArchive => 'Asgjë s\'është aq e vjetër sa të arkivohet.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ndryshimi i fundit $date · foto $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Të dhënat e vjetra kushtojnë hapësirë, sidomos fotot që i mbart çdo pajisje e sinkronizuar. Këtu zgjedh macet e ngordhura dhe koloni bosh që rrinë prej vitesh, i shkruan në një skedar që e mban, dhe i fshin. Fshirja arrin te të gjithë me të cilët sinkronizon; importimi i skedarit i rikthen të gjitha.';
+
+  @override
   String get locateAddress => 'Gjej adresën në hartë';
 
   @override

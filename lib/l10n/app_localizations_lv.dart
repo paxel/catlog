@@ -934,6 +934,63 @@ class AppLocalizationsLv extends AppLocalizations {
       'Nofotografēts sludinājums kļūst par kaķi un tā īpašnieku. Soli pa solim: kaķa dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.';
 
   @override
+  String get archiveTitle => 'Arhīvs';
+
+  @override
+  String get archiveExplainer =>
+      'Mirušie kaķi un tukšās kolonijas, kurām gadiem neviens nav pieskāries, joprojām aizņem vietu — jo īpaši to fotoattēli. Arhivēšana ieraksta tos failā, ko paturat, un tad izdzēš no šejienes.';
+
+  @override
+  String get archiveAction => 'Arhivēt';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhivēt $count ierakstus';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhivēt $count ierakstus?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names tiks ierakstīti failā un pēc tam izdzēsti — jūsu ierīcē un katrā, ar kuru sinhronizējat. Faila imports visu atgriež; bez tā tie ir zuduši.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhivēti un izdzēsti $count ieraksti';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nekas netika izdzēsts: arhīva failu neizdevās ierakstīt ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Datubāze $db, fotoattēli $photos $count failos';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Nemainīts $years gadus';
+  }
+
+  @override
+  String get nothingToArchive => 'Nekas nav pietiekami vecs arhivēšanai.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Pēdējās izmaiņas $date · foto $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Vecie dati maksā vietu, jo īpaši fotoattēli, ko nes līdzi katra sinhronizētā ierīce. Šeit izvēlaties mirušos kaķus un tukšās kolonijas, kas gadiem nav mainījušās, ierakstāt tos failā, ko paturat, un izdzēšat. Dzēšana sasniedz visus, ar kuriem sinhronizējat; faila imports visu atjauno.';
+
+  @override
   String get locateAddress => 'Meklēt adresi kartē';
 
   @override

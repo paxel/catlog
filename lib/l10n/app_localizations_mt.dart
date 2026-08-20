@@ -937,6 +937,64 @@ class AppLocalizationsMt extends AppLocalizations {
       'Poster mitfugħ f\'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta\' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.';
 
   @override
+  String get archiveTitle => 'Arkivju';
+
+  @override
+  String get archiveExplainer =>
+      'Qtates mejta u kolonji vojta li ħadd ma messhom għal snin xorta jieħdu spazju — l-aktar ir-ritratti tagħhom. L-arkivjar jiktibhom f\'fajl li żżomm int u mbagħad iħassarhom minn hawn.';
+
+  @override
+  String get archiveAction => 'Arkivja';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivja $count entrati';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Tarkivja $count entrati?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names se jinkitbu f\'fajl u mbagħad jitħassru — fuq l-apparat tiegħek u fuq kull apparat li tissinkronizza miegħu. L-importazzjoni tal-fajl iġġib kollox lura; mingħajru jintilfu.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entrati arkivjati u mħassra';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Ma tħassar xejn: il-fajl tal-arkivju ma setax jinkiteb ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, ritratti $photos f\'$count fajls';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bla bidla għal $years snin';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'M\'hemm xejn antik biżżejjed biex jiġi arkivjat.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'L-aħħar bidla $date · ritratti $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Data qadima tiswa spazju, l-aktar ir-ritratti li kull apparat sinkronizzat iġorr. Hawn tagħżel qtates mejta u kolonji vojta li ilhom kwieti snin, tiktibhom f\'fajl li żżomm, u tħassarhom. It-tħassir jasal għand kull min tissinkronizza miegħu; l-importazzjoni tal-fajl treġġa\' kollox lura.';
+
+  @override
   String get locateAddress => 'Sib l-indirizz fuq il-mappa';
 
   @override

@@ -934,6 +934,64 @@ class AppLocalizationsPl extends AppLocalizations {
       'Sfotografowane ogłoszenie staje się kotem wraz z właścicielem. Krok po kroku: dane kota, kontakt właściciela, wycięcie pyszczka na zdjęcie profilowe, numery rejestrów z ogłoszenia, na końcu sprawdzenie. Wszystko to propozycje — popraw to, co aparat odczytał źle.';
 
   @override
+  String get archiveTitle => 'Archiwum';
+
+  @override
+  String get archiveExplainer =>
+      'Zmarłe koty i puste kolonie, których nikt nie ruszał od lat, wciąż zajmują miejsce — zwłaszcza ich zdjęcia. Archiwizacja zapisuje je do pliku, który zatrzymujesz, a potem usuwa je stąd.';
+
+  @override
+  String get archiveAction => 'Archiwizuj';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Zarchiwizuj $count wpisów';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Zarchiwizować $count wpisów?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names zostaną zapisane do pliku, a potem usunięte — na twoim urządzeniu i na każdym, z którym synchronizujesz. Import pliku przywraca wszystko; bez niego przepadają.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Zarchiwizowano i usunięto $count wpisów';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nic nie usunięto: nie udało się zapisać pliku archiwum ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Baza $db, zdjęcia $photos w $count plikach';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bez zmian od $years lat';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Nie ma nic wystarczająco starego do archiwizacji.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ostatnia zmiana $date · zdjęcia $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Stare dane zajmują miejsce, zwłaszcza zdjęcia, które nosi każde synchronizowane urządzenie. Tu wybierasz zmarłe koty i puste kolonie od lat bez zmian, zapisujesz je do pliku, który zatrzymujesz, i usuwasz. Usunięcie dociera do wszystkich, z którymi synchronizujesz; import pliku wszystko przywraca.';
+
+  @override
   String get locateAddress => 'Znajdź adres na mapie';
 
   @override

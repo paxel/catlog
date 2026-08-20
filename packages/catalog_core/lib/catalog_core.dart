@@ -5,6 +5,7 @@
 /// to [CatalogStore].
 library;
 
+export 'src/archive.dart';
 export 'src/bundle.dart';
 export 'src/csv_export.dart';
 export 'src/duplicates.dart';

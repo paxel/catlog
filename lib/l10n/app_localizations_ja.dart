@@ -916,6 +916,63 @@ class AppLocalizationsJa extends AppLocalizations {
       '撮影したチラシから猫と飼い主ができます。手順：猫のデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。';
 
   @override
+  String get archiveTitle => 'アーカイブ';
+
+  @override
+  String get archiveExplainer =>
+      '何年も触れられていない亡くなった猫や空のコロニーも容量を使います。とくに写真です。アーカイブは、それらを手元に残すファイルへ書き出してから、ここから削除します。';
+
+  @override
+  String get archiveAction => 'アーカイブ';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count 件をアーカイブ';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count 件をアーカイブしますか？';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names をファイルに書き出したあと削除します。あなたの端末でも、同期しているすべての端末でも消えます。ファイルを取り込めば元に戻せますが、なければ戻せません。';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count 件をアーカイブして削除しました';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return '何も削除していません：アーカイブファイルを書き出せませんでした（$error）。';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'データベース $db、写真 $photos／$count ファイル';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years 年間変更なし';
+  }
+
+  @override
+  String get nothingToArchive => 'アーカイブできるほど古いものはありません。';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return '最終変更 $date・写真 $size';
+  }
+
+  @override
+  String get helpArchive =>
+      '古いデータは容量を使います。とくに、同期する端末すべてが持ち歩く写真です。ここでは何年も動きのない亡くなった猫や空のコロニーを選び、手元に残すファイルへ書き出してから削除します。削除は同期相手全員に伝わります。ファイルを取り込めばすべて復元できます。';
+
+  @override
   String get locateAddress => '住所を地図で探す';
 
   @override

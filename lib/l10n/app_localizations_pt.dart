@@ -936,6 +936,63 @@ class AppLocalizationsPt extends AppLocalizations {
       'Um cartaz fotografado torna-se um gato e o seu dono. Passo a passo: dados do gato, contacto do dono, recorte da cara para a foto de perfil, números de registo do cartaz e uma verificação final. Tudo são sugestões — corrige o que a câmara leu mal.';
 
   @override
+  String get archiveTitle => 'Arquivo';
+
+  @override
+  String get archiveExplainer =>
+      'Gatos falecidos e colónias vazias em que ninguém toca há anos continuam a ocupar espaço — sobretudo as fotos. Arquivar escreve-os num ficheiro que guardas e depois apaga-os daqui.';
+
+  @override
+  String get archiveAction => 'Arquivar';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arquivar $count entradas';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arquivar $count entradas?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names serão escritos num ficheiro e depois apagados — no teu dispositivo e em todos com que sincronizas. Importar o ficheiro traz tudo de volta; sem ele, ficam perdidos.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entradas arquivadas e apagadas';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nada foi apagado: não foi possível escrever o ficheiro de arquivo ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Base de dados $db, fotos $photos em $count ficheiros';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Parados há $years anos';
+  }
+
+  @override
+  String get nothingToArchive => 'Nada suficientemente antigo para arquivar.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Última alteração $date · fotos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Dados antigos custam espaço, sobretudo as fotos que cada dispositivo sincronizado carrega. Aqui escolhes gatos falecidos e colónias vazias paradas há anos, escreve-los num ficheiro que guardas e apaga-os. O apagamento chega a todos com quem sincronizas; importar o ficheiro restaura tudo.';
+
+  @override
   String get locateAddress => 'Procurar a morada no mapa';
 
   @override

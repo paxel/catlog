@@ -18,6 +18,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   street or town instead of centering it in a country-wide view); and
   two arrows glide from pin to pin in nearest-neighbor order.
 
+- **Archive old data** (About → Archive): deceased cats and empty
+  clowders that have been quiet for years are written into a .catsync
+  file you keep and then deleted — on your device and on every device
+  you sync with. Importing the file brings them back. The page also
+  shows what the catalog currently costs in database and photo space.
+
 - **Help on every page**: a "?" in the app bar explains what the page
   is for, what you can do there, and what tap and long-press do — plus a
   button that shows that page's tips again.

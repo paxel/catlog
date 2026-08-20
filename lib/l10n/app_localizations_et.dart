@@ -933,6 +933,63 @@ class AppLocalizationsEt extends AppLocalizations {
       'Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.';
 
   @override
+  String get archiveTitle => 'Arhiiv';
+
+  @override
+  String get archiveExplainer =>
+      'Surnud kassid ja tühjad koloniad, mida keegi pole aastaid puutunud, võtavad ikka ruumi — eriti nende pildid. Arhiveerimine kirjutab need faili, mille sa alles hoiad, ja kustutab siis siit.';
+
+  @override
+  String get archiveAction => 'Arhiveeri';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhiveeri $count kirjet';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Kas arhiveerida $count kirjet?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names kirjutatakse faili ja seejärel kustutatakse — sinu seadmest ja igast seadmest, millega sünkroonid. Faili importimine toob kõik tagasi; ilma selleta on need läinud.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhiveeritud ja kustutatud $count kirjet';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Midagi ei kustutatud: arhiivifaili ei õnnestunud kirjutada ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Andmebaas $db, pildid $photos $count failis';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Muutumatu $years aastat';
+  }
+
+  @override
+  String get nothingToArchive => 'Midagi pole arhiveerimiseks piisavalt vana.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Viimane muudatus $date · pildid $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Vanad andmed maksavad ruumi, eelkõige pildid, mida iga sünkroonitud seade kaasas kannab. Siin valid surnud kassid ja tühjad koloniad, mis on aastaid vaikinud, kirjutad need faili, mille alles hoiad, ja kustutad. Kustutamine jõuab kõigini, kellega sünkroonid; faili import taastab kõik.';
+
+  @override
   String get locateAddress => 'Otsi aadress kaardilt';
 
   @override

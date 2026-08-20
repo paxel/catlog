@@ -935,6 +935,63 @@ class AppLocalizationsSk extends AppLocalizations {
       'Z odfoteného letáka vznikne mačka aj majiteľ. Krok za krokom: údaje mačky, kontakt majiteľa, výrez tváre pre profilovku, čísla registrov z letáka a nakoniec kontrola. Všetko sú návrhy — oprav, čo fotoaparát prečítal zle.';
 
   @override
+  String get archiveTitle => 'Archív';
+
+  @override
+  String get archiveExplainer =>
+      'Uhynuté mačky a prázdne kolónie, ktorých sa roky nikto nedotkol, stále zaberajú miesto — najmä ich fotky. Archivácia ich zapíše do súboru, ktorý si necháš, a potom ich odtiaľto zmaže.';
+
+  @override
+  String get archiveAction => 'Archivovať';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivovať $count položiek';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archivovať $count položiek?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names sa zapíšu do súboru a potom zmažú — na tvojom zariadení aj na každom, s ktorým synchronizuješ. Import súboru všetko vráti; bez neho sú preč.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Archivovaných a zmazaných $count položiek';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nič sa nezmazalo: súbor archívu sa nepodarilo zapísať ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Databáza $db, fotky $photos v $count súboroch';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bez zmeny $years rokov';
+  }
+
+  @override
+  String get nothingToArchive => 'Nič nie je dosť staré na archiváciu.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Posledná zmena $date · fotky $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Staré dáta stoja miesto, najmä fotky, ktoré si nesie každé synchronizované zariadenie. Tu vyberieš uhynuté mačky a prázdne kolónie, ktoré sú roky bez zmeny, zapíšeš ich do súboru, ktorý si necháš, a zmažeš ich. Zmazanie dorazí ku všetkým, s ktorými synchronizuješ; import súboru všetko obnoví.';
+
+  @override
   String get locateAddress => 'Nájsť adresu na mape';
 
   @override

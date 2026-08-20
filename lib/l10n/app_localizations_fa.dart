@@ -933,6 +933,63 @@ class AppLocalizationsFa extends AppLocalizations {
       'از یک پوستر عکس‌گرفته‌شده، گربه و صاحبش ساخته می‌شود. گام‌به‌گام: داده‌های گربه، تماس صاحب، برش صورت برای عکس نمایه، شماره‌های سامانه روی پوستر و در پایان یک بازبینی. همه پیشنهاد است — آنچه را دوربین اشتباه خوانده اصلاح کنید.';
 
   @override
+  String get archiveTitle => 'بایگانی';
+
+  @override
+  String get archiveExplainer =>
+      'گربه‌های درگذشته و کلونی‌های خالی که سال‌هاست کسی سراغشان نرفته باز هم جا می‌گیرند — به‌ویژه عکس‌هایشان. بایگانی آن‌ها را در فایلی که نگه می‌دارید می‌نویسد و سپس از اینجا حذف می‌کند.';
+
+  @override
+  String get archiveAction => 'بایگانی';
+
+  @override
+  String archiveSelected(int count) {
+    return 'بایگانی $count مورد';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count مورد بایگانی شود؟';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names در فایلی نوشته و سپس حذف می‌شوند — روی دستگاه شما و روی هر دستگاهی که با آن همگام می‌شوید. وارد کردن فایل همه‌چیز را برمی‌گرداند؛ بدون آن از دست می‌روند.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count مورد بایگانی و حذف شد';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'چیزی حذف نشد: فایل بایگانی نوشته نشد ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'پایگاه داده $db، عکس‌ها $photos در $count فایل';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years سال بدون تغییر';
+  }
+
+  @override
+  String get nothingToArchive => 'چیزی به‌قدر کافی قدیمی برای بایگانی نیست.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'آخرین تغییر $date · عکس‌ها $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'داده‌های قدیمی جا می‌گیرند، به‌ویژه عکس‌هایی که هر دستگاه همگام‌شده با خود می‌برد. اینجا گربه‌های درگذشته و کلونی‌های خالیِ سال‌ها ساکن را انتخاب می‌کنید، در فایلی که نگه می‌دارید می‌نویسید و حذفشان می‌کنید. حذف به همهٔ کسانی که با آن‌ها همگام می‌شوید می‌رسد؛ وارد کردن فایل همه‌چیز را بازمی‌گرداند.';
+
+  @override
   String get locateAddress => 'یافتن نشانی روی نقشه';
 
   @override

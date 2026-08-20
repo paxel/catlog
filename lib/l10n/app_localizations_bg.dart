@@ -935,6 +935,63 @@ class AppLocalizationsBg extends AppLocalizations {
       'От снимана обява става котка заедно със стопанина. Стъпка по стъпка: данни на котката, контакт на стопанина, изрязване на муцунката за профилната снимка, регистрационни номера от обявата и накрая проверка. Всичко са предложения — поправете каквото камерата е разчела грешно.';
 
   @override
+  String get archiveTitle => 'Архив';
+
+  @override
+  String get archiveExplainer =>
+      'Починали котки и празни колонии, които никой не е докосвал от години, пак заемат място — най-вече снимките им. Архивирането ги записва във файл, който пазите, и после ги изтрива оттук.';
+
+  @override
+  String get archiveAction => 'Архивирай';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Архивирай $count записа';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Да се архивират ли $count записа?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names ще бъдат записани във файл и после изтрити — на вашето устройство и на всяко, с което синхронизирате. Импортът на файла връща всичко; без него са загубени.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Архивирани и изтрити записа: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Нищо не беше изтрито: архивният файл не можа да се запише ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'База данни $db, снимки $photos в $count файла';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Без промяна от $years години';
+  }
+
+  @override
+  String get nothingToArchive => 'Няма нищо достатъчно старо за архивиране.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Последна промяна $date · снимки $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Старите данни заемат място, преди всичко снимките, които всяко синхронизирано устройство мъкне със себе си. Тук избирате починали котки и празни колонии, стояли без промяна с години, записвате ги във файл, който пазите, и ги изтривате. Изтриването стига до всички, с които синхронизирате; импортът на файла възстановява всичко.';
+
+  @override
   String get locateAddress => 'Намери адреса на картата';
 
   @override

@@ -938,6 +938,63 @@ class AppLocalizationsMk extends AppLocalizations {
       'Фотографиран оглас станува мачка заедно со сопственикот. Чекор по чекор: податоци за мачката, контакт на сопственикот, исечок на муцката за профилна слика, броеви од регистри на огласот, па конечна проверка. Сè е предлог — поправи го она што камерата го прочитала погрешно.';
 
   @override
+  String get archiveTitle => 'Архива';
+
+  @override
+  String get archiveExplainer =>
+      'Умрените мачки и празните колонии што со години никој не ги допрел сепак заземаат простор — најмногу нивните фотографии. Архивирањето ги запишува во датотека што ја чувате и потоа ги брише оттука.';
+
+  @override
+  String get archiveAction => 'Архивирај';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Архивирај $count записи';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Да се архивираат $count записи?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names ќе бидат запишани во датотека и потоа избришани — на вашиот уред и на секој со кој синхронизирате. Увозот на датотеката враќа сè; без неа се изгубени.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Архивирани и избришани $count записи';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Ништо не е избришано: датотеката на архивата не можеше да се запише ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'База $db, фотографии $photos во $count датотеки';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Без промена $years години';
+  }
+
+  @override
+  String get nothingToArchive => 'Нема ништо доволно старо за архивирање.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Последна промена $date · фотографии $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Старите податоци чинат простор, најмногу фотографиите што ги носи секој синхронизиран уред. Тука избирате умрени мачки и празни колонии што со години мируваат, ги запишувате во датотека што ја чувате и ги бришете. Бришењето стигнува до сите со кои синхронизирате; увозот на датотеката враќа сè.';
+
+  @override
   String get locateAddress => 'Најди ја адресата на картата';
 
   @override

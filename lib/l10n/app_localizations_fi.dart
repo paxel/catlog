@@ -935,6 +935,64 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valokuvatusta ilmoituksesta tulee kissa ja sen omistaja. Vaihe vaiheelta: kissan tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.';
 
   @override
+  String get archiveTitle => 'Arkisto';
+
+  @override
+  String get archiveExplainer =>
+      'Kuolleet kissat ja tyhjät koloniat, joihin kukaan ei ole koskenut vuosiin, vievät silti tilaa — etenkin niiden kuvat. Arkistointi kirjoittaa ne tiedostoon, jonka säilytät, ja poistaa ne sitten täältä.';
+
+  @override
+  String get archiveAction => 'Arkistoi';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkistoi $count kohdetta';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arkistoidaanko $count kohdetta?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names kirjoitetaan tiedostoon ja poistetaan sitten — laitteeltasi ja jokaiselta laitteelta, jonka kanssa synkronoit. Tiedoston tuonti palauttaa kaiken; ilman sitä ne ovat poissa.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count kohdetta arkistoitu ja poistettu';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Mitään ei poistettu: arkistotiedostoa ei voitu kirjoittaa ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Tietokanta $db, kuvat $photos $count tiedostossa';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Hiljaa $years vuotta';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Mikään ei ole tarpeeksi vanhaa arkistoitavaksi.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Viimeisin muutos $date · kuvat $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Vanha tieto vie tilaa, ennen kaikkea kuvat, joita jokainen synkronoitu laite raahaa mukanaan. Täällä valitset kuolleet kissat ja tyhjät koloniat, jotka ovat olleet vuosia hiljaa, kirjoitat ne tiedostoon jonka säilytät, ja poistat ne. Poisto tavoittaa kaikki, joiden kanssa synkronoit; tiedoston tuonti palauttaa kaiken.';
+
+  @override
   String get locateAddress => 'Etsi osoite kartalta';
 
   @override

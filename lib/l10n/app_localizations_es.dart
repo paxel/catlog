@@ -938,6 +938,64 @@ class AppLocalizationsEs extends AppLocalizations {
       'Un cartel fotografiado se convierte en un gato y su dueño. Paso a paso: datos del gato, contacto del dueño, recorte de la cara para la foto de perfil, números de registro del cartel y una comprobación final. Todo son sugerencias: corrige lo que la cámara leyó mal.';
 
   @override
+  String get archiveTitle => 'Archivo';
+
+  @override
+  String get archiveExplainer =>
+      'Los gatos fallecidos y las colonias vacías que nadie ha tocado en años siguen ocupando espacio, sobre todo sus fotos. Archivar los escribe en un archivo que tú guardas y luego los borra de aquí.';
+
+  @override
+  String get archiveAction => 'Archivar';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivar $count entradas';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '¿Archivar $count entradas?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names se escribirán en un archivo y después se borrarán, en tu dispositivo y en todos con los que sincronizas. Importar el archivo lo devuelve todo; sin él, se pierden.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entradas archivadas y borradas';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'No se borró nada: no se pudo escribir el archivo ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Base de datos $db, fotos $photos en $count archivos';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Sin cambios desde hace $years años';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'No hay nada lo bastante antiguo para archivar.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Último cambio $date · fotos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Los datos viejos ocupan espacio, sobre todo las fotos, que cada dispositivo sincronizado arrastra. Aquí eliges gatos fallecidos y colonias vacías que llevan años quietos, los escribes en un archivo que guardas y los borras. El borrado llega a todos con quienes sincronizas; importar el archivo lo restaura todo.';
+
+  @override
   String get locateAddress => 'Buscar la dirección en el mapa';
 
   @override

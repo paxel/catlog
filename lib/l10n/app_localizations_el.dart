@@ -938,6 +938,64 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μια φωτογραφημένη αφίσα γίνεται γάτα μαζί με τον ιδιοκτήτη της. Βήμα βήμα: στοιχεία της γάτας, επαφή του ιδιοκτήτη, περικοπή προσώπου για τη φωτογραφία προφίλ, αριθμοί μητρώων από την αφίσα, και τέλος έλεγχος. Όλα είναι προτάσεις — διόρθωσε ό,τι διάβασε λάθος η κάμερα.';
 
   @override
+  String get archiveTitle => 'Αρχείο';
+
+  @override
+  String get archiveExplainer =>
+      'Οι γάτες που πέθαναν και οι άδειες αποικίες που κανείς δεν άγγιξε εδώ και χρόνια πιάνουν και πάλι χώρο — κυρίως οι φωτογραφίες τους. Η αρχειοθέτηση τις γράφει σε ένα αρχείο που κρατάς και μετά τις σβήνει από εδώ.';
+
+  @override
+  String get archiveAction => 'Αρχειοθέτηση';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Αρχειοθέτηση $count εγγραφών';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Να αρχειοθετηθούν $count εγγραφές;';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names θα γραφτούν σε ένα αρχείο και μετά θα διαγραφούν — στη συσκευή σου και σε κάθε συσκευή με την οποία συγχρονίζεις. Η εισαγωγή του αρχείου τα επαναφέρει· χωρίς αυτό, χάθηκαν.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Αρχειοθετήθηκαν και διαγράφηκαν $count εγγραφές';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Δεν διαγράφηκε τίποτα: το αρχείο δεν μπόρεσε να γραφτεί ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Βάση $db, φωτογραφίες $photos σε $count αρχεία';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Χωρίς αλλαγή $years χρόνια';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Τίποτα δεν είναι αρκετά παλιό για αρχειοθέτηση.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Τελευταία αλλαγή $date · φωτογραφίες $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Τα παλιά δεδομένα κοστίζουν χώρο, κυρίως οι φωτογραφίες που κουβαλά κάθε συγχρονισμένη συσκευή. Εδώ διαλέγεις γάτες που πέθαναν και άδειες αποικίες που μένουν ήσυχες χρόνια, τις γράφεις σε ένα αρχείο που κρατάς και τις σβήνεις. Η διαγραφή φτάνει σε όλους όσους συγχρονίζεις· η εισαγωγή του αρχείου τα επαναφέρει όλα.';
+
+  @override
   String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
 
   @override

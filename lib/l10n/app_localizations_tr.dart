@@ -934,6 +934,63 @@ class AppLocalizationsTr extends AppLocalizations {
       'Fotoğraflanan bir ilan, kediye ve sahibine dönüşür. Adım adım: kedinin bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.';
 
   @override
+  String get archiveTitle => 'Arşiv';
+
+  @override
+  String get archiveExplainer =>
+      'Yıllardır kimsenin dokunmadığı ölmüş kediler ve boş koloniler yine de yer kaplar — özellikle fotoğrafları. Arşivleme onları sakladığınız bir dosyaya yazar ve sonra buradan siler.';
+
+  @override
+  String get archiveAction => 'Arşivle';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count kaydı arşivle';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count kayıt arşivlensin mi?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bir dosyaya yazılacak ve sonra silinecek — cihazınızda ve eşitlediğiniz her cihazda. Dosyayı içe aktarmak her şeyi geri getirir; onsuz kaybolurlar.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count kayıt arşivlendi ve silindi';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Hiçbir şey silinmedi: arşiv dosyası yazılamadı ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Veritabanı $db, fotoğraflar $photos / $count dosya';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years yıldır değişmemiş';
+  }
+
+  @override
+  String get nothingToArchive => 'Arşivlenecek kadar eski bir şey yok.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Son değişiklik $date · fotoğraflar $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Eski veriler yer kaplar, özellikle her eşitlenen cihazın taşıdığı fotoğraflar. Burada yıllardır sessiz duran ölmüş kedileri ve boş kolonileri seçer, sakladığınız bir dosyaya yazar ve silersiniz. Silme, eşitlediğiniz herkese ulaşır; dosyayı içe aktarmak her şeyi geri yükler.';
+
+  @override
   String get locateAddress => 'Adresi haritada bul';
 
   @override

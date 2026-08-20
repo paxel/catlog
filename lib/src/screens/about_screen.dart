@@ -10,6 +10,7 @@ import '../l10n.dart';
 import '../event_toasts.dart';
 import '../spotlight.dart';
 import 'intro_screen.dart';
+import 'archive_screen.dart';
 import 'moderation_screen.dart';
 
 const _repoUrl = 'https://github.com/paxel/catlog';
@@ -39,6 +40,7 @@ class _AboutScreenState extends State<AboutScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     final showDonate = !Platform.isIOS;
+    final usage = widget.store.storageUsage();
     return Scaffold(
       appBar: AppBar(title: Text(t.about)),
       body: ListView(children: [
@@ -130,6 +132,20 @@ class _AboutScreenState extends State<AboutScreen> {
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => ToastSettingsScreen(store: widget.store),
           )),
+        ),
+        ListTile(
+          leading: const Icon(Icons.inventory_2_outlined),
+          title: Text(t.archiveTitle),
+          subtitle: Text(t.storageLine(
+              formatBytes(usage.dbBytes),
+              formatBytes(usage.photoBytes),
+              usage.photoCount)),
+          onTap: () async {
+            await Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => ArchiveScreen(store: widget.store),
+            ));
+            if (mounted) setState(() {});
+          },
         ),
         ListTile(
           leading: const Icon(Icons.person_off_outlined),

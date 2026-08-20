@@ -939,6 +939,63 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déantar cat agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an chait, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.';
 
   @override
+  String get archiveTitle => 'Cartlann';
+
+  @override
+  String get archiveExplainer =>
+      'Cait a fuair bás agus coilíneachtaí folmha nár bhain aon duine leo le blianta, tógann siad spás fós — go háirithe a gcuid grianghraf. Cuireann an chartlannú isteach i gcomhad iad a choinníonn tú, agus scriosann sé as seo iad ansin.';
+
+  @override
+  String get archiveAction => 'Cartlannaigh';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Cartlannaigh $count iontráil';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Cartlannaigh $count iontráil?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return 'Scríobhfar $names i gcomhad agus scriosfar ansin iad — ar do ghléas agus ar gach gléas a shioncronaíonn tú leis. Cuireann iompórtáil an chomhaid gach rud ar ais; gan é, tá siad imithe.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Cartlannaíodh agus scriosadh $count iontráil';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Níor scriosadh aon rud: níorbh fhéidir comhad na cartlainne a scríobh ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Bunachar $db, grianghraif $photos i $count comhad';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Gan athrú le $years bliana';
+  }
+
+  @override
+  String get nothingToArchive => 'Níl aon rud sean go leor le cartlannú.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Athrú deireanach $date · grianghraif $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Cosnaíonn sonraí sean spás, go háirithe na grianghraif a iompraíonn gach gléas sioncronaithe. Anseo roghnaíonn tú cait a fuair bás agus coilíneachtaí folmha atá ciúin le blianta, scríobhann tú i gcomhad iad a choinníonn tú, agus scriosann tú iad. Sroicheann an scriosadh gach duine a shioncronaíonn tú leis; cuireann iompórtáil an chomhaid gach rud ar ais.';
+
+  @override
   String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
 
   @override

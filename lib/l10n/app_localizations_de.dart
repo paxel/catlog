@@ -939,6 +939,63 @@ class AppLocalizationsDe extends AppLocalizations {
       'Aus einem fotografierten Vermisst-Aushang wird eine Katze samt Besitzer. Schritt für Schritt: Daten der Katze, Kontakt des Besitzers, Gesicht ausschneiden fürs Profilbild, Register-Nummern vom Aushang, dann die letzte Kontrolle. Alles sind Vorschläge — korrigiere, was die Kamera falsch gelesen hat.';
 
   @override
+  String get archiveTitle => 'Archiv';
+
+  @override
+  String get archiveExplainer =>
+      'Verstorbene Katzen und leere Kolonien, die seit Jahren niemand angefasst hat, kosten trotzdem Platz — vor allem ihre Fotos. Beim Archivieren werden sie in eine Datei geschrieben, die du behältst, und danach hier gelöscht.';
+
+  @override
+  String get archiveAction => 'Archivieren';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count Einträge archivieren';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count Einträge archivieren?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names werden in eine Datei geschrieben und danach gelöscht — auf deinem Gerät und auf jedem Gerät, mit dem du synchronisierst. Die Datei zu importieren holt alles zurück; ohne sie sind sie weg.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count Einträge archiviert und gelöscht';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Es wurde nichts gelöscht: Die Archivdatei konnte nicht geschrieben werden ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Datenbank $db, Fotos $photos in $count Dateien';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Seit $years Jahren ruhig';
+  }
+
+  @override
+  String get nothingToArchive => 'Nichts ist alt genug zum Archivieren.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Letzte Änderung $date · Fotos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Alte Daten kosten Platz, vor allem die Fotos, die jedes synchronisierte Gerät mitschleppt. Hier wählst du verstorbene Katzen und leere Kolonien aus, die seit Jahren ruhig sind, schreibst sie in eine Datei, die du behältst, und löschst sie. Das Löschen erreicht alle, mit denen du synchronisierst; der Import der Datei stellt alles wieder her.';
+
+  @override
   String get locateAddress => 'Adresse auf der Karte suchen';
 
   @override

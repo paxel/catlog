@@ -904,6 +904,63 @@ class AppLocalizationsZh extends AppLocalizations {
       '拍下的启事会变成一只猫和它的主人。逐步进行：猫的资料、主人联系方式、裁出头像、启事上的登记编号，最后确认。所有内容都是建议——相机认错的地方请修改。';
 
   @override
+  String get archiveTitle => '归档';
+
+  @override
+  String get archiveExplainer =>
+      '多年无人过问的已故猫和空猫群仍然占用空间，尤其是它们的照片。归档会把它们写入一个由你保存的文件，然后从这里删除。';
+
+  @override
+  String get archiveAction => '归档';
+
+  @override
+  String archiveSelected(int count) {
+    return '归档 $count 条';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '要归档 $count 条吗？';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names 将被写入文件后删除——在你的设备上，以及所有与你同步的设备上。导入该文件可全部恢复；没有它就找不回来了。';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '已归档并删除 $count 条';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return '未删除任何内容：归档文件写入失败（$error）。';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return '数据库 $db，照片 $photos，共 $count 个文件';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years 年无变化';
+  }
+
+  @override
+  String get nothingToArchive => '没有足够久远的内容可归档。';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return '最后更改 $date · 照片 $size';
+  }
+
+  @override
+  String get helpArchive =>
+      '旧数据占用空间，尤其是每台同步设备都要携带的照片。在这里你可以挑选多年没有变化的已故猫和空猫群，写入一个自己保存的文件，然后删除它们。删除会传达给所有与你同步的人；导入该文件可全部恢复。';
+
+  @override
   String get locateAddress => '在地图上查找地址';
 
   @override

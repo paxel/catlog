@@ -935,6 +935,63 @@ class AppLocalizationsBs extends AppLocalizations {
       'Fotografirani letak postaje mačka i njezin vlasnik. Korak po korak: podaci mačke, kontakt vlasnika, izrezivanje njuške za profilnu sliku, brojevi registara s letka, pa završna provjera. Sve su to prijedlozi — ispravi ono što je kamera krivo pročitala.';
 
   @override
+  String get archiveTitle => 'Arhiva';
+
+  @override
+  String get archiveExplainer =>
+      'Uginule mačke i prazne kolonije koje niko nije dirao godinama i dalje zauzimaju prostor — najviše njihove fotografije. Arhiviranje ih upisuje u fajl koji zadržiš i zatim ih briše odavde.';
+
+  @override
+  String get archiveAction => 'Arhiviraj';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhiviraj $count unosa';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhivirati $count unosa?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names će biti upisani u fajl i zatim izbrisani — na tvom uređaju i na svakom s kojim sinhronizuješ. Uvoz fajla vraća sve; bez njega su izgubljeni.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhivirano i izbrisano $count unosa';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Ništa nije izbrisano: fajl arhive nije bilo moguće zapisati ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Baza $db, fotografije $photos u $count fajlova';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bez promjena $years godina';
+  }
+
+  @override
+  String get nothingToArchive => 'Ništa nije dovoljno staro za arhiviranje.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Zadnja promjena $date · fotografije $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Stari podaci troše prostor, najviše fotografije koje nosi svaki sinhronizovani uređaj. Ovdje biraš uginule mačke i prazne kolonije koje godinama miruju, upisuješ ih u fajl koji zadržiš i brišeš ih. Brisanje stiže do svih s kojima sinhronizuješ; uvoz fajla vraća sve.';
+
+  @override
   String get locateAddress => 'Pronađi adresu na karti';
 
   @override

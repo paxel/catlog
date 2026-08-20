@@ -938,6 +938,63 @@ class AppLocalizationsIt extends AppLocalizations {
       'Un volantino fotografato diventa un gatto e il suo proprietario. Passo dopo passo: dati del gatto, contatto del proprietario, ritaglio del muso per la foto profilo, numeri di registro sul volantino, poi il controllo finale. Sono tutti suggerimenti: correggi ciò che la fotocamera ha letto male.';
 
   @override
+  String get archiveTitle => 'Archivio';
+
+  @override
+  String get archiveExplainer =>
+      'I gatti deceduti e le colonie vuote che nessuno tocca da anni occupano comunque spazio, soprattutto le loro foto. Archiviare li scrive in un file che tieni tu e poi li elimina da qui.';
+
+  @override
+  String get archiveAction => 'Archivia';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivia $count voci';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archiviare $count voci?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names verranno scritti in un file e poi eliminati — sul tuo dispositivo e su ogni dispositivo con cui sincronizzi. Importare il file riporta tutto; senza, sono persi.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count voci archiviate ed eliminate';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Non è stato eliminato nulla: il file di archivio non è stato scritto ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, foto $photos in $count file';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Ferme da $years anni';
+  }
+
+  @override
+  String get nothingToArchive => 'Niente di abbastanza vecchio da archiviare.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ultima modifica $date · foto $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'I dati vecchi costano spazio, soprattutto le foto che ogni dispositivo sincronizzato si porta dietro. Qui scegli gatti deceduti e colonie vuote ferme da anni, li scrivi in un file che tieni tu e li elimini. L\'eliminazione raggiunge tutti quelli con cui sincronizzi; importare il file ripristina tutto.';
+
+  @override
   String get locateAddress => 'Trova l\'indirizzo sulla mappa';
 
   @override

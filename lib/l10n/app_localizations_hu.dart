@@ -934,6 +934,63 @@ class AppLocalizationsHu extends AppLocalizations {
       'Egy lefotózott plakátból macska lesz a gazdájával együtt. Lépésről lépésre: a macska adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.';
 
   @override
+  String get archiveTitle => 'Archívum';
+
+  @override
+  String get archiveExplainer =>
+      'Az elhunyt macskák és üres kolóniák, amikhez évek óta senki nem nyúlt, továbbra is helyet foglalnak — főleg a fotóik. Az archiválás fájlba írja őket, amit megtartasz, majd innen törli őket.';
+
+  @override
+  String get archiveAction => 'Archiválás';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count tétel archiválása';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archiválsz $count tételt?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names fájlba kerülnek, majd törlődnek — a te eszközödön és minden eszközön, amivel szinkronizálsz. A fájl importálása mindent visszahoz; nélküle elvesznek.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count tétel archiválva és törölve';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Semmi sem törlődött: az archívumfájlt nem sikerült megírni ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Adatbázis $db, fotók $photos $count fájlban';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years éve változatlan';
+  }
+
+  @override
+  String get nothingToArchive => 'Semmi nem elég régi az archiváláshoz.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Utolsó változás $date · fotók $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'A régi adat helyet foglal, főleg a fotók, amiket minden szinkronizált eszköz cipel. Itt kiválasztod az évek óta változatlan elhunyt macskákat és üres kolóniákat, fájlba írod őket, amit megtartasz, és törlöd őket. A törlés mindenkihez eljut, akivel szinkronizálsz; a fájl importálása mindent visszaállít.';
+
+  @override
   String get locateAddress => 'Cím keresése a térképen';
 
   @override

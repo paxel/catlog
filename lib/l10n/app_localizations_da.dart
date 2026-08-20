@@ -934,6 +934,63 @@ class AppLocalizationsDa extends AppLocalizations {
       'Et fotograferet opslag bliver til en kat plus ejer. Trin for trin: kattens data, ejerens kontakt, beskæring af ansigtet til profilbilledet, registernumre fra opslaget og til sidst et tjek. Alt er forslag — ret det, kameraet læste forkert.';
 
   @override
+  String get archiveTitle => 'Arkiv';
+
+  @override
+  String get archiveExplainer =>
+      'Afdøde katte og tomme kolonier, som ingen har rørt i årevis, fylder stadig — især deres fotos. Arkivering skriver dem til en fil, du gemmer, og sletter dem derefter her.';
+
+  @override
+  String get archiveAction => 'Arkivér';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivér $count poster';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arkivér $count poster?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names skrives til en fil og slettes derefter — på din enhed og på alle enheder, du synkroniserer med. Importerer du filen, er alt tilbage; uden den er de væk.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count poster arkiveret og slettet';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Intet blev slettet: arkivfilen kunne ikke skrives ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, fotos $photos i $count filer';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Uden ændringer i $years år';
+  }
+
+  @override
+  String get nothingToArchive => 'Intet er gammelt nok til at arkivere.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Sidste ændring $date · fotos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Gamle data fylder, især billederne, som hver synkroniseret enhed slæber rundt på. Her vælger du afdøde katte og tomme kolonier, der har ligget stille i årevis, skriver dem til en fil, du gemmer, og sletter dem. Sletningen når alle, du synkroniserer med; import af filen gendanner alt.';
+
+  @override
   String get locateAddress => 'Find adressen på kortet';
 
   @override

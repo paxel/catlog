@@ -931,6 +931,63 @@ class AppLocalizationsAr extends AppLocalizations {
       'منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
 
   @override
+  String get archiveTitle => 'الأرشيف';
+
+  @override
+  String get archiveExplainer =>
+      'القطط المتوفاة والمستعمرات الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
+
+  @override
+  String get archiveAction => 'أرشفة';
+
+  @override
+  String archiveSelected(int count) {
+    return 'أرشفة $count عنصرًا';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'أرشفة $count عنصرًا؟';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return 'سيُكتب $names في ملف ثم يُحذف — على جهازك وعلى كل جهاز تزامن معه. استيراد الملف يعيد كل شيء؛ وبدونه تضيع.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'تمت أرشفة وحذف $count عنصرًا';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'لم يُحذف شيء: تعذّرت كتابة ملف الأرشيف ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'قاعدة البيانات $db، الصور $photos في $count ملفات';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'بلا تغيير منذ $years سنوات';
+  }
+
+  @override
+  String get nothingToArchive => 'لا يوجد ما هو قديم بما يكفي للأرشفة.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'آخر تغيير $date · الصور $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
+
+  @override
   String get locateAddress => 'ابحث عن العنوان على الخريطة';
 
   @override

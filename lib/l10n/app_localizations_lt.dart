@@ -936,6 +936,63 @@ class AppLocalizationsLt extends AppLocalizations {
       'Nufotografuotas skelbimas virsta kate ir jos savininku. Žingsnis po žingsnio: katės duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.';
 
   @override
+  String get archiveTitle => 'Archyvas';
+
+  @override
+  String get archiveExplainer =>
+      'Nugaišusios katės ir tuščios kolonijos, kurių niekas nelietė metų metus, vis tiek užima vietą — ypač jų nuotraukos. Archyvavimas įrašo jas į failą, kurį pasiliekate, ir tada ištrina iš čia.';
+
+  @override
+  String get archiveAction => 'Archyvuoti';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archyvuoti $count įrašų';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archyvuoti $count įrašų?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bus įrašyti į failą ir tada ištrinti — jūsų įrenginyje ir kiekviename, su kuriuo sinchronizuojate. Failo importas viską grąžina; be jo jie prarasti.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Archyvuota ir ištrinta įrašų: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nieko neištrinta: nepavyko įrašyti archyvo failo ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Duomenų bazė $db, nuotraukos $photos $count failuose';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Nekeista $years metus';
+  }
+
+  @override
+  String get nothingToArchive => 'Nėra nieko pakankamai seno archyvuoti.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Paskutinis pakeitimas $date · nuotraukos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Seni duomenys kainuoja vietos, ypač nuotraukos, kurias tempia kiekvienas sinchronizuotas įrenginys. Čia pasirenkate metų metus nejudėjusias nugaišusias kates ir tuščias kolonijas, įrašote jas į failą, kurį pasiliekate, ir ištrinate. Ištrynimas pasiekia visus, su kuriais sinchronizuojate; failo importas viską atkuria.';
+
+  @override
   String get locateAddress => 'Rasti adresą žemėlapyje';
 
   @override

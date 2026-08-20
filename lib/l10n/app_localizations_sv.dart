@@ -934,6 +934,63 @@ class AppLocalizationsSv extends AppLocalizations {
       'Ett fotograferat anslag blir en katt plus ägare. Steg för steg: kattens uppgifter, ägarens kontakt, beskärning av ansiktet till profilbilden, registernummer från anslaget och sedan en sista koll. Allt är förslag — rätta det kameran läste fel.';
 
   @override
+  String get archiveTitle => 'Arkiv';
+
+  @override
+  String get archiveExplainer =>
+      'Avlidna katter och tomma kolonier som ingen rört på flera år tar ändå plats — framför allt deras foton. Arkivering skriver dem till en fil du behåller och raderar dem sedan här.';
+
+  @override
+  String get archiveAction => 'Arkivera';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivera $count poster';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arkivera $count poster?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names skrivs till en fil och raderas sedan — på din enhet och på varje enhet du synkar med. Importerar du filen kommer allt tillbaka; utan den är de borta.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count poster arkiverade och raderade';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Inget raderades: arkivfilen kunde inte skrivas ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Databas $db, foton $photos i $count filer';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Orörda i $years år';
+  }
+
+  @override
+  String get nothingToArchive => 'Inget är gammalt nog att arkivera.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Senaste ändring $date · foton $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Gamla data kostar plats, framför allt bilderna som varje synkad enhet bär med sig. Här väljer du avlidna katter och tomma kolonier som legat stilla i åratal, skriver dem till en fil du behåller och raderar dem. Raderingen når alla du synkar med; att importera filen återställer allt.';
+
+  @override
   String get locateAddress => 'Hitta adressen på kartan';
 
   @override

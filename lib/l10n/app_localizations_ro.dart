@@ -936,6 +936,63 @@ class AppLocalizationsRo extends AppLocalizations {
       'Un afiș fotografiat devine o pisică plus stăpânul ei. Pas cu pas: datele pisicii, contactul stăpânului, decuparea feței pentru poza de profil, numerele de registru de pe afiș, apoi o verificare finală. Totul e sugestie — corectează ce a citit greșit camera.';
 
   @override
+  String get archiveTitle => 'Arhivă';
+
+  @override
+  String get archiveExplainer =>
+      'Pisicile decedate și coloniile goale de care nu s-a atins nimeni de ani de zile tot ocupă spațiu — mai ales pozele lor. Arhivarea le scrie într-un fișier pe care îl păstrezi și apoi le șterge de aici.';
+
+  @override
+  String get archiveAction => 'Arhivează';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhivează $count intrări';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhivezi $count intrări?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names vor fi scrise într-un fișier și apoi șterse — de pe dispozitivul tău și de pe fiecare dispozitiv cu care sincronizezi. Importul fișierului aduce totul înapoi; fără el, sunt pierdute.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count intrări arhivate și șterse';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nu s-a șters nimic: fișierul de arhivă nu a putut fi scris ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Bază de date $db, poze $photos în $count fișiere';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Fără schimbări de $years ani';
+  }
+
+  @override
+  String get nothingToArchive => 'Nimic destul de vechi pentru arhivare.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ultima modificare $date · poze $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Datele vechi costă spațiu, mai ales pozele pe care fiecare dispozitiv sincronizat le cară. Aici alegi pisici decedate și colonii goale liniștite de ani de zile, le scrii într-un fișier pe care îl păstrezi și le ștergi. Ștergerea ajunge la toți cei cu care sincronizezi; importul fișierului restaurează totul.';
+
+  @override
   String get locateAddress => 'Caută adresa pe hartă';
 
   @override

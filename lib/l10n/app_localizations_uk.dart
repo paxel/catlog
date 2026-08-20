@@ -934,6 +934,64 @@ class AppLocalizationsUk extends AppLocalizations {
       'Зі сфотографованого оголошення виходить кіт разом із власником. Крок за кроком: дані кота, контакт власника, обрізання мордочки для фото профілю, номери реєстрів з оголошення і остаточна перевірка. Усе це пропозиції — виправте те, що камера прочитала хибно.';
 
   @override
+  String get archiveTitle => 'Архів';
+
+  @override
+  String get archiveExplainer =>
+      'Померлі коти й порожні колонії, до яких роками ніхто не торкався, однаково займають місце — надто їхні фотографії. Архівація записує їх у файл, який ви зберігаєте, і потім видаляє їх звідси.';
+
+  @override
+  String get archiveAction => 'Архівувати';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Архівувати $count записів';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Архівувати $count записів?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names буде записано у файл і потім видалено — на вашому пристрої та на всіх, з якими ви синхронізуєтеся. Імпорт файлу поверне все; без нього вони втрачені.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Архівовано та видалено записів: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Нічого не видалено: не вдалося записати файл архіву ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'База даних $db, фото $photos у $count файлах';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Без змін $years років';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Немає нічого достатньо старого для архівації.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Остання зміна $date · фото $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Старі дані займають місце, передусім фотографії, які тягне за собою кожен синхронізований пристрій. Тут ви обираєте померлих котів і порожні колонії, що роками не змінювалися, записуєте їх у файл, який зберігаєте, і видаляєте. Видалення сягає всіх, з ким ви синхронізуєтеся; імпорт файлу відновлює все.';
+
+  @override
   String get locateAddress => 'Знайти адресу на карті';
 
   @override

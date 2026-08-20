@@ -935,6 +935,63 @@ class AppLocalizationsSl extends AppLocalizations {
       'Fotografiran letak postane mačka in njen lastnik. Korak za korakom: podatki mačke, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.';
 
   @override
+  String get archiveTitle => 'Arhiv';
+
+  @override
+  String get archiveExplainer =>
+      'Poginule mačke in prazne kolonije, ki se jih leta nihče ni dotaknil, še vedno zavzemajo prostor — predvsem njihove fotografije. Arhiviranje jih zapiše v datoteko, ki jo obdržiš, in jih nato izbriše od tod.';
+
+  @override
+  String get archiveAction => 'Arhiviraj';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhiviraj $count vnosov';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhiviram $count vnosov?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bodo zapisani v datoteko in nato izbrisani — na tvoji napravi in na vsaki, s katero sinhroniziraš. Uvoz datoteke vse vrne; brez nje so izgubljeni.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhiviranih in izbrisanih $count vnosov';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nič ni bilo izbrisano: datoteke arhiva ni bilo mogoče zapisati ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Zbirka $db, fotografije $photos v $count datotekah';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Brez sprememb $years let';
+  }
+
+  @override
+  String get nothingToArchive => 'Nič ni dovolj staro za arhiviranje.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Zadnja sprememba $date · fotografije $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Stari podatki stanejo prostor, predvsem fotografije, ki jih nosi vsaka sinhronizirana naprava. Tu izbereš poginule mačke in prazne kolonije, ki leta mirujejo, jih zapišeš v datoteko, ki jo obdržiš, in jih izbrišeš. Izbris doseže vse, s katerimi sinhroniziraš; uvoz datoteke vse obnovi.';
+
+  @override
   String get locateAddress => 'Poišči naslov na zemljevidu';
 
   @override

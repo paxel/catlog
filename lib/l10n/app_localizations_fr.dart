@@ -939,6 +939,63 @@ class AppLocalizationsFr extends AppLocalizations {
       'Une affiche photographiée devient un chat et son propriétaire. Étape par étape : données du chat, contact du propriétaire, recadrage du visage pour la photo de profil, numéros de registre sur l\'affiche, puis vérification finale. Tout n\'est que suggestion — corrigez ce que l\'appareil a mal lu.';
 
   @override
+  String get archiveTitle => 'Archives';
+
+  @override
+  String get archiveExplainer =>
+      'Les chats décédés et les colonies vides que personne n\'a touchés depuis des années prennent quand même de la place — surtout leurs photos. L\'archivage les écrit dans un fichier que vous gardez, puis les supprime ici.';
+
+  @override
+  String get archiveAction => 'Archiver';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archiver $count entrées';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archiver $count entrées ?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names seront écrits dans un fichier puis supprimés — sur votre appareil et sur tous ceux avec lesquels vous synchronisez. Importer le fichier ramène tout ; sans lui, c\'est perdu.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entrées archivées et supprimées';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Rien n\'a été supprimé : le fichier d\'archive n\'a pas pu être écrit ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Base $db, photos $photos dans $count fichiers';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Sans activité depuis $years ans';
+  }
+
+  @override
+  String get nothingToArchive => 'Rien d\'assez ancien à archiver.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Dernière modification $date · photos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Les vieilles données coûtent de la place, surtout les photos que chaque appareil synchronisé transporte. Ici vous choisissez des chats décédés et des colonies vides restés inactifs des années, vous les écrivez dans un fichier que vous gardez, et vous les supprimez. La suppression atteint toutes les personnes avec qui vous synchronisez ; importer le fichier restaure tout.';
+
+  @override
   String get locateAddress => 'Trouver l\'adresse sur la carte';
 
   @override
