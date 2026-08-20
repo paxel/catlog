@@ -81,6 +81,7 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
   final _kept = <int>{};
   double _scrub = 0;
   Uint8List? _preview;
+  int? _previewMs;
   bool _busy = true;
 
   @override
@@ -107,14 +108,29 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
     });
   }
 
-  Future<void> _grabAtScrub() async {
+  /// Live preview while scrubbing: extracting every drag tick is too
+  /// heavy, so the frame loads when the finger settles.
+  Future<void> _previewAtScrub() async {
     final ms = _scrub.round();
     final bytes = await widget.extractFrame(ms);
+    if (bytes != null && mounted) {
+      setState(() {
+        _preview = bytes;
+        _previewMs = ms;
+      });
+    }
+  }
+
+  Future<void> _grabAtScrub() async {
+    final ms = _scrub.round();
+    final bytes =
+        _previewMs == ms ? _preview : await widget.extractFrame(ms);
     if (bytes != null && mounted) {
       setState(() {
         _frames[ms] = bytes;
         _kept.add(ms);
         _preview = bytes;
+        _previewMs = ms;
       });
     }
   }
@@ -186,7 +202,10 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.memory(_preview!,
-                        height: 160, fit: BoxFit.contain),
+                        key: const ValueKey('scrub-preview'),
+                        gaplessPlayback: true,
+                        height: 160,
+                        fit: BoxFit.contain),
                   ),
                 ),
               Slider(
@@ -194,6 +213,7 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
                     0, widget.duration.inMilliseconds.toDouble()),
                 max: widget.duration.inMilliseconds.toDouble(),
                 onChanged: (v) => setState(() => _scrub = v),
+                onChangeEnd: (_) => _previewAtScrub(),
               ),
               FilledButton.icon(
                 icon: const Icon(Icons.add_a_photo),

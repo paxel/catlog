@@ -70,6 +70,13 @@ void main() {
     ));
     await tester.tap(find.text('go'));
     await tester.pumpAndSettle();
+    // Scrubbing alone shows the frame at that position — before any keep.
+    expect(find.byKey(const ValueKey('scrub-preview')), findsNothing);
+    await tester.scrollUntilVisible(find.byType(Slider), 200,
+        scrollable: find.byType(Scrollable).first);
+    await tester.drag(find.byType(Slider), const Offset(60, 0));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('scrub-preview')), findsOneWidget);
     // Suggestions rendered; keep one via tap, plus a scrubbed grab.
     await tester.tap(find.byType(GestureDetector).first);
     await tester.pumpAndSettle();

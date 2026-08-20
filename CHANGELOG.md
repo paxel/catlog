@@ -20,6 +20,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - Cat and clowder pages refresh immediately after a revert on the
   timeline or photos extracted from a video — no reopening needed.
+- Scrubbing through a video shows the frame at the current position
+  right away, not only after keeping it.
 
 ---
 
