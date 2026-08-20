@@ -884,6 +884,60 @@ class AppLocalizationsIs extends AppLocalizations {
   String get dangerThanks => 'Takk fyrir að nota cat(a)log!';
 
   @override
+  String get helpTitle => 'Hjálp';
+
+  @override
+  String get showTipsAgain => 'Sýna ábendingar aftur';
+
+  @override
+  String get helpHome =>
+      'Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis.';
+
+  @override
+  String get helpClowder =>
+      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.';
+
+  @override
+  String get helpCat =>
+      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lestrar þar til þú ýtir á blýantinn. Haltu reit inni til að fara beint í breytingu hans; mynd til að opna valmynd hennar. Valmyndin efst til hægri geymir afganginn: einkamál, fela, sameina, skrá athugun, deila.';
+
+  @override
+  String get helpStrays =>
+      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.';
+
+  @override
+  String get helpMap =>
+      'Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
+
+  @override
+  String get helpCard =>
+      'Prentanlegt spjald kattarins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér.';
+
+  @override
+  String get helpFields =>
+      'Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá kettinum.';
+
+  @override
+  String get helpTimeline =>
+      'Sérhver breyting sem gerð hefur verið, sú nýjasta efst: hver breytti hverju, hvenær og í hvaða gildi. Hverja færslu má afturkalla — það skrifar nýja færslu, engu er nokkurn tíma eytt.';
+
+  @override
+  String get helpDuplicates =>
+      'Kettir eða nýlendur sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.';
+
+  @override
+  String get helpMatches =>
+      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.';
+
+  @override
+  String get helpFlier =>
+      'Ljósmynduð auglýsing verður að ketti ásamt eiganda. Skref fyrir skref: gögn kattarins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.';
+
+  @override
   String get locateAddress => 'Finna heimilisfang á korti';
 
   @override

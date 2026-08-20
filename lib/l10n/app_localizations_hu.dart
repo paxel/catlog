@@ -880,6 +880,60 @@ class AppLocalizationsHu extends AppLocalizations {
   String get dangerThanks => 'Köszönjük, hogy a cat(a)logot használod!';
 
   @override
+  String get helpTitle => 'Súgó';
+
+  @override
+  String get showTipsAgain => 'Tippek újra';
+
+  @override
+  String get helpHome =>
+      'A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt.';
+
+  @override
+  String get helpClowder =>
+      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod.';
+
+  @override
+  String get helpCat =>
+      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mezőt hosszan nyomva egyből a szerkesztésébe ugorsz; egy fotót hosszan nyomva a menüje nyílik. A jobb felső menüben van a többi: priváttá tétel, elrejtés, összevonás, észlelés rögzítése, megosztás.';
+
+  @override
+  String get helpStrays =>
+      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot.';
+
+  @override
+  String get helpMap =>
+      'Minden macska és hely, aminek van pozíciója. A keresés macskát, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt macska plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz.';
+
+  @override
+  String get helpCard =>
+      'A macska nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg.';
+
+  @override
+  String get helpFields =>
+      'A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a macskánál koppintható lesz.';
+
+  @override
+  String get helpTimeline =>
+      'Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.';
+
+  @override
+  String get helpDuplicates =>
+      'Macskák vagy kolóniák, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.';
+
+  @override
+  String get helpMatches =>
+      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.';
+
+  @override
+  String get helpFlier =>
+      'Egy lefotózott plakátból macska lesz a gazdájával együtt. Lépésről lépésre: a macska adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.';
+
+  @override
   String get locateAddress => 'Cím keresése a térképen';
 
   @override

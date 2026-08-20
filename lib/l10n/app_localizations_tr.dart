@@ -880,6 +880,60 @@ class AppLocalizationsTr extends AppLocalizations {
   String get dangerThanks => 'cat(a)log kullandığınız için teşekkürler!';
 
   @override
+  String get helpTitle => 'Yardım';
+
+  @override
+  String get showTipsAgain => 'İpuçlarını tekrar göster';
+
+  @override
+  String get helpHome =>
+      'Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar.';
+
+  @override
+  String get helpClowder =>
+      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar.';
+
+  @override
+  String get helpCat =>
+      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun basmak doğrudan düzenlemeye götürür; bir fotoğrafa uzun basmak menüsünü açar. Sağ üstteki menüde gerisi var: özel işaretle, gizle, birleştir, görülme kaydet, paylaş.';
+
+  @override
+  String get helpStrays =>
+      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur.';
+
+  @override
+  String get helpMap =>
+      'Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
+
+  @override
+  String get helpCard =>
+      'Kedinin yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR\'a ve kısa bir Plus Code\'a dönüşür.';
+
+  @override
+  String get helpSync =>
+      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır.';
+
+  @override
+  String get helpFields =>
+      'Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara kedide tıklanabilir olur.';
+
+  @override
+  String get helpTimeline =>
+      'Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.';
+
+  @override
+  String get helpDuplicates =>
+      'İki kez var gibi görünen kediler ya da koloniler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.';
+
+  @override
+  String get helpMatches =>
+      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.';
+
+  @override
+  String get helpFlier =>
+      'Fotoğraflanan bir ilan, kediye ve sahibine dönüşür. Adım adım: kedinin bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.';
+
+  @override
   String get locateAddress => 'Adresi haritada bul';
 
   @override

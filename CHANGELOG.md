@@ -18,6 +18,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   street or town instead of centering it in a country-wide view); and
   two arrows glide from pin to pin in nearest-neighbor order.
 
+- **Help on every page**: a "?" in the app bar explains what the page
+  is for, what you can do there, and what tap and long-press do — plus a
+  button that shows that page's tips again.
+
 - **Flier scan is a wizard**: cat, owner, face crop, registry, and a
   final check — one step per page, so the profile picture and the
   poster's contact details no longer get skipped by accident. Phone and

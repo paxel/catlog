@@ -882,6 +882,60 @@ class AppLocalizationsPt extends AppLocalizations {
   String get dangerThanks => 'Obrigado por usares o cat(a)log!';
 
   @override
+  String get helpTitle => 'Ajuda';
+
+  @override
+  String get showTipsAgain => 'Mostrar as dicas outra vez';
+
+  @override
+  String get helpHome =>
+      'A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa.';
+
+  @override
+  String get helpClowder =>
+      'Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o.';
+
+  @override
+  String get helpCat =>
+      'Tudo sobre este gato: fotos, campos, família, histórico. A página fica só de leitura até tocares no lápis. Manter premido um campo abre logo a edição; numa foto abre o menu dela. O menu no canto superior direito tem o resto: marcar privado, esconder, fundir, registar avistamento, partilhar.';
+
+  @override
+  String get helpStrays =>
+      'Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz.';
+
+  @override
+  String get helpMap =>
+      'Todos os gatos e sítios com posição. A pesquisa encontra gatos, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um gato desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento.';
+
+  @override
+  String get helpCard =>
+      'O cartão imprimível deste gato: escolhe em cima com as etiquetas o que aparece e partilha-o como imagem ou PDF. Os números podem sair em QR ou código de barras, e uma posição vira um QR que abre um mapa, mais um Plus Code curto.';
+
+  @override
+  String get helpSync =>
+      'Como os dados chegam a outras pessoas: ligar diretamente, usar uma pasta que os dois dispositivos veem, ou enviar um ficheiro por mensagem. És sempre tu a decidir o que sai — e os ficheiros .catsync recebidos abrem-se aqui.';
+
+  @override
+  String get helpFields =>
+      'Os campos que o teu catálogo usa. Muda-lhes o nome, altera as opções de um campo de escolha ou cria os teus. Um campo de identificação pode apontar para um serviço (um registo): assim o número fica tocável no gato.';
+
+  @override
+  String get helpTimeline =>
+      'Todas as alterações já feitas, a mais recente primeiro: quem mudou o quê, quando e para que valor. Qualquer entrada pode ser revertida — isso escreve uma entrada nova, nada é apagado.';
+
+  @override
+  String get helpDuplicates =>
+      'Gatos ou colónias que parecem existir duas vezes — identificadores iguais ou nomes muito parecidos com detalhes a condizer. Toca num par para o fundir; não dá para desfazer, por isso pergunta antes.';
+
+  @override
+  String get helpMatches =>
+      'Gatos que podem ser o mesmo animal: identificador igual, ou um vadio visto dentro da área de procura de um gato desaparecido. Toca num par para fundir, mantém premido para abrir o primeiro gato e comparar.';
+
+  @override
+  String get helpFlier =>
+      'Um cartaz fotografado torna-se um gato e o seu dono. Passo a passo: dados do gato, contacto do dono, recorte da cara para a foto de perfil, números de registo do cartaz e uma verificação final. Tudo são sugestões — corrige o que a câmara leu mal.';
+
+  @override
   String get locateAddress => 'Procurar a morada no mapa';
 
   @override

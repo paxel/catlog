@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'dart:async';
 
+import '../help.dart';
 import '../geocode.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -434,6 +435,7 @@ class _MapScreenState extends State<MapScreen>
       appBar: AppBar(
         title: Text(context.t.map),
         actions: [
+          HelpButton(store: store, screenId: 'map'),
           Spotlight(
             id: 'map-layers',
             child: IconButton(

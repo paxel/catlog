@@ -885,6 +885,60 @@ class AppLocalizationsDe extends AppLocalizations {
   String get dangerThanks => 'Danke, dass du cat(a)log benutzt!';
 
   @override
+  String get helpTitle => 'Hilfe';
+
+  @override
+  String get showTipsAgain => 'Tipps nochmal zeigen';
+
+  @override
+  String get helpHome =>
+      'Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause.';
+
+  @override
+  String get helpClowder =>
+      'Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie.';
+
+  @override
+  String get helpCat =>
+      'Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: privat markieren, ausblenden, zusammenführen, Sichtung eintragen, Katze teilen.';
+
+  @override
+  String get helpStrays =>
+      'Katzen, die gerade kein Zuhause haben: Fundkatzen, entlaufene Katzen, Katzen von einem Aushang. Der Kamera-Knopf hält eine Katze fest, die vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat eine Katze samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat.';
+
+  @override
+  String get helpMap =>
+      'Alle Katzen und Orte mit Position. Die Suche findet Katzen, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte einer vermissten Katze und um ihr altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein.';
+
+  @override
+  String get helpCard =>
+      'Die druckbare Karte dieser Katze: Oben wählst du mit den Chips aus, was daraufsteht, dann teilst du sie als Bild oder PDF. IDs können als QR-Code oder Barcode gedruckt werden, und aus einer Position wird ein QR-Code, der eine Karte öffnet, plus ein kurzer Plus Code.';
+
+  @override
+  String get helpSync =>
+      'So kommen Daten zu anderen Leuten: direkt verbinden, wenn ihr euch trefft, einen Ordner nutzen, den beide Geräte sehen, oder eine Datei per Messenger schicken. Du entscheidest immer, was rausgeht — und empfangene .catsync-Dateien öffnest du auch hier.';
+
+  @override
+  String get helpFields =>
+      'Die Felder, die dein Katalog benutzt. Benenne sie um, ändere die Auswahlmöglichkeiten eines Auswahlfeldes oder leg eigene an. ID-Felder können auf einen Dienst (ein Register) zeigen, dann lässt sich die Nummer bei der Katze antippen.';
+
+  @override
+  String get helpTimeline =>
+      'Jede jemals gemachte Änderung, neueste zuerst: wer wann was auf welchen Wert geändert hat. Jeder Eintrag lässt sich zurücknehmen — das schreibt einen neuen Eintrag, gelöscht wird nie etwas.';
+
+  @override
+  String get helpDuplicates =>
+      'Katzen oder Kolonien, die zweimal dieselben zu sein scheinen — gleiche IDs oder sehr ähnliche Namen mit passenden Details. Tippe ein Paar an, um es zusammenzuführen; das lässt sich nicht rückgängig machen, deshalb wird vorher gefragt.';
+
+  @override
+  String get helpMatches =>
+      'Katzen, die dasselbe Tier sein könnten: gleiche ID oder ein Streuner, der im Suchgebiet einer vermissten Katze gesehen wurde. Tippe ein Paar an, um es zusammenzuführen, langes Drücken öffnet die erste Katze zum Vergleichen.';
+
+  @override
+  String get helpFlier =>
+      'Aus einem fotografierten Vermisst-Aushang wird eine Katze samt Besitzer. Schritt für Schritt: Daten der Katze, Kontakt des Besitzers, Gesicht ausschneiden fürs Profilbild, Register-Nummern vom Aushang, dann die letzte Kontrolle. Alles sind Vorschläge — korrigiere, was die Kamera falsch gelesen hat.';
+
+  @override
   String get locateAddress => 'Adresse auf der Karte suchen';
 
   @override

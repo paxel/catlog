@@ -885,6 +885,60 @@ class AppLocalizationsFr extends AppLocalizations {
   String get dangerThanks => 'Merci d\'utiliser cat(a)log !';
 
   @override
+  String get helpTitle => 'Aide';
+
+  @override
+  String get showTipsAgain => 'Revoir les astuces';
+
+  @override
+  String get helpHome =>
+      'L\'aperçu de vos colonies — une colonie est un lieu où vivent des chats : votre logement, une famille d\'accueil, un refuge. Touchez une fiche pour voir ses chats ; appui long pour son menu. Le bouton en bas à droite crée une colonie, et la fiche des errants rassemble tous les chats sans foyer.';
+
+  @override
+  String get helpClowder =>
+      'Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l\'ouvre.';
+
+  @override
+  String get helpCat =>
+      'Tout sur ce chat : photos, champs, famille, historique. La page reste en lecture jusqu\'au crayon. Un appui long sur un champ ouvre directement sa modification ; sur une photo, son menu. Le menu en haut à droite contient le reste : marquer privé, masquer, fusionner, noter une observation, partager.';
+
+  @override
+  String get helpStrays =>
+      'Les chats sans foyer actuel : trouvés, échappés, ou venus d\'une affiche. Le bouton appareil photo enregistre un chat devant vous ; le bouton affiche transforme une affiche en chat avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l\'affiche.';
+
+  @override
+  String get helpMap =>
+      'Tous les chats et lieux ayant une position. La recherche trouve chats, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d\'un chat disparu et de son ancien foyer. Les flèches vont d\'un point à l\'autre, un appui long note une observation.';
+
+  @override
+  String get helpCard =>
+      'La fiche imprimable de ce chat : choisissez son contenu avec les puces en haut, puis partagez-la en image ou en PDF. Les identifiants s\'impriment en QR ou code-barres, et une position devient un QR qui ouvre une carte, plus un court Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Transmettre les données à d\'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C\'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s\'ouvre ici aussi.';
+
+  @override
+  String get helpFields =>
+      'Les champs utilisés par votre catalogue. Renommez-les, changez les options d\'une liste, ou créez les vôtres. Un champ identifiant peut pointer vers un service (un registre) : le numéro devient alors cliquable sur le chat.';
+
+  @override
+  String get helpTimeline =>
+      'Chaque modification jamais faite, la plus récente en haut : qui a changé quoi, quand et vers quelle valeur. Toute entrée peut être annulée — cela écrit une nouvelle entrée, rien n\'est jamais effacé.';
+
+  @override
+  String get helpDuplicates =>
+      'Chats ou colonies qui semblent exister en double — identifiants identiques ou noms très proches avec des détails concordants. Touchez une paire pour la fusionner ; la fusion est définitive, elle demande confirmation.';
+
+  @override
+  String get helpMatches =>
+      'Chats qui pourraient être le même animal : identifiant identique, ou errant vu dans la zone de recherche d\'un chat disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier chat et comparer.';
+
+  @override
+  String get helpFlier =>
+      'Une affiche photographiée devient un chat et son propriétaire. Étape par étape : données du chat, contact du propriétaire, recadrage du visage pour la photo de profil, numéros de registre sur l\'affiche, puis vérification finale. Tout n\'est que suggestion — corrigez ce que l\'appareil a mal lu.';
+
+  @override
   String get locateAddress => 'Trouver l\'adresse sur la carte';
 
   @override

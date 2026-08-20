@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../help.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
@@ -344,6 +345,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             ? InkWell(onTap: _rename, child: Text(name))
             : Text(name),
         actions: [
+          HelpButton(store: store, screenId: 'cat'),
           IconButton(
               icon: const Icon(Icons.badge_outlined),
               tooltip: context.t.card,

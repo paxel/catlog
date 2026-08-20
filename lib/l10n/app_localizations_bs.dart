@@ -881,6 +881,60 @@ class AppLocalizationsBs extends AppLocalizations {
   String get dangerThanks => 'Hvala što koristiš cat(a)log!';
 
   @override
+  String get helpTitle => 'Pomoć';
+
+  @override
+  String get showTipsAgain => 'Prikaži savjete ponovo';
+
+  @override
+  String get helpHome =>
+      'Pregled tvojih kolonija — kolonija je mjesto gdje žive mačke: tvoj dom, udomiteljska kuća, sklonište. Dodirni karticu za njezine mačke; dugi pritisak otvara izbornik. Gumb dolje desno stvara koloniju, a kartica lutalica skuplja sve mačke bez doma.';
+
+  @override
+  String get helpClowder =>
+      'Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i historija. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara.';
+
+  @override
+  String get helpCat =>
+      'Sve o ovoj mački: fotografije, polja, porodica, historija. Stranica je samo za čitanje dok ne dodirneš olovku. Dugi pritisak na polje vodi ravno u njegovo uređivanje; na fotografiju otvara njezin izbornik. Izbornik gore desno ima ostalo: privatno, sakrij, spoji, zabilježi viđenje, podijeli.';
+
+  @override
+  String get helpStrays =>
+      'Mačke koje trenutno nemaju dom: pronađene, pobjegle ili s letka. Gumb s kamerom bilježi mačku pred tobom; gumb s letkom pretvara plakat u mačku s kontaktom vlasnika; skener čita cat(a)log kod s plakata.';
+
+  @override
+  String get helpMap =>
+      'Sve mačke i mjesta s pozicijom. Pretraga nalazi mačke, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestale mačke i oko doma iz kojeg je pobjegla. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje.';
+
+  @override
+  String get helpCard =>
+      'Kartica mačke za ispis: gore čipovima biraš što je na njoj, zatim je dijeliš kao sliku ili PDF. Brojevi se mogu ispisati kao QR ili barkod, a pozicija postaje QR koji otvara mapu, uz kratki Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kako podaci dolaze do drugih: izravno povezivanje, mapa koju vide oba uređaja, ili datoteka poslana messengerom. Uvijek ti odlučuješ što odlazi — a primljene .catsync datoteke otvaraju se također ovdje.';
+
+  @override
+  String get helpFields =>
+      'Polja koja tvoj katalog koristi. Preimenuj ih, promijeni mogućnosti polja s izborom ili dodaj vlastita. Polje s identifikatorom može pokazivati na servis (registar), pa broj kod mačke postaje dodirljiv.';
+
+  @override
+  String get helpTimeline =>
+      'Svaka ikad napravljena promjena, najnovija prva: tko je što, kada i u koju vrijednost promijenio. Svaki se unos može vratiti — to piše novi unos, ništa se nikad ne briše.';
+
+  @override
+  String get helpDuplicates =>
+      'Mačke ili kolonije koje izgledaju kao isti unos dvaput — isti brojevi ili vrlo slična imena s podudarnim detaljima. Dodirni par za spajanje; spajanje se ne može poništiti pa se prvo pita.';
+
+  @override
+  String get helpMatches =>
+      'Mačke koje bi mogle biti ista životinja: isti broj ili lutalica viđena unutar područja pretrage nestale mačke. Dodirni par za spajanje, dugim pritiskom otvori prvu mačku za usporedbu.';
+
+  @override
+  String get helpFlier =>
+      'Fotografirani letak postaje mačka i njezin vlasnik. Korak po korak: podaci mačke, kontakt vlasnika, izrezivanje njuške za profilnu sliku, brojevi registara s letka, pa završna provjera. Sve su to prijedlozi — ispravi ono što je kamera krivo pročitala.';
+
+  @override
   String get locateAddress => 'Pronađi adresu na karti';
 
   @override

@@ -100,6 +100,13 @@ void resetSpotlights(CatalogStore store) {
   }
 }
 
+/// Forgets one screen's tips so they run again on the next visit —
+/// the per-screen version of [resetSpotlights].
+void replaySpotlights(CatalogStore store, String screenId) {
+  store.removeLocalSetting('spot:$screenId');
+  store.removeLocalSetting('spot2:$screenId');
+}
+
 String _seen(CatalogStore store, String screenId) {
   final seen = store.localSetting('spot2:$screenId') ?? '';
   if (seen.isNotEmpty) return seen;

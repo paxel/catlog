@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
@@ -90,6 +91,7 @@ class _StraysScreenState extends State<StraysScreen> {
           });
     return Scaffold(
       appBar: AppBar(title: Text(context.t.strays), actions: [
+        HelpButton(store: widget.store, screenId: 'strays'),
         Spotlight(
           id: 'strays-scan',
           child: IconButton(

@@ -882,6 +882,60 @@ class AppLocalizationsLt extends AppLocalizations {
   String get dangerThanks => 'Ačiū, kad naudojatės cat(a)log!';
 
   @override
+  String get helpTitle => 'Pagalba';
+
+  @override
+  String get showTipsAgain => 'Rodyti patarimus dar kartą';
+
+  @override
+  String get helpHome =>
+      'Tavo kolonijų apžvalga — kolonija yra vieta, kur gyvena katės: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jos kates; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria koloniją, o valkataujančių kortelė surenka visas kates be namų.';
+
+  @override
+  String get helpClowder =>
+      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama.';
+
+  @override
+  String get helpCat =>
+      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitymui, kol nepaliesite pieštuko. Ilgas laukо paspaudimas veda tiesiai į jo redagavimą; nuotraukos — atveria jos meniu. Meniu viršuje dešinėje yra likusi dalis: privatu, slėpti, sujungti, įrašyti pastebėjimą, dalintis.';
+
+  @override
+  String get helpStrays =>
+      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo.';
+
+  @override
+  String get helpMap =>
+      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą.';
+
+  @override
+  String get helpCard =>
+      'Spausdinama katės kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia.';
+
+  @override
+  String get helpFields =>
+      'Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie katės galima paliesti.';
+
+  @override
+  String get helpTimeline =>
+      'Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.';
+
+  @override
+  String get helpDuplicates =>
+      'Katės ar kolonijos, kurios atrodo esančios du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.';
+
+  @override
+  String get helpMatches =>
+      'Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui.';
+
+  @override
+  String get helpFlier =>
+      'Nufotografuotas skelbimas virsta kate ir jos savininku. Žingsnis po žingsnio: katės duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.';
+
+  @override
   String get locateAddress => 'Rasti adresą žemėlapyje';
 
   @override

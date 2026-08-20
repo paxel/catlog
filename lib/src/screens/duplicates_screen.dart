@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
@@ -53,7 +54,9 @@ class _DuplicatesScreenState extends State<DuplicatesScreen> {
     final t = context.t;
     final candidates = duplicateCandidates(store);
     return Scaffold(
-      appBar: AppBar(title: Text(t.findDuplicates)),
+      appBar: AppBar(title: Text(t.findDuplicates), actions: [
+        HelpButton(store: store, screenId: 'duplicates'),
+      ]),
       body: candidates.isEmpty
           ? Center(child: Text(t.noDuplicates))
           : ListView(children: [

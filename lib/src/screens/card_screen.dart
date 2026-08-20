@@ -5,6 +5,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -307,6 +308,7 @@ class _CardScreenState extends State<CardScreen> {
       appBar: AppBar(
         title: Text(context.t.cardTitle(name)),
         actions: [
+          HelpButton(store: store, screenId: 'card'),
           IconButton(
               icon: const Icon(Icons.ios_share),
               tooltip: context.t.shareAsImage,

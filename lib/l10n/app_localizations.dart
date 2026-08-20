@@ -1688,6 +1688,90 @@ abstract class AppLocalizations {
   /// **'Thank you for using cat(a)log!'**
   String get dangerThanks;
 
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get helpTitle;
+
+  /// No description provided for @showTipsAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Show tips again'**
+  String get showTipsAgain;
+
+  /// No description provided for @helpHome.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home.'**
+  String get helpHome;
+
+  /// No description provided for @helpClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it.'**
+  String get helpClowder;
+
+  /// No description provided for @helpCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: mark private, hide, merge, record a sighting, share the cat.'**
+  String get helpCat;
+
+  /// No description provided for @helpStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster.'**
+  String get helpStrays;
+
+  /// No description provided for @helpMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.'**
+  String get helpMap;
+
+  /// No description provided for @helpCard.
+  ///
+  /// In en, this message translates to:
+  /// **'The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.'**
+  String get helpCard;
+
+  /// No description provided for @helpSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.'**
+  String get helpSync;
+
+  /// No description provided for @helpFields.
+  ///
+  /// In en, this message translates to:
+  /// **'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.'**
+  String get helpFields;
+
+  /// No description provided for @helpTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.'**
+  String get helpTimeline;
+
+  /// No description provided for @helpDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.'**
+  String get helpDuplicates;
+
+  /// No description provided for @helpMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.'**
+  String get helpMatches;
+
+  /// No description provided for @helpFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.'**
+  String get helpFlier;
+
   /// No description provided for @locateAddress.
   ///
   /// In en, this message translates to:

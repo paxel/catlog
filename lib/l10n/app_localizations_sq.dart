@@ -883,6 +883,60 @@ class AppLocalizationsSq extends AppLocalizations {
   String get dangerThanks => 'Faleminderit që përdor cat(a)log!';
 
   @override
+  String get helpTitle => 'Ndihmë';
+
+  @override
+  String get showTipsAgain => 'Shfaq sërish këshillat';
+
+  @override
+  String get helpHome =>
+      'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi.';
+
+  @override
+  String get helpClowder =>
+      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap.';
+
+  @override
+  String get helpCat =>
+      'Gjithçka për këtë mace: fotot, fushat, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Shtypja e gjatë mbi një fushë të çon drejt e në redaktimin e saj; mbi një foto hap menynë e saj. Menyja lart djathtas ka pjesën tjetër: private, fshih, bashko, shëno vëzhgim, shpërnda.';
+
+  @override
+  String get helpStrays =>
+      'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja.';
+
+  @override
+  String get helpMap =>
+      'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
+
+  @override
+  String get helpCard =>
+      'Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.';
+
+  @override
+  String get helpSync =>
+      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu.';
+
+  @override
+  String get helpFields =>
+      'Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.';
+
+  @override
+  String get helpTimeline =>
+      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.';
+
+  @override
+  String get helpDuplicates =>
+      'Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.';
+
+  @override
+  String get helpMatches =>
+      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
+
+  @override
+  String get helpFlier =>
+      'Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.';
+
+  @override
   String get locateAddress => 'Gjej adresën në hartë';
 
   @override

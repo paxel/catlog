@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
@@ -63,7 +64,9 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
                 c
           ];
     return Scaffold(
-      appBar: AppBar(title: Text(t.matchCandidatesTitle)),
+      appBar: AppBar(title: Text(t.matchCandidatesTitle), actions: [
+        HelpButton(store: store, screenId: 'matches'),
+      ]),
       body: candidates.isEmpty
           ? Center(child: Text(t.noMatchCandidates))
           : ListView(children: [

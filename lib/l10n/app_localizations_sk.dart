@@ -881,6 +881,60 @@ class AppLocalizationsSk extends AppLocalizations {
   String get dangerThanks => 'Ďakujeme, že používate cat(a)log!';
 
   @override
+  String get helpTitle => 'Pomocník';
+
+  @override
+  String get showTipsAgain => 'Zobraziť tipy znova';
+
+  @override
+  String get helpHome =>
+      'Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova.';
+
+  @override
+  String get helpClowder =>
+      'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí.';
+
+  @override
+  String get helpCat =>
+      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neťukneš na ceruzku. Podrž pole a dostaneš sa rovno do jeho úpravy; podrž fotku a otvoríš jej menu. Menu vpravo hore má zvyšok: súkromné, skryť, zlúčiť, zapísať pozorovanie, zdieľať.';
+
+  @override
+  String get helpStrays =>
+      'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu.';
+
+  @override
+  String get helpMap =>
+      'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
+
+  @override
+  String get helpCard =>
+      'Tlačiteľná karta mačky: hore čipmi vyberieš, čo na nej bude, potom ju zdieľaš ako obrázok alebo PDF. Čísla sa dajú vytlačiť ako QR alebo čiarový kód a z pozície vznikne QR otvárajúci mapu plus krátky Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu.';
+
+  @override
+  String get helpFields =>
+      'Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri mačke ťuknúť.';
+
+  @override
+  String get helpTimeline =>
+      'Každá kedy vykonaná zmena, najnovšia hore: kto čo kedy a na akú hodnotu zmenil. Každý záznam sa dá vrátiť — vznikne tým nový záznam, nič sa nikdy nemaže.';
+
+  @override
+  String get helpDuplicates =>
+      'Mačky alebo kolónie, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.';
+
+  @override
+  String get helpMatches =>
+      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
+
+  @override
+  String get helpFlier =>
+      'Z odfoteného letáka vznikne mačka aj majiteľ. Krok za krokom: údaje mačky, kontakt majiteľa, výrez tváre pre profilovku, čísla registrov z letáka a nakoniec kontrola. Všetko sú návrhy — oprav, čo fotoaparát prečítal zle.';
+
+  @override
   String get locateAddress => 'Nájsť adresu na mape';
 
   @override

@@ -881,6 +881,60 @@ class AppLocalizationsFi extends AppLocalizations {
   String get dangerThanks => 'Kiitos, että käytät cat(a)logia!';
 
   @override
+  String get helpTitle => 'Ohje';
+
+  @override
+  String get showTipsAgain => 'Näytä vinkit uudelleen';
+
+  @override
+  String get helpHome =>
+      'Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat.';
+
+  @override
+  String get helpClowder =>
+      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.';
+
+  @override
+  String get helpCat =>
+      'Kaikki tästä kissasta: kuvat, kentät, suku, historia. Sivu on vain luettava, kunnes napautat kynää. Pidä kenttää painettuna päästäksesi suoraan sen muokkaukseen; kuvaa avataksesi sen valikon. Oikean yläkulman valikossa on loput: merkitse yksityiseksi, piilota, yhdistä, kirjaa havainto, jaa.';
+
+  @override
+  String get helpStrays =>
+      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.';
+
+  @override
+  String get helpMap =>
+      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.';
+
+  @override
+  String get helpCard =>
+      'Kissan tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä.';
+
+  @override
+  String get helpFields =>
+      'Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa kissan kohdalla.';
+
+  @override
+  String get helpTimeline =>
+      'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.';
+
+  @override
+  String get helpDuplicates =>
+      'Kissat tai koloniat, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.';
+
+  @override
+  String get helpMatches =>
+      'Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten.';
+
+  @override
+  String get helpFlier =>
+      'Valokuvatusta ilmoituksesta tulee kissa ja sen omistaja. Vaihe vaiheelta: kissan tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.';
+
+  @override
   String get locateAddress => 'Etsi osoite kartalta';
 
   @override

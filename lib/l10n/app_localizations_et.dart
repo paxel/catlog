@@ -879,6 +879,60 @@ class AppLocalizationsEt extends AppLocalizations {
   String get dangerThanks => 'Aitäh, et kasutad cat(a)logi!';
 
   @override
+  String get helpTitle => 'Abi';
+
+  @override
+  String get showTipsAgain => 'Näita nõuandeid uuesti';
+
+  @override
+  String get helpHome =>
+      'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid.';
+
+  @override
+  String get helpClowder =>
+      'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab.';
+
+  @override
+  String get helpCat =>
+      'Kõik selle kassi kohta: pildid, väljad, suhted, ajalugu. Leht on lugemiseks, kuni puudutad pliiatsit. Välja pikk vajutus viib otse selle muutmisse; pildi oma avab menüü. Menüü üleval paremal sisaldab ülejäänut: privaatne, peida, ühenda, kirjuta nägemine, jaga.';
+
+  @override
+  String get helpStrays =>
+      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi.';
+
+  @override
+  String get helpMap =>
+      'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
+
+  @override
+  String get helpCard =>
+      'Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin.';
+
+  @override
+  String get helpFields =>
+      'Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.';
+
+  @override
+  String get helpTimeline =>
+      'Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.';
+
+  @override
+  String get helpDuplicates =>
+      'Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.';
+
+  @override
+  String get helpMatches =>
+      'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.';
+
+  @override
+  String get helpFlier =>
+      'Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.';
+
+  @override
   String get locateAddress => 'Otsi aadress kaardilt';
 
   @override

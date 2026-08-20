@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../help.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
 import '../hidden.dart';
@@ -194,6 +195,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             ? InkWell(onTap: _rename, child: Text(name))
             : Text(name),
         actions: [
+          HelpButton(store: store, screenId: 'clowder'),
           IconButton(
             icon: Icon(_editing ? Icons.check : Icons.edit),
             tooltip: _editing ? context.t.doneLabel : context.t.editLabel,

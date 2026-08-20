@@ -880,6 +880,60 @@ class AppLocalizationsLv extends AppLocalizations {
   String get dangerThanks => 'Paldies, ka lieto cat(a)log!';
 
   @override
+  String get helpTitle => 'Palīdzība';
+
+  @override
+  String get showTipsAgain => 'Rādīt padomus vēlreiz';
+
+  @override
+  String get helpHome =>
+      'Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām.';
+
+  @override
+  String get helpClowder =>
+      'Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver.';
+
+  @override
+  String get helpCat =>
+      'Viss par šo kaķi: attēli, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilga lauka piespiešana ved tieši uz tā rediģēšanu; attēla — atver tā izvēlni. Izvēlnē augšā pa labi ir pārējais: privāts, paslēpt, apvienot, pierakstīt novērojumu, kopīgot.';
+
+  @override
+  String get helpStrays =>
+      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta.';
+
+  @override
+  String get helpMap =>
+      'Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.';
+
+  @override
+  String get helpCard =>
+      'Kaķa izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit.';
+
+  @override
+  String get helpFields =>
+      'Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie kaķa kļūst piespiežams.';
+
+  @override
+  String get helpTimeline =>
+      'Katra jebkad veiktā izmaiņa, jaunākā augšā: kurš ko, kad un uz kādu vērtību mainīja. Jebkuru ierakstu var atsaukt — tas raksta jaunu ierakstu, nekas nekad netiek dzēsts.';
+
+  @override
+  String get helpDuplicates =>
+      'Kaķi vai kolonijas, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.';
+
+  @override
+  String get helpMatches =>
+      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai.';
+
+  @override
+  String get helpFlier =>
+      'Nofotografēts sludinājums kļūst par kaķi un tā īpašnieku. Soli pa solim: kaķa dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.';
+
+  @override
   String get locateAddress => 'Meklēt adresi kartē';
 
   @override

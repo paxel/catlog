@@ -880,6 +880,60 @@ class AppLocalizationsDa extends AppLocalizations {
   String get dangerThanks => 'Tak fordi du bruger cat(a)log!';
 
   @override
+  String get helpTitle => 'Hjælp';
+
+  @override
+  String get showTipsAgain => 'Vis tips igen';
+
+  @override
+  String get helpHome =>
+      'Oversigten over dine kolonier — en koloni er et sted, hvor katte bor: dit hjem, en plejefamilie, et internat. Tryk på et kort for at se dets katte; hold nede for menuen. Knappen nederst til højre laver en ny koloni, og strejferkortet samler alle katte uden hjem.';
+
+  @override
+  String get helpClowder =>
+      'Alt om dette sted: dets katte, dets felter (adresse, kontakt, type) og dets historik. Siden åbner skrivebeskyttet; blyanten slår redigering til, hvor du også kan tilføje et felt. Hold et felt nede for at redigere det direkte, en kat for at flytte, skjule eller åbne den.';
+
+  @override
+  String get helpCat =>
+      'Alt om denne kat: fotos, felter, familie, historik. Siden er skrivebeskyttet, indtil du trykker på blyanten. Hold et felt nede for at redigere det direkte; et foto for dets menu. Menuen øverst til højre har resten: markér privat, skjul, flet, notér observation, del.';
+
+  @override
+  String get helpStrays =>
+      'Katte uden hjem lige nu: fundne, undslupne eller fra et opslag. Kameraknappen registrerer en kat foran dig; opslagsknappen laver et savnet-opslag om til en kat med ejerens kontakt; scanneren læser en cat(a)log-kode fra opslaget.';
+
+  @override
+  String get helpMap =>
+      'Alle katte og steder med en position. Søgningen finder katte, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring en savnet kats opslagssteder og omkring dens tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation.';
+
+  @override
+  String get helpCard =>
+      'Kattens kort til print: vælg øverst med chipsene, hvad der står på det, og del det som billede eller PDF. Numre kan printes som QR eller stregkode, og en position bliver til en QR, der åbner et kort, plus en kort Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Sådan når data frem til andre: forbind direkte, brug en mappe begge enheder ser, eller send en fil via en messenger. Du bestemmer altid, hvad der sendes — og modtagne .catsync-filer åbnes også her.';
+
+  @override
+  String get helpFields =>
+      'De felter, dit katalog bruger. Omdøb dem, ændr valgmulighederne i et valgfelt, eller lav dine egne. Et id-felt kan pege på en tjeneste (et register), så bliver nummeret trykbart ved katten.';
+
+  @override
+  String get helpTimeline =>
+      'Hver eneste ændring, nyeste først: hvem der ændrede hvad, hvornår og til hvilken værdi. Enhver post kan fortrydes — det skriver en ny post, intet slettes nogensinde.';
+
+  @override
+  String get helpDuplicates =>
+      'Katte eller kolonier, der ser ud til at findes to gange — ens numre eller meget lignende navne med matchende detaljer. Tryk på et par for at flette; fletning kan ikke fortrydes, derfor spørges der først.';
+
+  @override
+  String get helpMatches =>
+      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne.';
+
+  @override
+  String get helpFlier =>
+      'Et fotograferet opslag bliver til en kat plus ejer. Trin for trin: kattens data, ejerens kontakt, beskæring af ansigtet til profilbilledet, registernumre fra opslaget og til sidst et tjek. Alt er forslag — ret det, kameraet læste forkert.';
+
+  @override
   String get locateAddress => 'Find adressen på kortet';
 
   @override

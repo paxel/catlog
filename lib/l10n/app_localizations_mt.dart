@@ -883,6 +883,60 @@ class AppLocalizationsMt extends AppLocalizations {
   String get dangerThanks => 'Grazzi talli tuża cat(a)log!';
 
   @override
+  String get helpTitle => 'Għajnuna';
+
+  @override
+  String get showTipsAgain => 'Uri l-pariri mill-ġdid';
+
+  @override
+  String get helpHome =>
+      'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar.';
+
+  @override
+  String get helpClowder =>
+      'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu.';
+
+  @override
+  String get helpCat =>
+      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija read-only sakemm tagħfas il-lapes. Għafsa twila fuq qasam tieħdok dritt fl-editjar tiegħu; fuq ritratt tiftaħ il-menu tiegħu. Il-menu fuq il-lemin fuq għandu l-bqija: privat, aħbi, għaqqad, niżżel osservazzjoni, aqsam.';
+
+  @override
+  String get helpStrays =>
+      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.';
+
+  @override
+  String get helpMap =>
+      'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
+
+  @override
+  String get helpCard =>
+      'Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x\'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma\' Plus Code qasir.';
+
+  @override
+  String get helpSync =>
+      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll.';
+
+  @override
+  String get helpFields =>
+      'L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta\' qasam ta\' għażla, jew oħloq tiegħek. Qasam ta\' identifikatur jista\' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.';
+
+  @override
+  String get helpTimeline =>
+      'Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista\' titreġġa\' lura — dan jikteb entrata ġdida, xejn ma jitħassar.';
+
+  @override
+  String get helpDuplicates =>
+      'Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b\'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa\' lura, għalhekk tistaqsi l-ewwel.';
+
+  @override
+  String get helpMatches =>
+      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
+
+  @override
+  String get helpFlier =>
+      'Poster mitfugħ f\'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta\' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.';
+
+  @override
   String get locateAddress => 'Sib l-indirizz fuq il-mappa';
 
   @override

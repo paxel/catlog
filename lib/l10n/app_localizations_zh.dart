@@ -850,6 +850,60 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dangerThanks => '感谢你使用 cat(a)log！';
 
   @override
+  String get helpTitle => '帮助';
+
+  @override
+  String get showTipsAgain => '再次显示提示';
+
+  @override
+  String get helpHome =>
+      '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。';
+
+  @override
+  String get helpClowder =>
+      '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。';
+
+  @override
+  String get helpCat =>
+      '关于这只猫的一切：照片、字段、家庭、历史。点铅笔前页面只读。长按字段直接进入编辑；长按照片打开其菜单。右上角菜单里是其余功能：设为私密、隐藏、合并、记录目击、分享。';
+
+  @override
+  String get helpStrays =>
+      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。';
+
+  @override
+  String get helpMap =>
+      '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
+
+  @override
+  String get helpCard =>
+      '这只猫的可打印卡片：用顶部的标签选择卡片内容，然后以图片或 PDF 分享。编号可打印为二维码或条形码，位置会变成打开地图的二维码，外加一个简短的 Plus Code。';
+
+  @override
+  String get helpSync =>
+      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。';
+
+  @override
+  String get helpFields =>
+      '你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在猫页面上就能点按。';
+
+  @override
+  String get helpTimeline =>
+      '所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。';
+
+  @override
+  String get helpDuplicates =>
+      '看起来重复出现的猫或猫群——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。';
+
+  @override
+  String get helpMatches =>
+      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
+
+  @override
+  String get helpFlier =>
+      '拍下的启事会变成一只猫和它的主人。逐步进行：猫的资料、主人联系方式、裁出头像、启事上的登记编号，最后确认。所有内容都是建议——相机认错的地方请修改。';
+
+  @override
   String get locateAddress => '在地图上查找地址';
 
   @override

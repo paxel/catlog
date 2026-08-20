@@ -880,6 +880,60 @@ class AppLocalizationsPl extends AppLocalizations {
   String get dangerThanks => 'Dziękujemy za korzystanie z cat(a)log!';
 
   @override
+  String get helpTitle => 'Pomoc';
+
+  @override
+  String get showTipsAgain => 'Pokaż wskazówki ponownie';
+
+  @override
+  String get helpHome =>
+      'Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu.';
+
+  @override
+  String get helpClowder =>
+      'Wszystko o tym miejscu: jego koty, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie kota przenosi, ukrywa lub otwiera go.';
+
+  @override
+  String get helpCat =>
+      'Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by przejść wprost do jego edycji; zdjęcie — by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: prywatny, ukryj, scal, zapisz obserwację, udostępnij.';
+
+  @override
+  String get helpStrays =>
+      'Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu.';
+
+  @override
+  String get helpMap =>
+      'Wszystkie koty i miejsca z pozycją. Wyszukiwanie znajduje koty, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego kota i wokół domu, z którego uciekł. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację.';
+
+  @override
+  String get helpCard =>
+      'Karta kota do druku: u góry chipami wybierasz, co ma się na niej znaleźć, potem udostępniasz ją jako obrazek lub PDF. Numery mogą być drukowane jako QR albo kod kreskowy, a pozycja staje się kodem QR otwierającym mapę oraz krótkim Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Jak dane trafiają do innych: połączenie na miejscu, folder widoczny dla obu urządzeń albo plik wysłany komunikatorem. Zawsze decydujesz, co wychodzi — a otrzymane pliki .catsync otwierasz również tutaj.';
+
+  @override
+  String get helpFields =>
+      'Pola używane przez twój katalog. Zmień im nazwy, zmień opcje pola wyboru albo dodaj własne. Pole identyfikatora może wskazywać na serwis (rejestr) — wtedy numer przy kocie da się kliknąć.';
+
+  @override
+  String get helpTimeline =>
+      'Każda kiedykolwiek wprowadzona zmiana, od najnowszej: kto, kiedy i na jaką wartość coś zmienił. Każdy wpis można cofnąć — powstaje wtedy nowy wpis, nic nigdy nie znika.';
+
+  @override
+  String get helpDuplicates =>
+      'Koty lub kolonie, które wyglądają na istniejące dwa razy — identyczne numery albo bardzo podobne imiona z pasującymi szczegółami. Dotknij pary, by ją scalić; tego nie da się cofnąć, więc pojawia się pytanie.';
+
+  @override
+  String get helpMatches =>
+      'Koty, które mogą być tym samym zwierzęciem: ten sam numer albo bezdomniak widziany w obszarze poszukiwań zaginionego kota. Dotknij pary, by scalić, przytrzymaj, by otworzyć pierwszego kota i porównać.';
+
+  @override
+  String get helpFlier =>
+      'Sfotografowane ogłoszenie staje się kotem wraz z właścicielem. Krok po kroku: dane kota, kontakt właściciela, wycięcie pyszczka na zdjęcie profilowe, numery rejestrów z ogłoszenia, na końcu sprawdzenie. Wszystko to propozycje — popraw to, co aparat odczytał źle.';
+
+  @override
   String get locateAddress => 'Znajdź adres na mapie';
 
   @override

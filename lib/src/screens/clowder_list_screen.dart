@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
@@ -124,6 +125,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       appBar: AppBar(
         title: Text(context.t.clowders),
         actions: [
+          HelpButton(store: widget.store, screenId: 'home'),
           IconButton(
             icon: Icon(
                 _tableView ? Icons.grid_view : Icons.table_rows_outlined),

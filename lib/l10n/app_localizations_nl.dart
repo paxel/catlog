@@ -883,6 +883,60 @@ class AppLocalizationsNl extends AppLocalizations {
   String get dangerThanks => 'Bedankt dat je cat(a)log gebruikt!';
 
   @override
+  String get helpTitle => 'Help';
+
+  @override
+  String get showTipsAgain => 'Tips opnieuw tonen';
+
+  @override
+  String get helpHome =>
+      'Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis.';
+
+  @override
+  String get helpClowder =>
+      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen.';
+
+  @override
+  String get helpCat =>
+      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld ingedrukt om het meteen te bewerken; een foto voor haar menu. Het menu rechtsboven heeft de rest: privé markeren, verbergen, samenvoegen, waarneming vastleggen, delen.';
+
+  @override
+  String get helpStrays =>
+      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.';
+
+  @override
+  String get helpMap =>
+      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.';
+
+  @override
+  String get helpCard =>
+      'De printbare kaart van deze kat: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook.';
+
+  @override
+  String get helpFields =>
+      'De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij de kat aantikbaar.';
+
+  @override
+  String get helpTimeline =>
+      'Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.';
+
+  @override
+  String get helpDuplicates =>
+      'Katten of kolonies die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.';
+
+  @override
+  String get helpMatches =>
+      'Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken.';
+
+  @override
+  String get helpFlier =>
+      'Een gefotografeerde poster wordt een kat plus eigenaar. Stap voor stap: gegevens van de kat, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.';
+
+  @override
   String get locateAddress => 'Adres op de kaart zoeken';
 
   @override

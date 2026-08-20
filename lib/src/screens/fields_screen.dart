@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
@@ -118,7 +119,9 @@ class _FieldsScreenState extends State<FieldsScreen> {
           FieldScope.both => context.t.forBoth,
         };
     return Scaffold(
-      appBar: AppBar(title: Text(context.t.fields)),
+      appBar: AppBar(title: Text(context.t.fields), actions: [
+        HelpButton(store: widget.store, screenId: 'fields'),
+      ]),
       body: ListView(
         children: [
           for (final def in defs)
