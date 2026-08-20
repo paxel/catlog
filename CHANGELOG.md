@@ -57,6 +57,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- Mother and Father print the linked cat's name on the card instead
+  of an internal id; a link that no longer resolves is left off.
 - "Share publicly" honors Private everywhere: a private cat refuses to
   export (with the reason), a private clowder and private fields stay
   out of the share file and QR.

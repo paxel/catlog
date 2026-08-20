@@ -48,6 +48,21 @@ void main() {
         '276098102345678');
   });
 
+  testWidgets('the Card names a linked cat, never its id', (tester) async {
+    final mother = store.createCat('Minka');
+    store.append(cat, Keys.userField('mother'), mother);
+    final ghost = store.createCat('Ghost');
+    store.append(cat, Keys.userField('father'), ghost);
+    // A link whose target lost its name prints nothing at all.
+    store.append(ghost, Keys.name, null);
+
+    await pump(tester, CardScreen(store: store, catId: cat));
+    await tester.pumpAndSettle();
+    expect(find.text('Minka'), findsOneWidget);
+    expect(find.textContaining('cat:'), findsNothing);
+    expect(find.textContaining(ghost), findsNothing);
+  });
+
   testWidgets('the Card renders a barcode for the Chip ID',
       (tester) async {
     store.append(cat, Keys.userField('chipid'), '276098102345678');

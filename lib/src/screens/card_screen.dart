@@ -95,10 +95,17 @@ class _CardScreenState extends State<CardScreen> {
         continue;
       }
       final value = store.current(id, def.key);
-      if (value != null) {
-        facts.add(
-            (fieldDefName(t, def), fieldValueDisplay(t, def, value)));
+      if (value == null) continue;
+      if (def.type == FieldType.cat) {
+        // A linked cat prints by name; the entity id means nothing to
+        // whoever holds the card, so an unresolvable link is left off.
+        final name = store.current(store.resolveEntity(value), Keys.name);
+        if (name != null && name.isNotEmpty) {
+          facts.add((fieldDefName(t, def), name));
+        }
+        continue;
       }
+      facts.add((fieldDefName(t, def), fieldValueDisplay(t, def, value)));
     }
     return facts;
   }
