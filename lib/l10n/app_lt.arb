@@ -161,6 +161,8 @@
   "starterChipId": "Lusto numeris",
   "starterRemarks": "Pastabos",
   "captureFlier": "Nufotografuoti skelbimą",
+  "addPhotosTo": "Pridėti nuotraukas prie…",
+  "photosAddedTo": "{count} nuotr. pridėta prie {name}",
   "scanPrintedCode": "Skenuoti atspausdintą kodą",
   "chipScanHint": "Nuskaito atspausdintą QR/brūkšninį kodą iš lusto kortelės ar veterinaro dokumentų — katėje esančio lusto telefonas nuskaityti negali.",
   "savingLabel": "Įrašoma…",

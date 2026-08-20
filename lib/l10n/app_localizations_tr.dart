@@ -219,6 +219,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get addPhotosTo => 'Fotoğrafları şuna ekle…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotoğraf $name adlı kediye eklendi';
+  }
+
+  @override
   String get scanPrintedCode => 'Basılı kodu tara';
 
   @override

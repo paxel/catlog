@@ -161,6 +161,8 @@
   "starterChipId": "Número de chip",
   "starterRemarks": "Observaciones",
   "captureFlier": "Fotografiar cartel",
+  "addPhotosTo": "Añadir fotos a…",
+  "photosAddedTo": "{count} foto(s) añadidas a {name}",
   "scanPrintedCode": "Escanear código impreso",
   "chipScanHint": "Escanea el QR/código de barras impreso de la tarjeta del chip o los papeles del veterinario — el teléfono no puede leer el chip dentro del gato.",
   "savingLabel": "Guardando…",

@@ -161,6 +161,8 @@
   "starterChipId": "رقم الشريحة",
   "starterRemarks": "ملاحظات",
   "captureFlier": "التقاط منشور",
+  "addPhotosTo": "إضافة الصور إلى…",
+  "photosAddedTo": "أُضيفت {count} صورة إلى {name}",
   "scanPrintedCode": "مسح الرمز المطبوع",
   "chipScanHint": "يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.",
   "savingLabel": "جارٍ الحفظ…",

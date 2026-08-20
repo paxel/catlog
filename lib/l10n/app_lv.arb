@@ -161,6 +161,8 @@
   "starterChipId": "Mikroshēmas numurs",
   "starterRemarks": "Piezīmes",
   "captureFlier": "Nofotografēt sludinājumu",
+  "addPhotosTo": "Pievienot fotoattēlus…",
+  "photosAddedTo": "{count} foto pievienoti {name}",
   "scanPrintedCode": "Skenēt drukātu kodu",
   "chipScanHint": "Skenē drukāto QR/svītrkodu no mikroshēmas kartes vai veterinārārsta dokumentiem — kaķī esošo mikroshēmu tālrunis nolasīt nevar.",
   "savingLabel": "Saglabā…",

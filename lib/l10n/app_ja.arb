@@ -161,6 +161,8 @@
   "starterChipId": "チップ番号",
   "starterRemarks": "備考",
   "captureFlier": "チラシを撮影",
+  "addPhotosTo": "写真の追加先…",
+  "photosAddedTo": "{count}枚の写真を{name}に追加しました",
   "scanPrintedCode": "印刷されたコードをスキャン",
   "chipScanHint": "チップカードや獣医の書類に印刷されたQR/バーコードを読み取ります。猫の体内のチップは電話では読めません。",
   "savingLabel": "保存中…",

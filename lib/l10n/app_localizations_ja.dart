@@ -216,6 +216,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get addPhotosTo => '写真の追加先…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count枚の写真を$nameに追加しました';
+  }
+
+  @override
   String get scanPrintedCode => '印刷されたコードをスキャン';
 
   @override

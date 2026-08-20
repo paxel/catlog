@@ -219,6 +219,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get addPhotosTo => 'إضافة الصور إلى…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return 'أُضيفت $count صورة إلى $name';
+  }
+
+  @override
   String get scanPrintedCode => 'مسح الرمز المطبوع';
 
   @override

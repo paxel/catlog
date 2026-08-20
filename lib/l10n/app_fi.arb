@@ -161,6 +161,8 @@
   "starterChipId": "Sirunumero",
   "starterRemarks": "Huomautukset",
   "captureFlier": "Kuvaa ilmoitus",
+  "addPhotosTo": "Lisää kuvat kohteeseen…",
+  "photosAddedTo": "{count} kuvaa lisätty: {name}",
   "scanPrintedCode": "Skannaa painettu koodi",
   "chipScanHint": "Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea kissan sisällä olevaa sirua.",
   "savingLabel": "Tallennetaan…",

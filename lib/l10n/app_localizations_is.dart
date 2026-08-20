@@ -220,6 +220,14 @@ class AppLocalizationsIs extends AppLocalizations {
   String get captureFlier => 'Mynda auglýsingu';
 
   @override
+  String get addPhotosTo => 'Bæta myndum við…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count mynd(ir) bætt við $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skanna prentaðan kóða';
 
   @override

@@ -161,6 +161,8 @@
   "starterChipId": "Número do chip",
   "starterRemarks": "Observações",
   "captureFlier": "Fotografar cartaz",
+  "addPhotosTo": "Adicionar fotos a…",
+  "photosAddedTo": "{count} foto(s) adicionadas a {name}",
   "scanPrintedCode": "Ler código impresso",
   "chipScanHint": "Lê o QR/código de barras impresso do cartão do chip ou dos papéis do veterinário — o telemóvel não consegue ler o chip dentro do gato.",
   "savingLabel": "A guardar…",

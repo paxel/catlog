@@ -219,6 +219,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String get captureFlier => 'Pildista kuulutust';
 
   @override
+  String get addPhotosTo => 'Lisa fotod…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotot lisatud: $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skanni trükitud kood';
 
   @override

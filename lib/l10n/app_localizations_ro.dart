@@ -219,6 +219,14 @@ class AppLocalizationsRo extends AppLocalizations {
   String get captureFlier => 'Fotografiază afișul';
 
   @override
+  String get addPhotosTo => 'Adaugă fotografiile la…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotografii adăugate la $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Scanează codul tipărit';
 
   @override

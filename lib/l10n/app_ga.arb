@@ -161,6 +161,8 @@
   "starterChipId": "Uimhir slise",
   "starterRemarks": "Nótaí",
   "captureFlier": "Grianghraf den bhileog",
+  "addPhotosTo": "Cuir grianghraif le…",
+  "photosAddedTo": "{count} ghrianghraf curtha le {name}",
   "scanPrintedCode": "Scan cód clóite",
   "chipScanHint": "Scanann sé an cód QR/barrachód clóite ó chárta na slise nó ó pháipéir an tréidlia — ní féidir le fón an tslis sa chat a léamh.",
   "savingLabel": "Á shábháil…",

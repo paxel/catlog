@@ -219,6 +219,14 @@ class AppLocalizationsMk extends AppLocalizations {
   String get captureFlier => 'Сликај оглас';
 
   @override
+  String get addPhotosTo => 'Додај ги фотографиите на…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count фотографии додадени на $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Скенирај печатен код';
 
   @override

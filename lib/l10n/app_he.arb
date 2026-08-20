@@ -161,6 +161,8 @@
   "starterChipId": "מספר שבב",
   "starterRemarks": "הערות",
   "captureFlier": "צילום מודעה",
+  "addPhotosTo": "הוספת תמונות אל…",
+  "photosAddedTo": "{count} תמונות נוספו אל {name}",
   "scanPrintedCode": "סריקת קוד מודפס",
   "chipScanHint": "סורק את קוד ה-QR/ברקוד המודפס מכרטיס השבב או ממסמכי הווטרינר — טלפון לא יכול לקרוא את השבב שבתוך החתול.",
   "savingLabel": "שומר…",

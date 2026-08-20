@@ -219,6 +219,14 @@ class AppLocalizationsSv extends AppLocalizations {
   String get captureFlier => 'Fotografera anslag';
 
   @override
+  String get addPhotosTo => 'Lägg till foton till…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foton tillagda till $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skanna tryckt kod';
 
   @override

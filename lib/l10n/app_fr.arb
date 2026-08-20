@@ -161,6 +161,8 @@
   "starterChipId": "Numéro de puce",
   "starterRemarks": "Remarques",
   "captureFlier": "Photographier l'affiche",
+  "addPhotosTo": "Ajouter les photos à…",
+  "photosAddedTo": "{count} photo(s) ajoutée(s) à {name}",
   "scanPrintedCode": "Scanner le code imprimé",
   "chipScanHint": "Scanne le QR/code-barres imprimé de la carte de puce ou des papiers vétérinaires — un téléphone ne peut pas lire la puce dans le chat.",
   "savingLabel": "Enregistrement…",

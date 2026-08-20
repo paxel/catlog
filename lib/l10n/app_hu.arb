@@ -161,6 +161,8 @@
   "starterChipId": "Chipszám",
   "starterRemarks": "Megjegyzések",
   "captureFlier": "Plakát lefotózása",
+  "addPhotosTo": "Fotók hozzáadása ehhez…",
+  "photosAddedTo": "{count} fotó hozzáadva ehhez: {name}",
   "scanPrintedCode": "Nyomtatott kód beolvasása",
   "chipScanHint": "A chipkártyán vagy állatorvosi papírokon lévő nyomtatott QR-/vonalkódot olvassa be — a macskában lévő chipet a telefon nem tudja leolvasni.",
   "savingLabel": "Mentés…",

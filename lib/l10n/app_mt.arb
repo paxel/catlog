@@ -161,6 +161,8 @@
   "starterChipId": "Numru taċ-ċippa",
   "starterRemarks": "Rimarki",
   "captureFlier": "Ħu ritratt tal-flier",
+  "addPhotosTo": "Żid ir-ritratti ma'…",
+  "photosAddedTo": "{count} ritratt(i) miżjuda ma' {name}",
   "scanPrintedCode": "Skennja kodiċi stampat",
   "chipScanHint": "Jiskennja l-QR/barcode stampat mill-karta taċ-ċippa jew mid-dokumenti tal-veterinarju — it-telefon ma jistax jaqra ċ-ċippa ġol-qattus.",
   "savingLabel": "Qed jissejvja…",

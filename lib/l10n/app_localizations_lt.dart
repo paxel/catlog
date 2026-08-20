@@ -219,6 +219,14 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get addPhotosTo => 'Pridėti nuotraukas prie…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count nuotr. pridėta prie $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skenuoti atspausdintą kodą';
 
   @override

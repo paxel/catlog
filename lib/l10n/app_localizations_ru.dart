@@ -219,6 +219,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get captureFlier => 'Сфотографировать объявление';
 
   @override
+  String get addPhotosTo => 'Добавить фото к…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return 'Добавлено фото: $count — $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Сканировать напечатанный код';
 
   @override

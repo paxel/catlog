@@ -554,6 +554,18 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @addPhotosTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photos to…'**
+  String get addPhotosTo;
+
+  /// No description provided for @photosAddedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} photo(s) added to {name}'**
+  String photosAddedTo(String count, String name);
+
   /// No description provided for @scanPrintedCode.
   ///
   /// In en, this message translates to:

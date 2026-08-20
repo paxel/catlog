@@ -220,6 +220,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get captureFlier => 'Aushang erfassen';
 
   @override
+  String get addPhotosTo => 'Fotos hinzufügen zu…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count Foto(s) zu $name hinzugefügt';
+  }
+
+  @override
   String get scanPrintedCode => 'Gedruckten Code scannen';
 
   @override

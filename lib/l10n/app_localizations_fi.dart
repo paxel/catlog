@@ -219,6 +219,14 @@ class AppLocalizationsFi extends AppLocalizations {
   String get captureFlier => 'Kuvaa ilmoitus';
 
   @override
+  String get addPhotosTo => 'Lisää kuvat kohteeseen…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count kuvaa lisätty: $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skannaa painettu koodi';
 
   @override

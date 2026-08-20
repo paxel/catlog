@@ -219,6 +219,14 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get addPhotosTo => 'Fotók hozzáadása ehhez…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotó hozzáadva ehhez: $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Nyomtatott kód beolvasása';
 
   @override

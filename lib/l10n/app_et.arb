@@ -161,6 +161,8 @@
   "starterChipId": "Kiibi number",
   "starterRemarks": "Märkused",
   "captureFlier": "Pildista kuulutust",
+  "addPhotosTo": "Lisa fotod…",
+  "photosAddedTo": "{count} fotot lisatud: {name}",
   "scanPrintedCode": "Skanni trükitud kood",
   "chipScanHint": "Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.",
   "savingLabel": "Salvestamine…",

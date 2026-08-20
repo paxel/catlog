@@ -219,6 +219,14 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get addPhotosTo => 'Cuir grianghraif le…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count ghrianghraf curtha le $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Scan cód clóite';
 
   @override

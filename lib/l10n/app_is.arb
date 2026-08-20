@@ -161,6 +161,8 @@
   "starterChipId": "Örflögunúmer",
   "starterRemarks": "Athugasemdir",
   "captureFlier": "Mynda auglýsingu",
+  "addPhotosTo": "Bæta myndum við…",
+  "photosAddedTo": "{count} mynd(ir) bætt við {name}",
   "scanPrintedCode": "Skanna prentaðan kóða",
   "chipScanHint": "Skannar prentaða QR-/strikamerkið af örflögukortinu eða dýralæknisskjölum — sími getur ekki lesið flöguna í kettinum.",
   "savingLabel": "Vista…",

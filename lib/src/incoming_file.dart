@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'import_summary.dart';
+import 'incoming_images.dart';
 import 'l10n.dart';
 
 /// Opening a .catsync from a messenger or file manager lands here: the
@@ -19,10 +20,20 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
     if (call.method == 'open') {
       _import(navigator, store, call.arguments as String);
     }
+    if (call.method == 'sharedImages') {
+      handleSharedImages(navigator, store,
+          (call.arguments as List).cast<String>());
+    }
   });
   if (Platform.isAndroid || Platform.isIOS) {
     _channel.invokeMethod<String>('pending').then((path) {
       if (path != null) _import(navigator, store, path);
+    }).catchError((_) => null);
+    _channel.invokeMethod<List<Object?>>('pendingImages').then((paths) {
+      if (paths != null && paths.isNotEmpty) {
+        handleSharedImages(
+            navigator, store, paths.cast<String>());
+      }
     }).catchError((_) => null);
   }
   // Desktop: the associated file arrives as a launch argument.

@@ -219,6 +219,14 @@ class AppLocalizationsSl extends AppLocalizations {
   String get captureFlier => 'Fotografiraj letak';
 
   @override
+  String get addPhotosTo => 'Dodaj fotografije k…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotografij dodanih k $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skeniraj natisnjeno kodo';
 
   @override

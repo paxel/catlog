@@ -161,6 +161,8 @@
   "starterChipId": "Številka čipa",
   "starterRemarks": "Opombe",
   "captureFlier": "Fotografiraj letak",
+  "addPhotosTo": "Dodaj fotografije k…",
+  "photosAddedTo": "{count} fotografij dodanih k {name}",
   "scanPrintedCode": "Skeniraj natisnjeno kodo",
   "chipScanHint": "Skenira natisnjeno kodo QR/črtno kodo s kartice čipa ali veterinarskih papirjev — čipa v mački telefon ne more prebrati.",
   "savingLabel": "Shranjevanje…",

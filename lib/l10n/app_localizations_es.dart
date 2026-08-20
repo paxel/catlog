@@ -219,6 +219,14 @@ class AppLocalizationsEs extends AppLocalizations {
   String get captureFlier => 'Fotografiar cartel';
 
   @override
+  String get addPhotosTo => 'Añadir fotos a…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto(s) añadidas a $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Escanear código impreso';
 
   @override

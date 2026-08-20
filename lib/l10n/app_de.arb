@@ -64,6 +64,8 @@
   "starterChipId": "Chip-Nummer",
   "starterRemarks": "Bemerkungen",
   "captureFlier": "Aushang erfassen",
+  "addPhotosTo": "Fotos hinzufügen zu…",
+  "photosAddedTo": "{count} Foto(s) zu {name} hinzugefügt",
   "scanPrintedCode": "Gedruckten Code scannen",
   "chipScanHint": "Scannt den gedruckten QR-/Barcode von Chipkarte oder Tierarztunterlagen — den Chip in der Katze kann ein Handy nicht lesen.",
   "savingLabel": "Speichern…",

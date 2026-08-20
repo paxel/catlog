@@ -161,6 +161,8 @@
   "starterChipId": "芯片号",
   "starterRemarks": "备注",
   "captureFlier": "拍摄寻猫启事",
+  "addPhotosTo": "将照片添加到…",
+  "photosAddedTo": "已将 {count} 张照片添加到 {name}",
   "scanPrintedCode": "扫描印刷的条码",
   "chipScanHint": "扫描芯片卡或兽医文件上印刷的二维码/条形码——手机无法读取猫体内的芯片。",
   "savingLabel": "正在保存…",

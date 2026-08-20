@@ -219,6 +219,14 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get addPhotosTo => 'افزودن عکس‌ها به…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count عکس به $name افزوده شد';
+  }
+
+  @override
   String get scanPrintedCode => 'اسکن کد چاپی';
 
   @override

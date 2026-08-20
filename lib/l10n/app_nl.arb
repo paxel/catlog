@@ -161,6 +161,8 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Opmerkingen",
   "captureFlier": "Poster fotograferen",
+  "addPhotosTo": "Foto's toevoegen aan…",
+  "photosAddedTo": "{count} foto('s) toegevoegd aan {name}",
   "scanPrintedCode": "Gedrukte code scannen",
   "chipScanHint": "Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in de kat kan een telefoon niet lezen.",
   "savingLabel": "Opslaan…",

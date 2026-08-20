@@ -219,6 +219,14 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get addPhotosTo => 'Pievienot fotoattēlus…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto pievienoti $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skenēt drukātu kodu';
 
   @override

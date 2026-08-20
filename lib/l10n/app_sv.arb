@@ -161,6 +161,8 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Anmärkningar",
   "captureFlier": "Fotografera anslag",
+  "addPhotosTo": "Lägg till foton till…",
+  "photosAddedTo": "{count} foton tillagda till {name}",
   "scanPrintedCode": "Skanna tryckt kod",
   "chipScanHint": "Skannar den tryckta QR-/streckkoden från chipkortet eller veterinärpapper — chippet i katten kan en telefon inte läsa.",
   "savingLabel": "Sparar…",

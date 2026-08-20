@@ -219,6 +219,14 @@ class AppLocalizationsBg extends AppLocalizations {
   String get captureFlier => 'Заснемане на обява';
 
   @override
+  String get addPhotosTo => 'Добавяне на снимките към…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count снимки добавени към $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Сканиране на отпечатан код';
 
   @override

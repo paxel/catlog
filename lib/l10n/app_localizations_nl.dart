@@ -219,6 +219,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get captureFlier => 'Poster fotograferen';
 
   @override
+  String get addPhotosTo => 'Foto\'s toevoegen aan…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto(\'s) toegevoegd aan $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Gedrukte code scannen';
 
   @override

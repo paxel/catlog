@@ -220,6 +220,14 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get addPhotosTo => 'Żid ir-ritratti ma\'…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count ritratt(i) miżjuda ma\' $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skennja kodiċi stampat';
 
   @override

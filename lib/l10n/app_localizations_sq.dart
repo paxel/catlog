@@ -219,6 +219,14 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get addPhotosTo => 'Shto fotot te…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto iu shtuan $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skano kodin e printuar';
 
   @override

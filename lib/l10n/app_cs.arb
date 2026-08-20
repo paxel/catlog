@@ -161,6 +161,8 @@
   "starterChipId": "Číslo čipu",
   "starterRemarks": "Poznámky",
   "captureFlier": "Vyfotit leták",
+  "addPhotosTo": "Přidat fotky k…",
+  "photosAddedTo": "{count} fotek přidáno k {name}",
   "scanPrintedCode": "Naskenovat vytištěný kód",
   "chipScanHint": "Naskenuje vytištěný QR/čárový kód z karty čipu nebo veterinárních dokladů — čip v kočce telefon přečíst neumí.",
   "savingLabel": "Ukládání…",

@@ -219,6 +219,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get addPhotosTo => 'Προσθήκη φωτογραφιών σε…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count φωτογραφίες προστέθηκαν σε $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Σάρωση τυπωμένου κωδικού';
 
   @override

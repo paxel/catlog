@@ -219,6 +219,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get captureFlier => 'Sfotografuj ogłoszenie';
 
   @override
+  String get addPhotosTo => 'Dodaj zdjęcia do…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return 'Dodano $count zdjęć do $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Skanuj wydrukowany kod';
 
   @override

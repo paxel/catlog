@@ -161,6 +161,8 @@
   "starterChipId": "Broj čipa",
   "starterRemarks": "Napomene",
   "captureFlier": "Slikaj letak",
+  "addPhotosTo": "Dodaj fotografije u…",
+  "photosAddedTo": "{count} fotografija dodano u {name}",
   "scanPrintedCode": "Skeniraj tiskani kod",
   "chipScanHint": "Skenira tiskani QR/crtični kod s kartice čipa ili veterinarskih papira — telefon ne može očitati čip u mački.",
   "savingLabel": "Spremanje…",

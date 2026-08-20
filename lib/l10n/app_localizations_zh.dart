@@ -210,6 +210,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get addPhotosTo => '将照片添加到…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '已将 $count 张照片添加到 $name';
+  }
+
+  @override
   String get scanPrintedCode => '扫描印刷的条码';
 
   @override

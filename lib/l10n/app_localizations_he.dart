@@ -218,6 +218,14 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get addPhotosTo => 'הוספת תמונות אל…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count תמונות נוספו אל $name';
+  }
+
+  @override
   String get scanPrintedCode => 'סריקת קוד מודפס';
 
   @override

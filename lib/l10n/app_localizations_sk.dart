@@ -219,6 +219,14 @@ class AppLocalizationsSk extends AppLocalizations {
   String get captureFlier => 'Odfotiť leták';
 
   @override
+  String get addPhotosTo => 'Pridať fotky k…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotiek pridaných k $name';
+  }
+
+  @override
   String get scanPrintedCode => 'Naskenovať vytlačený kód';
 
   @override
