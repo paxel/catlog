@@ -197,6 +197,29 @@ void main() {
     expect(find.byTooltip('Done'), findsOneWidget);
   });
 
+  testWidgets('a revert on the timeline shows after returning',
+      (tester) async {
+    store.append(cat, Keys.userField('gender'), 'male');
+    await pump(tester);
+    expect(find.text('male'), findsOneWidget);
+    // Open the field's history via edit mode long-press (history lives
+    // there), revert the last change, and come back.
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.longPress(find.text('Gender'));
+    await tester.pumpAndSettle();
+    // Timeline entry -> revert sheet -> revert.
+    await tester.tap(find.byIcon(Icons.undo).first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Revert this change'));
+    await tester.pumpAndSettle();
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    // The page shows the reverted value without reopening.
+    expect(find.text('female'), findsOneWidget);
+    expect(find.text('male'), findsNothing);
+  });
+
   testWidgets('conflict row shows and resolves in read mode',
       (tester) async {
     final other = CatalogStore.inMemory();

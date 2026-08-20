@@ -150,10 +150,14 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         if (!mounted) return;
         setState(() {});
       },
-      onHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) =>
-            TimelineScreen(store: store, entityId: id, field: def.key),
-      )),
+      onHistory: (def) async {
+        await Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) =>
+              TimelineScreen(store: store, entityId: id, field: def.key),
+        ));
+        // Reverts happen on the timeline — the page must show them.
+        if (mounted) setState(() {});
+      },
       onShowMap: _showOnMap,
       // Long-press in read mode: jump into edit mode with the field's
       // editor open — fix what you just spotted (#46).
@@ -196,9 +200,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           IconButton(
             icon: const Icon(Icons.history),
             tooltip: context.t.timeline,
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => TimelineScreen(store: store, entityId: id),
-            )),
+            onPressed: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) =>
+                    TimelineScreen(store: store, entityId: id),
+              ));
+              if (mounted) setState(() {});
+            },
           ),
           if (store.isPrivate(id))
             Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),

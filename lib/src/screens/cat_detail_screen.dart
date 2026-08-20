@@ -81,9 +81,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _addPhoto() async {
-    final added = await addPhotosViaSheet(context, store, id);
-    if (!mounted) return;
-    if (added) setState(() {});
+    // Refresh unconditionally: even a canceled or half-failed add must
+    // leave the grid showing exactly what the store holds.
+    await addPhotosViaSheet(context, store, id);
+    if (mounted) setState(() {});
   }
 
   Future<void> _move() async {
@@ -155,11 +156,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     ));
   }
 
-  void _openTimeline({String? field}) {
-    Navigator.of(context).push(MaterialPageRoute(
+  Future<void> _openTimeline({String? field}) async {
+    await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) =>
           TimelineScreen(store: store, entityId: id, field: field),
     ));
+    // Reverts happen on the timeline — the page must show them.
+    if (mounted) setState(() {});
   }
 
   void _imageMenu(String hash) {

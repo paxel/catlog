@@ -129,6 +129,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- Cat and clowder pages refresh immediately after a revert on the
+  timeline or photos extracted from a video — no reopening needed.
 - Clowder photos now travel through shared-folder and file syncs (they
   previously only arrived over direct Wi-Fi sync).
 - The map's long-press sheet shows each stray's photo instead of a row of
