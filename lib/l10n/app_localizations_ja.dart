@@ -804,6 +804,67 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get stepCat => '猫';
+
+  @override
+  String get stepOwner => '飼い主';
+
+  @override
+  String get stepFace => '顔写真';
+
+  @override
+  String get stepRegistry => '登録サービス';
+
+  @override
+  String get stepReview => '確認して保存';
+
+  @override
+  String get stepOwnerHint => '猫を探している人。ここからその人のカードができます（チラシの連絡先つき）。';
+
+  @override
+  String get stepFaceHint => 'チラシから猫の顔を切り抜くとプロフィール写真になります。省略もできます。';
+
+  @override
+  String get stepRegistryHint => 'チラシで見つかった番号。チェックしたものは猫に保存され、あとで開けます。';
+
+  @override
+  String get noRegistryLinks => 'このチラシに登録サービスのリンクはありません。ここですることはありません。';
+
+  @override
+  String get unknownServiceHint => '不明なサービス';
+
+  @override
+  String get rememberService => 'サービスを覚える';
+
+  @override
+  String get rememberServiceHint =>
+      'サービスに名前を付け、リンクの中の番号を指定してください。次のチラシは自動で入ります。';
+
+  @override
+  String get noIdInLink => 'このリンクには保存できる番号がありません。';
+
+  @override
+  String get whichNumber => 'どの部分が番号ですか？';
+
+  @override
+  String get cropAgain => '切り抜き直す';
+
+  @override
+  String get noFaceYet => '顔写真はまだありません。チラシの写真を使います。';
+
+  @override
+  String get backLabel => '戻る';
+
+  @override
+  String get locateAddress => '住所を地図で探す';
+
+  @override
+  String get addressLocated => '住所が見つかりました';
+
+  @override
+  String get addressNotFound => 'この住所の場所が見つかりません。つづりを確認するか、空のままにしてください。';
+
+  @override
   String get starterPosition => '位置';
 
   @override

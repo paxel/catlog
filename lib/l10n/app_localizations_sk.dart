@@ -817,6 +817,74 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Mačka';
+
+  @override
+  String get stepOwner => 'Majiteľ';
+
+  @override
+  String get stepFace => 'Fotka tváre';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Skontrolovať a uložiť';
+
+  @override
+  String get stepOwnerHint =>
+      'Kto mačku postráda — z toho vznikne jeho karta s kontaktom z letáka.';
+
+  @override
+  String get stepFaceHint =>
+      'Vystrihnite z letáka mačaciu tvár; stane sa profilovou fotkou. Môžete preskočiť.';
+
+  @override
+  String get stepRegistryHint =>
+      'Čísla nájdené na letáku. Zaškrtnuté sa uložia k mačke a dajú sa neskôr otvoriť.';
+
+  @override
+  String get noRegistryLinks =>
+      'Na tomto letáku nie sú odkazy na registre — tu nie je čo robiť.';
+
+  @override
+  String get unknownServiceHint => 'Neznáma služba';
+
+  @override
+  String get rememberService => 'Zapamätať službu';
+
+  @override
+  String get rememberServiceHint =>
+      'Pomenujte službu a ukážte na číslo v odkaze. Ďalší leták sa vyplní sám.';
+
+  @override
+  String get noIdInLink =>
+      'Tento odkaz neobsahuje číslo, ktoré by aplikácia mohla uložiť.';
+
+  @override
+  String get whichNumber => 'Ktorá časť je číslo?';
+
+  @override
+  String get cropAgain => 'Orezať znova';
+
+  @override
+  String get noFaceYet =>
+      'Zatiaľ žiadna fotka tváre — použije sa fotka letáka.';
+
+  @override
+  String get backLabel => 'Späť';
+
+  @override
+  String get locateAddress => 'Nájsť adresu na mape';
+
+  @override
+  String get addressLocated => 'Adresa nájdená';
+
+  @override
+  String get addressNotFound =>
+      'Pre túto adresu sa nenašlo miesto. Skontrolujte pravopis alebo pole nechajte prázdne.';
+
+  @override
   String get starterPosition => 'Poloha';
 
   @override

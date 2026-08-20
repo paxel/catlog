@@ -817,6 +817,74 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Котка';
+
+  @override
+  String get stepOwner => 'Собственик';
+
+  @override
+  String get stepFace => 'Снимка на муцунката';
+
+  @override
+  String get stepRegistry => 'Регистър';
+
+  @override
+  String get stepReview => 'Проверка и запис';
+
+  @override
+  String get stepOwnerHint =>
+      'Този, който търси котката — от това става неговата карта с контакта от обявата.';
+
+  @override
+  String get stepFaceHint =>
+      'Изрежете муцунката на котката от обявата; тя става профилната снимка. Може да прескочите.';
+
+  @override
+  String get stepRegistryHint =>
+      'Номера, намерени в обявата. Отметнатите се запазват при котката и се отварят по-късно.';
+
+  @override
+  String get noRegistryLinks =>
+      'В тази обява няма връзки към регистри — тук няма какво да се прави.';
+
+  @override
+  String get unknownServiceHint => 'Непозната услуга';
+
+  @override
+  String get rememberService => 'Запомни услугата';
+
+  @override
+  String get rememberServiceHint =>
+      'Дайте име на услугата и посочете номера във връзката. Следващата обява ще се попълни сама.';
+
+  @override
+  String get noIdInLink =>
+      'Тази връзка не съдържа номер, който приложението да запази.';
+
+  @override
+  String get whichNumber => 'Коя част е номерът?';
+
+  @override
+  String get cropAgain => 'Изрежи отново';
+
+  @override
+  String get noFaceYet =>
+      'Още няма снимка на муцунката — използва се снимката на обявата.';
+
+  @override
+  String get backLabel => 'Назад';
+
+  @override
+  String get locateAddress => 'Намери адреса на картата';
+
+  @override
+  String get addressLocated => 'Адресът е намерен';
+
+  @override
+  String get addressNotFound =>
+      'Не е намерено място за този адрес. Проверете изписването или оставете полето празно.';
+
+  @override
   String get starterPosition => 'Местоположение';
 
   @override

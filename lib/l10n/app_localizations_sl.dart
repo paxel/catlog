@@ -817,6 +817,74 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Mačka';
+
+  @override
+  String get stepOwner => 'Lastnik';
+
+  @override
+  String get stepFace => 'Fotografija obraza';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Preveri in shrani';
+
+  @override
+  String get stepOwnerHint =>
+      'Kdor pogreša mačko — iz tega nastane njegova kartica s kontaktom z letaka.';
+
+  @override
+  String get stepFaceHint =>
+      'Izreži mačkin obraz z letaka; postane profilna slika. Lahko tudi preskočiš.';
+
+  @override
+  String get stepRegistryHint =>
+      'Številke, najdene na letaku. Odkljukane se shranijo pri mački in jih lahko pozneje odpreš.';
+
+  @override
+  String get noRegistryLinks =>
+      'Na tem letaku ni povezav do registrov — tu ni dela.';
+
+  @override
+  String get unknownServiceHint => 'Neznana storitev';
+
+  @override
+  String get rememberService => 'Zapomni si storitev';
+
+  @override
+  String get rememberServiceHint =>
+      'Poimenuj storitev in pokaži številko v povezavi. Naslednji letak se izpolni sam.';
+
+  @override
+  String get noIdInLink =>
+      'Ta povezava ne vsebuje številke, ki bi jo aplikacija lahko shranila.';
+
+  @override
+  String get whichNumber => 'Kateri del je številka?';
+
+  @override
+  String get cropAgain => 'Znova izreži';
+
+  @override
+  String get noFaceYet =>
+      'Fotografije obraza še ni — uporabi se fotografija letaka.';
+
+  @override
+  String get backLabel => 'Nazaj';
+
+  @override
+  String get locateAddress => 'Poišči naslov na zemljevidu';
+
+  @override
+  String get addressLocated => 'Naslov najden';
+
+  @override
+  String get addressNotFound =>
+      'Za ta naslov ni bilo najdenega kraja. Preveri zapis ali pusti prazno.';
+
+  @override
   String get starterPosition => 'Lokacija';
 
   @override

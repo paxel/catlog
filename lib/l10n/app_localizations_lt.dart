@@ -818,6 +818,74 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Katė';
+
+  @override
+  String get stepOwner => 'Savininkas';
+
+  @override
+  String get stepFace => 'Snukučio nuotrauka';
+
+  @override
+  String get stepRegistry => 'Registras';
+
+  @override
+  String get stepReview => 'Patikrinti ir išsaugoti';
+
+  @override
+  String get stepOwnerHint =>
+      'Tas, kas pasigedo katės — iš to atsiras jo kortelė su kontaktu iš skelbimo.';
+
+  @override
+  String get stepFaceHint =>
+      'Iškirpk katės snukutį iš skelbimo; jis taps profilio nuotrauka. Gali ir praleisti.';
+
+  @override
+  String get stepRegistryHint =>
+      'Skelbime rasti numeriai. Pažymėti bus išsaugoti prie katės ir vėliau atidaromi.';
+
+  @override
+  String get noRegistryLinks =>
+      'Šiame skelbime registrų nuorodų nėra — čia nieko daryti nereikia.';
+
+  @override
+  String get unknownServiceHint => 'Nežinoma paslauga';
+
+  @override
+  String get rememberService => 'Įsiminti paslaugą';
+
+  @override
+  String get rememberServiceHint =>
+      'Pavadink paslaugą ir parodyk numerį nuorodoje. Kitas skelbimas užsipildys pats.';
+
+  @override
+  String get noIdInLink =>
+      'Šioje nuorodoje nėra numerio, kurį programėlė galėtų išsaugoti.';
+
+  @override
+  String get whichNumber => 'Kuri dalis yra numeris?';
+
+  @override
+  String get cropAgain => 'Kirpti iš naujo';
+
+  @override
+  String get noFaceYet =>
+      'Snukučio nuotraukos dar nėra — naudojama skelbimo nuotrauka.';
+
+  @override
+  String get backLabel => 'Atgal';
+
+  @override
+  String get locateAddress => 'Rasti adresą žemėlapyje';
+
+  @override
+  String get addressLocated => 'Adresas rastas';
+
+  @override
+  String get addressNotFound =>
+      'Šiam adresui vietos nerasta. Patikrink rašybą arba palik tuščią.';
+
+  @override
   String get starterPosition => 'Vieta';
 
   @override

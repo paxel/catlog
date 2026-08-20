@@ -816,6 +816,73 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'گربه';
+
+  @override
+  String get stepOwner => 'صاحب';
+
+  @override
+  String get stepFace => 'عکس صورت';
+
+  @override
+  String get stepRegistry => 'سامانه ثبت';
+
+  @override
+  String get stepReview => 'بررسی و ذخیره';
+
+  @override
+  String get stepOwnerHint =>
+      'کسی که گربه‌اش گم شده — این کارت او می‌شود، با تماس روی آگهی.';
+
+  @override
+  String get stepFaceHint =>
+      'صورت گربه را از آگهی ببرید؛ عکس نمایه می‌شود. می‌توانید رد شوید.';
+
+  @override
+  String get stepRegistryHint =>
+      'شماره‌های پیداشده روی آگهی. تیک‌خورده‌ها با گربه ذخیره می‌شوند و بعداً باز می‌شوند.';
+
+  @override
+  String get noRegistryLinks =>
+      'در این آگهی پیوند سامانه‌ای نیست — اینجا کاری نیست.';
+
+  @override
+  String get unknownServiceHint => 'سرویس ناشناس';
+
+  @override
+  String get rememberService => 'سرویس را به خاطر بسپار';
+
+  @override
+  String get rememberServiceHint =>
+      'سرویس را نام‌گذاری کنید و شماره را در پیوند نشان دهید. آگهی بعدی خودش پر می‌شود.';
+
+  @override
+  String get noIdInLink =>
+      'این پیوند شماره‌ای ندارد که برنامه بتواند ذخیره کند.';
+
+  @override
+  String get whichNumber => 'کدام بخش شماره است؟';
+
+  @override
+  String get cropAgain => 'برش دوباره';
+
+  @override
+  String get noFaceYet => 'هنوز عکس صورت نیست — عکس آگهی استفاده می‌شود.';
+
+  @override
+  String get backLabel => 'بازگشت';
+
+  @override
+  String get locateAddress => 'یافتن نشانی روی نقشه';
+
+  @override
+  String get addressLocated => 'نشانی پیدا شد';
+
+  @override
+  String get addressNotFound =>
+      'برای این نشانی جایی پیدا نشد. املا را بررسی کنید یا خالی بگذارید.';
+
+  @override
   String get starterPosition => 'موقعیت';
 
   @override

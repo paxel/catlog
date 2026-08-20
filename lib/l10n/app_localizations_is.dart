@@ -820,6 +820,74 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Köttur';
+
+  @override
+  String get stepOwner => 'Eigandi';
+
+  @override
+  String get stepFace => 'Andlitsmynd';
+
+  @override
+  String get stepRegistry => 'Skrá';
+
+  @override
+  String get stepReview => 'Yfirfara og vista';
+
+  @override
+  String get stepOwnerHint =>
+      'Sá sem saknar kattarins — úr þessu verður spjaldið hans með tengilið af auglýsingunni.';
+
+  @override
+  String get stepFaceHint =>
+      'Klipptu andlit kattarins út úr auglýsingunni; það verður prófílmyndin. Þú mátt sleppa þessu.';
+
+  @override
+  String get stepRegistryHint =>
+      'Númer sem fundust á auglýsingunni. Þau sem eru merkt vistast hjá kettinum og opnast síðar.';
+
+  @override
+  String get noRegistryLinks =>
+      'Engir skráartenglar á þessari auglýsingu — ekkert að gera hér.';
+
+  @override
+  String get unknownServiceHint => 'Óþekkt þjónusta';
+
+  @override
+  String get rememberService => 'Muna þjónustuna';
+
+  @override
+  String get rememberServiceHint =>
+      'Gefðu þjónustunni nafn og bentu á númerið í tenglinum. Næsta auglýsing fyllist sjálf.';
+
+  @override
+  String get noIdInLink =>
+      'Þessi tengill inniheldur ekkert númer sem forritið getur vistað.';
+
+  @override
+  String get whichNumber => 'Hvaða hluti er númerið?';
+
+  @override
+  String get cropAgain => 'Klippa aftur';
+
+  @override
+  String get noFaceYet =>
+      'Engin andlitsmynd enn — mynd auglýsingarinnar er notuð.';
+
+  @override
+  String get backLabel => 'Til baka';
+
+  @override
+  String get locateAddress => 'Finna heimilisfang á korti';
+
+  @override
+  String get addressLocated => 'Heimilisfang fannst';
+
+  @override
+  String get addressNotFound =>
+      'Enginn staður fannst fyrir þetta heimilisfang. Athugaðu stafsetninguna eða skildu eftir autt.';
+
+  @override
   String get starterPosition => 'Staðsetning';
 
   @override

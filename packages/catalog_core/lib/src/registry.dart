@@ -116,6 +116,23 @@ String? learnLookupTemplate(String url, String value) {
   return null;
 }
 
+/// The parts of [url] that could be the identifier — query parameters
+/// and path segments that carry digits. Offered when a link belongs to
+/// a registry the app does not know yet, so the user can point at the
+/// number instead of typing a template.
+List<({String where, String value})> idCandidatesIn(String url) {
+  final uri = Uri.tryParse(url);
+  if (uri == null) return const [];
+  bool looksLikeId(String v) =>
+      v.length >= 3 && v.length <= 40 && RegExp(r'\d').hasMatch(v);
+  return [
+    for (final e in uri.queryParameters.entries)
+      if (looksLikeId(e.value)) (where: e.key, value: e.value),
+    for (final segment in uri.pathSegments)
+      if (looksLikeId(segment)) (where: '/', value: segment),
+  ];
+}
+
 /// Every http(s) link in a block of text — flier OCR delivers them
 /// mid-sentence, often without a scheme.
 List<String> urlsIn(String text) {

@@ -814,6 +814,72 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'חתול';
+
+  @override
+  String get stepOwner => 'בעלים';
+
+  @override
+  String get stepFace => 'תמונת פנים';
+
+  @override
+  String get stepRegistry => 'מרשם';
+
+  @override
+  String get stepReview => 'בדיקה ושמירה';
+
+  @override
+  String get stepOwnerHint =>
+      'מי שמחפש את החתול — מזה נוצר הכרטיס שלו, עם פרטי הקשר מהמודעה.';
+
+  @override
+  String get stepFaceHint =>
+      'גזרו את פני החתול מהמודעה; זו תהיה תמונת הפרופיל. אפשר גם לדלג.';
+
+  @override
+  String get stepRegistryHint =>
+      'מספרים שנמצאו במודעה. המסומנים יישמרו אצל החתול וניתן לפתוח אותם מאוחר יותר.';
+
+  @override
+  String get noRegistryLinks =>
+      'אין קישורי מרשם במודעה הזו — אין כאן מה לעשות.';
+
+  @override
+  String get unknownServiceHint => 'שירות לא מוכר';
+
+  @override
+  String get rememberService => 'שמור את השירות';
+
+  @override
+  String get rememberServiceHint =>
+      'תנו שם לשירות והצביעו על המספר בקישור. המודעה הבאה תתמלא לבד.';
+
+  @override
+  String get noIdInLink => 'בקישור הזה אין מספר שהאפליקציה יכולה לשמור.';
+
+  @override
+  String get whichNumber => 'איזה חלק הוא המספר?';
+
+  @override
+  String get cropAgain => 'חיתוך מחדש';
+
+  @override
+  String get noFaceYet => 'עדיין אין תמונת פנים — משתמשים בתמונת המודעה.';
+
+  @override
+  String get backLabel => 'חזרה';
+
+  @override
+  String get locateAddress => 'מצא את הכתובת במפה';
+
+  @override
+  String get addressLocated => 'הכתובת נמצאה';
+
+  @override
+  String get addressNotFound =>
+      'לא נמצא מקום לכתובת הזו. בדקו את האיות או השאירו ריק.';
+
+  @override
   String get starterPosition => 'מיקום';
 
   @override

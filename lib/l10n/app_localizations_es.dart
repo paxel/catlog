@@ -820,6 +820,74 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Gato';
+
+  @override
+  String get stepOwner => 'Dueño';
+
+  @override
+  String get stepFace => 'Foto de la cara';
+
+  @override
+  String get stepRegistry => 'Registro';
+
+  @override
+  String get stepReview => 'Revisar y guardar';
+
+  @override
+  String get stepOwnerHint =>
+      'Quien echa de menos al gato: esta será su ficha, con el contacto del cartel.';
+
+  @override
+  String get stepFaceHint =>
+      'Recorta la cara del gato del cartel; será la foto de perfil. Puedes saltarte esto.';
+
+  @override
+  String get stepRegistryHint =>
+      'Números encontrados en el cartel. Los marcados se guardan con el gato y se pueden abrir después.';
+
+  @override
+  String get noRegistryLinks =>
+      'No hay enlaces de registro en este cartel: aquí no hay nada que hacer.';
+
+  @override
+  String get unknownServiceHint => 'Servicio desconocido';
+
+  @override
+  String get rememberService => 'Recordar servicio';
+
+  @override
+  String get rememberServiceHint =>
+      'Nombra el servicio y señala el número dentro del enlace. El próximo cartel se rellenará solo.';
+
+  @override
+  String get noIdInLink =>
+      'Este enlace no lleva ningún número que la app pueda guardar.';
+
+  @override
+  String get whichNumber => '¿Qué parte es el número?';
+
+  @override
+  String get cropAgain => 'Recortar de nuevo';
+
+  @override
+  String get noFaceYet =>
+      'Aún no hay foto de la cara: se usa la foto del cartel.';
+
+  @override
+  String get backLabel => 'Atrás';
+
+  @override
+  String get locateAddress => 'Buscar la dirección en el mapa';
+
+  @override
+  String get addressLocated => 'Dirección encontrada';
+
+  @override
+  String get addressNotFound =>
+      'No se encontró ningún lugar para esta dirección. Revisa la escritura o déjala vacía.';
+
+  @override
   String get starterPosition => 'Ubicación';
 
   @override

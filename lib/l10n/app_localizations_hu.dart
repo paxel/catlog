@@ -817,6 +817,73 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Macska';
+
+  @override
+  String get stepOwner => 'Gazdi';
+
+  @override
+  String get stepFace => 'Arckép';
+
+  @override
+  String get stepRegistry => 'Nyilvántartás';
+
+  @override
+  String get stepReview => 'Ellenőrzés és mentés';
+
+  @override
+  String get stepOwnerHint =>
+      'Aki keresi a macskát — ebből lesz az ő kártyája, a plakáton szereplő elérhetőséggel.';
+
+  @override
+  String get stepFaceHint =>
+      'Vágd ki a macska arcát a plakátból; ez lesz a profilkép. Ki is hagyhatod.';
+
+  @override
+  String get stepRegistryHint =>
+      'A plakáton talált számok. A bejelöltek a macskához mentődnek, és később megnyithatók.';
+
+  @override
+  String get noRegistryLinks =>
+      'Nincs nyilvántartási link ezen a plakáton — itt nincs teendő.';
+
+  @override
+  String get unknownServiceHint => 'Ismeretlen szolgáltatás';
+
+  @override
+  String get rememberService => 'Szolgáltatás megjegyzése';
+
+  @override
+  String get rememberServiceHint =>
+      'Nevezd el a szolgáltatást, és mutass rá a számra a linkben. A következő plakát magától kitöltődik.';
+
+  @override
+  String get noIdInLink =>
+      'Ebben a linkben nincs olyan szám, amit az app elmenthetne.';
+
+  @override
+  String get whichNumber => 'Melyik rész a szám?';
+
+  @override
+  String get cropAgain => 'Új vágás';
+
+  @override
+  String get noFaceYet => 'Még nincs arckép — a plakát fotója lesz használva.';
+
+  @override
+  String get backLabel => 'Vissza';
+
+  @override
+  String get locateAddress => 'Cím keresése a térképen';
+
+  @override
+  String get addressLocated => 'Cím megtalálva';
+
+  @override
+  String get addressNotFound =>
+      'Ehhez a címhez nem található hely. Ellenőrizd a helyesírást, vagy hagyd üresen.';
+
+  @override
   String get starterPosition => 'Hely';
 
   @override

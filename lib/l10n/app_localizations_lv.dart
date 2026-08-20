@@ -816,6 +816,74 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kaķis';
+
+  @override
+  String get stepOwner => 'Īpašnieks';
+
+  @override
+  String get stepFace => 'Sejas foto';
+
+  @override
+  String get stepRegistry => 'Reģistrs';
+
+  @override
+  String get stepReview => 'Pārbaudīt un saglabāt';
+
+  @override
+  String get stepOwnerHint =>
+      'Tas, kam kaķis pazudis — no tā top viņa kartīte ar kontaktu no sludinājuma.';
+
+  @override
+  String get stepFaceHint =>
+      'Izgriez kaķa seju no sludinājuma; tā kļūs par profila attēlu. Vari arī izlaist.';
+
+  @override
+  String get stepRegistryHint =>
+      'Sludinājumā atrastie numuri. Atzīmētie tiks saglabāti pie kaķa un vēlāk atverami.';
+
+  @override
+  String get noRegistryLinks =>
+      'Šajā sludinājumā nav reģistru saišu — šeit nav ko darīt.';
+
+  @override
+  String get unknownServiceHint => 'Nezināms pakalpojums';
+
+  @override
+  String get rememberService => 'Atcerēties pakalpojumu';
+
+  @override
+  String get rememberServiceHint =>
+      'Nosauc pakalpojumu un norādi numuru saitē. Nākamais sludinājums aizpildīsies pats.';
+
+  @override
+  String get noIdInLink =>
+      'Šajā saitē nav numura, ko lietotne varētu saglabāt.';
+
+  @override
+  String get whichNumber => 'Kura daļa ir numurs?';
+
+  @override
+  String get cropAgain => 'Griezt vēlreiz';
+
+  @override
+  String get noFaceYet =>
+      'Sejas foto vēl nav — tiek izmantots sludinājuma foto.';
+
+  @override
+  String get backLabel => 'Atpakaļ';
+
+  @override
+  String get locateAddress => 'Meklēt adresi kartē';
+
+  @override
+  String get addressLocated => 'Adrese atrasta';
+
+  @override
+  String get addressNotFound =>
+      'Šai adresei vieta netika atrasta. Pārbaudi rakstību vai atstāj tukšu.';
+
+  @override
   String get starterPosition => 'Atrašanās vieta';
 
   @override

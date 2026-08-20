@@ -18,6 +18,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   street or town instead of centering it in a country-wide view); and
   two arrows glide from pin to pin in nearest-neighbor order.
 
+- **Flier scan is a wizard**: cat, owner, face crop, registry, and a
+  final check — one step per page, so the profile picture and the
+  poster's contact details no longer get skipped by accident. Phone and
+  e-mail land in the owner's own fields, and the address can be turned
+  into a position for the owner's card.
+
+- Registry numbers from a poster: an ID field can carry a lookup link,
+  so a Tasso number found on a flier is stored with the cat and opens
+  the service in one tap. Links from other services are learned from
+  the poster — name it once and the next flier fills itself.
+
 - Clowders have Email and Phone fields — contacting the people behind a
   colony no longer means writing it into Remarks.
 

@@ -820,6 +820,73 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Qattus';
+
+  @override
+  String get stepOwner => 'Sid';
+
+  @override
+  String get stepFace => 'Ritratt tal-wiċċ';
+
+  @override
+  String get stepRegistry => 'Reġistru';
+
+  @override
+  String get stepReview => 'Iċċekkja u ssejvja';
+
+  @override
+  String get stepOwnerHint =>
+      'Min tilef il-qattus — minn dan issir il-kard tiegħu, bil-kuntatt mill-flier.';
+
+  @override
+  String get stepFaceHint =>
+      'Aqta\' wiċċ il-qattus mill-flier; isir ir-ritratt tal-profil. Tista\' taqbeż dan.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numri misjuba fuq il-flier. Dawk immarkati jinżammu mal-qattus u jinfetħu wara.';
+
+  @override
+  String get noRegistryLinks =>
+      'L-ebda link ta\' reġistru fuq dan il-flier — m\'hemm xejn x\'tagħmel hawn.';
+
+  @override
+  String get unknownServiceHint => 'Servizz mhux magħruf';
+
+  @override
+  String get rememberService => 'Ftakar is-servizz';
+
+  @override
+  String get rememberServiceHint =>
+      'Agħti isem lis-servizz u uri n-numru fil-link. Il-flier li jmiss jimtela waħdu.';
+
+  @override
+  String get noIdInLink => 'Dan il-link ma fihx numru li l-app tista\' żżomm.';
+
+  @override
+  String get whichNumber => 'Liema parti hi n-numru?';
+
+  @override
+  String get cropAgain => 'Aqta\' mill-ġdid';
+
+  @override
+  String get noFaceYet =>
+      'Għadu m\'hemmx ritratt tal-wiċċ — jintuża r-ritratt tal-flier.';
+
+  @override
+  String get backLabel => 'Lura';
+
+  @override
+  String get locateAddress => 'Sib l-indirizz fuq il-mappa';
+
+  @override
+  String get addressLocated => 'L-indirizz instab';
+
+  @override
+  String get addressNotFound =>
+      'Ma nstab l-ebda post għal dan l-indirizz. Iċċekkja l-kitba jew ħallih vojt.';
+
+  @override
   String get starterPosition => 'Post';
 
   @override

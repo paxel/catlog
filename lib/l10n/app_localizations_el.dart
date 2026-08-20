@@ -820,6 +820,74 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Γάτα';
+
+  @override
+  String get stepOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get stepFace => 'Φωτογραφία προσώπου';
+
+  @override
+  String get stepRegistry => 'Μητρώο';
+
+  @override
+  String get stepReview => 'Έλεγχος και αποθήκευση';
+
+  @override
+  String get stepOwnerHint =>
+      'Όποιος ψάχνει τη γάτα — αυτό γίνεται η κάρτα του, με την επαφή από την αφίσα.';
+
+  @override
+  String get stepFaceHint =>
+      'Κόψε το πρόσωπο της γάτας από την αφίσα· γίνεται η φωτογραφία προφίλ. Μπορείς να το παραλείψεις.';
+
+  @override
+  String get stepRegistryHint =>
+      'Αριθμοί που βρέθηκαν στην αφίσα. Οι τσεκαρισμένοι αποθηκεύονται στη γάτα και ανοίγουν αργότερα.';
+
+  @override
+  String get noRegistryLinks =>
+      'Δεν υπάρχουν σύνδεσμοι μητρώου σε αυτή την αφίσα — δεν χρειάζεται κάτι εδώ.';
+
+  @override
+  String get unknownServiceHint => 'Άγνωστη υπηρεσία';
+
+  @override
+  String get rememberService => 'Απομνημόνευση υπηρεσίας';
+
+  @override
+  String get rememberServiceHint =>
+      'Δώσε όνομα στην υπηρεσία και δείξε τον αριθμό στον σύνδεσμο. Η επόμενη αφίσα θα συμπληρωθεί μόνη της.';
+
+  @override
+  String get noIdInLink =>
+      'Αυτός ο σύνδεσμος δεν έχει αριθμό που να μπορεί να αποθηκευτεί.';
+
+  @override
+  String get whichNumber => 'Ποιο μέρος είναι ο αριθμός;';
+
+  @override
+  String get cropAgain => 'Νέα περικοπή';
+
+  @override
+  String get noFaceYet =>
+      'Δεν υπάρχει ακόμη φωτογραφία προσώπου — χρησιμοποιείται η φωτογραφία της αφίσας.';
+
+  @override
+  String get backLabel => 'Πίσω';
+
+  @override
+  String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
+
+  @override
+  String get addressLocated => 'Η διεύθυνση βρέθηκε';
+
+  @override
+  String get addressNotFound =>
+      'Δεν βρέθηκε τοποθεσία για αυτή τη διεύθυνση. Έλεγξε την ορθογραφία ή άφησέ το κενό.';
+
+  @override
   String get starterPosition => 'Τοποθεσία';
 
   @override

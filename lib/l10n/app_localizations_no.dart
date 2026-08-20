@@ -816,6 +816,72 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Katt';
+
+  @override
+  String get stepOwner => 'Eier';
+
+  @override
+  String get stepFace => 'Ansiktsbilde';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Sjekk og lagre';
+
+  @override
+  String get stepOwnerHint =>
+      'Den som savner katten — det blir kortet deres, med kontakten fra oppslaget.';
+
+  @override
+  String get stepFaceHint =>
+      'Klipp kattens ansikt ut av oppslaget; det blir profilbildet. Du kan hoppe over.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numre funnet på oppslaget. Avmerkede lagres hos katten og kan åpnes senere.';
+
+  @override
+  String get noRegistryLinks =>
+      'Ingen registerlenker på dette oppslaget — ingenting å gjøre her.';
+
+  @override
+  String get unknownServiceHint => 'Ukjent tjeneste';
+
+  @override
+  String get rememberService => 'Husk tjenesten';
+
+  @override
+  String get rememberServiceHint =>
+      'Gi tjenesten et navn og pek på nummeret i lenken. Neste oppslag fyller seg selv.';
+
+  @override
+  String get noIdInLink => 'Denne lenken har ikke noe nummer appen kan lagre.';
+
+  @override
+  String get whichNumber => 'Hvilken del er nummeret?';
+
+  @override
+  String get cropAgain => 'Beskjær på nytt';
+
+  @override
+  String get noFaceYet => 'Ingen ansiktsbilde ennå — oppslagsbildet brukes.';
+
+  @override
+  String get backLabel => 'Tilbake';
+
+  @override
+  String get locateAddress => 'Finn adressen på kartet';
+
+  @override
+  String get addressLocated => 'Adresse funnet';
+
+  @override
+  String get addressNotFound =>
+      'Fant ingen sted for denne adressen. Sjekk stavemåten, eller la feltet stå tomt.';
+
+  @override
   String get starterPosition => 'Plassering';
 
   @override

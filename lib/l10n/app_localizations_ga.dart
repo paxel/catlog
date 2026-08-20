@@ -821,6 +821,74 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Cat';
+
+  @override
+  String get stepOwner => 'Úinéir';
+
+  @override
+  String get stepFace => 'Grianghraf aghaidhe';
+
+  @override
+  String get stepRegistry => 'Clár';
+
+  @override
+  String get stepReview => 'Seiceáil agus sábháil';
+
+  @override
+  String get stepOwnerHint =>
+      'An té a chaill an cat — déantar a chárta as seo, leis an teagmháil ón bpóstaer.';
+
+  @override
+  String get stepFaceHint =>
+      'Gearr aghaidh an chait as an bpóstaer; is é sin an pictiúr próifíle. Is féidir é a scipeáil.';
+
+  @override
+  String get stepRegistryHint =>
+      'Uimhreacha a fuarthas ar an bpóstaer. Sábháiltear na cinn ticeáilte leis an gcat agus osclaítear iad níos déanaí.';
+
+  @override
+  String get noRegistryLinks =>
+      'Níl aon nasc cláir ar an bpóstaer seo — níl aon rud le déanamh anseo.';
+
+  @override
+  String get unknownServiceHint => 'Seirbhís anaithnid';
+
+  @override
+  String get rememberService => 'Cuimhnigh ar an tseirbhís';
+
+  @override
+  String get rememberServiceHint =>
+      'Ainmnigh an tseirbhís agus taispeáin an uimhir sa nasc. Líonfaidh an chéad phóstaer eile é féin.';
+
+  @override
+  String get noIdInLink =>
+      'Níl uimhir sa nasc seo is féidir leis an aip a shábháil.';
+
+  @override
+  String get whichNumber => 'Cén chuid í an uimhir?';
+
+  @override
+  String get cropAgain => 'Gearr arís';
+
+  @override
+  String get noFaceYet =>
+      'Gan grianghraf aghaidhe fós — úsáidtear grianghraf an phóstaeir.';
+
+  @override
+  String get backLabel => 'Ar ais';
+
+  @override
+  String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
+
+  @override
+  String get addressLocated => 'Seoladh aimsithe';
+
+  @override
+  String get addressNotFound =>
+      'Níor aimsíodh aon áit don seoladh seo. Seiceáil an litriú nó fág folamh é.';
+
+  @override
   String get starterPosition => 'Suíomh';
 
   @override

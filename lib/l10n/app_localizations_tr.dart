@@ -816,6 +816,74 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kedi';
+
+  @override
+  String get stepOwner => 'Sahibi';
+
+  @override
+  String get stepFace => 'Yüz fotoğrafı';
+
+  @override
+  String get stepRegistry => 'Kayıt servisi';
+
+  @override
+  String get stepReview => 'Kontrol et ve kaydet';
+
+  @override
+  String get stepOwnerHint =>
+      'Kediyi arayan kişi — bu, ilandaki iletişim bilgisiyle onun kartı olur.';
+
+  @override
+  String get stepFaceHint =>
+      'Kedinin yüzünü ilandan kırp; profil fotoğrafı olur. Bu adımı atlayabilirsin.';
+
+  @override
+  String get stepRegistryHint =>
+      'İlanda bulunan numaralar. İşaretli olanlar kediyle kaydedilir ve sonra açılabilir.';
+
+  @override
+  String get noRegistryLinks =>
+      'Bu ilanda kayıt servisi bağlantısı yok — burada yapılacak bir şey yok.';
+
+  @override
+  String get unknownServiceHint => 'Bilinmeyen servis';
+
+  @override
+  String get rememberService => 'Servisi hatırla';
+
+  @override
+  String get rememberServiceHint =>
+      'Servise bir ad ver ve bağlantıdaki numarayı göster. Sonraki ilan kendini doldurur.';
+
+  @override
+  String get noIdInLink =>
+      'Bu bağlantıda uygulamanın kaydedebileceği bir numara yok.';
+
+  @override
+  String get whichNumber => 'Hangi kısım numara?';
+
+  @override
+  String get cropAgain => 'Yeniden kırp';
+
+  @override
+  String get noFaceYet =>
+      'Henüz yüz fotoğrafı yok — ilan fotoğrafı kullanılır.';
+
+  @override
+  String get backLabel => 'Geri';
+
+  @override
+  String get locateAddress => 'Adresi haritada bul';
+
+  @override
+  String get addressLocated => 'Adres bulundu';
+
+  @override
+  String get addressNotFound =>
+      'Bu adres için yer bulunamadı. Yazımı kontrol edin ya da boş bırakın.';
+
+  @override
   String get starterPosition => 'Konum';
 
   @override

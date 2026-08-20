@@ -793,6 +793,66 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get stepCat => '猫';
+
+  @override
+  String get stepOwner => '主人';
+
+  @override
+  String get stepFace => '头像照片';
+
+  @override
+  String get stepRegistry => '登记服务';
+
+  @override
+  String get stepReview => '检查并保存';
+
+  @override
+  String get stepOwnerHint => '寻猫的人——这里会生成他的卡片，附上启事上的联系方式。';
+
+  @override
+  String get stepFaceHint => '从启事中裁出猫的脸，作为头像。此步可跳过。';
+
+  @override
+  String get stepRegistryHint => '在启事上找到的号码。勾选的会保存到猫，之后可以打开。';
+
+  @override
+  String get noRegistryLinks => '这张启事没有登记服务链接——此处无需操作。';
+
+  @override
+  String get unknownServiceHint => '未知服务';
+
+  @override
+  String get rememberService => '记住该服务';
+
+  @override
+  String get rememberServiceHint => '给服务起个名字，并指出链接中的号码。下次同类启事会自动填好。';
+
+  @override
+  String get noIdInLink => '该链接中没有应用可保存的号码。';
+
+  @override
+  String get whichNumber => '哪一部分是号码？';
+
+  @override
+  String get cropAgain => '重新裁剪';
+
+  @override
+  String get noFaceYet => '还没有头像照片——将使用启事照片。';
+
+  @override
+  String get backLabel => '返回';
+
+  @override
+  String get locateAddress => '在地图上查找地址';
+
+  @override
+  String get addressLocated => '已找到地址';
+
+  @override
+  String get addressNotFound => '没有找到该地址对应的地点。请检查拼写或留空。';
+
+  @override
   String get starterPosition => '位置';
 
   @override

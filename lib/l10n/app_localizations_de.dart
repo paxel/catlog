@@ -821,6 +821,74 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Katze';
+
+  @override
+  String get stepOwner => 'Besitzer';
+
+  @override
+  String get stepFace => 'Profilbild';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Prüfen und speichern';
+
+  @override
+  String get stepOwnerHint =>
+      'Wer die Katze vermisst — daraus wird deren Karte, mit dem Kontakt vom Aushang.';
+
+  @override
+  String get stepFaceHint =>
+      'Schneide das Gesicht der Katze aus dem Aushang aus; es wird zum Profilbild. Kannst du auch überspringen.';
+
+  @override
+  String get stepRegistryHint =>
+      'Nummern vom Aushang. Angehakte werden bei der Katze gespeichert und lassen sich später öffnen.';
+
+  @override
+  String get noRegistryLinks =>
+      'Keine Register-Links auf diesem Aushang — hier ist nichts zu tun.';
+
+  @override
+  String get unknownServiceHint => 'Unbekannter Dienst';
+
+  @override
+  String get rememberService => 'Dienst merken';
+
+  @override
+  String get rememberServiceHint =>
+      'Benenne den Dienst und zeige auf die Nummer im Link. Der nächste Aushang füllt sich dann von selbst.';
+
+  @override
+  String get noIdInLink =>
+      'In diesem Link steckt keine Nummer, die die App speichern könnte.';
+
+  @override
+  String get whichNumber => 'Welcher Teil ist die Nummer?';
+
+  @override
+  String get cropAgain => 'Neu zuschneiden';
+
+  @override
+  String get noFaceYet =>
+      'Noch kein Profilbild — es wird das Aushang-Foto genommen.';
+
+  @override
+  String get backLabel => 'Zurück';
+
+  @override
+  String get locateAddress => 'Adresse auf der Karte suchen';
+
+  @override
+  String get addressLocated => 'Adresse gefunden';
+
+  @override
+  String get addressNotFound =>
+      'Zu dieser Adresse wurde kein Ort gefunden. Prüfe die Schreibweise oder lass das Feld leer.';
+
+  @override
   String get starterPosition => 'Standort';
 
   @override

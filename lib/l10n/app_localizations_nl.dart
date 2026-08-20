@@ -819,6 +819,74 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kat';
+
+  @override
+  String get stepOwner => 'Eigenaar';
+
+  @override
+  String get stepFace => 'Gezichtsfoto';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Controleren en opslaan';
+
+  @override
+  String get stepOwnerHint =>
+      'Wie de kat mist — dit wordt hun kaart, met het contact van de poster.';
+
+  @override
+  String get stepFaceHint =>
+      'Knip het gezicht van de kat uit de poster; het wordt de profielfoto. Overslaan mag.';
+
+  @override
+  String get stepRegistryHint =>
+      'Nummers van de poster. Aangevinkte worden bij de kat opgeslagen en later te openen.';
+
+  @override
+  String get noRegistryLinks =>
+      'Geen registerlinks op deze poster — hier is niets te doen.';
+
+  @override
+  String get unknownServiceHint => 'Onbekende dienst';
+
+  @override
+  String get rememberService => 'Dienst onthouden';
+
+  @override
+  String get rememberServiceHint =>
+      'Geef de dienst een naam en wijs het nummer in de link aan. De volgende poster vult zichzelf.';
+
+  @override
+  String get noIdInLink =>
+      'In deze link zit geen nummer dat de app kan opslaan.';
+
+  @override
+  String get whichNumber => 'Welk deel is het nummer?';
+
+  @override
+  String get cropAgain => 'Opnieuw bijsnijden';
+
+  @override
+  String get noFaceYet =>
+      'Nog geen gezichtsfoto — de posterfoto wordt gebruikt.';
+
+  @override
+  String get backLabel => 'Terug';
+
+  @override
+  String get locateAddress => 'Adres op de kaart zoeken';
+
+  @override
+  String get addressLocated => 'Adres gevonden';
+
+  @override
+  String get addressNotFound =>
+      'Geen plek gevonden voor dit adres. Controleer de spelling of laat het leeg.';
+
+  @override
   String get starterPosition => 'Locatie';
 
   @override

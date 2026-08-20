@@ -820,6 +820,74 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Мачка';
+
+  @override
+  String get stepOwner => 'Сопственик';
+
+  @override
+  String get stepFace => 'Фотографија на муцката';
+
+  @override
+  String get stepRegistry => 'Регистар';
+
+  @override
+  String get stepReview => 'Провери и зачувај';
+
+  @override
+  String get stepOwnerHint =>
+      'Оној што ја бара мачката — од тоа настанува неговата картичка со контактот од огласот.';
+
+  @override
+  String get stepFaceHint =>
+      'Исечи ја муцката на мачката од огласот; станува профилна слика. Може и да прескокнеш.';
+
+  @override
+  String get stepRegistryHint =>
+      'Броеви најдени на огласот. Штиклираните се зачувуваат кај мачката и може подоцна да се отворат.';
+
+  @override
+  String get noRegistryLinks =>
+      'На овој оглас нема врски до регистри — тука нема работа.';
+
+  @override
+  String get unknownServiceHint => 'Непозната услуга';
+
+  @override
+  String get rememberService => 'Запамти ја услугата';
+
+  @override
+  String get rememberServiceHint =>
+      'Именувај ја услугата и покажи го бројот во врската. Следниот оглас ќе се пополни сам.';
+
+  @override
+  String get noIdInLink =>
+      'Оваа врска не содржи број што апликацијата би можела да го зачува.';
+
+  @override
+  String get whichNumber => 'Кој дел е бројот?';
+
+  @override
+  String get cropAgain => 'Исечи повторно';
+
+  @override
+  String get noFaceYet =>
+      'Сè уште нема фотографија на муцката — се користи фотографијата од огласот.';
+
+  @override
+  String get backLabel => 'Назад';
+
+  @override
+  String get locateAddress => 'Најди ја адресата на картата';
+
+  @override
+  String get addressLocated => 'Адресата е најдена';
+
+  @override
+  String get addressNotFound =>
+      'За оваа адреса не е најдено место. Провери го правописот или остави празно.';
+
+  @override
   String get starterPosition => 'Локација';
 
   @override

@@ -821,6 +821,74 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Chat';
+
+  @override
+  String get stepOwner => 'Propriétaire';
+
+  @override
+  String get stepFace => 'Photo du visage';
+
+  @override
+  String get stepRegistry => 'Registre';
+
+  @override
+  String get stepReview => 'Vérifier et enregistrer';
+
+  @override
+  String get stepOwnerHint =>
+      'La personne qui a perdu le chat — ceci devient sa fiche, avec le contact de l\'affiche.';
+
+  @override
+  String get stepFaceHint =>
+      'Découpez la tête du chat sur l\'affiche ; elle devient la photo de profil. Vous pouvez passer.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numéros trouvés sur l\'affiche. Ceux cochés sont enregistrés avec le chat et s\'ouvrent plus tard.';
+
+  @override
+  String get noRegistryLinks =>
+      'Aucun lien de registre sur cette affiche — rien à faire ici.';
+
+  @override
+  String get unknownServiceHint => 'Service inconnu';
+
+  @override
+  String get rememberService => 'Mémoriser le service';
+
+  @override
+  String get rememberServiceHint =>
+      'Nommez le service et désignez le numéro dans le lien. La prochaine affiche se remplira seule.';
+
+  @override
+  String get noIdInLink =>
+      'Ce lien ne contient aucun numéro que l\'appli puisse enregistrer.';
+
+  @override
+  String get whichNumber => 'Quelle partie est le numéro ?';
+
+  @override
+  String get cropAgain => 'Recadrer';
+
+  @override
+  String get noFaceYet =>
+      'Pas encore de photo de visage — la photo de l\'affiche est utilisée.';
+
+  @override
+  String get backLabel => 'Retour';
+
+  @override
+  String get locateAddress => 'Trouver l\'adresse sur la carte';
+
+  @override
+  String get addressLocated => 'Adresse trouvée';
+
+  @override
+  String get addressNotFound =>
+      'Aucun lieu trouvé pour cette adresse. Vérifiez l\'orthographe ou laissez le champ vide.';
+
+  @override
   String get starterPosition => 'Emplacement';
 
   @override

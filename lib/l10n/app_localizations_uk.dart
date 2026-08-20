@@ -817,6 +817,73 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Кіт';
+
+  @override
+  String get stepOwner => 'Власник';
+
+  @override
+  String get stepFace => 'Фото мордочки';
+
+  @override
+  String get stepRegistry => 'Реєстр';
+
+  @override
+  String get stepReview => 'Перевірити й зберегти';
+
+  @override
+  String get stepOwnerHint =>
+      'Той, хто шукає кота, — з цього вийде його картка з контактом з оголошення.';
+
+  @override
+  String get stepFaceHint =>
+      'Виріжте мордочку кота з оголошення; вона стане фото профілю. Крок можна пропустити.';
+
+  @override
+  String get stepRegistryHint =>
+      'Номери, знайдені в оголошенні. Позначені збережуться в кота й відкриються пізніше.';
+
+  @override
+  String get noRegistryLinks =>
+      'У цьому оголошенні немає посилань на реєстри — тут нема чого робити.';
+
+  @override
+  String get unknownServiceHint => 'Невідома служба';
+
+  @override
+  String get rememberService => 'Запам\'ятати службу';
+
+  @override
+  String get rememberServiceHint =>
+      'Назвіть службу і вкажіть номер у посиланні. Наступне оголошення заповниться саме.';
+
+  @override
+  String get noIdInLink =>
+      'У цьому посиланні немає номера, який застосунок міг би зберегти.';
+
+  @override
+  String get whichNumber => 'Яка частина — номер?';
+
+  @override
+  String get cropAgain => 'Обрізати ще раз';
+
+  @override
+  String get noFaceYet => 'Фото мордочки ще немає — береться фото оголошення.';
+
+  @override
+  String get backLabel => 'Назад';
+
+  @override
+  String get locateAddress => 'Знайти адресу на карті';
+
+  @override
+  String get addressLocated => 'Адресу знайдено';
+
+  @override
+  String get addressNotFound =>
+      'Для цієї адреси нічого не знайдено. Перевірте написання або лишіть порожнім.';
+
+  @override
   String get starterPosition => 'Місцезнаходження';
 
   @override

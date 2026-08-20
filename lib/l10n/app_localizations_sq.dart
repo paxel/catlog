@@ -820,6 +820,73 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Macja';
+
+  @override
+  String get stepOwner => 'Pronari';
+
+  @override
+  String get stepFace => 'Foto e fytyrës';
+
+  @override
+  String get stepRegistry => 'Regjistri';
+
+  @override
+  String get stepReview => 'Kontrollo dhe ruaj';
+
+  @override
+  String get stepOwnerHint =>
+      'Ai që i ka humbur macja — nga kjo del karta e tij, me kontaktin nga fletushka.';
+
+  @override
+  String get stepFaceHint =>
+      'Prije fytyrën e maces nga fletushka; bëhet fotoja e profilit. Mund ta kapërcesh.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numra të gjetur në fletushkë. Ata të shënuar ruhen te macja dhe hapen më vonë.';
+
+  @override
+  String get noRegistryLinks =>
+      'Asnjë lidhje regjistri në këtë fletushkë — s\'ka gjë për të bërë këtu.';
+
+  @override
+  String get unknownServiceHint => 'Shërbim i panjohur';
+
+  @override
+  String get rememberService => 'Mba mend shërbimin';
+
+  @override
+  String get rememberServiceHint =>
+      'Emërto shërbimin dhe trego numrin në lidhje. Fletushka tjetër plotësohet vetë.';
+
+  @override
+  String get noIdInLink =>
+      'Kjo lidhje nuk ka numër që aplikacioni të mund ta ruajë.';
+
+  @override
+  String get whichNumber => 'Cila pjesë është numri?';
+
+  @override
+  String get cropAgain => 'Prije sërish';
+
+  @override
+  String get noFaceYet => 'Ende pa foto fytyre — përdoret fotoja e fletushkës.';
+
+  @override
+  String get backLabel => 'Prapa';
+
+  @override
+  String get locateAddress => 'Gjej adresën në hartë';
+
+  @override
+  String get addressLocated => 'Adresa u gjet';
+
+  @override
+  String get addressNotFound =>
+      'Nuk u gjet asnjë vend për këtë adresë. Kontrollo shkrimin ose lëre bosh.';
+
+  @override
   String get starterPosition => 'Vendndodhja';
 
   @override

@@ -820,6 +820,74 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Gatto';
+
+  @override
+  String get stepOwner => 'Proprietario';
+
+  @override
+  String get stepFace => 'Foto del muso';
+
+  @override
+  String get stepRegistry => 'Registro';
+
+  @override
+  String get stepReview => 'Controlla e salva';
+
+  @override
+  String get stepOwnerHint =>
+      'Chi ha perso il gatto: questa diventa la sua scheda, con il contatto del volantino.';
+
+  @override
+  String get stepFaceHint =>
+      'Ritaglia il muso del gatto dal volantino; diventa la foto del profilo. Puoi saltare questo passo.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numeri trovati sul volantino. Quelli spuntati vengono salvati con il gatto e si aprono più tardi.';
+
+  @override
+  String get noRegistryLinks =>
+      'Nessun link di registro su questo volantino: qui non c\'è nulla da fare.';
+
+  @override
+  String get unknownServiceHint => 'Servizio sconosciuto';
+
+  @override
+  String get rememberService => 'Ricorda il servizio';
+
+  @override
+  String get rememberServiceHint =>
+      'Dai un nome al servizio e indica il numero nel link. Il prossimo volantino si compilerà da solo.';
+
+  @override
+  String get noIdInLink =>
+      'Questo link non contiene alcun numero che l\'app possa salvare.';
+
+  @override
+  String get whichNumber => 'Quale parte è il numero?';
+
+  @override
+  String get cropAgain => 'Ritaglia di nuovo';
+
+  @override
+  String get noFaceYet =>
+      'Ancora nessuna foto del muso: si usa la foto del volantino.';
+
+  @override
+  String get backLabel => 'Indietro';
+
+  @override
+  String get locateAddress => 'Trova l\'indirizzo sulla mappa';
+
+  @override
+  String get addressLocated => 'Indirizzo trovato';
+
+  @override
+  String get addressNotFound =>
+      'Nessun luogo trovato per questo indirizzo. Controlla l\'ortografia o lascia vuoto.';
+
+  @override
   String get starterPosition => 'Posizione geografica';
 
   @override

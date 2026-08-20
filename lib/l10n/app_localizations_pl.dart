@@ -816,6 +816,74 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kot';
+
+  @override
+  String get stepOwner => 'Właściciel';
+
+  @override
+  String get stepFace => 'Zdjęcie pyszczka';
+
+  @override
+  String get stepRegistry => 'Rejestr';
+
+  @override
+  String get stepReview => 'Sprawdź i zapisz';
+
+  @override
+  String get stepOwnerHint =>
+      'Osoba, której zaginął kot — to będzie jej karta, z kontaktem z ogłoszenia.';
+
+  @override
+  String get stepFaceHint =>
+      'Wytnij pyszczek kota z ogłoszenia; zostanie zdjęciem profilowym. Możesz pominąć.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numery znalezione na ogłoszeniu. Zaznaczone zapiszą się przy kocie i można je później otworzyć.';
+
+  @override
+  String get noRegistryLinks =>
+      'Brak linków do rejestrów na tym ogłoszeniu — nic tu nie trzeba robić.';
+
+  @override
+  String get unknownServiceHint => 'Nieznany serwis';
+
+  @override
+  String get rememberService => 'Zapamiętaj serwis';
+
+  @override
+  String get rememberServiceHint =>
+      'Nazwij serwis i wskaż numer w linku. Następne ogłoszenie wypełni się samo.';
+
+  @override
+  String get noIdInLink =>
+      'Ten link nie zawiera numeru, który aplikacja mogłaby zapisać.';
+
+  @override
+  String get whichNumber => 'Która część to numer?';
+
+  @override
+  String get cropAgain => 'Przytnij ponownie';
+
+  @override
+  String get noFaceYet =>
+      'Brak zdjęcia pyszczka — użyte zostanie zdjęcie ogłoszenia.';
+
+  @override
+  String get backLabel => 'Wstecz';
+
+  @override
+  String get locateAddress => 'Znajdź adres na mapie';
+
+  @override
+  String get addressLocated => 'Adres znaleziony';
+
+  @override
+  String get addressNotFound =>
+      'Nie znaleziono miejsca dla tego adresu. Sprawdź pisownię albo zostaw puste.';
+
+  @override
   String get starterPosition => 'Lokalizacja';
 
   @override

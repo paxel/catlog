@@ -816,6 +816,71 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'القطة';
+
+  @override
+  String get stepOwner => 'المالك';
+
+  @override
+  String get stepFace => 'صورة الوجه';
+
+  @override
+  String get stepRegistry => 'السجل';
+
+  @override
+  String get stepReview => 'التحقق والحفظ';
+
+  @override
+  String get stepOwnerHint =>
+      'من يبحث عن القطة — تصبح هذه بطاقته مع بيانات التواصل من المنشور.';
+
+  @override
+  String get stepFaceHint =>
+      'اقتصّ وجه القطة من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
+
+  @override
+  String get stepRegistryHint =>
+      'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
+
+  @override
+  String get noRegistryLinks => 'لا روابط سجلات في هذا المنشور — لا شيء هنا.';
+
+  @override
+  String get unknownServiceHint => 'خدمة غير معروفة';
+
+  @override
+  String get rememberService => 'تذكّر الخدمة';
+
+  @override
+  String get rememberServiceHint =>
+      'سمِّ الخدمة وحدد الرقم داخل الرابط. المنشور التالي سيملأ نفسه.';
+
+  @override
+  String get noIdInLink => 'لا يحمل هذا الرابط رقمًا يمكن للتطبيق حفظه.';
+
+  @override
+  String get whichNumber => 'أي جزء هو الرقم؟';
+
+  @override
+  String get cropAgain => 'اقتصاص من جديد';
+
+  @override
+  String get noFaceYet => 'لا صورة وجه بعد — تُستخدم صورة المنشور.';
+
+  @override
+  String get backLabel => 'رجوع';
+
+  @override
+  String get locateAddress => 'ابحث عن العنوان على الخريطة';
+
+  @override
+  String get addressLocated => 'تم العثور على العنوان';
+
+  @override
+  String get addressNotFound =>
+      'لم يُعثر على مكان لهذا العنوان. تحقق من الكتابة أو اترك الحقل فارغًا.';
+
+  @override
   String get starterPosition => 'الموقع';
 
   @override

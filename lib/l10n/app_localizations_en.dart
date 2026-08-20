@@ -816,6 +816,73 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Cat';
+
+  @override
+  String get stepOwner => 'Owner';
+
+  @override
+  String get stepFace => 'Face photo';
+
+  @override
+  String get stepRegistry => 'Registry';
+
+  @override
+  String get stepReview => 'Check and save';
+
+  @override
+  String get stepOwnerHint =>
+      'Whoever is missing the cat — this becomes their card, with the contact from the poster.';
+
+  @override
+  String get stepFaceHint =>
+      'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.';
+
+  @override
+  String get noRegistryLinks =>
+      'No registry links on this poster — nothing to do here.';
+
+  @override
+  String get unknownServiceHint => 'Unknown service';
+
+  @override
+  String get rememberService => 'Remember service';
+
+  @override
+  String get rememberServiceHint =>
+      'Name the service and point at the number in the link. The next poster from it fills itself.';
+
+  @override
+  String get noIdInLink => 'This link carries no number the app could store.';
+
+  @override
+  String get whichNumber => 'Which part is the number?';
+
+  @override
+  String get cropAgain => 'Crop again';
+
+  @override
+  String get noFaceYet =>
+      'No face photo yet — the poster photo is used instead.';
+
+  @override
+  String get backLabel => 'Back';
+
+  @override
+  String get locateAddress => 'Find address on the map';
+
+  @override
+  String get addressLocated => 'Address found';
+
+  @override
+  String get addressNotFound =>
+      'No place found for this address. Check the spelling, or leave it empty.';
+
+  @override
   String get starterPosition => 'Location';
 
   @override

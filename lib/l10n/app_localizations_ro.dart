@@ -818,6 +818,74 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Pisică';
+
+  @override
+  String get stepOwner => 'Proprietar';
+
+  @override
+  String get stepFace => 'Poza feței';
+
+  @override
+  String get stepRegistry => 'Registru';
+
+  @override
+  String get stepReview => 'Verifică și salvează';
+
+  @override
+  String get stepOwnerHint =>
+      'Cine îi duce dorul pisicii — asta devine fișa lui, cu contactul de pe afiș.';
+
+  @override
+  String get stepFaceHint =>
+      'Decupează fața pisicii de pe afiș; devine poza de profil. Poți sări peste.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numere găsite pe afiș. Cele bifate se salvează la pisică și se pot deschide mai târziu.';
+
+  @override
+  String get noRegistryLinks =>
+      'Niciun link de registru pe acest afiș — nimic de făcut aici.';
+
+  @override
+  String get unknownServiceHint => 'Serviciu necunoscut';
+
+  @override
+  String get rememberService => 'Ține minte serviciul';
+
+  @override
+  String get rememberServiceHint =>
+      'Denumește serviciul și arată numărul din link. Următorul afiș se completează singur.';
+
+  @override
+  String get noIdInLink =>
+      'Acest link nu conține un număr pe care aplicația să-l salveze.';
+
+  @override
+  String get whichNumber => 'Care parte este numărul?';
+
+  @override
+  String get cropAgain => 'Decupează din nou';
+
+  @override
+  String get noFaceYet =>
+      'Încă nicio poză a feței — se folosește poza afișului.';
+
+  @override
+  String get backLabel => 'Înapoi';
+
+  @override
+  String get locateAddress => 'Caută adresa pe hartă';
+
+  @override
+  String get addressLocated => 'Adresă găsită';
+
+  @override
+  String get addressNotFound =>
+      'Nu s-a găsit niciun loc pentru această adresă. Verifică scrierea sau las-o goală.';
+
+  @override
   String get starterPosition => 'Locație';
 
   @override

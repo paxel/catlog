@@ -818,6 +818,73 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kissa';
+
+  @override
+  String get stepOwner => 'Omistaja';
+
+  @override
+  String get stepFace => 'Kasvokuva';
+
+  @override
+  String get stepRegistry => 'Rekisteri';
+
+  @override
+  String get stepReview => 'Tarkista ja tallenna';
+
+  @override
+  String get stepOwnerHint =>
+      'Se, jolta kissa on kadonnut — tästä tulee hänen korttinsa ilmoituksen yhteystiedoin.';
+
+  @override
+  String get stepFaceHint =>
+      'Rajaa kissan kasvot ilmoituksesta; niistä tulee profiilikuva. Voit ohittaa tämän.';
+
+  @override
+  String get stepRegistryHint =>
+      'Ilmoituksesta löytyneet numerot. Valitut tallennetaan kissalle ja ne voi avata myöhemmin.';
+
+  @override
+  String get noRegistryLinks =>
+      'Tässä ilmoituksessa ei ole rekisterilinkkejä — täällä ei ole tehtävää.';
+
+  @override
+  String get unknownServiceHint => 'Tuntematon palvelu';
+
+  @override
+  String get rememberService => 'Muista palvelu';
+
+  @override
+  String get rememberServiceHint =>
+      'Anna palvelulle nimi ja osoita numero linkistä. Seuraava ilmoitus täyttyy itsestään.';
+
+  @override
+  String get noIdInLink =>
+      'Tässä linkissä ei ole numeroa, jonka sovellus voisi tallentaa.';
+
+  @override
+  String get whichNumber => 'Mikä osa on numero?';
+
+  @override
+  String get cropAgain => 'Rajaa uudelleen';
+
+  @override
+  String get noFaceYet => 'Ei vielä kasvokuvaa — käytetään ilmoituksen kuvaa.';
+
+  @override
+  String get backLabel => 'Takaisin';
+
+  @override
+  String get locateAddress => 'Etsi osoite kartalta';
+
+  @override
+  String get addressLocated => 'Osoite löytyi';
+
+  @override
+  String get addressNotFound =>
+      'Osoitteelle ei löytynyt paikkaa. Tarkista kirjoitusasu tai jätä kenttä tyhjäksi.';
+
+  @override
   String get starterPosition => 'Sijainti';
 
   @override

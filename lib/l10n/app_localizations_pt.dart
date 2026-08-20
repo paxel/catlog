@@ -819,6 +819,73 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Gato';
+
+  @override
+  String get stepOwner => 'Dono';
+
+  @override
+  String get stepFace => 'Foto da cara';
+
+  @override
+  String get stepRegistry => 'Registo';
+
+  @override
+  String get stepReview => 'Verificar e guardar';
+
+  @override
+  String get stepOwnerHint =>
+      'Quem dá pelo gato como desaparecido — isto torna-se o cartão dessa pessoa, com o contacto do cartaz.';
+
+  @override
+  String get stepFaceHint =>
+      'Recorta a cara do gato do cartaz; passa a ser a foto de perfil. Podes saltar este passo.';
+
+  @override
+  String get stepRegistryHint =>
+      'Números encontrados no cartaz. Os marcados ficam guardados com o gato e abrem-se depois.';
+
+  @override
+  String get noRegistryLinks =>
+      'Sem ligações de registo neste cartaz — nada a fazer aqui.';
+
+  @override
+  String get unknownServiceHint => 'Serviço desconhecido';
+
+  @override
+  String get rememberService => 'Guardar serviço';
+
+  @override
+  String get rememberServiceHint =>
+      'Dá um nome ao serviço e aponta o número na ligação. O próximo cartaz preenche-se sozinho.';
+
+  @override
+  String get noIdInLink =>
+      'Esta ligação não traz nenhum número que a app possa guardar.';
+
+  @override
+  String get whichNumber => 'Que parte é o número?';
+
+  @override
+  String get cropAgain => 'Recortar de novo';
+
+  @override
+  String get noFaceYet => 'Ainda sem foto da cara — usa-se a foto do cartaz.';
+
+  @override
+  String get backLabel => 'Voltar';
+
+  @override
+  String get locateAddress => 'Procurar a morada no mapa';
+
+  @override
+  String get addressLocated => 'Morada encontrada';
+
+  @override
+  String get addressNotFound =>
+      'Nenhum lugar encontrado para esta morada. Verifica a escrita ou deixa vazio.';
+
+  @override
   String get starterPosition => 'Localização';
 
   @override

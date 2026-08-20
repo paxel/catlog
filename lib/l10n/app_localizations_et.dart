@@ -816,6 +816,73 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Kass';
+
+  @override
+  String get stepOwner => 'Omanik';
+
+  @override
+  String get stepFace => 'Näopilt';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Kontrolli ja salvesta';
+
+  @override
+  String get stepOwnerHint =>
+      'See, kes kassi taga otsib — sellest saab tema kaart koos kuulutuse kontaktiga.';
+
+  @override
+  String get stepFaceHint =>
+      'Lõika kassi nägu kuulutuselt välja; sellest saab profiilipilt. Võid ka vahele jätta.';
+
+  @override
+  String get stepRegistryHint =>
+      'Kuulutuselt leitud numbrid. Märgitud salvestatakse kassi juurde ja neid saab hiljem avada.';
+
+  @override
+  String get noRegistryLinks =>
+      'Sellel kuulutusel pole registrilinke — siin pole midagi teha.';
+
+  @override
+  String get unknownServiceHint => 'Tundmatu teenus';
+
+  @override
+  String get rememberService => 'Jäta teenus meelde';
+
+  @override
+  String get rememberServiceHint =>
+      'Anna teenusele nimi ja osuta numbrile lingis. Järgmine kuulutus täidab end ise.';
+
+  @override
+  String get noIdInLink =>
+      'Selles lingis pole numbrit, mida rakendus salvestada saaks.';
+
+  @override
+  String get whichNumber => 'Milline osa on number?';
+
+  @override
+  String get cropAgain => 'Lõika uuesti';
+
+  @override
+  String get noFaceYet => 'Näopilti veel pole — kasutatakse kuulutuse pilti.';
+
+  @override
+  String get backLabel => 'Tagasi';
+
+  @override
+  String get locateAddress => 'Otsi aadress kaardilt';
+
+  @override
+  String get addressLocated => 'Aadress leitud';
+
+  @override
+  String get addressNotFound =>
+      'Selle aadressi jaoks kohta ei leitud. Kontrolli kirjapilti või jäta tühjaks.';
+
+  @override
   String get starterPosition => 'Asukoht';
 
   @override

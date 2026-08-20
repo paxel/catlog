@@ -1574,6 +1574,126 @@ abstract class AppLocalizations {
   /// **'No app could open {url}. Copy the link into a browser.'**
   String lookupFailed(String url);
 
+  /// No description provided for @stepCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat'**
+  String get stepCat;
+
+  /// No description provided for @stepOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get stepOwner;
+
+  /// No description provided for @stepFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face photo'**
+  String get stepFace;
+
+  /// No description provided for @stepRegistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Registry'**
+  String get stepRegistry;
+
+  /// No description provided for @stepReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Check and save'**
+  String get stepReview;
+
+  /// No description provided for @stepOwnerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Whoever is missing the cat — this becomes their card, with the contact from the poster.'**
+  String get stepOwnerHint;
+
+  /// No description provided for @stepFaceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.'**
+  String get stepFaceHint;
+
+  /// No description provided for @stepRegistryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.'**
+  String get stepRegistryHint;
+
+  /// No description provided for @noRegistryLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'No registry links on this poster — nothing to do here.'**
+  String get noRegistryLinks;
+
+  /// No description provided for @unknownServiceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown service'**
+  String get unknownServiceHint;
+
+  /// No description provided for @rememberService.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember service'**
+  String get rememberService;
+
+  /// No description provided for @rememberServiceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Name the service and point at the number in the link. The next poster from it fills itself.'**
+  String get rememberServiceHint;
+
+  /// No description provided for @noIdInLink.
+  ///
+  /// In en, this message translates to:
+  /// **'This link carries no number the app could store.'**
+  String get noIdInLink;
+
+  /// No description provided for @whichNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Which part is the number?'**
+  String get whichNumber;
+
+  /// No description provided for @cropAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop again'**
+  String get cropAgain;
+
+  /// No description provided for @noFaceYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No face photo yet — the poster photo is used instead.'**
+  String get noFaceYet;
+
+  /// No description provided for @backLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get backLabel;
+
+  /// No description provided for @locateAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Find address on the map'**
+  String get locateAddress;
+
+  /// No description provided for @addressLocated.
+  ///
+  /// In en, this message translates to:
+  /// **'Address found'**
+  String get addressLocated;
+
+  /// No description provided for @addressNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No place found for this address. Check the spelling, or leave it empty.'**
+  String get addressNotFound;
+
   /// No description provided for @starterPosition.
   ///
   /// In en, this message translates to:

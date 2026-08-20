@@ -818,6 +818,73 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get stepCat => 'Кошка';
+
+  @override
+  String get stepOwner => 'Владелец';
+
+  @override
+  String get stepFace => 'Фото морды';
+
+  @override
+  String get stepRegistry => 'Реестр';
+
+  @override
+  String get stepReview => 'Проверить и сохранить';
+
+  @override
+  String get stepOwnerHint =>
+      'Тот, кто ищет кошку, — из этого получится его карточка с контактом с объявления.';
+
+  @override
+  String get stepFaceHint =>
+      'Вырежьте морду кошки с объявления; она станет фото профиля. Шаг можно пропустить.';
+
+  @override
+  String get stepRegistryHint =>
+      'Номера, найденные на объявлении. Отмеченные сохранятся у кошки и откроются позже.';
+
+  @override
+  String get noRegistryLinks =>
+      'На этом объявлении нет ссылок на реестры — здесь делать нечего.';
+
+  @override
+  String get unknownServiceHint => 'Неизвестная служба';
+
+  @override
+  String get rememberService => 'Запомнить службу';
+
+  @override
+  String get rememberServiceHint =>
+      'Назовите службу и укажите номер в ссылке. Следующее объявление заполнится само.';
+
+  @override
+  String get noIdInLink =>
+      'В этой ссылке нет номера, который приложение могло бы сохранить.';
+
+  @override
+  String get whichNumber => 'Какая часть — номер?';
+
+  @override
+  String get cropAgain => 'Обрезать заново';
+
+  @override
+  String get noFaceYet => 'Фото морды пока нет — используется фото объявления.';
+
+  @override
+  String get backLabel => 'Назад';
+
+  @override
+  String get locateAddress => 'Найти адрес на карте';
+
+  @override
+  String get addressLocated => 'Адрес найден';
+
+  @override
+  String get addressNotFound =>
+      'Для этого адреса ничего не найдено. Проверьте написание или оставьте поле пустым.';
+
+  @override
   String get starterPosition => 'Местоположение';
 
   @override
