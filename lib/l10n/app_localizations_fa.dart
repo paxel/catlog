@@ -320,6 +320,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get strayAreaLabel => 'محدودهٔ احتمالی پرسه‌زنی';
 
   @override
+  String get prevPin => 'پین قبلی';
+
+  @override
+  String get nextPin => 'پین بعدی';
+
+  @override
   String get noMissingCats => 'هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.';
 
   @override

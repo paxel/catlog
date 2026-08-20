@@ -320,6 +320,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get strayAreaLabel => 'منطقة التواجد المحتملة';
 
   @override
+  String get prevPin => 'الدبوس السابق';
+
+  @override
+  String get nextPin => 'الدبوس التالي';
+
+  @override
   String get noMissingCats => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
 
   @override

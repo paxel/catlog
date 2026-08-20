@@ -321,6 +321,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get strayAreaLabel => 'Mögliches Streifgebiet';
 
   @override
+  String get prevPin => 'Voriger Pin';
+
+  @override
+  String get nextPin => 'Nächster Pin';
+
+  @override
   String get noMissingCats =>
       'Noch keine vermissten Katzen mit Aushang-Positionen.';
 

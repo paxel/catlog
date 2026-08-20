@@ -191,6 +191,8 @@
   "shareSource": "Avots: {url}",
   "importLabel": "Importēt",
   "strayAreaLabel": "Iespējamā klejošanas zona",
+  "prevPin": "Iepriekšējā kniepadata",
+  "nextPin": "Nākamā kniepadata",
   "noMissingCats": "Vēl nav pazudušu kaķu ar sludinājumu pozīcijām.",
   "noMatchCandidates": "Šobrīd nav iespējamu sakritību.",
   "sameIdField": "Tas pats {field}",

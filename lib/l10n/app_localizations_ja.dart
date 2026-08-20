@@ -315,6 +315,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get strayAreaLabel => '想定される行動範囲';
 
   @override
+  String get prevPin => '前のピン';
+
+  @override
+  String get nextPin => '次のピン';
+
+  @override
   String get noMissingCats => 'チラシの位置が登録された迷子猫はまだいません。';
 
   @override

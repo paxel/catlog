@@ -191,6 +191,8 @@
   "shareSource": "Källa: {url}",
   "importLabel": "Importera",
   "strayAreaLabel": "Möjligt strövområde",
+  "prevPin": "Föregående nål",
+  "nextPin": "Nästa nål",
   "noMissingCats": "Inga försvunna katter med anslagspositioner ännu.",
   "noMatchCandidates": "Inga möjliga matchningar just nu.",
   "sameIdField": "Samma {field}",

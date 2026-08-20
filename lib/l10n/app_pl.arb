@@ -191,6 +191,8 @@
   "shareSource": "Źródło: {url}",
   "importLabel": "Importuj",
   "strayAreaLabel": "Możliwy obszar wędrówki",
+  "prevPin": "Poprzednia pinezka",
+  "nextPin": "Następna pinezka",
   "noMissingCats": "Brak zaginionych kotów z pozycjami ogłoszeń.",
   "noMatchCandidates": "Obecnie brak możliwych dopasowań.",
   "sameIdField": "Ten sam {field}",

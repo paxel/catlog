@@ -191,6 +191,8 @@
   "shareSource": "Foinse: {url}",
   "importLabel": "Iompórtáil",
   "strayAreaLabel": "Limistéar fánaíochta féideartha",
+  "prevPin": "Bioráin roimhe",
+  "nextPin": "An chéad bhioráin eile",
   "noMissingCats": "Níl aon chait ar iarraidh le suíomhanna bileog fós.",
   "noMatchCandidates": "Níl aon mheaitseáil fhéideartha faoi láthair.",
   "sameIdField": "{field} céanna",

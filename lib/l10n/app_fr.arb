@@ -191,6 +191,8 @@
   "shareSource": "Source : {url}",
   "importLabel": "Importer",
   "strayAreaLabel": "Zone d'errance possible",
+  "prevPin": "Épingle précédente",
+  "nextPin": "Épingle suivante",
   "noMissingCats": "Pas encore de chats disparus avec des positions d'affiches.",
   "noMatchCandidates": "Aucune correspondance possible pour le moment.",
   "sameIdField": "Même {field}",

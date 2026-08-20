@@ -191,6 +191,8 @@
   "shareSource": "Vir: {url}",
   "importLabel": "Uvozi",
   "strayAreaLabel": "Možno območje potepanja",
+  "prevPin": "Prejšnja bucika",
+  "nextPin": "Naslednja bucika",
   "noMissingCats": "Še ni pogrešanih mačk s položaji letakov.",
   "noMatchCandidates": "Trenutno ni možnih ujemanj.",
   "sameIdField": "Enak {field}",

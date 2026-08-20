@@ -320,6 +320,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get strayAreaLabel => 'Možná oblasť túlania';
 
   @override
+  String get prevPin => 'Predchádzajúci špendlík';
+
+  @override
+  String get nextPin => 'Ďalší špendlík';
+
+  @override
   String get noMissingCats =>
       'Zatiaľ žiadne nezvestné mačky s pozíciami letákov.';
 

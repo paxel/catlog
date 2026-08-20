@@ -191,6 +191,8 @@
   "shareSource": "Izvor: {url}",
   "importLabel": "Uvezi",
   "strayAreaLabel": "Moguće područje lutanja",
+  "prevPin": "Prethodna oznaka",
+  "nextPin": "Sljedeća oznaka",
   "noMissingCats": "Još nema nestalih mačaka s pozicijama letaka.",
   "noMatchCandidates": "Trenutačno nema mogućih parova.",
   "sameIdField": "Isti {field}",

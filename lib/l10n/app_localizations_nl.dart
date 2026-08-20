@@ -320,6 +320,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get strayAreaLabel => 'Mogelijk zwerfgebied';
 
   @override
+  String get prevPin => 'Vorige speld';
+
+  @override
+  String get nextPin => 'Volgende speld';
+
+  @override
   String get noMissingCats => 'Nog geen vermiste katten met posterposities.';
 
   @override

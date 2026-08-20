@@ -321,6 +321,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get strayAreaLabel => 'Żona possibbli ta\' vagabondaġġ';
 
   @override
+  String get prevPin => 'Pinna ta\' qabel';
+
+  @override
+  String get nextPin => 'Il-pinna li jmiss';
+
+  @override
   String get noMissingCats =>
       'Għad m\'hemmx qtates mitlufa b\'pożizzjonijiet ta\' fliers.';
 

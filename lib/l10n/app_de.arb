@@ -94,6 +94,8 @@
   "shareSource": "Quelle: {url}",
   "importLabel": "Importieren",
   "strayAreaLabel": "Mögliches Streifgebiet",
+  "prevPin": "Voriger Pin",
+  "nextPin": "Nächster Pin",
   "noMissingCats": "Noch keine vermissten Katzen mit Aushang-Positionen.",
   "noMatchCandidates": "Gerade keine möglichen Treffer.",
   "sameIdField": "Gleiche {field}",

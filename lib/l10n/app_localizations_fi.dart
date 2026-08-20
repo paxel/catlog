@@ -320,6 +320,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get strayAreaLabel => 'Mahdollinen kulkualue';
 
   @override
+  String get prevPin => 'Edellinen merkki';
+
+  @override
+  String get nextPin => 'Seuraava merkki';
+
+  @override
   String get noMissingCats =>
       'Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.';
 

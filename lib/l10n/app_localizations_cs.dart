@@ -320,6 +320,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get strayAreaLabel => 'Možná oblast toulání';
 
   @override
+  String get prevPin => 'Předchozí špendlík';
+
+  @override
+  String get nextPin => 'Další špendlík';
+
+  @override
   String get noMissingCats =>
       'Zatím žádné pohřešované kočky s pozicemi letáků.';
 

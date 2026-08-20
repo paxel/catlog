@@ -11,6 +11,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   Signal, a browser — single or a whole batch: pick the cat they belong
   to, or a new stray (Android).
 
+- **Map, five wishes granted**: a my-location button; the map reopens
+  where you left it; toggled stray areas show the missing cat's tappable
+  face on every flier spot; searching an unknown name falls back to a
+  place search ("Leipzig" now works); and two arrows glide from pin to
+  pin in nearest-neighbor order.
+
 ### Changed
 
 - Chip scanning is labeled "Scan printed code" and explains that the

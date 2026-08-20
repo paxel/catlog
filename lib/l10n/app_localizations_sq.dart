@@ -320,6 +320,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get strayAreaLabel => 'Zona e mundshme e endjes';
 
   @override
+  String get prevPin => 'Gjilpëra e mëparshme';
+
+  @override
+  String get nextPin => 'Gjilpëra tjetër';
+
+  @override
   String get noMissingCats =>
       'Ende asnjë mace e humbur me pozicione fletushkash.';
 

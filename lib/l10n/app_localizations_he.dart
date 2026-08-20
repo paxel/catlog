@@ -319,6 +319,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get strayAreaLabel => 'אזור שיטוט אפשרי';
 
   @override
+  String get prevPin => 'סיכה קודמת';
+
+  @override
+  String get nextPin => 'סיכה הבאה';
+
+  @override
   String get noMissingCats => 'אין עדיין חתולים נעדרים עם מיקומי מודעות.';
 
   @override

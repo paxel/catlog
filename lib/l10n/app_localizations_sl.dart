@@ -320,6 +320,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get strayAreaLabel => 'Možno območje potepanja';
 
   @override
+  String get prevPin => 'Prejšnja bucika';
+
+  @override
+  String get nextPin => 'Naslednja bucika';
+
+  @override
   String get noMissingCats => 'Še ni pogrešanih mačk s položaji letakov.';
 
   @override

@@ -191,6 +191,8 @@
   "shareSource": "提供元: {url}",
   "importLabel": "インポート",
   "strayAreaLabel": "想定される行動範囲",
+  "prevPin": "前のピン",
+  "nextPin": "次のピン",
   "noMissingCats": "チラシの位置が登録された迷子猫はまだいません。",
   "noMatchCandidates": "現在、一致候補はありません。",
   "sameIdField": "同じ{field}",

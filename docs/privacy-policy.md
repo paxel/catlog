@@ -8,7 +8,8 @@ Data leaves your device only when you explicitly trigger it: syncing
 directly with another device you chose, writing to a shared folder you
 chose, or sharing a card or CSV export through your platform's share
 sheet. Map tiles are fetched from OpenStreetMap when you open the map,
-and when you search for a place or address in the position picker, that
+and when you search for a place or address in the position picker — or
+on the map, when your catalog has no match for the search — that
 search text is sent to OpenStreetMap's Nominatim geocoding service;
 OpenStreetMap's privacy policy applies to both
 (https://osmfoundation.org/wiki/Privacy_Policy).

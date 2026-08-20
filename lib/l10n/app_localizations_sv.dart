@@ -320,6 +320,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get strayAreaLabel => 'Möjligt strövområde';
 
   @override
+  String get prevPin => 'Föregående nål';
+
+  @override
+  String get nextPin => 'Nästa nål';
+
+  @override
   String get noMissingCats =>
       'Inga försvunna katter med anslagspositioner ännu.';
 

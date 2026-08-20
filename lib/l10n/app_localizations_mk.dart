@@ -320,6 +320,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get strayAreaLabel => 'Можна зона на талкање';
 
   @override
+  String get prevPin => 'Претходна игла';
+
+  @override
+  String get nextPin => 'Следна игла';
+
+  @override
   String get noMissingCats =>
       'Сè уште нема исчезнати мачки со позиции на огласи.';
 

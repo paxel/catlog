@@ -320,6 +320,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get strayAreaLabel => 'Posible zona de deambulación';
 
   @override
+  String get prevPin => 'Marcador anterior';
+
+  @override
+  String get nextPin => 'Marcador siguiente';
+
+  @override
   String get noMissingCats =>
       'Aún no hay gatos desaparecidos con posiciones de carteles.';
 

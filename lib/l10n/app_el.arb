@@ -191,6 +191,8 @@
   "shareSource": "Πηγή: {url}",
   "importLabel": "Εισαγωγή",
   "strayAreaLabel": "Πιθανή περιοχή περιπλάνησης",
+  "prevPin": "Προηγούμενη πινέζα",
+  "nextPin": "Επόμενη πινέζα",
   "noMissingCats": "Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.",
   "noMatchCandidates": "Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.",
   "sameIdField": "Ίδιο {field}",

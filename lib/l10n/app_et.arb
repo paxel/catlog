@@ -191,6 +191,8 @@
   "shareSource": "Allikas: {url}",
   "importLabel": "Impordi",
   "strayAreaLabel": "Võimalik uitamisala",
+  "prevPin": "Eelmine märgis",
+  "nextPin": "Järgmine märgis",
   "noMissingCats": "Veel pole kadunud kasse kuulutuse asukohtadega.",
   "noMatchCandidates": "Praegu pole võimalikke vasteid.",
   "sameIdField": "Sama {field}",

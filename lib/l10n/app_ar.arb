@@ -191,6 +191,8 @@
   "shareSource": "المصدر: {url}",
   "importLabel": "استيراد",
   "strayAreaLabel": "منطقة التواجد المحتملة",
+  "prevPin": "الدبوس السابق",
+  "nextPin": "الدبوس التالي",
   "noMissingCats": "لا توجد قطط مفقودة بمواقع منشورات بعد.",
   "noMatchCandidates": "لا يوجد مرشّحون للتطابق حاليًا.",
   "sameIdField": "نفس {field}",

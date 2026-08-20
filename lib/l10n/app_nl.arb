@@ -191,6 +191,8 @@
   "shareSource": "Bron: {url}",
   "importLabel": "Importeren",
   "strayAreaLabel": "Mogelijk zwerfgebied",
+  "prevPin": "Vorige speld",
+  "nextPin": "Volgende speld",
   "noMissingCats": "Nog geen vermiste katten met posterposities.",
   "noMatchCandidates": "Momenteel geen mogelijke matches.",
   "sameIdField": "Zelfde {field}",

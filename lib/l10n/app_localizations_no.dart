@@ -320,6 +320,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get strayAreaLabel => 'Mulig streifområde';
 
   @override
+  String get prevPin => 'Forrige nål';
+
+  @override
+  String get nextPin => 'Neste nål';
+
+  @override
   String get noMissingCats =>
       'Ingen savnede katter med oppslagsposisjoner ennå.';
 

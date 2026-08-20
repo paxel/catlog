@@ -191,6 +191,8 @@
   "shareSource": "Kilde: {url}",
   "importLabel": "Importér",
   "strayAreaLabel": "Muligt strejfområde",
+  "prevPin": "Forrige nål",
+  "nextPin": "Næste nål",
   "noMissingCats": "Ingen savnede katte med opslagspositioner endnu.",
   "noMatchCandidates": "Ingen mulige match lige nu.",
   "sameIdField": "Samme {field}",

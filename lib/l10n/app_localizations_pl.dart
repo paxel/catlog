@@ -320,6 +320,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get strayAreaLabel => 'Możliwy obszar wędrówki';
 
   @override
+  String get prevPin => 'Poprzednia pinezka';
+
+  @override
+  String get nextPin => 'Następna pinezka';
+
+  @override
   String get noMissingCats => 'Brak zaginionych kotów z pozycjami ogłoszeń.';
 
   @override

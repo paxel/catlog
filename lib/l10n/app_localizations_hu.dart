@@ -320,6 +320,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get strayAreaLabel => 'Lehetséges kóborlási terület';
 
   @override
+  String get prevPin => 'Előző tű';
+
+  @override
+  String get nextPin => 'Következő tű';
+
+  @override
   String get noMissingCats => 'Még nincs eltűnt macska plakátpozícióval.';
 
   @override

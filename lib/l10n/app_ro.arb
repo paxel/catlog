@@ -191,6 +191,8 @@
   "shareSource": "Sursă: {url}",
   "importLabel": "Importă",
   "strayAreaLabel": "Zonă posibilă de hoinăreală",
+  "prevPin": "Pinul anterior",
+  "nextPin": "Pinul următor",
   "noMissingCats": "Încă nicio pisică dispărută cu poziții de afișe.",
   "noMatchCandidates": "Nicio potrivire posibilă momentan.",
   "sameIdField": "Același {field}",

@@ -321,6 +321,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get strayAreaLabel => 'Πιθανή περιοχή περιπλάνησης';
 
   @override
+  String get prevPin => 'Προηγούμενη πινέζα';
+
+  @override
+  String get nextPin => 'Επόμενη πινέζα';
+
+  @override
   String get noMissingCats => 'Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.';
 
   @override

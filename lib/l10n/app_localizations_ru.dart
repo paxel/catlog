@@ -320,6 +320,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get strayAreaLabel => 'Возможная зона блуждания';
 
   @override
+  String get prevPin => 'Предыдущая метка';
+
+  @override
+  String get nextPin => 'Следующая метка';
+
+  @override
   String get noMissingCats =>
       'Пока нет пропавших кошек с позициями объявлений.';
 

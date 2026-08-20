@@ -191,6 +191,8 @@
   "shareSource": "Forrás: {url}",
   "importLabel": "Importálás",
   "strayAreaLabel": "Lehetséges kóborlási terület",
+  "prevPin": "Előző tű",
+  "nextPin": "Következő tű",
   "noMissingCats": "Még nincs eltűnt macska plakátpozícióval.",
   "noMatchCandidates": "Jelenleg nincs lehetséges egyezés.",
   "sameIdField": "Azonos {field}",

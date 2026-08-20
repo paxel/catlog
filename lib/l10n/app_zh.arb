@@ -191,6 +191,8 @@
   "shareSource": "来源：{url}",
   "importLabel": "导入",
   "strayAreaLabel": "可能的活动范围",
+  "prevPin": "上一个图钉",
+  "nextPin": "下一个图钉",
   "noMissingCats": "还没有带启事位置的走失猫。",
   "noMatchCandidates": "当前没有疑似匹配。",
   "sameIdField": "相同的{field}",

@@ -320,6 +320,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get strayAreaLabel => 'Възможна зона на скитане';
 
   @override
+  String get prevPin => 'Предишен маркер';
+
+  @override
+  String get nextPin => 'Следващ маркер';
+
+  @override
   String get noMissingCats => 'Още няма изчезнали котки с позиции на обяви.';
 
   @override

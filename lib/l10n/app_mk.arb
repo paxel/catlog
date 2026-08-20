@@ -191,6 +191,8 @@
   "shareSource": "Извор: {url}",
   "importLabel": "Увези",
   "strayAreaLabel": "Можна зона на талкање",
+  "prevPin": "Претходна игла",
+  "nextPin": "Следна игла",
   "noMissingCats": "Сè уште нема исчезнати мачки со позиции на огласи.",
   "noMatchCandidates": "Моментално нема можни совпаѓања.",
   "sameIdField": "Ист {field}",

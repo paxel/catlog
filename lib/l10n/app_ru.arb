@@ -191,6 +191,8 @@
   "shareSource": "Источник: {url}",
   "importLabel": "Импортировать",
   "strayAreaLabel": "Возможная зона блуждания",
+  "prevPin": "Предыдущая метка",
+  "nextPin": "Следующая метка",
   "noMissingCats": "Пока нет пропавших кошек с позициями объявлений.",
   "noMatchCandidates": "Сейчас возможных совпадений нет.",
   "sameIdField": "Одинаковый {field}",

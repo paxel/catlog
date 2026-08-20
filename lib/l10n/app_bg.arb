@@ -191,6 +191,8 @@
   "shareSource": "Източник: {url}",
   "importLabel": "Импортиране",
   "strayAreaLabel": "Възможна зона на скитане",
+  "prevPin": "Предишен маркер",
+  "nextPin": "Следващ маркер",
   "noMissingCats": "Още няма изчезнали котки с позиции на обяви.",
   "noMatchCandidates": "В момента няма кандидати за съвпадение.",
   "sameIdField": "Еднакъв {field}",

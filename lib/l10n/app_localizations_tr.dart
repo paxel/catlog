@@ -320,6 +320,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get strayAreaLabel => 'Olası dolaşma alanı';
 
   @override
+  String get prevPin => 'Önceki iğne';
+
+  @override
+  String get nextPin => 'Sonraki iğne';
+
+  @override
   String get noMissingCats => 'Henüz ilan konumu olan kayıp kedi yok.';
 
   @override

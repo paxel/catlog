@@ -191,6 +191,8 @@
   "shareSource": "Šaltinis: {url}",
   "importLabel": "Importuoti",
   "strayAreaLabel": "Galima klajojimo zona",
+  "prevPin": "Ankstesnis smeigtukas",
+  "nextPin": "Kitas smeigtukas",
   "noMissingCats": "Kol kas nėra dingusių kačių su skelbimų vietomis.",
   "noMatchCandidates": "Šiuo metu galimų atitikmenų nėra.",
   "sameIdField": "Tas pats {field}",

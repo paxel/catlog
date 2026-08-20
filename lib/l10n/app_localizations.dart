@@ -734,6 +734,18 @@ abstract class AppLocalizations {
   /// **'Possible stray area'**
   String get strayAreaLabel;
 
+  /// No description provided for @prevPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous pin'**
+  String get prevPin;
+
+  /// No description provided for @nextPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Next pin'**
+  String get nextPin;
+
   /// No description provided for @noMissingCats.
   ///
   /// In en, this message translates to:

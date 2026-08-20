@@ -8,6 +8,7 @@ import 'package:catlog/src/screens/map_screen.dart';
 import 'package:catlog/src/screens/position_picker_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 
@@ -100,6 +101,72 @@ void main() {
     expect(layer.circles, hasLength(1));
     expect(layer.circles.single.radius, 500.0);
     expect(layer.circles.single.useRadiusInMeter, isTrue);
+  });
+
+  test('navChain walks pins nearest-neighbor from the start', () {
+    const a = EntityView('cat:a', 'A');
+    const b = EntityView('cat:b', 'B');
+    const c = EntityView('cat:c', 'C');
+    final chain = navChain([
+      (a, const LatLng(48.30, 11.5)),
+      (b, const LatLng(48.10, 11.5)),
+      (c, const LatLng(48.20, 11.5)),
+    ], const LatLng(48.0, 11.5));
+    expect(chain.map((e) => e.$1.name), ['B', 'C', 'A']);
+  });
+
+  testWidgets('map search falls back to places when the catalog is empty',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_geo');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(
+        store: store,
+        tileProvider: _FakeTileProvider(tile),
+        geocode: (q) async =>
+            [GeoHit('Leipzig, Sachsen', 51.34, 12.37)],
+      ),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.enterText(find.byType(TextField), 'Leipzig');
+    await tester.testTextInput.receiveAction(TextInputAction.search);
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Leipzig, Sachsen'), findsOneWidget);
+  });
+
+  testWidgets('the map reopens at the stored viewport', (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_vp');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    // A pinned clowder elsewhere would win without the stored viewport.
+    final home = store.createClowder('Home');
+    store.recordPosition(home, 40.0, 9.0);
+    store.setLocalSetting(mapViewportKey, '51.34,12.37,14.0');
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    expect(map.options.initialCenter.latitude, closeTo(51.34, 1e-6));
+    expect(map.options.initialZoom, 14.0);
   });
 
   testWidgets('picker geocode search jumps the map via the stub',

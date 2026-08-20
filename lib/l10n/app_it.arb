@@ -191,6 +191,8 @@
   "shareSource": "Fonte: {url}",
   "importLabel": "Importa",
   "strayAreaLabel": "Possibile area di vagabondaggio",
+  "prevPin": "Segnaposto precedente",
+  "nextPin": "Segnaposto successivo",
   "noMissingCats": "Ancora nessun gatto scomparso con posizioni di volantini.",
   "noMatchCandidates": "Nessuna possibile corrispondenza al momento.",
   "sameIdField": "Stesso {field}",

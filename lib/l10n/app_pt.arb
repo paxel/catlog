@@ -191,6 +191,8 @@
   "shareSource": "Origem: {url}",
   "importLabel": "Importar",
   "strayAreaLabel": "Possível zona de deambulação",
+  "prevPin": "Marcador anterior",
+  "nextPin": "Marcador seguinte",
   "noMissingCats": "Ainda sem gatos desaparecidos com posições de cartazes.",
   "noMatchCandidates": "Sem possíveis correspondências de momento.",
   "sameIdField": "Mesmo {field}",

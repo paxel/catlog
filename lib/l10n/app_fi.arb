@@ -191,6 +191,8 @@
   "shareSource": "Lähde: {url}",
   "importLabel": "Tuo",
   "strayAreaLabel": "Mahdollinen kulkualue",
+  "prevPin": "Edellinen merkki",
+  "nextPin": "Seuraava merkki",
   "noMissingCats": "Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.",
   "noMatchCandidates": "Ei mahdollisia osumia juuri nyt.",
   "sameIdField": "Sama {field}",

@@ -191,6 +191,8 @@
   "shareSource": "Zdroj: {url}",
   "importLabel": "Importovať",
   "strayAreaLabel": "Možná oblasť túlania",
+  "prevPin": "Predchádzajúci špendlík",
+  "nextPin": "Ďalší špendlík",
   "noMissingCats": "Zatiaľ žiadne nezvestné mačky s pozíciami letákov.",
   "noMatchCandidates": "Momentálne žiadne možné zhody.",
   "sameIdField": "Rovnaké {field}",

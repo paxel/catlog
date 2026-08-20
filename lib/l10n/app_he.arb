@@ -191,6 +191,8 @@
   "shareSource": "מקור: {url}",
   "importLabel": "ייבוא",
   "strayAreaLabel": "אזור שיטוט אפשרי",
+  "prevPin": "סיכה קודמת",
+  "nextPin": "סיכה הבאה",
   "noMissingCats": "אין עדיין חתולים נעדרים עם מיקומי מודעות.",
   "noMatchCandidates": "אין התאמות אפשריות כרגע.",
   "sameIdField": "{field} זהה",

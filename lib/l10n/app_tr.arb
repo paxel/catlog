@@ -191,6 +191,8 @@
   "shareSource": "Kaynak: {url}",
   "importLabel": "İçe aktar",
   "strayAreaLabel": "Olası dolaşma alanı",
+  "prevPin": "Önceki iğne",
+  "nextPin": "Sonraki iğne",
   "noMissingCats": "Henüz ilan konumu olan kayıp kedi yok.",
   "noMatchCandidates": "Şu anda olası eşleşme yok.",
   "sameIdField": "Aynı {field}",

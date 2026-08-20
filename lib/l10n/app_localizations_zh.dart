@@ -306,6 +306,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get strayAreaLabel => '可能的活动范围';
 
   @override
+  String get prevPin => '上一个图钉';
+
+  @override
+  String get nextPin => '下一个图钉';
+
+  @override
   String get noMissingCats => '还没有带启事位置的走失猫。';
 
   @override

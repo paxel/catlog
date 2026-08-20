@@ -191,6 +191,8 @@
   "shareSource": "Burimi: {url}",
   "importLabel": "Importo",
   "strayAreaLabel": "Zona e mundshme e endjes",
+  "prevPin": "Gjilpëra e mëparshme",
+  "nextPin": "Gjilpëra tjetër",
   "noMissingCats": "Ende asnjë mace e humbur me pozicione fletushkash.",
   "noMatchCandidates": "Aktualisht s'ka përputhje të mundshme.",
   "sameIdField": "I njëjti {field}",

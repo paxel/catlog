@@ -320,6 +320,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get strayAreaLabel => 'Galima klajojimo zona';
 
   @override
+  String get prevPin => 'Ankstesnis smeigtukas';
+
+  @override
+  String get nextPin => 'Kitas smeigtukas';
+
+  @override
   String get noMissingCats =>
       'Kol kas nėra dingusių kačių su skelbimų vietomis.';
 

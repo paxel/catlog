@@ -191,6 +191,8 @@
   "shareSource": "Sors: {url}",
   "importLabel": "Importa",
   "strayAreaLabel": "Żona possibbli ta' vagabondaġġ",
+  "prevPin": "Pinna ta' qabel",
+  "nextPin": "Il-pinna li jmiss",
   "noMissingCats": "Għad m'hemmx qtates mitlufa b'pożizzjonijiet ta' fliers.",
   "noMatchCandidates": "M'hemm l-ebda tqabbil possibbli bħalissa.",
   "sameIdField": "L-istess {field}",

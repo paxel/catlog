@@ -321,6 +321,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get strayAreaLabel => 'Mögulegt flakkssvæði';
 
   @override
+  String get prevPin => 'Fyrri pinni';
+
+  @override
+  String get nextPin => 'Næsti pinni';
+
+  @override
   String get noMissingCats =>
       'Engir týndir kettir með auglýsingastaðsetningar enn.';
 

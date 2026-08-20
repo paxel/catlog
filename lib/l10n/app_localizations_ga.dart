@@ -320,6 +320,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get strayAreaLabel => 'Limistéar fánaíochta féideartha';
 
   @override
+  String get prevPin => 'Bioráin roimhe';
+
+  @override
+  String get nextPin => 'An chéad bhioráin eile';
+
+  @override
   String get noMissingCats =>
       'Níl aon chait ar iarraidh le suíomhanna bileog fós.';
 

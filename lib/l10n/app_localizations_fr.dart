@@ -320,6 +320,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get strayAreaLabel => 'Zone d\'errance possible';
 
   @override
+  String get prevPin => 'Épingle précédente';
+
+  @override
+  String get nextPin => 'Épingle suivante';
+
+  @override
   String get noMissingCats =>
       'Pas encore de chats disparus avec des positions d\'affiches.';
 

@@ -320,6 +320,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get strayAreaLabel => 'Iespējamā klejošanas zona';
 
   @override
+  String get prevPin => 'Iepriekšējā kniepadata';
+
+  @override
+  String get nextPin => 'Nākamā kniepadata';
+
+  @override
   String get noMissingCats => 'Vēl nav pazudušu kaķu ar sludinājumu pozīcijām.';
 
   @override

@@ -191,6 +191,8 @@
   "shareSource": "Джерело: {url}",
   "importLabel": "Імпортувати",
   "strayAreaLabel": "Можлива зона блукання",
+  "prevPin": "Попередня мітка",
+  "nextPin": "Наступна мітка",
   "noMissingCats": "Поки немає зниклих котів із позиціями оголошень.",
   "noMatchCandidates": "Наразі можливих збігів немає.",
   "sameIdField": "Однаковий {field}",

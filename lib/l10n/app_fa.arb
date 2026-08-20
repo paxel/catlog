@@ -191,6 +191,8 @@
   "shareSource": "منبع: {url}",
   "importLabel": "وارد کردن",
   "strayAreaLabel": "محدودهٔ احتمالی پرسه‌زنی",
+  "prevPin": "پین قبلی",
+  "nextPin": "پین بعدی",
   "noMissingCats": "هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.",
   "noMatchCandidates": "در حال حاضر موردی برای تطبیق نیست.",
   "sameIdField": "{field} یکسان",

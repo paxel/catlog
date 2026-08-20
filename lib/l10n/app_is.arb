@@ -191,6 +191,8 @@
   "shareSource": "Uppruni: {url}",
   "importLabel": "Flytja inn",
   "strayAreaLabel": "Mögulegt flakkssvæði",
+  "prevPin": "Fyrri pinni",
+  "nextPin": "Næsti pinni",
   "noMissingCats": "Engir týndir kettir með auglýsingastaðsetningar enn.",
   "noMatchCandidates": "Engar mögulegar samsvaranir núna.",
   "sameIdField": "Sama {field}",

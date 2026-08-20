@@ -320,6 +320,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get strayAreaLabel => 'Võimalik uitamisala';
 
   @override
+  String get prevPin => 'Eelmine märgis';
+
+  @override
+  String get nextPin => 'Järgmine märgis';
+
+  @override
   String get noMissingCats => 'Veel pole kadunud kasse kuulutuse asukohtadega.';
 
   @override

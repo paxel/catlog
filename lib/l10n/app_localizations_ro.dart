@@ -320,6 +320,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get strayAreaLabel => 'Zonă posibilă de hoinăreală';
 
   @override
+  String get prevPin => 'Pinul anterior';
+
+  @override
+  String get nextPin => 'Pinul următor';
+
+  @override
   String get noMissingCats =>
       'Încă nicio pisică dispărută cu poziții de afișe.';
 

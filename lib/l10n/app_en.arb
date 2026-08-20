@@ -125,6 +125,8 @@
   "importLabel": "Import",
   "@shareSource": {"placeholders": {"url": {"type": "String"}}},
   "strayAreaLabel": "Possible stray area",
+  "prevPin": "Previous pin",
+  "nextPin": "Next pin",
   "noMissingCats": "No missing cats with flier positions yet.",
   "noMatchCandidates": "No match candidates right now.",
   "sameIdField": "Same {field}",

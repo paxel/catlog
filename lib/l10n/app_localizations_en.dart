@@ -320,6 +320,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get strayAreaLabel => 'Possible stray area';
 
   @override
+  String get prevPin => 'Previous pin';
+
+  @override
+  String get nextPin => 'Next pin';
+
+  @override
   String get noMissingCats => 'No missing cats with flier positions yet.';
 
   @override

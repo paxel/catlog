@@ -320,6 +320,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get strayAreaLabel => 'Могућа зона лутања';
 
   @override
+  String get prevPin => 'Претходна игла';
+
+  @override
+  String get nextPin => 'Следећа игла';
+
+  @override
   String get noMissingCats => 'Још нема несталих мачака са позицијама огласа.';
 
   @override
