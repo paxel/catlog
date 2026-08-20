@@ -86,8 +86,13 @@ class _CardScreenState extends State<CardScreen> {
     }
     for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
       if (!_selected.contains(def.key)) continue;
-      // Location renders as a scannable QR + Plus Code, not as a row.
+      // Location renders as a scannable QR + Plus Code, not as a row;
+      // scannable IDs render as their code alone — a fact row would
+      // repeat the label and number.
       if (def.type == FieldType.location) continue;
+      if (def.type == FieldType.id && def.idDisplay != IdDisplay.plain) {
+        continue;
+      }
       final value = store.current(id, def.key);
       if (value != null) {
         facts.add(
@@ -122,17 +127,19 @@ class _CardScreenState extends State<CardScreen> {
   Widget _scannable(FieldDef def, String value) => Padding(
         padding: const EdgeInsets.only(top: 12),
         child: Column(children: [
-          if (def.idDisplay == IdDisplay.qr)
-            QrImageView(data: value, size: 110)
-          else
+          if (def.idDisplay == IdDisplay.qr) ...[
+            QrImageView(data: value, size: 110),
+            // The QR alone shows nothing readable — one caption line.
+            Text('${fieldDefName(context.t, def)}: $value',
+                style: Theme.of(context).textTheme.bodySmall),
+          ] else
+            // Code128 prints the number under the bars itself.
             BarcodeWidget(
               barcode: Barcode.code128(),
               data: value,
               width: 220,
               height: 64,
             ),
-          Text('${fieldDefName(context.t, def)}: $value',
-              style: Theme.of(context).textTheme.bodySmall),
         ]),
       );
 
@@ -260,9 +267,10 @@ class _CardScreenState extends State<CardScreen> {
                     width: def.idDisplay == IdDisplay.qr ? 80 : 180,
                     height: def.idDisplay == IdDisplay.qr ? 80 : 44,
                   ),
-                  pw.Text('${fieldDefName(t, def)}: $value',
-                      style: const pw.TextStyle(
-                          fontSize: 9, color: PdfColors.grey700)),
+                  if (def.idDisplay == IdDisplay.qr)
+                    pw.Text('${fieldDefName(t, def)}: $value',
+                        style: const pw.TextStyle(
+                            fontSize: 9, color: PdfColors.grey700)),
                 ]),
               ),
             pw.Spacer(),
