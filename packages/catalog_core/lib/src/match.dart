@@ -41,6 +41,16 @@ double haversineMeters(
 
 double _rad(double deg) => deg * pi / 180;
 
+/// Where a Stray ran from: the position of the Clowder it last lived
+/// in, or null when the cat has a home, never had one, or that home
+/// carries no position. Same radius as a flier circle — the 500 m rule
+/// is a rule about home.
+(double, double)? strayHomePosition(CatalogStore store, String catId) {
+  if (store.current(catId, Keys.clowder) != null) return null;
+  final home = store.formerClowder(catId);
+  return home == null ? null : store.positionOf(home);
+}
+
 String _pairKey(String a, String b) =>
     a.compareTo(b) < 0 ? '$a|$b' : '$b|$a';
 
@@ -79,6 +89,8 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
   // are not lost-and-found candidates (#33).
   final positions = <String, List<(double, double)>>{};
   final fliers = <String, List<(double, double)>>{};
+  final homes = <String, List<(double, double)>>{};
+  final homeOf = <String, String?>{};
   final isStray = <String, bool>{
     for (final cat in cats)
       cat.id: store.current(cat.id, Keys.clowder) == null
@@ -92,6 +104,9 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
     ];
     positions[cat.id] = sightings;
     fliers[cat.id] = store.flierPositions(cat.id);
+    homeOf[cat.id] = isStray[cat.id]! ? store.formerClowder(cat.id) : null;
+    final home = strayHomePosition(store, cat.id);
+    homes[cat.id] = home == null ? const [] : [home];
   }
   final geo = <MatchCandidate>[];
   for (var i = 0; i < cats.length; i++) {
@@ -114,6 +129,14 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
       // and sighting against sighting only for stray↔stray.
       if (isStray[b]!) check(fliers[a]!, positions[b]!);
       if (isStray[a]!) check(fliers[b]!, positions[a]!);
+      // A stray's old home counts like one more flier circle: cats run
+      // from where they lived. Two strays off the SAME home are skipped
+      // here — every housemate would otherwise pair with every other;
+      // their sightings still match each other below.
+      if (homeOf[a] == null || homeOf[a] != homeOf[b]) {
+        if (isStray[b]!) check(homes[a]!, positions[b]!);
+        if (isStray[a]!) check(homes[b]!, positions[a]!);
+      }
       if (isStray[a]! && isStray[b]!) {
         check(positions[a]!, positions[b]!);
       }

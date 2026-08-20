@@ -14,8 +14,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - **Map, five wishes granted**: a my-location button; the map reopens
   where you left it; toggled stray areas show the missing cat's tappable
   face on every flier spot; searching an unknown name falls back to a
-  place search ("Leipzig" now works); and two arrows glide from pin to
-  pin in nearest-neighbor order.
+  place search ("Leipzig" now works, and the map zooms in on the found
+  street or town instead of centering it in a country-wide view); and
+  two arrows glide from pin to pin in nearest-neighbor order.
+
+- The home a stray ran from counts as a search area of its own: its
+  clowder's location gets the same 500 m circle on the map, and cats
+  seen inside it turn up under possible matches.
 
 - **Clowders as a table**: a toggle in the clowder overview switches
   between tiles and a sortable table — Name, Cats, and any clowder

@@ -58,6 +58,48 @@ void main() {
         isEmpty);
   });
 
+  test('the home a stray ran from works like a flier circle', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final runaway = store.createCat('Minka', clowderId: home);
+    store.moveCat(runaway, null);
+    expect(strayHomePosition(store, runaway), isNotNull);
+
+    // ~330 m from the home, no flier anywhere.
+    final near = store.createCat('Fundkatze');
+    store.recordPosition(near, 48.1030, 11.5000);
+    final far = store.createCat('Far');
+    store.recordPosition(far, 48.2000, 11.5000);
+
+    final matches = matchCandidates(store);
+    expect(matches, hasLength(1));
+    expect({matches.single.a, matches.single.b}, {runaway, near});
+    expect(matches.single.distanceMeters, closeTo(334, 20));
+  });
+
+  test('two strays off the same home do not pair through it', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final a = store.createCat('Anton', clowderId: home);
+    final b = store.createCat('Berta', clowderId: home);
+    store.moveCat(a, null);
+    store.moveCat(b, null);
+    // Neither has been sighted; only the shared home could pair them.
+    expect(matchCandidates(store), isEmpty);
+  });
+
+  test('a cat back in a clowder loses its home circle', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final returned = store.createCat('Minka', clowderId: home);
+    store.moveCat(returned, null);
+    store.moveCat(returned, home);
+    expect(strayHomePosition(store, returned), isNull);
+    final near = store.createCat('Fundkatze');
+    store.recordPosition(near, 48.1030, 11.5000);
+    expect(matchCandidates(store), isEmpty);
+  });
+
   test('an ID match swallows the geo pair for the same two cats', () {
     final a = store.createCat('A');
     final b = store.createCat('B');

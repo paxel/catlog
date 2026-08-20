@@ -641,6 +641,16 @@ class CatalogStore {
   void moveCat(String catId, String? clowderId, {DateTime? date}) =>
       append(catId, Keys.clowder, clowderId, date: date);
 
+  /// The Clowder a Stray last lived in — the home it ran from. Null for
+  /// a Cat that never had one. Only the newest membership counts: a Cat
+  /// runs from where it was last, not from every home it ever had.
+  String? formerClowder(String catId) {
+    for (final e in fieldHistory(catId, Keys.clowder)) {
+      if (e.value != null) return resolveEntity(e.value!);
+    }
+    return null;
+  }
+
   /// Cats currently in no Clowder (see CONTEXT.md: Stray).
   List<EntityView> strays() => [
         for (final id in _entitiesOf(Kinds.cat))

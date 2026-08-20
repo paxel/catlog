@@ -103,6 +103,83 @@ void main() {
     expect(layer.circles.single.useRadiusInMeter, isTrue);
   });
 
+  testWidgets('a runaway stray gets a circle around the home it left',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_home');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final home = store.createClowder('Hof');
+    store.recordPosition(home, 48.1, 11.5);
+    // No flier anywhere — the home alone qualifies the cat.
+    final runaway = store.createCat('Minka', clowderId: home);
+    store.moveCat(runaway, null);
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.tap(find.byTooltip('Possible stray area'));
+    await tester.pumpAndSettle();
+    expect(find.text('Minka'), findsOneWidget);
+    await tester.tap(find.byType(CheckboxListTile));
+    await tester.pumpAndSettle();
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
+
+    final layer = tester.widget<CircleLayer>(find.byType(CircleLayer));
+    expect(layer.circles, hasLength(1));
+    expect(layer.circles.single.point.latitude, closeTo(48.1, 1e-6));
+    expect(layer.circles.single.radius, 500.0);
+  });
+
+  testWidgets('a found place is shown at its own extent, not country zoom',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_zoom');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(
+        store: store,
+        initialCenter: const LatLng(51.0, 10.0),
+        tileProvider: _FakeTileProvider(tile),
+        geocode: (q) async => const [
+          GeoHit('Grimmaische Straße, Leipzig', 51.3397, 12.3792,
+              bounds: (51.3390, 51.3404, 12.3770, 12.3815)),
+        ],
+      ),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.enterText(find.byType(TextField), 'Grimmaische');
+    await tester.testTextInput.receiveAction(TextInputAction.search);
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.text('Grimmaische Straße, Leipzig'));
+    await tester.pump(const Duration(seconds: 1));
+
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    final camera = map.mapController!.camera;
+    expect(camera.center.latitude, closeTo(51.3397, 1e-3));
+    // A street, so street zoom — anything below 14 shows half a country.
+    expect(camera.zoom, greaterThan(14));
+  });
+
   test('navChain walks pins nearest-neighbor from the start', () {
     const a = EntityView('cat:a', 'A');
     const b = EntityView('cat:b', 'B');

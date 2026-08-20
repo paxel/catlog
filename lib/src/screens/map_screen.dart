@@ -154,6 +154,22 @@ class _MapScreenState extends State<MapScreen>
     _animateTo(LatLng(pos.$1, pos.$2), 15);
   }
 
+  /// Jumps to a found place at the zoom the place deserves: its own
+  /// extent when the search reported one, street zoom otherwise. A hit
+  /// centered but drawn at country zoom helps nobody.
+  void _showPlace(GeoHit hit) {
+    final b = hit.bounds;
+    if (b == null) {
+      _animateTo(LatLng(hit.lat, hit.lon), 16);
+      return;
+    }
+    _controller.fitCamera(CameraFit.bounds(
+      bounds: LatLngBounds(LatLng(b.$1, b.$3), LatLng(b.$2, b.$4)),
+      padding: const EdgeInsets.all(48),
+      maxZoom: 17,
+    ));
+  }
+
   /// Prev/next over all pins in nearest-neighbor order from where the
   /// user currently looks; the chain rebuilds when pins change.
   void _stepPins(int direction) {
@@ -248,7 +264,9 @@ class _MapScreenState extends State<MapScreen>
   Future<void> _pickStrayAreas() async {
     final missing = [
       for (final cat in store.visibleCats())
-        if (store.flierPositions(cat.id).isNotEmpty) cat
+        if (store.flierPositions(cat.id).isNotEmpty ||
+            strayHomePosition(store, cat.id) != null)
+          cat
     ];
     await showModalBottomSheet<void>(
       context: context,
@@ -527,9 +545,13 @@ class _MapScreenState extends State<MapScreen>
           if (_strayAreas.isNotEmpty)
             CircleLayer(circles: [
               // The union of fixed 500 m circles around each selected
-              // missing cat's flier positions — no radius knob (#31).
+              // missing cat's flier positions and the home it ran from
+              // — no radius knob (#31).
               for (final catId in _strayAreas)
-                for (final pos in store.flierPositions(catId))
+                for (final pos in [
+                  ...store.flierPositions(catId),
+                  ?strayHomePosition(store, catId),
+                ])
                   CircleMarker(
                     point: LatLng(pos.$1, pos.$2),
                     radius: strayAreaRadiusMeters,
@@ -660,7 +682,7 @@ class _MapScreenState extends State<MapScreen>
                         onTap: () {
                           setState(() => _placeHits = null);
                           FocusScope.of(context).unfocus();
-                          _animateTo(LatLng(hit.lat, hit.lon), 13);
+                          _showPlace(hit);
                         },
                       ),
                   ]),
