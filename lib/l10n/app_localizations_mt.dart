@@ -1113,7 +1113,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Ibgħat kollox bħala fajl wieħed bi kwalunkwe messenger';
+      'Ibgħat kollox bħala fajl wieħed minn kwalunkwe messenger — u importa fajl .catsync riċevut hawn';
 
   @override
   String get connectToWifiFirst =>

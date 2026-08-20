@@ -1110,7 +1110,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošli vše jako jeden soubor libovolným messengerem';
+      'Pošlete vše jako jeden soubor přes libovolný messenger — a přijatý soubor .catsync importujte zde';
 
   @override
   String get connectToWifiFirst =>

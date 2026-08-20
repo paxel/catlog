@@ -1110,7 +1110,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Send alt som én fil gjennom hvilken som helst messenger';
+      'Send alt som én fil gjennom hvilken som helst messenger — og importer en mottatt .catsync-fil her';
 
   @override
   String get connectToWifiFirst =>

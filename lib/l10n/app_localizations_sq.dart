@@ -1113,7 +1113,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Dërgo gjithçka si një skedar me çdo messenger';
+      'Dërgoni gjithçka si një skedar me çdo messenger — dhe importoni këtu një skedar .catsync të marrë';
 
   @override
   String get connectToWifiFirst =>

@@ -324,7 +324,7 @@
   "syncChooserRemote": "Etänä",
   "syncChooserRemoteSub": "Jaetun kansion kautta, kuten Dropbox tai USB-tikku",
   "syncChooserMessenger": "Viestisovellus",
-  "syncChooserMessengerSub": "Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä",
+  "syncChooserMessengerSub": "Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä — ja tuo vastaanotettu .catsync-tiedosto tässä",
   "connectToWifiFirst": "Yhdistä ensin Wi-Fiin — sitten laitteet löytävät toisensa",
   "trustQuestion": "{author} ({device}) haluaa synkronoida",
   "trustBothWaysNote": "Luettelot vaihdetaan molempiin suuntiin.",

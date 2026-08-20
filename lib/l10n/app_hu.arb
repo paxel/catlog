@@ -324,7 +324,7 @@
   "syncChooserRemote": "Távolról",
   "syncChooserRemoteSub": "Megosztott mappán át, mint a Dropbox vagy egy pendrive",
   "syncChooserMessenger": "Üzenetküldő",
-  "syncChooserMessengerSub": "Küldj mindent egyetlen fájlként bármely üzenetküldővel",
+  "syncChooserMessengerSub": "Küldjön mindent egy fájlként bármely üzenetküldőn — és itt importálja a kapott .catsync fájlt",
   "connectToWifiFirst": "Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást",
   "trustQuestion": "{author} ({device}) szinkronizálni szeretne",
   "trustBothWaysNote": "A katalógusok mindkét irányban kicserélődnek.",

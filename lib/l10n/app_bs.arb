@@ -324,7 +324,7 @@
   "syncChooserRemote": "Na daljinu",
   "syncChooserRemoteSub": "Preko dijeljene fascikle poput Dropboxa ili USB sticka",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Pošalji sve kao jednu datoteku bilo kojim messengerom",
+  "syncChooserMessengerSub": "Pošaljite sve kao jednu datoteku putem bilo kojeg messengera — i uvezite primljenu .catsync datoteku ovdje",
   "connectToWifiFirst": "Prvo se poveži na Wi-Fi — tada se uređaji pronalaze",
   "trustQuestion": "{author} ({device}) želi sinhronizaciju",
   "trustBothWaysNote": "Katalozi će se razmijeniti u oba smjera.",

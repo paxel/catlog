@@ -324,7 +324,7 @@
   "syncChooserRemote": "Attālināti",
   "syncChooserRemoteSub": "Caur koplietotu mapi kā Dropbox vai USB zibatmiņu",
   "syncChooserMessenger": "Ziņotne",
-  "syncChooserMessengerSub": "Sūti visu kā vienu failu ar jebkuru ziņotni",
+  "syncChooserMessengerSub": "Sūtiet visu kā vienu failu ar jebkuru ziņotni — un importējiet saņemto .catsync failu šeit",
   "connectToWifiFirst": "Vispirms pieslēdzies Wi-Fi — tad ierīces atradīs viena otru",
   "trustQuestion": "{author} ({device}) vēlas sinhronizēt",
   "trustBothWaysNote": "Katalogi tiks apmainīti abos virzienos.",

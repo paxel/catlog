@@ -1111,7 +1111,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Her şeyi tek dosya olarak herhangi bir uygulamayla gönderin';
+      'Her şeyi tek dosya olarak herhangi bir mesajlaşma uygulamasıyla gönderin — alınan .catsync dosyasını da buradan içe aktarın';
 
   @override
   String get connectToWifiFirst =>

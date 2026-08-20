@@ -1110,7 +1110,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošli všetko ako jeden súbor ľubovoľným messengerom';
+      'Pošlite všetko ako jeden súbor cez ľubovoľný messenger — a prijatý súbor .catsync importujte tu';
 
   @override
   String get connectToWifiFirst =>

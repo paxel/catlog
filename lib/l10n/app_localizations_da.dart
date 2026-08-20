@@ -1110,7 +1110,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Send alt som én fil gennem enhver messenger';
+      'Send alt som én fil gennem enhver messenger — og importér en modtaget .catsync-fil her';
 
   @override
   String get connectToWifiFirst =>

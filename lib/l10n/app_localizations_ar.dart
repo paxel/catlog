@@ -1108,7 +1108,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة';
+      'أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة — واستورد ملف .catsync المستلم من هنا';
 
   @override
   String get connectToWifiFirst =>

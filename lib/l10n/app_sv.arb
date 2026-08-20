@@ -324,7 +324,7 @@
   "syncChooserRemote": "På distans",
   "syncChooserRemoteSub": "Via en delad mapp som Dropbox eller ett USB-minne",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Skicka allt som en fil genom valfri messenger",
+  "syncChooserMessengerSub": "Skicka allt som en fil via valfri messenger — och importera en mottagen .catsync-fil här",
   "connectToWifiFirst": "Anslut till Wi-Fi först — då hittar enheterna varandra",
   "trustQuestion": "{author} ({device}) vill synkronisera",
   "trustBothWaysNote": "Era kataloger utbyts i båda riktningarna.",

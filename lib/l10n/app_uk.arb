@@ -324,7 +324,7 @@
   "syncChooserRemote": "Віддалено",
   "syncChooserRemoteSub": "Через спільну папку на кшталт Dropbox чи USB-флешки",
   "syncChooserMessenger": "Месенджер",
-  "syncChooserMessengerSub": "Надішліть усе одним файлом через будь-який месенджер",
+  "syncChooserMessengerSub": "Надішліть усе одним файлом через будь-який месенджер — і імпортуйте отриманий файл .catsync тут",
   "connectToWifiFirst": "Спершу підключіться до Wi-Fi — тоді пристрої знайдуть одне одного",
   "trustQuestion": "{author} ({device}) хоче синхронізуватися",
   "trustBothWaysNote": "Каталоги буде обміняно в обох напрямках.",

@@ -324,7 +324,7 @@
   "syncChooserRemote": "Eemalt",
   "syncChooserRemoteSub": "Jagatud kausta kaudu nagu Dropbox või USB-pulk",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Saada kõik ühe failina mis tahes messengeriga",
+  "syncChooserMessengerSub": "Saada kõik ühe failina mis tahes sõnumirakendusega — ja impordi saadud .catsync-fail siin",
   "connectToWifiFirst": "Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise",
   "trustQuestion": "{author} ({device}) soovib sünkroonida",
   "trustBothWaysNote": "Kataloogid vahetatakse mõlemas suunas.",

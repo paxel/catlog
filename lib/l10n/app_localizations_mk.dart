@@ -1113,7 +1113,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Испрати сè како една датотека преку кој било месинџер';
+      'Испратете сè како една датотека преку кој било месинџер — и увезете примена .catsync датотека тука';
 
   @override
   String get connectToWifiFirst =>

@@ -1115,7 +1115,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Envía todo como un archivo por cualquier mensajería';
+      'Envía todo como un archivo por cualquier mensajería — e importa aquí un archivo .catsync recibido';
 
   @override
   String get connectToWifiFirst =>

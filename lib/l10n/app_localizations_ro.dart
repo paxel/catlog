@@ -1111,7 +1111,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Trimite totul ca un singur fișier prin orice messenger';
+      'Trimiteți totul ca un singur fișier prin orice messenger — și importați aici un fișier .catsync primit';
 
   @override
   String get connectToWifiFirst =>

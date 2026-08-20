@@ -1110,7 +1110,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Skicka allt som en fil genom valfri messenger';
+      'Skicka allt som en fil via valfri messenger — och importera en mottagen .catsync-fil här';
 
   @override
   String get connectToWifiFirst =>

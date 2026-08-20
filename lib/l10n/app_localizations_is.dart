@@ -1114,7 +1114,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Sendu allt sem eina skrá með hvaða skilaboðaforriti sem er';
+      'Sendu allt sem eina skrá í hvaða skilaboðaforriti sem er — og flyttu inn móttekna .catsync-skrá hér';
 
   @override
   String get connectToWifiFirst =>

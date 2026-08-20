@@ -324,7 +324,7 @@
   "syncChooserRemote": "Nuotoliniu būdu",
   "syncChooserRemoteSub": "Per bendrinamą aplanką, pvz., Dropbox ar USB atmintinę",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Siųsk viską kaip vieną failą bet kuria programėle",
+  "syncChooserMessengerSub": "Siųskite viską kaip vieną failą bet kuria programėle — ir čia importuokite gautą .catsync failą",
   "connectToWifiFirst": "Pirmiausia prisijunk prie Wi-Fi — tada įrenginiai susiras",
   "trustQuestion": "{author} ({device}) nori sinchronizuoti",
   "trustBothWaysNote": "Katalogai bus apsikeisti abiem kryptimis.",

@@ -324,7 +324,7 @@
   "syncChooserRemote": "A distancia",
   "syncChooserRemoteSub": "A través de una carpeta compartida como Dropbox o un USB",
   "syncChooserMessenger": "Mensajería",
-  "syncChooserMessengerSub": "Envía todo como un archivo por cualquier mensajería",
+  "syncChooserMessengerSub": "Envía todo como un archivo por cualquier mensajería — e importa aquí un archivo .catsync recibido",
   "connectToWifiFirst": "Conéctate primero a una Wi-Fi — así los dispositivos se encuentran",
   "trustQuestion": "{author} ({device}) quiere sincronizar",
   "trustBothWaysNote": "Los catálogos se intercambiarán en ambas direcciones.",

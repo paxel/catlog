@@ -17,6 +17,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   implanted chip itself can't be read by a phone.
 - Dates display in the device's format everywhere (27.12.2010 instead
   of 2010-12-27).
+- The Messenger sync card says it also imports received .catsync files.
 
 ### Fixed
 

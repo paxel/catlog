@@ -324,7 +324,7 @@
   "syncChooserRemote": "リモート",
   "syncChooserRemoteSub": "Dropbox や USB メモリなどの共有フォルダ経由",
   "syncChooserMessenger": "メッセンジャー",
-  "syncChooserMessengerSub": "すべてを1つのファイルとして任意のメッセンジャーで送信",
+  "syncChooserMessengerSub": "任意のメッセンジャーで全データを1ファイルとして送信 — 受け取った.catsyncファイルの取り込みもここから",
   "connectToWifiFirst": "まず Wi-Fi に接続してください — 端末同士が見つかります",
   "trustQuestion": "{author}（{device}）が同期を求めています",
   "trustBothWaysNote": "カタログは双方向で交換されます。",

@@ -1079,7 +1079,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncChooserMessenger => '通讯软件';
 
   @override
-  String get syncChooserMessengerSub => '将全部数据作为一个文件通过任意通讯软件发送';
+  String get syncChooserMessengerSub =>
+      '通过任意通讯软件将全部数据作为一个文件发送——收到的 .catsync 文件也在这里导入';
 
   @override
   String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';

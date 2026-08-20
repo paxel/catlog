@@ -1116,7 +1116,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Alles als eine Datei über einen beliebigen Messenger senden';
+      'Alles als eine Datei über einen Messenger senden — und eine empfangene .catsync-Datei hier importieren';
 
   @override
   String get connectToWifiFirst =>

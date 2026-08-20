@@ -324,7 +324,7 @@
   "syncChooserRemote": "远程",
   "syncChooserRemoteSub": "通过 Dropbox 或 U 盘等共享文件夹",
   "syncChooserMessenger": "通讯软件",
-  "syncChooserMessengerSub": "将全部数据作为一个文件通过任意通讯软件发送",
+  "syncChooserMessengerSub": "通过任意通讯软件将全部数据作为一个文件发送——收到的 .catsync 文件也在这里导入",
   "connectToWifiFirst": "请先连接 Wi-Fi——设备才能互相发现",
   "trustQuestion": "{author}（{device}）请求同步",
   "trustBothWaysNote": "双方的目录将双向交换。",

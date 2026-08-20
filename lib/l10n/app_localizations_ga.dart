@@ -1116,7 +1116,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Seol gach rud mar chomhad amháin trí theachtaire ar bith';
+      'Seol gach rud mar chomhad amháin trí theachtaire ar bith — agus iompórtáil comhad .catsync a fuarthas anseo';
 
   @override
   String get connectToWifiFirst =>

@@ -1111,7 +1111,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Отправьте всё одним файлом через любой мессенджер';
+      'Отправьте всё одним файлом через любой мессенджер — и импортируйте полученный файл .catsync здесь';
 
   @override
   String get connectToWifiFirst =>

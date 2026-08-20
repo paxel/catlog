@@ -2111,7 +2111,7 @@ abstract class AppLocalizations {
   /// No description provided for @syncChooserMessengerSub.
   ///
   /// In en, this message translates to:
-  /// **'Send everything as one file through any messenger'**
+  /// **'Send everything as one file through any messenger — and import a received .catsync file here'**
   String get syncChooserMessengerSub;
 
   /// No description provided for @connectToWifiFirst.

@@ -324,7 +324,7 @@
   "syncChooserRemote": "Mill-bogħod",
   "syncChooserRemoteSub": "Permezz ta' folder kondiviż bħal Dropbox jew USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Ibgħat kollox bħala fajl wieħed bi kwalunkwe messenger",
+  "syncChooserMessengerSub": "Ibgħat kollox bħala fajl wieħed minn kwalunkwe messenger — u importa fajl .catsync riċevut hawn",
   "connectToWifiFirst": "L-ewwel aqbad ma' Wi-Fi — imbagħad l-apparati jsibu lil xulxin",
   "trustQuestion": "{author} ({device}) irid jissinkronizza",
   "trustBothWaysNote": "Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.",

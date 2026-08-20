@@ -324,7 +324,7 @@
   "syncChooserRemote": "از راه دور",
   "syncChooserRemoteSub": "از طریق پوشه مشترک مانند Dropbox یا فلش USB",
   "syncChooserMessenger": "پیام‌رسان",
-  "syncChooserMessengerSub": "همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید",
+  "syncChooserMessengerSub": "همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید — و فایل .catsync دریافتی را اینجا وارد کنید",
   "connectToWifiFirst": "اول به Wi-Fi وصل شوید — سپس دستگاه‌ها یکدیگر را پیدا می‌کنند",
   "trustQuestion": "{author} ({device}) می‌خواهد همگام‌سازی کند",
   "trustBothWaysNote": "دفترها در هر دو جهت مبادله می‌شوند.",

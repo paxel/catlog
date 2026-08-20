@@ -1093,7 +1093,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncChooserMessenger => 'メッセンジャー';
 
   @override
-  String get syncChooserMessengerSub => 'すべてを1つのファイルとして任意のメッセンジャーで送信';
+  String get syncChooserMessengerSub =>
+      '任意のメッセンジャーで全データを1ファイルとして送信 — 受け取った.catsyncファイルの取り込みもここから';
 
   @override
   String get connectToWifiFirst => 'まず Wi-Fi に接続してください — 端末同士が見つかります';

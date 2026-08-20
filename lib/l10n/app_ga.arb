@@ -324,7 +324,7 @@
   "syncChooserRemote": "I gcéin",
   "syncChooserRemoteSub": "Trí fhillteán roinnte cosúil le Dropbox nó méaróg USB",
   "syncChooserMessenger": "Teachtaire",
-  "syncChooserMessengerSub": "Seol gach rud mar chomhad amháin trí theachtaire ar bith",
+  "syncChooserMessengerSub": "Seol gach rud mar chomhad amháin trí theachtaire ar bith — agus iompórtáil comhad .catsync a fuarthas anseo",
   "connectToWifiFirst": "Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile",
   "trustQuestion": "Ba mhaith le {author} ({device}) sioncronú",
   "trustBothWaysNote": "Malartófar bhur gcatalóga sa dá threo.",

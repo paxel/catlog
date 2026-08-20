@@ -324,7 +324,7 @@
   "syncChooserRemote": "Op afstand",
   "syncChooserRemoteSub": "Via een gedeelde map zoals Dropbox of een USB-stick",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Stuur alles als één bestand via elke messenger",
+  "syncChooserMessengerSub": "Verstuur alles als één bestand via elke messenger — en importeer hier een ontvangen .catsync-bestand",
   "connectToWifiFirst": "Maak eerst verbinding met wifi — dan vinden de apparaten elkaar",
   "trustQuestion": "{author} ({device}) wil synchroniseren",
   "trustBothWaysNote": "Jullie catalogi worden in beide richtingen uitgewisseld.",

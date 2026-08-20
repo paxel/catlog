@@ -324,7 +324,7 @@
   "syncChooserRemote": "Në distancë",
   "syncChooserRemoteSub": "Përmes një dosjeje të përbashkët si Dropbox ose USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Dërgo gjithçka si një skedar me çdo messenger",
+  "syncChooserMessengerSub": "Dërgoni gjithçka si një skedar me çdo messenger — dhe importoni këtu një skedar .catsync të marrë",
   "connectToWifiFirst": "Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën",
   "trustQuestion": "{author} ({device}) do të sinkronizojë",
   "trustBothWaysNote": "Katalogët do të shkëmbehen në të dyja drejtimet.",

@@ -1111,7 +1111,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Küldj mindent egyetlen fájlként bármely üzenetküldővel';
+      'Küldjön mindent egy fájlként bármely üzenetküldőn — és itt importálja a kapott .catsync fájlt';
 
   @override
   String get connectToWifiFirst =>

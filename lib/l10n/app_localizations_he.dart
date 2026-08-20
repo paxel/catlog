@@ -1103,7 +1103,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncChooserMessenger => 'מסנג\'ר';
 
   @override
-  String get syncChooserMessengerSub => 'שלחו הכול כקובץ אחד בכל מסנג\'ר';
+  String get syncChooserMessengerSub =>
+      'שלחו הכול כקובץ אחד בכל מסנג\'ר — וייבאו כאן קובץ ‎.catsync שהתקבל';
 
   @override
   String get connectToWifiFirst =>

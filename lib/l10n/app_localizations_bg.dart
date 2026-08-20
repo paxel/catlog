@@ -1110,7 +1110,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Изпрати всичко като един файл през кой да е месинджър';
+      'Изпратете всичко като един файл през кой да е месинджър — и импортирайте получен .catsync файл тук';
 
   @override
   String get connectToWifiFirst =>

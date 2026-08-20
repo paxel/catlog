@@ -1109,7 +1109,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Wyślij wszystko jako jeden plik dowolnym komunikatorem';
+      'Wyślij wszystko jako jeden plik dowolnym komunikatorem — i zaimportuj tu otrzymany plik .catsync';
 
   @override
   String get connectToWifiFirst =>

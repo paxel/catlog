@@ -625,7 +625,7 @@
   "syncChooserRemote": "Remote",
   "syncChooserRemoteSub": "Via a shared folder like Dropbox or a USB stick",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Send everything as one file through any messenger",
+  "syncChooserMessengerSub": "Send everything as one file through any messenger — and import a received .catsync file here",
   "connectToWifiFirst": "Connect to a Wi-Fi first — then devices can find each other",
   "trustQuestion": "{author} ({device}) wants to sync",
   "trustBothWaysNote": "Your catalogs will be exchanged in both directions.",

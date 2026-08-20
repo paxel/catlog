@@ -324,7 +324,7 @@
   "syncChooserRemote": "Απομακρυσμένα",
   "syncChooserRemoteSub": "Μέσω κοινόχρηστου φακέλου όπως Dropbox ή USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Στείλτε τα όλα ως ένα αρχείο με οποιονδήποτε messenger",
+  "syncChooserMessengerSub": "Στείλτε τα πάντα ως ένα αρχείο μέσω οποιουδήποτε messenger — και εισαγάγετε εδώ ένα ληφθέν αρχείο .catsync",
   "connectToWifiFirst": "Συνδεθείτε πρώτα σε Wi-Fi — τότε οι συσκευές βρίσκονται",
   "trustQuestion": "{author} ({device}) θέλει συγχρονισμό",
   "trustBothWaysNote": "Οι κατάλογοι θα ανταλλαγούν και προς τις δύο κατευθύνσεις.",

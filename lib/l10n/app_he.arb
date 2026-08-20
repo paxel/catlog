@@ -324,7 +324,7 @@
   "syncChooserRemote": "מרחוק",
   "syncChooserRemoteSub": "דרך תיקייה משותפת כמו Dropbox או USB",
   "syncChooserMessenger": "מסנג'ר",
-  "syncChooserMessengerSub": "שלחו הכול כקובץ אחד בכל מסנג'ר",
+  "syncChooserMessengerSub": "שלחו הכול כקובץ אחד בכל מסנג'ר — וייבאו כאן קובץ ‎.catsync שהתקבל",
   "connectToWifiFirst": "התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה",
   "trustQuestion": "{author} ({device}) רוצה לסנכרן",
   "trustBothWaysNote": "הקטלוגים יוחלפו בשני הכיוונים.",

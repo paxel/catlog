@@ -323,7 +323,7 @@
   "syncChooserRemote": "Entfernt",
   "syncChooserRemoteSub": "Über einen geteilten Ordner wie Dropbox oder einen USB-Stick",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Alles als eine Datei über einen beliebigen Messenger senden",
+  "syncChooserMessengerSub": "Alles als eine Datei über einen Messenger senden — und eine empfangene .catsync-Datei hier importieren",
   "connectToWifiFirst": "Verbinde dich zuerst mit einem WLAN — dann finden sich die Geräte",
   "trustQuestion": "{author} ({device}) möchte synchronisieren",
   "trustBothWaysNote": "Eure Kataloge werden in beide Richtungen ausgetauscht.",

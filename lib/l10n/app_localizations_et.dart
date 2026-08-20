@@ -1110,7 +1110,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Saada kõik ühe failina mis tahes messengeriga';
+      'Saada kõik ühe failina mis tahes sõnumirakendusega — ja impordi saadud .catsync-fail siin';
 
   @override
   String get connectToWifiFirst =>

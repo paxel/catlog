@@ -324,7 +324,7 @@
   "syncChooserRemote": "Na diaľku",
   "syncChooserRemoteSub": "Cez zdieľaný priečinok ako Dropbox alebo USB kľúč",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Pošli všetko ako jeden súbor ľubovoľným messengerom",
+  "syncChooserMessengerSub": "Pošlite všetko ako jeden súbor cez ľubovoľný messenger — a prijatý súbor .catsync importujte tu",
   "connectToWifiFirst": "Najprv sa pripoj k Wi-Fi — potom sa zariadenia nájdu",
   "trustQuestion": "{author} ({device}) chce synchronizovať",
   "trustBothWaysNote": "Katalógy sa vymenia oboma smermi.",

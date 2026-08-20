@@ -1110,7 +1110,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošlji vse kot eno datoteko s katerim koli messengerjem';
+      'Pošljite vse kot eno datoteko prek katerega koli messengerja — in tu uvozite prejeto datoteko .catsync';
 
   @override
   String get connectToWifiFirst =>

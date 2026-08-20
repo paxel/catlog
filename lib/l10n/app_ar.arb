@@ -324,7 +324,7 @@
   "syncChooserRemote": "عن بُعد",
   "syncChooserRemoteSub": "عبر مجلد مشترك مثل Dropbox أو ذاكرة USB",
   "syncChooserMessenger": "المراسلة",
-  "syncChooserMessengerSub": "أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة",
+  "syncChooserMessengerSub": "أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة — واستورد ملف .catsync المستلم من هنا",
   "connectToWifiFirst": "اتصل بشبكة Wi-Fi أولًا — حينها تجد الأجهزة بعضها",
   "trustQuestion": "{author} ({device}) يريد المزامنة",
   "trustBothWaysNote": "سيتم تبادل السجلات في الاتجاهين.",

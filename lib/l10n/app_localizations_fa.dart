@@ -1109,7 +1109,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید';
+      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید — و فایل .catsync دریافتی را اینجا وارد کنید';
 
   @override
   String get connectToWifiFirst =>

@@ -324,7 +324,7 @@
   "syncChooserRemote": "Uzaktan",
   "syncChooserRemoteSub": "Dropbox veya USB bellek gibi paylaşılan bir klasör üzerinden",
   "syncChooserMessenger": "Mesajlaşma",
-  "syncChooserMessengerSub": "Her şeyi tek dosya olarak herhangi bir uygulamayla gönderin",
+  "syncChooserMessengerSub": "Her şeyi tek dosya olarak herhangi bir mesajlaşma uygulamasıyla gönderin — alınan .catsync dosyasını da buradan içe aktarın",
   "connectToWifiFirst": "Önce bir Wi-Fi'ye bağlanın — cihazlar birbirini o zaman bulur",
   "trustQuestion": "{author} ({device}) eşitlemek istiyor",
   "trustBothWaysNote": "Kataloglarınız iki yönde de değiştirilecek.",

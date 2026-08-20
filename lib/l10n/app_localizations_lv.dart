@@ -1109,7 +1109,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Sūti visu kā vienu failu ar jebkuru ziņotni';
+      'Sūtiet visu kā vienu failu ar jebkuru ziņotni — un importējiet saņemto .catsync failu šeit';
 
   @override
   String get connectToWifiFirst =>
