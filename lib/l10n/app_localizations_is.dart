@@ -181,7 +181,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kötturinn hverfur af öllum listum og myndir hans fjarlægðar — hér og, eftir næstu samstillingu, líka hjá hjálparfólkinu þínu.';
+      'Kötturinn hverfur af öllum listum og myndir hans eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
 
   @override
   String get sightingRecorded =>
@@ -291,7 +291,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Aðeins merktu reitirnir yfirgefa skrána. Allt annað verður heima.';
+      'Veldu hvað fer í skrána. Aðeins merktir reitir fylgja með.';
 
   @override
   String get exportShareFile => 'Flytja út deiliskrá…';
@@ -618,7 +618,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Samstilltu í gegnum möppu sem skýjaþjónusta eða USB-lykill ber milli tækja — fyrir þau sem eru ekki á sama neti.';
+      'Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
 
   @override
   String get noFolderChosenYet => 'Engin mappa valin ennþá';
@@ -913,7 +913,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki.';
+      'Þetta sendir líka allt sem þú merktir sem einka. Sá sem þú samstillir við mun sjá það.';
 
   @override
   String get hideLabel => 'Fela á þessu tæki';
@@ -1173,25 +1173,25 @@ class AppLocalizationsIs extends AppLocalizations {
   String get selectClowderHint => 'Veldu clowder til vinstri';
 
   @override
-  String get introTitle1 => 'Kettir búa í clowderum';
+  String get introTitle1 => 'Kettirnir þínir, skipulagðir';
 
   @override
   String get introBody1 =>
-      'Clowder er staður þar sem kettir búa: fósturheimilið þitt, íbúð ættleiðanda, hlaðan í næsta húsi. Hver köttur fær spjald með mynd, staðreyndum og allri sögunni.';
+      'Búðu til spjald fyrir hvern kött: mynd, kyn, heilsa, allt sem þú vilt skrá. Kettir flokkast eftir því hvar þeir búa — appið kallar slíkan stað clowder.';
 
   @override
-  String get introTitle2 => 'Allt verður hjá þér';
+  String get introTitle2 => 'Virkar án nettengingar';
 
   @override
   String get introBody2 =>
-      'Enginn reikningur, ekkert ský, engin rakning. Gögnin þín búa á tækinu þínu.';
+      'Allt vistast aðeins í símanum þínum. Enginn aðgangur, ekkert ský. Ekkert er sent nema þú deilir því sjálf(ur).';
 
   @override
-  String get introTitle3 => 'Deildu með hjálparfólkinu';
+  String get introTitle3 => 'Vinnið saman';
 
   @override
   String get introBody3 =>
-      'Skannaðu kóða og tvö tæki samstillast á sekúndum, notaðu sameiginlega möppu eða sendu allt sem eina skrá.';
+      'Hver og einn notar sitt eigið app og þið skiptist á gögnum af og til: hittist og skannið kóða, notið sameiginlega möppu eða sendið eina skrá með skilaboðaforriti. Eftir það hafa allir sömu upplýsingar.';
 
   @override
   String get introSkip => 'Sleppa';
@@ -1207,50 +1207,50 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nýtt: samstilling býður nú þrjár skýrar leiðir — og traustsspurningu áður en nokkuð flæðir.';
+      'Hér samstillir þú við kunningja þína. Þú ræður hverju þú deilir.';
 
   @override
   String get spotHomeStrays =>
-      'Nýtt: flækingar hafa sitt eigið spjald hér uppi — fjöldi, andlit, ýttu til að opna.';
+      'Þetta spjald safnar öllum flækingum — köttum án heimilis. Ýttu til að sjá listann.';
 
   @override
   String get spotHomeMenu =>
-      'Nýtt: þessi valmynd finnur tvítekna ketti og nýlendur og sameinar þau.';
+      'Í þessari valmynd: finna og sameina tvítök, flytja út CSV og fleira.';
 
   @override
   String get spotCatEdit =>
-      'Nýtt: síðan er skrifvarin — blýanturinn skiptir í breytingar og löng snerting á reit breytir honum beint.';
+      'Ýttu á blýantinn til að breyta kettinum. Ábending: haltu reit inni til að breyta honum beint.';
 
   @override
   String get spotMapLayers =>
-      'Nýtt: sýndu 500 m leitarhringi um auglýsingastaði týnds kattar.';
+      'Leitarðu að týndum ketti? Sýndu hringi um staðina þar sem auglýsingar hans sáust.';
 
   @override
   String get spotStraysFlier =>
-      'Nýtt: myndaðu auglýsingu um týndan kött — úr verður kötturinn, eigandinn og tengiliðurinn.';
+      'Fannstu auglýsingu um týndan kött? Myndaðu hana hér — appið vistar kött og tengilið fyrir þig.';
 
   @override
   String get spotStraysScan =>
-      'Nýtt: skannaðu cat(a)log-kóða af auglýsingu og flyttu köttinn beint inn.';
+      'Sumar auglýsingar bera cat(a)log QR-kóða. Skannaðu hann hér og flyttu köttinn inn án innsláttar.';
 
   @override
-  String get introTitle4 => 'Týndir kettir';
+  String get introTitle4 => 'Finndu týnda ketti';
 
   @override
   String get introBody4 =>
-      'Myndaðu auglýsingu og týndi kötturinn fer í skrána með tengilið eigandans. Athuganir, leitarhringir og samsvörunartillögur hjálpa honum heim.';
+      'Sérðu auglýsingu um týndan kött? Myndaðu hana í appinu: það vistar köttinn, tengilið eigandans og staðinn. Ef svipaður flækingur birtist síðar stingur appið upp á mögulegum samsvörunum.';
 
   @override
   String get spotMapSearch =>
-      'Nýtt: leitaðu hér að köttum, hópum og fólki — beint á kortinu.';
+      'Sláðu inn kött, stað eða manneskju til að hoppa þangað á kortinu.';
 
   @override
   String get spotCardChips =>
-      'Nýtt: veldu hvað birtist á spjaldinu áður en þú deilir því.';
+      'Merktu við það sem á að sjást á deilanlega spjaldinu — annað verður ekki með.';
 
   @override
   String get spotCatMenu =>
-      'Nýtt: merktu kött sem einka (fer aldrei af tækinu) eða feldu hann hér.';
+      'Fleiri aðgerðir hér: merktu köttinn einka, feldu hann, sameinaðu tvítök eða skráðu athugun.';
 
   @override
   String get spotDone => 'Skilið';

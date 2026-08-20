@@ -181,7 +181,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar ghléasanna do chúntóirí freisin.';
+      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
 
   @override
   String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
@@ -290,7 +290,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Ní fhágann ach na réimsí ticeáilte do chatalóg. Fanann gach rud eile sa bhaile.';
+      'Roghnaigh a dtéann isteach sa chomhad. Ní chuirtear san áireamh ach réimsí ticeáilte.';
 
   @override
   String get exportShareFile => 'Easpórtáil comhad comhroinnte…';
@@ -619,7 +619,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sioncrónaigh trí fhillteán a iompraíonn néal nó méaróg USB idir gléasanna — dóibh siúd nach bhfuil ar an líonra céanna.';
+      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
 
   @override
   String get noFolderChosenYet => 'Níl aon fhillteán roghnaithe fós';
@@ -914,7 +914,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Roinntear cait, grúpaí agus réimsí príobháideacha freisin — cas air seo ach amháin agus do ghléasanna féin á sioncronú agat.';
+      'Seolann sé seo freisin gach rud a mharcáil tú príobháideach. Feicfidh an duine a shioncronaíonn leat é.';
 
   @override
   String get hideLabel => 'Folaigh ar an ngléas seo';
@@ -1175,25 +1175,25 @@ class AppLocalizationsGa extends AppLocalizations {
   String get selectClowderHint => 'Roghnaigh clowder ar chlé';
 
   @override
-  String get introTitle1 => 'Cónaíonn cait i clowders';
+  String get introTitle1 => 'Do chait, in ord';
 
   @override
   String get introBody1 =>
-      'Áit é clowder ina gcónaíonn cait: do theach altrama, árasán uchtaitheora, an scioból béal dorais. Faigheann gach cat cárta le grianghraf, fíricí agus a scéal iomlán.';
+      'Cruthaigh cárta do gach cat: grianghraf, gnéas, sláinte, rud ar bith is mian leat a nótáil. Grúpáiltear na cait de réir na háite a gcónaíonn siad — clowder a thugann an aip ar an áit sin.';
 
   @override
-  String get introTitle2 => 'Fanann gach rud agat';
+  String get introTitle2 => 'Oibríonn sé gan idirlíon';
 
   @override
   String get introBody2 =>
-      'Gan chuntas, gan néal, gan rianú. Maireann do shonraí ar do ghléas.';
+      'Sábháiltear gach rud ar do ghuthán amháin. Gan chuntas, gan néal. Ní uaslódáiltear rud ar bith mura roinneann tú féin é.';
 
   @override
-  String get introTitle3 => 'Roinn le do chúntóirí';
+  String get introTitle3 => 'Oibrigí le chéile';
 
   @override
   String get introBody3 =>
-      'Scan cód agus sioncrónaítear dhá ghléas i soicindí, úsáid fillteán roinnte nó seol gach rud mar chomhad amháin.';
+      'Úsáideann gach duine a aip féin agus malartaíonn sibh sonraí ó am go ham: buailigí le chéile agus scanáil cód, úsáidigí fillteán comhroinnte, nó seolaigí comhad amháin trí theachtaire. Ina dhiaidh sin bíonn an t-eolas céanna ag gach duine.';
 
   @override
   String get introSkip => 'Scipeáil';
@@ -1209,50 +1209,50 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nua: tá trí bhealach shoiléire ag an sioncronú anois — agus ceist mhuiníne sula ngluaiseann aon rud.';
+      'Sioncronaigh anseo le daoine a bhfuil aithne agat orthu. Is tusa a shocraíonn cad a roinneann tú.';
 
   @override
   String get spotHomeStrays =>
-      'Nua: tá a gcárta féin ag na fáin anseo thuas — líon, aghaidheanna, tapáil le hoscailt.';
+      'Bailíonn an cárta seo na fáin go léir — cait gan bhaile. Tapáil chun an liosta a fheiceáil.';
 
   @override
   String get spotHomeMenu =>
-      'Nua: aimsíonn an roghchlár seo cait agus coilíneachtaí dúbailte agus cumascann iad.';
+      'Sa roghchlár seo: aimsigh agus cumaisc dúblaigh, easpórtáil CSV agus tuilleadh.';
 
   @override
   String get spotCatEdit =>
-      'Nua: tá an leathanach inléite amháin — athraíonn an peann luaidhe go heagarthóireacht, agus cuireann brú fada ar réimse in eagar é go díreach.';
+      'Tapáil an peann luaidhe chun an cat seo a chur in eagar. Leid: brúigh réimse go fada chun é a chur in eagar go díreach.';
 
   @override
   String get spotMapLayers =>
-      'Nua: taispeáin ciorcail chuardaigh 500 m timpeall láithreacha bileog cait ar iarraidh.';
+      'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaeir.';
 
   @override
   String get spotStraysFlier =>
-      'Nua: glac grianghraf de bhileog cait ar iarraidh — déantar an cat, an t-úinéir agus an teagmháil de.';
+      'Póstaer cat ar iarraidh? Glac grianghraf de anseo — sábhálann an aip an cat agus an teagmháil duit.';
 
   @override
   String get spotStraysScan =>
-      'Nua: scan cód cat(a)log ó bhileog chun an cat a iompórtáil go díreach.';
+      'Bíonn cód QR cat(a)log ar roinnt póstaer. Scan anseo é agus iompórtáil an cat gan clóscríobh.';
 
   @override
-  String get introTitle4 => 'Cait ar iarraidh';
+  String get introTitle4 => 'Aimsigh cait ar iarraidh';
 
   @override
   String get introBody4 =>
-      'Glac grianghraf de bhileog agus tagann an cat ar iarraidh isteach sa chatalóg le teagmháil a úinéara. Cabhraíonn amhairc, ciorcail chuardaigh agus moltaí meaitseála é a thabhairt abhaile.';
+      'An bhfeiceann tú póstaer faoi chat ar iarraidh? Glac grianghraf de san aip: sábhálann sí an cat, teagmháil an úinéara agus an áit. Má thagann fánaí cosúil leis chun cinn níos déanaí, molann an aip meaitseálacha féideartha.';
 
   @override
   String get spotMapSearch =>
-      'Nua: cuardaigh cait, clowders agus daoine anseo — díreach ar an léarscáil.';
+      'Clóscríobh cat, áit nó duine chun léim ansin ar an léarscáil.';
 
   @override
   String get spotCardChips =>
-      'Nua: roghnaigh cad a bheidh ar an gcárta sula roinneann tú é.';
+      'Ticeáil an méid ba chóir a bheith ar an gcárta inroinnte — fanann an chuid eile de.';
 
   @override
   String get spotCatMenu =>
-      'Nua: marcáil cat mar phríobháideach (ní fhágann sé do ghléas riamh) nó folaigh anseo é.';
+      'Tuilleadh gníomhartha anseo: marcáil an cat príobháideach, folaigh é, cumaisc dúblaigh nó taifead amharc.';
 
   @override
   String get spotDone => 'Tuigim';

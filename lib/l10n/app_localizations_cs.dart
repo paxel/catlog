@@ -181,7 +181,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kočka zmizí ze všech seznamů a její fotky se odstraní — tady a po další synchronizaci i u tvých pomocníků.';
+      'Kočka zmizí ze všech seznamů a její fotky se odstraní — tady i, po příští synchronizaci, na ostatních zařízeních.';
 
   @override
   String get sightingRecorded => 'Pozorování zaznamenáno na vaší pozici.';
@@ -290,7 +290,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalog opustí jen zaškrtnutá pole. Vše ostatní zůstává doma.';
+      'Vyberte, co půjde do souboru. Zahrnou se jen zaškrtnutá pole.';
 
   @override
   String get exportShareFile => 'Exportovat soubor sdílení…';
@@ -615,7 +615,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronizace přes složku, kterou mezi zařízeními přenáší cloud nebo flashka — pro ty, kdo nejsou na stejné síti.';
+      'Obě zařízení používají stejnou složku (např. v Dropboxu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.';
 
   @override
   String get noFolderChosenYet => 'Zatím nevybrána žádná složka';
@@ -910,7 +910,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení.';
+      'Tímto se pošle i vše, co jste označili jako soukromé. Ten, s kým synchronizujete, to uvidí.';
 
   @override
   String get hideLabel => 'Skrýt na tomto zařízení';
@@ -1169,25 +1169,25 @@ class AppLocalizationsCs extends AppLocalizations {
   String get selectClowderHint => 'Vyber clowder vlevo';
 
   @override
-  String get introTitle1 => 'Kočky bydlí v clowderech';
+  String get introTitle1 => 'Vaše kočky přehledně';
 
   @override
   String get introBody1 =>
-      'Clowder je místo, kde kočky žijí: tvoje dočasná péče, byt osvojitele, stodola odvedle. Každá kočka má kartu s fotkou, fakty a celým příběhem.';
+      'Založte každé kočce kartu: fotka, pohlaví, zdraví, cokoli chcete zaznamenat. Kočky jsou seskupené podle místa, kde žijí — aplikace mu říká kolonie (clowder).';
 
   @override
-  String get introTitle2 => 'Všechno zůstává u tebe';
+  String get introTitle2 => 'Funguje bez internetu';
 
   @override
   String get introBody2 =>
-      'Žádný účet, žádný cloud, žádné sledování. Tvá data žijí na tvém zařízení.';
+      'Vše se ukládá jen do vašeho telefonu. Žádný účet, žádný cloud. Nic se neodesílá, dokud to sami nesdílíte.';
 
   @override
-  String get introTitle3 => 'Sdílej s pomocníky';
+  String get introTitle3 => 'Spolupráce';
 
   @override
   String get introBody3 =>
-      'Naskenuj kód a dvě zařízení se sesynchronizují během vteřin, použij sdílenou složku nebo pošli vše jako jeden soubor.';
+      'Každý používá svou aplikaci a čas od času si vyměníte data: sejděte se a naskenujte kód, použijte sdílenou složku nebo pošlete jeden soubor messengerem. Potom mají všichni stejné informace.';
 
   @override
   String get introSkip => 'Přeskočit';
@@ -1203,49 +1203,50 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nové: synchronizace teď nabízí tři jasné cesty — a otázku důvěry, než cokoli odteče.';
+      'Tady synchronizujete se svými známými. Vy rozhodujete, co sdílíte.';
 
   @override
   String get spotHomeStrays =>
-      'Nové: toulavé kočky mají nahoře vlastní kartu — počet, tváře, klepnutím otevřete.';
+      'Tato karta sbírá všechny toulavé kočky — kočky bez domova. Klepnutím zobrazíte seznam.';
 
   @override
   String get spotHomeMenu =>
-      'Nové: tato nabídka najde duplicitní kočky a kolonie a sloučí je.';
+      'V tomto menu: hledání a slučování duplicit, export CSV a další.';
 
   @override
   String get spotCatEdit =>
-      'Nové: stránka je jen pro čtení — tužka přepne do úprav, dlouhý stisk pole ho rovnou upraví.';
+      'Klepněte na tužku a kočku upravte. Tip: podržte pole a upravíte ho rovnou.';
 
   @override
   String get spotMapLayers =>
-      'Nové: zobrazte 500m pátrací kruhy kolem míst letáků pohřešované kočky.';
+      'Hledáte pohřešovanou kočku? Zobrazte kruhy kolem míst jejích letáků.';
 
   @override
   String get spotStraysFlier =>
-      'Nové: vyfoťte leták pohřešované kočky — vznikne kočka, majitel i kontakt.';
+      'Leták s pohřešovanou kočkou? Vyfoťte ho tady — aplikace uloží kočku i kontakt za vás.';
 
   @override
   String get spotStraysScan =>
-      'Nové: naskenujte cat(a)log kód z letáku a kočku rovnou importujte.';
+      'Některé letáky mají QR kód cat(a)log. Naskenujte ho tady a kočku importujte bez psaní.';
 
   @override
-  String get introTitle4 => 'Pohřešované kočky';
+  String get introTitle4 => 'Hledání pohřešovaných koček';
 
   @override
   String get introBody4 =>
-      'Vyfoťte leták a pohřešovaná kočka se ocitne v katalogu i s kontaktem na majitele. Pozorování, pátrací kruhy a návrhy shod pomáhají dostat ji domů.';
+      'Vidíte leták s pohřešovanou kočkou? Vyfoťte ho v aplikaci: uloží kočku, kontakt na majitele i místo. Objeví-li se později podobná toulavá kočka, aplikace navrhne možné shody.';
 
   @override
   String get spotMapSearch =>
-      'Nové: hledej tady kočky, clowdery i osoby — přímo na mapě.';
+      'Napište kočku, místo nebo osobu a skočte tam na mapě.';
 
   @override
-  String get spotCardChips => 'Nové: před sdílením vyber, co na kartě bude.';
+  String get spotCardChips =>
+      'Zaškrtněte, co má být na sdílené kartě — zbytek na ní nebude.';
 
   @override
   String get spotCatMenu =>
-      'Nové: označ kočku jako soukromou (nikdy neopustí zařízení) nebo ji tady skryj.';
+      'Další akce jsou tady: označit kočku jako soukromou, skrýt ji, sloučit duplicity nebo zapsat pozorování.';
 
   @override
   String get spotDone => 'Rozumím';

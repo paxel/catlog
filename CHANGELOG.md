@@ -29,6 +29,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Dates display in the device's format everywhere (27.12.2010 instead
   of 2010-12-27).
 - The Messenger sync card says it also imports received .catsync files.
+- The intro pages, the tips and the sharing explanations are written in
+  plain language: what each screen does and what happens when you tap.
 
 ### Fixed
 

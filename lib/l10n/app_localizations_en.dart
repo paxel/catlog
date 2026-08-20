@@ -181,7 +181,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers\' devices too.';
+      'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.';
 
   @override
   String get sightingRecorded => 'Sighting recorded at your position.';
@@ -290,7 +290,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Only the ticked fields leave your catalog. Everything else stays home.';
+      'Choose what goes into the file. Only ticked fields are included.';
 
   @override
   String get exportShareFile => 'Export share file…';
@@ -614,7 +614,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sync through a folder that a cloud drive or USB stick carries between devices — for people who are not on the same network.';
+      'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.';
 
   @override
   String get noFolderChosenYet => 'No folder chosen yet';
@@ -909,7 +909,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.';
+      'This also sends everything you marked private. The person you sync with will see it.';
 
   @override
   String get hideLabel => 'Hide on this device';
@@ -1170,25 +1170,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectClowderHint => 'Pick a clowder on the left';
 
   @override
-  String get introTitle1 => 'Cats live in clowders';
+  String get introTitle1 => 'Your cats, organized';
 
   @override
   String get introBody1 =>
-      'A clowder is a place where cats live: your foster home, an adopter\'s flat, the barn next door. Every cat gets a card with photo, facts, and its whole story.';
+      'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.';
 
   @override
-  String get introTitle2 => 'Everything stays with you';
+  String get introTitle2 => 'Works without internet';
 
   @override
   String get introBody2 =>
-      'No account, no cloud, no tracking. Your data lives on your device and goes only where you send it.';
+      'Everything is saved on your phone only. No account, no cloud. Nothing is uploaded unless you share it yourself.';
 
   @override
-  String get introTitle3 => 'Share with your helpers';
+  String get introTitle3 => 'Work together';
 
   @override
   String get introBody3 =>
-      'Scan a code to sync two devices in seconds, use a shared folder, or send everything as one file. Everyone ends up with the same catalog.';
+      'Everyone uses their own app and you swap data now and then: meet and scan a code, use a shared folder, or send one file by messenger. Afterwards everyone has the same information.';
 
   @override
   String get introSkip => 'Skip';
@@ -1204,50 +1204,50 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'New: sync now offers three clear ways to share — and a trust question before anything flows.';
+      'Sync with people you know here. You decide what you share.';
 
   @override
   String get spotHomeStrays =>
-      'New: strays live in their own card up here — count, faces, tap to open.';
+      'This card collects all strays — cats without a home. Tap it to see the list.';
 
   @override
   String get spotHomeMenu =>
-      'New: this menu finds duplicate cats and clowders and merges them.';
+      'In this menu: find and merge duplicate entries, export CSV, and more.';
 
   @override
   String get spotCatEdit =>
-      'New: the page is read-only — this pencil switches to editing, long-pressing a field edits it directly.';
+      'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.';
 
   @override
   String get spotMapLayers =>
-      'New: overlay 500 m search circles around a missing cat\'s flier spots.';
+      'Searching for a missing cat? Show circles around the places its posters were seen.';
 
   @override
   String get spotStraysFlier =>
-      'New: photograph a missing-cat flier — it becomes the cat, its owner, and their contact.';
+      'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.';
 
   @override
   String get spotStraysScan =>
-      'New: scan a cat(a)log share code from a flier to import the cat directly.';
+      'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.';
 
   @override
-  String get introTitle4 => 'Missing cats';
+  String get introTitle4 => 'Find missing cats';
 
   @override
   String get introBody4 =>
-      'Photograph a flier and the missing cat joins the catalog with its owner\'s contact. Sightings, search circles, and match suggestions help bring it home.';
+      'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.';
 
   @override
   String get spotMapSearch =>
-      'New: search cats, clowders, and people here — or find any of them on the map.';
+      'Type a cat, place, or person here to jump to it on the map.';
 
   @override
   String get spotCardChips =>
-      'New: choose what appears on the card before sharing it.';
+      'Tick what should appear on the shareable card — everything else stays off it.';
 
   @override
   String get spotCatMenu =>
-      'New: mark a cat as private (never leaves your device) or hide it from your view here.';
+      'More actions live here: mark the cat private, hide it, merge duplicates, or record a sighting.';
 
   @override
   String get spotDone => 'Got it';

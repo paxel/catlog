@@ -181,7 +181,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Pisica dispare din toate listele și fotografiile ei sunt eliminate — aici și, după următoarea sincronizare, și la ajutoarele tale.';
+      'Pisica dispare din toate listele, iar pozele ei sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
 
   @override
   String get sightingRecorded => 'Observație înregistrată la poziția ta.';
@@ -290,7 +290,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Doar câmpurile bifate părăsesc catalogul. Restul rămâne acasă.';
+      'Alege ce intră în fișier. Se includ doar câmpurile bifate.';
 
   @override
   String get exportShareFile => 'Exportă fișierul de distribuire…';
@@ -616,7 +616,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sincronizează printr-un dosar purtat între dispozitive de un cloud sau un stick USB — pentru cei care nu sunt în aceeași rețea.';
+      'Ambele dispozitive folosesc același dosar (de exemplu în Dropbox sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
 
   @override
   String get noFolderChosenYet => 'Niciun dosar ales încă';
@@ -911,7 +911,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive.';
+      'Astfel se trimite și tot ce ai marcat ca privat. Persoana cu care sincronizezi va vedea acele date.';
 
   @override
   String get hideLabel => 'Ascunde pe acest dispozitiv';
@@ -1171,25 +1171,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String get selectClowderHint => 'Alege un clowder din stânga';
 
   @override
-  String get introTitle1 => 'Pisicile trăiesc în clowdere';
+  String get introTitle1 => 'Pisicile tale, organizate';
 
   @override
   String get introBody1 =>
-      'Un clowder e un loc unde trăiesc pisici: casa ta de plasament, apartamentul unui adoptator, hambarul de alături. Fiecare pisică are o fișă cu poză, date și toată povestea ei.';
+      'Creează o fișă pentru fiecare pisică: poză, sex, sănătate, orice vrei să notezi. Pisicile sunt grupate după locul unde trăiesc — aplicația îl numește colonie (clowder).';
 
   @override
-  String get introTitle2 => 'Totul rămâne la tine';
+  String get introTitle2 => 'Funcționează fără internet';
 
   @override
   String get introBody2 =>
-      'Fără cont, fără cloud, fără urmărire. Datele tale trăiesc pe dispozitivul tău.';
+      'Totul se salvează doar pe telefonul tău. Fără cont, fără cloud. Nimic nu se trimite decât dacă distribui tu.';
 
   @override
-  String get introTitle3 => 'Împarte cu ajutoarele tale';
+  String get introTitle3 => 'Lucrați împreună';
 
   @override
   String get introBody3 =>
-      'Scanează un cod și două dispozitive se sincronizează în secunde, folosește un dosar partajat sau trimite totul ca un fișier.';
+      'Fiecare folosește aplicația proprie și schimbați date din când în când: întâlniți-vă și scanați un cod, folosiți un dosar comun sau trimiteți un fișier prin messenger. Apoi toți au aceleași informații.';
 
   @override
   String get introSkip => 'Sari peste';
@@ -1205,50 +1205,50 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nou: sincronizarea oferă acum trei căi clare — și o întrebare de încredere înainte să curgă ceva.';
+      'Aici sincronizezi cu cunoscuții tăi. Tu decizi ce împarți.';
 
   @override
   String get spotHomeStrays =>
-      'Nou: pisicile vagaboande au propriul card aici sus — număr, boturi, atingeți pentru a deschide.';
+      'Acest card adună toți vagabonzii — pisici fără casă. Atinge-l pentru listă.';
 
   @override
   String get spotHomeMenu =>
-      'Nou: acest meniu găsește pisicile și coloniile duplicate și le unește.';
+      'În acest meniu: găsește și unește dublurile, exportă CSV și altele.';
 
   @override
   String get spotCatEdit =>
-      'Nou: pagina este doar pentru citire — creionul trece la editare, iar apăsarea lungă pe un câmp îl editează direct.';
+      'Atinge creionul ca să editezi pisica. Sfat: ține apăsat un câmp ca să-l editezi direct.';
 
   @override
   String get spotMapLayers =>
-      'Nou: afișați cercuri de căutare de 500 m în jurul locurilor afișelor unei pisici dispărute.';
+      'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei.';
 
   @override
   String get spotStraysFlier =>
-      'Nou: fotografiați afișul unei pisici dispărute — devine pisica, stăpânul și contactul.';
+      'Afiș cu pisică dispărută? Fotografiază-l aici — aplicația salvează pisica și contactul pentru tine.';
 
   @override
   String get spotStraysScan =>
-      'Nou: scanați un cod cat(a)log de pe un afiș pentru a importa pisica direct.';
+      'Unele afișe au un cod QR cat(a)log. Scanează-l aici și importă pisica fără să tastezi.';
 
   @override
-  String get introTitle4 => 'Pisici dispărute';
+  String get introTitle4 => 'Găsește pisicile dispărute';
 
   @override
   String get introBody4 =>
-      'Fotografiați un afiș și pisica dispărută intră în catalog cu contactul stăpânului. Observațiile, cercurile de căutare și sugestiile de potrivire o ajută să ajungă acasă.';
+      'Vezi un afiș cu o pisică dispărută? Fotografiază-l în aplicație: salvează pisica, contactul stăpânului și locul. Dacă mai târziu apare un vagabond asemănător, aplicația sugerează potriviri posibile.';
 
   @override
   String get spotMapSearch =>
-      'Nou: caută aici pisici, clowdere și persoane — direct pe hartă.';
+      'Scrie o pisică, un loc sau o persoană ca să sari acolo pe hartă.';
 
   @override
   String get spotCardChips =>
-      'Nou: alege ce apare pe fișă înainte s-o distribui.';
+      'Bifează ce apare pe cardul de partajat — restul rămâne în afara lui.';
 
   @override
   String get spotCatMenu =>
-      'Nou: marchează o pisică drept privată (nu părăsește niciodată dispozitivul) sau ascunde-o aici.';
+      'Mai multe acțiuni aici: marchează pisica privată, ascunde-o, unește dubluri sau notează o observare.';
 
   @override
   String get spotDone => 'Am înțeles';

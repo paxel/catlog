@@ -181,7 +181,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka nestaje sa svih popisa i njezine se fotografije uklanjaju — ovdje i, nakon sljedeće sinkronizacije, kod tvojih pomoćnika.';
+      'Mačka nestaje sa svih popisa i njezine se fotografije uklanjaju — ovdje i, nakon sljedeće sinkronizacije, i na drugim uređajima.';
 
   @override
   String get sightingRecorded => 'Viđenje zabilježeno na vašoj poziciji.';
@@ -290,7 +290,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Samo označena polja napuštaju katalog. Sve ostalo ostaje kod kuće.';
+      'Odaberite što ide u datoteku. Uključena su samo označena polja.';
 
   @override
   String get exportShareFile => 'Izvezi datoteku za dijeljenje…';
@@ -615,7 +615,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinkronizirajte preko mape koju oblak ili USB stick prenosi među uređajima — za one koji nisu na istoj mreži.';
+      'Oba uređaja koriste istu mapu (npr. u Dropboxu ili na USB sticku). Svaka sinkronizacija ondje ostavlja vaše promjene i preuzima tuđe.';
 
   @override
   String get noFolderChosenYet => 'Mapa još nije odabrana';
@@ -910,7 +910,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privatne mačke, grupe i polja također se dijele — uključi samo pri sinkronizaciji vlastitih uređaja.';
+      'Time se šalje i sve što ste označili kao privatno. Osoba s kojom sinkronizirate to će vidjeti.';
 
   @override
   String get hideLabel => 'Sakrij na ovom uređaju';
@@ -1169,25 +1169,25 @@ class AppLocalizationsHr extends AppLocalizations {
   String get selectClowderHint => 'Odaberi clowder lijevo';
 
   @override
-  String get introTitle1 => 'Mačke žive u clowderima';
+  String get introTitle1 => 'Vaše mačke, pregledno';
 
   @override
   String get introBody1 =>
-      'Clowder je mjesto gdje mačke žive: tvoj udomiteljski dom, stan posvojitelja, štala u susjedstvu. Svaka mačka ima kartu sa slikom, činjenicama i cijelom pričom.';
+      'Napravite karticu za svaku mačku: fotografija, spol, zdravlje, što god želite zabilježiti. Mačke su grupirane po mjestu gdje žive — aplikacija ga zove kolonija (clowder).';
 
   @override
-  String get introTitle2 => 'Sve ostaje kod tebe';
+  String get introTitle2 => 'Radi bez interneta';
 
   @override
   String get introBody2 =>
-      'Bez računa, bez oblaka, bez praćenja. Tvoji podaci žive na tvom uređaju.';
+      'Sve se sprema samo na vaš telefon. Bez računa, bez oblaka. Ništa se ne šalje dok sami ne podijelite.';
 
   @override
-  String get introTitle3 => 'Dijeli s pomoćnicima';
+  String get introTitle3 => 'Radite zajedno';
 
   @override
   String get introBody3 =>
-      'Skeniraj kod i dva se uređaja sinkroniziraju u sekundama, koristi dijeljenu mapu ili pošalji sve kao jednu datoteku.';
+      'Svatko koristi svoju aplikaciju i povremeno razmjenjujete podatke: nađite se i skenirajte kod, koristite zajedničku mapu ili pošaljite jednu datoteku messengerom. Nakon toga svi imaju iste podatke.';
 
   @override
   String get introSkip => 'Preskoči';
@@ -1203,50 +1203,50 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Novo: sinkronizacija sada nudi tri jasna puta — i pitanje povjerenja prije nego išta poteče.';
+      'Ovdje sinkronizirate s poznanicima. Vi odlučujete što dijelite.';
 
   @override
   String get spotHomeStrays =>
-      'Novo: lutalice imaju svoju karticu ovdje gore — broj, lica, dodirnite za otvaranje.';
+      'Ova kartica skuplja sve lutalice — mačke bez doma. Dodirnite za popis.';
 
   @override
   String get spotHomeMenu =>
-      'Novo: ovaj izbornik pronalazi duple mačke i kolonije i spaja ih.';
+      'U ovom izborniku: pronađite i spojite duplikate, izvezite CSV i više.';
 
   @override
   String get spotCatEdit =>
-      'Novo: stranica je samo za čitanje — olovka prebacuje na uređivanje, dugi pritisak na polje uređuje ga izravno.';
+      'Dodirnite olovku za uređivanje mačke. Savjet: dugi pritisak na polje uređuje ga izravno.';
 
   @override
   String get spotMapLayers =>
-      'Novo: prikažite krugove pretrage od 500 m oko mjesta letaka nestale mačke.';
+      'Tražite nestalu mačku? Prikažite krugove oko mjesta njezinih letaka.';
 
   @override
   String get spotStraysFlier =>
-      'Novo: fotografirajte letak nestale mačke — postaje mačka, vlasnik i kontakt.';
+      'Letak o nestaloj mački? Fotografirajte ga ovdje — aplikacija sprema mačku i kontakt za vas.';
 
   @override
   String get spotStraysScan =>
-      'Novo: skenirajte cat(a)log kod s letka i izravno uvezite mačku.';
+      'Neki letci nose cat(a)log QR kod. Skenirajte ga ovdje i uvezite mačku bez tipkanja.';
 
   @override
-  String get introTitle4 => 'Nestale mačke';
+  String get introTitle4 => 'Pronađite nestale mačke';
 
   @override
   String get introBody4 =>
-      'Fotografirajte letak i nestala mačka ulazi u katalog s kontaktom vlasnika. Viđenja, krugovi pretrage i prijedlozi podudaranja pomažu joj kući.';
+      'Vidite letak o nestaloj mački? Fotografirajte ga u aplikaciji: sprema mačku, kontakt vlasnika i mjesto. Pojavi li se kasnije slična lutalica, aplikacija predlaže moguće parove.';
 
   @override
   String get spotMapSearch =>
-      'Novo: traži mačke, clowdere i osobe ovdje — izravno na karti.';
+      'Upišite mačku, mjesto ili osobu da biste skočili onamo na karti.';
 
   @override
   String get spotCardChips =>
-      'Novo: odaberi što se vidi na kartici prije dijeljenja.';
+      'Označite što treba biti na kartici za dijeljenje — ostalo ostaje izvan nje.';
 
   @override
   String get spotCatMenu =>
-      'Novo: označi mačku kao privatnu (nikad ne napušta uređaj) ili je sakrij ovdje.';
+      'Više radnji ovdje: označite mačku privatnom, sakrijte je, spojite duplikate ili zabilježite viđenje.';
 
   @override
   String get spotDone => 'Jasno';

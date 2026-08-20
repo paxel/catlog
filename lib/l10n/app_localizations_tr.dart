@@ -181,7 +181,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kedi tüm listelerden kaybolur ve fotoğrafları kaldırılır — burada ve bir sonraki eşitlemeden sonra yardımcılarınızın cihazlarında da.';
+      'Kedi tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
 
   @override
   String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
@@ -290,7 +290,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalogdan yalnızca işaretli alanlar çıkar. Gerisi evde kalır.';
+      'Dosyaya ne gireceğini seçin. Yalnızca işaretli alanlar eklenir.';
 
   @override
   String get exportShareFile => 'Paylaşım dosyasını dışa aktar…';
@@ -614,7 +614,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Bulut ya da USB belleğin cihazlar arasında taşıdığı bir klasör üzerinden eşitleyin — aynı ağda olmayanlar için.';
+      'İki cihaz da aynı klasörü kullanır (örn. Dropbox\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
 
   @override
   String get noFolderChosenYet => 'Henüz klasör seçilmedi';
@@ -909,7 +909,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın.';
+      'Bu, özel olarak işaretlediğiniz her şeyi de gönderir. Eşitlediğiniz kişi bunları görür.';
 
   @override
   String get hideLabel => 'Bu cihazda gizle';
@@ -1170,25 +1170,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectClowderHint => 'Soldan bir clowder seçin';
 
   @override
-  String get introTitle1 => 'Kediler clowder\'larda yaşar';
+  String get introTitle1 => 'Kedileriniz düzenli';
 
   @override
   String get introBody1 =>
-      'Clowder, kedilerin yaşadığı yerdir: geçici yuvanız, sahiplenen kişinin evi, yandaki ahır. Her kedinin fotoğraflı, bilgili ve tüm hikâyesini içeren bir kartı olur.';
+      'Baktığınız her kedi için bir kart oluşturun: fotoğraf, cinsiyet, sağlık, not etmek istediğiniz her şey. Kediler yaşadıkları yere göre gruplanır — uygulama bu yere koloni (clowder) der.';
 
   @override
-  String get introTitle2 => 'Her şey sizde kalır';
+  String get introTitle2 => 'İnternetsiz çalışır';
 
   @override
   String get introBody2 =>
-      'Hesap yok, bulut yok, takip yok. Verileriniz cihazınızda yaşar.';
+      'Her şey yalnızca telefonunuza kaydedilir. Hesap yok, bulut yok. Siz paylaşmadıkça hiçbir şey gönderilmez.';
 
   @override
-  String get introTitle3 => 'Yardımcılarınızla paylaşın';
+  String get introTitle3 => 'Birlikte çalışın';
 
   @override
   String get introBody3 =>
-      'Bir kodu tarayın, iki cihaz saniyeler içinde eşitlensin; ortak klasör kullanın ya da her şeyi tek dosya olarak gönderin.';
+      'Herkes kendi uygulamasını kullanır, ara sıra veri alışverişi yaparsınız: buluşup bir kod okutun, ortak bir klasör kullanın ya da messenger ile tek dosya gönderin. Sonrasında herkes aynı bilgiye sahip olur.';
 
   @override
   String get introSkip => 'Atla';
@@ -1204,50 +1204,50 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Yeni: eşitleme artık üç net yol sunuyor — ve bir şey akmadan önce güven sorusu.';
+      'Burada tanıdıklarınızla eşitlersiniz. Neyi paylaşacağınıza siz karar verirsiniz.';
 
   @override
   String get spotHomeStrays =>
-      'Yeni: sokak kedilerinin burada üstte kendi kartı var — sayı, yüzler, açmak için dokunun.';
+      'Bu kart tüm sokak kedilerini toplar — evi olmayan kedileri. Listeyi görmek için dokunun.';
 
   @override
   String get spotHomeMenu =>
-      'Yeni: bu menü kopya kedileri ve kolonileri bulup birleştirir.';
+      'Bu menüde: kopyaları bulup birleştirme, CSV dışa aktarma ve daha fazlası.';
 
   @override
   String get spotCatEdit =>
-      'Yeni: sayfa salt okunur — kalem düzenlemeye geçirir, bir alana uzun basmak onu doğrudan düzenler.';
+      'Kediyi düzenlemek için kaleme dokunun. İpucu: bir alana uzun basmak onu doğrudan düzenler.';
 
   @override
   String get spotMapLayers =>
-      'Yeni: kayıp bir kedinin ilan noktaları çevresinde 500 m arama daireleri gösterin.';
+      'Kayıp kedi mi arıyorsunuz? İlanlarının görüldüğü yerlerin çevresine daireler çizin.';
 
   @override
   String get spotStraysFlier =>
-      'Yeni: kayıp kedi ilanını fotoğraflayın — kediye, sahibine ve iletişime dönüşür.';
+      'Kayıp kedi ilanı mı buldunuz? Burada fotoğraflayın — uygulama kediyi ve iletişimi sizin için kaydeder.';
 
   @override
   String get spotStraysScan =>
-      'Yeni: ilandan bir cat(a)log kodu tarayıp kediyi doğrudan içe aktarın.';
+      'Bazı ilanlarda cat(a)log QR kodu bulunur. Burada tarayın, kediyi yazmadan içe aktarın.';
 
   @override
-  String get introTitle4 => 'Kayıp kediler';
+  String get introTitle4 => 'Kayıp kedileri bulun';
 
   @override
   String get introBody4 =>
-      'Bir ilanı fotoğraflayın; kayıp kedi, sahibinin iletişimiyle kataloğa girer. Görülmeler, arama daireleri ve eşleşme önerileri eve dönmesine yardım eder.';
+      'Kayıp kedi ilanı mı gördünüz? Uygulamada fotoğraflayın: kediyi, sahibinin iletişimini ve yeri kaydeder. Daha sonra benzer bir sokak kedisi görülürse uygulama olası eşleşmeler önerir.';
 
   @override
   String get spotMapSearch =>
-      'Yeni: burada kedi, grup ve kişi arayın — doğrudan haritada.';
+      'Haritada oraya atlamak için bir kedi, yer veya kişi yazın.';
 
   @override
   String get spotCardChips =>
-      'Yeni: paylaşmadan önce kartta ne görüneceğini seçin.';
+      'Paylaşılabilir kartta ne görüneceğini işaretleyin — gerisi kartta yer almaz.';
 
   @override
   String get spotCatMenu =>
-      'Yeni: bir kediyi özel olarak işaretleyin (cihazınızdan asla çıkmaz) veya burada gizleyin.';
+      'Daha fazla eylem burada: kediyi özel işaretleyin, gizleyin, kopyaları birleştirin veya bir görülme kaydedin.';
 
   @override
   String get spotDone => 'Anladım';

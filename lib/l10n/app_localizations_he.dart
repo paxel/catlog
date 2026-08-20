@@ -180,7 +180,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'החתול נעלם מכל הרשימות ותמונותיו מוסרות — כאן, ואחרי הסנכרון הבא גם אצל העוזרים שלך.';
+      'החתול נעלם מכל הרשימות ותמונותיו נמחקות — כאן, ואחרי הסנכרון הבא גם במכשירים האחרים.';
 
   @override
   String get sightingRecorded => 'התצפית נרשמה במיקומך.';
@@ -289,7 +289,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'רק השדות המסומנים עוזבים את הקטלוג. כל השאר נשאר בבית.';
+      'בחרו מה ייכנס לקובץ. רק שדות מסומנים נכללים.';
 
   @override
   String get exportShareFile => 'ייצוא קובץ שיתוף…';
@@ -613,7 +613,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'סנכרון דרך תיקייה שענן או החסן USB מעבירים בין מכשירים — למי שלא באותה רשת.';
+      'שני המכשירים משתמשים באותה תיקייה (למשל ב-Dropbox או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.';
 
   @override
   String get noFolderChosenYet => 'טרם נבחרה תיקייה';
@@ -907,7 +907,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'חתולים, קבוצות ושדות פרטיים משותפים גם הם — הפעל רק בעת סנכרון המכשירים שלך.';
+      'כך נשלח גם כל מה שסימנתם כפרטי. מי שמסתנכרן אתכם יראה זאת.';
 
   @override
   String get hideLabel => 'הסתר במכשיר זה';
@@ -1163,25 +1163,25 @@ class AppLocalizationsHe extends AppLocalizations {
   String get selectClowderHint => 'בחרו קבוצה משמאל';
 
   @override
-  String get introTitle1 => 'חתולים גרים בקבוצות';
+  String get introTitle1 => 'החתולים שלך, מסודרים';
 
   @override
   String get introBody1 =>
-      'קבוצה היא מקום שבו חתולים גרים: בית האומנה שלך, דירת מאמץ, האסם השכן. לכל חתול כרטיס עם תמונה, עובדות וכל הסיפור שלו.';
+      'צרו כרטיס לכל חתול: תמונה, מין, בריאות, כל מה שתרצו לרשום. החתולים מקובצים לפי מקום המגורים — האפליקציה קוראת למקום כזה מושבה (clowder).';
 
   @override
-  String get introTitle2 => 'הכול נשאר אצלך';
+  String get introTitle2 => 'עובד בלי אינטרנט';
 
   @override
   String get introBody2 =>
-      'בלי חשבון, בלי ענן, בלי מעקב. הנתונים שלך חיים במכשיר שלך.';
+      'הכול נשמר רק בטלפון שלכם. בלי חשבון, בלי ענן. שום דבר לא נשלח אלא אם תשתפו בעצמכם.';
 
   @override
-  String get introTitle3 => 'שתפו את העוזרים';
+  String get introTitle3 => 'עבדו יחד';
 
   @override
   String get introBody3 =>
-      'סרקו קוד ושני מכשירים מסתנכרנים בשניות, השתמשו בתיקייה משותפת או שלחו הכול כקובץ אחד.';
+      'כל אחד משתמש באפליקציה שלו ומדי פעם אתם מחליפים נתונים: היפגשו וסרקו קוד, השתמשו בתיקייה משותפת או שלחו קובץ אחד במסנג\'ר. אחר כך לכולם אותו מידע.';
 
   @override
   String get introSkip => 'דלג';
@@ -1196,50 +1196,49 @@ class AppLocalizationsHe extends AppLocalizations {
   String get introReplayTitle => 'היכרות מהירה';
 
   @override
-  String get spotHomeSync =>
-      'חדש: לסנכרון יש עכשיו שלוש דרכים ברורות — ושאלת אמון לפני שמשהו זורם.';
+  String get spotHomeSync => 'כאן מסתנכרנים עם מכרים. אתם מחליטים מה לשתף.';
 
   @override
   String get spotHomeStrays =>
-      'חדש: לחתולי הרחוב יש כרטיס משלהם כאן למעלה — מספר, פרצופים, הקישו לפתיחה.';
+      'הכרטיס הזה מרכז את כל חתולי הרחוב — חתולים בלי בית. הקישו לרשימה.';
 
   @override
   String get spotHomeMenu =>
-      'חדש: התפריט הזה מוצא חתולים ומושבות כפולים וממזג אותם.';
+      'בתפריט הזה: מציאת כפילויות ומיזוגן, ייצוא CSV ועוד.';
 
   @override
   String get spotCatEdit =>
-      'חדש: הדף לקריאה בלבד — העיפרון עובר לעריכה, ולחיצה ארוכה על שדה עורכת אותו ישירות.';
+      'הקישו על העיפרון כדי לערוך את החתול. טיפ: לחיצה ארוכה על שדה עורכת אותו ישירות.';
 
   @override
   String get spotMapLayers =>
-      'חדש: הציגו מעגלי חיפוש של 500 מ\' סביב מיקומי המודעות של חתול נעדר.';
+      'מחפשים חתול נעדר? הציגו מעגלים סביב מקומות המודעות שלו.';
 
   @override
   String get spotStraysFlier =>
-      'חדש: צלמו מודעת חתול נעדר — היא הופכת לחתול, לבעלים ולפרטי הקשר.';
+      'מצאתם מודעת חתול נעדר? צלמו אותה כאן — האפליקציה שומרת חתול ופרטי קשר בשבילכם.';
 
   @override
   String get spotStraysScan =>
-      'חדש: סרקו קוד cat(a)log ממודעה לייבוא החתול ישירות.';
+      'בחלק מהמודעות יש קוד QR של cat(a)log. סרקו אותו כאן וייבאו את החתול בלי להקליד.';
 
   @override
-  String get introTitle4 => 'חתולים נעדרים';
+  String get introTitle4 => 'מצאו חתולים נעדרים';
 
   @override
   String get introBody4 =>
-      'צלמו מודעה והחתול הנעדר נכנס לקטלוג עם פרטי הקשר של בעליו. תצפיות, מעגלי חיפוש והצעות התאמה עוזרים להחזירו הביתה.';
+      'ראיתם מודעה על חתול נעדר? צלמו אותה באפליקציה: היא שומרת את החתול, פרטי הבעלים והמקום. אם יופיע אחר כך חתול רחוב דומה, האפליקציה תציע התאמות אפשריות.';
 
   @override
-  String get spotMapSearch =>
-      'חדש: חפשו כאן חתולים, קבוצות ואנשים — ישירות על המפה.';
+  String get spotMapSearch => 'הקלידו חתול, מקום או אדם כדי לקפוץ לשם במפה.';
 
   @override
-  String get spotCardChips => 'חדש: בחרו מה יופיע בכרטיס לפני השיתוף.';
+  String get spotCardChips =>
+      'סמנו מה יופיע בכרטיס לשיתוף — השאר נשאר מחוץ לו.';
 
   @override
   String get spotCatMenu =>
-      'חדש: סמנו חתול כפרטי (לעולם לא עוזב את המכשיר) או הסתירו אותו כאן.';
+      'פעולות נוספות כאן: סימון החתול כפרטי, הסתרה, מיזוג כפילויות או רישום תצפית.';
 
   @override
   String get spotDone => 'הבנתי';

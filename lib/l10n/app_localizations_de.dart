@@ -182,7 +182,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Die Katze verschwindet aus allen Listen und ihre Fotos werden entfernt — hier und nach der nächsten Synchronisierung auch bei deinen Helfern.';
+      'Die Katze verschwindet aus allen Listen und ihre Fotos werden entfernt — hier und nach der nächsten Synchronisierung auch auf den anderen Geräten.';
 
   @override
   String get sightingRecorded => 'Sichtung an deiner Position gespeichert.';
@@ -291,7 +291,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Nur die angehakten Felder verlassen deinen Katalog. Alles andere bleibt zu Hause.';
+      'Wähle aus, was in die Datei kommt. Nur angehakte Felder sind enthalten.';
 
   @override
   String get exportShareFile => 'Teil-Datei exportieren…';
@@ -619,7 +619,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sync über einen Ordner, den ein Cloud-Laufwerk oder USB-Stick zwischen den Geräten trägt — für alle, die nicht im selben Netz sind.';
+      'Beide Geräte nutzen denselben Ordner (z. B. in Dropbox oder auf einem USB-Stick). Beim Synchronisieren landen deine Änderungen dort und die der anderen Seite kommen zu dir.';
 
   @override
   String get noFolderChosenYet => 'Noch kein Ordner gewählt';
@@ -914,7 +914,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Private Katzen, Kolonien und Felder werden mitgeteilt — nur einschalten, wenn du deine eigenen Geräte synchronisierst.';
+      'Damit wird auch alles gesendet, was du als privat markiert hast. Wer mit dir synchronisiert, sieht es dann.';
 
   @override
   String get hideLabel => 'Auf diesem Gerät ausblenden';
@@ -1177,25 +1177,25 @@ class AppLocalizationsDe extends AppLocalizations {
   String get selectClowderHint => 'Wähle links eine Kolonie';
 
   @override
-  String get introTitle1 => 'Katzen wohnen in Kolonien';
+  String get introTitle1 => 'Deine Katzen im Blick';
 
   @override
   String get introBody1 =>
-      'Eine Kolonie ist ein Ort, an dem Katzen leben: deine Pflegestelle, die Wohnung eines Adoptanten, die Scheune nebenan. Jede Katze bekommt eine Karte mit Foto, Fakten und ihrer ganzen Geschichte.';
+      'Lege für jede Katze eine Karte an: Foto, Geschlecht, Gesundheit, alles was du festhalten willst. Katzen sind danach gruppiert, wo sie leben — so einen Ort nennt die App Kolonie.';
 
   @override
-  String get introTitle2 => 'Alles bleibt bei dir';
+  String get introTitle2 => 'Funktioniert ohne Internet';
 
   @override
   String get introBody2 =>
-      'Kein Konto, keine Cloud, kein Tracking. Deine Daten leben auf deinem Gerät und gehen nur dorthin, wohin du sie schickst.';
+      'Alles wird nur auf deinem Handy gespeichert. Kein Konto, keine Cloud. Nichts wird hochgeladen, außer du teilst es selbst.';
 
   @override
-  String get introTitle3 => 'Teile mit deinen Helfern';
+  String get introTitle3 => 'Zusammenarbeiten';
 
   @override
   String get introBody3 =>
-      'Scanne einen Code und zwei Geräte sind in Sekunden synchron, nutze einen geteilten Ordner oder schicke alles als eine Datei. Alle haben am Ende denselben Katalog.';
+      'Jeder nutzt die eigene App, und ab und zu tauscht ihr Daten aus: trefft euch und scannt einen Code, nutzt einen gemeinsamen Ordner oder schickt eine Datei per Messenger. Danach haben alle denselben Stand.';
 
   @override
   String get introSkip => 'Überspringen';
@@ -1211,50 +1211,50 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Neu: Synchronisieren bietet drei klare Wege — und eine Vertrauensfrage, bevor etwas fließt.';
+      'Hier synchronisierst du mit deinen Bekannten. Du entscheidest, was du teilst.';
 
   @override
   String get spotHomeStrays =>
-      'Neu: Streuner haben hier oben ihre eigene Karte — Anzahl, Gesichter, Antippen öffnet.';
+      'Diese Karte sammelt alle Streuner — Katzen ohne Zuhause. Antippen zeigt die Liste.';
 
   @override
   String get spotHomeMenu =>
-      'Neu: Dieses Menü findet doppelte Katzen und Kolonien und führt sie zusammen.';
+      'In diesem Menü: doppelte Einträge finden und zusammenführen, CSV exportieren und mehr.';
 
   @override
   String get spotCatEdit =>
-      'Neu: Die Seite ist schreibgeschützt — der Stift wechselt zum Bearbeiten, langes Drücken auf ein Feld bearbeitet es direkt.';
+      'Tippe auf den Stift, um die Katze zu bearbeiten. Tipp: Ein Feld lange drücken bearbeitet es direkt.';
 
   @override
   String get spotMapLayers =>
-      'Neu: 500-m-Suchkreise um die Aushang-Orte einer vermissten Katze einblenden.';
+      'Du suchst eine vermisste Katze? Blende Kreise um die Orte ihrer Aushänge ein.';
 
   @override
   String get spotStraysFlier =>
-      'Neu: Fotografiere einen Vermisst-Aushang — daraus werden Katze, Besitzer und Kontakt.';
+      'Vermisst-Aushang entdeckt? Fotografiere ihn hier — die App speichert Katze und Kontakt für dich.';
 
   @override
   String get spotStraysScan =>
-      'Neu: Scanne einen cat(a)log-Code vom Aushang und importiere die Katze direkt.';
+      'Manche Aushänge haben einen cat(a)log-QR-Code. Scanne ihn hier und importiere die Katze ohne Tippen.';
 
   @override
-  String get introTitle4 => 'Vermisste Katzen';
+  String get introTitle4 => 'Vermisste Katzen finden';
 
   @override
   String get introBody4 =>
-      'Fotografiere einen Aushang und die vermisste Katze landet mit dem Kontakt ihres Besitzers im Katalog. Sichtungen, Suchkreise und Treffervorschläge helfen, sie nach Hause zu bringen.';
+      'Du siehst einen Vermisst-Aushang? Fotografiere ihn in der App: Sie speichert Katze, Besitzerkontakt und Ort. Taucht später ein ähnlicher Streuner auf, schlägt die App mögliche Treffer vor.';
 
   @override
   String get spotMapSearch =>
-      'Neu: Suche hier nach Katzen, Kolonien und Personen — direkt auf der Karte.';
+      'Gib hier eine Katze, einen Ort oder eine Person ein, um auf der Karte dorthin zu springen.';
 
   @override
   String get spotCardChips =>
-      'Neu: Wähle vor dem Teilen aus, was auf der Karte steht.';
+      'Hake an, was auf der teilbaren Karte stehen soll — alles andere bleibt weg.';
 
   @override
   String get spotCatMenu =>
-      'Neu: Markiere eine Katze hier als privat (verlässt nie dein Gerät) oder blende sie aus.';
+      'Hier gibt es mehr Aktionen: Katze privat markieren, ausblenden, Duplikate zusammenführen oder eine Sichtung eintragen.';
 
   @override
   String get spotDone => 'Verstanden';

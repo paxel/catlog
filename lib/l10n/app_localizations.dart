@@ -491,7 +491,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteCatBody.
   ///
   /// In en, this message translates to:
-  /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers\' devices too.'**
+  /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBody;
 
   /// No description provided for @sightingRecorded.
@@ -683,7 +683,7 @@ abstract class AppLocalizations {
   /// No description provided for @shareWhitelistExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Only the ticked fields leave your catalog. Everything else stays home.'**
+  /// **'Choose what goes into the file. Only ticked fields are included.'**
   String get shareWhitelistExplainer;
 
   /// No description provided for @exportShareFile.
@@ -1223,7 +1223,7 @@ abstract class AppLocalizations {
   /// No description provided for @sharedFolderExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Sync through a folder that a cloud drive or USB stick carries between devices — for people who are not on the same network.'**
+  /// **'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
   String get sharedFolderExplainer;
 
   /// No description provided for @noFolderChosenYet.
@@ -1751,7 +1751,7 @@ abstract class AppLocalizations {
   /// No description provided for @includePrivateExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.'**
+  /// **'This also sends everything you marked private. The person you sync with will see it.'**
   String get includePrivateExplainer;
 
   /// No description provided for @hideLabel.
@@ -2219,37 +2219,37 @@ abstract class AppLocalizations {
   /// No description provided for @introTitle1.
   ///
   /// In en, this message translates to:
-  /// **'Cats live in clowders'**
+  /// **'Your cats, organized'**
   String get introTitle1;
 
   /// No description provided for @introBody1.
   ///
   /// In en, this message translates to:
-  /// **'A clowder is a place where cats live: your foster home, an adopter\'s flat, the barn next door. Every cat gets a card with photo, facts, and its whole story.'**
+  /// **'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.'**
   String get introBody1;
 
   /// No description provided for @introTitle2.
   ///
   /// In en, this message translates to:
-  /// **'Everything stays with you'**
+  /// **'Works without internet'**
   String get introTitle2;
 
   /// No description provided for @introBody2.
   ///
   /// In en, this message translates to:
-  /// **'No account, no cloud, no tracking. Your data lives on your device and goes only where you send it.'**
+  /// **'Everything is saved on your phone only. No account, no cloud. Nothing is uploaded unless you share it yourself.'**
   String get introBody2;
 
   /// No description provided for @introTitle3.
   ///
   /// In en, this message translates to:
-  /// **'Share with your helpers'**
+  /// **'Work together'**
   String get introTitle3;
 
   /// No description provided for @introBody3.
   ///
   /// In en, this message translates to:
-  /// **'Scan a code to sync two devices in seconds, use a shared folder, or send everything as one file. Everyone ends up with the same catalog.'**
+  /// **'Everyone uses their own app and you swap data now and then: meet and scan a code, use a shared folder, or send one file by messenger. Afterwards everyone has the same information.'**
   String get introBody3;
 
   /// No description provided for @introSkip.
@@ -2279,73 +2279,73 @@ abstract class AppLocalizations {
   /// No description provided for @spotHomeSync.
   ///
   /// In en, this message translates to:
-  /// **'New: sync now offers three clear ways to share — and a trust question before anything flows.'**
+  /// **'Sync with people you know here. You decide what you share.'**
   String get spotHomeSync;
 
   /// No description provided for @spotHomeStrays.
   ///
   /// In en, this message translates to:
-  /// **'New: strays live in their own card up here — count, faces, tap to open.'**
+  /// **'This card collects all strays — cats without a home. Tap it to see the list.'**
   String get spotHomeStrays;
 
   /// No description provided for @spotHomeMenu.
   ///
   /// In en, this message translates to:
-  /// **'New: this menu finds duplicate cats and clowders and merges them.'**
+  /// **'In this menu: find and merge duplicate entries, export CSV, and more.'**
   String get spotHomeMenu;
 
   /// No description provided for @spotCatEdit.
   ///
   /// In en, this message translates to:
-  /// **'New: the page is read-only — this pencil switches to editing, long-pressing a field edits it directly.'**
+  /// **'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.'**
   String get spotCatEdit;
 
   /// No description provided for @spotMapLayers.
   ///
   /// In en, this message translates to:
-  /// **'New: overlay 500 m search circles around a missing cat\'s flier spots.'**
+  /// **'Searching for a missing cat? Show circles around the places its posters were seen.'**
   String get spotMapLayers;
 
   /// No description provided for @spotStraysFlier.
   ///
   /// In en, this message translates to:
-  /// **'New: photograph a missing-cat flier — it becomes the cat, its owner, and their contact.'**
+  /// **'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.'**
   String get spotStraysFlier;
 
   /// No description provided for @spotStraysScan.
   ///
   /// In en, this message translates to:
-  /// **'New: scan a cat(a)log share code from a flier to import the cat directly.'**
+  /// **'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.'**
   String get spotStraysScan;
 
   /// No description provided for @introTitle4.
   ///
   /// In en, this message translates to:
-  /// **'Missing cats'**
+  /// **'Find missing cats'**
   String get introTitle4;
 
   /// No description provided for @introBody4.
   ///
   /// In en, this message translates to:
-  /// **'Photograph a flier and the missing cat joins the catalog with its owner\'s contact. Sightings, search circles, and match suggestions help bring it home.'**
+  /// **'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.'**
   String get introBody4;
 
   /// No description provided for @spotMapSearch.
   ///
   /// In en, this message translates to:
-  /// **'New: search cats, clowders, and people here — or find any of them on the map.'**
+  /// **'Type a cat, place, or person here to jump to it on the map.'**
   String get spotMapSearch;
 
   /// No description provided for @spotCardChips.
   ///
   /// In en, this message translates to:
-  /// **'New: choose what appears on the card before sharing it.'**
+  /// **'Tick what should appear on the shareable card — everything else stays off it.'**
   String get spotCardChips;
 
   /// No description provided for @spotCatMenu.
   ///
   /// In en, this message translates to:
-  /// **'New: mark a cat as private (never leaves your device) or hide it from your view here.'**
+  /// **'More actions live here: mark the cat private, hide it, merge duplicates, or record a sighting.'**
   String get spotCatMenu;
 
   /// No description provided for @spotDone.

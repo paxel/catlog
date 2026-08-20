@@ -181,7 +181,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'تختفي القطة من كل القوائم وتُزال صورها — هنا، وبعد المزامنة التالية على أجهزة مساعديك أيضًا.';
+      'تختفي القطة من كل القوائم وتُحذف صورها — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
 
   @override
   String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
@@ -290,7 +290,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'فقط الحقول المحددة تغادر الكتالوج. كل شيء آخر يبقى عندك.';
+      'اختر ما يدخل الملف. تُضمَّن الحقول المحددة فقط.';
 
   @override
   String get exportShareFile => 'تصدير ملف المشاركة…';
@@ -615,7 +615,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'زامن عبر مجلد ينقله التخزين السحابي أو USB بين الأجهزة — لمن ليسوا على نفس الشبكة.';
+      'يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
 
   @override
   String get noFolderChosenYet => 'لم يُختَر مجلد بعد';
@@ -909,7 +909,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'تتم مشاركة القطط والمجموعات والحقول الخاصة أيضًا — فعّل هذا فقط عند المزامنة بين أجهزتك الخاصة.';
+      'بهذا يُرسل أيضًا كل ما علّمته كخاص. من يزامن معك سيراه.';
 
   @override
   String get hideLabel => 'إخفاء على هذا الجهاز';
@@ -1167,25 +1167,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectClowderHint => 'اختر مجموعة من اليسار';
 
   @override
-  String get introTitle1 => 'القطط تعيش في مجموعات';
+  String get introTitle1 => 'قططك بنظام';
 
   @override
   String get introBody1 =>
-      'المجموعة هي مكان تعيش فيه القطط: دار الرعاية، شقة المتبني، الحظيرة المجاورة. كل قطة لها بطاقة بصورة وحقائق وقصتها كاملة.';
+      'أنشئ بطاقة لكل قطة ترعاها: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع القطط حسب مكان عيشها — يسمي التطبيق هذا المكان مستعمرة (clowder).';
 
   @override
-  String get introTitle2 => 'كل شيء يبقى معك';
+  String get introTitle2 => 'يعمل بلا إنترنت';
 
   @override
   String get introBody2 =>
-      'لا حساب ولا سحابة ولا تتبع. بياناتك على جهازك ولا تذهب إلا حيث ترسلها.';
+      'يُحفظ كل شيء على هاتفك فقط. لا حساب ولا سحابة. لا يُرفع شيء ما لم تشاركه بنفسك.';
 
   @override
-  String get introTitle3 => 'شارك مع مساعديك';
+  String get introTitle3 => 'اعملوا معًا';
 
   @override
   String get introBody3 =>
-      'امسح رمزًا لمزامنة جهازين في ثوانٍ، أو استخدم مجلدًا مشتركًا، أو أرسل كل شيء كملف واحد.';
+      'يستخدم كلٌّ تطبيقه الخاص وتتبادلون البيانات من حين لآخر: التقوا وامسحوا رمزًا، أو استخدموا مجلدًا مشتركًا، أو أرسلوا ملفًا واحدًا عبر تطبيق مراسلة. بعدها تكون المعلومات نفسها لدى الجميع.';
 
   @override
   String get introSkip => 'تخطي';
@@ -1200,50 +1200,50 @@ class AppLocalizationsAr extends AppLocalizations {
   String get introReplayTitle => 'مقدمة سريعة';
 
   @override
-  String get spotHomeSync =>
-      'جديد: المزامنة الآن بثلاث طرق واضحة — مع سؤال ثقة قبل أن ينتقل أي شيء.';
+  String get spotHomeSync => 'هنا تزامن مع معارفك. أنت من يقرر ما تشاركه.';
 
   @override
   String get spotHomeStrays =>
-      'جديد: القطط الضالة لها بطاقة خاصة هنا — العدد والوجوه، وانقر للفتح.';
+      'هذه البطاقة تجمع كل القطط الضالة — القطط بلا مأوى. انقر لعرض القائمة.';
 
   @override
   String get spotHomeMenu =>
-      'جديد: هذه القائمة تجد القطط والمستعمرات المكررة وتدمجها.';
+      'في هذه القائمة: إيجاد التكرارات ودمجها، تصدير CSV والمزيد.';
 
   @override
   String get spotCatEdit =>
-      'جديد: الصفحة للقراءة فقط — القلم يبدّل إلى التحرير، والضغط المطوّل على حقل يحرّره مباشرة.';
+      'انقر على القلم لتحرير هذه القطة. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
 
   @override
   String get spotMapLayers =>
-      'جديد: أظهر دوائر بحث بنصف قطر 500 م حول مواقع منشورات قطة مفقودة.';
+      'تبحث عن قطة مفقودة؟ أظهر دوائر حول أماكن منشوراتها.';
 
   @override
   String get spotStraysFlier =>
-      'جديد: صوّر منشور قطة مفقودة — يتحول إلى القطة ومالكها وبيانات التواصل.';
+      'وجدت منشور قطة مفقودة؟ صوّره هنا — يحفظ التطبيق القطة وبيانات التواصل عنك.';
 
   @override
   String get spotStraysScan =>
-      'جديد: امسح رمز cat(a)log من المنشور لاستيراد القطة مباشرة.';
+      'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد القطة دون كتابة.';
 
   @override
-  String get introTitle4 => 'القطط المفقودة';
+  String get introTitle4 => 'اعثر على القطط المفقودة';
 
   @override
   String get introBody4 =>
-      'صوّر منشورًا فتنضم القطة المفقودة إلى الكتالوج مع بيانات مالكها. المشاهدات ودوائر البحث واقتراحات التطابق تساعد على إعادتها إلى البيت.';
+      'رأيت منشور قطة مفقودة؟ صوّره في التطبيق: يحفظ القطة وبيانات مالكها والمكان. وإذا ظهرت لاحقًا قطة ضالة مشابهة، يقترح التطبيق تطابقات محتملة.';
 
   @override
   String get spotMapSearch =>
-      'جديد: ابحث هنا عن القطط والمجموعات والأشخاص — مباشرة على الخريطة.';
+      'اكتب قطة أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
 
   @override
-  String get spotCardChips => 'جديد: اختر ما يظهر على البطاقة قبل مشاركتها.';
+  String get spotCardChips =>
+      'حدد ما يظهر على البطاقة القابلة للمشاركة — الباقي يبقى خارجها.';
 
   @override
   String get spotCatMenu =>
-      'جديد: علّم قطة كخاصة (لا تغادر جهازك أبدًا) أو أخفها من العرض هنا.';
+      'مزيد من الإجراءات هنا: علّم القطة كخاصة، أخفِها، ادمج التكرارات أو سجّل مشاهدة.';
 
   @override
   String get spotDone => 'فهمت';

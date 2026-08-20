@@ -181,7 +181,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kass kaob kõigist nimekirjadest ja tema fotod eemaldatakse — siin ja pärast järgmist sünkroonimist ka su abiliste seadmetes.';
+      'Kass kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
 
   @override
   String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
@@ -290,7 +290,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Kataloogist lahkuvad ainult märgitud väljad. Kõik muu jääb koju.';
+      'Vali, mis faili läheb. Kaasatakse ainult märgitud väljad.';
 
   @override
   String get exportShareFile => 'Ekspordi jagamisfail…';
@@ -615,7 +615,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sünkrooni kausta kaudu, mida pilv või USB-pulk seadmete vahel kannab — neile, kes pole samas võrgus.';
+      'Mõlemad seadmed kasutavad sama kausta (nt Dropboxis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.';
 
   @override
   String get noFolderChosenYet => 'Kausta pole veel valitud';
@@ -909,7 +909,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel.';
+      'Sellega saadetakse ka kõik privaatseks märgitu. See, kellega sünkroonid, näeb seda.';
 
   @override
   String get hideLabel => 'Peida selles seadmes';
@@ -1169,25 +1169,25 @@ class AppLocalizationsEt extends AppLocalizations {
   String get selectClowderHint => 'Vali vasakult clowder';
 
   @override
-  String get introTitle1 => 'Kassid elavad clowderites';
+  String get introTitle1 => 'Sinu kassid, korras';
 
   @override
   String get introBody1 =>
-      'Clowder on koht, kus kassid elavad: sinu hoiukodu, lapsendaja korter, kõrvalasuv küün. Iga kass saab kaardi foto, faktide ja kogu looga.';
+      'Loo igale kassile kaart: foto, sugu, tervis, kõik mida tahad kirja panna. Kassid on rühmitatud elukoha järgi — äpp nimetab seda kohta kolooniaks (clowder).';
 
   @override
-  String get introTitle2 => 'Kõik jääb sinule';
+  String get introTitle2 => 'Töötab ilma internetita';
 
   @override
   String get introBody2 =>
-      'Ei kontot, ei pilve, ei jälgimist. Sinu andmed elavad sinu seadmes.';
+      'Kõik salvestub ainult sinu telefoni. Kontot pole, pilve pole. Midagi ei saadeta, kui sa ise ei jaga.';
 
   @override
-  String get introTitle3 => 'Jaga oma abilistega';
+  String get introTitle3 => 'Töötage koos';
 
   @override
   String get introBody3 =>
-      'Skanni kood ja kaks seadet sünkroonivad sekunditega, kasuta jagatud kausta või saada kõik ühe failina.';
+      'Igaüks kasutab oma äppi ja aeg-ajalt vahetate andmeid: saage kokku ja skannige kood, kasutage jagatud kausta või saatke üks fail sõnumirakendusega. Pärast on kõigil sama info.';
 
   @override
   String get introSkip => 'Jäta vahele';
@@ -1203,49 +1203,50 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Uus: sünkroonimine pakub nüüd kolme selget teed — ja usaldusküsimust enne, kui midagi liigub.';
+      'Siin sünkroonid oma tuttavatega. Sina otsustad, mida jagad.';
 
   @override
   String get spotHomeStrays =>
-      'Uus: hulkujatel on siin üleval oma kaart — arv, näod, ava puudutusega.';
+      'See kaart kogub kõik hulkujad — kodutud kassid. Puuduta loendi nägemiseks.';
 
   @override
   String get spotHomeMenu =>
-      'Uus: see menüü leiab topeltkassid ja -kolooniad ning liidab nad.';
+      'Selles menüüs: leia ja liida duplikaadid, ekspordi CSV ja muud.';
 
   @override
   String get spotCatEdit =>
-      'Uus: leht on kirjutuskaitstud — pliiats lülitab muutmisele, pikk vajutus väljal muudab seda otse.';
+      'Puuduta pliiatsit, et kassi muuta. Vihje: hoia välja all, et seda otse muuta.';
 
   @override
   String get spotMapLayers =>
-      'Uus: kuva 500 m otsinguringid kadunud kassi kuulutuste kohtade ümber.';
+      'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ümber.';
 
   @override
   String get spotStraysFlier =>
-      'Uus: pildista kadunud kassi kuulutust — sellest saavad kass, omanik ja kontakt.';
+      'Leidsid kadunud kassi kuulutuse? Pildista see siin — äpp salvestab kassi ja kontakti sinu eest.';
 
   @override
   String get spotStraysScan =>
-      'Uus: skanni kuulutuselt cat(a)log kood ja impordi kass otse.';
+      'Mõnel kuulutusel on cat(a)log QR-kood. Skanni see siin ja impordi kass ilma tippimata.';
 
   @override
-  String get introTitle4 => 'Kadunud kassid';
+  String get introTitle4 => 'Leia kadunud kassid';
 
   @override
   String get introBody4 =>
-      'Pildista kuulutust ja kadunud kass jõuab kataloogi koos omaniku kontaktiga. Nägemised, otsinguringid ja vastete soovitused aitavad ta koju tuua.';
+      'Näed kadunud kassi kuulutust? Pildista see äpis: salvestatakse kass, omaniku kontakt ja koht. Kui hiljem ilmub sarnane hulkuja, pakub äpp võimalikke vasteid.';
 
   @override
   String get spotMapSearch =>
-      'Uus: otsi siit kasse, clowdereid ja inimesi — otse kaardil.';
+      'Sisesta kass, koht või inimene, et kaardil sinna hüpata.';
 
   @override
-  String get spotCardChips => 'Uus: vali enne jagamist, mis kaardile jõuab.';
+  String get spotCardChips =>
+      'Märgi, mis peaks jagataval kaardil olema — ülejäänu jääb sellelt välja.';
 
   @override
   String get spotCatMenu =>
-      'Uus: märgi kass privaatseks (ei lahku kunagi seadmest) või peida ta siit.';
+      'Rohkem toiminguid siin: märgi kass privaatseks, peida ta, liida duplikaadid või kirjuta nägemine üles.';
 
   @override
   String get spotDone => 'Selge';

@@ -181,7 +181,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kaķis pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī pie taviem palīgiem.';
+      'Kaķis pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī citās ierīcēs.';
 
   @override
   String get sightingRecorded => 'Novērojums ierakstīts jūsu pozīcijā.';
@@ -290,7 +290,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalogu pamet tikai atzīmētie lauki. Viss pārējais paliek mājās.';
+      'Izvēlieties, kas nonāk failā. Iekļauti tiek tikai atzīmētie lauki.';
 
   @override
   String get exportShareFile => 'Eksportēt kopīgošanas failu…';
@@ -614,7 +614,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinhronizējiet caur mapi, ko starp ierīcēm pārnēsā mākonis vai USB zibatmiņa — tiem, kas nav vienā tīklā.';
+      'Abas ierīces izmanto vienu mapi (piem., Dropbox vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.';
 
   @override
   String get noFolderChosenYet => 'Mape vēl nav izvēlēta';
@@ -909,7 +909,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privātie kaķi, grupas un lauki arī tiek kopīgoti — ieslēdziet tikai sinhronizējot savas ierīces.';
+      'Tā tiek nosūtīts arī viss, ko atzīmējāt kā privātu. Tas, ar ko sinhronizējat, to redzēs.';
 
   @override
   String get hideLabel => 'Paslēpt šajā ierīcē';
@@ -1168,25 +1168,25 @@ class AppLocalizationsLv extends AppLocalizations {
   String get selectClowderHint => 'Izvēlies clowder kreisajā pusē';
 
   @override
-  String get introTitle1 => 'Kaķi dzīvo clowderos';
+  String get introTitle1 => 'Jūsu kaķi kārtībā';
 
   @override
   String get introBody1 =>
-      'Clowder ir vieta, kur dzīvo kaķi: tavas pagaidu mājas, adoptētāja dzīvoklis, kaimiņu šķūnis. Katram kaķim ir karte ar foto, faktiem un visu stāstu.';
+      'Izveidojiet katram kaķim kartīti: foto, dzimums, veselība — viss, ko vēlaties pierakstīt. Kaķi ir grupēti pēc dzīvesvietas — lietotne to sauc par koloniju (clowder).';
 
   @override
-  String get introTitle2 => 'Viss paliek pie tevis';
+  String get introTitle2 => 'Darbojas bez interneta';
 
   @override
   String get introBody2 =>
-      'Ne konta, ne mākoņa, ne izsekošanas. Tavi dati dzīvo tavā ierīcē.';
+      'Viss tiek saglabāts tikai jūsu tālrunī. Bez konta, bez mākoņa. Nekas netiek augšupielādēts, ja vien paši nedalāties.';
 
   @override
-  String get introTitle3 => 'Dalies ar palīgiem';
+  String get introTitle3 => 'Strādājiet kopā';
 
   @override
   String get introBody3 =>
-      'Noskenē kodu un divas ierīces sinhronizējas sekundēs, izmanto koplietotu mapi vai sūti visu kā vienu failu.';
+      'Katrs lieto savu lietotni un laiku pa laikam apmaināties ar datiem: satiekieties un noskenējiet kodu, izmantojiet koplietotu mapi vai nosūtiet vienu failu ziņotnē. Pēc tam visiem ir viena un tā pati informācija.';
 
   @override
   String get introSkip => 'Izlaist';
@@ -1202,50 +1202,50 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Jauns: sinhronizācija tagad piedāvā trīs skaidrus ceļus — un uzticības jautājumu, pirms kaut kas plūst.';
+      'Šeit sinhronizējaties ar paziņām. Jūs izlemjat, ar ko dalīties.';
 
   @override
   String get spotHomeStrays =>
-      'Jauns: klaiņotājiem šeit augšā ir sava kartīte — skaits, purniņi, pieskarieties, lai atvērtu.';
+      'Šī kartīte apkopo visus klaiņotājus — kaķus bez mājām. Pieskarieties sarakstam.';
 
   @override
   String get spotHomeMenu =>
-      'Jauns: šī izvēlne atrod dublētos kaķus un kolonijas un tos apvieno.';
+      'Šajā izvēlnē: atrast un apvienot dublikātus, eksportēt CSV un vēl.';
 
   @override
   String get spotCatEdit =>
-      'Jauns: lapa ir tikai lasāma — zīmulis pārslēdz uz rediģēšanu, ilgs spiediens uz lauka to rediģē uzreiz.';
+      'Pieskarieties zīmulim, lai rediģētu kaķi. Padoms: ilgi turot lauku, rediģēsiet to uzreiz.';
 
   @override
   String get spotMapLayers =>
-      'Jauns: rādiet 500 m meklēšanas apļus ap pazuduša kaķa sludinājumu vietām.';
+      'Meklējat pazudušu kaķi? Parādiet apļus ap tā sludinājumu vietām.';
 
   @override
   String get spotStraysFlier =>
-      'Jauns: nofotografējiet pazuduša kaķa sludinājumu — tas kļūst par kaķi, saimnieku un kontaktu.';
+      'Sludinājums par pazudušu kaķi? Nofotografējiet to šeit — lietotne saglabā kaķi un kontaktu jūsu vietā.';
 
   @override
   String get spotStraysScan =>
-      'Jauns: noskenējiet cat(a)log kodu no sludinājuma un importējiet kaķi uzreiz.';
+      'Dažiem sludinājumiem ir cat(a)log QR kods. Noskenējiet to šeit un importējiet kaķi bez rakstīšanas.';
 
   @override
-  String get introTitle4 => 'Pazudušie kaķi';
+  String get introTitle4 => 'Atrodiet pazudušos kaķus';
 
   @override
   String get introBody4 =>
-      'Nofotografējiet sludinājumu, un pazudušais kaķis nonāk katalogā ar saimnieka kontaktu. Novērojumi, meklēšanas apļi un sakritību ieteikumi palīdz tam atgriezties mājās.';
+      'Redzat sludinājumu par pazudušu kaķi? Nofotografējiet to lietotnē: tā saglabā kaķi, saimnieka kontaktu un vietu. Ja vēlāk parādīsies līdzīgs klaiņotājs, lietotne ieteiks iespējamās sakritības.';
 
   @override
   String get spotMapSearch =>
-      'Jauns: meklē šeit kaķus, clowderus un cilvēkus — tieši kartē.';
+      'Ierakstiet kaķi, vietu vai cilvēku, lai kartē pārlektu turp.';
 
   @override
   String get spotCardChips =>
-      'Jauns: pirms kopīgošanas izvēlies, kas būs kartītē.';
+      'Atzīmējiet, kam jābūt koplietojamā kartītē — pārējais paliek ārpusē.';
 
   @override
   String get spotCatMenu =>
-      'Jauns: atzīmē kaķi kā privātu (nekad neatstāj ierīci) vai paslēp to šeit.';
+      'Vairāk darbību šeit: atzīmējiet kaķi kā privātu, paslēpiet to, apvienojiet dublikātus vai pierakstiet novērojumu.';
 
   @override
   String get spotDone => 'Skaidrs';

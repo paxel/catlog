@@ -181,7 +181,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sinkronizzazzjoni li jmiss, għand l-għajnuniet tiegħek ukoll.';
+      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
 
   @override
   String get sightingRecorded =>
@@ -291,7 +291,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Il-katalgu jitilqu biss l-oqsma mmarkati. Kollox ieħor jibqa\' d-dar.';
+      'Agħżel x\'jidħol fil-fajl. Jiġu inklużi biss l-oqsma mmarkati.';
 
   @override
   String get exportShareFile => 'Esporta l-fajl tal-qsim…';
@@ -618,7 +618,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Issinkronizza permezz ta\' folder li cloud jew USB iġorr bejn l-apparati — għal min mhux fuq l-istess netwerk.';
+      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
 
   @override
   String get noFolderChosenYet => 'Għad m\'hemmx folder magħżul';
@@ -913,7 +913,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess.';
+      'B\'hekk jintbagħat ukoll dak kollu li mmarkajt bħala privat. Min jissinkronizza miegħek se jarah.';
 
   @override
   String get hideLabel => 'Aħbi fuq dan l-apparat';
@@ -1173,25 +1173,25 @@ class AppLocalizationsMt extends AppLocalizations {
   String get selectClowderHint => 'Agħżel clowder fuq ix-xellug';
 
   @override
-  String get introTitle1 => 'Il-qtates jgħixu fi clowders';
+  String get introTitle1 => 'Il-qtates tiegħek, organizzati';
 
   @override
   String get introBody1 =>
-      'Clowder huwa post fejn jgħixu l-qtates: id-dar tal-fostering tiegħek, l-appartament ta\' min jadotta, il-maqjel tal-ġenb. Kull qattus għandu karta b\'ritratt, fatti u l-istorja kollha tiegħu.';
+      'Oħloq kard għal kull qattus: ritratt, sess, saħħa, kulma trid tniżżel. Il-qtates huma miġbura skont fejn jgħixu — l-app issejjaħ dak il-post kolonja (clowder).';
 
   @override
-  String get introTitle2 => 'Kollox jibqa\' għandek';
+  String get introTitle2 => 'Jaħdem mingħajr internet';
 
   @override
   String get introBody2 =>
-      'L-ebda kont, l-ebda cloud, l-ebda traċċar. Id-data tiegħek tgħix fuq l-apparat tiegħek.';
+      'Kollox jinħażen biss fuq it-telefon tiegħek. L-ebda kont, l-ebda cloud. Xejn ma jittella\' sakemm ma taqsmux int stess.';
 
   @override
-  String get introTitle3 => 'Aqsam mal-għajnuniet tiegħek';
+  String get introTitle3 => 'Aħdmu flimkien';
 
   @override
   String get introBody3 =>
-      'Skennja kodiċi u żewġ apparati jissinkronizzaw f\'sekondi, uża folder kondiviż jew ibgħat kollox bħala fajl wieħed.';
+      'Kulħadd juża l-app tiegħu u kultant tpartu d-data: iltaqgħu u skennjaw kodiċi, użaw folder kondiviż jew ibagħtu fajl wieħed b\'messenger. Wara kulħadd ikollu l-istess informazzjoni.';
 
   @override
   String get introSkip => 'Aqbeż';
@@ -1207,50 +1207,50 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Ġdid: is-sinkronizzazzjoni issa toffri tliet toroq ċari — u mistoqsija ta\' fiduċja qabel ma jgħaddi xejn.';
+      'Hawn tissinkronizza ma\' nies li taf. Int tiddeċiedi x\'taqsam.';
 
   @override
   String get spotHomeStrays =>
-      'Ġdid: il-qtates tat-triq għandhom il-kard tagħhom hawn fuq — għadd, uċuħ, għafas biex tiftaħ.';
+      'Din il-kard tiġbor il-qtates tat-triq kollha — qtates bla dar. Għafas għal-lista.';
 
   @override
   String get spotHomeMenu =>
-      'Ġdid: dan il-menu jsib qtates u kolonji duplikati u jgħaqqadhom.';
+      'F\'dan il-menu: sib u għaqqad id-duplikati, esporta CSV u aktar.';
 
   @override
   String get spotCatEdit =>
-      'Ġdid: il-paġna hija għall-qari biss — il-lapes jaqleb għall-editjar, u għafsa twila fuq qasam teditjah direttament.';
+      'Għafas fuq il-lapes biex teditja dan il-qattus. Ħjiel: għafsa twila fuq qasam teditjah direttament.';
 
   @override
   String get spotMapLayers =>
-      'Ġdid: uri ċrieki ta\' tfittxija ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf.';
+      'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu.';
 
   @override
   String get spotStraysFlier =>
-      'Ġdid: ħu ritratt ta\' flier ta\' qattus mitluf — isir il-qattus, sidu u l-kuntatt.';
+      'Flier ta\' qattus mitluf? Ħu ritratt tiegħu hawn — l-app iżżomm il-qattus u l-kuntatt għalik.';
 
   @override
   String get spotStraysScan =>
-      'Ġdid: skennja kodiċi cat(a)log minn flier biex timporta l-qattus direttament.';
+      'Xi fliers għandhom kodiċi QR ta\' cat(a)log. Skennjah hawn u importa l-qattus mingħajr ma tikteb.';
 
   @override
-  String get introTitle4 => 'Qtates mitlufa';
+  String get introTitle4 => 'Sib il-qtates mitlufa';
 
   @override
   String get introBody4 =>
-      'Ħu ritratt ta\' flier u l-qattus mitluf jidħol fil-katalgu bil-kuntatt ta\' sidu. Osservazzjonijiet, ċrieki ta\' tfittxija u suġġerimenti ta\' tqabbil jgħinuh imur id-dar.';
+      'Tara flier ta\' qattus mitluf? Ħu ritratt tiegħu fl-app: iżżomm il-qattus, il-kuntatt ta\' sidu u l-post. Jekk aktar tard jitfaċċa qattus tat-triq simili, l-app tissuġġerixxi tqabbil possibbli.';
 
   @override
   String get spotMapSearch =>
-      'Ġdid: fittex qtates, gruppi u nies hawn — direttament fuq il-mappa.';
+      'Ikteb qattus, post jew persuna biex taqbeż hemm fuq il-mappa.';
 
   @override
   String get spotCardChips =>
-      'Ġdid: agħżel x\'jidher fuq il-karta qabel ma taqsamha.';
+      'Immarka x\'għandu jidher fuq il-kard li tinqasam — il-bqija jibqa\' barra.';
 
   @override
   String get spotCatMenu =>
-      'Ġdid: immarka qattus bħala privat (qatt ma jitlaq mill-apparat) jew aħbih hawn.';
+      'Aktar azzjonijiet hawn: immarka l-qattus bħala privat, aħbih, għaqqad duplikati jew niżżel osservazzjoni.';
 
   @override
   String get spotDone => 'Fhimt';

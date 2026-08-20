@@ -181,7 +181,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös auttajiesi laitteilta.';
+      'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
 
   @override
   String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
@@ -290,7 +290,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Vain valitut kentät lähtevät katalogista. Kaikki muu jää kotiin.';
+      'Valitse, mitä tiedostoon tulee. Vain valitut kentät otetaan mukaan.';
 
   @override
   String get exportShareFile => 'Vie jakotiedosto…';
@@ -616,7 +616,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synkronoi kansion kautta, jota pilvi tai USB-tikku kuljettaa laitteiden välillä — niille, jotka eivät ole samassa verkossa.';
+      'Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
 
   @override
   String get noFolderChosenYet => 'Kansiota ei ole vielä valittu';
@@ -911,7 +911,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa.';
+      'Tämä lähettää myös kaiken yksityiseksi merkityn. Se, jonka kanssa synkronoit, näkee sen.';
 
   @override
   String get hideLabel => 'Piilota tällä laitteella';
@@ -1170,25 +1170,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get selectClowderHint => 'Valitse clowder vasemmalta';
 
   @override
-  String get introTitle1 => 'Kissat asuvat clowdereissa';
+  String get introTitle1 => 'Kissasi järjestyksessä';
 
   @override
   String get introBody1 =>
-      'Clowder on paikka, jossa kissat asuvat: sijaiskotisi, adoptoijan asunto, naapurin lato. Jokainen kissa saa kortin, jossa on kuva, tiedot ja koko tarina.';
+      'Luo jokaiselle kissalle kortti: kuva, sukupuoli, terveys, mitä ikinä haluat kirjata. Kissat ryhmitellään asuinpaikan mukaan — sovellus kutsuu paikkaa nimellä clowder.';
 
   @override
-  String get introTitle2 => 'Kaikki pysyy sinulla';
+  String get introTitle2 => 'Toimii ilman nettiä';
 
   @override
   String get introBody2 =>
-      'Ei tiliä, ei pilveä, ei seurantaa. Tietosi asuvat laitteellasi.';
+      'Kaikki tallentuu vain puhelimeesi. Ei tiliä, ei pilveä. Mitään ei lähetetä, ellet itse jaa sitä.';
 
   @override
-  String get introTitle3 => 'Jaa auttajiesi kanssa';
+  String get introTitle3 => 'Tehkää yhteistyötä';
 
   @override
   String get introBody3 =>
-      'Skannaa koodi ja kaksi laitetta synkronoituu sekunneissa, käytä jaettua kansiota tai lähetä kaikki yhtenä tiedostona.';
+      'Jokainen käyttää omaa sovellustaan ja vaihdatte tietoja silloin tällöin: tavatkaa ja skannatkaa koodi, käyttäkää jaettua kansiota tai lähettäkää yksi tiedosto viestimellä. Sen jälkeen kaikilla on samat tiedot.';
 
   @override
   String get introSkip => 'Ohita';
@@ -1204,50 +1204,50 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Uutta: synkronointi tarjoaa nyt kolme selkeää tapaa — ja luottamuskysymyksen ennen kuin mitään liikkuu.';
+      'Täällä synkronoit tuttujesi kanssa. Sinä päätät, mitä jaat.';
 
   @override
   String get spotHomeStrays =>
-      'Uutta: kulkukissoilla on oma kortti täällä ylhäällä — määrä, naamat, avaa napauttamalla.';
+      'Tämä kortti kokoaa kaikki kulkukissat — kodittomat kissat. Napauta nähdäksesi listan.';
 
   @override
   String get spotHomeMenu =>
-      'Uutta: tämä valikko löytää kaksois-kissat ja -yhdyskunnat ja yhdistää ne.';
+      'Tässä valikossa: etsi ja yhdistä kaksoiskappaleet, vie CSV ja muuta.';
 
   @override
   String get spotCatEdit =>
-      'Uutta: sivu on vain luku -tilassa — kynä vaihtaa muokkaukseen, kentän pitkä painallus muokkaa sitä suoraan.';
+      'Napauta kynää muokataksesi kissaa. Vinkki: paina kenttää pitkään muokataksesi sitä suoraan.';
 
   @override
   String get spotMapLayers =>
-      'Uutta: näytä 500 m etsintäympyrät kadonneen kissan ilmoituspaikkojen ympärillä.';
+      'Etsitkö kadonnutta kissaa? Näytä ympyrät sen ilmoitusten paikkojen ympärillä.';
 
   @override
   String get spotStraysFlier =>
-      'Uutta: kuvaa kadonneen kissan ilmoitus — siitä syntyy kissa, omistaja ja yhteystieto.';
+      'Löysitkö ilmoituksen kadonneesta kissasta? Kuvaa se tässä — sovellus tallentaa kissan ja yhteystiedon puolestasi.';
 
   @override
   String get spotStraysScan =>
-      'Uutta: skannaa ilmoituksesta cat(a)log-koodi ja tuo kissa suoraan.';
+      'Joissakin ilmoituksissa on cat(a)log-QR-koodi. Skannaa se tässä ja tuo kissa kirjoittamatta.';
 
   @override
-  String get introTitle4 => 'Kadonneet kissat';
+  String get introTitle4 => 'Löydä kadonneet kissat';
 
   @override
   String get introBody4 =>
-      'Kuvaa ilmoitus, ja kadonnut kissa liittyy katalogiin omistajan yhteystiedoin. Havainnot, etsintäympyrät ja osumaehdotukset auttavat saamaan sen kotiin.';
+      'Näetkö ilmoituksen kadonneesta kissasta? Kuvaa se sovelluksessa: se tallentaa kissan, omistajan yhteystiedot ja paikan. Jos samankaltainen kulkukissa ilmestyy myöhemmin, sovellus ehdottaa mahdollisia osumia.';
 
   @override
   String get spotMapSearch =>
-      'Uutta: hae täältä kissoja, clowdereita ja henkilöitä — suoraan kartalla.';
+      'Kirjoita kissa, paikka tai henkilö hypätäksesi sinne kartalla.';
 
   @override
   String get spotCardChips =>
-      'Uutta: valitse mitä kortilla näkyy ennen jakamista.';
+      'Valitse, mitä jaettavalla kortilla näkyy — muu jää pois.';
 
   @override
   String get spotCatMenu =>
-      'Uutta: merkitse kissa yksityiseksi (ei koskaan poistu laitteeltasi) tai piilota se täällä.';
+      'Lisää toimintoja täällä: merkitse kissa yksityiseksi, piilota se, yhdistä kaksoiskappaleet tai kirjaa havainto.';
 
   @override
   String get spotDone => 'Selvä';

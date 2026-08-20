@@ -181,7 +181,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu a po ďalšej synchronizácii aj u tvojich pomocníkov.';
+      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu aj, po ďalšej synchronizácii, na ostatných zariadeniach.';
 
   @override
   String get sightingRecorded => 'Pozorovanie zaznamenané na vašej pozícii.';
@@ -290,7 +290,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalóg opustia len zaškrtnuté polia. Všetko ostatné zostáva doma.';
+      'Vyberte, čo pôjde do súboru. Zahrnú sa len zaškrtnuté polia.';
 
   @override
   String get exportShareFile => 'Exportovať súbor zdieľania…';
@@ -615,7 +615,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronizujte cez priečinok, ktorý medzi zariadeniami prenáša cloud alebo USB kľúč — pre tých, čo nie sú v rovnakej sieti.';
+      'Obe zariadenia používajú rovnaký priečinok (napr. v Dropboxe alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
 
   @override
   String get noFolderChosenYet => 'Zatiaľ nie je vybraný priečinok';
@@ -910,7 +910,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení.';
+      'Týmto sa pošle aj všetko, čo ste označili ako súkromné. Ten, s kým synchronizujete, to uvidí.';
 
   @override
   String get hideLabel => 'Skryť na tomto zariadení';
@@ -1169,25 +1169,25 @@ class AppLocalizationsSk extends AppLocalizations {
   String get selectClowderHint => 'Vyber clowder vľavo';
 
   @override
-  String get introTitle1 => 'Mačky bývajú v clowderoch';
+  String get introTitle1 => 'Vaše mačky prehľadne';
 
   @override
   String get introBody1 =>
-      'Clowder je miesto, kde mačky žijú: tvoja dočasná starostlivosť, byt osvojiteľa, stodola vedľa. Každá mačka má kartu s fotkou, faktami a celým príbehom.';
+      'Založte každej mačke kartu: fotka, pohlavie, zdravie, čokoľvek chcete zaznamenať. Mačky sú zoskupené podľa miesta, kde žijú — aplikácia ho volá kolónia (clowder).';
 
   @override
-  String get introTitle2 => 'Všetko zostáva u teba';
+  String get introTitle2 => 'Funguje bez internetu';
 
   @override
   String get introBody2 =>
-      'Žiadny účet, žiadny cloud, žiadne sledovanie. Tvoje dáta žijú na tvojom zariadení.';
+      'Všetko sa ukladá len do vášho telefónu. Žiadne konto, žiadny cloud. Nič sa neodosiela, kým to sami nezdieľate.';
 
   @override
-  String get introTitle3 => 'Zdieľaj s pomocníkmi';
+  String get introTitle3 => 'Spolupracujte';
 
   @override
   String get introBody3 =>
-      'Naskenuj kód a dve zariadenia sa zosynchronizujú za sekundy, použi zdieľaný priečinok alebo pošli všetko ako jeden súbor.';
+      'Každý používa svoju aplikáciu a z času na čas si vymeníte dáta: stretnite sa a naskenujte kód, použite zdieľaný priečinok alebo pošlite jeden súbor messengerom. Potom majú všetci rovnaké informácie.';
 
   @override
   String get introSkip => 'Preskočiť';
@@ -1203,49 +1203,50 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nové: synchronizácia teraz ponúka tri jasné cesty — a otázku dôvery, kým čokoľvek odtečie.';
+      'Tu synchronizujete so svojimi známymi. Vy rozhodujete, čo zdieľate.';
 
   @override
   String get spotHomeStrays =>
-      'Nové: túlavé mačky majú tu hore vlastnú kartu — počet, tváričky, ťuknutím otvoríte.';
+      'Táto karta zbiera všetky túlavé mačky — mačky bez domova. Ťuknutím zobrazíte zoznam.';
 
   @override
   String get spotHomeMenu =>
-      'Nové: toto menu nájde duplicitné mačky a kolónie a zlúči ich.';
+      'V tomto menu: hľadanie a zlučovanie duplicít, export CSV a ďalšie.';
 
   @override
   String get spotCatEdit =>
-      'Nové: stránka je len na čítanie — ceruzka prepne na úpravy, dlhé podržanie poľa ho upraví priamo.';
+      'Ťuknite na ceruzku a mačku upravte. Tip: podržte pole a upravíte ho priamo.';
 
   @override
   String get spotMapLayers =>
-      'Nové: zobrazte 500 m pátracie kruhy okolo miest letákov nezvestnej mačky.';
+      'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov.';
 
   @override
   String get spotStraysFlier =>
-      'Nové: odfoťte leták nezvestnej mačky — vznikne mačka, majiteľ aj kontakt.';
+      'Leták o nezvestnej mačke? Odfoťte ho tu — aplikácia uloží mačku aj kontakt za vás.';
 
   @override
   String get spotStraysScan =>
-      'Nové: naskenujte cat(a)log kód z letáka a mačku rovno importujte.';
+      'Niektoré letáky majú QR kód cat(a)log. Naskenujte ho tu a mačku importujte bez písania.';
 
   @override
-  String get introTitle4 => 'Nezvestné mačky';
+  String get introTitle4 => 'Hľadajte nezvestné mačky';
 
   @override
   String get introBody4 =>
-      'Odfoťte leták a nezvestná mačka sa ocitne v katalógu s kontaktom majiteľa. Pozorovania, pátracie kruhy a návrhy zhôd jej pomáhajú domov.';
+      'Vidíte leták s nezvestnou mačkou? Odfoťte ho v aplikácii: uloží mačku, kontakt majiteľa aj miesto. Ak sa neskôr objaví podobná túlavá mačka, aplikácia navrhne možné zhody.';
 
   @override
   String get spotMapSearch =>
-      'Nové: hľadaj tu mačky, clowdery a osoby — priamo na mape.';
+      'Napíšte mačku, miesto alebo osobu a skočte tam na mape.';
 
   @override
-  String get spotCardChips => 'Nové: pred zdieľaním vyber, čo bude na karte.';
+  String get spotCardChips =>
+      'Zaškrtnite, čo má byť na zdieľanej karte — zvyšok na nej nebude.';
 
   @override
   String get spotCatMenu =>
-      'Nové: označ mačku ako súkromnú (nikdy neopustí zariadenie) alebo ju tu skry.';
+      'Ďalšie akcie sú tu: označte mačku ako súkromnú, skryte ju, zlúčte duplicity alebo zapíšte pozorovanie.';
 
   @override
   String get spotDone => 'Rozumiem';

@@ -181,7 +181,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kot znika ze wszystkich list, a jego zdjęcia są usuwane — tutaj i, po następnej synchronizacji, także u twoich pomocników.';
+      'Kot znika ze wszystkich list, a jego zdjęcia są usuwane — tutaj i, po następnej synchronizacji, także na pozostałych urządzeniach.';
 
   @override
   String get sightingRecorded => 'Zapisano obserwację w Twojej pozycji.';
@@ -290,7 +290,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalog opuszczają tylko zaznaczone pola. Cała reszta zostaje w domu.';
+      'Wybierz, co trafi do pliku. Dołączone są tylko zaznaczone pola.';
 
   @override
   String get exportShareFile => 'Eksportuj plik udostępniania…';
@@ -614,7 +614,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronizacja przez folder przenoszony między urządzeniami przez chmurę lub pendrive — dla osób spoza tej samej sieci.';
+      'Oba urządzenia używają tego samego folderu (np. w Dropboksie lub na pendrivie). Każda synchronizacja zostawia tam twoje zmiany i zabiera zmiany drugiej strony.';
 
   @override
   String get noFolderChosenYet => 'Nie wybrano jeszcze folderu';
@@ -909,7 +909,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Prywatne koty, grupy i pola też są udostępniane — włączaj tylko przy synchronizacji własnych urządzeń.';
+      'To wysyła też wszystko, co oznaczono jako prywatne. Osoba, z którą synchronizujesz, to zobaczy.';
 
   @override
   String get hideLabel => 'Ukryj na tym urządzeniu';
@@ -1168,25 +1168,25 @@ class AppLocalizationsPl extends AppLocalizations {
   String get selectClowderHint => 'Wybierz clowder po lewej';
 
   @override
-  String get introTitle1 => 'Koty mieszkają w clowderach';
+  String get introTitle1 => 'Twoje koty pod kontrolą';
 
   @override
   String get introBody1 =>
-      'Clowder to miejsce, gdzie mieszkają koty: twój dom tymczasowy, mieszkanie adoptującego, stodoła obok. Każdy kot ma kartę ze zdjęciem, faktami i całą historią.';
+      'Załóż kartę każdemu kotu: zdjęcie, płeć, zdrowie, co tylko chcesz zanotować. Koty są pogrupowane według miejsca, w którym żyją — aplikacja nazywa je kolonią (clowder).';
 
   @override
-  String get introTitle2 => 'Wszystko zostaje u ciebie';
+  String get introTitle2 => 'Działa bez internetu';
 
   @override
   String get introBody2 =>
-      'Bez konta, bez chmury, bez śledzenia. Twoje dane żyją na twoim urządzeniu.';
+      'Wszystko zapisuje się tylko na twoim telefonie. Bez konta, bez chmury. Nic nie jest wysyłane, dopóki sam tego nie udostępnisz.';
 
   @override
-  String get introTitle3 => 'Dziel się z pomocnikami';
+  String get introTitle3 => 'Współpraca';
 
   @override
   String get introBody3 =>
-      'Zeskanuj kod, a dwa urządzenia zsynchronizują się w sekundy, użyj wspólnego folderu albo wyślij wszystko jako jeden plik.';
+      'Każdy korzysta z własnej aplikacji, a co jakiś czas wymieniacie dane: spotkajcie się i zeskanujcie kod, użyjcie wspólnego folderu albo wyślijcie jeden plik komunikatorem. Potem wszyscy mają te same informacje.';
 
   @override
   String get introSkip => 'Pomiń';
@@ -1202,50 +1202,50 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nowość: synchronizacja oferuje teraz trzy jasne drogi — i pytanie o zaufanie, zanim cokolwiek popłynie.';
+      'Tutaj synchronizujesz się ze znajomymi. To ty decydujesz, czym się dzielisz.';
 
   @override
   String get spotHomeStrays =>
-      'Nowość: bezdomniaki mają tu na górze własną kartę — liczba, pyszczki, dotknij, by otworzyć.';
+      'Ta karta zbiera wszystkie bezdomniaki — koty bez domu. Dotknij, by zobaczyć listę.';
 
   @override
   String get spotHomeMenu =>
-      'Nowość: to menu znajduje zduplikowane koty i kolonie i je scala.';
+      'W tym menu: znajdowanie i scalanie duplikatów, eksport CSV i więcej.';
 
   @override
   String get spotCatEdit =>
-      'Nowość: strona jest tylko do odczytu — ołówek przełącza na edycję, a długie przytrzymanie pola edytuje je od razu.';
+      'Dotknij ołówka, by edytować tego kota. Wskazówka: przytrzymaj pole, by edytować je od razu.';
 
   @override
   String get spotMapLayers =>
-      'Nowość: pokaż 500-metrowe okręgi poszukiwań wokół miejsc ogłoszeń zaginionego kota.';
+      'Szukasz zaginionego kota? Pokaż okręgi wokół miejsc jego ogłoszeń.';
 
   @override
   String get spotStraysFlier =>
-      'Nowość: sfotografuj ogłoszenie o zaginionym kocie — powstanie kot, właściciel i kontakt.';
+      'Ogłoszenie o zaginionym kocie? Sfotografuj je tutaj — aplikacja zapisze kota i kontakt za ciebie.';
 
   @override
   String get spotStraysScan =>
-      'Nowość: zeskanuj kod cat(a)log z ogłoszenia i zaimportuj kota bezpośrednio.';
+      'Niektóre ogłoszenia mają kod QR cat(a)log. Zeskanuj go tutaj i zaimportuj kota bez pisania.';
 
   @override
-  String get introTitle4 => 'Zaginione koty';
+  String get introTitle4 => 'Odnajdywanie zaginionych kotów';
 
   @override
   String get introBody4 =>
-      'Sfotografuj ogłoszenie, a zaginiony kot trafi do katalogu z kontaktem właściciela. Obserwacje, okręgi poszukiwań i propozycje dopasowań pomagają wrócić mu do domu.';
+      'Widzisz ogłoszenie o zaginionym kocie? Sfotografuj je w aplikacji: zapisze kota, kontakt właściciela i miejsce. Gdy później pojawi się podobny bezdomniak, aplikacja podpowie możliwe dopasowania.';
 
   @override
   String get spotMapSearch =>
-      'Nowość: szukaj tu kotów, clowderów i osób — bezpośrednio na mapie.';
+      'Wpisz kota, miejsce lub osobę, by skoczyć tam na mapie.';
 
   @override
   String get spotCardChips =>
-      'Nowość: wybierz, co znajdzie się na karcie, zanim ją udostępnisz.';
+      'Zaznacz, co ma być na udostępnianej karcie — reszta zostaje poza nią.';
 
   @override
   String get spotCatMenu =>
-      'Nowość: oznacz kota jako prywatnego (nigdy nie opuszcza urządzenia) albo ukryj go tutaj.';
+      'Więcej działań tutaj: oznacz kota jako prywatnego, ukryj go, scal duplikaty albo zapisz obserwację.';
 
   @override
   String get spotDone => 'Rozumiem';

@@ -179,7 +179,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'この猫はすべてのリストから消え、写真も削除されます — この端末でも、次の同期後には仲間の端末でも。';
+      'この猫はすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
 
   @override
   String get sightingRecorded => '現在地で目撃を記録しました。';
@@ -286,7 +286,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。';
 
   @override
-  String get shareWhitelistExplainer => 'チェックした項目だけがカタログの外に出ます。それ以外は手元に残ります。';
+  String get shareWhitelistExplainer => 'ファイルに入れる内容を選びます。チェックした項目だけが含まれます。';
 
   @override
   String get exportShareFile => '共有ファイルを書き出す…';
@@ -605,7 +605,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'クラウドや USB メモリが端末間で運ぶフォルダー経由で同期します — 同じネットワークにいない人向け。';
+      '両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
 
   @override
   String get noFolderChosenYet => 'フォルダー未選択';
@@ -897,7 +897,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。';
+      'これをオンにすると、プライベートにした項目も送信されます。同期相手には見えるようになります。';
 
   @override
   String get hideLabel => 'この端末で非表示にする';
@@ -1152,24 +1152,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectClowderHint => '左からグループを選択してください';
 
   @override
-  String get introTitle1 => '猫はグループで暮らします';
+  String get introTitle1 => '猫たちを整理整頓';
 
   @override
   String get introBody1 =>
-      'グループとは猫が暮らす場所のこと。あなたの預かり宅、里親の部屋、隣の納屋。どの猫にも写真と情報と全履歴のカードがあります。';
+      '世話している猫ごとにカードを作りましょう：写真、性別、健康状態など、記録したいことは何でも。猫は住んでいる場所ごとにまとまります。アプリではその場所をクラウダー（clowder）と呼びます。';
 
   @override
-  String get introTitle2 => 'すべてはあなたの手元に';
+  String get introTitle2 => 'ネットなしで動く';
 
   @override
-  String get introBody2 => 'アカウントもクラウドも追跡もなし。データはあなたの端末の中だけにあります。';
+  String get introBody2 =>
+      'すべてはあなたのスマホだけに保存されます。アカウントもクラウドもありません。自分で共有しない限り、何もアップロードされません。';
 
   @override
-  String get introTitle3 => '仲間と共有';
+  String get introTitle3 => 'みんなで使う';
 
   @override
   String get introBody3 =>
-      'コードをスキャンすれば数秒で2台が同期。共有フォルダやファイル送信でも。全員が同じカタログになります。';
+      'それぞれが自分のアプリを使い、ときどきデータを交換します。会ってコードをスキャンする、共有フォルダーを使う、メッセンジャーでファイルを1つ送る。そのあと全員が同じ情報を持ちます。';
 
   @override
   String get introSkip => 'スキップ';
@@ -1184,41 +1185,41 @@ class AppLocalizationsJa extends AppLocalizations {
   String get introReplayTitle => 'クイック紹介';
 
   @override
-  String get spotHomeSync => '新機能: 同期は3つのわかりやすい方法に。共有前に信頼の確認もあります。';
+  String get spotHomeSync => 'ここで知り合いと同期します。何を共有するかはあなたが決めます。';
 
   @override
-  String get spotHomeStrays => '新機能：野良猫はここに専用カード — 数と顔、タップで開きます。';
+  String get spotHomeStrays => 'このカードには野良猫（家のない猫）が集まります。タップで一覧を表示。';
 
   @override
-  String get spotHomeMenu => '新機能：このメニューで重複した猫やコロニーを見つけて統合できます。';
+  String get spotHomeMenu => 'このメニューでは：重複の検索と統合、CSVエクスポートなど。';
 
   @override
-  String get spotCatEdit => '新機能：ページは閲覧専用 — 鉛筆で編集モードに。項目を長押しすると直接編集できます。';
+  String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
 
   @override
-  String get spotMapLayers => '新機能：迷子猫のチラシ地点の周りに500mの捜索円を表示。';
+  String get spotMapLayers => '迷子猫を探していますか？チラシがあった場所の周りに円を表示できます。';
 
   @override
-  String get spotStraysFlier => '新機能：迷子猫のチラシを撮影 — 猫・飼い主・連絡先として登録されます。';
+  String get spotStraysFlier => '迷子猫のチラシを見つけたら、ここで撮影。猫と連絡先をアプリが保存します。';
 
   @override
-  String get spotStraysScan => '新機能：チラシのcat(a)logコードをスキャンして猫を直接取り込み。';
+  String get spotStraysScan => 'cat(a)log のQRコード付きチラシは、ここでスキャンすれば入力なしで取り込めます。';
 
   @override
-  String get introTitle4 => '迷子の猫';
+  String get introTitle4 => '迷子猫を探す';
 
   @override
   String get introBody4 =>
-      'チラシを撮影すると、迷子猫が飼い主の連絡先と一緒にカタログに加わります。目撃情報、捜索円、一致候補が帰り道を助けます。';
+      '迷子猫のチラシを見つけたら、アプリで撮影を。猫、飼い主の連絡先、場所が保存されます。後で似た野良猫が現れたら、アプリが候補を提案します。';
 
   @override
-  String get spotMapSearch => '新機能: ここで猫・グループ・人を検索 — 地図上ですぐ見つかります。';
+  String get spotMapSearch => '猫・場所・人を入力すると、地図上のその場所へジャンプします。';
 
   @override
-  String get spotCardChips => '新機能: 共有する前にカードに載せる内容を選べます。';
+  String get spotCardChips => '共有カードに載せる項目にチェックを。それ以外は載りません。';
 
   @override
-  String get spotCatMenu => '新機能: 猫をプライベートに設定（端末から出ません）したり、ここで非表示にできます。';
+  String get spotCatMenu => 'その他の操作はここ：プライベット設定、非表示、重複の統合、目撃の記録。';
 
   @override
   String get spotDone => 'OK';

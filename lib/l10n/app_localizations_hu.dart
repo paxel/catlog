@@ -181,7 +181,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'A macska eltűnik minden listáról és a fotói törlődnek — itt, és a következő szinkronizálás után a segítőidnél is.';
+      'A macska eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
 
   @override
   String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
@@ -290,7 +290,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Csak a bejelölt mezők hagyják el a katalógust. Minden más otthon marad.';
+      'Válaszd ki, mi kerüljön a fájlba. Csak a bejelölt mezők kerülnek bele.';
 
   @override
   String get exportShareFile => 'Megosztási fájl exportálása…';
@@ -615,7 +615,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Szinkronizálás olyan mappán át, amelyet felhő vagy pendrive visz az eszközök között — azoknak, akik nincsenek egy hálózaton.';
+      'Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
 
   @override
   String get noFolderChosenYet => 'Még nincs mappa kiválasztva';
@@ -910,7 +910,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be.';
+      'Ezzel minden privátnak jelölt adat is elmegy. Akivel szinkronizálsz, látni fogja.';
 
   @override
   String get hideLabel => 'Elrejtés ezen az eszközön';
@@ -1171,25 +1171,25 @@ class AppLocalizationsHu extends AppLocalizations {
   String get selectClowderHint => 'Válassz egy clowdert balra';
 
   @override
-  String get introTitle1 => 'A macskák clowderekben élnek';
+  String get introTitle1 => 'Macskáid, rendben';
 
   @override
   String get introBody1 =>
-      'A clowder egy hely, ahol macskák élnek: az ideiglenes befogadód, egy örökbefogadó lakása, a szomszéd pajta. Minden macska kap egy kártyát fotóval, adatokkal és a teljes történetével.';
+      'Készíts kartont minden macskának: fotó, ivar, egészség, bármi, amit fel akarsz jegyezni. A macskák aszerint csoportosulnak, hol élnek — az app ezt a helyet kolóniának (clowder) hívja.';
 
   @override
-  String get introTitle2 => 'Minden nálad marad';
+  String get introTitle2 => 'Internet nélkül működik';
 
   @override
   String get introBody2 =>
-      'Se fiók, se felhő, se követés. Az adataid a készülékeden élnek.';
+      'Minden csak a telefonodra mentődik. Nincs fiók, nincs felhő. Semmi sem kerül fel sehova, hacsak te magad meg nem osztod.';
 
   @override
-  String get introTitle3 => 'Oszd meg a segítőiddel';
+  String get introTitle3 => 'Dolgozzatok együtt';
 
   @override
   String get introBody3 =>
-      'Olvass be egy kódot és két készülék másodpercek alatt szinkronizál, használj megosztott mappát vagy küldj mindent egy fájlként.';
+      'Mindenki a saját appját használja, és időnként adatot cseréltek: találkozzatok és olvassatok be egy kódot, használjatok közös mappát, vagy küldjetek egy fájlt messengeren. Utána mindenkinél ugyanaz az információ.';
 
   @override
   String get introSkip => 'Kihagyás';
@@ -1205,50 +1205,50 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Új: a szinkronizálás most három világos utat kínál — és bizalmi kérdést, mielőtt bármi átmenne.';
+      'Itt szinkronizálsz az ismerőseiddel. Te döntöd el, mit osztasz meg.';
 
   @override
   String get spotHomeStrays =>
-      'Új: a kóborok saját kártyát kaptak itt fent — létszám, pofik, koppintásra nyílik.';
+      'Ez a kártya gyűjti az összes kóborlót — az otthontalan macskákat. Koppints a listához.';
 
   @override
   String get spotHomeMenu =>
-      'Új: ez a menü megtalálja és összevonja a duplikált macskákat és kolóniákat.';
+      'Ebben a menüben: duplikátumok keresése és összevonása, CSV-export és több.';
 
   @override
   String get spotCatEdit =>
-      'Új: az oldal csak olvasható — a ceruza vált szerkesztésre, egy mező hosszú nyomása pedig rögtön szerkeszti.';
+      'Koppints a ceruzára a macska szerkesztéséhez. Tipp: egy mező hosszú nyomása rögtön szerkeszti azt.';
 
   @override
   String get spotMapLayers =>
-      'Új: 500 m-es keresőkörök egy eltűnt macska plakáthelyei körül.';
+      'Eltűnt macskát keresel? Jeleníts meg köröket a plakátjai helyei körül.';
 
   @override
   String get spotStraysFlier =>
-      'Új: fotózzon le egy eltűnt-macska plakátot — macska, gazda és elérhetőség lesz belőle.';
+      'Eltűnt macskás plakát? Fotózd le itt — az app elmenti a macskát és az elérhetőséget helyetted.';
 
   @override
   String get spotStraysScan =>
-      'Új: olvasson be egy cat(a)log kódot a plakátról, és importálja a macskát közvetlenül.';
+      'Némelyik plakáton cat(a)log QR-kód van. Olvasd be itt, és importáld a macskát gépelés nélkül.';
 
   @override
-  String get introTitle4 => 'Eltűnt macskák';
+  String get introTitle4 => 'Eltűnt macskák megtalálása';
 
   @override
   String get introBody4 =>
-      'Fotózzon le egy plakátot, és az eltűnt macska a gazdája elérhetőségével együtt a katalógusba kerül. Észlelések, keresőkörök és találati javaslatok segítik hazajutni.';
+      'Eltűnt macskát kereső plakátot látsz? Fotózd le az appban: elmenti a macskát, a gazda elérhetőségét és a helyet. Ha később hasonló kóbor bukkan fel, az app lehetséges egyezéseket javasol.';
 
   @override
   String get spotMapSearch =>
-      'Új: keress itt macskákat, clowdereket és személyeket — közvetlenül a térképen.';
+      'Írj be egy macskát, helyet vagy személyt, és a térkép odaugrik.';
 
   @override
   String get spotCardChips =>
-      'Új: válaszd ki, mi kerüljön a kártyára, mielőtt megosztod.';
+      'Jelöld be, mi kerüljön a megosztható kártyára — a többi lemarad róla.';
 
   @override
   String get spotCatMenu =>
-      'Új: jelölj egy macskát privátnak (sosem hagyja el a készüléked), vagy rejtsd el itt.';
+      'További műveletek itt: macska priváttá jelölése, elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
 
   @override
   String get spotDone => 'Értem';

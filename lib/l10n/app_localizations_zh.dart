@@ -177,7 +177,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deletePhotoBody => '照片数据将被永久删除——无法撤销。';
 
   @override
-  String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本设备以及下次同步后伙伴们的设备上都是如此。';
+  String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
 
   @override
   String get sightingRecorded => '已在你的位置记录目击。';
@@ -277,7 +277,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get videoMobileOnly => '从视频挑选画面需要手机应用（Android 和 iPhone）——此设备暂不支持。';
 
   @override
-  String get shareWhitelistExplainer => '只有勾选的字段会离开目录，其余全部留在本地。';
+  String get shareWhitelistExplainer => '选择放进文件的内容。只包含勾选的字段。';
 
   @override
   String get exportShareFile => '导出分享文件…';
@@ -593,7 +593,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sharedFolder => '共享文件夹';
 
   @override
-  String get sharedFolderExplainer => '通过云盘或 U 盘在设备间携带的文件夹进行同步——适合不在同一网络的人。';
+  String get sharedFolderExplainer =>
+      '两台设备使用同一个文件夹（例如 Dropbox 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
 
   @override
   String get noFolderChosenYet => '尚未选择文件夹';
@@ -883,7 +884,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get includePrivate => '包含私密数据';
 
   @override
-  String get includePrivateExplainer => '私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。';
+  String get includePrivateExplainer => '这也会发送你标记为私密的所有内容。与你同步的人将会看到。';
 
   @override
   String get hideLabel => '在此设备上隐藏';
@@ -1137,23 +1138,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get selectClowderHint => '从左侧选择一个猫群';
 
   @override
-  String get introTitle1 => '猫住在猫群里';
+  String get introTitle1 => '猫咪井井有条';
 
   @override
   String get introBody1 =>
-      '猫群是猫居住的地方：你的寄养家庭、领养人的公寓、隔壁的谷仓。每只猫都有一张卡片，有照片、信息和完整的故事。';
+      '为你照顾的每只猫建一张卡片：照片、性别、健康，任何想记录的内容。猫按居住地点分组——应用把这样的地点叫做聚落（clowder）。';
 
   @override
-  String get introTitle2 => '一切都在你手中';
+  String get introTitle2 => '无需网络';
 
   @override
-  String get introBody2 => '没有账号、没有云端、没有跟踪。数据只存在你的设备上。';
+  String get introBody2 => '所有数据只保存在你的手机上。没有账号，没有云。除非你自己分享，否则什么都不会上传。';
 
   @override
-  String get introTitle3 => '与伙伴们共享';
+  String get introTitle3 => '协同工作';
 
   @override
-  String get introBody3 => '扫码即可让两台设备秒速同步，也可以用共享文件夹或发送一个文件。所有人拥有同一份目录。';
+  String get introBody3 =>
+      '每个人用自己的应用，不时交换数据：见面扫个码、用共享文件夹，或者通过通讯软件发送一个文件。之后大家的信息就一致了。';
 
   @override
   String get introSkip => '跳过';
@@ -1168,40 +1170,41 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introReplayTitle => '快速介绍';
 
   @override
-  String get spotHomeSync => '新功能：同步现在提供三种清晰方式——数据流动前还会先询问信任。';
+  String get spotHomeSync => '在这里与认识的人同步。分享什么由你决定。';
 
   @override
-  String get spotHomeStrays => '新功能：流浪猫在顶部有了自己的卡片——数量、面孔，点按打开。';
+  String get spotHomeStrays => '这张卡片汇集所有流浪猫——没有家的猫。点按查看列表。';
 
   @override
-  String get spotHomeMenu => '新功能：此菜单可查找重复的猫和聚落并合并它们。';
+  String get spotHomeMenu => '这个菜单里有：查找并合并重复项、导出CSV等。';
 
   @override
-  String get spotCatEdit => '新功能：页面默认只读——铅笔切换到编辑，长按字段可直接编辑。';
+  String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
 
   @override
-  String get spotMapLayers => '新功能：在走失猫的启事位置周围显示500米搜寻圈。';
+  String get spotMapLayers => '在找走失的猫？可在其启事出现地点周围显示圆圈。';
 
   @override
-  String get spotStraysFlier => '新功能：拍摄寻猫启事——自动生成猫、主人和联系方式。';
+  String get spotStraysFlier => '发现寻猫启事？在这里拍下来——应用会帮你保存猫和联系方式。';
 
   @override
-  String get spotStraysScan => '新功能：扫描启事上的cat(a)log码，直接导入这只猫。';
+  String get spotStraysScan => '有些启事带有 cat(a)log 二维码。在这里扫描即可直接导入这只猫。';
 
   @override
-  String get introTitle4 => '走失的猫';
+  String get introTitle4 => '寻找走失的猫';
 
   @override
-  String get introBody4 => '拍下一张启事，走失的猫就会连同主人的联系方式进入目录。目击记录、搜寻圈和匹配建议帮助它回家。';
+  String get introBody4 =>
+      '看到寻猫启事？在应用里拍下来：它会保存这只猫、主人的联系方式和地点。以后出现相似的流浪猫时，应用会提示可能的匹配。';
 
   @override
-  String get spotMapSearch => '新功能：在这里搜索猫、猫群和人员——直接定位到地图上。';
+  String get spotMapSearch => '输入猫、地点或人名，即可在地图上跳转过去。';
 
   @override
-  String get spotCardChips => '新功能：分享前可选择卡片上显示的内容。';
+  String get spotCardChips => '勾选要出现在分享卡片上的内容——其余不会出现。';
 
   @override
-  String get spotCatMenu => '新功能：在这里将猫标记为私密（绝不离开你的设备）或隐藏它。';
+  String get spotCatMenu => '更多操作在这里：设为私密、隐藏、合并重复项或记录目击。';
 
   @override
   String get spotDone => '知道了';

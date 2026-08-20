@@ -181,7 +181,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche dai tuoi aiutanti.';
+      'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche sugli altri dispositivi.';
 
   @override
   String get sightingRecorded => 'Avvistamento registrato alla tua posizione.';
@@ -290,7 +290,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Solo i campi selezionati lasciano il catalogo. Tutto il resto resta a casa.';
+      'Scegli cosa entra nel file. Sono inclusi solo i campi spuntati.';
 
   @override
   String get exportShareFile => 'Esporta file di condivisione…';
@@ -618,7 +618,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sincronizza tramite una cartella trasportata da un cloud o una chiavetta USB — per chi non è sulla stessa rete.';
+      'Entrambi i dispositivi usano la stessa cartella (per esempio in Dropbox o su una chiavetta USB). Ogni sincronizzazione vi deposita le tue modifiche e raccoglie quelle dell\'altro.';
 
   @override
   String get noFolderChosenYet => 'Nessuna cartella scelta';
@@ -913,7 +913,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Anche gatti, clowder e campi privati vengono condivisi — attivalo solo quando sincronizzi i tuoi dispositivi.';
+      'Questo invia anche tutto ciò che hai contrassegnato come privato. Chi sincronizza con te lo vedrà.';
 
   @override
   String get hideLabel => 'Nascondi su questo dispositivo';
@@ -1175,25 +1175,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String get selectClowderHint => 'Scegli un clowder a sinistra';
 
   @override
-  String get introTitle1 => 'I gatti vivono nei clowder';
+  String get introTitle1 => 'I tuoi gatti, in ordine';
 
   @override
   String get introBody1 =>
-      'Un clowder è un posto dove vivono i gatti: la tua casa affidataria, l\'appartamento di un adottante, il fienile accanto. Ogni gatto ha una scheda con foto, dati e tutta la sua storia.';
+      'Crea una scheda per ogni gatto: foto, sesso, salute, tutto ciò che vuoi annotare. I gatti sono raggruppati per il luogo in cui vivono — l\'app chiama quel luogo colonia (clowder).';
 
   @override
-  String get introTitle2 => 'Tutto resta da te';
+  String get introTitle2 => 'Funziona senza internet';
 
   @override
   String get introBody2 =>
-      'Niente account, niente cloud, niente tracciamento. I tuoi dati vivono sul tuo dispositivo.';
+      'Tutto viene salvato solo sul tuo telefono. Nessun account, nessun cloud. Nulla viene caricato finché non lo condividi tu.';
 
   @override
-  String get introTitle3 => 'Condividi con i tuoi aiutanti';
+  String get introTitle3 => 'Lavorare insieme';
 
   @override
   String get introBody3 =>
-      'Scansiona un codice e due dispositivi si sincronizzano in secondi, usa una cartella condivisa o invia tutto come un file.';
+      'Ognuno usa la propria app e ogni tanto scambiate i dati: incontratevi e scansionate un codice, usate una cartella condivisa o inviate un file via messenger. Dopo, tutti hanno le stesse informazioni.';
 
   @override
   String get introSkip => 'Salta';
@@ -1209,50 +1209,50 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Novità: la sincronizzazione offre ora tre vie chiare — e una domanda di fiducia prima che qualcosa fluisca.';
+      'Qui sincronizzi con i tuoi conoscenti. Decidi tu cosa condividere.';
 
   @override
   String get spotHomeStrays =>
-      'Novità: i randagi hanno la loro scheda qui in alto — numero, musetti, tocca per aprire.';
+      'Questa scheda raccoglie tutti i randagi — gatti senza casa. Toccala per vedere l\'elenco.';
 
   @override
   String get spotHomeMenu =>
-      'Novità: questo menu trova gatti e colonie duplicati e li unisce.';
+      'In questo menu: trovare e unire i duplicati, esportare CSV e altro.';
 
   @override
   String get spotCatEdit =>
-      'Novità: la pagina è in sola lettura — la matita passa alla modifica, la pressione lunga su un campo lo modifica direttamente.';
+      'Tocca la matita per modificare questo gatto. Suggerimento: tieni premuto un campo per modificarlo direttamente.';
 
   @override
   String get spotMapLayers =>
-      'Novità: mostra cerchi di ricerca di 500 m attorno ai volantini di un gatto scomparso.';
+      'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini.';
 
   @override
   String get spotStraysFlier =>
-      'Novità: fotografa il volantino di un gatto scomparso — diventa il gatto, il proprietario e il contatto.';
+      'Un volantino di gatto scomparso? Fotografalo qui — l\'app salva gatto e contatto per te.';
 
   @override
   String get spotStraysScan =>
-      'Novità: scansiona un codice cat(a)log da un volantino per importare il gatto direttamente.';
+      'Alcuni volantini hanno un codice QR cat(a)log. Scansionalo qui per importare il gatto senza digitare.';
 
   @override
-  String get introTitle4 => 'Gatti scomparsi';
+  String get introTitle4 => 'Ritrovare i gatti scomparsi';
 
   @override
   String get introBody4 =>
-      'Fotografa un volantino e il gatto scomparso entra nel catalogo con il contatto del proprietario. Avvistamenti, cerchi di ricerca e suggerimenti di corrispondenza aiutano a riportarlo a casa.';
+      'Vedi un volantino di gatto scomparso? Fotografalo nell\'app: salva il gatto, il contatto del proprietario e il luogo. Se più tardi compare un randagio simile, l\'app suggerisce possibili corrispondenze.';
 
   @override
   String get spotMapSearch =>
-      'Novità: cerca qui gatti, clowder e persone — direttamente sulla mappa.';
+      'Scrivi un gatto, un luogo o una persona per saltarci sulla mappa.';
 
   @override
   String get spotCardChips =>
-      'Novità: scegli cosa appare sulla scheda prima di condividerla.';
+      'Spunta ciò che deve comparire sulla scheda da condividere — il resto ne resta fuori.';
 
   @override
   String get spotCatMenu =>
-      'Novità: segna un gatto come privato (non lascia mai il tuo dispositivo) o nascondilo qui.';
+      'Qui trovi altre azioni: contrassegnare il gatto come privato, nasconderlo, unire duplicati o registrare un avvistamento.';
 
   @override
   String get spotDone => 'Capito';

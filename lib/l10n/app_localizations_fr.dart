@@ -181,7 +181,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Le chat disparaît de toutes les listes et ses photos sont supprimées — ici et, après la prochaine synchronisation, chez vos aides aussi.';
+      'Le chat disparaît de toutes les listes et ses photos sont supprimées — ici et, après la prochaine synchronisation, sur les autres appareils aussi.';
 
   @override
   String get sightingRecorded => 'Observation enregistrée à ta position.';
@@ -290,7 +290,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Seuls les champs cochés quittent votre catalogue. Tout le reste reste chez vous.';
+      'Choisissez ce qui entre dans le fichier. Seuls les champs cochés sont inclus.';
 
   @override
   String get exportShareFile => 'Exporter le fichier de partage…';
@@ -619,7 +619,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronise via un dossier qu\'un cloud ou une clé USB transporte entre les appareils — pour ceux qui ne sont pas sur le même réseau.';
+      'Les deux appareils utilisent le même dossier (par exemple dans Dropbox ou sur une clé USB). Chaque synchronisation y dépose vos changements et récupère ceux de l\'autre.';
 
   @override
   String get noFolderChosenYet => 'Aucun dossier choisi';
@@ -914,7 +914,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Les chats, clowders et champs privés sont aussi partagés — n\'activez ceci que pour synchroniser vos propres appareils.';
+      'Ceci envoie aussi tout ce que vous avez marqué privé. La personne avec qui vous synchronisez le verra.';
 
   @override
   String get hideLabel => 'Masquer sur cet appareil';
@@ -1177,25 +1177,25 @@ class AppLocalizationsFr extends AppLocalizations {
   String get selectClowderHint => 'Choisissez un clowder à gauche';
 
   @override
-  String get introTitle1 => 'Les chats vivent en clowders';
+  String get introTitle1 => 'Vos chats, organisés';
 
   @override
   String get introBody1 =>
-      'Un clowder est un lieu où vivent des chats : votre famille d\'accueil, l\'appartement d\'un adoptant, la grange d\'à côté. Chaque chat a sa fiche avec photo, infos et toute son histoire.';
+      'Créez une fiche pour chaque chat : photo, sexe, santé, tout ce qui compte. Les chats sont regroupés par lieu de vie — l\'appli appelle ce lieu une chatterie (clowder).';
 
   @override
-  String get introTitle2 => 'Tout reste chez vous';
+  String get introTitle2 => 'Fonctionne sans Internet';
 
   @override
   String get introBody2 =>
-      'Pas de compte, pas de cloud, pas de pistage. Vos données vivent sur votre appareil.';
+      'Tout est enregistré uniquement sur votre téléphone. Pas de compte, pas de cloud. Rien n\'est envoyé tant que vous ne le partagez pas vous-même.';
 
   @override
-  String get introTitle3 => 'Partagez avec vos aides';
+  String get introTitle3 => 'Travailler ensemble';
 
   @override
   String get introBody3 =>
-      'Scannez un code et deux appareils se synchronisent en quelques secondes, utilisez un dossier partagé ou envoyez tout en un seul fichier.';
+      'Chacun utilise sa propre appli et vous échangez les données de temps en temps : scannez un code en vous voyant, utilisez un dossier partagé ou envoyez un fichier par messagerie. Ensuite tout le monde a les mêmes informations.';
 
   @override
   String get introSkip => 'Passer';
@@ -1211,50 +1211,50 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nouveau : la synchronisation propose trois voies claires — et une question de confiance avant tout échange.';
+      'Synchronisez ici avec vos connaissances. C\'est vous qui décidez ce que vous partagez.';
 
   @override
   String get spotHomeStrays =>
-      'Nouveau : les errants ont leur propre carte ici en haut — nombre, frimousses, touchez pour ouvrir.';
+      'Cette carte rassemble tous les errants — les chats sans foyer. Touchez-la pour voir la liste.';
 
   @override
   String get spotHomeMenu =>
-      'Nouveau : ce menu trouve les chats et colonies en double et les fusionne.';
+      'Dans ce menu : trouver et fusionner les doublons, exporter en CSV, et plus.';
 
   @override
   String get spotCatEdit =>
-      'Nouveau : la page est en lecture seule — le crayon passe en édition, un appui long sur un champ l\'édite directement.';
+      'Touchez le crayon pour modifier ce chat. Astuce : un appui long sur un champ le modifie directement.';
 
   @override
   String get spotMapLayers =>
-      'Nouveau : affichez des cercles de recherche de 500 m autour des affiches d\'un chat disparu.';
+      'Vous cherchez un chat disparu ? Affichez des cercles autour des lieux de ses affiches.';
 
   @override
   String get spotStraysFlier =>
-      'Nouveau : photographiez l\'affiche d\'un chat disparu — elle devient le chat, son propriétaire et son contact.';
+      'Une affiche de chat disparu ? Photographiez-la ici — l\'appli enregistre le chat et le contact pour vous.';
 
   @override
   String get spotStraysScan =>
-      'Nouveau : scannez un code cat(a)log sur une affiche pour importer le chat directement.';
+      'Certaines affiches portent un code QR cat(a)log. Scannez-le ici pour importer le chat sans rien taper.';
 
   @override
-  String get introTitle4 => 'Chats disparus';
+  String get introTitle4 => 'Retrouver les chats disparus';
 
   @override
   String get introBody4 =>
-      'Photographiez une affiche et le chat disparu rejoint le catalogue avec le contact de son propriétaire. Observations, cercles de recherche et suggestions de correspondance aident à le ramener chez lui.';
+      'Vous voyez une affiche de chat disparu ? Photographiez-la dans l\'appli : elle enregistre le chat, le contact du propriétaire et le lieu. Si un chat errant semblable apparaît plus tard, l\'appli propose des correspondances.';
 
   @override
   String get spotMapSearch =>
-      'Nouveau : cherchez ici chats, clowders et personnes — directement sur la carte.';
+      'Tapez un chat, un lieu ou une personne pour y sauter sur la carte.';
 
   @override
   String get spotCardChips =>
-      'Nouveau : choisissez ce qui figure sur la fiche avant de la partager.';
+      'Cochez ce qui doit figurer sur la fiche à partager — tout le reste en reste absent.';
 
   @override
   String get spotCatMenu =>
-      'Nouveau : marquez un chat comme privé (il ne quitte jamais votre appareil) ou masquez-le ici.';
+      'D\'autres actions ici : marquer le chat privé, le masquer, fusionner des doublons ou noter une observation.';
 
   @override
   String get spotDone => 'Compris';

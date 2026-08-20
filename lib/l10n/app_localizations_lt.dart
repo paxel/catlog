@@ -181,7 +181,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katė dingsta iš visų sąrašų, o jos nuotraukos pašalinamos — čia ir po kito sinchronizavimo pas tavo pagalbininkus.';
+      'Katė dingsta iš visų sąrašų, jos nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
 
   @override
   String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
@@ -290,7 +290,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalogą palieka tik pažymėti laukai. Visa kita lieka namie.';
+      'Pasirinkite, kas pateks į failą. Įtraukiami tik pažymėti laukai.';
 
   @override
   String get exportShareFile => 'Eksportuoti bendrinimo failą…';
@@ -616,7 +616,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinchronizuokite per aplanką, kurį tarp įrenginių perneša debesis ar USB atmintukas — tiems, kurie ne tame pačiame tinkle.';
+      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
 
   @override
   String get noFolderChosenYet => 'Aplankas dar nepasirinktas';
@@ -911,7 +911,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius.';
+      'Taip išsiunčiama ir visa, ką pažymėjote kaip privačią. Tas, su kuo sinchronizuojate, tai matys.';
 
   @override
   String get hideLabel => 'Slėpti šiame įrenginyje';
@@ -1171,25 +1171,25 @@ class AppLocalizationsLt extends AppLocalizations {
   String get selectClowderHint => 'Kairėje pasirinkite clowder';
 
   @override
-  String get introTitle1 => 'Katės gyvena clowderiuose';
+  String get introTitle1 => 'Jūsų katės tvarkingai';
 
   @override
   String get introBody1 =>
-      'Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas, kaimyno daržinė. Kiekviena katė turi kortelę su nuotrauka, faktais ir visa istorija.';
+      'Kiekvienai katei sukurkite kortelę: nuotrauka, lytis, sveikata — viskas, ką norite užsirašyti. Katės grupuojamos pagal gyvenamą vietą — programėlė ją vadina kolonija (clowder).';
 
   @override
-  String get introTitle2 => 'Viskas lieka pas tave';
+  String get introTitle2 => 'Veikia be interneto';
 
   @override
   String get introBody2 =>
-      'Jokios paskyros, jokio debesies, jokio sekimo. Tavo duomenys gyvena tavo įrenginyje.';
+      'Viskas saugoma tik jūsų telefone. Jokios paskyros, jokio debesies. Niekas nesiunčiama, kol patys nepasidalijate.';
 
   @override
-  String get introTitle3 => 'Dalinkis su pagalbininkais';
+  String get introTitle3 => 'Dirbkite kartu';
 
   @override
   String get introBody3 =>
-      'Nuskenuok kodą ir du įrenginiai susinchronizuojami per sekundes, naudok bendrą aplanką arba siųsk viską vienu failu.';
+      'Kiekvienas naudoja savo programėlę ir retkarčiais apsikeičiate duomenimis: susitikite ir nuskaitykite kodą, naudokite bendrą aplanką arba atsiųskite vieną failą per programėlę. Po to visi turi tą pačią informaciją.';
 
   @override
   String get introSkip => 'Praleisti';
@@ -1205,50 +1205,50 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nauja: sinchronizavimas dabar siūlo tris aiškius kelius — ir pasitikėjimo klausimą prieš kam nors keliaujant.';
+      'Čia sinchronizuojate su pažįstamais. Jūs sprendžiate, kuo dalintis.';
 
   @override
   String get spotHomeStrays =>
-      'Nauja: benamiai turi savo kortelę čia viršuje — skaičius, snukučiai, palieskite atidaryti.';
+      'Ši kortelė surenka visas valkataujančias kates — kates be namų. Palieskite sąrašui.';
 
   @override
   String get spotHomeMenu =>
-      'Nauja: šis meniu randa besidubliuojančias kates bei kolonijas ir jas sujungia.';
+      'Šiame meniu: rasti ir sujungti dublikatus, eksportuoti CSV ir kt.';
 
   @override
   String get spotCatEdit =>
-      'Nauja: puslapis tik skaitymui — pieštukas įjungia redagavimą, ilgas lauko paspaudimas redaguoja jį tiesiogiai.';
+      'Palieskite pieštuką ir redaguokite katę. Patarimas: ilgai palaikę lauką, redaguosite jį iškart.';
 
   @override
   String get spotMapLayers =>
-      'Nauja: rodykite 500 m paieškos apskritimus aplink dingusios katės skelbimų vietas.';
+      'Ieškote dingusios katės? Rodykite apskritimus aplink jos skelbimų vietas.';
 
   @override
   String get spotStraysFlier =>
-      'Nauja: nufotografuokite dingusios katės skelbimą — jis virsta kate, šeimininku ir kontaktu.';
+      'Radote dingusios katės skelbimą? Nufotografuokite jį čia — programėlė išsaugos katę ir kontaktą už jus.';
 
   @override
   String get spotStraysScan =>
-      'Nauja: nuskaitykite cat(a)log kodą nuo skelbimo ir importuokite katę tiesiogiai.';
+      'Kai kurie skelbimai turi cat(a)log QR kodą. Nuskaitykite jį čia ir importuokite katę nerašydami.';
 
   @override
-  String get introTitle4 => 'Dingusios katės';
+  String get introTitle4 => 'Raskite dingusias kates';
 
   @override
   String get introBody4 =>
-      'Nufotografuokite skelbimą — dingusi katė pateks į katalogą su šeimininko kontaktu. Pastebėjimai, paieškos apskritimai ir atitikmenų pasiūlymai padeda jai grįžti namo.';
+      'Matote skelbimą apie dingusią katę? Nufotografuokite jį programėlėje: ji išsaugo katę, šeimininko kontaktą ir vietą. Jei vėliau pasirodys panaši valkataujanti katė, programėlė pasiūlys galimus atitikmenis.';
 
   @override
   String get spotMapSearch =>
-      'Nauja: ieškok čia kačių, clowderių ir žmonių — tiesiai žemėlapyje.';
+      'Įveskite katę, vietą ar žmogų ir peršokite ten žemėlapyje.';
 
   @override
   String get spotCardChips =>
-      'Nauja: prieš dalindamasis pasirink, kas bus kortelėje.';
+      'Pažymėkite, kas turi būti bendrinamoje kortelėje — kita lieka už jos.';
 
   @override
   String get spotCatMenu =>
-      'Nauja: pažymėk katę kaip privačią (niekada nepalieka įrenginio) arba paslėpk ją čia.';
+      'Daugiau veiksmų čia: pažymėkite katę kaip privačią, paslėpkite, sujunkite dublikatus ar užrašykite pastebėjimą.';
 
   @override
   String get spotDone => 'Supratau';

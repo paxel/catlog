@@ -181,7 +181,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe te ndihmësit e tu.';
+      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
 
   @override
   String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
@@ -290,7 +290,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Vetëm fushat e shënuara largohen nga katalogu. Gjithçka tjetër mbetet në shtëpi.';
+      'Zgjidh çfarë hyn në skedar. Përfshihen vetëm fushat e shënuara.';
 
   @override
   String get exportShareFile => 'Eksporto skedarin e ndarjes…';
@@ -617,7 +617,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinkronizoni përmes një dosjeje që e mbart reja ose një USB mes pajisjeve — për ata që s\'janë në të njëjtin rrjet.';
+      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
 
   @override
   String get noFolderChosenYet => 'Ende s\'është zgjedhur dosje';
@@ -913,7 +913,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua.';
+      'Kështu dërgohet edhe gjithçka që ke shënuar private. Ai me të cilin sinkronizon do ta shohë.';
 
   @override
   String get hideLabel => 'Fshih në këtë pajisje';
@@ -1173,25 +1173,25 @@ class AppLocalizationsSq extends AppLocalizations {
   String get selectClowderHint => 'Zgjidh një clowder majtas';
 
   @override
-  String get introTitle1 => 'Macet jetojnë në clowdera';
+  String get introTitle1 => 'Macet e tua, të organizuara';
 
   @override
   String get introBody1 =>
-      'Clowder është një vend ku jetojnë macet: shtëpia jote e kujdestarisë, banesa e një birësuesi, hambari ngjitur. Çdo mace ka një kartë me foto, fakte dhe gjithë historinë e saj.';
+      'Krijo një kartë për çdo mace: foto, gjinia, shëndeti, gjithçka që do të shënosh. Macet grupohen sipas vendit ku jetojnë — aplikacioni e quan atë vend koloni (clowder).';
 
   @override
-  String get introTitle2 => 'Gjithçka mbetet te ti';
+  String get introTitle2 => 'Punon pa internet';
 
   @override
   String get introBody2 =>
-      'Pa llogari, pa cloud, pa gjurmim. Të dhënat e tua jetojnë në pajisjen tënde.';
+      'Gjithçka ruhet vetëm në telefonin tënd. Pa llogari, pa cloud. Asgjë nuk dërgohet nëse nuk e ndan vetë.';
 
   @override
-  String get introTitle3 => 'Ndaj me ndihmësit';
+  String get introTitle3 => 'Punoni së bashku';
 
   @override
   String get introBody3 =>
-      'Skano një kod dhe dy pajisje sinkronizohen për sekonda, përdor një dosje të përbashkët ose dërgo gjithçka si një skedar.';
+      'Secili përdor aplikacionin e vet dhe herë pas here shkëmbeni të dhëna: takohuni dhe skanoni një kod, përdorni një dosje të përbashkët ose dërgoni një skedar me messenger. Pastaj të gjithë kanë të njëjtin informacion.';
 
   @override
   String get introSkip => 'Kapërce';
@@ -1207,50 +1207,50 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'E re: sinkronizimi tani ofron tri rrugë të qarta — dhe një pyetje besimi para se të rrjedhë gjë.';
+      'Këtu sinkronizon me të njohurit e tu. Ti vendos çfarë ndan.';
 
   @override
   String get spotHomeStrays =>
-      'E re: endacakët kanë kartën e tyre këtu lart — numri, surratet, prekni për të hapur.';
+      'Kjo kartë mbledh të gjithë endacakët — macet pa shtëpi. Prek për listën.';
 
   @override
   String get spotHomeMenu =>
-      'E re: kjo meny gjen macet dhe kolonitë e dyfishuara dhe i bashkon.';
+      'Në këtë meny: gjej dhe bashko dublikatat, eksporto CSV e më shumë.';
 
   @override
   String get spotCatEdit =>
-      'E re: faqja është vetëm për lexim — lapsi kalon në redaktim, shtypja e gjatë mbi një fushë e redakton direkt.';
+      'Prek lapsin për ta redaktuar macen. Këshillë: shtypja e gjatë mbi një fushë e redakton direkt.';
 
   @override
   String get spotMapLayers =>
-      'E re: shfaqni rrathë kërkimi 500 m rreth vendeve të fletushkave të një maceje të humbur.';
+      'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj.';
 
   @override
   String get spotStraysFlier =>
-      'E re: fotografoni fletushkën e një maceje të humbur — bëhet macja, pronari dhe kontakti.';
+      'Fletushkë maceje të humbur? Fotografoje këtu — aplikacioni ruan macen dhe kontaktin për ty.';
 
   @override
   String get spotStraysScan =>
-      'E re: skanoni një kod cat(a)log nga fletushka për ta importuar macen direkt.';
+      'Disa fletushka kanë kod QR cat(a)log. Skanoje këtu dhe importo macen pa shtypur.';
 
   @override
-  String get introTitle4 => 'Macet e humbura';
+  String get introTitle4 => 'Gjeni macet e humbura';
 
   @override
   String get introBody4 =>
-      'Fotografoni një fletushkë dhe macja e humbur hyn në katalog me kontaktin e pronarit. Vëzhgimet, rrathët e kërkimit dhe sugjerimet e përputhjes e ndihmojnë të kthehet në shtëpi.';
+      'Sheh një fletushkë për mace të humbur? Fotografoje në aplikacion: ruan macen, kontaktin e pronarit dhe vendin. Nëse më vonë shfaqet një endacake e ngjashme, aplikacioni sugjeron përputhje të mundshme.';
 
   @override
   String get spotMapSearch =>
-      'E re: kërko këtu mace, clowdera dhe persona — direkt në hartë.';
+      'Shkruaj një mace, vend a person që të hidhesh aty në hartë.';
 
   @override
   String get spotCardChips =>
-      'E re: zgjidh çfarë shfaqet në kartë para se ta ndash.';
+      'Shëno çfarë duhet të shfaqet në kartën e ndashme — pjesa tjetër mbetet jashtë.';
 
   @override
   String get spotCatMenu =>
-      'E re: shëno një mace si private (nuk e lë kurrë pajisjen) ose fshihe këtu.';
+      'Më shumë veprime këtu: shëno macen private, fshihe, bashko dublikata ose regjistro një vëzhgim.';
 
   @override
   String get spotDone => 'Kuptova';

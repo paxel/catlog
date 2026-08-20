@@ -54,7 +54,7 @@ void main() {
     expect(store.author, 'axel');
 
     // Fresh installs get the skippable intro first (never unskippable).
-    expect(find.text('Cats live in clowders'), findsOneWidget);
+    expect(find.text('Your cats, organized'), findsOneWidget);
     await tester.tap(find.text('Skip'));
     await tester.pumpAndSettle();
 

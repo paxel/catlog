@@ -181,7 +181,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka izgine z vseh seznamov in njene fotografije so odstranjene — tukaj in po naslednji sinhronizaciji tudi pri tvojih pomočnikih.';
+      'Mačka izgine z vseh seznamov in njene fotografije se odstranijo — tu in, po naslednji sinhronizaciji, tudi na drugih napravah.';
 
   @override
   String get sightingRecorded => 'Opažanje zabeleženo na vaši poziciji.';
@@ -290,7 +290,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Katalog zapustijo samo odkljukana polja. Vse drugo ostane doma.';
+      'Izberite, kaj gre v datoteko. Vključena so samo odkljukana polja.';
 
   @override
   String get exportShareFile => 'Izvozi datoteko za deljenje…';
@@ -615,7 +615,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinhronizirajte prek mape, ki jo oblak ali USB ključek prenaša med napravami — za tiste, ki niso v istem omrežju.';
+      'Obe napravi uporabljata isto mapo (npr. v Dropboxu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.';
 
   @override
   String get noFolderChosenYet => 'Mapa še ni izbrana';
@@ -910,7 +910,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav.';
+      'S tem se pošlje tudi vse, kar ste označili kot zasebno. Oseba, s katero sinhronizirate, bo to videla.';
 
   @override
   String get hideLabel => 'Skrij na tej napravi';
@@ -1169,25 +1169,25 @@ class AppLocalizationsSl extends AppLocalizations {
   String get selectClowderHint => 'Izberi clowder na levi';
 
   @override
-  String get introTitle1 => 'Mačke živijo v clowderih';
+  String get introTitle1 => 'Vaše mačke, urejeno';
 
   @override
   String get introBody1 =>
-      'Clowder je kraj, kjer živijo mačke: tvoj začasni dom, stanovanje posvojitelja, sosedov skedenj. Vsaka mačka ima kartico s fotografijo, podatki in celotno zgodbo.';
+      'Za vsako mačko ustvarite kartico: fotografija, spol, zdravje, kar koli želite zabeležiti. Mačke so razvrščene po kraju, kjer živijo — aplikacija mu pravi kolonija (clowder).';
 
   @override
-  String get introTitle2 => 'Vse ostane pri tebi';
+  String get introTitle2 => 'Deluje brez interneta';
 
   @override
   String get introBody2 =>
-      'Brez računa, brez oblaka, brez sledenja. Tvoji podatki živijo na tvoji napravi.';
+      'Vse se shranjuje samo v vaš telefon. Brez računa, brez oblaka. Nič se ne pošilja, dokler tega sami ne delite.';
 
   @override
-  String get introTitle3 => 'Deli s pomočniki';
+  String get introTitle3 => 'Sodelujte';
 
   @override
   String get introBody3 =>
-      'Skeniraj kodo in napravi se sinhronizirata v sekundah, uporabi deljeno mapo ali pošlji vse kot eno datoteko.';
+      'Vsak uporablja svojo aplikacijo in občasno izmenjate podatke: dobite se in skenirajte kodo, uporabite skupno mapo ali pošljite eno datoteko po messengerju. Potem imajo vsi enake podatke.';
 
   @override
   String get introSkip => 'Preskoči';
@@ -1203,49 +1203,50 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Novo: sinhronizacija zdaj ponuja tri jasne poti — in vprašanje zaupanja, preden karkoli steče.';
+      'Tu sinhronizirate s svojimi znanci. Vi odločate, kaj delite.';
 
   @override
   String get spotHomeStrays =>
-      'Novo: potepuhi imajo tu zgoraj svojo kartico — število, smrčki, tapnite za odpiranje.';
+      'Ta kartica zbira vse potepuhe — mačke brez doma. Tapnite za seznam.';
 
   @override
   String get spotHomeMenu =>
-      'Novo: ta meni najde podvojene mačke in kolonije ter jih združi.';
+      'V tem meniju: poiščite in združite dvojnike, izvozite CSV in več.';
 
   @override
   String get spotCatEdit =>
-      'Novo: stran je samo za branje — svinčnik preklopi na urejanje, dolg pritisk na polje ga uredi neposredno.';
+      'Tapnite svinčnik za urejanje mačke. Nasvet: dolg pritisk na polje ga uredi neposredno.';
 
   @override
   String get spotMapLayers =>
-      'Novo: prikažite 500-metrske iskalne kroge okoli mest letakov pogrešane mačke.';
+      'Iščete pogrešano mačko? Prikažite kroge okoli krajev njenih letakov.';
 
   @override
   String get spotStraysFlier =>
-      'Novo: fotografirajte letak pogrešane mačke — nastane mačka, lastnik in kontakt.';
+      'Letak o pogrešani mački? Fotografirajte ga tukaj — aplikacija shrani mačko in kontakt namesto vas.';
 
   @override
   String get spotStraysScan =>
-      'Novo: skenirajte kodo cat(a)log z letaka in mačko neposredno uvozite.';
+      'Nekateri letaki nosijo cat(a)log kodo QR. Skenirajte jo tukaj in mačko uvozite brez tipkanja.';
 
   @override
-  String get introTitle4 => 'Pogrešane mačke';
+  String get introTitle4 => 'Poiščite pogrešane mačke';
 
   @override
   String get introBody4 =>
-      'Fotografirajte letak in pogrešana mačka pride v katalog s kontaktom lastnika. Opažanja, iskalni krogi in predlogi ujemanj ji pomagajo domov.';
+      'Vidite letak o pogrešani mački? Fotografirajte ga v aplikaciji: shrani mačko, lastnikov kontakt in kraj. Če se pozneje pojavi podoben potepuh, aplikacija predlaga možna ujemanja.';
 
   @override
   String get spotMapSearch =>
-      'Novo: tukaj išči mačke, clowdere in osebe — neposredno na zemljevidu.';
+      'Vpišite mačko, kraj ali osebo, da skočite tja na zemljevidu.';
 
   @override
-  String get spotCardChips => 'Novo: pred deljenjem izberi, kaj bo na kartici.';
+  String get spotCardChips =>
+      'Odkljukajte, kaj naj bo na kartici za deljenje — ostalo ostane zunaj.';
 
   @override
   String get spotCatMenu =>
-      'Novo: označi mačko kot zasebno (nikoli ne zapusti naprave) ali jo tukaj skrij.';
+      'Več dejanj tukaj: označite mačko kot zasebno, jo skrijte, združite dvojnike ali zabeležite opažanje.';
 
   @override
   String get spotDone => 'Razumem';

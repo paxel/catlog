@@ -181,7 +181,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synkronisering, även hos dina hjälpare.';
+      'Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synk, även på de andra enheterna.';
 
   @override
   String get sightingRecorded => 'Observation sparad på din position.';
@@ -290,7 +290,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get shareWhitelistExplainer =>
-      'Bara de ikryssade fälten lämnar katalogen. Allt annat stannar hemma.';
+      'Välj vad som hamnar i filen. Bara ikryssade fält tas med.';
 
   @override
   String get exportShareFile => 'Exportera delningsfil…';
@@ -615,7 +615,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synkronisera via en mapp som en molntjänst eller USB-sticka bär mellan enheter — för dem som inte är på samma nätverk.';
+      'Båda enheterna använder samma mapp (t.ex. i Dropbox eller på ett USB-minne). Varje synk lägger dina ändringar där och hämtar den andras.';
 
   @override
   String get noFolderChosenYet => 'Ingen mapp vald ännu';
@@ -910,7 +910,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privata katter, grupper och fält delas också — slå bara på när du synkroniserar dina egna enheter.';
+      'Detta skickar också allt du markerat som privat. Den du synkar med kommer att se det.';
 
   @override
   String get hideLabel => 'Dölj på den här enheten';
@@ -1169,25 +1169,25 @@ class AppLocalizationsSv extends AppLocalizations {
   String get selectClowderHint => 'Välj en clowder till vänster';
 
   @override
-  String get introTitle1 => 'Katter bor i clowdrar';
+  String get introTitle1 => 'Dina katter, ordnade';
 
   @override
   String get introBody1 =>
-      'En clowder är en plats där katter bor: ditt jourhem, en adoptörs lägenhet, ladan intill. Varje katt får ett kort med foto, fakta och hela sin historia.';
+      'Skapa ett kort för varje katt: foto, kön, hälsa, allt du vill anteckna. Katterna grupperas efter var de bor — appen kallar en sådan plats för clowder.';
 
   @override
-  String get introTitle2 => 'Allt stannar hos dig';
+  String get introTitle2 => 'Fungerar utan internet';
 
   @override
   String get introBody2 =>
-      'Inget konto, inget moln, ingen spårning. Dina data bor på din enhet.';
+      'Allt sparas bara på din telefon. Inget konto, inget moln. Inget laddas upp om du inte själv delar det.';
 
   @override
-  String get introTitle3 => 'Dela med dina hjälpare';
+  String get introTitle3 => 'Arbeta tillsammans';
 
   @override
   String get introBody3 =>
-      'Skanna en kod så synkas två enheter på sekunder, använd en delad mapp eller skicka allt som en fil.';
+      'Alla använder sin egen app och ni byter data då och då: träffas och skanna en kod, använd en delad mapp eller skicka en fil via messenger. Efteråt har alla samma information.';
 
   @override
   String get introSkip => 'Hoppa över';
@@ -1203,50 +1203,50 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nytt: synkronisering erbjuder nu tre tydliga vägar — och en förtroendefråga innan något flödar.';
+      'Här synkar du med dina bekanta. Du bestämmer vad du delar.';
 
   @override
   String get spotHomeStrays =>
-      'Nytt: strykare har sitt eget kort här uppe — antal, nosar, tryck för att öppna.';
+      'Det här kortet samlar alla strykare — katter utan hem. Tryck för att se listan.';
 
   @override
   String get spotHomeMenu =>
-      'Nytt: den här menyn hittar dubblettkatter och -kolonier och slår ihop dem.';
+      'I den här menyn: hitta och slå ihop dubbletter, exportera CSV med mera.';
 
   @override
   String get spotCatEdit =>
-      'Nytt: sidan är skrivskyddad — pennan växlar till redigering, långtryck på ett fält redigerar det direkt.';
+      'Tryck på pennan för att redigera katten. Tips: långtryck på ett fält för att redigera det direkt.';
 
   @override
   String get spotMapLayers =>
-      'Nytt: visa 500 m sökcirklar runt en försvunnen katts anslagsplatser.';
+      'Letar du efter en försvunnen katt? Visa cirklar runt platserna för dess anslag.';
 
   @override
   String get spotStraysFlier =>
-      'Nytt: fotografera ett anslag om en försvunnen katt — det blir katten, ägaren och kontakten.';
+      'Hittat ett anslag om en försvunnen katt? Fotografera det här — appen sparar katt och kontakt åt dig.';
 
   @override
   String get spotStraysScan =>
-      'Nytt: skanna en cat(a)log-kod från ett anslag och importera katten direkt.';
+      'Vissa anslag bär en cat(a)log-QR-kod. Skanna den här och importera katten utan att skriva.';
 
   @override
-  String get introTitle4 => 'Försvunna katter';
+  String get introTitle4 => 'Hitta försvunna katter';
 
   @override
   String get introBody4 =>
-      'Fotografera ett anslag så hamnar den försvunna katten i katalogen med ägarens kontakt. Observationer, sökcirklar och matchförslag hjälper den hem.';
+      'Ser du ett anslag om en försvunnen katt? Fotografera det i appen: den sparar katten, ägarens kontakt och platsen. Dyker en liknande strykare upp senare föreslår appen möjliga träffar.';
 
   @override
   String get spotMapSearch =>
-      'Nytt: sök katter, clowdrar och personer här — direkt på kartan.';
+      'Skriv en katt, plats eller person för att hoppa dit på kartan.';
 
   @override
   String get spotCardChips =>
-      'Nytt: välj vad som visas på kortet innan du delar det.';
+      'Kryssa i vad som ska synas på det delbara kortet — resten hålls utanför.';
 
   @override
   String get spotCatMenu =>
-      'Nytt: markera en katt som privat (lämnar aldrig din enhet) eller dölj den här.';
+      'Fler åtgärder här: markera katten som privat, dölj den, slå ihop dubbletter eller anteckna en observation.';
 
   @override
   String get spotDone => 'Uppfattat';
