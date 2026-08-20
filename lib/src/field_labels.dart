@@ -1,4 +1,5 @@
 import 'package:catalog_core/catalog_core.dart';
+import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
 
@@ -32,6 +33,11 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (value == null) return '—';
   // Coordinates never face the user: positions live on the map.
   if (def?.type == FieldType.location) return t.onMapLabel;
+  // Dates are stored ISO but read in the device's format.
+  if (def?.type == FieldType.date) {
+    final date = DateTime.tryParse(value);
+    if (date != null) return DateFormat.yMd(t.localeName).format(date);
+  }
   if (def?.slug == 'breed') {
     return switch (value) {
       'European Shorthair' => t.breedEuropeanShorthair,

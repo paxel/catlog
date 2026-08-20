@@ -15,6 +15,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - Chip scanning is labeled "Scan printed code" and explains that the
   implanted chip itself can't be read by a phone.
+- Dates display in the device's format everywhere (27.12.2010 instead
+  of 2010-12-27).
 
 ### Fixed
 
