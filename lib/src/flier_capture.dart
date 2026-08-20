@@ -59,24 +59,35 @@ class FlierRegistryHit {
       this.take = true});
 }
 
-/// Registry links found in flier text or its QR codes, recognized
-/// against the shipped services (#40 follow-up).
-List<FlierRegistryHit> registryHitsIn(Iterable<String> urls) {
+/// Registry links found in flier text or its QR codes: matched first
+/// against the services already known to this catalog (ID fields with
+/// a lookup template), then against the ones the app ships. A service
+/// learned from an earlier poster is therefore recognized on the next.
+List<FlierRegistryHit> registryHitsIn(Iterable<String> urls,
+    {Iterable<FieldDef> defs = const []}) {
   final hits = <FlierRegistryHit>[];
   for (final url in urls) {
-    final hit = recognizeLookupUrl(url);
-    if (hit == null) continue;
-    if (hits.any((h) =>
-        h.serviceName == hit.preset.name && h.value == hit.value)) {
-      continue;
+    for (final (name, template) in [
+      for (final def in defs)
+        if (def.lookupUrl case final template?)
+          if (template.isNotEmpty) (def.name, template),
+      for (final preset in registryPresets) (preset.name, preset.template),
+    ]) {
+      final value = idFromLookupUrl(template, url);
+      if (value == null) continue;
+      if (!hits.any((h) => h.serviceName == name && h.value == value)) {
+        hits.add(FlierRegistryHit(
+            serviceName: name, template: template, value: value));
+      }
+      break;
     }
-    hits.add(FlierRegistryHit(
-        serviceName: hit.preset.name,
-        template: hit.preset.template,
-        value: hit.value));
   }
   return hits;
 }
+
+/// True when [url] belongs to no service this catalog knows or ships.
+bool isUnknownService(String url, Iterable<FieldDef> defs) =>
+    registryHitsIn([url], defs: defs).isEmpty;
 
 /// Flier capture (#32, ADR-0007): a photographed missing-cat flier
 /// becomes an owner Clowder plus a Missing Cat that went stray on the
@@ -214,14 +225,15 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         for (final code in codes)
           if (code.toLowerCase().startsWith('http')) code,
       ];
+      final defs = store.fieldDefs();
       _registryHits
         ..clear()
-        ..addAll(registryHitsIn(urls));
+        ..addAll(registryHitsIn(urls, defs: defs));
       _unknownLinks
         ..clear()
         ..addAll([
           for (final url in urls)
-            if (recognizeLookupUrl(url) == null) url
+            if (isUnknownService(url, defs)) url
         ]);
     });
   }

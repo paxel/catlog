@@ -180,6 +180,21 @@ void main() {
         'https://www.tasso.net/Tierregister/Suchmeldungen?snr=S3101849');
   });
 
+  testWidgets('a service learned once is recognized on the next flier',
+      (tester) async {
+    // What "remember service" leaves behind: an ID field with a template.
+    store.defineField('Pet Register', FieldType.id,
+        scope: FieldScope.cat,
+        lookupUrl: 'https://pets.example/search?id={value}');
+    await pump(tester,
+        text: 'MISSING\nhttps://pets.example/search?id=AB-42&lang=en');
+    await toReview(tester);
+    expect(find.textContaining('AB-42'), findsWidgets);
+    await save(tester);
+    final cat = store.cats().single;
+    expect(store.current(cat.id, Keys.userField('pet-register')), 'AB-42');
+  });
+
   testWidgets('a QR code on the poster counts as a link too',
       (tester) async {
     await pump(tester, text: 'MISSING: Minka', codes: [_tassoUrl]);
