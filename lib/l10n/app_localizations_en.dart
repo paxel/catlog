@@ -990,6 +990,26 @@ class AppLocalizationsEn extends AppLocalizations {
       'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Restore $count deleted entries?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names are deleted in this catalog, and the file you just imported carries them. Restoring brings them back here and on every device you sync with.';
+  }
+
+  @override
+  String get restoreAction => 'Restore';
+
+  @override
+  String get keepDeleted => 'Keep deleted';
+
+  @override
+  String get archiveNotSaved =>
+      'Nothing was deleted: the archive was not saved anywhere.';
+
+  @override
   String get locateAddress => 'Find address on the map';
 
   @override

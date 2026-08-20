@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:archive/archive.dart';
 
+import 'entry.dart';
 import 'fields.dart';
 import 'store.dart';
 
@@ -42,10 +44,18 @@ List<ArchiveCandidate> archiveCandidates(CatalogStore store,
     DateTime? now}) {
   final today = now ?? DateTime.now();
   final result = <ArchiveCandidate>[];
+  // One pass over the log, not one per entity: these catalogs are big
+  // by definition — that is why the feature exists.
+  final newest = <String, DateTime>{};
+  for (final e in store.entriesSince(const {}, includePrivate: true)) {
+    final id = store.resolveEntity(e.entity);
+    final known = newest[id];
+    if (known == null || e.date.isAfter(known)) newest[id] = e.date;
+  }
 
   void add(String id, String name, bool isCat) {
     if (store.isPrivate(id)) return;
-    final last = _lastChange(store, id);
+    final last = newest[store.resolveEntity(id)];
     if (last == null || today.difference(last) < inactiveFor) return;
     var bytes = 0;
     for (final hash in store.images(id)) {
@@ -72,15 +82,6 @@ List<ArchiveCandidate> archiveCandidates(CatalogStore store,
   return result;
 }
 
-DateTime? _lastChange(CatalogStore store, String id) {
-  DateTime? last;
-  for (final e in store.entriesSince(const {}, includePrivate: true)) {
-    if (store.resolveEntity(e.entity) != store.resolveEntity(id)) continue;
-    if (last == null || e.date.isAfter(last)) last = e.date;
-  }
-  return last;
-}
-
 /// Writes the archive file: every entry of the chosen entities plus
 /// their photos, and the Field definitions, so a re-import renders the
 /// cards exactly as they were. Returns the path.
@@ -95,7 +96,26 @@ String writeArchive(CatalogStore store, String path,
           defs.contains(e.entity))
         e
   ];
-  final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
+  // Re-stamped under a fresh device id: a partial file must never carry
+  // the original (device, dseq) rows, or the importer's version vector
+  // would claim knowledge of everything else that device ever wrote and
+  // a later real sync would skip it forever (same rule as flier_share).
+  final device = 'archive-${_randomId()}';
+  var dseq = 0;
+  final jsonl = entries.map((e) {
+    dseq++;
+    return jsonEncode(Entry(
+      seq: -1,
+      device: device,
+      dseq: dseq,
+      entity: e.entity,
+      field: e.field,
+      value: e.value,
+      date: e.date,
+      author: e.author,
+      recorded: e.recorded,
+    ).toJson());
+  }).join('\n');
   final bytes = utf8.encode(jsonl);
   archive.addFile(ArchiveFile('entries.jsonl', bytes.length, bytes));
   final seen = <String>{};
@@ -126,3 +146,20 @@ void deleteArchived(CatalogStore store, Set<String> entityIds,
     }
   }
 }
+
+/// Entities that an import brought in but that are deleted in this
+/// catalog — an archive file coming home. Deleting is stronger than
+/// any old entry, so restoring them is a decision, never automatic.
+List<String> restorableEntities(CatalogStore store, List<Entry> applied) {
+  final ids = <String>{};
+  for (final e in applied) {
+    final id = store.resolveEntity(e.entity);
+    if (store.current(id, Keys.deleted) == 'true') ids.add(id);
+  }
+  return ids.toList();
+}
+
+final _random = Random.secure();
+
+String _randomId() =>
+    List.generate(8, (_) => _random.nextInt(16).toRadixString(16)).join();

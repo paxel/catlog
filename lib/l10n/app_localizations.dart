@@ -1850,6 +1850,36 @@ abstract class AppLocalizations {
   /// **'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.'**
   String get helpArchive;
 
+  /// No description provided for @restoreDeletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore {count} deleted entries?'**
+  String restoreDeletedTitle(int count);
+
+  /// No description provided for @restoreDeletedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} are deleted in this catalog, and the file you just imported carries them. Restoring brings them back here and on every device you sync with.'**
+  String restoreDeletedBody(String names);
+
+  /// No description provided for @restoreAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restoreAction;
+
+  /// No description provided for @keepDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep deleted'**
+  String get keepDeleted;
+
+  /// No description provided for @archiveNotSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the archive was not saved anywhere.'**
+  String get archiveNotSaved;
+
   /// No description provided for @locateAddress.
   ///
   /// In en, this message translates to:

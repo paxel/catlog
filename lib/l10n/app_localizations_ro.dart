@@ -993,6 +993,26 @@ class AppLocalizationsRo extends AppLocalizations {
       'Datele vechi costă spațiu, mai ales pozele pe care fiecare dispozitiv sincronizat le cară. Aici alegi pisici decedate și colonii goale liniștite de ani de zile, le scrii într-un fișier pe care îl păstrezi și le ștergi. Ștergerea ajunge la toți cei cu care sincronizezi; importul fișierului restaurează totul.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Restaurezi $count intrări șterse?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sunt șterse în acest catalog, iar fișierul tocmai importat le conține. Restaurarea le aduce înapoi aici și pe fiecare dispozitiv cu care sincronizezi.';
+  }
+
+  @override
+  String get restoreAction => 'Restaurează';
+
+  @override
+  String get keepDeleted => 'Lasă șterse';
+
+  @override
+  String get archiveNotSaved =>
+      'Nu s-a șters nimic: arhiva nu a fost salvată nicăieri.';
+
+  @override
   String get locateAddress => 'Caută adresa pe hartă';
 
   @override

@@ -995,6 +995,26 @@ class AppLocalizationsMt extends AppLocalizations {
       'Data qadima tiswa spazju, l-aktar ir-ritratti li kull apparat sinkronizzat iġorr. Hawn tagħżel qtates mejta u kolonji vojta li ilhom kwieti snin, tiktibhom f\'fajl li żżomm, u tħassarhom. It-tħassir jasal għand kull min tissinkronizza miegħu; l-importazzjoni tal-fajl treġġa\' kollox lura.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Terġa\' ddaħħal $count entrati mħassra?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names huma mħassra f\'dan il-katalgu, u l-fajl li għadek kif importajt fih dawn. It-treġġigħ lura jġibhom hawn u fuq kull apparat li tissinkronizza miegħu.';
+  }
+
+  @override
+  String get restoreAction => 'Erġa\' daħħal';
+
+  @override
+  String get keepDeleted => 'Ħallihom imħassra';
+
+  @override
+  String get archiveNotSaved =>
+      'Ma tħassar xejn: l-arkivju ma ġie ssejvjat imkien.';
+
+  @override
   String get locateAddress => 'Sib l-indirizz fuq il-mappa';
 
   @override

@@ -995,6 +995,26 @@ class AppLocalizationsIt extends AppLocalizations {
       'I dati vecchi costano spazio, soprattutto le foto che ogni dispositivo sincronizzato si porta dietro. Qui scegli gatti deceduti e colonie vuote ferme da anni, li scrivi in un file che tieni tu e li elimini. L\'eliminazione raggiunge tutti quelli con cui sincronizzi; importare il file ripristina tutto.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Ripristinare $count voci eliminate?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sono eliminati in questo catalogo e il file appena importato li contiene. Il ripristino li riporta qui e su ogni dispositivo con cui sincronizzi.';
+  }
+
+  @override
+  String get restoreAction => 'Ripristina';
+
+  @override
+  String get keepDeleted => 'Lascia eliminati';
+
+  @override
+  String get archiveNotSaved =>
+      'Non è stato eliminato nulla: l\'archivio non è stato salvato da nessuna parte.';
+
+  @override
   String get locateAddress => 'Trova l\'indirizzo sulla mappa';
 
   @override

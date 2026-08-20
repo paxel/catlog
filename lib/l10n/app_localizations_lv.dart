@@ -991,6 +991,26 @@ class AppLocalizationsLv extends AppLocalizations {
       'Vecie dati maksā vietu, jo īpaši fotoattēli, ko nes līdzi katra sinhronizētā ierīce. Šeit izvēlaties mirušos kaķus un tukšās kolonijas, kas gadiem nav mainījušās, ierakstāt tos failā, ko paturat, un izdzēšat. Dzēšana sasniedz visus, ar kuriem sinhronizējat; faila imports visu atjauno.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Atjaunot $count izdzēstos ierakstus?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names šajā katalogā ir izdzēsti, un tikko importētais fails tos satur. Atjaunošana tos atgriež šeit un katrā ierīcē, ar kuru sinhronizējat.';
+  }
+
+  @override
+  String get restoreAction => 'Atjaunot';
+
+  @override
+  String get keepDeleted => 'Atstāt izdzēstus';
+
+  @override
+  String get archiveNotSaved =>
+      'Nekas netika izdzēsts: arhīvs netika nekur saglabāts.';
+
+  @override
   String get locateAddress => 'Meklēt adresi kartē';
 
   @override

@@ -994,6 +994,26 @@ class AppLocalizationsNl extends AppLocalizations {
       'Oude gegevens kosten ruimte, vooral de foto\'s die elk gesynchroniseerd apparaat meesleept. Hier kies je overleden katten en lege kolonies die al jaren stil zijn, schrijf je ze naar een bestand dat je bewaart, en verwijder je ze. De verwijdering bereikt iedereen met wie je synchroniseert; het bestand importeren zet alles terug.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '$count verwijderde items herstellen?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names zijn in deze catalogus verwijderd, en het zojuist geïmporteerde bestand bevat ze. Herstellen brengt ze hier terug en op elk apparaat waarmee je synchroniseert.';
+  }
+
+  @override
+  String get restoreAction => 'Herstellen';
+
+  @override
+  String get keepDeleted => 'Verwijderd laten';
+
+  @override
+  String get archiveNotSaved =>
+      'Er is niets verwijderd: het archief is nergens opgeslagen.';
+
+  @override
   String get locateAddress => 'Adres op de kaart zoeken';
 
   @override

@@ -92,8 +92,38 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
 /// hide toggle — the "import filter" is a hide, by design.
 Future<void> showImportSummary(
     BuildContext context, CatalogStore store, List<Entry> applied) async {
+  // An archive file coming home: what it carries is deleted here, and
+  // deletion outranks every entry in the file. Ask before undoing it.
+  final restorable = restorableEntities(store, applied);
+  if (restorable.isNotEmpty && context.mounted) {
+    final t = context.t;
+    final names = [
+      for (final id in restorable)
+        store.current(id, Keys.name) ?? t.unnamed
+    ];
+    final restore = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.restoreDeletedTitle(restorable.length)),
+        content: Text(t.restoreDeletedBody(names.join(', '))),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(t.keepDeleted)),
+          FilledButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(t.restoreAction)),
+        ],
+      ),
+    );
+    if (restore == true) {
+      for (final id in restorable) {
+        store.restoreEntity(id);
+      }
+    }
+  }
   final summary = classifyImport(store, applied);
-  if (summary.isEmpty) return;
+  if (summary.isEmpty || !context.mounted) return;
   await showModalBottomSheet<void>(
     context: context,
     builder: (context) =>

@@ -991,6 +991,26 @@ class AppLocalizationsSv extends AppLocalizations {
       'Gamla data kostar plats, framför allt bilderna som varje synkad enhet bär med sig. Här väljer du avlidna katter och tomma kolonier som legat stilla i åratal, skriver dem till en fil du behåller och raderar dem. Raderingen når alla du synkar med; att importera filen återställer allt.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Återställa $count raderade poster?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names är raderade i den här katalogen, och filen du just importerade innehåller dem. Att återställa hämtar tillbaka dem här och på varje enhet du synkar med.';
+  }
+
+  @override
+  String get restoreAction => 'Återställ';
+
+  @override
+  String get keepDeleted => 'Låt vara raderade';
+
+  @override
+  String get archiveNotSaved =>
+      'Inget raderades: arkivet sparades inte någonstans.';
+
+  @override
   String get locateAddress => 'Hitta adressen på kartan';
 
   @override

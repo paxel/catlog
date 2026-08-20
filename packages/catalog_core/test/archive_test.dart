@@ -75,6 +75,42 @@ void main() {
     expect(other.current(restored.id, Keys.userField('color')), 'tabby');
   });
 
+  test('an archive coming home can be restored in the same catalog', () {
+    final cat = store.createCat('Mimzy', date: long);
+    store.append(cat, Keys.userField('color'), 'tabby', date: long);
+    store.addImage(cat, CatalogStore.compressImage(_jpeg()));
+    final path = writeArchive(store, '${dir.path}/archive.catsync',
+        entityIds: {cat});
+    deleteArchived(store, {cat});
+    expect(store.cats().where((c) => c.id == cat), isEmpty);
+
+    // Import alone leaves the deletion standing — it is newer than
+    // everything in the file.
+    final result = importBundle(store, path);
+    expect(store.cats().where((c) => c.id == cat), isEmpty);
+    final restorable = restorableEntities(store, result.applied);
+    expect(restorable, [cat]);
+
+    store.restoreEntity(cat);
+    expect(store.cats().single.name, 'Mimzy');
+    expect(store.current(cat, Keys.userField('color')), 'tabby');
+    // The photo came back with the file.
+    expect(store.images(cat), hasLength(1));
+  });
+
+  test('the archive file never carries the original device rows', () {
+    final cat = store.createCat('Mimzy', date: long);
+    final path = writeArchive(store, '${dir.path}/archive.catsync',
+        entityIds: {cat});
+    final other = CatalogStore.inMemory();
+    addTearDown(other.close);
+    other.author = 'other';
+    importBundle(other, path);
+    // The importer must not claim knowledge of this device's log, or a
+    // later real sync would skip everything withheld from the archive.
+    expect(other.versionVector().keys.where((d) => d == store.deviceId), isEmpty);
+  });
+
   test('storage usage counts the database and the photos', () {
     final before = store.storageUsage();
     final cat = store.createCat('Minka');

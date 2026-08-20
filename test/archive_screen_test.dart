@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/import_summary.dart';
 import 'package:catlog/src/screens/archive_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -85,5 +86,36 @@ void main() {
 
     expect(find.textContaining('Nothing was deleted'), findsOneWidget);
     expect(store.cats().where((c) => c.id == cat), isNotEmpty);
+  });
+
+  testWidgets('importing the archive back offers to restore it',
+      (tester) async {
+    final long = DateTime(2020, 1, 1);
+    final cat = store.createCat('Mimzy', date: long);
+    store.append(cat, Keys.userField('deceased'), '2020-03-01',
+        date: long);
+    final path = writeArchive(store, '${dir.path}/out.catsync',
+        entityIds: {cat});
+    deleteArchived(store, {cat});
+    final applied = importBundle(store, path).applied;
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Builder(
+        builder: (context) => TextButton(
+          onPressed: () => showImportSummary(context, store, applied),
+          child: const Text('go'),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('go'));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('deleted in this catalog'), findsOneWidget);
+    expect(store.cats().where((c) => c.id == cat), isEmpty);
+    await tester.tap(find.widgetWithText(FilledButton, 'Restore'));
+    await tester.pumpAndSettle();
+    expect(store.cats().single.name, 'Mimzy');
   });
 }

@@ -995,6 +995,26 @@ class AppLocalizationsMk extends AppLocalizations {
       'Старите податоци чинат простор, најмногу фотографиите што ги носи секој синхронизиран уред. Тука избирате умрени мачки и празни колонии што со години мируваат, ги запишувате во датотека што ја чувате и ги бришете. Бришењето стигнува до сите со кои синхронизирате; увозот на датотеката враќа сè.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Да се вратат $count избришани записи?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names се избришани во овој каталог, а датотеката што штотуку ја увезовте ги содржи. Враќањето ги враќа тука и на секој уред со кој синхронизирате.';
+  }
+
+  @override
+  String get restoreAction => 'Врати';
+
+  @override
+  String get keepDeleted => 'Остави избришани';
+
+  @override
+  String get archiveNotSaved =>
+      'Ништо не е избришано: архивата не е зачувана никаде.';
+
+  @override
   String get locateAddress => 'Најди ја адресата на картата';
 
   @override

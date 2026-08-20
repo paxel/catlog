@@ -996,6 +996,26 @@ class AppLocalizationsGa extends AppLocalizations {
       'Cosnaíonn sonraí sean spás, go háirithe na grianghraif a iompraíonn gach gléas sioncronaithe. Anseo roghnaíonn tú cait a fuair bás agus coilíneachtaí folmha atá ciúin le blianta, scríobhann tú i gcomhad iad a choinníonn tú, agus scriosann tú iad. Sroicheann an scriosadh gach duine a shioncronaíonn tú leis; cuireann iompórtáil an chomhaid gach rud ar ais.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Athchóirigh $count iontráil scriosta?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return 'Tá $names scriosta sa chatalóg seo, agus tá siad sa chomhad a d\'iompórtáil tú anois. Cuireann an t-athchóiriú ar ais anseo iad agus ar gach gléas a shioncronaíonn tú leis.';
+  }
+
+  @override
+  String get restoreAction => 'Athchóirigh';
+
+  @override
+  String get keepDeleted => 'Fág scriosta';
+
+  @override
+  String get archiveNotSaved =>
+      'Níor scriosadh aon rud: níor sábháladh an chartlann in aon áit.';
+
+  @override
   String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
 
   @override

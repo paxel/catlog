@@ -990,6 +990,25 @@ class AppLocalizationsFa extends AppLocalizations {
       'داده‌های قدیمی جا می‌گیرند، به‌ویژه عکس‌هایی که هر دستگاه همگام‌شده با خود می‌برد. اینجا گربه‌های درگذشته و کلونی‌های خالیِ سال‌ها ساکن را انتخاب می‌کنید، در فایلی که نگه می‌دارید می‌نویسید و حذفشان می‌کنید. حذف به همهٔ کسانی که با آن‌ها همگام می‌شوید می‌رسد؛ وارد کردن فایل همه‌چیز را بازمی‌گرداند.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '$count مورد حذف‌شده بازیابی شود؟';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names در این فهرست حذف شده‌اند و فایلی که تازه وارد کردید آن‌ها را دارد. بازیابی آن‌ها را اینجا و روی همهٔ دستگاه‌هایی که با آن‌ها همگام می‌شوید برمی‌گرداند.';
+  }
+
+  @override
+  String get restoreAction => 'بازیابی';
+
+  @override
+  String get keepDeleted => 'حذف‌شده بماند';
+
+  @override
+  String get archiveNotSaved => 'چیزی حذف نشد: بایگانی هیچ‌جا ذخیره نشد.';
+
+  @override
   String get locateAddress => 'یافتن نشانی روی نقشه';
 
   @override

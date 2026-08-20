@@ -996,6 +996,26 @@ class AppLocalizationsEs extends AppLocalizations {
       'Los datos viejos ocupan espacio, sobre todo las fotos, que cada dispositivo sincronizado arrastra. Aquí eliges gatos fallecidos y colonias vacías que llevan años quietos, los escribes en un archivo que guardas y los borras. El borrado llega a todos con quienes sincronizas; importar el archivo lo restaura todo.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '¿Restaurar $count entradas borradas?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names están borrados en este catálogo y el archivo que acabas de importar los contiene. Restaurarlos los devuelve aquí y a todos los dispositivos con los que sincronizas.';
+  }
+
+  @override
+  String get restoreAction => 'Restaurar';
+
+  @override
+  String get keepDeleted => 'Dejar borrados';
+
+  @override
+  String get archiveNotSaved =>
+      'No se borró nada: el archivo no se guardó en ningún sitio.';
+
+  @override
   String get locateAddress => 'Buscar la dirección en el mapa';
 
   @override

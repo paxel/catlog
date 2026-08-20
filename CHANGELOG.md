@@ -23,6 +23,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   file you keep and then deleted — on your device and on every device
   you sync with. Importing the file brings them back. The page also
   shows what the catalog currently costs in database and photo space.
+  Importing such a file into the catalog it came from asks whether the
+  deleted entries should be restored — photos included.
 
 - **Help on every page**: a "?" in the app bar explains what the page
   is for, what you can do there, and what tap and long-press do — plus a

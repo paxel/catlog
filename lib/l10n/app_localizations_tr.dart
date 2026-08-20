@@ -991,6 +991,26 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eski veriler yer kaplar, özellikle her eşitlenen cihazın taşıdığı fotoğraflar. Burada yıllardır sessiz duran ölmüş kedileri ve boş kolonileri seçer, sakladığınız bir dosyaya yazar ve silersiniz. Silme, eşitlediğiniz herkese ulaşır; dosyayı içe aktarmak her şeyi geri yükler.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '$count silinmiş kayıt geri yüklensin mi?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names bu katalogda silinmiş durumda ve az önce içe aktardığınız dosya bunları içeriyor. Geri yükleme onları buraya ve eşitlediğiniz her cihaza geri getirir.';
+  }
+
+  @override
+  String get restoreAction => 'Geri yükle';
+
+  @override
+  String get keepDeleted => 'Silinmiş kalsın';
+
+  @override
+  String get archiveNotSaved =>
+      'Hiçbir şey silinmedi: arşiv hiçbir yere kaydedilmedi.';
+
+  @override
   String get locateAddress => 'Adresi haritada bul';
 
   @override

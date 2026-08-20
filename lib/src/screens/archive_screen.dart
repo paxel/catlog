@@ -39,7 +39,11 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
   final _selected = <String>{};
   bool _working = false;
 
-  List<ArchiveCandidate> _candidates() => archiveCandidates(store,
+  /// Computed when the data or the threshold changes, not on every
+  /// checkbox tap — the scan walks the whole log.
+  List<ArchiveCandidate>? _cache;
+
+  List<ArchiveCandidate> _candidates() => _cache ??= archiveCandidates(store,
       inactiveFor: Duration(days: 365 * _years));
 
   Future<void> _archive() async {
@@ -83,8 +87,17 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
         path = writeArchive(store, '${dir.path}/$name',
             entityIds: {..._selected});
         if (!mounted) return;
-        await shareFiles(
+        final result = await shareFiles(
             context, [XFile(path, mimeType: 'application/zip')]);
+        // The temp file is not a safe place: unless the share really
+        // went somewhere, nothing may be deleted.
+        if (result.status != ShareResultStatus.success) {
+          if (!mounted) return;
+          setState(() => _working = false);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(t.archiveNotSaved)));
+          return;
+        }
       }
     } catch (e) {
       if (!mounted) return;
@@ -100,6 +113,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
     setState(() {
       _selected.clear();
       _working = false;
+      _cache = null;
     });
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(t.archiveDone(names.length))));
@@ -135,6 +149,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
                 onSelected: (_) => setState(() {
                   _years = years;
                   _selected.clear();
+                  _cache = null;
                 }),
               ),
           ]),

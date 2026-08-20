@@ -973,6 +973,25 @@ class AppLocalizationsJa extends AppLocalizations {
       '古いデータは容量を使います。とくに、同期する端末すべてが持ち歩く写真です。ここでは何年も動きのない亡くなった猫や空のコロニーを選び、手元に残すファイルへ書き出してから削除します。削除は同期相手全員に伝わります。ファイルを取り込めばすべて復元できます。';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '削除済みの $count 件を復元しますか？';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names はこのカタログで削除済みですが、いま取り込んだファイルに含まれています。復元すると、この端末でも同期先のすべての端末でも元に戻ります。';
+  }
+
+  @override
+  String get restoreAction => '復元';
+
+  @override
+  String get keepDeleted => '削除のままにする';
+
+  @override
+  String get archiveNotSaved => '何も削除していません：アーカイブはどこにも保存されませんでした。';
+
+  @override
   String get locateAddress => '住所を地図で探す';
 
   @override

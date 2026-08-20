@@ -993,6 +993,26 @@ class AppLocalizationsLt extends AppLocalizations {
       'Seni duomenys kainuoja vietos, ypač nuotraukos, kurias tempia kiekvienas sinchronizuotas įrenginys. Čia pasirenkate metų metus nejudėjusias nugaišusias kates ir tuščias kolonijas, įrašote jas į failą, kurį pasiliekate, ir ištrinate. Ištrynimas pasiekia visus, su kuriais sinchronizuojate; failo importas viską atkuria.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Atkurti $count ištrintų įrašų?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names šiame kataloge ištrinti, o ką tik importuotas failas juos turi. Atkūrimas grąžins juos čia ir į kiekvieną įrenginį, su kuriuo sinchronizuojate.';
+  }
+
+  @override
+  String get restoreAction => 'Atkurti';
+
+  @override
+  String get keepDeleted => 'Palikti ištrintus';
+
+  @override
+  String get archiveNotSaved =>
+      'Nieko neištrinta: archyvas niekur neišsaugotas.';
+
+  @override
   String get locateAddress => 'Rasti adresą žemėlapyje';
 
   @override

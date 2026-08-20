@@ -992,6 +992,26 @@ class AppLocalizationsCs extends AppLocalizations {
       'Stará data stojí místo, hlavně fotky, které si nese každé synchronizované zařízení. Tady vyberete zemřelé kočky a prázdné kolonie, které jsou roky beze změny, zapíšete je do souboru, který si necháte, a smažete je. Smazání dorazí ke všem, s nimiž synchronizujete; import souboru vše obnoví.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnovit $count smazaných položek?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names jsou v tomto katalogu smazané a právě importovaný soubor je obsahuje. Obnovení je vrátí sem i na každé zařízení, se kterým synchronizujete.';
+  }
+
+  @override
+  String get restoreAction => 'Obnovit';
+
+  @override
+  String get keepDeleted => 'Nechat smazané';
+
+  @override
+  String get archiveNotSaved =>
+      'Nic nebylo smazáno: archiv nebyl nikam uložen.';
+
+  @override
   String get locateAddress => 'Najít adresu na mapě';
 
   @override

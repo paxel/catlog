@@ -991,6 +991,26 @@ class AppLocalizationsDa extends AppLocalizations {
       'Gamle data fylder, især billederne, som hver synkroniseret enhed slæber rundt på. Her vælger du afdøde katte og tomme kolonier, der har ligget stille i årevis, skriver dem til en fil, du gemmer, og sletter dem. Sletningen når alle, du synkroniserer med; import af filen gendanner alt.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Gendan $count slettede poster?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names er slettet i dette katalog, og filen du lige importerede indeholder dem. Gendannelse henter dem tilbage her og på alle enheder, du synkroniserer med.';
+  }
+
+  @override
+  String get restoreAction => 'Gendan';
+
+  @override
+  String get keepDeleted => 'Behold slettet';
+
+  @override
+  String get archiveNotSaved =>
+      'Intet blev slettet: arkivet blev ikke gemt nogen steder.';
+
+  @override
   String get locateAddress => 'Find adressen på kortet';
 
   @override

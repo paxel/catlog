@@ -961,6 +961,25 @@ class AppLocalizationsZh extends AppLocalizations {
       '旧数据占用空间，尤其是每台同步设备都要携带的照片。在这里你可以挑选多年没有变化的已故猫和空猫群，写入一个自己保存的文件，然后删除它们。删除会传达给所有与你同步的人；导入该文件可全部恢复。';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return '恢复 $count 条已删除的记录吗？';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names 在本目录中已被删除，而你刚导入的文件包含它们。恢复会让它们回到这里，以及所有与你同步的设备上。';
+  }
+
+  @override
+  String get restoreAction => '恢复';
+
+  @override
+  String get keepDeleted => '保持删除';
+
+  @override
+  String get archiveNotSaved => '未删除任何内容：归档没有保存到任何地方。';
+
+  @override
   String get locateAddress => '在地图上查找地址';
 
   @override

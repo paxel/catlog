@@ -992,6 +992,26 @@ class AppLocalizationsSl extends AppLocalizations {
       'Stari podatki stanejo prostor, predvsem fotografije, ki jih nosi vsaka sinhronizirana naprava. Tu izbereš poginule mačke in prazne kolonije, ki leta mirujejo, jih zapišeš v datoteko, ki jo obdržiš, in jih izbrišeš. Izbris doseže vse, s katerimi sinhroniziraš; uvoz datoteke vse obnovi.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnovim $count izbrisanih vnosov?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names so v tem katalogu izbrisani, datoteka, ki si jo pravkar uvozil, pa jih vsebuje. Obnovitev jih vrne sem in na vsako napravo, s katero sinhroniziraš.';
+  }
+
+  @override
+  String get restoreAction => 'Obnovi';
+
+  @override
+  String get keepDeleted => 'Naj ostanejo izbrisani';
+
+  @override
+  String get archiveNotSaved =>
+      'Nič ni bilo izbrisano: arhiv ni bil nikamor shranjen.';
+
+  @override
   String get locateAddress => 'Poišči naslov na zemljevidu';
 
   @override

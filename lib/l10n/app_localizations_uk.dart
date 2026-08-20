@@ -992,6 +992,25 @@ class AppLocalizationsUk extends AppLocalizations {
       'Старі дані займають місце, передусім фотографії, які тягне за собою кожен синхронізований пристрій. Тут ви обираєте померлих котів і порожні колонії, що роками не змінювалися, записуєте їх у файл, який зберігаєте, і видаляєте. Видалення сягає всіх, з ким ви синхронізуєтеся; імпорт файлу відновлює все.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Відновити видалені записи ($count)?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names видалені в цьому каталозі, а щойно імпортований файл їх містить. Відновлення поверне їх сюди і на всі пристрої, з якими ви синхронізуєтеся.';
+  }
+
+  @override
+  String get restoreAction => 'Відновити';
+
+  @override
+  String get keepDeleted => 'Залишити видаленими';
+
+  @override
+  String get archiveNotSaved => 'Нічого не видалено: архів ніде не збережено.';
+
+  @override
   String get locateAddress => 'Знайти адресу на карті';
 
   @override

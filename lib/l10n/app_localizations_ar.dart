@@ -988,6 +988,25 @@ class AppLocalizationsAr extends AppLocalizations {
       'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'استعادة $count عنصرًا محذوفًا؟';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names محذوفة في هذا الفهرس، والملف الذي استوردته للتو يحتوي عليها. الاستعادة تعيدها هنا وعلى كل جهاز تزامن معه.';
+  }
+
+  @override
+  String get restoreAction => 'استعادة';
+
+  @override
+  String get keepDeleted => 'اتركها محذوفة';
+
+  @override
+  String get archiveNotSaved => 'لم يُحذف شيء: لم يُحفظ الأرشيف في أي مكان.';
+
+  @override
   String get locateAddress => 'ابحث عن العنوان على الخريطة';
 
   @override

@@ -990,6 +990,26 @@ class AppLocalizationsEt extends AppLocalizations {
       'Vanad andmed maksavad ruumi, eelkõige pildid, mida iga sünkroonitud seade kaasas kannab. Siin valid surnud kassid ja tühjad koloniad, mis on aastaid vaikinud, kirjutad need faili, mille alles hoiad, ja kustutad. Kustutamine jõuab kõigini, kellega sünkroonid; faili import taastab kõik.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Kas taastada $count kustutatud kirjet?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names on selles kataloogis kustutatud ja äsja imporditud fail sisaldab neid. Taastamine toob need tagasi siia ja igasse seadmesse, millega sünkroonid.';
+  }
+
+  @override
+  String get restoreAction => 'Taasta';
+
+  @override
+  String get keepDeleted => 'Jäta kustutatuks';
+
+  @override
+  String get archiveNotSaved =>
+      'Midagi ei kustutatud: arhiivi ei salvestatud kuhugi.';
+
+  @override
   String get locateAddress => 'Otsi aadress kaardilt';
 
   @override

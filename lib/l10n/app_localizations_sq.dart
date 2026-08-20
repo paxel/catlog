@@ -994,6 +994,25 @@ class AppLocalizationsSq extends AppLocalizations {
       'Të dhënat e vjetra kushtojnë hapësirë, sidomos fotot që i mbart çdo pajisje e sinkronizuar. Këtu zgjedh macet e ngordhura dhe koloni bosh që rrinë prej vitesh, i shkruan në një skedar që e mban, dhe i fshin. Fshirja arrin te të gjithë me të cilët sinkronizon; importimi i skedarit i rikthen të gjitha.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Të rikthehen $count zëra të fshirë?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names janë të fshirë në këtë katalog, dhe skedari që sapo importove i përmban. Rikthimi i sjell këtu dhe në çdo pajisje me të cilën sinkronizon.';
+  }
+
+  @override
+  String get restoreAction => 'Riktheji';
+
+  @override
+  String get keepDeleted => 'Lëri të fshirë';
+
+  @override
+  String get archiveNotSaved => 'Nuk u fshi asgjë: arkivi nuk u ruajt askund.';
+
+  @override
   String get locateAddress => 'Gjej adresën në hartë';
 
   @override

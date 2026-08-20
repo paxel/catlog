@@ -996,6 +996,26 @@ class AppLocalizationsEl extends AppLocalizations {
       'Τα παλιά δεδομένα κοστίζουν χώρο, κυρίως οι φωτογραφίες που κουβαλά κάθε συγχρονισμένη συσκευή. Εδώ διαλέγεις γάτες που πέθαναν και άδειες αποικίες που μένουν ήσυχες χρόνια, τις γράφεις σε ένα αρχείο που κρατάς και τις σβήνεις. Η διαγραφή φτάνει σε όλους όσους συγχρονίζεις· η εισαγωγή του αρχείου τα επαναφέρει όλα.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Επαναφορά $count διαγραμμένων εγγραφών;';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names είναι διαγραμμένα σε αυτόν τον κατάλογο και το αρχείο που μόλις εισήγαγες τα περιέχει. Η επαναφορά τα φέρνει πίσω εδώ και σε κάθε συσκευή με την οποία συγχρονίζεις.';
+  }
+
+  @override
+  String get restoreAction => 'Επαναφορά';
+
+  @override
+  String get keepDeleted => 'Να μείνουν διαγραμμένα';
+
+  @override
+  String get archiveNotSaved =>
+      'Δεν διαγράφηκε τίποτα: το αρχείο δεν αποθηκεύτηκε πουθενά.';
+
+  @override
   String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
 
   @override

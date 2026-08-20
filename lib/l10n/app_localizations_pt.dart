@@ -993,6 +993,26 @@ class AppLocalizationsPt extends AppLocalizations {
       'Dados antigos custam espaço, sobretudo as fotos que cada dispositivo sincronizado carrega. Aqui escolhes gatos falecidos e colónias vazias paradas há anos, escreve-los num ficheiro que guardas e apaga-os. O apagamento chega a todos com quem sincronizas; importar o ficheiro restaura tudo.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Restaurar $count entradas apagadas?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names estão apagados neste catálogo e o ficheiro que acabaste de importar tem-nos. Restaurar traz-nos de volta aqui e em todos os dispositivos com que sincronizas.';
+  }
+
+  @override
+  String get restoreAction => 'Restaurar';
+
+  @override
+  String get keepDeleted => 'Manter apagados';
+
+  @override
+  String get archiveNotSaved =>
+      'Nada foi apagado: o arquivo não foi guardado em lado nenhum.';
+
+  @override
   String get locateAddress => 'Procurar a morada no mapa';
 
   @override

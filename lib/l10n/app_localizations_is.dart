@@ -995,6 +995,26 @@ class AppLocalizationsIs extends AppLocalizations {
       'Gömul gögn kosta pláss, einkum myndirnar sem hvert samstillt tæki ber með sér. Hér velur þú dána ketti og tómar nýlendur sem hafa legið kyrrar árum saman, skrifar þau í skrá sem þú geymir og eyðir þeim. Eyðingin nær til allra sem þú samstillir við; innflutningur skrárinnar endurheimtir allt.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Endurheimta $count eyddar færslur?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names eru eydd í þessari skrá, og skráin sem þú fluttir inn inniheldur þau. Endurheimt skilar þeim hingað og í öll tæki sem þú samstillir við.';
+  }
+
+  @override
+  String get restoreAction => 'Endurheimta';
+
+  @override
+  String get keepDeleted => 'Halda eyddum';
+
+  @override
+  String get archiveNotSaved =>
+      'Engu var eytt: safnið var ekki vistað neins staðar.';
+
+  @override
   String get locateAddress => 'Finna heimilisfang á korti';
 
   @override

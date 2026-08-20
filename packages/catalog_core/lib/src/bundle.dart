@@ -86,12 +86,13 @@ BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
   final applied = store.applyEntries(entries, senderVector: writerVector);
   final imported = applied.length;
   var blobsIn = 0;
-  for (final hash in store.missingBlobs()) {
-    final bytes = blobs[hash];
-    if (bytes != null) {
-      store.putBlob(hash, Uint8List.fromList(bytes));
-      blobsIn++;
-    }
+  for (final entry in blobs.entries) {
+    // Anything the catalog knows of and does not hold — deleted photos
+    // included, so an archive can be restored with its pictures.
+    if (!store.knowsImage(entry.key)) continue;
+    if (store.imageBytes(entry.key) != null) continue;
+    store.putBlob(entry.key, Uint8List.fromList(entry.value));
+    blobsIn++;
   }
   return BundleResult(imported, blobsIn, applied: applied);
 }

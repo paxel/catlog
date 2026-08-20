@@ -991,6 +991,26 @@ class AppLocalizationsHu extends AppLocalizations {
       'A régi adat helyet foglal, főleg a fotók, amiket minden szinkronizált eszköz cipel. Itt kiválasztod az évek óta változatlan elhunyt macskákat és üres kolóniákat, fájlba írod őket, amit megtartasz, és törlöd őket. A törlés mindenkihez eljut, akivel szinkronizálsz; a fájl importálása mindent visszaállít.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Visszaállítasz $count törölt tételt?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names törölve vannak ebben a katalógusban, és az imént importált fájl tartalmazza őket. A visszaállítás ide és minden szinkronizált eszközre visszahozza őket.';
+  }
+
+  @override
+  String get restoreAction => 'Visszaállítás';
+
+  @override
+  String get keepDeleted => 'Maradjon törölve';
+
+  @override
+  String get archiveNotSaved =>
+      'Semmi sem törlődött: az archívum sehová nem lett mentve.';
+
+  @override
   String get locateAddress => 'Cím keresése a térképen';
 
   @override

@@ -993,6 +993,26 @@ class AppLocalizationsFi extends AppLocalizations {
       'Vanha tieto vie tilaa, ennen kaikkea kuvat, joita jokainen synkronoitu laite raahaa mukanaan. Täällä valitset kuolleet kissat ja tyhjät koloniat, jotka ovat olleet vuosia hiljaa, kirjoitat ne tiedostoon jonka säilytät, ja poistat ne. Poisto tavoittaa kaikki, joiden kanssa synkronoit; tiedoston tuonti palauttaa kaiken.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Palautetaanko $count poistettua kohdetta?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names on poistettu tästä luettelosta, ja juuri tuomasi tiedosto sisältää ne. Palauttaminen tuo ne takaisin tänne ja jokaiseen laitteeseen, jonka kanssa synkronoit.';
+  }
+
+  @override
+  String get restoreAction => 'Palauta';
+
+  @override
+  String get keepDeleted => 'Pidä poistettuina';
+
+  @override
+  String get archiveNotSaved =>
+      'Mitään ei poistettu: arkistoa ei tallennettu minnekään.';
+
+  @override
   String get locateAddress => 'Etsi osoite kartalta';
 
   @override

@@ -1196,6 +1196,14 @@ class CatalogStore {
       append(entity, Keys.conflict(field), 'resolved');
 
   /// Content hashes referenced as added somewhere but missing locally.
+  /// True when this catalog has ever heard of the image, even if it is
+  /// currently deleted — an archive file carries the bytes of deleted
+  /// photos so a restore can bring them back.
+  bool knowsImage(String hash) => _db.select(
+        'SELECT 1 FROM entries WHERE field = ? LIMIT 1',
+        [Keys.image(hash)],
+      ).isNotEmpty;
+
   List<String> missingBlobs() {
     final rows = _db.select(
       'SELECT DISTINCT field FROM entries WHERE field LIKE ?',
@@ -1301,6 +1309,23 @@ class CatalogStore {
       deleteImage(catId, hash, date: date);
     }
     append(catId, Keys.deleted, 'true', date: date);
+  }
+
+  /// Undoes a deletion: the entity is visible again, and its photos
+  /// come back for every blob still present (an archive import brings
+  /// the bytes with it). Ordinary entries, so the restore syncs like
+  /// the deletion did.
+  void restoreEntity(String id, {DateTime? date}) {
+    final entity = resolveEntity(id);
+    append(entity, Keys.deleted, null, date: date);
+    for (final field in currentFields(entity).entries) {
+      if (!field.key.startsWith(Keys.imagePrefix)) continue;
+      if (field.value != 'deleted') continue;
+      final hash = field.key.substring(Keys.imagePrefix.length);
+      if (_blobs.get(hash) != null) {
+        append(entity, field.key, 'added', date: date);
+      }
+    }
   }
 
   /// Deletes a Clowder. Its current Cats are not deleted with it — they

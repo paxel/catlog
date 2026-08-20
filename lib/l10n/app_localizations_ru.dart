@@ -992,6 +992,25 @@ class AppLocalizationsRu extends AppLocalizations {
       'Старые данные занимают место, прежде всего фотографии, которые тащит за собой каждое синхронизированное устройство. Здесь вы выбираете умерших кошек и пустые колонии, годами не менявшиеся, записываете их в файл, который храните, и удаляете. Удаление доходит до всех, с кем вы синхронизируетесь; импорт файла восстанавливает всё.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Восстановить удалённые записи ($count)?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names удалены в этом каталоге, а только что импортированный файл содержит их. Восстановление вернёт их сюда и на все устройства, с которыми вы синхронизируетесь.';
+  }
+
+  @override
+  String get restoreAction => 'Восстановить';
+
+  @override
+  String get keepDeleted => 'Оставить удалёнными';
+
+  @override
+  String get archiveNotSaved => 'Ничего не удалено: архив нигде не сохранён.';
+
+  @override
   String get locateAddress => 'Найти адрес на карте';
 
   @override

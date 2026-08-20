@@ -992,6 +992,26 @@ class AppLocalizationsPl extends AppLocalizations {
       'Stare dane zajmują miejsce, zwłaszcza zdjęcia, które nosi każde synchronizowane urządzenie. Tu wybierasz zmarłe koty i puste kolonie od lat bez zmian, zapisujesz je do pliku, który zatrzymujesz, i usuwasz. Usunięcie dociera do wszystkich, z którymi synchronizujesz; import pliku wszystko przywraca.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Przywrócić $count usuniętych wpisów?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names są usunięte w tym katalogu, a właśnie zaimportowany plik je zawiera. Przywrócenie sprowadzi je tutaj i na każde urządzenie, z którym synchronizujesz.';
+  }
+
+  @override
+  String get restoreAction => 'Przywróć';
+
+  @override
+  String get keepDeleted => 'Zostaw usunięte';
+
+  @override
+  String get archiveNotSaved =>
+      'Nic nie usunięto: archiwum nigdzie nie zostało zapisane.';
+
+  @override
   String get locateAddress => 'Znajdź adres na mapie';
 
   @override

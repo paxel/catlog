@@ -992,6 +992,25 @@ class AppLocalizationsSk extends AppLocalizations {
       'Staré dáta stoja miesto, najmä fotky, ktoré si nesie každé synchronizované zariadenie. Tu vyberieš uhynuté mačky a prázdne kolónie, ktoré sú roky bez zmeny, zapíšeš ich do súboru, ktorý si necháš, a zmažeš ich. Zmazanie dorazí ku všetkým, s ktorými synchronizuješ; import súboru všetko obnoví.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnoviť $count zmazaných položiek?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sú v tomto katalógu zmazané a práve importovaný súbor ich obsahuje. Obnovenie ich vráti sem aj na každé zariadenie, s ktorým synchronizuješ.';
+  }
+
+  @override
+  String get restoreAction => 'Obnoviť';
+
+  @override
+  String get keepDeleted => 'Nechať zmazané';
+
+  @override
+  String get archiveNotSaved => 'Nič sa nezmazalo: archív sa nikam neuložil.';
+
+  @override
   String get locateAddress => 'Nájsť adresu na mape';
 
   @override

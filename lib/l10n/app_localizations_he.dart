@@ -987,6 +987,25 @@ class AppLocalizationsHe extends AppLocalizations {
       'נתונים ישנים עולים מקום, בעיקר התמונות שכל מכשיר מסונכרן נושא. כאן בוחרים חתולים שמתו ומושבות ריקות ששקטו שנים, כותבים אותם לקובץ שאתם שומרים, ומוחקים אותם. המחיקה מגיעה לכל מי שאתם מסתנכרנים איתו; ייבוא הקובץ משחזר הכול.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'לשחזר $count רשומות שנמחקו?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names מחוקים בקטלוג הזה, והקובץ שייבאתם מכיל אותם. שחזור מחזיר אותם לכאן ולכל מכשיר שאתם מסתנכרנים איתו.';
+  }
+
+  @override
+  String get restoreAction => 'שחזר';
+
+  @override
+  String get keepDeleted => 'להשאיר מחוק';
+
+  @override
+  String get archiveNotSaved => 'שום דבר לא נמחק: הארכיון לא נשמר בשום מקום.';
+
+  @override
   String get locateAddress => 'מצא את הכתובת במפה';
 
   @override

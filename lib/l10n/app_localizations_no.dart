@@ -989,6 +989,26 @@ class AppLocalizationsNo extends AppLocalizations {
       'Gamle data koster plass, særlig bildene som hver synkroniserte enhet drar med seg. Her velger du døde katter og tomme kolonier som har ligget stille i årevis, skriver dem til en fil du beholder, og sletter dem. Slettingen når alle du synkroniserer med; import av filen gjenoppretter alt.';
 
   @override
+  String restoreDeletedTitle(int count) {
+    return 'Gjenopprette $count slettede oppføringer?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names er slettet i denne katalogen, og filen du nettopp importerte inneholder dem. Gjenoppretting henter dem tilbake her og på hver enhet du synkroniserer med.';
+  }
+
+  @override
+  String get restoreAction => 'Gjenopprett';
+
+  @override
+  String get keepDeleted => 'Behold slettet';
+
+  @override
+  String get archiveNotSaved =>
+      'Ingenting ble slettet: arkivet ble ikke lagret noe sted.';
+
+  @override
   String get locateAddress => 'Finn adressen på kartet';
 
   @override
