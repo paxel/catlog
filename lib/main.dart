@@ -171,7 +171,16 @@ class _CatlogAppState extends State<CatlogApp>
         // Desktop keyboard manners: Ctrl+F search, Ctrl+K sync,
         // Ctrl+B backup now, Esc back. Arrows/Enter come from Flutter's
         // default desktop focus traversal (cards are focusable).
-        builder: (context, child) => CallbackShortcuts(
+        // Edge-to-edge (Android 15 enforces it): the 3-button nav bar
+        // floats over the app and swallowed bottom buttons. Inset the
+        // whole app above it; AppBars keep handling the top themselves.
+        builder: (context, child) => ColoredBox(
+          // Paint the strip behind the system nav bar in app surface
+          // color instead of raw black.
+          color: Theme.of(context).colorScheme.surface,
+          child: SafeArea(
+          top: false,
+          child: CallbackShortcuts(
           bindings: {
             const SingleActivator(LogicalKeyboardKey.keyF, control: true):
                 () => navigatorKey.currentState?.push(MaterialPageRoute(
@@ -187,6 +196,8 @@ class _CatlogAppState extends State<CatlogApp>
                 navigatorKey.currentState?.maybePop(),
           },
           child: child ?? const SizedBox.shrink(),
+          ),
+          ),
         ),
         locale: locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,

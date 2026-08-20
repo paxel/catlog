@@ -22,6 +22,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   timeline or photos extracted from a video — no reopening needed.
 - Scrubbing through a video shows the frame at the current position
   right away, not only after keeping it.
+- With 3-button navigation the system bar no longer floats over the
+  app's bottom buttons.
 
 ---
 
