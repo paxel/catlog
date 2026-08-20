@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/geocode.dart';
+import 'package:catlog/src/map/place_view.dart';
 import 'package:catlog/src/screens/map_screen.dart';
 import 'package:catlog/src/screens/position_picker_screen.dart';
 import 'package:flutter/material.dart';
@@ -279,5 +280,8 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
     // Result list gone; the map moved (no pin dropped yet, save disabled).
     expect(find.text('Lisbon, Portugal'), findsNothing);
+    // Close enough to drop a pin, not a country view.
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    expect(map.mapController!.camera.zoom, placeZoom);
   });
 }

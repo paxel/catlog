@@ -14,6 +14,7 @@ import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
+import '../map/place_view.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
@@ -154,20 +155,14 @@ class _MapScreenState extends State<MapScreen>
     _animateTo(LatLng(pos.$1, pos.$2), 15);
   }
 
-  /// Jumps to a found place at the zoom the place deserves: its own
-  /// extent when the search reported one, street zoom otherwise. A hit
-  /// centered but drawn at country zoom helps nobody.
+  /// Jumps to a found place at the zoom the place deserves.
   void _showPlace(GeoHit hit) {
-    final b = hit.bounds;
-    if (b == null) {
-      _animateTo(LatLng(hit.lat, hit.lon), 16);
+    final fit = placeFit(hit);
+    if (fit == null) {
+      _animateTo(LatLng(hit.lat, hit.lon), placeZoom);
       return;
     }
-    _controller.fitCamera(CameraFit.bounds(
-      bounds: LatLngBounds(LatLng(b.$1, b.$3), LatLng(b.$2, b.$4)),
-      padding: const EdgeInsets.all(48),
-      maxZoom: 17,
-    ));
+    _controller.fitCamera(fit);
   }
 
   /// Prev/next over all pins in nearest-neighbor order from where the
