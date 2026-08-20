@@ -89,6 +89,34 @@ void main() {
     expect(finder.current(mother, Keys.name), isNull);
   });
 
+  test('Private stays home: cat refused, clowder and fields dropped', () {
+    // A private cat never exports.
+    owner.setPrivate(cat, true);
+    expect(
+        () => catShareBytes(owner,
+            catId: cat, fields: {Keys.userField('gender')}),
+        throwsStateError);
+    owner.setPrivate(cat, false);
+
+    // A private clowder silently stays out of the share.
+    owner.setPrivate(home, true);
+    final path = shareFile({Keys.userField('gender')});
+    importBundle(finder, path);
+    expect(finder.clowders(), isEmpty);
+    expect(finder.cats().single.name, 'Minka');
+
+    // A private field definition never travels, whitelisted or not.
+    owner.setPrivate('fielddef:gender', true);
+    final finder2 = CatalogStore.inMemory();
+    addTearDown(finder2.close);
+    finder2.author = 'finder2';
+    importBundle(finder2, shareFile({Keys.userField('gender')}));
+    expect(
+        finder2.current(
+            finder2.cats().single.id, Keys.userField('gender')),
+        isNull);
+  });
+
   test('QR payloads round-trip and reject garbage', () {
     expect(decodeShareQr(encodeShareUrl('https://x.example/f.catsync'))!
         .url,

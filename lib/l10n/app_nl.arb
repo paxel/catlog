@@ -173,6 +173,7 @@
   "noDuplicates": "Momenteel geen mogelijke duplicaten.",
   "similarName": "Vergelijkbare naam",
   "sharePublicly": "Openbaar delen…",
+  "privateNoShare": "Deze kat is gemarkeerd als privé — privégegevens verlaten je apparaat nooit. Verwijder eerst de markering om openbaar te delen.",
   "pickFramesTitle": "Frames kiezen",
   "suggestedFrames": "Voorgestelde frames",
   "scrubFrames": "Door de video spoelen",

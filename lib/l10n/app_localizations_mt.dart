@@ -261,6 +261,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sharePublicly => 'Aqsam pubblikament…';
 
   @override
+  String get privateNoShare =>
+      'Dan il-qattus huwa mmarkat bħala privat — data privata qatt ma titlaq mill-apparat tiegħek. L-ewwel neħħi l-marka biex taqsmu pubblikament.';
+
+  @override
   String get pickFramesTitle => 'Agħżel frejms';
 
   @override

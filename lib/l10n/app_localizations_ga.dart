@@ -260,6 +260,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sharePublicly => 'Comhroinn go poiblí…';
 
   @override
+  String get privateNoShare =>
+      'Tá an cat seo marcáilte príobháideach — ní fhágann sonraí príobháideacha do ghléas riamh. Bain an marc ar dtús chun é a chomhroinnt go poiblí.';
+
+  @override
   String get pickFramesTitle => 'Roghnaigh frámaí';
 
   @override

@@ -260,6 +260,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sharePublicly => 'Partager publiquement…';
 
   @override
+  String get privateNoShare =>
+      'Ce chat est marqué privé — les données privées ne quittent jamais votre appareil. Retirez d\'abord la marque pour le partager publiquement.';
+
+  @override
   String get pickFramesTitle => 'Choisir des images';
 
   @override

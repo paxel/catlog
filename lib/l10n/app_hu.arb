@@ -173,6 +173,7 @@
   "noDuplicates": "Jelenleg nincs lehetséges duplikátum.",
   "similarName": "Hasonló név",
   "sharePublicly": "Nyilvános megosztás…",
+  "privateNoShare": "Ez a macska privátként van megjelölve — a privát adatok sosem hagyják el az eszközét. Előbb vegye le a jelölést a nyilvános megosztáshoz.",
   "pickFramesTitle": "Képkockák kiválasztása",
   "suggestedFrames": "Javasolt képkockák",
   "scrubFrames": "Videó léptetése",

@@ -73,10 +73,16 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
     }
   }
 
-  // Geo: a missing cat's flier circles catch strays sighted inside;
-  // stray sightings within the radius of each other pair up too.
+  // Geo: a missing cat's flier circles catch STRAYS sighted inside;
+  // stray sightings within the radius of each other pair up too. Cats
+  // living in a clowder never geo-match — housemates sighted at home
+  // are not lost-and-found candidates (#33).
   final positions = <String, List<(double, double)>>{};
   final fliers = <String, List<(double, double)>>{};
+  final isStray = <String, bool>{
+    for (final cat in cats)
+      cat.id: store.current(cat.id, Keys.clowder) == null
+  };
   for (final cat in cats) {
     final sightings = <(double, double)>[
       for (final e in store.fieldHistory(cat.id, CatalogStore.positionKey))
@@ -104,11 +110,13 @@ List<MatchCandidate> matchCandidates(CatalogStore store) {
         }
       }
 
-      // Flier circle of one against sightings of the other, both ways,
-      // and sighting against sighting for stray↔stray.
-      check(fliers[a]!, positions[b]!);
-      check(fliers[b]!, positions[a]!);
-      check(positions[a]!, positions[b]!);
+      // Flier circle of one against a STRAY's sightings, both ways,
+      // and sighting against sighting only for stray↔stray.
+      if (isStray[b]!) check(fliers[a]!, positions[b]!);
+      if (isStray[a]!) check(fliers[b]!, positions[a]!);
+      if (isStray[a]! && isStray[b]!) {
+        check(positions[a]!, positions[b]!);
+      }
       if (best != null) {
         seen.add(_pairKey(a, b));
         geo.add(MatchCandidate(a, b, MatchReason.geoDate,

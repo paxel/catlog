@@ -260,6 +260,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sharePublicly => 'Udostępnij publicznie…';
 
   @override
+  String get privateNoShare =>
+      'Ten kot jest oznaczony jako prywatny — prywatne dane nigdy nie opuszczają urządzenia. Najpierw usuń oznaczenie, aby udostępnić publicznie.';
+
+  @override
   String get pickFramesTitle => 'Wybór klatek';
 
   @override

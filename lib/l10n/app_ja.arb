@@ -173,6 +173,7 @@
   "noDuplicates": "現在、重複の可能性はありません。",
   "similarName": "似た名前",
   "sharePublicly": "公開共有…",
+  "privateNoShare": "この猫はプライベットに設定されています。プライベートなデータは端末の外に出ません。公開共有するには先に設定を解除してください。",
   "pickFramesTitle": "フレームを選ぶ",
   "suggestedFrames": "おすすめフレーム",
   "scrubFrames": "動画をスクラブ",

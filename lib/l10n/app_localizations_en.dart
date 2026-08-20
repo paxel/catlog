@@ -260,6 +260,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sharePublicly => 'Share publicly…';
 
   @override
+  String get privateNoShare =>
+      'This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.';
+
+  @override
   String get pickFramesTitle => 'Pick frames';
 
   @override

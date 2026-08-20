@@ -44,10 +44,14 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
   }
 
   /// Filled fields of the cat and its clowder — the whitelist universe.
+  /// Private field definitions and private clowders are not offered:
+  /// Private stays home (CONTEXT.md).
   List<(FieldDef, String)> _filled() {
-    final clowderId = store.current(id, Keys.clowder);
+    var clowderId = store.current(id, Keys.clowder);
+    if (clowderId != null && store.isPrivate(clowderId)) clowderId = null;
     final result = <(FieldDef, String)>[];
     for (final def in store.fieldDefs()) {
+      if (store.isPrivate(def.id)) continue;
       final onCat = store.current(id, def.key);
       if (onCat != null && onCat.isNotEmpty) {
         result.add((def, onCat));
@@ -79,6 +83,18 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
+    if (store.isPrivate(id)) {
+      // Refusal with the reason — house law for error cases.
+      return Scaffold(
+        appBar: AppBar(title: Text(t.sharePublicly)),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Text(t.privateNoShare, textAlign: TextAlign.center),
+          ),
+        ),
+      );
+    }
     final inline = encodeShareData(_bytes(photos: false));
     final url = _url.text.trim();
     return Scaffold(

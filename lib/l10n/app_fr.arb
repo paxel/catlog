@@ -173,6 +173,7 @@
   "noDuplicates": "Aucun doublon possible pour le moment.",
   "similarName": "Nom similaire",
   "sharePublicly": "Partager publiquement…",
+  "privateNoShare": "Ce chat est marqué privé — les données privées ne quittent jamais votre appareil. Retirez d'abord la marque pour le partager publiquement.",
   "pickFramesTitle": "Choisir des images",
   "suggestedFrames": "Images suggérées",
   "scrubFrames": "Parcourir la vidéo",

@@ -173,6 +173,7 @@
   "noDuplicates": "Aktualisht s'ka dublikata të mundshme.",
   "similarName": "Emër i ngjashëm",
   "sharePublicly": "Ndaje publikisht…",
+  "privateNoShare": "Kjo mace është shënuar private — të dhënat private s'e lënë kurrë pajisjen tuaj. Hiqni fillimisht shenjën për ta ndarë publikisht.",
   "pickFramesTitle": "Zgjidh kuadro",
   "suggestedFrames": "Kuadro të sugjeruara",
   "scrubFrames": "Lëviz nëpër video",

@@ -257,6 +257,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sharePublicly => '公開共有…';
 
   @override
+  String get privateNoShare =>
+      'この猫はプライベットに設定されています。プライベートなデータは端末の外に出ません。公開共有するには先に設定を解除してください。';
+
+  @override
   String get pickFramesTitle => 'フレームを選ぶ';
 
   @override

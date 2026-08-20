@@ -173,6 +173,7 @@
   "noDuplicates": "Inga möjliga dubbletter just nu.",
   "similarName": "Liknande namn",
   "sharePublicly": "Dela offentligt…",
+  "privateNoShare": "Den här katten är markerad som privat — privata data lämnar aldrig din enhet. Ta bort markeringen först för att dela offentligt.",
   "pickFramesTitle": "Välj bildrutor",
   "suggestedFrames": "Föreslagna bildrutor",
   "scrubFrames": "Spola i videon",

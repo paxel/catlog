@@ -173,6 +173,7 @@
   "noDuplicates": "当前没有疑似重复。",
   "similarName": "相似的名字",
   "sharePublicly": "公开分享…",
+  "privateNoShare": "这只猫被标记为私密——私密数据绝不会离开您的设备。要公开分享，请先取消私密标记。",
   "pickFramesTitle": "挑选画面",
   "suggestedFrames": "推荐画面",
   "scrubFrames": "拖动视频",

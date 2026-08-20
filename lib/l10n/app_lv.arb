@@ -173,6 +173,7 @@
   "noDuplicates": "Šobrīd nav iespējamu dublikātu.",
   "similarName": "Līdzīgs vārds",
   "sharePublicly": "Kopīgot publiski…",
+  "privateNoShare": "Šis kaķis ir atzīmēts kā privāts — privāti dati nekad nepamet jūsu ierīci. Vispirms noņemiet atzīmi, lai kopīgotu publiski.",
   "pickFramesTitle": "Kadru izvēle",
   "suggestedFrames": "Ieteiktie kadri",
   "scrubFrames": "Pārtīt video",

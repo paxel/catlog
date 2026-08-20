@@ -33,6 +33,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Fundkatze').last);
     await tester.pumpAndSettle();
+    // The irreversibility confirmation guards every merge.
+    expect(find.textContaining('cannot be undone'), findsOneWidget);
+    await tester.tap(find.text('Merge'));
+    await tester.pumpAndSettle();
 
     expect(store.cats(), hasLength(1));
     expect(store.cats().single.id, sighted);

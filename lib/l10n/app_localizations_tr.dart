@@ -260,6 +260,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sharePublicly => 'Herkese açık paylaş…';
 
   @override
+  String get privateNoShare =>
+      'Bu kedi özel olarak işaretli — özel veriler cihazınızdan asla çıkmaz. Herkese açık paylaşmak için önce işareti kaldırın.';
+
+  @override
   String get pickFramesTitle => 'Kare seç';
 
   @override

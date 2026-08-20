@@ -250,6 +250,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sharePublicly => '公开分享…';
 
   @override
+  String get privateNoShare => '这只猫被标记为私密——私密数据绝不会离开您的设备。要公开分享，请先取消私密标记。';
+
+  @override
   String get pickFramesTitle => '挑选画面';
 
   @override

@@ -260,6 +260,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sharePublicly => 'Ndaje publikisht…';
 
   @override
+  String get privateNoShare =>
+      'Kjo mace është shënuar private — të dhënat private s\'e lënë kurrë pajisjen tuaj. Hiqni fillimisht shenjën për ta ndarë publikisht.';
+
+  @override
   String get pickFramesTitle => 'Zgjidh kuadro';
 
   @override

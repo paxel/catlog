@@ -173,6 +173,7 @@
   "noDuplicates": "Obecnie brak możliwych duplikatów.",
   "similarName": "Podobne imię",
   "sharePublicly": "Udostępnij publicznie…",
+  "privateNoShare": "Ten kot jest oznaczony jako prywatny — prywatne dane nigdy nie opuszczają urządzenia. Najpierw usuń oznaczenie, aby udostępnić publicznie.",
   "pickFramesTitle": "Wybór klatek",
   "suggestedFrames": "Sugerowane klatki",
   "scrubFrames": "Przewijanie wideo",

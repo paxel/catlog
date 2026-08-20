@@ -260,6 +260,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sharePublicly => 'Поделиться публично…';
 
   @override
+  String get privateNoShare =>
+      'Эта кошка помечена как личная — личные данные никогда не покидают устройство. Сначала снимите пометку, чтобы поделиться публично.';
+
+  @override
   String get pickFramesTitle => 'Выбор кадров';
 
   @override

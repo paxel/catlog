@@ -106,6 +106,7 @@
   "noDuplicates": "No possible duplicates right now.",
   "similarName": "Similar name",
   "sharePublicly": "Share publicly…",
+  "privateNoShare": "This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.",
   "pickFramesTitle": "Pick frames",
   "suggestedFrames": "Suggested frames",
   "scrubFrames": "Scrub the video",

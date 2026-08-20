@@ -173,6 +173,7 @@
   "noDuplicates": "Momentálne žiadne možné duplicity.",
   "similarName": "Podobné meno",
   "sharePublicly": "Zdieľať verejne…",
+  "privateNoShare": "Táto mačka je označená ako súkromná — súkromné dáta nikdy neopúšťajú vaše zariadenie. Najprv označenie zrušte, potom ju možno zdieľať verejne.",
   "pickFramesTitle": "Výber snímok",
   "suggestedFrames": "Navrhované snímky",
   "scrubFrames": "Pretáčanie videa",

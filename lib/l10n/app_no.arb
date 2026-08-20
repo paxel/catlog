@@ -173,6 +173,7 @@
   "noDuplicates": "Ingen mulige duplikater akkurat nå.",
   "similarName": "Lignende navn",
   "sharePublicly": "Del offentlig…",
+  "privateNoShare": "Denne katten er merket som privat — private data forlater aldri enheten din. Fjern merkingen først for å dele offentlig.",
   "pickFramesTitle": "Velg bilder",
   "suggestedFrames": "Foreslåtte bilder",
   "scrubFrames": "Spol i videoen",

@@ -626,6 +626,12 @@ abstract class AppLocalizations {
   /// **'Share publicly…'**
   String get sharePublicly;
 
+  /// No description provided for @privateNoShare.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.'**
+  String get privateNoShare;
+
   /// No description provided for @pickFramesTitle.
   ///
   /// In en, this message translates to:

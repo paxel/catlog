@@ -260,6 +260,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sharePublicly => 'Dela offentligt…';
 
   @override
+  String get privateNoShare =>
+      'Den här katten är markerad som privat — privata data lämnar aldrig din enhet. Ta bort markeringen först för att dela offentligt.';
+
+  @override
   String get pickFramesTitle => 'Välj bildrutor';
 
   @override

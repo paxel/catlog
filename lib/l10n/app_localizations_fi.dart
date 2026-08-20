@@ -260,6 +260,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sharePublicly => 'Jaa julkisesti…';
 
   @override
+  String get privateNoShare =>
+      'Tämä kissa on merkitty yksityiseksi — yksityiset tiedot eivät koskaan poistu laitteeltasi. Poista merkintä ensin jakaaksesi julkisesti.';
+
+  @override
   String get pickFramesTitle => 'Valitse ruudut';
 
   @override

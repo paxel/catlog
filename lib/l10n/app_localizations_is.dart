@@ -261,6 +261,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sharePublicly => 'Deila opinberlega…';
 
   @override
+  String get privateNoShare =>
+      'Þessi köttur er merktur einka — einkagögn yfirgefa aldrei tækið þitt. Fjarlægðu merkinguna fyrst til að deila opinberlega.';
+
+  @override
   String get pickFramesTitle => 'Velja ramma';
 
   @override

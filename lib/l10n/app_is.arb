@@ -173,6 +173,7 @@
   "noDuplicates": "Engin möguleg tvítök núna.",
   "similarName": "Svipað nafn",
   "sharePublicly": "Deila opinberlega…",
+  "privateNoShare": "Þessi köttur er merktur einka — einkagögn yfirgefa aldrei tækið þitt. Fjarlægðu merkinguna fyrst til að deila opinberlega.",
   "pickFramesTitle": "Velja ramma",
   "suggestedFrames": "Tillögur að römmum",
   "scrubFrames": "Spóla í myndbandinu",

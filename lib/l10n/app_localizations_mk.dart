@@ -260,6 +260,10 @@ class AppLocalizationsMk extends AppLocalizations {
   String get sharePublicly => 'Сподели јавно…';
 
   @override
+  String get privateNoShare =>
+      'Оваа мачка е означена како приватна — приватните податоци никогаш не го напуштаат уредот. Прво тргнете ја ознаката за јавно споделување.';
+
+  @override
   String get pickFramesTitle => 'Избор на кадри';
 
   @override

@@ -260,6 +260,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get sharePublicly => 'Zdieľať verejne…';
 
   @override
+  String get privateNoShare =>
+      'Táto mačka je označená ako súkromná — súkromné dáta nikdy neopúšťajú vaše zariadenie. Najprv označenie zrušte, potom ju možno zdieľať verejne.';
+
+  @override
   String get pickFramesTitle => 'Výber snímok';
 
   @override

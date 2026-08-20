@@ -259,6 +259,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sharePublicly => 'שיתוף ציבורי…';
 
   @override
+  String get privateNoShare =>
+      'החתול הזה מסומן כפרטי — נתונים פרטיים לעולם לא עוזבים את המכשיר. הסירו את הסימון תחילה כדי לשתף בפומבי.';
+
+  @override
   String get pickFramesTitle => 'בחירת פריימים';
 
   @override

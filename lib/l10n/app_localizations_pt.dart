@@ -260,6 +260,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sharePublicly => 'Partilhar publicamente…';
 
   @override
+  String get privateNoShare =>
+      'Este gato está marcado como privado — os dados privados nunca saem do seu dispositivo. Remova primeiro a marca para partilhar publicamente.';
+
+  @override
   String get pickFramesTitle => 'Escolher fotogramas';
 
   @override

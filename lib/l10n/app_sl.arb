@@ -173,6 +173,7 @@
   "noDuplicates": "Trenutno ni možnih dvojnikov.",
   "similarName": "Podobno ime",
   "sharePublicly": "Deli javno…",
+  "privateNoShare": "Ta mačka je označena kot zasebna — zasebni podatki nikoli ne zapustijo vaše naprave. Najprej odstranite oznako za javno deljenje.",
   "pickFramesTitle": "Izbira sličic",
   "suggestedFrames": "Predlagane sličice",
   "scrubFrames": "Premikanje po videu",

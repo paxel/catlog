@@ -260,6 +260,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sharePublicly => 'Distribuie public…';
 
   @override
+  String get privateNoShare =>
+      'Această pisică este marcată ca privată — datele private nu părăsesc niciodată dispozitivul. Eliminați mai întâi marcajul pentru a o distribui public.';
+
+  @override
   String get pickFramesTitle => 'Alege cadre';
 
   @override

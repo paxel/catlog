@@ -173,6 +173,7 @@
   "noDuplicates": "Šiuo metu galimų dublikatų nėra.",
   "similarName": "Panašus vardas",
   "sharePublicly": "Bendrinti viešai…",
+  "privateNoShare": "Ši katė pažymėta kaip privati — privatūs duomenys niekada nepalieka jūsų įrenginio. Norėdami bendrinti viešai, pirmiausia nuimkite žymę.",
   "pickFramesTitle": "Kadrų pasirinkimas",
   "suggestedFrames": "Siūlomi kadrai",
   "scrubFrames": "Persukti vaizdo įrašą",

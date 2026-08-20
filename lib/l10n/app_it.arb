@@ -173,6 +173,7 @@
   "noDuplicates": "Nessun possibile duplicato al momento.",
   "similarName": "Nome simile",
   "sharePublicly": "Condividi pubblicamente…",
+  "privateNoShare": "Questo gatto è contrassegnato come privato — i dati privati non lasciano mai il tuo dispositivo. Rimuovi prima il contrassegno per condividerlo pubblicamente.",
   "pickFramesTitle": "Scegli fotogrammi",
   "suggestedFrames": "Fotogrammi suggeriti",
   "scrubFrames": "Scorri il video",

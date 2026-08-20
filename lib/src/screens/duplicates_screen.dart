@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../field_labels.dart';
 import '../l10n.dart';
+import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
 
 /// "Find duplicates" (#45): likely twins among cats and clowders —
@@ -33,34 +34,18 @@ class _DuplicatesScreenState extends State<DuplicatesScreen> {
   }
 
   Future<void> _confirm(DuplicateCandidate candidate) async {
-    final survivor = await showDialog<String>(
+    // The shared dialog carries the cannot-be-undone warning.
+    final merged = await confirmPairMerge(
       context: context,
-      builder: (context) => SimpleDialog(
-        title: Text(context.t.mergeInto),
-        children: [
-          for (final id in [candidate.a, candidate.b])
-            SimpleDialogOption(
-              onPressed: () => Navigator.of(context).pop(id),
-              child: Row(children: [
-                if (candidate.cats)
-                  CatAvatar(store: store, catId: id, size: 32)
-                else
-                  const Icon(Icons.home_outlined),
-                const SizedBox(width: 8),
-                Expanded(child: Text(_name(id))),
-              ]),
-            ),
-        ],
-      ),
+      store: store,
+      a: candidate.a,
+      b: candidate.b,
+      lead: (id) => candidate.cats
+          ? CatAvatar(store: store, catId: id, size: 32)
+          : const Icon(Icons.home_outlined),
+      merge: candidate.cats ? store.mergeCat : store.mergeClowder,
     );
-    if (survivor == null || !mounted) return;
-    final loser = survivor == candidate.a ? candidate.b : candidate.a;
-    if (candidate.cats) {
-      store.mergeCat(loser, survivor);
-    } else {
-      store.mergeClowder(loser, survivor);
-    }
-    setState(() {});
+    if (merged && mounted) setState(() {});
   }
 
   @override

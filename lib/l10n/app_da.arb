@@ -173,6 +173,7 @@
   "noDuplicates": "Ingen mulige dubletter lige nu.",
   "similarName": "Lignende navn",
   "sharePublicly": "Del offentligt…",
+  "privateNoShare": "Denne kat er markeret som privat — private data forlader aldrig din enhed. Fjern markeringen først for at dele den offentligt.",
   "pickFramesTitle": "Vælg billeder",
   "suggestedFrames": "Foreslåede billeder",
   "scrubFrames": "Spol i videoen",

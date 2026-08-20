@@ -260,6 +260,10 @@ class AppLocalizationsNo extends AppLocalizations {
   String get sharePublicly => 'Del offentlig…';
 
   @override
+  String get privateNoShare =>
+      'Denne katten er merket som privat — private data forlater aldri enheten din. Fjern merkingen først for å dele offentlig.';
+
+  @override
   String get pickFramesTitle => 'Velg bilder';
 
   @override

@@ -173,6 +173,7 @@
   "noDuplicates": "Sem possíveis duplicados de momento.",
   "similarName": "Nome parecido",
   "sharePublicly": "Partilhar publicamente…",
+  "privateNoShare": "Este gato está marcado como privado — os dados privados nunca saem do seu dispositivo. Remova primeiro a marca para partilhar publicamente.",
   "pickFramesTitle": "Escolher fotogramas",
   "suggestedFrames": "Fotogramas sugeridos",
   "scrubFrames": "Percorrer o vídeo",

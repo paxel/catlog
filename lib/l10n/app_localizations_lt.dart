@@ -260,6 +260,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sharePublicly => 'Bendrinti viešai…';
 
   @override
+  String get privateNoShare =>
+      'Ši katė pažymėta kaip privati — privatūs duomenys niekada nepalieka jūsų įrenginio. Norėdami bendrinti viešai, pirmiausia nuimkite žymę.';
+
+  @override
   String get pickFramesTitle => 'Kadrų pasirinkimas';
 
   @override

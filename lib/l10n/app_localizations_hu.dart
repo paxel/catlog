@@ -260,6 +260,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sharePublicly => 'Nyilvános megosztás…';
 
   @override
+  String get privateNoShare =>
+      'Ez a macska privátként van megjelölve — a privát adatok sosem hagyják el az eszközét. Előbb vegye le a jelölést a nyilvános megosztáshoz.';
+
+  @override
   String get pickFramesTitle => 'Képkockák kiválasztása';
 
   @override

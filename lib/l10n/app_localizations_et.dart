@@ -260,6 +260,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sharePublicly => 'Jaga avalikult…';
 
   @override
+  String get privateNoShare =>
+      'See kass on märgitud privaatseks — privaatsed andmed ei lahku kunagi sinu seadmest. Avalikuks jagamiseks eemalda esmalt märgistus.';
+
+  @override
   String get pickFramesTitle => 'Kaadrite valik';
 
   @override

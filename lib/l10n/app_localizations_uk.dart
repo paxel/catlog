@@ -260,6 +260,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sharePublicly => 'Поділитися публічно…';
 
   @override
+  String get privateNoShare =>
+      'Цього кота позначено як особистого — особисті дані ніколи не покидають пристрій. Спершу зніміть позначку, щоб поділитися публічно.';
+
+  @override
   String get pickFramesTitle => 'Вибір кадрів';
 
   @override

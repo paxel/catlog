@@ -260,6 +260,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get sharePublicly => 'Публично споделяне…';
 
   @override
+  String get privateNoShare =>
+      'Тази котка е отбелязана като лична — личните данни никога не напускат устройството ви. Първо премахнете отметката, за да я споделите публично.';
+
+  @override
   String get pickFramesTitle => 'Избор на кадри';
 
   @override

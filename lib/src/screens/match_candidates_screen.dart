@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../field_labels.dart';
 import '../l10n.dart';
+import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 
@@ -32,28 +33,17 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
       store.current(id, Keys.userField('species'));
 
   Future<void> _confirm(MatchCandidate candidate) async {
-    // Survivor picks — normally the sighted cat; both offered.
-    final survivor = await showDialog<String>(
+    // Survivor picks — normally the sighted cat; both offered. The
+    // shared dialog carries the cannot-be-undone warning.
+    final merged = await confirmPairMerge(
       context: context,
-      builder: (context) => SimpleDialog(
-        title: Text(context.t.mergeInto),
-        children: [
-          for (final id in [candidate.a, candidate.b])
-            SimpleDialogOption(
-              onPressed: () => Navigator.of(context).pop(id),
-              child: Row(children: [
-                CatAvatar(store: store, catId: id, size: 32),
-                const SizedBox(width: 8),
-                Expanded(child: Text(_name(id))),
-              ]),
-            ),
-        ],
-      ),
+      store: store,
+      a: candidate.a,
+      b: candidate.b,
+      lead: (id) => CatAvatar(store: store, catId: id, size: 32),
+      merge: store.mergeCat,
     );
-    if (survivor == null || !mounted) return;
-    final loser = survivor == candidate.a ? candidate.b : candidate.a;
-    store.mergeCat(loser, survivor);
-    setState(() {});
+    if (merged && mounted) setState(() {});
   }
 
   @override

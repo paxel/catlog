@@ -173,6 +173,7 @@
   "noDuplicates": "Praegu pole võimalikke duplikaate.",
   "similarName": "Sarnane nimi",
   "sharePublicly": "Jaga avalikult…",
+  "privateNoShare": "See kass on märgitud privaatseks — privaatsed andmed ei lahku kunagi sinu seadmest. Avalikuks jagamiseks eemalda esmalt märgistus.",
   "pickFramesTitle": "Kaadrite valik",
   "suggestedFrames": "Soovitatud kaadrid",
   "scrubFrames": "Keri videot",

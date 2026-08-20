@@ -173,6 +173,7 @@
   "noDuplicates": "Şu anda olası kopya yok.",
   "similarName": "Benzer ad",
   "sharePublicly": "Herkese açık paylaş…",
+  "privateNoShare": "Bu kedi özel olarak işaretli — özel veriler cihazınızdan asla çıkmaz. Herkese açık paylaşmak için önce işareti kaldırın.",
   "pickFramesTitle": "Kare seç",
   "suggestedFrames": "Önerilen kareler",
   "scrubFrames": "Videoda gezin",

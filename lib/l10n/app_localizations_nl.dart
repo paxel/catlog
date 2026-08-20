@@ -260,6 +260,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sharePublicly => 'Openbaar delen…';
 
   @override
+  String get privateNoShare =>
+      'Deze kat is gemarkeerd als privé — privégegevens verlaten je apparaat nooit. Verwijder eerst de markering om openbaar te delen.';
+
+  @override
   String get pickFramesTitle => 'Frames kiezen';
 
   @override

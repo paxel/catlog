@@ -260,6 +260,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sharePublicly => 'اشتراک عمومی…';
 
   @override
+  String get privateNoShare =>
+      'این گربه خصوصی علامت‌گذاری شده — داده‌های خصوصی هرگز دستگاه شما را ترک نمی‌کنند. برای اشتراک عمومی ابتدا علامت را بردارید.';
+
+  @override
   String get pickFramesTitle => 'انتخاب فریم‌ها';
 
   @override

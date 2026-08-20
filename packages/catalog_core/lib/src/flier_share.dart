@@ -23,9 +23,16 @@ Uint8List catShareBytes(CatalogStore store,
     required Set<String> fields,
     bool includePhotos = true}) {
   final cat = store.resolveEntity(catId);
+  // Private stays home, hard: a Private cat never leaves through the
+  // public share (CONTEXT.md: Private). The UI refuses earlier with an
+  // explanation; this guard catches every other caller.
+  if (store.isPrivate(cat)) {
+    throw StateError('Private cats are never shared publicly');
+  }
   final clowderId = store.current(cat, Keys.clowder);
-  final clowder =
-      clowderId == null ? null : store.resolveEntity(clowderId);
+  var clowder = clowderId == null ? null : store.resolveEntity(clowderId);
+  // A Private clowder stays out of the share entirely.
+  if (clowder != null && store.isPrivate(clowder)) clowder = null;
 
   final device = 'share-${_randomId()}';
   var dseq = 0;
@@ -61,7 +68,13 @@ Uint8List catShareBytes(CatalogStore store,
   }
 
   // Field definitions for every whitelisted field, so the importer can
-  // render types and formats.
+  // render types and formats. Private field definitions never travel,
+  // whitelisted or not.
+  final shareable = {
+    for (final def in store.fieldDefs())
+      if (fields.contains(def.key) && !store.isPrivate(def.id)) def.key
+  };
+  fields = shareable;
   final defs = {
     for (final def in store.fieldDefs())
       if (fields.contains(def.key)) def

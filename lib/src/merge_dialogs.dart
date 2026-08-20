@@ -62,3 +62,57 @@ Future<bool> showMergeDialog({
   merge(loserId, survivorId);
   return true;
 }
+
+/// Pair merge for the match/duplicates finders: pick the survivor of
+/// exactly two records, confirm with the same irreversibility warning
+/// as every other merge, then fold. Returns true if a merge happened.
+Future<bool> confirmPairMerge({
+  required BuildContext context,
+  required CatalogStore store,
+  required String a,
+  required String b,
+  required Widget Function(String id) lead,
+  required void Function(String loserId, String survivorId) merge,
+}) async {
+  String name(String id) =>
+      store.current(id, Keys.name) ?? context.t.unnamed;
+  final survivor = await showDialog<String>(
+    context: context,
+    builder: (context) => SimpleDialog(
+      title: Text(context.t.mergeInto),
+      children: [
+        for (final id in [a, b])
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop(id),
+            child: Row(children: [
+              lead(id),
+              const SizedBox(width: 8),
+              Expanded(child: Text(name(id))),
+            ]),
+          ),
+      ],
+    ),
+  );
+  if (survivor == null || !context.mounted) return false;
+  final survivorName = name(survivor);
+  final sure = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(context.t.mergeIntoQuestion(survivorName)),
+      content: Text(context.t.mergeBody(survivorName)),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: Text(context.t.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(true),
+          child: Text(context.t.merge),
+        ),
+      ],
+    ),
+  );
+  if (sure != true) return false;
+  merge(survivor == a ? b : a, survivor);
+  return true;
+}

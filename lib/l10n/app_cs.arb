@@ -173,6 +173,7 @@
   "noDuplicates": "Momentálně žádné možné duplicity.",
   "similarName": "Podobné jméno",
   "sharePublicly": "Sdílet veřejně…",
+  "privateNoShare": "Tato kočka je označena jako soukromá — soukromá data nikdy neopouštějí vaše zařízení. Nejdřív označení zrušte, pak ji lze sdílet veřejně.",
   "pickFramesTitle": "Výběr snímků",
   "suggestedFrames": "Navržené snímky",
   "scrubFrames": "Posouvání videa",

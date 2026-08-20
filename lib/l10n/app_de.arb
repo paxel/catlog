@@ -76,6 +76,7 @@
   "noDuplicates": "Gerade keine möglichen Duplikate.",
   "similarName": "Ähnlicher Name",
   "sharePublicly": "Öffentlich teilen…",
+  "privateNoShare": "Diese Katze ist als privat markiert — private Daten verlassen dein Gerät nie. Hebe die Markierung auf, um sie öffentlich zu teilen.",
   "pickFramesTitle": "Bilder auswählen",
   "suggestedFrames": "Vorgeschlagene Bilder",
   "scrubFrames": "Durchs Video spulen",

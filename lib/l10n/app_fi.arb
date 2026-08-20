@@ -173,6 +173,7 @@
   "noDuplicates": "Ei mahdollisia kaksoiskappaleita juuri nyt.",
   "similarName": "Samankaltainen nimi",
   "sharePublicly": "Jaa julkisesti…",
+  "privateNoShare": "Tämä kissa on merkitty yksityiseksi — yksityiset tiedot eivät koskaan poistu laitteeltasi. Poista merkintä ensin jakaaksesi julkisesti.",
   "pickFramesTitle": "Valitse ruudut",
   "suggestedFrames": "Ehdotetut ruudut",
   "scrubFrames": "Kelaa videota",

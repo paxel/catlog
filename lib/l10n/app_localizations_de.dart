@@ -261,6 +261,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sharePublicly => 'Öffentlich teilen…';
 
   @override
+  String get privateNoShare =>
+      'Diese Katze ist als privat markiert — private Daten verlassen dein Gerät nie. Hebe die Markierung auf, um sie öffentlich zu teilen.';
+
+  @override
   String get pickFramesTitle => 'Bilder auswählen';
 
   @override

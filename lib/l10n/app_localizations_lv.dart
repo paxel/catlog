@@ -260,6 +260,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sharePublicly => 'Kopīgot publiski…';
 
   @override
+  String get privateNoShare =>
+      'Šis kaķis ir atzīmēts kā privāts — privāti dati nekad nepamet jūsu ierīci. Vispirms noņemiet atzīmi, lai kopīgotu publiski.';
+
+  @override
   String get pickFramesTitle => 'Kadru izvēle';
 
   @override

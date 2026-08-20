@@ -260,6 +260,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sharePublicly => 'مشاركة علنية…';
 
   @override
+  String get privateNoShare =>
+      'هذه القطة مُعلَّمة كخاصة — البيانات الخاصة لا تغادر جهازك أبدًا. أزل العلامة أولًا لمشاركتها علنًا.';
+
+  @override
   String get pickFramesTitle => 'اختيار اللقطات';
 
   @override

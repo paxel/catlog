@@ -20,6 +20,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- "Share publicly" honors Private everywhere: a private cat refuses to
+  export (with the reason), a private clowder and private fields stay
+  out of the share file and QR.
+- Merging from Match candidates or Find duplicates asks the same
+  cannot-be-undone confirmation as every other merge.
+- Match candidates no longer pair up cats living in the same clowder —
+  geo matching considers strays and missing cats only.
 - Cat and clowder pages refresh immediately after a revert on the
   timeline or photos extracted from a video — no reopening needed.
 - Scrubbing through a video shows the frame at the current position

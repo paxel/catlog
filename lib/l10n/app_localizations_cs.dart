@@ -260,6 +260,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sharePublicly => 'Sdílet veřejně…';
 
   @override
+  String get privateNoShare =>
+      'Tato kočka je označena jako soukromá — soukromá data nikdy neopouštějí vaše zařízení. Nejdřív označení zrušte, pak ji lze sdílet veřejně.';
+
+  @override
   String get pickFramesTitle => 'Výběr snímků';
 
   @override

@@ -42,6 +42,22 @@ void main() {
     expect(m.distanceMeters, closeTo(334, 20));
   });
 
+  test('housemates sighted at home never geo-match', () {
+    final home = store.createClowder('Home');
+    final a = store.createCat('Anton', clowderId: home);
+    final b = store.createCat('Berta', clowderId: home);
+    store.recordPosition(a, 48.1000, 11.5000);
+    store.recordPosition(b, 48.1001, 11.5001);
+    expect(matchCandidates(store), isEmpty);
+    // A missing cat's flier circle also ignores clowder residents.
+    final missing = store.createCat('Minka');
+    store.recordPosition(missing, 48.1000, 11.5000,
+        kind: PositionKind.flier);
+    expect(
+        matchCandidates(store).where((m) => {m.a, m.b}.contains(a)),
+        isEmpty);
+  });
+
   test('an ID match swallows the geo pair for the same two cats', () {
     final a = store.createCat('A');
     final b = store.createCat('B');

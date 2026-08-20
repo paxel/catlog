@@ -260,6 +260,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sharePublicly => 'Δημόσια κοινοποίηση…';
 
   @override
+  String get privateNoShare =>
+      'Αυτή η γάτα είναι επισημασμένη ως ιδιωτική — τα ιδιωτικά δεδομένα δεν φεύγουν ποτέ από τη συσκευή σας. Αφαιρέστε πρώτα την επισήμανση για δημόσια κοινοποίηση.';
+
+  @override
   String get pickFramesTitle => 'Επιλογή καρέ';
 
   @override
