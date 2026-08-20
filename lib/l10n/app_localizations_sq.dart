@@ -219,6 +219,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get captureFlier => 'Fotografo fletushkën';
 
   @override
+  String get scanPrintedCode => 'Skano kodin e printuar';
+
+  @override
+  String get chipScanHint =>
+      'Skanon kodin QR/barkodin e printuar nga karta e çipit ose dokumentet e veterinerit — çipin brenda maces telefoni s\'mund ta lexojë.';
+
+  @override
   String get savingLabel => 'Po ruhet…';
 
   @override

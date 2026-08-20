@@ -219,6 +219,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get captureFlier => 'Fotografa volantino';
 
   @override
+  String get scanPrintedCode => 'Scansiona codice stampato';
+
+  @override
+  String get chipScanHint =>
+      'Scansiona il QR/codice a barre stampato dalla tessera del chip o dai documenti veterinari — il telefono non può leggere il chip dentro il gatto.';
+
+  @override
   String get savingLabel => 'Salvataggio…';
 
   @override

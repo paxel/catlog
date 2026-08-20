@@ -219,6 +219,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get captureFlier => 'عکس از آگهی';
 
   @override
+  String get scanPrintedCode => 'اسکن کد چاپی';
+
+  @override
+  String get chipScanHint =>
+      'کد QR/بارکد چاپی روی کارت تراشه یا مدارک دامپزشکی را می‌خواند — تلفن نمی‌تواند تراشهٔ داخل گربه را بخواند.';
+
+  @override
   String get savingLabel => 'در حال ذخیره…';
 
   @override

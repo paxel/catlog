@@ -216,6 +216,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get captureFlier => 'チラシを撮影';
 
   @override
+  String get scanPrintedCode => '印刷されたコードをスキャン';
+
+  @override
+  String get chipScanHint =>
+      'チップカードや獣医の書類に印刷されたQR/バーコードを読み取ります。猫の体内のチップは電話では読めません。';
+
+  @override
   String get savingLabel => '保存中…';
 
   @override

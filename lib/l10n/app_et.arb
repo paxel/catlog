@@ -161,6 +161,8 @@
   "starterChipId": "Kiibi number",
   "starterRemarks": "Märkused",
   "captureFlier": "Pildista kuulutust",
+  "scanPrintedCode": "Skanni trükitud kood",
+  "chipScanHint": "Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.",
   "savingLabel": "Salvestamine…",
   "ownerOfCat": "{name} omanik",
   "sortLabel": "Sordi",

@@ -161,6 +161,8 @@
   "starterChipId": "Broj čipa",
   "starterRemarks": "Napomene",
   "captureFlier": "Slikaj letak",
+  "scanPrintedCode": "Skeniraj tiskani kod",
+  "chipScanHint": "Skenira tiskani QR/crtični kod s kartice čipa ili veterinarskih papira — telefon ne može očitati čip u mački.",
   "savingLabel": "Spremanje…",
   "ownerOfCat": "Vlasnik od {name}",
   "sortLabel": "Sortiraj",

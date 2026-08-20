@@ -219,6 +219,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get captureFlier => 'Nofotografēt sludinājumu';
 
   @override
+  String get scanPrintedCode => 'Skenēt drukātu kodu';
+
+  @override
+  String get chipScanHint =>
+      'Skenē drukāto QR/svītrkodu no mikroshēmas kartes vai veterinārārsta dokumentiem — kaķī esošo mikroshēmu tālrunis nolasīt nevar.';
+
+  @override
   String get savingLabel => 'Saglabā…';
 
   @override

@@ -219,6 +219,13 @@ class AppLocalizationsNo extends AppLocalizations {
   String get captureFlier => 'Fotografer oppslag';
 
   @override
+  String get scanPrintedCode => 'Skann trykt kode';
+
+  @override
+  String get chipScanHint =>
+      'Skanner den trykte QR/strekkoden fra chipkortet eller veterinærpapirer — telefonen kan ikke lese chipen i katten.';
+
+  @override
   String get savingLabel => 'Lagrer…';
 
   @override

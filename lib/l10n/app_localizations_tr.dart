@@ -219,6 +219,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get captureFlier => 'İlanı fotoğrafla';
 
   @override
+  String get scanPrintedCode => 'Basılı kodu tara';
+
+  @override
+  String get chipScanHint =>
+      'Çip kartındaki veya veteriner belgelerindeki basılı QR/barkodu tarar — kedinin içindeki çipi telefon okuyamaz.';
+
+  @override
   String get savingLabel => 'Kaydediliyor…';
 
   @override

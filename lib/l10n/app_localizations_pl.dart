@@ -219,6 +219,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get captureFlier => 'Sfotografuj ogłoszenie';
 
   @override
+  String get scanPrintedCode => 'Skanuj wydrukowany kod';
+
+  @override
+  String get chipScanHint =>
+      'Skanuje wydrukowany kod QR/kreskowy z karty czipa lub dokumentów weterynaryjnych — telefon nie odczyta czipa w kocie.';
+
+  @override
   String get savingLabel => 'Zapisywanie…';
 
   @override

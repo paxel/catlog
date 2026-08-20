@@ -52,10 +52,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - **Clowder cards show who lives there**: cat faces, a count, and the
   type as a small label on the card's edge.
 
-- **ID fields**: a new field type for identifiers — typed or scanned with
-  the camera (QR and barcodes), shown on the Card as plain text, QR code,
-  or barcode as chosen at field creation. Cats start with a **Chip ID**
-  field rendered as a barcode.
+- **ID fields**: a new field type for identifiers — typed, or scanned
+  from a PRINTED QR/barcode (chip card, vet papers; the implanted chip
+  itself can't be read by a phone). Shown on the Card as plain text, QR
+  code, or barcode as chosen at field creation. Cats start with a
+  **Chip ID** field rendered as a barcode.
 
 - **Remarks**: a multiline notes field on every cat and clowder; search
   finds cats by their remarks too.

@@ -219,6 +219,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get captureFlier => 'Capture flier';
 
   @override
+  String get scanPrintedCode => 'Scan printed code';
+
+  @override
+  String get chipScanHint =>
+      'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.';
+
+  @override
   String get savingLabel => 'Saving…';
 
   @override

@@ -161,6 +161,8 @@
   "starterChipId": "Numri i çipit",
   "starterRemarks": "Shënime",
   "captureFlier": "Fotografo fletushkën",
+  "scanPrintedCode": "Skano kodin e printuar",
+  "chipScanHint": "Skanon kodin QR/barkodin e printuar nga karta e çipit ose dokumentet e veterinerit — çipin brenda maces telefoni s'mund ta lexojë.",
   "savingLabel": "Po ruhet…",
   "ownerOfCat": "Pronari i {name}",
   "sortLabel": "Rendit",

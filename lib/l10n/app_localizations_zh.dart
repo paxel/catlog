@@ -210,6 +210,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get captureFlier => '拍摄寻猫启事';
 
   @override
+  String get scanPrintedCode => '扫描印刷的条码';
+
+  @override
+  String get chipScanHint => '扫描芯片卡或兽医文件上印刷的二维码/条形码——手机无法读取猫体内的芯片。';
+
+  @override
   String get savingLabel => '正在保存…';
 
   @override

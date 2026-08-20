@@ -220,6 +220,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get captureFlier => 'Ħu ritratt tal-flier';
 
   @override
+  String get scanPrintedCode => 'Skennja kodiċi stampat';
+
+  @override
+  String get chipScanHint =>
+      'Jiskennja l-QR/barcode stampat mill-karta taċ-ċippa jew mid-dokumenti tal-veterinarju — it-telefon ma jistax jaqra ċ-ċippa ġol-qattus.';
+
+  @override
   String get savingLabel => 'Qed jissejvja…';
 
   @override

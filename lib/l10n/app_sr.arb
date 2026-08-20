@@ -161,6 +161,8 @@
   "starterChipId": "Број чипа",
   "starterRemarks": "Напомене",
   "captureFlier": "Сликај оглас",
+  "scanPrintedCode": "Скенирај штампани код",
+  "chipScanHint": "Скенира штампани QR/бар-код са картице чипа или ветеринарских папира — чип у мачки телефон не може да очита.",
   "savingLabel": "Чување…",
   "ownerOfCat": "Власник од {name}",
   "sortLabel": "Сортирај",

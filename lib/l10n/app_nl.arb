@@ -161,6 +161,8 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Opmerkingen",
   "captureFlier": "Poster fotograferen",
+  "scanPrintedCode": "Gedrukte code scannen",
+  "chipScanHint": "Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in de kat kan een telefoon niet lezen.",
   "savingLabel": "Opslaan…",
   "ownerOfCat": "Eigenaar van {name}",
   "sortLabel": "Sorteren",

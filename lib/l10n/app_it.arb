@@ -161,6 +161,8 @@
   "starterChipId": "Numero di chip",
   "starterRemarks": "Note",
   "captureFlier": "Fotografa volantino",
+  "scanPrintedCode": "Scansiona codice stampato",
+  "chipScanHint": "Scansiona il QR/codice a barre stampato dalla tessera del chip o dai documenti veterinari — il telefono non può leggere il chip dentro il gatto.",
   "savingLabel": "Salvataggio…",
   "ownerOfCat": "Proprietario di {name}",
   "sortLabel": "Ordina",

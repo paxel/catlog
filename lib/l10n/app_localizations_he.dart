@@ -218,6 +218,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get captureFlier => 'צילום מודעה';
 
   @override
+  String get scanPrintedCode => 'סריקת קוד מודפס';
+
+  @override
+  String get chipScanHint =>
+      'סורק את קוד ה-QR/ברקוד המודפס מכרטיס השבב או ממסמכי הווטרינר — טלפון לא יכול לקרוא את השבב שבתוך החתול.';
+
+  @override
   String get savingLabel => 'שומר…';
 
   @override

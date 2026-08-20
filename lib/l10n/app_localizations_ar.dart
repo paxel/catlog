@@ -219,6 +219,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get captureFlier => 'التقاط منشور';
 
   @override
+  String get scanPrintedCode => 'مسح الرمز المطبوع';
+
+  @override
+  String get chipScanHint =>
+      'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.';
+
+  @override
   String get savingLabel => 'جارٍ الحفظ…';
 
   @override

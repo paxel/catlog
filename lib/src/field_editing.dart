@@ -185,14 +185,19 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         );
       case FieldType.id:
         // Typed or scanned — QR and 1D barcodes both land here (#28).
+        // "Scan" means the PRINTED code: a tester pointed the camera at
+        // the cat, expecting to read the implanted transponder.
         return TextField(
           controller: _text,
           autofocus: true,
           decoration: InputDecoration(
             labelText: context.t.value,
+            helperText:
+                def.slug == 'chipid' ? context.t.chipScanHint : null,
+            helperMaxLines: 3,
             suffixIcon: IconButton(
               icon: const Icon(Icons.qr_code_scanner),
-              tooltip: context.t.scanCode,
+              tooltip: context.t.scanPrintedCode,
               onPressed: () async {
                 final value = await Navigator.of(context).push<String>(
                     MaterialPageRoute(builder: (_) => const ScanScreen()));

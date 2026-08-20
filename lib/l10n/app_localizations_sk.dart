@@ -219,6 +219,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get captureFlier => 'Odfotiť leták';
 
   @override
+  String get scanPrintedCode => 'Naskenovať vytlačený kód';
+
+  @override
+  String get chipScanHint =>
+      'Naskenuje vytlačený QR/čiarový kód z karty čipu alebo veterinárnych dokladov — čip v mačke telefón prečítať nedokáže.';
+
+  @override
   String get savingLabel => 'Ukladá sa…';
 
   @override

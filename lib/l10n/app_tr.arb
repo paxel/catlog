@@ -161,6 +161,8 @@
   "starterChipId": "Çip numarası",
   "starterRemarks": "Notlar",
   "captureFlier": "İlanı fotoğrafla",
+  "scanPrintedCode": "Basılı kodu tara",
+  "chipScanHint": "Çip kartındaki veya veteriner belgelerindeki basılı QR/barkodu tarar — kedinin içindeki çipi telefon okuyamaz.",
   "savingLabel": "Kaydediliyor…",
   "ownerOfCat": "{name} sahibi",
   "sortLabel": "Sırala",

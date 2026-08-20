@@ -219,6 +219,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get captureFlier => 'Φωτογράφιση αφίσας';
 
   @override
+  String get scanPrintedCode => 'Σάρωση τυπωμένου κωδικού';
+
+  @override
+  String get chipScanHint =>
+      'Σαρώνει τον τυπωμένο κωδικό QR/γραμμωτό από την κάρτα τσιπ ή τα κτηνιατρικά έγγραφα — το τηλέφωνο δεν μπορεί να διαβάσει το τσιπ μέσα στη γάτα.';
+
+  @override
   String get savingLabel => 'Αποθήκευση…';
 
   @override

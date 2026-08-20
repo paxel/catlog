@@ -219,6 +219,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get captureFlier => 'Plakát lefotózása';
 
   @override
+  String get scanPrintedCode => 'Nyomtatott kód beolvasása';
+
+  @override
+  String get chipScanHint =>
+      'A chipkártyán vagy állatorvosi papírokon lévő nyomtatott QR-/vonalkódot olvassa be — a macskában lévő chipet a telefon nem tudja leolvasni.';
+
+  @override
   String get savingLabel => 'Mentés…';
 
   @override

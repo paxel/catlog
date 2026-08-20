@@ -161,6 +161,8 @@
   "starterChipId": "Număr cip",
   "starterRemarks": "Observații",
   "captureFlier": "Fotografiază afișul",
+  "scanPrintedCode": "Scanează codul tipărit",
+  "chipScanHint": "Scanează codul QR/de bare tipărit de pe cardul cipului sau actele veterinare — telefonul nu poate citi cipul din pisică.",
   "savingLabel": "Se salvează…",
   "ownerOfCat": "Stăpânul lui {name}",
   "sortLabel": "Sortare",

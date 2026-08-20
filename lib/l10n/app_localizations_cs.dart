@@ -219,6 +219,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get captureFlier => 'Vyfotit leták';
 
   @override
+  String get scanPrintedCode => 'Naskenovat vytištěný kód';
+
+  @override
+  String get chipScanHint =>
+      'Naskenuje vytištěný QR/čárový kód z karty čipu nebo veterinárních dokladů — čip v kočce telefon přečíst neumí.';
+
+  @override
   String get savingLabel => 'Ukládání…';
 
   @override

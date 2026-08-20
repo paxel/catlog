@@ -161,6 +161,8 @@
   "starterChipId": "Sirunumero",
   "starterRemarks": "Huomautukset",
   "captureFlier": "Kuvaa ilmoitus",
+  "scanPrintedCode": "Skannaa painettu koodi",
+  "chipScanHint": "Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea kissan sisällä olevaa sirua.",
   "savingLabel": "Tallennetaan…",
   "ownerOfCat": "Omistaja: {name}",
   "sortLabel": "Järjestä",

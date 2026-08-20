@@ -219,6 +219,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get captureFlier => 'Photographier l\'affiche';
 
   @override
+  String get scanPrintedCode => 'Scanner le code imprimé';
+
+  @override
+  String get chipScanHint =>
+      'Scanne le QR/code-barres imprimé de la carte de puce ou des papiers vétérinaires — un téléphone ne peut pas lire la puce dans le chat.';
+
+  @override
   String get savingLabel => 'Enregistrement…';
 
   @override

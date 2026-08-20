@@ -220,6 +220,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get captureFlier => 'Aushang erfassen';
 
   @override
+  String get scanPrintedCode => 'Gedruckten Code scannen';
+
+  @override
+  String get chipScanHint =>
+      'Scannt den gedruckten QR-/Barcode von Chipkarte oder Tierarztunterlagen — den Chip in der Katze kann ein Handy nicht lesen.';
+
+  @override
   String get savingLabel => 'Speichern…';
 
   @override

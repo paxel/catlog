@@ -219,6 +219,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get captureFlier => 'Pildista kuulutust';
 
   @override
+  String get scanPrintedCode => 'Skanni trükitud kood';
+
+  @override
+  String get chipScanHint =>
+      'Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.';
+
+  @override
   String get savingLabel => 'Salvestamine…';
 
   @override

@@ -161,6 +161,8 @@
   "starterChipId": "Chipnummer",
   "starterRemarks": "Bemærkninger",
   "captureFlier": "Fotografér opslag",
+  "scanPrintedCode": "Scan trykt kode",
+  "chipScanHint": "Scanner den trykte QR/stregkode fra chipkortet eller dyrlægepapirer — telefonen kan ikke læse chippen i katten.",
   "savingLabel": "Gemmer…",
   "ownerOfCat": "Ejer af {name}",
   "sortLabel": "Sortér",

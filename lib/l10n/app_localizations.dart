@@ -554,6 +554,18 @@ abstract class AppLocalizations {
   /// **'Capture flier'**
   String get captureFlier;
 
+  /// No description provided for @scanPrintedCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan printed code'**
+  String get scanPrintedCode;
+
+  /// No description provided for @chipScanHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.'**
+  String get chipScanHint;
+
   /// No description provided for @savingLabel.
   ///
   /// In en, this message translates to:

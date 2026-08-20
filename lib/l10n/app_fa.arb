@@ -161,6 +161,8 @@
   "starterChipId": "شمارهٔ تراشه",
   "starterRemarks": "یادداشت‌ها",
   "captureFlier": "عکس از آگهی",
+  "scanPrintedCode": "اسکن کد چاپی",
+  "chipScanHint": "کد QR/بارکد چاپی روی کارت تراشه یا مدارک دامپزشکی را می‌خواند — تلفن نمی‌تواند تراشهٔ داخل گربه را بخواند.",
   "savingLabel": "در حال ذخیره…",
   "ownerOfCat": "صاحب {name}",
   "sortLabel": "مرتب‌سازی",

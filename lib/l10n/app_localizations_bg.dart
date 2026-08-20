@@ -219,6 +219,13 @@ class AppLocalizationsBg extends AppLocalizations {
   String get captureFlier => 'Заснемане на обява';
 
   @override
+  String get scanPrintedCode => 'Сканиране на отпечатан код';
+
+  @override
+  String get chipScanHint =>
+      'Сканира отпечатания QR/баркод от чип картата или ветеринарните документи — телефонът не може да прочете чипа в котката.';
+
+  @override
   String get savingLabel => 'Запазване…';
 
   @override

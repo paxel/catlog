@@ -276,7 +276,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
                 const Spacer(),
                 TextButton.icon(
                     icon: const Icon(Icons.qr_code_scanner),
-                    label: Text(t.scanCode),
+                    label: Text(t.scanPrintedCode),
                     onPressed: _scanCode),
               ]),
               if (_ocrTried && _remarks.text.isEmpty)
@@ -295,7 +295,9 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
                       labelText: fieldDefName(
                           t,
                           store.fieldDefs().firstWhere(
-                              (d) => d.slug == 'chipid')))),
+                              (d) => d.slug == 'chipid')),
+                      helperText: t.chipScanHint,
+                      helperMaxLines: 3)),
               if (newCat) ...[
                 TextField(
                     controller: _owner,

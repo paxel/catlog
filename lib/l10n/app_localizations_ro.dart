@@ -219,6 +219,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get captureFlier => 'Fotografiază afișul';
 
   @override
+  String get scanPrintedCode => 'Scanează codul tipărit';
+
+  @override
+  String get chipScanHint =>
+      'Scanează codul QR/de bare tipărit de pe cardul cipului sau actele veterinare — telefonul nu poate citi cipul din pisică.';
+
+  @override
   String get savingLabel => 'Se salvează…';
 
   @override

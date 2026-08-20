@@ -220,6 +220,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get captureFlier => 'Mynda auglýsingu';
 
   @override
+  String get scanPrintedCode => 'Skanna prentaðan kóða';
+
+  @override
+  String get chipScanHint =>
+      'Skannar prentaða QR-/strikamerkið af örflögukortinu eða dýralæknisskjölum — sími getur ekki lesið flöguna í kettinum.';
+
+  @override
   String get savingLabel => 'Vista…';
 
   @override

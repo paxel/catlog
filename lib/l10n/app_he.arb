@@ -161,6 +161,8 @@
   "starterChipId": "מספר שבב",
   "starterRemarks": "הערות",
   "captureFlier": "צילום מודעה",
+  "scanPrintedCode": "סריקת קוד מודפס",
+  "chipScanHint": "סורק את קוד ה-QR/ברקוד המודפס מכרטיס השבב או ממסמכי הווטרינר — טלפון לא יכול לקרוא את השבב שבתוך החתול.",
   "savingLabel": "שומר…",
   "ownerOfCat": "הבעלים של {name}",
   "sortLabel": "מיון",

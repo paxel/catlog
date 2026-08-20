@@ -219,6 +219,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get captureFlier => 'Grianghraf den bhileog';
 
   @override
+  String get scanPrintedCode => 'Scan cód clóite';
+
+  @override
+  String get chipScanHint =>
+      'Scanann sé an cód QR/barrachód clóite ó chárta na slise nó ó pháipéir an tréidlia — ní féidir le fón an tslis sa chat a léamh.';
+
+  @override
   String get savingLabel => 'Á shábháil…';
 
   @override

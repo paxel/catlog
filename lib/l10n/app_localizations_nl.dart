@@ -219,6 +219,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get captureFlier => 'Poster fotograferen';
 
   @override
+  String get scanPrintedCode => 'Gedrukte code scannen';
+
+  @override
+  String get chipScanHint =>
+      'Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in de kat kan een telefoon niet lezen.';
+
+  @override
   String get savingLabel => 'Opslaan…';
 
   @override

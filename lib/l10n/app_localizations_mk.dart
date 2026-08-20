@@ -219,6 +219,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get captureFlier => 'Сликај оглас';
 
   @override
+  String get scanPrintedCode => 'Скенирај печатен код';
+
+  @override
+  String get chipScanHint =>
+      'Го скенира печатениот QR/баркод од картичката на чипот или ветеринарните документи — телефонот не може да го прочита чипот во мачката.';
+
+  @override
   String get savingLabel => 'Зачувување…';
 
   @override

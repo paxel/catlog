@@ -219,6 +219,13 @@ class AppLocalizationsBs extends AppLocalizations {
   String get captureFlier => 'Slikaj letak';
 
   @override
+  String get scanPrintedCode => 'Skeniraj štampani kod';
+
+  @override
+  String get chipScanHint =>
+      'Skenira štampani QR/barkod sa kartice čipa ili veterinarskih papira — telefon ne može očitati čip u mački.';
+
+  @override
   String get savingLabel => 'Spremanje…';
 
   @override

@@ -219,6 +219,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get captureFlier => 'Nufotografuoti skelbimą';
 
   @override
+  String get scanPrintedCode => 'Skenuoti atspausdintą kodą';
+
+  @override
+  String get chipScanHint =>
+      'Nuskaito atspausdintą QR/brūkšninį kodą iš lusto kortelės ar veterinaro dokumentų — katėje esančio lusto telefonas nuskaityti negali.';
+
+  @override
   String get savingLabel => 'Įrašoma…';
 
   @override

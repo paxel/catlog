@@ -161,6 +161,8 @@
   "starterChipId": "Numer czipa",
   "starterRemarks": "Uwagi",
   "captureFlier": "Sfotografuj ogłoszenie",
+  "scanPrintedCode": "Skanuj wydrukowany kod",
+  "chipScanHint": "Skanuje wydrukowany kod QR/kreskowy z karty czipa lub dokumentów weterynaryjnych — telefon nie odczyta czipa w kocie.",
   "savingLabel": "Zapisywanie…",
   "ownerOfCat": "Właściciel {name}",
   "sortLabel": "Sortuj",

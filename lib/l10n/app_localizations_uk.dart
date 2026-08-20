@@ -219,6 +219,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get captureFlier => 'Сфотографувати оголошення';
 
   @override
+  String get scanPrintedCode => 'Сканувати надрукований код';
+
+  @override
+  String get chipScanHint =>
+      'Сканує надрукований QR/штрихкод з картки чипа або ветеринарних документів — сам чип у кішці телефон прочитати не може.';
+
+  @override
   String get savingLabel => 'Збереження…';
 
   @override

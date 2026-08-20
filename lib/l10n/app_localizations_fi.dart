@@ -219,6 +219,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get captureFlier => 'Kuvaa ilmoitus';
 
   @override
+  String get scanPrintedCode => 'Skannaa painettu koodi';
+
+  @override
+  String get chipScanHint =>
+      'Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea kissan sisällä olevaa sirua.';
+
+  @override
   String get savingLabel => 'Tallennetaan…';
 
   @override

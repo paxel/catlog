@@ -92,6 +92,8 @@
   "starterChipId": "Chip ID",
   "starterRemarks": "Remarks",
   "captureFlier": "Capture flier",
+  "scanPrintedCode": "Scan printed code",
+  "chipScanHint": "Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can't be read by a phone.",
   "savingLabel": "Saving…",
   "ownerOfCat": "Owner of {name}",
   "@ownerOfCat": {"placeholders": {"name": {"type": "String"}}},
