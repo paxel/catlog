@@ -801,6 +801,22 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Kereső hivatkozás';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'A szolgáltatás oldala $token helyén a számmal, pl. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Megnézés';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Egyetlen alkalmazás sem tudta megnyitni ezt: $url. Másold a linket egy böngészőbe.';
+  }
+
+  @override
   String get starterPosition => 'Hely';
 
   @override

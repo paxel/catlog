@@ -804,6 +804,22 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterPhone => 'Sími';
 
   @override
+  String get lookupUrlLabel => 'Uppflettitengill';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Síða þjónustunnar með $token þar sem númerið á að vera, t.d. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Fletta upp';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ekkert forrit gat opnað $url. Afritaðu tengilinn í vafra.';
+  }
+
+  @override
   String get starterPosition => 'Staðsetning';
 
   @override

@@ -801,6 +801,22 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterPhone => 'Telefón';
 
   @override
+  String get lookupUrlLabel => 'Odkaz na vyhľadanie';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Stránka služby s $token na mieste čísla, napr. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Vyhľadať';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Žiadna aplikácia nedokázala otvoriť $url. Skopírujte odkaz do prehliadača.';
+  }
+
+  @override
   String get starterPosition => 'Poloha';
 
   @override

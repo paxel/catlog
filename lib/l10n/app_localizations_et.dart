@@ -800,6 +800,22 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Otsingulink';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Teenuse leht, kus $token on numbri kohal, nt https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Otsi';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ükski rakendus ei suutnud avada aadressi $url. Kopeeri link brauserisse.';
+  }
+
+  @override
   String get starterPosition => 'Asukoht';
 
   @override

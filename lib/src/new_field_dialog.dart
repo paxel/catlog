@@ -28,6 +28,7 @@ class _NewFieldDialog extends StatefulWidget {
 class _NewFieldDialogState extends State<_NewFieldDialog> {
   final _name = TextEditingController();
   final _options = TextEditingController();
+  final _lookup = TextEditingController();
   FieldType _type = FieldType.text;
   late FieldScope _scope = widget.initialScope;
   IdDisplay _idDisplay = IdDisplay.plain;
@@ -37,6 +38,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
   void dispose() {
     _name.dispose();
     _options.dispose();
+    _lookup.dispose();
     super.dispose();
   }
 
@@ -47,6 +49,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
         _type,
         scope: _scope,
         idDisplay: _idDisplay,
+        lookupUrl: _lookup.text.trim(),
         options: _options.text
             .split('\n')
             .map((o) => o.trim())
@@ -125,6 +128,28 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
               ],
               onChanged: (d) => setState(() => _idDisplay = d ?? _idDisplay),
             ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _lookup,
+              keyboardType: TextInputType.url,
+              decoration: InputDecoration(
+                labelText: context.t.lookupUrlLabel,
+                helperText: context.t.lookupUrlHelp(lookupPlaceholder),
+                helperMaxLines: 3,
+              ),
+            ),
+            // The known services fill name and template in one tap;
+            // every other registry is learned from a scanned flier.
+            Wrap(spacing: 8, children: [
+              for (final preset in registryPresets)
+                ActionChip(
+                  label: Text(preset.name),
+                  onPressed: () => setState(() {
+                    if (_name.text.trim().isEmpty) _name.text = preset.name;
+                    _lookup.text = preset.template;
+                  }),
+                ),
+            ]),
           ],
         ]),
       ),

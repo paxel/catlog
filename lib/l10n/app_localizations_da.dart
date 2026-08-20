@@ -801,6 +801,22 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Opslagslink';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Tjenestens side med $token der hvor nummeret står, fx https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Slå op';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ingen app kunne åbne $url. Kopiér linket ind i en browser.';
+  }
+
+  @override
   String get starterPosition => 'Placering';
 
   @override

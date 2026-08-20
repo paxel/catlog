@@ -1550,6 +1550,30 @@ abstract class AppLocalizations {
   /// **'Phone'**
   String get starterPhone;
 
+  /// No description provided for @lookupUrlLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Lookup link'**
+  String get lookupUrlLabel;
+
+  /// No description provided for @lookupUrlHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The service\'s page with {token} where the number goes, e.g. https://www.tasso.net/Tierregister/Suchmeldungen?snr={token}'**
+  String lookupUrlHelp(String token);
+
+  /// No description provided for @lookUpId.
+  ///
+  /// In en, this message translates to:
+  /// **'Look up'**
+  String get lookUpId;
+
+  /// No description provided for @lookupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'No app could open {url}. Copy the link into a browser.'**
+  String lookupFailed(String url);
+
   /// No description provided for @starterPosition.
   ///
   /// In en, this message translates to:

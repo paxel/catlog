@@ -803,6 +803,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterPhone => 'Telefone';
 
   @override
+  String get lookupUrlLabel => 'Ligação de consulta';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'A página do serviço com $token no lugar do número, p. ex. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Consultar';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nenhuma aplicação conseguiu abrir $url. Copia a ligação para um navegador.';
+  }
+
+  @override
   String get starterPosition => 'Localização';
 
   @override

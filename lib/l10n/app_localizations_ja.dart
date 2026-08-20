@@ -788,6 +788,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterPhone => '電話番号';
 
   @override
+  String get lookupUrlLabel => '照会リンク';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return '番号の位置に $token を入れたサービスのページ。例：https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => '照会する';
+
+  @override
+  String lookupFailed(String url) {
+    return '$url を開けるアプリがありません。リンクをブラウザに貼り付けてください。';
+  }
+
+  @override
   String get starterPosition => '位置';
 
   @override

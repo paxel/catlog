@@ -804,6 +804,22 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterPhone => 'Τηλέφωνο';
 
   @override
+  String get lookupUrlLabel => 'Σύνδεσμος αναζήτησης';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Η σελίδα της υπηρεσίας με $token στη θέση του αριθμού, π.χ. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Αναζήτηση';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Καμία εφαρμογή δεν άνοιξε το $url. Αντίγραψε τον σύνδεσμο σε φυλλομετρητή.';
+  }
+
+  @override
   String get starterPosition => 'Τοποθεσία';
 
   @override

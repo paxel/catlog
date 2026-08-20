@@ -803,6 +803,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterPhone => 'Telefoon';
 
   @override
+  String get lookupUrlLabel => 'Opzoeklink';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'De pagina van de dienst met $token op de plek van het nummer, bv. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Opzoeken';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Geen app kon $url openen. Kopieer de link naar een browser.';
+  }
+
+  @override
   String get starterPosition => 'Locatie';
 
   @override

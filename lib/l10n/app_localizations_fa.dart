@@ -800,6 +800,22 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterPhone => 'تلفن';
 
   @override
+  String get lookupUrlLabel => 'پیوند جست‌وجو';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'صفحهٔ سرویس با $token به جای شماره، مثل https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'جست‌وجو';
+
+  @override
+  String lookupFailed(String url) {
+    return 'هیچ برنامه‌ای نتوانست $url را باز کند. پیوند را در مرورگر کپی کنید.';
+  }
+
+  @override
   String get starterPosition => 'موقعیت';
 
   @override

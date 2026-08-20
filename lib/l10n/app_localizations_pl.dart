@@ -800,6 +800,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Link wyszukiwania';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Strona serwisu z $token w miejscu numeru, np. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Sprawdź';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Żadna aplikacja nie otworzyła $url. Skopiuj link do przeglądarki.';
+  }
+
+  @override
   String get starterPosition => 'Lokalizacja';
 
   @override

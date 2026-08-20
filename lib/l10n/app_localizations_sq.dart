@@ -804,6 +804,22 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterPhone => 'Telefoni';
 
   @override
+  String get lookupUrlLabel => 'Lidhje kërkimi';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Faqja e shërbimit me $token aty ku shkon numri, p.sh. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Kërko';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Asnjë aplikacion nuk e hapi dot $url. Kopjo lidhjen në një shfletues.';
+  }
+
+  @override
   String get starterPosition => 'Vendndodhja';
 
   @override

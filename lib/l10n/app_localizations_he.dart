@@ -798,6 +798,22 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterPhone => 'טלפון';
 
   @override
+  String get lookupUrlLabel => 'קישור לחיפוש';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'עמוד השירות עם $token במקום המספר, למשל https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'חיפוש';
+
+  @override
+  String lookupFailed(String url) {
+    return 'אף אפליקציה לא הצליחה לפתוח את $url. העתיקו את הקישור לדפדפן.';
+  }
+
+  @override
   String get starterPosition => 'מיקום';
 
   @override

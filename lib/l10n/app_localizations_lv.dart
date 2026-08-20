@@ -800,6 +800,22 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterPhone => 'Tālrunis';
 
   @override
+  String get lookupUrlLabel => 'Meklēšanas saite';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Pakalpojuma lapa ar $token numura vietā, piem. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Meklēt';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Neviena lietotne nevarēja atvērt $url. Nokopējiet saiti pārlūkā.';
+  }
+
+  @override
   String get starterPosition => 'Atrašanās vieta';
 
   @override

@@ -18,6 +18,9 @@ class FieldList extends StatelessWidget {
   final void Function(FieldDef def) onHistory;
   final void Function(String value) onShowMap;
 
+  /// Opens the registry page of an ID field that has a lookup URL.
+  final void Function(FieldDef def, String value)? onLookup;
+
   /// Read-mode long-press on a row; null until a screen wires it (#49).
   final void Function(FieldDef def)? onReadLongPress;
 
@@ -34,6 +37,7 @@ class FieldList extends StatelessWidget {
       required this.onConflict,
       required this.onHistory,
       required this.onShowMap,
+      this.onLookup,
       this.onReadLongPress,
       this.onAddField});
 
@@ -64,6 +68,11 @@ class FieldList extends StatelessWidget {
           final conflict = store.hasConflict(entityId, def.key);
           final value = store.current(entityId, def.key);
           final mapJump = def.type == FieldType.location && value != null;
+          // An ID that belongs to a service opens there — the same
+          // shape as the map jump on a location.
+          final lookup = onLookup != null &&
+              value != null &&
+              lookupUrl(def, value) != null;
           return ListTile(
             title: Text(fieldDefName(context.t, def)),
             subtitle: Text(_display(context, def)),
@@ -75,6 +84,12 @@ class FieldList extends StatelessWidget {
                         tooltip: context.t.showOnMap,
                         onPressed: () => onShowMap(value),
                       )
+                    : lookup
+                        ? IconButton(
+                            icon: const Icon(Icons.open_in_new),
+                            tooltip: context.t.lookUpId,
+                            onPressed: () => onLookup!(def, value),
+                          )
                     : editing
                         ? const Icon(Icons.edit_outlined)
                         : null,

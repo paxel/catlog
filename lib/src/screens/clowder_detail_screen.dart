@@ -13,6 +13,7 @@ import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/field_list.dart';
 import '../widgets/status_chip.dart';
+import '../registry_lookup.dart';
 import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'map_screen.dart';
@@ -159,6 +160,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         if (mounted) setState(() {});
       },
       onShowMap: _showOnMap,
+      onLookup: (def, value) => openLookup(context, def, value),
       // Long-press in read mode: jump into edit mode with the field's
       // editor open — fix what you just spotted (#46).
       onReadLongPress: (def) {

@@ -801,6 +801,22 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterPhone => 'Телефон';
 
   @override
+  String get lookupUrlLabel => 'Посилання для пошуку';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Сторінка служби з $token на місці номера, напр. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Знайти';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Жодний застосунок не зміг відкрити $url. Скопіюйте посилання у браузер.';
+  }
+
+  @override
   String get starterPosition => 'Місцезнаходження';
 
   @override

@@ -805,6 +805,22 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterPhone => 'Fón';
 
   @override
+  String get lookupUrlLabel => 'Nasc cuardaigh';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Leathanach na seirbhíse le $token in áit na huimhreach, m.sh. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Cuardaigh';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Níorbh fhéidir le haon aip $url a oscailt. Cóipeáil an nasc isteach i mbrabhsálaí.';
+  }
+
+  @override
   String get starterPosition => 'Suíomh';
 
   @override

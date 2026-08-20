@@ -7,6 +7,7 @@ import 'package:latlong2/latlong.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
+import '../registry_lookup.dart';
 import '../flier_capture.dart';
 import '../image_import.dart';
 import '../hidden.dart';
@@ -458,6 +459,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             },
             onHistory: (def) => _openTimeline(field: def.key),
             onShowMap: _showOnMap,
+            onLookup: (def, value) => openLookup(context, def, value),
             // Long-press in read mode: jump into edit mode with the
             // field's editor open — fix what you just spotted (#46).
             onReadLongPress: (def) {

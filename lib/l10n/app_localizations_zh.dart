@@ -777,6 +777,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterPhone => '电话';
 
   @override
+  String get lookupUrlLabel => '查询链接';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return '服务页面地址，用 $token 代替号码，例如 https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => '查询';
+
+  @override
+  String lookupFailed(String url) {
+    return '没有应用能打开 $url。请把链接复制到浏览器。';
+  }
+
+  @override
   String get starterPosition => '位置';
 
   @override

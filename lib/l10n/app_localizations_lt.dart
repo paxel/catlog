@@ -802,6 +802,22 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterPhone => 'Telefonas';
 
   @override
+  String get lookupUrlLabel => 'Paieškos nuoroda';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Paslaugos puslapis su $token vietoj numerio, pvz. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Ieškoti';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nė viena programa negalėjo atverti $url. Nukopijuokite nuorodą į naršyklę.';
+  }
+
+  @override
   String get starterPosition => 'Vieta';
 
   @override

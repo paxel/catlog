@@ -802,6 +802,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get starterPhone => 'Телефон';
 
   @override
+  String get lookupUrlLabel => 'Ссылка для поиска';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Страница службы с $token на месте номера, напр. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Найти';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ни одно приложение не смогло открыть $url. Скопируйте ссылку в браузер.';
+  }
+
+  @override
   String get starterPosition => 'Местоположение';
 
   @override

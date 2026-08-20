@@ -802,6 +802,22 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterPhone => 'Puhelin';
 
   @override
+  String get lookupUrlLabel => 'Hakulinkki';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Palvelun sivu, jossa $token on numeron paikalla, esim. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Hae';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Mikään sovellus ei voinut avata osoitetta $url. Kopioi linkki selaimeen.';
+  }
+
+  @override
   String get starterPosition => 'Sijainti';
 
   @override

@@ -801,6 +801,22 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Povezava za iskanje';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Stran storitve z $token na mestu številke, npr. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Poišči';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nobena aplikacija ni mogla odpreti $url. Kopirajte povezavo v brskalnik.';
+  }
+
+  @override
   String get starterPosition => 'Lokacija';
 
   @override

@@ -804,6 +804,22 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterPhone => 'Telefon';
 
   @override
+  String get lookupUrlLabel => 'Link tat-tiftix';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Il-paġna tas-servizz b\'$token minflok in-numru, eż. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Fittex';
+
+  @override
+  String lookupFailed(String url) {
+    return 'L-ebda app ma setgħet tiftaħ $url. Ikkopja l-link f\'browser.';
+  }
+
+  @override
   String get starterPosition => 'Post';
 
   @override
