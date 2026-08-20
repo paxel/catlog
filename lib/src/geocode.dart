@@ -18,10 +18,11 @@ class GeoHit {
 /// network.
 typedef GeocodeSearch = Future<List<GeoHit>> Function(String query);
 
-/// Address/city/country search via OSM Nominatim — the app's single
-/// outbound call besides map tiles (named in the privacy policy). Only
-/// runs when the user submits a search in the position picker; no
-/// reverse geocoding anywhere.
+/// Address/city/country search via OSM Nominatim — besides map tiles,
+/// the app's only outbound call (named in the privacy policy). Runs
+/// only when the user submits a search in the position picker, on the
+/// map when the catalog knows no such name, or when the flier scan is
+/// asked to locate the owner's address; no reverse geocoding anywhere.
 Future<List<GeoHit>> nominatimSearch(String query) async {
   final client = HttpClient()
     ..userAgent = 'catlog/0.2 (https://github.com/paxel/catlog)'
