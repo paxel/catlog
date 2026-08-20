@@ -168,6 +168,8 @@
   "savingLabel": "Vista…",
   "ownerOfCat": "Eigandi {name}",
   "sortLabel": "Raða",
+  "viewAsTable": "Sýna sem töflu",
+  "viewAsTiles": "Sýna sem flísar",
   "matchCandidatesTitle": "Mögulegar samsvaranir",
   "findDuplicates": "Finna tvítök",
   "noDuplicates": "Engin möguleg tvítök núna.",

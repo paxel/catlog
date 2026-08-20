@@ -168,6 +168,8 @@
   "savingLabel": "Įrašoma…",
   "ownerOfCat": "{name} šeimininkas",
   "sortLabel": "Rikiuoti",
+  "viewAsTable": "Rodyti lentele",
+  "viewAsTiles": "Rodyti plytelėmis",
   "matchCandidatesTitle": "Galimi atitikmenys",
   "findDuplicates": "Rasti dublikatus",
   "noDuplicates": "Šiuo metu galimų dublikatų nėra.",

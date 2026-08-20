@@ -245,6 +245,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sortLabel => 'Ordenar';
 
   @override
+  String get viewAsTable => 'Ver como tabla';
+
+  @override
+  String get viewAsTiles => 'Ver como mosaicos';
+
+  @override
   String get matchCandidatesTitle => 'Posibles coincidencias';
 
   @override

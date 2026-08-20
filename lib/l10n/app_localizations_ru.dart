@@ -245,6 +245,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sortLabel => 'Сортировка';
 
   @override
+  String get viewAsTable => 'Показать таблицей';
+
+  @override
+  String get viewAsTiles => 'Показать плитками';
+
+  @override
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override

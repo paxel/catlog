@@ -245,6 +245,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sortLabel => 'Sordi';
 
   @override
+  String get viewAsTable => 'Kuva tabelina';
+
+  @override
+  String get viewAsTiles => 'Kuva paanidena';
+
+  @override
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override

@@ -168,6 +168,8 @@
   "savingLabel": "Сохранение…",
   "ownerOfCat": "Хозяин {name}",
   "sortLabel": "Сортировка",
+  "viewAsTable": "Показать таблицей",
+  "viewAsTiles": "Показать плитками",
   "matchCandidatesTitle": "Возможные совпадения",
   "findDuplicates": "Найти дубликаты",
   "noDuplicates": "Сейчас возможных дубликатов нет.",

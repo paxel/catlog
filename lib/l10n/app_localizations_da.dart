@@ -245,6 +245,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get sortLabel => 'Sortér';
 
   @override
+  String get viewAsTable => 'Vis som tabel';
+
+  @override
+  String get viewAsTiles => 'Vis som fliser';
+
+  @override
   String get matchCandidatesTitle => 'Mulige match';
 
   @override

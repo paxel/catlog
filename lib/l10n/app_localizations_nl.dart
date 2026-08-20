@@ -245,6 +245,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sortLabel => 'Sorteren';
 
   @override
+  String get viewAsTable => 'Als tabel tonen';
+
+  @override
+  String get viewAsTiles => 'Als tegels tonen';
+
+  @override
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override

@@ -168,6 +168,8 @@
   "savingLabel": "Qed jissejvja…",
   "ownerOfCat": "Sid ta' {name}",
   "sortLabel": "Issortja",
+  "viewAsTable": "Uri bħala tabella",
+  "viewAsTiles": "Uri bħala madum",
   "matchCandidatesTitle": "Tqabbil possibbli",
   "findDuplicates": "Sib duplikati",
   "noDuplicates": "M'hemm l-ebda duplikat possibbli bħalissa.",

@@ -168,6 +168,8 @@
   "savingLabel": "جارٍ الحفظ…",
   "ownerOfCat": "مالك {name}",
   "sortLabel": "فرز",
+  "viewAsTable": "عرض كجدول",
+  "viewAsTiles": "عرض كبلاطات",
   "matchCandidatesTitle": "مرشّحو التطابق",
   "findDuplicates": "البحث عن التكرارات",
   "noDuplicates": "لا توجد تكرارات محتملة حاليًا.",

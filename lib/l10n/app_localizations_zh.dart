@@ -235,6 +235,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sortLabel => '排序';
 
   @override
+  String get viewAsTable => '以表格显示';
+
+  @override
+  String get viewAsTiles => '以磁贴显示';
+
+  @override
   String get matchCandidatesTitle => '疑似匹配';
 
   @override

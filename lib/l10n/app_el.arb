@@ -168,6 +168,8 @@
   "savingLabel": "Αποθήκευση…",
   "ownerOfCat": "Ιδιοκτήτης του/της {name}",
   "sortLabel": "Ταξινόμηση",
+  "viewAsTable": "Προβολή ως πίνακα",
+  "viewAsTiles": "Προβολή ως πλακίδια",
   "matchCandidatesTitle": "Πιθανές αντιστοιχίες",
   "findDuplicates": "Εύρεση διπλότυπων",
   "noDuplicates": "Κανένα πιθανό διπλότυπο αυτήν τη στιγμή.",

@@ -245,6 +245,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sortLabel => 'Sortare';
 
   @override
+  String get viewAsTable => 'Afișează ca tabel';
+
+  @override
+  String get viewAsTiles => 'Afișează ca plăci';
+
+  @override
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override

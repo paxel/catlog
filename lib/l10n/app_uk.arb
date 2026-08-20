@@ -168,6 +168,8 @@
   "savingLabel": "Збереження…",
   "ownerOfCat": "Власник {name}",
   "sortLabel": "Сортування",
+  "viewAsTable": "Показати таблицею",
+  "viewAsTiles": "Показати плитками",
   "matchCandidatesTitle": "Можливі збіги",
   "findDuplicates": "Знайти дублікати",
   "noDuplicates": "Наразі можливих дублікатів немає.",

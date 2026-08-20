@@ -71,6 +71,8 @@
   "savingLabel": "Speichern…",
   "ownerOfCat": "Besitzer von {name}",
   "sortLabel": "Sortieren",
+  "viewAsTable": "Als Tabelle anzeigen",
+  "viewAsTiles": "Als Kacheln anzeigen",
   "matchCandidatesTitle": "Mögliche Treffer",
   "findDuplicates": "Duplikate finden",
   "noDuplicates": "Gerade keine möglichen Duplikate.",

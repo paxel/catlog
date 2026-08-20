@@ -168,6 +168,8 @@
   "savingLabel": "Ukladá sa…",
   "ownerOfCat": "Majiteľ mačky {name}",
   "sortLabel": "Zoradiť",
+  "viewAsTable": "Zobraziť ako tabuľku",
+  "viewAsTiles": "Zobraziť ako dlaždice",
   "matchCandidatesTitle": "Možné zhody",
   "findDuplicates": "Nájsť duplicity",
   "noDuplicates": "Momentálne žiadne možné duplicity.",

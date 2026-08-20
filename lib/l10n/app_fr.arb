@@ -168,6 +168,8 @@
   "savingLabel": "Enregistrement…",
   "ownerOfCat": "Propriétaire de {name}",
   "sortLabel": "Trier",
+  "viewAsTable": "Afficher en tableau",
+  "viewAsTiles": "Afficher en vignettes",
   "matchCandidatesTitle": "Correspondances possibles",
   "findDuplicates": "Trouver les doublons",
   "noDuplicates": "Aucun doublon possible pour le moment.",

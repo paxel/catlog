@@ -245,6 +245,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sortLabel => 'Сортирај';
 
   @override
+  String get viewAsTable => 'Прикажи као табелу';
+
+  @override
+  String get viewAsTiles => 'Прикажи као плочице';
+
+  @override
   String get matchCandidatesTitle => 'Могући парови';
 
   @override

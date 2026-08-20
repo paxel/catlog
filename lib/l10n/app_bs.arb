@@ -168,6 +168,8 @@
   "savingLabel": "Spremanje…",
   "ownerOfCat": "Vlasnik od {name}",
   "sortLabel": "Sortiraj",
+  "viewAsTable": "Prikaži kao tabelu",
+  "viewAsTiles": "Prikaži kao pločice",
   "matchCandidatesTitle": "Mogući parovi",
   "findDuplicates": "Pronađi duplikate",
   "noDuplicates": "Trenutno nema mogućih duplikata.",

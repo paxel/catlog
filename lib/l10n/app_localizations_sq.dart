@@ -245,6 +245,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sortLabel => 'Rendit';
 
   @override
+  String get viewAsTable => 'Shfaq si tabelë';
+
+  @override
+  String get viewAsTiles => 'Shfaq si pllaka';
+
+  @override
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override

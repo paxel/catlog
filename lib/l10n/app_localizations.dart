@@ -596,6 +596,18 @@ abstract class AppLocalizations {
   /// **'Sort'**
   String get sortLabel;
 
+  /// No description provided for @viewAsTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as table'**
+  String get viewAsTable;
+
+  /// No description provided for @viewAsTiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as tiles'**
+  String get viewAsTiles;
+
   /// No description provided for @matchCandidatesTitle.
   ///
   /// In en, this message translates to:

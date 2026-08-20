@@ -245,6 +245,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sortLabel => 'فرز';
 
   @override
+  String get viewAsTable => 'عرض كجدول';
+
+  @override
+  String get viewAsTiles => 'عرض كبلاطات';
+
+  @override
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override

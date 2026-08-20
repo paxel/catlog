@@ -168,6 +168,8 @@
   "savingLabel": "Gemmer…",
   "ownerOfCat": "Ejer af {name}",
   "sortLabel": "Sortér",
+  "viewAsTable": "Vis som tabel",
+  "viewAsTiles": "Vis som fliser",
   "matchCandidatesTitle": "Mulige match",
   "findDuplicates": "Find dubletter",
   "noDuplicates": "Ingen mulige dubletter lige nu.",

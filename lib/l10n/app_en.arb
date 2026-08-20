@@ -101,6 +101,8 @@
   "ownerOfCat": "Owner of {name}",
   "@ownerOfCat": {"placeholders": {"name": {"type": "String"}}},
   "sortLabel": "Sort",
+  "viewAsTable": "Show as table",
+  "viewAsTiles": "Show as tiles",
   "matchCandidatesTitle": "Match candidates",
   "findDuplicates": "Find duplicates",
   "noDuplicates": "No possible duplicates right now.",

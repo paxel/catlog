@@ -245,6 +245,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sortLabel => 'Sort';
 
   @override
+  String get viewAsTable => 'Show as table';
+
+  @override
+  String get viewAsTiles => 'Show as tiles';
+
+  @override
   String get matchCandidatesTitle => 'Match candidates';
 
   @override

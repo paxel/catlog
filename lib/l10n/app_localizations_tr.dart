@@ -245,6 +245,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sortLabel => 'Sırala';
 
   @override
+  String get viewAsTable => 'Tablo olarak göster';
+
+  @override
+  String get viewAsTiles => 'Karo olarak göster';
+
+  @override
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override

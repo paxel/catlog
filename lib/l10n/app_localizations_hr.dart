@@ -245,6 +245,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get sortLabel => 'Sortiraj';
 
   @override
+  String get viewAsTable => 'Prikaži kao tablicu';
+
+  @override
+  String get viewAsTiles => 'Prikaži kao pločice';
+
+  @override
   String get matchCandidatesTitle => 'Mogući parovi';
 
   @override

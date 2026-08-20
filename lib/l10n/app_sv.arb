@@ -168,6 +168,8 @@
   "savingLabel": "Sparar…",
   "ownerOfCat": "Ägare till {name}",
   "sortLabel": "Sortera",
+  "viewAsTable": "Visa som tabell",
+  "viewAsTiles": "Visa som paneler",
   "matchCandidatesTitle": "Möjliga matchningar",
   "findDuplicates": "Hitta dubbletter",
   "noDuplicates": "Inga möjliga dubbletter just nu.",

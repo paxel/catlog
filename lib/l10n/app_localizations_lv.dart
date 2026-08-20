@@ -245,6 +245,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sortLabel => 'Kārtot';
 
   @override
+  String get viewAsTable => 'Rādīt kā tabulu';
+
+  @override
+  String get viewAsTiles => 'Rādīt kā elementus';
+
+  @override
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override

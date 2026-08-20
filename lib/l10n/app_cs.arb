@@ -168,6 +168,8 @@
   "savingLabel": "Ukládání…",
   "ownerOfCat": "Majitel kočky {name}",
   "sortLabel": "Řazení",
+  "viewAsTable": "Zobrazit jako tabulku",
+  "viewAsTiles": "Zobrazit jako dlaždice",
   "matchCandidatesTitle": "Možné shody",
   "findDuplicates": "Najít duplicity",
   "noDuplicates": "Momentálně žádné možné duplicity.",

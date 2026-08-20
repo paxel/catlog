@@ -245,6 +245,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sortLabel => 'Rendezés';
 
   @override
+  String get viewAsTable => 'Táblázatként';
+
+  @override
+  String get viewAsTiles => 'Csempeként';
+
+  @override
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override

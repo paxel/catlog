@@ -245,6 +245,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sortLabel => 'Сортування';
 
   @override
+  String get viewAsTable => 'Показати таблицею';
+
+  @override
+  String get viewAsTiles => 'Показати плитками';
+
+  @override
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override

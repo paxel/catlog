@@ -244,6 +244,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sortLabel => 'מיון';
 
   @override
+  String get viewAsTable => 'הצגה כטבלה';
+
+  @override
+  String get viewAsTiles => 'הצגה כאריחים';
+
+  @override
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override

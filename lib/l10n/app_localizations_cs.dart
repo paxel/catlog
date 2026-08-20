@@ -245,6 +245,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sortLabel => 'Řazení';
 
   @override
+  String get viewAsTable => 'Zobrazit jako tabulku';
+
+  @override
+  String get viewAsTiles => 'Zobrazit jako dlaždice';
+
+  @override
   String get matchCandidatesTitle => 'Možné shody';
 
   @override

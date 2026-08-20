@@ -168,6 +168,8 @@
   "savingLabel": "Запазване…",
   "ownerOfCat": "Собственик на {name}",
   "sortLabel": "Сортиране",
+  "viewAsTable": "Показване като таблица",
+  "viewAsTiles": "Показване като плочки",
   "matchCandidatesTitle": "Кандидати за съвпадение",
   "findDuplicates": "Търсене на дубликати",
   "noDuplicates": "В момента няма възможни дубликати.",

@@ -168,6 +168,8 @@
   "savingLabel": "Shranjevanje…",
   "ownerOfCat": "Lastnik {name}",
   "sortLabel": "Razvrsti",
+  "viewAsTable": "Prikaži kot tabelo",
+  "viewAsTiles": "Prikaži kot ploščice",
   "matchCandidatesTitle": "Možna ujemanja",
   "findDuplicates": "Poišči dvojnike",
   "noDuplicates": "Trenutno ni možnih dvojnikov.",

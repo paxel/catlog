@@ -168,6 +168,8 @@
   "savingLabel": "שומר…",
   "ownerOfCat": "הבעלים של {name}",
   "sortLabel": "מיון",
+  "viewAsTable": "הצגה כטבלה",
+  "viewAsTiles": "הצגה כאריחים",
   "matchCandidatesTitle": "התאמות אפשריות",
   "findDuplicates": "איתור כפילויות",
   "noDuplicates": "אין כפילויות אפשריות כרגע.",

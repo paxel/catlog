@@ -245,6 +245,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sortLabel => 'Järjestä';
 
   @override
+  String get viewAsTable => 'Näytä taulukkona';
+
+  @override
+  String get viewAsTiles => 'Näytä ruutuina';
+
+  @override
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override

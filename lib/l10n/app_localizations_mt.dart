@@ -246,6 +246,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sortLabel => 'Issortja';
 
   @override
+  String get viewAsTable => 'Uri bħala tabella';
+
+  @override
+  String get viewAsTiles => 'Uri bħala madum';
+
+  @override
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override

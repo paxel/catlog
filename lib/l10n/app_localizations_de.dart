@@ -246,6 +246,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sortLabel => 'Sortieren';
 
   @override
+  String get viewAsTable => 'Als Tabelle anzeigen';
+
+  @override
+  String get viewAsTiles => 'Als Kacheln anzeigen';
+
+  @override
   String get matchCandidatesTitle => 'Mögliche Treffer';
 
   @override

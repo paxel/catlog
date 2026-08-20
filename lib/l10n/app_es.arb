@@ -168,6 +168,8 @@
   "savingLabel": "Guardando…",
   "ownerOfCat": "Dueño de {name}",
   "sortLabel": "Ordenar",
+  "viewAsTable": "Ver como tabla",
+  "viewAsTiles": "Ver como mosaicos",
   "matchCandidatesTitle": "Posibles coincidencias",
   "findDuplicates": "Buscar duplicados",
   "noDuplicates": "No hay posibles duplicados ahora mismo.",

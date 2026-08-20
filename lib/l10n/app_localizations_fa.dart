@@ -245,6 +245,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sortLabel => 'مرتب‌سازی';
 
   @override
+  String get viewAsTable => 'نمایش جدولی';
+
+  @override
+  String get viewAsTiles => 'نمایش کاشی‌وار';
+
+  @override
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override

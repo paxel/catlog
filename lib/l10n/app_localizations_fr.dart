@@ -245,6 +245,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sortLabel => 'Trier';
 
   @override
+  String get viewAsTable => 'Afficher en tableau';
+
+  @override
+  String get viewAsTiles => 'Afficher en vignettes';
+
+  @override
   String get matchCandidatesTitle => 'Correspondances possibles';
 
   @override

@@ -168,6 +168,8 @@
   "savingLabel": "Opslaan…",
   "ownerOfCat": "Eigenaar van {name}",
   "sortLabel": "Sorteren",
+  "viewAsTable": "Als tabel tonen",
+  "viewAsTiles": "Als tegels tonen",
   "matchCandidatesTitle": "Mogelijke matches",
   "findDuplicates": "Duplicaten zoeken",
   "noDuplicates": "Momenteel geen mogelijke duplicaten.",

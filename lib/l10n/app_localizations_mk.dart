@@ -245,6 +245,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get sortLabel => 'Подреди';
 
   @override
+  String get viewAsTable => 'Прикажи како табела';
+
+  @override
+  String get viewAsTiles => 'Прикажи како плочки';
+
+  @override
   String get matchCandidatesTitle => 'Можни совпаѓања';
 
   @override

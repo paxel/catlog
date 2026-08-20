@@ -168,6 +168,8 @@
   "savingLabel": "در حال ذخیره…",
   "ownerOfCat": "صاحب {name}",
   "sortLabel": "مرتب‌سازی",
+  "viewAsTable": "نمایش جدولی",
+  "viewAsTiles": "نمایش کاشی‌وار",
   "matchCandidatesTitle": "موارد تطبیق احتمالی",
   "findDuplicates": "یافتن موارد تکراری",
   "noDuplicates": "در حال حاضر مورد تکراری احتمالی نیست.",

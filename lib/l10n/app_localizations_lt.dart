@@ -245,6 +245,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sortLabel => 'Rikiuoti';
 
   @override
+  String get viewAsTable => 'Rodyti lentele';
+
+  @override
+  String get viewAsTiles => 'Rodyti plytelėmis';
+
+  @override
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override

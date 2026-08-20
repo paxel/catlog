@@ -246,6 +246,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sortLabel => 'Raða';
 
   @override
+  String get viewAsTable => 'Sýna sem töflu';
+
+  @override
+  String get viewAsTiles => 'Sýna sem flísar';
+
+  @override
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override

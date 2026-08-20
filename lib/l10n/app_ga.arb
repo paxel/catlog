@@ -168,6 +168,8 @@
   "savingLabel": "Á shábháil…",
   "ownerOfCat": "Úinéir {name}",
   "sortLabel": "Sórtáil",
+  "viewAsTable": "Taispeáin mar thábla",
+  "viewAsTiles": "Taispeáin mar thíleanna",
   "matchCandidatesTitle": "Meaitseálacha féideartha",
   "findDuplicates": "Aimsigh dúblaigh",
   "noDuplicates": "Níl aon dúblach féideartha faoi láthair.",

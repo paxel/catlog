@@ -242,6 +242,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sortLabel => '並べ替え';
 
   @override
+  String get viewAsTable => '表形式で表示';
+
+  @override
+  String get viewAsTiles => 'タイル表示';
+
+  @override
   String get matchCandidatesTitle => '一致候補';
 
   @override

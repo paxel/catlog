@@ -245,6 +245,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get sortLabel => 'Zoradiť';
 
   @override
+  String get viewAsTable => 'Zobraziť ako tabuľku';
+
+  @override
+  String get viewAsTiles => 'Zobraziť ako dlaždice';
+
+  @override
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override

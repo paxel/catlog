@@ -245,6 +245,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get sortLabel => 'Razvrsti';
 
   @override
+  String get viewAsTable => 'Prikaži kot tabelo';
+
+  @override
+  String get viewAsTiles => 'Prikaži kot ploščice';
+
+  @override
   String get matchCandidatesTitle => 'Možna ujemanja';
 
   @override

@@ -168,6 +168,8 @@
   "savingLabel": "Tallennetaan…",
   "ownerOfCat": "Omistaja: {name}",
   "sortLabel": "Järjestä",
+  "viewAsTable": "Näytä taulukkona",
+  "viewAsTiles": "Näytä ruutuina",
   "matchCandidatesTitle": "Mahdolliset osumat",
   "findDuplicates": "Etsi kaksoiskappaleet",
   "noDuplicates": "Ei mahdollisia kaksoiskappaleita juuri nyt.",

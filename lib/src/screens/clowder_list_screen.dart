@@ -44,7 +44,35 @@ class ClowderListScreen extends StatefulWidget {
   State<ClowderListScreen> createState() => _ClowderListScreenState();
 }
 
+/// Local-setting keys for the table view (#54) — per device, unsynced.
+const clowderViewKey = 'clowderView';
+const clowderColumnsKey = 'clowderColumns';
+const clowderSortKey = 'clowderSort';
+
 class _ClowderListScreenState extends State<ClowderListScreen> {
+  bool get _tableView =>
+      widget.store.localSetting(clowderViewKey) == 'table';
+
+  /// Selected field columns; name and cat count are always present.
+  Set<String> get _columns {
+    final raw = widget.store.localSetting(clowderColumnsKey);
+    if (raw == null) return {'f:status'};
+    return raw.split(',').where((c) => c.isNotEmpty).toSet();
+  }
+
+  (String, bool) get _sort {
+    final raw = widget.store.localSetting(clowderSortKey) ?? 'name,asc';
+    final parts = raw.split(',');
+    return (parts[0], parts.length < 2 || parts[1] != 'desc');
+  }
+
+  void _setSort(String column) {
+    final (current, asc) = _sort;
+    widget.store.setLocalSetting(clowderSortKey,
+        column == current ? '$column,${asc ? 'desc' : 'asc'}' : '$column,asc');
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
@@ -96,6 +124,17 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       appBar: AppBar(
         title: Text(context.t.clowders),
         actions: [
+          IconButton(
+            icon: Icon(
+                _tableView ? Icons.grid_view : Icons.table_rows_outlined),
+            tooltip:
+                _tableView ? context.t.viewAsTiles : context.t.viewAsTable,
+            onPressed: () {
+              widget.store.setLocalSetting(
+                  clowderViewKey, _tableView ? 'tiles' : 'table');
+              setState(() {});
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.search),
             tooltip: context.t.searchCats,
@@ -188,7 +227,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               child: Text(context.t.noClowdersYet,
                   textAlign: TextAlign.center),
             ),
-          GridView.builder(
+          if (_tableView) _clowderTable(clowders) else GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(8),
@@ -277,6 +316,135 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  /// The clowder overview as a sortable table (#54): fixed Name and
+  /// Cats columns, chosen field columns, strays pinned first.
+  Widget _clowderTable(List<EntityView> clowders) {
+    final t = context.t;
+    final store = widget.store;
+    final defs = store.visibleFieldDefs(scope: FieldScope.clowder);
+    final chosen = _columns;
+    final columns = [
+      for (final def in defs)
+        if (chosen.contains(def.key)) def
+    ];
+    final (sortKey, asc) = _sort;
+    final rows = [...clowders];
+    int compare(EntityView a, EntityView b) {
+      int result;
+      if (sortKey == 'name') {
+        result = a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      } else if (sortKey == 'count') {
+        result = store
+            .visibleCats(clowderId: a.id)
+            .length
+            .compareTo(store.visibleCats(clowderId: b.id).length);
+      } else {
+        result = (store.current(a.id, sortKey) ?? '')
+            .toLowerCase()
+            .compareTo((store.current(b.id, sortKey) ?? '').toLowerCase());
+      }
+      return asc ? result : -result;
+    }
+
+    rows.sort(compare);
+    final sortIndex = sortKey == 'name'
+        ? 0
+        : sortKey == 'count'
+            ? 1
+            : 2 + columns.indexWhere((d) => d.key == sortKey);
+    void open(String clowderId) async {
+      if (widget.onOpenClowder != null) {
+        widget.onOpenClowder!(clowderId);
+        setState(() {});
+        return;
+      }
+      await Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            ClowderDetailScreen(store: store, clowderId: clowderId),
+      ));
+      if (mounted) setState(() {});
+    }
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Wrap(spacing: 8, runSpacing: 0, children: [
+          for (final def in defs)
+            FilterChip(
+              label: Text(fieldDefName(t, def)),
+              selected: chosen.contains(def.key),
+              visualDensity: VisualDensity.compact,
+              onSelected: (_) {
+                final next = {...chosen};
+                if (!next.remove(def.key)) next.add(def.key);
+                store.setLocalSetting(
+                    clowderColumnsKey, next.join(','));
+                setState(() {});
+              },
+            ),
+        ]),
+      ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: DataTable(
+          sortColumnIndex: sortIndex < 0 ? null : sortIndex,
+          sortAscending: asc,
+          showCheckboxColumn: false,
+          columns: [
+            DataColumn(
+                label: Text(t.name),
+                onSort: (_, _) => _setSort('name')),
+            DataColumn(
+                label: Text(t.cats),
+                numeric: true,
+                onSort: (_, _) => _setSort('count')),
+            for (final def in columns)
+              DataColumn(
+                  label: Text(fieldDefName(t, def)),
+                  onSort: (_, _) => _setSort(def.key)),
+          ],
+          rows: [
+            // Strays pinned first, visually distinct, never sorted away.
+            DataRow(
+              color: WidgetStatePropertyAll(Theme.of(context)
+                  .colorScheme
+                  .tertiaryContainer
+                  .withValues(alpha: 0.4)),
+              onSelectChanged: (_) async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => StraysScreen(store: store),
+                ));
+                if (mounted) setState(() {});
+              },
+              cells: [
+                DataCell(Row(children: [
+                  const Icon(Icons.explore, size: 18),
+                  const SizedBox(width: 6),
+                  Text(t.strays),
+                ])),
+                DataCell(Text('${store.visibleStrays().length}')),
+                for (final _ in columns) const DataCell(Text('')),
+              ],
+            ),
+            for (final clowder in rows)
+              DataRow(
+                selected: clowder.id == widget.selectedClowderId,
+                onSelectChanged: (_) => open(clowder.id),
+                cells: [
+                  DataCell(Text(clowder.name)),
+                  DataCell(Text(
+                      '${store.visibleCats(clowderId: clowder.id).length}')),
+                  for (final def in columns)
+                    DataCell(Text(fieldValueDisplay(
+                        t, def, store.current(clowder.id, def.key)))),
+                ],
+              ),
+          ],
+        ),
+      ),
+    ]);
   }
 }
 

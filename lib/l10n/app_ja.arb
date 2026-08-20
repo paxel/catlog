@@ -168,6 +168,8 @@
   "savingLabel": "保存中…",
   "ownerOfCat": "{name}の飼い主",
   "sortLabel": "並べ替え",
+  "viewAsTable": "表形式で表示",
+  "viewAsTiles": "タイル表示",
   "matchCandidatesTitle": "一致候補",
   "findDuplicates": "重複を探す",
   "noDuplicates": "現在、重複の可能性はありません。",

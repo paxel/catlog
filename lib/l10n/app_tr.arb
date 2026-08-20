@@ -168,6 +168,8 @@
   "savingLabel": "Kaydediliyor…",
   "ownerOfCat": "{name} sahibi",
   "sortLabel": "Sırala",
+  "viewAsTable": "Tablo olarak göster",
+  "viewAsTiles": "Karo olarak göster",
   "matchCandidatesTitle": "Olası eşleşmeler",
   "findDuplicates": "Kopyaları bul",
   "noDuplicates": "Şu anda olası kopya yok.",

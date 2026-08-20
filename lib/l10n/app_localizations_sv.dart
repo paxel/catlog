@@ -245,6 +245,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sortLabel => 'Sortera';
 
   @override
+  String get viewAsTable => 'Visa som tabell';
+
+  @override
+  String get viewAsTiles => 'Visa som paneler';
+
+  @override
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override

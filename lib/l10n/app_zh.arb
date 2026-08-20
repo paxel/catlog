@@ -168,6 +168,8 @@
   "savingLabel": "正在保存…",
   "ownerOfCat": "{name}的主人",
   "sortLabel": "排序",
+  "viewAsTable": "以表格显示",
+  "viewAsTiles": "以磁贴显示",
   "matchCandidatesTitle": "疑似匹配",
   "findDuplicates": "查找重复",
   "noDuplicates": "当前没有疑似重复。",

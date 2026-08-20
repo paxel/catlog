@@ -245,6 +245,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get sortLabel => 'Сортиране';
 
   @override
+  String get viewAsTable => 'Показване като таблица';
+
+  @override
+  String get viewAsTiles => 'Показване като плочки';
+
+  @override
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override

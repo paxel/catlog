@@ -245,6 +245,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sortLabel => 'Sórtáil';
 
   @override
+  String get viewAsTable => 'Taispeáin mar thábla';
+
+  @override
+  String get viewAsTiles => 'Taispeáin mar thíleanna';
+
+  @override
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override

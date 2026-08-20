@@ -168,6 +168,8 @@
   "savingLabel": "Mentés…",
   "ownerOfCat": "{name} gazdája",
   "sortLabel": "Rendezés",
+  "viewAsTable": "Táblázatként",
+  "viewAsTiles": "Csempeként",
   "matchCandidatesTitle": "Lehetséges egyezések",
   "findDuplicates": "Duplikátumok keresése",
   "noDuplicates": "Jelenleg nincs lehetséges duplikátum.",

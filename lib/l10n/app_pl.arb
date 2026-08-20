@@ -168,6 +168,8 @@
   "savingLabel": "Zapisywanie…",
   "ownerOfCat": "Właściciel {name}",
   "sortLabel": "Sortuj",
+  "viewAsTable": "Pokaż jako tabelę",
+  "viewAsTiles": "Pokaż jako kafelki",
   "matchCandidatesTitle": "Możliwe dopasowania",
   "findDuplicates": "Znajdź duplikaty",
   "noDuplicates": "Obecnie brak możliwych duplikatów.",

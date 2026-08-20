@@ -245,6 +245,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sortLabel => 'Ταξινόμηση';
 
   @override
+  String get viewAsTable => 'Προβολή ως πίνακα';
+
+  @override
+  String get viewAsTiles => 'Προβολή ως πλακίδια';
+
+  @override
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override

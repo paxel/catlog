@@ -168,6 +168,8 @@
   "savingLabel": "Po ruhet…",
   "ownerOfCat": "Pronari i {name}",
   "sortLabel": "Rendit",
+  "viewAsTable": "Shfaq si tabelë",
+  "viewAsTiles": "Shfaq si pllaka",
   "matchCandidatesTitle": "Përputhje të mundshme",
   "findDuplicates": "Gjej dublikatat",
   "noDuplicates": "Aktualisht s'ka dublikata të mundshme.",

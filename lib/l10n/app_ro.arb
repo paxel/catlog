@@ -168,6 +168,8 @@
   "savingLabel": "Se salvează…",
   "ownerOfCat": "Stăpânul lui {name}",
   "sortLabel": "Sortare",
+  "viewAsTable": "Afișează ca tabel",
+  "viewAsTiles": "Afișează ca plăci",
   "matchCandidatesTitle": "Potriviri posibile",
   "findDuplicates": "Găsește dubluri",
   "noDuplicates": "Nicio dublură posibilă momentan.",

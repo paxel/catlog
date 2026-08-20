@@ -17,6 +17,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   place search ("Leipzig" now works); and two arrows glide from pin to
   pin in nearest-neighbor order.
 
+- **Clowders as a table**: a toggle in the clowder overview switches
+  between tiles and a sortable table — Name, Cats, and any clowder
+  fields as columns of your choosing, strays pinned first; view, columns,
+  and sorting are remembered per device.
+
 ### Changed
 
 - Chip scanning is labeled "Scan printed code" and explains that the

@@ -168,6 +168,8 @@
   "savingLabel": "Зачувување…",
   "ownerOfCat": "Сопственик на {name}",
   "sortLabel": "Подреди",
+  "viewAsTable": "Прикажи како табела",
+  "viewAsTiles": "Прикажи како плочки",
   "matchCandidatesTitle": "Можни совпаѓања",
   "findDuplicates": "Најди дупликати",
   "noDuplicates": "Моментално нема можни дупликати.",
