@@ -492,6 +492,8 @@
   "cropAgain": "Crop again",
   "noFaceYet": "No face photo yet — the poster photo is used instead.",
   "backLabel": "Back",
+  "dangerButton": "DON'T PRESS.\nDANGER",
+  "dangerThanks": "Thank you for using cat(a)log!",
   "locateAddress": "Find address on the map",
   "addressLocated": "Address found",
   "addressNotFound": "No place found for this address. Check the spelling, or leave it empty.",

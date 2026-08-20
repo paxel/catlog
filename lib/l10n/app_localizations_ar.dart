@@ -871,6 +871,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backLabel => 'رجوع';
 
   @override
+  String get dangerButton => 'لا تضغط.\nخطر';
+
+  @override
+  String get dangerThanks => 'شكرًا لاستخدامك cat(a)log!';
+
+  @override
   String get locateAddress => 'ابحث عن العنوان على الخريطة';
 
   @override

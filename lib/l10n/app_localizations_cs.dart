@@ -875,6 +875,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get backLabel => 'Zpět';
 
   @override
+  String get dangerButton => 'NEMAČKAT.\nNEBEZPEČÍ';
+
+  @override
+  String get dangerThanks => 'Děkujeme, že používáte cat(a)log!';
+
+  @override
   String get locateAddress => 'Najít adresu na mapě';
 
   @override

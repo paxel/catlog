@@ -254,6 +254,8 @@
   "cropAgain": "Aqta' mill-ġdid",
   "noFaceYet": "Għadu m'hemmx ritratt tal-wiċċ — jintuża r-ritratt tal-flier.",
   "backLabel": "Lura",
+  "dangerButton": "TAGĦFASX.\nPERIKLU",
+  "dangerThanks": "Grazzi talli tuża cat(a)log!",
   "locateAddress": "Sib l-indirizz fuq il-mappa",
   "addressLocated": "L-indirizz instab",
   "addressNotFound": "Ma nstab l-ebda post għal dan l-indirizz. Iċċekkja l-kitba jew ħallih vojt.",

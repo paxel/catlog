@@ -254,6 +254,8 @@
   "cropAgain": "Klippa aftur",
   "noFaceYet": "Engin andlitsmynd enn — mynd auglýsingarinnar er notuð.",
   "backLabel": "Til baka",
+  "dangerButton": "EKKI ÝTA.\nHÆTTA",
+  "dangerThanks": "Takk fyrir að nota cat(a)log!",
   "locateAddress": "Finna heimilisfang á korti",
   "addressLocated": "Heimilisfang fannst",
   "addressNotFound": "Enginn staður fannst fyrir þetta heimilisfang. Athugaðu stafsetninguna eða skildu eftir autt.",

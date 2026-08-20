@@ -254,6 +254,8 @@
   "cropAgain": "Új vágás",
   "noFaceYet": "Még nincs arckép — a plakát fotója lesz használva.",
   "backLabel": "Vissza",
+  "dangerButton": "NE NYOMD MEG.\nVESZÉLY",
+  "dangerThanks": "Köszönjük, hogy a cat(a)logot használod!",
   "locateAddress": "Cím keresése a térképen",
   "addressLocated": "Cím megtalálva",
   "addressNotFound": "Ehhez a címhez nem található hely. Ellenőrizd a helyesírást, vagy hagyd üresen.",

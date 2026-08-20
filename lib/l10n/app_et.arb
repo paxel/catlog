@@ -254,6 +254,8 @@
   "cropAgain": "Lõika uuesti",
   "noFaceYet": "Näopilti veel pole — kasutatakse kuulutuse pilti.",
   "backLabel": "Tagasi",
+  "dangerButton": "ÄRA VAJUTA.\nOHTLIK",
+  "dangerThanks": "Aitäh, et kasutad cat(a)logi!",
   "locateAddress": "Otsi aadress kaardilt",
   "addressLocated": "Aadress leitud",
   "addressNotFound": "Selle aadressi jaoks kohta ei leitud. Kontrolli kirjapilti või jäta tühjaks.",

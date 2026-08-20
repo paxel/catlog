@@ -874,6 +874,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backLabel => 'Wstecz';
 
   @override
+  String get dangerButton => 'NIE NACISKAĆ.\nNIEBEZPIECZEŃSTWO';
+
+  @override
+  String get dangerThanks => 'Dziękujemy za korzystanie z cat(a)log!';
+
+  @override
   String get locateAddress => 'Znajdź adres na mapie';
 
   @override

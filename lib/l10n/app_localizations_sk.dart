@@ -875,6 +875,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get backLabel => 'Späť';
 
   @override
+  String get dangerButton => 'NETLAČIŤ.\nNEBEZPEČENSTVO';
+
+  @override
+  String get dangerThanks => 'Ďakujeme, že používate cat(a)log!';
+
+  @override
   String get locateAddress => 'Nájsť adresu na mape';
 
   @override

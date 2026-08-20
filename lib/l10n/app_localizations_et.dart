@@ -873,6 +873,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get backLabel => 'Tagasi';
 
   @override
+  String get dangerButton => 'ÄRA VAJUTA.\nOHTLIK';
+
+  @override
+  String get dangerThanks => 'Aitäh, et kasutad cat(a)logi!';
+
+  @override
   String get locateAddress => 'Otsi aadress kaardilt';
 
   @override

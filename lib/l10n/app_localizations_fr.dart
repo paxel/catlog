@@ -879,6 +879,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backLabel => 'Retour';
 
   @override
+  String get dangerButton => 'NE PAS APPUYER.\nDANGER';
+
+  @override
+  String get dangerThanks => 'Merci d\'utiliser cat(a)log !';
+
+  @override
   String get locateAddress => 'Trouver l\'adresse sur la carte';
 
   @override

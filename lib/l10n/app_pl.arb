@@ -254,6 +254,8 @@
   "cropAgain": "Przytnij ponownie",
   "noFaceYet": "Brak zdjęcia pyszczka — użyte zostanie zdjęcie ogłoszenia.",
   "backLabel": "Wstecz",
+  "dangerButton": "NIE NACISKAĆ.\nNIEBEZPIECZEŃSTWO",
+  "dangerThanks": "Dziękujemy za korzystanie z cat(a)log!",
   "locateAddress": "Znajdź adres na mapie",
   "addressLocated": "Adres znaleziony",
   "addressNotFound": "Nie znaleziono miejsca dla tego adresu. Sprawdź pisownię albo zostaw puste.",

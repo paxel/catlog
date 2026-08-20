@@ -877,6 +877,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get backLabel => 'Terug';
 
   @override
+  String get dangerButton => 'NIET DRUKKEN.\nGEVAAR';
+
+  @override
+  String get dangerThanks => 'Bedankt dat je cat(a)log gebruikt!';
+
+  @override
   String get locateAddress => 'Adres op de kaart zoeken';
 
   @override

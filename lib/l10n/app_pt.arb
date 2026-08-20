@@ -254,6 +254,8 @@
   "cropAgain": "Recortar de novo",
   "noFaceYet": "Ainda sem foto da cara — usa-se a foto do cartaz.",
   "backLabel": "Voltar",
+  "dangerButton": "NÃO CARREGAR.\nPERIGO",
+  "dangerThanks": "Obrigado por usares o cat(a)log!",
   "locateAddress": "Procurar a morada no mapa",
   "addressLocated": "Morada encontrada",
   "addressNotFound": "Nenhum lugar encontrado para esta morada. Verifica a escrita ou deixa vazio.",

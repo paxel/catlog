@@ -251,6 +251,8 @@
   "cropAgain": "Neu zuschneiden",
   "noFaceYet": "Noch kein Profilbild — es wird das Aushang-Foto genommen.",
   "backLabel": "Zurück",
+  "dangerButton": "NICHT DRÜCKEN.\nGEFAHR",
+  "dangerThanks": "Danke, dass du cat(a)log benutzt!",
   "locateAddress": "Adresse auf der Karte suchen",
   "addressLocated": "Adresse gefunden",
   "addressNotFound": "Zu dieser Adresse wurde kein Ort gefunden. Prüfe die Schreibweise oder lass das Feld leer.",

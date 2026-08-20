@@ -254,6 +254,8 @@
   "cropAgain": "Recortar de nuevo",
   "noFaceYet": "Aún no hay foto de la cara: se usa la foto del cartel.",
   "backLabel": "Atrás",
+  "dangerButton": "NO PULSAR.\nPELIGRO",
+  "dangerThanks": "¡Gracias por usar cat(a)log!",
   "locateAddress": "Buscar la dirección en el mapa",
   "addressLocated": "Dirección encontrada",
   "addressNotFound": "No se encontró ningún lugar para esta dirección. Revisa la escritura o déjala vacía.",

@@ -254,6 +254,8 @@
   "cropAgain": "Znova izreži",
   "noFaceYet": "Fotografije obraza še ni — uporabi se fotografija letaka.",
   "backLabel": "Nazaj",
+  "dangerButton": "NE PRITISKAJ.\nNEVARNOST",
+  "dangerThanks": "Hvala, ker uporabljaš cat(a)log!",
   "locateAddress": "Poišči naslov na zemljevidu",
   "addressLocated": "Naslov najden",
   "addressNotFound": "Za ta naslov ni bilo najdenega kraja. Preveri zapis ali pusti prazno.",

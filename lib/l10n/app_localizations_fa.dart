@@ -873,6 +873,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get backLabel => 'بازگشت';
 
   @override
+  String get dangerButton => 'فشار ندهید.\nخطر';
+
+  @override
+  String get dangerThanks => 'ممنون که از cat(a)log استفاده می‌کنید!';
+
+  @override
   String get locateAddress => 'یافتن نشانی روی نقشه';
 
   @override

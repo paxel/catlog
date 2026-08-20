@@ -254,6 +254,8 @@
   "cropAgain": "Yeniden kırp",
   "noFaceYet": "Henüz yüz fotoğrafı yok — ilan fotoğrafı kullanılır.",
   "backLabel": "Geri",
+  "dangerButton": "BASMAYIN.\nTEHLİKE",
+  "dangerThanks": "cat(a)log kullandığınız için teşekkürler!",
   "locateAddress": "Adresi haritada bul",
   "addressLocated": "Adres bulundu",
   "addressNotFound": "Bu adres için yer bulunamadı. Yazımı kontrol edin ya da boş bırakın.",

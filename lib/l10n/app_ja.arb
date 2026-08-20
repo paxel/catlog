@@ -254,6 +254,8 @@
   "cropAgain": "切り抜き直す",
   "noFaceYet": "顔写真はまだありません。チラシの写真を使います。",
   "backLabel": "戻る",
+  "dangerButton": "おさないで。\nきけん",
+  "dangerThanks": "cat(a)log をお使いいただきありがとうございます！",
   "locateAddress": "住所を地図で探す",
   "addressLocated": "住所が見つかりました",
   "addressNotFound": "この住所の場所が見つかりません。つづりを確認するか、空のままにしてください。",

@@ -254,6 +254,8 @@
   "cropAgain": "חיתוך מחדש",
   "noFaceYet": "עדיין אין תמונת פנים — משתמשים בתמונת המודעה.",
   "backLabel": "חזרה",
+  "dangerButton": "לא ללחוץ.\nסכנה",
+  "dangerThanks": "תודה שאתם משתמשים ב-cat(a)log!",
   "locateAddress": "מצא את הכתובת במפה",
   "addressLocated": "הכתובת נמצאה",
   "addressNotFound": "לא נמצא מקום לכתובת הזו. בדקו את האיות או השאירו ריק.",

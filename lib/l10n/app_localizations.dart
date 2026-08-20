@@ -1676,6 +1676,18 @@ abstract class AppLocalizations {
   /// **'Back'**
   String get backLabel;
 
+  /// No description provided for @dangerButton.
+  ///
+  /// In en, this message translates to:
+  /// **'DON\'T PRESS.\nDANGER'**
+  String get dangerButton;
+
+  /// No description provided for @dangerThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for using cat(a)log!'**
+  String get dangerThanks;
+
   /// No description provided for @locateAddress.
   ///
   /// In en, this message translates to:

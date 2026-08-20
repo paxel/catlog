@@ -254,6 +254,8 @@
   "cropAgain": "Rajaa uudelleen",
   "noFaceYet": "Ei vielä kasvokuvaa — käytetään ilmoituksen kuvaa.",
   "backLabel": "Takaisin",
+  "dangerButton": "ÄLÄ PAINA.\nVAARA",
+  "dangerThanks": "Kiitos, että käytät cat(a)logia!",
   "locateAddress": "Etsi osoite kartalta",
   "addressLocated": "Osoite löytyi",
   "addressNotFound": "Osoitteelle ei löytynyt paikkaa. Tarkista kirjoitusasu tai jätä kenttä tyhjäksi.",

@@ -875,6 +875,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get backLabel => 'Natrag';
 
   @override
+  String get dangerButton => 'NE PRITISKAJ.\nOPASNOST';
+
+  @override
+  String get dangerThanks => 'Hvala što koristiš cat(a)log!';
+
+  @override
   String get locateAddress => 'Pronađi adresu na karti';
 
   @override

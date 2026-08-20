@@ -878,6 +878,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get backLabel => 'Πίσω';
 
   @override
+  String get dangerButton => 'ΜΗΝ ΠΑΤΑΣ.\nΚΙΝΔΥΝΟΣ';
+
+  @override
+  String get dangerThanks => 'Ευχαριστούμε που χρησιμοποιείς το cat(a)log!';
+
+  @override
   String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
 
   @override

@@ -879,6 +879,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get backLabel => 'Ar ais';
 
   @override
+  String get dangerButton => 'NÁ BRÚIGH.\nCONTÚIRT';
+
+  @override
+  String get dangerThanks => 'Go raibh maith agat as cat(a)log a úsáid!';
+
+  @override
   String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
 
   @override

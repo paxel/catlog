@@ -874,6 +874,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backLabel => 'Geri';
 
   @override
+  String get dangerButton => 'BASMAYIN.\nTEHLİKE';
+
+  @override
+  String get dangerThanks => 'cat(a)log kullandığınız için teşekkürler!';
+
+  @override
   String get locateAddress => 'Adresi haritada bul';
 
   @override

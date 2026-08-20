@@ -254,6 +254,8 @@
   "cropAgain": "Ritaglia di nuovo",
   "noFaceYet": "Ancora nessuna foto del muso: si usa la foto del volantino.",
   "backLabel": "Indietro",
+  "dangerButton": "NON PREMERE.\nPERICOLO",
+  "dangerThanks": "Grazie per usare cat(a)log!",
   "locateAddress": "Trova l'indirizzo sulla mappa",
   "addressLocated": "Indirizzo trovato",
   "addressNotFound": "Nessun luogo trovato per questo indirizzo. Controlla l'ortografia o lascia vuoto.",

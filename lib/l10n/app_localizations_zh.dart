@@ -844,6 +844,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backLabel => '返回';
 
   @override
+  String get dangerButton => '请勿按下。\n危险';
+
+  @override
+  String get dangerThanks => '感谢你使用 cat(a)log！';
+
+  @override
   String get locateAddress => '在地图上查找地址';
 
   @override

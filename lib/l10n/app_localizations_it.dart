@@ -878,6 +878,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get backLabel => 'Indietro';
 
   @override
+  String get dangerButton => 'NON PREMERE.\nPERICOLO';
+
+  @override
+  String get dangerThanks => 'Grazie per usare cat(a)log!';
+
+  @override
   String get locateAddress => 'Trova l\'indirizzo sulla mappa';
 
   @override

@@ -877,6 +877,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get backLabel => 'Lura';
 
   @override
+  String get dangerButton => 'TAGĦFASX.\nPERIKLU';
+
+  @override
+  String get dangerThanks => 'Grazzi talli tuża cat(a)log!';
+
+  @override
   String get locateAddress => 'Sib l-indirizz fuq il-mappa';
 
   @override

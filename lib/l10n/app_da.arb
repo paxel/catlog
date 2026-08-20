@@ -254,6 +254,8 @@
   "cropAgain": "Beskær igen",
   "noFaceYet": "Endnu intet ansigtsfoto — opslagets foto bruges.",
   "backLabel": "Tilbage",
+  "dangerButton": "TRYK IKKE.\nFARE",
+  "dangerThanks": "Tak fordi du bruger cat(a)log!",
   "locateAddress": "Find adressen på kortet",
   "addressLocated": "Adresse fundet",
   "addressNotFound": "Der blev ikke fundet noget sted for denne adresse. Tjek stavningen, eller lad feltet stå tomt.",

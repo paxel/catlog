@@ -875,6 +875,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backLabel => 'Назад';
 
   @override
+  String get dangerButton => 'НЕ НАЖИМАТЬ.\nОПАСНО';
+
+  @override
+  String get dangerThanks => 'Спасибо, что пользуетесь cat(a)log!';
+
+  @override
   String get locateAddress => 'Найти адрес на карте';
 
   @override

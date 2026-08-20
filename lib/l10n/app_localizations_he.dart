@@ -870,6 +870,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get backLabel => 'חזרה';
 
   @override
+  String get dangerButton => 'לא ללחוץ.\nסכנה';
+
+  @override
+  String get dangerThanks => 'תודה שאתם משתמשים ב-cat(a)log!';
+
+  @override
   String get locateAddress => 'מצא את הכתובת במפה';
 
   @override

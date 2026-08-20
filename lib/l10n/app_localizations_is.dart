@@ -878,6 +878,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get backLabel => 'Til baka';
 
   @override
+  String get dangerButton => 'EKKI ÝTA.\nHÆTTA';
+
+  @override
+  String get dangerThanks => 'Takk fyrir að nota cat(a)log!';
+
+  @override
   String get locateAddress => 'Finna heimilisfang á korti';
 
   @override

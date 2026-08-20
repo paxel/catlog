@@ -874,6 +874,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get backLabel => 'Tilbage';
 
   @override
+  String get dangerButton => 'TRYK IKKE.\nFARE';
+
+  @override
+  String get dangerThanks => 'Tak fordi du bruger cat(a)log!';
+
+  @override
   String get locateAddress => 'Find adressen på kortet';
 
   @override

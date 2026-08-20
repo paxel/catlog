@@ -879,6 +879,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backLabel => 'Zurück';
 
   @override
+  String get dangerButton => 'NICHT DRÜCKEN.\nGEFAHR';
+
+  @override
+  String get dangerThanks => 'Danke, dass du cat(a)log benutzt!';
+
+  @override
   String get locateAddress => 'Adresse auf der Karte suchen';
 
   @override

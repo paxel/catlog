@@ -254,6 +254,8 @@
   "cropAgain": "Beskär igen",
   "noFaceYet": "Inget ansiktsfoto än — anslagets foto används.",
   "backLabel": "Tillbaka",
+  "dangerButton": "TRYCK INTE.\nFARA",
+  "dangerThanks": "Tack för att du använder cat(a)log!",
   "locateAddress": "Hitta adressen på kartan",
   "addressLocated": "Adress hittad",
   "addressNotFound": "Ingen plats hittades för adressen. Kontrollera stavningen eller lämna tomt.",

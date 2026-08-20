@@ -876,6 +876,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backLabel => 'Voltar';
 
   @override
+  String get dangerButton => 'NÃO CARREGAR.\nPERIGO';
+
+  @override
+  String get dangerThanks => 'Obrigado por usares o cat(a)log!';
+
+  @override
   String get locateAddress => 'Procurar a morada no mapa';
 
   @override

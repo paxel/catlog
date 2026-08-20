@@ -878,6 +878,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get backLabel => 'Назад';
 
   @override
+  String get dangerButton => 'НЕ ПРИТИСКАЈ.\nОПАСНО';
+
+  @override
+  String get dangerThanks => 'Ви благодариме што користите cat(a)log!';
+
+  @override
   String get locateAddress => 'Најди ја адресата на картата';
 
   @override

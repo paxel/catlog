@@ -254,6 +254,8 @@
   "cropAgain": "Griezt vēlreiz",
   "noFaceYet": "Sejas foto vēl nav — tiek izmantots sludinājuma foto.",
   "backLabel": "Atpakaļ",
+  "dangerButton": "NESPIED.\nBĪSTAMI",
+  "dangerThanks": "Paldies, ka lieto cat(a)log!",
   "locateAddress": "Meklēt adresi kartē",
   "addressLocated": "Adrese atrasta",
   "addressNotFound": "Šai adresei vieta netika atrasta. Pārbaudi rakstību vai atstāj tukšu.",

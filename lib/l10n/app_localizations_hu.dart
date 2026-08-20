@@ -874,6 +874,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get backLabel => 'Vissza';
 
   @override
+  String get dangerButton => 'NE NYOMD MEG.\nVESZÉLY';
+
+  @override
+  String get dangerThanks => 'Köszönjük, hogy a cat(a)logot használod!';
+
+  @override
   String get locateAddress => 'Cím keresése a térképen';
 
   @override

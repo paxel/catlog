@@ -254,6 +254,8 @@
   "cropAgain": "Ponovno izreži",
   "noFaceYet": "Još nema fotografije njuške — koristi se fotografija letka.",
   "backLabel": "Natrag",
+  "dangerButton": "NE PRITISKAJ.\nOPASNOST",
+  "dangerThanks": "Hvala što koristiš cat(a)log!",
   "locateAddress": "Pronađi adresu na karti",
   "addressLocated": "Adresa pronađena",
   "addressNotFound": "Za ovu adresu nije pronađeno mjesto. Provjeri pravopis ili ostavi prazno.",

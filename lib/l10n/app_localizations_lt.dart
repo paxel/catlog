@@ -876,6 +876,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get backLabel => 'Atgal';
 
   @override
+  String get dangerButton => 'NESPAUSTI.\nPAVOJINGA';
+
+  @override
+  String get dangerThanks => 'Ačiū, kad naudojatės cat(a)log!';
+
+  @override
   String get locateAddress => 'Rasti adresą žemėlapyje';
 
   @override

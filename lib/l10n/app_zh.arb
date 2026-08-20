@@ -254,6 +254,8 @@
   "cropAgain": "重新裁剪",
   "noFaceYet": "还没有头像照片——将使用启事照片。",
   "backLabel": "返回",
+  "dangerButton": "请勿按下。\n危险",
+  "dangerThanks": "感谢你使用 cat(a)log！",
   "locateAddress": "在地图上查找地址",
   "addressLocated": "已找到地址",
   "addressNotFound": "没有找到该地址对应的地点。请检查拼写或留空。",

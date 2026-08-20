@@ -254,6 +254,8 @@
   "cropAgain": "Orezať znova",
   "noFaceYet": "Zatiaľ žiadna fotka tváre — použije sa fotka letáka.",
   "backLabel": "Späť",
+  "dangerButton": "NETLAČIŤ.\nNEBEZPEČENSTVO",
+  "dangerThanks": "Ďakujeme, že používate cat(a)log!",
   "locateAddress": "Nájsť adresu na mape",
   "addressLocated": "Adresa nájdená",
   "addressNotFound": "Pre túto adresu sa nenašlo miesto. Skontrolujte pravopis alebo pole nechajte prázdne.",

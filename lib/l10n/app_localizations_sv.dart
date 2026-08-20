@@ -874,6 +874,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get backLabel => 'Tillbaka';
 
   @override
+  String get dangerButton => 'TRYCK INTE.\nFARA';
+
+  @override
+  String get dangerThanks => 'Tack för att du använder cat(a)log!';
+
+  @override
   String get locateAddress => 'Hitta adressen på kartan';
 
   @override

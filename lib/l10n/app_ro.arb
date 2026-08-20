@@ -254,6 +254,8 @@
   "cropAgain": "Decupează din nou",
   "noFaceYet": "Încă nicio poză a feței — se folosește poza afișului.",
   "backLabel": "Înapoi",
+  "dangerButton": "NU APĂSA.\nPERICOL",
+  "dangerThanks": "Mulțumim că folosești cat(a)log!",
   "locateAddress": "Caută adresa pe hartă",
   "addressLocated": "Adresă găsită",
   "addressNotFound": "Nu s-a găsit niciun loc pentru această adresă. Verifică scrierea sau las-o goală.",

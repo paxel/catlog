@@ -254,6 +254,8 @@
   "cropAgain": "Prije sërish",
   "noFaceYet": "Ende pa foto fytyre — përdoret fotoja e fletushkës.",
   "backLabel": "Prapa",
+  "dangerButton": "MOS E SHTYP.\nRREZIK",
+  "dangerThanks": "Faleminderit që përdor cat(a)log!",
   "locateAddress": "Gjej adresën në hartë",
   "addressLocated": "Adresa u gjet",
   "addressNotFound": "Nuk u gjet asnjë vend për këtë adresë. Kontrollo shkrimin ose lëre bosh.",

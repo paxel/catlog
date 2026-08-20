@@ -877,6 +877,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get backLabel => 'Prapa';
 
   @override
+  String get dangerButton => 'MOS E SHTYP.\nRREZIK';
+
+  @override
+  String get dangerThanks => 'Faleminderit që përdor cat(a)log!';
+
+  @override
   String get locateAddress => 'Gjej adresën në hartë';
 
   @override

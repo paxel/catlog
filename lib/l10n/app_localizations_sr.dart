@@ -875,6 +875,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get backLabel => 'Назад';
 
   @override
+  String get dangerButton => 'НЕ ПРИТИСКАЈ.\nОПАСНОСТ';
+
+  @override
+  String get dangerThanks => 'Хвала што користиш cat(a)log!';
+
+  @override
   String get locateAddress => 'Пронађи адресу на карти';
 
   @override

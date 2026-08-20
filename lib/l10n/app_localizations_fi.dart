@@ -875,6 +875,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get backLabel => 'Takaisin';
 
   @override
+  String get dangerButton => 'ÄLÄ PAINA.\nVAARA';
+
+  @override
+  String get dangerThanks => 'Kiitos, että käytät cat(a)logia!';
+
+  @override
   String get locateAddress => 'Etsi osoite kartalta';
 
   @override

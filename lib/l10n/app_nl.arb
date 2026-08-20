@@ -254,6 +254,8 @@
   "cropAgain": "Opnieuw bijsnijden",
   "noFaceYet": "Nog geen gezichtsfoto — de posterfoto wordt gebruikt.",
   "backLabel": "Terug",
+  "dangerButton": "NIET DRUKKEN.\nGEVAAR",
+  "dangerThanks": "Bedankt dat je cat(a)log gebruikt!",
   "locateAddress": "Adres op de kaart zoeken",
   "addressLocated": "Adres gevonden",
   "addressNotFound": "Geen plek gevonden voor dit adres. Controleer de spelling of laat het leeg.",

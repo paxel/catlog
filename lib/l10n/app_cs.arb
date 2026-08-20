@@ -254,6 +254,8 @@
   "cropAgain": "Oříznout znovu",
   "noFaceYet": "Zatím žádná fotka obličeje — použije se foto letáku.",
   "backLabel": "Zpět",
+  "dangerButton": "NEMAČKAT.\nNEBEZPEČÍ",
+  "dangerThanks": "Děkujeme, že používáte cat(a)log!",
   "locateAddress": "Najít adresu na mapě",
   "addressLocated": "Adresa nalezena",
   "addressNotFound": "K této adrese se nenašlo žádné místo. Zkontrolujte pravopis nebo pole nechte prázdné.",

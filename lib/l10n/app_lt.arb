@@ -254,6 +254,8 @@
   "cropAgain": "Kirpti iš naujo",
   "noFaceYet": "Snukučio nuotraukos dar nėra — naudojama skelbimo nuotrauka.",
   "backLabel": "Atgal",
+  "dangerButton": "NESPAUSTI.\nPAVOJINGA",
+  "dangerThanks": "Ačiū, kad naudojatės cat(a)log!",
   "locateAddress": "Rasti adresą žemėlapyje",
   "addressLocated": "Adresas rastas",
   "addressNotFound": "Šiam adresui vietos nerasta. Patikrink rašybą arba palik tuščią.",

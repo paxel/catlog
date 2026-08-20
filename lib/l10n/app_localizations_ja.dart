@@ -856,6 +856,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backLabel => '戻る';
 
   @override
+  String get dangerButton => 'おさないで。\nきけん';
+
+  @override
+  String get dangerThanks => 'cat(a)log をお使いいただきありがとうございます！';
+
+  @override
   String get locateAddress => '住所を地図で探す';
 
   @override

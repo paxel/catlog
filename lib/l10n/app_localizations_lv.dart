@@ -874,6 +874,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get backLabel => 'Atpakaļ';
 
   @override
+  String get dangerButton => 'NESPIED.\nBĪSTAMI';
+
+  @override
+  String get dangerThanks => 'Paldies, ka lieto cat(a)log!';
+
+  @override
   String get locateAddress => 'Meklēt adresi kartē';
 
   @override

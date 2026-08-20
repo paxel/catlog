@@ -254,6 +254,8 @@
   "cropAgain": "Gearr arís",
   "noFaceYet": "Gan grianghraf aghaidhe fós — úsáidtear grianghraf an phóstaeir.",
   "backLabel": "Ar ais",
+  "dangerButton": "NÁ BRÚIGH.\nCONTÚIRT",
+  "dangerThanks": "Go raibh maith agat as cat(a)log a úsáid!",
   "locateAddress": "Aimsigh an seoladh ar an léarscáil",
   "addressLocated": "Seoladh aimsithe",
   "addressNotFound": "Níor aimsíodh aon áit don seoladh seo. Seiceáil an litriú nó fág folamh é.",

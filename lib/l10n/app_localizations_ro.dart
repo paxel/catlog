@@ -876,6 +876,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get backLabel => 'Înapoi';
 
   @override
+  String get dangerButton => 'NU APĂSA.\nPERICOL';
+
+  @override
+  String get dangerThanks => 'Mulțumim că folosești cat(a)log!';
+
+  @override
   String get locateAddress => 'Caută adresa pe hartă';
 
   @override

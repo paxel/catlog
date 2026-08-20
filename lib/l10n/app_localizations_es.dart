@@ -878,6 +878,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backLabel => 'Atrás';
 
   @override
+  String get dangerButton => 'NO PULSAR.\nPELIGRO';
+
+  @override
+  String get dangerThanks => '¡Gracias por usar cat(a)log!';
+
+  @override
   String get locateAddress => 'Buscar la dirección en el mapa';
 
   @override
