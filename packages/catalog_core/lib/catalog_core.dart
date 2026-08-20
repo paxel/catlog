@@ -14,5 +14,6 @@ export 'src/folder_sync.dart';
 export 'src/flier_share.dart';
 export 'src/match.dart';
 export 'src/pair_code.dart';
+export 'src/registry.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';

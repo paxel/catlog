@@ -1316,6 +1316,7 @@ class CatalogStore {
             .toList(),
         idDisplay: IdDisplay.values.asNameMap()[fields[Keys.fieldIdDisplay]] ??
             IdDisplay.plain,
+        lookupUrl: fields[Keys.fieldLookupUrl],
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);
@@ -1331,6 +1332,7 @@ class CatalogStore {
       {FieldScope scope = FieldScope.both,
       List<String> options = const [],
       IdDisplay idDisplay = IdDisplay.plain,
+      String? lookupUrl,
       DateTime? date}) {
     final slug = slugify(name);
     if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
@@ -1348,7 +1350,23 @@ class CatalogStore {
     if (type == FieldType.id && idDisplay != IdDisplay.plain) {
       append(id, Keys.fieldIdDisplay, idDisplay.name, date: date);
     }
+    if (type == FieldType.id && lookupUrl != null && lookupUrl.isNotEmpty) {
+      append(id, Keys.fieldLookupUrl, lookupUrl, date: date);
+    }
     return id;
+  }
+
+  /// Points an ID Field at a service: a URL template with `{value}`,
+  /// or null/empty to detach it again. Recorded history like any other
+  /// change.
+  void setFieldLookupUrl(String fieldDefId, String? template,
+      {DateTime? date}) {
+    if (current(fieldDefId, Keys.type) != Kinds.fieldDef) {
+      throw ArgumentError('Not a field definition: $fieldDefId');
+    }
+    append(fieldDefId, Keys.fieldLookupUrl,
+        (template == null || template.isEmpty) ? null : template,
+        date: date);
   }
 
   /// Replaces a choice Field's option list. Values already stored that

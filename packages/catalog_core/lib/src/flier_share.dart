@@ -87,6 +87,7 @@ Uint8List catShareBytes(CatalogStore store,
       Keys.fieldScope,
       Keys.fieldOptions,
       Keys.fieldIdDisplay,
+      Keys.fieldLookupUrl,
     ]) {
       final value = store.current(def.id, prop);
       if (value != null) emit(def.id, prop, value);

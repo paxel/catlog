@@ -40,6 +40,10 @@ abstract final class Keys {
   static const fieldOptions = 'options';
   static const fieldIdDisplay = 'iddisplay';
 
+  /// Lookup URL template of an ID field: the service's page with
+  /// `{value}` where the identifier goes (see registry.dart).
+  static const fieldLookupUrl = 'lookup';
+
   static String image(String hash) => '$imagePrefix$hash';
   static String userField(String slug) => 'f:$slug';
 }
@@ -81,6 +85,10 @@ class FieldDef {
   final List<String> options; // for FieldType.choice
   final IdDisplay idDisplay; // for FieldType.id
 
+  /// Where this ID can be looked up, as a URL template with `{value}`.
+  /// Null for fields that belong to no service.
+  final String? lookupUrl; // for FieldType.id
+
   const FieldDef({
     required this.id,
     required this.slug,
@@ -89,6 +97,7 @@ class FieldDef {
     required this.scope,
     this.options = const [],
     this.idDisplay = IdDisplay.plain,
+    this.lookupUrl,
   });
 
   /// The key under which values of this Field live on Cats/Clowders.
