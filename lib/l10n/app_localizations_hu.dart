@@ -795,6 +795,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterResponsible => 'Felelős személy';
 
   @override
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
   String get starterPosition => 'Hely';
 
   @override
@@ -1221,7 +1227,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Eltűnt macskát keresel? Jeleníts meg köröket a plakátjai helyei körül.';
+      'Eltűnt macskát keresel? Jeleníts meg köröket a plakátjai helyei és a régi otthona körül.';
 
   @override
   String get spotStraysFlier =>

@@ -799,6 +799,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterResponsible => 'Duine freagrach';
 
   @override
+  String get starterEmail => 'Ríomhphost';
+
+  @override
+  String get starterPhone => 'Fón';
+
+  @override
   String get starterPosition => 'Suíomh';
 
   @override
@@ -1225,7 +1231,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaeir.';
+      'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaer agus timpeall an bhaile ar theith sé uaidh.';
 
   @override
   String get spotStraysFlier =>

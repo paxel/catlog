@@ -796,6 +796,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterResponsible => 'Vastuuhenkilö';
 
   @override
+  String get starterEmail => 'Sähköposti';
+
+  @override
+  String get starterPhone => 'Puhelin';
+
+  @override
   String get starterPosition => 'Sijainti';
 
   @override
@@ -1220,7 +1226,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Etsitkö kadonnutta kissaa? Näytä ympyrät sen ilmoitusten paikkojen ympärillä.';
+      'Etsitkö kadonnutta kissaa? Näytä ympyrät sen ilmoitusten paikkojen ja sen entisen kodin ympärillä.';
 
   @override
   String get spotStraysFlier =>

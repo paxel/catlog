@@ -18,6 +18,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   street or town instead of centering it in a country-wide view); and
   two arrows glide from pin to pin in nearest-neighbor order.
 
+- Clowders have Email and Phone fields — contacting the people behind a
+  colony no longer means writing it into Remarks.
+
 - The home a stray ran from counts as a search area of its own: its
   clowder's location gets the same 500 m circle on the map, and cats
   seen inside it turn up under possible matches.

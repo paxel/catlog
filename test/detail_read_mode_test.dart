@@ -130,6 +130,11 @@ void main() {
 
   testWidgets('clowder opens read-only with the gallery before the fields',
       (tester) async {
+    // Tall surface: edit mode lists every clowder field, and both the
+    // gallery and the field must be on screen to compare their order.
+    tester.view.physicalSize = const Size(1000, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
     final home = store.createClowder('Home');
     store.moveCat(cat, home);
     store.append(home, Keys.userField('address'), 'Main St 1');

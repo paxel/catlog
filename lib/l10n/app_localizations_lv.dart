@@ -794,6 +794,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterResponsible => 'Atbildīgā persona';
 
   @override
+  String get starterEmail => 'E-pasts';
+
+  @override
+  String get starterPhone => 'Tālrunis';
+
+  @override
   String get starterPosition => 'Atrašanās vieta';
 
   @override
@@ -1218,7 +1224,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Meklējat pazudušu kaķi? Parādiet apļus ap tā sludinājumu vietām.';
+      'Meklējat pazudušu kaķi? Parādiet apļus ap tā sludinājumu vietām un ap māju, no kuras tas aizbēga.';
 
   @override
   String get spotStraysFlier =>

@@ -798,6 +798,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterResponsible => 'Personi përgjegjës';
 
   @override
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Telefoni';
+
+  @override
   String get starterPosition => 'Vendndodhja';
 
   @override
@@ -1223,7 +1229,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj.';
+      'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj dhe rreth shtëpisë nga iku.';
 
   @override
   String get spotStraysFlier =>

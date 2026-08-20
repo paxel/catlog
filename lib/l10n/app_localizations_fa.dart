@@ -794,6 +794,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterResponsible => 'شخص مسئول';
 
   @override
+  String get starterEmail => 'ایمیل';
+
+  @override
+  String get starterPhone => 'تلفن';
+
+  @override
   String get starterPosition => 'موقعیت';
 
   @override
@@ -1218,7 +1224,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'دنبال گربهٔ گمشده‌اید؟ دور محل آگهی‌هایش دایره نشان دهید.';
+      'دنبال گربهٔ گمشده‌اید؟ دور محل آگهی‌هایش و خانه‌ای که از آن فرار کرده دایره نشان دهید.';
 
   @override
   String get spotStraysFlier =>

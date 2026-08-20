@@ -796,6 +796,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterResponsible => 'Persoană responsabilă';
 
   @override
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
   String get starterPosition => 'Locație';
 
   @override
@@ -1221,7 +1227,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei.';
+      'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei și al casei din care a fugit.';
 
   @override
   String get spotStraysFlier =>

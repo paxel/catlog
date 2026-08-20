@@ -771,6 +771,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterResponsible => '负责人';
 
   @override
+  String get starterEmail => '电子邮件';
+
+  @override
+  String get starterPhone => '电话';
+
+  @override
   String get starterPosition => '位置';
 
   @override
@@ -1182,7 +1188,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
 
   @override
-  String get spotMapLayers => '在找走失的猫？可在其启事出现地点周围显示圆圈。';
+  String get spotMapLayers => '在找走失的猫？可在其启事出现地点和它出走的家周围显示圆圈。';
 
   @override
   String get spotStraysFlier => '发现寻猫启事？在这里拍下来——应用会帮你保存猫和联系方式。';

@@ -798,6 +798,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterResponsible => 'Ábyrgðaraðili';
 
   @override
+  String get starterEmail => 'Netfang';
+
+  @override
+  String get starterPhone => 'Sími';
+
+  @override
   String get starterPosition => 'Staðsetning';
 
   @override
@@ -1223,7 +1229,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Leitarðu að týndum ketti? Sýndu hringi um staðina þar sem auglýsingar hans sáust.';
+      'Leitarðu að týndum ketti? Sýndu hringi um staði auglýsinga hans og um heimilið sem hann strauk frá.';
 
   @override
   String get spotStraysFlier =>

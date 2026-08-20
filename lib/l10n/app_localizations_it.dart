@@ -798,6 +798,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterResponsible => 'Persona responsabile';
 
   @override
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefono';
+
+  @override
   String get starterPosition => 'Posizione geografica';
 
   @override
@@ -1225,7 +1231,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini.';
+      'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini e alla casa da cui è scappato.';
 
   @override
   String get spotStraysFlier =>

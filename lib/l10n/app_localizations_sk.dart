@@ -795,6 +795,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterResponsible => 'Zodpovedná osoba';
 
   @override
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefón';
+
+  @override
   String get starterPosition => 'Poloha';
 
   @override
@@ -1219,7 +1225,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov.';
+      'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov a okolo domova, z ktorého ušla.';
 
   @override
   String get spotStraysFlier =>

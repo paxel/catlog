@@ -794,6 +794,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterResponsible => 'Vastutav isik';
 
   @override
+  String get starterEmail => 'E-post';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
   String get starterPosition => 'Asukoht';
 
   @override
@@ -1219,7 +1225,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ümber.';
+      'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ja tema endise kodu ümber.';
 
   @override
   String get spotStraysFlier =>

@@ -796,6 +796,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterResponsible => 'Atsakingas asmuo';
 
   @override
+  String get starterEmail => 'El. paštas';
+
+  @override
+  String get starterPhone => 'Telefonas';
+
+  @override
   String get starterPosition => 'Vieta';
 
   @override
@@ -1221,7 +1227,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Ieškote dingusios katės? Rodykite apskritimus aplink jos skelbimų vietas.';
+      'Ieškote dingusios katės? Rodykite apskritimus aplink jos skelbimų vietas ir aplink namus, iš kurių pabėgo.';
 
   @override
   String get spotStraysFlier =>

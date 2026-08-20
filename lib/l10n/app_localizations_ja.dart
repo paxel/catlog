@@ -782,6 +782,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterResponsible => '担当者';
 
   @override
+  String get starterEmail => 'メール';
+
+  @override
+  String get starterPhone => '電話番号';
+
+  @override
   String get starterPosition => '位置';
 
   @override
@@ -1197,7 +1203,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
 
   @override
-  String get spotMapLayers => '迷子猫を探していますか？チラシがあった場所の周りに円を表示できます。';
+  String get spotMapLayers => '迷子猫を探していますか？チラシがあった場所と、元いた家の周りに円を表示できます。';
 
   @override
   String get spotStraysFlier => '迷子猫のチラシを見つけたら、ここで撮影。猫と連絡先をアプリが保存します。';

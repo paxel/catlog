@@ -798,6 +798,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterResponsible => 'Persuna responsabbli';
 
   @override
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
   String get starterPosition => 'Post';
 
   @override
@@ -1223,7 +1229,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu.';
+      'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu u madwar id-dar li ħarab minnha.';
 
   @override
   String get spotStraysFlier =>

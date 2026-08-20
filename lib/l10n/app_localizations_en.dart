@@ -794,6 +794,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterResponsible => 'Responsible person';
 
   @override
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Phone';
+
+  @override
   String get starterPosition => 'Location';
 
   @override
@@ -1220,7 +1226,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Searching for a missing cat? Show circles around the places its posters were seen.';
+      'Searching for a missing cat? Show circles around its poster spots and the home it ran from.';
 
   @override
   String get spotStraysFlier =>

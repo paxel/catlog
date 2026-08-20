@@ -1538,6 +1538,18 @@ abstract class AppLocalizations {
   /// **'Responsible person'**
   String get starterResponsible;
 
+  /// No description provided for @starterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get starterEmail;
+
+  /// No description provided for @starterPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get starterPhone;
+
   /// No description provided for @starterPosition.
   ///
   /// In en, this message translates to:
@@ -2303,7 +2315,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotMapLayers.
   ///
   /// In en, this message translates to:
-  /// **'Searching for a missing cat? Show circles around the places its posters were seen.'**
+  /// **'Searching for a missing cat? Show circles around its poster spots and the home it ran from.'**
   String get spotMapLayers;
 
   /// No description provided for @spotStraysFlier.

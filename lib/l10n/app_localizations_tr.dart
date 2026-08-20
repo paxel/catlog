@@ -794,6 +794,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterResponsible => 'Sorumlu kişi';
 
   @override
+  String get starterEmail => 'E-posta';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
   String get starterPosition => 'Konum';
 
   @override
@@ -1220,7 +1226,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotMapLayers =>
-      'Kayıp kedi mi arıyorsunuz? İlanlarının görüldüğü yerlerin çevresine daireler çizin.';
+      'Kayıp kedi mi arıyorsunuz? İlanlarının görüldüğü yerlerin ve kaçtığı evin çevresine daireler çizin.';
 
   @override
   String get spotStraysFlier =>

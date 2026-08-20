@@ -123,6 +123,8 @@ const starterFields = [
   (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),
   (slug: 'address', name: 'Address', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'responsible', name: 'Responsible person', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
+  (slug: 'email', name: 'Email', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
+  (slug: 'phone', name: 'Phone', type: FieldType.text, scope: FieldScope.clowder, options: <String>[]),
   (slug: 'position', name: 'Position', type: FieldType.location, scope: FieldScope.both, options: <String>[]),
   (slug: 'remarks', name: 'Remarks', type: FieldType.text, scope: FieldScope.both, options: <String>[]),
 ];
