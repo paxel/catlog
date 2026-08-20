@@ -122,7 +122,8 @@ class _CatlogAppState extends State<CatlogApp>
     );
     if (send == true) {
       await mailCrashReport(lastCrashText() ??
-          'cat(a)log was killed without a crash log '
+          '${crashReportHeader()}\n\n'
+              'cat(a)log was killed without a crash log '
               '(most likely out of memory).');
     }
     clearLastCrash();

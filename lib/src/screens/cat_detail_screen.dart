@@ -69,7 +69,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     WidgetsBinding.instance.addPostFrameCallback(
         (_) => runSpotlights(context, store, 'cat'));
     if (widget.promptPhoto) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _addPhoto());
+      // The callback can fire after a quick back-out; a dead screen
+      // must not open a picker it can never return to.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _addPhoto();
+      });
     }
   }
 

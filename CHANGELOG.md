@@ -65,6 +65,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- Crash reports name the app version and build, the system and its
+  version, the language and the time — the old ones left the version
+  blank, so nobody could tell which build had crashed.
 - Mother and Father print the linked cat's name on the card instead
   of an internal id; a link that no longer resolves is left off.
 - "Share publicly" honors Private everywhere: a private cat refuses to
