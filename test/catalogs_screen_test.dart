@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/catalogs_screen.dart';
+import 'package:catlog/main.dart' show CatlogApp;
 import 'package:catlog/src/screens/home_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -279,5 +280,26 @@ void main() {
     // A size is shown for every catalog, in units a person reads.
     expect(find.textContaining(RegExp(r'\d+(\.\d+)? (B|KB|MB|GB)')),
         findsNWidgets(2));
+  });
+
+  testWidgets('switching from the manage screen leaves no page reading a '
+      'closed catalog', (tester) async {
+    catalogs.create('Paris');
+    // The real app, so the real switch runs: it unwinds to the list and
+    // closes the catalog being left only once its pages are gone.
+    await tester.pumpWidget(CatlogApp(store: store, catalogs: catalogs));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Berlin'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Manage catalogs'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(ListTile, 'Paris'));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.widgetWithText(AppBar, 'Paris'), findsOneWidget);
+    expect(find.text('Manage catalogs'), findsNothing,
+        reason: 'the page of the catalog we left is gone');
   });
 }
