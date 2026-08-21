@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Що перемістити?",
   "moveIntoNewCatalog": "Перемістити щось до {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Скасувати цей імпорт",
+  "undoImportBody": "{count} змін із цього імпорту буде вилучено. Спершу вони записуються у файл, імпорт якого поверне їх. Ті, з ким ви вже синхронізувалися, збережуть свою копію — це не відкликати.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Скасовано. Файл у {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

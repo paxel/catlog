@@ -1579,4 +1579,17 @@ class AppLocalizationsHu extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Áthelyezel valamit ide: $name?';
   }
+
+  @override
+  String get undoThisImport => 'Az importálás visszavonása';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Az importálás hozta $count változás eltűnik. Előbb fájlba kerülnek, annak importálása visszahozza őket. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Visszavonva. A fájl itt van: $where.';
+  }
 }

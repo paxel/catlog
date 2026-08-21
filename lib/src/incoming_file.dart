@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'import_summary.dart';
+import 'undo_import.dart';
 import 'incoming_images.dart';
 import 'l10n.dart';
 
@@ -57,12 +58,15 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
   }
   if (context == null || !context.mounted) return;
   try {
-    final result = importBundle(store, path);
+    final imported = importWithSavePoint(store, path,
+        label: path.split(Platform.pathSeparator).last);
+    final result = imported.result;
     if (!context.mounted) return;
     if (result.applied.isEmpty && result.blobsIn == 0) {
       _snack(context, context.t.nothingNewInBundle);
     } else {
-      await showImportSummary(context, store, result.applied);
+      await showImportSummary(context, store, result.applied,
+          undo: imported.point);
     }
   } catch (_) {
     if (context.mounted) _snack(context, context.t.notACatlogFile);

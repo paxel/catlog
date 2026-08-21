@@ -1578,4 +1578,17 @@ class AppLocalizationsPl extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Przenieść coś do $name?';
   }
+
+  @override
+  String get undoThisImport => 'Cofnij ten import';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count zmian z tego importu zostanie usuniętych. Najpierw trafią do pliku, którego import je przywróci. Osoby, z którymi już zsynchronizowałeś, zachowają swoją kopię — tego nie da się cofnąć.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Cofnięto. Plik jest w $where.';
+  }
 }

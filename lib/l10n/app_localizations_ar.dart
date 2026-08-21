@@ -1571,4 +1571,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'نقل شيء إلى $name؟';
   }
+
+  @override
+  String get undoThisImport => 'التراجع عن هذا الاستيراد';
+
+  @override
+  String undoImportBody(int count) {
+    return 'ستُزال $count من التغييرات التي جلبها هذا الاستيراد. تُكتب أولاً في ملف، واستيراده يعيدها. من زامنت معهم يحتفظون بنسختهم — لا يمكن سحب ذلك.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'تم التراجع. الملف في $where.';
+  }
 }

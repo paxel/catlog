@@ -1577,4 +1577,17 @@ class AppLocalizationsLv extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Pārvietot kaut ko uz $name?';
   }
+
+  @override
+  String get undoThisImport => 'Atsaukt šo importu';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count šī importa izmaiņas tiks noņemtas. Vispirms tās tiek ierakstītas failā, kura imports tās atgriež. Tie, ar kuriem jau sinhronizēji, patur savu kopiju — to atsaukt nevar.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Atsaukts. Fails ir $where.';
+  }
 }

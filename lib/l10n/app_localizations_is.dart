@@ -1582,4 +1582,17 @@ class AppLocalizationsIs extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Færa eitthvað í $name?';
   }
+
+  @override
+  String get undoThisImport => 'Afturkalla þennan innflutning';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count breytingar sem þessi innflutningur kom með verða fjarlægðar. Þær eru fyrst skrifaðar í skrá og innflutningur hennar skilar þeim. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Afturkallað. Skráin er í $where.';
+  }
 }

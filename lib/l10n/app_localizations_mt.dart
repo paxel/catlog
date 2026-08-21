@@ -1582,4 +1582,17 @@ class AppLocalizationsMt extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Tmexxi xi ħaġa għal $name?';
   }
+
+  @override
+  String get undoThisImport => 'Ħassar din l-importazzjoni';
+
+  @override
+  String undoImportBody(int count) {
+    return 'It-$count bidliet li ġabet din l-importazzjoni jitneħħew. L-ewwel jinkitbu f’fajl, u l-importazzjoni tiegħu ġġibhom lura. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Imħassar. Il-fajl qiegħed f’$where.';
+  }
 }

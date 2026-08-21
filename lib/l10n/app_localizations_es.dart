@@ -1585,4 +1585,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return '¿Mover algo a $name?';
   }
+
+  @override
+  String get undoThisImport => 'Deshacer esta importación';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Se quitan los $count cambios que trajo esta importación. Antes se escriben en un archivo; importarlo los devuelve. Quienes ya sincronizaron conservan su copia: eso no se puede deshacer.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Deshecho. El archivo está en $where.';
+  }
 }

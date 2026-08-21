@@ -1578,4 +1578,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Перенести что-нибудь в $name?';
   }
+
+  @override
+  String get undoThisImport => 'Отменить этот импорт';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count изменений из этого импорта будут удалены. Сначала они записываются в файл, импорт которого вернёт их. У тех, с кем вы уже синхронизировались, копия останется — это не отозвать.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Отменено. Файл в $where.';
+  }
 }

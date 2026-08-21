@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Kas persikelia?",
   "moveIntoNewCatalog": "Perkelti ką nors į {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Atšaukti šį importą",
+  "undoImportBody": "{count} šio importo pakeitimai bus pašalinti. Pirma jie įrašomi į failą, kurio importas juos grąžina. Tie, su kuriais jau sinchronizavai, pasilieka savo kopiją — to atšaukti negalima.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Atšaukta. Failas yra {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

@@ -106,6 +106,13 @@ class CatalogStore {
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS save_points (
+        id    INTEGER PRIMARY KEY AUTOINCREMENT,
+        seq   INTEGER NOT NULL,
+        cause TEXT NOT NULL,
+        label TEXT,
+        at    TEXT NOT NULL
+      );
     ''');
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
@@ -1030,6 +1037,94 @@ class CatalogStore {
     final all = images(catId);
     if (chosen != null && all.contains(chosen)) return chosen;
     return all.isEmpty ? null : all.first;
+  }
+
+  // ------------------------------------------------------------ moments
+
+  /// The log's high-water mark right now. A moment the catalog can be
+  /// returned to is nothing more than this number: everything written
+  /// after it is what going back removes.
+  ///
+  /// Load-bearing: `entries.seq` is AUTOINCREMENT, so SQLite never
+  /// re-uses a number after a delete and an old mark keeps meaning the
+  /// same moment.
+  int currentSeq() =>
+      _db.select('SELECT COALESCE(MAX(seq), 0) AS n FROM entries')
+          .first['n'] as int;
+
+  /// Records a moment. [seq] defaults to now; callers that only know
+  /// afterwards whether anything happened pass the mark they took
+  /// before — an operation that changed nothing records nothing.
+  int addSavePoint(
+      {required String cause, String? label, int? seq, DateTime? at}) {
+    _db.execute(
+      'INSERT INTO save_points (seq, cause, label, at) VALUES (?, ?, ?, ?)',
+      [seq ?? currentSeq(), cause, label, _iso(at ?? DateTime.now())],
+    );
+    return _db.lastInsertRowId;
+  }
+
+  /// Every recorded moment, newest first.
+  List<({int id, int seq, String cause, String? label, DateTime at})>
+      savePoints() => [
+            for (final r in _db.select(
+                'SELECT id, seq, cause, label, at FROM save_points '
+                'ORDER BY seq DESC, id DESC'))
+              (
+                id: r['id'] as int,
+                seq: r['seq'] as int,
+                cause: r['cause'] as String,
+                label: r['label'] as String?,
+                at: DateTime.parse(r['at'] as String),
+              )
+          ];
+
+  void removeSavePoint(int id) =>
+      _db.execute('DELETE FROM save_points WHERE id = ?', [id]);
+
+  /// Everything written after [seq], raw: private entries and markers
+  /// included, nothing filtered. Going back has to be able to put the
+  /// catalog back exactly as it was.
+  List<Entry> entriesAfter(int seq) => [
+        for (final r
+            in _db.select('SELECT * FROM entries WHERE seq > ? ORDER BY seq',
+                [seq]))
+          _entry(r)
+      ];
+
+  /// Physically removes everything written after [seq] and forgets the
+  /// moments that lived up there. THE second append-only exception
+  /// (ADR-0009), after hard delete. The caller writes the removed
+  /// entries out first — this does not.
+  ///
+  /// The removed numbers stay claimed (see [_nextDseq]), which also
+  /// stops a partner pushing an undone import straight back.
+  void removeEntriesAfter(int seq) {
+    final removed = _db.select(
+        'SELECT device, MAX(dseq) AS m FROM entries WHERE seq > ? '
+        'GROUP BY device',
+        [seq]);
+    final touched = <String>{
+      for (final r in _db.select(
+          'SELECT DISTINCT field FROM entries WHERE seq > ? AND field LIKE ?',
+          [seq, '${Keys.imagePrefix}%']))
+        (r['field'] as String).substring(Keys.imagePrefix.length)
+    };
+    _db.execute('BEGIN');
+    try {
+      _db.execute('DELETE FROM entries WHERE seq > ?', [seq]);
+      _db.execute('DELETE FROM save_points WHERE seq > ?', [seq]);
+      _db.execute('COMMIT');
+    } catch (_) {
+      _db.execute('ROLLBACK');
+      rethrow;
+    }
+    for (final r in removed) {
+      _recordDiscarded(r['device'] as String, r['m'] as int);
+    }
+    for (final hash in touched) {
+      if (!_imageReferenced(hash)) _blobs.remove(hash);
+    }
   }
 
   // ------------------------------------------------------------------ sync

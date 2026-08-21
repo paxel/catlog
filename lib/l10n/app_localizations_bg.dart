@@ -1579,4 +1579,17 @@ class AppLocalizationsBg extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Да преместим ли нещо в $name?';
   }
+
+  @override
+  String get undoThisImport => 'Отмяна на този импорт';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count промени от този импорт се премахват. Първо се записват във файл, чийто импорт ги връща. Хората, с които вече сте синхронизирали, запазват своето копие — това не може да се отмени.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Отменено. Файлът е в $where.';
+  }
 }

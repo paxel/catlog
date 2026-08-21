@@ -1583,4 +1583,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Iets naar $name verplaatsen?';
   }
+
+  @override
+  String get undoThisImport => 'Deze import ongedaan maken';
+
+  @override
+  String undoImportBody(int count) {
+    return 'De $count wijzigingen van deze import worden weggehaald. Ze worden eerst naar een bestand geschreven; dat importeren zet ze terug. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Ongedaan gemaakt. Het bestand staat in $where.';
+  }
 }

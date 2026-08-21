@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'undo_import.dart';
 import 'widgets/cat_avatar.dart';
 
 /// What one sync/import actually meant, in fosterer terms.
@@ -91,7 +92,8 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
 /// Shows the post-sync sheet when anything arrived. New arrivals carry a
 /// hide toggle — the "import filter" is a hide, by design.
 Future<void> showImportSummary(
-    BuildContext context, CatalogStore store, List<Entry> applied) async {
+    BuildContext context, CatalogStore store, List<Entry> applied,
+    {SavePoint? undo, SaveFile? saveTo}) async {
   // An archive file coming home: what it carries is deleted here, and
   // deletion outranks every entry in the file. Ask before undoing it.
   final restorable = restorableEntities(store, applied);
@@ -126,8 +128,12 @@ Future<void> showImportSummary(
   if (summary.isEmpty || !context.mounted) return;
   await showModalBottomSheet<void>(
     context: context,
-    builder: (context) =>
-        _SummarySheet(store: store, summary: summary, applied: applied),
+    builder: (context) => _SummarySheet(
+        store: store,
+        summary: summary,
+        applied: applied,
+        undo: undo,
+        saveTo: saveTo),
   );
   // The emotional echo after the sober digest.
   if (context.mounted) showEventToasts(context, store, applied);
@@ -138,8 +144,16 @@ class _SummarySheet extends StatefulWidget {
   final ImportSummary summary;
   final List<Entry> applied;
 
+  /// The moment before this import, when there is one to go back to.
+  final SavePoint? undo;
+  final SaveFile? saveTo;
+
   const _SummarySheet(
-      {required this.store, required this.summary, required this.applied});
+      {required this.store,
+      required this.summary,
+      required this.applied,
+      this.undo,
+      this.saveTo});
 
   @override
   State<_SummarySheet> createState() => _SummarySheetState();
@@ -215,6 +229,21 @@ class _SummarySheetState extends State<_SummarySheet> {
                 builder: (_) => _SyncChangesScreen(
                     store: store, applied: widget.applied),
               )),
+            ),
+          // Where somebody realises they imported the wrong file.
+          if (widget.undo != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: OutlinedButton.icon(
+                icon: const Icon(Icons.undo),
+                label: Text(t.undoThisImport),
+                onPressed: () async {
+                  final done = await confirmAndRevert(
+                      context, store, widget.undo!,
+                      saveTo: widget.saveTo);
+                  if (done && context.mounted) Navigator.of(context).pop();
+                },
+              ),
             ),
           const SizedBox(height: 8),
         ]),

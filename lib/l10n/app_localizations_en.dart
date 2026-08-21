@@ -1578,4 +1578,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Move something into $name?';
   }
+
+  @override
+  String get undoThisImport => 'Undo this import';
+
+  @override
+  String undoImportBody(int count) {
+    return 'The $count change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Undone. The file is in $where.';
+  }
 }

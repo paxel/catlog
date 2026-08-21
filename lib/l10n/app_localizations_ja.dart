@@ -1540,4 +1540,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return '$name に何か移動しますか？';
   }
+
+  @override
+  String get undoThisImport => 'この読み込みを取り消す';
+
+  @override
+  String undoImportBody(int count) {
+    return 'この読み込みで入った $count 件の変更を取り除きます。先にファイルへ書き出すので、それを読み込めば戻せます。すでに同期した相手の手元には残ります。取り消せません。';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return '取り消しました。ファイルは $where にあります。';
+  }
 }

@@ -1577,4 +1577,17 @@ class AppLocalizationsEt extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Kas liigutada midagi kataloogi $name?';
   }
+
+  @override
+  String get undoThisImport => 'Võta see import tagasi';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Selle impordi toodud $count muudatust eemaldatakse. Enne kirjutatakse need faili, mille import toob need tagasi. Need, kellega juba sünkroonisid, säilitavad oma koopia — seda ei saa tagasi võtta.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Tagasi võetud. Fail on $where.';
+  }
 }

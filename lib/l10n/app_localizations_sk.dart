@@ -1577,4 +1577,17 @@ class AppLocalizationsSk extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Presunúť niečo do $name?';
   }
+
+  @override
+  String get undoThisImport => 'Vrátiť tento import';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count zmien z tohto importu zmizne. Najprv sa zapíšu do súboru, ktorého import ich vráti. Kto už synchronizoval, svoju kópiu si nechá — to sa vziať späť nedá.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Vrátené. Súbor je v $where.';
+  }
 }

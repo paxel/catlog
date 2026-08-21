@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Kaj naj se preseli?",
   "moveIntoNewCatalog": "Premakneš kaj v {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Razveljavi ta uvoz",
+  "undoImportBody": "{count} sprememb iz tega uvoza bo odstranjenih. Najprej se zapišejo v datoteko, katere uvoz jih vrne. Tisti, s katerimi si že sinhroniziral, obdržijo svojo kopijo — tega ni mogoče preklicati.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Razveljavljeno. Datoteka je v {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

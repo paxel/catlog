@@ -1580,4 +1580,17 @@ class AppLocalizationsSq extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Të zhvendoset diçka te $name?';
   }
+
+  @override
+  String get undoThisImport => 'Zhbëj këtë importim';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count ndryshimet që solli ky importim hiqen. Së pari shkruhen në një skedar, importimi i të cilit i kthen. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen e tyre — kjo nuk merret mbrapsht.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'U zhbë. Skedari është në $where.';
+  }
 }

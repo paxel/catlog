@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Какво да се премести?",
   "moveIntoNewCatalog": "Да преместим ли нещо в {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Отмяна на този импорт",
+  "undoImportBody": "{count} промени от този импорт се премахват. Първо се записват във файл, чийто импорт ги връща. Хората, с които вече сте синхронизирали, запазват своето копие — това не може да се отмени.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Отменено. Файлът е в {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

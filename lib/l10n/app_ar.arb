@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "ما الذي يُنقل؟",
   "moveIntoNewCatalog": "نقل شيء إلى {name}؟",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "التراجع عن هذا الاستيراد",
+  "undoImportBody": "ستُزال {count} من التغييرات التي جلبها هذا الاستيراد. تُكتب أولاً في ملف، واستيراده يعيدها. من زامنت معهم يحتفظون بنسختهم — لا يمكن سحب ذلك.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "تم التراجع. الملف في {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

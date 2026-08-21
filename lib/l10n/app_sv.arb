@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Vad ska flyttas?",
   "moveIntoNewCatalog": "Ska något flyttas till {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Ångra den här importen",
+  "undoImportBody": "De {count} ändringar den här importen förde in tas bort. De skrivs först till en fil, och att importera den hämtar tillbaka dem. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Ångrat. Filen finns i {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

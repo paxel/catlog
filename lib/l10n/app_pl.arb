@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Co ma się przenieść?",
   "moveIntoNewCatalog": "Przenieść coś do {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Cofnij ten import",
+  "undoImportBody": "{count} zmian z tego importu zostanie usuniętych. Najpierw trafią do pliku, którego import je przywróci. Osoby, z którymi już zsynchronizowałeś, zachowają swoją kopię — tego nie da się cofnąć.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Cofnięto. Plik jest w {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

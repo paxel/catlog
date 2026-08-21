@@ -1579,4 +1579,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return '$name kataloğuna bir şey taşınsın mı?';
   }
+
+  @override
+  String get undoThisImport => 'Bu içe aktarmayı geri al';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Bu içe aktarmanın getirdiği $count değişiklik kaldırılır. Önce bir dosyaya yazılır; onu içe aktarmak geri getirir. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Geri alındı. Dosya $where içinde.';
+  }
 }

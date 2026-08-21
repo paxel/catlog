@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Ne taşınsın?",
   "moveIntoNewCatalog": "{name} kataloğuna bir şey taşınsın mı?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Bu içe aktarmayı geri al",
+  "undoImportBody": "Bu içe aktarmanın getirdiği {count} değişiklik kaldırılır. Önce bir dosyaya yazılır; onu içe aktarmak geri getirir. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Geri alındı. Dosya {where} içinde.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

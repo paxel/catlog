@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Mis liigub kaasa?",
   "moveIntoNewCatalog": "Kas liigutada midagi kataloogi {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Võta see import tagasi",
+  "undoImportBody": "Selle impordi toodud {count} muudatust eemaldatakse. Enne kirjutatakse need faili, mille import toob need tagasi. Need, kellega juba sünkroonisid, säilitavad oma koopia — seda ei saa tagasi võtta.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Tagasi võetud. Fail on {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

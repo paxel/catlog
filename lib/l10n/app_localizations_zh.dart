@@ -1523,4 +1523,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return '要把什么移动到 $name 吗？';
   }
+
+  @override
+  String get undoThisImport => '撤销这次导入';
+
+  @override
+  String undoImportBody(int count) {
+    return '这次导入带来的 $count 处改动会被移除。它们会先写入一个文件，导入该文件即可恢复。已经与你同步过的人仍保有各自的副本，这一点无法收回。';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return '已撤销。文件在 $where。';
+  }
 }

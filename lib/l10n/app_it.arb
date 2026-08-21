@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Che cosa si sposta?",
   "moveIntoNewCatalog": "Spostare qualcosa in {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Annulla questa importazione",
+  "undoImportBody": "I {count} cambiamenti portati da questa importazione vengono tolti. Prima vengono scritti in un file; importarlo li riporta. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Annullato. Il file è in {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

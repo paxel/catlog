@@ -1578,4 +1578,17 @@ class AppLocalizationsCs extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Přesunout něco do $name?';
   }
+
+  @override
+  String get undoThisImport => 'Vrátit tento import';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count změn z tohoto importu zmizí. Nejdřív se zapíšou do souboru, jehož import je vrátí. Kdo už synchronizoval, svou kopii si nechá — to vzít zpět nejde.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Vráceno. Soubor je v $where.';
+  }
 }

@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Wat verhuist er mee?",
   "moveIntoNewCatalog": "Iets naar {name} verplaatsen?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Deze import ongedaan maken",
+  "undoImportBody": "De {count} wijzigingen van deze import worden weggehaald. Ze worden eerst naar een bestand geschreven; dat importeren zet ze terug. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Ongedaan gemaakt. Het bestand staat in {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

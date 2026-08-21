@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:archive/archive.dart';
 
 import 'entry.dart';
+import 'fields.dart';
 import 'store.dart';
 
 /// Sync-by-messenger (ADR-0002 family): one file carries the sender's
@@ -46,6 +47,34 @@ String writeBundle(CatalogStore store, String path,
       if (bytes != null) {
         archive.addFile(ArchiveFile('blobs/$hash.jpg', bytes.length, bytes));
       }
+    }
+  }
+  File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);
+  return path;
+}
+
+/// Writes a bundle of exactly [entries] plus the photos they mention.
+///
+/// Used by going back: the removed entries are written out before they
+/// are deleted, so nothing is ever destroyed. The rows keep their
+/// original (device, dseq) — this file comes home to the catalog it was
+/// written from, where those numbers are what makes the restore exact
+/// and a later deliberate re-import of the same material a no-op rather
+/// than a doubled history.
+String writeEntriesBundle(
+    CatalogStore store, String path, List<Entry> entries) {
+  final archive = Archive();
+  final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
+  final jsonlBytes = utf8.encode(jsonl);
+  archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
+  final seen = <String>{};
+  for (final e in entries) {
+    if (!e.field.startsWith(Keys.imagePrefix)) continue;
+    final hash = e.field.substring(Keys.imagePrefix.length);
+    if (!seen.add(hash)) continue;
+    final bytes = store.imageBytes(hash);
+    if (bytes != null) {
+      archive.addFile(ArchiveFile('blobs/$hash.jpg', bytes.length, bytes));
     }
   }
   File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);

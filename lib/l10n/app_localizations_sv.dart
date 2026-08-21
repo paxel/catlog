@@ -1577,4 +1577,17 @@ class AppLocalizationsSv extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Ska något flyttas till $name?';
   }
+
+  @override
+  String get undoThisImport => 'Ångra den här importen';
+
+  @override
+  String undoImportBody(int count) {
+    return 'De $count ändringar den här importen förde in tas bort. De skrivs först till en fil, och att importera den hämtar tillbaka dem. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Ångrat. Filen finns i $where.';
+  }
 }

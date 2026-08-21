@@ -457,5 +457,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Was soll mit?",
   "moveIntoNewCatalog": "Etwas nach {name} verschieben?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Diesen Import rückgängig machen",
+  "undoImportBody": "Die {count} Änderung(en) aus diesem Import verschwinden. Vorher werden sie in eine Datei geschrieben; deren Import holt sie zurück. Wer schon synchronisiert hat, behält seine Kopie — das lässt sich nicht zurücknehmen.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Rückgängig gemacht. Die Datei liegt in {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Mi költözzön?",
   "moveIntoNewCatalog": "Áthelyezel valamit ide: {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Az importálás visszavonása",
+  "undoImportBody": "Az importálás hozta {count} változás eltűnik. Előbb fájlba kerülnek, annak importálása visszahozza őket. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Visszavonva. A fájl itt van: {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

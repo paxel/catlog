@@ -1578,4 +1578,17 @@ class AppLocalizationsDa extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Skal noget flyttes til $name?';
   }
+
+  @override
+  String get undoThisImport => 'Fortryd denne import';
+
+  @override
+  String undoImportBody(int count) {
+    return 'De $count ændringer, denne import bragte ind, fjernes. De skrives først til en fil, hvis import henter dem tilbage. De, du allerede har synkroniseret med, beholder deres kopi — det kan ikke trækkes tilbage.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Fortrudt. Filen ligger i $where.';
+  }
 }

@@ -777,5 +777,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "What should move?",
   "moveIntoNewCatalog": "Move something into {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Undo this import",
+  "undoImportBody": "The {count} change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Undone. The file is in {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

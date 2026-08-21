@@ -1578,4 +1578,17 @@ class AppLocalizationsHr extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Premjestiti nešto u $name?';
   }
+
+  @override
+  String get undoThisImport => 'Poništi ovaj uvoz';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count promjena iz ovog uvoza uklanja se. Prvo se zapisuju u datoteku, čiji ih uvoz vraća. Oni s kojima si već sinkronizirao zadržavaju svoju kopiju — to se ne može povući.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Poništeno. Datoteka je u $where.';
+  }
 }

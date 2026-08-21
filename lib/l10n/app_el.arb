@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Τι να μετακινηθεί;",
   "moveIntoNewCatalog": "Να μετακινηθεί κάτι στο {name};",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Αναίρεση αυτής της εισαγωγής",
+  "undoImportBody": "Οι {count} αλλαγές αυτής της εισαγωγής αφαιρούνται. Γράφονται πρώτα σε αρχείο, η εισαγωγή του οποίου τις επαναφέρει. Όσοι έχουν ήδη συγχρονιστεί κρατούν το αντίγραφό τους — αυτό δεν παίρνεται πίσω.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Αναιρέθηκε. Το αρχείο είναι στο {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

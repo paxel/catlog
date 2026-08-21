@@ -2875,6 +2875,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Move something into {name}?'**
   String moveIntoNewCatalog(String name);
+
+  /// No description provided for @undoThisImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo this import'**
+  String get undoThisImport;
+
+  /// No description provided for @undoImportBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The {count} change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.'**
+  String undoImportBody(int count);
+
+  /// No description provided for @undoneImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Undone. The file is in {where}.'**
+  String undoneImport(String where);
 }
 
 class _AppLocalizationsDelegate

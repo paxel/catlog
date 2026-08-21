@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../undo_import.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
 import '../share.dart';
@@ -46,10 +49,13 @@ class _MessengerScreenState extends State<MessengerScreen> {
     final path = picked?.files.single.path;
     if (path == null) return;
     try {
-      final result = importBundle(widget.store, path);
+      final imported = importWithSavePoint(widget.store, path,
+          label: path.split(Platform.pathSeparator).last);
+      final result = imported.result;
       setState(() => _lastResult = t.bundleImported('$result'));
       if (mounted && result.applied.isNotEmpty) {
-        await showImportSummary(context, widget.store, result.applied);
+        await showImportSummary(context, widget.store, result.applied,
+            undo: imported.point);
       }
     } catch (e) {
       setState(() => _lastResult = t.notACatlogFile);

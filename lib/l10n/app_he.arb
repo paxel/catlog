@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "מה עובר?",
   "moveIntoNewCatalog": "להעביר משהו אל {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "ביטול הייבוא הזה",
+  "undoImportBody": "{count} השינויים שהייבוא הזה הביא יוסרו. הם נכתבים תחילה לקובץ, וייבוא שלו מחזיר אותם. מי שכבר סנכרנת איתו שומר על העותק שלו — את זה אי אפשר לבטל.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "בוטל. הקובץ נמצא ב-{where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

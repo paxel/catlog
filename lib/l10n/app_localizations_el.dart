@@ -1583,4 +1583,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Να μετακινηθεί κάτι στο $name;';
   }
+
+  @override
+  String get undoThisImport => 'Αναίρεση αυτής της εισαγωγής';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Οι $count αλλαγές αυτής της εισαγωγής αφαιρούνται. Γράφονται πρώτα σε αρχείο, η εισαγωγή του οποίου τις επαναφέρει. Όσοι έχουν ήδη συγχρονιστεί κρατούν το αντίγραφό τους — αυτό δεν παίρνεται πίσω.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Αναιρέθηκε. Το αρχείο είναι στο $where.';
+  }
 }

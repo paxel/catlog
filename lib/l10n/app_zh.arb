@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "要移动什么？",
   "moveIntoNewCatalog": "要把什么移动到 {name} 吗？",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "撤销这次导入",
+  "undoImportBody": "这次导入带来的 {count} 处改动会被移除。它们会先写入一个文件，导入该文件即可恢复。已经与你同步过的人仍保有各自的副本，这一点无法收回。",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "已撤销。文件在 {where}。",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

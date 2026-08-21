@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "چه چیزی منتقل شود؟",
   "moveIntoNewCatalog": "چیزی به {name} منتقل شود؟",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "برگرداندن این وارد کردن",
+  "undoImportBody": "{count} تغییری که این وارد کردن آورده حذف می‌شود. ابتدا در فایلی نوشته می‌شوند و وارد کردن آن فایل آن‌ها را برمی‌گرداند. کسانی که قبلاً همگام شده‌اند نسخهٔ خود را نگه می‌دارند — این قابل بازگرداندن نیست.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "برگردانده شد. فایل در {where} است.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

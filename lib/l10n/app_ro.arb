@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Ce se mută?",
   "moveIntoNewCatalog": "Muți ceva în {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Anulează acest import",
+  "undoImportBody": "Cele {count} modificări aduse de acest import se elimină. Sunt scrise mai întâi într-un fișier, al cărui import le aduce înapoi. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Anulat. Fișierul e în {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

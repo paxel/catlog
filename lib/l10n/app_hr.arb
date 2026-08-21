@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Što se seli?",
   "moveIntoNewCatalog": "Premjestiti nešto u {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Poništi ovaj uvoz",
+  "undoImportBody": "{count} promjena iz ovog uvoza uklanja se. Prvo se zapisuju u datoteku, čiji ih uvoz vraća. Oni s kojima si već sinkronizirao zadržavaju svoju kopiju — to se ne može povući.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Poništeno. Datoteka je u {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

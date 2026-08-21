@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "何を移動しますか？",
   "moveIntoNewCatalog": "{name} に何か移動しますか？",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "この読み込みを取り消す",
+  "undoImportBody": "この読み込みで入った {count} 件の変更を取り除きます。先にファイルへ書き出すので、それを読み込めば戻せます。すでに同期した相手の手元には残ります。取り消せません。",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "取り消しました。ファイルは {where} にあります。",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

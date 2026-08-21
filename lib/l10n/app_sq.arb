@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Çfarë do të zhvendoset?",
   "moveIntoNewCatalog": "Të zhvendoset diçka te {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Zhbëj këtë importim",
+  "undoImportBody": "{count} ndryshimet që solli ky importim hiqen. Së pari shkruhen në një skedar, importimi i të cilit i kthen. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen e tyre — kjo nuk merret mbrapsht.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "U zhbë. Skedari është në {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

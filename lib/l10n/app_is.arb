@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Hvað á að flytja?",
   "moveIntoNewCatalog": "Færa eitthvað í {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Afturkalla þennan innflutning",
+  "undoImportBody": "{count} breytingar sem þessi innflutningur kom með verða fjarlægðar. Þær eru fyrst skrifaðar í skrá og innflutningur hennar skilar þeim. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Afturkallað. Skráin er í {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

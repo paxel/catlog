@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Hvad skal flyttes?",
   "moveIntoNewCatalog": "Skal noget flyttes til {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Fortryd denne import",
+  "undoImportBody": "De {count} ændringer, denne import bragte ind, fjernes. De skrives først til en fil, hvis import henter dem tilbage. De, du allerede har synkroniseret med, beholder deres kopi — det kan ikke trækkes tilbage.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Fortrudt. Filen ligger i {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

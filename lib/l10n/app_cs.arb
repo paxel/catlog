@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Co se má přesunout?",
   "moveIntoNewCatalog": "Přesunout něco do {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Vrátit tento import",
+  "undoImportBody": "{count} změn z tohoto importu zmizí. Nejdřív se zapíšou do souboru, jehož import je vrátí. Kdo už synchronizoval, svou kopii si nechá — to vzít zpět nejde.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Vráceno. Soubor je v {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

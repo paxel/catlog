@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Kas pārvietojas?",
   "moveIntoNewCatalog": "Pārvietot kaut ko uz {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Atsaukt šo importu",
+  "undoImportBody": "{count} šī importa izmaiņas tiks noņemtas. Vispirms tās tiek ierakstītas failā, kura imports tās atgriež. Tie, ar kuriem jau sinhronizēji, patur savu kopiju — to atsaukt nevar.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Atsaukts. Fails ir {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

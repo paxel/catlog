@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "Mikä siirtyy?",
   "moveIntoNewCatalog": "Siirretäänkö jotain luetteloon {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Kumoa tämä tuonti",
+  "undoImportBody": "Tämän tuonnin tuomat {count} muutosta poistetaan. Ne kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa ne. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Kumottu. Tiedosto on kohteessa {where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

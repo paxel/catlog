@@ -1585,4 +1585,17 @@ class AppLocalizationsGa extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Rud éigin a bhogadh go $name?';
   }
+
+  @override
+  String get undoThisImport => 'Cealaigh an t-iompórtáil seo';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Baintear na $count athrú a thug an t-iompórtáil seo isteach. Scríobhtar iad chuig comhad ar dtús, agus tugann a iompórtáil ar ais iad. Coinníonn na daoine ar shioncronaigh tú leo cheana a gcóip féin — ní féidir é sin a tharraingt siar.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Cealaithe. Tá an comhad in $where.';
+  }
 }

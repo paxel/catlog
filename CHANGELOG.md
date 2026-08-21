@@ -19,6 +19,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   selection of strays into another catalog. What moves arrives with its
   whole history and its photos and is deleted where it came from, and
   creating a catalog offers to move something into it straight away.
+- Undoing an import. The summary that appears after importing a file
+  offers to take it back: what arrived is removed, written to a file
+  first so importing that puts it back, and syncing with the same person
+  again does not bring it straight back.
 
 ### Changed
 

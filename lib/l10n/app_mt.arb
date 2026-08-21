@@ -458,5 +458,10 @@
   "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
   "chooseWhatToMove": "X’għandu jitmexxa?",
   "moveIntoNewCatalog": "Tmexxi xi ħaġa għal {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "undoThisImport": "Ħassar din l-importazzjoni",
+  "undoImportBody": "It-{count} bidliet li ġabet din l-importazzjoni jitneħħew. L-ewwel jinkitbu f’fajl, u l-importazzjoni tiegħu ġġibhom lura. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
+  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "undoneImport": "Imħassar. Il-fajl qiegħed f’{where}.",
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
 }

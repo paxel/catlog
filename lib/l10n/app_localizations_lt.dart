@@ -1580,4 +1580,17 @@ class AppLocalizationsLt extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Perkelti ką nors į $name?';
   }
+
+  @override
+  String get undoThisImport => 'Atšaukti šį importą';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count šio importo pakeitimai bus pašalinti. Pirma jie įrašomi į failą, kurio importas juos grąžina. Tie, su kuriais jau sinchronizavai, pasilieka savo kopiją — to atšaukti negalima.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Atšaukta. Failas yra $where.';
+  }
 }

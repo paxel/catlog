@@ -1579,4 +1579,17 @@ class AppLocalizationsFi extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Siirretäänkö jotain luetteloon $name?';
   }
+
+  @override
+  String get undoThisImport => 'Kumoa tämä tuonti';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Tämän tuonnin tuomat $count muutosta poistetaan. Ne kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa ne. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Kumottu. Tiedosto on kohteessa $where.';
+  }
 }

@@ -1567,4 +1567,17 @@ class AppLocalizationsHe extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'להעביר משהו אל $name?';
   }
+
+  @override
+  String get undoThisImport => 'ביטול הייבוא הזה';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count השינויים שהייבוא הזה הביא יוסרו. הם נכתבים תחילה לקובץ, וייבוא שלו מחזיר אותם. מי שכבר סנכרנת איתו שומר על העותק שלו — את זה אי אפשר לבטל.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'בוטל. הקובץ נמצא ב-$where.';
+  }
 }

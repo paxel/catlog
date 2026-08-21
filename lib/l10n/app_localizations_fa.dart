@@ -1575,4 +1575,17 @@ class AppLocalizationsFa extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'چیزی به $name منتقل شود؟';
   }
+
+  @override
+  String get undoThisImport => 'برگرداندن این وارد کردن';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count تغییری که این وارد کردن آورده حذف می‌شود. ابتدا در فایلی نوشته می‌شوند و وارد کردن آن فایل آن‌ها را برمی‌گرداند. کسانی که قبلاً همگام شده‌اند نسخهٔ خود را نگه می‌دارند — این قابل بازگرداندن نیست.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'برگردانده شد. فایل در $where است.';
+  }
 }

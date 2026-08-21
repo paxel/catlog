@@ -1580,4 +1580,17 @@ class AppLocalizationsRo extends AppLocalizations {
   String moveIntoNewCatalog(String name) {
     return 'Muți ceva în $name?';
   }
+
+  @override
+  String get undoThisImport => 'Anulează acest import';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Cele $count modificări aduse de acest import se elimină. Sunt scrise mai întâi într-un fișier, al cărui import le aduce înapoi. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Anulat. Fișierul e în $where.';
+  }
 }
