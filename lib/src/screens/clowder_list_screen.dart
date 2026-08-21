@@ -36,11 +36,16 @@ class ClowderListScreen extends StatefulWidget {
   final void Function(PanePage page)? onOpenPage;
   final String? selectedPageId;
 
+  /// Called when the tiles/table choice changes. The table wants the
+  /// whole window, so the layout around this screen has to know.
+  final VoidCallback? onViewChanged;
+
   const ClowderListScreen(
       {super.key,
       required this.store,
       this.onOpenPage,
-      this.selectedPageId});
+      this.selectedPageId,
+      this.onViewChanged});
 
   @override
   State<ClowderListScreen> createState() => _ClowderListScreenState();
@@ -152,6 +157,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               widget.store.setLocalSetting(
                   clowderViewKey, _tableView ? 'tiles' : 'table');
               setState(() {});
+              widget.onViewChanged?.call();
             },
           ),
           IconButton(

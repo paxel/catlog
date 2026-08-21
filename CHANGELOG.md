@@ -7,6 +7,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
+- On a tablet or a desktop window, the clowder table uses the whole
+  width instead of being squeezed into the list column; opening a row
+  shows the clowder over the table.
 - Tutorial tips sit beside what they highlight instead of stretching
   across the screen, and no longer draw an arrow that pointed at empty
   space on tablets.

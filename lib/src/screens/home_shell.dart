@@ -21,8 +21,15 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < desktopBreakpoint) {
-        return ClowderListScreen(store: widget.store);
+      // The table is for scanning the columns you picked; squeezed into
+      // the list pane it has to be dragged sideways to read, so in table
+      // view the list keeps the whole window and rows open over it.
+      final tableView =
+          widget.store.localSetting(clowderViewKey) == 'table';
+      if (constraints.maxWidth < desktopBreakpoint || tableView) {
+        return ClowderListScreen(
+            store: widget.store,
+            onViewChanged: () => setState(() {}));
       }
       // A deleted or hidden clowder vacates the pane; every other page
       // stays valid for as long as it is open.
@@ -39,6 +46,7 @@ class _HomeShellState extends State<HomeShell> {
             store: widget.store,
             selectedPageId: shown?.id,
             onOpenPage: (page) => setState(() => _page = page),
+            onViewChanged: () => setState(() {}),
           ),
         ),
         const VerticalDivider(width: 1),

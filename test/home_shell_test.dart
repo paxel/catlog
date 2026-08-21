@@ -107,4 +107,46 @@ void main() {
     await tester.pumpAndSettle();
     expect(inPane(tester, find.byType(StraysScreen)), isFalse);
   });
+
+  group('table view', () {
+    Future<void> toTable(WidgetTester tester) async {
+      await tester.tap(find.byIcon(Icons.table_rows_outlined));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('takes the whole window, with no second pane',
+        (tester) async {
+      await pump(tester);
+      await toTable(tester);
+      expect(find.byType(VerticalDivider), findsNothing);
+      expect(tester.getSize(find.byType(DataTable)).width,
+          greaterThan(400));
+    });
+
+    testWidgets('a row opens the Clowder over the table', (tester) async {
+      await pump(tester);
+      await toTable(tester);
+      await tester.tap(find.text('Berlin'));
+      await tester.pumpAndSettle();
+      expect(inPane(tester, find.byType(ClowderDetailScreen)), isFalse);
+    });
+
+    testWidgets('tiles view still shows two panes', (tester) async {
+      await pump(tester);
+      expect(find.byType(VerticalDivider), findsOneWidget);
+    });
+
+    testWidgets('switching to the table and back restores the pane',
+        (tester) async {
+      await pump(tester);
+      await tester.tap(find.text('Berlin'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ClowderDetailScreen), findsOneWidget);
+      await toTable(tester);
+      expect(find.byType(ClowderDetailScreen), findsNothing);
+      await tester.tap(find.byIcon(Icons.grid_view));
+      await tester.pumpAndSettle();
+      expect(find.byType(ClowderDetailScreen), findsOneWidget);
+    });
+  });
 }
