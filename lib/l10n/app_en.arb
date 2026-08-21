@@ -771,5 +771,8 @@
   "typeTheName": "Type {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Move to another catalog",
+  "movedToCatalog": "{count} moved to {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

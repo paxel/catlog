@@ -1559,4 +1559,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ($error). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.';
   }
+
+  @override
+  String get moveToCatalog => 'انتقال به کاتالوگ دیگر';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count به $name منتقل شد';
+  }
 }

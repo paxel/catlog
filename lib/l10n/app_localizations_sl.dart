@@ -1562,4 +1562,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nič ni bilo izbrisano: datoteke kataloga ni bilo mogoče zapisati ($error). Sprosti prostor ali poskusi pozneje.';
   }
+
+  @override
+  String get moveToCatalog => 'Premakni v drug katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count premaknjeno v $name';
+  }
 }

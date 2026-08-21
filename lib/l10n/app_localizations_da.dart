@@ -1562,4 +1562,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Intet blev slettet: katalogfilen kunne ikke skrives ($error). Frigør plads, eller prøv igen senere.';
   }
+
+  @override
+  String get moveToCatalog => 'Flyt til et andet katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count flyttet til $name';
+  }
 }

@@ -452,5 +452,8 @@
   "typeTheName": "اكتب {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "لم يُحذف شيء: تعذّرت كتابة ملف الكتالوج ({error}). وفّر بعض المساحة أو أعد المحاولة لاحقاً.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "نقل إلى كتالوج آخر",
+  "movedToCatalog": "تم نقل {count} إلى {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

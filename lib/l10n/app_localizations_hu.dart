@@ -1563,4 +1563,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ($error). Szabadíts fel helyet, vagy próbáld később.';
   }
+
+  @override
+  String get moveToCatalog => 'Áthelyezés másik katalógusba';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count áthelyezve ide: $name';
+  }
 }

@@ -452,5 +452,8 @@
   "typeTheName": "{name} と入力",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "何も削除していません。カタログのファイルを書き出せませんでした（{error}）。空き容量を作るか、時間をおいてやり直してください。",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "別のカタログへ移動",
+  "movedToCatalog": "{count} 件を {name} に移動しました",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

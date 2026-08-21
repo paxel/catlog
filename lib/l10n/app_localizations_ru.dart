@@ -1562,4 +1562,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Ничего не удалено: файл каталога не удалось записать ($error). Освободите место или попробуйте позже.';
   }
+
+  @override
+  String get moveToCatalog => 'Переместить в другой каталог';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count перемещено в $name';
+  }
 }

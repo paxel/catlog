@@ -452,5 +452,8 @@
   "typeTheName": "Typ {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ({error}). Maak ruimte vrij of probeer het later.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Naar een andere catalogus verplaatsen",
+  "movedToCatalog": "{count} verplaatst naar {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

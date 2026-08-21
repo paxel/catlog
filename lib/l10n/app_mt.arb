@@ -452,5 +452,8 @@
   "typeTheName": "Ikteb {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ({error}). Illibera spazju jew erġa’ pprova aktar tard.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Mexxi għal katalgu ieħor",
+  "movedToCatalog": "{count} imxew għal {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

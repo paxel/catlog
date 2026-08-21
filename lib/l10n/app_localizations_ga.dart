@@ -1569,4 +1569,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ($error). Déan spás a shaoradh nó bain triail eile as níos déanaí.';
   }
+
+  @override
+  String get moveToCatalog => 'Bog go catalóg eile';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return 'Bogadh $count go $name';
+  }
 }

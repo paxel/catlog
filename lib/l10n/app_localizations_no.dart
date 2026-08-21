@@ -1560,4 +1560,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Ingenting ble slettet: katalogfilen kunne ikke skrives ($error). Frigjør plass, eller prøv igjen senere.';
   }
+
+  @override
+  String get moveToCatalog => 'Flytt til en annen katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count flyttet til $name';
+  }
 }

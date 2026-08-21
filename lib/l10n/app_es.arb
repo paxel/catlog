@@ -452,5 +452,8 @@
   "typeTheName": "Escribe {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "No se eliminó nada: no se pudo escribir el archivo del catálogo ({error}). Libera espacio o inténtalo más tarde.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Mover a otro catálogo",
+  "movedToCatalog": "{count} movidos a {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

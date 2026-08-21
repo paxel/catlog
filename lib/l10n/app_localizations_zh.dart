@@ -1507,4 +1507,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String catalogExportFailed(String error) {
     return '没有删除任何内容：无法写入目录文件（$error）。请腾出空间或稍后再试。';
   }
+
+  @override
+  String get moveToCatalog => '移动到其他目录';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '已将 $count 项移动到 $name';
+  }
 }

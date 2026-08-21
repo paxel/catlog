@@ -1564,4 +1564,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nieko neištrinta: nepavyko įrašyti katalogo failo ($error). Atlaisvink vietos arba pabandyk vėliau.';
   }
+
+  @override
+  String get moveToCatalog => 'Perkelti į kitą katalogą';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count perkelta į $name';
+  }
 }

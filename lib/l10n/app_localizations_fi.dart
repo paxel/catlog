@@ -1563,4 +1563,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa tai yritä myöhemmin.';
   }
+
+  @override
+  String get moveToCatalog => 'Siirrä toiseen luetteloon';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count siirretty luetteloon $name';
+  }
 }

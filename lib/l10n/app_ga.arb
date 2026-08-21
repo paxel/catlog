@@ -452,5 +452,8 @@
   "typeTheName": "Clóscríobh {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ({error}). Déan spás a shaoradh nó bain triail eile as níos déanaí.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Bog go catalóg eile",
+  "movedToCatalog": "Bogadh {count} go {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

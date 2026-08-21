@@ -452,5 +452,8 @@
   "typeTheName": "{name} yaz",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Hiçbir şey silinmedi: katalog dosyası yazılamadı ({error}). Yer aç ya da daha sonra yeniden dene.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Başka bir kataloğa taşı",
+  "movedToCatalog": "{count} öğe {name} kataloğuna taşındı",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

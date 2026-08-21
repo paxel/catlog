@@ -452,5 +452,8 @@
   "typeTheName": "{name} را بنویسید",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ({error}). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "انتقال به کاتالوگ دیگر",
+  "movedToCatalog": "{count} به {name} منتقل شد",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

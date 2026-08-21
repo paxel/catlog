@@ -452,5 +452,8 @@
   "typeTheName": "Skriv {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Inget togs bort: katalogfilen kunde inte skrivas ({error}). Frigör utrymme eller försök igen senare.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Flytta till en annan katalog",
+  "movedToCatalog": "{count} flyttade till {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

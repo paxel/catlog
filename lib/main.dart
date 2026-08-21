@@ -13,6 +13,7 @@ import 'src/crash_guard.dart';
 import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
 import 'src/l10n.dart';
+import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/home_shell.dart';
 import 'src/screens/intro_screen.dart';
@@ -49,6 +50,7 @@ Future<void> main(List<String> args) async {
     // A Stray Cam capture the OS killed mid-camera completes here.
     unawaited(recoverStrayCam(store));
     activeStore = store;
+    catalogManager = catalogs;
     initIncomingFiles(navigatorKey, () => activeStore ?? store, args);
     await _restoreWindow(store);
     runApp(CatlogApp(

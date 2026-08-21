@@ -452,5 +452,8 @@
   "typeTheName": "Γράψε {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Δεν διαγράφηκε τίποτα: το αρχείο του καταλόγου δεν γράφτηκε ({error}). Ελευθέρωσε χώρο ή δοκίμασε αργότερα.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Μετακίνηση σε άλλον κατάλογο",
+  "movedToCatalog": "{count} μετακινήθηκαν στο {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

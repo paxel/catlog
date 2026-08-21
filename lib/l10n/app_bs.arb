@@ -452,5 +452,8 @@
   "typeTheName": "Upiši {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Ništa nije obrisano: datoteka kataloga nije mogla biti zapisana ({error}). Oslobodi prostor ili pokušaj kasnije.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Premjesti u drugi katalog",
+  "movedToCatalog": "{count} premješteno u {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

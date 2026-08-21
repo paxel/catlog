@@ -452,5 +452,8 @@
   "typeTheName": "Shkruaj {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ({error}). Liro pak hapësirë ose provo më vonë.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Zhvendos në një katalog tjetër",
+  "movedToCatalog": "{count} u zhvendosën te {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

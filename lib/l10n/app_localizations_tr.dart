@@ -1563,4 +1563,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Hiçbir şey silinmedi: katalog dosyası yazılamadı ($error). Yer aç ya da daha sonra yeniden dene.';
   }
+
+  @override
+  String get moveToCatalog => 'Başka bir kataloğa taşı';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count öğe $name kataloğuna taşındı';
+  }
 }

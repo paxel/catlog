@@ -1555,4 +1555,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'لم يُحذف شيء: تعذّرت كتابة ملف الكتالوج ($error). وفّر بعض المساحة أو أعد المحاولة لاحقاً.';
   }
+
+  @override
+  String get moveToCatalog => 'نقل إلى كتالوج آخر';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return 'تم نقل $count إلى $name';
+  }
 }

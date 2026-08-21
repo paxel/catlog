@@ -1570,4 +1570,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Rien n’a été supprimé : le fichier du catalogue n’a pas pu être écrit ($error). Libère de la place ou réessaie plus tard.';
   }
+
+  @override
+  String get moveToCatalog => 'Déplacer vers un autre catalogue';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count déplacés vers $name';
+  }
 }

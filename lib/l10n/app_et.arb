@@ -452,5 +452,8 @@
   "typeTheName": "Kirjuta {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ({error}). Vabasta ruumi või proovi hiljem uuesti.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Teisalda teise kataloogi",
+  "movedToCatalog": "{count} teisaldatud kataloogi {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

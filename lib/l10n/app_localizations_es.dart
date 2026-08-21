@@ -1569,4 +1569,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'No se eliminó nada: no se pudo escribir el archivo del catálogo ($error). Libera espacio o inténtalo más tarde.';
   }
+
+  @override
+  String get moveToCatalog => 'Mover a otro catálogo';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count movidos a $name';
+  }
 }

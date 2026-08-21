@@ -1562,4 +1562,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nic nie zostało usunięte: nie udało się zapisać pliku katalogu ($error). Zwolnij miejsce lub spróbuj później.';
   }
+
+  @override
+  String get moveToCatalog => 'Przenieś do innego katalogu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return 'Przeniesiono $count do $name';
+  }
 }

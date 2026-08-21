@@ -1562,4 +1562,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nic se nesmazalo: soubor katalogu se nepodařilo zapsat ($error). Uvolni místo nebo to zkus později.';
   }
+
+  @override
+  String get moveToCatalog => 'Přesunout do jiného katalogu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count přesunuto do $name';
+  }
 }

@@ -452,5 +452,8 @@
   "typeTheName": "Napíš {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nič sa nezmazalo: súbor katalógu sa nepodarilo zapísať ({error}). Uvoľni miesto alebo to skús neskôr.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Presunúť do iného katalógu",
+  "movedToCatalog": "{count} presunuté do {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

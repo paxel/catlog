@@ -452,5 +452,8 @@
   "typeTheName": "Tape {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Rien n’a été supprimé : le fichier du catalogue n’a pas pu être écrit ({error}). Libère de la place ou réessaie plus tard.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Déplacer vers un autre catalogue",
+  "movedToCatalog": "{count} déplacés vers {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

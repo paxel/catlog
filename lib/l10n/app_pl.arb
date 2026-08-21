@@ -452,5 +452,8 @@
   "typeTheName": "Wpisz {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku katalogu ({error}). Zwolnij miejsce lub spróbuj później.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Przenieś do innego katalogu",
+  "movedToCatalog": "Przeniesiono {count} do {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

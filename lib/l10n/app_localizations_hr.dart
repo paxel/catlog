@@ -1562,4 +1562,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Ništa nije obrisano: datoteku kataloga nije bilo moguće zapisati ($error). Oslobodi prostor ili pokušaj kasnije.';
   }
+
+  @override
+  String get moveToCatalog => 'Premjesti u drugi katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count premješteno u $name';
+  }
 }

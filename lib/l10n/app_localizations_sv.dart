@@ -1561,4 +1561,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Inget togs bort: katalogfilen kunde inte skrivas ($error). Frigör utrymme eller försök igen senare.';
   }
+
+  @override
+  String get moveToCatalog => 'Flytta till en annan katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count flyttade till $name';
+  }
 }

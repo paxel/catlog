@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../celebration.dart';
@@ -240,6 +241,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
+  /// The cat leaves this catalog for another one — so the page it was
+  /// on has nothing left to show.
+  Future<void> _moveToCatalog() async {
+    final moved = await moveToAnotherCatalog(context, store, {id});
+    if (moved != null && mounted) Navigator.of(context).pop();
+  }
+
   Future<void> _deleteCat() async {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final sure = await _confirm(
@@ -378,6 +386,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             child: PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
+              if (v == 'moveCatalog') _moveToCatalog();
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
               if (v == 'flier') _addFlier();
@@ -402,6 +411,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               }
             },
             itemBuilder: (context) => [
+              if (canMoveBetweenCatalogs)
+                PopupMenuItem(
+                    value: 'moveCatalog',
+                    child: Text(context.t.moveToCatalog)),
               PopupMenuItem(
                   value: 'seen', child: Text(context.t.seenHereNow)),
               PopupMenuItem(

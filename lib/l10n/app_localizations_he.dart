@@ -1551,4 +1551,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ($error). פנה מקום או נסה שוב מאוחר יותר.';
   }
+
+  @override
+  String get moveToCatalog => 'העברה לקטלוג אחר';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count הועברו אל $name';
+  }
 }

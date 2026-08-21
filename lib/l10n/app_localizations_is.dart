@@ -1566,4 +1566,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Engu var eytt: ekki tókst að skrifa skráarskrána ($error). Losaðu pláss eða reyndu aftur síðar.';
   }
+
+  @override
+  String get moveToCatalog => 'Færa í aðra skrá';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count færð í $name';
+  }
 }

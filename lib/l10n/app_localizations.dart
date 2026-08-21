@@ -2851,6 +2851,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.'**
   String catalogExportFailed(String error);
+
+  /// No description provided for @moveToCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to another catalog'**
+  String get moveToCatalog;
+
+  /// No description provided for @movedToCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} moved to {name}'**
+  String movedToCatalog(int count, String name);
 }
 
 class _AppLocalizationsDelegate

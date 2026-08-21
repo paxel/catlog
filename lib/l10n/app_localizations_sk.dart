@@ -1561,4 +1561,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nič sa nezmazalo: súbor katalógu sa nepodarilo zapísať ($error). Uvoľni miesto alebo to skús neskôr.';
   }
+
+  @override
+  String get moveToCatalog => 'Presunúť do iného katalógu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count presunuté do $name';
+  }
 }

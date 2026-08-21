@@ -452,5 +452,8 @@
   "typeTheName": "Напишете {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Нищо не е изтрито: файлът на каталога не можа да се запише ({error}). Освободете място или опитайте по-късно.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Преместване в друг каталог",
+  "movedToCatalog": "{count} преместени в {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

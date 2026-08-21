@@ -452,5 +452,8 @@
   "typeTheName": "Skriv {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Ingenting ble slettet: katalogfilen kunne ikke skrives ({error}). Frigjør plass, eller prøv igjen senere.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Flytt til en annen katalog",
+  "movedToCatalog": "{count} flyttet til {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

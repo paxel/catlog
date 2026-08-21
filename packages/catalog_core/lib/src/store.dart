@@ -455,6 +455,34 @@ class CatalogStore {
     );
   }
 
+  /// Takes entries from another catalog as this device's own: the same
+  /// facts, authors and dates, under fresh numbers of this device.
+  ///
+  /// Keeping the original (device, dseq) would be a lie with teeth: a
+  /// partner both catalogs sync with would later push that device's
+  /// newer entries straight into this one, and the two catalogs the
+  /// keeper separated would quietly merge again.
+  void adoptEntries(Iterable<Entry> entries) {
+    final device = deviceId;
+    var next = _nextDseq(device);
+    for (final e in entries) {
+      _db.execute(
+        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [
+          device,
+          next++,
+          e.entity,
+          e.field,
+          e.value,
+          _iso(e.date),
+          e.author,
+          _iso(e.recorded),
+        ],
+      );
+    }
+  }
+
   Entry _entry(Row r) => Entry(
         seq: r['seq'] as int,
         device: r['device'] as String,

@@ -452,5 +452,8 @@
   "typeTheName": "Scrie {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ({error}). Eliberează spațiu sau încearcă mai târziu.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Mută în alt catalog",
+  "movedToCatalog": "{count} mutate în {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

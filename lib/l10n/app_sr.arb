@@ -452,5 +452,8 @@
   "typeTheName": "Упиши {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Ништа није обрисано: датотека каталога није могла да се упише ({error}). Ослободи простор или покушај касније.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Премести у други каталог",
+  "movedToCatalog": "{count} премештено у {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

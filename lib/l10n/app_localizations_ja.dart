@@ -1524,4 +1524,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String catalogExportFailed(String error) {
     return '何も削除していません。カタログのファイルを書き出せませんでした（$error）。空き容量を作るか、時間をおいてやり直してください。';
   }
+
+  @override
+  String get moveToCatalog => '別のカタログへ移動';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count 件を $name に移動しました';
+  }
 }

@@ -452,5 +452,8 @@
   "typeTheName": "הקלד {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ({error}). פנה מקום או נסה שוב מאוחר יותר.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "העברה לקטלוג אחר",
+  "movedToCatalog": "{count} הועברו אל {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

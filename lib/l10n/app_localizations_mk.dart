@@ -1566,4 +1566,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Ништо не е избришано: датотеката на каталогот не можеше да се запише ($error). Ослободи простор или обиди се подоцна.';
   }
+
+  @override
+  String get moveToCatalog => 'Премести во друг каталог';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count преместени во $name';
+  }
 }

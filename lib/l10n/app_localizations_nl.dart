@@ -1567,4 +1567,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ($error). Maak ruimte vrij of probeer het later.';
   }
+
+  @override
+  String get moveToCatalog => 'Naar een andere catalogus verplaatsen';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count verplaatst naar $name';
+  }
 }

@@ -452,5 +452,8 @@
   "typeTheName": "Введіть {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Нічого не видалено: файл каталогу не вдалося записати ({error}). Звільніть місце або спробуйте пізніше.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Перемістити до іншого каталогу",
+  "movedToCatalog": "{count} переміщено до {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

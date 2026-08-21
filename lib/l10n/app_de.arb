@@ -451,5 +451,8 @@
   "typeTheName": "{name} eintippen",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nichts wurde gelöscht: die Katalogdatei ließ sich nicht schreiben ({error}). Schaff Platz oder versuch es später noch einmal.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "In einen anderen Katalog verschieben",
+  "movedToCatalog": "{count} nach {name} verschoben",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

@@ -452,5 +452,8 @@
   "typeTheName": "Įrašyk {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Nieko neištrinta: nepavyko įrašyti katalogo failo ({error}). Atlaisvink vietos arba pabandyk vėliau.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Perkelti į kitą katalogą",
+  "movedToCatalog": "{count} perkelta į {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

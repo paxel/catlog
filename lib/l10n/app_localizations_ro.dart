@@ -1564,4 +1564,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ($error). Eliberează spațiu sau încearcă mai târziu.';
   }
+
+  @override
+  String get moveToCatalog => 'Mută în alt catalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count mutate în $name';
+  }
 }

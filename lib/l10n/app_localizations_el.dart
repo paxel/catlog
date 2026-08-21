@@ -1567,4 +1567,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Δεν διαγράφηκε τίποτα: το αρχείο του καταλόγου δεν γράφτηκε ($error). Ελευθέρωσε χώρο ή δοκίμασε αργότερα.';
   }
+
+  @override
+  String get moveToCatalog => 'Μετακίνηση σε άλλον κατάλογο';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count μετακινήθηκαν στο $name';
+  }
 }

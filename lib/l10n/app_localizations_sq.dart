@@ -1564,4 +1564,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ($error). Liro pak hapësirë ose provo më vonë.';
   }
+
+  @override
+  String get moveToCatalog => 'Zhvendos në një katalog tjetër';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count u zhvendosën te $name';
+  }
 }

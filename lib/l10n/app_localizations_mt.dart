@@ -1566,4 +1566,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ($error). Illibera spazju jew erġa’ pprova aktar tard.';
   }
+
+  @override
+  String get moveToCatalog => 'Mexxi għal katalgu ieħor';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count imxew għal $name';
+  }
 }

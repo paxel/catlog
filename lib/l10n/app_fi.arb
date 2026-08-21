@@ -452,5 +452,8 @@
   "typeTheName": "Kirjoita {name}",
   "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
   "catalogExportFailed": "Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ({error}). Vapauta tilaa tai yritä myöhemmin.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "moveToCatalog": "Siirrä toiseen luetteloon",
+  "movedToCatalog": "{count} siirretty luetteloon {name}",
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
 }

@@ -1561,4 +1561,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ($error). Vabasta ruumi või proovi hiljem uuesti.';
   }
+
+  @override
+  String get moveToCatalog => 'Teisalda teise kataloogi';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count teisaldatud kataloogi $name';
+  }
 }

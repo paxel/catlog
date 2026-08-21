@@ -1561,4 +1561,12 @@ class AppLocalizationsLv extends AppLocalizations {
   String catalogExportFailed(String error) {
     return 'Nekas netika dzēsts: kataloga failu neizdevās ierakstīt ($error). Atbrīvo vietu vai mēģini vēlāk.';
   }
+
+  @override
+  String get moveToCatalog => 'Pārvietot uz citu katalogu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count pārvietoti uz $name';
+  }
 }
