@@ -1570,4 +1570,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count premaknjeno v $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Kaj naj se preseli?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Premakneš kaj v $name?';
+  }
 }

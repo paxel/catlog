@@ -455,5 +455,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "Presunúť do iného katalógu",
   "movedToCatalog": "{count} presunuté do {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "Čo sa presunie?",
+  "moveIntoNewCatalog": "Presunúť niečo do {name}?",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

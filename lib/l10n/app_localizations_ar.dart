@@ -1563,4 +1563,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return 'تم نقل $count إلى $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'ما الذي يُنقل؟';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'نقل شيء إلى $name؟';
+  }
 }

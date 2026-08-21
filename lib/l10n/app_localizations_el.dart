@@ -1575,4 +1575,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count μετακινήθηκαν στο $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Τι να μετακινηθεί;';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Να μετακινηθεί κάτι στο $name;';
+  }
 }

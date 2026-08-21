@@ -1577,4 +1577,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return 'Bogadh $count go $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Cad a bhogfaidh?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Rud éigin a bhogadh go $name?';
+  }
 }

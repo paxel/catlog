@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../conflict_dialog.dart';
@@ -90,6 +91,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       merge: store.mergeClowder,
     );
     if (merged && mounted) Navigator.of(context).pop();
+  }
+
+  /// The clowder and everything living in it leave for another
+  /// catalog, so this page has nothing left to show.
+  Future<void> _moveToCatalog() async {
+    final moved = await moveToAnotherCatalog(context, store, {id});
+    if (moved != null && mounted) Navigator.of(context).pop();
   }
 
   Future<void> _deleteClowder() async {
@@ -219,6 +227,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteClowder();
+              if (v == 'moveCatalog') _moveToCatalog();
               if (v == 'merge') _mergeClowder();
               if (v == 'private') {
                 setState(() =>
@@ -235,6 +244,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               }
             },
             itemBuilder: (context) => [
+              if (canMoveBetweenCatalogs)
+                PopupMenuItem(
+                    value: 'moveCatalog',
+                    child: Text(context.t.moveToCatalog)),
               PopupMenuItem(
                   value: 'private',
                   child: Text(store.isPrivate(id)

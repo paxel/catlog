@@ -1570,4 +1570,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count переміщено до $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Що перемістити?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Перемістити щось до $name?';
+  }
 }

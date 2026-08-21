@@ -455,5 +455,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "Başka bir kataloğa taşı",
   "movedToCatalog": "{count} öğe {name} kataloğuna taşındı",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "Ne taşınsın?",
+  "moveIntoNewCatalog": "{name} kataloğuna bir şey taşınsın mı?",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

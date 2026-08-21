@@ -455,5 +455,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "Μετακίνηση σε άλλον κατάλογο",
   "movedToCatalog": "{count} μετακινήθηκαν στο {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "Τι να μετακινηθεί;",
+  "moveIntoNewCatalog": "Να μετακινηθεί κάτι στο {name};",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

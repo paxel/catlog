@@ -455,5 +455,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "別のカタログへ移動",
   "movedToCatalog": "{count} 件を {name} に移動しました",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "何を移動しますか？",
+  "moveIntoNewCatalog": "{name} に何か移動しますか？",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

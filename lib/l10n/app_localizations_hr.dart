@@ -1570,4 +1570,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count premješteno u $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Što se seli?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Premjestiti nešto u $name?';
+  }
 }

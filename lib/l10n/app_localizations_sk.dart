@@ -1569,4 +1569,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count presunuté do $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Čo sa presunie?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Presunúť niečo do $name?';
+  }
 }

@@ -1572,4 +1572,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count u zhvendosën te $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Çfarë do të zhvendoset?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Të zhvendoset diçka te $name?';
+  }
 }

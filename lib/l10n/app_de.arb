@@ -454,5 +454,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "In einen anderen Katalog verschieben",
   "movedToCatalog": "{count} nach {name} verschoben",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "Was soll mit?",
+  "moveIntoNewCatalog": "Etwas nach {name} verschieben?",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

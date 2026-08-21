@@ -1532,4 +1532,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count 件を $name に移動しました';
   }
+
+  @override
+  String get chooseWhatToMove => '何を移動しますか？';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '$name に何か移動しますか？';
+  }
 }

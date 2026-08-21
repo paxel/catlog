@@ -1559,4 +1559,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count הועברו אל $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'מה עובר?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'להעביר משהו אל $name?';
+  }
 }

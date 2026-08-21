@@ -1515,4 +1515,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '已将 $count 项移动到 $name';
   }
+
+  @override
+  String get chooseWhatToMove => '要移动什么？';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '要把什么移动到 $name 吗？';
+  }
 }

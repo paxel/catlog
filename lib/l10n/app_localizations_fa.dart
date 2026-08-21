@@ -1567,4 +1567,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count به $name منتقل شد';
   }
+
+  @override
+  String get chooseWhatToMove => 'چه چیزی منتقل شود؟';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'چیزی به $name منتقل شود؟';
+  }
 }

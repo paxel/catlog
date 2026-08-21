@@ -15,8 +15,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   where the automatic backups go before anything is removed, and asks
   you to type its name. Each catalog's automatic backup is its own file,
   named after the catalog.
-- Moving a cat into another catalog, from its menu. It arrives with its
-  whole history and its photos and is deleted where it came from.
+- Moving a cat, a whole clowder with everything living in it, or a
+  selection of strays into another catalog. What moves arrives with its
+  whole history and its photos and is deleted where it came from, and
+  creating a catalog offers to move something into it straight away.
 
 ### Changed
 

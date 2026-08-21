@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../auto_backup.dart';
 import '../help.dart';
+import '../move_to_catalog.dart';
 import '../l10n.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
@@ -54,11 +55,41 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
     if (name == null || !mounted) return;
     try {
       final made = widget.catalogs.create(name);
+      // The common reason for a new catalog is an existing clowder, so
+      // the offer is here — and the same move stays available for ever
+      // afterwards from a cat or a clowder.
+      await _offerMoveInto(made);
+      if (!mounted) return;
       widget.onSwitch(made);
       _changed();
     } on DuplicateCatalogName {
       if (mounted) _sayTaken(name);
     }
+  }
+
+  Future<void> _offerMoveInto(CatalogInfo made) async {
+    final wants = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(context.t.moveIntoNewCatalog(made.name)),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(context.t.cancel)),
+          FilledButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(context.t.moveToCatalog)),
+        ],
+      ),
+    );
+    if (wants != true || !mounted) return;
+    final chosen = await pickWhatToMove(context, widget.store);
+    if (chosen == null || chosen.isEmpty || !mounted) return;
+    final count =
+        await moveInto(widget.store, widget.catalogs, made, chosen);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(context.t.movedToCatalog(count, made.name))));
   }
 
   Future<void> _rename(CatalogInfo catalog) async {

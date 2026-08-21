@@ -1571,4 +1571,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count áthelyezve ide: $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Mi költözzön?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Áthelyezel valamit ide: $name?';
+  }
 }

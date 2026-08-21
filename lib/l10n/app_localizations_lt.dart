@@ -1572,4 +1572,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count perkelta į $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Kas persikelia?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Perkelti ką nors į $name?';
+  }
 }

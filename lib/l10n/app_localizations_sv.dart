@@ -1569,4 +1569,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count flyttade till $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Vad ska flyttas?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Ska något flyttas till $name?';
+  }
 }

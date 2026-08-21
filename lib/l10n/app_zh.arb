@@ -455,5 +455,8 @@
   "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
   "moveToCatalog": "移动到其他目录",
   "movedToCatalog": "已将 {count} 项移动到 {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}}
+  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "chooseWhatToMove": "要移动什么？",
+  "moveIntoNewCatalog": "要把什么移动到 {name} 吗？",
+  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}}
 }

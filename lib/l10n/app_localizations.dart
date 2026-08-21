@@ -2863,6 +2863,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} moved to {name}'**
   String movedToCatalog(int count, String name);
+
+  /// No description provided for @chooseWhatToMove.
+  ///
+  /// In en, this message translates to:
+  /// **'What should move?'**
+  String get chooseWhatToMove;
+
+  /// No description provided for @moveIntoNewCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move something into {name}?'**
+  String moveIntoNewCatalog(String name);
 }
 
 class _AppLocalizationsDelegate

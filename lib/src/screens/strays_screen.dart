@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../move_to_catalog.dart';
 import '../layout.dart';
 import '../help.dart';
 import '../hidden.dart';
@@ -38,6 +39,15 @@ class _StraysScreenState extends State<StraysScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
         (_) => runSpotlights(context, widget.store, 'strays'));
+  }
+
+  /// Several strays at once: eight of forty must not cost eight moves.
+  Future<void> _moveSelection() async {
+    final chosen = await pickWhatToMove(context, widget.store,
+        clowders: false);
+    if (chosen == null || !mounted) return;
+    await moveToAnotherCatalog(context, widget.store, chosen);
+    if (mounted) setState(() {});
   }
 
   String _field(String catId, String slug) =>
@@ -122,6 +132,12 @@ class _StraysScreenState extends State<StraysScreen> {
                 child: Text(context.t.starterColor)),
           ],
         ),
+        if (canMoveBetweenCatalogs)
+          IconButton(
+            icon: const Icon(Icons.drive_file_move_outline),
+            tooltip: context.t.moveToCatalog,
+            onPressed: _moveSelection,
+          ),
         IconButton(
           icon: const Icon(Icons.join_inner),
           tooltip: context.t.matchCandidatesTitle,

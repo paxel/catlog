@@ -1570,4 +1570,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return 'Przeniesiono $count do $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Co ma się przenieść?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Przenieść coś do $name?';
+  }
 }

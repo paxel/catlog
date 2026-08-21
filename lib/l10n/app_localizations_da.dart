@@ -1570,4 +1570,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count flyttet til $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'Hvad skal flyttes?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Skal noget flyttes til $name?';
+  }
 }

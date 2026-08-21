@@ -1574,4 +1574,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count imxew għal $name';
   }
+
+  @override
+  String get chooseWhatToMove => 'X’għandu jitmexxa?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Tmexxi xi ħaġa għal $name?';
+  }
 }

@@ -1577,4 +1577,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String movedToCatalog(int count, String name) {
     return '$count movidos a $name';
   }
+
+  @override
+  String get chooseWhatToMove => '¿Qué se mueve?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '¿Mover algo a $name?';
+  }
 }

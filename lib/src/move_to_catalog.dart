@@ -11,6 +11,73 @@ CatalogManager? catalogManager;
 bool get canMoveBetweenCatalogs =>
     (catalogManager?.catalogs().length ?? 0) > 1;
 
+/// Asks which cats and clowders should move. Returns the chosen ids, or
+/// null when the picker was dismissed.
+Future<Set<String>?> pickWhatToMove(BuildContext context, CatalogStore from,
+    {bool clowders = true, bool strays = true}) {
+  final options = <({String id, String name, bool isClowder})>[
+    if (clowders)
+      for (final c in from.clowders())
+        (id: c.id, name: c.name, isClowder: true),
+    if (strays)
+      for (final cat in from.cats(clowderId: null))
+        (id: cat.id, name: cat.name, isClowder: false),
+  ];
+  if (options.isEmpty) return Future.value(null);
+  final chosen = <String>{};
+  return showDialog<Set<String>>(
+    context: context,
+    builder: (context) => StatefulBuilder(
+      builder: (context, setState) => AlertDialog(
+        title: Text(context.t.chooseWhatToMove),
+        content: SizedBox(
+          width: 360,
+          child: ListView(shrinkWrap: true, children: [
+            for (final option in options)
+              CheckboxListTile(
+                value: chosen.contains(option.id),
+                secondary: Icon(option.isClowder
+                    ? Icons.home_outlined
+                    : Icons.pets_outlined),
+                title: Text(option.name),
+                onChanged: (on) => setState(() {
+                  if (on == true) {
+                    chosen.add(option.id);
+                  } else {
+                    chosen.remove(option.id);
+                  }
+                }),
+              ),
+          ]),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(context.t.cancel)),
+          FilledButton(
+            onPressed: chosen.isEmpty
+                ? null
+                : () => Navigator.of(context).pop({...chosen}),
+            child: Text(context.t.moveToCatalog),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+/// Moves [ids] into [into] without asking which catalog — used right
+/// after creating one, where the destination is already decided.
+Future<int> moveInto(CatalogStore from, CatalogManager catalogs,
+    CatalogInfo into, Set<String> ids) async {
+  final to = catalogs.openStore(into);
+  try {
+    return moveEntities(from, to, ids).moved.length;
+  } finally {
+    to.close();
+  }
+}
+
 /// Offers the other catalogs and moves [ids] into the chosen one.
 ///
 /// Returns the catalog moved into, or null when nothing was moved. What
