@@ -1516,4 +1516,29 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?';
+
+  @override
+  String get catalogsTitle => 'Katalogai';
+
+  @override
+  String get newCatalog => 'Naujas katalogas';
+
+  @override
+  String get catalogNameLabel => 'Katalogo pavadinimas';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalogas pavadinimu $name jau yra. Pasirink kitą pavadinimą.';
+  }
+
+  @override
+  String get manageCatalogs => 'Tvarkyti katalogus';
+
+  @override
+  String get helpCatalogs =>
+      'Kiekvienas katalogas – atskiras pasaulis: savos katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują.';
 }

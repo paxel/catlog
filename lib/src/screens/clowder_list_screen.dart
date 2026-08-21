@@ -25,6 +25,7 @@ import 'fields_screen.dart';
 import 'map_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
+import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 
 /// Home screen: all Clowders.
@@ -41,6 +42,12 @@ class ClowderListScreen extends StatefulWidget {
   /// know before adding a cat.
   final String? catalogName;
 
+  /// Every catalog on the device, when there is more than a single
+  /// one to choose from — the title becomes the switcher.
+  final CatalogManager? catalogs;
+  final void Function(CatalogInfo)? onSwitchCatalog;
+  final VoidCallback? onCatalogsChanged;
+
   /// Called when the tiles/table choice changes. The table wants the
   /// whole window, so the layout around this screen has to know.
   final VoidCallback? onViewChanged;
@@ -51,6 +58,9 @@ class ClowderListScreen extends StatefulWidget {
       this.onOpenPage,
       this.selectedPageId,
       this.catalogName,
+      this.catalogs,
+      this.onSwitchCatalog,
+      this.onCatalogsChanged,
       this.onViewChanged});
 
   @override
@@ -126,6 +136,32 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     if (mounted) setState(() {});
   }
 
+  /// The title names the catalog you are in — the thing you most need
+  /// to know before adding a cat — and opens the switcher.
+  Widget _catalogTitle(BuildContext context) {
+    final text = Text(widget.catalogName ?? context.t.clowders);
+    final catalogs = widget.catalogs;
+    final onSwitch = widget.onSwitchCatalog;
+    if (catalogs == null || onSwitch == null) return text;
+    return Spotlight(
+      id: 'home-catalog',
+      child: InkWell(
+        onTap: () => showCatalogSwitcher(context,
+            catalogs: catalogs,
+            store: widget.store,
+            onSwitch: onSwitch,
+            onChanged: () {
+              widget.onCatalogsChanged?.call();
+              if (mounted) setState(() {});
+            }),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Flexible(child: text),
+          const Icon(Icons.arrow_drop_down),
+        ]),
+      ),
+    );
+  }
+
   static const _straysPageId = 'strays';
 
   PanePage _straysPage() => PanePage(
@@ -151,7 +187,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     return Scaffold(
       appBar: roomyAppBar(
         context,
-        title: Text(widget.catalogName ?? context.t.clowders),
+        title: _catalogTitle(context),
         actions: [
           HelpButton(store: widget.store, screenId: 'home'),
           IconButton(

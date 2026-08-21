@@ -1516,4 +1516,29 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?';
+
+  @override
+  String get catalogsTitle => 'Katalogët';
+
+  @override
+  String get newCatalog => 'Katalog i ri';
+
+  @override
+  String get catalogNameLabel => 'Emri i katalogut';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Një katalog me emrin $name ekziston tashmë. Zgjidh një emër tjetër.';
+  }
+
+  @override
+  String get manageCatalogs => 'Menaxho katalogët';
+
+  @override
+  String get helpCatalogs =>
+      'Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.';
 }

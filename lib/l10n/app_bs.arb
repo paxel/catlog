@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log je naišao na neočekivanu grešku. Tvoji podaci su sigurni — sve se snima čim se promijeni. Restartuj aplikaciju, a ako se ponavlja, pošalji izvještaj da se popravi.",
   "crashRestart": "Restartuj aplikaciju",
   "crashSendReport": "Pošalji izvještaj programeru",
-  "crashLastRunBody": "cat(a)log se prošli put neočekivano zaustavio — najvjerovatnije je nestalo memorije. Poslati kratak izvještaj da se popravi?"
+  "crashLastRunBody": "cat(a)log se prošli put neočekivano zaustavio — najvjerovatnije je nestalo memorije. Poslati kratak izvještaj da se popravi?",
+  "catalogsTitle": "Katalozi",
+  "newCatalog": "Novi katalog",
+  "catalogNameLabel": "Naziv kataloga",
+  "catalogNameTaken": "Katalog pod nazivom {name} već postoji. Odaberi drugo ime.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Upravljanje katalozima",
+  "helpCatalogs": "Svaki katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz se nikada ne miješaju. Dodirni ime na vrhu početnog ekrana da promijeniš, dodaš ili preimenuješ. Tvoje ime, jezik i već viđeni savjeti zajednički su svima.",
+  "spotHomeCatalog": "Ovo je katalog u kojem si. Dodirni ime da promijeniš ili napraviš novi."
 }

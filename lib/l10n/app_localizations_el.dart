@@ -1519,4 +1519,29 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'Το cat(a)log σταμάτησε απρόσμενα την τελευταία φορά — μάλλον εξαντλήθηκε η μνήμη. Να σταλεί σύντομη αναφορά για να διορθωθεί;';
+
+  @override
+  String get catalogsTitle => 'Κατάλογοι';
+
+  @override
+  String get newCatalog => 'Νέος κατάλογος';
+
+  @override
+  String get catalogNameLabel => 'Όνομα καταλόγου';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Υπάρχει ήδη κατάλογος με το όνομα $name. Διάλεξε άλλο όνομα.';
+  }
+
+  @override
+  String get manageCatalogs => 'Διαχείριση καταλόγων';
+
+  @override
+  String get helpCatalogs =>
+      'Κάθε κατάλογος είναι δικός του κόσμος: δικές του γάτες, αποικίες, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Το Βερολίνο και το Παρίσι δεν ανακατεύονται ποτέ. Πάτησε το όνομα στην κορυφή για αλλαγή, προσθήκη ή μετονομασία. Το όνομά σου, η γλώσσα και οι συμβουλές που είδες είναι κοινές.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Πάτησε το όνομα για αλλαγή ή για νέον.';
 }

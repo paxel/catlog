@@ -1515,4 +1515,29 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?';
+
+  @override
+  String get catalogsTitle => 'Luettelot';
+
+  @override
+  String get newCatalog => 'Uusi luettelo';
+
+  @override
+  String get catalogNameLabel => 'Luettelon nimi';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Luettelo nimeltä $name on jo olemassa. Valitse toinen nimi.';
+  }
+
+  @override
+  String get manageCatalogs => 'Hallitse luetteloita';
+
+  @override
+  String get helpCatalogs =>
+      'Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.';
 }

@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log iltaqa' ma' żball mhux mistenni. Id-data tiegħek hija sikura — kollox jiġi salvat fil-mument li tibdlu. Erġa' ibda l-app, u jekk jerġa' jiġri, ibgħat ir-rapport biex ikun jista' jissewwa.",
   "crashRestart": "Erġa' ibda l-app",
   "crashSendReport": "Ibgħat rapport lill-iżviluppatur",
-  "crashLastRunBody": "cat(a)log waqaf għal għarrieda l-aħħar darba — x'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?"
+  "crashLastRunBody": "cat(a)log waqaf għal għarrieda l-aħħar darba — x'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?",
+  "catalogsTitle": "Katalgi",
+  "newCatalog": "Katalgu ġdid",
+  "catalogNameLabel": "Isem tal-katalgu",
+  "catalogNameTaken": "Diġà hemm katalgu jismu {name}. Agħżel isem ieħor.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Immaniġġja l-katalgi",
+  "helpCatalogs": "Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.",
+  "spotHomeCatalog": "Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor."
 }

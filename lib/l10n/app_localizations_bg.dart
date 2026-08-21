@@ -1515,4 +1515,29 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log спря неочаквано миналия път — най-вероятно свърши паметта. Да изпратим ли кратък доклад, за да се поправи?';
+
+  @override
+  String get catalogsTitle => 'Каталози';
+
+  @override
+  String get newCatalog => 'Нов каталог';
+
+  @override
+  String get catalogNameLabel => 'Име на каталога';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Вече има каталог с името $name. Изберете друго име.';
+  }
+
+  @override
+  String get manageCatalogs => 'Управление на каталозите';
+
+  @override
+  String get helpCatalogs =>
+      'Всеки каталог е свой свят: свои котки, колонии, полета, снимки и партньори за синхронизация. Берлин и Париж никога не се смесват. Докоснете името горе на началния екран, за да смените, добавите или преименувате. Името ви, езикът и вече видените съвети са общи за всички.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Това е каталогът, в който сте. Докоснете името, за да смените или да добавите нов.';
 }

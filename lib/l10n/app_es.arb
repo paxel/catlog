@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log encontró un error inesperado. Tus datos están a salvo — todo se guarda en el momento en que lo cambias. Reinicia la app y, si se repite, envía el informe para poder arreglarlo.",
   "crashRestart": "Reiniciar la app",
   "crashSendReport": "Enviar informe al desarrollador",
-  "crashLastRunBody": "cat(a)log se detuvo inesperadamente la última vez — probablemente se quedó sin memoria. ¿Enviar un informe breve para arreglarlo?"
+  "crashLastRunBody": "cat(a)log se detuvo inesperadamente la última vez — probablemente se quedó sin memoria. ¿Enviar un informe breve para arreglarlo?",
+  "catalogsTitle": "Catálogos",
+  "newCatalog": "Nuevo catálogo",
+  "catalogNameLabel": "Nombre del catálogo",
+  "catalogNameTaken": "Ya existe un catálogo llamado {name}. Elige otro nombre.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Gestionar catálogos",
+  "helpCatalogs": "Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca el nombre en la parte superior para cambiar, añadir o renombrar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.",
+  "spotHomeCatalog": "Este es el catálogo en el que estás. Toca el nombre para cambiar o crear otro."
 }

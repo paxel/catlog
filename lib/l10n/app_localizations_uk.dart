@@ -1514,4 +1514,29 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'Минулого разу cat(a)log неочікувано зупинився — найімовірніше, забракло пам\'яті. Надіслати короткий звіт, щоб виправити?';
+
+  @override
+  String get catalogsTitle => 'Каталоги';
+
+  @override
+  String get newCatalog => 'Новий каталог';
+
+  @override
+  String get catalogNameLabel => 'Назва каталогу';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Каталог з назвою $name вже є. Виберіть іншу назву.';
+  }
+
+  @override
+  String get manageCatalogs => 'Керування каталогами';
+
+  @override
+  String get helpCatalogs =>
+      'Кожен каталог — окремий світ: власні коти, колонії, поля, світлини та партнери синхронізації. Берлін і Париж ніколи не змішуються. Торкніться назви вгорі головного екрана, щоб перемкнути, додати або перейменувати. Ваше ім’я, мова та вже показані підказки спільні для всіх.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Це каталог, у якому ви зараз. Торкніться назви, щоб перемкнути або створити новий.';
 }

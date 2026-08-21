@@ -1511,4 +1511,29 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log دفعه قبل به‌طور غیرمنتظره متوقف شد — احتمالاً حافظه تمام شد. گزارش کوتاهی فرستاده شود تا برطرف شود؟';
+
+  @override
+  String get catalogsTitle => 'کاتالوگ‌ها';
+
+  @override
+  String get newCatalog => 'کاتالوگ جدید';
+
+  @override
+  String get catalogNameLabel => 'نام کاتالوگ';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'کاتالوگی با نام $name از قبل وجود دارد. نام دیگری انتخاب کنید.';
+  }
+
+  @override
+  String get manageCatalogs => 'مدیریت کاتالوگ‌ها';
+
+  @override
+  String get helpCatalogs =>
+      'هر کاتالوگ دنیای خودش است: گربه‌ها، کلونی‌ها، فیلدها، عکس‌ها و همگام‌سازهای خودش. برلین و پاریس هرگز مخلوط نمی‌شوند. برای تغییر، افزودن یا تغییر نام، بالای صفحهٔ خانه روی نام بزنید. نام شما، زبان و راهنماهایی که دیده‌اید بین همه مشترک است.';
+
+  @override
+  String get spotHomeCatalog =>
+      'این کاتالوگی است که در آن هستید. برای تغییر یا ساخت یکی دیگر روی نام بزنید.';
 }

@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log ha incontrato un errore inatteso. I tuoi dati sono al sicuro — tutto viene salvato nel momento in cui lo modifichi. Riavvia l'app e, se si ripete, invia il rapporto così può essere corretto.",
   "crashRestart": "Riavvia l'app",
   "crashSendReport": "Invia rapporto allo sviluppatore",
-  "crashLastRunBody": "cat(a)log si è fermato inaspettatamente l'ultima volta — probabilmente ha esaurito la memoria. Inviare un breve rapporto per correggerlo?"
+  "crashLastRunBody": "cat(a)log si è fermato inaspettatamente l'ultima volta — probabilmente ha esaurito la memoria. Inviare un breve rapporto per correggerlo?",
+  "catalogsTitle": "Cataloghi",
+  "newCatalog": "Nuovo catalogo",
+  "catalogNameLabel": "Nome del catalogo",
+  "catalogNameTaken": "Esiste già un catalogo chiamato {name}. Scegli un altro nome.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Gestisci cataloghi",
+  "helpCatalogs": "Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.",
+  "spotHomeCatalog": "Questo è il catalogo in cui sei. Tocca il nome per cambiare o crearne un altro."
 }

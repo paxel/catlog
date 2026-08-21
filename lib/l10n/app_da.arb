@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log stødte på en uventet fejl. Dine data er sikre — alt gemmes i samme øjeblik du ændrer det. Genstart appen, og sker det igen, så send rapporten, så det kan rettes.",
   "crashRestart": "Genstart appen",
   "crashSendReport": "Send rapport til udvikleren",
-  "crashLastRunBody": "cat(a)log stoppede uventet sidste gang — sandsynligvis løb den tør for hukommelse. Send en kort rapport, så det kan rettes?"
+  "crashLastRunBody": "cat(a)log stoppede uventet sidste gang — sandsynligvis løb den tør for hukommelse. Send en kort rapport, så det kan rettes?",
+  "catalogsTitle": "Kataloger",
+  "newCatalog": "Nyt katalog",
+  "catalogNameLabel": "Katalogets navn",
+  "catalogNameTaken": "Der findes allerede et katalog, der hedder {name}. Vælg et andet navn.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Administrer kataloger",
+  "helpCatalogs": "Hvert katalog er sin egen verden: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.",
+  "spotHomeCatalog": "Det er kataloget, du er i. Tryk på navnet for at skifte eller oprette et nyt."
 }

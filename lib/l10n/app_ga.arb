@@ -435,5 +435,13 @@
   "crashBody": "Bhuail cat(a)log earráid gan choinne. Tá do shonraí slán — sábháiltear gach rud an nóiméad a athraíonn tú é. Atosaigh an aip, agus má tharlaíonn sé arís, seol an tuairisc le go ndeiseofar é.",
   "crashRestart": "Atosaigh an aip",
   "crashSendReport": "Seol tuairisc chuig an bhforbróir",
-  "crashLastRunBody": "Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?"
+  "crashLastRunBody": "Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?",
+  "catalogsTitle": "Catalóga",
+  "newCatalog": "Catalóg nua",
+  "catalogNameLabel": "Ainm na catalóige",
+  "catalogNameTaken": "Tá catalóg darb ainm {name} ann cheana. Roghnaigh ainm eile.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Bainistigh catalóga",
+  "helpCatalogs": "Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.",
+  "spotHomeCatalog": "Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú."
 }

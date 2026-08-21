@@ -1521,4 +1521,29 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?';
+
+  @override
+  String get catalogsTitle => 'Catalóga';
+
+  @override
+  String get newCatalog => 'Catalóg nua';
+
+  @override
+  String get catalogNameLabel => 'Ainm na catalóige';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Tá catalóg darb ainm $name ann cheana. Roghnaigh ainm eile.';
+  }
+
+  @override
+  String get manageCatalogs => 'Bainistigh catalóga';
+
+  @override
+  String get helpCatalogs =>
+      'Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.';
 }

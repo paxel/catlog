@@ -1522,4 +1522,29 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?';
+
+  @override
+  String get catalogsTitle => 'Kataloge';
+
+  @override
+  String get newCatalog => 'Neuer Katalog';
+
+  @override
+  String get catalogNameLabel => 'Name des Katalogs';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Einen Katalog namens $name gibt es schon. Wähle einen anderen Namen.';
+  }
+
+  @override
+  String get manageCatalogs => 'Kataloge verwalten';
+
+  @override
+  String get helpCatalogs =>
+      'Ein Katalog ist eine Welt für sich: eigene Katzen, Kolonien, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe oben auf den Namen, um zu wechseln, einen anzulegen oder ihn umzubenennen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Das ist der Katalog, in dem du bist. Tippe auf den Namen, um zu wechseln oder einen weiteren anzulegen.';
 }

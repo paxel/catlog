@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log a întâlnit o eroare neașteptată. Datele tale sunt în siguranță — totul se salvează în momentul modificării. Repornește aplicația și, dacă se repetă, trimite raportul ca să poată fi reparat.",
   "crashRestart": "Repornește aplicația",
   "crashSendReport": "Trimite raport dezvoltatorului",
-  "crashLastRunBody": "cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?"
+  "crashLastRunBody": "cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?",
+  "catalogsTitle": "Cataloage",
+  "newCatalog": "Catalog nou",
+  "catalogNameLabel": "Numele catalogului",
+  "catalogNameTaken": "Există deja un catalog numit {name}. Alege alt nume.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Gestionează cataloagele",
+  "helpCatalogs": "Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.",
+  "spotHomeCatalog": "Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul."
 }

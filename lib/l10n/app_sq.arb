@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log hasi një gabim të papritur. Të dhënat e tua janë të sigurta — gjithçka ruhet në çastin që e ndryshon. Rinise aplikacionin dhe nëse përsëritet, dërgo raportin që të rregullohet.",
   "crashRestart": "Rinis aplikacionin",
   "crashSendReport": "Dërgo raport te zhvilluesi",
-  "crashLastRunBody": "cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?"
+  "crashLastRunBody": "cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?",
+  "catalogsTitle": "Katalogët",
+  "newCatalog": "Katalog i ri",
+  "catalogNameLabel": "Emri i katalogut",
+  "catalogNameTaken": "Një katalog me emrin {name} ekziston tashmë. Zgjidh një emër tjetër.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Menaxho katalogët",
+  "helpCatalogs": "Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.",
+  "spotHomeCatalog": "Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër."
 }

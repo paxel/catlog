@@ -2779,6 +2779,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?'**
   String get crashLastRunBody;
+
+  /// No description provided for @catalogsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalogs'**
+  String get catalogsTitle;
+
+  /// No description provided for @newCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'New catalog'**
+  String get newCatalog;
+
+  /// No description provided for @catalogNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog name'**
+  String get catalogNameLabel;
+
+  /// No description provided for @catalogNameTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'A catalog called {name} already exists. Pick a different name.'**
+  String catalogNameTaken(String name);
+
+  /// No description provided for @manageCatalogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage catalogs'**
+  String get manageCatalogs;
+
+  /// No description provided for @helpCatalogs.
+  ///
+  /// In en, this message translates to:
+  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.'**
+  String get helpCatalogs;
+
+  /// No description provided for @spotHomeCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the catalog you are in. Tap the name to switch, or to make another one.'**
+  String get spotHomeCatalog;
 }
 
 class _AppLocalizationsDelegate

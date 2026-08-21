@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log napotkał nieoczekiwany błąd. Twoje dane są bezpieczne — wszystko zapisuje się w chwili zmiany. Uruchom aplikację ponownie, a jeśli się powtarza, wyślij raport, żeby dało się to naprawić.",
   "crashRestart": "Uruchom aplikację ponownie",
   "crashSendReport": "Wyślij raport do dewelopera",
-  "crashLastRunBody": "cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?"
+  "crashLastRunBody": "cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?",
+  "catalogsTitle": "Katalogi",
+  "newCatalog": "Nowy katalog",
+  "catalogNameLabel": "Nazwa katalogu",
+  "catalogNameTaken": "Katalog o nazwie {name} już istnieje. Wybierz inną nazwę.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Zarządzaj katalogami",
+  "helpCatalogs": "Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.",
+  "spotHomeCatalog": "To katalog, w którym jesteś. Dotknij nazwy, aby przełączyć lub utworzyć nowy."
 }

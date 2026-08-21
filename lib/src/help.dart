@@ -25,6 +25,7 @@ final Map<String, HelpText> helpTexts = {
   'matches': (t) => t.helpMatches,
   'flier': (t) => t.helpFlier,
   'archive': (t) => t.helpArchive,
+  'catalogs': (t) => t.helpCatalogs,
 };
 
 /// The "?" for an app bar. Shows nothing when the screen has no help

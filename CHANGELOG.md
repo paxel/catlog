@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [0.3.0] - Unreleased
 
+### Added
+
+- Several catalogs on one device. The home screen's title names the
+  catalog you are in; tapping it switches, adds one, or renames one.
+  Each catalog keeps its own cats, clowders, fields, photos and sync
+  partners, while your name, your language and the tips you have seen
+  are shared by all of them.
+
 ### Changed
 
 - On a tablet or a desktop window, the clowder table uses the whole

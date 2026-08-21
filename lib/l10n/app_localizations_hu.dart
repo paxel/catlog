@@ -1515,4 +1515,29 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?';
+
+  @override
+  String get catalogsTitle => 'Katalógusok';
+
+  @override
+  String get newCatalog => 'Új katalógus';
+
+  @override
+  String get catalogNameLabel => 'A katalógus neve';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Már van $name nevű katalógus. Válassz másik nevet.';
+  }
+
+  @override
+  String get manageCatalogs => 'Katalógusok kezelése';
+
+  @override
+  String get helpCatalogs =>
+      'Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.';
 }

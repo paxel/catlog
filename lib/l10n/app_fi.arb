@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log kohtasi odottamattoman virheen. Tietosi ovat turvassa — kaikki tallentuu heti muutoshetkellä. Käynnistä sovellus uudelleen, ja jos tämä toistuu, lähetä raportti korjaamista varten.",
   "crashRestart": "Käynnistä sovellus uudelleen",
   "crashSendReport": "Lähetä raportti kehittäjälle",
-  "crashLastRunBody": "cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?"
+  "crashLastRunBody": "cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?",
+  "catalogsTitle": "Luettelot",
+  "newCatalog": "Uusi luettelo",
+  "catalogNameLabel": "Luettelon nimi",
+  "catalogNameTaken": "Luettelo nimeltä {name} on jo olemassa. Valitse toinen nimi.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Hallitse luetteloita",
+  "helpCatalogs": "Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
+  "spotHomeCatalog": "Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden."
 }

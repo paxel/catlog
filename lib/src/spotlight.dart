@@ -28,6 +28,7 @@ const _legacyItems = {'home-sync', 'map-search', 'card-chips', 'cat-menu'};
 /// Every feature ticket appends its screen's entries here.
 final Map<String, List<SpotlightItem>> spotlightManifest = {
   'home': [
+    SpotlightItem('home-catalog', (t) => t.spotHomeCatalog),
     SpotlightItem('home-strays', (t) => t.spotHomeStrays),
     SpotlightItem('home-sync', (t) => t.spotHomeSync),
     SpotlightItem('home-menu', (t) => t.spotHomeMenu),

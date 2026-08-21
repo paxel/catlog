@@ -1518,4 +1518,29 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?';
+
+  @override
+  String get catalogsTitle => 'Skrár';
+
+  @override
+  String get newCatalog => 'Ný skrá';
+
+  @override
+  String get catalogNameLabel => 'Heiti skrár';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Skrá sem heitir $name er þegar til. Veldu annað heiti.';
+  }
+
+  @override
+  String get manageCatalogs => 'Sýsla með skrár';
+
+  @override
+  String get helpCatalogs =>
+      'Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.';
 }

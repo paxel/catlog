@@ -1507,4 +1507,29 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'توقف cat(a)log بشكل غير متوقع في المرة الماضية — على الأرجح نفدت الذاكرة. هل تريد إرسال تقرير قصير ليتم الإصلاح؟';
+
+  @override
+  String get catalogsTitle => 'الكتالوجات';
+
+  @override
+  String get newCatalog => 'كتالوج جديد';
+
+  @override
+  String get catalogNameLabel => 'اسم الكتالوج';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'يوجد كتالوج باسم $name بالفعل. اختر اسماً آخر.';
+  }
+
+  @override
+  String get manageCatalogs => 'إدارة الكتالوجات';
+
+  @override
+  String get helpCatalogs =>
+      'كل كتالوج عالم قائم بذاته: قططه ومستعمراته وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
+
+  @override
+  String get spotHomeCatalog =>
+      'هذا هو الكتالوج الذي أنت فيه. المس الاسم للتبديل أو لإنشاء كتالوج آخر.';
 }

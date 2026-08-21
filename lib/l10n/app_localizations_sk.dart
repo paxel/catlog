@@ -1513,4 +1513,29 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log sa minule nečakane ukončil — najskôr došla pamäť. Poslať krátke hlásenie, aby sa to dalo opraviť?';
+
+  @override
+  String get catalogsTitle => 'Katalógy';
+
+  @override
+  String get newCatalog => 'Nový katalóg';
+
+  @override
+  String get catalogNameLabel => 'Názov katalógu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalóg s názvom $name už existuje. Zvoľ iný názov.';
+  }
+
+  @override
+  String get manageCatalogs => 'Spravovať katalógy';
+
+  @override
+  String get helpCatalogs =>
+      'Každý katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.';
 }

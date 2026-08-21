@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log sattus ootamatule veale. Sinu andmed on kaitstud — kõik salvestatakse muutmise hetkel. Taaskäivita rakendus ja kui see kordub, saada raport, et saaks parandada.",
   "crashRestart": "Taaskäivita rakendus",
   "crashSendReport": "Saada raport arendajale",
-  "crashLastRunBody": "cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?"
+  "crashLastRunBody": "cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?",
+  "catalogsTitle": "Kataloogid",
+  "newCatalog": "Uus kataloog",
+  "catalogNameLabel": "Kataloogi nimi",
+  "catalogNameTaken": "Kataloog nimega {name} on juba olemas. Vali teine nimi.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Halda katalooge",
+  "helpCatalogs": "Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.",
+  "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua."
 }

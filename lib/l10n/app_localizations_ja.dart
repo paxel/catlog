@@ -1477,4 +1477,28 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       '前回 cat(a)log が予期せず停止しました — おそらくメモリ不足です。修正のため簡単なレポートを送信しますか？';
+
+  @override
+  String get catalogsTitle => 'カタログ';
+
+  @override
+  String get newCatalog => '新しいカタログ';
+
+  @override
+  String get catalogNameLabel => 'カタログ名';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '$name という名前のカタログはすでにあります。別の名前を選んでください。';
+  }
+
+  @override
+  String get manageCatalogs => 'カタログの管理';
+
+  @override
+  String get helpCatalogs =>
+      'カタログはそれぞれ独立した世界です。猫もコロニーも項目も写真も同期相手も別々で、ベルリンとパリが混ざることはありません。ホーム画面上部の名前をタップすると、切り替え・追加・名前の変更ができます。あなたの名前、言語、見終わったヒントはすべてのカタログで共通です。';
+
+  @override
+  String get spotHomeCatalog => 'いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。';
 }

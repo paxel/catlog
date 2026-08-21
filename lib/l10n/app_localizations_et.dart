@@ -1513,4 +1513,29 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?';
+
+  @override
+  String get catalogsTitle => 'Kataloogid';
+
+  @override
+  String get newCatalog => 'Uus kataloog';
+
+  @override
+  String get catalogNameLabel => 'Kataloogi nimi';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Kataloog nimega $name on juba olemas. Vali teine nimi.';
+  }
+
+  @override
+  String get manageCatalogs => 'Halda katalooge';
+
+  @override
+  String get helpCatalogs =>
+      'Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
+
+  @override
+  String get spotHomeCatalog =>
+      'See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.';
 }

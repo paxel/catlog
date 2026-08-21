@@ -1518,4 +1518,29 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log waqaf għal għarrieda l-aħħar darba — x\'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?';
+
+  @override
+  String get catalogsTitle => 'Katalgi';
+
+  @override
+  String get newCatalog => 'Katalgu ġdid';
+
+  @override
+  String get catalogNameLabel => 'Isem tal-katalgu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Diġà hemm katalgu jismu $name. Agħżel isem ieħor.';
+  }
+
+  @override
+  String get manageCatalogs => 'Immaniġġja l-katalgi';
+
+  @override
+  String get helpCatalogs =>
+      'Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.';
 }

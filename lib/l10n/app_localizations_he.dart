@@ -1503,4 +1503,29 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log נעצר באופן בלתי צפוי בפעם הקודמת — כנראה נגמר הזיכרון. לשלוח דוח קצר כדי שנוכל לתקן?';
+
+  @override
+  String get catalogsTitle => 'קטלוגים';
+
+  @override
+  String get newCatalog => 'קטלוג חדש';
+
+  @override
+  String get catalogNameLabel => 'שם הקטלוג';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'כבר קיים קטלוג בשם $name. בחר שם אחר.';
+  }
+
+  @override
+  String get manageCatalogs => 'ניהול קטלוגים';
+
+  @override
+  String get helpCatalogs =>
+      'כל קטלוג הוא עולם בפני עצמו: החתולים, המושבות, השדות, התמונות ושותפי הסנכרון שלו. ברלין ופריז לעולם לא מתערבבות. הקש על השם בראש המסך הראשי כדי להחליף, להוסיף או לשנות שם. השם שלך, השפה והטיפים שכבר ראית משותפים לכולם.';
+
+  @override
+  String get spotHomeCatalog =>
+      'זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד.';
 }

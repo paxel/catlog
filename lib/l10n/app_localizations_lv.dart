@@ -1513,4 +1513,29 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log pagājušajā reizē negaidīti apstājās — visticamāk pietrūka atmiņas. Nosūtīt īsu ziņojumu, lai izlabotu?';
+
+  @override
+  String get catalogsTitle => 'Katalogi';
+
+  @override
+  String get newCatalog => 'Jauns katalogs';
+
+  @override
+  String get catalogNameLabel => 'Kataloga nosaukums';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalogs ar nosaukumu $name jau pastāv. Izvēlies citu nosaukumu.';
+  }
+
+  @override
+  String get manageCatalogs => 'Pārvaldīt katalogus';
+
+  @override
+  String get helpCatalogs =>
+      'Katrs katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Šis ir katalogs, kurā esi. Pieskaries nosaukumam, lai pārslēgtu vai izveidotu jaunu.';
 }

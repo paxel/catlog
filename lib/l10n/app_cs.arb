@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log narazil na nečekanou chybu. Tvá data jsou v bezpečí — vše se ukládá hned při změně. Restartuj aplikaci, a pokud se to opakuje, pošli hlášení, ať se to dá opravit.",
   "crashRestart": "Restartovat aplikaci",
   "crashSendReport": "Poslat hlášení vývojáři",
-  "crashLastRunBody": "cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?"
+  "crashLastRunBody": "cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?",
+  "catalogsTitle": "Katalogy",
+  "newCatalog": "Nový katalog",
+  "catalogNameLabel": "Název katalogu",
+  "catalogNameTaken": "Katalog s názvem {name} už existuje. Zvol jiný název.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Správa katalogů",
+  "helpCatalogs": "Každý katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.",
+  "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího."
 }

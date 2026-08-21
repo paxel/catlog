@@ -434,5 +434,13 @@
   "crashBody": "cat(a)log ist auf einen unerwarteten Fehler gestoßen. Deine Daten sind sicher — alles wird sofort beim Ändern gespeichert. Starte die App neu, und wenn es wieder passiert, schick den Bericht, damit es behoben werden kann.",
   "crashRestart": "App neu starten",
   "crashSendReport": "Bericht an den Entwickler senden",
-  "crashLastRunBody": "cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?"
+  "crashLastRunBody": "cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?",
+  "catalogsTitle": "Kataloge",
+  "newCatalog": "Neuer Katalog",
+  "catalogNameLabel": "Name des Katalogs",
+  "catalogNameTaken": "Einen Katalog namens {name} gibt es schon. Wähle einen anderen Namen.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Kataloge verwalten",
+  "helpCatalogs": "Ein Katalog ist eine Welt für sich: eigene Katzen, Kolonien, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe oben auf den Namen, um zu wechseln, einen anzulegen oder ihn umzubenennen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.",
+  "spotHomeCatalog": "Das ist der Katalog, in dem du bist. Tippe auf den Namen, um zu wechseln oder einen weiteren anzulegen."
 }

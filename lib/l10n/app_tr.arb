@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log beklenmedik bir hatayla karşılaştı. Verileriniz güvende — her şey değiştirdiğiniz anda kaydedilir. Uygulamayı yeniden başlatın, tekrarlanırsa düzeltilebilmesi için raporu gönderin.",
   "crashRestart": "Uygulamayı yeniden başlat",
   "crashSendReport": "Geliştiriciye rapor gönder",
-  "crashLastRunBody": "cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?"
+  "crashLastRunBody": "cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?",
+  "catalogsTitle": "Kataloglar",
+  "newCatalog": "Yeni katalog",
+  "catalogNameLabel": "Katalog adı",
+  "catalogNameTaken": "{name} adlı bir katalog zaten var. Başka bir ad seç.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Katalogları yönet",
+  "helpCatalogs": "Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.",
+  "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun."
 }

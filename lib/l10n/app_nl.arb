@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log liep tegen een onverwachte fout aan. Je gegevens zijn veilig — alles wordt opgeslagen op het moment dat je het wijzigt. Herstart de app en stuur bij herhaling het rapport, zodat het gemaakt kan worden.",
   "crashRestart": "App herstarten",
   "crashSendReport": "Rapport naar de ontwikkelaar sturen",
-  "crashLastRunBody": "cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?"
+  "crashLastRunBody": "cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?",
+  "catalogsTitle": "Catalogi",
+  "newCatalog": "Nieuwe catalogus",
+  "catalogNameLabel": "Naam van de catalogus",
+  "catalogNameTaken": "Er is al een catalogus met de naam {name}. Kies een andere naam.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Catalogi beheren",
+  "helpCatalogs": "Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
+  "spotHomeCatalog": "Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken."
 }

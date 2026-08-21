@@ -21,6 +21,11 @@ import 'src/screens/sync_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
+/// The catalog everything writes to right now. A file or photo shared
+/// into the app lands in the catalog on screen, not in the one that
+/// happened to be open when the app started.
+CatalogStore? activeStore;
+
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +48,8 @@ Future<void> main(List<String> args) async {
     markRunning();
     // A Stray Cam capture the OS killed mid-camera completes here.
     unawaited(recoverStrayCam(store));
-    initIncomingFiles(navigatorKey, store, args);
+    activeStore = store;
+    initIncomingFiles(navigatorKey, () => activeStore ?? store, args);
     await _restoreWindow(store);
     runApp(CatlogApp(
         store: store, catalogs: catalogs, diedLastRun: diedLastRun));
@@ -106,6 +112,23 @@ class CatlogApp extends StatefulWidget {
 
 class _CatlogAppState extends State<CatlogApp>
     with WidgetsBindingObserver, WindowListener {
+  /// The catalog currently open. Switching catalogs closes this one and
+  /// opens another, so it lives in state rather than in the widget.
+  late CatalogStore _store = widget.store;
+
+  /// Switches the app to another catalog: the old one is closed, the new
+  /// one becomes the one everything writes to.
+  void _switchCatalog(CatalogInfo to) {
+    final manager = widget.catalogs;
+    if (manager == null || to.id == manager.active.id) return;
+    final next = manager.openStore(to);
+    final previous = _store;
+    manager.active = to;
+    setState(() => _store = next);
+    activeStore = next;
+    previous.close();
+  }
+
   /// True only when the author was created THIS run: the intro is for
   /// fresh installs, never sprung on upgraders with a routine.
   bool _freshSetup = false;
@@ -160,7 +183,7 @@ class _CatlogAppState extends State<CatlogApp>
 
   Future<void> _saveBounds() async {
     final b = await windowManager.getBounds();
-    widget.store.setLocalSetting('windowBounds',
+    _store.setLocalSetting('windowBounds',
         '${b.left},${b.top},${b.width},${b.height}');
   }
 
@@ -176,7 +199,7 @@ class _CatlogAppState extends State<CatlogApp>
     // and mark the exit clean so the next launch doesn't cry crash.
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
-      autoBackup(widget.store);
+      autoBackup(_store);
       markCleanExit();
     }
     if (state == AppLifecycleState.resumed) {
@@ -207,14 +230,14 @@ class _CatlogAppState extends State<CatlogApp>
           bindings: {
             const SingleActivator(LogicalKeyboardKey.keyF, control: true):
                 () => navigatorKey.currentState?.push(MaterialPageRoute(
-                      builder: (_) => SearchScreen(store: widget.store),
+                      builder: (_) => SearchScreen(store: _store),
                     )),
             const SingleActivator(LogicalKeyboardKey.keyK, control: true):
                 () => navigatorKey.currentState?.push(MaterialPageRoute(
-                      builder: (_) => SyncScreen(store: widget.store),
+                      builder: (_) => SyncScreen(store: _store),
                     )),
             const SingleActivator(LogicalKeyboardKey.keyB, control: true):
-                () => autoBackup(widget.store),
+                () => autoBackup(_store),
             const SingleActivator(LogicalKeyboardKey.escape): () =>
                 navigatorKey.currentState?.maybePop(),
           },
@@ -230,20 +253,22 @@ class _CatlogAppState extends State<CatlogApp>
           // Desktop gets desktop density and hover manners for free.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: widget.store.author == null
+        home: _store.author == null
             ? AuthorSetupScreen(
-                store: widget.store,
+                store: _store,
                 onDone: () => setState(() => _freshSetup = true),
               )
             : _freshSetup &&
-                    widget.store.localSetting('introSeen') == null
+                    _store.localSetting('introSeen') == null
                 ? IntroScreen(
-                    store: widget.store,
+                    store: _store,
                     onDone: () => setState(() {}),
                   )
                 : HomeShell(
-                    store: widget.store,
-                    catalogName: widget.catalogs?.active.name,
+                    store: _store,
+                    catalogs: widget.catalogs,
+                    onSwitchCatalog: _switchCatalog,
+                    onCatalogsChanged: () => setState(() {}),
                   ),
       ),
     );

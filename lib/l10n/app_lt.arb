@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log susidūrė su netikėta klaida. Tavo duomenys saugūs — viskas išsaugoma keitimo akimirką. Paleisk programą iš naujo, o jei kartojasi — atsiųsk ataskaitą, kad būtų pataisyta.",
   "crashRestart": "Paleisti programą iš naujo",
   "crashSendReport": "Siųsti ataskaitą kūrėjui",
-  "crashLastRunBody": "cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?"
+  "crashLastRunBody": "cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?",
+  "catalogsTitle": "Katalogai",
+  "newCatalog": "Naujas katalogas",
+  "catalogNameLabel": "Katalogo pavadinimas",
+  "catalogNameTaken": "Katalogas pavadinimu {name} jau yra. Pasirink kitą pavadinimą.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Tvarkyti katalogus",
+  "helpCatalogs": "Kiekvienas katalogas – atskiras pasaulis: savos katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.",
+  "spotHomeCatalog": "Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują."
 }

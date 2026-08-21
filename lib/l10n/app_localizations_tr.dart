@@ -1515,4 +1515,29 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?';
+
+  @override
+  String get catalogsTitle => 'Kataloglar';
+
+  @override
+  String get newCatalog => 'Yeni katalog';
+
+  @override
+  String get catalogNameLabel => 'Katalog adı';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '$name adlı bir katalog zaten var. Başka bir ad seç.';
+  }
+
+  @override
+  String get manageCatalogs => 'Katalogları yönet';
+
+  @override
+  String get helpCatalogs =>
+      'Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.';
 }

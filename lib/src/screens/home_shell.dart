@@ -13,7 +13,22 @@ class HomeShell extends StatefulWidget {
   /// there is only ever one, where the plain word does the job.
   final String? catalogName;
 
-  const HomeShell({super.key, required this.store, this.catalogName});
+  /// Every catalog on the device. With one in hand the home title
+  /// becomes the switcher; without one the title is just a word.
+  final CatalogManager? catalogs;
+  final void Function(CatalogInfo)? onSwitchCatalog;
+
+  /// Something about the catalogs themselves changed — a new one, a
+  /// rename — and the title may need redrawing.
+  final VoidCallback? onCatalogsChanged;
+
+  const HomeShell(
+      {super.key,
+      required this.store,
+      this.catalogName,
+      this.catalogs,
+      this.onSwitchCatalog,
+      this.onCatalogsChanged});
 
   @override
   State<HomeShell> createState() => _HomeShellState();
@@ -21,6 +36,9 @@ class HomeShell extends StatefulWidget {
 
 class _HomeShellState extends State<HomeShell> {
   PanePage? _page;
+
+  String? get _title =>
+      widget.catalogName ?? widget.catalogs?.active.name;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +51,10 @@ class _HomeShellState extends State<HomeShell> {
       if (constraints.maxWidth < desktopBreakpoint || tableView) {
         return ClowderListScreen(
             store: widget.store,
-            catalogName: widget.catalogName,
+            catalogName: _title,
+            catalogs: widget.catalogs,
+            onSwitchCatalog: widget.onSwitchCatalog,
+            onCatalogsChanged: widget.onCatalogsChanged,
             onViewChanged: () => setState(() {}));
       }
       // A deleted or hidden clowder vacates the pane; every other page
@@ -49,7 +70,10 @@ class _HomeShellState extends State<HomeShell> {
           width: 400,
           child: ClowderListScreen(
             store: widget.store,
-            catalogName: widget.catalogName,
+            catalogName: _title,
+            catalogs: widget.catalogs,
+            onSwitchCatalog: widget.onSwitchCatalog,
+            onCatalogsChanged: widget.onCatalogsChanged,
             selectedPageId: shown?.id,
             onOpenPage: (page) => setState(() => _page = page),
             onViewChanged: () => setState(() {}),

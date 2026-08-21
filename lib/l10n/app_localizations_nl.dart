@@ -1519,4 +1519,29 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?';
+
+  @override
+  String get catalogsTitle => 'Catalogi';
+
+  @override
+  String get newCatalog => 'Nieuwe catalogus';
+
+  @override
+  String get catalogNameLabel => 'Naam van de catalogus';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Er is al een catalogus met de naam $name. Kies een andere naam.';
+  }
+
+  @override
+  String get manageCatalogs => 'Catalogi beheren';
+
+  @override
+  String get helpCatalogs =>
+      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.';
 }

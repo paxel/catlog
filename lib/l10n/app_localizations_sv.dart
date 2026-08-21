@@ -1513,4 +1513,29 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stannade oväntat förra gången — troligen tog minnet slut. Skicka en kort rapport så det kan lagas?';
+
+  @override
+  String get catalogsTitle => 'Kataloger';
+
+  @override
+  String get newCatalog => 'Ny katalog';
+
+  @override
+  String get catalogNameLabel => 'Katalogens namn';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Det finns redan en katalog som heter $name. Välj ett annat namn.';
+  }
+
+  @override
+  String get manageCatalogs => 'Hantera kataloger';
+
+  @override
+  String get helpCatalogs =>
+      'Varje katalog är en egen värld: egna katter, kolonier, fält, foton och synkroniseringspartner. Berlin och Paris blandas aldrig. Tryck på namnet högst upp på startskärmen för att byta, lägga till eller byta namn. Ditt namn, ditt språk och tipsen du sett delas av alla.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Det här är katalogen du är i. Tryck på namnet för att byta eller skapa en ny.';
 }

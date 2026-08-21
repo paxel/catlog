@@ -14,32 +14,34 @@ import 'l10n.dart';
 /// Garbage in is absorbed with a message, never a crash.
 const _channel = MethodChannel('catlog/openfile');
 
+/// [store] is a getter, not a store: switching catalogs replaces the
+/// open one, and a file shared in afterwards belongs to the new one.
 void initIncomingFiles(GlobalKey<NavigatorState> navigator,
-    CatalogStore store, List<String> args) {
+    CatalogStore Function() store, List<String> args) {
   _channel.setMethodCallHandler((call) async {
     if (call.method == 'open') {
-      _import(navigator, store, call.arguments as String);
+      _import(navigator, store(), call.arguments as String);
     }
     if (call.method == 'sharedImages') {
-      handleSharedImages(navigator, store,
+      handleSharedImages(navigator, store(),
           (call.arguments as List).cast<String>());
     }
   });
   if (Platform.isAndroid || Platform.isIOS) {
     _channel.invokeMethod<String>('pending').then((path) {
-      if (path != null) _import(navigator, store, path);
+      if (path != null) _import(navigator, store(), path);
     }).catchError((_) => null);
     _channel.invokeMethod<List<Object?>>('pendingImages').then((paths) {
       if (paths != null && paths.isNotEmpty) {
         handleSharedImages(
-            navigator, store, paths.cast<String>());
+            navigator, store(), paths.cast<String>());
       }
     }).catchError((_) => null);
   }
   // Desktop: the associated file arrives as a launch argument.
   for (final arg in args) {
     if (arg.endsWith('.catsync') && File(arg).existsSync()) {
-      _import(navigator, store, arg);
+      _import(navigator, store(), arg);
     }
   }
 }

@@ -754,5 +754,13 @@
   "crashBody": "cat(a)log hit an unexpected error. Your data is safe — everything is saved the moment you change it. Restart the app, and if this keeps happening, send the report so it can be fixed.",
   "crashRestart": "Restart the app",
   "crashSendReport": "Send report to the developer",
-  "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?"
+  "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?",
+  "catalogsTitle": "Catalogs",
+  "newCatalog": "New catalog",
+  "catalogNameLabel": "Catalog name",
+  "catalogNameTaken": "A catalog called {name} already exists. Pick a different name.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Manage catalogs",
+  "helpCatalogs": "A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.",
+  "spotHomeCatalog": "This is the catalog you are in. Tap the name to switch, or to make another one."
 }

@@ -1514,4 +1514,29 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?';
+
+  @override
+  String get catalogsTitle => 'Katalogi';
+
+  @override
+  String get newCatalog => 'Nov katalog';
+
+  @override
+  String get catalogNameLabel => 'Ime kataloga';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalog z imenom $name že obstaja. Izberi drugo ime.';
+  }
+
+  @override
+  String get manageCatalogs => 'Upravljanje katalogov';
+
+  @override
+  String get helpCatalogs =>
+      'Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
+
+  @override
+  String get spotHomeCatalog =>
+      'To je katalog, v katerem si. Tapni ime za preklop ali za novega.';
 }

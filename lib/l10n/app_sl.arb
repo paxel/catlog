@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log je naletel na nepričakovano napako. Tvoji podatki so varni — vse se shrani v trenutku spremembe. Znova zaženi aplikacijo, in če se ponavlja, pošlji poročilo, da se lahko popravi.",
   "crashRestart": "Znova zaženi aplikacijo",
   "crashSendReport": "Pošlji poročilo razvijalcu",
-  "crashLastRunBody": "cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?"
+  "crashLastRunBody": "cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?",
+  "catalogsTitle": "Katalogi",
+  "newCatalog": "Nov katalog",
+  "catalogNameLabel": "Ime kataloga",
+  "catalogNameTaken": "Katalog z imenom {name} že obstaja. Izberi drugo ime.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Upravljanje katalogov",
+  "helpCatalogs": "Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.",
+  "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega."
 }

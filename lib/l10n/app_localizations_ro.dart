@@ -1516,4 +1516,29 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?';
+
+  @override
+  String get catalogsTitle => 'Cataloage';
+
+  @override
+  String get newCatalog => 'Catalog nou';
+
+  @override
+  String get catalogNameLabel => 'Numele catalogului';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Există deja un catalog numit $name. Alege alt nume.';
+  }
+
+  @override
+  String get manageCatalogs => 'Gestionează cataloagele';
+
+  @override
+  String get helpCatalogs =>
+      'Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.';
 }

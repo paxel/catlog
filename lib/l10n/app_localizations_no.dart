@@ -1512,4 +1512,29 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stoppet uventet sist — sannsynligvis gikk den tom for minne. Sende en kort rapport så det kan fikses?';
+
+  @override
+  String get catalogsTitle => 'Kataloger';
+
+  @override
+  String get newCatalog => 'Ny katalog';
+
+  @override
+  String get catalogNameLabel => 'Navn på katalogen';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Det finnes allerede en katalog som heter $name. Velg et annet navn.';
+  }
+
+  @override
+  String get manageCatalogs => 'Administrer kataloger';
+
+  @override
+  String get helpCatalogs =>
+      'Hver katalog er sin egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny.';
 }

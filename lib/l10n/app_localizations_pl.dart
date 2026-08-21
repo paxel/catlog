@@ -1514,4 +1514,29 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?';
+
+  @override
+  String get catalogsTitle => 'Katalogi';
+
+  @override
+  String get newCatalog => 'Nowy katalog';
+
+  @override
+  String get catalogNameLabel => 'Nazwa katalogu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalog o nazwie $name już istnieje. Wybierz inną nazwę.';
+  }
+
+  @override
+  String get manageCatalogs => 'Zarządzaj katalogami';
+
+  @override
+  String get helpCatalogs =>
+      'Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
+
+  @override
+  String get spotHomeCatalog =>
+      'To katalog, w którym jesteś. Dotknij nazwy, aby przełączyć lub utworzyć nowy.';
 }

@@ -1460,4 +1460,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get crashLastRunBody => '上次 cat(a)log 意外停止了——很可能是内存不足。发送一份简短报告以便修复吗？';
+
+  @override
+  String get catalogsTitle => '目录';
+
+  @override
+  String get newCatalog => '新建目录';
+
+  @override
+  String get catalogNameLabel => '目录名称';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '已经有名为 $name 的目录。请换一个名称。';
+  }
+
+  @override
+  String get manageCatalogs => '管理目录';
+
+  @override
+  String get helpCatalogs =>
+      '每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。';
+
+  @override
+  String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';
 }

@@ -435,5 +435,13 @@
   "crashBody": "cat(a)log rakst á óvænta villu. Gögnin þín eru örugg — allt vistast um leið og þú breytir því. Endurræstu forritið og ef þetta endurtekur sig, sendu skýrsluna svo hægt sé að laga það.",
   "crashRestart": "Endurræsa forritið",
   "crashSendReport": "Senda skýrslu til þróanda",
-  "crashLastRunBody": "cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?"
+  "crashLastRunBody": "cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?",
+  "catalogsTitle": "Skrár",
+  "newCatalog": "Ný skrá",
+  "catalogNameLabel": "Heiti skrár",
+  "catalogNameTaken": "Skrá sem heitir {name} er þegar til. Veldu annað heiti.",
+  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "manageCatalogs": "Sýsla með skrár",
+  "helpCatalogs": "Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.",
+  "spotHomeCatalog": "Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra."
 }

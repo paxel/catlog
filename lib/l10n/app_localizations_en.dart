@@ -1514,4 +1514,29 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?';
+
+  @override
+  String get catalogsTitle => 'Catalogs';
+
+  @override
+  String get newCatalog => 'New catalog';
+
+  @override
+  String get catalogNameLabel => 'Catalog name';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'A catalog called $name already exists. Pick a different name.';
+  }
+
+  @override
+  String get manageCatalogs => 'Manage catalogs';
+
+  @override
+  String get helpCatalogs =>
+      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.';
+
+  @override
+  String get spotHomeCatalog =>
+      'This is the catalog you are in. Tap the name to switch, or to make another one.';
 }
