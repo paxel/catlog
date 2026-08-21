@@ -186,6 +186,25 @@ void main() {
       expect(find.byIcon(Icons.delete_outline), findsNothing);
     });
 
+    testWidgets('the catalog you are in has no delete button either',
+        (tester) async {
+      catalogs.create('Paris');
+      await pumpManage(tester);
+      final berlin = find.ancestor(
+          of: find.text('Berlin'), matching: find.byType(ListTile));
+      expect(
+          find.descendant(
+              of: berlin, matching: find.byIcon(Icons.delete_outline)),
+          findsNothing,
+          reason: 'its database is open — switch away first');
+      final paris = find.ancestor(
+          of: find.text('Paris'), matching: find.byType(ListTile));
+      expect(
+          find.descendant(
+              of: paris, matching: find.byIcon(Icons.delete_outline)),
+          findsOneWidget);
+    });
+
     testWidgets('a mistyped name deletes nothing', (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);

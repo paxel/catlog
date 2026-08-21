@@ -128,9 +128,7 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       final save = widget.saveTo ?? saveBesideBackups;
       final where = await save(file, name);
       tmp.deleteSync(recursive: true);
-      final wasActive = widget.catalogs.active.id == catalog.id;
       widget.catalogs.delete(catalog.id);
-      if (wasActive) widget.onSwitch(widget.catalogs.active);
       _changed();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -179,8 +177,10 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
                 tooltip: t.rename,
                 onPressed: () => _rename(catalog),
               ),
-              // The last catalog has nowhere to leave you.
-              if (widget.catalogs.catalogs().length > 1)
+              // Not the last one — and not the one you are in, whose
+              // database is open: switch first, then delete.
+              if (widget.catalogs.catalogs().length > 1 &&
+                  catalog.id != active.id)
                 IconButton(
                   icon: const Icon(Icons.delete_outline),
                   tooltip: t.deleteCatalog,

@@ -188,15 +188,24 @@ class CatalogManager implements SharedSettings {
 
   /// Removes a catalog and everything in it. The caller writes the
   /// keepsake bundle first — this is the point of no return.
+  ///
+  /// The catalog currently open is refused: its database is held open by
+  /// the app, and deleting the folder underneath it would leave every
+  /// cat added afterwards writing into a file that no longer exists.
+  /// Switch to another catalog first.
   void delete(String id) {
     final info = byId(id);
     if (info == null) return;
     if (catalogs().length == 1) {
       throw StateError('The last catalog cannot be deleted');
     }
-    _db.execute('DELETE FROM catalogs WHERE id = ?', [id]);
+    if (active.id == id) {
+      throw StateError('Switch to another catalog before deleting this one');
+    }
+    // Files first: if they cannot go, the catalog stays listed and the
+    // keeper is told, rather than a folder nobody can reach any more.
     if (info.dir.existsSync()) info.dir.deleteSync(recursive: true);
-    if (get('activeCatalog') == id) remove('activeCatalog');
+    _db.execute('DELETE FROM catalogs WHERE id = ?', [id]);
   }
 
   void _requireFreeName(String name) {
@@ -251,6 +260,7 @@ class CatalogManager implements SharedSettings {
     _checkpoint(oldDb);
     final id = _newId();
     final dir = Directory('${_catalogsDir.path}/$id');
+    var committed = false;
     try {
       dir.createSync(recursive: true);
       // Copy first, verify, and only then remove the original: an
@@ -269,13 +279,22 @@ class CatalogManager implements SharedSettings {
         'INSERT INTO catalogs (id, name, created) VALUES (?, ?, ?)',
         [id, name, DateTime.now().toUtc().toIso8601String()],
       );
+      // Past this line the copy is the catalog: tidying up the old
+      // location must never be able to take it away again, so failures
+      // from here on leave litter rather than a hole.
+      committed = true;
       oldDb.deleteSync();
       for (final side in ['-wal', '-shm']) {
-        final f = File('${oldDb.path}$side');
-        if (f.existsSync()) f.deleteSync();
+        try {
+          final f = File('${oldDb.path}$side');
+          if (f.existsSync()) f.deleteSync();
+        } catch (_) {}
       }
-      if (oldImages.existsSync()) oldImages.deleteSync(recursive: true);
+      try {
+        if (oldImages.existsSync()) oldImages.deleteSync(recursive: true);
+      } catch (_) {}
     } catch (e) {
+      if (committed) return;
       // Leave nothing half-moved: the original stays where it was and
       // the next launch tries again.
       try {

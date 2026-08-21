@@ -47,7 +47,13 @@ void main() {
     return writeBundle(peer, '${dir.path}/theirs.catsync');
   }
 
-  Future<void> pumpImport(WidgetTester tester, String path) async {
+  /// A save that fails — no Downloads folder, a refused MediaStore
+  /// insert — must leave the import alone.
+  Future<String> failingSave(String path, String name) async =>
+      throw const FileSystemException('No Downloads folder');
+
+  Future<void> pumpImport(WidgetTester tester, String path,
+      {SaveFile? save}) async {
     late BuildContext ctx;
     await tester.pumpWidget(MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -59,7 +65,7 @@ void main() {
     ));
     final imported = importWithSavePoint(store, path);
     unawaited(showImportSummary(ctx, store, imported.result.applied,
-        undo: imported.point, saveTo: saveTo));
+        undo: imported.point, saveTo: save ?? saveTo));
     await tester.pumpAndSettle();
   }
 
@@ -123,10 +129,24 @@ void main() {
     expect(store.savePoints(), hasLength(1));
   });
 
-  test('each undo gets its own file', () {
-    expect(undoFileName(DateTime.utc(2026, 8, 21, 14, 32)),
-        'catlog-undone-2026-08-21-14-32.catsync');
-    expect(undoFileName(DateTime.utc(2026, 8, 21, 14, 32)),
-        isNot(undoFileName(DateTime.utc(2026, 8, 21, 15, 32))));
+  test('each undo gets its own file, even two in the same minute', () {
+    expect(undoFileName(DateTime.utc(2026, 8, 21, 14, 32, 5)),
+        'catlog-undone-2026-08-21-14-32-05.catsync');
+    expect(undoFileName(DateTime.utc(2026, 8, 21, 14, 32, 5)),
+        isNot(undoFileName(DateTime.utc(2026, 8, 21, 14, 32, 41))));
+  });
+
+  testWidgets('a file that cannot be saved costs nothing', (tester) async {
+    await pumpImport(tester, theirBundle(), save: failingSave);
+    expect(store.cats().map((c) => c.name), ['Fremdling']);
+
+    await tester.tap(find.text('Undo this import'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(FilledButton, 'Undo this import'));
+    await tester.pumpAndSettle();
+
+    // The save threw; the import must still be there.
+    expect(store.cats().map((c) => c.name), ['Fremdling']);
+    expect(find.textContaining('Nothing was deleted'), findsOneWidget);
   });
 }

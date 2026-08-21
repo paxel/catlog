@@ -75,12 +75,15 @@ Future<bool> confirmAndRevert(
     ),
   );
   if (yes != true || !context.mounted) return false;
+  final tmp = Directory.systemTemp.createTempSync('catlog-undo');
   try {
-    final tmp = Directory.systemTemp.createTempSync('catlog-undo');
+    // Write the file, put it where the keeper can reach it, and only
+    // then remove anything: a file that never arrived must not cost the
+    // entries it was supposed to hold.
     final name = undoFileName(point.at);
-    revertTo(store, point, keepAt: '${tmp.path}/$name');
+    writeEntriesBundle(store, '${tmp.path}/$name', store.entriesAfter(point.seq));
     final where = await (saveTo ?? saveBesideBackups)('${tmp.path}/$name', name);
-    tmp.deleteSync(recursive: true);
+    store.removeEntriesAfter(point.seq);
     if (context.mounted) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(t.undoneImport(where))));
@@ -93,6 +96,8 @@ Future<bool> confirmAndRevert(
           SnackBar(content: Text(t.catalogExportFailed('$e'))));
     }
     return false;
+  } finally {
+    if (tmp.existsSync()) tmp.deleteSync(recursive: true);
   }
 }
 
@@ -100,7 +105,7 @@ Future<bool> confirmAndRevert(
 String undoFileName(DateTime at) {
   final stamp = at
       .toIso8601String()
-      .substring(0, 16)
+      .substring(0, 19)
       .replaceAll(RegExp(r'[:T]'), '-');
   return 'catlog-undone-$stamp.catsync';
 }

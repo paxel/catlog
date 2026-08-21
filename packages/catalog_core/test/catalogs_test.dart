@@ -93,12 +93,48 @@ void main() {
   test('deleting removes the folder; the last one cannot go', () {
     final m = open();
     addTearDown(m.close);
+    final berlin = m.active;
     final paris = m.create('Paris');
+    m.active = berlin;
     m.delete(paris.id);
     expect(m.catalogs(), hasLength(1));
     expect(Directory('${root.path}/catalogs/${paris.id}').existsSync(),
         isFalse);
     expect(() => m.delete(m.active.id), throwsStateError);
+  });
+
+  test('the catalog you are in cannot be deleted under you', () {
+    final m = open();
+    addTearDown(m.close);
+    final paris = m.create('Paris');
+    m.active = paris;
+    // Its database is open in the app; deleting the folder underneath
+    // would send every later change into a file that is gone.
+    expect(() => m.delete(paris.id), throwsStateError);
+    expect(m.catalogs(), hasLength(2));
+    expect(paris.dir.existsSync(), isTrue);
+  });
+
+  test('a migration that fails after the move keeps the moved catalog',
+      () {
+    final store = CatalogStore.open('${root.path}/catlog.db')
+      ..author = 'Patrick';
+    store.createClowder('Hinterhof');
+    store.close();
+    // A stale side file the tidy-up cannot remove must not undo a move
+    // that has already succeeded.
+    Directory('${root.path}/images').createSync();
+    File('${root.path}/images/one').writeAsStringSync('x');
+    Process.runSync('chmod', ['500', '${root.path}/images']);
+    addTearDown(
+        () => Process.runSync('chmod', ['700', '${root.path}/images']));
+
+    final m = open();
+    addTearDown(m.close);
+    expect(m.catalogs(), hasLength(1));
+    final moved = m.openStore(m.active);
+    expect(moved.clowders().map((c) => c.name), ['Hinterhof']);
+    moved.close();
   });
 
   test('a catalog knows what it costs in space', () {
