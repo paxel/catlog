@@ -31,16 +31,16 @@ import 'sync_screen.dart';
 class ClowderListScreen extends StatefulWidget {
   final CatalogStore store;
 
-  /// Wide (master-detail) mode: opening a clowder selects it in the
-  /// detail pane instead of pushing a route.
-  final void Function(String clowderId)? onOpenClowder;
-  final String? selectedClowderId;
+  /// Wide (master-detail) mode: opening a list page shows it in the
+  /// detail pane instead of pushing a route over the list.
+  final void Function(PanePage page)? onOpenPage;
+  final String? selectedPageId;
 
   const ClowderListScreen(
       {super.key,
       required this.store,
-      this.onOpenClowder,
-      this.selectedClowderId});
+      this.onOpenPage,
+      this.selectedPageId});
 
   @override
   State<ClowderListScreen> createState() => _ClowderListScreenState();
@@ -101,21 +101,36 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     }
   }
 
+  /// Opens a list page: in the detail pane when there is one, over the
+  /// list otherwise. Pages that want the whole window — the map, sync,
+  /// about, the archive — push directly instead of coming through here.
+  Future<void> _open(PanePage page) async {
+    final toPane = widget.onOpenPage;
+    if (toPane != null) {
+      toPane(page);
+      setState(() {});
+      return;
+    }
+    await Navigator.of(context).push(MaterialPageRoute(builder: page.build));
+    if (mounted) setState(() {});
+  }
+
+  static const _straysPageId = 'strays';
+
+  PanePage _straysPage() => PanePage(
+      id: _straysPageId,
+      build: (_) => StraysScreen(store: widget.store));
+
+  PanePage _clowderPage(String id) => PanePage.clowder(
+      id, (_) => ClowderDetailScreen(store: widget.store, clowderId: id));
+
   Future<void> _addClowder() async {
     final result = await askNameAndDate(context, context.t.newClowder);
     if (result == null || !mounted) return;
     final id = widget.store.createClowder(result.name, date: result.date);
     setState(() {});
     if (!mounted) return;
-    if (widget.onOpenClowder != null) {
-      widget.onOpenClowder!(id);
-      return;
-    }
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => ClowderDetailScreen(store: widget.store, clowderId: id),
-    ));
-    if (!mounted) return;
-    setState(() {});
+    await _open(_clowderPage(id));
   }
 
   @override
@@ -142,9 +157,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           IconButton(
             icon: const Icon(Icons.search),
             tooltip: context.t.searchCats,
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => SearchScreen(store: widget.store),
-            )),
+            onPressed: () => _open(PanePage(
+                id: 'search',
+                build: (_) => SearchScreen(store: widget.store))),
           ),
           IconButton(
             icon: const Icon(Icons.map_outlined),
@@ -174,9 +189,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           IconButton(
             icon: const Icon(Icons.tune),
             tooltip: context.t.fields,
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => FieldsScreen(store: widget.store),
-            )),
+            onPressed: () => _open(PanePage(
+                id: 'fields',
+                build: (_) => FieldsScreen(store: widget.store))),
           ),
           Spotlight(
             id: 'home-menu',
@@ -184,12 +199,9 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             onSelected: (v) {
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(
-                      builder: (_) =>
-                          DuplicatesScreen(store: widget.store),
-                    ))
-                    .then((_) => mounted ? setState(() {}) : null);
+                _open(PanePage(
+                    id: 'duplicates',
+                    build: (_) => DuplicatesScreen(store: widget.store)));
               }
               if (v == 'language') {
                 showLanguageDialog(context, widget.store);
@@ -249,22 +261,16 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 return Spotlight(
                     id: 'home-strays',
                     child: _StraysCard(
-                  store: widget.store,
-                  onTap: () async {
-                    await Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) =>
-                          StraysScreen(store: widget.store),
+                      store: widget.store,
+                      selected: widget.selectedPageId == _straysPageId,
+                      onTap: () => _open(_straysPage()),
                     ));
-                    if (!mounted) return;
-                    setState(() {});
-                  },
-                ));
               }
               final clowder = clowders[i - 1];
               return _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
-                selected: clowder.id == widget.selectedClowderId,
+                selected: widget.selectedPageId == 'clowder:${clowder.id}',
                 onContextMenu: (position) async {
                   final action = await showMenu<String>(
                     context: context,
@@ -285,30 +291,10 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                         !widget.store.isHidden(clowder.id)));
                   }
                   if (action == 'open' && context.mounted) {
-                    if (widget.onOpenClowder != null) {
-                      widget.onOpenClowder!(clowder.id);
-                    } else {
-                      await Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => ClowderDetailScreen(
-                            store: widget.store, clowderId: clowder.id),
-                      ));
-                    }
-                    setState(() {});
+                    await _open(_clowderPage(clowder.id));
                   }
                 },
-                onTap: () async {
-                  if (widget.onOpenClowder != null) {
-                    widget.onOpenClowder!(clowder.id);
-                    setState(() {});
-                    return;
-                  }
-                  await Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => ClowderDetailScreen(
-                        store: widget.store, clowderId: clowder.id),
-                  ));
-                  if (!mounted) return;
-                  setState(() {});
-                },
+                onTap: () => _open(_clowderPage(clowder.id)),
               );
             },
           ),
@@ -358,18 +344,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
         : sortKey == 'count'
             ? 1
             : 2 + columns.indexWhere((d) => d.key == sortKey);
-    void open(String clowderId) async {
-      if (widget.onOpenClowder != null) {
-        widget.onOpenClowder!(clowderId);
-        setState(() {});
-        return;
-      }
-      await Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) =>
-            ClowderDetailScreen(store: store, clowderId: clowderId),
-      ));
-      if (mounted) setState(() {});
-    }
+    void open(String clowderId) => _open(_clowderPage(clowderId));
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
@@ -416,12 +391,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   .colorScheme
                   .tertiaryContainer
                   .withValues(alpha: 0.4)),
-              onSelectChanged: (_) async {
-                await Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => StraysScreen(store: store),
-                ));
-                if (mounted) setState(() {});
-              },
+              selected: widget.selectedPageId == _straysPageId,
+              onSelectChanged: (_) => _open(_straysPage()),
               cells: [
                 DataCell(Row(children: [
                   const Icon(Icons.explore, size: 18),
@@ -434,7 +405,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             ),
             for (final clowder in rows)
               DataRow(
-                selected: clowder.id == widget.selectedClowderId,
+                selected: widget.selectedPageId == 'clowder:${clowder.id}',
                 onSelectChanged: (_) => open(clowder.id),
                 cells: [
                   DataCell(Text(clowder.name)),
@@ -575,8 +546,10 @@ class _ClowderCard extends StatelessWidget {
 class _StraysCard extends StatelessWidget {
   final CatalogStore store;
   final VoidCallback onTap;
+  final bool selected;
 
-  const _StraysCard({required this.store, required this.onTap});
+  const _StraysCard(
+      {required this.store, required this.onTap, this.selected = false});
 
   ImageProvider? _cover(List<EntityView> strays) {
     for (final cat in strays) {
@@ -597,10 +570,13 @@ class _StraysCard extends StatelessWidget {
     const shown = 5;
     return Material(
       clipBehavior: Clip.antiAlias,
-      color: scheme.surfaceContainerHighest,
+      color: selected
+          ? scheme.primaryContainer
+          : scheme.surfaceContainerHighest,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: scheme.tertiary, width: 2),
+        side: BorderSide(
+            color: selected ? scheme.primary : scheme.tertiary, width: 2),
       ),
       child: InkWell(
         onTap: onTap,

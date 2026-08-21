@@ -13,6 +13,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- On a tablet or a desktop window, Strays, Search, Find duplicates and
+  Fields open beside the list of clowders instead of covering it.
 - Long cat and clowder names are readable on a phone again: the title
   moved to its own line instead of being cut to a few letters by the
   buttons beside it.
