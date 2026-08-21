@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Administrer kataloger",
   "helpCatalogs": "Hvert katalog er sin egen verden: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.",
-  "spotHomeCatalog": "Det er kataloget, du er i. Tryk på navnet for at skifte eller oprette et nyt."
+  "spotHomeCatalog": "Det er kataloget, du er i. Tryk på navnet for at skifte eller oprette et nyt.",
+  "deleteCatalog": "Slet katalog",
+  "deleteCatalogBody": "Alt i {name} forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} er slettet. Filen ligger i {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Skriv {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Intet blev slettet: katalogfilen kunne ikke skrives ({error}). Frigør plads, eller prøv igen senere.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

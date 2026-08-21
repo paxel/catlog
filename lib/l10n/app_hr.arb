@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Upravljanje katalozima",
   "helpCatalogs": "Svaki katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz se nikada ne miješaju. Dodirni ime na vrhu početnog zaslona da prebaciš, dodaš ili preimenuješ. Tvoje ime, jezik i već viđeni savjeti zajednički su svima.",
-  "spotHomeCatalog": "Ovo je katalog u kojem si. Dodirni ime da prebaciš ili napraviš novi."
+  "spotHomeCatalog": "Ovo je katalog u kojem si. Dodirni ime da prebaciš ili napraviš novi.",
+  "deleteCatalog": "Obriši katalog",
+  "deleteCatalogBody": "Sve u {name} nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši ime za potvrdu.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} je obrisan. Datoteka je u {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Upiši {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Ništa nije obrisano: datoteku kataloga nije bilo moguće zapisati ({error}). Oslobodi prostor ili pokušaj kasnije.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

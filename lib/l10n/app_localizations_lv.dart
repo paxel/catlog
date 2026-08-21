@@ -1538,4 +1538,27 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Šis ir katalogs, kurā esi. Pieskaries nosaukumam, lai pārslēgtu vai izveidotu jaunu.';
+
+  @override
+  String get deleteCatalog => 'Dzēst katalogu';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Viss katalogā $name pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name dzēsts. Fails ir $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Ieraksti $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nekas netika dzēsts: kataloga failu neizdevās ierakstīt ($error). Atbrīvo vietu vai mēģini vēlāk.';
+  }
 }

@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Katalogları yönet",
   "helpCatalogs": "Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.",
-  "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun."
+  "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.",
+  "deleteCatalog": "Kataloğu sil",
+  "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} silindi. Dosya {where} içinde.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "{name} yaz",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Hiçbir şey silinmedi: katalog dosyası yazılamadı ({error}). Yer aç ya da daha sonra yeniden dene.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

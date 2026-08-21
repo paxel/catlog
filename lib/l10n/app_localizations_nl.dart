@@ -1544,4 +1544,27 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.';
+
+  @override
+  String get deleteCatalog => 'Catalogus verwijderen';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Alles in $name verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name verwijderd. Het bestand staat in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Typ $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ($error). Maak ruimte vrij of probeer het later.';
+  }
 }

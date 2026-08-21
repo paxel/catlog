@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Gestionar catálogos",
   "helpCatalogs": "Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca el nombre en la parte superior para cambiar, añadir o renombrar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.",
-  "spotHomeCatalog": "Este es el catálogo en el que estás. Toca el nombre para cambiar o crear otro."
+  "spotHomeCatalog": "Este es el catálogo en el que estás. Toca el nombre para cambiar o crear otro.",
+  "deleteCatalog": "Eliminar catálogo",
+  "deleteCatalogBody": "Todo lo de {name} desaparece: sus gatos, sus fotos, su historial. Antes se guarda un archivo completo donde van las copias automáticas; importarlo devuelve el catálogo. Escribe el nombre para confirmar.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} eliminado. El archivo está en {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Escribe {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "No se eliminó nada: no se pudo escribir el archivo del catálogo ({error}). Libera espacio o inténtalo más tarde.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

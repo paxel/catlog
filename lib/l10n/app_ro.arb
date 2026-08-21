@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Gestionează cataloagele",
   "helpCatalogs": "Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.",
-  "spotHomeCatalog": "Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul."
+  "spotHomeCatalog": "Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.",
+  "deleteCatalog": "Șterge catalogul",
+  "deleteCatalogBody": "Tot ce e în {name} dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} șters. Fișierul e în {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Scrie {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ({error}). Eliberează spațiu sau încearcă mai târziu.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

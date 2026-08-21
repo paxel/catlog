@@ -1501,4 +1501,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotHomeCatalog => 'いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。';
+
+  @override
+  String get deleteCatalog => 'カタログを削除';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name を削除しました。ファイルは $where にあります。';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name と入力';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return '何も削除していません。カタログのファイルを書き出せませんでした（$error）。空き容量を作るか、時間をおいてやり直してください。';
+  }
 }

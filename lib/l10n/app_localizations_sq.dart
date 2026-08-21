@@ -1541,4 +1541,27 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.';
+
+  @override
+  String get deleteCatalog => 'Fshi katalogun';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name u fshi. Skedari është në $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Shkruaj $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ($error). Liro pak hapësirë ose provo më vonë.';
+  }
 }

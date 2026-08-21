@@ -1532,4 +1532,27 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'هذا هو الكتالوج الذي أنت فيه. المس الاسم للتبديل أو لإنشاء كتالوج آخر.';
+
+  @override
+  String get deleteCatalog => 'حذف الكتالوج';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'تم حذف $name. الملف في $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'اكتب $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'لم يُحذف شيء: تعذّرت كتابة ملف الكتالوج ($error). وفّر بعض المساحة أو أعد المحاولة لاحقاً.';
+  }
 }

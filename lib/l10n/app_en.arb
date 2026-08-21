@@ -762,5 +762,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Manage catalogs",
   "helpCatalogs": "A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.",
-  "spotHomeCatalog": "This is the catalog you are in. Tap the name to switch, or to make another one."
+  "spotHomeCatalog": "This is the catalog you are in. Tap the name to switch, or to make another one.",
+  "deleteCatalog": "Delete catalog",
+  "deleteCatalogBody": "Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} deleted. The file is in {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Type {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

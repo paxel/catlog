@@ -1539,4 +1539,27 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Ovo je katalog u kojem si. Dodirni ime da promijeniš ili napraviš novi.';
+
+  @override
+  String get deleteCatalog => 'Obriši katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Sve u $name nestaje: mačke, fotografije, historija. Prvo se snima potpuna datoteka tamo gdje idu automatske sigurnosne kopije — njen uvoz vraća katalog. Upiši ime za potvrdu.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name je obrisan. Datoteka je u $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Upiši $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Ništa nije obrisano: datoteka kataloga nije mogla biti zapisana ($error). Oslobodi prostor ili pokušaj kasnije.';
+  }
 }

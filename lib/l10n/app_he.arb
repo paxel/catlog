@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "ניהול קטלוגים",
   "helpCatalogs": "כל קטלוג הוא עולם בפני עצמו: החתולים, המושבות, השדות, התמונות ושותפי הסנכרון שלו. ברלין ופריז לעולם לא מתערבבות. הקש על השם בראש המסך הראשי כדי להחליף, להוסיף או לשנות שם. השם שלך, השפה והטיפים שכבר ראית משותפים לכולם.",
-  "spotHomeCatalog": "זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד."
+  "spotHomeCatalog": "זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד.",
+  "deleteCatalog": "מחיקת קטלוג",
+  "deleteCatalogBody": "כל מה שיש ב-{name} נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} נמחק. הקובץ נמצא ב-{where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "הקלד {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ({error}). פנה מקום או נסה שוב מאוחר יותר.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

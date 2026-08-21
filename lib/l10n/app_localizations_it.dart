@@ -1546,4 +1546,27 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Questo è il catalogo in cui sei. Tocca il nome per cambiare o crearne un altro.';
+
+  @override
+  String get deleteCatalog => 'Elimina catalogo';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Tutto ciò che è in $name sparisce: i gatti, le foto, la cronologia. Prima viene salvato un file completo dove vanno i backup automatici; importarlo riporta indietro il catalogo. Scrivi il nome per confermare.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name eliminato. Il file è in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Scrivi $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Non è stato eliminato nulla: il file del catalogo non è stato scritto ($error). Libera spazio o riprova più tardi.';
+  }
 }

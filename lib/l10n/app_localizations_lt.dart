@@ -1541,4 +1541,27 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują.';
+
+  @override
+  String get deleteCatalog => 'Ištrinti katalogą';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Viskas kataloge $name dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name ištrintas. Failas yra $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Įrašyk $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nieko neištrinta: nepavyko įrašyti katalogo failo ($error). Atlaisvink vietos arba pabandyk vėliau.';
+  }
 }

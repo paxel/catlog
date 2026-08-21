@@ -11,7 +11,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   catalog you are in; tapping it switches, adds one, or renames one.
   Each catalog keeps its own cats, clowders, fields, photos and sync
   partners, while your name, your language and the tips you have seen
-  are shared by all of them.
+  are shared by all of them. Deleting a catalog writes a complete file
+  where the automatic backups go before anything is removed, and asks
+  you to type its name.
 
 ### Changed
 

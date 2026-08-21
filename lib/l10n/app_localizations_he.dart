@@ -1528,4 +1528,27 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד.';
+
+  @override
+  String get deleteCatalog => 'מחיקת קטלוג';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'כל מה שיש ב-$name נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name נמחק. הקובץ נמצא ב-$where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'הקלד $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ($error). פנה מקום או נסה שוב מאוחר יותר.';
+  }
 }

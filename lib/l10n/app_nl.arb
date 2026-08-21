@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Catalogi beheren",
   "helpCatalogs": "Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
-  "spotHomeCatalog": "Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken."
+  "spotHomeCatalog": "Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.",
+  "deleteCatalog": "Catalogus verwijderen",
+  "deleteCatalogBody": "Alles in {name} verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} verwijderd. Het bestand staat in {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Typ {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ({error}). Maak ruimte vrij of probeer het later.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

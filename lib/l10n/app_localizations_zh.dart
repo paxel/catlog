@@ -1484,4 +1484,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';
+
+  @override
+  String get deleteCatalog => '删除目录';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '已删除 $name。文件在 $where。';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '输入 $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return '没有删除任何内容：无法写入目录文件（$error）。请腾出空间或稍后再试。';
+  }
 }

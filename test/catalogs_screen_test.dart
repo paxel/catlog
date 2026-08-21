@@ -147,4 +147,92 @@ void main() {
     expect(find.textContaining('A catalog is a world of its own'),
         findsOneWidget);
   });
+
+  group('deleting a catalog', () {
+    late Directory saved;
+
+    Future<void> pumpManage(WidgetTester tester) async {
+      saved = Directory.systemTemp.createTempSync('catlog-saved');
+      addTearDown(() {
+        if (saved.existsSync()) saved.deleteSync(recursive: true);
+      });
+      await tester.pumpWidget(MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: CatalogsScreen(
+          catalogs: catalogs,
+          store: store,
+          onSwitch: (to) {
+            store.close();
+            catalogs.active = to;
+            store = catalogs.openStore(to);
+          },
+          saveTo: (path, name) async {
+            final to = '${saved.path}/$name';
+            File(path).copySync(to);
+            return to;
+          },
+        ),
+      ));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('the last catalog has no delete button', (tester) async {
+      await pumpManage(tester);
+      expect(find.byIcon(Icons.delete_outline), findsNothing);
+    });
+
+    testWidgets('a mistyped name deletes nothing', (tester) async {
+      catalogs.create('Paris');
+      await pumpManage(tester);
+      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'paris');
+      await tester.pumpAndSettle();
+      final button = tester.widget<FilledButton>(
+          find.widgetWithText(FilledButton, 'Delete'));
+      expect(button.onPressed, isNull);
+      expect(catalogs.catalogs(), hasLength(2));
+    });
+
+    testWidgets('the typed name deletes it, and the file is kept first',
+        (tester) async {
+      final paris = catalogs.create('Paris');
+      final parisStore = catalogs.openStore(paris)..author = 'test';
+      parisStore.createClowder('Belleville');
+      parisStore.close();
+
+      await pumpManage(tester);
+      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Paris');
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
+      expect(catalogs.catalogs().map((c) => c.name), ['Berlin']);
+      expect(paris.dir.existsSync(), isFalse);
+      final file = File('${saved.path}/catlog-paris.catsync');
+      expect(file.existsSync(), isTrue);
+
+      // What was written brings the catalog back.
+      final restored = catalogs.openStore(catalogs.create('Paris again'));
+      restored.author = 'test';
+      importBundle(restored, file.path);
+      expect(restored.clowders().map((c) => c.name), ['Belleville']);
+      restored.close();
+    });
+
+    testWidgets('the keeper is told where the file went', (tester) async {
+      catalogs.create('Paris');
+      await pumpManage(tester);
+      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Paris');
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('catlog-paris.catsync'), findsOneWidget);
+    });
+  });
 }

@@ -1539,4 +1539,27 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Ово је каталог у ком си. Додирни име да промениш или направиш нови.';
+
+  @override
+  String get deleteCatalog => 'Обриши каталог';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Све у каталогу $name нестаје: мачке, фотографије, историја. Прво се чува потпуна датотека тамо где иду аутоматске резервне копије — њен увоз враћа каталог. Упиши име да потврдиш.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name је обрисан. Датотека је у $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Упиши $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Ништа није обрисано: датотека каталога није могла да се упише ($error). Ослободи простор или покушај касније.';
+  }
 }

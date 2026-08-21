@@ -2821,6 +2821,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This is the catalog you are in. Tap the name to switch, or to make another one.'**
   String get spotHomeCatalog;
+
+  /// No description provided for @deleteCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete catalog'**
+  String get deleteCatalog;
+
+  /// No description provided for @deleteCatalogBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.'**
+  String deleteCatalogBody(String name);
+
+  /// No description provided for @catalogDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} deleted. The file is in {where}.'**
+  String catalogDeleted(String name, String where);
+
+  /// No description provided for @typeTheName.
+  ///
+  /// In en, this message translates to:
+  /// **'Type {name}'**
+  String typeTheName(String name);
+
+  /// No description provided for @catalogExportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.'**
+  String catalogExportFailed(String error);
 }
 
 class _AppLocalizationsDelegate

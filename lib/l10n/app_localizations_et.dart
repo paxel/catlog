@@ -1538,4 +1538,27 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.';
+
+  @override
+  String get deleteCatalog => 'Kustuta kataloog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kõik kataloogis $name kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name kustutatud. Fail on kaustas $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Kirjuta $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ($error). Vabasta ruumi või proovi hiljem uuesti.';
+  }
 }

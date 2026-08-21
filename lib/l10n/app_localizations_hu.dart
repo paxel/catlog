@@ -1540,4 +1540,27 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.';
+
+  @override
+  String get deleteCatalog => 'Katalógus törlése';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name törölve. A fájl itt van: $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Írd be: $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ($error). Szabadíts fel helyet, vagy próbáld később.';
+  }
 }

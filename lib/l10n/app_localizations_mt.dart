@@ -1543,4 +1543,27 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.';
+
+  @override
+  String get deleteCatalog => 'Ħassar il-katalgu';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kollox f’$name jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name tħassar. Il-fajl qiegħed f’$where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Ikteb $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ($error). Illibera spazju jew erġa’ pprova aktar tard.';
+  }
 }

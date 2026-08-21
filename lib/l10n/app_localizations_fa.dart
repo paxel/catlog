@@ -1536,4 +1536,27 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'این کاتالوگی است که در آن هستید. برای تغییر یا ساخت یکی دیگر روی نام بزنید.';
+
+  @override
+  String get deleteCatalog => 'حذف کاتالوگ';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'همه‌چیز در $name از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name حذف شد. فایل در $where است.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name را بنویسید';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ($error). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.';
+  }
 }

@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "管理目录",
   "helpCatalogs": "每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。",
-  "spotHomeCatalog": "这是你当前所在的目录。点按名称即可切换或新建。"
+  "spotHomeCatalog": "这是你当前所在的目录。点按名称即可切换或新建。",
+  "deleteCatalog": "删除目录",
+  "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "已删除 {name}。文件在 {where}。",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "输入 {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "没有删除任何内容：无法写入目录文件（{error}）。请腾出空间或稍后再试。",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

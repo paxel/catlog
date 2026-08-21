@@ -1544,4 +1544,27 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Πάτησε το όνομα για αλλαγή ή για νέον.';
+
+  @override
+  String get deleteCatalog => 'Διαγραφή καταλόγου';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Όλα στο $name χάνονται: γάτες, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο. Γράψε το όνομα για επιβεβαίωση.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'Ο κατάλογος $name διαγράφηκε. Το αρχείο είναι στο $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Γράψε $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Δεν διαγράφηκε τίποτα: το αρχείο του καταλόγου δεν γράφτηκε ($error). Ελευθέρωσε χώρο ή δοκίμασε αργότερα.';
+  }
 }

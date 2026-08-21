@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "مدیریت کاتالوگ‌ها",
   "helpCatalogs": "هر کاتالوگ دنیای خودش است: گربه‌ها، کلونی‌ها، فیلدها، عکس‌ها و همگام‌سازهای خودش. برلین و پاریس هرگز مخلوط نمی‌شوند. برای تغییر، افزودن یا تغییر نام، بالای صفحهٔ خانه روی نام بزنید. نام شما، زبان و راهنماهایی که دیده‌اید بین همه مشترک است.",
-  "spotHomeCatalog": "این کاتالوگی است که در آن هستید. برای تغییر یا ساخت یکی دیگر روی نام بزنید."
+  "spotHomeCatalog": "این کاتالوگی است که در آن هستید. برای تغییر یا ساخت یکی دیگر روی نام بزنید.",
+  "deleteCatalog": "حذف کاتالوگ",
+  "deleteCatalogBody": "همه‌چیز در {name} از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} حذف شد. فایل در {where} است.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "{name} را بنویسید",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ({error}). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

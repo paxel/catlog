@@ -1540,4 +1540,27 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.';
+
+  @override
+  String get deleteCatalog => 'Kataloğu sil';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name silindi. Dosya $where içinde.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name yaz';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Hiçbir şey silinmedi: katalog dosyası yazılamadı ($error). Yer aç ya da daha sonra yeniden dene.';
+  }
 }

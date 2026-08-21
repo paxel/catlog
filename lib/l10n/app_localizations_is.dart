@@ -1543,4 +1543,27 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.';
+
+  @override
+  String get deleteCatalog => 'Eyða skrá';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name eytt. Skráin er í $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Sláðu inn $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Engu var eytt: ekki tókst að skrifa skráarskrána ($error). Losaðu pláss eða reyndu aftur síðar.';
+  }
 }

@@ -1540,4 +1540,27 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.';
+
+  @override
+  String get deleteCatalog => 'Poista luettelo';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name poistettu. Tiedosto on kohteessa $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Kirjoita $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa tai yritä myöhemmin.';
+  }
 }

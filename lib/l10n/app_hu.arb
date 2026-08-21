@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Katalógusok kezelése",
   "helpCatalogs": "Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.",
-  "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához."
+  "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.",
+  "deleteCatalog": "Katalógus törlése",
+  "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} törölve. A fájl itt van: {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Írd be: {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ({error}). Szabadíts fel helyet, vagy próbáld később.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

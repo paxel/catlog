@@ -1538,4 +1538,27 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Det här är katalogen du är i. Tryck på namnet för att byta eller skapa en ny.';
+
+  @override
+  String get deleteCatalog => 'Ta bort katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Allt i $name försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen. Skriv namnet för att bekräfta.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name har tagits bort. Filen finns i $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Skriv $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Inget togs bort: katalogfilen kunde inte skrivas ($error). Frigör utrymme eller försök igen senare.';
+  }
 }

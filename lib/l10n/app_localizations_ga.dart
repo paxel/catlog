@@ -1546,4 +1546,27 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.';
+
+  @override
+  String get deleteCatalog => 'Scrios an chatalóg';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Imíonn gach rud in $name: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'Scriosadh $name. Tá an comhad in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Clóscríobh $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ($error). Déan spás a shaoradh nó bain triail eile as níos déanaí.';
+  }
 }

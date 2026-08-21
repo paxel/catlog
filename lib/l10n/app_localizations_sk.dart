@@ -1538,4 +1538,27 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.';
+
+  @override
+  String get deleteCatalog => 'Zmazať katalóg';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name zmazaný. Súbor je v $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Napíš $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nič sa nezmazalo: súbor katalógu sa nepodarilo zapísať ($error). Uvoľni miesto alebo to skús neskôr.';
+  }
 }

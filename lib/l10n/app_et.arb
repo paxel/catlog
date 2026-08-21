@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Halda katalooge",
   "helpCatalogs": "Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.",
-  "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua."
+  "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.",
+  "deleteCatalog": "Kustuta kataloog",
+  "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} kustutatud. Fail on kaustas {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Kirjuta {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ({error}). Vabasta ruumi või proovi hiljem uuesti.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

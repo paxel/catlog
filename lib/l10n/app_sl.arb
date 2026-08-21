@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Upravljanje katalogov",
   "helpCatalogs": "Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.",
-  "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega."
+  "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega.",
+  "deleteCatalog": "Izbriši katalog",
+  "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} izbrisan. Datoteka je v {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Vpiši {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Nič ni bilo izbrisano: datoteke kataloga ni bilo mogoče zapisati ({error}). Sprosti prostor ali poskusi pozneje.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

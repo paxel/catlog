@@ -1539,4 +1539,27 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Det er kataloget, du er i. Tryk på navnet for at skifte eller oprette et nyt.';
+
+  @override
+  String get deleteCatalog => 'Slet katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Alt i $name forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name er slettet. Filen ligger i $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Skriv $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Intet blev slettet: katalogfilen kunne ikke skrives ($error). Frigør plads, eller prøv igen senere.';
+  }
 }

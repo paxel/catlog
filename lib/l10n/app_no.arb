@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Administrer kataloger",
   "helpCatalogs": "Hver katalog er sin egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.",
-  "spotHomeCatalog": "Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny."
+  "spotHomeCatalog": "Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny.",
+  "deleteCatalog": "Slett katalog",
+  "deleteCatalogBody": "Alt i {name} forsvinner: kattene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} er slettet. Filen ligger i {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Skriv {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Ingenting ble slettet: katalogfilen kunne ikke skrives ({error}). Frigjør plass, eller prøv igjen senere.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

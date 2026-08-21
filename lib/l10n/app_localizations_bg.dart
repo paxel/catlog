@@ -1540,4 +1540,27 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Това е каталогът, в който сте. Докоснете името, за да смените или да добавите нов.';
+
+  @override
+  String get deleteCatalog => 'Изтриване на каталога';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Всичко в $name изчезва: котките, снимките, историята. Първо се записва пълен файл там, където отиват автоматичните архиви — импортирането му връща каталога. Напишете името, за да потвърдите.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name е изтрит. Файлът е в $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Напишете $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Нищо не е изтрито: файлът на каталога не можа да се запише ($error). Освободете място или опитайте по-късно.';
+  }
 }

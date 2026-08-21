@@ -1547,4 +1547,27 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Das ist der Katalog, in dem du bist. Tippe auf den Namen, um zu wechseln oder einen weiteren anzulegen.';
+
+  @override
+  String get deleteCatalog => 'Katalog löschen';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Alles in $name verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe den Namen ein, um zu bestätigen.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name gelöscht. Die Datei liegt in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name eintippen';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nichts wurde gelöscht: die Katalogdatei ließ sich nicht schreiben ($error). Schaff Platz oder versuch es später noch einmal.';
+  }
 }

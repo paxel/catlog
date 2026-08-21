@@ -443,5 +443,14 @@
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
   "manageCatalogs": "Správa katalogů",
   "helpCatalogs": "Každý katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.",
-  "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího."
+  "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího.",
+  "deleteCatalog": "Smazat katalog",
+  "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
+  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "catalogDeleted": "{name} smazán. Soubor je v {where}.",
+  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "typeTheName": "Napiš {name}",
+  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "catalogExportFailed": "Nic se nesmazalo: soubor katalogu se nepodařilo zapsat ({error}). Uvolni místo nebo to zkus později.",
+  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}}
 }

@@ -1541,4 +1541,27 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get spotHomeCatalog =>
       'Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.';
+
+  @override
+  String get deleteCatalog => 'Șterge catalogul';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name șters. Fișierul e în $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Scrie $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ($error). Eliberează spațiu sau încearcă mai târziu.';
+  }
 }
