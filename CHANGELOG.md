@@ -13,7 +13,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   partners, while your name, your language and the tips you have seen
   are shared by all of them. Deleting a catalog writes a complete file
   where the automatic backups go before anything is removed, and asks
-  you to type its name.
+  you to type its name. Each catalog's automatic backup is its own file,
+  named after the catalog.
 
 ### Changed
 

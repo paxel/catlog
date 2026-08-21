@@ -20,6 +20,37 @@ const backupErrorKey = 'lastBackupError';
 /// Downloads folder; iOS has no folder that survives an uninstall, so
 /// the app's Documents directory — visible in Files — is the best there
 /// is.
+/// The file a catalog's backup is written to. One per catalog, named
+/// after it, so using one catalog cannot overwrite another's safety net
+/// and a folder of these files still says which city is which.
+String backupFileName(String? catalogName) {
+  final safe = (catalogName ?? '')
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+  return safe.isEmpty ? 'catlog-backup.catsync' : 'catlog-$safe.catsync';
+}
+
+/// Removes a file from where the backups go — after a rename, the file
+/// under the old name is no longer anybody's backup.
+Future<void> removeBesideBackups(String name) async {
+  try {
+    if (Platform.isAndroid) {
+      await const MethodChannel('catlog/backup')
+          .invokeMethod('deleteFromDownloads', {'name': name});
+      return;
+    }
+    final dir = Platform.isIOS
+        ? await getApplicationDocumentsDirectory()
+        : await getDownloadsDirectory();
+    if (dir == null) return;
+    final file = File('${dir.path}/$name');
+    if (file.existsSync()) file.deleteSync();
+  } catch (_) {
+    // A leftover file is untidy, never a failure worth stopping for.
+  }
+}
+
 Future<String> saveBesideBackups(String path, String name) async {
   if (Platform.isAndroid) {
     await const MethodChannel('catlog/backup')
@@ -52,9 +83,10 @@ Future<void> autoBackup(CatalogStore store) async {
 
     final tmp = await getTemporaryDirectory();
     // Own-device safety net: the backup always carries Private data too.
-    final path = writeBundle(store, '${tmp.path}/catlog-backup.catsync',
-        includePrivate: true);
-    await saveBesideBackups(path, 'catlog-backup.catsync');
+    final name = backupFileName(store.localSetting(catalogNameKey));
+    final path =
+        writeBundle(store, '${tmp.path}/$name', includePrivate: true);
+    await saveBesideBackups(path, name);
     store.setLocalSetting('lastBackupVector', vector);
     store.setLocalSetting(backupErrorKey, '');
   } catch (e) {

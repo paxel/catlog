@@ -44,6 +44,13 @@ class MainActivity : FlutterActivity() {
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
+                } else if (call.method == "deleteFromDownloads") {
+                    try {
+                        deleteFromDownloads(call.argument<String>("name")!!)
+                        result.success(null)
+                    } catch (e: Exception) {
+                        result.error("backup", e.message, null)
+                    }
                 } else {
                     result.notImplemented()
                 }
@@ -105,6 +112,27 @@ class MainActivity : FlutterActivity() {
         if (paths.isEmpty()) return
         pendingImages = paths
         openChannel?.invokeMethod("sharedImages", paths)
+    }
+
+    /// Removes a backup file from Downloads/catlog — used when a catalog
+    /// is renamed, so the folder does not fill with names that no longer
+    /// mean anything.
+    private fun deleteFromDownloads(name: String) {
+        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            contentResolver.delete(
+                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
+                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
+                arrayOf("$relativePath/", "$name%")
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            val dir = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                "catlog"
+            )
+            File(dir, name).delete()
+        }
     }
 
     /// Writes into MediaStore Downloads/catlog — system-owned storage

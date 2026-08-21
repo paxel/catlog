@@ -235,4 +235,26 @@ void main() {
       expect(find.textContaining('catlog-paris.catsync'), findsOneWidget);
     });
   });
+
+  testWidgets('renaming a catalog renames its backup file', (tester) async {
+    final removed = <String>[];
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CatalogsScreen(
+        catalogs: catalogs,
+        store: store,
+        onSwitch: (_) {},
+        removeSaved: (name) async => removed.add(name),
+      ),
+    ));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byIcon(Icons.drive_file_rename_outline));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Berlin Nord');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(removed, ['catlog-berlin.catsync']);
+  });
 }

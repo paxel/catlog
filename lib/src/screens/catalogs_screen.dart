@@ -26,13 +26,18 @@ class CatalogsScreen extends StatefulWidget {
   /// see what was written without a platform channel.
   final Future<String> Function(String path, String name)? saveTo;
 
+  /// Removes a file from where the backups go — the old name after a
+  /// rename. Injectable for the same reason.
+  final Future<void> Function(String name)? removeSaved;
+
   const CatalogsScreen(
       {super.key,
       required this.catalogs,
       required this.store,
       required this.onSwitch,
       this.onChanged,
-      this.saveTo});
+      this.saveTo,
+      this.removeSaved});
 
   @override
   State<CatalogsScreen> createState() => _CatalogsScreenState();
@@ -61,7 +66,10 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
         initial: catalog.name);
     if (name == null || !mounted) return;
     try {
+      final before = backupFileName(catalog.name);
       widget.catalogs.rename(catalog.id, name);
+      final after = backupFileName(name);
+      if (after != before) await (widget.removeSaved ?? removeBesideBackups)(before);
       _changed();
     } on DuplicateCatalogName {
       if (mounted) _sayTaken(name);
@@ -81,12 +89,12 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
     try {
       final store = widget.catalogs.openStore(catalog);
       final tmp = Directory.systemTemp.createTempSync('catlog-export');
-      final file = writeBundle(
-          store, '${tmp.path}/${_fileName(catalog.name)}',
-          includePrivate: true);
+      final name = backupFileName(catalog.name);
+      final file =
+          writeBundle(store, '${tmp.path}/$name', includePrivate: true);
       store.close();
       final save = widget.saveTo ?? saveBesideBackups;
-      final where = await save(file, _fileName(catalog.name));
+      final where = await save(file, name);
       tmp.deleteSync(recursive: true);
       final wasActive = widget.catalogs.active.id == catalog.id;
       widget.catalogs.delete(catalog.id);
@@ -230,15 +238,6 @@ Future<void> showCatalogSwitcher(
       ]),
     ),
   );
-}
-
-/// The file a catalog is written to before it is deleted.
-String _fileName(String catalogName) {
-  final safe = catalogName
-      .toLowerCase()
-      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
-      .replaceAll(RegExp(r'^-|-$'), '');
-  return 'catlog-${safe.isEmpty ? 'catalog' : safe}.catsync';
 }
 
 /// Deleting asks for the catalog's name in full: the export makes the
