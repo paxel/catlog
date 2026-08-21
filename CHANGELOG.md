@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [0.3.0] - Unreleased
 
+### Changed
+
+- Tutorial tips sit beside what they highlight instead of stretching
+  across the screen, and no longer draw an arrow that pointed at empty
+  space on tablets.
+
 ### Fixed
 
 - Entries written after deleting an author's data reach the people you

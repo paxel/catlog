@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
@@ -167,7 +168,7 @@ Future<void> runSpotlights(
       // The overlay paints in GLOBAL coordinates; the default SafeArea
       // wrapper would shift it down by the status-bar inset.
       useSafeArea: false,
-      builder: (context) => _SpotlightOverlay(
+      builder: (context) => SpotlightTip(
         target: rect.inflate(6),
         text: item.text(context.t),
         isLast: item == due.last,
@@ -184,36 +185,66 @@ Future<void> runSpotlights(
   }
 }
 
-class _SpotlightOverlay extends StatelessWidget {
+/// Widest a tip card gets. A single sentence stretched across a tablet
+/// is the wrong shape, and a card beside the highlight says what an
+/// arrow used to say badly.
+const tipMaxWidth = 400.0;
+
+/// Smallest gap between the card and the edge of the screen.
+const tipMargin = 24.0;
+
+/// Gap between the card and the element it explains.
+const tipGap = 16.0;
+
+/// Where a tip sits for a highlighted [target] on a [screen]: centred on
+/// the target, capped in width, kept inside the screen, and above or
+/// below the target so it never covers it.
+({double left, double width, double? top, double? bottom}) tipPlacement(
+    Rect target, Size screen) {
+  final width = math.min(tipMaxWidth, screen.width - 2 * tipMargin);
+  final rightmost = math.max(tipMargin, screen.width - tipMargin - width);
+  final left =
+      (target.center.dx - width / 2).clamp(tipMargin, rightmost).toDouble();
+  final below = target.bottom < screen.height / 2;
+  return (
+    left: left,
+    width: width,
+    top: below ? target.bottom + tipGap : null,
+    bottom: below ? null : screen.height - target.top + tipGap,
+  );
+}
+
+/// One tip: the page dimmed with [target] cut out of it, and a card
+/// beside it. Public so a test can place it without running a tour.
+class SpotlightTip extends StatelessWidget {
   final Rect target;
   final String text;
   final bool isLast;
 
-  const _SpotlightOverlay(
-      {required this.target, required this.text, required this.isLast});
+  const SpotlightTip(
+      {super.key,
+      required this.target,
+      required this.text,
+      required this.isLast});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    final below = target.bottom < size.height / 2;
+    final place = tipPlacement(target, MediaQuery.sizeOf(context));
     return Stack(children: [
       Positioned.fill(
         child: CustomPaint(
             painter: _DimPainter(target)),
       ),
       Positioned(
-        left: 24,
-        right: 24,
-        top: below ? target.bottom + 16 : null,
-        bottom: below ? null : size.height - target.top + 16,
+        left: place.left,
+        width: place.width,
+        top: place.top,
+        bottom: place.bottom,
         child: Material(
           color: Colors.transparent,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(below ? Icons.arrow_upward : Icons.arrow_downward,
-                  color: Colors.white),
-              const SizedBox(height: 8),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
