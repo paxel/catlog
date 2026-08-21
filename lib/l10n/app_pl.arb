@@ -463,5 +463,18 @@
   "undoImportBody": "{count} zmian z tego importu zostanie usuniętych. Najpierw trafią do pliku, którego import je przywróci. Osoby, z którymi już zsynchronizowałeś, zachowają swoją kopię — tego nie da się cofnąć.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Cofnięto. Plik jest w {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Cofnij się",
+  "goBackToHere": "Wróć tutaj",
+  "momentImport": "Przed importem",
+  "momentSync": "Przed synchronizacją",
+  "momentMerge": "Przed scaleniem",
+  "momentHardDelete": "Przed usunięciem danych jednego autora",
+  "momentArchive": "Przed archiwizacją",
+  "momentManual": "Oznaczone przez ciebie",
+  "showOlderMoments": "Pokaż starsze",
+  "goBackBody": "Wszystko po tej chwili zostanie usunięte — {count} zmian. Najpierw trafi do pliku, którego import to przywróci, a każda nowsza chwila zniknie razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowają kopię — tego nie da się cofnąć.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Nazwij tę chwilę",
+  "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały."
 }

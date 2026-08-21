@@ -1592,4 +1592,43 @@ class AppLocalizationsTr extends AppLocalizations {
   String undoneImport(String where) {
     return 'Geri alındı. Dosya $where içinde.';
   }
+
+  @override
+  String get goBackTitle => 'Geri dön';
+
+  @override
+  String get goBackToHere => 'Buraya dön';
+
+  @override
+  String get momentImport => 'İçe aktarmadan önce';
+
+  @override
+  String get momentSync => 'Eşitlemeden önce';
+
+  @override
+  String get momentMerge => 'Birleştirmeden önce';
+
+  @override
+  String get momentHardDelete => 'Bir yazarın verilerini silmeden önce';
+
+  @override
+  String get momentArchive => 'Arşivlemeden önce';
+
+  @override
+  String get momentManual => 'Senin işaretlediğin';
+
+  @override
+  String get showOlderMoments => 'Daha eskileri göster';
+
+  @override
+  String goBackBody(int count) {
+    return 'Bu andan sonraki her şey kaldırılır — $count değişiklik. Önce bir dosyaya yazılır; onu içe aktarmak hepsini geri getirir, bundan yeni her an da onunla gider. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.';
+  }
+
+  @override
+  String get nameThisMoment => 'Bu ana bir ad ver';
+
+  @override
+  String get helpGoBack =>
+      'Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur.';
 }

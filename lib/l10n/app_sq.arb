@@ -463,5 +463,18 @@
   "undoImportBody": "{count} ndryshimet që solli ky importim hiqen. Së pari shkruhen në një skedar, importimi i të cilit i kthen. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen e tyre — kjo nuk merret mbrapsht.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "U zhbë. Skedari është në {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Kthehu prapa",
+  "goBackToHere": "Kthehu këtu",
+  "momentImport": "Para importimit",
+  "momentSync": "Para sinkronizimit",
+  "momentMerge": "Para bashkimit",
+  "momentHardDelete": "Para fshirjes së të dhënave të një autori",
+  "momentArchive": "Para arkivimit",
+  "momentManual": "Shënuar prej teje",
+  "showOlderMoments": "Shfaq më të vjetrat",
+  "goBackBody": "Gjithçka pas këtij çasti hiqet — {count} ndryshime. Së pari shkruhet në një skedar, importimi i të cilit e kthen gjithçka, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen — kjo nuk merret mbrapsht.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Emërto këtë çast",
+  "helpGoBack": "Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën."
 }

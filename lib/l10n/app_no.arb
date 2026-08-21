@@ -463,5 +463,18 @@
   "undoImportBody": "De {count} endringene denne importen brakte inn, fjernes. De skrives først til en fil, og å importere den henter dem tilbake. De du allerede har synkronisert med, beholder kopien sin — det kan ikke tas tilbake.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Angret. Filen ligger i {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Gå tilbake",
+  "goBackToHere": "Gå tilbake hit",
+  "momentImport": "Før importen",
+  "momentSync": "Før synkroniseringen",
+  "momentMerge": "Før sammenslåingen",
+  "momentHardDelete": "Før sletting av en forfatters data",
+  "momentArchive": "Før arkiveringen",
+  "momentManual": "Merket av deg",
+  "showOlderMoments": "Vis eldre",
+  "goBackBody": "Alt etter dette øyeblikket fjernes — {count} endringer. Det skrives først til en fil, og å importere den henter alt tilbake; hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder kopien sin — det kan ikke tas tilbake.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Gi dette øyeblikket et navn",
+  "helpGoBack": "Øyeblikkene da denne katalogen endret form: før hver import og hver synkronisering, før en sammenslåing, en arkivering eller en sletting — og hver gang du selv merket ett. Velger du ett, går katalogen tilbake til den tilstanden: alt etterpå skrives til en fil du beholder og fjernes så, og hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder det de fikk."
 }

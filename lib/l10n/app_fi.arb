@@ -463,5 +463,18 @@
   "undoImportBody": "Tämän tuonnin tuomat {count} muutosta poistetaan. Ne kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa ne. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Kumottu. Tiedosto on kohteessa {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Palaa taaksepäin",
+  "goBackToHere": "Palaa tähän",
+  "momentImport": "Ennen tuontia",
+  "momentSync": "Ennen synkronointia",
+  "momentMerge": "Ennen yhdistämistä",
+  "momentHardDelete": "Ennen yhden tekijän tietojen poistoa",
+  "momentArchive": "Ennen arkistointia",
+  "momentManual": "Itse merkitsemäsi",
+  "showOlderMoments": "Näytä vanhemmat",
+  "goBackBody": "Kaikki tämän hetken jälkeen poistetaan — {count} muutosta. Se kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa kaiken, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Nimeä tämä hetki",
+  "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa."
 }

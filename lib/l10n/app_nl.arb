@@ -463,5 +463,18 @@
   "undoImportBody": "De {count} wijzigingen van deze import worden weggehaald. Ze worden eerst naar een bestand geschreven; dat importeren zet ze terug. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Ongedaan gemaakt. Het bestand staat in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Terug naar eerder",
+  "goBackToHere": "Hierheen terug",
+  "momentImport": "Vóór de import",
+  "momentSync": "Vóór het synchroniseren",
+  "momentMerge": "Vóór het samenvoegen",
+  "momentHardDelete": "Vóór het wissen van iemands gegevens",
+  "momentArchive": "Vóór het archiveren",
+  "momentManual": "Door jou gemarkeerd",
+  "showOlderMoments": "Oudere tonen",
+  "goBackBody": "Alles na dit moment wordt weggehaald — {count} wijzigingen. Het wordt eerst naar een bestand geschreven; dat importeren zet alles terug, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Geef dit moment een naam",
+  "helpGoBack": "De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg."
 }

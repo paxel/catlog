@@ -463,5 +463,18 @@
   "undoImportBody": "この読み込みで入った {count} 件の変更を取り除きます。先にファイルへ書き出すので、それを読み込めば戻せます。すでに同期した相手の手元には残ります。取り消せません。",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "取り消しました。ファイルは {where} にあります。",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "前の状態に戻す",
+  "goBackToHere": "ここに戻す",
+  "momentImport": "読み込みの前",
+  "momentSync": "同期の前",
+  "momentMerge": "統合の前",
+  "momentHardDelete": "ある記録者のデータを削除する前",
+  "momentArchive": "アーカイブの前",
+  "momentManual": "自分で付けた印",
+  "showOlderMoments": "古いものを表示",
+  "goBackBody": "この時点より後はすべて取り除かれます（{count} 件）。先にファイルへ書き出すので読み込めば戻せますが、これより新しい時点も一緒に消えます。すでに同期した相手の手元には残り、取り消せません。",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "この時点に名前をつける",
+  "helpGoBack": "このカタログが大きく変わった時点の一覧です。読み込みや同期の前、統合・アーカイブ・削除の前、そして自分で印を付けたときに記録されます。ひとつ選ぶとカタログはその状態に戻ります。それ以降はすべて手元に残るファイルに書き出してから取り除かれ、それより新しい時点も一緒に消えます。すでに同期した相手は受け取ったものを持ち続けます。"
 }

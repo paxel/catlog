@@ -1595,4 +1595,43 @@ class AppLocalizationsMt extends AppLocalizations {
   String undoneImport(String where) {
     return 'Imħassar. Il-fajl qiegħed f’$where.';
   }
+
+  @override
+  String get goBackTitle => 'Mur lura';
+
+  @override
+  String get goBackToHere => 'Erġa’ lura hawn';
+
+  @override
+  String get momentImport => 'Qabel l-importazzjoni';
+
+  @override
+  String get momentSync => 'Qabel is-sinkronizzazzjoni';
+
+  @override
+  String get momentMerge => 'Qabel l-għaqda';
+
+  @override
+  String get momentHardDelete => 'Qabel it-tħassir tad-data ta’ awtur';
+
+  @override
+  String get momentArchive => 'Qabel l-arkivjar';
+
+  @override
+  String get momentManual => 'Immarkat minnek';
+
+  @override
+  String get showOlderMoments => 'Uri l-eqdem';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kollox wara dan il-mument jitneħħa — $count bidliet. L-ewwel jinkiteb f’fajl, u l-importazzjoni tiegħu ġġib kollox lura; kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.';
+  }
+
+  @override
+  String get nameThisMoment => 'Agħti isem lil dan il-mument';
+
+  @override
+  String get helpGoBack =>
+      'Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.';
 }

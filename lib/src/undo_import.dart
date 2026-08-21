@@ -49,21 +49,22 @@ SavePoint _pointFor(CatalogStore store, int id) =>
 /// Asks, then goes back to [point]. Returns true when it happened.
 Future<bool> confirmAndRevert(
     BuildContext context, CatalogStore store, SavePoint point,
-    {SaveFile? saveTo}) async {
+    {SaveFile? saveTo,
+    String Function(AppLocalizations t, int count)? body}) async {
   final t = context.t;
   final removed = store.entriesAfter(point.seq).length;
   final yes = await showDialog<bool>(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(t.undoThisImport),
-      content: Text(t.undoImportBody(removed)),
+      title: Text(body == null ? t.undoThisImport : t.goBackTitle),
+      content: Text(body == null ? t.undoImportBody(removed) : body(t, removed)),
       actions: [
         TextButton(
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(t.cancel)),
         FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(t.undoThisImport)),
+            child: Text(body == null ? t.undoThisImport : t.goBackToHere)),
       ],
     ),
   );

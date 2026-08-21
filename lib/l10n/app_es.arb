@@ -463,5 +463,18 @@
   "undoImportBody": "Se quitan los {count} cambios que trajo esta importación. Antes se escriben en un archivo; importarlo los devuelve. Quienes ya sincronizaron conservan su copia: eso no se puede deshacer.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Deshecho. El archivo está en {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Volver atrás",
+  "goBackToHere": "Volver aquí",
+  "momentImport": "Antes de importar",
+  "momentSync": "Antes de sincronizar",
+  "momentMerge": "Antes de fusionar",
+  "momentHardDelete": "Antes de borrar los datos de un autor",
+  "momentArchive": "Antes de archivar",
+  "momentManual": "Marcado por ti",
+  "showOlderMoments": "Mostrar anteriores",
+  "goBackBody": "Todo lo posterior a este momento se quita: {count} cambios. Antes se escribe en un archivo; importarlo lo devuelve, y todos los momentos más nuevos se van con él. Quienes ya sincronizaron conservan su copia: eso no se puede deshacer.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Da nombre a este momento",
+  "helpGoBack": "Los momentos en que este catálogo cambió de forma: antes de cada importación y cada sincronización, antes de una fusión, un archivado o un borrado, y siempre que marcaste uno tú. Elegir uno devuelve el catálogo a ese estado: todo lo posterior se escribe en un archivo que conservas y luego se quita, y cada momento más nuevo se va con él. Quienes ya sincronizaron conservan lo que recibieron."
 }

@@ -1591,4 +1591,43 @@ class AppLocalizationsEn extends AppLocalizations {
   String undoneImport(String where) {
     return 'Undone. The file is in $where.';
   }
+
+  @override
+  String get goBackTitle => 'Go back';
+
+  @override
+  String get goBackToHere => 'Go back to here';
+
+  @override
+  String get momentImport => 'Before importing';
+
+  @override
+  String get momentSync => 'Before syncing';
+
+  @override
+  String get momentMerge => 'Before merging';
+
+  @override
+  String get momentHardDelete => 'Before deleting an author’s data';
+
+  @override
+  String get momentArchive => 'Before archiving';
+
+  @override
+  String get momentManual => 'Marked by you';
+
+  @override
+  String get showOlderMoments => 'Show older';
+
+  @override
+  String goBackBody(int count) {
+    return 'Everything after this moment is removed — $count change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.';
+  }
+
+  @override
+  String get nameThisMoment => 'Name this moment';
+
+  @override
+  String get helpGoBack =>
+      'The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.';
 }

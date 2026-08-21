@@ -1592,4 +1592,43 @@ class AppLocalizationsFi extends AppLocalizations {
   String undoneImport(String where) {
     return 'Kumottu. Tiedosto on kohteessa $where.';
   }
+
+  @override
+  String get goBackTitle => 'Palaa taaksepäin';
+
+  @override
+  String get goBackToHere => 'Palaa tähän';
+
+  @override
+  String get momentImport => 'Ennen tuontia';
+
+  @override
+  String get momentSync => 'Ennen synkronointia';
+
+  @override
+  String get momentMerge => 'Ennen yhdistämistä';
+
+  @override
+  String get momentHardDelete => 'Ennen yhden tekijän tietojen poistoa';
+
+  @override
+  String get momentArchive => 'Ennen arkistointia';
+
+  @override
+  String get momentManual => 'Itse merkitsemäsi';
+
+  @override
+  String get showOlderMoments => 'Näytä vanhemmat';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kaikki tämän hetken jälkeen poistetaan — $count muutosta. Se kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa kaiken, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nimeä tämä hetki';
+
+  @override
+  String get helpGoBack =>
+      'Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.';
 }

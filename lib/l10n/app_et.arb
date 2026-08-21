@@ -463,5 +463,18 @@
   "undoImportBody": "Selle impordi toodud {count} muudatust eemaldatakse. Enne kirjutatakse need faili, mille import toob need tagasi. Need, kellega juba sünkroonisid, säilitavad oma koopia — seda ei saa tagasi võtta.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Tagasi võetud. Fail on {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Mine tagasi",
+  "goBackToHere": "Mine siia tagasi",
+  "momentImport": "Enne importimist",
+  "momentSync": "Enne sünkroonimist",
+  "momentMerge": "Enne ühendamist",
+  "momentHardDelete": "Enne ühe autori andmete kustutamist",
+  "momentArchive": "Enne arhiveerimist",
+  "momentManual": "Sinu märgitud",
+  "showOlderMoments": "Näita vanemaid",
+  "goBackBody": "Kõik pärast seda hetke eemaldatakse — {count} muudatust. Enne kirjutatakse see faili, mille import toob kõik tagasi, ja iga uuem hetk kaob koos sellega. Need, kellega juba sünkroonisid, säilitavad koopia — seda ei saa tagasi võtta.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Anna sellele hetkele nimi",
+  "helpGoBack": "Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu."
 }

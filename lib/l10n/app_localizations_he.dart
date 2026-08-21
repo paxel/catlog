@@ -1580,4 +1580,43 @@ class AppLocalizationsHe extends AppLocalizations {
   String undoneImport(String where) {
     return 'בוטל. הקובץ נמצא ב-$where.';
   }
+
+  @override
+  String get goBackTitle => 'חזרה אחורה';
+
+  @override
+  String get goBackToHere => 'לחזור לכאן';
+
+  @override
+  String get momentImport => 'לפני הייבוא';
+
+  @override
+  String get momentSync => 'לפני הסנכרון';
+
+  @override
+  String get momentMerge => 'לפני המיזוג';
+
+  @override
+  String get momentHardDelete => 'לפני מחיקת הנתונים של כותב';
+
+  @override
+  String get momentArchive => 'לפני הארכוב';
+
+  @override
+  String get momentManual => 'סומן על ידך';
+
+  @override
+  String get showOlderMoments => 'הצג ישנים יותר';
+
+  @override
+  String goBackBody(int count) {
+    return 'כל מה שאחרי הרגע הזה יוסר — $count שינויים. הכול נכתב תחילה לקובץ, וייבוא שלו מחזיר הכול, וכל רגע חדש יותר הולך איתו. מי שכבר סנכרנת איתו שומר על העותק שלו — את זה אי אפשר לבטל.';
+  }
+
+  @override
+  String get nameThisMoment => 'תן שם לרגע הזה';
+
+  @override
+  String get helpGoBack =>
+      'הרגעים שבהם הקטלוג הזה שינה צורה: לפני כל ייבוא וכל סנכרון, לפני מיזוג, ארכוב או מחיקה, ובכל פעם שסימנת רגע בעצמך. בחירה באחד מהם מחזירה את הקטלוג לאותו מצב — כל מה שאחריו נכתב לקובץ שאתה שומר ואז מוסר, וכל רגע חדש יותר הולך איתו. מי שכבר סנכרנת איתו שומר את מה שקיבל.';
 }

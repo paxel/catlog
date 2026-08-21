@@ -463,5 +463,18 @@
   "undoImportBody": "De {count} ändringar den här importen förde in tas bort. De skrivs först till en fil, och att importera den hämtar tillbaka dem. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Ångrat. Filen finns i {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Gå tillbaka",
+  "goBackToHere": "Gå tillbaka hit",
+  "momentImport": "Före importen",
+  "momentSync": "Före synkroniseringen",
+  "momentMerge": "Före sammanslagningen",
+  "momentHardDelete": "Före radering av en författares data",
+  "momentArchive": "Före arkiveringen",
+  "momentManual": "Markerat av dig",
+  "showOlderMoments": "Visa äldre",
+  "goBackBody": "Allt efter det här ögonblicket tas bort — {count} ändringar. Det skrivs först till en fil, och att importera den hämtar tillbaka allt; varje nyare ögonblick följer med. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Ge det här ögonblicket ett namn",
+  "helpGoBack": "Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick."
 }

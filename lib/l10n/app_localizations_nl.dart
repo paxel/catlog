@@ -1596,4 +1596,43 @@ class AppLocalizationsNl extends AppLocalizations {
   String undoneImport(String where) {
     return 'Ongedaan gemaakt. Het bestand staat in $where.';
   }
+
+  @override
+  String get goBackTitle => 'Terug naar eerder';
+
+  @override
+  String get goBackToHere => 'Hierheen terug';
+
+  @override
+  String get momentImport => 'Vóór de import';
+
+  @override
+  String get momentSync => 'Vóór het synchroniseren';
+
+  @override
+  String get momentMerge => 'Vóór het samenvoegen';
+
+  @override
+  String get momentHardDelete => 'Vóór het wissen van iemands gegevens';
+
+  @override
+  String get momentArchive => 'Vóór het archiveren';
+
+  @override
+  String get momentManual => 'Door jou gemarkeerd';
+
+  @override
+  String get showOlderMoments => 'Oudere tonen';
+
+  @override
+  String goBackBody(int count) {
+    return 'Alles na dit moment wordt weggehaald — $count wijzigingen. Het wordt eerst naar een bestand geschreven; dat importeren zet alles terug, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.';
+  }
+
+  @override
+  String get nameThisMoment => 'Geef dit moment een naam';
+
+  @override
+  String get helpGoBack =>
+      'De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.';
 }

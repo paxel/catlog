@@ -1590,4 +1590,43 @@ class AppLocalizationsSk extends AppLocalizations {
   String undoneImport(String where) {
     return 'Vrátené. Súbor je v $where.';
   }
+
+  @override
+  String get goBackTitle => 'Vrátiť sa späť';
+
+  @override
+  String get goBackToHere => 'Vrátiť sa sem';
+
+  @override
+  String get momentImport => 'Pred importom';
+
+  @override
+  String get momentSync => 'Pred synchronizáciou';
+
+  @override
+  String get momentMerge => 'Pred zlúčením';
+
+  @override
+  String get momentHardDelete => 'Pred zmazaním údajov jedného autora';
+
+  @override
+  String get momentArchive => 'Pred archiváciou';
+
+  @override
+  String get momentManual => 'Označené tebou';
+
+  @override
+  String get showOlderMoments => 'Zobraziť staršie';
+
+  @override
+  String goBackBody(int count) {
+    return 'Všetko po tomto okamihu zmizne — $count zmien. Najprv sa zapíše do súboru, ktorého import to vráti, a každý novší okamih ide s tým. Kto už synchronizoval, kópiu si nechá — to sa vziať späť nedá.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pomenuj tento okamih';
+
+  @override
+  String get helpGoBack =>
+      'Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal.';
 }

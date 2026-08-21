@@ -463,5 +463,18 @@
   "undoImportBody": "{count} sprememb iz tega uvoza bo odstranjenih. Najprej se zapišejo v datoteko, katere uvoz jih vrne. Tisti, s katerimi si že sinhroniziral, obdržijo svojo kopijo — tega ni mogoče preklicati.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Razveljavljeno. Datoteka je v {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Nazaj na prejšnje stanje",
+  "goBackToHere": "Nazaj sem",
+  "momentImport": "Pred uvozom",
+  "momentSync": "Pred sinhronizacijo",
+  "momentMerge": "Pred združitvijo",
+  "momentHardDelete": "Pred izbrisom podatkov enega avtorja",
+  "momentArchive": "Pred arhiviranjem",
+  "momentManual": "Označil si sam",
+  "showOlderMoments": "Pokaži starejše",
+  "goBackBody": "Vse po tem trenutku bo odstranjeno — {count} sprememb. Najprej se zapiše v datoteko, katere uvoz vse vrne, in vsak novejši trenutek gre zraven. Tisti, s katerimi si že sinhroniziral, obdržijo kopijo — tega ni mogoče preklicati.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Poimenuj ta trenutek",
+  "helpGoBack": "Trenutki, ko je ta katalog spremenil obliko: pred vsakim uvozom in vsako sinhronizacijo, pred združitvijo, arhiviranjem ali brisanjem, in kadar koli si sam označil trenutek. Izbira enega vrne katalog v to stanje — vse za njim se zapiše v datoteko, ki jo obdržiš, in nato odstrani, vsak novejši trenutek pa gre zraven. Tisti, s katerimi si že sinhroniziral, obdržijo, kar so prejeli."
 }

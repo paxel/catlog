@@ -1593,4 +1593,43 @@ class AppLocalizationsRo extends AppLocalizations {
   String undoneImport(String where) {
     return 'Anulat. Fișierul e în $where.';
   }
+
+  @override
+  String get goBackTitle => 'Înapoi la un moment anterior';
+
+  @override
+  String get goBackToHere => 'Înapoi aici';
+
+  @override
+  String get momentImport => 'Înainte de import';
+
+  @override
+  String get momentSync => 'Înainte de sincronizare';
+
+  @override
+  String get momentMerge => 'Înainte de îmbinare';
+
+  @override
+  String get momentHardDelete => 'Înainte de ștergerea datelor unui autor';
+
+  @override
+  String get momentArchive => 'Înainte de arhivare';
+
+  @override
+  String get momentManual => 'Marcat de tine';
+
+  @override
+  String get showOlderMoments => 'Arată mai vechi';
+
+  @override
+  String goBackBody(int count) {
+    return 'Tot ce vine după acest moment se elimină — $count modificări. Se scrie mai întâi într-un fișier, al cărui import aduce totul înapoi, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.';
+  }
+
+  @override
+  String get nameThisMoment => 'Denumește acest moment';
+
+  @override
+  String get helpGoBack =>
+      'Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit.';
 }

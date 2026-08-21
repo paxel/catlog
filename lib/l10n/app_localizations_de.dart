@@ -1599,4 +1599,43 @@ class AppLocalizationsDe extends AppLocalizations {
   String undoneImport(String where) {
     return 'Rückgängig gemacht. Die Datei liegt in $where.';
   }
+
+  @override
+  String get goBackTitle => 'Zurück zu einem früheren Stand';
+
+  @override
+  String get goBackToHere => 'Hierher zurück';
+
+  @override
+  String get momentImport => 'Vor dem Import';
+
+  @override
+  String get momentSync => 'Vor dem Synchronisieren';
+
+  @override
+  String get momentMerge => 'Vor dem Zusammenführen';
+
+  @override
+  String get momentHardDelete => 'Vor dem Löschen der Daten einer Person';
+
+  @override
+  String get momentArchive => 'Vor dem Archivieren';
+
+  @override
+  String get momentManual => 'Von dir markiert';
+
+  @override
+  String get showOlderMoments => 'Ältere zeigen';
+
+  @override
+  String goBackBody(int count) {
+    return 'Alles nach diesem Moment verschwindet — $count Änderung(en). Vorher wird alles in eine Datei geschrieben; deren Import holt es zurück. Jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält seine Kopie — das lässt sich nicht zurücknehmen.';
+  }
+
+  @override
+  String get nameThisMoment => 'Diesen Moment benennen';
+
+  @override
+  String get helpGoBack =>
+      'Die Momente, in denen sich dieser Katalog stark verändert hat: vor jedem Import und jeder Synchronisation, vor einem Zusammenführen, einem Archivieren oder einem Löschen — und immer dann, wenn du selbst einen markiert hast. Wählst du einen aus, kehrt der Katalog dorthin zurück: Alles danach wird in eine Datei geschrieben, die du behältst, und dann entfernt; jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält, was er bekommen hat.';
 }

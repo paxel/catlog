@@ -9,6 +9,7 @@ import '../move_to_catalog.dart';
 import '../l10n.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
+import 'go_back_screen.dart';
 
 /// Managing the catalogs on this device: which one you are in, adding
 /// one, renaming one, and what each costs in space.
@@ -155,6 +156,15 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
         HelpButton(store: widget.store, screenId: 'catalogs'),
       ]),
       body: ListView(children: [
+        ListTile(
+          leading: const Icon(Icons.history),
+          title: Text(t.goBackTitle),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => GoBackScreen(store: widget.store),
+          )),
+        ),
+        const Divider(height: 1),
         for (final catalog in widget.catalogs.catalogs())
           ListTile(
             leading: Icon(catalog.id == active.id

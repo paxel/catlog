@@ -1591,4 +1591,43 @@ class AppLocalizationsUk extends AppLocalizations {
   String undoneImport(String where) {
     return 'Скасовано. Файл у $where.';
   }
+
+  @override
+  String get goBackTitle => 'Повернутися назад';
+
+  @override
+  String get goBackToHere => 'Повернутися сюди';
+
+  @override
+  String get momentImport => 'Перед імпортом';
+
+  @override
+  String get momentSync => 'Перед синхронізацією';
+
+  @override
+  String get momentMerge => 'Перед об’єднанням';
+
+  @override
+  String get momentHardDelete => 'Перед видаленням даних одного автора';
+
+  @override
+  String get momentArchive => 'Перед архівуванням';
+
+  @override
+  String get momentManual => 'Позначено вами';
+
+  @override
+  String get showOlderMoments => 'Показати давніші';
+
+  @override
+  String goBackBody(int count) {
+    return 'Усе після цієї миті буде вилучено — $count змін. Спершу все записується у файл, імпорт якого поверне це назад, і кожна пізніша мить зникне разом. Ті, з ким ви вже синхронізувалися, збережуть копію — це не відкликати.';
+  }
+
+  @override
+  String get nameThisMoment => 'Назвіть цю мить';
+
+  @override
+  String get helpGoBack =>
+      'Миті, коли цей каталог сильно змінювався: перед кожним імпортом і кожною синхронізацією, перед об’єднанням, архівуванням чи видаленням — і щоразу, коли ви позначили мить самі. Вибір однієї повертає каталог у той стан: усе після неї записується у файл, який ви залишаєте собі, а потім вилучається, і кожна пізніша мить зникає разом. Ті, з ким ви вже синхронізувалися, зберігають отримане.';
 }

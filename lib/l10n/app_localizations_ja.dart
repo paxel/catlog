@@ -1553,4 +1553,43 @@ class AppLocalizationsJa extends AppLocalizations {
   String undoneImport(String where) {
     return '取り消しました。ファイルは $where にあります。';
   }
+
+  @override
+  String get goBackTitle => '前の状態に戻す';
+
+  @override
+  String get goBackToHere => 'ここに戻す';
+
+  @override
+  String get momentImport => '読み込みの前';
+
+  @override
+  String get momentSync => '同期の前';
+
+  @override
+  String get momentMerge => '統合の前';
+
+  @override
+  String get momentHardDelete => 'ある記録者のデータを削除する前';
+
+  @override
+  String get momentArchive => 'アーカイブの前';
+
+  @override
+  String get momentManual => '自分で付けた印';
+
+  @override
+  String get showOlderMoments => '古いものを表示';
+
+  @override
+  String goBackBody(int count) {
+    return 'この時点より後はすべて取り除かれます（$count 件）。先にファイルへ書き出すので読み込めば戻せますが、これより新しい時点も一緒に消えます。すでに同期した相手の手元には残り、取り消せません。';
+  }
+
+  @override
+  String get nameThisMoment => 'この時点に名前をつける';
+
+  @override
+  String get helpGoBack =>
+      'このカタログが大きく変わった時点の一覧です。読み込みや同期の前、統合・アーカイブ・削除の前、そして自分で印を付けたときに記録されます。ひとつ選ぶとカタログはその状態に戻ります。それ以降はすべて手元に残るファイルに書き出してから取り除かれ、それより新しい時点も一緒に消えます。すでに同期した相手は受け取ったものを持ち続けます。';
 }

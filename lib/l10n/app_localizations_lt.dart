@@ -1593,4 +1593,43 @@ class AppLocalizationsLt extends AppLocalizations {
   String undoneImport(String where) {
     return 'Atšaukta. Failas yra $where.';
   }
+
+  @override
+  String get goBackTitle => 'Grįžti atgal';
+
+  @override
+  String get goBackToHere => 'Grįžti čia';
+
+  @override
+  String get momentImport => 'Prieš importą';
+
+  @override
+  String get momentSync => 'Prieš sinchronizavimą';
+
+  @override
+  String get momentMerge => 'Prieš sujungimą';
+
+  @override
+  String get momentHardDelete => 'Prieš ištrinant vieno autoriaus duomenis';
+
+  @override
+  String get momentArchive => 'Prieš archyvavimą';
+
+  @override
+  String get momentManual => 'Tavo pažymėta';
+
+  @override
+  String get showOlderMoments => 'Rodyti senesnius';
+
+  @override
+  String goBackBody(int count) {
+    return 'Viskas po šios akimirkos pašalinama — $count pakeitimai. Pirma tai įrašoma į failą, kurio importas viską grąžina, ir kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka kopiją — to atšaukti negalima.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pavadink šią akimirką';
+
+  @override
+  String get helpGoBack =>
+      'Akimirkos, kai šis katalogas pasikeitė iš esmės: prieš kiekvieną importą ir sinchronizavimą, prieš sujungimą, archyvavimą ar ištrynimą, ir kaskart, kai pats pažymėjai akimirką. Pasirinkus vieną, katalogas grįžta į tą būseną — viskas po jos įrašoma į failą, kurį pasilieki, ir tada pašalinama, o kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka tai, ką gavo.';
 }

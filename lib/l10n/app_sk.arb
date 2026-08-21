@@ -463,5 +463,18 @@
   "undoImportBody": "{count} zmien z tohto importu zmizne. Najprv sa zapíšu do súboru, ktorého import ich vráti. Kto už synchronizoval, svoju kópiu si nechá — to sa vziať späť nedá.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Vrátené. Súbor je v {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Vrátiť sa späť",
+  "goBackToHere": "Vrátiť sa sem",
+  "momentImport": "Pred importom",
+  "momentSync": "Pred synchronizáciou",
+  "momentMerge": "Pred zlúčením",
+  "momentHardDelete": "Pred zmazaním údajov jedného autora",
+  "momentArchive": "Pred archiváciou",
+  "momentManual": "Označené tebou",
+  "showOlderMoments": "Zobraziť staršie",
+  "goBackBody": "Všetko po tomto okamihu zmizne — {count} zmien. Najprv sa zapíše do súboru, ktorého import to vráti, a každý novší okamih ide s tým. Kto už synchronizoval, kópiu si nechá — to sa vziať späť nedá.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Pomenuj tento okamih",
+  "helpGoBack": "Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal."
 }

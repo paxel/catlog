@@ -1592,4 +1592,43 @@ class AppLocalizationsHu extends AppLocalizations {
   String undoneImport(String where) {
     return 'Visszavonva. A fájl itt van: $where.';
   }
+
+  @override
+  String get goBackTitle => 'Vissza egy korábbi állapotra';
+
+  @override
+  String get goBackToHere => 'Vissza ide';
+
+  @override
+  String get momentImport => 'Importálás előtt';
+
+  @override
+  String get momentSync => 'Szinkronizálás előtt';
+
+  @override
+  String get momentMerge => 'Összevonás előtt';
+
+  @override
+  String get momentHardDelete => 'Egy szerző adatainak törlése előtt';
+
+  @override
+  String get momentArchive => 'Archiválás előtt';
+
+  @override
+  String get momentManual => 'Te jelölted meg';
+
+  @override
+  String get showOlderMoments => 'Régebbiek mutatása';
+
+  @override
+  String goBackBody(int count) {
+    return 'Minden eltűnik e pillanat után — $count változás. Előbb fájlba kerül, annak importálása mindent visszahoz, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nevezd el ezt a pillanatot';
+
+  @override
+  String get helpGoBack =>
+      'Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.';
 }

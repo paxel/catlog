@@ -26,6 +26,7 @@ final Map<String, HelpText> helpTexts = {
   'flier': (t) => t.helpFlier,
   'archive': (t) => t.helpArchive,
   'catalogs': (t) => t.helpCatalogs,
+  'goBack': (t) => t.helpGoBack,
 };
 
 /// The "?" for an app bar. Shows nothing when the screen has no help

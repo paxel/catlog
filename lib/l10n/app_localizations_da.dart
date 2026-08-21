@@ -1591,4 +1591,43 @@ class AppLocalizationsDa extends AppLocalizations {
   String undoneImport(String where) {
     return 'Fortrudt. Filen ligger i $where.';
   }
+
+  @override
+  String get goBackTitle => 'Gå tilbage';
+
+  @override
+  String get goBackToHere => 'Gå tilbage hertil';
+
+  @override
+  String get momentImport => 'Før importen';
+
+  @override
+  String get momentSync => 'Før synkroniseringen';
+
+  @override
+  String get momentMerge => 'Før sammenlægningen';
+
+  @override
+  String get momentHardDelete => 'Før sletning af en forfatters data';
+
+  @override
+  String get momentArchive => 'Før arkiveringen';
+
+  @override
+  String get momentManual => 'Markeret af dig';
+
+  @override
+  String get showOlderMoments => 'Vis ældre';
+
+  @override
+  String goBackBody(int count) {
+    return 'Alt efter dette øjeblik fjernes — $count ændringer. Det skrives først til en fil, hvis import henter det tilbage, og hvert nyere øjeblik ryger med. De, du allerede har synkroniseret med, beholder deres kopi — det kan ikke trækkes tilbage.';
+  }
+
+  @override
+  String get nameThisMoment => 'Navngiv dette øjeblik';
+
+  @override
+  String get helpGoBack =>
+      'De øjeblikke, hvor kataloget ændrede form: før hver import og hver synkronisering, før en sammenlægning, en arkivering eller en sletning — og hver gang du selv markerede et. Vælger du et, vender kataloget tilbage til den tilstand: alt derefter skrives til en fil, du beholder, og fjernes så, og hvert nyere øjeblik ryger med. De, du allerede har synkroniseret med, beholder det, de fik.';
 }

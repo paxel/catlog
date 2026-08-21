@@ -1595,4 +1595,43 @@ class AppLocalizationsMk extends AppLocalizations {
   String undoneImport(String where) {
     return 'Вратено. Датотеката е во $where.';
   }
+
+  @override
+  String get goBackTitle => 'Врати се назад';
+
+  @override
+  String get goBackToHere => 'Врати се овде';
+
+  @override
+  String get momentImport => 'Пред увозот';
+
+  @override
+  String get momentSync => 'Пред синхронизацијата';
+
+  @override
+  String get momentMerge => 'Пред спојувањето';
+
+  @override
+  String get momentHardDelete => 'Пред бришењето на податоците на еден автор';
+
+  @override
+  String get momentArchive => 'Пред архивирањето';
+
+  @override
+  String get momentManual => 'Означено од тебе';
+
+  @override
+  String get showOlderMoments => 'Прикажи постари';
+
+  @override
+  String goBackBody(int count) {
+    return 'Сè по овој момент се отстранува — $count промени. Прво се запишува во датотека, чиј увоз сè враќа, а секој поново момент си оди со него. Оние со кои веќе си синхронизирал ја задржуваат копијата — тоа не може да се повлече.';
+  }
+
+  @override
+  String get nameThisMoment => 'Именувај го овој момент';
+
+  @override
+  String get helpGoBack =>
+      'Моментите кога овој каталог се промени: пред секој увоз и секоја синхронизација, пред спојување, архивирање или бришење, и секогаш кога сам си означил момент. Ако избереш еден, каталогот се враќа во таа состојба — сè по него се запишува во датотека што ја задржуваш и потоа се отстранува, а секој поново момент си оди со него. Оние со кои веќе си синхронизирал го задржуваат тоа што го добиле.';
 }

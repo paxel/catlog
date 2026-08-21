@@ -782,5 +782,18 @@
   "undoImportBody": "The {count} change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Undone. The file is in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Go back",
+  "goBackToHere": "Go back to here",
+  "momentImport": "Before importing",
+  "momentSync": "Before syncing",
+  "momentMerge": "Before merging",
+  "momentHardDelete": "Before deleting an author’s data",
+  "momentArchive": "Before archiving",
+  "momentManual": "Marked by you",
+  "showOlderMoments": "Show older",
+  "goBackBody": "Everything after this moment is removed — {count} change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Name this moment",
+  "helpGoBack": "The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received."
 }

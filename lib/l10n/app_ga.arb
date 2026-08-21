@@ -463,5 +463,18 @@
   "undoImportBody": "Baintear na {count} athrú a thug an t-iompórtáil seo isteach. Scríobhtar iad chuig comhad ar dtús, agus tugann a iompórtáil ar ais iad. Coinníonn na daoine ar shioncronaigh tú leo cheana a gcóip féin — ní féidir é sin a tharraingt siar.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Cealaithe. Tá an comhad in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Téigh siar",
+  "goBackToHere": "Fill anseo",
+  "momentImport": "Roimh an iompórtáil",
+  "momentSync": "Roimh an sioncronú",
+  "momentMerge": "Roimh an gcumasc",
+  "momentHardDelete": "Roimh shonraí údair a scriosadh",
+  "momentArchive": "Roimh an gcartlannú",
+  "momentManual": "Marcáilte agatsa",
+  "showOlderMoments": "Taispeáin cinn níos sine",
+  "goBackBody": "Baintear gach rud i ndiaidh na nóiméide seo — {count} athrú. Scríobhtar é chuig comhad ar dtús, agus tugann a iompórtáil ar ais é; imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo a gcóip — ní féidir é sin a tharraingt siar.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Ainmnigh an nóiméad seo",
+  "helpGoBack": "Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad."
 }

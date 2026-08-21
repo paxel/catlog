@@ -1584,4 +1584,43 @@ class AppLocalizationsAr extends AppLocalizations {
   String undoneImport(String where) {
     return 'تم التراجع. الملف في $where.';
   }
+
+  @override
+  String get goBackTitle => 'العودة إلى الوراء';
+
+  @override
+  String get goBackToHere => 'العودة إلى هنا';
+
+  @override
+  String get momentImport => 'قبل الاستيراد';
+
+  @override
+  String get momentSync => 'قبل المزامنة';
+
+  @override
+  String get momentMerge => 'قبل الدمج';
+
+  @override
+  String get momentHardDelete => 'قبل حذف بيانات مؤلف';
+
+  @override
+  String get momentArchive => 'قبل الأرشفة';
+
+  @override
+  String get momentManual => 'علامة وضعتها بنفسك';
+
+  @override
+  String get showOlderMoments => 'عرض الأقدم';
+
+  @override
+  String goBackBody(int count) {
+    return 'كل ما بعد هذه اللحظة سيُزال — $count تغيير. يُكتب أولاً في ملف، واستيراده يعيده، وكل لحظة أحدث منها تذهب معه. من زامنت معهم يحتفظون بنسختهم — لا يمكن سحب ذلك.';
+  }
+
+  @override
+  String get nameThisMoment => 'سمِّ هذه اللحظة';
+
+  @override
+  String get helpGoBack =>
+      'اللحظات التي تغيّر فيها هذا الكتالوج: قبل كل استيراد وكل مزامنة، وقبل الدمج أو الأرشفة أو الحذف، وكلما وضعت علامة بنفسك. اختيار إحداها يعيد الكتالوج إلى تلك الحال — يُكتب كل ما بعدها في ملف تحتفظ به ثم يُزال، وتذهب معه كل لحظة أحدث. من زامنت معهم يحتفظون بما وصلهم.';
 }

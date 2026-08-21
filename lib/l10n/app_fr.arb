@@ -463,5 +463,18 @@
   "undoImportBody": "Les {count} changements apportés par cet import sont retirés. Ils sont d’abord écrits dans un fichier ; l’importer les ramène. Les personnes avec qui tu as déjà synchronisé gardent leur copie — cela ne se reprend pas.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Annulé. Le fichier est dans {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Revenir en arrière",
+  "goBackToHere": "Revenir ici",
+  "momentImport": "Avant l’import",
+  "momentSync": "Avant la synchronisation",
+  "momentMerge": "Avant la fusion",
+  "momentHardDelete": "Avant la suppression des données d’un auteur",
+  "momentArchive": "Avant l’archivage",
+  "momentManual": "Marqué par toi",
+  "showOlderMoments": "Afficher les plus anciens",
+  "goBackBody": "Tout ce qui suit ce moment est retiré — {count} changements. Le tout est d’abord écrit dans un fichier ; l’importer le ramène, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent leur copie — cela ne se reprend pas.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Nomme ce moment",
+  "helpGoBack": "Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu."
 }

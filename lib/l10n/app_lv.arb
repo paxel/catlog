@@ -463,5 +463,18 @@
   "undoImportBody": "{count} šī importa izmaiņas tiks noņemtas. Vispirms tās tiek ierakstītas failā, kura imports tās atgriež. Tie, ar kuriem jau sinhronizēji, patur savu kopiju — to atsaukt nevar.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Atsaukts. Fails ir {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Doties atpakaļ",
+  "goBackToHere": "Atgriezties šeit",
+  "momentImport": "Pirms importa",
+  "momentSync": "Pirms sinhronizācijas",
+  "momentMerge": "Pirms apvienošanas",
+  "momentHardDelete": "Pirms viena autora datu dzēšanas",
+  "momentArchive": "Pirms arhivēšanas",
+  "momentManual": "Tevis atzīmēts",
+  "showOlderMoments": "Rādīt vecākus",
+  "goBackBody": "Viss pēc šī brīža tiek noņemts — {count} izmaiņas. Vispirms tas tiek ierakstīts failā, kura imports visu atgriež, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur kopiju — to atsaukt nevar.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Nosauc šo brīdi",
+  "helpGoBack": "Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto."
 }

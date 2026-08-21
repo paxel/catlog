@@ -463,5 +463,18 @@
   "undoImportBody": "It-{count} bidliet li ġabet din l-importazzjoni jitneħħew. L-ewwel jinkitbu f’fajl, u l-importazzjoni tiegħu ġġibhom lura. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Imħassar. Il-fajl qiegħed f’{where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Mur lura",
+  "goBackToHere": "Erġa’ lura hawn",
+  "momentImport": "Qabel l-importazzjoni",
+  "momentSync": "Qabel is-sinkronizzazzjoni",
+  "momentMerge": "Qabel l-għaqda",
+  "momentHardDelete": "Qabel it-tħassir tad-data ta’ awtur",
+  "momentArchive": "Qabel l-arkivjar",
+  "momentManual": "Immarkat minnek",
+  "showOlderMoments": "Uri l-eqdem",
+  "goBackBody": "Kollox wara dan il-mument jitneħħa — {count} bidliet. L-ewwel jinkiteb f’fajl, u l-importazzjoni tiegħu ġġib kollox lura; kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Agħti isem lil dan il-mument",
+  "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva."
 }

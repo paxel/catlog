@@ -463,5 +463,18 @@
   "undoImportBody": "{count} šio importo pakeitimai bus pašalinti. Pirma jie įrašomi į failą, kurio importas juos grąžina. Tie, su kuriais jau sinchronizavai, pasilieka savo kopiją — to atšaukti negalima.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Atšaukta. Failas yra {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Grįžti atgal",
+  "goBackToHere": "Grįžti čia",
+  "momentImport": "Prieš importą",
+  "momentSync": "Prieš sinchronizavimą",
+  "momentMerge": "Prieš sujungimą",
+  "momentHardDelete": "Prieš ištrinant vieno autoriaus duomenis",
+  "momentArchive": "Prieš archyvavimą",
+  "momentManual": "Tavo pažymėta",
+  "showOlderMoments": "Rodyti senesnius",
+  "goBackBody": "Viskas po šios akimirkos pašalinama — {count} pakeitimai. Pirma tai įrašoma į failą, kurio importas viską grąžina, ir kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka kopiją — to atšaukti negalima.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Pavadink šią akimirką",
+  "helpGoBack": "Akimirkos, kai šis katalogas pasikeitė iš esmės: prieš kiekvieną importą ir sinchronizavimą, prieš sujungimą, archyvavimą ar ištrynimą, ir kaskart, kai pats pažymėjai akimirką. Pasirinkus vieną, katalogas grįžta į tą būseną — viskas po jos įrašoma į failą, kurį pasilieki, ir tada pašalinama, o kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka tai, ką gavo."
 }

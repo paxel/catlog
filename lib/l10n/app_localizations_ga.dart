@@ -1598,4 +1598,43 @@ class AppLocalizationsGa extends AppLocalizations {
   String undoneImport(String where) {
     return 'Cealaithe. Tá an comhad in $where.';
   }
+
+  @override
+  String get goBackTitle => 'Téigh siar';
+
+  @override
+  String get goBackToHere => 'Fill anseo';
+
+  @override
+  String get momentImport => 'Roimh an iompórtáil';
+
+  @override
+  String get momentSync => 'Roimh an sioncronú';
+
+  @override
+  String get momentMerge => 'Roimh an gcumasc';
+
+  @override
+  String get momentHardDelete => 'Roimh shonraí údair a scriosadh';
+
+  @override
+  String get momentArchive => 'Roimh an gcartlannú';
+
+  @override
+  String get momentManual => 'Marcáilte agatsa';
+
+  @override
+  String get showOlderMoments => 'Taispeáin cinn níos sine';
+
+  @override
+  String goBackBody(int count) {
+    return 'Baintear gach rud i ndiaidh na nóiméide seo — $count athrú. Scríobhtar é chuig comhad ar dtús, agus tugann a iompórtáil ar ais é; imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo a gcóip — ní féidir é sin a tharraingt siar.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ainmnigh an nóiméad seo';
+
+  @override
+  String get helpGoBack =>
+      'Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad.';
 }

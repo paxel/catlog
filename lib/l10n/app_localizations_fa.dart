@@ -1588,4 +1588,43 @@ class AppLocalizationsFa extends AppLocalizations {
   String undoneImport(String where) {
     return 'برگردانده شد. فایل در $where است.';
   }
+
+  @override
+  String get goBackTitle => 'بازگشت به عقب';
+
+  @override
+  String get goBackToHere => 'بازگشت به اینجا';
+
+  @override
+  String get momentImport => 'پیش از وارد کردن';
+
+  @override
+  String get momentSync => 'پیش از همگام‌سازی';
+
+  @override
+  String get momentMerge => 'پیش از ادغام';
+
+  @override
+  String get momentHardDelete => 'پیش از حذف داده‌های یک نویسنده';
+
+  @override
+  String get momentArchive => 'پیش از بایگانی';
+
+  @override
+  String get momentManual => 'نشان‌گذاری‌شده توسط شما';
+
+  @override
+  String get showOlderMoments => 'نمایش قدیمی‌ترها';
+
+  @override
+  String goBackBody(int count) {
+    return 'هر چیزی پس از این لحظه حذف می‌شود — $count تغییر. ابتدا در فایلی نوشته می‌شود و وارد کردن آن همه را برمی‌گرداند؛ هر لحظهٔ تازه‌تر هم با آن می‌رود. کسانی که قبلاً همگام شده‌اند نسخهٔ خود را نگه می‌دارند — این قابل بازگرداندن نیست.';
+  }
+
+  @override
+  String get nameThisMoment => 'این لحظه را نام‌گذاری کنید';
+
+  @override
+  String get helpGoBack =>
+      'لحظه‌هایی که این کاتالوگ دگرگون شده است: پیش از هر وارد کردن و هر همگام‌سازی، پیش از ادغام، بایگانی یا حذف، و هر بار که خودتان لحظه‌ای را نشان کرده‌اید. با انتخاب یکی، کاتالوگ به همان حالت بازمی‌گردد؛ هرچه پس از آن آمده در فایلی که نگه می‌دارید نوشته و سپس حذف می‌شود و هر لحظهٔ تازه‌تر هم با آن می‌رود. کسانی که قبلاً همگام شده‌اند آنچه گرفته‌اند نگه می‌دارند.';
 }

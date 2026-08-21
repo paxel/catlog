@@ -463,5 +463,18 @@
   "undoImportBody": "{count} změn z tohoto importu zmizí. Nejdřív se zapíšou do souboru, jehož import je vrátí. Kdo už synchronizoval, svou kopii si nechá — to vzít zpět nejde.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Vráceno. Soubor je v {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Vrátit se zpět",
+  "goBackToHere": "Vrátit se sem",
+  "momentImport": "Před importem",
+  "momentSync": "Před synchronizací",
+  "momentMerge": "Před sloučením",
+  "momentHardDelete": "Před smazáním dat jednoho autora",
+  "momentArchive": "Před archivací",
+  "momentManual": "Označeno tebou",
+  "showOlderMoments": "Zobrazit starší",
+  "goBackBody": "Všechno po tomto okamžiku zmizí — {count} změn. Nejdřív se zapíše do souboru, jehož import to vrátí, a každý novější okamžik jde s tím. Kdo už synchronizoval, kopii si nechá — to vzít zpět nejde.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Pojmenuj tento okamžik",
+  "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal."
 }

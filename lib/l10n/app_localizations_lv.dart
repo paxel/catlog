@@ -1590,4 +1590,43 @@ class AppLocalizationsLv extends AppLocalizations {
   String undoneImport(String where) {
     return 'Atsaukts. Fails ir $where.';
   }
+
+  @override
+  String get goBackTitle => 'Doties atpakaļ';
+
+  @override
+  String get goBackToHere => 'Atgriezties šeit';
+
+  @override
+  String get momentImport => 'Pirms importa';
+
+  @override
+  String get momentSync => 'Pirms sinhronizācijas';
+
+  @override
+  String get momentMerge => 'Pirms apvienošanas';
+
+  @override
+  String get momentHardDelete => 'Pirms viena autora datu dzēšanas';
+
+  @override
+  String get momentArchive => 'Pirms arhivēšanas';
+
+  @override
+  String get momentManual => 'Tevis atzīmēts';
+
+  @override
+  String get showOlderMoments => 'Rādīt vecākus';
+
+  @override
+  String goBackBody(int count) {
+    return 'Viss pēc šī brīža tiek noņemts — $count izmaiņas. Vispirms tas tiek ierakstīts failā, kura imports visu atgriež, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur kopiju — to atsaukt nevar.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nosauc šo brīdi';
+
+  @override
+  String get helpGoBack =>
+      'Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto.';
 }

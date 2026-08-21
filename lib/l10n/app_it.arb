@@ -463,5 +463,18 @@
   "undoImportBody": "I {count} cambiamenti portati da questa importazione vengono tolti. Prima vengono scritti in un file; importarlo li riporta. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Annullato. Il file è in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Torna indietro",
+  "goBackToHere": "Torna qui",
+  "momentImport": "Prima dell’importazione",
+  "momentSync": "Prima della sincronizzazione",
+  "momentMerge": "Prima dell’unione",
+  "momentHardDelete": "Prima di eliminare i dati di un autore",
+  "momentArchive": "Prima dell’archiviazione",
+  "momentManual": "Segnato da te",
+  "showOlderMoments": "Mostra i più vecchi",
+  "goBackBody": "Tutto ciò che viene dopo questo momento viene tolto — {count} cambiamenti. Prima viene scritto in un file; importarlo lo riporta, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Dai un nome a questo momento",
+  "helpGoBack": "I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto."
 }

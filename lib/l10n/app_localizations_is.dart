@@ -1595,4 +1595,43 @@ class AppLocalizationsIs extends AppLocalizations {
   String undoneImport(String where) {
     return 'Afturkallað. Skráin er í $where.';
   }
+
+  @override
+  String get goBackTitle => 'Fara til baka';
+
+  @override
+  String get goBackToHere => 'Fara hingað til baka';
+
+  @override
+  String get momentImport => 'Fyrir innflutning';
+
+  @override
+  String get momentSync => 'Fyrir samstillingu';
+
+  @override
+  String get momentMerge => 'Fyrir sameiningu';
+
+  @override
+  String get momentHardDelete => 'Fyrir eyðingu gagna höfundar';
+
+  @override
+  String get momentArchive => 'Fyrir söfnun í skjalasafn';
+
+  @override
+  String get momentManual => 'Merkt af þér';
+
+  @override
+  String get showOlderMoments => 'Sýna eldri';
+
+  @override
+  String goBackBody(int count) {
+    return 'Allt eftir þessa stund verður fjarlægt — $count breytingar. Það er fyrst skrifað í skrá og innflutningur hennar skilar öllu; hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.';
+  }
+
+  @override
+  String get nameThisMoment => 'Gefðu þessari stund heiti';
+
+  @override
+  String get helpGoBack =>
+      'Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.';
 }

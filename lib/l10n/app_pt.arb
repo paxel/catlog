@@ -463,5 +463,18 @@
   "undoImportBody": "As {count} alterações que esta importação trouxe são removidas. São primeiro escritas num ficheiro; importá-lo devolve-as. Quem já sincronizou fica com a sua cópia — isso não se pode retirar.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Desfeito. O ficheiro está em {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Voltar atrás",
+  "goBackToHere": "Voltar para aqui",
+  "momentImport": "Antes da importação",
+  "momentSync": "Antes de sincronizar",
+  "momentMerge": "Antes de juntar",
+  "momentHardDelete": "Antes de apagar os dados de um autor",
+  "momentArchive": "Antes de arquivar",
+  "momentManual": "Marcado por ti",
+  "showOlderMoments": "Mostrar mais antigos",
+  "goBackBody": "Tudo depois deste momento é removido — {count} alterações. É primeiro escrito num ficheiro; importá-lo devolve tudo, e cada momento mais recente vai junto. Quem já sincronizou fica com a sua cópia — isso não se pode retirar.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Dá um nome a este momento",
+  "helpGoBack": "Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu."
 }

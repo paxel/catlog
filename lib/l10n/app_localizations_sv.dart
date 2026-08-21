@@ -1590,4 +1590,43 @@ class AppLocalizationsSv extends AppLocalizations {
   String undoneImport(String where) {
     return 'Ångrat. Filen finns i $where.';
   }
+
+  @override
+  String get goBackTitle => 'Gå tillbaka';
+
+  @override
+  String get goBackToHere => 'Gå tillbaka hit';
+
+  @override
+  String get momentImport => 'Före importen';
+
+  @override
+  String get momentSync => 'Före synkroniseringen';
+
+  @override
+  String get momentMerge => 'Före sammanslagningen';
+
+  @override
+  String get momentHardDelete => 'Före radering av en författares data';
+
+  @override
+  String get momentArchive => 'Före arkiveringen';
+
+  @override
+  String get momentManual => 'Markerat av dig';
+
+  @override
+  String get showOlderMoments => 'Visa äldre';
+
+  @override
+  String goBackBody(int count) {
+    return 'Allt efter det här ögonblicket tas bort — $count ändringar. Det skrivs först till en fil, och att importera den hämtar tillbaka allt; varje nyare ögonblick följer med. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ge det här ögonblicket ett namn';
+
+  @override
+  String get helpGoBack =>
+      'Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick.';
 }

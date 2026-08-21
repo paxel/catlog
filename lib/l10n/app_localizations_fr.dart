@@ -1599,4 +1599,43 @@ class AppLocalizationsFr extends AppLocalizations {
   String undoneImport(String where) {
     return 'Annulé. Le fichier est dans $where.';
   }
+
+  @override
+  String get goBackTitle => 'Revenir en arrière';
+
+  @override
+  String get goBackToHere => 'Revenir ici';
+
+  @override
+  String get momentImport => 'Avant l’import';
+
+  @override
+  String get momentSync => 'Avant la synchronisation';
+
+  @override
+  String get momentMerge => 'Avant la fusion';
+
+  @override
+  String get momentHardDelete => 'Avant la suppression des données d’un auteur';
+
+  @override
+  String get momentArchive => 'Avant l’archivage';
+
+  @override
+  String get momentManual => 'Marqué par toi';
+
+  @override
+  String get showOlderMoments => 'Afficher les plus anciens';
+
+  @override
+  String goBackBody(int count) {
+    return 'Tout ce qui suit ce moment est retiré — $count changements. Le tout est d’abord écrit dans un fichier ; l’importer le ramène, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent leur copie — cela ne se reprend pas.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nomme ce moment';
+
+  @override
+  String get helpGoBack =>
+      'Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu.';
 }

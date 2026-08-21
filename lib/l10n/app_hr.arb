@@ -463,5 +463,18 @@
   "undoImportBody": "{count} promjena iz ovog uvoza uklanja se. Prvo se zapisuju u datoteku, čiji ih uvoz vraća. Oni s kojima si već sinkronizirao zadržavaju svoju kopiju — to se ne može povući.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Poništeno. Datoteka je u {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Vrati se natrag",
+  "goBackToHere": "Vrati se ovdje",
+  "momentImport": "Prije uvoza",
+  "momentSync": "Prije sinkronizacije",
+  "momentMerge": "Prije spajanja",
+  "momentHardDelete": "Prije brisanja podataka jednog autora",
+  "momentArchive": "Prije arhiviranja",
+  "momentManual": "Označio si sam",
+  "showOlderMoments": "Prikaži starije",
+  "goBackBody": "Sve nakon ovog trenutka uklanja se — {count} promjena. Prvo se zapisuje u datoteku, čiji ga uvoz vraća, a svaki noviji trenutak odlazi s njim. Oni s kojima si već sinkronizirao zadržavaju kopiju — to se ne može povući.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Imenuj ovaj trenutak",
+  "helpGoBack": "Trenuci u kojima je ovaj katalog promijenio oblik: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve nakon njega zapisuje se u datoteku koju zadržavaš i zatim uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili."
 }

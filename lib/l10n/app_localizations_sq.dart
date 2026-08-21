@@ -1593,4 +1593,43 @@ class AppLocalizationsSq extends AppLocalizations {
   String undoneImport(String where) {
     return 'U zhbë. Skedari është në $where.';
   }
+
+  @override
+  String get goBackTitle => 'Kthehu prapa';
+
+  @override
+  String get goBackToHere => 'Kthehu këtu';
+
+  @override
+  String get momentImport => 'Para importimit';
+
+  @override
+  String get momentSync => 'Para sinkronizimit';
+
+  @override
+  String get momentMerge => 'Para bashkimit';
+
+  @override
+  String get momentHardDelete => 'Para fshirjes së të dhënave të një autori';
+
+  @override
+  String get momentArchive => 'Para arkivimit';
+
+  @override
+  String get momentManual => 'Shënuar prej teje';
+
+  @override
+  String get showOlderMoments => 'Shfaq më të vjetrat';
+
+  @override
+  String goBackBody(int count) {
+    return 'Gjithçka pas këtij çasti hiqet — $count ndryshime. Së pari shkruhet në një skedar, importimi i të cilit e kthen gjithçka, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen — kjo nuk merret mbrapsht.';
+  }
+
+  @override
+  String get nameThisMoment => 'Emërto këtë çast';
+
+  @override
+  String get helpGoBack =>
+      'Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.';
 }

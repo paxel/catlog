@@ -1536,4 +1536,43 @@ class AppLocalizationsZh extends AppLocalizations {
   String undoneImport(String where) {
     return '已撤销。文件在 $where。';
   }
+
+  @override
+  String get goBackTitle => '回到之前';
+
+  @override
+  String get goBackToHere => '回到这里';
+
+  @override
+  String get momentImport => '导入之前';
+
+  @override
+  String get momentSync => '同步之前';
+
+  @override
+  String get momentMerge => '合并之前';
+
+  @override
+  String get momentHardDelete => '删除某位记录者的数据之前';
+
+  @override
+  String get momentArchive => '归档之前';
+
+  @override
+  String get momentManual => '你标记的时刻';
+
+  @override
+  String get showOlderMoments => '显示更早的';
+
+  @override
+  String goBackBody(int count) {
+    return '这一刻之后的一切都会被移除，共 $count 处改动。全部会先写入文件，导入即可恢复；比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有副本，无法收回。';
+  }
+
+  @override
+  String get nameThisMoment => '给这个时刻起个名字';
+
+  @override
+  String get helpGoBack =>
+      '这个目录发生较大变化的时刻：每次导入和同步之前，合并、归档或删除之前，以及你自己标记的时候。选择其中一个，目录就回到那个状态——之后的一切会先写入你保留的文件再移除，比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有收到的内容。';
 }

@@ -23,6 +23,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   offers to take it back: what arrived is removed, written to a file
   first so importing that puts it back, and syncing with the same person
   again does not bring it straight back.
+- A "Go back" list per catalog, in Manage catalogs: the moments the
+  catalog changed shape, as sentences, newest first and grouped by
+  month. Picking one returns the catalog to that state, and you can mark
+  a moment yourself with a name.
 
 ### Changed
 

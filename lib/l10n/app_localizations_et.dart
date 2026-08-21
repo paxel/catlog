@@ -1590,4 +1590,43 @@ class AppLocalizationsEt extends AppLocalizations {
   String undoneImport(String where) {
     return 'Tagasi võetud. Fail on $where.';
   }
+
+  @override
+  String get goBackTitle => 'Mine tagasi';
+
+  @override
+  String get goBackToHere => 'Mine siia tagasi';
+
+  @override
+  String get momentImport => 'Enne importimist';
+
+  @override
+  String get momentSync => 'Enne sünkroonimist';
+
+  @override
+  String get momentMerge => 'Enne ühendamist';
+
+  @override
+  String get momentHardDelete => 'Enne ühe autori andmete kustutamist';
+
+  @override
+  String get momentArchive => 'Enne arhiveerimist';
+
+  @override
+  String get momentManual => 'Sinu märgitud';
+
+  @override
+  String get showOlderMoments => 'Näita vanemaid';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kõik pärast seda hetke eemaldatakse — $count muudatust. Enne kirjutatakse see faili, mille import toob kõik tagasi, ja iga uuem hetk kaob koos sellega. Need, kellega juba sünkroonisid, säilitavad koopia — seda ei saa tagasi võtta.';
+  }
+
+  @override
+  String get nameThisMoment => 'Anna sellele hetkele nimi';
+
+  @override
+  String get helpGoBack =>
+      'Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu.';
 }

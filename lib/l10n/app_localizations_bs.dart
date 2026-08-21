@@ -1591,4 +1591,43 @@ class AppLocalizationsBs extends AppLocalizations {
   String undoneImport(String where) {
     return 'Poništeno. Datoteka je u $where.';
   }
+
+  @override
+  String get goBackTitle => 'Vrati se nazad';
+
+  @override
+  String get goBackToHere => 'Vrati se ovdje';
+
+  @override
+  String get momentImport => 'Prije uvoza';
+
+  @override
+  String get momentSync => 'Prije sinkronizacije';
+
+  @override
+  String get momentMerge => 'Prije spajanja';
+
+  @override
+  String get momentHardDelete => 'Prije brisanja podataka jednog autora';
+
+  @override
+  String get momentArchive => 'Prije arhiviranja';
+
+  @override
+  String get momentManual => 'Označio si sam';
+
+  @override
+  String get showOlderMoments => 'Prikaži starije';
+
+  @override
+  String goBackBody(int count) {
+    return 'Sve poslije ovog trenutka se uklanja — $count promjena. Prvo se upisuje u datoteku, čiji ga uvoz vraća, a svaki noviji trenutak odlazi s njim. Oni s kojima si već sinkronizirao zadržavaju kopiju — to se ne može povući.';
+  }
+
+  @override
+  String get nameThisMoment => 'Imenuj ovaj trenutak';
+
+  @override
+  String get helpGoBack =>
+      'Trenuci u kojima se ovaj katalog jako promijenio: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve poslije njega upisuje se u datoteku koju zadržavaš i onda uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili.';
 }

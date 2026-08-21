@@ -1591,4 +1591,43 @@ class AppLocalizationsRu extends AppLocalizations {
   String undoneImport(String where) {
     return 'Отменено. Файл в $where.';
   }
+
+  @override
+  String get goBackTitle => 'Вернуться назад';
+
+  @override
+  String get goBackToHere => 'Вернуться сюда';
+
+  @override
+  String get momentImport => 'Перед импортом';
+
+  @override
+  String get momentSync => 'Перед синхронизацией';
+
+  @override
+  String get momentMerge => 'Перед объединением';
+
+  @override
+  String get momentHardDelete => 'Перед удалением данных одного автора';
+
+  @override
+  String get momentArchive => 'Перед архивированием';
+
+  @override
+  String get momentManual => 'Отмечено вами';
+
+  @override
+  String get showOlderMoments => 'Показать более ранние';
+
+  @override
+  String goBackBody(int count) {
+    return 'Всё после этого момента будет удалено — $count изменений. Сначала всё записывается в файл, импорт которого вернёт это обратно, и каждый более поздний момент исчезнет вместе с ним. У тех, с кем вы уже синхронизировались, копия останется — это не отозвать.';
+  }
+
+  @override
+  String get nameThisMoment => 'Назовите этот момент';
+
+  @override
+  String get helpGoBack =>
+      'Моменты, когда этот каталог сильно менялся: перед каждым импортом и каждой синхронизацией, перед объединением, архивированием или удалением — и всякий раз, когда вы отметили момент сами. Выбор одного возвращает каталог в то состояние: всё после него записывается в файл, который вы оставляете себе, и затем удаляется, а каждый более поздний момент исчезает вместе с ним. У тех, с кем вы уже синхронизировались, остаётся то, что они получили.';
 }

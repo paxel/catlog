@@ -1596,4 +1596,43 @@ class AppLocalizationsEl extends AppLocalizations {
   String undoneImport(String where) {
     return 'Αναιρέθηκε. Το αρχείο είναι στο $where.';
   }
+
+  @override
+  String get goBackTitle => 'Επιστροφή πίσω';
+
+  @override
+  String get goBackToHere => 'Επιστροφή εδώ';
+
+  @override
+  String get momentImport => 'Πριν την εισαγωγή';
+
+  @override
+  String get momentSync => 'Πριν τον συγχρονισμό';
+
+  @override
+  String get momentMerge => 'Πριν τη συγχώνευση';
+
+  @override
+  String get momentHardDelete => 'Πριν τη διαγραφή δεδομένων ενός συντάκτη';
+
+  @override
+  String get momentArchive => 'Πριν την αρχειοθέτηση';
+
+  @override
+  String get momentManual => 'Σημειωμένο από εσένα';
+
+  @override
+  String get showOlderMoments => 'Εμφάνιση παλαιότερων';
+
+  @override
+  String goBackBody(int count) {
+    return 'Όλα μετά από αυτή τη στιγμή αφαιρούνται — $count αλλαγές. Γράφονται πρώτα σε αρχείο, η εισαγωγή του οποίου τα επαναφέρει, και κάθε νεότερη στιγμή φεύγει μαζί. Όσοι έχουν ήδη συγχρονιστεί κρατούν το αντίγραφό τους — αυτό δεν παίρνεται πίσω.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ονόμασε αυτή τη στιγμή';
+
+  @override
+  String get helpGoBack =>
+      'Οι στιγμές που άλλαξε μορφή αυτός ο κατάλογος: πριν από κάθε εισαγωγή και κάθε συγχρονισμό, πριν από συγχώνευση, αρχειοθέτηση ή διαγραφή, και όποτε σημείωσες μια στιγμή ο ίδιος. Επιλέγοντας μία, ο κατάλογος επιστρέφει σε εκείνη την κατάσταση — ό,τι ήρθε μετά γράφεται σε αρχείο που κρατάς και μετά αφαιρείται, και κάθε νεότερη στιγμή φεύγει μαζί. Όσοι έχουν ήδη συγχρονιστεί κρατούν ό,τι πήραν.';
 }

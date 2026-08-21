@@ -1591,4 +1591,43 @@ class AppLocalizationsCs extends AppLocalizations {
   String undoneImport(String where) {
     return 'Vráceno. Soubor je v $where.';
   }
+
+  @override
+  String get goBackTitle => 'Vrátit se zpět';
+
+  @override
+  String get goBackToHere => 'Vrátit se sem';
+
+  @override
+  String get momentImport => 'Před importem';
+
+  @override
+  String get momentSync => 'Před synchronizací';
+
+  @override
+  String get momentMerge => 'Před sloučením';
+
+  @override
+  String get momentHardDelete => 'Před smazáním dat jednoho autora';
+
+  @override
+  String get momentArchive => 'Před archivací';
+
+  @override
+  String get momentManual => 'Označeno tebou';
+
+  @override
+  String get showOlderMoments => 'Zobrazit starší';
+
+  @override
+  String goBackBody(int count) {
+    return 'Všechno po tomto okamžiku zmizí — $count změn. Nejdřív se zapíše do souboru, jehož import to vrátí, a každý novější okamžik jde s tím. Kdo už synchronizoval, kopii si nechá — to vzít zpět nejde.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pojmenuj tento okamžik';
+
+  @override
+  String get helpGoBack =>
+      'Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.';
 }

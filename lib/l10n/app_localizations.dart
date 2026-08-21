@@ -2893,6 +2893,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Undone. The file is in {where}.'**
   String undoneImport(String where);
+
+  /// No description provided for @goBackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back'**
+  String get goBackTitle;
+
+  /// No description provided for @goBackToHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back to here'**
+  String get goBackToHere;
+
+  /// No description provided for @momentImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Before importing'**
+  String get momentImport;
+
+  /// No description provided for @momentSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Before syncing'**
+  String get momentSync;
+
+  /// No description provided for @momentMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Before merging'**
+  String get momentMerge;
+
+  /// No description provided for @momentHardDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Before deleting an author’s data'**
+  String get momentHardDelete;
+
+  /// No description provided for @momentArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Before archiving'**
+  String get momentArchive;
+
+  /// No description provided for @momentManual.
+  ///
+  /// In en, this message translates to:
+  /// **'Marked by you'**
+  String get momentManual;
+
+  /// No description provided for @showOlderMoments.
+  ///
+  /// In en, this message translates to:
+  /// **'Show older'**
+  String get showOlderMoments;
+
+  /// No description provided for @goBackBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything after this moment is removed — {count} change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.'**
+  String goBackBody(int count);
+
+  /// No description provided for @nameThisMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Name this moment'**
+  String get nameThisMoment;
+
+  /// No description provided for @helpGoBack.
+  ///
+  /// In en, this message translates to:
+  /// **'The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.'**
+  String get helpGoBack;
 }
 
 class _AppLocalizationsDelegate

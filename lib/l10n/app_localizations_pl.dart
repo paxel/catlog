@@ -1591,4 +1591,43 @@ class AppLocalizationsPl extends AppLocalizations {
   String undoneImport(String where) {
     return 'Cofnięto. Plik jest w $where.';
   }
+
+  @override
+  String get goBackTitle => 'Cofnij się';
+
+  @override
+  String get goBackToHere => 'Wróć tutaj';
+
+  @override
+  String get momentImport => 'Przed importem';
+
+  @override
+  String get momentSync => 'Przed synchronizacją';
+
+  @override
+  String get momentMerge => 'Przed scaleniem';
+
+  @override
+  String get momentHardDelete => 'Przed usunięciem danych jednego autora';
+
+  @override
+  String get momentArchive => 'Przed archiwizacją';
+
+  @override
+  String get momentManual => 'Oznaczone przez ciebie';
+
+  @override
+  String get showOlderMoments => 'Pokaż starsze';
+
+  @override
+  String goBackBody(int count) {
+    return 'Wszystko po tej chwili zostanie usunięte — $count zmian. Najpierw trafi do pliku, którego import to przywróci, a każda nowsza chwila zniknie razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowają kopię — tego nie da się cofnąć.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nazwij tę chwilę';
+
+  @override
+  String get helpGoBack =>
+      'Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.';
 }

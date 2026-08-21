@@ -463,5 +463,18 @@
   "undoImportBody": "Bu içe aktarmanın getirdiği {count} değişiklik kaldırılır. Önce bir dosyaya yazılır; onu içe aktarmak geri getirir. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Geri alındı. Dosya {where} içinde.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Geri dön",
+  "goBackToHere": "Buraya dön",
+  "momentImport": "İçe aktarmadan önce",
+  "momentSync": "Eşitlemeden önce",
+  "momentMerge": "Birleştirmeden önce",
+  "momentHardDelete": "Bir yazarın verilerini silmeden önce",
+  "momentArchive": "Arşivlemeden önce",
+  "momentManual": "Senin işaretlediğin",
+  "showOlderMoments": "Daha eskileri göster",
+  "goBackBody": "Bu andan sonraki her şey kaldırılır — {count} değişiklik. Önce bir dosyaya yazılır; onu içe aktarmak hepsini geri getirir, bundan yeni her an da onunla gider. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Bu ana bir ad ver",
+  "helpGoBack": "Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur."
 }

@@ -463,5 +463,18 @@
   "undoImportBody": "Az importálás hozta {count} változás eltűnik. Előbb fájlba kerülnek, annak importálása visszahozza őket. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Visszavonva. A fájl itt van: {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Vissza egy korábbi állapotra",
+  "goBackToHere": "Vissza ide",
+  "momentImport": "Importálás előtt",
+  "momentSync": "Szinkronizálás előtt",
+  "momentMerge": "Összevonás előtt",
+  "momentHardDelete": "Egy szerző adatainak törlése előtt",
+  "momentArchive": "Archiválás előtt",
+  "momentManual": "Te jelölted meg",
+  "showOlderMoments": "Régebbiek mutatása",
+  "goBackBody": "Minden eltűnik e pillanat után — {count} változás. Előbb fájlba kerül, annak importálása mindent visszahoz, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Nevezd el ezt a pillanatot",
+  "helpGoBack": "Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak."
 }

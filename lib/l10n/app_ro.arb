@@ -463,5 +463,18 @@
   "undoImportBody": "Cele {count} modificări aduse de acest import se elimină. Sunt scrise mai întâi într-un fișier, al cărui import le aduce înapoi. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.",
   "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
   "undoneImport": "Anulat. Fișierul e în {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}}
+  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "goBackTitle": "Înapoi la un moment anterior",
+  "goBackToHere": "Înapoi aici",
+  "momentImport": "Înainte de import",
+  "momentSync": "Înainte de sincronizare",
+  "momentMerge": "Înainte de îmbinare",
+  "momentHardDelete": "Înainte de ștergerea datelor unui autor",
+  "momentArchive": "Înainte de arhivare",
+  "momentManual": "Marcat de tine",
+  "showOlderMoments": "Arată mai vechi",
+  "goBackBody": "Tot ce vine după acest moment se elimină — {count} modificări. Se scrie mai întâi într-un fișier, al cărui import aduce totul înapoi, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.",
+  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "nameThisMoment": "Denumește acest moment",
+  "helpGoBack": "Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit."
 }
