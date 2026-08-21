@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../layout.dart';
 import '../help.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -90,7 +91,9 @@ class _StraysScreenState extends State<StraysScreen> {
               _field(a.id, 'color').compareTo(_field(b.id, 'color')),
           });
     return Scaffold(
-      appBar: AppBar(title: Text(context.t.strays), actions: [
+      appBar: roomyAppBar(context,
+          title: Text(context.t.strays),
+          actions: [
         HelpButton(store: widget.store, screenId: 'strays'),
         Spotlight(
           id: 'strays-scan',

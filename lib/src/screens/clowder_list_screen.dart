@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../layout.dart';
 import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
@@ -122,7 +123,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     final clowders = widget.store.visibleClowders()
       ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text(context.t.clowders),
         actions: [
           HelpButton(store: widget.store, screenId: 'home'),

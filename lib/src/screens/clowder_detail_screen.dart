@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../layout.dart';
 import '../help.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
@@ -189,7 +190,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         if (!didPop) setState(() => _editing = false);
       },
       child: Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         // Renaming lives in edit mode: the title becomes tappable there.
         title: _editing
             ? InkWell(onTap: _rename, child: Text(name))

@@ -5,6 +5,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../layout.dart';
 import '../help.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
@@ -312,7 +313,8 @@ class _CardScreenState extends State<CardScreen> {
     final photo = hash == null ? null : imageProviderFor(store, hash);
     final facts = _facts();
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text(context.t.cardTitle(name)),
         actions: [
           HelpButton(store: store, screenId: 'card'),

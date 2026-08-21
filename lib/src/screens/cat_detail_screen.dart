@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../layout.dart';
 import '../help.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
@@ -343,7 +344,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         if (!didPop) setState(() => _editing = false);
       },
       child: Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         // Renaming lives in edit mode: the title becomes tappable there.
         title: _editing
             ? InkWell(onTap: _rename, child: Text(name))

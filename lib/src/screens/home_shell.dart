@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../hidden.dart';
 import '../l10n.dart';
+import '../layout.dart';
 import 'clowder_detail_screen.dart';
 import 'clowder_list_screen.dart';
-
-/// Width where the app stops being a stretched phone app: list pane
-/// left, detail pane right. Purely width-based — iPad landscape and
-/// resized desktop windows switch live; phones never see it.
-const desktopBreakpoint = 840.0;
 
 class HomeShell extends StatefulWidget {
   final CatalogStore store;
