@@ -27,18 +27,24 @@ typedef SaveFile = Future<String> Function(String path, String name);
   final result = importBundle(store, path);
   return (
     result: result,
-    point: result.applied.isEmpty
-        ? null
-        : _pointFor(store, store.addSavePoint(cause: cause, label: label, seq: before)),
+    point: savePointFor(store,
+        before: before,
+        changed: result.applied.isNotEmpty,
+        cause: cause,
+        label: label),
   );
 }
 
-/// Records the moment before an import that has already happened, given
-/// the mark taken before it. For transports that do their own importing.
-SavePoint? savePointForImport(CatalogStore store,
-    {required int before, required BundleResult result,
-    String cause = SaveCause.sync, String? label}) {
-  if (result.applied.isEmpty) return null;
+/// Records the moment before a change that has already happened, given
+/// the mark taken before it. For transports and operations that do
+/// their own work. Nothing applied means no moment: a folder sync that
+/// finds nothing new must not fill the list.
+SavePoint? savePointFor(CatalogStore store,
+    {required int before,
+    required bool changed,
+    required String cause,
+    String? label}) {
+  if (!changed) return null;
   return _pointFor(
       store, store.addSavePoint(cause: cause, label: label, seq: before));
 }

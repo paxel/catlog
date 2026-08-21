@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../undo_import.dart';
 import '../import_summary.dart';
 import '../l10n.dart';
 
@@ -26,10 +27,17 @@ class _RemoteScreenState extends State<RemoteScreen> {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
+      final before = widget.store.currentSeq();
       final result = folderSync(widget.store, folder,
           includePrivate: _includePrivate);
+      final point = savePointFor(widget.store,
+          before: before,
+          changed: result.applied.isNotEmpty,
+          cause: SaveCause.sync,
+          label: folder);
       if (mounted && result.applied.isNotEmpty) {
-        await showImportSummary(context, widget.store, result.applied);
+        await showImportSummary(context, widget.store, result.applied,
+            undo: point);
       }
       setState(() => _lastResult = t.folderSynced('$result'));
     } on FileSystemException {
