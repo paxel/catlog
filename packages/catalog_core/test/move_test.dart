@@ -157,4 +157,22 @@ void main() {
     expect(moveEntities(berlin, paris, const {}).moved, isEmpty);
     expect(paris.cats(), isEmpty);
   });
+
+  test('the destination keeps its own field definitions', () {
+    // Both catalogs have the starter fields; Paris renamed one of them.
+    paris.renameField(
+        paris.fieldDefs().firstWhere((d) => d.slug == 'color').id,
+        'Couleur');
+    berlin.renameField(
+        berlin.fieldDefs().firstWhere((d) => d.slug == 'color').id,
+        'Farbe');
+    final cat = berlin.createCat('Miezi');
+    berlin.append(cat, Keys.userField('color'), 'black');
+
+    moveEntities(berlin, paris, {cat});
+
+    expect(paris.fieldDefs().map((d) => d.name), contains('Couleur'));
+    expect(paris.fieldDefs().map((d) => d.name), isNot(contains('Farbe')));
+    expect(paris.current(cat, Keys.userField('color')), 'black');
+  });
 }

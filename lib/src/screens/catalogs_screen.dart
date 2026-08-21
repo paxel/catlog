@@ -101,7 +101,15 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       final before = backupFileName(catalog.name);
       widget.catalogs.rename(catalog.id, name);
       final after = backupFileName(name);
-      if (after != before) await (widget.removeSaved ?? removeBesideBackups)(before);
+      if (after != before) {
+        // The file under the old name stops being anybody's backup, so
+        // the catalog must earn a new one at the next pause rather than
+        // sit there with none.
+        final renamed = widget.catalogs.openStore(widget.catalogs.byId(catalog.id)!);
+        renamed.removeLocalSetting('lastBackupVector');
+        renamed.close();
+        await (widget.removeSaved ?? removeBesideBackups)(before);
+      }
       _changed();
     } on DuplicateCatalogName {
       if (mounted) _sayTaken(name);

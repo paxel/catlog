@@ -1057,9 +1057,14 @@ class CatalogStore {
   /// before — an operation that changed nothing records nothing.
   int addSavePoint(
       {required String cause, String? label, int? seq, DateTime? at}) {
+    // Never above the log itself: entries can be removed physically, so
+    // a mark taken earlier could otherwise point past the end and sort
+    // as the newest moment for ever.
+    final now = currentSeq();
+    final mark = seq == null || seq > now ? now : seq;
     _db.execute(
       'INSERT INTO save_points (seq, cause, label, at) VALUES (?, ?, ?, ?)',
-      [seq ?? currentSeq(), cause, label, _iso(at ?? DateTime.now())],
+      [mark, cause, label, _iso(at ?? DateTime.now())],
     );
     return _db.lastInsertRowId;
   }

@@ -24,11 +24,33 @@ const backupErrorKey = 'lastBackupError';
 /// after it, so using one catalog cannot overwrite another's safety net
 /// and a folder of these files still says which city is which.
 String backupFileName(String? catalogName) {
-  final safe = (catalogName ?? '')
+  final name = (catalogName ?? '').trim();
+  if (name.isEmpty) return 'catlog-backup.catsync';
+  final safe = name
       .toLowerCase()
       .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
       .replaceAll(RegExp(r'^-+|-+$'), '');
-  return safe.isEmpty ? 'catlog-backup.catsync' : 'catlog-$safe.catsync';
+  // Two catalogs must never share a file. A name the file system cannot
+  // carry — 北京, Москва — or one that only differs in punctuation gets
+  // a short fingerprint of the real name, so "Cats!" and "Cats?" stay
+  // apart and a Chinese name is not silently the shared fallback.
+  final faithful =
+      safe == name.toLowerCase().replaceAll(RegExp(r'\s+'), '-');
+  if (safe.isEmpty) return 'catlog-${_fingerprint(name)}.catsync';
+  return faithful
+      ? 'catlog-$safe.catsync'
+      : 'catlog-$safe-${_fingerprint(name)}.catsync';
+}
+
+/// Short, stable fingerprint of a name (FNV-1a). Stable across launches,
+/// which a Dart hashCode is not promised to be.
+String _fingerprint(String value) {
+  var hash = 0x811c9dc5;
+  for (final unit in value.runes) {
+    hash = (hash ^ unit) & 0xffffffff;
+    hash = (hash * 0x01000193) & 0xffffffff;
+  }
+  return hash.toRadixString(16).padLeft(8, '0');
 }
 
 /// Removes a file from where the backups go — after a rename, the file

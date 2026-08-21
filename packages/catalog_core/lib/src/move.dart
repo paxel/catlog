@@ -37,16 +37,26 @@ MoveResult moveEntities(CatalogStore from, CatalogStore to, Set<String> ids,
   }
   if (wanted.isEmpty) return const MoveResult(moved: [], photos: 0);
 
-  // Field definitions come along, so the fields render as they did.
-  final defs = {for (final def in from.fieldDefs()) def.id};
+  // Field definitions come along only where the destination has none of
+  // its own: bringing a copy of a definition it already has would let
+  // the source's wording and options win over every cat already living
+  // there, which is not what moving one cat should do.
+  final known = {for (final def in to.fieldDefs()) def.id};
+  final defs = {
+    for (final def in from.fieldDefs())
+      if (!known.contains(def.id)) def.id
+  };
   final entries = <Entry>[
     for (final e in from.entriesSince(const {}, includePrivate: true))
       if (wanted.contains(from.resolveEntity(e.entity)) ||
           defs.contains(e.entity))
         e
   ];
-  to.adoptEntries(entries);
 
+  // Photos first: a failure here leaves bytes nothing refers to, which
+  // is litter. Failing after the entries were claimed would leave the
+  // same cat in both catalogs, which is the mess the move exists to
+  // prevent.
   var photos = 0;
   for (final id in wanted) {
     for (final hash in from.images(id)) {
@@ -56,6 +66,7 @@ MoveResult moveEntities(CatalogStore from, CatalogStore to, Set<String> ids,
       photos++;
     }
   }
+  to.adoptEntries(entries);
 
   // A cat whose clowder did not come along has no home over there.
   for (final id in wanted) {

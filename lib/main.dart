@@ -42,7 +42,11 @@ Future<void> main(List<String> args) async {
         CatalogManager.open(dir.path, defaultName: texts.clowders);
     final store = catalogs.openStore(catalogs.active);
     await initCrashGuard(dir,
-        restart: () => runApp(CatlogApp(store: store, catalogs: catalogs)));
+        restart: () => runApp(CatlogApp(
+            // The catalog open right now, not the one opened at launch:
+            // switching closes the old handle.
+            store: activeStore ?? store,
+            catalogs: catalogs)));
     // Read the marker BEFORE re-arming it: dirty means the last run was
     // killed without a clean pause (out-of-memory, native crash).
     final diedLastRun = previousRunDied();

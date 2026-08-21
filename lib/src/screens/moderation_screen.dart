@@ -1,7 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
-import '../undo_import.dart';
 import '../l10n.dart';
 
 /// Moderation (ADR-0006): per-author hard delete with typed confirmation
@@ -65,13 +64,11 @@ class _ModerationScreenState extends State<ModerationScreen> {
       ),
     );
     if (confirmed != true || !mounted) return;
-    final before = store.currentSeq();
+    // No moment is recorded here on purpose: a hard delete removes
+    // entries instead of adding any (ADR-0006), so there would be
+    // nothing above the mark to put back. The ban list is what keeps
+    // the material from coming home.
     final removedBlobs = store.hardDeleteAuthor(row.author);
-    savePointFor(store,
-        before: before,
-        changed: true,
-        cause: SaveCause.hardDelete,
-        label: row.author);
     if (alsoBan) {
       store.ban(author: row.author);
       for (final hash in removedBlobs) {

@@ -27,9 +27,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   catalog changed shape, as sentences, newest first and grouped by
   month. Picking one returns the catalog to that state, and you can mark
   a moment yourself with a name. A moment is recorded before every
-  import and every sync, before merging, before deleting an author's
-  data and before archiving — and a sync that finds nothing new records
-  nothing.
+  import and every sync, before merging and before archiving — and a
+  sync that finds nothing new records nothing.
 
 ### Changed
 

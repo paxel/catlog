@@ -187,6 +187,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     return Scaffold(
       appBar: roomyAppBar(
         context,
+        // In the two-pane layout this list lives in a narrow column.
+        narrow: widget.onOpenPage == null ? null : true,
         title: _catalogTitle(context),
         actions: [
           HelpButton(store: widget.store, screenId: 'home'),

@@ -163,4 +163,20 @@ void main() {
       expect(find.byType(ClowderDetailScreen), findsOneWidget);
     });
   });
+
+  testWidgets('the list pane keeps its title on its own line, however '
+      'wide the window is', (tester) async {
+    await pump(tester, size: const Size(1400, 900));
+    final title = find.descendant(
+        of: find.byType(AppBar), matching: find.text('Clowders'));
+    expect(title, findsOneWidget);
+    // The pane is 400px wide whatever the window does; a one-line bar
+    // there would crush the title the switcher lives in.
+    final buttons = find
+        .descendant(of: find.byType(AppBar), matching: find.byType(IconButton))
+        .evaluate()
+        .map((e) => tester.getRect(find.byWidget(e.widget)).bottom);
+    expect(tester.getRect(title).top,
+        greaterThanOrEqualTo(buttons.reduce((a, b) => a > b ? a : b)));
+  });
 }

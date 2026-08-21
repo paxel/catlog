@@ -37,8 +37,11 @@ const _titleLineHeight = 44.0;
 /// moves to its own line underneath the buttons; from there up the bar
 /// is the ordinary one, because the title fits beside them.
 PreferredSizeWidget roomyAppBar(BuildContext context,
-    {required Widget title, List<Widget>? actions}) {
-  if (MediaQuery.sizeOf(context).width >= desktopBreakpoint) {
+    {required Widget title, List<Widget>? actions, bool? narrow}) {
+  // [narrow] is for a screen that knows it is in a column rather than
+  // the whole window: the list pane is 400px wide no matter how wide
+  // the window around it is.
+  if (!(narrow ?? MediaQuery.sizeOf(context).width < desktopBreakpoint)) {
     return AppBar(title: title, actions: actions);
   }
   final theme = Theme.of(context);
