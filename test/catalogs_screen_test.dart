@@ -260,4 +260,24 @@ void main() {
 
     expect(removed, ['catlog-berlin.catsync']);
   });
+
+  testWidgets('each catalog shows what it costs in space', (tester) async {
+    store.createClowder('Hinterhof');
+    catalogs.create('Paris');
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CatalogsScreen(
+          catalogs: catalogs, store: store, onSwitch: (_) {}),
+    ));
+    await tester.pumpAndSettle();
+
+    for (final catalog in catalogs.catalogs()) {
+      expect(find.widgetWithText(ListTile, catalog.name), findsOneWidget);
+      expect(catalog.sizeInBytes, greaterThan(0));
+    }
+    // A size is shown for every catalog, in units a person reads.
+    expect(find.textContaining(RegExp(r'\d+(\.\d+)? (B|KB|MB|GB)')),
+        findsNWidgets(2));
+  });
 }
