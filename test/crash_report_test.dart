@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:catlog/src/crash_guard.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// A crash report nobody can trace to a build is worthless: every
@@ -19,5 +20,38 @@ void main() {
         greaterThan(Platform.operatingSystem.length + 1));
     expect(lines[2], startsWith('locale '));
     expect(lines[3], '2026-08-20T12:00:00.000Z');
+  });
+
+  group('the running marker', () {
+    late Directory dir;
+
+    setUp(() async {
+      dir = Directory.systemTemp.createTempSync('catlog-crash');
+      await initCrashGuard(dir, restart: () {});
+    });
+
+    tearDown(() => dir.deleteSync(recursive: true));
+
+    test('a clean exit leaves nothing behind; a kill is noticed', () {
+      markRunning();
+      markCleanExit();
+      expect(previousRunDied(), isFalse);
+
+      markRunning();
+      expect(previousRunDied(), isTrue,
+          reason: 'a run that never paused cleanly was killed');
+      expect(previousRunDied(), isFalse, reason: 'asked exactly once');
+    });
+
+    test('the last crash is readable once and can be cleared', () {
+      expect(lastCrashText(), isNull);
+      FlutterError.onError!(FlutterErrorDetails(
+          exception: StateError('boom'), stack: StackTrace.current));
+      final text = lastCrashText();
+      expect(text, contains('boom'));
+      expect(text, contains(Platform.operatingSystem));
+      clearLastCrash();
+      expect(lastCrashText(), isNull);
+    });
   });
 }
