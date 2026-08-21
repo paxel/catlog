@@ -13,6 +13,29 @@ import 'fields.dart';
 /// Author name stamped on entries the store seeds itself (starter Fields).
 const seedAuthor = 'cat(a)log';
 
+/// Settings that belong to the app rather than to one catalog. With
+/// several catalogs on a device, these are answered by a shared store so
+/// a second catalog is not a fresh install: you keep your name, your
+/// language, and the tutorial tips you have already seen.
+bool isSharedSetting(String key) =>
+    key == 'locale' ||
+    key == 'introSeen' ||
+    key == 'celebrations' ||
+    key == 'windowBounds' ||
+    key.startsWith('spot:') ||
+    key.startsWith('spot2:') ||
+    key.startsWith('toast:');
+
+/// Where shared settings live. A store without one keeps everything in
+/// its own database — which is what a bare [CatalogStore.open] and every
+/// in-memory store do, and must keep doing.
+abstract class SharedSettings {
+  String? get(String key);
+  void set(String key, String value);
+  void remove(String key);
+  List<(String, String)> byPrefix(String prefix);
+}
+
 /// A Cat or Clowder as list rows want it: id plus current name.
 class EntityView {
   final String id;
@@ -47,6 +70,10 @@ class ClowderEvent {
 class CatalogStore {
   final Database _db;
   final _BlobStore _blobs;
+
+  /// Set by the catalog manager when several catalogs share a device.
+  /// Null everywhere else, and the store works exactly as before.
+  SharedSettings? shared;
 
   CatalogStore._(this._db, this._blobs);
 
@@ -149,6 +176,11 @@ class CatalogStore {
   /// The device's Author name; null until first-launch setup stored one.
   /// Device-local: lives outside the entry log and is never synced.
   String? get author {
+    // One name for the whole app once catalogs are shared, falling back
+    // to this catalog's own so a migrated catalog can still write before
+    // its name has been copied across.
+    final name = shared?.get('author');
+    if (name != null && name.isNotEmpty) return name;
     final rows =
         _db.select('SELECT value FROM local_settings WHERE key = ?', ['author']);
     return rows.isEmpty ? null : rows.first['value'] as String;
@@ -158,6 +190,7 @@ class CatalogStore {
     if (name == null || name.trim().isEmpty) {
       throw ArgumentError('Author name must not be empty');
     }
+    shared?.set('author', name.trim());
     _db.execute(
       'INSERT INTO local_settings (key, value) VALUES (?, ?) '
       'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
@@ -168,16 +201,25 @@ class CatalogStore {
   /// Device-local, never-synced key/value setting (last sync peer,
   /// folder paths, …).
   String? localSetting(String key) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) return s.get(key);
     final rows = _db
         .select('SELECT value FROM local_settings WHERE key = ?', ['u:$key']);
     return rows.isEmpty ? null : rows.first['value'] as String;
   }
 
-  void setLocalSetting(String key, String value) => _db.execute(
-        'INSERT INTO local_settings (key, value) VALUES (?, ?) '
-        'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
-        ['u:$key', value],
-      );
+  void setLocalSetting(String key, String value) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) {
+      s.set(key, value);
+      return;
+    }
+    _db.execute(
+      'INSERT INTO local_settings (key, value) VALUES (?, ?) '
+      'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+      ['u:$key', value],
+    );
+  }
 
   // ------------------------------------------- hidden (display filter)
 
@@ -219,18 +261,40 @@ class CatalogStore {
 
   /// All local settings under a prefix, as (suffix, value) —
   /// e.g. the always-allowed sync devices under 'trust:'.
-  List<(String, String)> localSettingsByPrefix(String prefix) => [
+  List<(String, String)> localSettingsByPrefix(String prefix) {
+    final s = shared;
+    if (s != null && isSharedSetting(prefix)) return s.byPrefix(prefix);
+    return [
+      for (final r in _db.select(
+          "SELECT key, value FROM local_settings WHERE key LIKE ?",
+          ['u:$prefix%']))
+        (
+          (r['key'] as String).substring('u:'.length + prefix.length),
+          r['value'] as String
+        )
+    ];
+  }
+
+  /// Every device-local setting as (key, value), without the internal
+  /// prefix — used when a catalog hands its app-level settings over to
+  /// a shared store.
+  List<(String, String)> allLocalSettings() => [
         for (final r in _db.select(
-            "SELECT key, value FROM local_settings WHERE key LIKE ?",
-            ['u:$prefix%']))
+            "SELECT key, value FROM local_settings WHERE key LIKE 'u:%'"))
           (
-            (r['key'] as String).substring('u:'.length + prefix.length),
+            (r['key'] as String).substring('u:'.length),
             r['value'] as String
           )
       ];
 
-  void removeLocalSetting(String key) =>
-      _db.execute('DELETE FROM local_settings WHERE key = ?', ['u:$key']);
+  void removeLocalSetting(String key) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) {
+      s.remove(key);
+      return;
+    }
+    _db.execute('DELETE FROM local_settings WHERE key = ?', ['u:$key']);
+  }
 
   /// Canonical ids currently hidden on this device.
   List<String> hiddenIds() => [

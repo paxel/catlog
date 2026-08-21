@@ -7,6 +7,7 @@ library;
 
 export 'src/archive.dart';
 export 'src/bundle.dart';
+export 'src/catalogs.dart';
 export 'src/csv_export.dart';
 export 'src/duplicates.dart';
 export 'src/entry.dart';

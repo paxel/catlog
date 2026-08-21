@@ -36,6 +36,11 @@ class ClowderListScreen extends StatefulWidget {
   final void Function(PanePage page)? onOpenPage;
   final String? selectedPageId;
 
+  /// The catalog this list belongs to. Shown as the title, because with
+  /// several catalogs the one you are in is the thing you most need to
+  /// know before adding a cat.
+  final String? catalogName;
+
   /// Called when the tiles/table choice changes. The table wants the
   /// whole window, so the layout around this screen has to know.
   final VoidCallback? onViewChanged;
@@ -45,6 +50,7 @@ class ClowderListScreen extends StatefulWidget {
       required this.store,
       this.onOpenPage,
       this.selectedPageId,
+      this.catalogName,
       this.onViewChanged});
 
   @override
@@ -145,7 +151,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     return Scaffold(
       appBar: roomyAppBar(
         context,
-        title: Text(context.t.clowders),
+        title: Text(widget.catalogName ?? context.t.clowders),
         actions: [
           HelpButton(store: widget.store, screenId: 'home'),
           IconButton(

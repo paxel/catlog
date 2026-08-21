@@ -108,6 +108,20 @@ void main() {
     expect(inPane(tester, find.byType(StraysScreen)), isFalse);
   });
 
+  testWidgets('the home title names the catalog you are in',
+      (tester) async {
+    tester.view.physicalSize = const Size(1200, 900);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: HomeShell(store: store, catalogName: 'Berlin'),
+    ));
+    await tester.pumpAndSettle();
+    expect(find.widgetWithText(AppBar, 'Berlin'), findsOneWidget);
+  });
+
   group('table view', () {
     Future<void> toTable(WidgetTester tester) async {
       await tester.tap(find.byIcon(Icons.table_rows_outlined));

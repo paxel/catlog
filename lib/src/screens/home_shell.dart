@@ -9,7 +9,11 @@ import 'clowder_list_screen.dart';
 class HomeShell extends StatefulWidget {
   final CatalogStore store;
 
-  const HomeShell({super.key, required this.store});
+  /// The name of the catalog being shown. Null in tests and wherever
+  /// there is only ever one, where the plain word does the job.
+  final String? catalogName;
+
+  const HomeShell({super.key, required this.store, this.catalogName});
 
   @override
   State<HomeShell> createState() => _HomeShellState();
@@ -29,6 +33,7 @@ class _HomeShellState extends State<HomeShell> {
       if (constraints.maxWidth < desktopBreakpoint || tableView) {
         return ClowderListScreen(
             store: widget.store,
+            catalogName: widget.catalogName,
             onViewChanged: () => setState(() {}));
       }
       // A deleted or hidden clowder vacates the pane; every other page
@@ -44,6 +49,7 @@ class _HomeShellState extends State<HomeShell> {
           width: 400,
           child: ClowderListScreen(
             store: widget.store,
+            catalogName: widget.catalogName,
             selectedPageId: shown?.id,
             onOpenPage: (page) => setState(() => _page = page),
             onViewChanged: () => setState(() {}),

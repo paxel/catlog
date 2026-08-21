@@ -25,13 +25,18 @@ Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     final dir = await getApplicationSupportDirectory();
-    final store = CatalogStore.open('${dir.path}/catlog.db');
-    final saved = store.localSetting('locale');
+    // The language decides what the catalog carried over from an older
+    // version is called, so it is read before the catalogs are opened.
+    final saved = CatalogManager.savedLocale(dir.path);
     if (saved != null && saved.isNotEmpty) {
       localeOverride.value = Locale(saved);
     }
+    final texts = await _texts();
+    final catalogs =
+        CatalogManager.open(dir.path, defaultName: texts.clowders);
+    final store = catalogs.openStore(catalogs.active);
     await initCrashGuard(dir,
-        restart: () => runApp(CatlogApp(store: store)));
+        restart: () => runApp(CatlogApp(store: store, catalogs: catalogs)));
     // Read the marker BEFORE re-arming it: dirty means the last run was
     // killed without a clean pause (out-of-memory, native crash).
     final diedLastRun = previousRunDied();
@@ -40,12 +45,22 @@ Future<void> main(List<String> args) async {
     unawaited(recoverStrayCam(store));
     initIncomingFiles(navigatorKey, store, args);
     await _restoreWindow(store);
-    runApp(CatlogApp(store: store, diedLastRun: diedLastRun));
+    runApp(CatlogApp(
+        store: store, catalogs: catalogs, diedLastRun: diedLastRun));
   }, (error, stack) {
     // Anything that escapes everything else still gets the friendly
     // screen instead of a silent death.
     PlatformDispatcher.instance.onError?.call(error, stack);
   });
+}
+
+/// The texts in the language the app will run in, before there is a
+/// widget tree to read them from.
+Future<AppLocalizations> _texts() async {
+  final locale = localeOverride.value ??
+      basicLocaleListResolution(PlatformDispatcher.instance.locales.toList(),
+          AppLocalizations.supportedLocales);
+  return AppLocalizations.delegate.load(locale);
 }
 
 bool get _isDesktop =>
@@ -71,12 +86,19 @@ Future<void> _restoreWindow(CatalogStore store) async {
 class CatlogApp extends StatefulWidget {
   final CatalogStore store;
 
+  /// Every catalog on this device, and the settings they share. Null in
+  /// widget tests, which build a store directly; the app always has one.
+  final CatalogManager? catalogs;
+
   /// True when the previous run ended in an unclean kill — offer to
   /// send a report once.
   final bool diedLastRun;
 
   const CatlogApp(
-      {super.key, required this.store, this.diedLastRun = false});
+      {super.key,
+      required this.store,
+      this.catalogs,
+      this.diedLastRun = false});
 
   @override
   State<CatlogApp> createState() => _CatlogAppState();
@@ -219,7 +241,10 @@ class _CatlogAppState extends State<CatlogApp>
                     store: widget.store,
                     onDone: () => setState(() {}),
                   )
-                : HomeShell(store: widget.store),
+                : HomeShell(
+                    store: widget.store,
+                    catalogName: widget.catalogs?.active.name,
+                  ),
       ),
     );
   }
