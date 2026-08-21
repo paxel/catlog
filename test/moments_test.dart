@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/merge_dialogs.dart';
-import 'package:catlog/src/screens/archive_screen.dart';
 import 'package:catlog/src/undo_import.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

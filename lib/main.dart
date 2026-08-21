@@ -118,8 +118,14 @@ class _CatlogAppState extends State<CatlogApp>
   /// opens another, so it lives in state rather than in the widget.
   late CatalogStore _store = widget.store;
 
-  /// Switches the app to another catalog: the old one is closed, the new
-  /// one becomes the one everything writes to.
+  /// Switches the app to another catalog: the new one becomes what
+  /// everything writes to, and the app returns to the list.
+  ///
+  /// Every page still open belongs to the catalog being left — the
+  /// switcher itself is usually one of them — so the stack is unwound
+  /// to the home screen and the old catalog is closed only once those
+  /// pages are gone. Closing it any earlier leaves them reading from a
+  /// database that is no longer open.
   void _switchCatalog(CatalogInfo to) {
     final manager = widget.catalogs;
     if (manager == null || to.id == manager.active.id) return;
@@ -128,7 +134,8 @@ class _CatlogAppState extends State<CatlogApp>
     manager.active = to;
     setState(() => _store = next);
     activeStore = next;
-    previous.close();
+    navigatorKey.currentState?.popUntil((route) => route.isFirst);
+    WidgetsBinding.instance.addPostFrameCallback((_) => previous.close());
   }
 
   /// True only when the author was created THIS run: the intro is for
