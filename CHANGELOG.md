@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [0.3.0] - Unreleased
 
+### Fixed
+
+- Entries written after deleting an author's data reach the people you
+  sync with again, instead of being silently ignored as something they
+  already had.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).

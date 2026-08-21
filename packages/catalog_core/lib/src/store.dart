@@ -268,6 +268,13 @@ class CatalogStore {
           [...args, '${Keys.imagePrefix}%']))
         (r['field'] as String).substring(Keys.imagePrefix.length)
     };
+    // The numbers of the rows about to vanish stay claimed, so nothing
+    // this device writes later re-uses one (see [_nextDseq]) and peers
+    // stop offering the removed rows back.
+    final removed = _db.select(
+        'SELECT device, MAX(dseq) AS m FROM entries WHERE $where '
+        'GROUP BY device',
+        args);
     _db.execute('BEGIN');
     try {
       _db.execute('DELETE FROM entries WHERE $where', args);
@@ -276,14 +283,17 @@ class CatalogStore {
       _db.execute('ROLLBACK');
       rethrow;
     }
-    final removed = <String>[];
+    for (final r in removed) {
+      _recordDiscarded(r['device'] as String, r['m'] as int);
+    }
+    final removedBlobs = <String>[];
     for (final hash in touched) {
       if (!_imageReferenced(hash) && _blobs.get(hash) != null) {
         _blobs.remove(hash);
-        removed.add(hash);
+        removedBlobs.add(hash);
       }
     }
-    return removed;
+    return removedBlobs;
   }
 
   /// The local ban list: banned material is received and discarded on
@@ -341,6 +351,20 @@ class CatalogStore {
 
   // ------------------------------------------------------------------- log
 
+  /// The next sequence number for [device]: one above the high-water
+  /// mark, which counts physically removed entries as well as surviving
+  /// ones. A number is never issued twice — peers keep removed entries
+  /// under their old numbers, and an entry re-using one would be ignored
+  /// by everyone who already synced.
+  int _nextDseq(String device) {
+    final highest = _db.select(
+      'SELECT COALESCE(MAX(dseq), 0) AS n FROM entries WHERE device = ?',
+      [device],
+    ).first['n'] as int;
+    final removed = _discardedVector()[device] ?? 0;
+    return (highest > removed ? highest : removed) + 1;
+  }
+
   /// Appends one immutable fact. [date] is the effective (backdatable)
   /// date and defaults to now. Uses the configured [author] unless [as]
   /// overrides it (seeding).
@@ -350,10 +374,7 @@ class CatalogStore {
     if (by == null) throw StateError('No author configured');
     final now = DateTime.now().toUtc();
     final device = deviceId;
-    final next = _db.select(
-      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
-      [device],
-    ).first['n'] as int;
+    final next = _nextDseq(device);
     _db.execute(
       'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
       'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
@@ -1017,10 +1038,7 @@ class CatalogStore {
         .map(_entry)
         .toList();
     final device = deviceId;
-    var next = _db.select(
-      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
-      [device],
-    ).first['n'] as int;
+    var next = _nextDseq(device);
     for (final e in rows) {
       _db.execute(
         'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
