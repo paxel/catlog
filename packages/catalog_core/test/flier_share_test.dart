@@ -133,4 +133,21 @@ void main() {
             'catlog-share:u:${base64Url.encode(utf8.encode('ftp://x'))}'),
         isNull);
   });
+
+  test("a share never renames the importer's own fields", () {
+    // Both catalogs have the starter fields — same deterministic ids.
+    // The finder renamed theirs and cut the option list down.
+    final def = finder.fieldDefs().firstWhere((d) => d.slug == 'color');
+    finder.renameField(def.id, 'Farbe');
+    final ownerDef = owner.fieldDefs().firstWhere((d) => d.slug == 'color');
+    owner.append(cat, Keys.userField('color'), 'black');
+
+    final bytes = catShareBytes(owner, catId: cat, fields: {ownerDef.key});
+    importBundleBytes(finder, bytes);
+
+    expect(finder.fieldDefs().firstWhere((d) => d.slug == 'color').name,
+        'Farbe',
+        reason: "somebody else's flier must not rename your field");
+    expect(finder.current(cat, Keys.userField('color')), 'black');
+  });
 }

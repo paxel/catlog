@@ -79,8 +79,16 @@ Uint8List catShareBytes(CatalogStore store,
     for (final def in store.fieldDefs())
       if (fields.contains(def.key)) def
   };
+  // Every definition property keeps the date it was actually written.
+  // Field definitions have deterministic ids (`fielddef:<slug>`), so the
+  // importer very likely has the same ones — and the newest entry wins
+  // the display. Dating a share's copy "now" would let it rename the
+  // importer's own field and replace its options and type for every cat
+  // they have. `transferEntities` refuses to carry definitions for the
+  // same reason; here provenance is enough, because an older entry
+  // cannot outrank theirs.
   for (final def in defs) {
-    emit(def.id, Keys.type, Kinds.fieldDef);
+    emitCurrent(def.id, Keys.type);
     for (final prop in [
       Keys.name,
       Keys.fieldType,
@@ -89,8 +97,7 @@ Uint8List catShareBytes(CatalogStore store,
       Keys.fieldIdDisplay,
       Keys.fieldLookupUrl,
     ]) {
-      final value = store.current(def.id, prop);
-      if (value != null) emit(def.id, prop, value);
+      if (store.current(def.id, prop) != null) emitCurrent(def.id, prop);
     }
   }
 
