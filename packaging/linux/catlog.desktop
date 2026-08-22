@@ -7,3 +7,7 @@ Terminal=false
 Type=Application
 Categories=Utility;
 MimeType=application/x-catsync;
+# The running window carries the Flutter application id, and KDE/Wayland matches that
+# to this entry for the taskbar icon; keep it equal to APPLICATION_ID in
+# linux/CMakeLists.txt.
+StartupWMClass=io.github.paxel.catlog
