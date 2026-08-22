@@ -100,7 +100,7 @@ String writeArchive(CatalogStore store, String path,
   // the original (device, dseq) rows, or the importer's version vector
   // would claim knowledge of everything else that device ever wrote and
   // a later real sync would skip it forever (same rule as flier_share).
-  final device = 'archive-${_randomId()}';
+  final device = '$archiveDevicePrefix${_randomId()}';
   var dseq = 0;
   final jsonl = entries.map((e) {
     dseq++;
@@ -147,17 +147,28 @@ void deleteArchived(CatalogStore store, Set<String> entityIds,
   }
 }
 
-/// Entities that an import brought in but that are deleted in this
-/// catalog — an archive file coming home. Deleting is stronger than
-/// any old entry, so restoring them is a decision, never automatic.
+/// Entities that an archive file brought back but that are deleted in
+/// this catalog. Deleting is stronger than any old entry, so restoring
+/// them is a decision, never automatic.
+///
+/// Only entries from an archive file count. An ordinary sync also
+/// carries entries about cats you deliberately deleted — a partner who
+/// has not seen the deletion yet sends them every time — and asking
+/// "restore?" on each of those would be nagging about a decision that
+/// was already made.
 List<String> restorableEntities(CatalogStore store, List<Entry> applied) {
   final ids = <String>{};
   for (final e in applied) {
+    if (!e.device.startsWith(archiveDevicePrefix)) continue;
     final id = store.resolveEntity(e.entity);
     if (store.current(id, Keys.deleted) == 'true') ids.add(id);
   }
   return ids.toList();
 }
+
+/// Marks the device id of entries written into an archive file, so an
+/// import can tell an archive coming home from an ordinary sync.
+const archiveDevicePrefix = 'archive-';
 
 final _random = Random.secure();
 

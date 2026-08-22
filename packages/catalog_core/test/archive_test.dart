@@ -122,4 +122,32 @@ void main() {
     expect(after.photoBytes, greaterThan(0));
     expect(after.dbBytes, greaterThan(0));
   });
+
+  test('an ordinary sync never asks to restore what you deleted', () {
+    // A partner who has not seen the deletion yet keeps sending news
+    // about the cat. That is not an archive coming home.
+    final peer = CatalogStore.inMemory()..author = 'kathrin';
+    addTearDown(peer.close);
+    final cat = store.createCat('Miezi');
+    peer.applyEntries(store.entriesSince(const {}));
+    store.deleteCat(cat);
+
+    peer.append(cat, Keys.userField('color'), 'black');
+    final applied = store.applyEntries(peer.entriesSince(store.versionVector()));
+
+    expect(applied, isNotEmpty);
+    expect(restorableEntities(store, applied), isEmpty);
+  });
+
+  test('an archive file coming home does ask', () {
+    final cat = store.createCat('Miezi');
+    final dir = Directory.systemTemp.createTempSync('catlog-archive-ask');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final path = writeArchive(store, '${dir.path}/a.catsync',
+        entityIds: {cat});
+    deleteArchived(store, {cat});
+
+    final applied = importBundle(store, path).applied;
+    expect(restorableEntities(store, applied), [cat]);
+  });
 }
