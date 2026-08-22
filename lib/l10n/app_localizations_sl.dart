@@ -888,7 +888,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Pregled tvojih kolonij — kolonija je kraj, kjer živijo mačke: tvoj dom, začasni dom, zavetišče. Tapni kartico za njene mačke; dolg pritisk odpre meni. Gumb spodaj desno ustvari kolonijo, kartica potepuhov pa zbira vse mačke brez doma.';
+      'Pregled tvojih kolonij — kolonija je kraj, kjer živijo mačke: tvoj dom, začasni dom, zavetišče. Tapni kartico za njene mačke; dolg pritisk odpre meni. Gumb spodaj desno ustvari kolonijo, kartica potepuhov pa zbira vse mačke brez doma. Ime na vrhu je katalog, v katerem si — tapni ga za preklop ali dodajanje.';
 
   @override
   String get helpClowder =>
@@ -1630,4 +1630,13 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Trenutki, ko je ta katalog spremenil obliko: pred vsakim uvozom in vsako sinhronizacijo, pred združitvijo, arhiviranjem ali brisanjem, in kadar koli si sam označil trenutek. Izbira enega vrne katalog v to stanje — vse za njim se zapiše v datoteko, ki jo obdržiš, in nato odstrani, vsak novejši trenutek pa gre zraven. Tisti, s katerimi si že sinhroniziral, obdržijo, kar so prejeli.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nič ni bilo odstranjeno: datoteke, ki to hrani, ni bilo mogoče zapisati ($error). Sprosti prostor in poskusi znova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'To je katalog, v katerem si. Preklopi na drugega in ga nato izbriši.';
 }

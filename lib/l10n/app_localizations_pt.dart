@@ -889,7 +889,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa.';
+      'A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa. O nome no topo é o catálogo em que estás — toca para trocar ou criar outro.';
 
   @override
   String get helpClowder =>
@@ -1633,4 +1633,13 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Não foi removido nada: o ficheiro que o guarda não pôde ser escrito ($error). Liberta espaço e tenta outra vez.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Este é o catálogo em que estás. Muda para outro e depois elimina-o.';
 }

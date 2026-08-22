@@ -44,7 +44,7 @@ void main() {
         date: DateTime.utc(2024, 3, 1));
     berlin.addImage(cat, jpeg(20, 20));
 
-    final result = moveEntities(berlin, paris, {cat});
+    final result = transferEntities(berlin, paris, {cat});
 
     expect(result.moved, contains(cat));
     expect(paris.current(cat, Keys.name), 'Miezi');
@@ -59,7 +59,7 @@ void main() {
     berlin.author = 'Kathrin';
     berlin.append(cat, Keys.userField('color'), 'black',
         date: DateTime.utc(2024, 3, 1));
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
 
     final colour = paris
         .entriesSince(const {})
@@ -70,14 +70,14 @@ void main() {
 
   test('what was moved is deleted where it came from', () {
     final cat = berlin.createCat('Miezi');
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
     expect(berlin.cats().map((c) => c.id), isNot(contains(cat)));
     expect(berlin.isDeleted(cat), isTrue);
   });
 
   test('the entries arrive under the destination device', () {
     final cat = berlin.createCat('Miezi');
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
     final devices =
         paris.entriesSince(const {}).map((e) => e.device).toSet();
     expect(devices, {paris.deviceId});
@@ -85,7 +85,7 @@ void main() {
 
   test("the destination never claims the source device's numbers", () {
     final cat = berlin.createCat('Miezi');
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
 
     // Keeping Berlin's (device, dseq) would make Paris claim to have
     // seen everything that device wrote up to that point — a later real
@@ -96,7 +96,7 @@ void main() {
   test('a later sync with a shared partner delivers everything, nothing '
       'silently skipped', () {
     final cat = berlin.createCat('Miezi');
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
 
     final partner = CatalogStore.open('${dir.path}/partner/catlog.db')
       ..author = 'Kathrin';
@@ -116,7 +116,7 @@ void main() {
     berlin.moveCat(cat, clowder);
     final elsewhere = berlin.createCat('Mausi');
 
-    moveEntities(berlin, paris, {clowder});
+    transferEntities(berlin, paris, {clowder});
 
     expect(paris.clowders().map((c) => c.name), ['Hinterhof']);
     expect(paris.cats(clowderId: clowder).map((c) => c.name), ['Miezi']);
@@ -128,7 +128,7 @@ void main() {
     final one = berlin.createCat('Miezi');
     final two = berlin.createCat('Mausi');
     berlin.createCat('Struppi');
-    moveEntities(berlin, paris, {one, two});
+    transferEntities(berlin, paris, {one, two});
     expect(paris.cats().map((c) => c.name),
         unorderedEquals(['Miezi', 'Mausi']));
   });
@@ -138,7 +138,7 @@ void main() {
     final cat = berlin.createCat('Miezi');
     berlin.moveCat(cat, clowder);
 
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
 
     expect(paris.current(cat, Keys.clowder), anyOf(isNull, isEmpty));
     expect(paris.cats(clowderId: null).map((c) => c.name), ['Miezi']);
@@ -148,13 +148,13 @@ void main() {
     berlin.defineField('Ear notch', FieldType.text, scope: FieldScope.cat);
     final cat = berlin.createCat('Miezi');
     berlin.append(cat, Keys.userField('ear-notch'), 'left');
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
     expect(paris.fieldDefs().map((d) => d.name), contains('Ear notch'));
     expect(paris.current(cat, Keys.userField('ear-notch')), 'left');
   });
 
   test('moving nothing does nothing', () {
-    expect(moveEntities(berlin, paris, const {}).moved, isEmpty);
+    expect(transferEntities(berlin, paris, const {}).moved, isEmpty);
     expect(paris.cats(), isEmpty);
   });
 
@@ -169,7 +169,7 @@ void main() {
     final cat = berlin.createCat('Miezi');
     berlin.append(cat, Keys.userField('color'), 'black');
 
-    moveEntities(berlin, paris, {cat});
+    transferEntities(berlin, paris, {cat});
 
     expect(paris.fieldDefs().map((d) => d.name), contains('Couleur'));
     expect(paris.fieldDefs().map((d) => d.name), isNot(contains('Farbe')));

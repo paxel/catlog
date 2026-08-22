@@ -258,7 +258,7 @@
   "dangerThanks": "Takk fyrir að nota cat(a)log!",
   "helpTitle": "Hjálp",
   "showTipsAgain": "Sýna ábendingar aftur",
-  "helpHome": "Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis.",
+  "helpHome": "Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.",
   "helpClowder": "Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.",
   "helpCat": "Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lestrar þar til þú ýtir á blýantinn. Haltu reit inni til að fara beint í breytingu hans; mynd til að opna valmynd hennar. Valmyndin efst til hægri geymir afganginn: einkamál, fela, sameina, skrá athugun, deila.",
   "helpStrays": "Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.",
@@ -476,5 +476,8 @@
   "goBackBody": "Allt eftir þessa stund verður fjarlægt — {count} breytingar. Það er fyrst skrifað í skrá og innflutningur hennar skilar öllu; hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Gefðu þessari stund heiti",
-  "helpGoBack": "Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu."
+  "helpGoBack": "Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.",
+  "goBackFileFailed": "Engu var eytt: skráin sem geymir það var ekki skrifuð ({error}). Losaðu pláss og reyndu aftur.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo."
 }

@@ -258,7 +258,7 @@
   "dangerThanks": "Go raibh maith agat as cat(a)log a úsáid!",
   "helpTitle": "Cabhair",
   "showTipsAgain": "Taispeáin na leideanna arís",
-  "helpHome": "Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile.",
+  "helpHome": "Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.",
   "helpClowder": "Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt.",
   "helpCat": "Gach rud faoin gcat seo: grianghraif, réimsí, muintir, stair. Tá an leathanach inléite go dtí go dtapálann tú an peann luaidhe. Tugann brú fada ar réimse díreach chuig a eagarthóireacht thú; ar ghrianghraf osclaíonn sé a roghchlár. Tá an chuid eile sa roghchlár ag barr na láimhe deise: príobháideach, folaigh, cumaisc, taifead amharc, roinn.",
   "helpStrays": "Cait gan bhaile faoi láthair: cait a fuarthas, cait a d'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer.",
@@ -476,5 +476,8 @@
   "goBackBody": "Baintear gach rud i ndiaidh na nóiméide seo — {count} athrú. Scríobhtar é chuig comhad ar dtús, agus tugann a iompórtáil ar ais é; imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo a gcóip — ní féidir é sin a tharraingt siar.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Ainmnigh an nóiméad seo",
-  "helpGoBack": "Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad."
+  "helpGoBack": "Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad.",
+  "goBackFileFailed": "Níor baineadh aon rud: níorbh fhéidir an comhad a choinníonn é a scríobh ({error}). Saor spás agus bain triail eile as.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í."
 }

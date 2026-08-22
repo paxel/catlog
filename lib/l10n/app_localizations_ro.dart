@@ -889,7 +889,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă.';
+      'Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.';
 
   @override
   String get helpClowder =>
@@ -1632,4 +1632,13 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nu s-a eliminat nimic: fișierul care îl păstrează nu a putut fi scris ($error). Eliberează spațiu și încearcă din nou.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.';
 }

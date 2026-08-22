@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/auto_backup.dart' show backupFileName;
 import 'package:catlog/src/screens/catalogs_screen.dart';
 import 'package:catlog/main.dart' show CatlogApp;
+import 'package:catlog/src/move_to_catalog.dart' show CatalogSwitching;
 import 'package:catlog/src/screens/home_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,14 +38,16 @@ void main() {
       home: StatefulBuilder(builder: (context, setState) {
         return HomeShell(
           store: store,
-          catalogs: catalogs,
-          onSwitchCatalog: (to) {
-            store.close();
-            catalogs.active = to;
-            store = catalogs.openStore(to);
-            setState(() {});
-          },
-          onCatalogsChanged: () => setState(() {}),
+          switching: CatalogSwitching(
+            catalogs: catalogs,
+            onSwitch: (to) {
+              store.close();
+              catalogs.active = to;
+              store = catalogs.openStore(to);
+              setState(() {});
+            },
+            onChanged: () => setState(() {}),
+          ),
         );
       }),
     ));
@@ -186,23 +190,19 @@ void main() {
       expect(find.byIcon(Icons.delete_outline), findsNothing);
     });
 
-    testWidgets('the catalog you are in has no delete button either',
+    testWidgets('deleting the catalog you are in says why it cannot',
         (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);
+      // The button is there — a feature that vanishes teaches nothing —
+      // and says what to do instead.
       final berlin = find.ancestor(
           of: find.text('Berlin'), matching: find.byType(ListTile));
-      expect(
-          find.descendant(
-              of: berlin, matching: find.byIcon(Icons.delete_outline)),
-          findsNothing,
-          reason: 'its database is open — switch away first');
-      final paris = find.ancestor(
-          of: find.text('Paris'), matching: find.byType(ListTile));
-      expect(
-          find.descendant(
-              of: paris, matching: find.byIcon(Icons.delete_outline)),
-          findsOneWidget);
+      await tester.tap(find.descendant(
+          of: berlin, matching: find.byIcon(Icons.delete_outline)));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Switch to another one'), findsOneWidget);
+      expect(catalogs.catalogs(), hasLength(2));
     });
 
     testWidgets('a mistyped name deletes nothing', (tester) async {
@@ -320,5 +320,25 @@ void main() {
     expect(find.widgetWithText(AppBar, 'Paris'), findsOneWidget);
     expect(find.text('Manage catalogs'), findsNothing,
         reason: 'the page of the catalog we left is gone');
+  });
+
+  testWidgets('each catalog keeps its own backup file across a switch',
+      (tester) async {
+    final written = <String>[];
+    final paris = catalogs.create('Paris');
+    store.createClowder('Hinterhof');
+
+    // Two catalogs, backed up in turn, as a day of switching would.
+    for (final catalog in [catalogs.active, paris]) {
+      final open = catalogs.openStore(catalog);
+      open.author = 'test';
+      open.createCat('a cat');
+      written.add(backupFileName(open.localSetting(catalogNameKey)));
+      open.close();
+    }
+
+    expect(written, ['catlog-berlin.catsync', 'catlog-paris.catsync']);
+    expect(written.toSet(), hasLength(2),
+        reason: 'using one catalog must not overwrite the other backup');
   });
 }

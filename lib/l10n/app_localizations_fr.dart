@@ -892,7 +892,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'L\'aperçu de vos colonies — une colonie est un lieu où vivent des chats : votre logement, une famille d\'accueil, un refuge. Touchez une fiche pour voir ses chats ; appui long pour son menu. Le bouton en bas à droite crée une colonie, et la fiche des errants rassemble tous les chats sans foyer.';
+      'L\'aperçu de vos colonies — une colonie est un lieu où vivent des chats : votre logement, une famille d\'accueil, un refuge. Touchez une fiche pour voir ses chats ; appui long pour son menu. Le bouton en bas à droite crée une colonie, et la fiche des errants rassemble tous les chats sans foyer. Le nom en haut est le catalogue dans lequel tu es — touche-le pour changer ou en ajouter un.';
 
   @override
   String get helpClowder =>
@@ -1638,4 +1638,13 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Rien n’a été retiré : le fichier qui le conserve n’a pas pu être écrit ($error). Libère de la place et réessaie.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'C’est le catalogue dans lequel tu es. Passe à un autre, puis supprime-le.';
 }

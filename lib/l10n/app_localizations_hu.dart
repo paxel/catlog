@@ -887,7 +887,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt.';
+      'A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.';
 
   @override
   String get helpClowder =>
@@ -1631,4 +1631,13 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Semmi sem tűnt el: a fájl, ami megőrzi, nem volt kiírható ($error). Szabadíts fel helyet, és próbáld újra.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.';
 }

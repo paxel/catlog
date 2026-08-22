@@ -258,7 +258,7 @@
   "dangerThanks": "Grazzi talli tuża cat(a)log!",
   "helpTitle": "Għajnuna",
   "showTipsAgain": "Uri l-pariri mill-ġdid",
-  "helpHome": "Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar.",
+  "helpHome": "Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.",
   "helpClowder": "Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu.",
   "helpCat": "Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija read-only sakemm tagħfas il-lapes. Għafsa twila fuq qasam tieħdok dritt fl-editjar tiegħu; fuq ritratt tiftaħ il-menu tiegħu. Il-menu fuq il-lemin fuq għandu l-bqija: privat, aħbi, għaqqad, niżżel osservazzjoni, aqsam.",
   "helpStrays": "Qtates li bħalissa m'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta' qattus mitluf f'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.",
@@ -476,5 +476,8 @@
   "goBackBody": "Kollox wara dan il-mument jitneħħa — {count} bidliet. L-ewwel jinkiteb f’fajl, u l-importazzjoni tiegħu ġġib kollox lura; kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Agħti isem lil dan il-mument",
-  "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva."
+  "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.",
+  "goBackFileFailed": "Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru."
 }

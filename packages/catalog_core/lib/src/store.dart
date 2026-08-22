@@ -106,7 +106,7 @@ class CatalogStore {
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
-      CREATE TABLE IF NOT EXISTS save_points (
+      CREATE TABLE IF NOT EXISTS moments (
         id    INTEGER PRIMARY KEY AUTOINCREMENT,
         seq   INTEGER NOT NULL,
         cause TEXT NOT NULL,
@@ -339,24 +339,7 @@ class CatalogStore {
           [...args, '${Keys.imagePrefix}%']))
         (r['field'] as String).substring(Keys.imagePrefix.length)
     };
-    // The numbers of the rows about to vanish stay claimed, so nothing
-    // this device writes later re-uses one (see [_nextDseq]) and peers
-    // stop offering the removed rows back.
-    final removed = _db.select(
-        'SELECT device, MAX(dseq) AS m FROM entries WHERE $where '
-        'GROUP BY device',
-        args);
-    _db.execute('BEGIN');
-    try {
-      _db.execute('DELETE FROM entries WHERE $where', args);
-      _db.execute('COMMIT');
-    } catch (_) {
-      _db.execute('ROLLBACK');
-      rethrow;
-    }
-    for (final r in removed) {
-      _recordDiscarded(r['device'] as String, r['m'] as int);
-    }
+    _removeEntries(where, args);
     final removedBlobs = <String>[];
     for (final hash in touched) {
       if (!_imageReferenced(hash) && _blobs.get(hash) != null) {
@@ -1055,7 +1038,7 @@ class CatalogStore {
   /// Records a moment. [seq] defaults to now; callers that only know
   /// afterwards whether anything happened pass the mark they took
   /// before — an operation that changed nothing records nothing.
-  int addSavePoint(
+  int addMoment(
       {required String cause, String? label, int? seq, DateTime? at}) {
     // Never above the log itself: entries can be removed physically, so
     // a mark taken earlier could otherwise point past the end and sort
@@ -1063,7 +1046,7 @@ class CatalogStore {
     final now = currentSeq();
     final mark = seq == null || seq > now ? now : seq;
     _db.execute(
-      'INSERT INTO save_points (seq, cause, label, at) VALUES (?, ?, ?, ?)',
+      'INSERT INTO moments (seq, cause, label, at) VALUES (?, ?, ?, ?)',
       [mark, cause, label, _iso(at ?? DateTime.now())],
     );
     return _db.lastInsertRowId;
@@ -1071,9 +1054,9 @@ class CatalogStore {
 
   /// Every recorded moment, newest first.
   List<({int id, int seq, String cause, String? label, DateTime at})>
-      savePoints() => [
+      moments() => [
             for (final r in _db.select(
-                'SELECT id, seq, cause, label, at FROM save_points '
+                'SELECT id, seq, cause, label, at FROM moments '
                 'ORDER BY seq DESC, id DESC'))
               (
                 id: r['id'] as int,
@@ -1084,8 +1067,8 @@ class CatalogStore {
               )
           ];
 
-  void removeSavePoint(int id) =>
-      _db.execute('DELETE FROM save_points WHERE id = ?', [id]);
+  void removeMoment(int id) =>
+      _db.execute('DELETE FROM moments WHERE id = ?', [id]);
 
   /// Everything written after [seq], raw: private entries and markers
   /// included, nothing filtered. Going back has to be able to put the
@@ -1105,30 +1088,45 @@ class CatalogStore {
   /// The removed numbers stay claimed (see [_nextDseq]), which also
   /// stops a partner pushing an undone import straight back.
   void removeEntriesAfter(int seq) {
-    final removed = _db.select(
-        'SELECT device, MAX(dseq) AS m FROM entries WHERE seq > ? '
-        'GROUP BY device',
-        [seq]);
     final touched = <String>{
       for (final r in _db.select(
           'SELECT DISTINCT field FROM entries WHERE seq > ? AND field LIKE ?',
           [seq, '${Keys.imagePrefix}%']))
         (r['field'] as String).substring(Keys.imagePrefix.length)
     };
+    _removeEntries('seq > ?', [seq], also: [
+      ('DELETE FROM moments WHERE seq > ?', [seq])
+    ]);
+    for (final hash in touched) {
+      if (!_imageReferenced(hash)) _blobs.remove(hash);
+    }
+  }
+
+  /// Physically removes the entries matching [where] and keeps their
+  /// numbers claimed, in one transaction.
+  ///
+  /// The claim has to land with the deletion, not after it: a crash in
+  /// between would free a number a peer already holds, which is exactly
+  /// the corruption ADR-0008 exists to prevent.
+  void _removeEntries(String where, List<Object?> args,
+      {List<(String, List<Object?>)> also = const []}) {
+    final removed = _db.select(
+        'SELECT device, MAX(dseq) AS m FROM entries WHERE $where '
+        'GROUP BY device',
+        args);
     _db.execute('BEGIN');
     try {
-      _db.execute('DELETE FROM entries WHERE seq > ?', [seq]);
-      _db.execute('DELETE FROM save_points WHERE seq > ?', [seq]);
+      _db.execute('DELETE FROM entries WHERE $where', args);
+      for (final (sql, sqlArgs) in also) {
+        _db.execute(sql, sqlArgs);
+      }
+      for (final r in removed) {
+        _recordDiscarded(r['device'] as String, r['m'] as int);
+      }
       _db.execute('COMMIT');
     } catch (_) {
       _db.execute('ROLLBACK');
       rethrow;
-    }
-    for (final r in removed) {
-      _recordDiscarded(r['device'] as String, r['m'] as int);
-    }
-    for (final hash in touched) {
-      if (!_imageReferenced(hash)) _blobs.remove(hash);
     }
   }
 

@@ -885,7 +885,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Oversikten over koloniene dine — en koloni er et sted der katter bor: hjemmet ditt, et fosterhjem, et internat. Trykk på et kort for å se kattene; hold inne for menyen. Knappen nede til høyre lager en koloni, og streiferkortet samler alle katter uten hjem.';
+      'Oversikten over koloniene dine — en koloni er et sted der katter bor: hjemmet ditt, et fosterhjem, et internat. Trykk på et kort for å se kattene; hold inne for menyen. Knappen nede til høyre lager en koloni, og streiferkortet samler alle katter uten hjem. Navnet øverst er katalogen du er i — trykk for å bytte eller legge til en.';
 
   @override
   String get helpClowder =>
@@ -1628,4 +1628,13 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Øyeblikkene da denne katalogen endret form: før hver import og hver synkronisering, før en sammenslåing, en arkivering eller en sletting — og hver gang du selv merket ett. Velger du ett, går katalogen tilbake til den tilstanden: alt etterpå skrives til en fil du beholder og fjernes så, og hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder det de fikk.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Ingenting ble fjernet: filen som tar vare på det, kunne ikke skrives ($error). Frigjør plass og prøv igjen.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Dette er katalogen du er i. Bytt til en annen, og slett den så.';
 }

@@ -887,7 +887,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu.';
+      'Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu. Nazwa u góry to katalog, w którym jesteś — dotknij, aby przełączyć lub dodać.';
 
   @override
   String get helpClowder =>
@@ -1630,4 +1630,13 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nic nie zostało usunięte: nie udało się zapisać pliku, który to przechowuje ($error). Zwolnij miejsce i spróbuj ponownie.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń.';
 }

@@ -258,7 +258,7 @@
   "dangerThanks": "Aitäh, et kasutad cat(a)logi!",
   "helpTitle": "Abi",
   "showTipsAgain": "Näita nõuandeid uuesti",
-  "helpHome": "Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid.",
+  "helpHome": "Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.",
   "helpClowder": "Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab.",
   "helpCat": "Kõik selle kassi kohta: pildid, väljad, suhted, ajalugu. Leht on lugemiseks, kuni puudutad pliiatsit. Välja pikk vajutus viib otse selle muutmisse; pildi oma avab menüü. Menüü üleval paremal sisaldab ülejäänut: privaatne, peida, ühenda, kirjuta nägemine, jaga.",
   "helpStrays": "Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi.",
@@ -476,5 +476,8 @@
   "goBackBody": "Kõik pärast seda hetke eemaldatakse — {count} muudatust. Enne kirjutatakse see faili, mille import toob kõik tagasi, ja iga uuem hetk kaob koos sellega. Need, kellega juba sünkroonisid, säilitavad koopia — seda ei saa tagasi võtta.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Anna sellele hetkele nimi",
-  "helpGoBack": "Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu."
+  "helpGoBack": "Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu.",
+  "goBackFileFailed": "Midagi ei eemaldatud: faili, mis selle alles hoiab, ei õnnestunud kirjutada ({error}). Vabasta ruumi ja proovi uuesti.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "See on kataloog, milles oled. Vaheta teisele ja kustuta see siis."
 }

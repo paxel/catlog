@@ -888,7 +888,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat.';
+      'Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.';
 
   @override
   String get helpClowder =>
@@ -1631,4 +1631,13 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ($error). Vapauta tilaa ja yritä uudelleen.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.';
 }

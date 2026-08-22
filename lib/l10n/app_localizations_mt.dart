@@ -890,7 +890,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar.';
+      'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.';
 
   @override
   String get helpClowder =>
@@ -1634,4 +1634,13 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ($error). Illibera spazju u erġa’ pprova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.';
 }

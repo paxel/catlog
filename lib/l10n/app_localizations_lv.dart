@@ -887,7 +887,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām.';
+      'Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.';
 
   @override
   String get helpClowder =>
@@ -1629,4 +1629,13 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nekas netika noņemts: failu, kas to saglabā, neizdevās ierakstīt ($error). Atbrīvo vietu un mēģini vēlreiz.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Šis ir katalogs, kurā esi. Pārslēdzies uz citu un tad dzēs to.';
 }

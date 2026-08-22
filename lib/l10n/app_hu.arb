@@ -258,7 +258,7 @@
   "dangerThanks": "Köszönjük, hogy a cat(a)logot használod!",
   "helpTitle": "Súgó",
   "showTipsAgain": "Tippek újra",
-  "helpHome": "A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt.",
+  "helpHome": "A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.",
   "helpClowder": "Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod.",
   "helpCat": "Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mezőt hosszan nyomva egyből a szerkesztésébe ugorsz; egy fotót hosszan nyomva a menüje nyílik. A jobb felső menüben van a többi: priváttá tétel, elrejtés, összevonás, észlelés rögzítése, megosztás.",
   "helpStrays": "Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot.",
@@ -476,5 +476,8 @@
   "goBackBody": "Minden eltűnik e pillanat után — {count} változás. Előbb fájlba kerül, annak importálása mindent visszahoz, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Nevezd el ezt a pillanatot",
-  "helpGoBack": "Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak."
+  "helpGoBack": "Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.",
+  "goBackFileFailed": "Semmi sem tűnt el: a fájl, ami megőrzi, nem volt kiírható ({error}). Szabadíts fel helyet, és próbáld újra.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld."
 }

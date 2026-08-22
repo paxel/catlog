@@ -258,7 +258,7 @@
   "dangerThanks": "Faleminderit që përdor cat(a)log!",
   "helpTitle": "Ndihmë",
   "showTipsAgain": "Shfaq sërish këshillat",
-  "helpHome": "Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi.",
+  "helpHome": "Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.",
   "helpClowder": "Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap.",
   "helpCat": "Gjithçka për këtë mace: fotot, fushat, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Shtypja e gjatë mbi një fushë të çon drejt e në redaktimin e saj; mbi një foto hap menynë e saj. Menyja lart djathtas ka pjesën tjetër: private, fshih, bashko, shëno vëzhgim, shpërnda.",
   "helpStrays": "Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja.",
@@ -476,5 +476,8 @@
   "goBackBody": "Gjithçka pas këtij çasti hiqet — {count} ndryshime. Së pari shkruhet në një skedar, importimi i të cilit e kthen gjithçka, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen — kjo nuk merret mbrapsht.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Emërto këtë çast",
-  "helpGoBack": "Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën."
+  "helpGoBack": "Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.",
+  "goBackFileFailed": "Nuk u hoq asgjë: skedari që e ruan nuk u shkrua dot ({error}). Liro pak hapësirë dhe provo sërish.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije."
 }

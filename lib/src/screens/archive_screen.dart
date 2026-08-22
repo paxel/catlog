@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../undo_import.dart';
 import '../help.dart';
 import '../l10n.dart';
 import '../share.dart';
@@ -111,8 +110,8 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
     // Only now, with the file written, does anything get deleted.
     final before = store.currentSeq();
     deleteArchived(store, {..._selected});
-    savePointFor(store,
-        before: before, changed: true, cause: SaveCause.archive);
+    momentFor(store,
+        before: before, changed: true, cause: MomentCause.archive);
     if (!mounted) return;
     setState(() {
       _selected.clear();

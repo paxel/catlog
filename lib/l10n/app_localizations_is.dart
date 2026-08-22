@@ -891,7 +891,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis.';
+      'Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.';
 
   @override
   String get helpClowder =>
@@ -1634,4 +1634,13 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Engu var eytt: skráin sem geymir það var ekki skrifuð ($error). Losaðu pláss og reyndu aftur.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.';
 }

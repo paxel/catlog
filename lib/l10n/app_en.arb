@@ -496,7 +496,7 @@
   "dangerThanks": "Thank you for using cat(a)log!",
   "helpTitle": "Help",
   "showTipsAgain": "Show tips again",
-  "helpHome": "This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home.",
+  "helpHome": "This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.",
   "helpClowder": "Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it.",
   "helpCat": "Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: mark private, hide, merge, record a sighting, share the cat.",
   "helpStrays": "Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner's contact; the scanner reads a cat(a)log code from a poster.",
@@ -795,5 +795,8 @@
   "goBackBody": "Everything after this moment is removed — {count} change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Name this moment",
-  "helpGoBack": "The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received."
+  "helpGoBack": "The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.",
+  "goBackFileFailed": "Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "This is the catalog you are in. Switch to another one, then delete it."
 }

@@ -258,7 +258,7 @@
   "dangerThanks": "Merci d'utiliser cat(a)log !",
   "helpTitle": "Aide",
   "showTipsAgain": "Revoir les astuces",
-  "helpHome": "L'aperçu de vos colonies — une colonie est un lieu où vivent des chats : votre logement, une famille d'accueil, un refuge. Touchez une fiche pour voir ses chats ; appui long pour son menu. Le bouton en bas à droite crée une colonie, et la fiche des errants rassemble tous les chats sans foyer.",
+  "helpHome": "L'aperçu de vos colonies — une colonie est un lieu où vivent des chats : votre logement, une famille d'accueil, un refuge. Touchez une fiche pour voir ses chats ; appui long pour son menu. Le bouton en bas à droite crée une colonie, et la fiche des errants rassemble tous les chats sans foyer. Le nom en haut est le catalogue dans lequel tu es — touche-le pour changer ou en ajouter un.",
   "helpClowder": "Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l'ouvre.",
   "helpCat": "Tout sur ce chat : photos, champs, famille, historique. La page reste en lecture jusqu'au crayon. Un appui long sur un champ ouvre directement sa modification ; sur une photo, son menu. Le menu en haut à droite contient le reste : marquer privé, masquer, fusionner, noter une observation, partager.",
   "helpStrays": "Les chats sans foyer actuel : trouvés, échappés, ou venus d'une affiche. Le bouton appareil photo enregistre un chat devant vous ; le bouton affiche transforme une affiche en chat avec le contact du propriétaire ; le scanner lit un code cat(a)log sur l'affiche.",
@@ -476,5 +476,8 @@
   "goBackBody": "Tout ce qui suit ce moment est retiré — {count} changements. Le tout est d’abord écrit dans un fichier ; l’importer le ramène, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent leur copie — cela ne se reprend pas.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Nomme ce moment",
-  "helpGoBack": "Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu."
+  "helpGoBack": "Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu.",
+  "goBackFileFailed": "Rien n’a été retiré : le fichier qui le conserve n’a pas pu être écrit ({error}). Libère de la place et réessaie.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "C’est le catalogue dans lequel tu es. Passe à un autre, puis supprime-le."
 }

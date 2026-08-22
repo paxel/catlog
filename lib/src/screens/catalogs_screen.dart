@@ -185,14 +185,17 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
                 tooltip: t.rename,
                 onPressed: () => _rename(catalog),
               ),
-              // Not the last one — and not the one you are in, whose
-              // database is open: switch first, then delete.
-              if (widget.catalogs.catalogs().length > 1 &&
-                  catalog.id != active.id)
+              // The last catalog has nowhere to leave you; the one you
+              // are in has its database open. Neither hides the button —
+              // a feature that simply vanishes teaches nothing.
+              if (widget.catalogs.catalogs().length > 1)
                 IconButton(
                   icon: const Icon(Icons.delete_outline),
                   tooltip: t.deleteCatalog,
-                  onPressed: () => _delete(catalog),
+                  onPressed: catalog.id == active.id
+                      ? () => ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(t.switchBeforeDeleting)))
+                      : () => _delete(catalog),
                 ),
             ]),
             onTap: () {

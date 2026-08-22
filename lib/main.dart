@@ -38,32 +38,42 @@ Future<void> main(List<String> args) async {
       localeOverride.value = Locale(saved);
     }
     final texts = await _texts();
-    final catalogs =
-        CatalogManager.open(dir.path, defaultName: texts.clowders);
-    final store = catalogs.openStore(catalogs.active);
+    // Armed before the catalogs are opened: the one-time move into the
+    // multi-catalog layout can fail, and a failure at launch has to
+    // reach the keeper instead of dying in a zone with nothing to catch
+    // it. Restart then tries the move again, which is exactly what the
+    // message tells them to do.
     await initCrashGuard(dir,
-        restart: () => runApp(CatlogApp(
-            // The catalog open right now, not the one opened at launch:
-            // switching closes the old handle.
-            store: activeStore ?? store,
-            catalogs: catalogs)));
+        restart: () => unawaited(_openAndRun(dir, texts, args)));
     // Read the marker BEFORE re-arming it: dirty means the last run was
     // killed without a clean pause (out-of-memory, native crash).
     final diedLastRun = previousRunDied();
     markRunning();
-    // A Stray Cam capture the OS killed mid-camera completes here.
-    unawaited(recoverStrayCam(store));
-    activeStore = store;
-    catalogManager = catalogs;
-    initIncomingFiles(navigatorKey, () => activeStore ?? store, args);
-    await _restoreWindow(store);
-    runApp(CatlogApp(
-        store: store, catalogs: catalogs, diedLastRun: diedLastRun));
+    await _openAndRun(dir, texts, args, diedLastRun: diedLastRun);
   }, (error, stack) {
     // Anything that escapes everything else still gets the friendly
     // screen instead of a silent death.
     PlatformDispatcher.instance.onError?.call(error, stack);
   });
+}
+
+/// Opens the catalogs and starts the app. Separate from [main] because
+/// the crash screen's Restart runs it again — after a failed migration
+/// that is a real retry, not a button that does nothing.
+Future<void> _openAndRun(
+    Directory dir, AppLocalizations texts, List<String> args,
+    {bool diedLastRun = false}) async {
+  final catalogs =
+      CatalogManager.open(dir.path, defaultName: texts.clowders);
+  final store = catalogs.openStore(catalogs.active);
+  activeStore = store;
+  catalogManager = catalogs;
+  // A Stray Cam capture the OS killed mid-camera completes here.
+  unawaited(recoverStrayCam(store));
+  initIncomingFiles(navigatorKey, () => activeStore ?? store, args);
+  await _restoreWindow(store);
+  runApp(CatlogApp(
+      store: store, catalogs: catalogs, diedLastRun: diedLastRun));
 }
 
 /// The texts in the language the app will run in, before there is a
@@ -279,9 +289,13 @@ class _CatlogAppState extends State<CatlogApp>
                   )
                 : HomeShell(
                     store: _store,
-                    catalogs: widget.catalogs,
-                    onSwitchCatalog: _switchCatalog,
-                    onCatalogsChanged: () => setState(() {}),
+                    switching: widget.catalogs == null
+                        ? null
+                        : CatalogSwitching(
+                            catalogs: widget.catalogs!,
+                            onSwitch: _switchCatalog,
+                            onChanged: () => setState(() {}),
+                          ),
                   ),
       ),
     );

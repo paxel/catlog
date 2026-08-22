@@ -258,7 +258,7 @@
   "dangerThanks": "Bedankt dat je cat(a)log gebruikt!",
   "helpTitle": "Help",
   "showTipsAgain": "Tips opnieuw tonen",
-  "helpHome": "Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis.",
+  "helpHome": "Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.",
   "helpClowder": "Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen.",
   "helpCat": "Alles over deze kat: foto's, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld ingedrukt om het meteen te bewerken; een foto voor haar menu. Het menu rechtsboven heeft de rest: privé markeren, verbergen, samenvoegen, waarneming vastleggen, delen.",
   "helpStrays": "Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.",
@@ -476,5 +476,8 @@
   "goBackBody": "Alles na dit moment wordt weggehaald — {count} wijzigingen. Het wordt eerst naar een bestand geschreven; dat importeren zet alles terug, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Geef dit moment een naam",
-  "helpGoBack": "De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg."
+  "helpGoBack": "De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.",
+  "goBackFileFailed": "Er is niets weggehaald: het bestand dat het bewaart kon niet worden geschreven ({error}). Maak ruimte vrij en probeer opnieuw.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan."
 }

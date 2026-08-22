@@ -892,7 +892,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause.';
+      'Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause. Der Name oben ist der Katalog, in dem du bist — antippen wechselt oder legt einen an.';
 
   @override
   String get helpClowder =>
@@ -1638,4 +1638,13 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Die Momente, in denen sich dieser Katalog stark verändert hat: vor jedem Import und jeder Synchronisation, vor einem Zusammenführen, einem Archivieren oder einem Löschen — und immer dann, wenn du selbst einen markiert hast. Wählst du einen aus, kehrt der Katalog dorthin zurück: Alles danach wird in eine Datei geschrieben, die du behältst, und dann entfernt; jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält, was er bekommen hat.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Es wurde nichts entfernt: die Datei, die es aufbewahrt, ließ sich nicht schreiben ($error). Schaff Platz und versuch es noch einmal.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Das ist der Katalog, in dem du bist. Wechsle zu einem anderen, dann lösche ihn.';
 }

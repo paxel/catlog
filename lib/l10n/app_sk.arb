@@ -258,7 +258,7 @@
   "dangerThanks": "Ďakujeme, že používate cat(a)log!",
   "helpTitle": "Pomocník",
   "showTipsAgain": "Zobraziť tipy znova",
-  "helpHome": "Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova.",
+  "helpHome": "Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova. Názov hore je katalóg, v ktorom si — klepnutím prepneš alebo pridáš ďalší.",
   "helpClowder": "Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí.",
   "helpCat": "Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neťukneš na ceruzku. Podrž pole a dostaneš sa rovno do jeho úpravy; podrž fotku a otvoríš jej menu. Menu vpravo hore má zvyšok: súkromné, skryť, zlúčiť, zapísať pozorovanie, zdieľať.",
   "helpStrays": "Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu.",
@@ -476,5 +476,8 @@
   "goBackBody": "Všetko po tomto okamihu zmizne — {count} zmien. Najprv sa zapíše do súboru, ktorého import to vráti, a každý novší okamih ide s tým. Kto už synchronizoval, kópiu si nechá — to sa vziať späť nedá.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Pomenuj tento okamih",
-  "helpGoBack": "Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal."
+  "helpGoBack": "Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal.",
+  "goBackFileFailed": "Nič sa neodstránilo: súbor, ktorý to uchová, sa nepodarilo zapísať ({error}). Uvoľni miesto a skús to znova.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž."
 }

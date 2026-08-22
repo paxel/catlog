@@ -889,7 +889,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Tavo kolonijų apžvalga — kolonija yra vieta, kur gyvena katės: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jos kates; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria koloniją, o valkataujančių kortelė surenka visas kates be namų.';
+      'Tavo kolonijų apžvalga — kolonija yra vieta, kur gyvena katės: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jos kates; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria koloniją, o valkataujančių kortelė surenka visas kates be namų. Pavadinimas viršuje – katalogas, kuriame esi; bakstelėk, kad perjungtum ar pridėtum.';
 
   @override
   String get helpClowder =>
@@ -1632,4 +1632,13 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Akimirkos, kai šis katalogas pasikeitė iš esmės: prieš kiekvieną importą ir sinchronizavimą, prieš sujungimą, archyvavimą ar ištrynimą, ir kaskart, kai pats pažymėjai akimirką. Pasirinkus vieną, katalogas grįžta į tą būseną — viskas po jos įrašoma į failą, kurį pasilieki, ir tada pašalinama, o kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka tai, ką gavo.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Niekas nepašalinta: failo, kuris tai išsaugo, nepavyko įrašyti ($error). Atlaisvink vietos ir bandyk dar kartą.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tai katalogas, kuriame esi. Perjunk į kitą ir tada jį ištrink.';
 }

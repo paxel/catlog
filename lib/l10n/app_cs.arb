@@ -258,7 +258,7 @@
   "dangerThanks": "Děkujeme, že používáte cat(a)log!",
   "helpTitle": "Nápověda",
   "showTipsAgain": "Zobrazit tipy znovu",
-  "helpHome": "Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova.",
+  "helpHome": "Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova. Název nahoře je katalog, ve kterém jsi — klepnutím přepneš nebo přidáš další.",
   "helpClowder": "Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete.",
   "helpCat": "Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen ke čtení, dokud neklepnete na tužku. Podržte pole a upravíte ho přímo; podržte fotku a otevřete její menu. Menu vpravo nahoře má zbytek: soukromé, skrýt, sloučit, zapsat pozorování, sdílet.",
   "helpStrays": "Kočky, které teď nemají domov: nalezené, utečené nebo z letáku. Tlačítko fotoaparátu zapíše kočku, která sedí před vámi; tlačítko letáku promění plakát v kočku i s kontaktem majitele; skener přečte kód cat(a)log z plakátu.",
@@ -476,5 +476,8 @@
   "goBackBody": "Všechno po tomto okamžiku zmizí — {count} změn. Nejdřív se zapíše do souboru, jehož import to vrátí, a každý novější okamžik jde s tím. Kdo už synchronizoval, kopii si nechá — to vzít zpět nejde.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Pojmenuj tento okamžik",
-  "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal."
+  "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.",
+  "goBackFileFailed": "Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž."
 }

@@ -93,7 +93,7 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
 /// hide toggle — the "import filter" is a hide, by design.
 Future<void> showImportSummary(
     BuildContext context, CatalogStore store, List<Entry> applied,
-    {SavePoint? undo, SaveFile? saveTo}) async {
+    {Moment? undo, SaveFile? saveTo}) async {
   // An archive file coming home: what it carries is deleted here, and
   // deletion outranks every entry in the file. Ask before undoing it.
   final restorable = restorableEntities(store, applied);
@@ -145,7 +145,7 @@ class _SummarySheet extends StatefulWidget {
   final List<Entry> applied;
 
   /// The moment before this import, when there is one to go back to.
-  final SavePoint? undo;
+  final Moment? undo;
   final SaveFile? saveTo;
 
   const _SummarySheet(
@@ -238,7 +238,7 @@ class _SummarySheetState extends State<_SummarySheet> {
                 icon: const Icon(Icons.undo),
                 label: Text(t.undoThisImport),
                 onPressed: () async {
-                  final done = await confirmAndRevert(
+                  final done = await confirmUndoImport(
                       context, store, widget.undo!,
                       saveTo: widget.saveTo);
                   if (done && context.mounted) Navigator.of(context).pop();

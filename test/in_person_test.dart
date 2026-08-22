@@ -60,6 +60,6 @@ void main() {
 
   testWidgets('nothing is connected until asked', (tester) async {
     await pump(tester);
-    expect(store.savePoints(), isEmpty);
+    expect(store.moments(), isEmpty);
   });
 }

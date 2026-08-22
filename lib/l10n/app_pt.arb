@@ -258,7 +258,7 @@
   "dangerThanks": "Obrigado por usares o cat(a)log!",
   "helpTitle": "Ajuda",
   "showTipsAgain": "Mostrar as dicas outra vez",
-  "helpHome": "A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa.",
+  "helpHome": "A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa. O nome no topo é o catálogo em que estás — toca para trocar ou criar outro.",
   "helpClowder": "Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o.",
   "helpCat": "Tudo sobre este gato: fotos, campos, família, histórico. A página fica só de leitura até tocares no lápis. Manter premido um campo abre logo a edição; numa foto abre o menu dela. O menu no canto superior direito tem o resto: marcar privado, esconder, fundir, registar avistamento, partilhar.",
   "helpStrays": "Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz.",
@@ -476,5 +476,8 @@
   "goBackBody": "Tudo depois deste momento é removido — {count} alterações. É primeiro escrito num ficheiro; importá-lo devolve tudo, e cada momento mais recente vai junto. Quem já sincronizou fica com a sua cópia — isso não se pode retirar.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Dá um nome a este momento",
-  "helpGoBack": "Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu."
+  "helpGoBack": "Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu.",
+  "goBackFileFailed": "Não foi removido nada: o ficheiro que o guarda não pôde ser escrito ({error}). Liberta espaço e tenta outra vez.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Este é o catálogo em que estás. Muda para outro e depois elimina-o."
 }

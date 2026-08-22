@@ -891,7 +891,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa.';
+      'La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa. Il nome in alto è il catalogo in cui sei: toccalo per cambiare o aggiungerne uno.';
 
   @override
   String get helpClowder =>
@@ -1637,4 +1637,13 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get helpGoBack =>
       'I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Non è stato tolto nulla: il file che lo conserva non è stato scritto ($error). Libera spazio e riprova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Questo è il catalogo in cui sei. Passa a un altro, poi eliminalo.';
 }

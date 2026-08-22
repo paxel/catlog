@@ -886,7 +886,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid.';
+      'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.';
 
   @override
   String get helpClowder =>
@@ -1629,4 +1629,13 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Midagi ei eemaldatud: faili, mis selle alles hoiab, ei õnnestunud kirjutada ($error). Vabasta ruumi ja proovi uuesti.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'See on kataloog, milles oled. Vaheta teisele ja kustuta see siis.';
 }

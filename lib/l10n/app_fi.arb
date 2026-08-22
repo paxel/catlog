@@ -258,7 +258,7 @@
   "dangerThanks": "Kiitos, että käytät cat(a)logia!",
   "helpTitle": "Ohje",
   "showTipsAgain": "Näytä vinkit uudelleen",
-  "helpHome": "Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat.",
+  "helpHome": "Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.",
   "helpClowder": "Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.",
   "helpCat": "Kaikki tästä kissasta: kuvat, kentät, suku, historia. Sivu on vain luettava, kunnes napautat kynää. Pidä kenttää painettuna päästäksesi suoraan sen muokkaukseen; kuvaa avataksesi sen valikon. Oikean yläkulman valikossa on loput: merkitse yksityiseksi, piilota, yhdistä, kirjaa havainto, jaa.",
   "helpStrays": "Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.",
@@ -476,5 +476,8 @@
   "goBackBody": "Kaikki tämän hetken jälkeen poistetaan — {count} muutosta. Se kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa kaiken, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Nimeä tämä hetki",
-  "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa."
+  "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.",
+  "goBackFileFailed": "Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten."
 }

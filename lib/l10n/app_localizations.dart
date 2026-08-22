@@ -1703,7 +1703,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpHome.
   ///
   /// In en, this message translates to:
-  /// **'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home.'**
+  /// **'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.'**
   String get helpHome;
 
   /// No description provided for @helpClowder.
@@ -2965,6 +2965,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.'**
   String get helpGoBack;
+
+  /// No description provided for @goBackFileFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.'**
+  String goBackFileFailed(String error);
+
+  /// No description provided for @switchBeforeDeleting.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the catalog you are in. Switch to another one, then delete it.'**
+  String get switchBeforeDeleting;
 }
 
 class _AppLocalizationsDelegate

@@ -7,6 +7,21 @@ import 'l10n.dart';
 /// tests and anywhere a store is built directly.
 CatalogManager? catalogManager;
 
+/// What a screen needs to show and change the catalog it is in: the
+/// manager, the way to switch, and the way to say the list changed.
+/// These three always travel together, so they travel as one.
+class CatalogSwitching {
+  final CatalogManager catalogs;
+  final void Function(CatalogInfo) onSwitch;
+  final VoidCallback? onChanged;
+
+  const CatalogSwitching(
+      {required this.catalogs, required this.onSwitch, this.onChanged});
+
+  /// The catalog currently open.
+  CatalogInfo get active => catalogs.active;
+}
+
 /// True when there is somewhere else to move things to.
 bool get canMoveBetweenCatalogs =>
     (catalogManager?.catalogs().length ?? 0) > 1;
@@ -72,7 +87,7 @@ Future<int> moveInto(CatalogStore from, CatalogManager catalogs,
     CatalogInfo into, Set<String> ids) async {
   final to = catalogs.openStore(into);
   try {
-    return moveEntities(from, to, ids).moved.length;
+    return transferEntities(from, to, ids).moved.length;
   } finally {
     to.close();
   }
@@ -113,7 +128,7 @@ Future<CatalogInfo?> moveToAnotherCatalog(
 
   final to = catalogs.openStore(chosen);
   try {
-    final result = moveEntities(from, to, ids);
+    final result = transferEntities(from, to, ids);
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(context.t

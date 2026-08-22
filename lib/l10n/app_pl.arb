@@ -258,7 +258,7 @@
   "dangerThanks": "Dziękujemy za korzystanie z cat(a)log!",
   "helpTitle": "Pomoc",
   "showTipsAgain": "Pokaż wskazówki ponownie",
-  "helpHome": "Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu.",
+  "helpHome": "Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu. Nazwa u góry to katalog, w którym jesteś — dotknij, aby przełączyć lub dodać.",
   "helpClowder": "Wszystko o tym miejscu: jego koty, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie kota przenosi, ukrywa lub otwiera go.",
   "helpCat": "Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by przejść wprost do jego edycji; zdjęcie — by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: prywatny, ukryj, scal, zapisz obserwację, udostępnij.",
   "helpStrays": "Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu.",
@@ -476,5 +476,8 @@
   "goBackBody": "Wszystko po tej chwili zostanie usunięte — {count} zmian. Najpierw trafi do pliku, którego import to przywróci, a każda nowsza chwila zniknie razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowają kopię — tego nie da się cofnąć.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Nazwij tę chwilę",
-  "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały."
+  "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.",
+  "goBackFileFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku, który to przechowuje ({error}). Zwolnij miejsce i spróbuj ponownie.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń."
 }

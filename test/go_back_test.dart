@@ -44,9 +44,9 @@ void main() {
 
   testWidgets('every moment reads as a sentence with a date',
       (tester) async {
-    store.addSavePoint(
-        cause: SaveCause.import, label: 'catlog-backup.catsync');
-    store.addSavePoint(cause: SaveCause.merge);
+    store.addMoment(
+        cause: MomentCause.import, label: 'catlog-backup.catsync');
+    store.addMoment(cause: MomentCause.merge);
     await pump(tester);
 
     expect(find.text('Before importing'), findsOneWidget);
@@ -55,10 +55,10 @@ void main() {
   });
 
   testWidgets('the list is grouped by month', (tester) async {
-    store.addSavePoint(
-        cause: SaveCause.manual, label: 'in March', at: DateTime(2026, 3, 4));
-    store.addSavePoint(
-        cause: SaveCause.manual, label: 'in April', at: DateTime(2026, 4, 9));
+    store.addMoment(
+        cause: MomentCause.manual, label: 'in March', at: DateTime(2026, 3, 4));
+    store.addMoment(
+        cause: MomentCause.manual, label: 'in April', at: DateTime(2026, 4, 9));
     await pump(tester);
     expect(find.text('March 2026'), findsOneWidget);
     expect(find.text('April 2026'), findsOneWidget);
@@ -66,7 +66,7 @@ void main() {
 
   testWidgets('older moments are behind a control', (tester) async {
     for (var i = 0; i < recentMoments + 3; i++) {
-      store.addSavePoint(cause: SaveCause.manual, label: 'moment $i');
+      store.addMoment(cause: MomentCause.manual, label: 'moment $i');
     }
     await pump(tester);
     expect(find.text('moment 0'), findsNothing);
@@ -80,7 +80,7 @@ void main() {
   testWidgets('going back restores the catalog and says what it costs',
       (tester) async {
     final cat = store.createCat('Miezi');
-    store.addSavePoint(cause: SaveCause.manual, label: 'before the trip');
+    store.addMoment(cause: MomentCause.manual, label: 'before the trip');
     store.append(cat, Keys.userField('color'), 'black');
     store.createCat('Mausi');
     await pump(tester);
@@ -89,6 +89,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('keep their copy'), findsOneWidget);
     expect(find.textContaining('newer than this one'), findsOneWidget);
+    // Named, not just counted: "told exactly what going back removes".
+    expect(find.textContaining('Mausi'), findsOneWidget);
+    expect(find.textContaining('Miezi'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(FilledButton, 'Go back to here'));
     await tester.pumpAndSettle();
@@ -99,7 +102,7 @@ void main() {
   });
 
   testWidgets('cancelling changes nothing', (tester) async {
-    store.addSavePoint(cause: SaveCause.manual, label: 'before the trip');
+    store.addMoment(cause: MomentCause.manual, label: 'before the trip');
     store.createCat('Mausi');
     await pump(tester);
     await tester.tap(find.text('Go back to here'));

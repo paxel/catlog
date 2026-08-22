@@ -3,15 +3,21 @@ import 'fields.dart';
 import 'store.dart';
 
 /// What a move did, for the message afterwards.
-class MoveResult {
+class TransferResult {
   /// The entities that arrived, by their canonical id.
   final List<String> moved;
   final int photos;
 
-  const MoveResult({required this.moved, required this.photos});
+  const TransferResult({required this.moved, required this.photos});
 }
 
-/// Moving Cats and Clowders into another catalog.
+/// Transferring Cats and Clowders into another catalog.
+///
+/// A **Transfer** is not a Move: CONTEXT.md reserves Move for a change
+/// of a Cat's Clowder membership inside one catalog. This crosses
+/// catalogs, which is a different operation with different rules — the
+/// interface still says "move to another catalog", because that is what
+/// a keeper sees.
 ///
 /// Two catalogs exist to keep places apart, so a move must sever the
 /// lineage: the entries arrive re-stamped under the destination's own
@@ -21,7 +27,7 @@ class MoveResult {
 /// happened. In the catalog it left, the entity is deleted the ordinary
 /// way — its partners already hold it and that cannot be unsent, so
 /// "deleted" is the truthful thing to tell them.
-MoveResult moveEntities(CatalogStore from, CatalogStore to, Set<String> ids,
+TransferResult transferEntities(CatalogStore from, CatalogStore to, Set<String> ids,
     {DateTime? date}) {
   final wanted = <String>{};
   for (final id in ids) {
@@ -35,7 +41,7 @@ MoveResult moveEntities(CatalogStore from, CatalogStore to, Set<String> ids,
       }
     }
   }
-  if (wanted.isEmpty) return const MoveResult(moved: [], photos: 0);
+  if (wanted.isEmpty) return const TransferResult(moved: [], photos: 0);
 
   // Field definitions come along only where the destination has none of
   // its own: bringing a copy of a definition it already has would let
@@ -84,5 +90,5 @@ MoveResult moveEntities(CatalogStore from, CatalogStore to, Set<String> ids,
       from.deleteCat(id, date: date);
     }
   }
-  return MoveResult(moved: wanted.toList(), photos: photos);
+  return TransferResult(moved: wanted.toList(), photos: photos);
 }

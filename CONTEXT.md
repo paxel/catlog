@@ -20,6 +20,14 @@ Starter Fields of type cat-reference linking a Cat to its parents. Family relati
 **Stray**:
 A Cat currently in no Clowder; tracked by map positions instead. A state, not a kind — any Cat becomes a Stray by leaving its Clowder (running away, Clowder deleted) and stops being one on a Move into a Clowder.
 
+**Catalog**:
+Everything one body of work holds: its Cats, Clowders, Fields, photos, sync partners and map position. A device can hold several, and nothing is shared between them — two cities stay apart. The app's own settings (author name, language, tips already seen) are shared by all of them. One Catalog is open at a time; its name is the title of the home screen.
+_Avoid_: database, profile, workspace, account
+
+**Moment**:
+A point a Catalog can be returned to, recorded before anything that changes a lot at once — an import, a sync, a Merge, an Archive — or marked by hand with a name. It is a mark in the log, not a copy. Going back to one removes everything written after it, having written that to a file first.
+_Avoid_: snapshot, save point, restore point, checkpoint
+
 **Crop**:
 Cutting one cat out of a photo. Happens in the import flow (skippable; Stray Cam skips it) or later from the photo menu; cropping later adds the cropped copy as a new photo, the original stays.
 
@@ -70,7 +78,10 @@ A starter multiline text Field on Cats and Clowders for free notes — including
 _Avoid_: notes, comments, description
 
 **Move**:
-A change of a Cat's Clowder membership, recorded as a dated field change like any other. A Cat's movement history is the history of this field.
+A change of a Cat's Clowder membership, recorded as a dated field change like any other. A Cat's movement history is the history of this field. Always within one Catalog.
+
+**Transfer**:
+Taking a Cat, or a Clowder with the Cats living in it, out of one Catalog and into another. Not a Move — it crosses Catalogs and re-stamps the entries under the destination's device, so the two Catalogs can never re-merge through a shared sync partner. The interface says "move to another catalog", because that is what a keeper sees; the model calls it a Transfer.
 
 **Adoption**:
 A Move into a Clowder whose Status is forever home. Not a stored status on the Cat — there is no "adopted" flag.

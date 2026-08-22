@@ -2,7 +2,6 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
-import 'undo_import.dart';
 
 /// "Merge into…" — the record on screen is the LOSER and folds into the
 /// picked survivor, irreversibly (CONTEXT.md: Merge). Returns true if a
@@ -62,8 +61,8 @@ Future<bool> showMergeDialog({
 
   final before = store.currentSeq();
   merge(loserId, survivorId);
-  savePointFor(store,
-      before: before, changed: true, cause: SaveCause.merge);
+  momentFor(store,
+      before: before, changed: true, cause: MomentCause.merge);
   return true;
 }
 
@@ -119,7 +118,7 @@ Future<bool> confirmPairMerge({
   if (sure != true) return false;
   final before = store.currentSeq();
   merge(survivor == a ? b : a, survivor);
-  savePointFor(store,
-      before: before, changed: true, cause: SaveCause.merge);
+  momentFor(store,
+      before: before, changed: true, cause: MomentCause.merge);
   return true;
 }

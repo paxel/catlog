@@ -888,7 +888,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Pregled tvojih kolonija — kolonija je mjesto gdje žive mačke: tvoj dom, udomiteljska kuća, sklonište. Dodirni karticu za njezine mačke; dugi pritisak otvara izbornik. Gumb dolje desno stvara koloniju, a kartica lutalica skuplja sve mačke bez doma.';
+      'Pregled tvojih kolonija — kolonija je mjesto gdje žive mačke: tvoj dom, udomiteljska kuća, sklonište. Dodirni karticu za njezine mačke; dugi pritisak otvara izbornik. Gumb dolje desno stvara koloniju, a kartica lutalica skuplja sve mačke bez doma. Ime na vrhu je katalog u kojem si — dodirni ga da promijeniš ili dodaš novi.';
 
   @override
   String get helpClowder =>
@@ -1630,4 +1630,13 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Trenuci u kojima se ovaj katalog jako promijenio: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve poslije njega upisuje se u datoteku koju zadržavaš i onda uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Ništa nije uklonjeno: datoteka koja to čuva nije mogla biti zapisana ($error). Oslobodi prostor i pokušaj ponovo.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Ovo je katalog u kojem si. Prebaci se na drugi, pa ga obriši.';
 }

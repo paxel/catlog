@@ -120,7 +120,15 @@ Future<void> scanShareCode(BuildContext context, CatalogStore store,
     ),
   );
   if (confirmed != true || !context.mounted) return;
+  // A shared cat arrives like any other import, so it is undoable like
+  // any other import.
+  final before = store.currentSeq();
   final result = importBundleBytes(store, bytes);
+  momentFor(store,
+      before: before,
+      changed: result.applied.isNotEmpty,
+      cause: MomentCause.import,
+      label: name);
   ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.t.bundleImported('$result'))));
 }

@@ -51,7 +51,11 @@ class MigrationFailed implements Exception {
   const MigrationFailed(this.reason);
 
   @override
-  String toString() => 'Could not move the catalog: $reason';
+  String toString() =>
+      'Could not move the catalog into the new layout: $reason. '
+      'Nothing was lost — the old catalog is untouched. Free some space, '
+      'check that the app may write to its own folder, and start the app '
+      'again.';
 }
 
 /// Every catalog on this device, and the settings that belong to the app

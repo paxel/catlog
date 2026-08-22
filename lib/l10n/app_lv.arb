@@ -258,7 +258,7 @@
   "dangerThanks": "Paldies, ka lieto cat(a)log!",
   "helpTitle": "Palīdzība",
   "showTipsAgain": "Rādīt padomus vēlreiz",
-  "helpHome": "Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām.",
+  "helpHome": "Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.",
   "helpClowder": "Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver.",
   "helpCat": "Viss par šo kaķi: attēli, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilga lauka piespiešana ved tieši uz tā rediģēšanu; attēla — atver tā izvēlni. Izvēlnē augšā pa labi ir pārējais: privāts, paslēpt, apvienot, pierakstīt novērojumu, kopīgot.",
   "helpStrays": "Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta.",
@@ -476,5 +476,8 @@
   "goBackBody": "Viss pēc šī brīža tiek noņemts — {count} izmaiņas. Vispirms tas tiek ierakstīts failā, kura imports visu atgriež, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur kopiju — to atsaukt nevar.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Nosauc šo brīdi",
-  "helpGoBack": "Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto."
+  "helpGoBack": "Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto.",
+  "goBackFileFailed": "Nekas netika noņemts: failu, kas to saglabā, neizdevās ierakstīt ({error}). Atbrīvo vietu un mēģini vēlreiz.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Šis ir katalogs, kurā esi. Pārslēdzies uz citu un tad dzēs to."
 }

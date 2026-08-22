@@ -14,12 +14,6 @@ import 'package:path_provider/path_provider.dart';
 /// successful run. Shown on the Sync screen.
 const backupErrorKey = 'lastBackupError';
 
-/// Puts a file where the automatic backups go, and says where that was
-/// in words the reader can act on. Android uses a MediaStore insert into
-/// Downloads/catlog so the file survives an uninstall; desktop uses the
-/// Downloads folder; iOS has no folder that survives an uninstall, so
-/// the app's Documents directory — visible in Files — is the best there
-/// is.
 /// The file a catalog's backup is written to. One per catalog, named
 /// after it, so using one catalog cannot overwrite another's safety net
 /// and a folder of these files still says which city is which.
@@ -73,6 +67,12 @@ Future<void> removeBesideBackups(String name) async {
   }
 }
 
+/// Puts a file where the automatic backups go, and says where that was
+/// in words the reader can act on. Android uses a MediaStore insert into
+/// Downloads/catlog so the file survives an uninstall; desktop uses the
+/// Downloads folder; iOS has no folder that survives an uninstall, so
+/// the app's Documents directory — visible in Files — is the best there
+/// is.
 Future<String> saveBesideBackups(String path, String name) async {
   if (Platform.isAndroid) {
     await const MethodChannel('catlog/backup')

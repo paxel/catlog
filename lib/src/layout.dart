@@ -19,7 +19,10 @@ class PanePage {
   /// The pane's page for a Clowder. Deleting or hiding that Clowder
   /// vacates the pane, which is why its id is recognisable.
   static PanePage clowder(String clowderId, WidgetBuilder build) =>
-      PanePage(id: 'clowder:$clowderId', build: build);
+      PanePage(id: clowderId_(clowderId), build: build);
+
+  /// The page id a Clowder gets. One place owns the format.
+  static String clowderId_(String clowderId) => 'clowder:$clowderId';
 
   /// The Clowder this page shows, or null for every other page.
   String? get clowderId =>

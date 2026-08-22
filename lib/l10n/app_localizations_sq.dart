@@ -890,7 +890,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi.';
+      'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.';
 
   @override
   String get helpClowder =>
@@ -1632,4 +1632,13 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nuk u hoq asgjë: skedari që e ruan nuk u shkrua dot ($error). Liro pak hapësirë dhe provo sërish.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije.';
 }

@@ -255,7 +255,7 @@
   "dangerThanks": "Danke, dass du cat(a)log benutzt!",
   "helpTitle": "Hilfe",
   "showTipsAgain": "Tipps nochmal zeigen",
-  "helpHome": "Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause.",
+  "helpHome": "Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause. Der Name oben ist der Katalog, in dem du bist — antippen wechselt oder legt einen an.",
   "helpClowder": "Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie.",
   "helpCat": "Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: privat markieren, ausblenden, zusammenführen, Sichtung eintragen, Katze teilen.",
   "helpStrays": "Katzen, die gerade kein Zuhause haben: Fundkatzen, entlaufene Katzen, Katzen von einem Aushang. Der Kamera-Knopf hält eine Katze fest, die vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat eine Katze samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat.",
@@ -475,5 +475,8 @@
   "goBackBody": "Alles nach diesem Moment verschwindet — {count} Änderung(en). Vorher wird alles in eine Datei geschrieben; deren Import holt es zurück. Jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält seine Kopie — das lässt sich nicht zurücknehmen.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Diesen Moment benennen",
-  "helpGoBack": "Die Momente, in denen sich dieser Katalog stark verändert hat: vor jedem Import und jeder Synchronisation, vor einem Zusammenführen, einem Archivieren oder einem Löschen — und immer dann, wenn du selbst einen markiert hast. Wählst du einen aus, kehrt der Katalog dorthin zurück: Alles danach wird in eine Datei geschrieben, die du behältst, und dann entfernt; jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält, was er bekommen hat."
+  "helpGoBack": "Die Momente, in denen sich dieser Katalog stark verändert hat: vor jedem Import und jeder Synchronisation, vor einem Zusammenführen, einem Archivieren oder einem Löschen — und immer dann, wenn du selbst einen markiert hast. Wählst du einen aus, kehrt der Katalog dorthin zurück: Alles danach wird in eine Datei geschrieben, die du behältst, und dann entfernt; jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält, was er bekommen hat.",
+  "goBackFileFailed": "Es wurde nichts entfernt: die Datei, die es aufbewahrt, ließ sich nicht schreiben ({error}). Schaff Platz und versuch es noch einmal.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Das ist der Katalog, in dem du bist. Wechsle zu einem anderen, dann lösche ihn."
 }

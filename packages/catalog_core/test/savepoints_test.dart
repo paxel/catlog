@@ -34,9 +34,9 @@ void main() {
 
   String keepAt(String name) => '${dir.path}/$name.catsync';
 
-  SavePoint mark({String cause = SaveCause.manual, String? label}) {
-    final id = store.addSavePoint(cause: cause, label: label);
-    return savePointsOf(store).firstWhere((p) => p.id == id);
+  Moment mark({String cause = MomentCause.manual, String? label}) {
+    final id = store.addMoment(cause: cause, label: label);
+    return momentsOf(store).firstWhere((p) => p.id == id);
   }
 
   test('going back puts every field back as it was', () {
@@ -96,7 +96,7 @@ void main() {
     store.createCat('Mausi');
 
     revertTo(store, first, keepAt: keepAt('undo'));
-    expect(savePointsOf(store).map((p) => p.label), ['first']);
+    expect(momentsOf(store).map((p) => p.label), ['first']);
   });
 
   test('the numbers used before going back are never handed out again',
@@ -126,10 +126,10 @@ void main() {
 
     final before = store.currentSeq();
     sync(peer, store);
-    final point = store.addSavePoint(cause: SaveCause.import, seq: before);
+    final point = store.addMoment(cause: MomentCause.import, seq: before);
     expect(store.current(theirs, Keys.name), 'Fremdling');
 
-    revertTo(store, savePointsOf(store).firstWhere((p) => p.id == point),
+    revertTo(store, momentsOf(store).firstWhere((p) => p.id == point),
         keepAt: keepAt('undo'));
     expect(store.current(theirs, Keys.name), isNull);
 
@@ -148,8 +148,8 @@ void main() {
 
     final before = store.currentSeq();
     importBundle(store, bundle);
-    final id = store.addSavePoint(cause: SaveCause.import, seq: before);
-    revertTo(store, savePointsOf(store).firstWhere((p) => p.id == id),
+    final id = store.addMoment(cause: MomentCause.import, seq: before);
+    revertTo(store, momentsOf(store).firstWhere((p) => p.id == id),
         keepAt: keepAt('undo'));
     expect(store.current(theirs, Keys.name), isNull);
 
@@ -201,5 +201,29 @@ void main() {
     importBundle(store, path);
     expect(store.current(cat, Keys.userField('color')), 'black');
     expect(store.isPrivate(cat), isTrue);
+  });
+
+  test('an undone import is not brought back by the shared folder '
+      'either', () {
+    final folder = Directory('${dir.path}/shared')..createSync();
+    Directory('${dir.path}/theirs').createSync();
+    final peer = CatalogStore.open('${dir.path}/theirs/catlog.db')
+      ..author = 'Kathrin';
+    addTearDown(peer.close);
+    final theirs = peer.createCat('Fremdling');
+    folderSync(peer, folder.path);
+
+    final before = store.currentSeq();
+    folderSync(store, folder.path);
+    expect(store.current(theirs, Keys.name), 'Fremdling');
+    final id = store.addMoment(cause: MomentCause.sync, seq: before);
+    revertTo(store, momentsOf(store).firstWhere((m) => m.id == id),
+        keepAt: keepAt('undo'));
+    expect(store.current(theirs, Keys.name), isNull);
+
+    // The peer's file still holds it, so the next folder sync is the
+    // test: undo must not be a fight with the folder either.
+    folderSync(store, folder.path);
+    expect(store.current(theirs, Keys.name), isNull);
   });
 }

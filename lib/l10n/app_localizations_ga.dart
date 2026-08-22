@@ -892,7 +892,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile.';
+      'Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.';
 
   @override
   String get helpClowder =>
@@ -1637,4 +1637,13 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Níor baineadh aon rud: níorbh fhéidir an comhad a choinníonn é a scríobh ($error). Saor spás agus bain triail eile as.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í.';
 }

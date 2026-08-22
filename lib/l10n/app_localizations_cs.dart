@@ -888,7 +888,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova.';
+      'Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova. Název nahoře je katalog, ve kterém jsi — klepnutím přepneš nebo přidáš další.';
 
   @override
   String get helpClowder =>
@@ -1630,4 +1630,13 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ($error). Uvolni místo a zkus to znovu.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.';
 }

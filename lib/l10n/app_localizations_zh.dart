@@ -857,7 +857,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpHome =>
-      '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。';
+      '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。 顶部的名称是你当前所在的目录，点按即可切换或新建。';
 
   @override
   String get helpClowder =>
@@ -1575,4 +1575,12 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get helpGoBack =>
       '这个目录发生较大变化的时刻：每次导入和同步之前，合并、归档或删除之前，以及你自己标记的时候。选择其中一个，目录就回到那个状态——之后的一切会先写入你保留的文件再移除，比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有收到的内容。';
+
+  @override
+  String goBackFileFailed(String error) {
+    return '没有移除任何内容：保存它的文件无法写入（$error）。请腾出空间后重试。';
+  }
+
+  @override
+  String get switchBeforeDeleting => '这是你当前所在的目录。请先切换到另一个目录，再删除它。';
 }

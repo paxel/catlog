@@ -258,7 +258,7 @@
   "dangerThanks": "Tack för att du använder cat(a)log!",
   "helpTitle": "Hjälp",
   "showTipsAgain": "Visa tipsen igen",
-  "helpHome": "Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem.",
+  "helpHome": "Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem. Namnet högst upp är katalogen du är i — tryck för att byta eller lägga till en.",
   "helpClowder": "Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den.",
   "helpCat": "Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Håll in ett fält för att redigera det direkt; ett foto för dess meny. Menyn uppe till höger har resten: märk privat, dölj, slå ihop, anteckna observation, dela.",
   "helpStrays": "Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget.",
@@ -476,5 +476,8 @@
   "goBackBody": "Allt efter det här ögonblicket tas bort — {count} ändringar. Det skrivs först till en fil, och att importera den hämtar tillbaka allt; varje nyare ögonblick följer med. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Ge det här ögonblicket ett namn",
-  "helpGoBack": "Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick."
+  "helpGoBack": "Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick.",
+  "goBackFileFailed": "Inget togs bort: filen som bevarar det kunde inte skrivas ({error}). Frigör utrymme och försök igen.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Det här är katalogen du är i. Byt till en annan och ta bort den sedan."
 }

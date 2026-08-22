@@ -258,7 +258,7 @@
   "dangerThanks": "¡Gracias por usar cat(a)log!",
   "helpTitle": "Ayuda",
   "showTipsAgain": "Ver los consejos otra vez",
-  "helpHome": "El resumen de tus colonias: una colonia es un lugar donde viven gatos: tu casa, una casa de acogida, una protectora. Toca una tarjeta para ver sus gatos; mantén pulsado para su menú. El botón de abajo a la derecha crea una colonia, y la tarjeta de callejeros reúne a todos los gatos sin hogar.",
+  "helpHome": "El resumen de tus colonias: una colonia es un lugar donde viven gatos: tu casa, una casa de acogida, una protectora. Toca una tarjeta para ver sus gatos; mantén pulsado para su menú. El botón de abajo a la derecha crea una colonia, y la tarjeta de callejeros reúne a todos los gatos sin hogar. El nombre de arriba es el catálogo en el que estás: tócalo para cambiar o crear otro.",
   "helpClowder": "Todo sobre este lugar: sus gatos, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o un gato para moverlo, ocultarlo o abrirlo.",
   "helpCat": "Todo sobre este gato: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; una foto para su menú. El menú de arriba a la derecha tiene el resto: marcar privado, ocultar, fusionar, anotar un avistamiento, compartir.",
   "helpStrays": "Gatos que ahora mismo no tienen hogar: encontrados, escapados o sacados de un cartel. El botón de la cámara registra un gato que tienes delante; el botón del cartel convierte un cartel de gato perdido en un gato con el contacto de su dueño; el escáner lee un código cat(a)log del cartel.",
@@ -476,5 +476,8 @@
   "goBackBody": "Todo lo posterior a este momento se quita: {count} cambios. Antes se escribe en un archivo; importarlo lo devuelve, y todos los momentos más nuevos se van con él. Quienes ya sincronizaron conservan su copia: eso no se puede deshacer.",
   "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
   "nameThisMoment": "Da nombre a este momento",
-  "helpGoBack": "Los momentos en que este catálogo cambió de forma: antes de cada importación y cada sincronización, antes de una fusión, un archivado o un borrado, y siempre que marcaste uno tú. Elegir uno devuelve el catálogo a ese estado: todo lo posterior se escribe en un archivo que conservas y luego se quita, y cada momento más nuevo se va con él. Quienes ya sincronizaron conservan lo que recibieron."
+  "helpGoBack": "Los momentos en que este catálogo cambió de forma: antes de cada importación y cada sincronización, antes de una fusión, un archivado o un borrado, y siempre que marcaste uno tú. Elegir uno devuelve el catálogo a ese estado: todo lo posterior se escribe en un archivo que conservas y luego se quita, y cada momento más nuevo se va con él. Quienes ya sincronizaron conservan lo que recibieron.",
+  "goBackFileFailed": "No se quitó nada: no se pudo escribir el archivo que lo guarda ({error}). Libera espacio e inténtalo otra vez.",
+  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "switchBeforeDeleting": "Este es el catálogo en el que estás. Cambia a otro y luego bórralo."
 }

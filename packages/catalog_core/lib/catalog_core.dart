@@ -15,7 +15,7 @@ export 'src/fields.dart';
 export 'src/folder_sync.dart';
 export 'src/flier_share.dart';
 export 'src/match.dart';
-export 'src/move.dart';
+export 'src/transfer.dart';
 export 'src/pair_code.dart';
 export 'src/registry.dart';
 export 'src/savepoints.dart';

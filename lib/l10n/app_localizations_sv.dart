@@ -887,7 +887,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem.';
+      'Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem. Namnet högst upp är katalogen du är i — tryck för att byta eller lägga till en.';
 
   @override
   String get helpClowder =>
@@ -1629,4 +1629,13 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Inget togs bort: filen som bevarar det kunde inte skrivas ($error). Frigör utrymme och försök igen.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Det här är katalogen du är i. Byt till en annan och ta bort den sedan.';
 }

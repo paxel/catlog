@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/merge_dialogs.dart';
-import 'package:catlog/src/undo_import.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -30,20 +29,20 @@ void main() {
   test('nothing applied records nothing', () {
     final before = store.currentSeq();
     expect(
-        savePointFor(store,
-            before: before, changed: false, cause: SaveCause.sync),
+        momentFor(store,
+            before: before, changed: false, cause: MomentCause.sync),
         isNull);
-    expect(store.savePoints(), isEmpty);
+    expect(store.moments(), isEmpty);
   });
 
   test('a moment names what was about to happen', () {
     final before = store.currentSeq();
-    final point = savePointFor(store,
+    final point = momentFor(store,
         before: before,
         changed: true,
-        cause: SaveCause.sync,
+        cause: MomentCause.sync,
         label: 'Kathrin');
-    expect(point!.cause, SaveCause.sync);
+    expect(point!.cause, MomentCause.sync);
     expect(point.label, 'Kathrin');
   });
 
@@ -77,8 +76,8 @@ void main() {
     expect(await merged, isTrue);
 
     expect(store.cats(), hasLength(1));
-    final point = savePointsOf(store).single;
-    expect(point.cause, SaveCause.merge);
+    final point = momentsOf(store).single;
+    expect(point.cause, MomentCause.merge);
 
     revertTo(store, point, keepAt: '${dir.path}/undo.catsync');
     expect(store.cats().map((c) => c.name),
@@ -90,24 +89,31 @@ void main() {
     store.append(cat, Keys.userField('deceased'), '2020-01-01');
     final before = store.currentSeq();
     deleteArchived(store, {cat});
-    final point = savePointFor(store,
-        before: before, changed: true, cause: SaveCause.archive)!;
+    final point = momentFor(store,
+        before: before, changed: true, cause: MomentCause.archive)!;
     expect(store.cats(), isEmpty);
 
     revertTo(store, point, keepAt: '${dir.path}/undo.catsync');
     expect(store.cats().map((c) => c.name), ['Alt']);
   });
 
-  test('a hard delete can be undone', () {
+  test('a hard delete records no moment', () {
+    // It removes entries instead of adding any (ADR-0006), so a moment
+    // before it could never put anything back — offering one would be a
+    // promise the catalog cannot keep.
     store.createCat('Miezi');
     store.author = 'Patrick the second';
-    final before = store.currentSeq();
     store.hardDeleteAuthor('Patrick');
-    final point = savePointFor(store,
-        before: before, changed: true, cause: SaveCause.hardDelete)!;
-    expect(point.cause, SaveCause.hardDelete);
-    // The removal itself is physical, so going back cannot bring the
-    // rows back — but the moment is there, and what came after it is.
-    expect(savePointsOf(store), hasLength(1));
+    expect(store.moments(), isEmpty);
+  });
+
+  test('a moment never sits above the log it points into', () {
+    store.createCat('Miezi');
+    final high = store.currentSeq();
+    store.author = 'Patrick the second';
+    store.hardDeleteAuthor('Patrick');
+    final id = store.addMoment(cause: MomentCause.import, seq: high);
+    final moment = momentsOf(store).firstWhere((m) => m.id == id);
+    expect(moment.seq, lessThanOrEqualTo(store.currentSeq()));
   });
 }

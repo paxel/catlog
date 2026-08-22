@@ -887,7 +887,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar.';
+      'Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.';
 
   @override
   String get helpClowder =>
@@ -1631,4 +1631,13 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get helpGoBack =>
       'Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Hiçbir şey kaldırılmadı: onu saklayan dosya yazılamadı ($error). Yer aç ve yeniden dene.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.';
 }

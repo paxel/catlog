@@ -869,7 +869,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'コロニーの一覧です。コロニーとは猫が暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとその猫が見えます。長押しでメニュー。右下のボタンで新しいコロニーを作成、野良カードには家のない猫がすべて集まります。';
+      'コロニーの一覧です。コロニーとは猫が暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとその猫が見えます。長押しでメニュー。右下のボタンで新しいコロニーを作成、野良カードには家のない猫がすべて集まります。 上の名前はいま開いているカタログです。タップすると切り替えや追加ができます。';
 
   @override
   String get helpClowder =>
@@ -1592,4 +1592,12 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get helpGoBack =>
       'このカタログが大きく変わった時点の一覧です。読み込みや同期の前、統合・アーカイブ・削除の前、そして自分で印を付けたときに記録されます。ひとつ選ぶとカタログはその状態に戻ります。それ以降はすべて手元に残るファイルに書き出してから取り除かれ、それより新しい時点も一緒に消えます。すでに同期した相手は受け取ったものを持ち続けます。';
+
+  @override
+  String goBackFileFailed(String error) {
+    return '何も取り除いていません。控えのファイルを書き出せませんでした（$error）。空き容量を作ってやり直してください。';
+  }
+
+  @override
+  String get switchBeforeDeleting => 'いま開いているカタログです。別のカタログに切り替えてから削除してください。';
 }

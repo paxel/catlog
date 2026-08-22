@@ -63,9 +63,9 @@ void main() {
         return const Scaffold(body: SizedBox.shrink());
       }),
     ));
-    final imported = importWithSavePoint(store, path);
+    final imported = importWithMoment(store, path);
     unawaited(showImportSummary(ctx, store, imported.result.applied,
-        undo: imported.point, saveTo: save ?? saveTo));
+        undo: imported.moment, saveTo: save ?? saveTo));
     await tester.pumpAndSettle();
   }
 
@@ -123,10 +123,10 @@ void main() {
 
   test('an import that brings nothing new records no moment', () {
     final bundle = theirBundle();
-    importWithSavePoint(store, bundle);
-    final again = importWithSavePoint(store, bundle);
-    expect(again.point, isNull);
-    expect(store.savePoints(), hasLength(1));
+    importWithMoment(store, bundle);
+    final again = importWithMoment(store, bundle);
+    expect(again.moment, isNull);
+    expect(store.moments(), hasLength(1));
   });
 
   test('each undo gets its own file, even two in the same minute', () {
@@ -147,6 +147,6 @@ void main() {
 
     // The save threw; the import must still be there.
     expect(store.cats().map((c) => c.name), ['Fremdling']);
-    expect(find.textContaining('Nothing was deleted'), findsOneWidget);
+    expect(find.textContaining('Nothing was removed'), findsOneWidget);
   });
 }

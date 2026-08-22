@@ -890,7 +890,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpHome =>
-      'Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis.';
+      'Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.';
 
   @override
   String get helpClowder =>
@@ -1635,4 +1635,13 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get helpGoBack =>
       'De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Er is niets weggehaald: het bestand dat het bewaart kon niet worden geschreven ($error). Maak ruimte vrij en probeer opnieuw.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.';
 }

@@ -25,6 +25,7 @@ import 'fields_screen.dart';
 import 'map_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
+import '../move_to_catalog.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 
@@ -42,11 +43,9 @@ class ClowderListScreen extends StatefulWidget {
   /// know before adding a cat.
   final String? catalogName;
 
-  /// Every catalog on the device, when there is more than a single
-  /// one to choose from — the title becomes the switcher.
-  final CatalogManager? catalogs;
-  final void Function(CatalogInfo)? onSwitchCatalog;
-  final VoidCallback? onCatalogsChanged;
+  /// Switching between catalogs, when the app has more than the one —
+  /// the title becomes the switcher.
+  final CatalogSwitching? switching;
 
   /// Called when the tiles/table choice changes. The table wants the
   /// whole window, so the layout around this screen has to know.
@@ -58,9 +57,7 @@ class ClowderListScreen extends StatefulWidget {
       this.onOpenPage,
       this.selectedPageId,
       this.catalogName,
-      this.catalogs,
-      this.onSwitchCatalog,
-      this.onCatalogsChanged,
+      this.switching,
       this.onViewChanged});
 
   @override
@@ -140,18 +137,17 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   /// to know before adding a cat — and opens the switcher.
   Widget _catalogTitle(BuildContext context) {
     final text = Text(widget.catalogName ?? context.t.clowders);
-    final catalogs = widget.catalogs;
-    final onSwitch = widget.onSwitchCatalog;
-    if (catalogs == null || onSwitch == null) return text;
+    final switching = widget.switching;
+    if (switching == null) return text;
     return Spotlight(
       id: 'home-catalog',
       child: InkWell(
         onTap: () => showCatalogSwitcher(context,
-            catalogs: catalogs,
+            catalogs: switching.catalogs,
             store: widget.store,
-            onSwitch: onSwitch,
+            onSwitch: switching.onSwitch,
             onChanged: () {
-              widget.onCatalogsChanged?.call();
+              switching.onChanged?.call();
               if (mounted) setState(() {});
             }),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
@@ -320,7 +316,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               return _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
-                selected: widget.selectedPageId == 'clowder:${clowder.id}',
+                selected:
+                    widget.selectedPageId == PanePage.clowderId_(clowder.id),
                 onContextMenu: (position) async {
                   final action = await showMenu<String>(
                     context: context,
@@ -455,7 +452,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             ),
             for (final clowder in rows)
               DataRow(
-                selected: widget.selectedPageId == 'clowder:${clowder.id}',
+                selected:
+                    widget.selectedPageId == PanePage.clowderId_(clowder.id),
                 onSelectChanged: (_) => open(clowder.id),
                 cells: [
                   DataCell(Text(clowder.name)),
