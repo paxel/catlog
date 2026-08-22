@@ -141,14 +141,20 @@ class _CardScreenState extends State<CardScreen> {
             // The QR alone shows nothing readable — one caption line.
             Text('${fieldDefName(context.t, def)}: $value',
                 style: Theme.of(context).textTheme.bodySmall),
-          ] else
+          ] else if (printsAsCode128(value))
             // Code128 prints the number under the bars itself.
             BarcodeWidget(
               barcode: Barcode.code128(),
               data: value,
               width: 220,
               height: 64,
-            ),
+            )
+          else
+            // Scanners write whatever they read into an ID field, and
+            // Code128 cannot carry every character. The value still
+            // belongs on the card — as text rather than as a crash.
+            Text('${fieldDefName(context.t, def)}: $value',
+                style: Theme.of(context).textTheme.bodySmall),
         ]),
       );
 
@@ -268,14 +274,19 @@ class _CardScreenState extends State<CardScreen> {
               pw.Padding(
                 padding: const pw.EdgeInsets.only(top: 10),
                 child: pw.Column(children: [
-                  pw.BarcodeWidget(
-                    barcode: def.idDisplay == IdDisplay.qr
-                        ? pw.Barcode.qrCode()
-                        : pw.Barcode.code128(),
-                    data: value,
-                    width: def.idDisplay == IdDisplay.qr ? 80 : 180,
-                    height: def.idDisplay == IdDisplay.qr ? 80 : 44,
-                  ),
+                  if (def.idDisplay == IdDisplay.qr ||
+                      printsAsCode128(value))
+                    pw.BarcodeWidget(
+                      barcode: def.idDisplay == IdDisplay.qr
+                          ? pw.Barcode.qrCode()
+                          : pw.Barcode.code128(),
+                      data: value,
+                      width: def.idDisplay == IdDisplay.qr ? 80 : 180,
+                      height: def.idDisplay == IdDisplay.qr ? 80 : 44,
+                    )
+                  else
+                    pw.Text('${fieldDefName(t, def)}: $value',
+                        style: const pw.TextStyle(fontSize: 9)),
                   if (def.idDisplay == IdDisplay.qr)
                     pw.Text('${fieldDefName(t, def)}: $value',
                         style: const pw.TextStyle(
@@ -411,5 +422,20 @@ class _CardScreenState extends State<CardScreen> {
         ]),
       ),
     );
+  }
+}
+
+/// Whether Code128 can carry [value].
+///
+/// An ID field takes whatever a scanner reads, including QR payloads
+/// with letters, umlauts and punctuation Code128 has no symbols for.
+/// Asking first turns a thrown BarcodeException — a red box where the
+/// card should be, and a failed PDF — into a printed line of text.
+bool printsAsCode128(String value) {
+  try {
+    Barcode.code128().verify(value);
+    return true;
+  } catch (_) {
+    return false;
   }
 }
