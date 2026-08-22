@@ -4,20 +4,27 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../move_to_catalog.dart';
+import '../layout.dart';
+import '../help.dart';
 import '../celebration.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
-import '../field_labels.dart';
+import '../registry_lookup.dart';
+import '../flier_capture.dart';
 import '../image_import.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../plausibility.dart';
+import '../share_publicly.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/field_list.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
@@ -33,11 +40,15 @@ class CatDetailScreen extends StatefulWidget {
   /// so name + photo happen in one flow.
   final bool promptPhoto;
 
+  /// Fresh cats open in edit mode: they exist to be filled in (#46).
+  final bool startEditing;
+
   const CatDetailScreen(
       {super.key,
       required this.store,
       required this.catId,
-      this.promptPhoto = false});
+      this.promptPhoto = false,
+      this.startEditing = false});
 
   @override
   State<CatDetailScreen> createState() => _CatDetailScreenState();
@@ -50,13 +61,21 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.catId;
 
+  /// Read-only until the pencil is pressed (#46); every visit starts
+  /// calm — except a freshly created cat, which opens ready to fill in.
+  late bool _editing = widget.startEditing;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
         (_) => runSpotlights(context, store, 'cat'));
     if (widget.promptPhoto) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _addPhoto());
+      // The callback can fire after a quick back-out; a dead screen
+      // must not open a picker it can never return to.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _addPhoto();
+      });
     }
   }
 
@@ -70,9 +89,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _addPhoto() async {
-    final hash = await pickAndAddImage(context, store, id);
-    if (!mounted) return;
-    if (hash != null) setState(() {});
+    // Refresh unconditionally: even a canceled or half-failed add must
+    // leave the grid showing exactly what the store holds.
+    await addPhotosViaSheet(context, store, id);
+    if (mounted) setState(() {});
   }
 
   Future<void> _move() async {
@@ -144,11 +164,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     ));
   }
 
-  void _openTimeline({String? field}) {
-    Navigator.of(context).push(MaterialPageRoute(
+  Future<void> _openTimeline({String? field}) async {
+    await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) =>
           TimelineScreen(store: store, entityId: id, field: field),
     ));
+    // Reverts happen on the timeline — the page must show them.
+    if (mounted) setState(() {});
   }
 
   void _imageMenu(String hash) {
@@ -219,6 +241,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
+  /// The cat leaves this catalog for another one — so the page it was
+  /// on has nothing left to show.
+  Future<void> _moveToCatalog() async {
+    final moved = await moveToAnotherCatalog(context, store, {id});
+    if (moved != null && mounted) Navigator.of(context).pop();
+  }
+
   Future<void> _deleteCat() async {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final sure = await _confirm(
@@ -226,6 +255,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (!sure || !mounted) return;
     store.deleteCat(id);
     Navigator.of(context).pop();
+  }
+
+  /// "Add flier" on an existing missing cat: appends flier positions,
+  /// IDs, and remarks from another flier of the same cat (#32).
+  Future<void> _addFlier() async {
+    await Navigator.of(context).push<String>(MaterialPageRoute(
+        builder: (_) =>
+            FlierCaptureScreen(store: store, existingCatId: id)));
+    if (!mounted) return;
+    setState(() {});
   }
 
   Future<void> _seenHere() async {
@@ -306,10 +345,21 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     final profile = store.profileImage(id);
     final defs = store.visibleFieldDefs(scope: FieldScope.cat);
     final clowderId = store.current(id, Keys.clowder);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
+    return PopScope(
+      // Back leaves edit mode before it leaves the page.
+      canPop: !_editing,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) setState(() => _editing = false);
+      },
+      child: Scaffold(
+      appBar: roomyAppBar(
+        context,
+        // Renaming lives in edit mode: the title becomes tappable there.
+        title: _editing
+            ? InkWell(onTap: _rename, child: Text(name))
+            : Text(name),
         actions: [
+          HelpButton(store: store, screenId: 'cat'),
           IconButton(
               icon: const Icon(Icons.badge_outlined),
               tooltip: context.t.card,
@@ -317,10 +367,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => CardScreen(store: store, catId: id),
                   ))),
-          IconButton(
-              icon: const Icon(Icons.edit),
-              tooltip: context.t.rename,
-              onPressed: _rename),
+          Spotlight(
+            id: 'cat-edit',
+            child: IconButton(
+                icon: Icon(_editing ? Icons.check : Icons.edit),
+                tooltip:
+                    _editing ? context.t.doneLabel : context.t.editLabel,
+                onPressed: () => setState(() => _editing = !_editing)),
+          ),
           IconButton(
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,
@@ -332,8 +386,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             child: PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteCat();
+              if (v == 'moveCatalog') _moveToCatalog();
               if (v == 'merge') _mergeCat();
               if (v == 'seen') _seenHere();
+              if (v == 'flier') _addFlier();
+              if (v == 'share') {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) =>
+                      SharePubliclyScreen(store: store, catId: id),
+                ));
+              }
               if (v == 'private') {
                 setState(() =>
                     store.setPrivate(id, !store.isPrivate(id)));
@@ -349,8 +411,17 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               }
             },
             itemBuilder: (context) => [
+              if (canMoveBetweenCatalogs)
+                PopupMenuItem(
+                    value: 'moveCatalog',
+                    child: Text(context.t.moveToCatalog)),
               PopupMenuItem(
                   value: 'seen', child: Text(context.t.seenHereNow)),
+              PopupMenuItem(
+                  value: 'flier', child: Text(context.t.addFlier)),
+              PopupMenuItem(
+                  value: 'share',
+                  child: Text(context.t.sharePublicly)),
               PopupMenuItem(
                   value: 'private',
                   child: Text(store.isPrivate(id)
@@ -390,43 +461,38 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
             subtitle: Text(clowderId == null
                 ? context.t.strayNoClowder
                 : store.current(clowderId, Keys.name) ?? context.t.unnamed),
-            trailing: const Icon(Icons.drive_file_move_outline),
-            onTap: _move,
+            trailing:
+                _editing ? const Icon(Icons.drive_file_move_outline) : null,
+            onTap: _editing ? _move : null,
             onLongPress: () => _openTimeline(field: Keys.clowder),
           ),
           const Divider(),
-          for (final def in defs)
-            ListTile(
-              title: Text(fieldDefName(context.t, def)),
-              subtitle: Text(def.type == FieldType.cat &&
-                      store.current(id, def.key) != null
-                  ? store.current(
-                          store.resolveEntity(
-                              store.current(id, def.key)!),
-                          Keys.name) ??
-                      '?'
-                  : fieldValueDisplay(
-                      context.t, def, store.current(id, def.key))),
-              trailing: store.hasConflict(id, def.key)
-                  ? const Icon(Icons.warning_amber, color: Colors.amber)
-                  : def.type == FieldType.location &&
-                          store.current(id, def.key) != null
-                      ? IconButton(
-                          icon: const Icon(Icons.map_outlined),
-                          tooltip: context.t.showOnMap,
-                          onPressed: () => _showOnMap(
-                              store.current(id, def.key)!),
-                        )
-                      : const Icon(Icons.edit_outlined),
-              onTap: store.hasConflict(id, def.key)
-                  ? () async {
-                      await showConflictDialog(context, store, id, def.key);
-                      if (!mounted) return;
-                      setState(() {});
-                    }
-                  : () => _editField(def),
-              onLongPress: () => _openTimeline(field: def.key),
-            ),
+          FieldList(
+            store: store,
+            entityId: id,
+            defs: defs,
+            editing: _editing,
+            onEdit: _editField,
+            onConflict: (def) async {
+              await showConflictDialog(context, store, id, def.key);
+              if (!mounted) return;
+              setState(() {});
+            },
+            onHistory: (def) => _openTimeline(field: def.key),
+            onShowMap: _showOnMap,
+            onLookup: (def, value) => openLookup(context, def, value),
+            // Long-press in read mode: jump into edit mode with the
+            // field's editor open — fix what you just spotted (#46).
+            onReadLongPress: (def) {
+              setState(() => _editing = true);
+              _editField(def);
+            },
+            onAddField: () async {
+              final created =
+                  await showNewFieldDialog(context, store, initialScope: FieldScope.cat);
+              if (created && mounted) setState(() {});
+            },
+          ),
           if (_hasFamily())
             ...[
               const Divider(),
@@ -496,6 +562,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         onPressed: _addPhoto,
         tooltip: context.t.addPhoto,
         child: const Icon(Icons.add_a_photo),
+      ),
       ),
     );
   }

@@ -7,10 +7,15 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'dart:async';
+
+import '../help.dart';
+import '../geocode.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
+import '../map/place_view.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
@@ -29,29 +34,163 @@ class MapScreen extends StatefulWidget {
   /// first positioned entity.
   final LatLng? initialCenter;
 
+  /// Test override for the place search; defaults to OSM Nominatim.
+  final GeocodeSearch? geocode;
+
   const MapScreen(
-      {super.key, required this.store, this.tileProvider, this.initialCenter});
+      {super.key,
+      required this.store,
+      this.tileProvider,
+      this.initialCenter,
+      this.geocode});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+/// The last viewport, kept per device so the map reopens where it was
+/// left instead of over the whole country (#55).
+const mapViewportKey = 'mapViewport';
+
+/// Greedy nearest-neighbor order over the pins, starting from [from] —
+/// the prev/next arrows walk the map like a route.
+List<(EntityView, LatLng)> navChain(
+    List<(EntityView, LatLng)> pins, LatLng from) {
+  final remaining = [...pins];
+  final chain = <(EntityView, LatLng)>[];
+  var cursor = from;
+  while (remaining.isNotEmpty) {
+    remaining.sort((a, b) => haversineMeters(cursor.latitude,
+            cursor.longitude, a.$2.latitude, a.$2.longitude)
+        .compareTo(haversineMeters(cursor.latitude, cursor.longitude,
+            b.$2.latitude, b.$2.longitude)));
+    final next = remaining.removeAt(0);
+    chain.add(next);
+    cursor = next.$2;
+  }
+  return chain;
+}
+
+class _MapScreenState extends State<MapScreen>
+    with SingleTickerProviderStateMixin {
   TileProvider? _tiles;
   final _controller = MapController();
   final _search = TextEditingController();
   List<(EntityView, LatLng)>? _hits;
+  List<GeoHit>? _placeHits;
+  AnimationController? _glide;
+  Timer? _viewportSave;
+  List<(EntityView, LatLng)>? _navChain;
+  int _navIndex = -1;
 
   /// Cat whose movement trail is drawn; tap its pin to toggle.
   String? _trailCat;
 
+  /// Missing cats whose possible stray area (500 m circles around their
+  /// flier positions) is overlaid (#31).
+  final _strayAreas = <String>{};
+
   CatalogStore get store => widget.store;
 
-  /// Dated positions of a cat, oldest first.
+  @override
+  void dispose() {
+    _glide?.dispose();
+    _viewportSave?.cancel();
+    _search.dispose();
+    super.dispose();
+  }
+
+  /// The stored viewport, or null before the first visit.
+  (LatLng, double)? _storedViewport() {
+    final raw = store.localSetting(mapViewportKey);
+    if (raw == null) return null;
+    final parts = raw.split(',');
+    if (parts.length != 3) return null;
+    final lat = double.tryParse(parts[0]);
+    final lon = double.tryParse(parts[1]);
+    final zoom = double.tryParse(parts[2]);
+    if (lat == null || lon == null || zoom == null) return null;
+    return (LatLng(lat, lon), zoom);
+  }
+
+  void _rememberViewport(MapCamera camera) {
+    _viewportSave?.cancel();
+    _viewportSave = Timer(const Duration(seconds: 1), () {
+      store.setLocalSetting(mapViewportKey,
+          '${camera.center.latitude},${camera.center.longitude},${camera.zoom}');
+    });
+  }
+
+  /// Camera glide instead of a hard jump.
+  void _animateTo(LatLng dest, double zoom) {
+    _glide?.dispose();
+    final camera = _controller.camera;
+    final latTween =
+        Tween(begin: camera.center.latitude, end: dest.latitude);
+    final lonTween =
+        Tween(begin: camera.center.longitude, end: dest.longitude);
+    final zoomTween = Tween(begin: camera.zoom, end: zoom);
+    final controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 600));
+    final curve =
+        CurvedAnimation(parent: controller, curve: Curves.easeInOut);
+    controller.addListener(() {
+      _controller.move(
+          LatLng(latTween.evaluate(curve), lonTween.evaluate(curve)),
+          zoomTween.evaluate(curve));
+    });
+    controller.forward();
+    _glide = controller;
+  }
+
+  Future<void> _jumpToMyLocation() async {
+    final outcome = await locateDevice();
+    final pos = outcome.pos;
+    if (pos == null) {
+      if (mounted) {
+        await explainLocationFailure(
+            context, outcome.failure ?? LocationFailure.noFix);
+      }
+      return;
+    }
+    _animateTo(LatLng(pos.$1, pos.$2), 15);
+  }
+
+  /// Jumps to a found place at the zoom the place deserves.
+  void _showPlace(GeoHit hit) {
+    final fit = placeFit(hit);
+    if (fit == null) {
+      _animateTo(LatLng(hit.lat, hit.lon), placeZoom);
+      return;
+    }
+    _controller.fitCamera(fit);
+  }
+
+  /// Prev/next over all pins in nearest-neighbor order from where the
+  /// user currently looks; the chain rebuilds when pins change.
+  void _stepPins(int direction) {
+    final pins = [
+      ..._positioned(store.visibleClowders(), sightingsOnly: false),
+      ..._positioned(store.visibleStrays(), sightingsOnly: true),
+    ];
+    if (pins.isEmpty) return;
+    if (_navChain == null || _navChain!.length != pins.length) {
+      _navChain = navChain(pins, _controller.camera.center);
+      _navIndex = -1;
+    }
+    _navIndex = (_navIndex + direction) % _navChain!.length;
+    if (_navIndex < 0) _navIndex += _navChain!.length;
+    _animateTo(_navChain![_navIndex].$2, 15);
+  }
+
+  /// Dated sighting positions of a cat, oldest first — flier positions
+  /// are not part of the trail (#30).
   List<(DateTime, LatLng)> _trail(String catId) => [
         for (final e
             in store.fieldHistory(catId, CatalogStore.positionKey).reversed)
-          if (CatalogStore.parsePosition(e.value) != null)
+          if (CatalogStore.parsePositionKind(e.value ?? '') ==
+                  PositionKind.sighting &&
+              CatalogStore.parsePosition(e.value) != null)
             (
               e.date,
               LatLng(CatalogStore.parsePosition(e.value)!.$1,
@@ -76,13 +215,17 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  List<(EntityView, LatLng)> _positioned(List<EntityView> entities) => [
+  /// Strays pin at their latest sighting; a flier-only stray stays off
+  /// the map (#30). Clowders pin at their plain position.
+  List<(EntityView, LatLng)> _positioned(List<EntityView> entities,
+          {required bool sightingsOnly}) =>
+      [
         for (final e in entities)
-          if (store.positionOf(e.id) != null)
-            (
-              e,
-              LatLng(store.positionOf(e.id)!.$1, store.positionOf(e.id)!.$2)
-            )
+          if ((sightingsOnly
+                  ? store.sightingPositionOf(e.id)
+                  : store.positionOf(e.id))
+              case final pos?)
+            (e, LatLng(pos.$1, pos.$2))
       ];
 
   // Only sightings are recorded from the map; a clowder's position is set
@@ -110,6 +253,54 @@ class _MapScreenState extends State<MapScreen> {
     if (catId == null) return;
     store.recordPosition(catId, point.latitude, point.longitude);
     setState(() {});
+  }
+
+  /// Missing cats (any cat with flier positions) offered as overlay
+  /// toggles; the chosen ones get their 500 m circles drawn.
+  Future<void> _pickStrayAreas() async {
+    final missing = [
+      for (final cat in store.visibleCats())
+        if (store.flierPositions(cat.id).isNotEmpty ||
+            strayHomePosition(store, cat.id) != null)
+          cat
+    ];
+    await showModalBottomSheet<void>(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setSheet) => SafeArea(
+          child: ListView(shrinkWrap: true, children: [
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(context.t.strayAreaLabel,
+                  style: Theme.of(context).textTheme.titleMedium),
+            ),
+            if (missing.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(context.t.noMissingCats),
+              ),
+            for (final cat in missing)
+              CheckboxListTile(
+                value: _strayAreas.contains(cat.id),
+                title: Text(cat.name),
+                secondary:
+                    CatAvatar(store: store, catId: cat.id, size: 36),
+                onChanged: (on) {
+                  setSheet(() {});
+                  setState(() {
+                    if (on == true) {
+                      _strayAreas.add(cat.id);
+                    } else {
+                      _strayAreas.remove(cat.id);
+                    }
+                  });
+                },
+              ),
+          ]),
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
   }
 
   /// A stray's face for its map pin: profile photo in a ring, paw icon
@@ -175,10 +366,13 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  void _runSearch() {
+  Future<void> _runSearch() async {
     final query = _search.text.trim().toLowerCase();
     if (query.isEmpty) {
-      setState(() => _hits = null);
+      setState(() {
+        _hits = null;
+        _placeHits = null;
+      });
       return;
     }
     final byAuthor = store.entitiesTouchedBy(query).toSet();
@@ -186,14 +380,32 @@ class _MapScreenState extends State<MapScreen> {
         e.name.toLowerCase().contains(query) || byAuthor.contains(e.id);
     final found = <(EntityView, LatLng)>[
       for (final entry in [
-        ..._positioned(store.visibleCats()),
-        ..._positioned(store.visibleClowders()),
+        ..._positioned(store.visibleCats(), sightingsOnly: true),
+        ..._positioned(store.visibleClowders(), sightingsOnly: false),
       ])
         if (matches(entry.$1)) entry
     ];
-    setState(() => _hits = found);
+    if (found.isEmpty) {
+      // The catalog knows nothing by this name — ask the world (#55).
+      List<GeoHit> places;
+      try {
+        places = await (widget.geocode ?? nominatimSearch)(query);
+      } catch (_) {
+        places = const [];
+      }
+      if (!mounted) return;
+      setState(() {
+        _hits = found;
+        _placeHits = places;
+      });
+      return;
+    }
+    setState(() {
+      _hits = found;
+      _placeHits = null;
+    });
     if (found.length == 1) {
-      _controller.move(found.single.$2, 15);
+      _animateTo(found.single.$2, 15);
     } else if (found.length > 1) {
       _controller.fitCamera(CameraFit.bounds(
         bounds: LatLngBounds.fromPoints([for (final f in found) f.$2]),
@@ -207,14 +419,32 @@ class _MapScreenState extends State<MapScreen> {
     if (_tiles == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final strays = _positioned(store.visibleStrays());
-    final clowders = _positioned(store.visibleClowders());
+    final strays =
+        _positioned(store.visibleStrays(), sightingsOnly: true);
+    final clowders =
+        _positioned(store.visibleClowders(), sightingsOnly: false);
     final all = [...strays, ...clowders];
+    final stored = _storedViewport();
     final center = widget.initialCenter ??
+        stored?.$1 ??
         (all.isEmpty ? const LatLng(51.0, 10.0) : all.first.$2);
+    final zoom = widget.initialCenter != null
+        ? 15.0
+        : stored?.$2 ?? (all.isEmpty ? 6.0 : 13.0);
     return Scaffold(
       appBar: AppBar(
         title: Text(context.t.map),
+        actions: [
+          HelpButton(store: store, screenId: 'map'),
+          Spotlight(
+            id: 'map-layers',
+            child: IconButton(
+              icon: const Icon(Icons.layers_outlined),
+              tooltip: context.t.strayAreaLabel,
+              onPressed: _pickStrayAreas,
+            ),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
           child: Spotlight(
@@ -243,12 +473,39 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton:
+          Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.end, children: [
+        FloatingActionButton.small(
+          heroTag: 'map-my-location',
+          tooltip: context.t.useMyLocation,
+          onPressed: _jumpToMyLocation,
+          child: const Icon(Icons.my_location),
+        ),
+        const SizedBox(height: 8),
+        Row(mainAxisSize: MainAxisSize.min, children: [
+          FloatingActionButton.small(
+            heroTag: 'map-prev',
+            tooltip: context.t.prevPin,
+            onPressed: () => _stepPins(-1),
+            child: const Icon(Icons.chevron_left),
+          ),
+          const SizedBox(width: 8),
+          FloatingActionButton.small(
+            heroTag: 'map-next',
+            tooltip: context.t.nextPin,
+            onPressed: () => _stepPins(1),
+            child: const Icon(Icons.chevron_right),
+          ),
+        ]),
+        const SizedBox(height: 8),
+        FloatingActionButton.extended(
+        heroTag: 'map-stray-cam',
         onPressed: () async {
           final catId = await strayCam(context, store);
           if (catId != null && context.mounted) {
             await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CatDetailScreen(store: store, catId: catId),
+              builder: (_) => CatDetailScreen(
+                  store: store, catId: catId, startEditing: true),
             ));
           }
           if (!mounted) return;
@@ -256,15 +513,17 @@ class _MapScreenState extends State<MapScreen> {
         },
         icon: const Icon(Icons.photo_camera),
         label: Text(context.t.strayCam),
-      ),
+        ),
+      ]),
       body: Stack(children: [
         FlutterMap(
         mapController: _controller,
         options: MapOptions(
           initialCenter: center,
-          initialZoom:
-              widget.initialCenter != null ? 15 : (all.isEmpty ? 6 : 13),
+          initialZoom: zoom,
           onLongPress: (_, point) => _longPress(point),
+          // Reopen where the user left off (#55).
+          onPositionChanged: (camera, _) => _rememberViewport(camera),
           // North stays up: accidental two-finger rotation kept leaving
           // testers with a tilted map and no way back.
           interactionOptions: const InteractionOptions(
@@ -280,7 +539,46 @@ class _MapScreenState extends State<MapScreen> {
             // delays them (and never finishes under the test clock).
             tileDisplay: const TileDisplay.instantaneous(),
           ),
+          if (_strayAreas.isNotEmpty)
+            CircleLayer(circles: [
+              // The union of fixed 500 m circles around each selected
+              // missing cat's flier positions and the home it ran from
+              // — no radius knob (#31).
+              for (final catId in _strayAreas)
+                for (final pos in [
+                  ...store.flierPositions(catId),
+                  ?strayHomePosition(store, catId),
+                ])
+                  CircleMarker(
+                    point: LatLng(pos.$1, pos.$2),
+                    radius: strayAreaRadiusMeters,
+                    useRadiusInMeter: true,
+                    color: Colors.orange.withValues(alpha: 0.18),
+                    borderColor: Colors.deepOrange,
+                    borderStrokeWidth: 2,
+                  ),
+            ]),
           MarkerLayer(markers: [
+            // Toggled stray areas carry the missing cat's face on each
+            // flier position — flier-only cats become reachable (#55).
+            for (final catId in _strayAreas)
+              for (final pos in store.flierPositions(catId))
+                Marker(
+                  point: LatLng(pos.$1, pos.$2),
+                  width: 48,
+                  height: 48,
+                  child: GestureDetector(
+                    onTap: () async {
+                      await Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) =>
+                            CatDetailScreen(store: store, catId: catId),
+                      ));
+                      if (!mounted) return;
+                      setState(() {});
+                    },
+                    child: _catFace(catId, false),
+                  ),
+                ),
             for (final (clowder, point) in clowders)
               Marker(
                 point: point,
@@ -360,7 +658,28 @@ class _MapScreenState extends State<MapScreen> {
                         onTap: () {
                           setState(() => _hits = null);
                           FocusScope.of(context).unfocus();
-                          _controller.move(point, 15);
+                          _animateTo(point, 15);
+                        },
+                      ),
+                  ]),
+          ),
+        if (_placeHits != null)
+          Material(
+            elevation: 4,
+            child: _placeHits!.isEmpty
+                ? ListTile(title: Text(context.t.noPlacesFound))
+                : ListView(shrinkWrap: true, children: [
+                    for (final hit in _placeHits!)
+                      ListTile(
+                        dense: true,
+                        leading: const Icon(Icons.place_outlined),
+                        title: Text(hit.name,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis),
+                        onTap: () {
+                          setState(() => _placeHits = null);
+                          FocusScope.of(context).unfocus();
+                          _showPlace(hit);
                         },
                       ),
                   ]),

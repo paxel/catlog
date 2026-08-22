@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data' show BytesBuilder;
 
 import 'package:catalog_core/catalog_core.dart';
+
 import 'package:flutter/foundation.dart';
 
 /// Outcome of one sync session, for the summary line.
@@ -101,8 +102,14 @@ class LanSyncHost {
           for (final e in body['entries'] as List)
             Entry.fromJson((e as Map).cast<String, dynamic>())
         ];
+        final before = store.currentSeq();
         final applied =
             store.applyEntries(incoming, senderVector: joinerVector);
+        momentFor(store,
+            before: before,
+            changed: applied.isNotEmpty,
+            cause: MomentCause.sync,
+            label: body['author'] as String?);
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode({
           'entries': [
@@ -196,8 +203,14 @@ Future<SyncResult> lanSync(
       for (final e in response['entries'] as List)
         Entry.fromJson((e as Map).cast<String, dynamic>())
     ];
+    final beforeApply = store.currentSeq();
     final applied =
         store.applyEntries(received, senderVector: hostVector);
+    momentFor(store,
+        before: beforeApply,
+        changed: applied.isNotEmpty,
+        cause: MomentCause.sync,
+        label: host);
 
     var blobsIn = 0, blobsOut = 0;
     for (final hash in store.missingBlobs()) {

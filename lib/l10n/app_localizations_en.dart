@@ -181,7 +181,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers\' devices too.';
+      'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.';
 
   @override
   String get sightingRecorded => 'Sighting recorded at your position.';
@@ -210,6 +210,181 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chip ID';
+
+  @override
+  String get starterRemarks => 'Remarks';
+
+  @override
+  String get captureFlier => 'Capture flier';
+
+  @override
+  String get addPhotosTo => 'Add photos to…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count photo(s) added to $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Scan printed code';
+
+  @override
+  String get chipScanHint =>
+      'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.';
+
+  @override
+  String get savingLabel => 'Saving…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Owner of $name';
+  }
+
+  @override
+  String get sortLabel => 'Sort';
+
+  @override
+  String get viewAsTable => 'Show as table';
+
+  @override
+  String get viewAsTiles => 'Show as tiles';
+
+  @override
+  String get matchCandidatesTitle => 'Match candidates';
+
+  @override
+  String get findDuplicates => 'Find duplicates';
+
+  @override
+  String get noDuplicates => 'No possible duplicates right now.';
+
+  @override
+  String get similarName => 'Similar name';
+
+  @override
+  String get sharePublicly => 'Share publicly…';
+
+  @override
+  String get privateNoShare =>
+      'This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.';
+
+  @override
+  String get pickFramesTitle => 'Pick frames';
+
+  @override
+  String get suggestedFrames => 'Suggested frames';
+
+  @override
+  String get scrubFrames => 'Scrub the video';
+
+  @override
+  String get keepThisFrame => 'Keep this frame';
+
+  @override
+  String get fromVideo => 'From video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Choose what goes into the file. Only ticked fields are included.';
+
+  @override
+  String get exportShareFile => 'Export share file…';
+
+  @override
+  String get hostedLink => 'Hosted link (URL of the uploaded file)';
+
+  @override
+  String get inlineQr => 'Inline QR (text only, no photos)';
+
+  @override
+  String get inlineTooBig =>
+      'Too much data for an inline code — untick some fields or use a hosted link.';
+
+  @override
+  String get scanShareLabel => 'Scan share code';
+
+  @override
+  String get notAShareCode => 'That code is not a cat(a)log share.';
+
+  @override
+  String get importShareTitle => 'Import this cat?';
+
+  @override
+  String shareSource(String url) {
+    return 'Source: $url';
+  }
+
+  @override
+  String get importLabel => 'Import';
+
+  @override
+  String get strayAreaLabel => 'Possible stray area';
+
+  @override
+  String get prevPin => 'Previous pin';
+
+  @override
+  String get nextPin => 'Next pin';
+
+  @override
+  String get noMissingCats => 'No missing cats with flier positions yet.';
+
+  @override
+  String get noMatchCandidates => 'No match candidates right now.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Same $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m apart';
+  }
+
+  @override
+  String get addFlier => 'Add flier';
+
+  @override
+  String get missingSinceLabel => 'Missing since';
+
+  @override
+  String get phoneLabel => 'Phone';
+
+  @override
+  String get cropPortrait => 'Crop portrait';
+
+  @override
+  String get statusOwner => 'Owner';
+
+  @override
+  String get ocrUnavailable =>
+      'Text recognition is not available on this device — type the flier text yourself.';
+
+  @override
+  String get displayFormat => 'Shown as';
+
+  @override
+  String get displayPlain => 'Plain text';
+
+  @override
+  String get displayQr => 'QR code';
+
+  @override
+  String get displayBarcode => 'Barcode';
+
+  @override
+  String get editLabel => 'Edit';
+
+  @override
+  String get doneLabel => 'Done';
+
+  @override
   String get openSettings => 'Open settings';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get malePregnant =>
       'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name is recorded as female and can\'t be the father. Check the gender first.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name is recorded as male and can\'t be the mother. Check the gender first.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name was born $date — a parent can\'t be born after its kitten.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.';
+
+  @override
+  String get genderMotherMale =>
+      'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.';
 
   @override
   String get moveTo => 'Move to';
@@ -416,7 +614,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sync through a folder that a cloud drive or USB stick carries between devices — for people who are not on the same network.';
+      'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.';
 
   @override
   String get noFolderChosenYet => 'No folder chosen yet';
@@ -596,7 +794,233 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterResponsible => 'Responsible person';
 
   @override
-  String get starterPosition => 'Position';
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Phone';
+
+  @override
+  String get lookupUrlLabel => 'Lookup link';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'The service\'s page with $token where the number goes, e.g. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Look up';
+
+  @override
+  String lookupFailed(String url) {
+    return 'No app could open $url. Copy the link into a browser.';
+  }
+
+  @override
+  String get stepCat => 'Cat';
+
+  @override
+  String get stepOwner => 'Owner';
+
+  @override
+  String get stepFace => 'Face photo';
+
+  @override
+  String get stepRegistry => 'Registry';
+
+  @override
+  String get stepReview => 'Check and save';
+
+  @override
+  String get stepOwnerHint =>
+      'Whoever is missing the cat — this becomes their card, with the contact from the poster.';
+
+  @override
+  String get stepFaceHint =>
+      'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.';
+
+  @override
+  String get noRegistryLinks =>
+      'No registry links on this poster — nothing to do here.';
+
+  @override
+  String get unknownServiceHint => 'Unknown service';
+
+  @override
+  String get rememberService => 'Remember service';
+
+  @override
+  String get rememberServiceHint =>
+      'Name the service and point at the number in the link. The next poster from it fills itself.';
+
+  @override
+  String get noIdInLink => 'This link carries no number the app could store.';
+
+  @override
+  String get whichNumber => 'Which part is the number?';
+
+  @override
+  String get cropAgain => 'Crop again';
+
+  @override
+  String get noFaceYet =>
+      'No face photo yet — the poster photo is used instead.';
+
+  @override
+  String get backLabel => 'Back';
+
+  @override
+  String get dangerButton => 'DON\'T PRESS.\nDANGER';
+
+  @override
+  String get dangerThanks => 'Thank you for using cat(a)log!';
+
+  @override
+  String get helpTitle => 'Help';
+
+  @override
+  String get showTipsAgain => 'Show tips again';
+
+  @override
+  String get helpHome =>
+      'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.';
+
+  @override
+  String get helpClowder =>
+      'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it.';
+
+  @override
+  String get helpCat =>
+      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: mark private, hide, merge, record a sighting, share the cat.';
+
+  @override
+  String get helpStrays =>
+      'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster.';
+
+  @override
+  String get helpMap =>
+      'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.';
+
+  @override
+  String get helpCard =>
+      'The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.';
+
+  @override
+  String get helpFields =>
+      'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.';
+
+  @override
+  String get helpTimeline =>
+      'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.';
+
+  @override
+  String get helpDuplicates =>
+      'Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.';
+
+  @override
+  String get helpMatches =>
+      'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.';
+
+  @override
+  String get helpFlier =>
+      'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.';
+
+  @override
+  String get archiveTitle => 'Archive';
+
+  @override
+  String get archiveExplainer =>
+      'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.';
+
+  @override
+  String get archiveAction => 'Archive';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archive $count entries';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archive $count entries?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names will be written into a file and then deleted — on your device and on every device you sync with. Importing the file brings everything back; without it, they are gone.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entries archived and deleted';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nothing was deleted: the archive file could not be written ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, photos $photos in $count files';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Quiet for $years years';
+  }
+
+  @override
+  String get nothingToArchive => 'Nothing old enough to archive.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Last change $date · photos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Restore $count deleted entries?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names are deleted in this catalog, and the file you just imported carries them. Restoring brings them back here and on every device you sync with.';
+  }
+
+  @override
+  String get restoreAction => 'Restore';
+
+  @override
+  String get keepDeleted => 'Keep deleted';
+
+  @override
+  String get archiveNotSaved =>
+      'Nothing was deleted: the archive was not saved anywhere.';
+
+  @override
+  String get locateAddress => 'Find address on the map';
+
+  @override
+  String get addressLocated => 'Address found';
+
+  @override
+  String get addressNotFound =>
+      'No place found for this address. Check the spelling, or leave it empty.';
+
+  @override
+  String get starterPosition => 'Location';
 
   @override
   String get valueYes => 'yes';
@@ -711,7 +1135,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.';
+      'This also sends everything you marked private. The person you sync with will see it.';
 
   @override
   String get hideLabel => 'Hide on this device';
@@ -729,7 +1153,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get starterSpecies => 'Species';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Type';
 
   @override
   String get statusFoster => 'Foster home';
@@ -924,7 +1348,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Send everything as one file through any messenger';
+      'Send everything as one file through any messenger — and import a received .catsync file here';
 
   @override
   String get connectToWifiFirst =>
@@ -972,25 +1396,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectClowderHint => 'Pick a clowder on the left';
 
   @override
-  String get introTitle1 => 'Cats live in clowders';
+  String get introTitle1 => 'Your cats, organized';
 
   @override
   String get introBody1 =>
-      'A clowder is a place where cats live: your foster home, an adopter\'s flat, the barn next door. Every cat gets a card with photo, facts, and its whole story.';
+      'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.';
 
   @override
-  String get introTitle2 => 'Everything stays with you';
+  String get introTitle2 => 'Works without internet';
 
   @override
   String get introBody2 =>
-      'No account, no cloud, no tracking. Your data lives on your device and goes only where you send it.';
+      'Everything is saved on your phone only. No account, no cloud. Nothing is uploaded unless you share it yourself.';
 
   @override
-  String get introTitle3 => 'Share with your helpers';
+  String get introTitle3 => 'Work together';
 
   @override
   String get introBody3 =>
-      'Scan a code to sync two devices in seconds, use a shared folder, or send everything as one file. Everyone ends up with the same catalog.';
+      'Everyone uses their own app and you swap data now and then: meet and scan a code, use a shared folder, or send one file by messenger. Afterwards everyone has the same information.';
 
   @override
   String get introSkip => 'Skip';
@@ -1006,19 +1430,50 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'New: sync now offers three clear ways to share — and a trust question before anything flows.';
+      'Sync with people you know here. You decide what you share.';
+
+  @override
+  String get spotHomeStrays =>
+      'This card collects all strays — cats without a home. Tap it to see the list.';
+
+  @override
+  String get spotHomeMenu =>
+      'In this menu: find and merge duplicate entries, export CSV, and more.';
+
+  @override
+  String get spotCatEdit =>
+      'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.';
+
+  @override
+  String get spotMapLayers =>
+      'Searching for a missing cat? Show circles around its poster spots and the home it ran from.';
+
+  @override
+  String get spotStraysFlier =>
+      'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.';
+
+  @override
+  String get spotStraysScan =>
+      'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.';
+
+  @override
+  String get introTitle4 => 'Find missing cats';
+
+  @override
+  String get introBody4 =>
+      'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.';
 
   @override
   String get spotMapSearch =>
-      'New: search cats, clowders, and people here — or find any of them on the map.';
+      'Type a cat, place, or person here to jump to it on the map.';
 
   @override
   String get spotCardChips =>
-      'New: choose what appears on the card before sharing it.';
+      'Tick what should appear on the shareable card — everything else stays off it.';
 
   @override
   String get spotCatMenu =>
-      'New: mark a cat as private (never leaves your device) or hide it from your view here.';
+      'More actions live here: mark the cat private, hide it, merge duplicates, or record a sighting.';
 
   @override
   String get spotDone => 'Got it';
@@ -1059,4 +1514,134 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?';
+
+  @override
+  String get catalogsTitle => 'Catalogs';
+
+  @override
+  String get newCatalog => 'New catalog';
+
+  @override
+  String get catalogNameLabel => 'Catalog name';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'A catalog called $name already exists. Pick a different name.';
+  }
+
+  @override
+  String get manageCatalogs => 'Manage catalogs';
+
+  @override
+  String get helpCatalogs =>
+      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.';
+
+  @override
+  String get spotHomeCatalog =>
+      'This is the catalog you are in. Tap the name to switch, or to make another one.';
+
+  @override
+  String get deleteCatalog => 'Delete catalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Everything in $name goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name deleted. The file is in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Type $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nothing was deleted: the catalog file could not be written ($error). Free some space or pick another moment, then try again.';
+  }
+
+  @override
+  String get moveToCatalog => 'Move to another catalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count moved to $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'What should move?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Move something into $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Undo this import';
+
+  @override
+  String undoImportBody(int count) {
+    return 'The $count change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Undone. The file is in $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Go back';
+
+  @override
+  String get goBackToHere => 'Go back to here';
+
+  @override
+  String get momentImport => 'Before importing';
+
+  @override
+  String get momentSync => 'Before syncing';
+
+  @override
+  String get momentMerge => 'Before merging';
+
+  @override
+  String get momentHardDelete => 'Before deleting an author’s data';
+
+  @override
+  String get momentArchive => 'Before archiving';
+
+  @override
+  String get momentManual => 'Marked by you';
+
+  @override
+  String get showOlderMoments => 'Show older';
+
+  @override
+  String goBackBody(int count) {
+    return 'Everything after this moment is removed — $count change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.';
+  }
+
+  @override
+  String get nameThisMoment => 'Name this moment';
+
+  @override
+  String get helpGoBack =>
+      'The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nothing was removed: the file that keeps it could not be written ($error). Free some space and try again.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'This is the catalog you are in. Switch to another one, then delete it.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'The share file could not be written ($error). Free some space and try again.';
+  }
 }

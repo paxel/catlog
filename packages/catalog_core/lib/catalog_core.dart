@@ -5,11 +5,19 @@
 /// to [CatalogStore].
 library;
 
+export 'src/archive.dart';
 export 'src/bundle.dart';
+export 'src/catalogs.dart';
 export 'src/csv_export.dart';
+export 'src/duplicates.dart';
 export 'src/entry.dart';
 export 'src/fields.dart';
 export 'src/folder_sync.dart';
+export 'src/flier_share.dart';
+export 'src/match.dart';
+export 'src/transfer.dart';
 export 'src/pair_code.dart';
+export 'src/registry.dart';
+export 'src/savepoints.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';

@@ -181,7 +181,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katė dingsta iš visų sąrašų, o jos nuotraukos pašalinamos — čia ir po kito sinchronizavimo pas tavo pagalbininkus.';
+      'Katė dingsta iš visų sąrašų, jos nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
 
   @override
   String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
@@ -210,6 +210,182 @@ class AppLocalizationsLt extends AppLocalizations {
   String get ok => 'Gerai';
 
   @override
+  String get starterChipId => 'Lusto numeris';
+
+  @override
+  String get starterRemarks => 'Pastabos';
+
+  @override
+  String get captureFlier => 'Nufotografuoti skelbimą';
+
+  @override
+  String get addPhotosTo => 'Pridėti nuotraukas prie…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count nuotr. pridėta prie $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skenuoti atspausdintą kodą';
+
+  @override
+  String get chipScanHint =>
+      'Nuskaito atspausdintą QR/brūkšninį kodą iš lusto kortelės ar veterinaro dokumentų — katėje esančio lusto telefonas nuskaityti negali.';
+
+  @override
+  String get savingLabel => 'Įrašoma…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name šeimininkas';
+  }
+
+  @override
+  String get sortLabel => 'Rikiuoti';
+
+  @override
+  String get viewAsTable => 'Rodyti lentele';
+
+  @override
+  String get viewAsTiles => 'Rodyti plytelėmis';
+
+  @override
+  String get matchCandidatesTitle => 'Galimi atitikmenys';
+
+  @override
+  String get findDuplicates => 'Rasti dublikatus';
+
+  @override
+  String get noDuplicates => 'Šiuo metu galimų dublikatų nėra.';
+
+  @override
+  String get similarName => 'Panašus vardas';
+
+  @override
+  String get sharePublicly => 'Bendrinti viešai…';
+
+  @override
+  String get privateNoShare =>
+      'Ši katė pažymėta kaip privati — privatūs duomenys niekada nepalieka jūsų įrenginio. Norėdami bendrinti viešai, pirmiausia nuimkite žymę.';
+
+  @override
+  String get pickFramesTitle => 'Kadrų pasirinkimas';
+
+  @override
+  String get suggestedFrames => 'Siūlomi kadrai';
+
+  @override
+  String get scrubFrames => 'Persukti vaizdo įrašą';
+
+  @override
+  String get keepThisFrame => 'Palikti šį kadrą';
+
+  @override
+  String get fromVideo => 'Iš vaizdo įrašo…';
+
+  @override
+  String get videoMobileOnly =>
+      'Kadrų rinkimas iš vaizdo įrašo veikia telefono programėlėje (Android ir iPhone) — šiame įrenginyje dar ne.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Pasirinkite, kas pateks į failą. Įtraukiami tik pažymėti laukai.';
+
+  @override
+  String get exportShareFile => 'Eksportuoti bendrinimo failą…';
+
+  @override
+  String get hostedLink => 'Talpinama nuoroda (įkelto failo URL)';
+
+  @override
+  String get inlineQr => 'Įterptas QR (tik tekstas, be nuotraukų)';
+
+  @override
+  String get inlineTooBig =>
+      'Per daug duomenų įterptam kodui — nuimkite laukų arba naudokite talpinamą nuorodą.';
+
+  @override
+  String get scanShareLabel => 'Skenuoti bendrinimo kodą';
+
+  @override
+  String get notAShareCode => 'Šis kodas nėra cat(a)log bendrinimas.';
+
+  @override
+  String get importShareTitle => 'Importuoti šią katę?';
+
+  @override
+  String shareSource(String url) {
+    return 'Šaltinis: $url';
+  }
+
+  @override
+  String get importLabel => 'Importuoti';
+
+  @override
+  String get strayAreaLabel => 'Galima klajojimo zona';
+
+  @override
+  String get prevPin => 'Ankstesnis smeigtukas';
+
+  @override
+  String get nextPin => 'Kitas smeigtukas';
+
+  @override
+  String get noMissingCats =>
+      'Kol kas nėra dingusių kačių su skelbimų vietomis.';
+
+  @override
+  String get noMatchCandidates => 'Šiuo metu galimų atitikmenų nėra.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Tas pats $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m atstumu';
+  }
+
+  @override
+  String get addFlier => 'Pridėti skelbimą';
+
+  @override
+  String get missingSinceLabel => 'Dingęs nuo';
+
+  @override
+  String get phoneLabel => 'Telefonas';
+
+  @override
+  String get cropPortrait => 'Apkirpti portretą';
+
+  @override
+  String get statusOwner => 'Šeimininkas';
+
+  @override
+  String get ocrUnavailable =>
+      'Teksto atpažinimas šiame įrenginyje negalimas — įveskite skelbimo tekstą patys.';
+
+  @override
+  String get displayFormat => 'Rodoma kaip';
+
+  @override
+  String get displayPlain => 'Paprastas tekstas';
+
+  @override
+  String get displayQr => 'QR kodas';
+
+  @override
+  String get displayBarcode => 'Brūkšninis kodas';
+
+  @override
+  String get editLabel => 'Redaguoti';
+
+  @override
+  String get doneLabel => 'Atlikta';
+
+  @override
   String get openSettings => 'Atidaryti nustatymus';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get malePregnant =>
       'Ši katė užregistruota kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name užregistruota kaip patelė ir negali būti tėvas. Pirmiausia patikrinkite lytį.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name užregistruotas kaip patinas ir negali būti motina. Pirmiausia patikrinkite lytį.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name gimė $date — tėvai negali gimti po savo kačiuko.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ši katė užregistruota kaip kitų kačių tėvas — tėvas negali būti patelė. Pirmiausia patikrinkite šeimą.';
+
+  @override
+  String get genderMotherMale =>
+      'Ši katė užregistruota kaip kitų kačių motina — motina negali būti patinas. Pirmiausia patikrinkite šeimą.';
 
   @override
   String get moveTo => 'Perkelti į';
@@ -417,7 +616,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinchronizuokite per aplanką, kurį tarp įrenginių perneša debesis ar USB atmintukas — tiems, kurie ne tame pačiame tinkle.';
+      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
 
   @override
   String get noFolderChosenYet => 'Aplankas dar nepasirinktas';
@@ -597,7 +796,234 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterResponsible => 'Atsakingas asmuo';
 
   @override
-  String get starterPosition => 'Pozicija';
+  String get starterEmail => 'El. paštas';
+
+  @override
+  String get starterPhone => 'Telefonas';
+
+  @override
+  String get lookupUrlLabel => 'Paieškos nuoroda';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Paslaugos puslapis su $token vietoj numerio, pvz. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Ieškoti';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nė viena programa negalėjo atverti $url. Nukopijuokite nuorodą į naršyklę.';
+  }
+
+  @override
+  String get stepCat => 'Katė';
+
+  @override
+  String get stepOwner => 'Savininkas';
+
+  @override
+  String get stepFace => 'Snukučio nuotrauka';
+
+  @override
+  String get stepRegistry => 'Registras';
+
+  @override
+  String get stepReview => 'Patikrinti ir išsaugoti';
+
+  @override
+  String get stepOwnerHint =>
+      'Tas, kas pasigedo katės — iš to atsiras jo kortelė su kontaktu iš skelbimo.';
+
+  @override
+  String get stepFaceHint =>
+      'Iškirpk katės snukutį iš skelbimo; jis taps profilio nuotrauka. Gali ir praleisti.';
+
+  @override
+  String get stepRegistryHint =>
+      'Skelbime rasti numeriai. Pažymėti bus išsaugoti prie katės ir vėliau atidaromi.';
+
+  @override
+  String get noRegistryLinks =>
+      'Šiame skelbime registrų nuorodų nėra — čia nieko daryti nereikia.';
+
+  @override
+  String get unknownServiceHint => 'Nežinoma paslauga';
+
+  @override
+  String get rememberService => 'Įsiminti paslaugą';
+
+  @override
+  String get rememberServiceHint =>
+      'Pavadink paslaugą ir parodyk numerį nuorodoje. Kitas skelbimas užsipildys pats.';
+
+  @override
+  String get noIdInLink =>
+      'Šioje nuorodoje nėra numerio, kurį programėlė galėtų išsaugoti.';
+
+  @override
+  String get whichNumber => 'Kuri dalis yra numeris?';
+
+  @override
+  String get cropAgain => 'Kirpti iš naujo';
+
+  @override
+  String get noFaceYet =>
+      'Snukučio nuotraukos dar nėra — naudojama skelbimo nuotrauka.';
+
+  @override
+  String get backLabel => 'Atgal';
+
+  @override
+  String get dangerButton => 'NESPAUSTI.\nPAVOJINGA';
+
+  @override
+  String get dangerThanks => 'Ačiū, kad naudojatės cat(a)log!';
+
+  @override
+  String get helpTitle => 'Pagalba';
+
+  @override
+  String get showTipsAgain => 'Rodyti patarimus dar kartą';
+
+  @override
+  String get helpHome =>
+      'Tavo kolonijų apžvalga — kolonija yra vieta, kur gyvena katės: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jos kates; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria koloniją, o valkataujančių kortelė surenka visas kates be namų. Pavadinimas viršuje – katalogas, kuriame esi; bakstelėk, kad perjungtum ar pridėtum.';
+
+  @override
+  String get helpClowder =>
+      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama.';
+
+  @override
+  String get helpCat =>
+      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitymui, kol nepaliesite pieštuko. Ilgas laukо paspaudimas veda tiesiai į jo redagavimą; nuotraukos — atveria jos meniu. Meniu viršuje dešinėje yra likusi dalis: privatu, slėpti, sujungti, įrašyti pastebėjimą, dalintis.';
+
+  @override
+  String get helpStrays =>
+      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo.';
+
+  @override
+  String get helpMap =>
+      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą.';
+
+  @override
+  String get helpCard =>
+      'Spausdinama katės kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia.';
+
+  @override
+  String get helpFields =>
+      'Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie katės galima paliesti.';
+
+  @override
+  String get helpTimeline =>
+      'Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.';
+
+  @override
+  String get helpDuplicates =>
+      'Katės ar kolonijos, kurios atrodo esančios du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.';
+
+  @override
+  String get helpMatches =>
+      'Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui.';
+
+  @override
+  String get helpFlier =>
+      'Nufotografuotas skelbimas virsta kate ir jos savininku. Žingsnis po žingsnio: katės duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.';
+
+  @override
+  String get archiveTitle => 'Archyvas';
+
+  @override
+  String get archiveExplainer =>
+      'Nugaišusios katės ir tuščios kolonijos, kurių niekas nelietė metų metus, vis tiek užima vietą — ypač jų nuotraukos. Archyvavimas įrašo jas į failą, kurį pasiliekate, ir tada ištrina iš čia.';
+
+  @override
+  String get archiveAction => 'Archyvuoti';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archyvuoti $count įrašų';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archyvuoti $count įrašų?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bus įrašyti į failą ir tada ištrinti — jūsų įrenginyje ir kiekviename, su kuriuo sinchronizuojate. Failo importas viską grąžina; be jo jie prarasti.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Archyvuota ir ištrinta įrašų: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nieko neištrinta: nepavyko įrašyti archyvo failo ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Duomenų bazė $db, nuotraukos $photos $count failuose';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Nekeista $years metus';
+  }
+
+  @override
+  String get nothingToArchive => 'Nėra nieko pakankamai seno archyvuoti.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Paskutinis pakeitimas $date · nuotraukos $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Seni duomenys kainuoja vietos, ypač nuotraukos, kurias tempia kiekvienas sinchronizuotas įrenginys. Čia pasirenkate metų metus nejudėjusias nugaišusias kates ir tuščias kolonijas, įrašote jas į failą, kurį pasiliekate, ir ištrinate. Ištrynimas pasiekia visus, su kuriais sinchronizuojate; failo importas viską atkuria.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Atkurti $count ištrintų įrašų?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names šiame kataloge ištrinti, o ką tik importuotas failas juos turi. Atkūrimas grąžins juos čia ir į kiekvieną įrenginį, su kuriuo sinchronizuojate.';
+  }
+
+  @override
+  String get restoreAction => 'Atkurti';
+
+  @override
+  String get keepDeleted => 'Palikti ištrintus';
+
+  @override
+  String get archiveNotSaved =>
+      'Nieko neištrinta: archyvas niekur neišsaugotas.';
+
+  @override
+  String get locateAddress => 'Rasti adresą žemėlapyje';
+
+  @override
+  String get addressLocated => 'Adresas rastas';
+
+  @override
+  String get addressNotFound =>
+      'Šiam adresui vietos nerasta. Patikrink rašybą arba palik tuščią.';
+
+  @override
+  String get starterPosition => 'Vieta';
 
   @override
   String get valueYes => 'taip';
@@ -712,7 +1138,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privačios katės, grupės ir laukai taip pat bendrinami — įjunkite tik sinchronizuodami savo įrenginius.';
+      'Taip išsiunčiama ir visa, ką pažymėjote kaip privačią. Tas, su kuo sinchronizuojate, tai matys.';
 
   @override
   String get hideLabel => 'Slėpti šiame įrenginyje';
@@ -730,7 +1156,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterSpecies => 'Rūšis';
 
   @override
-  String get starterStatus => 'Būsena';
+  String get starterStatus => 'Tipas';
 
   @override
   String get statusFoster => 'Laikinieji namai';
@@ -925,7 +1351,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Siųsk viską kaip vieną failą bet kuria programėle';
+      'Siųskite viską kaip vieną failą bet kuria programėle — ir čia importuokite gautą .catsync failą';
 
   @override
   String get connectToWifiFirst =>
@@ -972,25 +1398,25 @@ class AppLocalizationsLt extends AppLocalizations {
   String get selectClowderHint => 'Kairėje pasirinkite clowder';
 
   @override
-  String get introTitle1 => 'Katės gyvena clowderiuose';
+  String get introTitle1 => 'Jūsų katės tvarkingai';
 
   @override
   String get introBody1 =>
-      'Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas, kaimyno daržinė. Kiekviena katė turi kortelę su nuotrauka, faktais ir visa istorija.';
+      'Kiekvienai katei sukurkite kortelę: nuotrauka, lytis, sveikata — viskas, ką norite užsirašyti. Katės grupuojamos pagal gyvenamą vietą — programėlė ją vadina kolonija (clowder).';
 
   @override
-  String get introTitle2 => 'Viskas lieka pas tave';
+  String get introTitle2 => 'Veikia be interneto';
 
   @override
   String get introBody2 =>
-      'Jokios paskyros, jokio debesies, jokio sekimo. Tavo duomenys gyvena tavo įrenginyje.';
+      'Viskas saugoma tik jūsų telefone. Jokios paskyros, jokio debesies. Niekas nesiunčiama, kol patys nepasidalijate.';
 
   @override
-  String get introTitle3 => 'Dalinkis su pagalbininkais';
+  String get introTitle3 => 'Dirbkite kartu';
 
   @override
   String get introBody3 =>
-      'Nuskenuok kodą ir du įrenginiai susinchronizuojami per sekundes, naudok bendrą aplanką arba siųsk viską vienu failu.';
+      'Kiekvienas naudoja savo programėlę ir retkarčiais apsikeičiate duomenimis: susitikite ir nuskaitykite kodą, naudokite bendrą aplanką arba atsiųskite vieną failą per programėlę. Po to visi turi tą pačią informaciją.';
 
   @override
   String get introSkip => 'Praleisti';
@@ -1006,19 +1432,50 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nauja: sinchronizavimas dabar siūlo tris aiškius kelius — ir pasitikėjimo klausimą prieš kam nors keliaujant.';
+      'Čia sinchronizuojate su pažįstamais. Jūs sprendžiate, kuo dalintis.';
+
+  @override
+  String get spotHomeStrays =>
+      'Ši kortelė surenka visas valkataujančias kates — kates be namų. Palieskite sąrašui.';
+
+  @override
+  String get spotHomeMenu =>
+      'Šiame meniu: rasti ir sujungti dublikatus, eksportuoti CSV ir kt.';
+
+  @override
+  String get spotCatEdit =>
+      'Palieskite pieštuką ir redaguokite katę. Patarimas: ilgai palaikę lauką, redaguosite jį iškart.';
+
+  @override
+  String get spotMapLayers =>
+      'Ieškote dingusios katės? Rodykite apskritimus aplink jos skelbimų vietas ir aplink namus, iš kurių pabėgo.';
+
+  @override
+  String get spotStraysFlier =>
+      'Radote dingusios katės skelbimą? Nufotografuokite jį čia — programėlė išsaugos katę ir kontaktą už jus.';
+
+  @override
+  String get spotStraysScan =>
+      'Kai kurie skelbimai turi cat(a)log QR kodą. Nuskaitykite jį čia ir importuokite katę nerašydami.';
+
+  @override
+  String get introTitle4 => 'Raskite dingusias kates';
+
+  @override
+  String get introBody4 =>
+      'Matote skelbimą apie dingusią katę? Nufotografuokite jį programėlėje: ji išsaugo katę, šeimininko kontaktą ir vietą. Jei vėliau pasirodys panaši valkataujanti katė, programėlė pasiūlys galimus atitikmenis.';
 
   @override
   String get spotMapSearch =>
-      'Nauja: ieškok čia kačių, clowderių ir žmonių — tiesiai žemėlapyje.';
+      'Įveskite katę, vietą ar žmogų ir peršokite ten žemėlapyje.';
 
   @override
   String get spotCardChips =>
-      'Nauja: prieš dalindamasis pasirink, kas bus kortelėje.';
+      'Pažymėkite, kas turi būti bendrinamoje kortelėje — kita lieka už jos.';
 
   @override
   String get spotCatMenu =>
-      'Nauja: pažymėk katę kaip privačią (niekada nepalieka įrenginio) arba paslėpk ją čia.';
+      'Daugiau veiksmų čia: pažymėkite katę kaip privačią, paslėpkite, sujunkite dublikatus ar užrašykite pastebėjimą.';
 
   @override
   String get spotDone => 'Supratau';
@@ -1059,4 +1516,134 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?';
+
+  @override
+  String get catalogsTitle => 'Katalogai';
+
+  @override
+  String get newCatalog => 'Naujas katalogas';
+
+  @override
+  String get catalogNameLabel => 'Katalogo pavadinimas';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalogas pavadinimu $name jau yra. Pasirink kitą pavadinimą.';
+  }
+
+  @override
+  String get manageCatalogs => 'Tvarkyti katalogus';
+
+  @override
+  String get helpCatalogs =>
+      'Kiekvienas katalogas – atskiras pasaulis: savos katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują.';
+
+  @override
+  String get deleteCatalog => 'Ištrinti katalogą';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Viskas kataloge $name dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name ištrintas. Failas yra $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Įrašyk $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nieko neištrinta: nepavyko įrašyti katalogo failo ($error). Atlaisvink vietos arba pabandyk vėliau.';
+  }
+
+  @override
+  String get moveToCatalog => 'Perkelti į kitą katalogą';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count perkelta į $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Kas persikelia?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Perkelti ką nors į $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Atšaukti šį importą';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count šio importo pakeitimai bus pašalinti. Pirma jie įrašomi į failą, kurio importas juos grąžina. Tie, su kuriais jau sinchronizavai, pasilieka savo kopiją — to atšaukti negalima.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Atšaukta. Failas yra $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Grįžti atgal';
+
+  @override
+  String get goBackToHere => 'Grįžti čia';
+
+  @override
+  String get momentImport => 'Prieš importą';
+
+  @override
+  String get momentSync => 'Prieš sinchronizavimą';
+
+  @override
+  String get momentMerge => 'Prieš sujungimą';
+
+  @override
+  String get momentHardDelete => 'Prieš ištrinant vieno autoriaus duomenis';
+
+  @override
+  String get momentArchive => 'Prieš archyvavimą';
+
+  @override
+  String get momentManual => 'Tavo pažymėta';
+
+  @override
+  String get showOlderMoments => 'Rodyti senesnius';
+
+  @override
+  String goBackBody(int count) {
+    return 'Viskas po šios akimirkos pašalinama — $count pakeitimai. Pirma tai įrašoma į failą, kurio importas viską grąžina, ir kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka kopiją — to atšaukti negalima.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pavadink šią akimirką';
+
+  @override
+  String get helpGoBack =>
+      'Akimirkos, kai šis katalogas pasikeitė iš esmės: prieš kiekvieną importą ir sinchronizavimą, prieš sujungimą, archyvavimą ar ištrynimą, ir kaskart, kai pats pažymėjai akimirką. Pasirinkus vieną, katalogas grįžta į tą būseną — viskas po jos įrašoma į failą, kurį pasilieki, ir tada pašalinama, o kiekviena naujesnė akimirka dingsta kartu. Tie, su kuriais jau sinchronizavai, pasilieka tai, ką gavo.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Niekas nepašalinta: failo, kuris tai išsaugo, nepavyko įrašyti ($error). Atlaisvink vietos ir bandyk dar kartą.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tai katalogas, kuriame esi. Perjunk į kitą ir tada jį ištrink.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Nepavyko įrašyti dalijimosi failo ($error). Atlaisvink vietos ir bandyk dar kartą.';
+  }
 }

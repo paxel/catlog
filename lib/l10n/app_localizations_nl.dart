@@ -181,7 +181,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'De kat verdwijnt uit alle lijsten en zijn foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook bij je helpers.';
+      'De kat verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
 
   @override
   String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
@@ -210,6 +210,181 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipnummer';
+
+  @override
+  String get starterRemarks => 'Opmerkingen';
+
+  @override
+  String get captureFlier => 'Poster fotograferen';
+
+  @override
+  String get addPhotosTo => 'Foto\'s toevoegen aan…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto(\'s) toegevoegd aan $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Gedrukte code scannen';
+
+  @override
+  String get chipScanHint =>
+      'Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in de kat kan een telefoon niet lezen.';
+
+  @override
+  String get savingLabel => 'Opslaan…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Eigenaar van $name';
+  }
+
+  @override
+  String get sortLabel => 'Sorteren';
+
+  @override
+  String get viewAsTable => 'Als tabel tonen';
+
+  @override
+  String get viewAsTiles => 'Als tegels tonen';
+
+  @override
+  String get matchCandidatesTitle => 'Mogelijke matches';
+
+  @override
+  String get findDuplicates => 'Duplicaten zoeken';
+
+  @override
+  String get noDuplicates => 'Momenteel geen mogelijke duplicaten.';
+
+  @override
+  String get similarName => 'Vergelijkbare naam';
+
+  @override
+  String get sharePublicly => 'Openbaar delen…';
+
+  @override
+  String get privateNoShare =>
+      'Deze kat is gemarkeerd als privé — privégegevens verlaten je apparaat nooit. Verwijder eerst de markering om openbaar te delen.';
+
+  @override
+  String get pickFramesTitle => 'Frames kiezen';
+
+  @override
+  String get suggestedFrames => 'Voorgestelde frames';
+
+  @override
+  String get scrubFrames => 'Door de video spoelen';
+
+  @override
+  String get keepThisFrame => 'Dit frame bewaren';
+
+  @override
+  String get fromVideo => 'Uit video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Frames uit een video kiezen werkt in de telefoon-app (Android en iPhone) — nog niet op dit apparaat.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Kies wat er in het bestand komt. Alleen aangevinkte velden gaan mee.';
+
+  @override
+  String get exportShareFile => 'Deelbestand exporteren…';
+
+  @override
+  String get hostedLink => 'Gehoste link (URL van het geüploade bestand)';
+
+  @override
+  String get inlineQr => 'Ingesloten QR (alleen tekst, geen foto\'s)';
+
+  @override
+  String get inlineTooBig =>
+      'Te veel gegevens voor een ingesloten code — vink velden uit of gebruik een gehoste link.';
+
+  @override
+  String get scanShareLabel => 'Deelcode scannen';
+
+  @override
+  String get notAShareCode => 'Die code is geen cat(a)log-share.';
+
+  @override
+  String get importShareTitle => 'Deze kat importeren?';
+
+  @override
+  String shareSource(String url) {
+    return 'Bron: $url';
+  }
+
+  @override
+  String get importLabel => 'Importeren';
+
+  @override
+  String get strayAreaLabel => 'Mogelijk zwerfgebied';
+
+  @override
+  String get prevPin => 'Vorige speld';
+
+  @override
+  String get nextPin => 'Volgende speld';
+
+  @override
+  String get noMissingCats => 'Nog geen vermiste katten met posterposities.';
+
+  @override
+  String get noMatchCandidates => 'Momenteel geen mogelijke matches.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Zelfde $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m van elkaar';
+  }
+
+  @override
+  String get addFlier => 'Poster toevoegen';
+
+  @override
+  String get missingSinceLabel => 'Vermist sinds';
+
+  @override
+  String get phoneLabel => 'Telefoon';
+
+  @override
+  String get cropPortrait => 'Portret bijsnijden';
+
+  @override
+  String get statusOwner => 'Eigenaar';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstherkenning is niet beschikbaar op dit apparaat — typ de postertekst zelf.';
+
+  @override
+  String get displayFormat => 'Weergegeven als';
+
+  @override
+  String get displayPlain => 'Platte tekst';
+
+  @override
+  String get displayQr => 'QR-code';
+
+  @override
+  String get displayBarcode => 'Streepjescode';
+
+  @override
+  String get editLabel => 'Bewerken';
+
+  @override
+  String get doneLabel => 'Klaar';
+
+  @override
   String get openSettings => 'Instellingen openen';
 
   @override
@@ -236,6 +411,29 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get malePregnant =>
       'Deze kat staat geregistreerd als mannetje — een kater kan niet drachtig zijn. Controleer eerst het geslacht.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name staat geregistreerd als vrouwtje en kan niet de vader zijn. Controleer eerst het geslacht.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name staat geregistreerd als mannetje en kan niet de moeder zijn. Controleer eerst het geslacht.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name is geboren op $date — een ouder kan niet na zijn kitten geboren zijn.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Deze kat staat geregistreerd als vader van andere katten — de vader kan geen vrouwtje zijn. Controleer eerst de familie.';
+
+  @override
+  String get genderMotherMale =>
+      'Deze kat staat geregistreerd als moeder van andere katten — de moeder kan geen mannetje zijn. Controleer eerst de familie.';
 
   @override
   String get moveTo => 'Verplaatsen naar';
@@ -419,7 +617,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchroniseer via een map die een clouddrive of USB-stick tussen apparaten meeneemt — voor wie niet op hetzelfde netwerk zit.';
+      'Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Dropbox of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.';
 
   @override
   String get noFolderChosenYet => 'Nog geen map gekozen';
@@ -599,7 +797,234 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterResponsible => 'Verantwoordelijke';
 
   @override
-  String get starterPosition => 'Positie';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefoon';
+
+  @override
+  String get lookupUrlLabel => 'Opzoeklink';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'De pagina van de dienst met $token op de plek van het nummer, bv. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Opzoeken';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Geen app kon $url openen. Kopieer de link naar een browser.';
+  }
+
+  @override
+  String get stepCat => 'Kat';
+
+  @override
+  String get stepOwner => 'Eigenaar';
+
+  @override
+  String get stepFace => 'Gezichtsfoto';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Controleren en opslaan';
+
+  @override
+  String get stepOwnerHint =>
+      'Wie de kat mist — dit wordt hun kaart, met het contact van de poster.';
+
+  @override
+  String get stepFaceHint =>
+      'Knip het gezicht van de kat uit de poster; het wordt de profielfoto. Overslaan mag.';
+
+  @override
+  String get stepRegistryHint =>
+      'Nummers van de poster. Aangevinkte worden bij de kat opgeslagen en later te openen.';
+
+  @override
+  String get noRegistryLinks =>
+      'Geen registerlinks op deze poster — hier is niets te doen.';
+
+  @override
+  String get unknownServiceHint => 'Onbekende dienst';
+
+  @override
+  String get rememberService => 'Dienst onthouden';
+
+  @override
+  String get rememberServiceHint =>
+      'Geef de dienst een naam en wijs het nummer in de link aan. De volgende poster vult zichzelf.';
+
+  @override
+  String get noIdInLink =>
+      'In deze link zit geen nummer dat de app kan opslaan.';
+
+  @override
+  String get whichNumber => 'Welk deel is het nummer?';
+
+  @override
+  String get cropAgain => 'Opnieuw bijsnijden';
+
+  @override
+  String get noFaceYet =>
+      'Nog geen gezichtsfoto — de posterfoto wordt gebruikt.';
+
+  @override
+  String get backLabel => 'Terug';
+
+  @override
+  String get dangerButton => 'NIET DRUKKEN.\nGEVAAR';
+
+  @override
+  String get dangerThanks => 'Bedankt dat je cat(a)log gebruikt!';
+
+  @override
+  String get helpTitle => 'Help';
+
+  @override
+  String get showTipsAgain => 'Tips opnieuw tonen';
+
+  @override
+  String get helpHome =>
+      'Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.';
+
+  @override
+  String get helpClowder =>
+      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen.';
+
+  @override
+  String get helpCat =>
+      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld ingedrukt om het meteen te bewerken; een foto voor haar menu. Het menu rechtsboven heeft de rest: privé markeren, verbergen, samenvoegen, waarneming vastleggen, delen.';
+
+  @override
+  String get helpStrays =>
+      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.';
+
+  @override
+  String get helpMap =>
+      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.';
+
+  @override
+  String get helpCard =>
+      'De printbare kaart van deze kat: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook.';
+
+  @override
+  String get helpFields =>
+      'De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij de kat aantikbaar.';
+
+  @override
+  String get helpTimeline =>
+      'Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.';
+
+  @override
+  String get helpDuplicates =>
+      'Katten of kolonies die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.';
+
+  @override
+  String get helpMatches =>
+      'Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken.';
+
+  @override
+  String get helpFlier =>
+      'Een gefotografeerde poster wordt een kat plus eigenaar. Stap voor stap: gegevens van de kat, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.';
+
+  @override
+  String get archiveTitle => 'Archief';
+
+  @override
+  String get archiveExplainer =>
+      'Overleden katten en lege kolonies waar jaren niemand naar omkeek kosten nog steeds ruimte — vooral hun foto\'s. Archiveren schrijft ze naar een bestand dat jij bewaart en verwijdert ze daarna hier.';
+
+  @override
+  String get archiveAction => 'Archiveren';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count items archiveren';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count items archiveren?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names worden naar een bestand geschreven en daarna verwijderd — op jouw apparaat en op elk apparaat waarmee je synchroniseert. Het bestand importeren haalt alles terug; zonder dat bestand zijn ze weg.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count items gearchiveerd en verwijderd';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Er is niets verwijderd: het archiefbestand kon niet geschreven worden ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, foto\'s $photos in $count bestanden';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Al $years jaar stil';
+  }
+
+  @override
+  String get nothingToArchive => 'Niets oud genoeg om te archiveren.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Laatste wijziging $date · foto\'s $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Oude gegevens kosten ruimte, vooral de foto\'s die elk gesynchroniseerd apparaat meesleept. Hier kies je overleden katten en lege kolonies die al jaren stil zijn, schrijf je ze naar een bestand dat je bewaart, en verwijder je ze. De verwijdering bereikt iedereen met wie je synchroniseert; het bestand importeren zet alles terug.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return '$count verwijderde items herstellen?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names zijn in deze catalogus verwijderd, en het zojuist geïmporteerde bestand bevat ze. Herstellen brengt ze hier terug en op elk apparaat waarmee je synchroniseert.';
+  }
+
+  @override
+  String get restoreAction => 'Herstellen';
+
+  @override
+  String get keepDeleted => 'Verwijderd laten';
+
+  @override
+  String get archiveNotSaved =>
+      'Er is niets verwijderd: het archief is nergens opgeslagen.';
+
+  @override
+  String get locateAddress => 'Adres op de kaart zoeken';
+
+  @override
+  String get addressLocated => 'Adres gevonden';
+
+  @override
+  String get addressNotFound =>
+      'Geen plek gevonden voor dit adres. Controleer de spelling of laat het leeg.';
+
+  @override
+  String get starterPosition => 'Locatie';
 
   @override
   String get valueYes => 'ja';
@@ -714,7 +1139,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privékatten, clowders en velden worden ook gedeeld — zet dit alleen aan bij het synchroniseren van je eigen apparaten.';
+      'Dit verstuurt ook alles wat je privé hebt gemarkeerd. Degene met wie je synchroniseert ziet het dan.';
 
   @override
   String get hideLabel => 'Verbergen op dit apparaat';
@@ -732,7 +1157,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterSpecies => 'Soort';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Type';
 
   @override
   String get statusFoster => 'Opvanggezin';
@@ -928,7 +1353,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Stuur alles als één bestand via elke messenger';
+      'Verstuur alles als één bestand via elke messenger — en importeer hier een ontvangen .catsync-bestand';
 
   @override
   String get connectToWifiFirst =>
@@ -976,25 +1401,25 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectClowderHint => 'Kies links een clowder';
 
   @override
-  String get introTitle1 => 'Katten wonen in clowders';
+  String get introTitle1 => 'Je katten, overzichtelijk';
 
   @override
   String get introBody1 =>
-      'Een clowder is een plek waar katten wonen: jouw opvang, de flat van een adoptant, de schuur hiernaast. Elke kat krijgt een kaart met foto, feiten en het hele verhaal.';
+      'Maak voor elke kat een kaart: foto, geslacht, gezondheid, alles wat je wilt vastleggen. Katten zijn gegroepeerd naar waar ze wonen — de app noemt zo\'n plek een clowder.';
 
   @override
-  String get introTitle2 => 'Alles blijft bij jou';
+  String get introTitle2 => 'Werkt zonder internet';
 
   @override
   String get introBody2 =>
-      'Geen account, geen cloud, geen tracking. Je gegevens wonen op je apparaat.';
+      'Alles wordt alleen op je telefoon opgeslagen. Geen account, geen cloud. Er wordt niets geüpload tenzij je het zelf deelt.';
 
   @override
-  String get introTitle3 => 'Deel met je helpers';
+  String get introTitle3 => 'Samenwerken';
 
   @override
   String get introBody3 =>
-      'Scan een code en twee apparaten synchroniseren in seconden, gebruik een gedeelde map of stuur alles als één bestand.';
+      'Iedereen gebruikt zijn eigen app en jullie wisselen af en toe gegevens uit: spreek af en scan een code, gebruik een gedeelde map of stuur één bestand via een messenger. Daarna heeft iedereen dezelfde informatie.';
 
   @override
   String get introSkip => 'Overslaan';
@@ -1010,19 +1435,50 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nieuw: synchroniseren biedt nu drie duidelijke wegen — en een vertrouwensvraag voordat er iets stroomt.';
+      'Hier synchroniseer je met je bekenden. Jij bepaalt wat je deelt.';
+
+  @override
+  String get spotHomeStrays =>
+      'Deze kaart verzamelt alle zwervers — katten zonder thuis. Tik erop voor de lijst.';
+
+  @override
+  String get spotHomeMenu =>
+      'In dit menu: dubbele items vinden en samenvoegen, CSV exporteren en meer.';
+
+  @override
+  String get spotCatEdit =>
+      'Tik op het potlood om deze kat te bewerken. Tip: houd een veld lang ingedrukt om het direct te bewerken.';
+
+  @override
+  String get spotMapLayers =>
+      'Zoek je een vermiste kat? Toon cirkels rond de plekken van haar posters en rond haar vorige thuis.';
+
+  @override
+  String get spotStraysFlier =>
+      'Poster van een vermiste kat gevonden? Fotografeer hem hier — de app bewaart kat en contact voor je.';
+
+  @override
+  String get spotStraysScan =>
+      'Sommige posters hebben een cat(a)log-QR-code. Scan hem hier en importeer de kat zonder typen.';
+
+  @override
+  String get introTitle4 => 'Vermiste katten vinden';
+
+  @override
+  String get introBody4 =>
+      'Zie je een poster van een vermiste kat? Fotografeer hem in de app: die bewaart de kat, het contact van de eigenaar en de plek. Duikt later een vergelijkbare zwerver op, dan stelt de app mogelijke matches voor.';
 
   @override
   String get spotMapSearch =>
-      'Nieuw: zoek hier katten, clowders en personen — direct op de kaart.';
+      'Typ een kat, plaats of persoon om er op de kaart naartoe te springen.';
 
   @override
   String get spotCardChips =>
-      'Nieuw: kies wat er op de kaart staat voordat je hem deelt.';
+      'Vink aan wat op de deelbare kaart moet staan — de rest blijft eraf.';
 
   @override
   String get spotCatMenu =>
-      'Nieuw: markeer een kat als privé (verlaat nooit je apparaat) of verberg hem hier.';
+      'Meer acties staan hier: de kat privé markeren, verbergen, duplicaten samenvoegen of een waarneming vastleggen.';
 
   @override
   String get spotDone => 'Begrepen';
@@ -1063,4 +1519,134 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?';
+
+  @override
+  String get catalogsTitle => 'Catalogi';
+
+  @override
+  String get newCatalog => 'Nieuwe catalogus';
+
+  @override
+  String get catalogNameLabel => 'Naam van de catalogus';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Er is al een catalogus met de naam $name. Kies een andere naam.';
+  }
+
+  @override
+  String get manageCatalogs => 'Catalogi beheren';
+
+  @override
+  String get helpCatalogs =>
+      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.';
+
+  @override
+  String get deleteCatalog => 'Catalogus verwijderen';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Alles in $name verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name verwijderd. Het bestand staat in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Typ $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ($error). Maak ruimte vrij of probeer het later.';
+  }
+
+  @override
+  String get moveToCatalog => 'Naar een andere catalogus verplaatsen';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count verplaatst naar $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Wat verhuist er mee?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Iets naar $name verplaatsen?';
+  }
+
+  @override
+  String get undoThisImport => 'Deze import ongedaan maken';
+
+  @override
+  String undoImportBody(int count) {
+    return 'De $count wijzigingen van deze import worden weggehaald. Ze worden eerst naar een bestand geschreven; dat importeren zet ze terug. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Ongedaan gemaakt. Het bestand staat in $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Terug naar eerder';
+
+  @override
+  String get goBackToHere => 'Hierheen terug';
+
+  @override
+  String get momentImport => 'Vóór de import';
+
+  @override
+  String get momentSync => 'Vóór het synchroniseren';
+
+  @override
+  String get momentMerge => 'Vóór het samenvoegen';
+
+  @override
+  String get momentHardDelete => 'Vóór het wissen van iemands gegevens';
+
+  @override
+  String get momentArchive => 'Vóór het archiveren';
+
+  @override
+  String get momentManual => 'Door jou gemarkeerd';
+
+  @override
+  String get showOlderMoments => 'Oudere tonen';
+
+  @override
+  String goBackBody(int count) {
+    return 'Alles na dit moment wordt weggehaald — $count wijzigingen. Het wordt eerst naar een bestand geschreven; dat importeren zet alles terug, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.';
+  }
+
+  @override
+  String get nameThisMoment => 'Geef dit moment een naam';
+
+  @override
+  String get helpGoBack =>
+      'De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Er is niets weggehaald: het bestand dat het bewaart kon niet worden geschreven ($error). Maak ruimte vrij en probeer opnieuw.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Het deelbestand kon niet worden geschreven ($error). Maak ruimte vrij en probeer opnieuw.';
+  }
 }

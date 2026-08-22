@@ -181,7 +181,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe te ndihmësit e tu.';
+      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
 
   @override
   String get sightingRecorded => 'Vëzhgimi u regjistrua në pozicionin tuaj.';
@@ -210,6 +210,182 @@ class AppLocalizationsSq extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numri i çipit';
+
+  @override
+  String get starterRemarks => 'Shënime';
+
+  @override
+  String get captureFlier => 'Fotografo fletushkën';
+
+  @override
+  String get addPhotosTo => 'Shto fotot te…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto iu shtuan $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skano kodin e printuar';
+
+  @override
+  String get chipScanHint =>
+      'Skanon kodin QR/barkodin e printuar nga karta e çipit ose dokumentet e veterinerit — çipin brenda maces telefoni s\'mund ta lexojë.';
+
+  @override
+  String get savingLabel => 'Po ruhet…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Pronari i $name';
+  }
+
+  @override
+  String get sortLabel => 'Rendit';
+
+  @override
+  String get viewAsTable => 'Shfaq si tabelë';
+
+  @override
+  String get viewAsTiles => 'Shfaq si pllaka';
+
+  @override
+  String get matchCandidatesTitle => 'Përputhje të mundshme';
+
+  @override
+  String get findDuplicates => 'Gjej dublikatat';
+
+  @override
+  String get noDuplicates => 'Aktualisht s\'ka dublikata të mundshme.';
+
+  @override
+  String get similarName => 'Emër i ngjashëm';
+
+  @override
+  String get sharePublicly => 'Ndaje publikisht…';
+
+  @override
+  String get privateNoShare =>
+      'Kjo mace është shënuar private — të dhënat private s\'e lënë kurrë pajisjen tuaj. Hiqni fillimisht shenjën për ta ndarë publikisht.';
+
+  @override
+  String get pickFramesTitle => 'Zgjidh kuadro';
+
+  @override
+  String get suggestedFrames => 'Kuadro të sugjeruara';
+
+  @override
+  String get scrubFrames => 'Lëviz nëpër video';
+
+  @override
+  String get keepThisFrame => 'Mbaje këtë kuadër';
+
+  @override
+  String get fromVideo => 'Nga video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Zgjedhja e kuadrove nga videoja funksionon në aplikacionin e telefonit (Android dhe iPhone) — ende jo në këtë pajisje.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Zgjidh çfarë hyn në skedar. Përfshihen vetëm fushat e shënuara.';
+
+  @override
+  String get exportShareFile => 'Eksporto skedarin e ndarjes…';
+
+  @override
+  String get hostedLink => 'Lidhje e strehuar (URL e skedarit të ngarkuar)';
+
+  @override
+  String get inlineQr => 'QR i integruar (vetëm tekst, pa foto)';
+
+  @override
+  String get inlineTooBig =>
+      'Shumë të dhëna për një kod të integruar — hiqni fusha ose përdorni një lidhje të strehuar.';
+
+  @override
+  String get scanShareLabel => 'Skano kodin e ndarjes';
+
+  @override
+  String get notAShareCode => 'Ai kod nuk është ndarje cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Të importohet kjo mace?';
+
+  @override
+  String shareSource(String url) {
+    return 'Burimi: $url';
+  }
+
+  @override
+  String get importLabel => 'Importo';
+
+  @override
+  String get strayAreaLabel => 'Zona e mundshme e endjes';
+
+  @override
+  String get prevPin => 'Gjilpëra e mëparshme';
+
+  @override
+  String get nextPin => 'Gjilpëra tjetër';
+
+  @override
+  String get noMissingCats =>
+      'Ende asnjë mace e humbur me pozicione fletushkash.';
+
+  @override
+  String get noMatchCandidates => 'Aktualisht s\'ka përputhje të mundshme.';
+
+  @override
+  String sameIdField(String field) {
+    return 'I njëjti $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m larg njëri-tjetrit';
+  }
+
+  @override
+  String get addFlier => 'Shto fletushkë';
+
+  @override
+  String get missingSinceLabel => 'I humbur që nga';
+
+  @override
+  String get phoneLabel => 'Telefoni';
+
+  @override
+  String get cropPortrait => 'Prit portretin';
+
+  @override
+  String get statusOwner => 'Pronari';
+
+  @override
+  String get ocrUnavailable =>
+      'Njohja e tekstit nuk ofrohet në këtë pajisje — shkruajeni vetë tekstin e fletushkës.';
+
+  @override
+  String get displayFormat => 'Shfaqet si';
+
+  @override
+  String get displayPlain => 'Tekst i thjeshtë';
+
+  @override
+  String get displayQr => 'Kod QR';
+
+  @override
+  String get displayBarcode => 'Barkod';
+
+  @override
+  String get editLabel => 'Redakto';
+
+  @override
+  String get doneLabel => 'U krye';
+
+  @override
   String get openSettings => 'Hap cilësimet';
 
   @override
@@ -236,6 +412,29 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get malePregnant =>
       'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name është regjistruar si femër dhe s\'mund të jetë babai. Kontrolloni fillimisht gjininë.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name është regjistruar si mashkull dhe s\'mund të jetë nëna. Kontrolloni fillimisht gjininë.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name ka lindur më $date — një prind s\'mund të lindë pas të voglit të tij.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Kjo mace është regjistruar si babai i maceve të tjera — babai s\'mund të jetë femër. Kontrolloni fillimisht familjen.';
+
+  @override
+  String get genderMotherMale =>
+      'Kjo mace është regjistruar si nëna e maceve të tjera — nëna s\'mund të jetë mashkull. Kontrolloni fillimisht familjen.';
 
   @override
   String get moveTo => 'Zhvendos te';
@@ -418,7 +617,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinkronizoni përmes një dosjeje që e mbart reja ose një USB mes pajisjeve — për ata që s\'janë në të njëjtin rrjet.';
+      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
 
   @override
   String get noFolderChosenYet => 'Ende s\'është zgjedhur dosje';
@@ -599,7 +798,232 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterResponsible => 'Personi përgjegjës';
 
   @override
-  String get starterPosition => 'Pozicioni';
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Telefoni';
+
+  @override
+  String get lookupUrlLabel => 'Lidhje kërkimi';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Faqja e shërbimit me $token aty ku shkon numri, p.sh. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Kërko';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Asnjë aplikacion nuk e hapi dot $url. Kopjo lidhjen në një shfletues.';
+  }
+
+  @override
+  String get stepCat => 'Macja';
+
+  @override
+  String get stepOwner => 'Pronari';
+
+  @override
+  String get stepFace => 'Foto e fytyrës';
+
+  @override
+  String get stepRegistry => 'Regjistri';
+
+  @override
+  String get stepReview => 'Kontrollo dhe ruaj';
+
+  @override
+  String get stepOwnerHint =>
+      'Ai që i ka humbur macja — nga kjo del karta e tij, me kontaktin nga fletushka.';
+
+  @override
+  String get stepFaceHint =>
+      'Prije fytyrën e maces nga fletushka; bëhet fotoja e profilit. Mund ta kapërcesh.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numra të gjetur në fletushkë. Ata të shënuar ruhen te macja dhe hapen më vonë.';
+
+  @override
+  String get noRegistryLinks =>
+      'Asnjë lidhje regjistri në këtë fletushkë — s\'ka gjë për të bërë këtu.';
+
+  @override
+  String get unknownServiceHint => 'Shërbim i panjohur';
+
+  @override
+  String get rememberService => 'Mba mend shërbimin';
+
+  @override
+  String get rememberServiceHint =>
+      'Emërto shërbimin dhe trego numrin në lidhje. Fletushka tjetër plotësohet vetë.';
+
+  @override
+  String get noIdInLink =>
+      'Kjo lidhje nuk ka numër që aplikacioni të mund ta ruajë.';
+
+  @override
+  String get whichNumber => 'Cila pjesë është numri?';
+
+  @override
+  String get cropAgain => 'Prije sërish';
+
+  @override
+  String get noFaceYet => 'Ende pa foto fytyre — përdoret fotoja e fletushkës.';
+
+  @override
+  String get backLabel => 'Prapa';
+
+  @override
+  String get dangerButton => 'MOS E SHTYP.\nRREZIK';
+
+  @override
+  String get dangerThanks => 'Faleminderit që përdor cat(a)log!';
+
+  @override
+  String get helpTitle => 'Ndihmë';
+
+  @override
+  String get showTipsAgain => 'Shfaq sërish këshillat';
+
+  @override
+  String get helpHome =>
+      'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.';
+
+  @override
+  String get helpClowder =>
+      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap.';
+
+  @override
+  String get helpCat =>
+      'Gjithçka për këtë mace: fotot, fushat, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Shtypja e gjatë mbi një fushë të çon drejt e në redaktimin e saj; mbi një foto hap menynë e saj. Menyja lart djathtas ka pjesën tjetër: private, fshih, bashko, shëno vëzhgim, shpërnda.';
+
+  @override
+  String get helpStrays =>
+      'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja.';
+
+  @override
+  String get helpMap =>
+      'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
+
+  @override
+  String get helpCard =>
+      'Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.';
+
+  @override
+  String get helpSync =>
+      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu.';
+
+  @override
+  String get helpFields =>
+      'Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.';
+
+  @override
+  String get helpTimeline =>
+      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.';
+
+  @override
+  String get helpDuplicates =>
+      'Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.';
+
+  @override
+  String get helpMatches =>
+      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
+
+  @override
+  String get helpFlier =>
+      'Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.';
+
+  @override
+  String get archiveTitle => 'Arkivi';
+
+  @override
+  String get archiveExplainer =>
+      'Macet e ngordhura dhe koloni bosh që s\'i ka prekur njeri prej vitesh prapë zënë vend — sidomos fotot e tyre. Arkivimi i shkruan në një skedar që e mban ti dhe pastaj i fshin nga këtu.';
+
+  @override
+  String get archiveAction => 'Arkivo';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivo $count zëra';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Të arkivohen $count zëra?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names do të shkruhen në një skedar dhe pastaj do të fshihen — në pajisjen tënde dhe në çdo pajisje me të cilën sinkronizon. Importimi i skedarit i kthen të gjitha; pa të, humbin.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'U arkivuan dhe u fshinë $count zëra';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nuk u fshi asgjë: skedari i arkivit nuk u shkrua dot ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Baza $db, foto $photos në $count skedarë';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Pa ndryshim prej $years vjetësh';
+  }
+
+  @override
+  String get nothingToArchive => 'Asgjë s\'është aq e vjetër sa të arkivohet.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ndryshimi i fundit $date · foto $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Të dhënat e vjetra kushtojnë hapësirë, sidomos fotot që i mbart çdo pajisje e sinkronizuar. Këtu zgjedh macet e ngordhura dhe koloni bosh që rrinë prej vitesh, i shkruan në një skedar që e mban, dhe i fshin. Fshirja arrin te të gjithë me të cilët sinkronizon; importimi i skedarit i rikthen të gjitha.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Të rikthehen $count zëra të fshirë?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names janë të fshirë në këtë katalog, dhe skedari që sapo importove i përmban. Rikthimi i sjell këtu dhe në çdo pajisje me të cilën sinkronizon.';
+  }
+
+  @override
+  String get restoreAction => 'Riktheji';
+
+  @override
+  String get keepDeleted => 'Lëri të fshirë';
+
+  @override
+  String get archiveNotSaved => 'Nuk u fshi asgjë: arkivi nuk u ruajt askund.';
+
+  @override
+  String get locateAddress => 'Gjej adresën në hartë';
+
+  @override
+  String get addressLocated => 'Adresa u gjet';
+
+  @override
+  String get addressNotFound =>
+      'Nuk u gjet asnjë vend për këtë adresë. Kontrollo shkrimin ose lëre bosh.';
+
+  @override
+  String get starterPosition => 'Vendndodhja';
 
   @override
   String get valueYes => 'po';
@@ -714,7 +1138,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Macet, grupet dhe fushat private ndahen gjithashtu — aktivizoje vetëm kur sinkronizon pajisjet e tua.';
+      'Kështu dërgohet edhe gjithçka që ke shënuar private. Ai me të cilin sinkronizon do ta shohë.';
 
   @override
   String get hideLabel => 'Fshih në këtë pajisje';
@@ -732,7 +1156,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterSpecies => 'Specia';
 
   @override
-  String get starterStatus => 'Statusi';
+  String get starterStatus => 'Lloji';
 
   @override
   String get statusFoster => 'Shtëpi kujdestarie';
@@ -926,7 +1350,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Dërgo gjithçka si një skedar me çdo messenger';
+      'Dërgoni gjithçka si një skedar me çdo messenger — dhe importoni këtu një skedar .catsync të marrë';
 
   @override
   String get connectToWifiFirst =>
@@ -974,25 +1398,25 @@ class AppLocalizationsSq extends AppLocalizations {
   String get selectClowderHint => 'Zgjidh një clowder majtas';
 
   @override
-  String get introTitle1 => 'Macet jetojnë në clowdera';
+  String get introTitle1 => 'Macet e tua, të organizuara';
 
   @override
   String get introBody1 =>
-      'Clowder është një vend ku jetojnë macet: shtëpia jote e kujdestarisë, banesa e një birësuesi, hambari ngjitur. Çdo mace ka një kartë me foto, fakte dhe gjithë historinë e saj.';
+      'Krijo një kartë për çdo mace: foto, gjinia, shëndeti, gjithçka që do të shënosh. Macet grupohen sipas vendit ku jetojnë — aplikacioni e quan atë vend koloni (clowder).';
 
   @override
-  String get introTitle2 => 'Gjithçka mbetet te ti';
+  String get introTitle2 => 'Punon pa internet';
 
   @override
   String get introBody2 =>
-      'Pa llogari, pa cloud, pa gjurmim. Të dhënat e tua jetojnë në pajisjen tënde.';
+      'Gjithçka ruhet vetëm në telefonin tënd. Pa llogari, pa cloud. Asgjë nuk dërgohet nëse nuk e ndan vetë.';
 
   @override
-  String get introTitle3 => 'Ndaj me ndihmësit';
+  String get introTitle3 => 'Punoni së bashku';
 
   @override
   String get introBody3 =>
-      'Skano një kod dhe dy pajisje sinkronizohen për sekonda, përdor një dosje të përbashkët ose dërgo gjithçka si një skedar.';
+      'Secili përdor aplikacionin e vet dhe herë pas here shkëmbeni të dhëna: takohuni dhe skanoni një kod, përdorni një dosje të përbashkët ose dërgoni një skedar me messenger. Pastaj të gjithë kanë të njëjtin informacion.';
 
   @override
   String get introSkip => 'Kapërce';
@@ -1008,19 +1432,50 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'E re: sinkronizimi tani ofron tri rrugë të qarta — dhe një pyetje besimi para se të rrjedhë gjë.';
+      'Këtu sinkronizon me të njohurit e tu. Ti vendos çfarë ndan.';
+
+  @override
+  String get spotHomeStrays =>
+      'Kjo kartë mbledh të gjithë endacakët — macet pa shtëpi. Prek për listën.';
+
+  @override
+  String get spotHomeMenu =>
+      'Në këtë meny: gjej dhe bashko dublikatat, eksporto CSV e më shumë.';
+
+  @override
+  String get spotCatEdit =>
+      'Prek lapsin për ta redaktuar macen. Këshillë: shtypja e gjatë mbi një fushë e redakton direkt.';
+
+  @override
+  String get spotMapLayers =>
+      'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj dhe rreth shtëpisë nga iku.';
+
+  @override
+  String get spotStraysFlier =>
+      'Fletushkë maceje të humbur? Fotografoje këtu — aplikacioni ruan macen dhe kontaktin për ty.';
+
+  @override
+  String get spotStraysScan =>
+      'Disa fletushka kanë kod QR cat(a)log. Skanoje këtu dhe importo macen pa shtypur.';
+
+  @override
+  String get introTitle4 => 'Gjeni macet e humbura';
+
+  @override
+  String get introBody4 =>
+      'Sheh një fletushkë për mace të humbur? Fotografoje në aplikacion: ruan macen, kontaktin e pronarit dhe vendin. Nëse më vonë shfaqet një endacake e ngjashme, aplikacioni sugjeron përputhje të mundshme.';
 
   @override
   String get spotMapSearch =>
-      'E re: kërko këtu mace, clowdera dhe persona — direkt në hartë.';
+      'Shkruaj një mace, vend a person që të hidhesh aty në hartë.';
 
   @override
   String get spotCardChips =>
-      'E re: zgjidh çfarë shfaqet në kartë para se ta ndash.';
+      'Shëno çfarë duhet të shfaqet në kartën e ndashme — pjesa tjetër mbetet jashtë.';
 
   @override
   String get spotCatMenu =>
-      'E re: shëno një mace si private (nuk e lë kurrë pajisjen) ose fshihe këtu.';
+      'Më shumë veprime këtu: shëno macen private, fshihe, bashko dublikata ose regjistro një vëzhgim.';
 
   @override
   String get spotDone => 'Kuptova';
@@ -1061,4 +1516,134 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?';
+
+  @override
+  String get catalogsTitle => 'Katalogët';
+
+  @override
+  String get newCatalog => 'Katalog i ri';
+
+  @override
+  String get catalogNameLabel => 'Emri i katalogut';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Një katalog me emrin $name ekziston tashmë. Zgjidh një emër tjetër.';
+  }
+
+  @override
+  String get manageCatalogs => 'Menaxho katalogët';
+
+  @override
+  String get helpCatalogs =>
+      'Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.';
+
+  @override
+  String get deleteCatalog => 'Fshi katalogun';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name u fshi. Skedari është në $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Shkruaj $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ($error). Liro pak hapësirë ose provo më vonë.';
+  }
+
+  @override
+  String get moveToCatalog => 'Zhvendos në një katalog tjetër';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count u zhvendosën te $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Çfarë do të zhvendoset?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Të zhvendoset diçka te $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Zhbëj këtë importim';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count ndryshimet që solli ky importim hiqen. Së pari shkruhen në një skedar, importimi i të cilit i kthen. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen e tyre — kjo nuk merret mbrapsht.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'U zhbë. Skedari është në $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Kthehu prapa';
+
+  @override
+  String get goBackToHere => 'Kthehu këtu';
+
+  @override
+  String get momentImport => 'Para importimit';
+
+  @override
+  String get momentSync => 'Para sinkronizimit';
+
+  @override
+  String get momentMerge => 'Para bashkimit';
+
+  @override
+  String get momentHardDelete => 'Para fshirjes së të dhënave të një autori';
+
+  @override
+  String get momentArchive => 'Para arkivimit';
+
+  @override
+  String get momentManual => 'Shënuar prej teje';
+
+  @override
+  String get showOlderMoments => 'Shfaq më të vjetrat';
+
+  @override
+  String goBackBody(int count) {
+    return 'Gjithçka pas këtij çasti hiqet — $count ndryshime. Së pari shkruhet në një skedar, importimi i të cilit e kthen gjithçka, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen — kjo nuk merret mbrapsht.';
+  }
+
+  @override
+  String get nameThisMoment => 'Emërto këtë çast';
+
+  @override
+  String get helpGoBack =>
+      'Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nuk u hoq asgjë: skedari që e ruan nuk u shkrua dot ($error). Liro pak hapësirë dhe provo sërish.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Skedari i ndarjes nuk u shkrua dot ($error). Liro pak hapësirë dhe provo sërish.';
+  }
 }

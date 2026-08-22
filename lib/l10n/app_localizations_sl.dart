@@ -181,7 +181,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka izgine z vseh seznamov in njene fotografije so odstranjene — tukaj in po naslednji sinhronizaciji tudi pri tvojih pomočnikih.';
+      'Mačka izgine z vseh seznamov in njene fotografije se odstranijo — tu in, po naslednji sinhronizaciji, tudi na drugih napravah.';
 
   @override
   String get sightingRecorded => 'Opažanje zabeleženo na vaši poziciji.';
@@ -210,6 +210,181 @@ class AppLocalizationsSl extends AppLocalizations {
   String get ok => 'V redu';
 
   @override
+  String get starterChipId => 'Številka čipa';
+
+  @override
+  String get starterRemarks => 'Opombe';
+
+  @override
+  String get captureFlier => 'Fotografiraj letak';
+
+  @override
+  String get addPhotosTo => 'Dodaj fotografije k…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotografij dodanih k $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skeniraj natisnjeno kodo';
+
+  @override
+  String get chipScanHint =>
+      'Skenira natisnjeno kodo QR/črtno kodo s kartice čipa ali veterinarskih papirjev — čipa v mački telefon ne more prebrati.';
+
+  @override
+  String get savingLabel => 'Shranjevanje…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Lastnik $name';
+  }
+
+  @override
+  String get sortLabel => 'Razvrsti';
+
+  @override
+  String get viewAsTable => 'Prikaži kot tabelo';
+
+  @override
+  String get viewAsTiles => 'Prikaži kot ploščice';
+
+  @override
+  String get matchCandidatesTitle => 'Možna ujemanja';
+
+  @override
+  String get findDuplicates => 'Poišči dvojnike';
+
+  @override
+  String get noDuplicates => 'Trenutno ni možnih dvojnikov.';
+
+  @override
+  String get similarName => 'Podobno ime';
+
+  @override
+  String get sharePublicly => 'Deli javno…';
+
+  @override
+  String get privateNoShare =>
+      'Ta mačka je označena kot zasebna — zasebni podatki nikoli ne zapustijo vaše naprave. Najprej odstranite oznako za javno deljenje.';
+
+  @override
+  String get pickFramesTitle => 'Izbira sličic';
+
+  @override
+  String get suggestedFrames => 'Predlagane sličice';
+
+  @override
+  String get scrubFrames => 'Premikanje po videu';
+
+  @override
+  String get keepThisFrame => 'Obdrži to sličico';
+
+  @override
+  String get fromVideo => 'Iz videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Izbiranje sličic iz videa deluje v telefonski aplikaciji (Android in iPhone) — na tej napravi še ne.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Izberite, kaj gre v datoteko. Vključena so samo odkljukana polja.';
+
+  @override
+  String get exportShareFile => 'Izvozi datoteko za deljenje…';
+
+  @override
+  String get hostedLink => 'Gostovana povezava (URL naložene datoteke)';
+
+  @override
+  String get inlineQr => 'Vgrajeni QR (samo besedilo, brez fotografij)';
+
+  @override
+  String get inlineTooBig =>
+      'Preveč podatkov za vgrajeno kodo — odstranite polja ali uporabite gostovano povezavo.';
+
+  @override
+  String get scanShareLabel => 'Skeniraj kodo za deljenje';
+
+  @override
+  String get notAShareCode => 'Ta koda ni deljenje cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Uvozim to mačko?';
+
+  @override
+  String shareSource(String url) {
+    return 'Vir: $url';
+  }
+
+  @override
+  String get importLabel => 'Uvozi';
+
+  @override
+  String get strayAreaLabel => 'Možno območje potepanja';
+
+  @override
+  String get prevPin => 'Prejšnja bucika';
+
+  @override
+  String get nextPin => 'Naslednja bucika';
+
+  @override
+  String get noMissingCats => 'Še ni pogrešanih mačk s položaji letakov.';
+
+  @override
+  String get noMatchCandidates => 'Trenutno ni možnih ujemanj.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Enak $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m narazen';
+  }
+
+  @override
+  String get addFlier => 'Dodaj letak';
+
+  @override
+  String get missingSinceLabel => 'Pogrešan od';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Obreži portret';
+
+  @override
+  String get statusOwner => 'Lastnik';
+
+  @override
+  String get ocrUnavailable =>
+      'Prepoznavanje besedila na tej napravi ni na voljo — vnesite besedilo letaka sami.';
+
+  @override
+  String get displayFormat => 'Prikazano kot';
+
+  @override
+  String get displayPlain => 'Navadno besedilo';
+
+  @override
+  String get displayQr => 'Koda QR';
+
+  @override
+  String get displayBarcode => 'Črtna koda';
+
+  @override
+  String get editLabel => 'Uredi';
+
+  @override
+  String get doneLabel => 'Končano';
+
+  @override
   String get openSettings => 'Odpri nastavitve';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get malePregnant =>
       'Ta mačka je zavedena kot samec — samec ne more biti breja. Najprej preverite spol.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name je zavedena kot samica in ne more biti oče. Najprej preverite spol.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name je zaveden kot samec in ne more biti mati. Najprej preverite spol.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name se je rodil $date — starš se ne more roditi za svojim mladičem.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ta mačka je zavedena kot oče drugih mačk — oče ne more biti samica. Najprej preverite družino.';
+
+  @override
+  String get genderMotherMale =>
+      'Ta mačka je zavedena kot mati drugih mačk — mati ne more biti samec. Najprej preverite družino.';
 
   @override
   String get moveTo => 'Premakni v';
@@ -417,7 +615,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sinhronizirajte prek mape, ki jo oblak ali USB ključek prenaša med napravami — za tiste, ki niso v istem omrežju.';
+      'Obe napravi uporabljata isto mapo (npr. v Dropboxu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.';
 
   @override
   String get noFolderChosenYet => 'Mapa še ni izbrana';
@@ -597,7 +795,234 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterResponsible => 'Odgovorna oseba';
 
   @override
-  String get starterPosition => 'Položaj';
+  String get starterEmail => 'E-pošta';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Povezava za iskanje';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Stran storitve z $token na mestu številke, npr. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Poišči';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nobena aplikacija ni mogla odpreti $url. Kopirajte povezavo v brskalnik.';
+  }
+
+  @override
+  String get stepCat => 'Mačka';
+
+  @override
+  String get stepOwner => 'Lastnik';
+
+  @override
+  String get stepFace => 'Fotografija obraza';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Preveri in shrani';
+
+  @override
+  String get stepOwnerHint =>
+      'Kdor pogreša mačko — iz tega nastane njegova kartica s kontaktom z letaka.';
+
+  @override
+  String get stepFaceHint =>
+      'Izreži mačkin obraz z letaka; postane profilna slika. Lahko tudi preskočiš.';
+
+  @override
+  String get stepRegistryHint =>
+      'Številke, najdene na letaku. Odkljukane se shranijo pri mački in jih lahko pozneje odpreš.';
+
+  @override
+  String get noRegistryLinks =>
+      'Na tem letaku ni povezav do registrov — tu ni dela.';
+
+  @override
+  String get unknownServiceHint => 'Neznana storitev';
+
+  @override
+  String get rememberService => 'Zapomni si storitev';
+
+  @override
+  String get rememberServiceHint =>
+      'Poimenuj storitev in pokaži številko v povezavi. Naslednji letak se izpolni sam.';
+
+  @override
+  String get noIdInLink =>
+      'Ta povezava ne vsebuje številke, ki bi jo aplikacija lahko shranila.';
+
+  @override
+  String get whichNumber => 'Kateri del je številka?';
+
+  @override
+  String get cropAgain => 'Znova izreži';
+
+  @override
+  String get noFaceYet =>
+      'Fotografije obraza še ni — uporabi se fotografija letaka.';
+
+  @override
+  String get backLabel => 'Nazaj';
+
+  @override
+  String get dangerButton => 'NE PRITISKAJ.\nNEVARNOST';
+
+  @override
+  String get dangerThanks => 'Hvala, ker uporabljaš cat(a)log!';
+
+  @override
+  String get helpTitle => 'Pomoč';
+
+  @override
+  String get showTipsAgain => 'Znova pokaži nasvete';
+
+  @override
+  String get helpHome =>
+      'Pregled tvojih kolonij — kolonija je kraj, kjer živijo mačke: tvoj dom, začasni dom, zavetišče. Tapni kartico za njene mačke; dolg pritisk odpre meni. Gumb spodaj desno ustvari kolonijo, kartica potepuhov pa zbira vse mačke brez doma. Ime na vrhu je katalog, v katerem si — tapni ga za preklop ali dodajanje.';
+
+  @override
+  String get helpClowder =>
+      'Vse o tem kraju: njegove mačke, polja (naslov, stik, vrsta) in zgodovina. Stran se odpre samo za branje; svinčnik vklopi urejanje, kjer lahko dodaš tudi novo polje. Dolg pritisk na polje ga uredi takoj, na mačko jo premakne, skrije ali odpre.';
+
+  @override
+  String get helpCat =>
+      'Vse o tej mački: fotografije, polja, družina, zgodovina. Stran je samo za branje, dokler ne tapneš svinčnika. Dolg pritisk na polje te pelje naravnost v urejanje; na fotografijo odpre njen meni. Meni zgoraj desno ima ostalo: zasebno, skrij, združi, zabeleži opažanje, deli.';
+
+  @override
+  String get helpStrays =>
+      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka.';
+
+  @override
+  String get helpMap =>
+      'Vse mačke in kraji s položajem. Iskanje najde mačke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešane mačke in okoli doma, iz katerega je pobegnila. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje.';
+
+  @override
+  String get helpCard =>
+      'Kartica mačke za tisk: zgoraj s čipi izbereš, kaj bo na njej, nato jo deliš kot sliko ali PDF. Številke se lahko natisnejo kot QR ali črtna koda, položaj pa postane QR, ki odpre zemljevid, plus kratek Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj.';
+
+  @override
+  String get helpFields =>
+      'Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri mački tapljiva.';
+
+  @override
+  String get helpTimeline =>
+      'Vsaka kdaj narejena sprememba, najnovejša zgoraj: kdo je kaj, kdaj in v katero vrednost spremenil. Vsak vnos je mogoče razveljaviti — to zapiše nov vnos, nič se nikoli ne izbriše.';
+
+  @override
+  String get helpDuplicates =>
+      'Mačke ali kolonije, ki se zdijo podvojene — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.';
+
+  @override
+  String get helpMatches =>
+      'Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo.';
+
+  @override
+  String get helpFlier =>
+      'Fotografiran letak postane mačka in njen lastnik. Korak za korakom: podatki mačke, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.';
+
+  @override
+  String get archiveTitle => 'Arhiv';
+
+  @override
+  String get archiveExplainer =>
+      'Poginule mačke in prazne kolonije, ki se jih leta nihče ni dotaknil, še vedno zavzemajo prostor — predvsem njihove fotografije. Arhiviranje jih zapiše v datoteko, ki jo obdržiš, in jih nato izbriše od tod.';
+
+  @override
+  String get archiveAction => 'Arhiviraj';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhiviraj $count vnosov';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhiviram $count vnosov?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bodo zapisani v datoteko in nato izbrisani — na tvoji napravi in na vsaki, s katero sinhroniziraš. Uvoz datoteke vse vrne; brez nje so izgubljeni.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhiviranih in izbrisanih $count vnosov';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nič ni bilo izbrisano: datoteke arhiva ni bilo mogoče zapisati ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Zbirka $db, fotografije $photos v $count datotekah';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Brez sprememb $years let';
+  }
+
+  @override
+  String get nothingToArchive => 'Nič ni dovolj staro za arhiviranje.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Zadnja sprememba $date · fotografije $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Stari podatki stanejo prostor, predvsem fotografije, ki jih nosi vsaka sinhronizirana naprava. Tu izbereš poginule mačke in prazne kolonije, ki leta mirujejo, jih zapišeš v datoteko, ki jo obdržiš, in jih izbrišeš. Izbris doseže vse, s katerimi sinhroniziraš; uvoz datoteke vse obnovi.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnovim $count izbrisanih vnosov?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names so v tem katalogu izbrisani, datoteka, ki si jo pravkar uvozil, pa jih vsebuje. Obnovitev jih vrne sem in na vsako napravo, s katero sinhroniziraš.';
+  }
+
+  @override
+  String get restoreAction => 'Obnovi';
+
+  @override
+  String get keepDeleted => 'Naj ostanejo izbrisani';
+
+  @override
+  String get archiveNotSaved =>
+      'Nič ni bilo izbrisano: arhiv ni bil nikamor shranjen.';
+
+  @override
+  String get locateAddress => 'Poišči naslov na zemljevidu';
+
+  @override
+  String get addressLocated => 'Naslov najden';
+
+  @override
+  String get addressNotFound =>
+      'Za ta naslov ni bilo najdenega kraja. Preveri zapis ali pusti prazno.';
+
+  @override
+  String get starterPosition => 'Lokacija';
 
   @override
   String get valueYes => 'da';
@@ -712,7 +1137,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Zasebne mačke, skupine in polja se prav tako delijo — vklopite le pri sinhronizaciji lastnih naprav.';
+      'S tem se pošlje tudi vse, kar ste označili kot zasebno. Oseba, s katero sinhronizirate, bo to videla.';
 
   @override
   String get hideLabel => 'Skrij na tej napravi';
@@ -730,7 +1155,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterSpecies => 'Vrsta';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Vrsta';
 
   @override
   String get statusFoster => 'Začasni dom';
@@ -924,7 +1349,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošlji vse kot eno datoteko s katerim koli messengerjem';
+      'Pošljite vse kot eno datoteko prek katerega koli messengerja — in tu uvozite prejeto datoteko .catsync';
 
   @override
   String get connectToWifiFirst =>
@@ -971,25 +1396,25 @@ class AppLocalizationsSl extends AppLocalizations {
   String get selectClowderHint => 'Izberi clowder na levi';
 
   @override
-  String get introTitle1 => 'Mačke živijo v clowderih';
+  String get introTitle1 => 'Vaše mačke, urejeno';
 
   @override
   String get introBody1 =>
-      'Clowder je kraj, kjer živijo mačke: tvoj začasni dom, stanovanje posvojitelja, sosedov skedenj. Vsaka mačka ima kartico s fotografijo, podatki in celotno zgodbo.';
+      'Za vsako mačko ustvarite kartico: fotografija, spol, zdravje, kar koli želite zabeležiti. Mačke so razvrščene po kraju, kjer živijo — aplikacija mu pravi kolonija (clowder).';
 
   @override
-  String get introTitle2 => 'Vse ostane pri tebi';
+  String get introTitle2 => 'Deluje brez interneta';
 
   @override
   String get introBody2 =>
-      'Brez računa, brez oblaka, brez sledenja. Tvoji podatki živijo na tvoji napravi.';
+      'Vse se shranjuje samo v vaš telefon. Brez računa, brez oblaka. Nič se ne pošilja, dokler tega sami ne delite.';
 
   @override
-  String get introTitle3 => 'Deli s pomočniki';
+  String get introTitle3 => 'Sodelujte';
 
   @override
   String get introBody3 =>
-      'Skeniraj kodo in napravi se sinhronizirata v sekundah, uporabi deljeno mapo ali pošlji vse kot eno datoteko.';
+      'Vsak uporablja svojo aplikacijo in občasno izmenjate podatke: dobite se in skenirajte kodo, uporabite skupno mapo ali pošljite eno datoteko po messengerju. Potem imajo vsi enake podatke.';
 
   @override
   String get introSkip => 'Preskoči';
@@ -1005,18 +1430,50 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Novo: sinhronizacija zdaj ponuja tri jasne poti — in vprašanje zaupanja, preden karkoli steče.';
+      'Tu sinhronizirate s svojimi znanci. Vi odločate, kaj delite.';
+
+  @override
+  String get spotHomeStrays =>
+      'Ta kartica zbira vse potepuhe — mačke brez doma. Tapnite za seznam.';
+
+  @override
+  String get spotHomeMenu =>
+      'V tem meniju: poiščite in združite dvojnike, izvozite CSV in več.';
+
+  @override
+  String get spotCatEdit =>
+      'Tapnite svinčnik za urejanje mačke. Nasvet: dolg pritisk na polje ga uredi neposredno.';
+
+  @override
+  String get spotMapLayers =>
+      'Iščete pogrešano mačko? Prikažite kroge okoli krajev njenih letakov in okoli doma, iz katerega je pobegnila.';
+
+  @override
+  String get spotStraysFlier =>
+      'Letak o pogrešani mački? Fotografirajte ga tukaj — aplikacija shrani mačko in kontakt namesto vas.';
+
+  @override
+  String get spotStraysScan =>
+      'Nekateri letaki nosijo cat(a)log kodo QR. Skenirajte jo tukaj in mačko uvozite brez tipkanja.';
+
+  @override
+  String get introTitle4 => 'Poiščite pogrešane mačke';
+
+  @override
+  String get introBody4 =>
+      'Vidite letak o pogrešani mački? Fotografirajte ga v aplikaciji: shrani mačko, lastnikov kontakt in kraj. Če se pozneje pojavi podoben potepuh, aplikacija predlaga možna ujemanja.';
 
   @override
   String get spotMapSearch =>
-      'Novo: tukaj išči mačke, clowdere in osebe — neposredno na zemljevidu.';
+      'Vpišite mačko, kraj ali osebo, da skočite tja na zemljevidu.';
 
   @override
-  String get spotCardChips => 'Novo: pred deljenjem izberi, kaj bo na kartici.';
+  String get spotCardChips =>
+      'Odkljukajte, kaj naj bo na kartici za deljenje — ostalo ostane zunaj.';
 
   @override
   String get spotCatMenu =>
-      'Novo: označi mačko kot zasebno (nikoli ne zapusti naprave) ali jo tukaj skrij.';
+      'Več dejanj tukaj: označite mačko kot zasebno, jo skrijte, združite dvojnike ali zabeležite opažanje.';
 
   @override
   String get spotDone => 'Razumem';
@@ -1057,4 +1514,134 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?';
+
+  @override
+  String get catalogsTitle => 'Katalogi';
+
+  @override
+  String get newCatalog => 'Nov katalog';
+
+  @override
+  String get catalogNameLabel => 'Ime kataloga';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalog z imenom $name že obstaja. Izberi drugo ime.';
+  }
+
+  @override
+  String get manageCatalogs => 'Upravljanje katalogov';
+
+  @override
+  String get helpCatalogs =>
+      'Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
+
+  @override
+  String get spotHomeCatalog =>
+      'To je katalog, v katerem si. Tapni ime za preklop ali za novega.';
+
+  @override
+  String get deleteCatalog => 'Izbriši katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Vse v katalogu $name izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name izbrisan. Datoteka je v $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Vpiši $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nič ni bilo izbrisano: datoteke kataloga ni bilo mogoče zapisati ($error). Sprosti prostor ali poskusi pozneje.';
+  }
+
+  @override
+  String get moveToCatalog => 'Premakni v drug katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count premaknjeno v $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Kaj naj se preseli?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Premakneš kaj v $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Razveljavi ta uvoz';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count sprememb iz tega uvoza bo odstranjenih. Najprej se zapišejo v datoteko, katere uvoz jih vrne. Tisti, s katerimi si že sinhroniziral, obdržijo svojo kopijo — tega ni mogoče preklicati.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Razveljavljeno. Datoteka je v $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Nazaj na prejšnje stanje';
+
+  @override
+  String get goBackToHere => 'Nazaj sem';
+
+  @override
+  String get momentImport => 'Pred uvozom';
+
+  @override
+  String get momentSync => 'Pred sinhronizacijo';
+
+  @override
+  String get momentMerge => 'Pred združitvijo';
+
+  @override
+  String get momentHardDelete => 'Pred izbrisom podatkov enega avtorja';
+
+  @override
+  String get momentArchive => 'Pred arhiviranjem';
+
+  @override
+  String get momentManual => 'Označil si sam';
+
+  @override
+  String get showOlderMoments => 'Pokaži starejše';
+
+  @override
+  String goBackBody(int count) {
+    return 'Vse po tem trenutku bo odstranjeno — $count sprememb. Najprej se zapiše v datoteko, katere uvoz vse vrne, in vsak novejši trenutek gre zraven. Tisti, s katerimi si že sinhroniziral, obdržijo kopijo — tega ni mogoče preklicati.';
+  }
+
+  @override
+  String get nameThisMoment => 'Poimenuj ta trenutek';
+
+  @override
+  String get helpGoBack =>
+      'Trenutki, ko je ta katalog spremenil obliko: pred vsakim uvozom in vsako sinhronizacijo, pred združitvijo, arhiviranjem ali brisanjem, in kadar koli si sam označil trenutek. Izbira enega vrne katalog v to stanje — vse za njim se zapiše v datoteko, ki jo obdržiš, in nato odstrani, vsak novejši trenutek pa gre zraven. Tisti, s katerimi si že sinhroniziral, obdržijo, kar so prejeli.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nič ni bilo odstranjeno: datoteke, ki to hrani, ni bilo mogoče zapisati ($error). Sprosti prostor in poskusi znova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'To je katalog, v katerem si. Preklopi na drugega in ga nato izbriši.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Datoteke za deljenje ni bilo mogoče zapisati ($error). Sprosti prostor in poskusi znova.';
+  }
 }

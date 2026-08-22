@@ -59,8 +59,18 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
         writerVector[e.device] = e.dseq;
       }
     }
+    // Only what this device has not seen. A file in a shared folder
+    // still holds everything its writer ever knew, including entries
+    // this device has deliberately removed — going back on an import
+    // would otherwise be undone by the next folder sync. The delta is
+    // what the other transport does; here it has to be taken.
+    final mine = store.versionVector();
+    final fresh = [
+      for (final e in foreign)
+        if (e.dseq > (mine[e.device] ?? 0)) e
+    ];
     final imported =
-        store.applyEntries(foreign, senderVector: writerVector);
+        store.applyEntries(fresh, senderVector: writerVector);
     applied.addAll(imported);
     entriesIn += imported.length;
   }

@@ -13,6 +13,29 @@ import 'fields.dart';
 /// Author name stamped on entries the store seeds itself (starter Fields).
 const seedAuthor = 'cat(a)log';
 
+/// Settings that belong to the app rather than to one catalog. With
+/// several catalogs on a device, these are answered by a shared store so
+/// a second catalog is not a fresh install: you keep your name, your
+/// language, and the tutorial tips you have already seen.
+bool isSharedSetting(String key) =>
+    key == 'locale' ||
+    key == 'introSeen' ||
+    key == 'celebrations' ||
+    key == 'windowBounds' ||
+    key.startsWith('spot:') ||
+    key.startsWith('spot2:') ||
+    key.startsWith('toast:');
+
+/// Where shared settings live. A store without one keeps everything in
+/// its own database — which is what a bare [CatalogStore.open] and every
+/// in-memory store do, and must keep doing.
+abstract class SharedSettings {
+  String? get(String key);
+  void set(String key, String value);
+  void remove(String key);
+  List<(String, String)> byPrefix(String prefix);
+}
+
 /// A Cat or Clowder as list rows want it: id plus current name.
 class EntityView {
   final String id;
@@ -48,6 +71,10 @@ class CatalogStore {
   final Database _db;
   final _BlobStore _blobs;
 
+  /// Set by the catalog manager when several catalogs share a device.
+  /// Null everywhere else, and the store works exactly as before.
+  SharedSettings? shared;
+
   CatalogStore._(this._db, this._blobs);
 
   /// Opens an on-disk catalog, creating it if needed. Image blobs go to an
@@ -78,6 +105,13 @@ class CatalogStore {
       CREATE TABLE IF NOT EXISTS local_settings (
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
+      );
+      CREATE TABLE IF NOT EXISTS moments (
+        id    INTEGER PRIMARY KEY AUTOINCREMENT,
+        seq   INTEGER NOT NULL,
+        cause TEXT NOT NULL,
+        label TEXT,
+        at    TEXT NOT NULL
       );
     ''');
     final store = CatalogStore._(db, blobs);
@@ -149,6 +183,11 @@ class CatalogStore {
   /// The device's Author name; null until first-launch setup stored one.
   /// Device-local: lives outside the entry log and is never synced.
   String? get author {
+    // One name for the whole app once catalogs are shared, falling back
+    // to this catalog's own so a migrated catalog can still write before
+    // its name has been copied across.
+    final name = shared?.get('author');
+    if (name != null && name.isNotEmpty) return name;
     final rows =
         _db.select('SELECT value FROM local_settings WHERE key = ?', ['author']);
     return rows.isEmpty ? null : rows.first['value'] as String;
@@ -158,6 +197,7 @@ class CatalogStore {
     if (name == null || name.trim().isEmpty) {
       throw ArgumentError('Author name must not be empty');
     }
+    shared?.set('author', name.trim());
     _db.execute(
       'INSERT INTO local_settings (key, value) VALUES (?, ?) '
       'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
@@ -168,16 +208,25 @@ class CatalogStore {
   /// Device-local, never-synced key/value setting (last sync peer,
   /// folder paths, …).
   String? localSetting(String key) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) return s.get(key);
     final rows = _db
         .select('SELECT value FROM local_settings WHERE key = ?', ['u:$key']);
     return rows.isEmpty ? null : rows.first['value'] as String;
   }
 
-  void setLocalSetting(String key, String value) => _db.execute(
-        'INSERT INTO local_settings (key, value) VALUES (?, ?) '
-        'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
-        ['u:$key', value],
-      );
+  void setLocalSetting(String key, String value) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) {
+      s.set(key, value);
+      return;
+    }
+    _db.execute(
+      'INSERT INTO local_settings (key, value) VALUES (?, ?) '
+      'ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+      ['u:$key', value],
+    );
+  }
 
   // ------------------------------------------- hidden (display filter)
 
@@ -219,18 +268,40 @@ class CatalogStore {
 
   /// All local settings under a prefix, as (suffix, value) —
   /// e.g. the always-allowed sync devices under 'trust:'.
-  List<(String, String)> localSettingsByPrefix(String prefix) => [
+  List<(String, String)> localSettingsByPrefix(String prefix) {
+    final s = shared;
+    if (s != null && isSharedSetting(prefix)) return s.byPrefix(prefix);
+    return [
+      for (final r in _db.select(
+          "SELECT key, value FROM local_settings WHERE key LIKE ?",
+          ['u:$prefix%']))
+        (
+          (r['key'] as String).substring('u:'.length + prefix.length),
+          r['value'] as String
+        )
+    ];
+  }
+
+  /// Every device-local setting as (key, value), without the internal
+  /// prefix — used when a catalog hands its app-level settings over to
+  /// a shared store.
+  List<(String, String)> allLocalSettings() => [
         for (final r in _db.select(
-            "SELECT key, value FROM local_settings WHERE key LIKE ?",
-            ['u:$prefix%']))
+            "SELECT key, value FROM local_settings WHERE key LIKE 'u:%'"))
           (
-            (r['key'] as String).substring('u:'.length + prefix.length),
+            (r['key'] as String).substring('u:'.length),
             r['value'] as String
           )
       ];
 
-  void removeLocalSetting(String key) =>
-      _db.execute('DELETE FROM local_settings WHERE key = ?', ['u:$key']);
+  void removeLocalSetting(String key) {
+    final s = shared;
+    if (s != null && isSharedSetting(key)) {
+      s.remove(key);
+      return;
+    }
+    _db.execute('DELETE FROM local_settings WHERE key = ?', ['u:$key']);
+  }
 
   /// Canonical ids currently hidden on this device.
   List<String> hiddenIds() => [
@@ -268,22 +339,15 @@ class CatalogStore {
           [...args, '${Keys.imagePrefix}%']))
         (r['field'] as String).substring(Keys.imagePrefix.length)
     };
-    _db.execute('BEGIN');
-    try {
-      _db.execute('DELETE FROM entries WHERE $where', args);
-      _db.execute('COMMIT');
-    } catch (_) {
-      _db.execute('ROLLBACK');
-      rethrow;
-    }
-    final removed = <String>[];
+    _removeEntries(where, args);
+    final removedBlobs = <String>[];
     for (final hash in touched) {
       if (!_imageReferenced(hash) && _blobs.get(hash) != null) {
         _blobs.remove(hash);
-        removed.add(hash);
+        removedBlobs.add(hash);
       }
     }
-    return removed;
+    return removedBlobs;
   }
 
   /// The local ban list: banned material is received and discarded on
@@ -341,6 +405,20 @@ class CatalogStore {
 
   // ------------------------------------------------------------------- log
 
+  /// The next sequence number for [device]: one above the high-water
+  /// mark, which counts physically removed entries as well as surviving
+  /// ones. A number is never issued twice — peers keep removed entries
+  /// under their old numbers, and an entry re-using one would be ignored
+  /// by everyone who already synced.
+  int _nextDseq(String device) {
+    final highest = _db.select(
+      'SELECT COALESCE(MAX(dseq), 0) AS n FROM entries WHERE device = ?',
+      [device],
+    ).first['n'] as int;
+    final removed = _discardedVector()[device] ?? 0;
+    return (highest > removed ? highest : removed) + 1;
+  }
+
   /// Appends one immutable fact. [date] is the effective (backdatable)
   /// date and defaults to now. Uses the configured [author] unless [as]
   /// overrides it (seeding).
@@ -350,10 +428,7 @@ class CatalogStore {
     if (by == null) throw StateError('No author configured');
     final now = DateTime.now().toUtc();
     final device = deviceId;
-    final next = _db.select(
-      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
-      [device],
-    ).first['n'] as int;
+    final next = _nextDseq(device);
     _db.execute(
       'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
       'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
@@ -368,6 +443,34 @@ class CatalogStore {
         _iso(now),
       ],
     );
+  }
+
+  /// Takes entries from another catalog as this device's own: the same
+  /// facts, authors and dates, under fresh numbers of this device.
+  ///
+  /// Keeping the original (device, dseq) would be a lie with teeth: a
+  /// partner both catalogs sync with would later push that device's
+  /// newer entries straight into this one, and the two catalogs the
+  /// keeper separated would quietly merge again.
+  void adoptEntries(Iterable<Entry> entries) {
+    final device = deviceId;
+    var next = _nextDseq(device);
+    for (final e in entries) {
+      _db.execute(
+        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [
+          device,
+          next++,
+          e.entity,
+          e.field,
+          e.value,
+          _iso(e.date),
+          e.author,
+          _iso(e.recorded),
+        ],
+      );
+    }
   }
 
   Entry _entry(Row r) => Entry(
@@ -641,6 +744,16 @@ class CatalogStore {
   void moveCat(String catId, String? clowderId, {DateTime? date}) =>
       append(catId, Keys.clowder, clowderId, date: date);
 
+  /// The Clowder a Stray last lived in — the home it ran from. Null for
+  /// a Cat that never had one. Only the newest membership counts: a Cat
+  /// runs from where it was last, not from every home it ever had.
+  String? formerClowder(String catId) {
+    for (final e in fieldHistory(catId, Keys.clowder)) {
+      if (e.value != null) return resolveEntity(e.value!);
+    }
+    return null;
+  }
+
   /// Cats currently in no Clowder (see CONTEXT.md: Stray).
   List<EntityView> strays() => [
         for (final id in _entitiesOf(Kinds.cat))
@@ -684,13 +797,45 @@ class CatalogStore {
   /// The key of the built-in Position starter field ("lat,lon").
   static const positionKey = 'f:position';
 
-  /// An entity's current position, parsed from the Position field.
+  /// An entity's current position, parsed from the Position field —
+  /// any kind, fliers included.
   (double, double)? positionOf(String entityId) =>
       parsePosition(current(entityId, positionKey));
 
-  /// Parses a "lat,lon" value; null for absent or malformed input.
+  /// The latest SIGHTING position — flier positions never become
+  /// sighting pins (#30). Null for off-map strays.
+  (double, double)? sightingPositionOf(String entityId) {
+    for (final e in fieldHistory(entityId, positionKey)) {
+      if (parsePositionKind(e.value ?? '') != PositionKind.sighting) {
+        continue;
+      }
+      final pos = parsePosition(e.value);
+      if (pos != null) return pos;
+    }
+    return null;
+  }
+
+  /// All flier positions ever recorded on the entity, newest first.
+  List<(double, double)> flierPositions(String entityId) => [
+        for (final e in fieldHistory(entityId, positionKey))
+          if (parsePositionKind(e.value ?? '') == PositionKind.flier)
+            if (parsePosition(e.value) case final pos?) pos
+      ];
+
+  /// The kind marker of a position value; plain "lat,lon" is a sighting.
+  /// Flier positions are stored as "lat,lon@flier" — older versions
+  /// fail to parse the suffix and simply ignore such entries.
+  static PositionKind parsePositionKind(String value) =>
+      value.endsWith('@${PositionKind.flier.name}')
+          ? PositionKind.flier
+          : PositionKind.sighting;
+
+  /// Parses a "lat,lon" value (with or without a "@kind" suffix);
+  /// null for absent or malformed input.
   static (double, double)? parsePosition(String? value) {
     if (value == null) return null;
+    final at = value.indexOf('@');
+    if (at >= 0) value = value.substring(0, at);
     final parts = value.split(',');
     if (parts.length != 2) return null;
     final lat = double.tryParse(parts[0].trim());
@@ -700,19 +845,31 @@ class CatalogStore {
     return (lat, lon);
   }
 
-  /// Records a position sighting at the current (or given) date.
+  /// Records a position at the current (or given) date; sightings are
+  /// stored plain, other kinds carry their marker.
   void recordPosition(String entityId, double lat, double lon,
-          {DateTime? date}) =>
-      append(entityId, positionKey, '$lat,$lon', date: date);
+          {PositionKind kind = PositionKind.sighting, DateTime? date}) =>
+      append(
+          entityId,
+          positionKey,
+          kind == PositionKind.sighting
+              ? '$lat,$lon'
+              : '$lat,$lon@${kind.name}',
+          date: date);
 
-  /// Cats whose current name contains [query], case-insensitive —
-  /// across all Clowders and Strays. Deleted Cats never appear.
+  /// Cats whose current name or Remarks contain [query],
+  /// case-insensitive — across all Clowders and Strays. Deleted Cats
+  /// never appear.
   List<EntityView> searchCats(String query) {
     final q = query.trim().toLowerCase();
     if (q.isEmpty) return const [];
     return [
       for (final view in cats())
-        if (view.name.toLowerCase().contains(q)) view
+        if (view.name.toLowerCase().contains(q) ||
+            (current(view.id, Keys.userField('remarks')) ?? '')
+                .toLowerCase()
+                .contains(q))
+          view
     ];
   }
 
@@ -835,6 +992,23 @@ class CatalogStore {
   /// The stored bytes for a content hash, or null if unknown.
   Uint8List? imageBytes(String hash) => _blobs.get(hash);
 
+  /// What this catalog costs on the device: the database, and the photo
+  /// blobs beside it. Photos are what grows — an entry row is bytes,
+  /// a photo is hundreds of kilobytes.
+  ({int dbBytes, int photoBytes, int photoCount, int entries}) storageUsage() {
+    final pages = _db.select('PRAGMA page_count').first.values.first as int;
+    final pageSize = _db.select('PRAGMA page_size').first.values.first as int;
+    final rows =
+        _db.select('SELECT COUNT(*) AS c FROM entries').first['c'] as int;
+    final (photoBytes, photoCount) = _blobs.usage();
+    return (
+      dbBytes: pages * pageSize,
+      photoBytes: photoBytes,
+      photoCount: photoCount,
+      entries: rows,
+    );
+  }
+
   /// Marks [hash] as the Cat's Profile Image.
   void setProfileImage(String catId, String hash, {DateTime? date}) =>
       append(catId, Keys.profileImage, hash, date: date);
@@ -846,6 +1020,114 @@ class CatalogStore {
     final all = images(catId);
     if (chosen != null && all.contains(chosen)) return chosen;
     return all.isEmpty ? null : all.first;
+  }
+
+  // ------------------------------------------------------------ moments
+
+  /// The log's high-water mark right now. A moment the catalog can be
+  /// returned to is nothing more than this number: everything written
+  /// after it is what going back removes.
+  ///
+  /// Load-bearing: `entries.seq` is AUTOINCREMENT, so SQLite never
+  /// re-uses a number after a delete and an old mark keeps meaning the
+  /// same moment.
+  int currentSeq() =>
+      _db.select('SELECT COALESCE(MAX(seq), 0) AS n FROM entries')
+          .first['n'] as int;
+
+  /// Records a moment. [seq] defaults to now; callers that only know
+  /// afterwards whether anything happened pass the mark they took
+  /// before — an operation that changed nothing records nothing.
+  int addMoment(
+      {required String cause, String? label, int? seq, DateTime? at}) {
+    // Never above the log itself: entries can be removed physically, so
+    // a mark taken earlier could otherwise point past the end and sort
+    // as the newest moment for ever.
+    final now = currentSeq();
+    final mark = seq == null || seq > now ? now : seq;
+    _db.execute(
+      'INSERT INTO moments (seq, cause, label, at) VALUES (?, ?, ?, ?)',
+      [mark, cause, label, _iso(at ?? DateTime.now())],
+    );
+    return _db.lastInsertRowId;
+  }
+
+  /// Every recorded moment, newest first.
+  List<({int id, int seq, String cause, String? label, DateTime at})>
+      moments() => [
+            for (final r in _db.select(
+                'SELECT id, seq, cause, label, at FROM moments '
+                'ORDER BY seq DESC, id DESC'))
+              (
+                id: r['id'] as int,
+                seq: r['seq'] as int,
+                cause: r['cause'] as String,
+                label: r['label'] as String?,
+                at: DateTime.parse(r['at'] as String),
+              )
+          ];
+
+  void removeMoment(int id) =>
+      _db.execute('DELETE FROM moments WHERE id = ?', [id]);
+
+  /// Everything written after [seq], raw: private entries and markers
+  /// included, nothing filtered. Going back has to be able to put the
+  /// catalog back exactly as it was.
+  List<Entry> entriesAfter(int seq) => [
+        for (final r
+            in _db.select('SELECT * FROM entries WHERE seq > ? ORDER BY seq',
+                [seq]))
+          _entry(r)
+      ];
+
+  /// Physically removes everything written after [seq] and forgets the
+  /// moments that lived up there. THE second append-only exception
+  /// (ADR-0009), after hard delete. The caller writes the removed
+  /// entries out first — this does not.
+  ///
+  /// The removed numbers stay claimed (see [_nextDseq]), which also
+  /// stops a partner pushing an undone import straight back.
+  void removeEntriesAfter(int seq) {
+    final touched = <String>{
+      for (final r in _db.select(
+          'SELECT DISTINCT field FROM entries WHERE seq > ? AND field LIKE ?',
+          [seq, '${Keys.imagePrefix}%']))
+        (r['field'] as String).substring(Keys.imagePrefix.length)
+    };
+    _removeEntries('seq > ?', [seq], also: [
+      ('DELETE FROM moments WHERE seq > ?', [seq])
+    ]);
+    for (final hash in touched) {
+      if (!_imageReferenced(hash)) _blobs.remove(hash);
+    }
+  }
+
+  /// Physically removes the entries matching [where] and keeps their
+  /// numbers claimed, in one transaction.
+  ///
+  /// The claim has to land with the deletion, not after it: a crash in
+  /// between would free a number a peer already holds, which is exactly
+  /// the corruption ADR-0008 exists to prevent.
+  void _removeEntries(String where, List<Object?> args,
+      {List<(String, List<Object?>)> also = const []}) {
+    final removed = _db.select(
+        'SELECT device, MAX(dseq) AS m FROM entries WHERE $where '
+        'GROUP BY device',
+        args);
+    _db.execute('BEGIN');
+    try {
+      _db.execute('DELETE FROM entries WHERE $where', args);
+      for (final (sql, sqlArgs) in also) {
+        _db.execute(sql, sqlArgs);
+      }
+      for (final r in removed) {
+        _recordDiscarded(r['device'] as String, r['m'] as int);
+      }
+      _db.execute('COMMIT');
+    } catch (_) {
+      _db.execute('ROLLBACK');
+      rethrow;
+    }
   }
 
   // ------------------------------------------------------------------ sync
@@ -946,10 +1228,7 @@ class CatalogStore {
         .map(_entry)
         .toList();
     final device = deviceId;
-    var next = _db.select(
-      'SELECT COALESCE(MAX(dseq), 0) + 1 AS n FROM entries WHERE device = ?',
-      [device],
-    ).first['n'] as int;
+    var next = _nextDseq(device);
     for (final e in rows) {
       _db.execute(
         'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
@@ -1125,6 +1404,14 @@ class CatalogStore {
       append(entity, Keys.conflict(field), 'resolved');
 
   /// Content hashes referenced as added somewhere but missing locally.
+  /// True when this catalog has ever heard of the image, even if it is
+  /// currently deleted — an archive file carries the bytes of deleted
+  /// photos so a restore can bring them back.
+  bool knowsImage(String hash) => _db.select(
+        'SELECT 1 FROM entries WHERE field = ? LIMIT 1',
+        [Keys.image(hash)],
+      ).isNotEmpty;
+
   List<String> missingBlobs() {
     final rows = _db.select(
       'SELECT DISTINCT field FROM entries WHERE field LIKE ?',
@@ -1179,7 +1466,9 @@ class CatalogStore {
       final cid = resolveEntity(c.id);
       if (cid == id) continue;
       final m = ref(cid, 'f:mother');
-      if (m == id) {
+      // Kittens name this cat as mother OR father — dads see their
+      // litter too.
+      if (m == id || ref(cid, 'f:father') == id) {
         kittens.add(cid);
         continue;
       }
@@ -1230,6 +1519,23 @@ class CatalogStore {
     append(catId, Keys.deleted, 'true', date: date);
   }
 
+  /// Undoes a deletion: the entity is visible again, and its photos
+  /// come back for every blob still present (an archive import brings
+  /// the bytes with it). Ordinary entries, so the restore syncs like
+  /// the deletion did.
+  void restoreEntity(String id, {DateTime? date}) {
+    final entity = resolveEntity(id);
+    append(entity, Keys.deleted, null, date: date);
+    for (final field in currentFields(entity).entries) {
+      if (!field.key.startsWith(Keys.imagePrefix)) continue;
+      if (field.value != 'deleted') continue;
+      final hash = field.key.substring(Keys.imagePrefix.length);
+      if (_blobs.get(hash) != null) {
+        append(entity, field.key, 'added', date: date);
+      }
+    }
+  }
+
   /// Deletes a Clowder. Its current Cats are not deleted with it — they
   /// fall out as Strays (see CONTEXT.md: Stray).
   void deleteClowder(String clowderId, {DateTime? date}) {
@@ -1258,6 +1564,9 @@ class CatalogStore {
             .split('\n')
             .where((o) => o.isNotEmpty)
             .toList(),
+        idDisplay: IdDisplay.values.asNameMap()[fields[Keys.fieldIdDisplay]] ??
+            IdDisplay.plain,
+        lookupUrl: fields[Keys.fieldLookupUrl],
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);
@@ -1272,6 +1581,8 @@ class CatalogStore {
   String defineField(String name, FieldType type,
       {FieldScope scope = FieldScope.both,
       List<String> options = const [],
+      IdDisplay idDisplay = IdDisplay.plain,
+      String? lookupUrl,
       DateTime? date}) {
     final slug = slugify(name);
     if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
@@ -1286,7 +1597,26 @@ class CatalogStore {
     if (options.isNotEmpty) {
       append(id, Keys.fieldOptions, options.join('\n'), date: date);
     }
+    if (type == FieldType.id && idDisplay != IdDisplay.plain) {
+      append(id, Keys.fieldIdDisplay, idDisplay.name, date: date);
+    }
+    if (type == FieldType.id && lookupUrl != null && lookupUrl.isNotEmpty) {
+      append(id, Keys.fieldLookupUrl, lookupUrl, date: date);
+    }
     return id;
+  }
+
+  /// Points an ID Field at a service: a URL template with `{value}`,
+  /// or null/empty to detach it again. Recorded history like any other
+  /// change.
+  void setFieldLookupUrl(String fieldDefId, String? template,
+      {DateTime? date}) {
+    if (current(fieldDefId, Keys.type) != Kinds.fieldDef) {
+      throw ArgumentError('Not a field definition: $fieldDefId');
+    }
+    append(fieldDefId, Keys.fieldLookupUrl,
+        (template == null || template.isEmpty) ? null : template,
+        date: date);
   }
 
   /// Replaces a choice Field's option list. Values already stored that
@@ -1328,6 +1658,11 @@ class CatalogStore {
       if (f.options.isNotEmpty) {
         append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
       }
+      // Chip IDs are transponder numbers — the Card shows them scannable.
+      if (f.type == FieldType.id) {
+        append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name,
+            as: seedAuthor);
+      }
     }
   }
 
@@ -1350,6 +1685,9 @@ abstract interface class _BlobStore {
   void put(String hash, Uint8List bytes);
   Uint8List? get(String hash);
   void remove(String hash);
+
+  /// Bytes and file count currently stored — the About page's size line.
+  (int bytes, int count) usage();
 }
 
 class _FileBlobStore implements _BlobStore {
@@ -1374,6 +1712,18 @@ class _FileBlobStore implements _BlobStore {
   }
 
   @override
+  (int, int) usage() {
+    var bytes = 0, count = 0;
+    for (final f in _dir.listSync()) {
+      if (f is File) {
+        bytes += f.lengthSync();
+        count++;
+      }
+    }
+    return (bytes, count);
+  }
+
+  @override
   void remove(String hash) {
     final f = _file(hash);
     if (f.existsSync()) f.deleteSync();
@@ -1391,4 +1741,13 @@ class _MemoryBlobStore implements _BlobStore {
 
   @override
   void remove(String hash) => _blobs.remove(hash);
+
+  @override
+  (int, int) usage() {
+    var bytes = 0;
+    for (final b in _blobs.values) {
+      bytes += b.length;
+    }
+    return (bytes, _blobs.length);
+  }
 }

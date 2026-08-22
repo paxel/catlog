@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
 import 'screens/position_picker_screen.dart';
+import 'screens/scan_screen.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
 /// (possibly backdated) date.
@@ -173,10 +174,39 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           },
         );
       case FieldType.text:
+        // Remarks holds whole notes (OCR dumps included) — multiline.
+        final multiline = def.slug == 'remarks';
         return TextField(
           controller: _text,
           autofocus: true,
+          minLines: multiline ? 3 : 1,
+          maxLines: multiline ? 8 : 1,
           decoration: InputDecoration(labelText: context.t.value),
+        );
+      case FieldType.id:
+        // Typed or scanned — QR and 1D barcodes both land here (#28).
+        // "Scan" means the PRINTED code: a tester pointed the camera at
+        // the cat, expecting to read the implanted transponder.
+        return TextField(
+          controller: _text,
+          autofocus: true,
+          decoration: InputDecoration(
+            labelText: context.t.value,
+            helperText:
+                def.slug == 'chipid' ? context.t.chipScanHint : null,
+            helperMaxLines: 3,
+            suffixIcon: IconButton(
+              icon: const Icon(Icons.qr_code_scanner),
+              tooltip: context.t.scanPrintedCode,
+              onPressed: () async {
+                final value = await Navigator.of(context).push<String>(
+                    MaterialPageRoute(builder: (_) => const ScanScreen()));
+                if (value != null && value.isNotEmpty) {
+                  setState(() => _text.text = value);
+                }
+              },
+            ),
+          ),
         );
       case FieldType.cat:
         final store = widget.store;
@@ -213,6 +243,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       case FieldType.text:
       case FieldType.location:
       case FieldType.number:
+      case FieldType.id:
         final v = _text.text.trim();
         return v.isEmpty ? null : v;
     }

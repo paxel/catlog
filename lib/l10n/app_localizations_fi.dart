@@ -181,7 +181,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös auttajiesi laitteilta.';
+      'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
 
   @override
   String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
@@ -210,6 +210,182 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Sirunumero';
+
+  @override
+  String get starterRemarks => 'Huomautukset';
+
+  @override
+  String get captureFlier => 'Kuvaa ilmoitus';
+
+  @override
+  String get addPhotosTo => 'Lisää kuvat kohteeseen…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count kuvaa lisätty: $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skannaa painettu koodi';
+
+  @override
+  String get chipScanHint =>
+      'Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea kissan sisällä olevaa sirua.';
+
+  @override
+  String get savingLabel => 'Tallennetaan…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Omistaja: $name';
+  }
+
+  @override
+  String get sortLabel => 'Järjestä';
+
+  @override
+  String get viewAsTable => 'Näytä taulukkona';
+
+  @override
+  String get viewAsTiles => 'Näytä ruutuina';
+
+  @override
+  String get matchCandidatesTitle => 'Mahdolliset osumat';
+
+  @override
+  String get findDuplicates => 'Etsi kaksoiskappaleet';
+
+  @override
+  String get noDuplicates => 'Ei mahdollisia kaksoiskappaleita juuri nyt.';
+
+  @override
+  String get similarName => 'Samankaltainen nimi';
+
+  @override
+  String get sharePublicly => 'Jaa julkisesti…';
+
+  @override
+  String get privateNoShare =>
+      'Tämä kissa on merkitty yksityiseksi — yksityiset tiedot eivät koskaan poistu laitteeltasi. Poista merkintä ensin jakaaksesi julkisesti.';
+
+  @override
+  String get pickFramesTitle => 'Valitse ruudut';
+
+  @override
+  String get suggestedFrames => 'Ehdotetut ruudut';
+
+  @override
+  String get scrubFrames => 'Kelaa videota';
+
+  @override
+  String get keepThisFrame => 'Pidä tämä ruutu';
+
+  @override
+  String get fromVideo => 'Videosta…';
+
+  @override
+  String get videoMobileOnly =>
+      'Ruutujen poiminta videosta toimii puhelinsovelluksessa (Android ja iPhone) — ei vielä tällä laitteella.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Valitse, mitä tiedostoon tulee. Vain valitut kentät otetaan mukaan.';
+
+  @override
+  String get exportShareFile => 'Vie jakotiedosto…';
+
+  @override
+  String get hostedLink => 'Isännöity linkki (ladatun tiedoston URL)';
+
+  @override
+  String get inlineQr => 'Upotettu QR (vain tekstiä, ei kuvia)';
+
+  @override
+  String get inlineTooBig =>
+      'Liikaa dataa upotettuun koodiin — poista kenttiä tai käytä isännöityä linkkiä.';
+
+  @override
+  String get scanShareLabel => 'Skannaa jakokoodi';
+
+  @override
+  String get notAShareCode => 'Tuo koodi ei ole cat(a)log-jako.';
+
+  @override
+  String get importShareTitle => 'Tuodaanko tämä kissa?';
+
+  @override
+  String shareSource(String url) {
+    return 'Lähde: $url';
+  }
+
+  @override
+  String get importLabel => 'Tuo';
+
+  @override
+  String get strayAreaLabel => 'Mahdollinen kulkualue';
+
+  @override
+  String get prevPin => 'Edellinen merkki';
+
+  @override
+  String get nextPin => 'Seuraava merkki';
+
+  @override
+  String get noMissingCats =>
+      'Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.';
+
+  @override
+  String get noMatchCandidates => 'Ei mahdollisia osumia juuri nyt.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m päässä toisistaan';
+  }
+
+  @override
+  String get addFlier => 'Lisää ilmoitus';
+
+  @override
+  String get missingSinceLabel => 'Kadonnut alkaen';
+
+  @override
+  String get phoneLabel => 'Puhelin';
+
+  @override
+  String get cropPortrait => 'Rajaa muotokuva';
+
+  @override
+  String get statusOwner => 'Omistaja';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstintunnistus ei ole käytettävissä tällä laitteella — kirjoita ilmoituksen teksti itse.';
+
+  @override
+  String get displayFormat => 'Näytetään muodossa';
+
+  @override
+  String get displayPlain => 'Pelkkä teksti';
+
+  @override
+  String get displayQr => 'QR-koodi';
+
+  @override
+  String get displayBarcode => 'Viivakoodi';
+
+  @override
+  String get editLabel => 'Muokkaa';
+
+  @override
+  String get doneLabel => 'Valmis';
+
+  @override
   String get openSettings => 'Avaa asetukset';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get malePregnant =>
       'Tämä kissa on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name on merkitty naaraaksi eikä voi olla isä. Tarkista ensin sukupuoli.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name on merkitty urokseksi eikä voi olla emo. Tarkista ensin sukupuoli.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name syntyi $date — vanhempi ei voi syntyä pentunsa jälkeen.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Tämä kissa on merkitty muiden kissojen isäksi — isä ei voi olla naaras. Tarkista ensin perhe.';
+
+  @override
+  String get genderMotherMale =>
+      'Tämä kissa on merkitty muiden kissojen emoksi — emo ei voi olla uros. Tarkista ensin perhe.';
 
   @override
   String get moveTo => 'Siirrä kohteeseen';
@@ -417,7 +616,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synkronoi kansion kautta, jota pilvi tai USB-tikku kuljettaa laitteiden välillä — niille, jotka eivät ole samassa verkossa.';
+      'Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
 
   @override
   String get noFolderChosenYet => 'Kansiota ei ole vielä valittu';
@@ -597,6 +796,233 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterResponsible => 'Vastuuhenkilö';
 
   @override
+  String get starterEmail => 'Sähköposti';
+
+  @override
+  String get starterPhone => 'Puhelin';
+
+  @override
+  String get lookupUrlLabel => 'Hakulinkki';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Palvelun sivu, jossa $token on numeron paikalla, esim. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Hae';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Mikään sovellus ei voinut avata osoitetta $url. Kopioi linkki selaimeen.';
+  }
+
+  @override
+  String get stepCat => 'Kissa';
+
+  @override
+  String get stepOwner => 'Omistaja';
+
+  @override
+  String get stepFace => 'Kasvokuva';
+
+  @override
+  String get stepRegistry => 'Rekisteri';
+
+  @override
+  String get stepReview => 'Tarkista ja tallenna';
+
+  @override
+  String get stepOwnerHint =>
+      'Se, jolta kissa on kadonnut — tästä tulee hänen korttinsa ilmoituksen yhteystiedoin.';
+
+  @override
+  String get stepFaceHint =>
+      'Rajaa kissan kasvot ilmoituksesta; niistä tulee profiilikuva. Voit ohittaa tämän.';
+
+  @override
+  String get stepRegistryHint =>
+      'Ilmoituksesta löytyneet numerot. Valitut tallennetaan kissalle ja ne voi avata myöhemmin.';
+
+  @override
+  String get noRegistryLinks =>
+      'Tässä ilmoituksessa ei ole rekisterilinkkejä — täällä ei ole tehtävää.';
+
+  @override
+  String get unknownServiceHint => 'Tuntematon palvelu';
+
+  @override
+  String get rememberService => 'Muista palvelu';
+
+  @override
+  String get rememberServiceHint =>
+      'Anna palvelulle nimi ja osoita numero linkistä. Seuraava ilmoitus täyttyy itsestään.';
+
+  @override
+  String get noIdInLink =>
+      'Tässä linkissä ei ole numeroa, jonka sovellus voisi tallentaa.';
+
+  @override
+  String get whichNumber => 'Mikä osa on numero?';
+
+  @override
+  String get cropAgain => 'Rajaa uudelleen';
+
+  @override
+  String get noFaceYet => 'Ei vielä kasvokuvaa — käytetään ilmoituksen kuvaa.';
+
+  @override
+  String get backLabel => 'Takaisin';
+
+  @override
+  String get dangerButton => 'ÄLÄ PAINA.\nVAARA';
+
+  @override
+  String get dangerThanks => 'Kiitos, että käytät cat(a)logia!';
+
+  @override
+  String get helpTitle => 'Ohje';
+
+  @override
+  String get showTipsAgain => 'Näytä vinkit uudelleen';
+
+  @override
+  String get helpHome =>
+      'Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.';
+
+  @override
+  String get helpClowder =>
+      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.';
+
+  @override
+  String get helpCat =>
+      'Kaikki tästä kissasta: kuvat, kentät, suku, historia. Sivu on vain luettava, kunnes napautat kynää. Pidä kenttää painettuna päästäksesi suoraan sen muokkaukseen; kuvaa avataksesi sen valikon. Oikean yläkulman valikossa on loput: merkitse yksityiseksi, piilota, yhdistä, kirjaa havainto, jaa.';
+
+  @override
+  String get helpStrays =>
+      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.';
+
+  @override
+  String get helpMap =>
+      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.';
+
+  @override
+  String get helpCard =>
+      'Kissan tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä.';
+
+  @override
+  String get helpFields =>
+      'Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa kissan kohdalla.';
+
+  @override
+  String get helpTimeline =>
+      'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.';
+
+  @override
+  String get helpDuplicates =>
+      'Kissat tai koloniat, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.';
+
+  @override
+  String get helpMatches =>
+      'Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten.';
+
+  @override
+  String get helpFlier =>
+      'Valokuvatusta ilmoituksesta tulee kissa ja sen omistaja. Vaihe vaiheelta: kissan tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.';
+
+  @override
+  String get archiveTitle => 'Arkisto';
+
+  @override
+  String get archiveExplainer =>
+      'Kuolleet kissat ja tyhjät koloniat, joihin kukaan ei ole koskenut vuosiin, vievät silti tilaa — etenkin niiden kuvat. Arkistointi kirjoittaa ne tiedostoon, jonka säilytät, ja poistaa ne sitten täältä.';
+
+  @override
+  String get archiveAction => 'Arkistoi';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkistoi $count kohdetta';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arkistoidaanko $count kohdetta?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names kirjoitetaan tiedostoon ja poistetaan sitten — laitteeltasi ja jokaiselta laitteelta, jonka kanssa synkronoit. Tiedoston tuonti palauttaa kaiken; ilman sitä ne ovat poissa.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count kohdetta arkistoitu ja poistettu';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Mitään ei poistettu: arkistotiedostoa ei voitu kirjoittaa ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Tietokanta $db, kuvat $photos $count tiedostossa';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Hiljaa $years vuotta';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Mikään ei ole tarpeeksi vanhaa arkistoitavaksi.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Viimeisin muutos $date · kuvat $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Vanha tieto vie tilaa, ennen kaikkea kuvat, joita jokainen synkronoitu laite raahaa mukanaan. Täällä valitset kuolleet kissat ja tyhjät koloniat, jotka ovat olleet vuosia hiljaa, kirjoitat ne tiedostoon jonka säilytät, ja poistat ne. Poisto tavoittaa kaikki, joiden kanssa synkronoit; tiedoston tuonti palauttaa kaiken.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Palautetaanko $count poistettua kohdetta?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names on poistettu tästä luettelosta, ja juuri tuomasi tiedosto sisältää ne. Palauttaminen tuo ne takaisin tänne ja jokaiseen laitteeseen, jonka kanssa synkronoit.';
+  }
+
+  @override
+  String get restoreAction => 'Palauta';
+
+  @override
+  String get keepDeleted => 'Pidä poistettuina';
+
+  @override
+  String get archiveNotSaved =>
+      'Mitään ei poistettu: arkistoa ei tallennettu minnekään.';
+
+  @override
+  String get locateAddress => 'Etsi osoite kartalta';
+
+  @override
+  String get addressLocated => 'Osoite löytyi';
+
+  @override
+  String get addressNotFound =>
+      'Osoitteelle ei löytynyt paikkaa. Tarkista kirjoitusasu tai jätä kenttä tyhjäksi.';
+
+  @override
   String get starterPosition => 'Sijainti';
 
   @override
@@ -712,7 +1138,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Yksityiset kissat, ryhmät ja kentät jaetaan myös — kytke päälle vain omien laitteidesi synkronoinnissa.';
+      'Tämä lähettää myös kaiken yksityiseksi merkityn. Se, jonka kanssa synkronoit, näkee sen.';
 
   @override
   String get hideLabel => 'Piilota tällä laitteella';
@@ -730,7 +1156,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterSpecies => 'Laji';
 
   @override
-  String get starterStatus => 'Tila';
+  String get starterStatus => 'Tyyppi';
 
   @override
   String get statusFoster => 'Sijaiskoti';
@@ -924,7 +1350,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä';
+      'Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä — ja tuo vastaanotettu .catsync-tiedosto tässä';
 
   @override
   String get connectToWifiFirst =>
@@ -971,25 +1397,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get selectClowderHint => 'Valitse clowder vasemmalta';
 
   @override
-  String get introTitle1 => 'Kissat asuvat clowdereissa';
+  String get introTitle1 => 'Kissasi järjestyksessä';
 
   @override
   String get introBody1 =>
-      'Clowder on paikka, jossa kissat asuvat: sijaiskotisi, adoptoijan asunto, naapurin lato. Jokainen kissa saa kortin, jossa on kuva, tiedot ja koko tarina.';
+      'Luo jokaiselle kissalle kortti: kuva, sukupuoli, terveys, mitä ikinä haluat kirjata. Kissat ryhmitellään asuinpaikan mukaan — sovellus kutsuu paikkaa nimellä clowder.';
 
   @override
-  String get introTitle2 => 'Kaikki pysyy sinulla';
+  String get introTitle2 => 'Toimii ilman nettiä';
 
   @override
   String get introBody2 =>
-      'Ei tiliä, ei pilveä, ei seurantaa. Tietosi asuvat laitteellasi.';
+      'Kaikki tallentuu vain puhelimeesi. Ei tiliä, ei pilveä. Mitään ei lähetetä, ellet itse jaa sitä.';
 
   @override
-  String get introTitle3 => 'Jaa auttajiesi kanssa';
+  String get introTitle3 => 'Tehkää yhteistyötä';
 
   @override
   String get introBody3 =>
-      'Skannaa koodi ja kaksi laitetta synkronoituu sekunneissa, käytä jaettua kansiota tai lähetä kaikki yhtenä tiedostona.';
+      'Jokainen käyttää omaa sovellustaan ja vaihdatte tietoja silloin tällöin: tavatkaa ja skannatkaa koodi, käyttäkää jaettua kansiota tai lähettäkää yksi tiedosto viestimellä. Sen jälkeen kaikilla on samat tiedot.';
 
   @override
   String get introSkip => 'Ohita';
@@ -1005,19 +1431,50 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Uutta: synkronointi tarjoaa nyt kolme selkeää tapaa — ja luottamuskysymyksen ennen kuin mitään liikkuu.';
+      'Täällä synkronoit tuttujesi kanssa. Sinä päätät, mitä jaat.';
+
+  @override
+  String get spotHomeStrays =>
+      'Tämä kortti kokoaa kaikki kulkukissat — kodittomat kissat. Napauta nähdäksesi listan.';
+
+  @override
+  String get spotHomeMenu =>
+      'Tässä valikossa: etsi ja yhdistä kaksoiskappaleet, vie CSV ja muuta.';
+
+  @override
+  String get spotCatEdit =>
+      'Napauta kynää muokataksesi kissaa. Vinkki: paina kenttää pitkään muokataksesi sitä suoraan.';
+
+  @override
+  String get spotMapLayers =>
+      'Etsitkö kadonnutta kissaa? Näytä ympyrät sen ilmoitusten paikkojen ja sen entisen kodin ympärillä.';
+
+  @override
+  String get spotStraysFlier =>
+      'Löysitkö ilmoituksen kadonneesta kissasta? Kuvaa se tässä — sovellus tallentaa kissan ja yhteystiedon puolestasi.';
+
+  @override
+  String get spotStraysScan =>
+      'Joissakin ilmoituksissa on cat(a)log-QR-koodi. Skannaa se tässä ja tuo kissa kirjoittamatta.';
+
+  @override
+  String get introTitle4 => 'Löydä kadonneet kissat';
+
+  @override
+  String get introBody4 =>
+      'Näetkö ilmoituksen kadonneesta kissasta? Kuvaa se sovelluksessa: se tallentaa kissan, omistajan yhteystiedot ja paikan. Jos samankaltainen kulkukissa ilmestyy myöhemmin, sovellus ehdottaa mahdollisia osumia.';
 
   @override
   String get spotMapSearch =>
-      'Uutta: hae täältä kissoja, clowdereita ja henkilöitä — suoraan kartalla.';
+      'Kirjoita kissa, paikka tai henkilö hypätäksesi sinne kartalla.';
 
   @override
   String get spotCardChips =>
-      'Uutta: valitse mitä kortilla näkyy ennen jakamista.';
+      'Valitse, mitä jaettavalla kortilla näkyy — muu jää pois.';
 
   @override
   String get spotCatMenu =>
-      'Uutta: merkitse kissa yksityiseksi (ei koskaan poistu laitteeltasi) tai piilota se täällä.';
+      'Lisää toimintoja täällä: merkitse kissa yksityiseksi, piilota se, yhdistä kaksoiskappaleet tai kirjaa havainto.';
 
   @override
   String get spotDone => 'Selvä';
@@ -1058,4 +1515,134 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?';
+
+  @override
+  String get catalogsTitle => 'Luettelot';
+
+  @override
+  String get newCatalog => 'Uusi luettelo';
+
+  @override
+  String get catalogNameLabel => 'Luettelon nimi';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Luettelo nimeltä $name on jo olemassa. Valitse toinen nimi.';
+  }
+
+  @override
+  String get manageCatalogs => 'Hallitse luetteloita';
+
+  @override
+  String get helpCatalogs =>
+      'Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.';
+
+  @override
+  String get deleteCatalog => 'Poista luettelo';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name poistettu. Tiedosto on kohteessa $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Kirjoita $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa tai yritä myöhemmin.';
+  }
+
+  @override
+  String get moveToCatalog => 'Siirrä toiseen luetteloon';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count siirretty luetteloon $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Mikä siirtyy?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Siirretäänkö jotain luetteloon $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Kumoa tämä tuonti';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Tämän tuonnin tuomat $count muutosta poistetaan. Ne kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa ne. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Kumottu. Tiedosto on kohteessa $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Palaa taaksepäin';
+
+  @override
+  String get goBackToHere => 'Palaa tähän';
+
+  @override
+  String get momentImport => 'Ennen tuontia';
+
+  @override
+  String get momentSync => 'Ennen synkronointia';
+
+  @override
+  String get momentMerge => 'Ennen yhdistämistä';
+
+  @override
+  String get momentHardDelete => 'Ennen yhden tekijän tietojen poistoa';
+
+  @override
+  String get momentArchive => 'Ennen arkistointia';
+
+  @override
+  String get momentManual => 'Itse merkitsemäsi';
+
+  @override
+  String get showOlderMoments => 'Näytä vanhemmat';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kaikki tämän hetken jälkeen poistetaan — $count muutosta. Se kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa kaiken, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nimeä tämä hetki';
+
+  @override
+  String get helpGoBack =>
+      'Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ($error). Vapauta tilaa ja yritä uudelleen.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Jakotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa ja yritä uudelleen.';
+  }
 }

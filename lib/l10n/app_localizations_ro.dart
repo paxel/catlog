@@ -181,7 +181,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Pisica dispare din toate listele și fotografiile ei sunt eliminate — aici și, după următoarea sincronizare, și la ajutoarele tale.';
+      'Pisica dispare din toate listele, iar pozele ei sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
 
   @override
   String get sightingRecorded => 'Observație înregistrată la poziția ta.';
@@ -210,6 +210,182 @@ class AppLocalizationsRo extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Număr cip';
+
+  @override
+  String get starterRemarks => 'Observații';
+
+  @override
+  String get captureFlier => 'Fotografiază afișul';
+
+  @override
+  String get addPhotosTo => 'Adaugă fotografiile la…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotografii adăugate la $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Scanează codul tipărit';
+
+  @override
+  String get chipScanHint =>
+      'Scanează codul QR/de bare tipărit de pe cardul cipului sau actele veterinare — telefonul nu poate citi cipul din pisică.';
+
+  @override
+  String get savingLabel => 'Se salvează…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Stăpânul lui $name';
+  }
+
+  @override
+  String get sortLabel => 'Sortare';
+
+  @override
+  String get viewAsTable => 'Afișează ca tabel';
+
+  @override
+  String get viewAsTiles => 'Afișează ca plăci';
+
+  @override
+  String get matchCandidatesTitle => 'Potriviri posibile';
+
+  @override
+  String get findDuplicates => 'Găsește dubluri';
+
+  @override
+  String get noDuplicates => 'Nicio dublură posibilă momentan.';
+
+  @override
+  String get similarName => 'Nume asemănător';
+
+  @override
+  String get sharePublicly => 'Distribuie public…';
+
+  @override
+  String get privateNoShare =>
+      'Această pisică este marcată ca privată — datele private nu părăsesc niciodată dispozitivul. Eliminați mai întâi marcajul pentru a o distribui public.';
+
+  @override
+  String get pickFramesTitle => 'Alege cadre';
+
+  @override
+  String get suggestedFrames => 'Cadre sugerate';
+
+  @override
+  String get scrubFrames => 'Derulează videoclipul';
+
+  @override
+  String get keepThisFrame => 'Păstrează acest cadru';
+
+  @override
+  String get fromVideo => 'Din video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Alegerea cadrelor dintr-un video funcționează în aplicația de telefon (Android și iPhone) — încă nu pe acest dispozitiv.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Alege ce intră în fișier. Se includ doar câmpurile bifate.';
+
+  @override
+  String get exportShareFile => 'Exportă fișierul de distribuire…';
+
+  @override
+  String get hostedLink => 'Link găzduit (URL-ul fișierului încărcat)';
+
+  @override
+  String get inlineQr => 'QR încorporat (doar text, fără fotografii)';
+
+  @override
+  String get inlineTooBig =>
+      'Prea multe date pentru un cod încorporat — debifați câmpuri sau folosiți un link găzduit.';
+
+  @override
+  String get scanShareLabel => 'Scanează codul de distribuire';
+
+  @override
+  String get notAShareCode => 'Acest cod nu este o distribuire cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importați această pisică?';
+
+  @override
+  String shareSource(String url) {
+    return 'Sursă: $url';
+  }
+
+  @override
+  String get importLabel => 'Importă';
+
+  @override
+  String get strayAreaLabel => 'Zonă posibilă de hoinăreală';
+
+  @override
+  String get prevPin => 'Pinul anterior';
+
+  @override
+  String get nextPin => 'Pinul următor';
+
+  @override
+  String get noMissingCats =>
+      'Încă nicio pisică dispărută cu poziții de afișe.';
+
+  @override
+  String get noMatchCandidates => 'Nicio potrivire posibilă momentan.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Același $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'La $distance m distanță';
+  }
+
+  @override
+  String get addFlier => 'Adaugă afiș';
+
+  @override
+  String get missingSinceLabel => 'Dispărut din';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Decupează portretul';
+
+  @override
+  String get statusOwner => 'Stăpân';
+
+  @override
+  String get ocrUnavailable =>
+      'Recunoașterea textului nu este disponibilă pe acest dispozitiv — tastați singur textul afișului.';
+
+  @override
+  String get displayFormat => 'Afișat ca';
+
+  @override
+  String get displayPlain => 'Text simplu';
+
+  @override
+  String get displayQr => 'Cod QR';
+
+  @override
+  String get displayBarcode => 'Cod de bare';
+
+  @override
+  String get editLabel => 'Editează';
+
+  @override
+  String get doneLabel => 'Gata';
+
+  @override
   String get openSettings => 'Deschide setările';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get malePregnant =>
       'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name este înregistrată ca femelă și nu poate fi tatăl. Verificați mai întâi sexul.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name este înregistrat ca mascul și nu poate fi mama. Verificați mai întâi sexul.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name s-a născut la $date — un părinte nu se poate naște după puiul său.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Această pisică este înregistrată ca tată al altor pisici — tatăl nu poate fi femelă. Verificați mai întâi familia.';
+
+  @override
+  String get genderMotherMale =>
+      'Această pisică este înregistrată ca mamă a altor pisici — mama nu poate fi mascul. Verificați mai întâi familia.';
 
   @override
   String get moveTo => 'Mută în';
@@ -417,7 +616,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sincronizează printr-un dosar purtat între dispozitive de un cloud sau un stick USB — pentru cei care nu sunt în aceeași rețea.';
+      'Ambele dispozitive folosesc același dosar (de exemplu în Dropbox sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
 
   @override
   String get noFolderChosenYet => 'Niciun dosar ales încă';
@@ -597,7 +796,234 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterResponsible => 'Persoană responsabilă';
 
   @override
-  String get starterPosition => 'Poziție';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Link de căutare';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Pagina serviciului cu $token în locul numărului, de ex. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Caută';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nicio aplicație nu a putut deschide $url. Copiază linkul într-un browser.';
+  }
+
+  @override
+  String get stepCat => 'Pisică';
+
+  @override
+  String get stepOwner => 'Proprietar';
+
+  @override
+  String get stepFace => 'Poza feței';
+
+  @override
+  String get stepRegistry => 'Registru';
+
+  @override
+  String get stepReview => 'Verifică și salvează';
+
+  @override
+  String get stepOwnerHint =>
+      'Cine îi duce dorul pisicii — asta devine fișa lui, cu contactul de pe afiș.';
+
+  @override
+  String get stepFaceHint =>
+      'Decupează fața pisicii de pe afiș; devine poza de profil. Poți sări peste.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numere găsite pe afiș. Cele bifate se salvează la pisică și se pot deschide mai târziu.';
+
+  @override
+  String get noRegistryLinks =>
+      'Niciun link de registru pe acest afiș — nimic de făcut aici.';
+
+  @override
+  String get unknownServiceHint => 'Serviciu necunoscut';
+
+  @override
+  String get rememberService => 'Ține minte serviciul';
+
+  @override
+  String get rememberServiceHint =>
+      'Denumește serviciul și arată numărul din link. Următorul afiș se completează singur.';
+
+  @override
+  String get noIdInLink =>
+      'Acest link nu conține un număr pe care aplicația să-l salveze.';
+
+  @override
+  String get whichNumber => 'Care parte este numărul?';
+
+  @override
+  String get cropAgain => 'Decupează din nou';
+
+  @override
+  String get noFaceYet =>
+      'Încă nicio poză a feței — se folosește poza afișului.';
+
+  @override
+  String get backLabel => 'Înapoi';
+
+  @override
+  String get dangerButton => 'NU APĂSA.\nPERICOL';
+
+  @override
+  String get dangerThanks => 'Mulțumim că folosești cat(a)log!';
+
+  @override
+  String get helpTitle => 'Ajutor';
+
+  @override
+  String get showTipsAgain => 'Arată sfaturile din nou';
+
+  @override
+  String get helpHome =>
+      'Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.';
+
+  @override
+  String get helpClowder =>
+      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide.';
+
+  @override
+  String get helpCat =>
+      'Tot despre această pisică: poze, câmpuri, familie, istoric. Pagina e doar pentru citit până atingi creionul. Ține apăsat un câmp ca să intri direct în editarea lui; o poză pentru meniul ei. Meniul din dreapta sus are restul: marchează privat, ascunde, unește, notează observare, partajează.';
+
+  @override
+  String get helpStrays =>
+      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș.';
+
+  @override
+  String get helpMap =>
+      'Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.';
+
+  @override
+  String get helpCard =>
+      'Cardul de tipărit al pisicii: alege sus, cu etichetele, ce apare pe el, apoi partajează-l ca imagine sau PDF. Numerele pot fi tipărite ca QR sau cod de bare, iar o poziție devine un QR care deschide o hartă, plus un Plus Code scurt.';
+
+  @override
+  String get helpSync =>
+      'Cum ajung datele la alți oameni: conectare directă, un dosar pe care îl văd ambele dispozitive, sau un fișier trimis prin messenger. Tu decizi mereu ce pleacă — iar fișierele .catsync primite se deschid tot aici.';
+
+  @override
+  String get helpFields =>
+      'Câmpurile folosite de catalogul tău. Redenumește-le, schimbă opțiunile unui câmp cu listă sau creează-ți proprii câmpuri. Un câmp de identificator poate trimite la un serviciu (un registru), iar atunci numărul devine apăsabil la pisică.';
+
+  @override
+  String get helpTimeline =>
+      'Fiecare modificare făcută vreodată, cea mai nouă prima: cine ce a schimbat, când și în ce valoare. Orice intrare poate fi anulată — asta scrie o intrare nouă, nimic nu se șterge.';
+
+  @override
+  String get helpDuplicates =>
+      'Pisici sau colonii care par să existe de două ori — identificatoare identice sau nume foarte asemănătoare cu detalii care se potrivesc. Atinge o pereche ca s-o unești; unirea nu se poate anula, de aceea se cere confirmare.';
+
+  @override
+  String get helpMatches =>
+      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari.';
+
+  @override
+  String get helpFlier =>
+      'Un afiș fotografiat devine o pisică plus stăpânul ei. Pas cu pas: datele pisicii, contactul stăpânului, decuparea feței pentru poza de profil, numerele de registru de pe afiș, apoi o verificare finală. Totul e sugestie — corectează ce a citit greșit camera.';
+
+  @override
+  String get archiveTitle => 'Arhivă';
+
+  @override
+  String get archiveExplainer =>
+      'Pisicile decedate și coloniile goale de care nu s-a atins nimeni de ani de zile tot ocupă spațiu — mai ales pozele lor. Arhivarea le scrie într-un fișier pe care îl păstrezi și apoi le șterge de aici.';
+
+  @override
+  String get archiveAction => 'Arhivează';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhivează $count intrări';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arhivezi $count intrări?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names vor fi scrise într-un fișier și apoi șterse — de pe dispozitivul tău și de pe fiecare dispozitiv cu care sincronizezi. Importul fișierului aduce totul înapoi; fără el, sunt pierdute.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count intrări arhivate și șterse';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nu s-a șters nimic: fișierul de arhivă nu a putut fi scris ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Bază de date $db, poze $photos în $count fișiere';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Fără schimbări de $years ani';
+  }
+
+  @override
+  String get nothingToArchive => 'Nimic destul de vechi pentru arhivare.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ultima modificare $date · poze $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Datele vechi costă spațiu, mai ales pozele pe care fiecare dispozitiv sincronizat le cară. Aici alegi pisici decedate și colonii goale liniștite de ani de zile, le scrii într-un fișier pe care îl păstrezi și le ștergi. Ștergerea ajunge la toți cei cu care sincronizezi; importul fișierului restaurează totul.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Restaurezi $count intrări șterse?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sunt șterse în acest catalog, iar fișierul tocmai importat le conține. Restaurarea le aduce înapoi aici și pe fiecare dispozitiv cu care sincronizezi.';
+  }
+
+  @override
+  String get restoreAction => 'Restaurează';
+
+  @override
+  String get keepDeleted => 'Lasă șterse';
+
+  @override
+  String get archiveNotSaved =>
+      'Nu s-a șters nimic: arhiva nu a fost salvată nicăieri.';
+
+  @override
+  String get locateAddress => 'Caută adresa pe hartă';
+
+  @override
+  String get addressLocated => 'Adresă găsită';
+
+  @override
+  String get addressNotFound =>
+      'Nu s-a găsit niciun loc pentru această adresă. Verifică scrierea sau las-o goală.';
+
+  @override
+  String get starterPosition => 'Locație';
 
   @override
   String get valueYes => 'da';
@@ -712,7 +1138,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Pisicile, grupurile și câmpurile private sunt de asemenea partajate — activează doar când îți sincronizezi propriile dispozitive.';
+      'Astfel se trimite și tot ce ai marcat ca privat. Persoana cu care sincronizezi va vedea acele date.';
 
   @override
   String get hideLabel => 'Ascunde pe acest dispozitiv';
@@ -730,7 +1156,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterSpecies => 'Specie';
 
   @override
-  String get starterStatus => 'Stare';
+  String get starterStatus => 'Tip';
 
   @override
   String get statusFoster => 'Casă de plasament';
@@ -924,7 +1350,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Trimite totul ca un singur fișier prin orice messenger';
+      'Trimiteți totul ca un singur fișier prin orice messenger — și importați aici un fișier .catsync primit';
 
   @override
   String get connectToWifiFirst =>
@@ -972,25 +1398,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String get selectClowderHint => 'Alege un clowder din stânga';
 
   @override
-  String get introTitle1 => 'Pisicile trăiesc în clowdere';
+  String get introTitle1 => 'Pisicile tale, organizate';
 
   @override
   String get introBody1 =>
-      'Un clowder e un loc unde trăiesc pisici: casa ta de plasament, apartamentul unui adoptator, hambarul de alături. Fiecare pisică are o fișă cu poză, date și toată povestea ei.';
+      'Creează o fișă pentru fiecare pisică: poză, sex, sănătate, orice vrei să notezi. Pisicile sunt grupate după locul unde trăiesc — aplicația îl numește colonie (clowder).';
 
   @override
-  String get introTitle2 => 'Totul rămâne la tine';
+  String get introTitle2 => 'Funcționează fără internet';
 
   @override
   String get introBody2 =>
-      'Fără cont, fără cloud, fără urmărire. Datele tale trăiesc pe dispozitivul tău.';
+      'Totul se salvează doar pe telefonul tău. Fără cont, fără cloud. Nimic nu se trimite decât dacă distribui tu.';
 
   @override
-  String get introTitle3 => 'Împarte cu ajutoarele tale';
+  String get introTitle3 => 'Lucrați împreună';
 
   @override
   String get introBody3 =>
-      'Scanează un cod și două dispozitive se sincronizează în secunde, folosește un dosar partajat sau trimite totul ca un fișier.';
+      'Fiecare folosește aplicația proprie și schimbați date din când în când: întâlniți-vă și scanați un cod, folosiți un dosar comun sau trimiteți un fișier prin messenger. Apoi toți au aceleași informații.';
 
   @override
   String get introSkip => 'Sari peste';
@@ -1006,19 +1432,50 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nou: sincronizarea oferă acum trei căi clare — și o întrebare de încredere înainte să curgă ceva.';
+      'Aici sincronizezi cu cunoscuții tăi. Tu decizi ce împarți.';
+
+  @override
+  String get spotHomeStrays =>
+      'Acest card adună toți vagabonzii — pisici fără casă. Atinge-l pentru listă.';
+
+  @override
+  String get spotHomeMenu =>
+      'În acest meniu: găsește și unește dublurile, exportă CSV și altele.';
+
+  @override
+  String get spotCatEdit =>
+      'Atinge creionul ca să editezi pisica. Sfat: ține apăsat un câmp ca să-l editezi direct.';
+
+  @override
+  String get spotMapLayers =>
+      'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei și al casei din care a fugit.';
+
+  @override
+  String get spotStraysFlier =>
+      'Afiș cu pisică dispărută? Fotografiază-l aici — aplicația salvează pisica și contactul pentru tine.';
+
+  @override
+  String get spotStraysScan =>
+      'Unele afișe au un cod QR cat(a)log. Scanează-l aici și importă pisica fără să tastezi.';
+
+  @override
+  String get introTitle4 => 'Găsește pisicile dispărute';
+
+  @override
+  String get introBody4 =>
+      'Vezi un afiș cu o pisică dispărută? Fotografiază-l în aplicație: salvează pisica, contactul stăpânului și locul. Dacă mai târziu apare un vagabond asemănător, aplicația sugerează potriviri posibile.';
 
   @override
   String get spotMapSearch =>
-      'Nou: caută aici pisici, clowdere și persoane — direct pe hartă.';
+      'Scrie o pisică, un loc sau o persoană ca să sari acolo pe hartă.';
 
   @override
   String get spotCardChips =>
-      'Nou: alege ce apare pe fișă înainte s-o distribui.';
+      'Bifează ce apare pe cardul de partajat — restul rămâne în afara lui.';
 
   @override
   String get spotCatMenu =>
-      'Nou: marchează o pisică drept privată (nu părăsește niciodată dispozitivul) sau ascunde-o aici.';
+      'Mai multe acțiuni aici: marchează pisica privată, ascunde-o, unește dubluri sau notează o observare.';
 
   @override
   String get spotDone => 'Am înțeles';
@@ -1059,4 +1516,134 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?';
+
+  @override
+  String get catalogsTitle => 'Cataloage';
+
+  @override
+  String get newCatalog => 'Catalog nou';
+
+  @override
+  String get catalogNameLabel => 'Numele catalogului';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Există deja un catalog numit $name. Alege alt nume.';
+  }
+
+  @override
+  String get manageCatalogs => 'Gestionează cataloagele';
+
+  @override
+  String get helpCatalogs =>
+      'Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.';
+
+  @override
+  String get deleteCatalog => 'Șterge catalogul';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name șters. Fișierul e în $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Scrie $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ($error). Eliberează spațiu sau încearcă mai târziu.';
+  }
+
+  @override
+  String get moveToCatalog => 'Mută în alt catalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count mutate în $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Ce se mută?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Muți ceva în $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Anulează acest import';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Cele $count modificări aduse de acest import se elimină. Sunt scrise mai întâi într-un fișier, al cărui import le aduce înapoi. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Anulat. Fișierul e în $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Înapoi la un moment anterior';
+
+  @override
+  String get goBackToHere => 'Înapoi aici';
+
+  @override
+  String get momentImport => 'Înainte de import';
+
+  @override
+  String get momentSync => 'Înainte de sincronizare';
+
+  @override
+  String get momentMerge => 'Înainte de îmbinare';
+
+  @override
+  String get momentHardDelete => 'Înainte de ștergerea datelor unui autor';
+
+  @override
+  String get momentArchive => 'Înainte de arhivare';
+
+  @override
+  String get momentManual => 'Marcat de tine';
+
+  @override
+  String get showOlderMoments => 'Arată mai vechi';
+
+  @override
+  String goBackBody(int count) {
+    return 'Tot ce vine după acest moment se elimină — $count modificări. Se scrie mai întâi într-un fișier, al cărui import aduce totul înapoi, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.';
+  }
+
+  @override
+  String get nameThisMoment => 'Denumește acest moment';
+
+  @override
+  String get helpGoBack =>
+      'Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nu s-a eliminat nimic: fișierul care îl păstrează nu a putut fi scris ($error). Eliberează spațiu și încearcă din nou.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Fișierul de partajare nu a putut fi scris ($error). Eliberează spațiu și încearcă din nou.';
+  }
 }

@@ -181,7 +181,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Η γάτα εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες της αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στους βοηθούς σου.';
+      'Η γάτα εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες της αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στις άλλες συσκευές.';
 
   @override
   String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
@@ -210,6 +210,182 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Αριθμός τσιπ';
+
+  @override
+  String get starterRemarks => 'Σημειώσεις';
+
+  @override
+  String get captureFlier => 'Φωτογράφιση αφίσας';
+
+  @override
+  String get addPhotosTo => 'Προσθήκη φωτογραφιών σε…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count φωτογραφίες προστέθηκαν σε $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Σάρωση τυπωμένου κωδικού';
+
+  @override
+  String get chipScanHint =>
+      'Σαρώνει τον τυπωμένο κωδικό QR/γραμμωτό από την κάρτα τσιπ ή τα κτηνιατρικά έγγραφα — το τηλέφωνο δεν μπορεί να διαβάσει το τσιπ μέσα στη γάτα.';
+
+  @override
+  String get savingLabel => 'Αποθήκευση…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Ιδιοκτήτης του/της $name';
+  }
+
+  @override
+  String get sortLabel => 'Ταξινόμηση';
+
+  @override
+  String get viewAsTable => 'Προβολή ως πίνακα';
+
+  @override
+  String get viewAsTiles => 'Προβολή ως πλακίδια';
+
+  @override
+  String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
+
+  @override
+  String get findDuplicates => 'Εύρεση διπλότυπων';
+
+  @override
+  String get noDuplicates => 'Κανένα πιθανό διπλότυπο αυτήν τη στιγμή.';
+
+  @override
+  String get similarName => 'Παρόμοιο όνομα';
+
+  @override
+  String get sharePublicly => 'Δημόσια κοινοποίηση…';
+
+  @override
+  String get privateNoShare =>
+      'Αυτή η γάτα είναι επισημασμένη ως ιδιωτική — τα ιδιωτικά δεδομένα δεν φεύγουν ποτέ από τη συσκευή σας. Αφαιρέστε πρώτα την επισήμανση για δημόσια κοινοποίηση.';
+
+  @override
+  String get pickFramesTitle => 'Επιλογή καρέ';
+
+  @override
+  String get suggestedFrames => 'Προτεινόμενα καρέ';
+
+  @override
+  String get scrubFrames => 'Μετακίνηση στο βίντεο';
+
+  @override
+  String get keepThisFrame => 'Κράτησε αυτό το καρέ';
+
+  @override
+  String get fromVideo => 'Από βίντεο…';
+
+  @override
+  String get videoMobileOnly =>
+      'Η επιλογή καρέ από βίντεο λειτουργεί στην εφαρμογή τηλεφώνου (Android και iPhone) — όχι ακόμη σε αυτήν τη συσκευή.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Διάλεξε τι μπαίνει στο αρχείο. Περιλαμβάνονται μόνο τα τσεκαρισμένα πεδία.';
+
+  @override
+  String get exportShareFile => 'Εξαγωγή αρχείου κοινοποίησης…';
+
+  @override
+  String get hostedLink => 'Φιλοξενούμενος σύνδεσμος (URL του αρχείου)';
+
+  @override
+  String get inlineQr => 'Ενσωματωμένο QR (μόνο κείμενο, χωρίς φωτογραφίες)';
+
+  @override
+  String get inlineTooBig =>
+      'Πολλά δεδομένα για ενσωματωμένο κώδικα — αποεπιλέξτε πεδία ή χρησιμοποιήστε σύνδεσμο.';
+
+  @override
+  String get scanShareLabel => 'Σάρωση κωδικού κοινοποίησης';
+
+  @override
+  String get notAShareCode =>
+      'Αυτός ο κωδικός δεν είναι κοινοποίηση cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Εισαγωγή αυτής της γάτας;';
+
+  @override
+  String shareSource(String url) {
+    return 'Πηγή: $url';
+  }
+
+  @override
+  String get importLabel => 'Εισαγωγή';
+
+  @override
+  String get strayAreaLabel => 'Πιθανή περιοχή περιπλάνησης';
+
+  @override
+  String get prevPin => 'Προηγούμενη πινέζα';
+
+  @override
+  String get nextPin => 'Επόμενη πινέζα';
+
+  @override
+  String get noMissingCats => 'Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.';
+
+  @override
+  String get noMatchCandidates => 'Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Ίδιο $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Απέχουν $distance μ.';
+  }
+
+  @override
+  String get addFlier => 'Προσθήκη αφίσας';
+
+  @override
+  String get missingSinceLabel => 'Αγνοείται από';
+
+  @override
+  String get phoneLabel => 'Τηλέφωνο';
+
+  @override
+  String get cropPortrait => 'Περικοπή πορτρέτου';
+
+  @override
+  String get statusOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get ocrUnavailable =>
+      'Η αναγνώριση κειμένου δεν είναι διαθέσιμη σε αυτήν τη συσκευή — πληκτρολογήστε το κείμενο της αφίσας.';
+
+  @override
+  String get displayFormat => 'Εμφάνιση ως';
+
+  @override
+  String get displayPlain => 'Απλό κείμενο';
+
+  @override
+  String get displayQr => 'Κωδικός QR';
+
+  @override
+  String get displayBarcode => 'Γραμμωτός κώδικας';
+
+  @override
+  String get editLabel => 'Επεξεργασία';
+
+  @override
+  String get doneLabel => 'Έτοιμο';
+
+  @override
   String get openSettings => 'Άνοιγμα ρυθμίσεων';
 
   @override
@@ -236,6 +412,29 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get malePregnant =>
       'Αυτή η γάτα είναι καταχωρισμένη ως αρσενική — ένας αρσενικός γάτος δεν μπορεί να είναι έγκυος. Ελέγξτε πρώτα το φύλο.';
+
+  @override
+  String fatherNotMale(String name) {
+    return 'Η $name είναι καταχωρισμένη ως θηλυκή και δεν μπορεί να είναι ο πατέρας. Ελέγξτε πρώτα το φύλο.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return 'Ο $name είναι καταχωρισμένος ως αρσενικός και δεν μπορεί να είναι η μητέρα. Ελέγξτε πρώτα το φύλο.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'Ο/Η $name γεννήθηκε στις $date — ένας γονιός δεν μπορεί να γεννηθεί μετά το μικρό του.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως πατέρας άλλων γατών — ο πατέρας δεν μπορεί να είναι θηλυκός. Ελέγξτε πρώτα την οικογένεια.';
+
+  @override
+  String get genderMotherMale =>
+      'Αυτή η γάτα είναι καταχωρισμένη ως μητέρα άλλων γατών — η μητέρα δεν μπορεί να είναι αρσενική. Ελέγξτε πρώτα την οικογένεια.';
 
   @override
   String get moveTo => 'Μετακίνηση σε';
@@ -419,7 +618,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Συγχρονισμός μέσω φακέλου που μεταφέρει ένα cloud ή ένα USB stick μεταξύ συσκευών — για όσους δεν είναι στο ίδιο δίκτυο.';
+      'Και οι δύο συσκευές χρησιμοποιούν τον ίδιο φάκελο (π.χ. στο Dropbox ή σε USB). Κάθε συγχρονισμός αφήνει εκεί τις αλλαγές σου και παίρνει του άλλου.';
 
   @override
   String get noFolderChosenYet => 'Δεν έχει επιλεγεί φάκελος ακόμα';
@@ -599,7 +798,235 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterResponsible => 'Υπεύθυνο άτομο';
 
   @override
-  String get starterPosition => 'Θέση';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Τηλέφωνο';
+
+  @override
+  String get lookupUrlLabel => 'Σύνδεσμος αναζήτησης';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Η σελίδα της υπηρεσίας με $token στη θέση του αριθμού, π.χ. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Αναζήτηση';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Καμία εφαρμογή δεν άνοιξε το $url. Αντίγραψε τον σύνδεσμο σε φυλλομετρητή.';
+  }
+
+  @override
+  String get stepCat => 'Γάτα';
+
+  @override
+  String get stepOwner => 'Ιδιοκτήτης';
+
+  @override
+  String get stepFace => 'Φωτογραφία προσώπου';
+
+  @override
+  String get stepRegistry => 'Μητρώο';
+
+  @override
+  String get stepReview => 'Έλεγχος και αποθήκευση';
+
+  @override
+  String get stepOwnerHint =>
+      'Όποιος ψάχνει τη γάτα — αυτό γίνεται η κάρτα του, με την επαφή από την αφίσα.';
+
+  @override
+  String get stepFaceHint =>
+      'Κόψε το πρόσωπο της γάτας από την αφίσα· γίνεται η φωτογραφία προφίλ. Μπορείς να το παραλείψεις.';
+
+  @override
+  String get stepRegistryHint =>
+      'Αριθμοί που βρέθηκαν στην αφίσα. Οι τσεκαρισμένοι αποθηκεύονται στη γάτα και ανοίγουν αργότερα.';
+
+  @override
+  String get noRegistryLinks =>
+      'Δεν υπάρχουν σύνδεσμοι μητρώου σε αυτή την αφίσα — δεν χρειάζεται κάτι εδώ.';
+
+  @override
+  String get unknownServiceHint => 'Άγνωστη υπηρεσία';
+
+  @override
+  String get rememberService => 'Απομνημόνευση υπηρεσίας';
+
+  @override
+  String get rememberServiceHint =>
+      'Δώσε όνομα στην υπηρεσία και δείξε τον αριθμό στον σύνδεσμο. Η επόμενη αφίσα θα συμπληρωθεί μόνη της.';
+
+  @override
+  String get noIdInLink =>
+      'Αυτός ο σύνδεσμος δεν έχει αριθμό που να μπορεί να αποθηκευτεί.';
+
+  @override
+  String get whichNumber => 'Ποιο μέρος είναι ο αριθμός;';
+
+  @override
+  String get cropAgain => 'Νέα περικοπή';
+
+  @override
+  String get noFaceYet =>
+      'Δεν υπάρχει ακόμη φωτογραφία προσώπου — χρησιμοποιείται η φωτογραφία της αφίσας.';
+
+  @override
+  String get backLabel => 'Πίσω';
+
+  @override
+  String get dangerButton => 'ΜΗΝ ΠΑΤΑΣ.\nΚΙΝΔΥΝΟΣ';
+
+  @override
+  String get dangerThanks => 'Ευχαριστούμε που χρησιμοποιείς το cat(a)log!';
+
+  @override
+  String get helpTitle => 'Βοήθεια';
+
+  @override
+  String get showTipsAgain => 'Εμφάνιση συμβουλών ξανά';
+
+  @override
+  String get helpHome =>
+      'Η επισκόπηση των αποικιών σου — αποικία είναι ένας τόπος όπου ζουν γάτες: το σπίτι σου, ένα ανάδοχο σπίτι, ένα καταφύγιο. Πάτησε μια κάρτα για τις γάτες της· παρατεταμένο πάτημα ανοίγει το μενού. Το κουμπί κάτω δεξιά φτιάχνει αποικία, και η κάρτα των αδέσποτων μαζεύει όλες τις γάτες χωρίς σπίτι. Το όνομα επάνω είναι ο κατάλογος στον οποίο βρίσκεσαι — πάτησέ το για αλλαγή ή προσθήκη.';
+
+  @override
+  String get helpClowder =>
+      'Όλα για αυτόν τον τόπο: οι γάτες του, τα πεδία του (διεύθυνση, επαφή, είδος) και το ιστορικό του. Η σελίδα ανοίγει μόνο για ανάγνωση· το μολύβι ενεργοποιεί την επεξεργασία, όπου μπορείς να προσθέσεις και πεδίο. Παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται αμέσως, σε γάτα τη μετακινεί, κρύβει ή ανοίγει.';
+
+  @override
+  String get helpCat =>
+      'Όλα για αυτή τη γάτα: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Παρατεταμένο πάτημα σε πεδίο πάει κατευθείαν στην επεξεργασία του· σε φωτογραφία ανοίγει το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: ιδιωτικό, απόκρυψη, συγχώνευση, καταγραφή παρατήρησης, κοινοποίηση.';
+
+  @override
+  String get helpStrays =>
+      'Γάτες χωρίς σπίτι αυτή τη στιγμή: βρεθείσες, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει μια γάτα μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε γάτα με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα.';
+
+  @override
+  String get helpMap =>
+      'Όλες οι γάτες και οι τόποι με θέση. Η αναζήτηση βρίσκει γάτες, ανθρώπους και τόπους — ένα άγνωστο όνομα αναζητείται σε όλο τον κόσμο. Το κουμπί επιπέδων σχεδιάζει τους κύκλους των 500 μ. γύρω από τα σημεία των αφισών μιας χαμένης γάτας και γύρω από το παλιό της σπίτι. Τα βέλη πηγαίνουν από καρφίτσα σε καρφίτσα, παρατεταμένο πάτημα καταγράφει παρατήρηση.';
+
+  @override
+  String get helpCard =>
+      'Η εκτυπώσιμη κάρτα της γάτας: επίλεξε πάνω με τα τσιπάκια τι θα εμφανίζεται και μοιράσου την ως εικόνα ή PDF. Οι αριθμοί τυπώνονται ως QR ή barcode, και μια θέση γίνεται QR που ανοίγει χάρτη, συν έναν σύντομο Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Πώς φτάνουν τα δεδομένα σε άλλους: άμεση σύνδεση, φάκελος που βλέπουν και οι δύο συσκευές, ή αρχείο μέσω messenger. Εσύ αποφασίζεις πάντα τι φεύγει — και τα αρχεία .catsync που λαμβάνεις ανοίγουν επίσης εδώ.';
+
+  @override
+  String get helpFields =>
+      'Τα πεδία που χρησιμοποιεί ο κατάλογός σου. Μετονόμασέ τα, άλλαξε τις επιλογές ενός πεδίου επιλογής ή φτιάξε δικά σου. Ένα πεδίο ταυτότητας μπορεί να δείχνει σε μια υπηρεσία (μητρώο), οπότε ο αριθμός γίνεται πατήσιμος στη γάτα.';
+
+  @override
+  String get helpTimeline =>
+      'Κάθε αλλαγή που έγινε ποτέ, με τη νεότερη πρώτη: ποιος άλλαξε τι, πότε και σε ποια τιμή. Κάθε καταχώριση αναιρείται — αυτό γράφει νέα καταχώριση, τίποτα δεν σβήνεται.';
+
+  @override
+  String get helpDuplicates =>
+      'Γάτες ή αποικίες που μοιάζουν να υπάρχουν δύο φορές — ίδιοι αριθμοί ή πολύ παρόμοια ονόματα με ταιριαστές λεπτομέρειες. Πάτησε ένα ζευγάρι για συγχώνευση· δεν αναιρείται, γι\' αυτό ρωτά πρώτα.';
+
+  @override
+  String get helpMatches =>
+      'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση.';
+
+  @override
+  String get helpFlier =>
+      'Μια φωτογραφημένη αφίσα γίνεται γάτα μαζί με τον ιδιοκτήτη της. Βήμα βήμα: στοιχεία της γάτας, επαφή του ιδιοκτήτη, περικοπή προσώπου για τη φωτογραφία προφίλ, αριθμοί μητρώων από την αφίσα, και τέλος έλεγχος. Όλα είναι προτάσεις — διόρθωσε ό,τι διάβασε λάθος η κάμερα.';
+
+  @override
+  String get archiveTitle => 'Αρχείο';
+
+  @override
+  String get archiveExplainer =>
+      'Οι γάτες που πέθαναν και οι άδειες αποικίες που κανείς δεν άγγιξε εδώ και χρόνια πιάνουν και πάλι χώρο — κυρίως οι φωτογραφίες τους. Η αρχειοθέτηση τις γράφει σε ένα αρχείο που κρατάς και μετά τις σβήνει από εδώ.';
+
+  @override
+  String get archiveAction => 'Αρχειοθέτηση';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Αρχειοθέτηση $count εγγραφών';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Να αρχειοθετηθούν $count εγγραφές;';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names θα γραφτούν σε ένα αρχείο και μετά θα διαγραφούν — στη συσκευή σου και σε κάθε συσκευή με την οποία συγχρονίζεις. Η εισαγωγή του αρχείου τα επαναφέρει· χωρίς αυτό, χάθηκαν.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Αρχειοθετήθηκαν και διαγράφηκαν $count εγγραφές';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Δεν διαγράφηκε τίποτα: το αρχείο δεν μπόρεσε να γραφτεί ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Βάση $db, φωτογραφίες $photos σε $count αρχεία';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Χωρίς αλλαγή $years χρόνια';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'Τίποτα δεν είναι αρκετά παλιό για αρχειοθέτηση.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Τελευταία αλλαγή $date · φωτογραφίες $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Τα παλιά δεδομένα κοστίζουν χώρο, κυρίως οι φωτογραφίες που κουβαλά κάθε συγχρονισμένη συσκευή. Εδώ διαλέγεις γάτες που πέθαναν και άδειες αποικίες που μένουν ήσυχες χρόνια, τις γράφεις σε ένα αρχείο που κρατάς και τις σβήνεις. Η διαγραφή φτάνει σε όλους όσους συγχρονίζεις· η εισαγωγή του αρχείου τα επαναφέρει όλα.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Επαναφορά $count διαγραμμένων εγγραφών;';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names είναι διαγραμμένα σε αυτόν τον κατάλογο και το αρχείο που μόλις εισήγαγες τα περιέχει. Η επαναφορά τα φέρνει πίσω εδώ και σε κάθε συσκευή με την οποία συγχρονίζεις.';
+  }
+
+  @override
+  String get restoreAction => 'Επαναφορά';
+
+  @override
+  String get keepDeleted => 'Να μείνουν διαγραμμένα';
+
+  @override
+  String get archiveNotSaved =>
+      'Δεν διαγράφηκε τίποτα: το αρχείο δεν αποθηκεύτηκε πουθενά.';
+
+  @override
+  String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
+
+  @override
+  String get addressLocated => 'Η διεύθυνση βρέθηκε';
+
+  @override
+  String get addressNotFound =>
+      'Δεν βρέθηκε τοποθεσία για αυτή τη διεύθυνση. Έλεγξε την ορθογραφία ή άφησέ το κενό.';
+
+  @override
+  String get starterPosition => 'Τοποθεσία';
 
   @override
   String get valueYes => 'ναι';
@@ -714,7 +1141,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Ιδιωτικές γάτες, ομάδες και πεδία κοινοποιούνται επίσης — ενεργοποιήστε το μόνο όταν συγχρονίζετε δικές σας συσκευές.';
+      'Έτσι στέλνονται και όσα έχεις σημειώσει ως ιδιωτικά. Όποιος συγχρονίζει μαζί σου θα τα δει.';
 
   @override
   String get hideLabel => 'Απόκρυψη σε αυτήν τη συσκευή';
@@ -732,7 +1159,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterSpecies => 'Είδος';
 
   @override
-  String get starterStatus => 'Κατάσταση';
+  String get starterStatus => 'Τύπος';
 
   @override
   String get statusFoster => 'Ανάδοχο σπίτι';
@@ -926,7 +1353,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Στείλτε τα όλα ως ένα αρχείο με οποιονδήποτε messenger';
+      'Στείλτε τα πάντα ως ένα αρχείο μέσω οποιουδήποτε messenger — και εισαγάγετε εδώ ένα ληφθέν αρχείο .catsync';
 
   @override
   String get connectToWifiFirst =>
@@ -974,25 +1401,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String get selectClowderHint => 'Διάλεξε ένα clowder αριστερά';
 
   @override
-  String get introTitle1 => 'Οι γάτες ζουν σε clowder';
+  String get introTitle1 => 'Οι γάτες σου, οργανωμένες';
 
   @override
   String get introBody1 =>
-      'Το clowder είναι ένα μέρος όπου ζουν γάτες: το ανάδοχο σπίτι σου, το διαμέρισμα ενός υιοθέτη, ο αχυρώνας δίπλα. Κάθε γάτα έχει κάρτα με φωτογραφία, στοιχεία και όλη την ιστορία της.';
+      'Φτιάξε καρτέλα για κάθε γάτα: φωτογραφία, φύλο, υγεία, ό,τι θες να σημειώσεις. Οι γάτες ομαδοποιούνται κατά τον τόπο που ζουν — η εφαρμογή τον λέει αποικία (clowder).';
 
   @override
-  String get introTitle2 => 'Όλα μένουν σε σένα';
+  String get introTitle2 => 'Λειτουργεί χωρίς ίντερνετ';
 
   @override
   String get introBody2 =>
-      'Χωρίς λογαριασμό, χωρίς cloud, χωρίς παρακολούθηση. Τα δεδομένα σου ζουν στη συσκευή σου.';
+      'Όλα αποθηκεύονται μόνο στο τηλέφωνό σου. Χωρίς λογαριασμό, χωρίς cloud. Τίποτα δεν ανεβαίνει αν δεν το μοιραστείς εσύ.';
 
   @override
-  String get introTitle3 => 'Μοιράσου με τους βοηθούς σου';
+  String get introTitle3 => 'Συνεργαστείτε';
 
   @override
   String get introBody3 =>
-      'Σκάναρε έναν κωδικό και δύο συσκευές συγχρονίζονται σε δευτερόλεπτα, χρησιμοποίησε κοινό φάκελο ή στείλε τα όλα ως ένα αρχείο.';
+      'Καθένας χρησιμοποιεί τη δική του εφαρμογή και πού και πού ανταλλάσσετε δεδομένα: βρεθείτε και σαρώστε έναν κωδικό, χρησιμοποιήστε κοινό φάκελο ή στείλτε ένα αρχείο με messenger. Μετά όλοι έχουν τις ίδιες πληροφορίες.';
 
   @override
   String get introSkip => 'Παράλειψη';
@@ -1008,19 +1435,50 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Νέο: ο συγχρονισμός προσφέρει τρεις καθαρούς τρόπους — και μια ερώτηση εμπιστοσύνης πριν ρεύσει οτιδήποτε.';
+      'Εδώ συγχρονίζεις με τους γνωστούς σου. Εσύ αποφασίζεις τι μοιράζεσαι.';
+
+  @override
+  String get spotHomeStrays =>
+      'Αυτή η κάρτα μαζεύει όλες τις αδέσποτες — γάτες χωρίς σπίτι. Πάτησε για τη λίστα.';
+
+  @override
+  String get spotHomeMenu =>
+      'Σε αυτό το μενού: εύρεση και συγχώνευση διπλότυπων, εξαγωγή CSV και άλλα.';
+
+  @override
+  String get spotCatEdit =>
+      'Πάτησε το μολύβι για να επεξεργαστείς τη γάτα. Συμβουλή: παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται άμεσα.';
+
+  @override
+  String get spotMapLayers =>
+      'Ψάχνεις χαμένη γάτα; Εμφάνισε κύκλους γύρω από τα σημεία των αφισών της και το σπίτι από όπου έφυγε.';
+
+  @override
+  String get spotStraysFlier =>
+      'Αφίσα χαμένης γάτας; Φωτογράφισέ την εδώ — η εφαρμογή αποθηκεύει γάτα και επαφή για σένα.';
+
+  @override
+  String get spotStraysScan =>
+      'Κάποιες αφίσες έχουν κωδικό QR cat(a)log. Σάρωσέ τον εδώ και εισήγαγε τη γάτα χωρίς πληκτρολόγηση.';
+
+  @override
+  String get introTitle4 => 'Βρες τις χαμένες γάτες';
+
+  @override
+  String get introBody4 =>
+      'Βλέπεις αφίσα για χαμένη γάτα; Φωτογράφισέ την στην εφαρμογή: αποθηκεύει τη γάτα, την επαφή του ιδιοκτήτη και το μέρος. Αν αργότερα εμφανιστεί παρόμοια αδέσποτη, η εφαρμογή προτείνει πιθανές αντιστοιχίες.';
 
   @override
   String get spotMapSearch =>
-      'Νέο: αναζήτησε εδώ γάτες, ομάδες και άτομα — κατευθείαν στον χάρτη.';
+      'Γράψε γάτα, μέρος ή άνθρωπο για να πας εκεί στον χάρτη.';
 
   @override
   String get spotCardChips =>
-      'Νέο: διάλεξε τι εμφανίζεται στην κάρτα πριν τη μοιραστείς.';
+      'Τσέκαρε τι θα φαίνεται στην κοινοποιήσιμη κάρτα — τα υπόλοιπα μένουν εκτός.';
 
   @override
   String get spotCatMenu =>
-      'Νέο: σήμανε μια γάτα ως ιδιωτική (δεν φεύγει ποτέ από τη συσκευή) ή κρύψ\' τη εδώ.';
+      'Περισσότερες ενέργειες εδώ: σημείωσε τη γάτα ως ιδιωτική, κρύψ\' την, συγχώνευσε διπλότυπα ή κατέγραψε μια παρατήρηση.';
 
   @override
   String get spotDone => 'Κατάλαβα';
@@ -1061,4 +1519,134 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'Το cat(a)log σταμάτησε απρόσμενα την τελευταία φορά — μάλλον εξαντλήθηκε η μνήμη. Να σταλεί σύντομη αναφορά για να διορθωθεί;';
+
+  @override
+  String get catalogsTitle => 'Κατάλογοι';
+
+  @override
+  String get newCatalog => 'Νέος κατάλογος';
+
+  @override
+  String get catalogNameLabel => 'Όνομα καταλόγου';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Υπάρχει ήδη κατάλογος με το όνομα $name. Διάλεξε άλλο όνομα.';
+  }
+
+  @override
+  String get manageCatalogs => 'Διαχείριση καταλόγων';
+
+  @override
+  String get helpCatalogs =>
+      'Κάθε κατάλογος είναι δικός του κόσμος: δικές του γάτες, αποικίες, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Το Βερολίνο και το Παρίσι δεν ανακατεύονται ποτέ. Πάτησε το όνομα στην κορυφή για αλλαγή, προσθήκη ή μετονομασία. Το όνομά σου, η γλώσσα και οι συμβουλές που είδες είναι κοινές.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Πάτησε το όνομα για αλλαγή ή για νέον.';
+
+  @override
+  String get deleteCatalog => 'Διαγραφή καταλόγου';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Όλα στο $name χάνονται: γάτες, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο. Γράψε το όνομα για επιβεβαίωση.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'Ο κατάλογος $name διαγράφηκε. Το αρχείο είναι στο $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Γράψε $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Δεν διαγράφηκε τίποτα: το αρχείο του καταλόγου δεν γράφτηκε ($error). Ελευθέρωσε χώρο ή δοκίμασε αργότερα.';
+  }
+
+  @override
+  String get moveToCatalog => 'Μετακίνηση σε άλλον κατάλογο';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count μετακινήθηκαν στο $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Τι να μετακινηθεί;';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Να μετακινηθεί κάτι στο $name;';
+  }
+
+  @override
+  String get undoThisImport => 'Αναίρεση αυτής της εισαγωγής';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Οι $count αλλαγές αυτής της εισαγωγής αφαιρούνται. Γράφονται πρώτα σε αρχείο, η εισαγωγή του οποίου τις επαναφέρει. Όσοι έχουν ήδη συγχρονιστεί κρατούν το αντίγραφό τους — αυτό δεν παίρνεται πίσω.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Αναιρέθηκε. Το αρχείο είναι στο $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Επιστροφή πίσω';
+
+  @override
+  String get goBackToHere => 'Επιστροφή εδώ';
+
+  @override
+  String get momentImport => 'Πριν την εισαγωγή';
+
+  @override
+  String get momentSync => 'Πριν τον συγχρονισμό';
+
+  @override
+  String get momentMerge => 'Πριν τη συγχώνευση';
+
+  @override
+  String get momentHardDelete => 'Πριν τη διαγραφή δεδομένων ενός συντάκτη';
+
+  @override
+  String get momentArchive => 'Πριν την αρχειοθέτηση';
+
+  @override
+  String get momentManual => 'Σημειωμένο από εσένα';
+
+  @override
+  String get showOlderMoments => 'Εμφάνιση παλαιότερων';
+
+  @override
+  String goBackBody(int count) {
+    return 'Όλα μετά από αυτή τη στιγμή αφαιρούνται — $count αλλαγές. Γράφονται πρώτα σε αρχείο, η εισαγωγή του οποίου τα επαναφέρει, και κάθε νεότερη στιγμή φεύγει μαζί. Όσοι έχουν ήδη συγχρονιστεί κρατούν το αντίγραφό τους — αυτό δεν παίρνεται πίσω.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ονόμασε αυτή τη στιγμή';
+
+  @override
+  String get helpGoBack =>
+      'Οι στιγμές που άλλαξε μορφή αυτός ο κατάλογος: πριν από κάθε εισαγωγή και κάθε συγχρονισμό, πριν από συγχώνευση, αρχειοθέτηση ή διαγραφή, και όποτε σημείωσες μια στιγμή ο ίδιος. Επιλέγοντας μία, ο κατάλογος επιστρέφει σε εκείνη την κατάσταση — ό,τι ήρθε μετά γράφεται σε αρχείο που κρατάς και μετά αφαιρείται, και κάθε νεότερη στιγμή φεύγει μαζί. Όσοι έχουν ήδη συγχρονιστεί κρατούν ό,τι πήραν.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Δεν αφαιρέθηκε τίποτα: το αρχείο που το κρατά δεν γράφτηκε ($error). Ελευθέρωσε χώρο και δοκίμασε ξανά.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Άλλαξε σε άλλον και μετά διάγραψέ τον.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Το αρχείο κοινοποίησης δεν γράφτηκε ($error). Ελευθέρωσε χώρο και δοκίμασε ξανά.';
+  }
 }

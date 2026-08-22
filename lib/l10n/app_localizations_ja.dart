@@ -179,7 +179,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'この猫はすべてのリストから消え、写真も削除されます — この端末でも、次の同期後には仲間の端末でも。';
+      'この猫はすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
 
   @override
   String get sightingRecorded => '現在地で目撃を記録しました。';
@@ -207,6 +207,178 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'チップ番号';
+
+  @override
+  String get starterRemarks => '備考';
+
+  @override
+  String get captureFlier => 'チラシを撮影';
+
+  @override
+  String get addPhotosTo => '写真の追加先…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count枚の写真を$nameに追加しました';
+  }
+
+  @override
+  String get scanPrintedCode => '印刷されたコードをスキャン';
+
+  @override
+  String get chipScanHint =>
+      'チップカードや獣医の書類に印刷されたQR/バーコードを読み取ります。猫の体内のチップは電話では読めません。';
+
+  @override
+  String get savingLabel => '保存中…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$nameの飼い主';
+  }
+
+  @override
+  String get sortLabel => '並べ替え';
+
+  @override
+  String get viewAsTable => '表形式で表示';
+
+  @override
+  String get viewAsTiles => 'タイル表示';
+
+  @override
+  String get matchCandidatesTitle => '一致候補';
+
+  @override
+  String get findDuplicates => '重複を探す';
+
+  @override
+  String get noDuplicates => '現在、重複の可能性はありません。';
+
+  @override
+  String get similarName => '似た名前';
+
+  @override
+  String get sharePublicly => '公開共有…';
+
+  @override
+  String get privateNoShare =>
+      'この猫はプライベットに設定されています。プライベートなデータは端末の外に出ません。公開共有するには先に設定を解除してください。';
+
+  @override
+  String get pickFramesTitle => 'フレームを選ぶ';
+
+  @override
+  String get suggestedFrames => 'おすすめフレーム';
+
+  @override
+  String get scrubFrames => '動画をスクラブ';
+
+  @override
+  String get keepThisFrame => 'このフレームを残す';
+
+  @override
+  String get fromVideo => '動画から…';
+
+  @override
+  String get videoMobileOnly =>
+      '動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。';
+
+  @override
+  String get shareWhitelistExplainer => 'ファイルに入れる内容を選びます。チェックした項目だけが含まれます。';
+
+  @override
+  String get exportShareFile => '共有ファイルを書き出す…';
+
+  @override
+  String get hostedLink => 'ホスト済みリンク（アップロードしたファイルのURL）';
+
+  @override
+  String get inlineQr => '埋め込みQR（テキストのみ・写真なし）';
+
+  @override
+  String get inlineTooBig => '埋め込みコードにはデータが多すぎます。項目を減らすか、ホスト済みリンクを使ってください。';
+
+  @override
+  String get scanShareLabel => '共有コードをスキャン';
+
+  @override
+  String get notAShareCode => 'このコードはcat(a)logの共有ではありません。';
+
+  @override
+  String get importShareTitle => 'この猫を取り込みますか？';
+
+  @override
+  String shareSource(String url) {
+    return '提供元: $url';
+  }
+
+  @override
+  String get importLabel => 'インポート';
+
+  @override
+  String get strayAreaLabel => '想定される行動範囲';
+
+  @override
+  String get prevPin => '前のピン';
+
+  @override
+  String get nextPin => '次のピン';
+
+  @override
+  String get noMissingCats => 'チラシの位置が登録された迷子猫はまだいません。';
+
+  @override
+  String get noMatchCandidates => '現在、一致候補はありません。';
+
+  @override
+  String sameIdField(String field) {
+    return '同じ$field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m 離れています';
+  }
+
+  @override
+  String get addFlier => 'チラシを追加';
+
+  @override
+  String get missingSinceLabel => '行方不明になった日';
+
+  @override
+  String get phoneLabel => '電話';
+
+  @override
+  String get cropPortrait => '顔写真を切り抜く';
+
+  @override
+  String get statusOwner => '飼い主';
+
+  @override
+  String get ocrUnavailable => 'この端末では文字認識を利用できません。チラシの文章を手入力してください。';
+
+  @override
+  String get displayFormat => '表示形式';
+
+  @override
+  String get displayPlain => 'テキスト';
+
+  @override
+  String get displayQr => 'QRコード';
+
+  @override
+  String get displayBarcode => 'バーコード';
+
+  @override
+  String get editLabel => '編集';
+
+  @override
+  String get doneLabel => '完了';
+
+  @override
   String get openSettings => '設定を開く';
 
   @override
@@ -230,6 +402,29 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get malePregnant => 'この猫はオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$nameはメスとして登録されているため父親にはなれません。まず性別を確認してください。';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$nameはオスとして登録されているため母親にはなれません。まず性別を確認してください。';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$nameの誕生日は$dateです。親が子より後に生まれることはできません。';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'この猫は他の猫の父親として登録されています。父親はメスにできません。まず家族を確認してください。';
+
+  @override
+  String get genderMotherMale =>
+      'この猫は他の猫の母親として登録されています。母親はオスにできません。まず家族を確認してください。';
 
   @override
   String get moveTo => '移動先';
@@ -410,7 +605,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'クラウドや USB メモリが端末間で運ぶフォルダー経由で同期します — 同じネットワークにいない人向け。';
+      '両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
 
   @override
   String get noFolderChosenYet => 'フォルダー未選択';
@@ -587,6 +782,225 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterResponsible => '担当者';
 
   @override
+  String get starterEmail => 'メール';
+
+  @override
+  String get starterPhone => '電話番号';
+
+  @override
+  String get lookupUrlLabel => '照会リンク';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return '番号の位置に $token を入れたサービスのページ。例：https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => '照会する';
+
+  @override
+  String lookupFailed(String url) {
+    return '$url を開けるアプリがありません。リンクをブラウザに貼り付けてください。';
+  }
+
+  @override
+  String get stepCat => '猫';
+
+  @override
+  String get stepOwner => '飼い主';
+
+  @override
+  String get stepFace => '顔写真';
+
+  @override
+  String get stepRegistry => '登録サービス';
+
+  @override
+  String get stepReview => '確認して保存';
+
+  @override
+  String get stepOwnerHint => '猫を探している人。ここからその人のカードができます（チラシの連絡先つき）。';
+
+  @override
+  String get stepFaceHint => 'チラシから猫の顔を切り抜くとプロフィール写真になります。省略もできます。';
+
+  @override
+  String get stepRegistryHint => 'チラシで見つかった番号。チェックしたものは猫に保存され、あとで開けます。';
+
+  @override
+  String get noRegistryLinks => 'このチラシに登録サービスのリンクはありません。ここですることはありません。';
+
+  @override
+  String get unknownServiceHint => '不明なサービス';
+
+  @override
+  String get rememberService => 'サービスを覚える';
+
+  @override
+  String get rememberServiceHint =>
+      'サービスに名前を付け、リンクの中の番号を指定してください。次のチラシは自動で入ります。';
+
+  @override
+  String get noIdInLink => 'このリンクには保存できる番号がありません。';
+
+  @override
+  String get whichNumber => 'どの部分が番号ですか？';
+
+  @override
+  String get cropAgain => '切り抜き直す';
+
+  @override
+  String get noFaceYet => '顔写真はまだありません。チラシの写真を使います。';
+
+  @override
+  String get backLabel => '戻る';
+
+  @override
+  String get dangerButton => 'おさないで。\nきけん';
+
+  @override
+  String get dangerThanks => 'cat(a)log をお使いいただきありがとうございます！';
+
+  @override
+  String get helpTitle => 'ヘルプ';
+
+  @override
+  String get showTipsAgain => 'ヒントをもう一度表示';
+
+  @override
+  String get helpHome =>
+      'コロニーの一覧です。コロニーとは猫が暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとその猫が見えます。長押しでメニュー。右下のボタンで新しいコロニーを作成、野良カードには家のない猫がすべて集まります。 上の名前はいま開いているカタログです。タップすると切り替えや追加ができます。';
+
+  @override
+  String get helpClowder =>
+      'この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。';
+
+  @override
+  String get helpCat =>
+      'この猫のすべて：写真、項目、家族、履歴。鉛筆をタップするまでは閲覧のみです。項目を長押しするとその編集へ直行、写真を長押しするとメニュー。右上のメニューにその他（プライベート、非表示、統合、目撃の記録、共有）があります。';
+
+  @override
+  String get helpStrays =>
+      'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。';
+
+  @override
+  String get helpMap =>
+      '位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。';
+
+  @override
+  String get helpCard =>
+      'この猫の印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。';
+
+  @override
+  String get helpSync =>
+      'データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。';
+
+  @override
+  String get helpFields =>
+      'カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号は猫のページでタップできるようになります。';
+
+  @override
+  String get helpTimeline =>
+      'これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。';
+
+  @override
+  String get helpDuplicates =>
+      '同じものが二重に見える猫やコロニー：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。';
+
+  @override
+  String get helpMatches =>
+      '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。';
+
+  @override
+  String get helpFlier =>
+      '撮影したチラシから猫と飼い主ができます。手順：猫のデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。';
+
+  @override
+  String get archiveTitle => 'アーカイブ';
+
+  @override
+  String get archiveExplainer =>
+      '何年も触れられていない亡くなった猫や空のコロニーも容量を使います。とくに写真です。アーカイブは、それらを手元に残すファイルへ書き出してから、ここから削除します。';
+
+  @override
+  String get archiveAction => 'アーカイブ';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count 件をアーカイブ';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count 件をアーカイブしますか？';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names をファイルに書き出したあと削除します。あなたの端末でも、同期しているすべての端末でも消えます。ファイルを取り込めば元に戻せますが、なければ戻せません。';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count 件をアーカイブして削除しました';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return '何も削除していません：アーカイブファイルを書き出せませんでした（$error）。';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'データベース $db、写真 $photos／$count ファイル';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years 年間変更なし';
+  }
+
+  @override
+  String get nothingToArchive => 'アーカイブできるほど古いものはありません。';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return '最終変更 $date・写真 $size';
+  }
+
+  @override
+  String get helpArchive =>
+      '古いデータは容量を使います。とくに、同期する端末すべてが持ち歩く写真です。ここでは何年も動きのない亡くなった猫や空のコロニーを選び、手元に残すファイルへ書き出してから削除します。削除は同期相手全員に伝わります。ファイルを取り込めばすべて復元できます。';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return '削除済みの $count 件を復元しますか？';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names はこのカタログで削除済みですが、いま取り込んだファイルに含まれています。復元すると、この端末でも同期先のすべての端末でも元に戻ります。';
+  }
+
+  @override
+  String get restoreAction => '復元';
+
+  @override
+  String get keepDeleted => '削除のままにする';
+
+  @override
+  String get archiveNotSaved => '何も削除していません：アーカイブはどこにも保存されませんでした。';
+
+  @override
+  String get locateAddress => '住所を地図で探す';
+
+  @override
+  String get addressLocated => '住所が見つかりました';
+
+  @override
+  String get addressNotFound => 'この住所の場所が見つかりません。つづりを確認するか、空のままにしてください。';
+
+  @override
   String get starterPosition => '位置';
 
   @override
@@ -702,7 +1116,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'プライベートの猫・グループ・項目も共有されます。自分のデバイス間の同期時のみオンにしてください。';
+      'これをオンにすると、プライベートにした項目も送信されます。同期相手には見えるようになります。';
 
   @override
   String get hideLabel => 'この端末で非表示にする';
@@ -720,7 +1134,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterSpecies => '種類';
 
   @override
-  String get starterStatus => 'ステータス';
+  String get starterStatus => '種別';
 
   @override
   String get statusFoster => '預かり宅';
@@ -910,7 +1324,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncChooserMessenger => 'メッセンジャー';
 
   @override
-  String get syncChooserMessengerSub => 'すべてを1つのファイルとして任意のメッセンジャーで送信';
+  String get syncChooserMessengerSub =>
+      '任意のメッセンジャーで全データを1ファイルとして送信 — 受け取った.catsyncファイルの取り込みもここから';
 
   @override
   String get connectToWifiFirst => 'まず Wi-Fi に接続してください — 端末同士が見つかります';
@@ -956,24 +1371,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectClowderHint => '左からグループを選択してください';
 
   @override
-  String get introTitle1 => '猫はグループで暮らします';
+  String get introTitle1 => '猫たちを整理整頓';
 
   @override
   String get introBody1 =>
-      'グループとは猫が暮らす場所のこと。あなたの預かり宅、里親の部屋、隣の納屋。どの猫にも写真と情報と全履歴のカードがあります。';
+      '世話している猫ごとにカードを作りましょう：写真、性別、健康状態など、記録したいことは何でも。猫は住んでいる場所ごとにまとまります。アプリではその場所をクラウダー（clowder）と呼びます。';
 
   @override
-  String get introTitle2 => 'すべてはあなたの手元に';
+  String get introTitle2 => 'ネットなしで動く';
 
   @override
-  String get introBody2 => 'アカウントもクラウドも追跡もなし。データはあなたの端末の中だけにあります。';
+  String get introBody2 =>
+      'すべてはあなたのスマホだけに保存されます。アカウントもクラウドもありません。自分で共有しない限り、何もアップロードされません。';
 
   @override
-  String get introTitle3 => '仲間と共有';
+  String get introTitle3 => 'みんなで使う';
 
   @override
   String get introBody3 =>
-      'コードをスキャンすれば数秒で2台が同期。共有フォルダやファイル送信でも。全員が同じカタログになります。';
+      'それぞれが自分のアプリを使い、ときどきデータを交換します。会ってコードをスキャンする、共有フォルダーを使う、メッセンジャーでファイルを1つ送る。そのあと全員が同じ情報を持ちます。';
 
   @override
   String get introSkip => 'スキップ';
@@ -988,16 +1404,41 @@ class AppLocalizationsJa extends AppLocalizations {
   String get introReplayTitle => 'クイック紹介';
 
   @override
-  String get spotHomeSync => '新機能: 同期は3つのわかりやすい方法に。共有前に信頼の確認もあります。';
+  String get spotHomeSync => 'ここで知り合いと同期します。何を共有するかはあなたが決めます。';
 
   @override
-  String get spotMapSearch => '新機能: ここで猫・グループ・人を検索 — 地図上ですぐ見つかります。';
+  String get spotHomeStrays => 'このカードには野良猫（家のない猫）が集まります。タップで一覧を表示。';
 
   @override
-  String get spotCardChips => '新機能: 共有する前にカードに載せる内容を選べます。';
+  String get spotHomeMenu => 'このメニューでは：重複の検索と統合、CSVエクスポートなど。';
 
   @override
-  String get spotCatMenu => '新機能: 猫をプライベートに設定（端末から出ません）したり、ここで非表示にできます。';
+  String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
+
+  @override
+  String get spotMapLayers => '迷子猫を探していますか？チラシがあった場所と、元いた家の周りに円を表示できます。';
+
+  @override
+  String get spotStraysFlier => '迷子猫のチラシを見つけたら、ここで撮影。猫と連絡先をアプリが保存します。';
+
+  @override
+  String get spotStraysScan => 'cat(a)log のQRコード付きチラシは、ここでスキャンすれば入力なしで取り込めます。';
+
+  @override
+  String get introTitle4 => '迷子猫を探す';
+
+  @override
+  String get introBody4 =>
+      '迷子猫のチラシを見つけたら、アプリで撮影を。猫、飼い主の連絡先、場所が保存されます。後で似た野良猫が現れたら、アプリが候補を提案します。';
+
+  @override
+  String get spotMapSearch => '猫・場所・人を入力すると、地図上のその場所へジャンプします。';
+
+  @override
+  String get spotCardChips => '共有カードに載せる項目にチェックを。それ以外は載りません。';
+
+  @override
+  String get spotCatMenu => 'その他の操作はここ：プライベット設定、非表示、重複の統合、目撃の記録。';
 
   @override
   String get spotDone => 'OK';
@@ -1036,4 +1477,132 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       '前回 cat(a)log が予期せず停止しました — おそらくメモリ不足です。修正のため簡単なレポートを送信しますか？';
+
+  @override
+  String get catalogsTitle => 'カタログ';
+
+  @override
+  String get newCatalog => '新しいカタログ';
+
+  @override
+  String get catalogNameLabel => 'カタログ名';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '$name という名前のカタログはすでにあります。別の名前を選んでください。';
+  }
+
+  @override
+  String get manageCatalogs => 'カタログの管理';
+
+  @override
+  String get helpCatalogs =>
+      'カタログはそれぞれ独立した世界です。猫もコロニーも項目も写真も同期相手も別々で、ベルリンとパリが混ざることはありません。ホーム画面上部の名前をタップすると、切り替え・追加・名前の変更ができます。あなたの名前、言語、見終わったヒントはすべてのカタログで共通です。';
+
+  @override
+  String get spotHomeCatalog => 'いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。';
+
+  @override
+  String get deleteCatalog => 'カタログを削除';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name を削除しました。ファイルは $where にあります。';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name と入力';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return '何も削除していません。カタログのファイルを書き出せませんでした（$error）。空き容量を作るか、時間をおいてやり直してください。';
+  }
+
+  @override
+  String get moveToCatalog => '別のカタログへ移動';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count 件を $name に移動しました';
+  }
+
+  @override
+  String get chooseWhatToMove => '何を移動しますか？';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '$name に何か移動しますか？';
+  }
+
+  @override
+  String get undoThisImport => 'この読み込みを取り消す';
+
+  @override
+  String undoImportBody(int count) {
+    return 'この読み込みで入った $count 件の変更を取り除きます。先にファイルへ書き出すので、それを読み込めば戻せます。すでに同期した相手の手元には残ります。取り消せません。';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return '取り消しました。ファイルは $where にあります。';
+  }
+
+  @override
+  String get goBackTitle => '前の状態に戻す';
+
+  @override
+  String get goBackToHere => 'ここに戻す';
+
+  @override
+  String get momentImport => '読み込みの前';
+
+  @override
+  String get momentSync => '同期の前';
+
+  @override
+  String get momentMerge => '統合の前';
+
+  @override
+  String get momentHardDelete => 'ある記録者のデータを削除する前';
+
+  @override
+  String get momentArchive => 'アーカイブの前';
+
+  @override
+  String get momentManual => '自分で付けた印';
+
+  @override
+  String get showOlderMoments => '古いものを表示';
+
+  @override
+  String goBackBody(int count) {
+    return 'この時点より後はすべて取り除かれます（$count 件）。先にファイルへ書き出すので読み込めば戻せますが、これより新しい時点も一緒に消えます。すでに同期した相手の手元には残り、取り消せません。';
+  }
+
+  @override
+  String get nameThisMoment => 'この時点に名前をつける';
+
+  @override
+  String get helpGoBack =>
+      'このカタログが大きく変わった時点の一覧です。読み込みや同期の前、統合・アーカイブ・削除の前、そして自分で印を付けたときに記録されます。ひとつ選ぶとカタログはその状態に戻ります。それ以降はすべて手元に残るファイルに書き出してから取り除かれ、それより新しい時点も一緒に消えます。すでに同期した相手は受け取ったものを持ち続けます。';
+
+  @override
+  String goBackFileFailed(String error) {
+    return '何も取り除いていません。控えのファイルを書き出せませんでした（$error）。空き容量を作ってやり直してください。';
+  }
+
+  @override
+  String get switchBeforeDeleting => 'いま開いているカタログです。別のカタログに切り替えてから削除してください。';
+
+  @override
+  String shareFileFailed(String error) {
+    return '共有ファイルを書き出せませんでした（$error）。空き容量を作ってやり直してください。';
+  }
 }

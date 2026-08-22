@@ -181,7 +181,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche dai tuoi aiutanti.';
+      'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche sugli altri dispositivi.';
 
   @override
   String get sightingRecorded => 'Avvistamento registrato alla tua posizione.';
@@ -210,6 +210,183 @@ class AppLocalizationsIt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numero di chip';
+
+  @override
+  String get starterRemarks => 'Note';
+
+  @override
+  String get captureFlier => 'Fotografa volantino';
+
+  @override
+  String get addPhotosTo => 'Aggiungi foto a…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foto aggiunte a $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Scansiona codice stampato';
+
+  @override
+  String get chipScanHint =>
+      'Scansiona il QR/codice a barre stampato dalla tessera del chip o dai documenti veterinari — il telefono non può leggere il chip dentro il gatto.';
+
+  @override
+  String get savingLabel => 'Salvataggio…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Proprietario di $name';
+  }
+
+  @override
+  String get sortLabel => 'Ordina';
+
+  @override
+  String get viewAsTable => 'Mostra come tabella';
+
+  @override
+  String get viewAsTiles => 'Mostra come riquadri';
+
+  @override
+  String get matchCandidatesTitle => 'Possibili corrispondenze';
+
+  @override
+  String get findDuplicates => 'Trova duplicati';
+
+  @override
+  String get noDuplicates => 'Nessun possibile duplicato al momento.';
+
+  @override
+  String get similarName => 'Nome simile';
+
+  @override
+  String get sharePublicly => 'Condividi pubblicamente…';
+
+  @override
+  String get privateNoShare =>
+      'Questo gatto è contrassegnato come privato — i dati privati non lasciano mai il tuo dispositivo. Rimuovi prima il contrassegno per condividerlo pubblicamente.';
+
+  @override
+  String get pickFramesTitle => 'Scegli fotogrammi';
+
+  @override
+  String get suggestedFrames => 'Fotogrammi suggeriti';
+
+  @override
+  String get scrubFrames => 'Scorri il video';
+
+  @override
+  String get keepThisFrame => 'Tieni questo fotogramma';
+
+  @override
+  String get fromVideo => 'Da video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Scegliere fotogrammi da un video funziona nell\'app per telefono (Android e iPhone) — non ancora su questo dispositivo.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Scegli cosa entra nel file. Sono inclusi solo i campi spuntati.';
+
+  @override
+  String get exportShareFile => 'Esporta file di condivisione…';
+
+  @override
+  String get hostedLink => 'Link ospitato (URL del file caricato)';
+
+  @override
+  String get inlineQr => 'QR integrato (solo testo, senza foto)';
+
+  @override
+  String get inlineTooBig =>
+      'Troppi dati per un codice integrato — deseleziona campi o usa un link ospitato.';
+
+  @override
+  String get scanShareLabel => 'Scansiona codice di condivisione';
+
+  @override
+  String get notAShareCode => 'Quel codice non è una condivisione cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importare questo gatto?';
+
+  @override
+  String shareSource(String url) {
+    return 'Fonte: $url';
+  }
+
+  @override
+  String get importLabel => 'Importa';
+
+  @override
+  String get strayAreaLabel => 'Possibile area di vagabondaggio';
+
+  @override
+  String get prevPin => 'Segnaposto precedente';
+
+  @override
+  String get nextPin => 'Segnaposto successivo';
+
+  @override
+  String get noMissingCats =>
+      'Ancora nessun gatto scomparso con posizioni di volantini.';
+
+  @override
+  String get noMatchCandidates =>
+      'Nessuna possibile corrispondenza al momento.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Stesso $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'A $distance m di distanza';
+  }
+
+  @override
+  String get addFlier => 'Aggiungi volantino';
+
+  @override
+  String get missingSinceLabel => 'Scomparso dal';
+
+  @override
+  String get phoneLabel => 'Telefono';
+
+  @override
+  String get cropPortrait => 'Ritaglia ritratto';
+
+  @override
+  String get statusOwner => 'Proprietario';
+
+  @override
+  String get ocrUnavailable =>
+      'Il riconoscimento del testo non è disponibile su questo dispositivo — digita tu il testo del volantino.';
+
+  @override
+  String get displayFormat => 'Mostrato come';
+
+  @override
+  String get displayPlain => 'Testo semplice';
+
+  @override
+  String get displayQr => 'Codice QR';
+
+  @override
+  String get displayBarcode => 'Codice a barre';
+
+  @override
+  String get editLabel => 'Modifica';
+
+  @override
+  String get doneLabel => 'Fatto';
+
+  @override
   String get openSettings => 'Apri impostazioni';
 
   @override
@@ -235,6 +412,29 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get malePregnant =>
       'Questo gatto è registrato come maschio — un maschio non può essere gravido. Controlla prima il sesso.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name è registrata come femmina e non può essere il padre. Controlla prima il sesso.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name è registrato come maschio e non può essere la madre. Controlla prima il sesso.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name è nato il $date — un genitore non può nascere dopo il suo cucciolo.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Questo gatto è registrato come padre di altri gatti — il padre non può essere femmina. Controlla prima la famiglia.';
+
+  @override
+  String get genderMotherMale =>
+      'Questo gatto è registrato come madre di altri gatti — la madre non può essere maschio. Controlla prima la famiglia.';
 
   @override
   String get moveTo => 'Sposta in';
@@ -418,7 +618,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sincronizza tramite una cartella trasportata da un cloud o una chiavetta USB — per chi non è sulla stessa rete.';
+      'Entrambi i dispositivi usano la stessa cartella (per esempio in Dropbox o su una chiavetta USB). Ogni sincronizzazione vi deposita le tue modifiche e raccoglie quelle dell\'altro.';
 
   @override
   String get noFolderChosenYet => 'Nessuna cartella scelta';
@@ -598,7 +798,234 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterResponsible => 'Persona responsabile';
 
   @override
-  String get starterPosition => 'Posizione';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefono';
+
+  @override
+  String get lookupUrlLabel => 'Link di ricerca';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'La pagina del servizio con $token al posto del numero, per es. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Cerca';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Nessuna app ha potuto aprire $url. Copia il link in un browser.';
+  }
+
+  @override
+  String get stepCat => 'Gatto';
+
+  @override
+  String get stepOwner => 'Proprietario';
+
+  @override
+  String get stepFace => 'Foto del muso';
+
+  @override
+  String get stepRegistry => 'Registro';
+
+  @override
+  String get stepReview => 'Controlla e salva';
+
+  @override
+  String get stepOwnerHint =>
+      'Chi ha perso il gatto: questa diventa la sua scheda, con il contatto del volantino.';
+
+  @override
+  String get stepFaceHint =>
+      'Ritaglia il muso del gatto dal volantino; diventa la foto del profilo. Puoi saltare questo passo.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numeri trovati sul volantino. Quelli spuntati vengono salvati con il gatto e si aprono più tardi.';
+
+  @override
+  String get noRegistryLinks =>
+      'Nessun link di registro su questo volantino: qui non c\'è nulla da fare.';
+
+  @override
+  String get unknownServiceHint => 'Servizio sconosciuto';
+
+  @override
+  String get rememberService => 'Ricorda il servizio';
+
+  @override
+  String get rememberServiceHint =>
+      'Dai un nome al servizio e indica il numero nel link. Il prossimo volantino si compilerà da solo.';
+
+  @override
+  String get noIdInLink =>
+      'Questo link non contiene alcun numero che l\'app possa salvare.';
+
+  @override
+  String get whichNumber => 'Quale parte è il numero?';
+
+  @override
+  String get cropAgain => 'Ritaglia di nuovo';
+
+  @override
+  String get noFaceYet =>
+      'Ancora nessuna foto del muso: si usa la foto del volantino.';
+
+  @override
+  String get backLabel => 'Indietro';
+
+  @override
+  String get dangerButton => 'NON PREMERE.\nPERICOLO';
+
+  @override
+  String get dangerThanks => 'Grazie per usare cat(a)log!';
+
+  @override
+  String get helpTitle => 'Aiuto';
+
+  @override
+  String get showTipsAgain => 'Mostra di nuovo i suggerimenti';
+
+  @override
+  String get helpHome =>
+      'La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa. Il nome in alto è il catalogo in cui sei: toccalo per cambiare o aggiungerne uno.';
+
+  @override
+  String get helpClowder =>
+      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo.';
+
+  @override
+  String get helpCat =>
+      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo direttamente; una foto per il suo menu. Il menu in alto a destra ha il resto: segna privato, nascondi, unisci, registra un avvistamento, condividi.';
+
+  @override
+  String get helpStrays =>
+      'Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto.';
+
+  @override
+  String get helpMap =>
+      'Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento.';
+
+  @override
+  String get helpCard =>
+      'La scheda stampabile del gatto: scegli in alto con i chip cosa compare, poi condividila come immagine o PDF. Gli identificativi si stampano come QR o codice a barre, e una posizione diventa un QR che apre una mappa, più un breve Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Come i dati arrivano ad altre persone: collegarsi di persona, usare una cartella che entrambi i dispositivi vedono, o inviare un file via messaggistica. Decidi sempre tu cosa parte — e i file .catsync ricevuti si aprono qui.';
+
+  @override
+  String get helpFields =>
+      'I campi usati dal tuo catalogo. Rinominali, cambia le opzioni di un campo a scelta o creane di tuoi. Un campo identificativo può puntare a un servizio (un registro): allora il numero diventa toccabile sul gatto.';
+
+  @override
+  String get helpTimeline =>
+      'Ogni modifica mai fatta, dalla più recente: chi ha cambiato cosa, quando e con quale valore. Ogni voce può essere annullata — questo scrive una nuova voce, nulla viene mai cancellato.';
+
+  @override
+  String get helpDuplicates =>
+      'Gatti o colonie che sembrano esistere due volte: identificativi uguali o nomi molto simili con dettagli concordi. Tocca una coppia per unirla; l\'unione non si può annullare, perciò viene chiesto prima.';
+
+  @override
+  String get helpMatches =>
+      'Gatti che potrebbero essere lo stesso animale: identificativo identico, o un randagio visto nell\'area di ricerca di un gatto scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo gatto e confrontare.';
+
+  @override
+  String get helpFlier =>
+      'Un volantino fotografato diventa un gatto e il suo proprietario. Passo dopo passo: dati del gatto, contatto del proprietario, ritaglio del muso per la foto profilo, numeri di registro sul volantino, poi il controllo finale. Sono tutti suggerimenti: correggi ciò che la fotocamera ha letto male.';
+
+  @override
+  String get archiveTitle => 'Archivio';
+
+  @override
+  String get archiveExplainer =>
+      'I gatti deceduti e le colonie vuote che nessuno tocca da anni occupano comunque spazio, soprattutto le loro foto. Archiviare li scrive in un file che tieni tu e poi li elimina da qui.';
+
+  @override
+  String get archiveAction => 'Archivia';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivia $count voci';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archiviare $count voci?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names verranno scritti in un file e poi eliminati — sul tuo dispositivo e su ogni dispositivo con cui sincronizzi. Importare il file riporta tutto; senza, sono persi.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count voci archiviate ed eliminate';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Non è stato eliminato nulla: il file di archivio non è stato scritto ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, foto $photos in $count file';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Ferme da $years anni';
+  }
+
+  @override
+  String get nothingToArchive => 'Niente di abbastanza vecchio da archiviare.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Ultima modifica $date · foto $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'I dati vecchi costano spazio, soprattutto le foto che ogni dispositivo sincronizzato si porta dietro. Qui scegli gatti deceduti e colonie vuote ferme da anni, li scrivi in un file che tieni tu e li elimini. L\'eliminazione raggiunge tutti quelli con cui sincronizzi; importare il file ripristina tutto.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Ripristinare $count voci eliminate?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sono eliminati in questo catalogo e il file appena importato li contiene. Il ripristino li riporta qui e su ogni dispositivo con cui sincronizzi.';
+  }
+
+  @override
+  String get restoreAction => 'Ripristina';
+
+  @override
+  String get keepDeleted => 'Lascia eliminati';
+
+  @override
+  String get archiveNotSaved =>
+      'Non è stato eliminato nulla: l\'archivio non è stato salvato da nessuna parte.';
+
+  @override
+  String get locateAddress => 'Trova l\'indirizzo sulla mappa';
+
+  @override
+  String get addressLocated => 'Indirizzo trovato';
+
+  @override
+  String get addressNotFound =>
+      'Nessun luogo trovato per questo indirizzo. Controlla l\'ortografia o lascia vuoto.';
+
+  @override
+  String get starterPosition => 'Posizione geografica';
 
   @override
   String get valueYes => 'sì';
@@ -713,7 +1140,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Anche gatti, clowder e campi privati vengono condivisi — attivalo solo quando sincronizzi i tuoi dispositivi.';
+      'Questo invia anche tutto ciò che hai contrassegnato come privato. Chi sincronizza con te lo vedrà.';
 
   @override
   String get hideLabel => 'Nascondi su questo dispositivo';
@@ -731,7 +1158,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get starterSpecies => 'Specie';
 
   @override
-  String get starterStatus => 'Stato';
+  String get starterStatus => 'Tipo';
 
   @override
   String get statusFoster => 'Casa affidataria';
@@ -926,7 +1353,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Invia tutto come un unico file con qualsiasi messenger';
+      'Invia tutto come un unico file con qualsiasi messenger — e importa qui un file .catsync ricevuto';
 
   @override
   String get connectToWifiFirst =>
@@ -975,25 +1402,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String get selectClowderHint => 'Scegli un clowder a sinistra';
 
   @override
-  String get introTitle1 => 'I gatti vivono nei clowder';
+  String get introTitle1 => 'I tuoi gatti, in ordine';
 
   @override
   String get introBody1 =>
-      'Un clowder è un posto dove vivono i gatti: la tua casa affidataria, l\'appartamento di un adottante, il fienile accanto. Ogni gatto ha una scheda con foto, dati e tutta la sua storia.';
+      'Crea una scheda per ogni gatto: foto, sesso, salute, tutto ciò che vuoi annotare. I gatti sono raggruppati per il luogo in cui vivono — l\'app chiama quel luogo colonia (clowder).';
 
   @override
-  String get introTitle2 => 'Tutto resta da te';
+  String get introTitle2 => 'Funziona senza internet';
 
   @override
   String get introBody2 =>
-      'Niente account, niente cloud, niente tracciamento. I tuoi dati vivono sul tuo dispositivo.';
+      'Tutto viene salvato solo sul tuo telefono. Nessun account, nessun cloud. Nulla viene caricato finché non lo condividi tu.';
 
   @override
-  String get introTitle3 => 'Condividi con i tuoi aiutanti';
+  String get introTitle3 => 'Lavorare insieme';
 
   @override
   String get introBody3 =>
-      'Scansiona un codice e due dispositivi si sincronizzano in secondi, usa una cartella condivisa o invia tutto come un file.';
+      'Ognuno usa la propria app e ogni tanto scambiate i dati: incontratevi e scansionate un codice, usate una cartella condivisa o inviate un file via messenger. Dopo, tutti hanno le stesse informazioni.';
 
   @override
   String get introSkip => 'Salta';
@@ -1009,19 +1436,50 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Novità: la sincronizzazione offre ora tre vie chiare — e una domanda di fiducia prima che qualcosa fluisca.';
+      'Qui sincronizzi con i tuoi conoscenti. Decidi tu cosa condividere.';
+
+  @override
+  String get spotHomeStrays =>
+      'Questa scheda raccoglie tutti i randagi — gatti senza casa. Toccala per vedere l\'elenco.';
+
+  @override
+  String get spotHomeMenu =>
+      'In questo menu: trovare e unire i duplicati, esportare CSV e altro.';
+
+  @override
+  String get spotCatEdit =>
+      'Tocca la matita per modificare questo gatto. Suggerimento: tieni premuto un campo per modificarlo direttamente.';
+
+  @override
+  String get spotMapLayers =>
+      'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini e alla casa da cui è scappato.';
+
+  @override
+  String get spotStraysFlier =>
+      'Un volantino di gatto scomparso? Fotografalo qui — l\'app salva gatto e contatto per te.';
+
+  @override
+  String get spotStraysScan =>
+      'Alcuni volantini hanno un codice QR cat(a)log. Scansionalo qui per importare il gatto senza digitare.';
+
+  @override
+  String get introTitle4 => 'Ritrovare i gatti scomparsi';
+
+  @override
+  String get introBody4 =>
+      'Vedi un volantino di gatto scomparso? Fotografalo nell\'app: salva il gatto, il contatto del proprietario e il luogo. Se più tardi compare un randagio simile, l\'app suggerisce possibili corrispondenze.';
 
   @override
   String get spotMapSearch =>
-      'Novità: cerca qui gatti, clowder e persone — direttamente sulla mappa.';
+      'Scrivi un gatto, un luogo o una persona per saltarci sulla mappa.';
 
   @override
   String get spotCardChips =>
-      'Novità: scegli cosa appare sulla scheda prima di condividerla.';
+      'Spunta ciò che deve comparire sulla scheda da condividere — il resto ne resta fuori.';
 
   @override
   String get spotCatMenu =>
-      'Novità: segna un gatto come privato (non lascia mai il tuo dispositivo) o nascondilo qui.';
+      'Qui trovi altre azioni: contrassegnare il gatto come privato, nasconderlo, unire duplicati o registrare un avvistamento.';
 
   @override
   String get spotDone => 'Capito';
@@ -1063,4 +1521,134 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log si è fermato inaspettatamente l\'ultima volta — probabilmente ha esaurito la memoria. Inviare un breve rapporto per correggerlo?';
+
+  @override
+  String get catalogsTitle => 'Cataloghi';
+
+  @override
+  String get newCatalog => 'Nuovo catalogo';
+
+  @override
+  String get catalogNameLabel => 'Nome del catalogo';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Esiste già un catalogo chiamato $name. Scegli un altro nome.';
+  }
+
+  @override
+  String get manageCatalogs => 'Gestisci cataloghi';
+
+  @override
+  String get helpCatalogs =>
+      'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Questo è il catalogo in cui sei. Tocca il nome per cambiare o crearne un altro.';
+
+  @override
+  String get deleteCatalog => 'Elimina catalogo';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Tutto ciò che è in $name sparisce: i gatti, le foto, la cronologia. Prima viene salvato un file completo dove vanno i backup automatici; importarlo riporta indietro il catalogo. Scrivi il nome per confermare.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name eliminato. Il file è in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Scrivi $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Non è stato eliminato nulla: il file del catalogo non è stato scritto ($error). Libera spazio o riprova più tardi.';
+  }
+
+  @override
+  String get moveToCatalog => 'Sposta in un altro catalogo';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count spostati in $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Che cosa si sposta?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Spostare qualcosa in $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Annulla questa importazione';
+
+  @override
+  String undoImportBody(int count) {
+    return 'I $count cambiamenti portati da questa importazione vengono tolti. Prima vengono scritti in un file; importarlo li riporta. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Annullato. Il file è in $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Torna indietro';
+
+  @override
+  String get goBackToHere => 'Torna qui';
+
+  @override
+  String get momentImport => 'Prima dell’importazione';
+
+  @override
+  String get momentSync => 'Prima della sincronizzazione';
+
+  @override
+  String get momentMerge => 'Prima dell’unione';
+
+  @override
+  String get momentHardDelete => 'Prima di eliminare i dati di un autore';
+
+  @override
+  String get momentArchive => 'Prima dell’archiviazione';
+
+  @override
+  String get momentManual => 'Segnato da te';
+
+  @override
+  String get showOlderMoments => 'Mostra i più vecchi';
+
+  @override
+  String goBackBody(int count) {
+    return 'Tutto ciò che viene dopo questo momento viene tolto — $count cambiamenti. Prima viene scritto in un file; importarlo lo riporta, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.';
+  }
+
+  @override
+  String get nameThisMoment => 'Dai un nome a questo momento';
+
+  @override
+  String get helpGoBack =>
+      'I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Non è stato tolto nulla: il file che lo conserva non è stato scritto ($error). Libera spazio e riprova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Questo è il catalogo in cui sei. Passa a un altro, poi eliminalo.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Il file di condivisione non è stato scritto ($error). Libera spazio e riprova.';
+  }
 }

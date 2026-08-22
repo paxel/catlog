@@ -181,7 +181,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'گربه از همه فهرست‌ها ناپدید می‌شود و عکس‌هایش حذف می‌شوند — اینجا و پس از همگام‌سازی بعدی، در دستگاه یارانتان هم.';
+      'گربه از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
 
   @override
   String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
@@ -210,6 +210,181 @@ class AppLocalizationsFa extends AppLocalizations {
   String get ok => 'باشه';
 
   @override
+  String get starterChipId => 'شمارهٔ تراشه';
+
+  @override
+  String get starterRemarks => 'یادداشت‌ها';
+
+  @override
+  String get captureFlier => 'عکس از آگهی';
+
+  @override
+  String get addPhotosTo => 'افزودن عکس‌ها به…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count عکس به $name افزوده شد';
+  }
+
+  @override
+  String get scanPrintedCode => 'اسکن کد چاپی';
+
+  @override
+  String get chipScanHint =>
+      'کد QR/بارکد چاپی روی کارت تراشه یا مدارک دامپزشکی را می‌خواند — تلفن نمی‌تواند تراشهٔ داخل گربه را بخواند.';
+
+  @override
+  String get savingLabel => 'در حال ذخیره…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'صاحب $name';
+  }
+
+  @override
+  String get sortLabel => 'مرتب‌سازی';
+
+  @override
+  String get viewAsTable => 'نمایش جدولی';
+
+  @override
+  String get viewAsTiles => 'نمایش کاشی‌وار';
+
+  @override
+  String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
+
+  @override
+  String get findDuplicates => 'یافتن موارد تکراری';
+
+  @override
+  String get noDuplicates => 'در حال حاضر مورد تکراری احتمالی نیست.';
+
+  @override
+  String get similarName => 'نام مشابه';
+
+  @override
+  String get sharePublicly => 'اشتراک عمومی…';
+
+  @override
+  String get privateNoShare =>
+      'این گربه خصوصی علامت‌گذاری شده — داده‌های خصوصی هرگز دستگاه شما را ترک نمی‌کنند. برای اشتراک عمومی ابتدا علامت را بردارید.';
+
+  @override
+  String get pickFramesTitle => 'انتخاب فریم‌ها';
+
+  @override
+  String get suggestedFrames => 'فریم‌های پیشنهادی';
+
+  @override
+  String get scrubFrames => 'پیمایش ویدیو';
+
+  @override
+  String get keepThisFrame => 'این فریم را نگه دار';
+
+  @override
+  String get fromVideo => 'از ویدیو…';
+
+  @override
+  String get videoMobileOnly =>
+      'انتخاب فریم از ویدیو در برنامهٔ تلفن (اندروید و آیفون) کار می‌کند — هنوز در این دستگاه نه.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'انتخاب کنید چه چیزی وارد فایل شود. فقط فیلدهای علامت‌خورده گنجانده می‌شوند.';
+
+  @override
+  String get exportShareFile => 'خروجی فایل اشتراک…';
+
+  @override
+  String get hostedLink => 'پیوند میزبانی‌شده (نشانی فایل بارگذاری‌شده)';
+
+  @override
+  String get inlineQr => 'QR داخلی (فقط متن، بدون عکس)';
+
+  @override
+  String get inlineTooBig =>
+      'داده‌ها برای کد داخلی زیاد است — فیلدها را کم کنید یا از پیوند میزبانی‌شده استفاده کنید.';
+
+  @override
+  String get scanShareLabel => 'اسکن کد اشتراک';
+
+  @override
+  String get notAShareCode => 'این کد اشتراک cat(a)log نیست.';
+
+  @override
+  String get importShareTitle => 'این گربه وارد شود؟';
+
+  @override
+  String shareSource(String url) {
+    return 'منبع: $url';
+  }
+
+  @override
+  String get importLabel => 'وارد کردن';
+
+  @override
+  String get strayAreaLabel => 'محدودهٔ احتمالی پرسه‌زنی';
+
+  @override
+  String get prevPin => 'پین قبلی';
+
+  @override
+  String get nextPin => 'پین بعدی';
+
+  @override
+  String get noMissingCats => 'هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.';
+
+  @override
+  String get noMatchCandidates => 'در حال حاضر موردی برای تطبیق نیست.';
+
+  @override
+  String sameIdField(String field) {
+    return '$field یکسان';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance متر فاصله';
+  }
+
+  @override
+  String get addFlier => 'افزودن آگهی';
+
+  @override
+  String get missingSinceLabel => 'گم‌شده از';
+
+  @override
+  String get phoneLabel => 'تلفن';
+
+  @override
+  String get cropPortrait => 'برش چهره';
+
+  @override
+  String get statusOwner => 'صاحب';
+
+  @override
+  String get ocrUnavailable =>
+      'تشخیص متن در این دستگاه در دسترس نیست — متن آگهی را خودتان بنویسید.';
+
+  @override
+  String get displayFormat => 'نمایش به‌صورت';
+
+  @override
+  String get displayPlain => 'متن ساده';
+
+  @override
+  String get displayQr => 'کد QR';
+
+  @override
+  String get displayBarcode => 'بارکد';
+
+  @override
+  String get editLabel => 'ویرایش';
+
+  @override
+  String get doneLabel => 'انجام شد';
+
+  @override
   String get openSettings => 'باز کردن تنظیمات';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get malePregnant =>
       'این گربه به‌عنوان نر ثبت شده است — گربهٔ نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name به‌عنوان ماده ثبت شده و نمی‌تواند پدر باشد. ابتدا جنسیت را بررسی کنید.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name به‌عنوان نر ثبت شده و نمی‌تواند مادر باشد. ابتدا جنسیت را بررسی کنید.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name در $date به دنیا آمده — والد نمی‌تواند بعد از بچه‌اش متولد شود.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'این گربه به‌عنوان پدر گربه‌های دیگر ثبت شده — پدر نمی‌تواند ماده باشد. ابتدا خانواده را بررسی کنید.';
+
+  @override
+  String get genderMotherMale =>
+      'این گربه به‌عنوان مادر گربه‌های دیگر ثبت شده — مادر نمی‌تواند نر باشد. ابتدا خانواده را بررسی کنید.';
 
   @override
   String get moveTo => 'انتقال به';
@@ -416,7 +614,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'از راه پوشه‌ای که فضای ابری یا فلش بین دستگاه‌ها می‌برد همگام شوید — برای کسانی که در یک شبکه نیستند.';
+      'هر دو دستگاه از یک پوشه استفاده می‌کنند (مثلاً در Dropbox یا روی فلش). هر همگام‌سازی تغییرات شما را آنجا می‌گذارد و تغییرات طرف مقابل را برمی‌دارد.';
 
   @override
   String get noFolderChosenYet => 'هنوز پوشه‌ای انتخاب نشده';
@@ -596,6 +794,231 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterResponsible => 'شخص مسئول';
 
   @override
+  String get starterEmail => 'ایمیل';
+
+  @override
+  String get starterPhone => 'تلفن';
+
+  @override
+  String get lookupUrlLabel => 'پیوند جست‌وجو';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'صفحهٔ سرویس با $token به جای شماره، مثل https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'جست‌وجو';
+
+  @override
+  String lookupFailed(String url) {
+    return 'هیچ برنامه‌ای نتوانست $url را باز کند. پیوند را در مرورگر کپی کنید.';
+  }
+
+  @override
+  String get stepCat => 'گربه';
+
+  @override
+  String get stepOwner => 'صاحب';
+
+  @override
+  String get stepFace => 'عکس صورت';
+
+  @override
+  String get stepRegistry => 'سامانه ثبت';
+
+  @override
+  String get stepReview => 'بررسی و ذخیره';
+
+  @override
+  String get stepOwnerHint =>
+      'کسی که گربه‌اش گم شده — این کارت او می‌شود، با تماس روی آگهی.';
+
+  @override
+  String get stepFaceHint =>
+      'صورت گربه را از آگهی ببرید؛ عکس نمایه می‌شود. می‌توانید رد شوید.';
+
+  @override
+  String get stepRegistryHint =>
+      'شماره‌های پیداشده روی آگهی. تیک‌خورده‌ها با گربه ذخیره می‌شوند و بعداً باز می‌شوند.';
+
+  @override
+  String get noRegistryLinks =>
+      'در این آگهی پیوند سامانه‌ای نیست — اینجا کاری نیست.';
+
+  @override
+  String get unknownServiceHint => 'سرویس ناشناس';
+
+  @override
+  String get rememberService => 'سرویس را به خاطر بسپار';
+
+  @override
+  String get rememberServiceHint =>
+      'سرویس را نام‌گذاری کنید و شماره را در پیوند نشان دهید. آگهی بعدی خودش پر می‌شود.';
+
+  @override
+  String get noIdInLink =>
+      'این پیوند شماره‌ای ندارد که برنامه بتواند ذخیره کند.';
+
+  @override
+  String get whichNumber => 'کدام بخش شماره است؟';
+
+  @override
+  String get cropAgain => 'برش دوباره';
+
+  @override
+  String get noFaceYet => 'هنوز عکس صورت نیست — عکس آگهی استفاده می‌شود.';
+
+  @override
+  String get backLabel => 'بازگشت';
+
+  @override
+  String get dangerButton => 'فشار ندهید.\nخطر';
+
+  @override
+  String get dangerThanks => 'ممنون که از cat(a)log استفاده می‌کنید!';
+
+  @override
+  String get helpTitle => 'راهنما';
+
+  @override
+  String get showTipsAgain => 'نمایش دوبارهٔ نکته‌ها';
+
+  @override
+  String get helpHome =>
+      'نمای کلی کلونی‌های شما — کلونی جایی است که گربه‌ها در آن زندگی می‌کنند: خانهٔ شما، خانهٔ نگهداری موقت، پناهگاه. روی کارت بزنید تا گربه‌هایش را ببینید؛ فشار طولانی منو را باز می‌کند. دکمهٔ پایین راست کلونی می‌سازد و کارت ولگردها همهٔ گربه‌های بی‌خانه را جمع می‌کند. نام بالا کاتالوگی است که در آن هستید — برای تغییر یا افزودن روی آن بزنید.';
+
+  @override
+  String get helpClowder =>
+      'همه‌چیز دربارهٔ این مکان: گربه‌ها، فیلدها (نشانی، تماس، نوع) و تاریخچه. صفحه فقط خواندنی باز می‌شود؛ مداد ویرایش را روشن می‌کند و همان‌جا می‌توانید فیلد جدید بسازید. فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند و روی گربه آن را جابه‌جا، پنهان یا باز می‌کند.';
+
+  @override
+  String get helpCat =>
+      'همه‌چیز دربارهٔ این گربه: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه تا زدن مداد فقط خواندنی است. فشار طولانی روی فیلد یک‌راست به ویرایش می‌برد؛ روی عکس منوی آن را باز می‌کند. منوی بالا سمت راست بقیه را دارد: خصوصی، پنهان، ادغام، ثبت مشاهده، اشتراک.';
+
+  @override
+  String get helpStrays =>
+      'گربه‌هایی که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین گربه‌ای را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به گربه‌ای همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند.';
+
+  @override
+  String get helpMap =>
+      'همهٔ گربه‌ها و مکان‌هایی که موقعیت دارند. جست‌وجو گربه، شخص و مکان را پیدا می‌کند — نام ناشناس در سراسر جهان جست‌وجو می‌شود. دکمهٔ لایه‌ها دایره‌های ۵۰۰ متری را دور محل آگهی‌های گربهٔ گمشده و دور خانهٔ قبلی‌اش می‌کشد. پیکان‌ها از نشان به نشان می‌روند و فشار طولانی روی نقشه مشاهده ثبت می‌کند.';
+
+  @override
+  String get helpCard =>
+      'کارت قابل چاپ گربه: بالا با تراشه‌ها انتخاب کنید چه چیزی روی آن بیاید، سپس آن را به‌صورت تصویر یا PDF به اشتراک بگذارید. شماره‌ها می‌توانند به شکل QR یا بارکد چاپ شوند و موقعیت به QR بازکنندهٔ نقشه به‌همراه یک Plus Code کوتاه تبدیل می‌شود.';
+
+  @override
+  String get helpSync =>
+      'داده‌ها این‌گونه به دیگران می‌رسند: اتصال مستقیم، پوشه‌ای که هر دو دستگاه می‌بینند، یا فایلی از راه پیام‌رسان. همیشه شما تصمیم می‌گیرید چه چیزی برود — فایل‌های ‎.catsync دریافتی هم اینجا باز می‌شوند.';
+
+  @override
+  String get helpFields =>
+      'فیلدهایی که فهرست شما به کار می‌برد. نامشان را عوض کنید، گزینه‌های یک فیلد انتخابی را تغییر دهید یا فیلد خودتان را بسازید. فیلد شناسه می‌تواند به یک سرویس (سامانهٔ ثبت) اشاره کند تا شماره نزد گربه قابل لمس شود.';
+
+  @override
+  String get helpTimeline =>
+      'هر تغییری که تا کنون انجام شده، تازه‌ترین در بالا: چه کسی چه چیزی را کی و به چه مقداری تغییر داده. هر مدخل قابل بازگرداندن است — این کار مدخل تازه می‌نویسد و چیزی پاک نمی‌شود.';
+
+  @override
+  String get helpDuplicates =>
+      'گربه‌ها یا کلونی‌هایی که انگار دو بار وجود دارند — شناسه‌های یکسان یا نام‌های بسیار نزدیک با جزئیات همخوان. روی یک جفت بزنید تا ادغام شود؛ ادغام بازگشت‌ناپذیر است، برای همین اول می‌پرسد.';
+
+  @override
+  String get helpMatches =>
+      'گربه‌هایی که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی گربهٔ گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی گربهٔ اول را برای مقایسه باز می‌کند.';
+
+  @override
+  String get helpFlier =>
+      'از یک پوستر عکس‌گرفته‌شده، گربه و صاحبش ساخته می‌شود. گام‌به‌گام: داده‌های گربه، تماس صاحب، برش صورت برای عکس نمایه، شماره‌های سامانه روی پوستر و در پایان یک بازبینی. همه پیشنهاد است — آنچه را دوربین اشتباه خوانده اصلاح کنید.';
+
+  @override
+  String get archiveTitle => 'بایگانی';
+
+  @override
+  String get archiveExplainer =>
+      'گربه‌های درگذشته و کلونی‌های خالی که سال‌هاست کسی سراغشان نرفته باز هم جا می‌گیرند — به‌ویژه عکس‌هایشان. بایگانی آن‌ها را در فایلی که نگه می‌دارید می‌نویسد و سپس از اینجا حذف می‌کند.';
+
+  @override
+  String get archiveAction => 'بایگانی';
+
+  @override
+  String archiveSelected(int count) {
+    return 'بایگانی $count مورد';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count مورد بایگانی شود؟';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names در فایلی نوشته و سپس حذف می‌شوند — روی دستگاه شما و روی هر دستگاهی که با آن همگام می‌شوید. وارد کردن فایل همه‌چیز را برمی‌گرداند؛ بدون آن از دست می‌روند.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count مورد بایگانی و حذف شد';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'چیزی حذف نشد: فایل بایگانی نوشته نشد ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'پایگاه داده $db، عکس‌ها $photos در $count فایل';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years سال بدون تغییر';
+  }
+
+  @override
+  String get nothingToArchive => 'چیزی به‌قدر کافی قدیمی برای بایگانی نیست.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'آخرین تغییر $date · عکس‌ها $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'داده‌های قدیمی جا می‌گیرند، به‌ویژه عکس‌هایی که هر دستگاه همگام‌شده با خود می‌برد. اینجا گربه‌های درگذشته و کلونی‌های خالیِ سال‌ها ساکن را انتخاب می‌کنید، در فایلی که نگه می‌دارید می‌نویسید و حذفشان می‌کنید. حذف به همهٔ کسانی که با آن‌ها همگام می‌شوید می‌رسد؛ وارد کردن فایل همه‌چیز را بازمی‌گرداند.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return '$count مورد حذف‌شده بازیابی شود؟';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names در این فهرست حذف شده‌اند و فایلی که تازه وارد کردید آن‌ها را دارد. بازیابی آن‌ها را اینجا و روی همهٔ دستگاه‌هایی که با آن‌ها همگام می‌شوید برمی‌گرداند.';
+  }
+
+  @override
+  String get restoreAction => 'بازیابی';
+
+  @override
+  String get keepDeleted => 'حذف‌شده بماند';
+
+  @override
+  String get archiveNotSaved => 'چیزی حذف نشد: بایگانی هیچ‌جا ذخیره نشد.';
+
+  @override
+  String get locateAddress => 'یافتن نشانی روی نقشه';
+
+  @override
+  String get addressLocated => 'نشانی پیدا شد';
+
+  @override
+  String get addressNotFound =>
+      'برای این نشانی جایی پیدا نشد. املا را بررسی کنید یا خالی بگذارید.';
+
+  @override
   String get starterPosition => 'موقعیت';
 
   @override
@@ -711,7 +1134,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'گربه‌ها، گروه‌ها و فیلدهای خصوصی هم به اشتراک گذاشته می‌شوند — فقط هنگام همگام‌سازی دستگاه‌های خودتان روشن کنید.';
+      'با این کار هر چیزی که خصوصی علامت زده‌اید هم فرستاده می‌شود. کسی که با شما همگام می‌شود آن را می‌بیند.';
 
   @override
   String get hideLabel => 'پنهان کردن در این دستگاه';
@@ -729,7 +1152,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterSpecies => 'گونه';
 
   @override
-  String get starterStatus => 'وضعیت';
+  String get starterStatus => 'نوع';
 
   @override
   String get statusFoster => 'خانه موقت';
@@ -923,7 +1346,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید';
+      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید — و فایل .catsync دریافتی را اینجا وارد کنید';
 
   @override
   String get connectToWifiFirst =>
@@ -970,25 +1393,25 @@ class AppLocalizationsFa extends AppLocalizations {
   String get selectClowderHint => 'از سمت چپ یک گروه انتخاب کنید';
 
   @override
-  String get introTitle1 => 'گربه‌ها در گروه‌ها زندگی می‌کنند';
+  String get introTitle1 => 'گربه‌هایتان، منظم';
 
   @override
   String get introBody1 =>
-      'گروه جایی است که گربه‌ها زندگی می‌کنند: خانه موقت شما، آپارتمان سرپرست جدید، انبار همسایه. هر گربه کارتی با عکس، اطلاعات و تمام داستانش دارد.';
+      'برای هر گربه یک کارت بسازید: عکس، جنسیت، سلامت و هرچه می‌خواهید یادداشت کنید. گربه‌ها بر اساس محل زندگی گروه‌بندی می‌شوند — برنامه به این مکان کلنی (clowder) می‌گوید.';
 
   @override
-  String get introTitle2 => 'همه چیز نزد شما می‌ماند';
+  String get introTitle2 => 'بدون اینترنت کار می‌کند';
 
   @override
   String get introBody2 =>
-      'بدون حساب، بدون ابر، بدون ردیابی. داده‌های شما روی دستگاه خودتان است.';
+      'همه چیز فقط روی گوشی شما ذخیره می‌شود. نه حسابی، نه ابری. تا خودتان چیزی را به اشتراک نگذارید، چیزی ارسال نمی‌شود.';
 
   @override
-  String get introTitle3 => 'با یارانتان به اشتراک بگذارید';
+  String get introTitle3 => 'با هم کار کنید';
 
   @override
   String get introBody3 =>
-      'کدی را اسکن کنید تا دو دستگاه در چند ثانیه همگام شوند، از پوشه مشترک استفاده کنید یا همه را یک فایل بفرستید.';
+      'هر کس برنامهٔ خودش را دارد و گاه‌به‌گاه داده رد و بدل می‌کنید: همدیگر را ببینید و کدی اسکن کنید، از پوشهٔ مشترک استفاده کنید یا یک فایل با پیام‌رسان بفرستید. بعد همه اطلاعات یکسانی دارند.';
 
   @override
   String get introSkip => 'رد شدن';
@@ -1004,19 +1427,50 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'جدید: همگام‌سازی حالا سه راه روشن دارد — و یک سؤال اعتماد قبل از انتقال هر چیزی.';
+      'اینجا با آشنایانتان همگام می‌شوید. شما تصمیم می‌گیرید چه چیزی را به اشتراک بگذارید.';
+
+  @override
+  String get spotHomeStrays =>
+      'این کارت همهٔ ولگردها را جمع می‌کند — گربه‌های بی‌خانه. برای دیدن فهرست لمس کنید.';
+
+  @override
+  String get spotHomeMenu =>
+      'در این منو: یافتن و ادغام موارد تکراری، خروجی CSV و بیشتر.';
+
+  @override
+  String get spotCatEdit =>
+      'برای ویرایش گربه روی مداد بزنید. نکته: فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند.';
+
+  @override
+  String get spotMapLayers =>
+      'دنبال گربهٔ گمشده‌اید؟ دور محل آگهی‌هایش و خانه‌ای که از آن فرار کرده دایره نشان دهید.';
+
+  @override
+  String get spotStraysFlier =>
+      'آگهی گربهٔ گمشده دیدید؟ اینجا عکس بگیرید — برنامه گربه و تماس را برایتان ذخیره می‌کند.';
+
+  @override
+  String get spotStraysScan =>
+      'بعضی آگهی‌ها کد QR مخصوص cat(a)log دارند. اینجا اسکن کنید و گربه را بدون تایپ وارد کنید.';
+
+  @override
+  String get introTitle4 => 'گربه‌های گمشده را بیابید';
+
+  @override
+  String get introBody4 =>
+      'آگهی گربهٔ گمشده دیده‌اید؟ در برنامه از آن عکس بگیرید: گربه، تماس صاحبش و مکان را ذخیره می‌کند. اگر بعداً گربهٔ ولگرد مشابهی دیده شود، برنامه تطبیق‌های احتمالی را پیشنهاد می‌دهد.';
 
   @override
   String get spotMapSearch =>
-      'جدید: اینجا گربه‌ها، گروه‌ها و افراد را جستجو کنید — مستقیم روی نقشه.';
+      'گربه، مکان یا شخصی را بنویسید تا روی نقشه به آنجا بروید.';
 
   @override
   String get spotCardChips =>
-      'جدید: قبل از اشتراک‌گذاری انتخاب کنید چه چیزی روی کارت باشد.';
+      'علامت بزنید چه چیزی روی کارت اشتراکی باشد — بقیه بیرون می‌ماند.';
 
   @override
   String get spotCatMenu =>
-      'جدید: گربه‌ای را خصوصی علامت بزنید (هرگز دستگاه را ترک نمی‌کند) یا اینجا پنهانش کنید.';
+      'کارهای بیشتر اینجاست: گربه را خصوصی کنید، پنهانش کنید، تکراری‌ها را ادغام یا مشاهده‌ای ثبت کنید.';
 
   @override
   String get spotDone => 'متوجه شدم';
@@ -1057,4 +1511,134 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log دفعه قبل به‌طور غیرمنتظره متوقف شد — احتمالاً حافظه تمام شد. گزارش کوتاهی فرستاده شود تا برطرف شود؟';
+
+  @override
+  String get catalogsTitle => 'کاتالوگ‌ها';
+
+  @override
+  String get newCatalog => 'کاتالوگ جدید';
+
+  @override
+  String get catalogNameLabel => 'نام کاتالوگ';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'کاتالوگی با نام $name از قبل وجود دارد. نام دیگری انتخاب کنید.';
+  }
+
+  @override
+  String get manageCatalogs => 'مدیریت کاتالوگ‌ها';
+
+  @override
+  String get helpCatalogs =>
+      'هر کاتالوگ دنیای خودش است: گربه‌ها، کلونی‌ها، فیلدها، عکس‌ها و همگام‌سازهای خودش. برلین و پاریس هرگز مخلوط نمی‌شوند. برای تغییر، افزودن یا تغییر نام، بالای صفحهٔ خانه روی نام بزنید. نام شما، زبان و راهنماهایی که دیده‌اید بین همه مشترک است.';
+
+  @override
+  String get spotHomeCatalog =>
+      'این کاتالوگی است که در آن هستید. برای تغییر یا ساخت یکی دیگر روی نام بزنید.';
+
+  @override
+  String get deleteCatalog => 'حذف کاتالوگ';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'همه‌چیز در $name از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name حذف شد. فایل در $where است.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name را بنویسید';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'چیزی حذف نشد: نوشتن فایل کاتالوگ ممکن نشد ($error). کمی فضا آزاد کنید یا بعداً دوباره تلاش کنید.';
+  }
+
+  @override
+  String get moveToCatalog => 'انتقال به کاتالوگ دیگر';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count به $name منتقل شد';
+  }
+
+  @override
+  String get chooseWhatToMove => 'چه چیزی منتقل شود؟';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'چیزی به $name منتقل شود؟';
+  }
+
+  @override
+  String get undoThisImport => 'برگرداندن این وارد کردن';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count تغییری که این وارد کردن آورده حذف می‌شود. ابتدا در فایلی نوشته می‌شوند و وارد کردن آن فایل آن‌ها را برمی‌گرداند. کسانی که قبلاً همگام شده‌اند نسخهٔ خود را نگه می‌دارند — این قابل بازگرداندن نیست.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'برگردانده شد. فایل در $where است.';
+  }
+
+  @override
+  String get goBackTitle => 'بازگشت به عقب';
+
+  @override
+  String get goBackToHere => 'بازگشت به اینجا';
+
+  @override
+  String get momentImport => 'پیش از وارد کردن';
+
+  @override
+  String get momentSync => 'پیش از همگام‌سازی';
+
+  @override
+  String get momentMerge => 'پیش از ادغام';
+
+  @override
+  String get momentHardDelete => 'پیش از حذف داده‌های یک نویسنده';
+
+  @override
+  String get momentArchive => 'پیش از بایگانی';
+
+  @override
+  String get momentManual => 'نشان‌گذاری‌شده توسط شما';
+
+  @override
+  String get showOlderMoments => 'نمایش قدیمی‌ترها';
+
+  @override
+  String goBackBody(int count) {
+    return 'هر چیزی پس از این لحظه حذف می‌شود — $count تغییر. ابتدا در فایلی نوشته می‌شود و وارد کردن آن همه را برمی‌گرداند؛ هر لحظهٔ تازه‌تر هم با آن می‌رود. کسانی که قبلاً همگام شده‌اند نسخهٔ خود را نگه می‌دارند — این قابل بازگرداندن نیست.';
+  }
+
+  @override
+  String get nameThisMoment => 'این لحظه را نام‌گذاری کنید';
+
+  @override
+  String get helpGoBack =>
+      'لحظه‌هایی که این کاتالوگ دگرگون شده است: پیش از هر وارد کردن و هر همگام‌سازی، پیش از ادغام، بایگانی یا حذف، و هر بار که خودتان لحظه‌ای را نشان کرده‌اید. با انتخاب یکی، کاتالوگ به همان حالت بازمی‌گردد؛ هرچه پس از آن آمده در فایلی که نگه می‌دارید نوشته و سپس حذف می‌شود و هر لحظهٔ تازه‌تر هم با آن می‌رود. کسانی که قبلاً همگام شده‌اند آنچه گرفته‌اند نگه می‌دارند.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'چیزی حذف نشد: فایلی که آن را نگه می‌دارد نوشته نشد ($error). کمی فضا آزاد کنید و دوباره تلاش کنید.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'این کاتالوگی است که در آن هستید. به کاتالوگ دیگری بروید و سپس آن را حذف کنید.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'فایل اشتراک‌گذاری نوشته نشد ($error). کمی فضا آزاد کنید و دوباره تلاش کنید.';
+  }
 }

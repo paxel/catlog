@@ -2,16 +2,21 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
+import '../move_to_catalog.dart';
+import '../layout.dart';
+import '../help.dart';
 import '../conflict_dialog.dart';
 import '../field_editing.dart';
-import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
+import '../new_field_dialog.dart';
 import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/field_list.dart';
 import '../widgets/status_chip.dart';
+import '../registry_lookup.dart';
 import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'map_screen.dart';
@@ -34,6 +39,18 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   CatalogStore get store => widget.store;
   String get id => widget.clowderId;
 
+  /// Read-only until the pencil is pressed (#46); every visit starts calm.
+  bool _editing = false;
+
+  Future<void> _editField(FieldDef def) async {
+    final edit = await editFieldValue(
+        context, def, store.current(id, def.key),
+        store: store, excludeId: id);
+    if (edit == null || !mounted) return;
+    store.append(id, def.key, edit.value, date: edit.date);
+    setState(() {});
+  }
+
   Future<void> _rename() async {
     final current = store.current(id, Keys.name) ?? '';
     final name =
@@ -54,7 +71,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     setState(() {});
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) =>
-          CatDetailScreen(store: store, catId: catId, promptPhoto: true),
+          CatDetailScreen(
+              store: store,
+              catId: catId,
+              promptPhoto: true,
+              startEditing: true),
     ));
     if (!mounted) return;
     setState(() {});
@@ -70,6 +91,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       merge: store.mergeClowder,
     );
     if (merged && mounted) Navigator.of(context).pop();
+  }
+
+  /// The clowder and everything living in it leave for another
+  /// catalog, so this page has nothing left to show.
+  Future<void> _moveToCatalog() async {
+    final moved = await moveToAnotherCatalog(context, store, {id});
+    if (moved != null && mounted) Navigator.of(context).pop();
   }
 
   Future<void> _deleteClowder() async {
@@ -122,27 +150,84 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     final name = store.current(id, Keys.name) ?? context.t.unnamed;
     final defs = store.visibleFieldDefs(scope: FieldScope.clowder);
     final cats = store.visibleCats(clowderId: id);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
+    final fields = FieldList(
+      store: store,
+      entityId: id,
+      defs: defs,
+      editing: _editing,
+      onEdit: _editField,
+      onConflict: (def) async {
+        await showConflictDialog(context, store, id, def.key);
+        if (!mounted) return;
+        setState(() {});
+      },
+      onHistory: (def) async {
+        await Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) =>
+              TimelineScreen(store: store, entityId: id, field: def.key),
+        ));
+        // Reverts happen on the timeline — the page must show them.
+        if (mounted) setState(() {});
+      },
+      onShowMap: _showOnMap,
+      onLookup: (def, value) => openLookup(context, def, value),
+      // Long-press in read mode: jump into edit mode with the field's
+      // editor open — fix what you just spotted (#46).
+      onReadLongPress: (def) {
+        setState(() => _editing = true);
+        _editField(def);
+      },
+      onAddField: () async {
+        final created =
+            await showNewFieldDialog(context, store, initialScope: FieldScope.clowder);
+        if (created && mounted) setState(() {});
+      },
+    );
+    final gallery = <Widget>[
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Text('${context.t.cats} (${cats.length})',
+            style: Theme.of(context).textTheme.titleMedium),
+      ),
+      _catGrid(cats),
+    ];
+    return PopScope(
+      // Back leaves edit mode before it leaves the page.
+      canPop: !_editing,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) setState(() => _editing = false);
+      },
+      child: Scaffold(
+      appBar: roomyAppBar(
+        context,
+        // Renaming lives in edit mode: the title becomes tappable there.
+        title: _editing
+            ? InkWell(onTap: _rename, child: Text(name))
+            : Text(name),
         actions: [
+          HelpButton(store: store, screenId: 'clowder'),
           IconButton(
-            icon: const Icon(Icons.edit),
-            tooltip: context.t.rename,
-            onPressed: _rename,
+            icon: Icon(_editing ? Icons.check : Icons.edit),
+            tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
+            onPressed: () => setState(() => _editing = !_editing),
           ),
           IconButton(
             icon: const Icon(Icons.history),
             tooltip: context.t.timeline,
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => TimelineScreen(store: store, entityId: id),
-            )),
+            onPressed: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) =>
+                    TimelineScreen(store: store, entityId: id),
+              ));
+              if (mounted) setState(() {});
+            },
           ),
           if (store.isPrivate(id))
             Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteClowder();
+              if (v == 'moveCatalog') _moveToCatalog();
               if (v == 'merge') _mergeClowder();
               if (v == 'private') {
                 setState(() =>
@@ -159,6 +244,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               }
             },
             itemBuilder: (context) => [
+              if (canMoveBetweenCatalogs)
+                PopupMenuItem(
+                    value: 'moveCatalog',
+                    child: Text(context.t.moveToCatalog)),
               PopupMenuItem(
                   value: 'private',
                   child: Text(store.isPrivate(id)
@@ -187,50 +276,23 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 child: StatusChip(store: store, clowderId: id),
               ),
             ),
-          for (final def in defs)
-            ListTile(
-              title: Text(fieldDefName(context.t, def)),
-              subtitle: Text(fieldValueDisplay(
-                  context.t, def, store.current(id, def.key))),
-              trailing: store.hasConflict(id, def.key)
-                  ? const Icon(Icons.warning_amber, color: Colors.amber)
-                  : def.type == FieldType.location &&
-                          store.current(id, def.key) != null
-                      ? IconButton(
-                          icon: const Icon(Icons.map_outlined),
-                          tooltip: context.t.showOnMap,
-                          onPressed: () => _showOnMap(
-                              store.current(id, def.key)!),
-                        )
-                      : const Icon(Icons.edit_outlined),
-              onTap: () async {
-                if (store.hasConflict(id, def.key)) {
-                  await showConflictDialog(context, store, id, def.key);
-                  if (!mounted) return;
-                  setState(() {});
-                  return;
-                }
-                final edit = await editFieldValue(
-                    context, def, store.current(id, def.key),
-                    store: store, excludeId: id);
-                if (edit == null) return;
-                store.append(id, def.key, edit.value, date: edit.date);
-                if (!mounted) return;
-                setState(() {});
-              },
-              onLongPress: () =>
-                  Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => TimelineScreen(
-                    store: store, entityId: id, field: def.key),
-              )),
-            ),
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text('${context.t.cats} (${cats.length})',
-                style: Theme.of(context).textTheme.titleMedium),
-          ),
-          GridView.builder(
+          // Read mode leads with what one opens a clowder for — the cats;
+          // edit mode leads with its purpose — the fields (#46).
+          if (_editing) ...[fields, const Divider(), ...gallery]
+          else ...[...gallery, const Divider(), fields],
+          const SizedBox(height: 80),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _addCat,
+        icon: const Icon(Icons.add),
+        label: Text(context.t.addCat),
+      ),
+      ),
+    );
+  }
+
+  Widget _catGrid(List<EntityView> cats) => GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(8),
@@ -286,17 +348,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 ]),
               );
             },
-          ),
-          const SizedBox(height: 80),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _addCat,
-        icon: const Icon(Icons.add),
-        label: Text(context.t.addCat),
-      ),
-    );
-  }
+          );
 }
 
 Future<String?> _askForText(

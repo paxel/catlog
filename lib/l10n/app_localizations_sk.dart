@@ -181,7 +181,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu a po ďalšej synchronizácii aj u tvojich pomocníkov.';
+      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu aj, po ďalšej synchronizácii, na ostatných zariadeniach.';
 
   @override
   String get sightingRecorded => 'Pozorovanie zaznamenané na vašej pozícii.';
@@ -210,6 +210,182 @@ class AppLocalizationsSk extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Číslo čipu';
+
+  @override
+  String get starterRemarks => 'Poznámky';
+
+  @override
+  String get captureFlier => 'Odfotiť leták';
+
+  @override
+  String get addPhotosTo => 'Pridať fotky k…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotiek pridaných k $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Naskenovať vytlačený kód';
+
+  @override
+  String get chipScanHint =>
+      'Naskenuje vytlačený QR/čiarový kód z karty čipu alebo veterinárnych dokladov — čip v mačke telefón prečítať nedokáže.';
+
+  @override
+  String get savingLabel => 'Ukladá sa…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Majiteľ mačky $name';
+  }
+
+  @override
+  String get sortLabel => 'Zoradiť';
+
+  @override
+  String get viewAsTable => 'Zobraziť ako tabuľku';
+
+  @override
+  String get viewAsTiles => 'Zobraziť ako dlaždice';
+
+  @override
+  String get matchCandidatesTitle => 'Možné zhody';
+
+  @override
+  String get findDuplicates => 'Nájsť duplicity';
+
+  @override
+  String get noDuplicates => 'Momentálne žiadne možné duplicity.';
+
+  @override
+  String get similarName => 'Podobné meno';
+
+  @override
+  String get sharePublicly => 'Zdieľať verejne…';
+
+  @override
+  String get privateNoShare =>
+      'Táto mačka je označená ako súkromná — súkromné dáta nikdy neopúšťajú vaše zariadenie. Najprv označenie zrušte, potom ju možno zdieľať verejne.';
+
+  @override
+  String get pickFramesTitle => 'Výber snímok';
+
+  @override
+  String get suggestedFrames => 'Navrhované snímky';
+
+  @override
+  String get scrubFrames => 'Pretáčanie videa';
+
+  @override
+  String get keepThisFrame => 'Ponechať túto snímku';
+
+  @override
+  String get fromVideo => 'Z videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Výber snímok z videa funguje v mobilnej aplikácii (Android a iPhone) — na tomto zariadení zatiaľ nie.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Vyberte, čo pôjde do súboru. Zahrnú sa len zaškrtnuté polia.';
+
+  @override
+  String get exportShareFile => 'Exportovať súbor zdieľania…';
+
+  @override
+  String get hostedLink => 'Hostovaný odkaz (URL nahraného súboru)';
+
+  @override
+  String get inlineQr => 'Vložené QR (len text, bez fotiek)';
+
+  @override
+  String get inlineTooBig =>
+      'Priveľa dát pre vložený kód — odškrtnite polia alebo použite hostovaný odkaz.';
+
+  @override
+  String get scanShareLabel => 'Naskenovať kód zdieľania';
+
+  @override
+  String get notAShareCode => 'Tento kód nie je zdieľanie cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importovať túto mačku?';
+
+  @override
+  String shareSource(String url) {
+    return 'Zdroj: $url';
+  }
+
+  @override
+  String get importLabel => 'Importovať';
+
+  @override
+  String get strayAreaLabel => 'Možná oblasť túlania';
+
+  @override
+  String get prevPin => 'Predchádzajúci špendlík';
+
+  @override
+  String get nextPin => 'Ďalší špendlík';
+
+  @override
+  String get noMissingCats =>
+      'Zatiaľ žiadne nezvestné mačky s pozíciami letákov.';
+
+  @override
+  String get noMatchCandidates => 'Momentálne žiadne možné zhody.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Rovnaké $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Vzdialené $distance m';
+  }
+
+  @override
+  String get addFlier => 'Pridať leták';
+
+  @override
+  String get missingSinceLabel => 'Nezvestný od';
+
+  @override
+  String get phoneLabel => 'Telefón';
+
+  @override
+  String get cropPortrait => 'Orezať portrét';
+
+  @override
+  String get statusOwner => 'Majiteľ';
+
+  @override
+  String get ocrUnavailable =>
+      'Rozpoznávanie textu nie je na tomto zariadení dostupné — napíšte text letáka ručne.';
+
+  @override
+  String get displayFormat => 'Zobraziť ako';
+
+  @override
+  String get displayPlain => 'Obyčajný text';
+
+  @override
+  String get displayQr => 'QR kód';
+
+  @override
+  String get displayBarcode => 'Čiarový kód';
+
+  @override
+  String get editLabel => 'Upraviť';
+
+  @override
+  String get doneLabel => 'Hotovo';
+
+  @override
   String get openSettings => 'Otvoriť nastavenia';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get malePregnant =>
       'Táto mačka je vedená ako kocúr — kocúr nemôže byť gravidný. Najprv skontrolujte pohlavie.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name je vedená ako mačka (samica) a nemôže byť otcom. Najprv skontrolujte pohlavie.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name je vedený ako kocúr a nemôže byť matkou. Najprv skontrolujte pohlavie.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name sa narodil $date — rodič sa nemôže narodiť po svojom mačati.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Táto mačka je vedená ako otec iných mačiek — otec nemôže byť samica. Najprv skontrolujte rodinu.';
+
+  @override
+  String get genderMotherMale =>
+      'Táto mačka je vedená ako matka iných mačiek — matka nemôže byť samec. Najprv skontrolujte rodinu.';
 
   @override
   String get moveTo => 'Presunúť do';
@@ -416,7 +615,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronizujte cez priečinok, ktorý medzi zariadeniami prenáša cloud alebo USB kľúč — pre tých, čo nie sú v rovnakej sieti.';
+      'Obe zariadenia používajú rovnaký priečinok (napr. v Dropboxe alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
 
   @override
   String get noFolderChosenYet => 'Zatiaľ nie je vybraný priečinok';
@@ -596,7 +795,233 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterResponsible => 'Zodpovedná osoba';
 
   @override
-  String get starterPosition => 'Pozícia';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefón';
+
+  @override
+  String get lookupUrlLabel => 'Odkaz na vyhľadanie';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Stránka služby s $token na mieste čísla, napr. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Vyhľadať';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Žiadna aplikácia nedokázala otvoriť $url. Skopírujte odkaz do prehliadača.';
+  }
+
+  @override
+  String get stepCat => 'Mačka';
+
+  @override
+  String get stepOwner => 'Majiteľ';
+
+  @override
+  String get stepFace => 'Fotka tváre';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Skontrolovať a uložiť';
+
+  @override
+  String get stepOwnerHint =>
+      'Kto mačku postráda — z toho vznikne jeho karta s kontaktom z letáka.';
+
+  @override
+  String get stepFaceHint =>
+      'Vystrihnite z letáka mačaciu tvár; stane sa profilovou fotkou. Môžete preskočiť.';
+
+  @override
+  String get stepRegistryHint =>
+      'Čísla nájdené na letáku. Zaškrtnuté sa uložia k mačke a dajú sa neskôr otvoriť.';
+
+  @override
+  String get noRegistryLinks =>
+      'Na tomto letáku nie sú odkazy na registre — tu nie je čo robiť.';
+
+  @override
+  String get unknownServiceHint => 'Neznáma služba';
+
+  @override
+  String get rememberService => 'Zapamätať službu';
+
+  @override
+  String get rememberServiceHint =>
+      'Pomenujte službu a ukážte na číslo v odkaze. Ďalší leták sa vyplní sám.';
+
+  @override
+  String get noIdInLink =>
+      'Tento odkaz neobsahuje číslo, ktoré by aplikácia mohla uložiť.';
+
+  @override
+  String get whichNumber => 'Ktorá časť je číslo?';
+
+  @override
+  String get cropAgain => 'Orezať znova';
+
+  @override
+  String get noFaceYet =>
+      'Zatiaľ žiadna fotka tváre — použije sa fotka letáka.';
+
+  @override
+  String get backLabel => 'Späť';
+
+  @override
+  String get dangerButton => 'NETLAČIŤ.\nNEBEZPEČENSTVO';
+
+  @override
+  String get dangerThanks => 'Ďakujeme, že používate cat(a)log!';
+
+  @override
+  String get helpTitle => 'Pomocník';
+
+  @override
+  String get showTipsAgain => 'Zobraziť tipy znova';
+
+  @override
+  String get helpHome =>
+      'Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova. Názov hore je katalóg, v ktorom si — klepnutím prepneš alebo pridáš ďalší.';
+
+  @override
+  String get helpClowder =>
+      'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí.';
+
+  @override
+  String get helpCat =>
+      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neťukneš na ceruzku. Podrž pole a dostaneš sa rovno do jeho úpravy; podrž fotku a otvoríš jej menu. Menu vpravo hore má zvyšok: súkromné, skryť, zlúčiť, zapísať pozorovanie, zdieľať.';
+
+  @override
+  String get helpStrays =>
+      'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu.';
+
+  @override
+  String get helpMap =>
+      'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
+
+  @override
+  String get helpCard =>
+      'Tlačiteľná karta mačky: hore čipmi vyberieš, čo na nej bude, potom ju zdieľaš ako obrázok alebo PDF. Čísla sa dajú vytlačiť ako QR alebo čiarový kód a z pozície vznikne QR otvárajúci mapu plus krátky Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu.';
+
+  @override
+  String get helpFields =>
+      'Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri mačke ťuknúť.';
+
+  @override
+  String get helpTimeline =>
+      'Každá kedy vykonaná zmena, najnovšia hore: kto čo kedy a na akú hodnotu zmenil. Každý záznam sa dá vrátiť — vznikne tým nový záznam, nič sa nikdy nemaže.';
+
+  @override
+  String get helpDuplicates =>
+      'Mačky alebo kolónie, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.';
+
+  @override
+  String get helpMatches =>
+      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
+
+  @override
+  String get helpFlier =>
+      'Z odfoteného letáka vznikne mačka aj majiteľ. Krok za krokom: údaje mačky, kontakt majiteľa, výrez tváre pre profilovku, čísla registrov z letáka a nakoniec kontrola. Všetko sú návrhy — oprav, čo fotoaparát prečítal zle.';
+
+  @override
+  String get archiveTitle => 'Archív';
+
+  @override
+  String get archiveExplainer =>
+      'Uhynuté mačky a prázdne kolónie, ktorých sa roky nikto nedotkol, stále zaberajú miesto — najmä ich fotky. Archivácia ich zapíše do súboru, ktorý si necháš, a potom ich odtiaľto zmaže.';
+
+  @override
+  String get archiveAction => 'Archivovať';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivovať $count položiek';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archivovať $count položiek?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names sa zapíšu do súboru a potom zmažú — na tvojom zariadení aj na každom, s ktorým synchronizuješ. Import súboru všetko vráti; bez neho sú preč.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Archivovaných a zmazaných $count položiek';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nič sa nezmazalo: súbor archívu sa nepodarilo zapísať ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Databáza $db, fotky $photos v $count súboroch';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bez zmeny $years rokov';
+  }
+
+  @override
+  String get nothingToArchive => 'Nič nie je dosť staré na archiváciu.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Posledná zmena $date · fotky $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Staré dáta stoja miesto, najmä fotky, ktoré si nesie každé synchronizované zariadenie. Tu vyberieš uhynuté mačky a prázdne kolónie, ktoré sú roky bez zmeny, zapíšeš ich do súboru, ktorý si necháš, a zmažeš ich. Zmazanie dorazí ku všetkým, s ktorými synchronizuješ; import súboru všetko obnoví.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnoviť $count zmazaných položiek?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names sú v tomto katalógu zmazané a práve importovaný súbor ich obsahuje. Obnovenie ich vráti sem aj na každé zariadenie, s ktorým synchronizuješ.';
+  }
+
+  @override
+  String get restoreAction => 'Obnoviť';
+
+  @override
+  String get keepDeleted => 'Nechať zmazané';
+
+  @override
+  String get archiveNotSaved => 'Nič sa nezmazalo: archív sa nikam neuložil.';
+
+  @override
+  String get locateAddress => 'Nájsť adresu na mape';
+
+  @override
+  String get addressLocated => 'Adresa nájdená';
+
+  @override
+  String get addressNotFound =>
+      'Pre túto adresu sa nenašlo miesto. Skontrolujte pravopis alebo pole nechajte prázdne.';
+
+  @override
+  String get starterPosition => 'Poloha';
 
   @override
   String get valueYes => 'áno';
@@ -711,7 +1136,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Súkromné mačky, skupiny a polia sa zdieľajú tiež — zapínajte len pri synchronizácii vlastných zariadení.';
+      'Týmto sa pošle aj všetko, čo ste označili ako súkromné. Ten, s kým synchronizujete, to uvidí.';
 
   @override
   String get hideLabel => 'Skryť na tomto zariadení';
@@ -729,7 +1154,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterSpecies => 'Druh';
 
   @override
-  String get starterStatus => 'Stav';
+  String get starterStatus => 'Typ';
 
   @override
   String get statusFoster => 'Dočasná starostlivosť';
@@ -923,7 +1348,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošli všetko ako jeden súbor ľubovoľným messengerom';
+      'Pošlite všetko ako jeden súbor cez ľubovoľný messenger — a prijatý súbor .catsync importujte tu';
 
   @override
   String get connectToWifiFirst =>
@@ -970,25 +1395,25 @@ class AppLocalizationsSk extends AppLocalizations {
   String get selectClowderHint => 'Vyber clowder vľavo';
 
   @override
-  String get introTitle1 => 'Mačky bývajú v clowderoch';
+  String get introTitle1 => 'Vaše mačky prehľadne';
 
   @override
   String get introBody1 =>
-      'Clowder je miesto, kde mačky žijú: tvoja dočasná starostlivosť, byt osvojiteľa, stodola vedľa. Každá mačka má kartu s fotkou, faktami a celým príbehom.';
+      'Založte každej mačke kartu: fotka, pohlavie, zdravie, čokoľvek chcete zaznamenať. Mačky sú zoskupené podľa miesta, kde žijú — aplikácia ho volá kolónia (clowder).';
 
   @override
-  String get introTitle2 => 'Všetko zostáva u teba';
+  String get introTitle2 => 'Funguje bez internetu';
 
   @override
   String get introBody2 =>
-      'Žiadny účet, žiadny cloud, žiadne sledovanie. Tvoje dáta žijú na tvojom zariadení.';
+      'Všetko sa ukladá len do vášho telefónu. Žiadne konto, žiadny cloud. Nič sa neodosiela, kým to sami nezdieľate.';
 
   @override
-  String get introTitle3 => 'Zdieľaj s pomocníkmi';
+  String get introTitle3 => 'Spolupracujte';
 
   @override
   String get introBody3 =>
-      'Naskenuj kód a dve zariadenia sa zosynchronizujú za sekundy, použi zdieľaný priečinok alebo pošli všetko ako jeden súbor.';
+      'Každý používa svoju aplikáciu a z času na čas si vymeníte dáta: stretnite sa a naskenujte kód, použite zdieľaný priečinok alebo pošlite jeden súbor messengerom. Potom majú všetci rovnaké informácie.';
 
   @override
   String get introSkip => 'Preskočiť';
@@ -1004,18 +1429,50 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nové: synchronizácia teraz ponúka tri jasné cesty — a otázku dôvery, kým čokoľvek odtečie.';
+      'Tu synchronizujete so svojimi známymi. Vy rozhodujete, čo zdieľate.';
+
+  @override
+  String get spotHomeStrays =>
+      'Táto karta zbiera všetky túlavé mačky — mačky bez domova. Ťuknutím zobrazíte zoznam.';
+
+  @override
+  String get spotHomeMenu =>
+      'V tomto menu: hľadanie a zlučovanie duplicít, export CSV a ďalšie.';
+
+  @override
+  String get spotCatEdit =>
+      'Ťuknite na ceruzku a mačku upravte. Tip: podržte pole a upravíte ho priamo.';
+
+  @override
+  String get spotMapLayers =>
+      'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov a okolo domova, z ktorého ušla.';
+
+  @override
+  String get spotStraysFlier =>
+      'Leták o nezvestnej mačke? Odfoťte ho tu — aplikácia uloží mačku aj kontakt za vás.';
+
+  @override
+  String get spotStraysScan =>
+      'Niektoré letáky majú QR kód cat(a)log. Naskenujte ho tu a mačku importujte bez písania.';
+
+  @override
+  String get introTitle4 => 'Hľadajte nezvestné mačky';
+
+  @override
+  String get introBody4 =>
+      'Vidíte leták s nezvestnou mačkou? Odfoťte ho v aplikácii: uloží mačku, kontakt majiteľa aj miesto. Ak sa neskôr objaví podobná túlavá mačka, aplikácia navrhne možné zhody.';
 
   @override
   String get spotMapSearch =>
-      'Nové: hľadaj tu mačky, clowdery a osoby — priamo na mape.';
+      'Napíšte mačku, miesto alebo osobu a skočte tam na mape.';
 
   @override
-  String get spotCardChips => 'Nové: pred zdieľaním vyber, čo bude na karte.';
+  String get spotCardChips =>
+      'Zaškrtnite, čo má byť na zdieľanej karte — zvyšok na nej nebude.';
 
   @override
   String get spotCatMenu =>
-      'Nové: označ mačku ako súkromnú (nikdy neopustí zariadenie) alebo ju tu skry.';
+      'Ďalšie akcie sú tu: označte mačku ako súkromnú, skryte ju, zlúčte duplicity alebo zapíšte pozorovanie.';
 
   @override
   String get spotDone => 'Rozumiem';
@@ -1056,4 +1513,134 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log sa minule nečakane ukončil — najskôr došla pamäť. Poslať krátke hlásenie, aby sa to dalo opraviť?';
+
+  @override
+  String get catalogsTitle => 'Katalógy';
+
+  @override
+  String get newCatalog => 'Nový katalóg';
+
+  @override
+  String get catalogNameLabel => 'Názov katalógu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalóg s názvom $name už existuje. Zvoľ iný názov.';
+  }
+
+  @override
+  String get manageCatalogs => 'Spravovať katalógy';
+
+  @override
+  String get helpCatalogs =>
+      'Každý katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.';
+
+  @override
+  String get deleteCatalog => 'Zmazať katalóg';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name zmazaný. Súbor je v $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Napíš $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nič sa nezmazalo: súbor katalógu sa nepodarilo zapísať ($error). Uvoľni miesto alebo to skús neskôr.';
+  }
+
+  @override
+  String get moveToCatalog => 'Presunúť do iného katalógu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count presunuté do $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Čo sa presunie?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Presunúť niečo do $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Vrátiť tento import';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count zmien z tohto importu zmizne. Najprv sa zapíšu do súboru, ktorého import ich vráti. Kto už synchronizoval, svoju kópiu si nechá — to sa vziať späť nedá.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Vrátené. Súbor je v $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Vrátiť sa späť';
+
+  @override
+  String get goBackToHere => 'Vrátiť sa sem';
+
+  @override
+  String get momentImport => 'Pred importom';
+
+  @override
+  String get momentSync => 'Pred synchronizáciou';
+
+  @override
+  String get momentMerge => 'Pred zlúčením';
+
+  @override
+  String get momentHardDelete => 'Pred zmazaním údajov jedného autora';
+
+  @override
+  String get momentArchive => 'Pred archiváciou';
+
+  @override
+  String get momentManual => 'Označené tebou';
+
+  @override
+  String get showOlderMoments => 'Zobraziť staršie';
+
+  @override
+  String goBackBody(int count) {
+    return 'Všetko po tomto okamihu zmizne — $count zmien. Najprv sa zapíše do súboru, ktorého import to vráti, a každý novší okamih ide s tým. Kto už synchronizoval, kópiu si nechá — to sa vziať späť nedá.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pomenuj tento okamih';
+
+  @override
+  String get helpGoBack =>
+      'Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nič sa neodstránilo: súbor, ktorý to uchová, sa nepodarilo zapísať ($error). Uvoľni miesto a skús to znova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Súbor na zdieľanie sa nepodarilo zapísať ($error). Uvoľni miesto a skús to znova.';
+  }
 }

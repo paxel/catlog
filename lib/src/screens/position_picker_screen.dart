@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import '../geocode.dart';
 import '../l10n.dart';
 import '../map/cached_tiles.dart';
+import '../map/place_view.dart';
 import '../stray_cam.dart';
 
 /// Where the picker last was, so the next pick starts in the same
@@ -118,7 +119,14 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
     setState(() => _hits = null);
     _search.clear();
     FocusScope.of(context).unfocus();
-    _controller.move(LatLng(hit.lat, hit.lon), 13);
+    // Street zoom, or the place's own extent — a centered hit shown at
+    // country zoom is useless for dropping a pin.
+    final fit = placeFit(hit);
+    if (fit == null) {
+      _controller.move(LatLng(hit.lat, hit.lon), placeZoom);
+    } else {
+      _controller.fitCamera(fit);
+    }
   }
 
   void _pop() {

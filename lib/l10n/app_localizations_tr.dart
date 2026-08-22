@@ -181,7 +181,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kedi tüm listelerden kaybolur ve fotoğrafları kaldırılır — burada ve bir sonraki eşitlemeden sonra yardımcılarınızın cihazlarında da.';
+      'Kedi tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
 
   @override
   String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
@@ -210,6 +210,181 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ok => 'Tamam';
 
   @override
+  String get starterChipId => 'Çip numarası';
+
+  @override
+  String get starterRemarks => 'Notlar';
+
+  @override
+  String get captureFlier => 'İlanı fotoğrafla';
+
+  @override
+  String get addPhotosTo => 'Fotoğrafları şuna ekle…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotoğraf $name adlı kediye eklendi';
+  }
+
+  @override
+  String get scanPrintedCode => 'Basılı kodu tara';
+
+  @override
+  String get chipScanHint =>
+      'Çip kartındaki veya veteriner belgelerindeki basılı QR/barkodu tarar — kedinin içindeki çipi telefon okuyamaz.';
+
+  @override
+  String get savingLabel => 'Kaydediliyor…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name sahibi';
+  }
+
+  @override
+  String get sortLabel => 'Sırala';
+
+  @override
+  String get viewAsTable => 'Tablo olarak göster';
+
+  @override
+  String get viewAsTiles => 'Karo olarak göster';
+
+  @override
+  String get matchCandidatesTitle => 'Olası eşleşmeler';
+
+  @override
+  String get findDuplicates => 'Kopyaları bul';
+
+  @override
+  String get noDuplicates => 'Şu anda olası kopya yok.';
+
+  @override
+  String get similarName => 'Benzer ad';
+
+  @override
+  String get sharePublicly => 'Herkese açık paylaş…';
+
+  @override
+  String get privateNoShare =>
+      'Bu kedi özel olarak işaretli — özel veriler cihazınızdan asla çıkmaz. Herkese açık paylaşmak için önce işareti kaldırın.';
+
+  @override
+  String get pickFramesTitle => 'Kare seç';
+
+  @override
+  String get suggestedFrames => 'Önerilen kareler';
+
+  @override
+  String get scrubFrames => 'Videoda gezin';
+
+  @override
+  String get keepThisFrame => 'Bu kareyi tut';
+
+  @override
+  String get fromVideo => 'Videodan…';
+
+  @override
+  String get videoMobileOnly =>
+      'Videodan kare seçme telefon uygulamasında çalışır (Android ve iPhone) — bu cihazda henüz yok.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Dosyaya ne gireceğini seçin. Yalnızca işaretli alanlar eklenir.';
+
+  @override
+  String get exportShareFile => 'Paylaşım dosyasını dışa aktar…';
+
+  @override
+  String get hostedLink => 'Barındırılan bağlantı (yüklenen dosyanın URL\'si)';
+
+  @override
+  String get inlineQr => 'Gömülü QR (yalnızca metin, fotoğraf yok)';
+
+  @override
+  String get inlineTooBig =>
+      'Gömülü kod için çok fazla veri — alanları azaltın veya barındırılan bağlantı kullanın.';
+
+  @override
+  String get scanShareLabel => 'Paylaşım kodunu tara';
+
+  @override
+  String get notAShareCode => 'Bu kod bir cat(a)log paylaşımı değil.';
+
+  @override
+  String get importShareTitle => 'Bu kedi içe aktarılsın mı?';
+
+  @override
+  String shareSource(String url) {
+    return 'Kaynak: $url';
+  }
+
+  @override
+  String get importLabel => 'İçe aktar';
+
+  @override
+  String get strayAreaLabel => 'Olası dolaşma alanı';
+
+  @override
+  String get prevPin => 'Önceki iğne';
+
+  @override
+  String get nextPin => 'Sonraki iğne';
+
+  @override
+  String get noMissingCats => 'Henüz ilan konumu olan kayıp kedi yok.';
+
+  @override
+  String get noMatchCandidates => 'Şu anda olası eşleşme yok.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Aynı $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Aralarında $distance m var';
+  }
+
+  @override
+  String get addFlier => 'İlan ekle';
+
+  @override
+  String get missingSinceLabel => 'Kayıp tarihi';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Portreyi kırp';
+
+  @override
+  String get statusOwner => 'Sahip';
+
+  @override
+  String get ocrUnavailable =>
+      'Metin tanıma bu cihazda kullanılamıyor — ilan metnini kendiniz yazın.';
+
+  @override
+  String get displayFormat => 'Şu şekilde gösterilir';
+
+  @override
+  String get displayPlain => 'Düz metin';
+
+  @override
+  String get displayQr => 'QR kodu';
+
+  @override
+  String get displayBarcode => 'Barkod';
+
+  @override
+  String get editLabel => 'Düzenle';
+
+  @override
+  String get doneLabel => 'Bitti';
+
+  @override
   String get openSettings => 'Ayarları aç';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get malePregnant =>
       'Bu kedi erkek olarak kayıtlı — erkek kedi gebe olamaz. Önce cinsiyeti kontrol edin.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name dişi olarak kayıtlı ve baba olamaz. Önce cinsiyeti kontrol edin.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name erkek olarak kayıtlı ve anne olamaz. Önce cinsiyeti kontrol edin.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name $date doğdu — bir ebeveyn yavrusundan sonra doğamaz.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Bu kedi başka kedilerin babası olarak kayıtlı — baba dişi olamaz. Önce aileyi kontrol edin.';
+
+  @override
+  String get genderMotherMale =>
+      'Bu kedi başka kedilerin annesi olarak kayıtlı — anne erkek olamaz. Önce aileyi kontrol edin.';
 
   @override
   String get moveTo => 'Şuraya taşı';
@@ -416,7 +614,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Bulut ya da USB belleğin cihazlar arasında taşıdığı bir klasör üzerinden eşitleyin — aynı ağda olmayanlar için.';
+      'İki cihaz da aynı klasörü kullanır (örn. Dropbox\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
 
   @override
   String get noFolderChosenYet => 'Henüz klasör seçilmedi';
@@ -596,6 +794,233 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterResponsible => 'Sorumlu kişi';
 
   @override
+  String get starterEmail => 'E-posta';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Sorgu bağlantısı';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Numaranın yerine $token yazılmış servis sayfası, ör. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Sorgula';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Hiçbir uygulama $url adresini açamadı. Bağlantıyı bir tarayıcıya kopyalayın.';
+  }
+
+  @override
+  String get stepCat => 'Kedi';
+
+  @override
+  String get stepOwner => 'Sahibi';
+
+  @override
+  String get stepFace => 'Yüz fotoğrafı';
+
+  @override
+  String get stepRegistry => 'Kayıt servisi';
+
+  @override
+  String get stepReview => 'Kontrol et ve kaydet';
+
+  @override
+  String get stepOwnerHint =>
+      'Kediyi arayan kişi — bu, ilandaki iletişim bilgisiyle onun kartı olur.';
+
+  @override
+  String get stepFaceHint =>
+      'Kedinin yüzünü ilandan kırp; profil fotoğrafı olur. Bu adımı atlayabilirsin.';
+
+  @override
+  String get stepRegistryHint =>
+      'İlanda bulunan numaralar. İşaretli olanlar kediyle kaydedilir ve sonra açılabilir.';
+
+  @override
+  String get noRegistryLinks =>
+      'Bu ilanda kayıt servisi bağlantısı yok — burada yapılacak bir şey yok.';
+
+  @override
+  String get unknownServiceHint => 'Bilinmeyen servis';
+
+  @override
+  String get rememberService => 'Servisi hatırla';
+
+  @override
+  String get rememberServiceHint =>
+      'Servise bir ad ver ve bağlantıdaki numarayı göster. Sonraki ilan kendini doldurur.';
+
+  @override
+  String get noIdInLink =>
+      'Bu bağlantıda uygulamanın kaydedebileceği bir numara yok.';
+
+  @override
+  String get whichNumber => 'Hangi kısım numara?';
+
+  @override
+  String get cropAgain => 'Yeniden kırp';
+
+  @override
+  String get noFaceYet =>
+      'Henüz yüz fotoğrafı yok — ilan fotoğrafı kullanılır.';
+
+  @override
+  String get backLabel => 'Geri';
+
+  @override
+  String get dangerButton => 'BASMAYIN.\nTEHLİKE';
+
+  @override
+  String get dangerThanks => 'cat(a)log kullandığınız için teşekkürler!';
+
+  @override
+  String get helpTitle => 'Yardım';
+
+  @override
+  String get showTipsAgain => 'İpuçlarını tekrar göster';
+
+  @override
+  String get helpHome =>
+      'Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.';
+
+  @override
+  String get helpClowder =>
+      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar.';
+
+  @override
+  String get helpCat =>
+      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun basmak doğrudan düzenlemeye götürür; bir fotoğrafa uzun basmak menüsünü açar. Sağ üstteki menüde gerisi var: özel işaretle, gizle, birleştir, görülme kaydet, paylaş.';
+
+  @override
+  String get helpStrays =>
+      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur.';
+
+  @override
+  String get helpMap =>
+      'Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
+
+  @override
+  String get helpCard =>
+      'Kedinin yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR\'a ve kısa bir Plus Code\'a dönüşür.';
+
+  @override
+  String get helpSync =>
+      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır.';
+
+  @override
+  String get helpFields =>
+      'Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara kedide tıklanabilir olur.';
+
+  @override
+  String get helpTimeline =>
+      'Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.';
+
+  @override
+  String get helpDuplicates =>
+      'İki kez var gibi görünen kediler ya da koloniler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.';
+
+  @override
+  String get helpMatches =>
+      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.';
+
+  @override
+  String get helpFlier =>
+      'Fotoğraflanan bir ilan, kediye ve sahibine dönüşür. Adım adım: kedinin bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.';
+
+  @override
+  String get archiveTitle => 'Arşiv';
+
+  @override
+  String get archiveExplainer =>
+      'Yıllardır kimsenin dokunmadığı ölmüş kediler ve boş koloniler yine de yer kaplar — özellikle fotoğrafları. Arşivleme onları sakladığınız bir dosyaya yazar ve sonra buradan siler.';
+
+  @override
+  String get archiveAction => 'Arşivle';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count kaydı arşivle';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '$count kayıt arşivlensin mi?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names bir dosyaya yazılacak ve sonra silinecek — cihazınızda ve eşitlediğiniz her cihazda. Dosyayı içe aktarmak her şeyi geri getirir; onsuz kaybolurlar.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count kayıt arşivlendi ve silindi';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Hiçbir şey silinmedi: arşiv dosyası yazılamadı ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Veritabanı $db, fotoğraflar $photos / $count dosya';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years yıldır değişmemiş';
+  }
+
+  @override
+  String get nothingToArchive => 'Arşivlenecek kadar eski bir şey yok.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Son değişiklik $date · fotoğraflar $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Eski veriler yer kaplar, özellikle her eşitlenen cihazın taşıdığı fotoğraflar. Burada yıllardır sessiz duran ölmüş kedileri ve boş kolonileri seçer, sakladığınız bir dosyaya yazar ve silersiniz. Silme, eşitlediğiniz herkese ulaşır; dosyayı içe aktarmak her şeyi geri yükler.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return '$count silinmiş kayıt geri yüklensin mi?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names bu katalogda silinmiş durumda ve az önce içe aktardığınız dosya bunları içeriyor. Geri yükleme onları buraya ve eşitlediğiniz her cihaza geri getirir.';
+  }
+
+  @override
+  String get restoreAction => 'Geri yükle';
+
+  @override
+  String get keepDeleted => 'Silinmiş kalsın';
+
+  @override
+  String get archiveNotSaved =>
+      'Hiçbir şey silinmedi: arşiv hiçbir yere kaydedilmedi.';
+
+  @override
+  String get locateAddress => 'Adresi haritada bul';
+
+  @override
+  String get addressLocated => 'Adres bulundu';
+
+  @override
+  String get addressNotFound =>
+      'Bu adres için yer bulunamadı. Yazımı kontrol edin ya da boş bırakın.';
+
+  @override
   String get starterPosition => 'Konum';
 
   @override
@@ -711,7 +1136,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Özel kediler, gruplar ve alanlar da paylaşılır — yalnızca kendi cihazlarınızı eşitlerken açın.';
+      'Bu, özel olarak işaretlediğiniz her şeyi de gönderir. Eşitlediğiniz kişi bunları görür.';
 
   @override
   String get hideLabel => 'Bu cihazda gizle';
@@ -729,7 +1154,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterSpecies => 'Tür';
 
   @override
-  String get starterStatus => 'Durum';
+  String get starterStatus => 'Tür';
 
   @override
   String get statusFoster => 'Geçici yuva';
@@ -925,7 +1350,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Her şeyi tek dosya olarak herhangi bir uygulamayla gönderin';
+      'Her şeyi tek dosya olarak herhangi bir mesajlaşma uygulamasıyla gönderin — alınan .catsync dosyasını da buradan içe aktarın';
 
   @override
   String get connectToWifiFirst =>
@@ -972,25 +1397,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectClowderHint => 'Soldan bir clowder seçin';
 
   @override
-  String get introTitle1 => 'Kediler clowder\'larda yaşar';
+  String get introTitle1 => 'Kedileriniz düzenli';
 
   @override
   String get introBody1 =>
-      'Clowder, kedilerin yaşadığı yerdir: geçici yuvanız, sahiplenen kişinin evi, yandaki ahır. Her kedinin fotoğraflı, bilgili ve tüm hikâyesini içeren bir kartı olur.';
+      'Baktığınız her kedi için bir kart oluşturun: fotoğraf, cinsiyet, sağlık, not etmek istediğiniz her şey. Kediler yaşadıkları yere göre gruplanır — uygulama bu yere koloni (clowder) der.';
 
   @override
-  String get introTitle2 => 'Her şey sizde kalır';
+  String get introTitle2 => 'İnternetsiz çalışır';
 
   @override
   String get introBody2 =>
-      'Hesap yok, bulut yok, takip yok. Verileriniz cihazınızda yaşar.';
+      'Her şey yalnızca telefonunuza kaydedilir. Hesap yok, bulut yok. Siz paylaşmadıkça hiçbir şey gönderilmez.';
 
   @override
-  String get introTitle3 => 'Yardımcılarınızla paylaşın';
+  String get introTitle3 => 'Birlikte çalışın';
 
   @override
   String get introBody3 =>
-      'Bir kodu tarayın, iki cihaz saniyeler içinde eşitlensin; ortak klasör kullanın ya da her şeyi tek dosya olarak gönderin.';
+      'Herkes kendi uygulamasını kullanır, ara sıra veri alışverişi yaparsınız: buluşup bir kod okutun, ortak bir klasör kullanın ya da messenger ile tek dosya gönderin. Sonrasında herkes aynı bilgiye sahip olur.';
 
   @override
   String get introSkip => 'Atla';
@@ -1006,19 +1431,50 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Yeni: eşitleme artık üç net yol sunuyor — ve bir şey akmadan önce güven sorusu.';
+      'Burada tanıdıklarınızla eşitlersiniz. Neyi paylaşacağınıza siz karar verirsiniz.';
+
+  @override
+  String get spotHomeStrays =>
+      'Bu kart tüm sokak kedilerini toplar — evi olmayan kedileri. Listeyi görmek için dokunun.';
+
+  @override
+  String get spotHomeMenu =>
+      'Bu menüde: kopyaları bulup birleştirme, CSV dışa aktarma ve daha fazlası.';
+
+  @override
+  String get spotCatEdit =>
+      'Kediyi düzenlemek için kaleme dokunun. İpucu: bir alana uzun basmak onu doğrudan düzenler.';
+
+  @override
+  String get spotMapLayers =>
+      'Kayıp kedi mi arıyorsunuz? İlanlarının görüldüğü yerlerin ve kaçtığı evin çevresine daireler çizin.';
+
+  @override
+  String get spotStraysFlier =>
+      'Kayıp kedi ilanı mı buldunuz? Burada fotoğraflayın — uygulama kediyi ve iletişimi sizin için kaydeder.';
+
+  @override
+  String get spotStraysScan =>
+      'Bazı ilanlarda cat(a)log QR kodu bulunur. Burada tarayın, kediyi yazmadan içe aktarın.';
+
+  @override
+  String get introTitle4 => 'Kayıp kedileri bulun';
+
+  @override
+  String get introBody4 =>
+      'Kayıp kedi ilanı mı gördünüz? Uygulamada fotoğraflayın: kediyi, sahibinin iletişimini ve yeri kaydeder. Daha sonra benzer bir sokak kedisi görülürse uygulama olası eşleşmeler önerir.';
 
   @override
   String get spotMapSearch =>
-      'Yeni: burada kedi, grup ve kişi arayın — doğrudan haritada.';
+      'Haritada oraya atlamak için bir kedi, yer veya kişi yazın.';
 
   @override
   String get spotCardChips =>
-      'Yeni: paylaşmadan önce kartta ne görüneceğini seçin.';
+      'Paylaşılabilir kartta ne görüneceğini işaretleyin — gerisi kartta yer almaz.';
 
   @override
   String get spotCatMenu =>
-      'Yeni: bir kediyi özel olarak işaretleyin (cihazınızdan asla çıkmaz) veya burada gizleyin.';
+      'Daha fazla eylem burada: kediyi özel işaretleyin, gizleyin, kopyaları birleştirin veya bir görülme kaydedin.';
 
   @override
   String get spotDone => 'Anladım';
@@ -1059,4 +1515,134 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?';
+
+  @override
+  String get catalogsTitle => 'Kataloglar';
+
+  @override
+  String get newCatalog => 'Yeni katalog';
+
+  @override
+  String get catalogNameLabel => 'Katalog adı';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '$name adlı bir katalog zaten var. Başka bir ad seç.';
+  }
+
+  @override
+  String get manageCatalogs => 'Katalogları yönet';
+
+  @override
+  String get helpCatalogs =>
+      'Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.';
+
+  @override
+  String get deleteCatalog => 'Kataloğu sil';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name silindi. Dosya $where içinde.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '$name yaz';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Hiçbir şey silinmedi: katalog dosyası yazılamadı ($error). Yer aç ya da daha sonra yeniden dene.';
+  }
+
+  @override
+  String get moveToCatalog => 'Başka bir kataloğa taşı';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count öğe $name kataloğuna taşındı';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Ne taşınsın?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '$name kataloğuna bir şey taşınsın mı?';
+  }
+
+  @override
+  String get undoThisImport => 'Bu içe aktarmayı geri al';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Bu içe aktarmanın getirdiği $count değişiklik kaldırılır. Önce bir dosyaya yazılır; onu içe aktarmak geri getirir. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Geri alındı. Dosya $where içinde.';
+  }
+
+  @override
+  String get goBackTitle => 'Geri dön';
+
+  @override
+  String get goBackToHere => 'Buraya dön';
+
+  @override
+  String get momentImport => 'İçe aktarmadan önce';
+
+  @override
+  String get momentSync => 'Eşitlemeden önce';
+
+  @override
+  String get momentMerge => 'Birleştirmeden önce';
+
+  @override
+  String get momentHardDelete => 'Bir yazarın verilerini silmeden önce';
+
+  @override
+  String get momentArchive => 'Arşivlemeden önce';
+
+  @override
+  String get momentManual => 'Senin işaretlediğin';
+
+  @override
+  String get showOlderMoments => 'Daha eskileri göster';
+
+  @override
+  String goBackBody(int count) {
+    return 'Bu andan sonraki her şey kaldırılır — $count değişiklik. Önce bir dosyaya yazılır; onu içe aktarmak hepsini geri getirir, bundan yeni her an da onunla gider. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.';
+  }
+
+  @override
+  String get nameThisMoment => 'Bu ana bir ad ver';
+
+  @override
+  String get helpGoBack =>
+      'Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Hiçbir şey kaldırılmadı: onu saklayan dosya yazılamadı ($error). Yer aç ve yeniden dene.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Paylaşım dosyası yazılamadı ($error). Yer aç ve yeniden dene.';
+  }
 }

@@ -181,7 +181,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kass kaob kõigist nimekirjadest ja tema fotod eemaldatakse — siin ja pärast järgmist sünkroonimist ka su abiliste seadmetes.';
+      'Kass kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
 
   @override
   String get sightingRecorded => 'Vaatlus salvestatud sinu asukohas.';
@@ -210,6 +210,181 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Kiibi number';
+
+  @override
+  String get starterRemarks => 'Märkused';
+
+  @override
+  String get captureFlier => 'Pildista kuulutust';
+
+  @override
+  String get addPhotosTo => 'Lisa fotod…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotot lisatud: $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skanni trükitud kood';
+
+  @override
+  String get chipScanHint =>
+      'Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.';
+
+  @override
+  String get savingLabel => 'Salvestamine…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name omanik';
+  }
+
+  @override
+  String get sortLabel => 'Sordi';
+
+  @override
+  String get viewAsTable => 'Kuva tabelina';
+
+  @override
+  String get viewAsTiles => 'Kuva paanidena';
+
+  @override
+  String get matchCandidatesTitle => 'Võimalikud vasted';
+
+  @override
+  String get findDuplicates => 'Otsi duplikaate';
+
+  @override
+  String get noDuplicates => 'Praegu pole võimalikke duplikaate.';
+
+  @override
+  String get similarName => 'Sarnane nimi';
+
+  @override
+  String get sharePublicly => 'Jaga avalikult…';
+
+  @override
+  String get privateNoShare =>
+      'See kass on märgitud privaatseks — privaatsed andmed ei lahku kunagi sinu seadmest. Avalikuks jagamiseks eemalda esmalt märgistus.';
+
+  @override
+  String get pickFramesTitle => 'Kaadrite valik';
+
+  @override
+  String get suggestedFrames => 'Soovitatud kaadrid';
+
+  @override
+  String get scrubFrames => 'Keri videot';
+
+  @override
+  String get keepThisFrame => 'Jäta see kaader alles';
+
+  @override
+  String get fromVideo => 'Videost…';
+
+  @override
+  String get videoMobileOnly =>
+      'Videost kaadrite valimine töötab telefonirakenduses (Android ja iPhone) — selles seadmes veel mitte.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Vali, mis faili läheb. Kaasatakse ainult märgitud väljad.';
+
+  @override
+  String get exportShareFile => 'Ekspordi jagamisfail…';
+
+  @override
+  String get hostedLink => 'Hostitud link (üleslaaditud faili URL)';
+
+  @override
+  String get inlineQr => 'Sisseehitatud QR (ainult tekst, ilma fotodeta)';
+
+  @override
+  String get inlineTooBig =>
+      'Liiga palju andmeid sisseehitatud koodi jaoks — eemalda välju või kasuta hostitud linki.';
+
+  @override
+  String get scanShareLabel => 'Skanni jagamiskoodi';
+
+  @override
+  String get notAShareCode => 'See kood pole cat(a)log jagamine.';
+
+  @override
+  String get importShareTitle => 'Kas importida see kass?';
+
+  @override
+  String shareSource(String url) {
+    return 'Allikas: $url';
+  }
+
+  @override
+  String get importLabel => 'Impordi';
+
+  @override
+  String get strayAreaLabel => 'Võimalik uitamisala';
+
+  @override
+  String get prevPin => 'Eelmine märgis';
+
+  @override
+  String get nextPin => 'Järgmine märgis';
+
+  @override
+  String get noMissingCats => 'Veel pole kadunud kasse kuulutuse asukohtadega.';
+
+  @override
+  String get noMatchCandidates => 'Praegu pole võimalikke vasteid.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m kaugusel';
+  }
+
+  @override
+  String get addFlier => 'Lisa kuulutus';
+
+  @override
+  String get missingSinceLabel => 'Kadunud alates';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Kärbi portree';
+
+  @override
+  String get statusOwner => 'Omanik';
+
+  @override
+  String get ocrUnavailable =>
+      'Tekstituvastus pole selles seadmes saadaval — sisesta kuulutuse tekst ise.';
+
+  @override
+  String get displayFormat => 'Kuvatakse kui';
+
+  @override
+  String get displayPlain => 'Lihttekst';
+
+  @override
+  String get displayQr => 'QR-kood';
+
+  @override
+  String get displayBarcode => 'Vöötkood';
+
+  @override
+  String get editLabel => 'Muuda';
+
+  @override
+  String get doneLabel => 'Valmis';
+
+  @override
   String get openSettings => 'Ava seaded';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get malePregnant =>
       'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name on kirjas emasena ega saa olla isa. Kontrolli esmalt sugu.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name on kirjas isasena ega saa olla ema. Kontrolli esmalt sugu.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name sündis $date — vanem ei saa sündida pärast oma poega.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'See kass on kirjas teiste kasside isana — isa ei saa olla emane. Kontrolli esmalt perekonda.';
+
+  @override
+  String get genderMotherMale =>
+      'See kass on kirjas teiste kasside emana — ema ei saa olla isane. Kontrolli esmalt perekonda.';
 
   @override
   String get moveTo => 'Liiguta';
@@ -417,7 +615,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sünkrooni kausta kaudu, mida pilv või USB-pulk seadmete vahel kannab — neile, kes pole samas võrgus.';
+      'Mõlemad seadmed kasutavad sama kausta (nt Dropboxis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.';
 
   @override
   String get noFolderChosenYet => 'Kausta pole veel valitud';
@@ -596,6 +794,232 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterResponsible => 'Vastutav isik';
 
   @override
+  String get starterEmail => 'E-post';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Otsingulink';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Teenuse leht, kus $token on numbri kohal, nt https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Otsi';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ükski rakendus ei suutnud avada aadressi $url. Kopeeri link brauserisse.';
+  }
+
+  @override
+  String get stepCat => 'Kass';
+
+  @override
+  String get stepOwner => 'Omanik';
+
+  @override
+  String get stepFace => 'Näopilt';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Kontrolli ja salvesta';
+
+  @override
+  String get stepOwnerHint =>
+      'See, kes kassi taga otsib — sellest saab tema kaart koos kuulutuse kontaktiga.';
+
+  @override
+  String get stepFaceHint =>
+      'Lõika kassi nägu kuulutuselt välja; sellest saab profiilipilt. Võid ka vahele jätta.';
+
+  @override
+  String get stepRegistryHint =>
+      'Kuulutuselt leitud numbrid. Märgitud salvestatakse kassi juurde ja neid saab hiljem avada.';
+
+  @override
+  String get noRegistryLinks =>
+      'Sellel kuulutusel pole registrilinke — siin pole midagi teha.';
+
+  @override
+  String get unknownServiceHint => 'Tundmatu teenus';
+
+  @override
+  String get rememberService => 'Jäta teenus meelde';
+
+  @override
+  String get rememberServiceHint =>
+      'Anna teenusele nimi ja osuta numbrile lingis. Järgmine kuulutus täidab end ise.';
+
+  @override
+  String get noIdInLink =>
+      'Selles lingis pole numbrit, mida rakendus salvestada saaks.';
+
+  @override
+  String get whichNumber => 'Milline osa on number?';
+
+  @override
+  String get cropAgain => 'Lõika uuesti';
+
+  @override
+  String get noFaceYet => 'Näopilti veel pole — kasutatakse kuulutuse pilti.';
+
+  @override
+  String get backLabel => 'Tagasi';
+
+  @override
+  String get dangerButton => 'ÄRA VAJUTA.\nOHTLIK';
+
+  @override
+  String get dangerThanks => 'Aitäh, et kasutad cat(a)logi!';
+
+  @override
+  String get helpTitle => 'Abi';
+
+  @override
+  String get showTipsAgain => 'Näita nõuandeid uuesti';
+
+  @override
+  String get helpHome =>
+      'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.';
+
+  @override
+  String get helpClowder =>
+      'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab.';
+
+  @override
+  String get helpCat =>
+      'Kõik selle kassi kohta: pildid, väljad, suhted, ajalugu. Leht on lugemiseks, kuni puudutad pliiatsit. Välja pikk vajutus viib otse selle muutmisse; pildi oma avab menüü. Menüü üleval paremal sisaldab ülejäänut: privaatne, peida, ühenda, kirjuta nägemine, jaga.';
+
+  @override
+  String get helpStrays =>
+      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi.';
+
+  @override
+  String get helpMap =>
+      'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
+
+  @override
+  String get helpCard =>
+      'Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin.';
+
+  @override
+  String get helpFields =>
+      'Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.';
+
+  @override
+  String get helpTimeline =>
+      'Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.';
+
+  @override
+  String get helpDuplicates =>
+      'Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.';
+
+  @override
+  String get helpMatches =>
+      'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.';
+
+  @override
+  String get helpFlier =>
+      'Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.';
+
+  @override
+  String get archiveTitle => 'Arhiiv';
+
+  @override
+  String get archiveExplainer =>
+      'Surnud kassid ja tühjad koloniad, mida keegi pole aastaid puutunud, võtavad ikka ruumi — eriti nende pildid. Arhiveerimine kirjutab need faili, mille sa alles hoiad, ja kustutab siis siit.';
+
+  @override
+  String get archiveAction => 'Arhiveeri';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arhiveeri $count kirjet';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Kas arhiveerida $count kirjet?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names kirjutatakse faili ja seejärel kustutatakse — sinu seadmest ja igast seadmest, millega sünkroonid. Faili importimine toob kõik tagasi; ilma selleta on need läinud.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Arhiveeritud ja kustutatud $count kirjet';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Midagi ei kustutatud: arhiivifaili ei õnnestunud kirjutada ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Andmebaas $db, pildid $photos $count failis';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Muutumatu $years aastat';
+  }
+
+  @override
+  String get nothingToArchive => 'Midagi pole arhiveerimiseks piisavalt vana.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Viimane muudatus $date · pildid $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Vanad andmed maksavad ruumi, eelkõige pildid, mida iga sünkroonitud seade kaasas kannab. Siin valid surnud kassid ja tühjad koloniad, mis on aastaid vaikinud, kirjutad need faili, mille alles hoiad, ja kustutad. Kustutamine jõuab kõigini, kellega sünkroonid; faili import taastab kõik.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Kas taastada $count kustutatud kirjet?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names on selles kataloogis kustutatud ja äsja imporditud fail sisaldab neid. Taastamine toob need tagasi siia ja igasse seadmesse, millega sünkroonid.';
+  }
+
+  @override
+  String get restoreAction => 'Taasta';
+
+  @override
+  String get keepDeleted => 'Jäta kustutatuks';
+
+  @override
+  String get archiveNotSaved =>
+      'Midagi ei kustutatud: arhiivi ei salvestatud kuhugi.';
+
+  @override
+  String get locateAddress => 'Otsi aadress kaardilt';
+
+  @override
+  String get addressLocated => 'Aadress leitud';
+
+  @override
+  String get addressNotFound =>
+      'Selle aadressi jaoks kohta ei leitud. Kontrolli kirjapilti või jäta tühjaks.';
+
+  @override
   String get starterPosition => 'Asukoht';
 
   @override
@@ -711,7 +1135,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privaatsed kassid, rühmad ja väljad jagatakse samuti — lülita sisse ainult oma seadmete sünkroonimisel.';
+      'Sellega saadetakse ka kõik privaatseks märgitu. See, kellega sünkroonid, näeb seda.';
 
   @override
   String get hideLabel => 'Peida selles seadmes';
@@ -729,7 +1153,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterSpecies => 'Liik';
 
   @override
-  String get starterStatus => 'Staatus';
+  String get starterStatus => 'Tüüp';
 
   @override
   String get statusFoster => 'Hoiukodu';
@@ -924,7 +1348,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Saada kõik ühe failina mis tahes messengeriga';
+      'Saada kõik ühe failina mis tahes sõnumirakendusega — ja impordi saadud .catsync-fail siin';
 
   @override
   String get connectToWifiFirst =>
@@ -971,25 +1395,25 @@ class AppLocalizationsEt extends AppLocalizations {
   String get selectClowderHint => 'Vali vasakult clowder';
 
   @override
-  String get introTitle1 => 'Kassid elavad clowderites';
+  String get introTitle1 => 'Sinu kassid, korras';
 
   @override
   String get introBody1 =>
-      'Clowder on koht, kus kassid elavad: sinu hoiukodu, lapsendaja korter, kõrvalasuv küün. Iga kass saab kaardi foto, faktide ja kogu looga.';
+      'Loo igale kassile kaart: foto, sugu, tervis, kõik mida tahad kirja panna. Kassid on rühmitatud elukoha järgi — äpp nimetab seda kohta kolooniaks (clowder).';
 
   @override
-  String get introTitle2 => 'Kõik jääb sinule';
+  String get introTitle2 => 'Töötab ilma internetita';
 
   @override
   String get introBody2 =>
-      'Ei kontot, ei pilve, ei jälgimist. Sinu andmed elavad sinu seadmes.';
+      'Kõik salvestub ainult sinu telefoni. Kontot pole, pilve pole. Midagi ei saadeta, kui sa ise ei jaga.';
 
   @override
-  String get introTitle3 => 'Jaga oma abilistega';
+  String get introTitle3 => 'Töötage koos';
 
   @override
   String get introBody3 =>
-      'Skanni kood ja kaks seadet sünkroonivad sekunditega, kasuta jagatud kausta või saada kõik ühe failina.';
+      'Igaüks kasutab oma äppi ja aeg-ajalt vahetate andmeid: saage kokku ja skannige kood, kasutage jagatud kausta või saatke üks fail sõnumirakendusega. Pärast on kõigil sama info.';
 
   @override
   String get introSkip => 'Jäta vahele';
@@ -1005,18 +1429,50 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Uus: sünkroonimine pakub nüüd kolme selget teed — ja usaldusküsimust enne, kui midagi liigub.';
+      'Siin sünkroonid oma tuttavatega. Sina otsustad, mida jagad.';
+
+  @override
+  String get spotHomeStrays =>
+      'See kaart kogub kõik hulkujad — kodutud kassid. Puuduta loendi nägemiseks.';
+
+  @override
+  String get spotHomeMenu =>
+      'Selles menüüs: leia ja liida duplikaadid, ekspordi CSV ja muud.';
+
+  @override
+  String get spotCatEdit =>
+      'Puuduta pliiatsit, et kassi muuta. Vihje: hoia välja all, et seda otse muuta.';
+
+  @override
+  String get spotMapLayers =>
+      'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ja tema endise kodu ümber.';
+
+  @override
+  String get spotStraysFlier =>
+      'Leidsid kadunud kassi kuulutuse? Pildista see siin — äpp salvestab kassi ja kontakti sinu eest.';
+
+  @override
+  String get spotStraysScan =>
+      'Mõnel kuulutusel on cat(a)log QR-kood. Skanni see siin ja impordi kass ilma tippimata.';
+
+  @override
+  String get introTitle4 => 'Leia kadunud kassid';
+
+  @override
+  String get introBody4 =>
+      'Näed kadunud kassi kuulutust? Pildista see äpis: salvestatakse kass, omaniku kontakt ja koht. Kui hiljem ilmub sarnane hulkuja, pakub äpp võimalikke vasteid.';
 
   @override
   String get spotMapSearch =>
-      'Uus: otsi siit kasse, clowdereid ja inimesi — otse kaardil.';
+      'Sisesta kass, koht või inimene, et kaardil sinna hüpata.';
 
   @override
-  String get spotCardChips => 'Uus: vali enne jagamist, mis kaardile jõuab.';
+  String get spotCardChips =>
+      'Märgi, mis peaks jagataval kaardil olema — ülejäänu jääb sellelt välja.';
 
   @override
   String get spotCatMenu =>
-      'Uus: märgi kass privaatseks (ei lahku kunagi seadmest) või peida ta siit.';
+      'Rohkem toiminguid siin: märgi kass privaatseks, peida ta, liida duplikaadid või kirjuta nägemine üles.';
 
   @override
   String get spotDone => 'Selge';
@@ -1057,4 +1513,134 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?';
+
+  @override
+  String get catalogsTitle => 'Kataloogid';
+
+  @override
+  String get newCatalog => 'Uus kataloog';
+
+  @override
+  String get catalogNameLabel => 'Kataloogi nimi';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Kataloog nimega $name on juba olemas. Vali teine nimi.';
+  }
+
+  @override
+  String get manageCatalogs => 'Halda katalooge';
+
+  @override
+  String get helpCatalogs =>
+      'Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
+
+  @override
+  String get spotHomeCatalog =>
+      'See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.';
+
+  @override
+  String get deleteCatalog => 'Kustuta kataloog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kõik kataloogis $name kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name kustutatud. Fail on kaustas $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Kirjuta $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ($error). Vabasta ruumi või proovi hiljem uuesti.';
+  }
+
+  @override
+  String get moveToCatalog => 'Teisalda teise kataloogi';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count teisaldatud kataloogi $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Mis liigub kaasa?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Kas liigutada midagi kataloogi $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Võta see import tagasi';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Selle impordi toodud $count muudatust eemaldatakse. Enne kirjutatakse need faili, mille import toob need tagasi. Need, kellega juba sünkroonisid, säilitavad oma koopia — seda ei saa tagasi võtta.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Tagasi võetud. Fail on $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Mine tagasi';
+
+  @override
+  String get goBackToHere => 'Mine siia tagasi';
+
+  @override
+  String get momentImport => 'Enne importimist';
+
+  @override
+  String get momentSync => 'Enne sünkroonimist';
+
+  @override
+  String get momentMerge => 'Enne ühendamist';
+
+  @override
+  String get momentHardDelete => 'Enne ühe autori andmete kustutamist';
+
+  @override
+  String get momentArchive => 'Enne arhiveerimist';
+
+  @override
+  String get momentManual => 'Sinu märgitud';
+
+  @override
+  String get showOlderMoments => 'Näita vanemaid';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kõik pärast seda hetke eemaldatakse — $count muudatust. Enne kirjutatakse see faili, mille import toob kõik tagasi, ja iga uuem hetk kaob koos sellega. Need, kellega juba sünkroonisid, säilitavad koopia — seda ei saa tagasi võtta.';
+  }
+
+  @override
+  String get nameThisMoment => 'Anna sellele hetkele nimi';
+
+  @override
+  String get helpGoBack =>
+      'Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Midagi ei eemaldatud: faili, mis selle alles hoiab, ei õnnestunud kirjutada ($error). Vabasta ruumi ja proovi uuesti.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'See on kataloog, milles oled. Vaheta teisele ja kustuta see siis.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Jagamisfaili ei õnnestunud kirjutada ($error). Vabasta ruumi ja proovi uuesti.';
+  }
 }

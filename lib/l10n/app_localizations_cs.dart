@@ -181,7 +181,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kočka zmizí ze všech seznamů a její fotky se odstraní — tady a po další synchronizaci i u tvých pomocníků.';
+      'Kočka zmizí ze všech seznamů a její fotky se odstraní — tady i, po příští synchronizaci, na ostatních zařízeních.';
 
   @override
   String get sightingRecorded => 'Pozorování zaznamenáno na vaší pozici.';
@@ -210,6 +210,182 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Číslo čipu';
+
+  @override
+  String get starterRemarks => 'Poznámky';
+
+  @override
+  String get captureFlier => 'Vyfotit leták';
+
+  @override
+  String get addPhotosTo => 'Přidat fotky k…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotek přidáno k $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Naskenovat vytištěný kód';
+
+  @override
+  String get chipScanHint =>
+      'Naskenuje vytištěný QR/čárový kód z karty čipu nebo veterinárních dokladů — čip v kočce telefon přečíst neumí.';
+
+  @override
+  String get savingLabel => 'Ukládání…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Majitel kočky $name';
+  }
+
+  @override
+  String get sortLabel => 'Řazení';
+
+  @override
+  String get viewAsTable => 'Zobrazit jako tabulku';
+
+  @override
+  String get viewAsTiles => 'Zobrazit jako dlaždice';
+
+  @override
+  String get matchCandidatesTitle => 'Možné shody';
+
+  @override
+  String get findDuplicates => 'Najít duplicity';
+
+  @override
+  String get noDuplicates => 'Momentálně žádné možné duplicity.';
+
+  @override
+  String get similarName => 'Podobné jméno';
+
+  @override
+  String get sharePublicly => 'Sdílet veřejně…';
+
+  @override
+  String get privateNoShare =>
+      'Tato kočka je označena jako soukromá — soukromá data nikdy neopouštějí vaše zařízení. Nejdřív označení zrušte, pak ji lze sdílet veřejně.';
+
+  @override
+  String get pickFramesTitle => 'Výběr snímků';
+
+  @override
+  String get suggestedFrames => 'Navržené snímky';
+
+  @override
+  String get scrubFrames => 'Posouvání videa';
+
+  @override
+  String get keepThisFrame => 'Ponechat tento snímek';
+
+  @override
+  String get fromVideo => 'Z videa…';
+
+  @override
+  String get videoMobileOnly =>
+      'Výběr snímků z videa funguje v mobilní aplikaci (Android a iPhone) — na tomto zařízení zatím ne.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Vyberte, co půjde do souboru. Zahrnou se jen zaškrtnutá pole.';
+
+  @override
+  String get exportShareFile => 'Exportovat soubor sdílení…';
+
+  @override
+  String get hostedLink => 'Hostovaný odkaz (URL nahraného souboru)';
+
+  @override
+  String get inlineQr => 'Vložené QR (jen text, bez fotek)';
+
+  @override
+  String get inlineTooBig =>
+      'Příliš mnoho dat pro vložený kód — odškrtněte pole nebo použijte hostovaný odkaz.';
+
+  @override
+  String get scanShareLabel => 'Naskenovat kód sdílení';
+
+  @override
+  String get notAShareCode => 'Tento kód není sdílení cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Importovat tuto kočku?';
+
+  @override
+  String shareSource(String url) {
+    return 'Zdroj: $url';
+  }
+
+  @override
+  String get importLabel => 'Importovat';
+
+  @override
+  String get strayAreaLabel => 'Možná oblast toulání';
+
+  @override
+  String get prevPin => 'Předchozí špendlík';
+
+  @override
+  String get nextPin => 'Další špendlík';
+
+  @override
+  String get noMissingCats =>
+      'Zatím žádné pohřešované kočky s pozicemi letáků.';
+
+  @override
+  String get noMatchCandidates => 'Momentálně žádné možné shody.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Stejné $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'Vzdálenost $distance m';
+  }
+
+  @override
+  String get addFlier => 'Přidat leták';
+
+  @override
+  String get missingSinceLabel => 'Pohřešován od';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Oříznout portrét';
+
+  @override
+  String get statusOwner => 'Majitel';
+
+  @override
+  String get ocrUnavailable =>
+      'Rozpoznávání textu není na tomto zařízení dostupné — napište text letáku ručně.';
+
+  @override
+  String get displayFormat => 'Zobrazit jako';
+
+  @override
+  String get displayPlain => 'Prostý text';
+
+  @override
+  String get displayQr => 'QR kód';
+
+  @override
+  String get displayBarcode => 'Čárový kód';
+
+  @override
+  String get editLabel => 'Upravit';
+
+  @override
+  String get doneLabel => 'Hotovo';
+
+  @override
   String get openSettings => 'Otevřít nastavení';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get malePregnant =>
       'Tato kočka je vedena jako kocour — kocour nemůže být březí. Nejdřív zkontrolujte pohlaví.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name je vedena jako kočka (samice) a nemůže být otcem. Nejdřív zkontrolujte pohlaví.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name je veden jako kocour a nemůže být matkou. Nejdřív zkontrolujte pohlaví.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name se narodil $date — rodič se nemůže narodit po svém koťeti.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Tato kočka je vedena jako otec jiných koček — otec nemůže být samice. Nejdřív zkontrolujte rodinu.';
+
+  @override
+  String get genderMotherMale =>
+      'Tato kočka je vedena jako matka jiných koček — matka nemůže být samec. Nejdřív zkontrolujte rodinu.';
 
   @override
   String get moveTo => 'Přesunout do';
@@ -416,7 +615,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synchronizace přes složku, kterou mezi zařízeními přenáší cloud nebo flashka — pro ty, kdo nejsou na stejné síti.';
+      'Obě zařízení používají stejnou složku (např. v Dropboxu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.';
 
   @override
   String get noFolderChosenYet => 'Zatím nevybrána žádná složka';
@@ -596,7 +795,234 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterResponsible => 'Odpovědná osoba';
 
   @override
-  String get starterPosition => 'Pozice';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Odkaz pro vyhledání';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Stránka služby s $token na místě čísla, např. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Vyhledat';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Žádná aplikace nedokázala otevřít $url. Zkopírujte odkaz do prohlížeče.';
+  }
+
+  @override
+  String get stepCat => 'Kočka';
+
+  @override
+  String get stepOwner => 'Majitel';
+
+  @override
+  String get stepFace => 'Foto obličeje';
+
+  @override
+  String get stepRegistry => 'Registr';
+
+  @override
+  String get stepReview => 'Zkontrolovat a uložit';
+
+  @override
+  String get stepOwnerHint =>
+      'Kdo kočku postrádá — z toho vznikne jeho karta s kontaktem z letáku.';
+
+  @override
+  String get stepFaceHint =>
+      'Vyřízněte z letáku kočičí obličej; stane se profilovou fotkou. Můžete přeskočit.';
+
+  @override
+  String get stepRegistryHint =>
+      'Čísla nalezená na letáku. Zaškrtnutá se uloží ke kočce a lze je později otevřít.';
+
+  @override
+  String get noRegistryLinks =>
+      'Na tomto letáku nejsou odkazy na registry — tady není co dělat.';
+
+  @override
+  String get unknownServiceHint => 'Neznámá služba';
+
+  @override
+  String get rememberService => 'Zapamatovat službu';
+
+  @override
+  String get rememberServiceHint =>
+      'Pojmenujte službu a ukažte na číslo v odkazu. Další leták se vyplní sám.';
+
+  @override
+  String get noIdInLink =>
+      'V tomto odkazu není číslo, které by aplikace mohla uložit.';
+
+  @override
+  String get whichNumber => 'Která část je číslo?';
+
+  @override
+  String get cropAgain => 'Oříznout znovu';
+
+  @override
+  String get noFaceYet =>
+      'Zatím žádná fotka obličeje — použije se foto letáku.';
+
+  @override
+  String get backLabel => 'Zpět';
+
+  @override
+  String get dangerButton => 'NEMAČKAT.\nNEBEZPEČÍ';
+
+  @override
+  String get dangerThanks => 'Děkujeme, že používáte cat(a)log!';
+
+  @override
+  String get helpTitle => 'Nápověda';
+
+  @override
+  String get showTipsAgain => 'Zobrazit tipy znovu';
+
+  @override
+  String get helpHome =>
+      'Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova. Název nahoře je katalog, ve kterém jsi — klepnutím přepneš nebo přidáš další.';
+
+  @override
+  String get helpClowder =>
+      'Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete.';
+
+  @override
+  String get helpCat =>
+      'Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen ke čtení, dokud neklepnete na tužku. Podržte pole a upravíte ho přímo; podržte fotku a otevřete její menu. Menu vpravo nahoře má zbytek: soukromé, skrýt, sloučit, zapsat pozorování, sdílet.';
+
+  @override
+  String get helpStrays =>
+      'Kočky, které teď nemají domov: nalezené, utečené nebo z letáku. Tlačítko fotoaparátu zapíše kočku, která sedí před vámi; tlačítko letáku promění plakát v kočku i s kontaktem majitele; skener přečte kód cat(a)log z plakátu.';
+
+  @override
+  String get helpMap =>
+      'Všechny kočky a místa s pozicí. Hledání najde kočky, lidi i místa — neznámé jméno hledá po celém světě. Tlačítko vrstev nakreslí kruhy 500 m kolem míst letáků pohřešované kočky a kolem domova, ze kterého utekla. Šipky vedou od špendlíku ke špendlíku, podržením mapy zapíšete pozorování.';
+
+  @override
+  String get helpCard =>
+      'Tisknutelná karta kočky: nahoře čipy vyberete, co na ní bude, pak ji sdílíte jako obrázek nebo PDF. Čísla lze vytisknout jako QR nebo čárový kód a z pozice vznikne QR otevírající mapu plus krátký Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Jak se data dostanou k dalším lidem: spojit se osobně, použít složku, kterou vidí obě zařízení, nebo poslat soubor přes messenger. Vždy rozhodujete vy, co odejde — a přijaté soubory .catsync otevřete také zde.';
+
+  @override
+  String get helpFields =>
+      'Pole, která váš katalog používá. Přejmenujte je, změňte možnosti výběrového pole nebo přidejte vlastní. Pole s identifikátorem může ukazovat na službu (registr), pak jde číslo u kočky klepnout.';
+
+  @override
+  String get helpTimeline =>
+      'Každá provedená změna, nejnovější nahoře: kdo co kdy a na jakou hodnotu změnil. Každý záznam lze vrátit — vznikne tím nový záznam, nic se nikdy nemaže.';
+
+  @override
+  String get helpDuplicates =>
+      'Kočky nebo kolonie, které vypadají, že existují dvakrát — stejná čísla nebo velmi podobná jména se souhlasícími údaji. Klepnutím na dvojici ji sloučíte; sloučení nelze vzít zpět, proto se ptá předem.';
+
+  @override
+  String get helpMatches =>
+      'Kočky, které mohou být totéž zvíře: stejné číslo, nebo toulavá kočka viděná v oblasti hledání pohřešované kočky. Klepnutím dvojici sloučíte, podržením otevřete první kočku k porovnání.';
+
+  @override
+  String get helpFlier =>
+      'Z vyfoceného letáku vznikne kočka i majitel. Krok za krokem: údaje kočky, kontakt majitele, výřez obličeje pro profilovku, čísla registrů z letáku a nakonec kontrola. Vše jsou návrhy — opravte, co fotoaparát přečetl špatně.';
+
+  @override
+  String get archiveTitle => 'Archiv';
+
+  @override
+  String get archiveExplainer =>
+      'Zemřelé kočky a prázdné kolonie, kterých se roky nikdo nedotkl, stále zabírají místo — hlavně jejich fotky. Archivace je zapíše do souboru, který si necháte, a pak je odsud smaže.';
+
+  @override
+  String get archiveAction => 'Archivovat';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Archivovat $count položek';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archivovat $count položek?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names budou zapsány do souboru a poté smazány — na vašem zařízení i na každém, se kterým synchronizujete. Import souboru vše vrátí; bez něj jsou pryč.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Archivováno a smazáno $count položek';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Nic nebylo smazáno: soubor archivu se nepodařilo zapsat ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Databáze $db, fotky $photos v $count souborech';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Beze změny $years let';
+  }
+
+  @override
+  String get nothingToArchive => 'Nic není dost staré na archivaci.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Poslední změna $date · fotky $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Stará data stojí místo, hlavně fotky, které si nese každé synchronizované zařízení. Tady vyberete zemřelé kočky a prázdné kolonie, které jsou roky beze změny, zapíšete je do souboru, který si necháte, a smažete je. Smazání dorazí ke všem, s nimiž synchronizujete; import souboru vše obnoví.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Obnovit $count smazaných položek?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names jsou v tomto katalogu smazané a právě importovaný soubor je obsahuje. Obnovení je vrátí sem i na každé zařízení, se kterým synchronizujete.';
+  }
+
+  @override
+  String get restoreAction => 'Obnovit';
+
+  @override
+  String get keepDeleted => 'Nechat smazané';
+
+  @override
+  String get archiveNotSaved =>
+      'Nic nebylo smazáno: archiv nebyl nikam uložen.';
+
+  @override
+  String get locateAddress => 'Najít adresu na mapě';
+
+  @override
+  String get addressLocated => 'Adresa nalezena';
+
+  @override
+  String get addressNotFound =>
+      'K této adrese se nenašlo žádné místo. Zkontrolujte pravopis nebo pole nechte prázdné.';
+
+  @override
+  String get starterPosition => 'Poloha';
 
   @override
   String get valueYes => 'ano';
@@ -711,7 +1137,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Soukromé kočky, skupiny a pole se sdílejí také — zapínejte jen při synchronizaci vlastních zařízení.';
+      'Tímto se pošle i vše, co jste označili jako soukromé. Ten, s kým synchronizujete, to uvidí.';
 
   @override
   String get hideLabel => 'Skrýt na tomto zařízení';
@@ -729,7 +1155,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterSpecies => 'Druh';
 
   @override
-  String get starterStatus => 'Stav';
+  String get starterStatus => 'Typ';
 
   @override
   String get statusFoster => 'Dočasná péče';
@@ -923,7 +1349,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Pošli vše jako jeden soubor libovolným messengerem';
+      'Pošlete vše jako jeden soubor přes libovolný messenger — a přijatý soubor .catsync importujte zde';
 
   @override
   String get connectToWifiFirst =>
@@ -970,25 +1396,25 @@ class AppLocalizationsCs extends AppLocalizations {
   String get selectClowderHint => 'Vyber clowder vlevo';
 
   @override
-  String get introTitle1 => 'Kočky bydlí v clowderech';
+  String get introTitle1 => 'Vaše kočky přehledně';
 
   @override
   String get introBody1 =>
-      'Clowder je místo, kde kočky žijí: tvoje dočasná péče, byt osvojitele, stodola odvedle. Každá kočka má kartu s fotkou, fakty a celým příběhem.';
+      'Založte každé kočce kartu: fotka, pohlaví, zdraví, cokoli chcete zaznamenat. Kočky jsou seskupené podle místa, kde žijí — aplikace mu říká kolonie (clowder).';
 
   @override
-  String get introTitle2 => 'Všechno zůstává u tebe';
+  String get introTitle2 => 'Funguje bez internetu';
 
   @override
   String get introBody2 =>
-      'Žádný účet, žádný cloud, žádné sledování. Tvá data žijí na tvém zařízení.';
+      'Vše se ukládá jen do vašeho telefonu. Žádný účet, žádný cloud. Nic se neodesílá, dokud to sami nesdílíte.';
 
   @override
-  String get introTitle3 => 'Sdílej s pomocníky';
+  String get introTitle3 => 'Spolupráce';
 
   @override
   String get introBody3 =>
-      'Naskenuj kód a dvě zařízení se sesynchronizují během vteřin, použij sdílenou složku nebo pošli vše jako jeden soubor.';
+      'Každý používá svou aplikaci a čas od času si vyměníte data: sejděte se a naskenujte kód, použijte sdílenou složku nebo pošlete jeden soubor messengerem. Potom mají všichni stejné informace.';
 
   @override
   String get introSkip => 'Přeskočit';
@@ -1004,18 +1430,50 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nové: synchronizace teď nabízí tři jasné cesty — a otázku důvěry, než cokoli odteče.';
+      'Tady synchronizujete se svými známými. Vy rozhodujete, co sdílíte.';
+
+  @override
+  String get spotHomeStrays =>
+      'Tato karta sbírá všechny toulavé kočky — kočky bez domova. Klepnutím zobrazíte seznam.';
+
+  @override
+  String get spotHomeMenu =>
+      'V tomto menu: hledání a slučování duplicit, export CSV a další.';
+
+  @override
+  String get spotCatEdit =>
+      'Klepněte na tužku a kočku upravte. Tip: podržte pole a upravíte ho rovnou.';
+
+  @override
+  String get spotMapLayers =>
+      'Hledáte pohřešovanou kočku? Zobrazte kruhy kolem míst jejích letáků a kolem domova, ze kterého utekla.';
+
+  @override
+  String get spotStraysFlier =>
+      'Leták s pohřešovanou kočkou? Vyfoťte ho tady — aplikace uloží kočku i kontakt za vás.';
+
+  @override
+  String get spotStraysScan =>
+      'Některé letáky mají QR kód cat(a)log. Naskenujte ho tady a kočku importujte bez psaní.';
+
+  @override
+  String get introTitle4 => 'Hledání pohřešovaných koček';
+
+  @override
+  String get introBody4 =>
+      'Vidíte leták s pohřešovanou kočkou? Vyfoťte ho v aplikaci: uloží kočku, kontakt na majitele i místo. Objeví-li se později podobná toulavá kočka, aplikace navrhne možné shody.';
 
   @override
   String get spotMapSearch =>
-      'Nové: hledej tady kočky, clowdery i osoby — přímo na mapě.';
+      'Napište kočku, místo nebo osobu a skočte tam na mapě.';
 
   @override
-  String get spotCardChips => 'Nové: před sdílením vyber, co na kartě bude.';
+  String get spotCardChips =>
+      'Zaškrtněte, co má být na sdílené kartě — zbytek na ní nebude.';
 
   @override
   String get spotCatMenu =>
-      'Nové: označ kočku jako soukromou (nikdy neopustí zařízení) nebo ji tady skryj.';
+      'Další akce jsou tady: označit kočku jako soukromou, skrýt ji, sloučit duplicity nebo zapsat pozorování.';
 
   @override
   String get spotDone => 'Rozumím';
@@ -1056,4 +1514,134 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?';
+
+  @override
+  String get catalogsTitle => 'Katalogy';
+
+  @override
+  String get newCatalog => 'Nový katalog';
+
+  @override
+  String get catalogNameLabel => 'Název katalogu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Katalog s názvem $name už existuje. Zvol jiný název.';
+  }
+
+  @override
+  String get manageCatalogs => 'Správa katalogů';
+
+  @override
+  String get helpCatalogs =>
+      'Každý katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího.';
+
+  @override
+  String get deleteCatalog => 'Smazat katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Všechno v $name zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name smazán. Soubor je v $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Napiš $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Nic se nesmazalo: soubor katalogu se nepodařilo zapsat ($error). Uvolni místo nebo to zkus později.';
+  }
+
+  @override
+  String get moveToCatalog => 'Přesunout do jiného katalogu';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count přesunuto do $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Co se má přesunout?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Přesunout něco do $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Vrátit tento import';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count změn z tohoto importu zmizí. Nejdřív se zapíšou do souboru, jehož import je vrátí. Kdo už synchronizoval, svou kopii si nechá — to vzít zpět nejde.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Vráceno. Soubor je v $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Vrátit se zpět';
+
+  @override
+  String get goBackToHere => 'Vrátit se sem';
+
+  @override
+  String get momentImport => 'Před importem';
+
+  @override
+  String get momentSync => 'Před synchronizací';
+
+  @override
+  String get momentMerge => 'Před sloučením';
+
+  @override
+  String get momentHardDelete => 'Před smazáním dat jednoho autora';
+
+  @override
+  String get momentArchive => 'Před archivací';
+
+  @override
+  String get momentManual => 'Označeno tebou';
+
+  @override
+  String get showOlderMoments => 'Zobrazit starší';
+
+  @override
+  String goBackBody(int count) {
+    return 'Všechno po tomto okamžiku zmizí — $count změn. Nejdřív se zapíše do souboru, jehož import to vrátí, a každý novější okamžik jde s tím. Kdo už synchronizoval, kopii si nechá — to vzít zpět nejde.';
+  }
+
+  @override
+  String get nameThisMoment => 'Pojmenuj tento okamžik';
+
+  @override
+  String get helpGoBack =>
+      'Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ($error). Uvolni místo a zkus to znovu.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Soubor ke sdílení se nepodařilo zapsat ($error). Uvolni místo a zkus to znovu.';
+  }
 }

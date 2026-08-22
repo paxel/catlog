@@ -181,7 +181,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar ghléasanna do chúntóirí freisin.';
+      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
 
   @override
   String get sightingRecorded => 'Feiceáil taifeadta ag do shuíomh.';
@@ -210,6 +210,183 @@ class AppLocalizationsGa extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Uimhir slise';
+
+  @override
+  String get starterRemarks => 'Nótaí';
+
+  @override
+  String get captureFlier => 'Grianghraf den bhileog';
+
+  @override
+  String get addPhotosTo => 'Cuir grianghraif le…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count ghrianghraf curtha le $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Scan cód clóite';
+
+  @override
+  String get chipScanHint =>
+      'Scanann sé an cód QR/barrachód clóite ó chárta na slise nó ó pháipéir an tréidlia — ní féidir le fón an tslis sa chat a léamh.';
+
+  @override
+  String get savingLabel => 'Á shábháil…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Úinéir $name';
+  }
+
+  @override
+  String get sortLabel => 'Sórtáil';
+
+  @override
+  String get viewAsTable => 'Taispeáin mar thábla';
+
+  @override
+  String get viewAsTiles => 'Taispeáin mar thíleanna';
+
+  @override
+  String get matchCandidatesTitle => 'Meaitseálacha féideartha';
+
+  @override
+  String get findDuplicates => 'Aimsigh dúblaigh';
+
+  @override
+  String get noDuplicates => 'Níl aon dúblach féideartha faoi láthair.';
+
+  @override
+  String get similarName => 'Ainm cosúil';
+
+  @override
+  String get sharePublicly => 'Comhroinn go poiblí…';
+
+  @override
+  String get privateNoShare =>
+      'Tá an cat seo marcáilte príobháideach — ní fhágann sonraí príobháideacha do ghléas riamh. Bain an marc ar dtús chun é a chomhroinnt go poiblí.';
+
+  @override
+  String get pickFramesTitle => 'Roghnaigh frámaí';
+
+  @override
+  String get suggestedFrames => 'Frámaí molta';
+
+  @override
+  String get scrubFrames => 'Scrollaigh tríd an bhfíseán';
+
+  @override
+  String get keepThisFrame => 'Coinnigh an fráma seo';
+
+  @override
+  String get fromVideo => 'Ó fhíseán…';
+
+  @override
+  String get videoMobileOnly =>
+      'Oibríonn frámaí a phiocadh as físeán san aip fóin (Android agus iPhone) — ní ar an ngléas seo go fóill.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Roghnaigh a dtéann isteach sa chomhad. Ní chuirtear san áireamh ach réimsí ticeáilte.';
+
+  @override
+  String get exportShareFile => 'Easpórtáil comhad comhroinnte…';
+
+  @override
+  String get hostedLink => 'Nasc óstáilte (URL an chomhaid uaslódáilte)';
+
+  @override
+  String get inlineQr => 'QR ionleabaithe (téacs amháin, gan ghrianghraif)';
+
+  @override
+  String get inlineTooBig =>
+      'An iomarca sonraí do chód ionleabaithe — díthiceáil réimsí nó úsáid nasc óstáilte.';
+
+  @override
+  String get scanShareLabel => 'Scan cód comhroinnte';
+
+  @override
+  String get notAShareCode => 'Ní comhroinnt cat(a)log é an cód sin.';
+
+  @override
+  String get importShareTitle => 'An cat seo a iompórtáil?';
+
+  @override
+  String shareSource(String url) {
+    return 'Foinse: $url';
+  }
+
+  @override
+  String get importLabel => 'Iompórtáil';
+
+  @override
+  String get strayAreaLabel => 'Limistéar fánaíochta féideartha';
+
+  @override
+  String get prevPin => 'Bioráin roimhe';
+
+  @override
+  String get nextPin => 'An chéad bhioráin eile';
+
+  @override
+  String get noMissingCats =>
+      'Níl aon chait ar iarraidh le suíomhanna bileog fós.';
+
+  @override
+  String get noMatchCandidates =>
+      'Níl aon mheaitseáil fhéideartha faoi láthair.';
+
+  @override
+  String sameIdField(String field) {
+    return '$field céanna';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m óna chéile';
+  }
+
+  @override
+  String get addFlier => 'Cuir bileog leis';
+
+  @override
+  String get missingSinceLabel => 'Ar iarraidh ó';
+
+  @override
+  String get phoneLabel => 'Teileafón';
+
+  @override
+  String get cropPortrait => 'Bearr an phortráid';
+
+  @override
+  String get statusOwner => 'Úinéir';
+
+  @override
+  String get ocrUnavailable =>
+      'Níl aithint téacs ar fáil ar an ngléas seo — clóscríobh téacs na bileoige tú féin.';
+
+  @override
+  String get displayFormat => 'Taispeántar mar';
+
+  @override
+  String get displayPlain => 'Gnáth-théacs';
+
+  @override
+  String get displayQr => 'Cód QR';
+
+  @override
+  String get displayBarcode => 'Barrachód';
+
+  @override
+  String get editLabel => 'Cuir in eagar';
+
+  @override
+  String get doneLabel => 'Déanta';
+
+  @override
   String get openSettings => 'Oscail socruithe';
 
   @override
@@ -236,6 +413,29 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get malePregnant =>
       'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
+
+  @override
+  String fatherNotMale(String name) {
+    return 'Tá $name cláraithe mar bhaineannach agus ní féidir léi a bheith ina hathair. Seiceáil an gnéas ar dtús.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return 'Tá $name cláraithe mar fhireannach agus ní féidir leis a bheith ina mháthair. Seiceáil an gnéas ar dtús.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'Rugadh $name ar $date — ní féidir tuismitheoir a bhreith i ndiaidh a phiscín.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Tá an cat seo cláraithe mar athair cat eile — ní féidir leis an athair a bheith baineann. Seiceáil an teaghlach ar dtús.';
+
+  @override
+  String get genderMotherMale =>
+      'Tá an cat seo cláraithe mar mháthair cat eile — ní féidir leis an máthair a bheith fireann. Seiceáil an teaghlach ar dtús.';
 
   @override
   String get moveTo => 'Bog go';
@@ -419,7 +619,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Sioncrónaigh trí fhillteán a iompraíonn néal nó méaróg USB idir gléasanna — dóibh siúd nach bhfuil ar an líonra céanna.';
+      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
 
   @override
   String get noFolderChosenYet => 'Níl aon fhillteán roghnaithe fós';
@@ -599,6 +799,233 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterResponsible => 'Duine freagrach';
 
   @override
+  String get starterEmail => 'Ríomhphost';
+
+  @override
+  String get starterPhone => 'Fón';
+
+  @override
+  String get lookupUrlLabel => 'Nasc cuardaigh';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Leathanach na seirbhíse le $token in áit na huimhreach, m.sh. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Cuardaigh';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Níorbh fhéidir le haon aip $url a oscailt. Cóipeáil an nasc isteach i mbrabhsálaí.';
+  }
+
+  @override
+  String get stepCat => 'Cat';
+
+  @override
+  String get stepOwner => 'Úinéir';
+
+  @override
+  String get stepFace => 'Grianghraf aghaidhe';
+
+  @override
+  String get stepRegistry => 'Clár';
+
+  @override
+  String get stepReview => 'Seiceáil agus sábháil';
+
+  @override
+  String get stepOwnerHint =>
+      'An té a chaill an cat — déantar a chárta as seo, leis an teagmháil ón bpóstaer.';
+
+  @override
+  String get stepFaceHint =>
+      'Gearr aghaidh an chait as an bpóstaer; is é sin an pictiúr próifíle. Is féidir é a scipeáil.';
+
+  @override
+  String get stepRegistryHint =>
+      'Uimhreacha a fuarthas ar an bpóstaer. Sábháiltear na cinn ticeáilte leis an gcat agus osclaítear iad níos déanaí.';
+
+  @override
+  String get noRegistryLinks =>
+      'Níl aon nasc cláir ar an bpóstaer seo — níl aon rud le déanamh anseo.';
+
+  @override
+  String get unknownServiceHint => 'Seirbhís anaithnid';
+
+  @override
+  String get rememberService => 'Cuimhnigh ar an tseirbhís';
+
+  @override
+  String get rememberServiceHint =>
+      'Ainmnigh an tseirbhís agus taispeáin an uimhir sa nasc. Líonfaidh an chéad phóstaer eile é féin.';
+
+  @override
+  String get noIdInLink =>
+      'Níl uimhir sa nasc seo is féidir leis an aip a shábháil.';
+
+  @override
+  String get whichNumber => 'Cén chuid í an uimhir?';
+
+  @override
+  String get cropAgain => 'Gearr arís';
+
+  @override
+  String get noFaceYet =>
+      'Gan grianghraf aghaidhe fós — úsáidtear grianghraf an phóstaeir.';
+
+  @override
+  String get backLabel => 'Ar ais';
+
+  @override
+  String get dangerButton => 'NÁ BRÚIGH.\nCONTÚIRT';
+
+  @override
+  String get dangerThanks => 'Go raibh maith agat as cat(a)log a úsáid!';
+
+  @override
+  String get helpTitle => 'Cabhair';
+
+  @override
+  String get showTipsAgain => 'Taispeáin na leideanna arís';
+
+  @override
+  String get helpHome =>
+      'Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.';
+
+  @override
+  String get helpClowder =>
+      'Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt.';
+
+  @override
+  String get helpCat =>
+      'Gach rud faoin gcat seo: grianghraif, réimsí, muintir, stair. Tá an leathanach inléite go dtí go dtapálann tú an peann luaidhe. Tugann brú fada ar réimse díreach chuig a eagarthóireacht thú; ar ghrianghraf osclaíonn sé a roghchlár. Tá an chuid eile sa roghchlár ag barr na láimhe deise: príobháideach, folaigh, cumaisc, taifead amharc, roinn.';
+
+  @override
+  String get helpStrays =>
+      'Cait gan bhaile faoi láthair: cait a fuarthas, cait a d\'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer.';
+
+  @override
+  String get helpMap =>
+      'Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.';
+
+  @override
+  String get helpCard =>
+      'Cárta inphriontáilte an chait: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.';
+
+  @override
+  String get helpSync =>
+      'Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin.';
+
+  @override
+  String get helpFields =>
+      'Na réimsí a úsáideann do chatalóg. Athainmnigh iad, athraigh roghanna réimse rogha, nó cruthaigh do chuid féin. Is féidir le réimse aitheantais díriú ar sheirbhís (clár), agus ansin is féidir an uimhir a thapáil ag an gcat.';
+
+  @override
+  String get helpTimeline =>
+      'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad é, cathain agus go dtí cén luach. Is féidir aon iontráil a chur ar ais — scríobhann sé sin iontráil nua, ní scriostar aon rud riamh.';
+
+  @override
+  String get helpDuplicates =>
+      'Cait nó coilíneachtaí atá ann faoi dhó de réir cosúlachta — uimhreacha comhionanna nó ainmneacha an-chosúil le sonraí a mheaitseálann. Tapáil péire chun iad a chumasc; ní féidir cumasc a chur ar ceal, mar sin fiafraítear díot ar dtús.';
+
+  @override
+  String get helpMatches =>
+      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.';
+
+  @override
+  String get helpFlier =>
+      'Déantar cat agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an chait, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.';
+
+  @override
+  String get archiveTitle => 'Cartlann';
+
+  @override
+  String get archiveExplainer =>
+      'Cait a fuair bás agus coilíneachtaí folmha nár bhain aon duine leo le blianta, tógann siad spás fós — go háirithe a gcuid grianghraf. Cuireann an chartlannú isteach i gcomhad iad a choinníonn tú, agus scriosann sé as seo iad ansin.';
+
+  @override
+  String get archiveAction => 'Cartlannaigh';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Cartlannaigh $count iontráil';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Cartlannaigh $count iontráil?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return 'Scríobhfar $names i gcomhad agus scriosfar ansin iad — ar do ghléas agus ar gach gléas a shioncronaíonn tú leis. Cuireann iompórtáil an chomhaid gach rud ar ais; gan é, tá siad imithe.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Cartlannaíodh agus scriosadh $count iontráil';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Níor scriosadh aon rud: níorbh fhéidir comhad na cartlainne a scríobh ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Bunachar $db, grianghraif $photos i $count comhad';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Gan athrú le $years bliana';
+  }
+
+  @override
+  String get nothingToArchive => 'Níl aon rud sean go leor le cartlannú.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Athrú deireanach $date · grianghraif $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Cosnaíonn sonraí sean spás, go háirithe na grianghraif a iompraíonn gach gléas sioncronaithe. Anseo roghnaíonn tú cait a fuair bás agus coilíneachtaí folmha atá ciúin le blianta, scríobhann tú i gcomhad iad a choinníonn tú, agus scriosann tú iad. Sroicheann an scriosadh gach duine a shioncronaíonn tú leis; cuireann iompórtáil an chomhaid gach rud ar ais.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Athchóirigh $count iontráil scriosta?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return 'Tá $names scriosta sa chatalóg seo, agus tá siad sa chomhad a d\'iompórtáil tú anois. Cuireann an t-athchóiriú ar ais anseo iad agus ar gach gléas a shioncronaíonn tú leis.';
+  }
+
+  @override
+  String get restoreAction => 'Athchóirigh';
+
+  @override
+  String get keepDeleted => 'Fág scriosta';
+
+  @override
+  String get archiveNotSaved =>
+      'Níor scriosadh aon rud: níor sábháladh an chartlann in aon áit.';
+
+  @override
+  String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
+
+  @override
+  String get addressLocated => 'Seoladh aimsithe';
+
+  @override
+  String get addressNotFound =>
+      'Níor aimsíodh aon áit don seoladh seo. Seiceáil an litriú nó fág folamh é.';
+
+  @override
   String get starterPosition => 'Suíomh';
 
   @override
@@ -714,7 +1141,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Roinntear cait, grúpaí agus réimsí príobháideacha freisin — cas air seo ach amháin agus do ghléasanna féin á sioncronú agat.';
+      'Seolann sé seo freisin gach rud a mharcáil tú príobháideach. Feicfidh an duine a shioncronaíonn leat é.';
 
   @override
   String get hideLabel => 'Folaigh ar an ngléas seo';
@@ -732,7 +1159,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterSpecies => 'Speiceas';
 
   @override
-  String get starterStatus => 'Stádas';
+  String get starterStatus => 'Cineál';
 
   @override
   String get statusFoster => 'Teach altrama';
@@ -928,7 +1355,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Seol gach rud mar chomhad amháin trí theachtaire ar bith';
+      'Seol gach rud mar chomhad amháin trí theachtaire ar bith — agus iompórtáil comhad .catsync a fuarthas anseo';
 
   @override
   String get connectToWifiFirst =>
@@ -975,25 +1402,25 @@ class AppLocalizationsGa extends AppLocalizations {
   String get selectClowderHint => 'Roghnaigh clowder ar chlé';
 
   @override
-  String get introTitle1 => 'Cónaíonn cait i clowders';
+  String get introTitle1 => 'Do chait, in ord';
 
   @override
   String get introBody1 =>
-      'Áit é clowder ina gcónaíonn cait: do theach altrama, árasán uchtaitheora, an scioból béal dorais. Faigheann gach cat cárta le grianghraf, fíricí agus a scéal iomlán.';
+      'Cruthaigh cárta do gach cat: grianghraf, gnéas, sláinte, rud ar bith is mian leat a nótáil. Grúpáiltear na cait de réir na háite a gcónaíonn siad — clowder a thugann an aip ar an áit sin.';
 
   @override
-  String get introTitle2 => 'Fanann gach rud agat';
+  String get introTitle2 => 'Oibríonn sé gan idirlíon';
 
   @override
   String get introBody2 =>
-      'Gan chuntas, gan néal, gan rianú. Maireann do shonraí ar do ghléas.';
+      'Sábháiltear gach rud ar do ghuthán amháin. Gan chuntas, gan néal. Ní uaslódáiltear rud ar bith mura roinneann tú féin é.';
 
   @override
-  String get introTitle3 => 'Roinn le do chúntóirí';
+  String get introTitle3 => 'Oibrigí le chéile';
 
   @override
   String get introBody3 =>
-      'Scan cód agus sioncrónaítear dhá ghléas i soicindí, úsáid fillteán roinnte nó seol gach rud mar chomhad amháin.';
+      'Úsáideann gach duine a aip féin agus malartaíonn sibh sonraí ó am go ham: buailigí le chéile agus scanáil cód, úsáidigí fillteán comhroinnte, nó seolaigí comhad amháin trí theachtaire. Ina dhiaidh sin bíonn an t-eolas céanna ag gach duine.';
 
   @override
   String get introSkip => 'Scipeáil';
@@ -1009,19 +1436,50 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nua: tá trí bhealach shoiléire ag an sioncronú anois — agus ceist mhuiníne sula ngluaiseann aon rud.';
+      'Sioncronaigh anseo le daoine a bhfuil aithne agat orthu. Is tusa a shocraíonn cad a roinneann tú.';
+
+  @override
+  String get spotHomeStrays =>
+      'Bailíonn an cárta seo na fáin go léir — cait gan bhaile. Tapáil chun an liosta a fheiceáil.';
+
+  @override
+  String get spotHomeMenu =>
+      'Sa roghchlár seo: aimsigh agus cumaisc dúblaigh, easpórtáil CSV agus tuilleadh.';
+
+  @override
+  String get spotCatEdit =>
+      'Tapáil an peann luaidhe chun an cat seo a chur in eagar. Leid: brúigh réimse go fada chun é a chur in eagar go díreach.';
+
+  @override
+  String get spotMapLayers =>
+      'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaer agus timpeall an bhaile ar theith sé uaidh.';
+
+  @override
+  String get spotStraysFlier =>
+      'Póstaer cat ar iarraidh? Glac grianghraf de anseo — sábhálann an aip an cat agus an teagmháil duit.';
+
+  @override
+  String get spotStraysScan =>
+      'Bíonn cód QR cat(a)log ar roinnt póstaer. Scan anseo é agus iompórtáil an cat gan clóscríobh.';
+
+  @override
+  String get introTitle4 => 'Aimsigh cait ar iarraidh';
+
+  @override
+  String get introBody4 =>
+      'An bhfeiceann tú póstaer faoi chat ar iarraidh? Glac grianghraf de san aip: sábhálann sí an cat, teagmháil an úinéara agus an áit. Má thagann fánaí cosúil leis chun cinn níos déanaí, molann an aip meaitseálacha féideartha.';
 
   @override
   String get spotMapSearch =>
-      'Nua: cuardaigh cait, clowders agus daoine anseo — díreach ar an léarscáil.';
+      'Clóscríobh cat, áit nó duine chun léim ansin ar an léarscáil.';
 
   @override
   String get spotCardChips =>
-      'Nua: roghnaigh cad a bheidh ar an gcárta sula roinneann tú é.';
+      'Ticeáil an méid ba chóir a bheith ar an gcárta inroinnte — fanann an chuid eile de.';
 
   @override
   String get spotCatMenu =>
-      'Nua: marcáil cat mar phríobháideach (ní fhágann sé do ghléas riamh) nó folaigh anseo é.';
+      'Tuilleadh gníomhartha anseo: marcáil an cat príobháideach, folaigh é, cumaisc dúblaigh nó taifead amharc.';
 
   @override
   String get spotDone => 'Tuigim';
@@ -1063,4 +1521,134 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?';
+
+  @override
+  String get catalogsTitle => 'Catalóga';
+
+  @override
+  String get newCatalog => 'Catalóg nua';
+
+  @override
+  String get catalogNameLabel => 'Ainm na catalóige';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Tá catalóg darb ainm $name ann cheana. Roghnaigh ainm eile.';
+  }
+
+  @override
+  String get manageCatalogs => 'Bainistigh catalóga';
+
+  @override
+  String get helpCatalogs =>
+      'Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.';
+
+  @override
+  String get deleteCatalog => 'Scrios an chatalóg';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Imíonn gach rud in $name: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'Scriosadh $name. Tá an comhad in $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Clóscríobh $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ($error). Déan spás a shaoradh nó bain triail eile as níos déanaí.';
+  }
+
+  @override
+  String get moveToCatalog => 'Bog go catalóg eile';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return 'Bogadh $count go $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Cad a bhogfaidh?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Rud éigin a bhogadh go $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Cealaigh an t-iompórtáil seo';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Baintear na $count athrú a thug an t-iompórtáil seo isteach. Scríobhtar iad chuig comhad ar dtús, agus tugann a iompórtáil ar ais iad. Coinníonn na daoine ar shioncronaigh tú leo cheana a gcóip féin — ní féidir é sin a tharraingt siar.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Cealaithe. Tá an comhad in $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Téigh siar';
+
+  @override
+  String get goBackToHere => 'Fill anseo';
+
+  @override
+  String get momentImport => 'Roimh an iompórtáil';
+
+  @override
+  String get momentSync => 'Roimh an sioncronú';
+
+  @override
+  String get momentMerge => 'Roimh an gcumasc';
+
+  @override
+  String get momentHardDelete => 'Roimh shonraí údair a scriosadh';
+
+  @override
+  String get momentArchive => 'Roimh an gcartlannú';
+
+  @override
+  String get momentManual => 'Marcáilte agatsa';
+
+  @override
+  String get showOlderMoments => 'Taispeáin cinn níos sine';
+
+  @override
+  String goBackBody(int count) {
+    return 'Baintear gach rud i ndiaidh na nóiméide seo — $count athrú. Scríobhtar é chuig comhad ar dtús, agus tugann a iompórtáil ar ais é; imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo a gcóip — ní féidir é sin a tharraingt siar.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ainmnigh an nóiméad seo';
+
+  @override
+  String get helpGoBack =>
+      'Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Níor baineadh aon rud: níorbh fhéidir an comhad a choinníonn é a scríobh ($error). Saor spás agus bain triail eile as.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Níorbh fhéidir an comhad comhroinnte a scríobh ($error). Saor spás agus bain triail eile as.';
+  }
 }

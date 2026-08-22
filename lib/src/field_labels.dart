@@ -1,4 +1,5 @@
 import 'package:catalog_core/catalog_core.dart';
+import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
 
@@ -10,6 +11,7 @@ String? statusDisplay(AppLocalizations t, String value) => switch (value) {
       'clinic' => t.statusClinic,
       'shelter' => t.statusShelter,
       'barn' => t.statusBarn,
+      'owner' => t.statusOwner,
       _ => null,
     };
 
@@ -31,6 +33,11 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (value == null) return '—';
   // Coordinates never face the user: positions live on the map.
   if (def?.type == FieldType.location) return t.onMapLabel;
+  // Dates are stored ISO but read in the device's format.
+  if (def?.type == FieldType.date) {
+    final date = DateTime.tryParse(value);
+    if (date != null) return DateFormat.yMd(t.localeName).format(date);
+  }
   if (def?.slug == 'breed') {
     return switch (value) {
       'European Shorthair' => t.breedEuropeanShorthair,
@@ -77,6 +84,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'gender' => t.starterGender,
       'color' => t.starterColor,
       'breed' => t.starterBreed,
+      'chipid' => t.starterChipId,
       'neutered' => t.starterNeutered,
       'pregnant' => t.starterPregnant,
       'birthdate' => t.starterBirthdate,
@@ -87,7 +95,10 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
       'status' => t.starterStatus,
       'address' => t.starterAddress,
       'responsible' => t.starterResponsible,
+      'email' => t.starterEmail,
+      'phone' => t.starterPhone,
       'position' => t.starterPosition,
+      'remarks' => t.starterRemarks,
       _ => null,
     };
 

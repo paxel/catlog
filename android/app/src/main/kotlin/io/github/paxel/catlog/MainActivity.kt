@@ -14,6 +14,7 @@ import java.io.File
 class MainActivity : FlutterActivity() {
     private var openChannel: MethodChannel? = null
     private var pendingOpen: String? = null
+    private var pendingImages: List<String>? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -22,11 +23,14 @@ class MainActivity : FlutterActivity() {
         openChannel!!.setMethodCallHandler { call, result ->
             if (call.method == "pending") {
                 result.success(pendingOpen.also { pendingOpen = null })
+            } else if (call.method == "pendingImages") {
+                result.success(pendingImages.also { pendingImages = null })
             } else {
                 result.notImplemented()
             }
         }
         intent?.let { handleViewIntent(it) }
+        intent?.let { handleShareIntent(it) }
         val hotspot = HotspotChannel(this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/hotspot")
             .setMethodCallHandler { call, result -> hotspot.handle(call, result) }
@@ -40,6 +44,13 @@ class MainActivity : FlutterActivity() {
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
+                } else if (call.method == "deleteFromDownloads") {
+                    try {
+                        deleteFromDownloads(call.argument<String>("name")!!)
+                        result.success(null)
+                    } catch (e: Exception) {
+                        result.error("backup", e.message, null)
+                    }
                 } else {
                     result.notImplemented()
                 }
@@ -49,6 +60,7 @@ class MainActivity : FlutterActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleViewIntent(intent)
+        handleShareIntent(intent)
     }
 
     /// Copies a viewed .catsync (content: or file: URI) into the cache
@@ -66,6 +78,60 @@ class MainActivity : FlutterActivity() {
             openChannel?.invokeMethod("open", target.absolutePath)
         } catch (_: Exception) {
             // Unreadable share — the import screen stays reachable manually.
+        }
+    }
+
+    /// Images shared INTO the app (Immich, Signal, browser, …): copy
+    /// each content URI into the cache and hand the paths to Dart, which
+    /// asks the user which cat they belong to. Queued for cold starts.
+    private fun handleShareIntent(intent: Intent) {
+        val uris: List<Uri> = when (intent.action) {
+            Intent.ACTION_SEND ->
+                listOfNotNull(
+                    @Suppress("DEPRECATION")
+                    intent.getParcelableExtra(Intent.EXTRA_STREAM))
+            Intent.ACTION_SEND_MULTIPLE ->
+                @Suppress("DEPRECATION")
+                intent.getParcelableArrayListExtra<Uri>(Intent.EXTRA_STREAM)
+                    ?: emptyList()
+            else -> return
+        }
+        if (uris.isEmpty()) return
+        val paths = mutableListOf<String>()
+        for ((i, uri) in uris.withIndex()) {
+            try {
+                val target = File(cacheDir, "shared-$i.img")
+                contentResolver.openInputStream(uri)!!.use { input ->
+                    target.outputStream().use { input.copyTo(it) }
+                }
+                paths.add(target.absolutePath)
+            } catch (_: Exception) {
+                // Unreadable stream — skip it, keep the rest.
+            }
+        }
+        if (paths.isEmpty()) return
+        pendingImages = paths
+        openChannel?.invokeMethod("sharedImages", paths)
+    }
+
+    /// Removes a backup file from Downloads/catlog — used when a catalog
+    /// is renamed, so the folder does not fill with names that no longer
+    /// mean anything.
+    private fun deleteFromDownloads(name: String) {
+        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            contentResolver.delete(
+                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
+                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
+                arrayOf("$relativePath/", "$name%")
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            val dir = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                "catlog"
+            )
+            File(dir, name).delete()
         }
     }
 

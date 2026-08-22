@@ -12,6 +12,8 @@ void sync(CatalogStore from, CatalogStore to) => to.applyEntries(
     senderVector: from.versionVector());
 
 void main() {
+  setUpAll(useSystemSqlite);
+
   late CatalogStore a, b;
 
   setUp(() {

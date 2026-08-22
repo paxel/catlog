@@ -491,7 +491,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteCatBody.
   ///
   /// In en, this message translates to:
-  /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on your helpers\' devices too.'**
+  /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBody;
 
   /// No description provided for @sightingRecorded.
@@ -536,6 +536,324 @@ abstract class AppLocalizations {
   /// **'OK'**
   String get ok;
 
+  /// No description provided for @starterChipId.
+  ///
+  /// In en, this message translates to:
+  /// **'Chip ID'**
+  String get starterChipId;
+
+  /// No description provided for @starterRemarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Remarks'**
+  String get starterRemarks;
+
+  /// No description provided for @captureFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture flier'**
+  String get captureFlier;
+
+  /// No description provided for @addPhotosTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photos to…'**
+  String get addPhotosTo;
+
+  /// No description provided for @photosAddedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} photo(s) added to {name}'**
+  String photosAddedTo(String count, String name);
+
+  /// No description provided for @scanPrintedCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan printed code'**
+  String get scanPrintedCode;
+
+  /// No description provided for @chipScanHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.'**
+  String get chipScanHint;
+
+  /// No description provided for @savingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get savingLabel;
+
+  /// No description provided for @ownerOfCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner of {name}'**
+  String ownerOfCat(String name);
+
+  /// No description provided for @sortLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sortLabel;
+
+  /// No description provided for @viewAsTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as table'**
+  String get viewAsTable;
+
+  /// No description provided for @viewAsTiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as tiles'**
+  String get viewAsTiles;
+
+  /// No description provided for @matchCandidatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Match candidates'**
+  String get matchCandidatesTitle;
+
+  /// No description provided for @findDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Find duplicates'**
+  String get findDuplicates;
+
+  /// No description provided for @noDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'No possible duplicates right now.'**
+  String get noDuplicates;
+
+  /// No description provided for @similarName.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar name'**
+  String get similarName;
+
+  /// No description provided for @sharePublicly.
+  ///
+  /// In en, this message translates to:
+  /// **'Share publicly…'**
+  String get sharePublicly;
+
+  /// No description provided for @privateNoShare.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.'**
+  String get privateNoShare;
+
+  /// No description provided for @pickFramesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick frames'**
+  String get pickFramesTitle;
+
+  /// No description provided for @suggestedFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested frames'**
+  String get suggestedFrames;
+
+  /// No description provided for @scrubFrames.
+  ///
+  /// In en, this message translates to:
+  /// **'Scrub the video'**
+  String get scrubFrames;
+
+  /// No description provided for @keepThisFrame.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep this frame'**
+  String get keepThisFrame;
+
+  /// No description provided for @fromVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'From video…'**
+  String get fromVideo;
+
+  /// No description provided for @videoMobileOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.'**
+  String get videoMobileOnly;
+
+  /// No description provided for @shareWhitelistExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what goes into the file. Only ticked fields are included.'**
+  String get shareWhitelistExplainer;
+
+  /// No description provided for @exportShareFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Export share file…'**
+  String get exportShareFile;
+
+  /// No description provided for @hostedLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Hosted link (URL of the uploaded file)'**
+  String get hostedLink;
+
+  /// No description provided for @inlineQr.
+  ///
+  /// In en, this message translates to:
+  /// **'Inline QR (text only, no photos)'**
+  String get inlineQr;
+
+  /// No description provided for @inlineTooBig.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much data for an inline code — untick some fields or use a hosted link.'**
+  String get inlineTooBig;
+
+  /// No description provided for @scanShareLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan share code'**
+  String get scanShareLabel;
+
+  /// No description provided for @notAShareCode.
+  ///
+  /// In en, this message translates to:
+  /// **'That code is not a cat(a)log share.'**
+  String get notAShareCode;
+
+  /// No description provided for @importShareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import this cat?'**
+  String get importShareTitle;
+
+  /// No description provided for @shareSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: {url}'**
+  String shareSource(String url);
+
+  /// No description provided for @importLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get importLabel;
+
+  /// No description provided for @strayAreaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Possible stray area'**
+  String get strayAreaLabel;
+
+  /// No description provided for @prevPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous pin'**
+  String get prevPin;
+
+  /// No description provided for @nextPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Next pin'**
+  String get nextPin;
+
+  /// No description provided for @noMissingCats.
+  ///
+  /// In en, this message translates to:
+  /// **'No missing cats with flier positions yet.'**
+  String get noMissingCats;
+
+  /// No description provided for @noMatchCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'No match candidates right now.'**
+  String get noMatchCandidates;
+
+  /// No description provided for @sameIdField.
+  ///
+  /// In en, this message translates to:
+  /// **'Same {field}'**
+  String sameIdField(String field);
+
+  /// No description provided for @metersApart.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} m apart'**
+  String metersApart(String distance);
+
+  /// No description provided for @addFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Add flier'**
+  String get addFlier;
+
+  /// No description provided for @missingSinceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing since'**
+  String get missingSinceLabel;
+
+  /// No description provided for @phoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phoneLabel;
+
+  /// No description provided for @cropPortrait.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop portrait'**
+  String get cropPortrait;
+
+  /// No description provided for @statusOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get statusOwner;
+
+  /// No description provided for @ocrUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Text recognition is not available on this device — type the flier text yourself.'**
+  String get ocrUnavailable;
+
+  /// No description provided for @displayFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Shown as'**
+  String get displayFormat;
+
+  /// No description provided for @displayPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'Plain text'**
+  String get displayPlain;
+
+  /// No description provided for @displayQr.
+  ///
+  /// In en, this message translates to:
+  /// **'QR code'**
+  String get displayQr;
+
+  /// No description provided for @displayBarcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode'**
+  String get displayBarcode;
+
+  /// No description provided for @editLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get editLabel;
+
+  /// No description provided for @doneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get doneLabel;
+
   /// No description provided for @openSettings.
   ///
   /// In en, this message translates to:
@@ -577,6 +895,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.'**
   String get malePregnant;
+
+  /// No description provided for @fatherNotMale.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is recorded as female and can\'t be the father. Check the gender first.'**
+  String fatherNotMale(String name);
+
+  /// No description provided for @motherNotFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is recorded as male and can\'t be the mother. Check the gender first.'**
+  String motherNotFemale(String name);
+
+  /// No description provided for @parentBornAfterKitten.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} was born {date} — a parent can\'t be born after its kitten.'**
+  String parentBornAfterKitten(String name, String date);
+
+  /// No description provided for @genderFatherFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.'**
+  String get genderFatherFemale;
+
+  /// No description provided for @genderMotherMale.
+  ///
+  /// In en, this message translates to:
+  /// **'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.'**
+  String get genderMotherMale;
 
   /// No description provided for @moveTo.
   ///
@@ -875,7 +1223,7 @@ abstract class AppLocalizations {
   /// No description provided for @sharedFolderExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Sync through a folder that a cloud drive or USB stick carries between devices — for people who are not on the same network.'**
+  /// **'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
   String get sharedFolderExplainer;
 
   /// No description provided for @noFolderChosenYet.
@@ -1190,10 +1538,370 @@ abstract class AppLocalizations {
   /// **'Responsible person'**
   String get starterResponsible;
 
+  /// No description provided for @starterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get starterEmail;
+
+  /// No description provided for @starterPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get starterPhone;
+
+  /// No description provided for @lookupUrlLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Lookup link'**
+  String get lookupUrlLabel;
+
+  /// No description provided for @lookupUrlHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The service\'s page with {token} where the number goes, e.g. https://www.tasso.net/Tierregister/Suchmeldungen?snr={token}'**
+  String lookupUrlHelp(String token);
+
+  /// No description provided for @lookUpId.
+  ///
+  /// In en, this message translates to:
+  /// **'Look up'**
+  String get lookUpId;
+
+  /// No description provided for @lookupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'No app could open {url}. Copy the link into a browser.'**
+  String lookupFailed(String url);
+
+  /// No description provided for @stepCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat'**
+  String get stepCat;
+
+  /// No description provided for @stepOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get stepOwner;
+
+  /// No description provided for @stepFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Face photo'**
+  String get stepFace;
+
+  /// No description provided for @stepRegistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Registry'**
+  String get stepRegistry;
+
+  /// No description provided for @stepReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Check and save'**
+  String get stepReview;
+
+  /// No description provided for @stepOwnerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Whoever is missing the cat — this becomes their card, with the contact from the poster.'**
+  String get stepOwnerHint;
+
+  /// No description provided for @stepFaceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.'**
+  String get stepFaceHint;
+
+  /// No description provided for @stepRegistryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.'**
+  String get stepRegistryHint;
+
+  /// No description provided for @noRegistryLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'No registry links on this poster — nothing to do here.'**
+  String get noRegistryLinks;
+
+  /// No description provided for @unknownServiceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown service'**
+  String get unknownServiceHint;
+
+  /// No description provided for @rememberService.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember service'**
+  String get rememberService;
+
+  /// No description provided for @rememberServiceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Name the service and point at the number in the link. The next poster from it fills itself.'**
+  String get rememberServiceHint;
+
+  /// No description provided for @noIdInLink.
+  ///
+  /// In en, this message translates to:
+  /// **'This link carries no number the app could store.'**
+  String get noIdInLink;
+
+  /// No description provided for @whichNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Which part is the number?'**
+  String get whichNumber;
+
+  /// No description provided for @cropAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Crop again'**
+  String get cropAgain;
+
+  /// No description provided for @noFaceYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No face photo yet — the poster photo is used instead.'**
+  String get noFaceYet;
+
+  /// No description provided for @backLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get backLabel;
+
+  /// No description provided for @dangerButton.
+  ///
+  /// In en, this message translates to:
+  /// **'DON\'T PRESS.\nDANGER'**
+  String get dangerButton;
+
+  /// No description provided for @dangerThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for using cat(a)log!'**
+  String get dangerThanks;
+
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get helpTitle;
+
+  /// No description provided for @showTipsAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Show tips again'**
+  String get showTipsAgain;
+
+  /// No description provided for @helpHome.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.'**
+  String get helpHome;
+
+  /// No description provided for @helpClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it.'**
+  String get helpClowder;
+
+  /// No description provided for @helpCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: mark private, hide, merge, record a sighting, share the cat.'**
+  String get helpCat;
+
+  /// No description provided for @helpStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster.'**
+  String get helpStrays;
+
+  /// No description provided for @helpMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.'**
+  String get helpMap;
+
+  /// No description provided for @helpCard.
+  ///
+  /// In en, this message translates to:
+  /// **'The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.'**
+  String get helpCard;
+
+  /// No description provided for @helpSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.'**
+  String get helpSync;
+
+  /// No description provided for @helpFields.
+  ///
+  /// In en, this message translates to:
+  /// **'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.'**
+  String get helpFields;
+
+  /// No description provided for @helpTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.'**
+  String get helpTimeline;
+
+  /// No description provided for @helpDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.'**
+  String get helpDuplicates;
+
+  /// No description provided for @helpMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.'**
+  String get helpMatches;
+
+  /// No description provided for @helpFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.'**
+  String get helpFlier;
+
+  /// No description provided for @archiveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get archiveTitle;
+
+  /// No description provided for @archiveExplainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.'**
+  String get archiveExplainer;
+
+  /// No description provided for @archiveAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get archiveAction;
+
+  /// No description provided for @archiveSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive {count} entries'**
+  String archiveSelected(int count);
+
+  /// No description provided for @archiveConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive {count} entries?'**
+  String archiveConfirmTitle(int count);
+
+  /// No description provided for @archiveConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} will be written into a file and then deleted — on your device and on every device you sync with. Importing the file brings everything back; without it, they are gone.'**
+  String archiveConfirmBody(String names);
+
+  /// No description provided for @archiveDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} entries archived and deleted'**
+  String archiveDone(int count);
+
+  /// No description provided for @archiveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the archive file could not be written ({error}).'**
+  String archiveFailed(String error);
+
+  /// No description provided for @storageLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Database {db}, photos {photos} in {count} files'**
+  String storageLine(String db, String photos, int count);
+
+  /// No description provided for @quietForYears.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet for {years} years'**
+  String quietForYears(int years);
+
+  /// No description provided for @nothingToArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing old enough to archive.'**
+  String get nothingToArchive;
+
+  /// No description provided for @archiveCandidateLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Last change {date} · photos {size}'**
+  String archiveCandidateLine(String date, String size);
+
+  /// No description provided for @helpArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.'**
+  String get helpArchive;
+
+  /// No description provided for @restoreDeletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore {count} deleted entries?'**
+  String restoreDeletedTitle(int count);
+
+  /// No description provided for @restoreDeletedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{names} are deleted in this catalog, and the file you just imported carries them. Restoring brings them back here and on every device you sync with.'**
+  String restoreDeletedBody(String names);
+
+  /// No description provided for @restoreAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restoreAction;
+
+  /// No description provided for @keepDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep deleted'**
+  String get keepDeleted;
+
+  /// No description provided for @archiveNotSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the archive was not saved anywhere.'**
+  String get archiveNotSaved;
+
+  /// No description provided for @locateAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Find address on the map'**
+  String get locateAddress;
+
+  /// No description provided for @addressLocated.
+  ///
+  /// In en, this message translates to:
+  /// **'Address found'**
+  String get addressLocated;
+
+  /// No description provided for @addressNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No place found for this address. Check the spelling, or leave it empty.'**
+  String get addressNotFound;
+
   /// No description provided for @starterPosition.
   ///
   /// In en, this message translates to:
-  /// **'Position'**
+  /// **'Location'**
   String get starterPosition;
 
   /// No description provided for @valueYes.
@@ -1403,7 +2111,7 @@ abstract class AppLocalizations {
   /// No description provided for @includePrivateExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Private cats, clowders, and fields are shared too — only turn this on when syncing your own devices.'**
+  /// **'This also sends everything you marked private. The person you sync with will see it.'**
   String get includePrivateExplainer;
 
   /// No description provided for @hideLabel.
@@ -1439,7 +2147,7 @@ abstract class AppLocalizations {
   /// No description provided for @starterStatus.
   ///
   /// In en, this message translates to:
-  /// **'Status'**
+  /// **'Type'**
   String get starterStatus;
 
   /// No description provided for @statusFoster.
@@ -1787,7 +2495,7 @@ abstract class AppLocalizations {
   /// No description provided for @syncChooserMessengerSub.
   ///
   /// In en, this message translates to:
-  /// **'Send everything as one file through any messenger'**
+  /// **'Send everything as one file through any messenger — and import a received .catsync file here'**
   String get syncChooserMessengerSub;
 
   /// No description provided for @connectToWifiFirst.
@@ -1871,37 +2579,37 @@ abstract class AppLocalizations {
   /// No description provided for @introTitle1.
   ///
   /// In en, this message translates to:
-  /// **'Cats live in clowders'**
+  /// **'Your cats, organized'**
   String get introTitle1;
 
   /// No description provided for @introBody1.
   ///
   /// In en, this message translates to:
-  /// **'A clowder is a place where cats live: your foster home, an adopter\'s flat, the barn next door. Every cat gets a card with photo, facts, and its whole story.'**
+  /// **'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.'**
   String get introBody1;
 
   /// No description provided for @introTitle2.
   ///
   /// In en, this message translates to:
-  /// **'Everything stays with you'**
+  /// **'Works without internet'**
   String get introTitle2;
 
   /// No description provided for @introBody2.
   ///
   /// In en, this message translates to:
-  /// **'No account, no cloud, no tracking. Your data lives on your device and goes only where you send it.'**
+  /// **'Everything is saved on your phone only. No account, no cloud. Nothing is uploaded unless you share it yourself.'**
   String get introBody2;
 
   /// No description provided for @introTitle3.
   ///
   /// In en, this message translates to:
-  /// **'Share with your helpers'**
+  /// **'Work together'**
   String get introTitle3;
 
   /// No description provided for @introBody3.
   ///
   /// In en, this message translates to:
-  /// **'Scan a code to sync two devices in seconds, use a shared folder, or send everything as one file. Everyone ends up with the same catalog.'**
+  /// **'Everyone uses their own app and you swap data now and then: meet and scan a code, use a shared folder, or send one file by messenger. Afterwards everyone has the same information.'**
   String get introBody3;
 
   /// No description provided for @introSkip.
@@ -1931,25 +2639,73 @@ abstract class AppLocalizations {
   /// No description provided for @spotHomeSync.
   ///
   /// In en, this message translates to:
-  /// **'New: sync now offers three clear ways to share — and a trust question before anything flows.'**
+  /// **'Sync with people you know here. You decide what you share.'**
   String get spotHomeSync;
+
+  /// No description provided for @spotHomeStrays.
+  ///
+  /// In en, this message translates to:
+  /// **'This card collects all strays — cats without a home. Tap it to see the list.'**
+  String get spotHomeStrays;
+
+  /// No description provided for @spotHomeMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'In this menu: find and merge duplicate entries, export CSV, and more.'**
+  String get spotHomeMenu;
+
+  /// No description provided for @spotCatEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.'**
+  String get spotCatEdit;
+
+  /// No description provided for @spotMapLayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching for a missing cat? Show circles around its poster spots and the home it ran from.'**
+  String get spotMapLayers;
+
+  /// No description provided for @spotStraysFlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.'**
+  String get spotStraysFlier;
+
+  /// No description provided for @spotStraysScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.'**
+  String get spotStraysScan;
+
+  /// No description provided for @introTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Find missing cats'**
+  String get introTitle4;
+
+  /// No description provided for @introBody4.
+  ///
+  /// In en, this message translates to:
+  /// **'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.'**
+  String get introBody4;
 
   /// No description provided for @spotMapSearch.
   ///
   /// In en, this message translates to:
-  /// **'New: search cats, clowders, and people here — or find any of them on the map.'**
+  /// **'Type a cat, place, or person here to jump to it on the map.'**
   String get spotMapSearch;
 
   /// No description provided for @spotCardChips.
   ///
   /// In en, this message translates to:
-  /// **'New: choose what appears on the card before sharing it.'**
+  /// **'Tick what should appear on the shareable card — everything else stays off it.'**
   String get spotCardChips;
 
   /// No description provided for @spotCatMenu.
   ///
   /// In en, this message translates to:
-  /// **'New: mark a cat as private (never leaves your device) or hide it from your view here.'**
+  /// **'More actions live here: mark the cat private, hide it, merge duplicates, or record a sighting.'**
   String get spotCatMenu;
 
   /// No description provided for @spotDone.
@@ -2023,6 +2779,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?'**
   String get crashLastRunBody;
+
+  /// No description provided for @catalogsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalogs'**
+  String get catalogsTitle;
+
+  /// No description provided for @newCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'New catalog'**
+  String get newCatalog;
+
+  /// No description provided for @catalogNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog name'**
+  String get catalogNameLabel;
+
+  /// No description provided for @catalogNameTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'A catalog called {name} already exists. Pick a different name.'**
+  String catalogNameTaken(String name);
+
+  /// No description provided for @manageCatalogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage catalogs'**
+  String get manageCatalogs;
+
+  /// No description provided for @helpCatalogs.
+  ///
+  /// In en, this message translates to:
+  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.'**
+  String get helpCatalogs;
+
+  /// No description provided for @spotHomeCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the catalog you are in. Tap the name to switch, or to make another one.'**
+  String get spotHomeCatalog;
+
+  /// No description provided for @deleteCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete catalog'**
+  String get deleteCatalog;
+
+  /// No description provided for @deleteCatalogBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.'**
+  String deleteCatalogBody(String name);
+
+  /// No description provided for @catalogDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} deleted. The file is in {where}.'**
+  String catalogDeleted(String name, String where);
+
+  /// No description provided for @typeTheName.
+  ///
+  /// In en, this message translates to:
+  /// **'Type {name}'**
+  String typeTheName(String name);
+
+  /// No description provided for @catalogExportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was deleted: the catalog file could not be written ({error}). Free some space or pick another moment, then try again.'**
+  String catalogExportFailed(String error);
+
+  /// No description provided for @moveToCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to another catalog'**
+  String get moveToCatalog;
+
+  /// No description provided for @movedToCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} moved to {name}'**
+  String movedToCatalog(int count, String name);
+
+  /// No description provided for @chooseWhatToMove.
+  ///
+  /// In en, this message translates to:
+  /// **'What should move?'**
+  String get chooseWhatToMove;
+
+  /// No description provided for @moveIntoNewCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Move something into {name}?'**
+  String moveIntoNewCatalog(String name);
+
+  /// No description provided for @undoThisImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo this import'**
+  String get undoThisImport;
+
+  /// No description provided for @undoImportBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The {count} change(s) this import brought in are removed. They are written to a file first, so importing that file puts them back. People you already synced with keep their copy — that cannot be unsent.'**
+  String undoImportBody(int count);
+
+  /// No description provided for @undoneImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Undone. The file is in {where}.'**
+  String undoneImport(String where);
+
+  /// No description provided for @goBackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back'**
+  String get goBackTitle;
+
+  /// No description provided for @goBackToHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back to here'**
+  String get goBackToHere;
+
+  /// No description provided for @momentImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Before importing'**
+  String get momentImport;
+
+  /// No description provided for @momentSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Before syncing'**
+  String get momentSync;
+
+  /// No description provided for @momentMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Before merging'**
+  String get momentMerge;
+
+  /// No description provided for @momentHardDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Before deleting an author’s data'**
+  String get momentHardDelete;
+
+  /// No description provided for @momentArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Before archiving'**
+  String get momentArchive;
+
+  /// No description provided for @momentManual.
+  ///
+  /// In en, this message translates to:
+  /// **'Marked by you'**
+  String get momentManual;
+
+  /// No description provided for @showOlderMoments.
+  ///
+  /// In en, this message translates to:
+  /// **'Show older'**
+  String get showOlderMoments;
+
+  /// No description provided for @goBackBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything after this moment is removed — {count} change(s). They are written to a file first, so importing it puts them back, and every moment newer than this one goes with them. People you already synced with keep their copy — that cannot be unsent.'**
+  String goBackBody(int count);
+
+  /// No description provided for @nameThisMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Name this moment'**
+  String get nameThisMoment;
+
+  /// No description provided for @helpGoBack.
+  ///
+  /// In en, this message translates to:
+  /// **'The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.'**
+  String get helpGoBack;
+
+  /// No description provided for @goBackFileFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.'**
+  String goBackFileFailed(String error);
+
+  /// No description provided for @switchBeforeDeleting.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the catalog you are in. Switch to another one, then delete it.'**
+  String get switchBeforeDeleting;
+
+  /// No description provided for @shareFileFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The share file could not be written ({error}). Free some space and try again.'**
+  String shareFileFailed(String error);
 }
 
 class _AppLocalizationsDelegate

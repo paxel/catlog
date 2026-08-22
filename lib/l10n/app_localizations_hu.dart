@@ -181,7 +181,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'A macska eltűnik minden listáról és a fotói törlődnek — itt, és a következő szinkronizálás után a segítőidnél is.';
+      'A macska eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
 
   @override
   String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
@@ -210,6 +210,181 @@ class AppLocalizationsHu extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipszám';
+
+  @override
+  String get starterRemarks => 'Megjegyzések';
+
+  @override
+  String get captureFlier => 'Plakát lefotózása';
+
+  @override
+  String get addPhotosTo => 'Fotók hozzáadása ehhez…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count fotó hozzáadva ehhez: $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Nyomtatott kód beolvasása';
+
+  @override
+  String get chipScanHint =>
+      'A chipkártyán vagy állatorvosi papírokon lévő nyomtatott QR-/vonalkódot olvassa be — a macskában lévő chipet a telefon nem tudja leolvasni.';
+
+  @override
+  String get savingLabel => 'Mentés…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name gazdája';
+  }
+
+  @override
+  String get sortLabel => 'Rendezés';
+
+  @override
+  String get viewAsTable => 'Táblázatként';
+
+  @override
+  String get viewAsTiles => 'Csempeként';
+
+  @override
+  String get matchCandidatesTitle => 'Lehetséges egyezések';
+
+  @override
+  String get findDuplicates => 'Duplikátumok keresése';
+
+  @override
+  String get noDuplicates => 'Jelenleg nincs lehetséges duplikátum.';
+
+  @override
+  String get similarName => 'Hasonló név';
+
+  @override
+  String get sharePublicly => 'Nyilvános megosztás…';
+
+  @override
+  String get privateNoShare =>
+      'Ez a macska privátként van megjelölve — a privát adatok sosem hagyják el az eszközét. Előbb vegye le a jelölést a nyilvános megosztáshoz.';
+
+  @override
+  String get pickFramesTitle => 'Képkockák kiválasztása';
+
+  @override
+  String get suggestedFrames => 'Javasolt képkockák';
+
+  @override
+  String get scrubFrames => 'Videó léptetése';
+
+  @override
+  String get keepThisFrame => 'Képkocka megtartása';
+
+  @override
+  String get fromVideo => 'Videóból…';
+
+  @override
+  String get videoMobileOnly =>
+      'A videóból való képkocka-kiemelés a telefonos alkalmazásban működik (Android és iPhone) — ezen az eszközön még nem.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Válaszd ki, mi kerüljön a fájlba. Csak a bejelölt mezők kerülnek bele.';
+
+  @override
+  String get exportShareFile => 'Megosztási fájl exportálása…';
+
+  @override
+  String get hostedLink => 'Tárolt link (a feltöltött fájl URL-je)';
+
+  @override
+  String get inlineQr => 'Beágyazott QR (csak szöveg, fotók nélkül)';
+
+  @override
+  String get inlineTooBig =>
+      'Túl sok adat a beágyazott kódhoz — vegyen ki mezőket, vagy használjon tárolt linket.';
+
+  @override
+  String get scanShareLabel => 'Megosztási kód beolvasása';
+
+  @override
+  String get notAShareCode => 'Ez a kód nem cat(a)log-megosztás.';
+
+  @override
+  String get importShareTitle => 'Importálja ezt a macskát?';
+
+  @override
+  String shareSource(String url) {
+    return 'Forrás: $url';
+  }
+
+  @override
+  String get importLabel => 'Importálás';
+
+  @override
+  String get strayAreaLabel => 'Lehetséges kóborlási terület';
+
+  @override
+  String get prevPin => 'Előző tű';
+
+  @override
+  String get nextPin => 'Következő tű';
+
+  @override
+  String get noMissingCats => 'Még nincs eltűnt macska plakátpozícióval.';
+
+  @override
+  String get noMatchCandidates => 'Jelenleg nincs lehetséges egyezés.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Azonos $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m-re egymástól';
+  }
+
+  @override
+  String get addFlier => 'Plakát hozzáadása';
+
+  @override
+  String get missingSinceLabel => 'Eltűnt ekkortól';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Portré kivágása';
+
+  @override
+  String get statusOwner => 'Gazda';
+
+  @override
+  String get ocrUnavailable =>
+      'A szövegfelismerés ezen az eszközön nem érhető el — írja be a plakát szövegét kézzel.';
+
+  @override
+  String get displayFormat => 'Megjelenítés';
+
+  @override
+  String get displayPlain => 'Egyszerű szöveg';
+
+  @override
+  String get displayQr => 'QR-kód';
+
+  @override
+  String get displayBarcode => 'Vonalkód';
+
+  @override
+  String get editLabel => 'Szerkesztés';
+
+  @override
+  String get doneLabel => 'Kész';
+
+  @override
   String get openSettings => 'Beállítások megnyitása';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get malePregnant =>
       'Ez a macska kandúrként van nyilvántartva — kandúr nem lehet vemhes. Először ellenőrizze az ivart.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name nőstényként van nyilvántartva, így nem lehet az apa. Először ellenőrizze az ivart.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name kandúrként van nyilvántartva, így nem lehet az anya. Először ellenőrizze az ivart.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name $date született — a szülő nem születhet a kölyke után.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Ez a macska más macskák apjaként szerepel — az apa nem lehet nőstény. Először ellenőrizze a családot.';
+
+  @override
+  String get genderMotherMale =>
+      'Ez a macska más macskák anyjaként szerepel — az anya nem lehet kandúr. Először ellenőrizze a családot.';
 
   @override
   String get moveTo => 'Áthelyezés ide';
@@ -417,7 +615,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Szinkronizálás olyan mappán át, amelyet felhő vagy pendrive visz az eszközök között — azoknak, akik nincsenek egy hálózaton.';
+      'Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
 
   @override
   String get noFolderChosenYet => 'Még nincs mappa kiválasztva';
@@ -597,7 +795,233 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterResponsible => 'Felelős személy';
 
   @override
-  String get starterPosition => 'Pozíció';
+  String get starterEmail => 'E-mail';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Kereső hivatkozás';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'A szolgáltatás oldala $token helyén a számmal, pl. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Megnézés';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Egyetlen alkalmazás sem tudta megnyitni ezt: $url. Másold a linket egy böngészőbe.';
+  }
+
+  @override
+  String get stepCat => 'Macska';
+
+  @override
+  String get stepOwner => 'Gazdi';
+
+  @override
+  String get stepFace => 'Arckép';
+
+  @override
+  String get stepRegistry => 'Nyilvántartás';
+
+  @override
+  String get stepReview => 'Ellenőrzés és mentés';
+
+  @override
+  String get stepOwnerHint =>
+      'Aki keresi a macskát — ebből lesz az ő kártyája, a plakáton szereplő elérhetőséggel.';
+
+  @override
+  String get stepFaceHint =>
+      'Vágd ki a macska arcát a plakátból; ez lesz a profilkép. Ki is hagyhatod.';
+
+  @override
+  String get stepRegistryHint =>
+      'A plakáton talált számok. A bejelöltek a macskához mentődnek, és később megnyithatók.';
+
+  @override
+  String get noRegistryLinks =>
+      'Nincs nyilvántartási link ezen a plakáton — itt nincs teendő.';
+
+  @override
+  String get unknownServiceHint => 'Ismeretlen szolgáltatás';
+
+  @override
+  String get rememberService => 'Szolgáltatás megjegyzése';
+
+  @override
+  String get rememberServiceHint =>
+      'Nevezd el a szolgáltatást, és mutass rá a számra a linkben. A következő plakát magától kitöltődik.';
+
+  @override
+  String get noIdInLink =>
+      'Ebben a linkben nincs olyan szám, amit az app elmenthetne.';
+
+  @override
+  String get whichNumber => 'Melyik rész a szám?';
+
+  @override
+  String get cropAgain => 'Új vágás';
+
+  @override
+  String get noFaceYet => 'Még nincs arckép — a plakát fotója lesz használva.';
+
+  @override
+  String get backLabel => 'Vissza';
+
+  @override
+  String get dangerButton => 'NE NYOMD MEG.\nVESZÉLY';
+
+  @override
+  String get dangerThanks => 'Köszönjük, hogy a cat(a)logot használod!';
+
+  @override
+  String get helpTitle => 'Súgó';
+
+  @override
+  String get showTipsAgain => 'Tippek újra';
+
+  @override
+  String get helpHome =>
+      'A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.';
+
+  @override
+  String get helpClowder =>
+      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod.';
+
+  @override
+  String get helpCat =>
+      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mezőt hosszan nyomva egyből a szerkesztésébe ugorsz; egy fotót hosszan nyomva a menüje nyílik. A jobb felső menüben van a többi: priváttá tétel, elrejtés, összevonás, észlelés rögzítése, megosztás.';
+
+  @override
+  String get helpStrays =>
+      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot.';
+
+  @override
+  String get helpMap =>
+      'Minden macska és hely, aminek van pozíciója. A keresés macskát, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt macska plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz.';
+
+  @override
+  String get helpCard =>
+      'A macska nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg.';
+
+  @override
+  String get helpFields =>
+      'A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a macskánál koppintható lesz.';
+
+  @override
+  String get helpTimeline =>
+      'Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.';
+
+  @override
+  String get helpDuplicates =>
+      'Macskák vagy kolóniák, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.';
+
+  @override
+  String get helpMatches =>
+      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.';
+
+  @override
+  String get helpFlier =>
+      'Egy lefotózott plakátból macska lesz a gazdájával együtt. Lépésről lépésre: a macska adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.';
+
+  @override
+  String get archiveTitle => 'Archívum';
+
+  @override
+  String get archiveExplainer =>
+      'Az elhunyt macskák és üres kolóniák, amikhez évek óta senki nem nyúlt, továbbra is helyet foglalnak — főleg a fotóik. Az archiválás fájlba írja őket, amit megtartasz, majd innen törli őket.';
+
+  @override
+  String get archiveAction => 'Archiválás';
+
+  @override
+  String archiveSelected(int count) {
+    return '$count tétel archiválása';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Archiválsz $count tételt?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names fájlba kerülnek, majd törlődnek — a te eszközödön és minden eszközön, amivel szinkronizálsz. A fájl importálása mindent visszahoz; nélküle elvesznek.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count tétel archiválva és törölve';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Semmi sem törlődött: az archívumfájlt nem sikerült megírni ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Adatbázis $db, fotók $photos $count fájlban';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years éve változatlan';
+  }
+
+  @override
+  String get nothingToArchive => 'Semmi nem elég régi az archiváláshoz.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Utolsó változás $date · fotók $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'A régi adat helyet foglal, főleg a fotók, amiket minden szinkronizált eszköz cipel. Itt kiválasztod az évek óta változatlan elhunyt macskákat és üres kolóniákat, fájlba írod őket, amit megtartasz, és törlöd őket. A törlés mindenkihez eljut, akivel szinkronizálsz; a fájl importálása mindent visszaállít.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Visszaállítasz $count törölt tételt?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names törölve vannak ebben a katalógusban, és az imént importált fájl tartalmazza őket. A visszaállítás ide és minden szinkronizált eszközre visszahozza őket.';
+  }
+
+  @override
+  String get restoreAction => 'Visszaállítás';
+
+  @override
+  String get keepDeleted => 'Maradjon törölve';
+
+  @override
+  String get archiveNotSaved =>
+      'Semmi sem törlődött: az archívum sehová nem lett mentve.';
+
+  @override
+  String get locateAddress => 'Cím keresése a térképen';
+
+  @override
+  String get addressLocated => 'Cím megtalálva';
+
+  @override
+  String get addressNotFound =>
+      'Ehhez a címhez nem található hely. Ellenőrizd a helyesírást, vagy hagyd üresen.';
+
+  @override
+  String get starterPosition => 'Hely';
 
   @override
   String get valueYes => 'igen';
@@ -712,7 +1136,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'A privát macskák, csoportok és mezők is megosztásra kerülnek — csak saját eszközeid szinkronizálásakor kapcsold be.';
+      'Ezzel minden privátnak jelölt adat is elmegy. Akivel szinkronizálsz, látni fogja.';
 
   @override
   String get hideLabel => 'Elrejtés ezen az eszközön';
@@ -730,7 +1154,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterSpecies => 'Faj';
 
   @override
-  String get starterStatus => 'Állapot';
+  String get starterStatus => 'Típus';
 
   @override
   String get statusFoster => 'Ideiglenes befogadó';
@@ -925,7 +1349,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Küldj mindent egyetlen fájlként bármely üzenetküldővel';
+      'Küldjön mindent egy fájlként bármely üzenetküldőn — és itt importálja a kapott .catsync fájlt';
 
   @override
   String get connectToWifiFirst =>
@@ -973,25 +1397,25 @@ class AppLocalizationsHu extends AppLocalizations {
   String get selectClowderHint => 'Válassz egy clowdert balra';
 
   @override
-  String get introTitle1 => 'A macskák clowderekben élnek';
+  String get introTitle1 => 'Macskáid, rendben';
 
   @override
   String get introBody1 =>
-      'A clowder egy hely, ahol macskák élnek: az ideiglenes befogadód, egy örökbefogadó lakása, a szomszéd pajta. Minden macska kap egy kártyát fotóval, adatokkal és a teljes történetével.';
+      'Készíts kartont minden macskának: fotó, ivar, egészség, bármi, amit fel akarsz jegyezni. A macskák aszerint csoportosulnak, hol élnek — az app ezt a helyet kolóniának (clowder) hívja.';
 
   @override
-  String get introTitle2 => 'Minden nálad marad';
+  String get introTitle2 => 'Internet nélkül működik';
 
   @override
   String get introBody2 =>
-      'Se fiók, se felhő, se követés. Az adataid a készülékeden élnek.';
+      'Minden csak a telefonodra mentődik. Nincs fiók, nincs felhő. Semmi sem kerül fel sehova, hacsak te magad meg nem osztod.';
 
   @override
-  String get introTitle3 => 'Oszd meg a segítőiddel';
+  String get introTitle3 => 'Dolgozzatok együtt';
 
   @override
   String get introBody3 =>
-      'Olvass be egy kódot és két készülék másodpercek alatt szinkronizál, használj megosztott mappát vagy küldj mindent egy fájlként.';
+      'Mindenki a saját appját használja, és időnként adatot cseréltek: találkozzatok és olvassatok be egy kódot, használjatok közös mappát, vagy küldjetek egy fájlt messengeren. Utána mindenkinél ugyanaz az információ.';
 
   @override
   String get introSkip => 'Kihagyás';
@@ -1007,19 +1431,50 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Új: a szinkronizálás most három világos utat kínál — és bizalmi kérdést, mielőtt bármi átmenne.';
+      'Itt szinkronizálsz az ismerőseiddel. Te döntöd el, mit osztasz meg.';
+
+  @override
+  String get spotHomeStrays =>
+      'Ez a kártya gyűjti az összes kóborlót — az otthontalan macskákat. Koppints a listához.';
+
+  @override
+  String get spotHomeMenu =>
+      'Ebben a menüben: duplikátumok keresése és összevonása, CSV-export és több.';
+
+  @override
+  String get spotCatEdit =>
+      'Koppints a ceruzára a macska szerkesztéséhez. Tipp: egy mező hosszú nyomása rögtön szerkeszti azt.';
+
+  @override
+  String get spotMapLayers =>
+      'Eltűnt macskát keresel? Jeleníts meg köröket a plakátjai helyei és a régi otthona körül.';
+
+  @override
+  String get spotStraysFlier =>
+      'Eltűnt macskás plakát? Fotózd le itt — az app elmenti a macskát és az elérhetőséget helyetted.';
+
+  @override
+  String get spotStraysScan =>
+      'Némelyik plakáton cat(a)log QR-kód van. Olvasd be itt, és importáld a macskát gépelés nélkül.';
+
+  @override
+  String get introTitle4 => 'Eltűnt macskák megtalálása';
+
+  @override
+  String get introBody4 =>
+      'Eltűnt macskát kereső plakátot látsz? Fotózd le az appban: elmenti a macskát, a gazda elérhetőségét és a helyet. Ha később hasonló kóbor bukkan fel, az app lehetséges egyezéseket javasol.';
 
   @override
   String get spotMapSearch =>
-      'Új: keress itt macskákat, clowdereket és személyeket — közvetlenül a térképen.';
+      'Írj be egy macskát, helyet vagy személyt, és a térkép odaugrik.';
 
   @override
   String get spotCardChips =>
-      'Új: válaszd ki, mi kerüljön a kártyára, mielőtt megosztod.';
+      'Jelöld be, mi kerüljön a megosztható kártyára — a többi lemarad róla.';
 
   @override
   String get spotCatMenu =>
-      'Új: jelölj egy macskát privátnak (sosem hagyja el a készüléked), vagy rejtsd el itt.';
+      'További műveletek itt: macska priváttá jelölése, elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
 
   @override
   String get spotDone => 'Értem';
@@ -1060,4 +1515,134 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?';
+
+  @override
+  String get catalogsTitle => 'Katalógusok';
+
+  @override
+  String get newCatalog => 'Új katalógus';
+
+  @override
+  String get catalogNameLabel => 'A katalógus neve';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Már van $name nevű katalógus. Válassz másik nevet.';
+  }
+
+  @override
+  String get manageCatalogs => 'Katalógusok kezelése';
+
+  @override
+  String get helpCatalogs =>
+      'Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.';
+
+  @override
+  String get deleteCatalog => 'Katalógus törlése';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name törölve. A fájl itt van: $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Írd be: $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ($error). Szabadíts fel helyet, vagy próbáld később.';
+  }
+
+  @override
+  String get moveToCatalog => 'Áthelyezés másik katalógusba';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count áthelyezve ide: $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Mi költözzön?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Áthelyezel valamit ide: $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Az importálás visszavonása';
+
+  @override
+  String undoImportBody(int count) {
+    return 'Az importálás hozta $count változás eltűnik. Előbb fájlba kerülnek, annak importálása visszahozza őket. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Visszavonva. A fájl itt van: $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Vissza egy korábbi állapotra';
+
+  @override
+  String get goBackToHere => 'Vissza ide';
+
+  @override
+  String get momentImport => 'Importálás előtt';
+
+  @override
+  String get momentSync => 'Szinkronizálás előtt';
+
+  @override
+  String get momentMerge => 'Összevonás előtt';
+
+  @override
+  String get momentHardDelete => 'Egy szerző adatainak törlése előtt';
+
+  @override
+  String get momentArchive => 'Archiválás előtt';
+
+  @override
+  String get momentManual => 'Te jelölted meg';
+
+  @override
+  String get showOlderMoments => 'Régebbiek mutatása';
+
+  @override
+  String goBackBody(int count) {
+    return 'Minden eltűnik e pillanat után — $count változás. Előbb fájlba kerül, annak importálása mindent visszahoz, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.';
+  }
+
+  @override
+  String get nameThisMoment => 'Nevezd el ezt a pillanatot';
+
+  @override
+  String get helpGoBack =>
+      'Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Semmi sem tűnt el: a fájl, ami megőrzi, nem volt kiírható ($error). Szabadíts fel helyet, és próbáld újra.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'A megosztási fájlt nem sikerült kiírni ($error). Szabadíts fel helyet, és próbáld újra.';
+  }
 }

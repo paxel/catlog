@@ -26,10 +26,17 @@ class _RemoteScreenState extends State<RemoteScreen> {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
+      final before = widget.store.currentSeq();
       final result = folderSync(widget.store, folder,
           includePrivate: _includePrivate);
+      final point = momentFor(widget.store,
+          before: before,
+          changed: result.applied.isNotEmpty,
+          cause: MomentCause.sync,
+          label: folder);
       if (mounted && result.applied.isNotEmpty) {
-        await showImportSummary(context, widget.store, result.applied);
+        await showImportSummary(context, widget.store, result.applied,
+            undo: point);
       }
       setState(() => _lastResult = t.folderSynced('$result'));
     } on FileSystemException {

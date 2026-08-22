@@ -181,7 +181,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Kötturinn hverfur af öllum listum og myndir hans fjarlægðar — hér og, eftir næstu samstillingu, líka hjá hjálparfólkinu þínu.';
+      'Kötturinn hverfur af öllum listum og myndir hans eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
 
   @override
   String get sightingRecorded =>
@@ -211,6 +211,182 @@ class AppLocalizationsIs extends AppLocalizations {
   String get ok => 'Í lagi';
 
   @override
+  String get starterChipId => 'Örflögunúmer';
+
+  @override
+  String get starterRemarks => 'Athugasemdir';
+
+  @override
+  String get captureFlier => 'Mynda auglýsingu';
+
+  @override
+  String get addPhotosTo => 'Bæta myndum við…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count mynd(ir) bætt við $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skanna prentaðan kóða';
+
+  @override
+  String get chipScanHint =>
+      'Skannar prentaða QR-/strikamerkið af örflögukortinu eða dýralæknisskjölum — sími getur ekki lesið flöguna í kettinum.';
+
+  @override
+  String get savingLabel => 'Vista…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Eigandi $name';
+  }
+
+  @override
+  String get sortLabel => 'Raða';
+
+  @override
+  String get viewAsTable => 'Sýna sem töflu';
+
+  @override
+  String get viewAsTiles => 'Sýna sem flísar';
+
+  @override
+  String get matchCandidatesTitle => 'Mögulegar samsvaranir';
+
+  @override
+  String get findDuplicates => 'Finna tvítök';
+
+  @override
+  String get noDuplicates => 'Engin möguleg tvítök núna.';
+
+  @override
+  String get similarName => 'Svipað nafn';
+
+  @override
+  String get sharePublicly => 'Deila opinberlega…';
+
+  @override
+  String get privateNoShare =>
+      'Þessi köttur er merktur einka — einkagögn yfirgefa aldrei tækið þitt. Fjarlægðu merkinguna fyrst til að deila opinberlega.';
+
+  @override
+  String get pickFramesTitle => 'Velja ramma';
+
+  @override
+  String get suggestedFrames => 'Tillögur að römmum';
+
+  @override
+  String get scrubFrames => 'Spóla í myndbandinu';
+
+  @override
+  String get keepThisFrame => 'Halda þessum ramma';
+
+  @override
+  String get fromVideo => 'Úr myndbandi…';
+
+  @override
+  String get videoMobileOnly =>
+      'Að velja ramma úr myndbandi virkar í símaforritinu (Android og iPhone) — ekki enn á þessu tæki.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Veldu hvað fer í skrána. Aðeins merktir reitir fylgja með.';
+
+  @override
+  String get exportShareFile => 'Flytja út deiliskrá…';
+
+  @override
+  String get hostedLink => 'Hýstur hlekkur (URL upphlaðinnar skráar)';
+
+  @override
+  String get inlineQr => 'Innfellt QR (aðeins texti, engar myndir)';
+
+  @override
+  String get inlineTooBig =>
+      'Of mikil gögn fyrir innfelldan kóða — afmerktu reiti eða notaðu hýstan hlekk.';
+
+  @override
+  String get scanShareLabel => 'Skanna deilikóða';
+
+  @override
+  String get notAShareCode => 'Þessi kóði er ekki cat(a)log-deiling.';
+
+  @override
+  String get importShareTitle => 'Flytja inn þennan kött?';
+
+  @override
+  String shareSource(String url) {
+    return 'Uppruni: $url';
+  }
+
+  @override
+  String get importLabel => 'Flytja inn';
+
+  @override
+  String get strayAreaLabel => 'Mögulegt flakkssvæði';
+
+  @override
+  String get prevPin => 'Fyrri pinni';
+
+  @override
+  String get nextPin => 'Næsti pinni';
+
+  @override
+  String get noMissingCats =>
+      'Engir týndir kettir með auglýsingastaðsetningar enn.';
+
+  @override
+  String get noMatchCandidates => 'Engar mögulegar samsvaranir núna.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Sama $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m á milli';
+  }
+
+  @override
+  String get addFlier => 'Bæta við auglýsingu';
+
+  @override
+  String get missingSinceLabel => 'Týndur síðan';
+
+  @override
+  String get phoneLabel => 'Sími';
+
+  @override
+  String get cropPortrait => 'Skera andlitsmynd';
+
+  @override
+  String get statusOwner => 'Eigandi';
+
+  @override
+  String get ocrUnavailable =>
+      'Textagreining er ekki í boði á þessu tæki — sláðu sjálf(ur) inn texta auglýsingarinnar.';
+
+  @override
+  String get displayFormat => 'Birt sem';
+
+  @override
+  String get displayPlain => 'Venjulegur texti';
+
+  @override
+  String get displayQr => 'QR-kóði';
+
+  @override
+  String get displayBarcode => 'Strikamerki';
+
+  @override
+  String get editLabel => 'Breyta';
+
+  @override
+  String get doneLabel => 'Lokið';
+
+  @override
   String get openSettings => 'Opna stillingar';
 
   @override
@@ -236,6 +412,29 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get malePregnant =>
       'Þessi köttur er skráður sem fress — fress getur ekki verið kettlingafullt. Athugaðu fyrst kynið.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name er skráð sem læða og getur ekki verið faðirinn. Athugaðu fyrst kynið.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name er skráður sem fress og getur ekki verið móðirin. Athugaðu fyrst kynið.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name fæddist $date — foreldri getur ekki fæðst á eftir kettlingnum sínum.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Þessi köttur er skráður faðir annarra katta — faðirinn getur ekki verið læða. Athugaðu fyrst fjölskylduna.';
+
+  @override
+  String get genderMotherMale =>
+      'Þessi köttur er skráður móðir annarra katta — móðirin getur ekki verið fress. Athugaðu fyrst fjölskylduna.';
 
   @override
   String get moveTo => 'Færa í';
@@ -419,7 +618,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Samstilltu í gegnum möppu sem skýjaþjónusta eða USB-lykill ber milli tækja — fyrir þau sem eru ekki á sama neti.';
+      'Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
 
   @override
   String get noFolderChosenYet => 'Engin mappa valin ennþá';
@@ -599,6 +798,233 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterResponsible => 'Ábyrgðaraðili';
 
   @override
+  String get starterEmail => 'Netfang';
+
+  @override
+  String get starterPhone => 'Sími';
+
+  @override
+  String get lookupUrlLabel => 'Uppflettitengill';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Síða þjónustunnar með $token þar sem númerið á að vera, t.d. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Fletta upp';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ekkert forrit gat opnað $url. Afritaðu tengilinn í vafra.';
+  }
+
+  @override
+  String get stepCat => 'Köttur';
+
+  @override
+  String get stepOwner => 'Eigandi';
+
+  @override
+  String get stepFace => 'Andlitsmynd';
+
+  @override
+  String get stepRegistry => 'Skrá';
+
+  @override
+  String get stepReview => 'Yfirfara og vista';
+
+  @override
+  String get stepOwnerHint =>
+      'Sá sem saknar kattarins — úr þessu verður spjaldið hans með tengilið af auglýsingunni.';
+
+  @override
+  String get stepFaceHint =>
+      'Klipptu andlit kattarins út úr auglýsingunni; það verður prófílmyndin. Þú mátt sleppa þessu.';
+
+  @override
+  String get stepRegistryHint =>
+      'Númer sem fundust á auglýsingunni. Þau sem eru merkt vistast hjá kettinum og opnast síðar.';
+
+  @override
+  String get noRegistryLinks =>
+      'Engir skráartenglar á þessari auglýsingu — ekkert að gera hér.';
+
+  @override
+  String get unknownServiceHint => 'Óþekkt þjónusta';
+
+  @override
+  String get rememberService => 'Muna þjónustuna';
+
+  @override
+  String get rememberServiceHint =>
+      'Gefðu þjónustunni nafn og bentu á númerið í tenglinum. Næsta auglýsing fyllist sjálf.';
+
+  @override
+  String get noIdInLink =>
+      'Þessi tengill inniheldur ekkert númer sem forritið getur vistað.';
+
+  @override
+  String get whichNumber => 'Hvaða hluti er númerið?';
+
+  @override
+  String get cropAgain => 'Klippa aftur';
+
+  @override
+  String get noFaceYet =>
+      'Engin andlitsmynd enn — mynd auglýsingarinnar er notuð.';
+
+  @override
+  String get backLabel => 'Til baka';
+
+  @override
+  String get dangerButton => 'EKKI ÝTA.\nHÆTTA';
+
+  @override
+  String get dangerThanks => 'Takk fyrir að nota cat(a)log!';
+
+  @override
+  String get helpTitle => 'Hjálp';
+
+  @override
+  String get showTipsAgain => 'Sýna ábendingar aftur';
+
+  @override
+  String get helpHome =>
+      'Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.';
+
+  @override
+  String get helpClowder =>
+      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.';
+
+  @override
+  String get helpCat =>
+      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lestrar þar til þú ýtir á blýantinn. Haltu reit inni til að fara beint í breytingu hans; mynd til að opna valmynd hennar. Valmyndin efst til hægri geymir afganginn: einkamál, fela, sameina, skrá athugun, deila.';
+
+  @override
+  String get helpStrays =>
+      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.';
+
+  @override
+  String get helpMap =>
+      'Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
+
+  @override
+  String get helpCard =>
+      'Prentanlegt spjald kattarins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér.';
+
+  @override
+  String get helpFields =>
+      'Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá kettinum.';
+
+  @override
+  String get helpTimeline =>
+      'Sérhver breyting sem gerð hefur verið, sú nýjasta efst: hver breytti hverju, hvenær og í hvaða gildi. Hverja færslu má afturkalla — það skrifar nýja færslu, engu er nokkurn tíma eytt.';
+
+  @override
+  String get helpDuplicates =>
+      'Kettir eða nýlendur sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.';
+
+  @override
+  String get helpMatches =>
+      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.';
+
+  @override
+  String get helpFlier =>
+      'Ljósmynduð auglýsing verður að ketti ásamt eiganda. Skref fyrir skref: gögn kattarins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.';
+
+  @override
+  String get archiveTitle => 'Safn';
+
+  @override
+  String get archiveExplainer =>
+      'Kettir sem eru dánir og tómar nýlendur sem enginn hefur snert árum saman taka samt pláss — einkum myndirnar þeirra. Söfnun skrifar þau í skrá sem þú geymir og eyðir þeim svo héðan.';
+
+  @override
+  String get archiveAction => 'Setja í safn';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Setja $count færslur í safn';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Setja $count færslur í safn?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names verða skrifuð í skrá og síðan eytt — í tækinu þínu og í hverju tæki sem þú samstillir við. Innflutningur skrárinnar skilar öllu; án hennar eru þau horfin.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count færslur settar í safn og eytt';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Engu var eytt: ekki tókst að skrifa safnskrána ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Gagnagrunnur $db, myndir $photos í $count skrám';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Óbreytt í $years ár';
+  }
+
+  @override
+  String get nothingToArchive => 'Ekkert er nógu gamalt til að setja í safn.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Síðasta breyting $date · myndir $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Gömul gögn kosta pláss, einkum myndirnar sem hvert samstillt tæki ber með sér. Hér velur þú dána ketti og tómar nýlendur sem hafa legið kyrrar árum saman, skrifar þau í skrá sem þú geymir og eyðir þeim. Eyðingin nær til allra sem þú samstillir við; innflutningur skrárinnar endurheimtir allt.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Endurheimta $count eyddar færslur?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names eru eydd í þessari skrá, og skráin sem þú fluttir inn inniheldur þau. Endurheimt skilar þeim hingað og í öll tæki sem þú samstillir við.';
+  }
+
+  @override
+  String get restoreAction => 'Endurheimta';
+
+  @override
+  String get keepDeleted => 'Halda eyddum';
+
+  @override
+  String get archiveNotSaved =>
+      'Engu var eytt: safnið var ekki vistað neins staðar.';
+
+  @override
+  String get locateAddress => 'Finna heimilisfang á korti';
+
+  @override
+  String get addressLocated => 'Heimilisfang fannst';
+
+  @override
+  String get addressNotFound =>
+      'Enginn staður fannst fyrir þetta heimilisfang. Athugaðu stafsetninguna eða skildu eftir autt.';
+
+  @override
   String get starterPosition => 'Staðsetning';
 
   @override
@@ -714,7 +1140,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Einkakettir, hópar og reitir deilast líka — kveiktu aðeins á þessu þegar þú samstillir eigin tæki.';
+      'Þetta sendir líka allt sem þú merktir sem einka. Sá sem þú samstillir við mun sjá það.';
 
   @override
   String get hideLabel => 'Fela á þessu tæki';
@@ -732,7 +1158,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterSpecies => 'Tegund';
 
   @override
-  String get starterStatus => 'Staða';
+  String get starterStatus => 'Tegund';
 
   @override
   String get statusFoster => 'Fósturheimili';
@@ -927,7 +1353,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Sendu allt sem eina skrá með hvaða skilaboðaforriti sem er';
+      'Sendu allt sem eina skrá í hvaða skilaboðaforriti sem er — og flyttu inn móttekna .catsync-skrá hér';
 
   @override
   String get connectToWifiFirst =>
@@ -974,25 +1400,25 @@ class AppLocalizationsIs extends AppLocalizations {
   String get selectClowderHint => 'Veldu clowder til vinstri';
 
   @override
-  String get introTitle1 => 'Kettir búa í clowderum';
+  String get introTitle1 => 'Kettirnir þínir, skipulagðir';
 
   @override
   String get introBody1 =>
-      'Clowder er staður þar sem kettir búa: fósturheimilið þitt, íbúð ættleiðanda, hlaðan í næsta húsi. Hver köttur fær spjald með mynd, staðreyndum og allri sögunni.';
+      'Búðu til spjald fyrir hvern kött: mynd, kyn, heilsa, allt sem þú vilt skrá. Kettir flokkast eftir því hvar þeir búa — appið kallar slíkan stað clowder.';
 
   @override
-  String get introTitle2 => 'Allt verður hjá þér';
+  String get introTitle2 => 'Virkar án nettengingar';
 
   @override
   String get introBody2 =>
-      'Enginn reikningur, ekkert ský, engin rakning. Gögnin þín búa á tækinu þínu.';
+      'Allt vistast aðeins í símanum þínum. Enginn aðgangur, ekkert ský. Ekkert er sent nema þú deilir því sjálf(ur).';
 
   @override
-  String get introTitle3 => 'Deildu með hjálparfólkinu';
+  String get introTitle3 => 'Vinnið saman';
 
   @override
   String get introBody3 =>
-      'Skannaðu kóða og tvö tæki samstillast á sekúndum, notaðu sameiginlega möppu eða sendu allt sem eina skrá.';
+      'Hver og einn notar sitt eigið app og þið skiptist á gögnum af og til: hittist og skannið kóða, notið sameiginlega möppu eða sendið eina skrá með skilaboðaforriti. Eftir það hafa allir sömu upplýsingar.';
 
   @override
   String get introSkip => 'Sleppa';
@@ -1008,19 +1434,50 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nýtt: samstilling býður nú þrjár skýrar leiðir — og traustsspurningu áður en nokkuð flæðir.';
+      'Hér samstillir þú við kunningja þína. Þú ræður hverju þú deilir.';
+
+  @override
+  String get spotHomeStrays =>
+      'Þetta spjald safnar öllum flækingum — köttum án heimilis. Ýttu til að sjá listann.';
+
+  @override
+  String get spotHomeMenu =>
+      'Í þessari valmynd: finna og sameina tvítök, flytja út CSV og fleira.';
+
+  @override
+  String get spotCatEdit =>
+      'Ýttu á blýantinn til að breyta kettinum. Ábending: haltu reit inni til að breyta honum beint.';
+
+  @override
+  String get spotMapLayers =>
+      'Leitarðu að týndum ketti? Sýndu hringi um staði auglýsinga hans og um heimilið sem hann strauk frá.';
+
+  @override
+  String get spotStraysFlier =>
+      'Fannstu auglýsingu um týndan kött? Myndaðu hana hér — appið vistar kött og tengilið fyrir þig.';
+
+  @override
+  String get spotStraysScan =>
+      'Sumar auglýsingar bera cat(a)log QR-kóða. Skannaðu hann hér og flyttu köttinn inn án innsláttar.';
+
+  @override
+  String get introTitle4 => 'Finndu týnda ketti';
+
+  @override
+  String get introBody4 =>
+      'Sérðu auglýsingu um týndan kött? Myndaðu hana í appinu: það vistar köttinn, tengilið eigandans og staðinn. Ef svipaður flækingur birtist síðar stingur appið upp á mögulegum samsvörunum.';
 
   @override
   String get spotMapSearch =>
-      'Nýtt: leitaðu hér að köttum, hópum og fólki — beint á kortinu.';
+      'Sláðu inn kött, stað eða manneskju til að hoppa þangað á kortinu.';
 
   @override
   String get spotCardChips =>
-      'Nýtt: veldu hvað birtist á spjaldinu áður en þú deilir því.';
+      'Merktu við það sem á að sjást á deilanlega spjaldinu — annað verður ekki með.';
 
   @override
   String get spotCatMenu =>
-      'Nýtt: merktu kött sem einka (fer aldrei af tækinu) eða feldu hann hér.';
+      'Fleiri aðgerðir hér: merktu köttinn einka, feldu hann, sameinaðu tvítök eða skráðu athugun.';
 
   @override
   String get spotDone => 'Skilið';
@@ -1061,4 +1518,134 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?';
+
+  @override
+  String get catalogsTitle => 'Skrár';
+
+  @override
+  String get newCatalog => 'Ný skrá';
+
+  @override
+  String get catalogNameLabel => 'Heiti skrár';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Skrá sem heitir $name er þegar til. Veldu annað heiti.';
+  }
+
+  @override
+  String get manageCatalogs => 'Sýsla með skrár';
+
+  @override
+  String get helpCatalogs =>
+      'Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.';
+
+  @override
+  String get deleteCatalog => 'Eyða skrá';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name eytt. Skráin er í $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Sláðu inn $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Engu var eytt: ekki tókst að skrifa skráarskrána ($error). Losaðu pláss eða reyndu aftur síðar.';
+  }
+
+  @override
+  String get moveToCatalog => 'Færa í aðra skrá';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count færð í $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Hvað á að flytja?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Færa eitthvað í $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Afturkalla þennan innflutning';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count breytingar sem þessi innflutningur kom með verða fjarlægðar. Þær eru fyrst skrifaðar í skrá og innflutningur hennar skilar þeim. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Afturkallað. Skráin er í $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Fara til baka';
+
+  @override
+  String get goBackToHere => 'Fara hingað til baka';
+
+  @override
+  String get momentImport => 'Fyrir innflutning';
+
+  @override
+  String get momentSync => 'Fyrir samstillingu';
+
+  @override
+  String get momentMerge => 'Fyrir sameiningu';
+
+  @override
+  String get momentHardDelete => 'Fyrir eyðingu gagna höfundar';
+
+  @override
+  String get momentArchive => 'Fyrir söfnun í skjalasafn';
+
+  @override
+  String get momentManual => 'Merkt af þér';
+
+  @override
+  String get showOlderMoments => 'Sýna eldri';
+
+  @override
+  String goBackBody(int count) {
+    return 'Allt eftir þessa stund verður fjarlægt — $count breytingar. Það er fyrst skrifað í skrá og innflutningur hennar skilar öllu; hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.';
+  }
+
+  @override
+  String get nameThisMoment => 'Gefðu þessari stund heiti';
+
+  @override
+  String get helpGoBack =>
+      'Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Engu var eytt: skráin sem geymir það var ekki skrifuð ($error). Losaðu pláss og reyndu aftur.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Ekki tókst að skrifa deiliskrána ($error). Losaðu pláss og reyndu aftur.';
+  }
 }

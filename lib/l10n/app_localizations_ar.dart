@@ -181,7 +181,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'تختفي القطة من كل القوائم وتُزال صورها — هنا، وبعد المزامنة التالية على أجهزة مساعديك أيضًا.';
+      'تختفي القطة من كل القوائم وتُحذف صورها — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
 
   @override
   String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
@@ -210,6 +210,181 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ok => 'حسنًا';
 
   @override
+  String get starterChipId => 'رقم الشريحة';
+
+  @override
+  String get starterRemarks => 'ملاحظات';
+
+  @override
+  String get captureFlier => 'التقاط منشور';
+
+  @override
+  String get addPhotosTo => 'إضافة الصور إلى…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return 'أُضيفت $count صورة إلى $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'مسح الرمز المطبوع';
+
+  @override
+  String get chipScanHint =>
+      'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.';
+
+  @override
+  String get savingLabel => 'جارٍ الحفظ…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'مالك $name';
+  }
+
+  @override
+  String get sortLabel => 'فرز';
+
+  @override
+  String get viewAsTable => 'عرض كجدول';
+
+  @override
+  String get viewAsTiles => 'عرض كبلاطات';
+
+  @override
+  String get matchCandidatesTitle => 'مرشّحو التطابق';
+
+  @override
+  String get findDuplicates => 'البحث عن التكرارات';
+
+  @override
+  String get noDuplicates => 'لا توجد تكرارات محتملة حاليًا.';
+
+  @override
+  String get similarName => 'اسم متشابه';
+
+  @override
+  String get sharePublicly => 'مشاركة علنية…';
+
+  @override
+  String get privateNoShare =>
+      'هذه القطة مُعلَّمة كخاصة — البيانات الخاصة لا تغادر جهازك أبدًا. أزل العلامة أولًا لمشاركتها علنًا.';
+
+  @override
+  String get pickFramesTitle => 'اختيار اللقطات';
+
+  @override
+  String get suggestedFrames => 'لقطات مقترحة';
+
+  @override
+  String get scrubFrames => 'تحريك شريط الفيديو';
+
+  @override
+  String get keepThisFrame => 'احتفظ بهذه اللقطة';
+
+  @override
+  String get fromVideo => 'من فيديو…';
+
+  @override
+  String get videoMobileOnly =>
+      'اختيار اللقطات من فيديو يعمل في تطبيق الهاتف (أندرويد وآيفون) — ليس على هذا الجهاز بعد.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'اختر ما يدخل الملف. تُضمَّن الحقول المحددة فقط.';
+
+  @override
+  String get exportShareFile => 'تصدير ملف المشاركة…';
+
+  @override
+  String get hostedLink => 'رابط مستضاف (عنوان الملف المرفوع)';
+
+  @override
+  String get inlineQr => 'رمز QR مضمّن (نص فقط، بدون صور)';
+
+  @override
+  String get inlineTooBig =>
+      'بيانات كثيرة على رمز مضمّن — ألغِ تحديد بعض الحقول أو استخدم رابطًا مستضافًا.';
+
+  @override
+  String get scanShareLabel => 'مسح رمز المشاركة';
+
+  @override
+  String get notAShareCode => 'هذا الرمز ليس مشاركة cat(a)log.';
+
+  @override
+  String get importShareTitle => 'استيراد هذه القطة؟';
+
+  @override
+  String shareSource(String url) {
+    return 'المصدر: $url';
+  }
+
+  @override
+  String get importLabel => 'استيراد';
+
+  @override
+  String get strayAreaLabel => 'منطقة التواجد المحتملة';
+
+  @override
+  String get prevPin => 'الدبوس السابق';
+
+  @override
+  String get nextPin => 'الدبوس التالي';
+
+  @override
+  String get noMissingCats => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
+
+  @override
+  String get noMatchCandidates => 'لا يوجد مرشّحون للتطابق حاليًا.';
+
+  @override
+  String sameIdField(String field) {
+    return 'نفس $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'يبعدان $distance م';
+  }
+
+  @override
+  String get addFlier => 'إضافة منشور';
+
+  @override
+  String get missingSinceLabel => 'مفقود منذ';
+
+  @override
+  String get phoneLabel => 'الهاتف';
+
+  @override
+  String get cropPortrait => 'قصّ صورة الوجه';
+
+  @override
+  String get statusOwner => 'المالك';
+
+  @override
+  String get ocrUnavailable =>
+      'التعرف على النص غير متاح على هذا الجهاز — اكتب نص المنشور بنفسك.';
+
+  @override
+  String get displayFormat => 'يعرض كـ';
+
+  @override
+  String get displayPlain => 'نص عادي';
+
+  @override
+  String get displayQr => 'رمز QR';
+
+  @override
+  String get displayBarcode => 'باركود';
+
+  @override
+  String get editLabel => 'تحرير';
+
+  @override
+  String get doneLabel => 'تم';
+
+  @override
   String get openSettings => 'فتح الإعدادات';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get malePregnant =>
       'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name مسجّلة كأنثى ولا يمكن أن تكون الأب. تحقّق من الجنس أولًا.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name مسجّل كذكر ولا يمكن أن يكون الأم. تحقّق من الجنس أولًا.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return 'وُلد $name في $date — لا يمكن أن يولد أحد الوالدين بعد صغيره.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'هذه القطة مسجّلة كأب لقطط أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
+
+  @override
+  String get genderMotherMale =>
+      'هذه القطة مسجّلة كأم لقطط أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
 
   @override
   String get moveTo => 'نقل إلى';
@@ -417,7 +615,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'زامن عبر مجلد ينقله التخزين السحابي أو USB بين الأجهزة — لمن ليسوا على نفس الشبكة.';
+      'يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
 
   @override
   String get noFolderChosenYet => 'لم يُختَر مجلد بعد';
@@ -596,6 +794,229 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterResponsible => 'الشخص المسؤول';
 
   @override
+  String get starterEmail => 'البريد الإلكتروني';
+
+  @override
+  String get starterPhone => 'الهاتف';
+
+  @override
+  String get lookupUrlLabel => 'رابط البحث';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'صفحة الخدمة مع $token مكان الرقم، مثل https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'ابحث';
+
+  @override
+  String lookupFailed(String url) {
+    return 'لم يتمكن أي تطبيق من فتح $url. انسخ الرابط إلى المتصفح.';
+  }
+
+  @override
+  String get stepCat => 'القطة';
+
+  @override
+  String get stepOwner => 'المالك';
+
+  @override
+  String get stepFace => 'صورة الوجه';
+
+  @override
+  String get stepRegistry => 'السجل';
+
+  @override
+  String get stepReview => 'التحقق والحفظ';
+
+  @override
+  String get stepOwnerHint =>
+      'من يبحث عن القطة — تصبح هذه بطاقته مع بيانات التواصل من المنشور.';
+
+  @override
+  String get stepFaceHint =>
+      'اقتصّ وجه القطة من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
+
+  @override
+  String get stepRegistryHint =>
+      'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
+
+  @override
+  String get noRegistryLinks => 'لا روابط سجلات في هذا المنشور — لا شيء هنا.';
+
+  @override
+  String get unknownServiceHint => 'خدمة غير معروفة';
+
+  @override
+  String get rememberService => 'تذكّر الخدمة';
+
+  @override
+  String get rememberServiceHint =>
+      'سمِّ الخدمة وحدد الرقم داخل الرابط. المنشور التالي سيملأ نفسه.';
+
+  @override
+  String get noIdInLink => 'لا يحمل هذا الرابط رقمًا يمكن للتطبيق حفظه.';
+
+  @override
+  String get whichNumber => 'أي جزء هو الرقم؟';
+
+  @override
+  String get cropAgain => 'اقتصاص من جديد';
+
+  @override
+  String get noFaceYet => 'لا صورة وجه بعد — تُستخدم صورة المنشور.';
+
+  @override
+  String get backLabel => 'رجوع';
+
+  @override
+  String get dangerButton => 'لا تضغط.\nخطر';
+
+  @override
+  String get dangerThanks => 'شكرًا لاستخدامك cat(a)log!';
+
+  @override
+  String get helpTitle => 'مساعدة';
+
+  @override
+  String get showTipsAgain => 'إظهار النصائح مجددًا';
+
+  @override
+  String get helpHome =>
+      'نظرة عامة على مستعمراتك — المستعمرة مكان تعيش فيه القطط: بيتك، بيت رعاية، ملجأ. انقر بطاقة لرؤية قططها؛ الضغط المطوّل يفتح القائمة. الزر أسفل اليمين ينشئ مستعمرة، وبطاقة القطط الضالة تجمع كل قطة بلا بيت. الاسم في الأعلى هو الكتالوج الذي أنت فيه — المسه للتبديل أو لإضافة واحد.';
+
+  @override
+  String get helpClowder =>
+      'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها.';
+
+  @override
+  String get helpCat =>
+      'كل شيء عن هذه القطة: الصور والحقول والعائلة والسجل. الصفحة للقراءة فقط حتى تنقر القلم. الضغط المطوّل على حقل يفتح تحريره مباشرة؛ وعلى صورة يفتح قائمتها. قائمة أعلى اليمين فيها الباقي: خاص، إخفاء، دمج، تسجيل مشاهدة، مشاركة.';
+
+  @override
+  String get helpStrays =>
+      'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور.';
+
+  @override
+  String get helpMap =>
+      'كل القطط والأماكن ذات الموقع. البحث يجد القطط والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات قطة مفقودة وحول البيت الذي هربت منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة.';
+
+  @override
+  String get helpCard =>
+      'بطاقة القطة القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.';
+
+  @override
+  String get helpSync =>
+      'كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا.';
+
+  @override
+  String get helpFields =>
+      'الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.';
+
+  @override
+  String get helpTimeline =>
+      'كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.';
+
+  @override
+  String get helpDuplicates =>
+      'قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.';
+
+  @override
+  String get helpMatches =>
+      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
+
+  @override
+  String get helpFlier =>
+      'منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
+
+  @override
+  String get archiveTitle => 'الأرشيف';
+
+  @override
+  String get archiveExplainer =>
+      'القطط المتوفاة والمستعمرات الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
+
+  @override
+  String get archiveAction => 'أرشفة';
+
+  @override
+  String archiveSelected(int count) {
+    return 'أرشفة $count عنصرًا';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'أرشفة $count عنصرًا؟';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return 'سيُكتب $names في ملف ثم يُحذف — على جهازك وعلى كل جهاز تزامن معه. استيراد الملف يعيد كل شيء؛ وبدونه تضيع.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'تمت أرشفة وحذف $count عنصرًا';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'لم يُحذف شيء: تعذّرت كتابة ملف الأرشيف ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'قاعدة البيانات $db، الصور $photos في $count ملفات';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'بلا تغيير منذ $years سنوات';
+  }
+
+  @override
+  String get nothingToArchive => 'لا يوجد ما هو قديم بما يكفي للأرشفة.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'آخر تغيير $date · الصور $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'استعادة $count عنصرًا محذوفًا؟';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names محذوفة في هذا الفهرس، والملف الذي استوردته للتو يحتوي عليها. الاستعادة تعيدها هنا وعلى كل جهاز تزامن معه.';
+  }
+
+  @override
+  String get restoreAction => 'استعادة';
+
+  @override
+  String get keepDeleted => 'اتركها محذوفة';
+
+  @override
+  String get archiveNotSaved => 'لم يُحذف شيء: لم يُحفظ الأرشيف في أي مكان.';
+
+  @override
+  String get locateAddress => 'ابحث عن العنوان على الخريطة';
+
+  @override
+  String get addressLocated => 'تم العثور على العنوان';
+
+  @override
+  String get addressNotFound =>
+      'لم يُعثر على مكان لهذا العنوان. تحقق من الكتابة أو اترك الحقل فارغًا.';
+
+  @override
   String get starterPosition => 'الموقع';
 
   @override
@@ -711,7 +1132,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'تتم مشاركة القطط والمجموعات والحقول الخاصة أيضًا — فعّل هذا فقط عند المزامنة بين أجهزتك الخاصة.';
+      'بهذا يُرسل أيضًا كل ما علّمته كخاص. من يزامن معك سيراه.';
 
   @override
   String get hideLabel => 'إخفاء على هذا الجهاز';
@@ -729,7 +1150,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterSpecies => 'النوع';
 
   @override
-  String get starterStatus => 'الحالة';
+  String get starterStatus => 'النوع';
 
   @override
   String get statusFoster => 'دار رعاية';
@@ -922,7 +1343,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة';
+      'أرسل كل شيء كملف واحد عبر أي تطبيق مراسلة — واستورد ملف .catsync المستلم من هنا';
 
   @override
   String get connectToWifiFirst =>
@@ -969,25 +1390,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectClowderHint => 'اختر مجموعة من اليسار';
 
   @override
-  String get introTitle1 => 'القطط تعيش في مجموعات';
+  String get introTitle1 => 'قططك بنظام';
 
   @override
   String get introBody1 =>
-      'المجموعة هي مكان تعيش فيه القطط: دار الرعاية، شقة المتبني، الحظيرة المجاورة. كل قطة لها بطاقة بصورة وحقائق وقصتها كاملة.';
+      'أنشئ بطاقة لكل قطة ترعاها: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع القطط حسب مكان عيشها — يسمي التطبيق هذا المكان مستعمرة (clowder).';
 
   @override
-  String get introTitle2 => 'كل شيء يبقى معك';
+  String get introTitle2 => 'يعمل بلا إنترنت';
 
   @override
   String get introBody2 =>
-      'لا حساب ولا سحابة ولا تتبع. بياناتك على جهازك ولا تذهب إلا حيث ترسلها.';
+      'يُحفظ كل شيء على هاتفك فقط. لا حساب ولا سحابة. لا يُرفع شيء ما لم تشاركه بنفسك.';
 
   @override
-  String get introTitle3 => 'شارك مع مساعديك';
+  String get introTitle3 => 'اعملوا معًا';
 
   @override
   String get introBody3 =>
-      'امسح رمزًا لمزامنة جهازين في ثوانٍ، أو استخدم مجلدًا مشتركًا، أو أرسل كل شيء كملف واحد.';
+      'يستخدم كلٌّ تطبيقه الخاص وتتبادلون البيانات من حين لآخر: التقوا وامسحوا رمزًا، أو استخدموا مجلدًا مشتركًا، أو أرسلوا ملفًا واحدًا عبر تطبيق مراسلة. بعدها تكون المعلومات نفسها لدى الجميع.';
 
   @override
   String get introSkip => 'تخطي';
@@ -1002,19 +1423,50 @@ class AppLocalizationsAr extends AppLocalizations {
   String get introReplayTitle => 'مقدمة سريعة';
 
   @override
-  String get spotHomeSync =>
-      'جديد: المزامنة الآن بثلاث طرق واضحة — مع سؤال ثقة قبل أن ينتقل أي شيء.';
+  String get spotHomeSync => 'هنا تزامن مع معارفك. أنت من يقرر ما تشاركه.';
+
+  @override
+  String get spotHomeStrays =>
+      'هذه البطاقة تجمع كل القطط الضالة — القطط بلا مأوى. انقر لعرض القائمة.';
+
+  @override
+  String get spotHomeMenu =>
+      'في هذه القائمة: إيجاد التكرارات ودمجها، تصدير CSV والمزيد.';
+
+  @override
+  String get spotCatEdit =>
+      'انقر على القلم لتحرير هذه القطة. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
+
+  @override
+  String get spotMapLayers =>
+      'تبحث عن قطة مفقودة؟ أظهر دوائر حول أماكن منشوراتها وحول البيت الذي هربت منه.';
+
+  @override
+  String get spotStraysFlier =>
+      'وجدت منشور قطة مفقودة؟ صوّره هنا — يحفظ التطبيق القطة وبيانات التواصل عنك.';
+
+  @override
+  String get spotStraysScan =>
+      'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد القطة دون كتابة.';
+
+  @override
+  String get introTitle4 => 'اعثر على القطط المفقودة';
+
+  @override
+  String get introBody4 =>
+      'رأيت منشور قطة مفقودة؟ صوّره في التطبيق: يحفظ القطة وبيانات مالكها والمكان. وإذا ظهرت لاحقًا قطة ضالة مشابهة، يقترح التطبيق تطابقات محتملة.';
 
   @override
   String get spotMapSearch =>
-      'جديد: ابحث هنا عن القطط والمجموعات والأشخاص — مباشرة على الخريطة.';
+      'اكتب قطة أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
 
   @override
-  String get spotCardChips => 'جديد: اختر ما يظهر على البطاقة قبل مشاركتها.';
+  String get spotCardChips =>
+      'حدد ما يظهر على البطاقة القابلة للمشاركة — الباقي يبقى خارجها.';
 
   @override
   String get spotCatMenu =>
-      'جديد: علّم قطة كخاصة (لا تغادر جهازك أبدًا) أو أخفها من العرض هنا.';
+      'مزيد من الإجراءات هنا: علّم القطة كخاصة، أخفِها، ادمج التكرارات أو سجّل مشاهدة.';
 
   @override
   String get spotDone => 'فهمت';
@@ -1055,4 +1507,134 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'توقف cat(a)log بشكل غير متوقع في المرة الماضية — على الأرجح نفدت الذاكرة. هل تريد إرسال تقرير قصير ليتم الإصلاح؟';
+
+  @override
+  String get catalogsTitle => 'الكتالوجات';
+
+  @override
+  String get newCatalog => 'كتالوج جديد';
+
+  @override
+  String get catalogNameLabel => 'اسم الكتالوج';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'يوجد كتالوج باسم $name بالفعل. اختر اسماً آخر.';
+  }
+
+  @override
+  String get manageCatalogs => 'إدارة الكتالوجات';
+
+  @override
+  String get helpCatalogs =>
+      'كل كتالوج عالم قائم بذاته: قططه ومستعمراته وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
+
+  @override
+  String get spotHomeCatalog =>
+      'هذا هو الكتالوج الذي أنت فيه. المس الاسم للتبديل أو لإنشاء كتالوج آخر.';
+
+  @override
+  String get deleteCatalog => 'حذف الكتالوج';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return 'تم حذف $name. الملف في $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'اكتب $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'لم يُحذف شيء: تعذّرت كتابة ملف الكتالوج ($error). وفّر بعض المساحة أو أعد المحاولة لاحقاً.';
+  }
+
+  @override
+  String get moveToCatalog => 'نقل إلى كتالوج آخر';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return 'تم نقل $count إلى $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'ما الذي يُنقل؟';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'نقل شيء إلى $name؟';
+  }
+
+  @override
+  String get undoThisImport => 'التراجع عن هذا الاستيراد';
+
+  @override
+  String undoImportBody(int count) {
+    return 'ستُزال $count من التغييرات التي جلبها هذا الاستيراد. تُكتب أولاً في ملف، واستيراده يعيدها. من زامنت معهم يحتفظون بنسختهم — لا يمكن سحب ذلك.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'تم التراجع. الملف في $where.';
+  }
+
+  @override
+  String get goBackTitle => 'العودة إلى الوراء';
+
+  @override
+  String get goBackToHere => 'العودة إلى هنا';
+
+  @override
+  String get momentImport => 'قبل الاستيراد';
+
+  @override
+  String get momentSync => 'قبل المزامنة';
+
+  @override
+  String get momentMerge => 'قبل الدمج';
+
+  @override
+  String get momentHardDelete => 'قبل حذف بيانات مؤلف';
+
+  @override
+  String get momentArchive => 'قبل الأرشفة';
+
+  @override
+  String get momentManual => 'علامة وضعتها بنفسك';
+
+  @override
+  String get showOlderMoments => 'عرض الأقدم';
+
+  @override
+  String goBackBody(int count) {
+    return 'كل ما بعد هذه اللحظة سيُزال — $count تغيير. يُكتب أولاً في ملف، واستيراده يعيده، وكل لحظة أحدث منها تذهب معه. من زامنت معهم يحتفظون بنسختهم — لا يمكن سحب ذلك.';
+  }
+
+  @override
+  String get nameThisMoment => 'سمِّ هذه اللحظة';
+
+  @override
+  String get helpGoBack =>
+      'اللحظات التي تغيّر فيها هذا الكتالوج: قبل كل استيراد وكل مزامنة، وقبل الدمج أو الأرشفة أو الحذف، وكلما وضعت علامة بنفسك. اختيار إحداها يعيد الكتالوج إلى تلك الحال — يُكتب كل ما بعدها في ملف تحتفظ به ثم يُزال، وتذهب معه كل لحظة أحدث. من زامنت معهم يحتفظون بما وصلهم.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'لم يُزل شيء: تعذّرت كتابة الملف الذي يحفظه ($error). وفّر بعض المساحة وأعد المحاولة.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'هذا هو الكتالوج الذي أنت فيه. انتقل إلى كتالوج آخر ثم احذفه.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'تعذّرت كتابة ملف المشاركة ($error). وفّر بعض المساحة وأعد المحاولة.';
+  }
 }

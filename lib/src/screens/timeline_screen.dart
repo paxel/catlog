@@ -2,6 +2,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../layout.dart';
+import '../help.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
@@ -130,11 +132,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
         store.current(widget.entityId, Keys.name) ?? context.t.unnamed;
     final rows = _rows();
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text(widget.field == null
             ? context.t.timelineOf(name)
             : context.t.fieldHistoryOf(
                 fieldLabel(context.t, store, widget.field!), name)),
+        actions: [HelpButton(store: store, screenId: 'timeline')],
       ),
       body: ListView.builder(
         itemCount: rows.length,

@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'l10n.dart';
@@ -28,7 +29,9 @@ Future<void> initCrashGuard(Directory supportDir,
     {required void Function() restart, String? appVersion}) async {
   _supportDir = supportDir;
   _restart = restart;
-  _appVersion = appVersion;
+  // A report without a version is a report nobody can act on, so the
+  // version is fetched here rather than left to the caller.
+  _appVersion = appVersion ?? await _versionFromPackage();
 
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
@@ -62,11 +65,28 @@ void markCleanExit() {
   if (_marker.existsSync()) _marker.deleteSync();
 }
 
+Future<String?> _versionFromPackage() async {
+  try {
+    final info = await PackageInfo.fromPlatform();
+    return '${info.version}+${info.buildNumber}';
+  } catch (_) {
+    return null;
+  }
+}
+
+/// What every report must carry to be worth reading: which build, on
+/// which system, in which language, and when.
+String crashReportHeader({DateTime? at}) => [
+      'cat(a)log ${_appVersion ?? 'version unknown'}',
+      '${Platform.operatingSystem} ${Platform.operatingSystemVersion}',
+      'locale ${Platform.localeName}',
+      (at ?? DateTime.now()).toIso8601String(),
+    ].join('\n');
+
 void _record(Object error, StackTrace? stack) {
   try {
-    _crashFile.writeAsStringSync(
-        'cat(a)log ${_appVersion ?? ''} ${Platform.operatingSystem}\n'
-        '$error\n\n$stack');
+    _crashFile
+        .writeAsStringSync('${crashReportHeader()}\n\n$error\n\n$stack');
   } catch (_) {}
 }
 
@@ -162,8 +182,8 @@ class _CrashApp extends StatelessWidget {
                     OutlinedButton.icon(
                       icon: const Icon(Icons.mail_outline),
                       label: Text(t.crashSendReport),
-                      onPressed: () => mailCrashReport(
-                          lastCrashText() ?? '$error\n\n$stack'),
+                      onPressed: () => mailCrashReport(lastCrashText() ??
+                          '${crashReportHeader()}\n\n$error\n\n$stack'),
                     ),
                   ],
                 ),

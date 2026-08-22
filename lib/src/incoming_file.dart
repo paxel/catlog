@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'import_summary.dart';
+import 'incoming_images.dart';
 import 'l10n.dart';
 
 /// Opening a .catsync from a messenger or file manager lands here: the
@@ -13,22 +14,34 @@ import 'l10n.dart';
 /// Garbage in is absorbed with a message, never a crash.
 const _channel = MethodChannel('catlog/openfile');
 
+/// [store] is a getter, not a store: switching catalogs replaces the
+/// open one, and a file shared in afterwards belongs to the new one.
 void initIncomingFiles(GlobalKey<NavigatorState> navigator,
-    CatalogStore store, List<String> args) {
+    CatalogStore Function() store, List<String> args) {
   _channel.setMethodCallHandler((call) async {
     if (call.method == 'open') {
-      _import(navigator, store, call.arguments as String);
+      _import(navigator, store(), call.arguments as String);
+    }
+    if (call.method == 'sharedImages') {
+      handleSharedImages(navigator, store(),
+          (call.arguments as List).cast<String>());
     }
   });
   if (Platform.isAndroid || Platform.isIOS) {
     _channel.invokeMethod<String>('pending').then((path) {
-      if (path != null) _import(navigator, store, path);
+      if (path != null) _import(navigator, store(), path);
+    }).catchError((_) => null);
+    _channel.invokeMethod<List<Object?>>('pendingImages').then((paths) {
+      if (paths != null && paths.isNotEmpty) {
+        handleSharedImages(
+            navigator, store(), paths.cast<String>());
+      }
     }).catchError((_) => null);
   }
   // Desktop: the associated file arrives as a launch argument.
   for (final arg in args) {
     if (arg.endsWith('.catsync') && File(arg).existsSync()) {
-      _import(navigator, store, arg);
+      _import(navigator, store(), arg);
     }
   }
 }
@@ -44,12 +57,15 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
   }
   if (context == null || !context.mounted) return;
   try {
-    final result = importBundle(store, path);
+    final imported = importWithMoment(store, path,
+        label: path.split(Platform.pathSeparator).last);
+    final result = imported.result;
     if (!context.mounted) return;
     if (result.applied.isEmpty && result.blobsIn == 0) {
       _snack(context, context.t.nothingNewInBundle);
     } else {
-      await showImportSummary(context, store, result.applied);
+      await showImportSummary(context, store, result.applied,
+          undo: imported.moment);
     }
   } catch (_) {
     if (context.mounted) _snack(context, context.t.notACatlogFile);

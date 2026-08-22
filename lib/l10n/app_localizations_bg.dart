@@ -181,7 +181,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Котката изчезва от всички списъци и снимките ѝ се премахват — тук и след следващата синхронизация и при помощниците ти.';
+      'Котката изчезва от всички списъци и снимките ѝ се премахват — тук и, след следващата синхронизация, и на другите устройства.';
 
   @override
   String get sightingRecorded => 'Забелязването е записано на вашата позиция.';
@@ -210,6 +210,181 @@ class AppLocalizationsBg extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Чип номер';
+
+  @override
+  String get starterRemarks => 'Бележки';
+
+  @override
+  String get captureFlier => 'Заснемане на обява';
+
+  @override
+  String get addPhotosTo => 'Добавяне на снимките към…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count снимки добавени към $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Сканиране на отпечатан код';
+
+  @override
+  String get chipScanHint =>
+      'Сканира отпечатания QR/баркод от чип картата или ветеринарните документи — телефонът не може да прочете чипа в котката.';
+
+  @override
+  String get savingLabel => 'Запазване…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Собственик на $name';
+  }
+
+  @override
+  String get sortLabel => 'Сортиране';
+
+  @override
+  String get viewAsTable => 'Показване като таблица';
+
+  @override
+  String get viewAsTiles => 'Показване като плочки';
+
+  @override
+  String get matchCandidatesTitle => 'Кандидати за съвпадение';
+
+  @override
+  String get findDuplicates => 'Търсене на дубликати';
+
+  @override
+  String get noDuplicates => 'В момента няма възможни дубликати.';
+
+  @override
+  String get similarName => 'Подобно име';
+
+  @override
+  String get sharePublicly => 'Публично споделяне…';
+
+  @override
+  String get privateNoShare =>
+      'Тази котка е отбелязана като лична — личните данни никога не напускат устройството ви. Първо премахнете отметката, за да я споделите публично.';
+
+  @override
+  String get pickFramesTitle => 'Избор на кадри';
+
+  @override
+  String get suggestedFrames => 'Предложени кадри';
+
+  @override
+  String get scrubFrames => 'Превъртане на видеото';
+
+  @override
+  String get keepThisFrame => 'Запази този кадър';
+
+  @override
+  String get fromVideo => 'От видео…';
+
+  @override
+  String get videoMobileOnly =>
+      'Изборът на кадри от видео работи в телефонното приложение (Android и iPhone) — още не на това устройство.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Изберете какво влиза във файла. Включват се само отметнатите полета.';
+
+  @override
+  String get exportShareFile => 'Експортиране на файл за споделяне…';
+
+  @override
+  String get hostedLink => 'Хостван линк (URL на качения файл)';
+
+  @override
+  String get inlineQr => 'Вграден QR (само текст, без снимки)';
+
+  @override
+  String get inlineTooBig =>
+      'Твърде много данни за вграден код — махнете полета или използвайте хостван линк.';
+
+  @override
+  String get scanShareLabel => 'Сканиране на код за споделяне';
+
+  @override
+  String get notAShareCode => 'Този код не е споделяне на cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Импортиране на тази котка?';
+
+  @override
+  String shareSource(String url) {
+    return 'Източник: $url';
+  }
+
+  @override
+  String get importLabel => 'Импортиране';
+
+  @override
+  String get strayAreaLabel => 'Възможна зона на скитане';
+
+  @override
+  String get prevPin => 'Предишен маркер';
+
+  @override
+  String get nextPin => 'Следващ маркер';
+
+  @override
+  String get noMissingCats => 'Още няма изчезнали котки с позиции на обяви.';
+
+  @override
+  String get noMatchCandidates => 'В момента няма кандидати за съвпадение.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Еднакъв $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return 'На $distance м един от друг';
+  }
+
+  @override
+  String get addFlier => 'Добавяне на обява';
+
+  @override
+  String get missingSinceLabel => 'Изчезнал от';
+
+  @override
+  String get phoneLabel => 'Телефон';
+
+  @override
+  String get cropPortrait => 'Изрязване на портрет';
+
+  @override
+  String get statusOwner => 'Собственик';
+
+  @override
+  String get ocrUnavailable =>
+      'Разпознаването на текст не е налично на това устройство — въведете текста на обявата сами.';
+
+  @override
+  String get displayFormat => 'Показва се като';
+
+  @override
+  String get displayPlain => 'Обикновен текст';
+
+  @override
+  String get displayQr => 'QR код';
+
+  @override
+  String get displayBarcode => 'Баркод';
+
+  @override
+  String get editLabel => 'Редактиране';
+
+  @override
+  String get doneLabel => 'Готово';
+
+  @override
   String get openSettings => 'Отвори настройките';
 
   @override
@@ -234,6 +409,29 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get malePregnant =>
       'Тази котка е записана като мъжка — мъжка котка не може да е бременна. Първо проверете пола.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name е записана като женска и не може да е бащата. Първо проверете пола.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name е записан като мъжки и не може да е майката. Първо проверете пола.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name е роден на $date — родител не може да се роди след котето си.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Тази котка е записана като баща на други котки — бащата не може да е женски. Първо проверете семейството.';
+
+  @override
+  String get genderMotherMale =>
+      'Тази котка е записана като майка на други котки — майката не може да е мъжки. Първо проверете семейството.';
 
   @override
   String get moveTo => 'Премести в';
@@ -417,7 +615,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Синхронизирайте през папка, която облак или флашка пренася между устройствата — за тези, които не са в една мрежа.';
+      'Двете устройства ползват една и съща папка (напр. в Dropbox или на флашка). Всяка синхронизация оставя там вашите промени и взима тези на другата страна.';
 
   @override
   String get noFolderChosenYet => 'Още не е избрана папка';
@@ -597,7 +795,234 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterResponsible => 'Отговорно лице';
 
   @override
-  String get starterPosition => 'Позиция';
+  String get starterEmail => 'Имейл';
+
+  @override
+  String get starterPhone => 'Телефон';
+
+  @override
+  String get lookupUrlLabel => 'Връзка за търсене';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Страницата на услугата с $token на мястото на номера, напр. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Провери';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Никое приложение не можа да отвори $url. Копирайте връзката в браузър.';
+  }
+
+  @override
+  String get stepCat => 'Котка';
+
+  @override
+  String get stepOwner => 'Собственик';
+
+  @override
+  String get stepFace => 'Снимка на муцунката';
+
+  @override
+  String get stepRegistry => 'Регистър';
+
+  @override
+  String get stepReview => 'Проверка и запис';
+
+  @override
+  String get stepOwnerHint =>
+      'Този, който търси котката — от това става неговата карта с контакта от обявата.';
+
+  @override
+  String get stepFaceHint =>
+      'Изрежете муцунката на котката от обявата; тя става профилната снимка. Може да прескочите.';
+
+  @override
+  String get stepRegistryHint =>
+      'Номера, намерени в обявата. Отметнатите се запазват при котката и се отварят по-късно.';
+
+  @override
+  String get noRegistryLinks =>
+      'В тази обява няма връзки към регистри — тук няма какво да се прави.';
+
+  @override
+  String get unknownServiceHint => 'Непозната услуга';
+
+  @override
+  String get rememberService => 'Запомни услугата';
+
+  @override
+  String get rememberServiceHint =>
+      'Дайте име на услугата и посочете номера във връзката. Следващата обява ще се попълни сама.';
+
+  @override
+  String get noIdInLink =>
+      'Тази връзка не съдържа номер, който приложението да запази.';
+
+  @override
+  String get whichNumber => 'Коя част е номерът?';
+
+  @override
+  String get cropAgain => 'Изрежи отново';
+
+  @override
+  String get noFaceYet =>
+      'Още няма снимка на муцунката — използва се снимката на обявата.';
+
+  @override
+  String get backLabel => 'Назад';
+
+  @override
+  String get dangerButton => 'НЕ НАТИСКАЙ.\nОПАСНО';
+
+  @override
+  String get dangerThanks => 'Благодарим, че използвате cat(a)log!';
+
+  @override
+  String get helpTitle => 'Помощ';
+
+  @override
+  String get showTipsAgain => 'Покажи съветите отново';
+
+  @override
+  String get helpHome =>
+      'Прегледът на вашите колонии — колония е място, където живеят котки: домът ви, приемен дом, приют. Докоснете карта, за да видите котките ѝ; задържане отваря менюто. Бутонът долу вдясно създава колония, а картата на скитниците събира всички котки без дом. Името горе е каталогът, в който сте — докоснете го, за да смените или добавите.';
+
+  @override
+  String get helpClowder =>
+      'Всичко за това място: котките му, полетата (адрес, контакт, вид) и историята. Страницата се отваря само за четене; моливът включва редакцията, там може и да добавите поле. Задържане на поле го редактира веднага, на котка — я мести, скрива или отваря.';
+
+  @override
+  String get helpCat =>
+      'Всичко за тази котка: снимки, полета, семейство, история. Страницата е само за четене, докато не докоснете молива. Задържане на поле отваря директно редакцията му; на снимка — нейното меню. Менюто горе вдясно има останалото: лично, скрий, обедини, запиши наблюдение, сподели.';
+
+  @override
+  String get helpStrays =>
+      'Котки, които сега нямат дом: намерени, избягали или взети от обява. Бутонът с камерата записва котка пред вас; бутонът с обявата превръща плакат в котка с контакта на стопанина; скенерът чете код cat(a)log от плаката.';
+
+  @override
+  String get helpMap =>
+      'Всички котки и места с позиция. Търсенето намира котки, хора и места — непознато име се търси по целия свят. Бутонът за слоеве чертае кръговете от 500 м около местата на обявите на изчезнала котка и около дома, от който е избягала. Стрелките водят от карфица на карфица, задържане върху картата записва наблюдение.';
+
+  @override
+  String get helpCard =>
+      'Печатната карта на котката: горе с чиповете избирате какво да пише на нея, после я споделяте като изображение или PDF. Номерата се печатат като QR или баркод, а позицията става QR, който отваря карта, плюс кратък Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Как данните стигат до други хора: свързване на място, папка, която двете устройства виждат, или файл през месинджър. Вие винаги решавате какво излиза — а получените .catsync файлове се отварят също тук.';
+
+  @override
+  String get helpFields =>
+      'Полетата, които каталогът ви използва. Преименувайте ги, сменете опциите на поле с избор или добавете свои. Поле с идентификатор може да сочи към услуга (регистър) — тогава номерът при котката става натискаем.';
+
+  @override
+  String get helpTimeline =>
+      'Всяка някога направена промяна, най-новата отгоре: кой какво кога и на каква стойност е сменил. Всеки запис може да се върне — това записва нов ред, нищо не се изтрива.';
+
+  @override
+  String get helpDuplicates =>
+      'Котки или колонии, които изглеждат като едно и също два пъти — еднакви номера или много близки имена със съвпадащи детайли. Докоснете двойка, за да я слеете; сливането е необратимо, затова пита предварително.';
+
+  @override
+  String get helpMatches =>
+      'Котки, които може да са едно и също животно: еднакъв номер или скитник, видян в района на търсене на изчезнала котка. Докоснете двойка за сливане, задържането отваря първата котка за сравнение.';
+
+  @override
+  String get helpFlier =>
+      'От снимана обява става котка заедно със стопанина. Стъпка по стъпка: данни на котката, контакт на стопанина, изрязване на муцунката за профилната снимка, регистрационни номера от обявата и накрая проверка. Всичко са предложения — поправете каквото камерата е разчела грешно.';
+
+  @override
+  String get archiveTitle => 'Архив';
+
+  @override
+  String get archiveExplainer =>
+      'Починали котки и празни колонии, които никой не е докосвал от години, пак заемат място — най-вече снимките им. Архивирането ги записва във файл, който пазите, и после ги изтрива оттук.';
+
+  @override
+  String get archiveAction => 'Архивирай';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Архивирай $count записа';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Да се архивират ли $count записа?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names ще бъдат записани във файл и после изтрити — на вашето устройство и на всяко, с което синхронизирате. Импортът на файла връща всичко; без него са загубени.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return 'Архивирани и изтрити записа: $count';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Нищо не беше изтрито: архивният файл не можа да се запише ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'База данни $db, снимки $photos в $count файла';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Без промяна от $years години';
+  }
+
+  @override
+  String get nothingToArchive => 'Няма нищо достатъчно старо за архивиране.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Последна промяна $date · снимки $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Старите данни заемат място, преди всичко снимките, които всяко синхронизирано устройство мъкне със себе си. Тук избирате починали котки и празни колонии, стояли без промяна с години, записвате ги във файл, който пазите, и ги изтривате. Изтриването стига до всички, с които синхронизирате; импортът на файла възстановява всичко.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Да се възстановят ли $count изтрити записа?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names са изтрити в този каталог, а току-що импортираният файл ги съдържа. Възстановяването ги връща тук и на всяко устройство, с което синхронизирате.';
+  }
+
+  @override
+  String get restoreAction => 'Възстанови';
+
+  @override
+  String get keepDeleted => 'Остави изтрити';
+
+  @override
+  String get archiveNotSaved =>
+      'Нищо не беше изтрито: архивът не беше запазен никъде.';
+
+  @override
+  String get locateAddress => 'Намери адреса на картата';
+
+  @override
+  String get addressLocated => 'Адресът е намерен';
+
+  @override
+  String get addressNotFound =>
+      'Не е намерено място за този адрес. Проверете изписването или оставете полето празно.';
+
+  @override
+  String get starterPosition => 'Местоположение';
 
   @override
   String get valueYes => 'да';
@@ -712,7 +1137,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Личните котки, групи и полета също се споделят — включвай само при синхронизиране на собствените си устройства.';
+      'Така се изпраща и всичко, отбелязано като лично. Този, с когото синхронизирате, ще го види.';
 
   @override
   String get hideLabel => 'Скрий на това устройство';
@@ -730,7 +1155,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterSpecies => 'Вид';
 
   @override
-  String get starterStatus => 'Статус';
+  String get starterStatus => 'Тип';
 
   @override
   String get statusFoster => 'Приемен дом';
@@ -924,7 +1349,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Изпрати всичко като един файл през кой да е месинджър';
+      'Изпратете всичко като един файл през кой да е месинджър — и импортирайте получен .catsync файл тук';
 
   @override
   String get connectToWifiFirst =>
@@ -971,25 +1396,25 @@ class AppLocalizationsBg extends AppLocalizations {
   String get selectClowderHint => 'Избери клаудър отляво';
 
   @override
-  String get introTitle1 => 'Котките живеят в клаудъри';
+  String get introTitle1 => 'Вашите котки, подредени';
 
   @override
   String get introBody1 =>
-      'Клаудърът е място, където живеят котки: приемният дом, жилището на осиновителя, плевнята до вас. Всяка котка има карта със снимка, факти и цялата ѝ история.';
+      'Създайте карта за всяка котка: снимка, пол, здраве — всичко, което искате да отбележите. Котките са групирани по мястото, където живеят — приложението го нарича колония (clowder).';
 
   @override
-  String get introTitle2 => 'Всичко остава при теб';
+  String get introTitle2 => 'Работи без интернет';
 
   @override
   String get introBody2 =>
-      'Без акаунт, без облак, без проследяване. Данните ти живеят на устройството ти.';
+      'Всичко се записва само на телефона ви. Без акаунт, без облак. Нищо не се изпраща, освен ако сами не го споделите.';
 
   @override
-  String get introTitle3 => 'Споделяй с помощниците си';
+  String get introTitle3 => 'Работете заедно';
 
   @override
   String get introBody3 =>
-      'Сканирай код и две устройства се синхронизират за секунди, ползвай споделена папка или изпрати всичко като файл.';
+      'Всеки ползва своето приложение и от време на време обменяте данни: срещнете се и сканирайте код, ползвайте споделена папка или изпратете един файл по месинджър. После всички имат една и съща информация.';
 
   @override
   String get introSkip => 'Пропусни';
@@ -1005,19 +1430,50 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Ново: синхронизирането предлага три ясни начина — и въпрос за доверие, преди нещо да тръгне.';
+      'Тук синхронизирате с познатите си. Вие решавате какво споделяте.';
+
+  @override
+  String get spotHomeStrays =>
+      'Тази карта събира всички скитащи котки — котки без дом. Докоснете за списъка.';
+
+  @override
+  String get spotHomeMenu =>
+      'В това меню: намиране и сливане на дубликати, експорт в CSV и още.';
+
+  @override
+  String get spotCatEdit =>
+      'Докоснете молива, за да редактирате котката. Съвет: задръжте поле, за да го редактирате направо.';
+
+  @override
+  String get spotMapLayers =>
+      'Търсите изчезнала котка? Покажете кръгове около местата на обявите ѝ и около дома, от който е избягала.';
+
+  @override
+  String get spotStraysFlier =>
+      'Обява за изчезнала котка? Снимайте я тук — приложението записва котката и контакта вместо вас.';
+
+  @override
+  String get spotStraysScan =>
+      'Някои обяви носят QR код на cat(a)log. Сканирайте го тук и импортирайте котката без писане.';
+
+  @override
+  String get introTitle4 => 'Намерете изчезнали котки';
+
+  @override
+  String get introBody4 =>
+      'Виждате обява за изчезнала котка? Снимайте я в приложението: то записва котката, контакта на собственика и мястото. Появи ли се по-късно подобна скитаща котка, приложението предлага възможни съвпадения.';
 
   @override
   String get spotMapSearch =>
-      'Ново: търси тук котки, клаудъри и хора — направо на картата.';
+      'Въведете котка, място или човек, за да скочите там на картата.';
 
   @override
   String get spotCardChips =>
-      'Ново: избери какво да има на картата, преди да я споделиш.';
+      'Отметнете какво да присъства на споделяемата карта — останалото остава извън нея.';
 
   @override
   String get spotCatMenu =>
-      'Ново: отбележи котка като лична (никога не напуска устройството ти) или я скрий оттук.';
+      'Още действия тук: маркирайте котката като лична, скрийте я, слейте дубликати или запишете наблюдение.';
 
   @override
   String get spotDone => 'Ясно';
@@ -1059,4 +1515,134 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log спря неочаквано миналия път — най-вероятно свърши паметта. Да изпратим ли кратък доклад, за да се поправи?';
+
+  @override
+  String get catalogsTitle => 'Каталози';
+
+  @override
+  String get newCatalog => 'Нов каталог';
+
+  @override
+  String get catalogNameLabel => 'Име на каталога';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Вече има каталог с името $name. Изберете друго име.';
+  }
+
+  @override
+  String get manageCatalogs => 'Управление на каталозите';
+
+  @override
+  String get helpCatalogs =>
+      'Всеки каталог е свой свят: свои котки, колонии, полета, снимки и партньори за синхронизация. Берлин и Париж никога не се смесват. Докоснете името горе на началния екран, за да смените, добавите или преименувате. Името ви, езикът и вече видените съвети са общи за всички.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Това е каталогът, в който сте. Докоснете името, за да смените или да добавите нов.';
+
+  @override
+  String get deleteCatalog => 'Изтриване на каталога';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Всичко в $name изчезва: котките, снимките, историята. Първо се записва пълен файл там, където отиват автоматичните архиви — импортирането му връща каталога. Напишете името, за да потвърдите.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name е изтрит. Файлът е в $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Напишете $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Нищо не е изтрито: файлът на каталога не можа да се запише ($error). Освободете място или опитайте по-късно.';
+  }
+
+  @override
+  String get moveToCatalog => 'Преместване в друг каталог';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count преместени в $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Какво да се премести?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Да преместим ли нещо в $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Отмяна на този импорт';
+
+  @override
+  String undoImportBody(int count) {
+    return '$count промени от този импорт се премахват. Първо се записват във файл, чийто импорт ги връща. Хората, с които вече сте синхронизирали, запазват своето копие — това не може да се отмени.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Отменено. Файлът е в $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Връщане назад';
+
+  @override
+  String get goBackToHere => 'Връщане дотук';
+
+  @override
+  String get momentImport => 'Преди импортирането';
+
+  @override
+  String get momentSync => 'Преди синхронизирането';
+
+  @override
+  String get momentMerge => 'Преди сливането';
+
+  @override
+  String get momentHardDelete => 'Преди изтриването на данните на автор';
+
+  @override
+  String get momentArchive => 'Преди архивирането';
+
+  @override
+  String get momentManual => 'Отбелязано от вас';
+
+  @override
+  String get showOlderMoments => 'Показване на по-стари';
+
+  @override
+  String goBackBody(int count) {
+    return 'Всичко след този момент се премахва — $count промени. Първо се записва във файл, чийто импорт го връща, и всеки по-нов момент изчезва с него. Хората, с които вече сте синхронизирали, запазват копието си — това не може да се отмени.';
+  }
+
+  @override
+  String get nameThisMoment => 'Наименувайте този момент';
+
+  @override
+  String get helpGoBack =>
+      'Моментите, в които този каталог се е променил силно: преди всеки импорт и всяка синхронизация, преди сливане, архивиране или изтриване, и всеки път, когато сте отбелязали момент сами. Изборът на един връща каталога в това състояние — всичко след него се записва във файл, който запазвате, и се премахва, а всеки по-нов момент изчезва с него. Хората, с които вече сте синхронизирали, запазват полученото.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Нищо не е премахнато: файлът, който го пази, не можа да се запише ($error). Освободете място и опитайте пак.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Това е каталогът, в който сте. Превключете към друг и после го изтрийте.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Файлът за споделяне не можа да се запише ($error). Освободете място и опитайте пак.';
+  }
 }

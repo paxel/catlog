@@ -177,7 +177,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deletePhotoBody => '照片数据将被永久删除——无法撤销。';
 
   @override
-  String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本设备以及下次同步后伙伴们的设备上都是如此。';
+  String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
 
   @override
   String get sightingRecorded => '已在你的位置记录目击。';
@@ -199,6 +199,175 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get ok => '好';
+
+  @override
+  String get starterChipId => '芯片号';
+
+  @override
+  String get starterRemarks => '备注';
+
+  @override
+  String get captureFlier => '拍摄寻猫启事';
+
+  @override
+  String get addPhotosTo => '将照片添加到…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '已将 $count 张照片添加到 $name';
+  }
+
+  @override
+  String get scanPrintedCode => '扫描印刷的条码';
+
+  @override
+  String get chipScanHint => '扫描芯片卡或兽医文件上印刷的二维码/条形码——手机无法读取猫体内的芯片。';
+
+  @override
+  String get savingLabel => '正在保存…';
+
+  @override
+  String ownerOfCat(String name) {
+    return '$name的主人';
+  }
+
+  @override
+  String get sortLabel => '排序';
+
+  @override
+  String get viewAsTable => '以表格显示';
+
+  @override
+  String get viewAsTiles => '以磁贴显示';
+
+  @override
+  String get matchCandidatesTitle => '疑似匹配';
+
+  @override
+  String get findDuplicates => '查找重复';
+
+  @override
+  String get noDuplicates => '当前没有疑似重复。';
+
+  @override
+  String get similarName => '相似的名字';
+
+  @override
+  String get sharePublicly => '公开分享…';
+
+  @override
+  String get privateNoShare => '这只猫被标记为私密——私密数据绝不会离开您的设备。要公开分享，请先取消私密标记。';
+
+  @override
+  String get pickFramesTitle => '挑选画面';
+
+  @override
+  String get suggestedFrames => '推荐画面';
+
+  @override
+  String get scrubFrames => '拖动视频';
+
+  @override
+  String get keepThisFrame => '保留此画面';
+
+  @override
+  String get fromVideo => '来自视频…';
+
+  @override
+  String get videoMobileOnly => '从视频挑选画面需要手机应用（Android 和 iPhone）——此设备暂不支持。';
+
+  @override
+  String get shareWhitelistExplainer => '选择放进文件的内容。只包含勾选的字段。';
+
+  @override
+  String get exportShareFile => '导出分享文件…';
+
+  @override
+  String get hostedLink => '托管链接（上传文件的 URL）';
+
+  @override
+  String get inlineQr => '内嵌二维码（仅文本，无照片）';
+
+  @override
+  String get inlineTooBig => '数据太多，无法生成内嵌码——请减少字段或使用托管链接。';
+
+  @override
+  String get scanShareLabel => '扫描分享码';
+
+  @override
+  String get notAShareCode => '该二维码不是 cat(a)log 分享。';
+
+  @override
+  String get importShareTitle => '导入这只猫？';
+
+  @override
+  String shareSource(String url) {
+    return '来源：$url';
+  }
+
+  @override
+  String get importLabel => '导入';
+
+  @override
+  String get strayAreaLabel => '可能的活动范围';
+
+  @override
+  String get prevPin => '上一个图钉';
+
+  @override
+  String get nextPin => '下一个图钉';
+
+  @override
+  String get noMissingCats => '还没有带启事位置的走失猫。';
+
+  @override
+  String get noMatchCandidates => '当前没有疑似匹配。';
+
+  @override
+  String sameIdField(String field) {
+    return '相同的$field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '相距 $distance 米';
+  }
+
+  @override
+  String get addFlier => '添加启事';
+
+  @override
+  String get missingSinceLabel => '失踪日期';
+
+  @override
+  String get phoneLabel => '电话';
+
+  @override
+  String get cropPortrait => '裁剪头像';
+
+  @override
+  String get statusOwner => '主人';
+
+  @override
+  String get ocrUnavailable => '此设备不支持文字识别——请自行输入启事内容。';
+
+  @override
+  String get displayFormat => '显示为';
+
+  @override
+  String get displayPlain => '纯文本';
+
+  @override
+  String get displayQr => '二维码';
+
+  @override
+  String get displayBarcode => '条形码';
+
+  @override
+  String get editLabel => '编辑';
+
+  @override
+  String get doneLabel => '完成';
 
   @override
   String get openSettings => '打开设置';
@@ -224,6 +393,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get malePregnant => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name登记为母猫，不能作为父亲。请先检查性别。';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name登记为公猫，不能作为母亲。请先检查性别。';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name出生于$date——父母不可能晚于幼崽出生。';
+  }
+
+  @override
+  String get genderFatherFemale => '这只猫登记为其他猫的父亲——父亲不能是母猫。请先检查家庭关系。';
+
+  @override
+  String get genderMotherMale => '这只猫登记为其他猫的母亲——母亲不能是公猫。请先检查家庭关系。';
 
   @override
   String get moveTo => '移动到';
@@ -403,7 +593,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sharedFolder => '共享文件夹';
 
   @override
-  String get sharedFolderExplainer => '通过云盘或 U 盘在设备间携带的文件夹进行同步——适合不在同一网络的人。';
+  String get sharedFolderExplainer =>
+      '两台设备使用同一个文件夹（例如 Dropbox 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
 
   @override
   String get noFolderChosenYet => '尚未选择文件夹';
@@ -580,6 +771,224 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterResponsible => '负责人';
 
   @override
+  String get starterEmail => '电子邮件';
+
+  @override
+  String get starterPhone => '电话';
+
+  @override
+  String get lookupUrlLabel => '查询链接';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return '服务页面地址，用 $token 代替号码，例如 https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => '查询';
+
+  @override
+  String lookupFailed(String url) {
+    return '没有应用能打开 $url。请把链接复制到浏览器。';
+  }
+
+  @override
+  String get stepCat => '猫';
+
+  @override
+  String get stepOwner => '主人';
+
+  @override
+  String get stepFace => '头像照片';
+
+  @override
+  String get stepRegistry => '登记服务';
+
+  @override
+  String get stepReview => '检查并保存';
+
+  @override
+  String get stepOwnerHint => '寻猫的人——这里会生成他的卡片，附上启事上的联系方式。';
+
+  @override
+  String get stepFaceHint => '从启事中裁出猫的脸，作为头像。此步可跳过。';
+
+  @override
+  String get stepRegistryHint => '在启事上找到的号码。勾选的会保存到猫，之后可以打开。';
+
+  @override
+  String get noRegistryLinks => '这张启事没有登记服务链接——此处无需操作。';
+
+  @override
+  String get unknownServiceHint => '未知服务';
+
+  @override
+  String get rememberService => '记住该服务';
+
+  @override
+  String get rememberServiceHint => '给服务起个名字，并指出链接中的号码。下次同类启事会自动填好。';
+
+  @override
+  String get noIdInLink => '该链接中没有应用可保存的号码。';
+
+  @override
+  String get whichNumber => '哪一部分是号码？';
+
+  @override
+  String get cropAgain => '重新裁剪';
+
+  @override
+  String get noFaceYet => '还没有头像照片——将使用启事照片。';
+
+  @override
+  String get backLabel => '返回';
+
+  @override
+  String get dangerButton => '请勿按下。\n危险';
+
+  @override
+  String get dangerThanks => '感谢你使用 cat(a)log！';
+
+  @override
+  String get helpTitle => '帮助';
+
+  @override
+  String get showTipsAgain => '再次显示提示';
+
+  @override
+  String get helpHome =>
+      '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。 顶部的名称是你当前所在的目录，点按即可切换或新建。';
+
+  @override
+  String get helpClowder =>
+      '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。';
+
+  @override
+  String get helpCat =>
+      '关于这只猫的一切：照片、字段、家庭、历史。点铅笔前页面只读。长按字段直接进入编辑；长按照片打开其菜单。右上角菜单里是其余功能：设为私密、隐藏、合并、记录目击、分享。';
+
+  @override
+  String get helpStrays =>
+      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。';
+
+  @override
+  String get helpMap =>
+      '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
+
+  @override
+  String get helpCard =>
+      '这只猫的可打印卡片：用顶部的标签选择卡片内容，然后以图片或 PDF 分享。编号可打印为二维码或条形码，位置会变成打开地图的二维码，外加一个简短的 Plus Code。';
+
+  @override
+  String get helpSync =>
+      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。';
+
+  @override
+  String get helpFields =>
+      '你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在猫页面上就能点按。';
+
+  @override
+  String get helpTimeline =>
+      '所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。';
+
+  @override
+  String get helpDuplicates =>
+      '看起来重复出现的猫或猫群——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。';
+
+  @override
+  String get helpMatches =>
+      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
+
+  @override
+  String get helpFlier =>
+      '拍下的启事会变成一只猫和它的主人。逐步进行：猫的资料、主人联系方式、裁出头像、启事上的登记编号，最后确认。所有内容都是建议——相机认错的地方请修改。';
+
+  @override
+  String get archiveTitle => '归档';
+
+  @override
+  String get archiveExplainer =>
+      '多年无人过问的已故猫和空猫群仍然占用空间，尤其是它们的照片。归档会把它们写入一个由你保存的文件，然后从这里删除。';
+
+  @override
+  String get archiveAction => '归档';
+
+  @override
+  String archiveSelected(int count) {
+    return '归档 $count 条';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return '要归档 $count 条吗？';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names 将被写入文件后删除——在你的设备上，以及所有与你同步的设备上。导入该文件可全部恢复；没有它就找不回来了。';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '已归档并删除 $count 条';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return '未删除任何内容：归档文件写入失败（$error）。';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return '数据库 $db，照片 $photos，共 $count 个文件';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return '$years 年无变化';
+  }
+
+  @override
+  String get nothingToArchive => '没有足够久远的内容可归档。';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return '最后更改 $date · 照片 $size';
+  }
+
+  @override
+  String get helpArchive =>
+      '旧数据占用空间，尤其是每台同步设备都要携带的照片。在这里你可以挑选多年没有变化的已故猫和空猫群，写入一个自己保存的文件，然后删除它们。删除会传达给所有与你同步的人；导入该文件可全部恢复。';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return '恢复 $count 条已删除的记录吗？';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names 在本目录中已被删除，而你刚导入的文件包含它们。恢复会让它们回到这里，以及所有与你同步的设备上。';
+  }
+
+  @override
+  String get restoreAction => '恢复';
+
+  @override
+  String get keepDeleted => '保持删除';
+
+  @override
+  String get archiveNotSaved => '未删除任何内容：归档没有保存到任何地方。';
+
+  @override
+  String get locateAddress => '在地图上查找地址';
+
+  @override
+  String get addressLocated => '已找到地址';
+
+  @override
+  String get addressNotFound => '没有找到该地址对应的地点。请检查拼写或留空。';
+
+  @override
   String get starterPosition => '位置';
 
   @override
@@ -693,7 +1102,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get includePrivate => '包含私密数据';
 
   @override
-  String get includePrivateExplainer => '私密的猫、猫群和字段也会被分享——仅在同步自己的设备时开启。';
+  String get includePrivateExplainer => '这也会发送你标记为私密的所有内容。与你同步的人将会看到。';
 
   @override
   String get hideLabel => '在此设备上隐藏';
@@ -711,7 +1120,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterSpecies => '物种';
 
   @override
-  String get starterStatus => '状态';
+  String get starterStatus => '类型';
 
   @override
   String get statusFoster => '寄养家庭';
@@ -901,7 +1310,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncChooserMessenger => '通讯软件';
 
   @override
-  String get syncChooserMessengerSub => '将全部数据作为一个文件通过任意通讯软件发送';
+  String get syncChooserMessengerSub =>
+      '通过任意通讯软件将全部数据作为一个文件发送——收到的 .catsync 文件也在这里导入';
 
   @override
   String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';
@@ -946,23 +1356,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get selectClowderHint => '从左侧选择一个猫群';
 
   @override
-  String get introTitle1 => '猫住在猫群里';
+  String get introTitle1 => '猫咪井井有条';
 
   @override
   String get introBody1 =>
-      '猫群是猫居住的地方：你的寄养家庭、领养人的公寓、隔壁的谷仓。每只猫都有一张卡片，有照片、信息和完整的故事。';
+      '为你照顾的每只猫建一张卡片：照片、性别、健康，任何想记录的内容。猫按居住地点分组——应用把这样的地点叫做聚落（clowder）。';
 
   @override
-  String get introTitle2 => '一切都在你手中';
+  String get introTitle2 => '无需网络';
 
   @override
-  String get introBody2 => '没有账号、没有云端、没有跟踪。数据只存在你的设备上。';
+  String get introBody2 => '所有数据只保存在你的手机上。没有账号，没有云。除非你自己分享，否则什么都不会上传。';
 
   @override
-  String get introTitle3 => '与伙伴们共享';
+  String get introTitle3 => '协同工作';
 
   @override
-  String get introBody3 => '扫码即可让两台设备秒速同步，也可以用共享文件夹或发送一个文件。所有人拥有同一份目录。';
+  String get introBody3 =>
+      '每个人用自己的应用，不时交换数据：见面扫个码、用共享文件夹，或者通过通讯软件发送一个文件。之后大家的信息就一致了。';
 
   @override
   String get introSkip => '跳过';
@@ -977,16 +1388,41 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introReplayTitle => '快速介绍';
 
   @override
-  String get spotHomeSync => '新功能：同步现在提供三种清晰方式——数据流动前还会先询问信任。';
+  String get spotHomeSync => '在这里与认识的人同步。分享什么由你决定。';
 
   @override
-  String get spotMapSearch => '新功能：在这里搜索猫、猫群和人员——直接定位到地图上。';
+  String get spotHomeStrays => '这张卡片汇集所有流浪猫——没有家的猫。点按查看列表。';
 
   @override
-  String get spotCardChips => '新功能：分享前可选择卡片上显示的内容。';
+  String get spotHomeMenu => '这个菜单里有：查找并合并重复项、导出CSV等。';
 
   @override
-  String get spotCatMenu => '新功能：在这里将猫标记为私密（绝不离开你的设备）或隐藏它。';
+  String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
+
+  @override
+  String get spotMapLayers => '在找走失的猫？可在其启事出现地点和它出走的家周围显示圆圈。';
+
+  @override
+  String get spotStraysFlier => '发现寻猫启事？在这里拍下来——应用会帮你保存猫和联系方式。';
+
+  @override
+  String get spotStraysScan => '有些启事带有 cat(a)log 二维码。在这里扫描即可直接导入这只猫。';
+
+  @override
+  String get introTitle4 => '寻找走失的猫';
+
+  @override
+  String get introBody4 =>
+      '看到寻猫启事？在应用里拍下来：它会保存这只猫、主人的联系方式和地点。以后出现相似的流浪猫时，应用会提示可能的匹配。';
+
+  @override
+  String get spotMapSearch => '输入猫、地点或人名，即可在地图上跳转过去。';
+
+  @override
+  String get spotCardChips => '勾选要出现在分享卡片上的内容——其余不会出现。';
+
+  @override
+  String get spotCatMenu => '更多操作在这里：设为私密、隐藏、合并重复项或记录目击。';
 
   @override
   String get spotDone => '知道了';
@@ -1024,4 +1460,132 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get crashLastRunBody => '上次 cat(a)log 意外停止了——很可能是内存不足。发送一份简短报告以便修复吗？';
+
+  @override
+  String get catalogsTitle => '目录';
+
+  @override
+  String get newCatalog => '新建目录';
+
+  @override
+  String get catalogNameLabel => '目录名称';
+
+  @override
+  String catalogNameTaken(String name) {
+    return '已经有名为 $name 的目录。请换一个名称。';
+  }
+
+  @override
+  String get manageCatalogs => '管理目录';
+
+  @override
+  String get helpCatalogs =>
+      '每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。';
+
+  @override
+  String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';
+
+  @override
+  String get deleteCatalog => '删除目录';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return '$name 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '已删除 $name。文件在 $where。';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return '输入 $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return '没有删除任何内容：无法写入目录文件（$error）。请腾出空间或稍后再试。';
+  }
+
+  @override
+  String get moveToCatalog => '移动到其他目录';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '已将 $count 项移动到 $name';
+  }
+
+  @override
+  String get chooseWhatToMove => '要移动什么？';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return '要把什么移动到 $name 吗？';
+  }
+
+  @override
+  String get undoThisImport => '撤销这次导入';
+
+  @override
+  String undoImportBody(int count) {
+    return '这次导入带来的 $count 处改动会被移除。它们会先写入一个文件，导入该文件即可恢复。已经与你同步过的人仍保有各自的副本，这一点无法收回。';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return '已撤销。文件在 $where。';
+  }
+
+  @override
+  String get goBackTitle => '回到之前';
+
+  @override
+  String get goBackToHere => '回到这里';
+
+  @override
+  String get momentImport => '导入之前';
+
+  @override
+  String get momentSync => '同步之前';
+
+  @override
+  String get momentMerge => '合并之前';
+
+  @override
+  String get momentHardDelete => '删除某位记录者的数据之前';
+
+  @override
+  String get momentArchive => '归档之前';
+
+  @override
+  String get momentManual => '你标记的时刻';
+
+  @override
+  String get showOlderMoments => '显示更早的';
+
+  @override
+  String goBackBody(int count) {
+    return '这一刻之后的一切都会被移除，共 $count 处改动。全部会先写入文件，导入即可恢复；比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有副本，无法收回。';
+  }
+
+  @override
+  String get nameThisMoment => '给这个时刻起个名字';
+
+  @override
+  String get helpGoBack =>
+      '这个目录发生较大变化的时刻：每次导入和同步之前，合并、归档或删除之前，以及你自己标记的时候。选择其中一个，目录就回到那个状态——之后的一切会先写入你保留的文件再移除，比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有收到的内容。';
+
+  @override
+  String goBackFileFailed(String error) {
+    return '没有移除任何内容：保存它的文件无法写入（$error）。请腾出空间后重试。';
+  }
+
+  @override
+  String get switchBeforeDeleting => '这是你当前所在的目录。请先切换到另一个目录，再删除它。';
+
+  @override
+  String shareFileFailed(String error) {
+    return '无法写入分享文件（$error）。请腾出空间后重试。';
+  }
 }

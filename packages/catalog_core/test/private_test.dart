@@ -20,6 +20,8 @@ void sync(CatalogStore a, CatalogStore b,
 }
 
 void main() {
+  setUpAll(useSystemSqlite);
+
   late CatalogStore a, b;
 
   setUp(() {

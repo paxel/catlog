@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
+import '../help.dart';
 import '../auto_backup.dart';
 import '../l10n.dart';
 import 'in_person_screen.dart';
@@ -19,7 +20,9 @@ class SyncScreen extends StatelessWidget {
     final t = context.t;
     final backupError = store.localSetting(backupErrorKey);
     return Scaffold(
-      appBar: AppBar(title: Text(t.sync)),
+      appBar: AppBar(title: Text(t.sync), actions: [
+        HelpButton(store: store, screenId: 'sync'),
+      ]),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

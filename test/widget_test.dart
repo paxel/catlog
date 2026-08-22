@@ -54,7 +54,7 @@ void main() {
     expect(store.author, 'axel');
 
     // Fresh installs get the skippable intro first (never unskippable).
-    expect(find.text('Cats live in clowders'), findsOneWidget);
+    expect(find.text('Your cats, organized'), findsOneWidget);
     await tester.tap(find.text('Skip'));
     await tester.pumpAndSettle();
 
@@ -73,9 +73,14 @@ void main() {
     await tester.tap(find.text('Create'));
     await tester.pumpAndSettle();
 
-    // Detail screen opens for the new clowder.
+    // Detail screen opens for the new clowder, read-only (#46).
     expect(find.text('Foster Home South'), findsOneWidget);
+    expect(find.text('Address'), findsNothing);
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     expect(find.text('Address'), findsOneWidget);
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
 
     // Back on the list it is present too.
     await tester.pageBack();
@@ -132,7 +137,10 @@ void main() {
     // Open the cat and rename it; the change is authored and historic.
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Rename'));
+    // Renaming lives in edit mode: pencil first, then the title (#46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Mizzi');
     await tester.tap(find.text('Save'));
@@ -157,7 +165,9 @@ void main() {
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
 
-    // Set gender via the typed editor.
+    // Set gender via the typed editor (edit mode first, #46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Gender'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('female'));
@@ -186,6 +196,9 @@ void main() {
     await tester.tap(find.text('Runner'));
     await tester.pumpAndSettle();
 
+    // Moving is an edit: enter edit mode first (#46).
+    await tester.tap(find.byTooltip('Edit'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Clowder'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('No clowder — stray / ran away'));
@@ -197,13 +210,14 @@ void main() {
     expect(store.strays().single.id, cat);
     expect(find.text('Stray — no clowder'), findsOneWidget);
 
-    // Home screen shows the stray count.
-    await tester.pageBack();
+    // Leave edit mode, then navigate home.
+    await tester.tap(find.byTooltip('Done'));
     await tester.pumpAndSettle();
     await tester.pageBack();
     await tester.pumpAndSettle();
-    expect(find.text('Strays'), findsOneWidget);
-    expect(find.text('1'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    expect(find.text('Strays (1)'), findsOneWidget);
   });
 
   testWidgets('a stray can be created directly from the strays screen',
@@ -213,7 +227,7 @@ void main() {
     store.author = 'axel';
 
     await tester.pumpWidget(CatlogApp(store: store));
-    await tester.tap(find.text('Strays'));
+    await tester.tap(find.textContaining('Strays'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add stray'));
     await tester.pumpAndSettle();
@@ -222,6 +236,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(store.strays().single.name, 'Foundling');
+    // A fresh cat's page opens in edit mode, ready to fill in (#46).
+    expect(find.byTooltip('Done'), findsOneWidget);
+    expect(find.text('Breed'), findsOneWidget);
   });
 
   testWidgets('a field definition can be renamed', (tester) async {
@@ -263,6 +280,9 @@ void main() {
     await tester.tap(find.text('Zuhause'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Miezi'));
+    await tester.pumpAndSettle();
+    // Empty starter fields only show in edit mode (#46).
+    await tester.tap(find.byTooltip('Bearbeiten'));
     await tester.pumpAndSettle();
     // Starter field name shows in German (ADR-0005 display-time).
     expect(find.text('Geschlecht'), findsOneWidget);

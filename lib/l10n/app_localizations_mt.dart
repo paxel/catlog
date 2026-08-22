@@ -181,7 +181,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sinkronizzazzjoni li jmiss, għand l-għajnuniet tiegħek ukoll.';
+      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
 
   @override
   String get sightingRecorded =>
@@ -211,6 +211,182 @@ class AppLocalizationsMt extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Numru taċ-ċippa';
+
+  @override
+  String get starterRemarks => 'Rimarki';
+
+  @override
+  String get captureFlier => 'Ħu ritratt tal-flier';
+
+  @override
+  String get addPhotosTo => 'Żid ir-ritratti ma\'…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count ritratt(i) miżjuda ma\' $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skennja kodiċi stampat';
+
+  @override
+  String get chipScanHint =>
+      'Jiskennja l-QR/barcode stampat mill-karta taċ-ċippa jew mid-dokumenti tal-veterinarju — it-telefon ma jistax jaqra ċ-ċippa ġol-qattus.';
+
+  @override
+  String get savingLabel => 'Qed jissejvja…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Sid ta\' $name';
+  }
+
+  @override
+  String get sortLabel => 'Issortja';
+
+  @override
+  String get viewAsTable => 'Uri bħala tabella';
+
+  @override
+  String get viewAsTiles => 'Uri bħala madum';
+
+  @override
+  String get matchCandidatesTitle => 'Tqabbil possibbli';
+
+  @override
+  String get findDuplicates => 'Sib duplikati';
+
+  @override
+  String get noDuplicates => 'M\'hemm l-ebda duplikat possibbli bħalissa.';
+
+  @override
+  String get similarName => 'Isem simili';
+
+  @override
+  String get sharePublicly => 'Aqsam pubblikament…';
+
+  @override
+  String get privateNoShare =>
+      'Dan il-qattus huwa mmarkat bħala privat — data privata qatt ma titlaq mill-apparat tiegħek. L-ewwel neħħi l-marka biex taqsmu pubblikament.';
+
+  @override
+  String get pickFramesTitle => 'Agħżel frejms';
+
+  @override
+  String get suggestedFrames => 'Frejms issuġġeriti';
+
+  @override
+  String get scrubFrames => 'Skrolja l-video';
+
+  @override
+  String get keepThisFrame => 'Żomm dan il-frejm';
+
+  @override
+  String get fromVideo => 'Minn video…';
+
+  @override
+  String get videoMobileOnly =>
+      'L-għażla ta\' frejms minn video taħdem fl-app tat-telefon (Android u iPhone) — għadha mhux fuq dan l-apparat.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Agħżel x\'jidħol fil-fajl. Jiġu inklużi biss l-oqsma mmarkati.';
+
+  @override
+  String get exportShareFile => 'Esporta l-fajl tal-qsim…';
+
+  @override
+  String get hostedLink => 'Link ospitat (URL tal-fajl imtella\')';
+
+  @override
+  String get inlineQr => 'QR inkorporat (test biss, mingħajr ritratti)';
+
+  @override
+  String get inlineTooBig =>
+      'Wisq data għal kodiċi inkorporat — neħħi oqsma jew uża link ospitat.';
+
+  @override
+  String get scanShareLabel => 'Skennja l-kodiċi tal-qsim';
+
+  @override
+  String get notAShareCode => 'Dak il-kodiċi mhux qsim ta\' cat(a)log.';
+
+  @override
+  String get importShareTitle => 'Timporta dan il-qattus?';
+
+  @override
+  String shareSource(String url) {
+    return 'Sors: $url';
+  }
+
+  @override
+  String get importLabel => 'Importa';
+
+  @override
+  String get strayAreaLabel => 'Żona possibbli ta\' vagabondaġġ';
+
+  @override
+  String get prevPin => 'Pinna ta\' qabel';
+
+  @override
+  String get nextPin => 'Il-pinna li jmiss';
+
+  @override
+  String get noMissingCats =>
+      'Għad m\'hemmx qtates mitlufa b\'pożizzjonijiet ta\' fliers.';
+
+  @override
+  String get noMatchCandidates => 'M\'hemm l-ebda tqabbil possibbli bħalissa.';
+
+  @override
+  String sameIdField(String field) {
+    return 'L-istess $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m \'il bogħod';
+  }
+
+  @override
+  String get addFlier => 'Żid flier';
+
+  @override
+  String get missingSinceLabel => 'Mitluf minn';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Aqta\' r-ritratt';
+
+  @override
+  String get statusOwner => 'Sid';
+
+  @override
+  String get ocrUnavailable =>
+      'L-għarfien tat-test mhux disponibbli fuq dan l-apparat — ikteb it-test tal-flier int stess.';
+
+  @override
+  String get displayFormat => 'Muri bħala';
+
+  @override
+  String get displayPlain => 'Test sempliċi';
+
+  @override
+  String get displayQr => 'Kodiċi QR';
+
+  @override
+  String get displayBarcode => 'Barcode';
+
+  @override
+  String get editLabel => 'Editja';
+
+  @override
+  String get doneLabel => 'Lest';
+
+  @override
   String get openSettings => 'Iftaħ is-settings';
 
   @override
@@ -236,6 +412,29 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get malePregnant =>
       'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name hija rreġistrata bħala mara u ma tistax tkun il-missier. L-ewwel iċċekkja s-sess.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name huwa rreġistrat bħala raġel u ma jistax ikun l-omm. L-ewwel iċċekkja s-sess.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name twieled fi $date — ġenitur ma jistax jitwieled wara l-ferħ tiegħu.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Dan il-qattus huwa rreġistrat bħala missier ta\' qtates oħra — il-missier ma jistax ikun mara. L-ewwel iċċekkja l-familja.';
+
+  @override
+  String get genderMotherMale =>
+      'Dan il-qattus huwa rreġistrat bħala omm ta\' qtates oħra — l-omm ma tistax tkun raġel. L-ewwel iċċekkja l-familja.';
 
   @override
   String get moveTo => 'Mexxi lejn';
@@ -419,7 +618,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Issinkronizza permezz ta\' folder li cloud jew USB iġorr bejn l-apparati — għal min mhux fuq l-istess netwerk.';
+      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
 
   @override
   String get noFolderChosenYet => 'Għad m\'hemmx folder magħżul';
@@ -599,7 +798,234 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterResponsible => 'Persuna responsabbli';
 
   @override
-  String get starterPosition => 'Pożizzjoni';
+  String get starterEmail => 'Email';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Link tat-tiftix';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Il-paġna tas-servizz b\'$token minflok in-numru, eż. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Fittex';
+
+  @override
+  String lookupFailed(String url) {
+    return 'L-ebda app ma setgħet tiftaħ $url. Ikkopja l-link f\'browser.';
+  }
+
+  @override
+  String get stepCat => 'Qattus';
+
+  @override
+  String get stepOwner => 'Sid';
+
+  @override
+  String get stepFace => 'Ritratt tal-wiċċ';
+
+  @override
+  String get stepRegistry => 'Reġistru';
+
+  @override
+  String get stepReview => 'Iċċekkja u ssejvja';
+
+  @override
+  String get stepOwnerHint =>
+      'Min tilef il-qattus — minn dan issir il-kard tiegħu, bil-kuntatt mill-flier.';
+
+  @override
+  String get stepFaceHint =>
+      'Aqta\' wiċċ il-qattus mill-flier; isir ir-ritratt tal-profil. Tista\' taqbeż dan.';
+
+  @override
+  String get stepRegistryHint =>
+      'Numri misjuba fuq il-flier. Dawk immarkati jinżammu mal-qattus u jinfetħu wara.';
+
+  @override
+  String get noRegistryLinks =>
+      'L-ebda link ta\' reġistru fuq dan il-flier — m\'hemm xejn x\'tagħmel hawn.';
+
+  @override
+  String get unknownServiceHint => 'Servizz mhux magħruf';
+
+  @override
+  String get rememberService => 'Ftakar is-servizz';
+
+  @override
+  String get rememberServiceHint =>
+      'Agħti isem lis-servizz u uri n-numru fil-link. Il-flier li jmiss jimtela waħdu.';
+
+  @override
+  String get noIdInLink => 'Dan il-link ma fihx numru li l-app tista\' żżomm.';
+
+  @override
+  String get whichNumber => 'Liema parti hi n-numru?';
+
+  @override
+  String get cropAgain => 'Aqta\' mill-ġdid';
+
+  @override
+  String get noFaceYet =>
+      'Għadu m\'hemmx ritratt tal-wiċċ — jintuża r-ritratt tal-flier.';
+
+  @override
+  String get backLabel => 'Lura';
+
+  @override
+  String get dangerButton => 'TAGĦFASX.\nPERIKLU';
+
+  @override
+  String get dangerThanks => 'Grazzi talli tuża cat(a)log!';
+
+  @override
+  String get helpTitle => 'Għajnuna';
+
+  @override
+  String get showTipsAgain => 'Uri l-pariri mill-ġdid';
+
+  @override
+  String get helpHome =>
+      'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.';
+
+  @override
+  String get helpClowder =>
+      'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu.';
+
+  @override
+  String get helpCat =>
+      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija read-only sakemm tagħfas il-lapes. Għafsa twila fuq qasam tieħdok dritt fl-editjar tiegħu; fuq ritratt tiftaħ il-menu tiegħu. Il-menu fuq il-lemin fuq għandu l-bqija: privat, aħbi, għaqqad, niżżel osservazzjoni, aqsam.';
+
+  @override
+  String get helpStrays =>
+      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.';
+
+  @override
+  String get helpMap =>
+      'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
+
+  @override
+  String get helpCard =>
+      'Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x\'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma\' Plus Code qasir.';
+
+  @override
+  String get helpSync =>
+      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll.';
+
+  @override
+  String get helpFields =>
+      'L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta\' qasam ta\' għażla, jew oħloq tiegħek. Qasam ta\' identifikatur jista\' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.';
+
+  @override
+  String get helpTimeline =>
+      'Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista\' titreġġa\' lura — dan jikteb entrata ġdida, xejn ma jitħassar.';
+
+  @override
+  String get helpDuplicates =>
+      'Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b\'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa\' lura, għalhekk tistaqsi l-ewwel.';
+
+  @override
+  String get helpMatches =>
+      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
+
+  @override
+  String get helpFlier =>
+      'Poster mitfugħ f\'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta\' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.';
+
+  @override
+  String get archiveTitle => 'Arkivju';
+
+  @override
+  String get archiveExplainer =>
+      'Qtates mejta u kolonji vojta li ħadd ma messhom għal snin xorta jieħdu spazju — l-aktar ir-ritratti tagħhom. L-arkivjar jiktibhom f\'fajl li żżomm int u mbagħad iħassarhom minn hawn.';
+
+  @override
+  String get archiveAction => 'Arkivja';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivja $count entrati';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Tarkivja $count entrati?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names se jinkitbu f\'fajl u mbagħad jitħassru — fuq l-apparat tiegħek u fuq kull apparat li tissinkronizza miegħu. L-importazzjoni tal-fajl iġġib kollox lura; mingħajru jintilfu.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count entrati arkivjati u mħassra';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Ma tħassar xejn: il-fajl tal-arkivju ma setax jinkiteb ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Database $db, ritratti $photos f\'$count fajls';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Bla bidla għal $years snin';
+  }
+
+  @override
+  String get nothingToArchive =>
+      'M\'hemm xejn antik biżżejjed biex jiġi arkivjat.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'L-aħħar bidla $date · ritratti $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Data qadima tiswa spazju, l-aktar ir-ritratti li kull apparat sinkronizzat iġorr. Hawn tagħżel qtates mejta u kolonji vojta li ilhom kwieti snin, tiktibhom f\'fajl li żżomm, u tħassarhom. It-tħassir jasal għand kull min tissinkronizza miegħu; l-importazzjoni tal-fajl treġġa\' kollox lura.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Terġa\' ddaħħal $count entrati mħassra?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names huma mħassra f\'dan il-katalgu, u l-fajl li għadek kif importajt fih dawn. It-treġġigħ lura jġibhom hawn u fuq kull apparat li tissinkronizza miegħu.';
+  }
+
+  @override
+  String get restoreAction => 'Erġa\' daħħal';
+
+  @override
+  String get keepDeleted => 'Ħallihom imħassra';
+
+  @override
+  String get archiveNotSaved =>
+      'Ma tħassar xejn: l-arkivju ma ġie ssejvjat imkien.';
+
+  @override
+  String get locateAddress => 'Sib l-indirizz fuq il-mappa';
+
+  @override
+  String get addressLocated => 'L-indirizz instab';
+
+  @override
+  String get addressNotFound =>
+      'Ma nstab l-ebda post għal dan l-indirizz. Iċċekkja l-kitba jew ħallih vojt.';
+
+  @override
+  String get starterPosition => 'Post';
 
   @override
   String get valueYes => 'iva';
@@ -714,7 +1140,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Qtates, gruppi u oqsma privati jinqasmu wkoll — ixgħel biss meta tissinkronizza l-apparati tiegħek stess.';
+      'B\'hekk jintbagħat ukoll dak kollu li mmarkajt bħala privat. Min jissinkronizza miegħek se jarah.';
 
   @override
   String get hideLabel => 'Aħbi fuq dan l-apparat';
@@ -732,7 +1158,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterSpecies => 'Speċi';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Tip';
 
   @override
   String get statusFoster => 'Dar tal-fostering';
@@ -926,7 +1352,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Ibgħat kollox bħala fajl wieħed bi kwalunkwe messenger';
+      'Ibgħat kollox bħala fajl wieħed minn kwalunkwe messenger — u importa fajl .catsync riċevut hawn';
 
   @override
   String get connectToWifiFirst =>
@@ -974,25 +1400,25 @@ class AppLocalizationsMt extends AppLocalizations {
   String get selectClowderHint => 'Agħżel clowder fuq ix-xellug';
 
   @override
-  String get introTitle1 => 'Il-qtates jgħixu fi clowders';
+  String get introTitle1 => 'Il-qtates tiegħek, organizzati';
 
   @override
   String get introBody1 =>
-      'Clowder huwa post fejn jgħixu l-qtates: id-dar tal-fostering tiegħek, l-appartament ta\' min jadotta, il-maqjel tal-ġenb. Kull qattus għandu karta b\'ritratt, fatti u l-istorja kollha tiegħu.';
+      'Oħloq kard għal kull qattus: ritratt, sess, saħħa, kulma trid tniżżel. Il-qtates huma miġbura skont fejn jgħixu — l-app issejjaħ dak il-post kolonja (clowder).';
 
   @override
-  String get introTitle2 => 'Kollox jibqa\' għandek';
+  String get introTitle2 => 'Jaħdem mingħajr internet';
 
   @override
   String get introBody2 =>
-      'L-ebda kont, l-ebda cloud, l-ebda traċċar. Id-data tiegħek tgħix fuq l-apparat tiegħek.';
+      'Kollox jinħażen biss fuq it-telefon tiegħek. L-ebda kont, l-ebda cloud. Xejn ma jittella\' sakemm ma taqsmux int stess.';
 
   @override
-  String get introTitle3 => 'Aqsam mal-għajnuniet tiegħek';
+  String get introTitle3 => 'Aħdmu flimkien';
 
   @override
   String get introBody3 =>
-      'Skennja kodiċi u żewġ apparati jissinkronizzaw f\'sekondi, uża folder kondiviż jew ibgħat kollox bħala fajl wieħed.';
+      'Kulħadd juża l-app tiegħu u kultant tpartu d-data: iltaqgħu u skennjaw kodiċi, użaw folder kondiviż jew ibagħtu fajl wieħed b\'messenger. Wara kulħadd ikollu l-istess informazzjoni.';
 
   @override
   String get introSkip => 'Aqbeż';
@@ -1008,19 +1434,50 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Ġdid: is-sinkronizzazzjoni issa toffri tliet toroq ċari — u mistoqsija ta\' fiduċja qabel ma jgħaddi xejn.';
+      'Hawn tissinkronizza ma\' nies li taf. Int tiddeċiedi x\'taqsam.';
+
+  @override
+  String get spotHomeStrays =>
+      'Din il-kard tiġbor il-qtates tat-triq kollha — qtates bla dar. Għafas għal-lista.';
+
+  @override
+  String get spotHomeMenu =>
+      'F\'dan il-menu: sib u għaqqad id-duplikati, esporta CSV u aktar.';
+
+  @override
+  String get spotCatEdit =>
+      'Għafas fuq il-lapes biex teditja dan il-qattus. Ħjiel: għafsa twila fuq qasam teditjah direttament.';
+
+  @override
+  String get spotMapLayers =>
+      'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu u madwar id-dar li ħarab minnha.';
+
+  @override
+  String get spotStraysFlier =>
+      'Flier ta\' qattus mitluf? Ħu ritratt tiegħu hawn — l-app iżżomm il-qattus u l-kuntatt għalik.';
+
+  @override
+  String get spotStraysScan =>
+      'Xi fliers għandhom kodiċi QR ta\' cat(a)log. Skennjah hawn u importa l-qattus mingħajr ma tikteb.';
+
+  @override
+  String get introTitle4 => 'Sib il-qtates mitlufa';
+
+  @override
+  String get introBody4 =>
+      'Tara flier ta\' qattus mitluf? Ħu ritratt tiegħu fl-app: iżżomm il-qattus, il-kuntatt ta\' sidu u l-post. Jekk aktar tard jitfaċċa qattus tat-triq simili, l-app tissuġġerixxi tqabbil possibbli.';
 
   @override
   String get spotMapSearch =>
-      'Ġdid: fittex qtates, gruppi u nies hawn — direttament fuq il-mappa.';
+      'Ikteb qattus, post jew persuna biex taqbeż hemm fuq il-mappa.';
 
   @override
   String get spotCardChips =>
-      'Ġdid: agħżel x\'jidher fuq il-karta qabel ma taqsamha.';
+      'Immarka x\'għandu jidher fuq il-kard li tinqasam — il-bqija jibqa\' barra.';
 
   @override
   String get spotCatMenu =>
-      'Ġdid: immarka qattus bħala privat (qatt ma jitlaq mill-apparat) jew aħbih hawn.';
+      'Aktar azzjonijiet hawn: immarka l-qattus bħala privat, aħbih, għaqqad duplikati jew niżżel osservazzjoni.';
 
   @override
   String get spotDone => 'Fhimt';
@@ -1061,4 +1518,134 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log waqaf għal għarrieda l-aħħar darba — x\'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?';
+
+  @override
+  String get catalogsTitle => 'Katalgi';
+
+  @override
+  String get newCatalog => 'Katalgu ġdid';
+
+  @override
+  String get catalogNameLabel => 'Isem tal-katalgu';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Diġà hemm katalgu jismu $name. Agħżel isem ieħor.';
+  }
+
+  @override
+  String get manageCatalogs => 'Immaniġġja l-katalgi';
+
+  @override
+  String get helpCatalogs =>
+      'Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.';
+
+  @override
+  String get deleteCatalog => 'Ħassar il-katalgu';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Kollox f’$name jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name tħassar. Il-fajl qiegħed f’$where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Ikteb $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ($error). Illibera spazju jew erġa’ pprova aktar tard.';
+  }
+
+  @override
+  String get moveToCatalog => 'Mexxi għal katalgu ieħor';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count imxew għal $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'X’għandu jitmexxa?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Tmexxi xi ħaġa għal $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Ħassar din l-importazzjoni';
+
+  @override
+  String undoImportBody(int count) {
+    return 'It-$count bidliet li ġabet din l-importazzjoni jitneħħew. L-ewwel jinkitbu f’fajl, u l-importazzjoni tiegħu ġġibhom lura. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Imħassar. Il-fajl qiegħed f’$where.';
+  }
+
+  @override
+  String get goBackTitle => 'Mur lura';
+
+  @override
+  String get goBackToHere => 'Erġa’ lura hawn';
+
+  @override
+  String get momentImport => 'Qabel l-importazzjoni';
+
+  @override
+  String get momentSync => 'Qabel is-sinkronizzazzjoni';
+
+  @override
+  String get momentMerge => 'Qabel l-għaqda';
+
+  @override
+  String get momentHardDelete => 'Qabel it-tħassir tad-data ta’ awtur';
+
+  @override
+  String get momentArchive => 'Qabel l-arkivjar';
+
+  @override
+  String get momentManual => 'Immarkat minnek';
+
+  @override
+  String get showOlderMoments => 'Uri l-eqdem';
+
+  @override
+  String goBackBody(int count) {
+    return 'Kollox wara dan il-mument jitneħħa — $count bidliet. L-ewwel jinkiteb f’fajl, u l-importazzjoni tiegħu ġġib kollox lura; kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.';
+  }
+
+  @override
+  String get nameThisMoment => 'Agħti isem lil dan il-mument';
+
+  @override
+  String get helpGoBack =>
+      'Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ($error). Illibera spazju u erġa’ pprova.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Il-fajl tal-qsim ma setax jinkiteb ($error). Illibera spazju u erġa’ pprova.';
+  }
 }

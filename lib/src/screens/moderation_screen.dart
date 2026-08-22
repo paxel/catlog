@@ -64,6 +64,10 @@ class _ModerationScreenState extends State<ModerationScreen> {
       ),
     );
     if (confirmed != true || !mounted) return;
+    // No moment is recorded here on purpose: a hard delete removes
+    // entries instead of adding any (ADR-0006), so there would be
+    // nothing above the mark to put back. The ban list is what keeps
+    // the material from coming home.
     final removedBlobs = store.hardDeleteAuthor(row.author);
     if (alsoBan) {
       store.ban(author: row.author);

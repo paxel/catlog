@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +48,13 @@ class _MessengerScreenState extends State<MessengerScreen> {
     final path = picked?.files.single.path;
     if (path == null) return;
     try {
-      final result = importBundle(widget.store, path);
+      final imported = importWithMoment(widget.store, path,
+          label: path.split(Platform.pathSeparator).last);
+      final result = imported.result;
       setState(() => _lastResult = t.bundleImported('$result'));
       if (mounted && result.applied.isNotEmpty) {
-        await showImportSummary(context, widget.store, result.applied);
+        await showImportSummary(context, widget.store, result.applied,
+            undo: imported.moment);
       }
     } catch (e) {
       setState(() => _lastResult = t.notACatlogFile);

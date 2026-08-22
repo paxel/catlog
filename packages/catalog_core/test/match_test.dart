@@ -1,0 +1,114 @@
+import 'package:catalog_core/catalog_core.dart';
+import 'package:test/test.dart';
+
+void main() {
+  setUpAll(useSystemSqlite);
+
+  late CatalogStore store;
+
+  setUp(() {
+    store = CatalogStore.inMemory();
+    store.author = 'test';
+  });
+
+  tearDown(() => store.close());
+
+  test('normalized-equal chip IDs surface as an exact match', () {
+    final a = store.createCat('Minka');
+    final b = store.createCat('Fundkatze');
+    store.append(a, Keys.userField('chipid'), '276-0981 0234 5678');
+    store.append(b, Keys.userField('chipid'), '27609810 2345678');
+    final matches = matchCandidates(store);
+    expect(matches, hasLength(1));
+    expect(matches.single.reason, MatchReason.idExact);
+    expect(matches.single.idField!.slug, 'chipid');
+  });
+
+  test('a stray sighted inside the flier circle is a geo candidate', () {
+    final missing = store.createCat('Minka');
+    store.recordPosition(missing, 48.1000, 11.5000,
+        kind: PositionKind.flier);
+    final near = store.createCat('Nearby');
+    // ~330 m north of the flier.
+    store.recordPosition(near, 48.1030, 11.5000);
+    final far = store.createCat('Far');
+    store.recordPosition(far, 48.2000, 11.5000);
+
+    final matches = matchCandidates(store);
+    expect(matches, hasLength(1));
+    final m = matches.single;
+    expect(m.reason, MatchReason.geoDate);
+    expect({m.a, m.b}, {missing, near});
+    expect(m.distanceMeters, closeTo(334, 20));
+  });
+
+  test('housemates sighted at home never geo-match', () {
+    final home = store.createClowder('Home');
+    final a = store.createCat('Anton', clowderId: home);
+    final b = store.createCat('Berta', clowderId: home);
+    store.recordPosition(a, 48.1000, 11.5000);
+    store.recordPosition(b, 48.1001, 11.5001);
+    expect(matchCandidates(store), isEmpty);
+    // A missing cat's flier circle also ignores clowder residents.
+    final missing = store.createCat('Minka');
+    store.recordPosition(missing, 48.1000, 11.5000,
+        kind: PositionKind.flier);
+    expect(
+        matchCandidates(store).where((m) => {m.a, m.b}.contains(a)),
+        isEmpty);
+  });
+
+  test('the home a stray ran from works like a flier circle', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final runaway = store.createCat('Minka', clowderId: home);
+    store.moveCat(runaway, null);
+    expect(strayHomePosition(store, runaway), isNotNull);
+
+    // ~330 m from the home, no flier anywhere.
+    final near = store.createCat('Fundkatze');
+    store.recordPosition(near, 48.1030, 11.5000);
+    final far = store.createCat('Far');
+    store.recordPosition(far, 48.2000, 11.5000);
+
+    final matches = matchCandidates(store);
+    expect(matches, hasLength(1));
+    expect({matches.single.a, matches.single.b}, {runaway, near});
+    expect(matches.single.distanceMeters, closeTo(334, 20));
+  });
+
+  test('two strays off the same home do not pair through it', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final a = store.createCat('Anton', clowderId: home);
+    final b = store.createCat('Berta', clowderId: home);
+    store.moveCat(a, null);
+    store.moveCat(b, null);
+    // Neither has been sighted; only the shared home could pair them.
+    expect(matchCandidates(store), isEmpty);
+  });
+
+  test('a cat back in a clowder loses its home circle', () {
+    final home = store.createClowder('Hof');
+    store.append(home, CatalogStore.positionKey, '48.1000,11.5000');
+    final returned = store.createCat('Minka', clowderId: home);
+    store.moveCat(returned, null);
+    store.moveCat(returned, home);
+    expect(strayHomePosition(store, returned), isNull);
+    final near = store.createCat('Fundkatze');
+    store.recordPosition(near, 48.1030, 11.5000);
+    expect(matchCandidates(store), isEmpty);
+  });
+
+  test('an ID match swallows the geo pair for the same two cats', () {
+    final a = store.createCat('A');
+    final b = store.createCat('B');
+    store.append(a, Keys.userField('chipid'), '111111111111111');
+    store.append(b, Keys.userField('chipid'), '111111111111111');
+    store.recordPosition(a, 48.1, 11.5);
+    store.recordPosition(b, 48.1001, 11.5);
+    final matches = matchCandidates(store);
+    expect(matches, hasLength(1));
+    expect(matches.single.reason, MatchReason.idExact);
+  });
+}

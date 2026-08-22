@@ -5,15 +5,20 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../layout.dart';
+import '../help.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
+import '../plus_code.dart';
 import '../share.dart';
 import '../spotlight.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 /// A Cat's Card: photo plus current facts on one screen, exportable as
@@ -83,14 +88,75 @@ class _CardScreenState extends State<CardScreen> {
     }
     for (final def in store.visibleFieldDefs(scope: FieldScope.cat)) {
       if (!_selected.contains(def.key)) continue;
-      final value = store.current(id, def.key);
-      if (value != null) {
-        facts.add(
-            (fieldDefName(t, def), fieldValueDisplay(t, def, value)));
+      // Location renders as a scannable QR + Plus Code, not as a row;
+      // scannable IDs render as their code alone — a fact row would
+      // repeat the label and number.
+      if (def.type == FieldType.location) continue;
+      if (def.type == FieldType.id && def.idDisplay != IdDisplay.plain) {
+        continue;
       }
+      final value = store.current(id, def.key);
+      if (value == null) continue;
+      if (def.type == FieldType.cat) {
+        // A linked cat prints by name; the entity id means nothing to
+        // whoever holds the card, so an unresolvable link is left off.
+        final name = store.current(store.resolveEntity(value), Keys.name);
+        if (name != null && name.isNotEmpty) {
+          facts.add((fieldDefName(t, def), name));
+        }
+        continue;
+      }
+      facts.add((fieldDefName(t, def), fieldValueDisplay(t, def, value)));
     }
     return facts;
   }
+
+  /// Selected, filled location Fields — the Card shows them as a
+  /// scannable geo QR plus the printable Plus Code, because "on the
+  /// map" means nothing on paper.
+  List<(FieldDef, double, double)> _cardPositions() => [
+        for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+          if (def.type == FieldType.location &&
+              _selected.contains(def.key))
+            if (CatalogStore.parsePosition(store.current(id, def.key))
+                case final pos?)
+              (def, pos.$1, pos.$2)
+      ];
+
+  /// Selected, filled ID Fields that render scannable (QR/barcode, #28).
+  List<(FieldDef, String)> _scannableIds() => [
+        for (final def in store.visibleFieldDefs(scope: FieldScope.cat))
+          if (def.type == FieldType.id &&
+              def.idDisplay != IdDisplay.plain &&
+              _selected.contains(def.key) &&
+              store.current(id, def.key) != null)
+            (def, store.current(id, def.key)!)
+      ];
+
+  Widget _scannable(FieldDef def, String value) => Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Column(children: [
+          if (def.idDisplay == IdDisplay.qr) ...[
+            QrImageView(data: value, size: 110),
+            // The QR alone shows nothing readable — one caption line.
+            Text('${fieldDefName(context.t, def)}: $value',
+                style: Theme.of(context).textTheme.bodySmall),
+          ] else if (printsAsCode128(value))
+            // Code128 prints the number under the bars itself.
+            BarcodeWidget(
+              barcode: Barcode.code128(),
+              data: value,
+              width: 220,
+              height: 64,
+            )
+          else
+            // Scanners write whatever they read into an ID field, and
+            // Code128 cannot carry every character. The value still
+            // belongs on the card — as text rather than as a crash.
+            Text('${fieldDefName(context.t, def)}: $value',
+                style: Theme.of(context).textTheme.bodySmall),
+        ]),
+      );
 
   /// Chips for everything that could be on the card: photo, clowder,
   /// and each filled field of this cat.
@@ -142,6 +208,7 @@ class _CardScreenState extends State<CardScreen> {
   }
 
   Future<pw.Document> _buildPdf() async {
+    final t = context.t;
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final hash =
         _selected.contains(_photoKey) ? store.profileImage(id) : null;
@@ -186,6 +253,46 @@ class _CardScreenState extends State<CardScreen> {
                           style: const pw.TextStyle(fontSize: 12))),
                 ]),
               ),
+            for (final (def, lat, lon) in _cardPositions())
+              pw.Padding(
+                padding: const pw.EdgeInsets.only(top: 10),
+                child: pw.Column(children: [
+                  pw.BarcodeWidget(
+                    barcode: pw.Barcode.qrCode(),
+                    data: 'geo:$lat,$lon',
+                    width: 80,
+                    height: 80,
+                  ),
+                  pw.Text(
+                      '${fieldDefName(t, def)}: '
+                      '${encodePlusCode(lat, lon)}',
+                      style: const pw.TextStyle(
+                          fontSize: 9, color: PdfColors.grey700)),
+                ]),
+              ),
+            for (final (def, value) in _scannableIds())
+              pw.Padding(
+                padding: const pw.EdgeInsets.only(top: 10),
+                child: pw.Column(children: [
+                  if (def.idDisplay == IdDisplay.qr ||
+                      printsAsCode128(value))
+                    pw.BarcodeWidget(
+                      barcode: def.idDisplay == IdDisplay.qr
+                          ? pw.Barcode.qrCode()
+                          : pw.Barcode.code128(),
+                      data: value,
+                      width: def.idDisplay == IdDisplay.qr ? 80 : 180,
+                      height: def.idDisplay == IdDisplay.qr ? 80 : 44,
+                    )
+                  else
+                    pw.Text('${fieldDefName(t, def)}: $value',
+                        style: const pw.TextStyle(fontSize: 9)),
+                  if (def.idDisplay == IdDisplay.qr)
+                    pw.Text('${fieldDefName(t, def)}: $value',
+                        style: const pw.TextStyle(
+                            fontSize: 9, color: PdfColors.grey700)),
+                ]),
+              ),
             pw.Spacer(),
             pw.Text('cat(a)log',
                 style: const pw.TextStyle(
@@ -217,9 +324,11 @@ class _CardScreenState extends State<CardScreen> {
     final photo = hash == null ? null : imageProviderFor(store, hash);
     final facts = _facts();
     return Scaffold(
-      appBar: AppBar(
+      appBar: roomyAppBar(
+        context,
         title: Text(context.t.cardTitle(name)),
         actions: [
+          HelpButton(store: store, screenId: 'card'),
           IconButton(
               icon: const Icon(Icons.ios_share),
               tooltip: context.t.shareAsImage,
@@ -285,6 +394,26 @@ class _CardScreenState extends State<CardScreen> {
                         ],
                       ),
                     ),
+                  for (final (def, value) in _scannableIds())
+                    Center(child: _scannable(def, value)),
+                  for (final (def, lat, lon) in _cardPositions())
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Column(children: [
+                          QrImageView(
+                              data: 'geo:$lat,$lon',
+                              size: 110,
+                              backgroundColor: Colors.white),
+                          Text(
+                              '${fieldDefName(context.t, def)}: '
+                              '${encodePlusCode(lat, lon)}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall),
+                        ]),
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -293,5 +422,20 @@ class _CardScreenState extends State<CardScreen> {
         ]),
       ),
     );
+  }
+}
+
+/// Whether Code128 can carry [value].
+///
+/// An ID field takes whatever a scanner reads, including QR payloads
+/// with letters, umlauts and punctuation Code128 has no symbols for.
+/// Asking first turns a thrown BarcodeException — a red box where the
+/// card should be, and a failed PDF — into a printed line of text.
+bool printsAsCode128(String value) {
+  try {
+    Barcode.code128().verify(value);
+    return true;
+  } catch (_) {
+    return false;
   }
 }

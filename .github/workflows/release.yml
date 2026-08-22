@@ -1,7 +1,8 @@
-# The one Android/store pipeline. A branch push builds the signed app
-# bundle for Play internal testing; a tag additionally runs the gate and
-# everything below. One workflow means one run counter, so version codes
-# from internal and release builds can never collide (#39).
+# The one Android/store pipeline. A release-branch push builds ONLY the
+# signed Play bundle for internal testing; a tag (or the manual dispatch
+# button) additionally runs the gate and everything below. One workflow
+# means one run counter, so version codes from internal and release
+# builds can never collide (#39).
 #
 #   gate           — full Linux gate, tags only (analyze fatal-infos, all tests)
 #   build-android  — signed per-ABI + universal APKs
@@ -19,7 +20,7 @@ name: Release
 
 on:
   push:
-    branches: ["release/010/google"]
+    branches: ["release/**"]
     tags: ["v*"]
   # Releasing from the Actions UI: Run workflow → type the tag. `gh release
   # create` makes the tag at HEAD when it doesn't exist yet, so the button
@@ -137,7 +138,8 @@ jobs:
       - name: Install Linux desktop build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev \
+            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       # No packaged Flutter SDK exists for linux-arm64; a stable-branch
       # clone bootstraps the right Dart SDK on both architectures.
       - name: Install Flutter from git (works on arm64)
@@ -245,7 +247,8 @@ jobs:
           # Only the latest release stays in the repo; clients that lag
           # simply get the newest version, and Pages stays small.
           rm -f repo/*.apk
-          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-universal.apk" repo/
+          cp "$GITHUB_WORKSPACE/apks/catlog-$v-android-arm64-v8a.apk" \
+             "$GITHUB_WORKSPACE/apks/catlog-$v-android-armeabi-v7a.apk" repo/
           cat > config.yml <<EOF
           repo_url: https://paxel.github.io/fdroid/repo
           repo_name: cat(a)log

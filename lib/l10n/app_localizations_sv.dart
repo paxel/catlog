@@ -181,7 +181,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
-      'Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synkronisering, även hos dina hjälpare.';
+      'Katten försvinner från alla listor och dess foton tas bort — här och, efter nästa synk, även på de andra enheterna.';
 
   @override
   String get sightingRecorded => 'Observation sparad på din position.';
@@ -210,6 +210,182 @@ class AppLocalizationsSv extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get starterChipId => 'Chipnummer';
+
+  @override
+  String get starterRemarks => 'Anmärkningar';
+
+  @override
+  String get captureFlier => 'Fotografera anslag';
+
+  @override
+  String get addPhotosTo => 'Lägg till foton till…';
+
+  @override
+  String photosAddedTo(String count, String name) {
+    return '$count foton tillagda till $name';
+  }
+
+  @override
+  String get scanPrintedCode => 'Skanna tryckt kod';
+
+  @override
+  String get chipScanHint =>
+      'Skannar den tryckta QR-/streckkoden från chipkortet eller veterinärpapper — chippet i katten kan en telefon inte läsa.';
+
+  @override
+  String get savingLabel => 'Sparar…';
+
+  @override
+  String ownerOfCat(String name) {
+    return 'Ägare till $name';
+  }
+
+  @override
+  String get sortLabel => 'Sortera';
+
+  @override
+  String get viewAsTable => 'Visa som tabell';
+
+  @override
+  String get viewAsTiles => 'Visa som paneler';
+
+  @override
+  String get matchCandidatesTitle => 'Möjliga matchningar';
+
+  @override
+  String get findDuplicates => 'Hitta dubbletter';
+
+  @override
+  String get noDuplicates => 'Inga möjliga dubbletter just nu.';
+
+  @override
+  String get similarName => 'Liknande namn';
+
+  @override
+  String get sharePublicly => 'Dela offentligt…';
+
+  @override
+  String get privateNoShare =>
+      'Den här katten är markerad som privat — privata data lämnar aldrig din enhet. Ta bort markeringen först för att dela offentligt.';
+
+  @override
+  String get pickFramesTitle => 'Välj bildrutor';
+
+  @override
+  String get suggestedFrames => 'Föreslagna bildrutor';
+
+  @override
+  String get scrubFrames => 'Spola i videon';
+
+  @override
+  String get keepThisFrame => 'Behåll den här bildrutan';
+
+  @override
+  String get fromVideo => 'Från video…';
+
+  @override
+  String get videoMobileOnly =>
+      'Att välja bildrutor ur video fungerar i telefonappen (Android och iPhone) — inte på den här enheten ännu.';
+
+  @override
+  String get shareWhitelistExplainer =>
+      'Välj vad som hamnar i filen. Bara ikryssade fält tas med.';
+
+  @override
+  String get exportShareFile => 'Exportera delningsfil…';
+
+  @override
+  String get hostedLink => 'Värdlänk (URL till den uppladdade filen)';
+
+  @override
+  String get inlineQr => 'Inbäddad QR (endast text, inga foton)';
+
+  @override
+  String get inlineTooBig =>
+      'För mycket data för en inbäddad kod — kryssa ur fält eller använd en värdlänk.';
+
+  @override
+  String get scanShareLabel => 'Skanna delningskod';
+
+  @override
+  String get notAShareCode => 'Den koden är ingen cat(a)log-delning.';
+
+  @override
+  String get importShareTitle => 'Importera den här katten?';
+
+  @override
+  String shareSource(String url) {
+    return 'Källa: $url';
+  }
+
+  @override
+  String get importLabel => 'Importera';
+
+  @override
+  String get strayAreaLabel => 'Möjligt strövområde';
+
+  @override
+  String get prevPin => 'Föregående nål';
+
+  @override
+  String get nextPin => 'Nästa nål';
+
+  @override
+  String get noMissingCats =>
+      'Inga försvunna katter med anslagspositioner ännu.';
+
+  @override
+  String get noMatchCandidates => 'Inga möjliga matchningar just nu.';
+
+  @override
+  String sameIdField(String field) {
+    return 'Samma $field';
+  }
+
+  @override
+  String metersApart(String distance) {
+    return '$distance m ifrån varandra';
+  }
+
+  @override
+  String get addFlier => 'Lägg till anslag';
+
+  @override
+  String get missingSinceLabel => 'Försvunnen sedan';
+
+  @override
+  String get phoneLabel => 'Telefon';
+
+  @override
+  String get cropPortrait => 'Beskär porträtt';
+
+  @override
+  String get statusOwner => 'Ägare';
+
+  @override
+  String get ocrUnavailable =>
+      'Textigenkänning är inte tillgänglig på den här enheten — skriv anslags­texten själv.';
+
+  @override
+  String get displayFormat => 'Visas som';
+
+  @override
+  String get displayPlain => 'Vanlig text';
+
+  @override
+  String get displayQr => 'QR-kod';
+
+  @override
+  String get displayBarcode => 'Streckkod';
+
+  @override
+  String get editLabel => 'Redigera';
+
+  @override
+  String get doneLabel => 'Klar';
+
+  @override
   String get openSettings => 'Öppna inställningar';
 
   @override
@@ -234,6 +410,29 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get malePregnant =>
       'Den här katten är registrerad som hane — en hankatt kan inte vara dräktig. Kontrollera könet först.';
+
+  @override
+  String fatherNotMale(String name) {
+    return '$name är registrerad som hona och kan inte vara pappan. Kontrollera könet först.';
+  }
+
+  @override
+  String motherNotFemale(String name) {
+    return '$name är registrerad som hane och kan inte vara mamman. Kontrollera könet först.';
+  }
+
+  @override
+  String parentBornAfterKitten(String name, String date) {
+    return '$name föddes $date — en förälder kan inte födas efter sin kattunge.';
+  }
+
+  @override
+  String get genderFatherFemale =>
+      'Den här katten är registrerad som pappa till andra katter — pappan kan inte vara hona. Kontrollera familjen först.';
+
+  @override
+  String get genderMotherMale =>
+      'Den här katten är registrerad som mamma till andra katter — mamman kan inte vara hane. Kontrollera familjen först.';
 
   @override
   String get moveTo => 'Flytta till';
@@ -416,7 +615,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Synkronisera via en mapp som en molntjänst eller USB-sticka bär mellan enheter — för dem som inte är på samma nätverk.';
+      'Båda enheterna använder samma mapp (t.ex. i Dropbox eller på ett USB-minne). Varje synk lägger dina ändringar där och hämtar den andras.';
 
   @override
   String get noFolderChosenYet => 'Ingen mapp vald ännu';
@@ -596,7 +795,233 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterResponsible => 'Ansvarig person';
 
   @override
-  String get starterPosition => 'Position';
+  String get starterEmail => 'E-post';
+
+  @override
+  String get starterPhone => 'Telefon';
+
+  @override
+  String get lookupUrlLabel => 'Uppslagslänk';
+
+  @override
+  String lookupUrlHelp(String token) {
+    return 'Tjänstens sida med $token där numret ska stå, t.ex. https://www.tasso.net/Tierregister/Suchmeldungen?snr=$token';
+  }
+
+  @override
+  String get lookUpId => 'Slå upp';
+
+  @override
+  String lookupFailed(String url) {
+    return 'Ingen app kunde öppna $url. Kopiera länken till en webbläsare.';
+  }
+
+  @override
+  String get stepCat => 'Katt';
+
+  @override
+  String get stepOwner => 'Ägare';
+
+  @override
+  String get stepFace => 'Ansiktsfoto';
+
+  @override
+  String get stepRegistry => 'Register';
+
+  @override
+  String get stepReview => 'Kontrollera och spara';
+
+  @override
+  String get stepOwnerHint =>
+      'Den som saknar katten — det blir deras kort, med kontakten från anslaget.';
+
+  @override
+  String get stepFaceHint =>
+      'Klipp ut kattens ansikte ur anslaget; det blir profilbilden. Du kan hoppa över.';
+
+  @override
+  String get stepRegistryHint =>
+      'Nummer som hittats på anslaget. Ikryssade sparas hos katten och kan öppnas senare.';
+
+  @override
+  String get noRegistryLinks =>
+      'Inga registerlänkar på det här anslaget — inget att göra här.';
+
+  @override
+  String get unknownServiceHint => 'Okänd tjänst';
+
+  @override
+  String get rememberService => 'Kom ihåg tjänsten';
+
+  @override
+  String get rememberServiceHint =>
+      'Namnge tjänsten och peka på numret i länken. Nästa anslag fyller i sig självt.';
+
+  @override
+  String get noIdInLink =>
+      'Den här länken har inget nummer som appen kan spara.';
+
+  @override
+  String get whichNumber => 'Vilken del är numret?';
+
+  @override
+  String get cropAgain => 'Beskär igen';
+
+  @override
+  String get noFaceYet => 'Inget ansiktsfoto än — anslagets foto används.';
+
+  @override
+  String get backLabel => 'Tillbaka';
+
+  @override
+  String get dangerButton => 'TRYCK INTE.\nFARA';
+
+  @override
+  String get dangerThanks => 'Tack för att du använder cat(a)log!';
+
+  @override
+  String get helpTitle => 'Hjälp';
+
+  @override
+  String get showTipsAgain => 'Visa tipsen igen';
+
+  @override
+  String get helpHome =>
+      'Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem. Namnet högst upp är katalogen du är i — tryck för att byta eller lägga till en.';
+
+  @override
+  String get helpClowder =>
+      'Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den.';
+
+  @override
+  String get helpCat =>
+      'Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Håll in ett fält för att redigera det direkt; ett foto för dess meny. Menyn uppe till höger har resten: märk privat, dölj, slå ihop, anteckna observation, dela.';
+
+  @override
+  String get helpStrays =>
+      'Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget.';
+
+  @override
+  String get helpMap =>
+      'Alla katter och platser med position. Sökningen hittar katter, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt en försvunnen katts anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation.';
+
+  @override
+  String get helpCard =>
+      'Kattens utskrivbara kort: välj överst med chipsen vad som ska stå på det, dela det sedan som bild eller PDF. Nummer kan skrivas ut som QR eller streckkod, och en position blir en QR som öppnar en karta, plus en kort Plus Code.';
+
+  @override
+  String get helpSync =>
+      'Så når data andra människor: koppla upp er direkt, använd en mapp båda enheterna ser, eller skicka en fil via en meddelandeapp. Du bestämmer alltid vad som skickas — och mottagna .catsync-filer öppnas också här.';
+
+  @override
+  String get helpFields =>
+      'Fälten som din katalog använder. Byt namn på dem, ändra alternativen i ett valfält eller skapa egna. Ett id-fält kan peka på en tjänst (ett register), då blir numret tryckbart hos katten.';
+
+  @override
+  String get helpTimeline =>
+      'Varje ändring som gjorts, nyast först: vem som ändrade vad, när och till vilket värde. Varje post kan ångras — det skriver en ny post, inget raderas någonsin.';
+
+  @override
+  String get helpDuplicates =>
+      'Katter eller kolonier som verkar finnas två gånger — samma nummer eller mycket lika namn med matchande detaljer. Tryck på ett par för att slå ihop; det går inte att ångra, därför frågas det först.';
+
+  @override
+  String get helpMatches =>
+      'Katter som kan vara samma djur: samma nummer, eller en strykare sedd inom en försvunnen katts sökområde. Tryck på ett par för att slå ihop, håll in för att öppna första katten och jämföra.';
+
+  @override
+  String get helpFlier =>
+      'Ett fotograferat anslag blir en katt plus ägare. Steg för steg: kattens uppgifter, ägarens kontakt, beskärning av ansiktet till profilbilden, registernummer från anslaget och sedan en sista koll. Allt är förslag — rätta det kameran läste fel.';
+
+  @override
+  String get archiveTitle => 'Arkiv';
+
+  @override
+  String get archiveExplainer =>
+      'Avlidna katter och tomma kolonier som ingen rört på flera år tar ändå plats — framför allt deras foton. Arkivering skriver dem till en fil du behåller och raderar dem sedan här.';
+
+  @override
+  String get archiveAction => 'Arkivera';
+
+  @override
+  String archiveSelected(int count) {
+    return 'Arkivera $count poster';
+  }
+
+  @override
+  String archiveConfirmTitle(int count) {
+    return 'Arkivera $count poster?';
+  }
+
+  @override
+  String archiveConfirmBody(String names) {
+    return '$names skrivs till en fil och raderas sedan — på din enhet och på varje enhet du synkar med. Importerar du filen kommer allt tillbaka; utan den är de borta.';
+  }
+
+  @override
+  String archiveDone(int count) {
+    return '$count poster arkiverade och raderade';
+  }
+
+  @override
+  String archiveFailed(String error) {
+    return 'Inget raderades: arkivfilen kunde inte skrivas ($error).';
+  }
+
+  @override
+  String storageLine(String db, String photos, int count) {
+    return 'Databas $db, foton $photos i $count filer';
+  }
+
+  @override
+  String quietForYears(int years) {
+    return 'Orörda i $years år';
+  }
+
+  @override
+  String get nothingToArchive => 'Inget är gammalt nog att arkivera.';
+
+  @override
+  String archiveCandidateLine(String date, String size) {
+    return 'Senaste ändring $date · foton $size';
+  }
+
+  @override
+  String get helpArchive =>
+      'Gamla data kostar plats, framför allt bilderna som varje synkad enhet bär med sig. Här väljer du avlidna katter och tomma kolonier som legat stilla i åratal, skriver dem till en fil du behåller och raderar dem. Raderingen når alla du synkar med; att importera filen återställer allt.';
+
+  @override
+  String restoreDeletedTitle(int count) {
+    return 'Återställa $count raderade poster?';
+  }
+
+  @override
+  String restoreDeletedBody(String names) {
+    return '$names är raderade i den här katalogen, och filen du just importerade innehåller dem. Att återställa hämtar tillbaka dem här och på varje enhet du synkar med.';
+  }
+
+  @override
+  String get restoreAction => 'Återställ';
+
+  @override
+  String get keepDeleted => 'Låt vara raderade';
+
+  @override
+  String get archiveNotSaved =>
+      'Inget raderades: arkivet sparades inte någonstans.';
+
+  @override
+  String get locateAddress => 'Hitta adressen på kartan';
+
+  @override
+  String get addressLocated => 'Adress hittad';
+
+  @override
+  String get addressNotFound =>
+      'Ingen plats hittades för adressen. Kontrollera stavningen eller lämna tomt.';
+
+  @override
+  String get starterPosition => 'Plats';
 
   @override
   String get valueYes => 'ja';
@@ -711,7 +1136,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get includePrivateExplainer =>
-      'Privata katter, grupper och fält delas också — slå bara på när du synkroniserar dina egna enheter.';
+      'Detta skickar också allt du markerat som privat. Den du synkar med kommer att se det.';
 
   @override
   String get hideLabel => 'Dölj på den här enheten';
@@ -729,7 +1154,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterSpecies => 'Art';
 
   @override
-  String get starterStatus => 'Status';
+  String get starterStatus => 'Typ';
 
   @override
   String get statusFoster => 'Jourhem';
@@ -923,7 +1348,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get syncChooserMessengerSub =>
-      'Skicka allt som en fil genom valfri messenger';
+      'Skicka allt som en fil via valfri messenger — och importera en mottagen .catsync-fil här';
 
   @override
   String get connectToWifiFirst =>
@@ -970,25 +1395,25 @@ class AppLocalizationsSv extends AppLocalizations {
   String get selectClowderHint => 'Välj en clowder till vänster';
 
   @override
-  String get introTitle1 => 'Katter bor i clowdrar';
+  String get introTitle1 => 'Dina katter, ordnade';
 
   @override
   String get introBody1 =>
-      'En clowder är en plats där katter bor: ditt jourhem, en adoptörs lägenhet, ladan intill. Varje katt får ett kort med foto, fakta och hela sin historia.';
+      'Skapa ett kort för varje katt: foto, kön, hälsa, allt du vill anteckna. Katterna grupperas efter var de bor — appen kallar en sådan plats för clowder.';
 
   @override
-  String get introTitle2 => 'Allt stannar hos dig';
+  String get introTitle2 => 'Fungerar utan internet';
 
   @override
   String get introBody2 =>
-      'Inget konto, inget moln, ingen spårning. Dina data bor på din enhet.';
+      'Allt sparas bara på din telefon. Inget konto, inget moln. Inget laddas upp om du inte själv delar det.';
 
   @override
-  String get introTitle3 => 'Dela med dina hjälpare';
+  String get introTitle3 => 'Arbeta tillsammans';
 
   @override
   String get introBody3 =>
-      'Skanna en kod så synkas två enheter på sekunder, använd en delad mapp eller skicka allt som en fil.';
+      'Alla använder sin egen app och ni byter data då och då: träffas och skanna en kod, använd en delad mapp eller skicka en fil via messenger. Efteråt har alla samma information.';
 
   @override
   String get introSkip => 'Hoppa över';
@@ -1004,19 +1429,50 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotHomeSync =>
-      'Nytt: synkronisering erbjuder nu tre tydliga vägar — och en förtroendefråga innan något flödar.';
+      'Här synkar du med dina bekanta. Du bestämmer vad du delar.';
+
+  @override
+  String get spotHomeStrays =>
+      'Det här kortet samlar alla strykare — katter utan hem. Tryck för att se listan.';
+
+  @override
+  String get spotHomeMenu =>
+      'I den här menyn: hitta och slå ihop dubbletter, exportera CSV med mera.';
+
+  @override
+  String get spotCatEdit =>
+      'Tryck på pennan för att redigera katten. Tips: långtryck på ett fält för att redigera det direkt.';
+
+  @override
+  String get spotMapLayers =>
+      'Letar du efter en försvunnen katt? Visa cirklar runt platserna för dess anslag och runt dess förra hem.';
+
+  @override
+  String get spotStraysFlier =>
+      'Hittat ett anslag om en försvunnen katt? Fotografera det här — appen sparar katt och kontakt åt dig.';
+
+  @override
+  String get spotStraysScan =>
+      'Vissa anslag bär en cat(a)log-QR-kod. Skanna den här och importera katten utan att skriva.';
+
+  @override
+  String get introTitle4 => 'Hitta försvunna katter';
+
+  @override
+  String get introBody4 =>
+      'Ser du ett anslag om en försvunnen katt? Fotografera det i appen: den sparar katten, ägarens kontakt och platsen. Dyker en liknande strykare upp senare föreslår appen möjliga träffar.';
 
   @override
   String get spotMapSearch =>
-      'Nytt: sök katter, clowdrar och personer här — direkt på kartan.';
+      'Skriv en katt, plats eller person för att hoppa dit på kartan.';
 
   @override
   String get spotCardChips =>
-      'Nytt: välj vad som visas på kortet innan du delar det.';
+      'Kryssa i vad som ska synas på det delbara kortet — resten hålls utanför.';
 
   @override
   String get spotCatMenu =>
-      'Nytt: markera en katt som privat (lämnar aldrig din enhet) eller dölj den här.';
+      'Fler åtgärder här: markera katten som privat, dölj den, slå ihop dubbletter eller anteckna en observation.';
 
   @override
   String get spotDone => 'Uppfattat';
@@ -1057,4 +1513,134 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get crashLastRunBody =>
       'cat(a)log stannade oväntat förra gången — troligen tog minnet slut. Skicka en kort rapport så det kan lagas?';
+
+  @override
+  String get catalogsTitle => 'Kataloger';
+
+  @override
+  String get newCatalog => 'Ny katalog';
+
+  @override
+  String get catalogNameLabel => 'Katalogens namn';
+
+  @override
+  String catalogNameTaken(String name) {
+    return 'Det finns redan en katalog som heter $name. Välj ett annat namn.';
+  }
+
+  @override
+  String get manageCatalogs => 'Hantera kataloger';
+
+  @override
+  String get helpCatalogs =>
+      'Varje katalog är en egen värld: egna katter, kolonier, fält, foton och synkroniseringspartner. Berlin och Paris blandas aldrig. Tryck på namnet högst upp på startskärmen för att byta, lägga till eller byta namn. Ditt namn, ditt språk och tipsen du sett delas av alla.';
+
+  @override
+  String get spotHomeCatalog =>
+      'Det här är katalogen du är i. Tryck på namnet för att byta eller skapa en ny.';
+
+  @override
+  String get deleteCatalog => 'Ta bort katalog';
+
+  @override
+  String deleteCatalogBody(String name) {
+    return 'Allt i $name försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen. Skriv namnet för att bekräfta.';
+  }
+
+  @override
+  String catalogDeleted(String name, String where) {
+    return '$name har tagits bort. Filen finns i $where.';
+  }
+
+  @override
+  String typeTheName(String name) {
+    return 'Skriv $name';
+  }
+
+  @override
+  String catalogExportFailed(String error) {
+    return 'Inget togs bort: katalogfilen kunde inte skrivas ($error). Frigör utrymme eller försök igen senare.';
+  }
+
+  @override
+  String get moveToCatalog => 'Flytta till en annan katalog';
+
+  @override
+  String movedToCatalog(int count, String name) {
+    return '$count flyttade till $name';
+  }
+
+  @override
+  String get chooseWhatToMove => 'Vad ska flyttas?';
+
+  @override
+  String moveIntoNewCatalog(String name) {
+    return 'Ska något flyttas till $name?';
+  }
+
+  @override
+  String get undoThisImport => 'Ångra den här importen';
+
+  @override
+  String undoImportBody(int count) {
+    return 'De $count ändringar den här importen förde in tas bort. De skrivs först till en fil, och att importera den hämtar tillbaka dem. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.';
+  }
+
+  @override
+  String undoneImport(String where) {
+    return 'Ångrat. Filen finns i $where.';
+  }
+
+  @override
+  String get goBackTitle => 'Gå tillbaka';
+
+  @override
+  String get goBackToHere => 'Gå tillbaka hit';
+
+  @override
+  String get momentImport => 'Före importen';
+
+  @override
+  String get momentSync => 'Före synkroniseringen';
+
+  @override
+  String get momentMerge => 'Före sammanslagningen';
+
+  @override
+  String get momentHardDelete => 'Före radering av en författares data';
+
+  @override
+  String get momentArchive => 'Före arkiveringen';
+
+  @override
+  String get momentManual => 'Markerat av dig';
+
+  @override
+  String get showOlderMoments => 'Visa äldre';
+
+  @override
+  String goBackBody(int count) {
+    return 'Allt efter det här ögonblicket tas bort — $count ändringar. Det skrivs först till en fil, och att importera den hämtar tillbaka allt; varje nyare ögonblick följer med. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.';
+  }
+
+  @override
+  String get nameThisMoment => 'Ge det här ögonblicket ett namn';
+
+  @override
+  String get helpGoBack =>
+      'Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick.';
+
+  @override
+  String goBackFileFailed(String error) {
+    return 'Inget togs bort: filen som bevarar det kunde inte skrivas ($error). Frigör utrymme och försök igen.';
+  }
+
+  @override
+  String get switchBeforeDeleting =>
+      'Det här är katalogen du är i. Byt till en annan och ta bort den sedan.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Delningsfilen kunde inte skrivas ($error). Frigör utrymme och försök igen.';
+  }
 }
