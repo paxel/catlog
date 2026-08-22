@@ -1641,4 +1641,9 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Skedari i ndarjes nuk u shkrua dot ($error). Liro pak hapësirë dhe provo sërish.';
+  }
 }

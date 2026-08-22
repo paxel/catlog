@@ -1640,4 +1640,9 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'A megosztási fájlt nem sikerült kiírni ($error). Szabadíts fel helyet, és próbáld újra.';
+  }
 }

@@ -1646,4 +1646,9 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Níorbh fhéidir an comhad comhroinnte a scríobh ($error). Saor spás agus bain triail eile as.';
+  }
 }

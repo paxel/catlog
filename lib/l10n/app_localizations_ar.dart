@@ -1632,4 +1632,9 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'هذا هو الكتالوج الذي أنت فيه. انتقل إلى كتالوج آخر ثم احذفه.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'تعذّرت كتابة ملف المشاركة ($error). وفّر بعض المساحة وأعد المحاولة.';
+  }
 }

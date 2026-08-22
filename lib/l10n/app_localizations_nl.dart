@@ -1644,4 +1644,9 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Het deelbestand kon niet worden geschreven ($error). Maak ruimte vrij en probeer opnieuw.';
+  }
 }

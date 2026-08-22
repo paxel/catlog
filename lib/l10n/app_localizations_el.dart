@@ -1644,4 +1644,9 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Άλλαξε σε άλλον και μετά διάγραψέ τον.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Το αρχείο κοινοποίησης δεν γράφτηκε ($error). Ελευθέρωσε χώρο και δοκίμασε ξανά.';
+  }
 }

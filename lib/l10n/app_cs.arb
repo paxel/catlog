@@ -479,5 +479,7 @@
   "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.",
   "goBackFileFailed": "Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž."
+  "switchBeforeDeleting": "Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.",
+  "shareFileFailed": "Soubor ke sdílení se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

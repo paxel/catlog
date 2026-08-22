@@ -479,5 +479,7 @@
   "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.",
   "goBackFileFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku, który to przechowuje ({error}). Zwolnij miejsce i spróbuj ponownie.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń."
+  "switchBeforeDeleting": "To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń.",
+  "shareFileFailed": "Nie udało się zapisać pliku do udostępnienia ({error}). Zwolnij miejsce i spróbuj ponownie.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

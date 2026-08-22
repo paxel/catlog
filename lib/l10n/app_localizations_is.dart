@@ -1643,4 +1643,9 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Ekki tókst að skrifa deiliskrána ($error). Losaðu pláss og reyndu aftur.';
+  }
 }

@@ -2977,6 +2977,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This is the catalog you are in. Switch to another one, then delete it.'**
   String get switchBeforeDeleting;
+
+  /// No description provided for @shareFileFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The share file could not be written ({error}). Free some space and try again.'**
+  String shareFileFailed(String error);
 }
 
 class _AppLocalizationsDelegate

@@ -1646,4 +1646,9 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Este es el catálogo en el que estás. Cambia a otro y luego bórralo.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'No se pudo escribir el archivo para compartir ($error). Libera espacio e inténtalo otra vez.';
+  }
 }

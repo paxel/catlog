@@ -479,5 +479,7 @@
   "helpGoBack": "Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit.",
   "goBackFileFailed": "Nu s-a eliminat nimic: fișierul care îl păstrează nu a putut fi scris ({error}). Eliberează spațiu și încearcă din nou.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Acesta e catalogul în care ești. Treci la altul, apoi șterge-l."
+  "switchBeforeDeleting": "Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.",
+  "shareFileFailed": "Fișierul de partajare nu a putut fi scris ({error}). Eliberează spațiu și încearcă din nou.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

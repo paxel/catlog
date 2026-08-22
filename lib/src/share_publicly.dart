@@ -1,6 +1,6 @@
-import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -70,14 +70,37 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
   Uint8List _bytes({required bool photos}) => catShareBytes(store,
       catId: id, fields: _selected, includePhotos: photos);
 
+  /// The inline payload, kept until the whitelist changes. Building it
+  /// walks every whitelisted field's history and zips the result, which
+  /// is far too much work to repeat on every keystroke in the link
+  /// field.
+  String? _inline;
+  Set<String>? _inlineFor;
+
+  String get _inlinePayload {
+    if (_inline == null || !setEquals(_inlineFor, _selected)) {
+      _inline = encodeShareData(_bytes(photos: false));
+      _inlineFor = {..._selected};
+    }
+    return _inline!;
+  }
+
   Future<void> _exportFile() async {
-    final dir = await getTemporaryDirectory();
-    final name = store.current(id, Keys.name) ?? 'cat';
-    final path = writeCatShare(store, '${dir.path}/$name-share.catsync',
-        catId: id, fields: _selected);
-    if (!mounted) return;
-    await shareFiles(
-        context, [XFile(path, mimeType: 'application/zip')]);
+    try {
+      final dir = await getTemporaryDirectory();
+      final path = writeCatShare(
+          store, '${dir.path}/${shareFileName(store.current(id, Keys.name))}',
+          catId: id, fields: _selected);
+      if (!mounted) return;
+      await shareFiles(
+          context, [XFile(path, mimeType: 'application/zip')]);
+    } catch (e) {
+      // Sharing a cat must never take the app down with it.
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(context.t.shareFileFailed('$e'))));
+      }
+    }
   }
 
   @override
@@ -95,7 +118,7 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
         ),
       );
     }
-    final inline = encodeShareData(_bytes(photos: false));
+    final inline = _inlinePayload;
     final url = _url.text.trim();
     return Scaffold(
       appBar: AppBar(title: Text(t.sharePublicly)),
@@ -156,4 +179,14 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
       ]),
     );
   }
+}
+
+/// A cat's name is not a file name: it can hold slashes, colons and
+/// anything else a keeper types. Sharing a cat called "Mia/Mimi" once
+/// wrote into a directory that does not exist and took the app down.
+String shareFileName(String? catName) {
+  final safe = (catName ?? '')
+      .replaceAll(RegExp(r'[^\p{L}\p{N} _-]', unicode: true), '')
+      .trim();
+  return '${safe.isEmpty ? 'cat' : safe}-share.catsync';
 }

@@ -1637,4 +1637,9 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Dette er katalogen du er i. Bytt til en annen, og slett den så.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Delingsfilen kunne ikke skrives ($error). Frigjør plass og prøv igjen.';
+  }
 }

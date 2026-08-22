@@ -479,5 +479,7 @@
   "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.",
   "goBackFileFailed": "Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru."
+  "switchBeforeDeleting": "Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.",
+  "shareFileFailed": "Il-fajl tal-qsim ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

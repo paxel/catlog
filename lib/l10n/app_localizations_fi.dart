@@ -1640,4 +1640,9 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Jakotiedostoa ei voitu kirjoittaa ($error). Vapauta tilaa ja yritä uudelleen.';
+  }
 }

@@ -1636,4 +1636,9 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'این کاتالوگی است که در آن هستید. به کاتالوگ دیگری بروید و سپس آن را حذف کنید.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'فایل اشتراک‌گذاری نوشته نشد ($error). کمی فضا آزاد کنید و دوباره تلاش کنید.';
+  }
 }

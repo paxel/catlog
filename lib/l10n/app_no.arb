@@ -479,5 +479,7 @@
   "helpGoBack": "Øyeblikkene da denne katalogen endret form: før hver import og hver synkronisering, før en sammenslåing, en arkivering eller en sletting — og hver gang du selv merket ett. Velger du ett, går katalogen tilbake til den tilstanden: alt etterpå skrives til en fil du beholder og fjernes så, og hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder det de fikk.",
   "goBackFileFailed": "Ingenting ble fjernet: filen som tar vare på det, kunne ikke skrives ({error}). Frigjør plass og prøv igjen.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Dette er katalogen du er i. Bytt til en annen, og slett den så."
+  "switchBeforeDeleting": "Dette er katalogen du er i. Bytt til en annen, og slett den så.",
+  "shareFileFailed": "Delingsfilen kunne ikke skrives ({error}). Frigjør plass og prøv igjen.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

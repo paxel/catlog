@@ -479,5 +479,7 @@
   "helpGoBack": "这个目录发生较大变化的时刻：每次导入和同步之前，合并、归档或删除之前，以及你自己标记的时候。选择其中一个，目录就回到那个状态——之后的一切会先写入你保留的文件再移除，比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有收到的内容。",
   "goBackFileFailed": "没有移除任何内容：保存它的文件无法写入（{error}）。请腾出空间后重试。",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "这是你当前所在的目录。请先切换到另一个目录，再删除它。"
+  "switchBeforeDeleting": "这是你当前所在的目录。请先切换到另一个目录，再删除它。",
+  "shareFileFailed": "无法写入分享文件（{error}）。请腾出空间后重试。",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

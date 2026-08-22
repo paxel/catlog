@@ -479,5 +479,7 @@
   "helpGoBack": "Okamihy, keď tento katalóg zmenil tvar: pred každým importom a každou synchronizáciou, pred zlúčením, archiváciou alebo mazaním, a vždy, keď si okamih označil sám. Výberom jedného sa katalóg vráti do toho stavu — všetko po ňom sa zapíše do súboru, ktorý si necháš, a potom sa odstráni; každý novší okamih ide s tým. Kto už synchronizoval, si ponechá, čo dostal.",
   "goBackFileFailed": "Nič sa neodstránilo: súbor, ktorý to uchová, sa nepodarilo zapísať ({error}). Uvoľni miesto a skús to znova.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž."
+  "switchBeforeDeleting": "Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž.",
+  "shareFileFailed": "Súbor na zdieľanie sa nepodarilo zapísať ({error}). Uvoľni miesto a skús to znova.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

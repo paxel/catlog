@@ -1641,4 +1641,9 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Fișierul de partajare nu a putut fi scris ($error). Eliberează spațiu și încearcă din nou.';
+  }
 }

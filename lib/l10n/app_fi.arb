@@ -479,5 +479,7 @@
   "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.",
   "goBackFileFailed": "Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten."
+  "switchBeforeDeleting": "Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.",
+  "shareFileFailed": "Jakotiedostoa ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

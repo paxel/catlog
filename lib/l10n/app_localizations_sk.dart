@@ -1638,4 +1638,9 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Súbor na zdieľanie sa nepodarilo zapísať ($error). Uvoľni miesto a skús to znova.';
+  }
 }

@@ -1639,4 +1639,9 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Это каталог, в котором вы находитесь. Переключитесь на другой, потом удалите его.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Файл для отправки не удалось записать ($error). Освободите место и попробуйте ещё раз.';
+  }
 }

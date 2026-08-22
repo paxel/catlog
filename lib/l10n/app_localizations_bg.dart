@@ -1640,4 +1640,9 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Това е каталогът, в който сте. Превключете към друг и после го изтрийте.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Файлът за споделяне не можа да се запише ($error). Освободете място и опитайте пак.';
+  }
 }

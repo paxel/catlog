@@ -1640,4 +1640,9 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Paylaşım dosyası yazılamadı ($error). Yer aç ve yeniden dene.';
+  }
 }

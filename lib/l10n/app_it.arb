@@ -479,5 +479,7 @@
   "helpGoBack": "I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto.",
   "goBackFileFailed": "Non è stato tolto nulla: il file che lo conserva non è stato scritto ({error}). Libera spazio e riprova.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Questo è il catalogo in cui sei. Passa a un altro, poi eliminalo."
+  "switchBeforeDeleting": "Questo è il catalogo in cui sei. Passa a un altro, poi eliminalo.",
+  "shareFileFailed": "Il file di condivisione non è stato scritto ({error}). Libera spazio e riprova.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

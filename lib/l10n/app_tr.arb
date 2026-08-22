@@ -479,5 +479,7 @@
   "helpGoBack": "Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur.",
   "goBackFileFailed": "Hiçbir şey kaldırılmadı: onu saklayan dosya yazılamadı ({error}). Yer aç ve yeniden dene.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil."
+  "switchBeforeDeleting": "Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.",
+  "shareFileFailed": "Paylaşım dosyası yazılamadı ({error}). Yer aç ve yeniden dene.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

@@ -479,5 +479,7 @@
   "helpGoBack": "Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.",
   "goBackFileFailed": "Engu var eytt: skráin sem geymir það var ekki skrifuð ({error}). Losaðu pláss og reyndu aftur.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo."
+  "switchBeforeDeleting": "Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.",
+  "shareFileFailed": "Ekki tókst að skrifa deiliskrána ({error}). Losaðu pláss og reyndu aftur.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

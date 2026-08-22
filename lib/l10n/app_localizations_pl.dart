@@ -1639,4 +1639,9 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Nie udało się zapisać pliku do udostępnienia ($error). Zwolnij miejsce i spróbuj ponownie.';
+  }
 }

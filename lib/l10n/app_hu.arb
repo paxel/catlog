@@ -479,5 +479,7 @@
   "helpGoBack": "Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.",
   "goBackFileFailed": "Semmi sem tűnt el: a fájl, ami megőrzi, nem volt kiírható ({error}). Szabadíts fel helyet, és próbáld újra.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld."
+  "switchBeforeDeleting": "Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.",
+  "shareFileFailed": "A megosztási fájlt nem sikerült kiírni ({error}). Szabadíts fel helyet, és próbáld újra.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

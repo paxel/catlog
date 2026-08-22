@@ -479,5 +479,7 @@
   "helpGoBack": "Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu.",
   "goBackFileFailed": "Não foi removido nada: o ficheiro que o guarda não pôde ser escrito ({error}). Liberta espaço e tenta outra vez.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Este é o catálogo em que estás. Muda para outro e depois elimina-o."
+  "switchBeforeDeleting": "Este é o catálogo em que estás. Muda para outro e depois elimina-o.",
+  "shareFileFailed": "O ficheiro de partilha não pôde ser escrito ({error}). Liberta espaço e tenta outra vez.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

@@ -1583,4 +1583,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get switchBeforeDeleting => '这是你当前所在的目录。请先切换到另一个目录，再删除它。';
+
+  @override
+  String shareFileFailed(String error) {
+    return '无法写入分享文件（$error）。请腾出空间后重试。';
+  }
 }

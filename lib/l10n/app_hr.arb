@@ -479,5 +479,7 @@
   "helpGoBack": "Trenuci u kojima je ovaj katalog promijenio oblik: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve nakon njega zapisuje se u datoteku koju zadržavaš i zatim uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili.",
   "goBackFileFailed": "Ništa nije uklonjeno: datoteku koja to čuva nije bilo moguće zapisati ({error}). Oslobodi prostor i pokušaj ponovno.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Ovo je katalog u kojem si. Prebaci se na drugi, pa ga obriši."
+  "switchBeforeDeleting": "Ovo je katalog u kojem si. Prebaci se na drugi, pa ga obriši.",
+  "shareFileFailed": "Datoteku za dijeljenje nije bilo moguće zapisati ({error}). Oslobodi prostor i pokušaj ponovno.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

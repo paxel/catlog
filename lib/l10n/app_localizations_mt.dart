@@ -1643,4 +1643,9 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Il-fajl tal-qsim ma setax jinkiteb ($error). Illibera spazju u erġa’ pprova.';
+  }
 }

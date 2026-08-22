@@ -479,5 +479,7 @@
   "helpGoBack": "De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.",
   "goBackFileFailed": "Er is niets weggehaald: het bestand dat het bewaart kon niet worden geschreven ({error}). Maak ruimte vrij en probeer opnieuw.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan."
+  "switchBeforeDeleting": "Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.",
+  "shareFileFailed": "Het deelbestand kon niet worden geschreven ({error}). Maak ruimte vrij en probeer opnieuw.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

@@ -1639,4 +1639,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'This is the catalog you are in. Switch to another one, then delete it.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'The share file could not be written ($error). Free some space and try again.';
+  }
 }

@@ -1639,4 +1639,9 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Ovo je katalog u kojem si. Prebaci se na drugi, pa ga obriši.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Datoteka za dijeljenje nije mogla biti zapisana ($error). Oslobodi prostor i pokušaj ponovo.';
+  }
 }

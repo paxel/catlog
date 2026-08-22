@@ -1628,4 +1628,9 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'זה הקטלוג שאתה נמצא בו. עבור לאחר ואז מחק אותו.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'לא ניתן היה לכתוב את קובץ השיתוף ($error). פנה מקום ונסה שוב.';
+  }
 }

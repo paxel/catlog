@@ -1639,4 +1639,9 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Soubor ke sdílení se nepodařilo zapsat ($error). Uvolni místo a zkus to znovu.';
+  }
 }

@@ -1638,4 +1638,9 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Šis ir katalogs, kurā esi. Pārslēdzies uz citu un tad dzēs to.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Koplietošanas failu neizdevās ierakstīt ($error). Atbrīvo vietu un mēģini vēlreiz.';
+  }
 }

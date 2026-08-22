@@ -1641,4 +1641,9 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Tai katalogas, kuriame esi. Perjunk į kitą ir tada jį ištrink.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Nepavyko įrašyti dalijimosi failo ($error). Atlaisvink vietos ir bandyk dar kartą.';
+  }
 }

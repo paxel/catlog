@@ -1639,4 +1639,9 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'Ово је каталог у ком си. Пређи на други, па га обриши.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Датотека за дељење није могла да се упише ($error). Ослободи простор и покушај поново.';
+  }
 }

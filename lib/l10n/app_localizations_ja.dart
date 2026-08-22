@@ -1600,4 +1600,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get switchBeforeDeleting => 'いま開いているカタログです。別のカタログに切り替えてから削除してください。';
+
+  @override
+  String shareFileFailed(String error) {
+    return '共有ファイルを書き出せませんでした（$error）。空き容量を作ってやり直してください。';
+  }
 }

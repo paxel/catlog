@@ -479,5 +479,7 @@
   "helpGoBack": "De øjeblikke, hvor kataloget ændrede form: før hver import og hver synkronisering, før en sammenlægning, en arkivering eller en sletning — og hver gang du selv markerede et. Vælger du et, vender kataloget tilbage til den tilstand: alt derefter skrives til en fil, du beholder, og fjernes så, og hvert nyere øjeblik ryger med. De, du allerede har synkroniseret med, beholder det, de fik.",
   "goBackFileFailed": "Intet blev fjernet: filen, der gemmer det, kunne ikke skrives ({error}). Frigør plads, og prøv igen.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
-  "switchBeforeDeleting": "Det er kataloget, du er i. Skift til et andet, og slet det så."
+  "switchBeforeDeleting": "Det er kataloget, du er i. Skift til et andet, og slet det så.",
+  "shareFileFailed": "Delefilen kunne ikke skrives ({error}). Frigør plads, og prøv igen.",
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
 }

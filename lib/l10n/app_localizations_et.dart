@@ -1638,4 +1638,9 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get switchBeforeDeleting =>
       'See on kataloog, milles oled. Vaheta teisele ja kustuta see siis.';
+
+  @override
+  String shareFileFailed(String error) {
+    return 'Jagamisfaili ei õnnestunud kirjutada ($error). Vabasta ruumi ja proovi uuesti.';
+  }
 }
