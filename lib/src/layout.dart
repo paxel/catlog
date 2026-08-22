@@ -1,4 +1,7 @@
+import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+
+import 'hidden.dart';
 
 /// Width where the app stops being a stretched phone app: list pane
 /// left, detail pane right. Purely width-based — iPad landscape and
@@ -15,6 +18,17 @@ class PanePage {
   final WidgetBuilder build;
 
   const PanePage({required this.id, required this.build});
+
+  /// Whether this page still belongs in the pane of [store].
+  ///
+  /// Its builder captured a store when it was made, so a page outlives
+  /// the catalog it was opened in unless somebody asks. A clowder page
+  /// also goes when its clowder is deleted or hidden.
+  bool stillBelongs(CatalogStore store, {required Object? openedIn}) {
+    if (!identical(openedIn, store)) return false;
+    final id = clowderId;
+    return id == null || store.visibleClowders().any((c) => c.id == id);
+  }
 
   /// The pane's page for a Clowder. Deleting or hiding that Clowder
   /// vacates the pane, which is why its id is recognisable.

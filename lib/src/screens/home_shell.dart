@@ -1,7 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
-import '../hidden.dart';
 import '../l10n.dart';
 import '../layout.dart';
 import '../move_to_catalog.dart';
@@ -28,6 +27,12 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   PanePage? _page;
 
+  /// The catalog the open page was built against. Switching catalogs
+  /// closes the old one a frame later, and the page's builder is still
+  /// holding it — Strays, Search, Fields and Duplicates would go on
+  /// reading from a database that is no longer open.
+  CatalogStore? _pageStore;
+
   String? get _title =>
       widget.catalogName ?? widget.switching?.active.name;
 
@@ -46,12 +51,11 @@ class _HomeShellState extends State<HomeShell> {
             switching: widget.switching,
             onViewChanged: () => setState(() {}));
       }
-      // A deleted or hidden clowder vacates the pane; every other page
-      // stays valid for as long as it is open.
+      // A page vacates the pane when its catalog is no longer the one
+      // open, and a clowder page also when its clowder is gone.
       final page = _page;
-      final clowderId = page?.clowderId;
-      final shown = clowderId == null ||
-              widget.store.visibleClowders().any((c) => c.id == clowderId)
+      final shown = page != null &&
+              page.stillBelongs(widget.store, openedIn: _pageStore)
           ? page
           : null;
       return Row(children: [
@@ -62,7 +66,10 @@ class _HomeShellState extends State<HomeShell> {
             catalogName: _title,
             switching: widget.switching,
             selectedPageId: shown?.id,
-            onOpenPage: (page) => setState(() => _page = page),
+            onOpenPage: (page) => setState(() {
+              _page = page;
+              _pageStore = widget.store;
+            }),
             onViewChanged: () => setState(() {}),
           ),
         ),

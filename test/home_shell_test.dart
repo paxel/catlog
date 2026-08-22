@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
+import 'package:catlog/src/move_to_catalog.dart' show CatalogSwitching;
 import 'package:catlog/src/screens/home_shell.dart';
 import 'package:catlog/src/screens/search_screen.dart';
 import 'package:catlog/src/screens/strays_screen.dart';
@@ -178,5 +181,56 @@ void main() {
         .map((e) => tester.getRect(find.byWidget(e.widget)).bottom);
     expect(tester.getRect(title).top,
         greaterThanOrEqualTo(buttons.reduce((a, b) => a > b ? a : b)));
+  });
+
+  testWidgets('a Strays pane does not survive a catalog switch',
+      (tester) async {
+    // The pane's page holds the store it was opened with; the catalog
+    // being left is closed a frame later. Strays, Search, Fields and
+    // Duplicates have no clowder, so nothing else vacates them.
+    final root = Directory.systemTemp.createTempSync('catlog-pane');
+    addTearDown(() => root.deleteSync(recursive: true));
+    final catalogs = CatalogManager.open(root.path, defaultName: 'Berlin');
+    addTearDown(catalogs.close);
+    var open = catalogs.openStore(catalogs.active)..author = 'test';
+    catalogs.create('Paris');
+
+    tester.view.physicalSize = const Size(1200, 900);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: StatefulBuilder(builder: (context, setState) {
+        return HomeShell(
+          store: open,
+          switching: CatalogSwitching(
+            catalogs: catalogs,
+            onSwitch: (to) {
+              final previous = open;
+              catalogs.active = to;
+              setState(() => open = catalogs.openStore(to));
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => previous.close());
+            },
+            onChanged: () => setState(() {}),
+          ),
+        );
+      }),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Strays (0)'));
+    await tester.pumpAndSettle();
+    expect(find.byType(StraysScreen), findsOneWidget);
+
+    await tester.tap(find.text('Berlin'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(ListTile, 'Paris'));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.byType(StraysScreen), findsNothing,
+        reason: 'that page belongs to the catalog we left');
   });
 }
