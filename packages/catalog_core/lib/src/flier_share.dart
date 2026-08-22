@@ -53,6 +53,20 @@ Uint8List catShareBytes(CatalogStore store,
     ));
   }
 
+  /// Emits [value] under the date and author of whatever currently wins
+  /// (entity, field). Used where the value sent is not the one stored —
+  /// a clowder id is resolved through merges before it travels.
+  void emitAs(String entity, String field, String? value) {
+    for (final e in store.fieldHistory(entity, field)) {
+      if (store.current(entity, field) == e.value) {
+        emit(entity, field, value,
+            date: e.date, author: e.author, recorded: e.recorded);
+        return;
+      }
+    }
+    emit(entity, field, value);
+  }
+
   /// The current winning entry for (entity, field), re-stamped with its
   /// original date and author so provenance survives.
   void emitCurrent(String entity, String field) {
@@ -101,24 +115,29 @@ Uint8List catShareBytes(CatalogStore store,
     }
   }
 
-  // The cat: identity, name, membership, whitelisted fields.
-  emit(cat, Keys.type, Kinds.cat);
+  // The cat: identity, name, membership, whitelisted fields. Every row
+  // keeps the date it was written, because the importer may hold this
+  // very cat — a sync partner does, and so does the sender re-importing
+  // their own share. Dated "now", the share would move the cat back
+  // into a clowder it has since left and bring back photos that were
+  // deleted; dated honestly it simply loses to whatever is newer.
+  emitCurrent(cat, Keys.type);
   emitCurrent(cat, Keys.name);
-  if (clowder != null) emit(cat, Keys.clowder, clowder);
+  if (clowder != null) emitAs(cat, Keys.clowder, clowder);
   for (final key in fields) {
     if (store.current(cat, key) != null) emitCurrent(cat, key);
   }
   final images = includePhotos ? store.images(cat) : const <String>[];
   for (final hash in images) {
-    emit(cat, Keys.image(hash), 'added');
+    emitCurrent(cat, Keys.image(hash));
   }
   if (includePhotos && store.profileImage(cat) != null) {
-    emit(cat, Keys.profileImage, store.profileImage(cat));
+    emitCurrent(cat, Keys.profileImage);
   }
 
   // The owner clowder: identity, name, whitelisted clowder fields.
   if (clowder != null) {
-    emit(clowder, Keys.type, Kinds.clowder);
+    emitCurrent(clowder, Keys.type);
     emitCurrent(clowder, Keys.name);
     for (final key in fields) {
       if (store.current(clowder, key) != null) {

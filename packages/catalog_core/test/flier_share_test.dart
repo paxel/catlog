@@ -1,8 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'dart:typed_data';
+
 import 'package:catalog_core/catalog_core.dart';
+import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
+
+Uint8List jpeg(int w, int h) =>
+    Uint8List.fromList(img.encodeJpg(img.Image(width: w, height: h)));
 
 void main() {
   setUpAll(useSystemSqlite);
@@ -149,5 +155,24 @@ void main() {
         'Farbe',
         reason: "somebody else's flier must not rename your field");
     expect(finder.current(cat, Keys.userField('color')), 'black');
+  });
+
+  test('a share does not bring back what the importer deleted', () {
+    // A sync partner holds the same cat and has since deleted a photo
+    // and moved the cat out of the clowder.
+    owner.addImage(cat, jpeg(20, 20));
+    final bytesBefore = catShareBytes(owner, catId: cat, fields: const {});
+    importBundleBytes(finder, bytesBefore);
+    final hash = finder.images(cat).first;
+    finder.deleteImage(cat, hash, date: DateTime.now());
+    finder.moveCat(cat, null, date: DateTime.now());
+    expect(finder.images(cat), isEmpty);
+
+    // The same share, imported again, must lose to those decisions.
+    importBundleBytes(finder, bytesBefore);
+    expect(finder.images(cat), isEmpty,
+        reason: 'a deleted photo stays deleted');
+    expect(finder.current(cat, Keys.clowder), anyOf(isNull, isEmpty),
+        reason: 'the cat stays where the importer put it');
   });
 }
