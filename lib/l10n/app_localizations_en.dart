@@ -266,10 +266,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sharePublicly => 'Share publicly…';
 
   @override
-  String get privateNoShare =>
-      'This cat is marked Private — private data never leaves your device. Unmark Private first to share it publicly.';
-
-  @override
   String get pickFramesTitle => 'Pick frames';
 
   @override
@@ -894,7 +890,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: mark private, hide, merge, record a sighting, share the cat.';
+      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field.';
 
   @override
   String get helpStrays =>
@@ -1125,17 +1121,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'If it keeps failing on iPhone/iPad: Settings → Privacy & Security → Local Network → allow cat(a)log, then try again.';
 
   @override
-  String get markPrivate => 'Mark as private';
-
-  @override
-  String get unmarkPrivate => 'Remove private mark';
-
-  @override
-  String get includePrivate => 'Include private data';
-
-  @override
-  String get includePrivateExplainer =>
-      'This also sends everything you marked private. The person you sync with will see it.';
+  String get includePrivate => 'Share private data';
 
   @override
   String get hideLabel => 'Hide on this device';
@@ -1333,22 +1319,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get syncChooserInPerson => 'In person';
 
   @override
-  String get syncChooserInPersonSub =>
-      'You\'re in the same room — scan a code, done in seconds';
+  String get syncChooserInPersonSub => 'Sync via WiFi';
 
   @override
   String get syncChooserRemote => 'Remote';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Via a shared folder like Dropbox or a USB stick';
+  String get syncChooserRemoteSub => 'Sync via folder or USB stick';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Send everything as one file through any messenger — and import a received .catsync file here';
+  String get syncChooserMessengerSub => 'Export and import via social media';
 
   @override
   String get connectToWifiFirst =>
@@ -1473,7 +1456,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'More actions live here: mark the cat private, hide it, merge duplicates, or record a sighting.';
+      'More actions live here: hide the cat, merge duplicates, or record a sighting.';
 
   @override
   String get spotDone => 'Got it';
@@ -1646,22 +1629,16 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Private';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Mark as private';
+
+  @override
+  String get unmarkPrivate => 'Remove private mark';
 }

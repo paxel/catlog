@@ -12,7 +12,10 @@ import 'screens/scan_screen.dart';
 class FieldEdit {
   final String? value;
   final DateTime date;
-  const FieldEdit(this.value, this.date);
+
+  /// The Privat checkmark: this value stays in the local catalog.
+  final bool private;
+  const FieldEdit(this.value, this.date, {this.private = false});
 }
 
 /// Type-aware editor dialog for a Field value. Returns null on cancel.
@@ -50,6 +53,9 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       TextEditingController(text: widget.current ?? '');
   String? _choice;
   DateTime _asOf = DateTime.now();
+  late bool _private = widget.store != null &&
+      widget.excludeId != null &&
+      widget.store!.isFieldPrivate(widget.excludeId!, def.key);
 
   FieldDef get def => widget.def;
 
@@ -71,8 +77,8 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
     super.dispose();
   }
 
-  void _submit(String? value) =>
-      Navigator.of(context).pop(FieldEdit(value, _asOf));
+  void _submit(String? value) => Navigator.of(context)
+      .pop(FieldEdit(value, _asOf, private: _private));
 
   Future<void> _pickAsOf() async {
     final picked = await showDatePicker(
@@ -258,6 +264,16 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           _input(),
           const SizedBox(height: 8),
+          if (widget.store != null && widget.excludeId != null)
+            CheckboxListTile(
+              contentPadding: EdgeInsets.zero,
+              value: _private,
+              onChanged: (v) =>
+                  setState(() => _private = v ?? false),
+              title: Text(context.t.privateLabel),
+              secondary: const Icon(Icons.lock_outline),
+              controlAffinity: ListTileControlAffinity.trailing,
+            ),
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: const Icon(Icons.event),

@@ -266,10 +266,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sharePublicly => 'Openbaar delen…';
 
   @override
-  String get privateNoShare =>
-      'Deze kat is gemarkeerd als privé — privégegevens verlaten je apparaat nooit. Verwijder eerst de markering om openbaar te delen.';
-
-  @override
   String get pickFramesTitle => 'Frames kiezen';
 
   @override
@@ -898,7 +894,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld ingedrukt om het meteen te bewerken; een foto voor haar menu. Het menu rechtsboven heeft de rest: privé markeren, verbergen, samenvoegen, waarneming vastleggen, delen.';
+      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld.';
 
   @override
   String get helpStrays =>
@@ -1129,17 +1125,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.';
 
   @override
-  String get markPrivate => 'Markeren als privé';
-
-  @override
-  String get unmarkPrivate => 'Privémarkering verwijderen';
-
-  @override
-  String get includePrivate => 'Privégegevens meenemen';
-
-  @override
-  String get includePrivateExplainer =>
-      'Dit verstuurt ook alles wat je privé hebt gemarkeerd. Degene met wie je synchroniseert ziet het dan.';
+  String get includePrivate => 'Privégegevens delen';
 
   @override
   String get hideLabel => 'Verbergen op dit apparaat';
@@ -1338,22 +1324,19 @@ class AppLocalizationsNl extends AppLocalizations {
   String get syncChooserInPerson => 'In dezelfde kamer';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Jullie zijn in dezelfde ruimte — scan een code, klaar in seconden';
+  String get syncChooserInPersonSub => 'Synchronisatie via wifi';
 
   @override
   String get syncChooserRemote => 'Op afstand';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Via een gedeelde map zoals Dropbox of een USB-stick';
+  String get syncChooserRemoteSub => 'Synchronisatie via map of usb-stick';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Verstuur alles als één bestand via elke messenger — en importeer hier een ontvangen .catsync-bestand';
+  String get syncChooserMessengerSub => 'Export en import via social media';
 
   @override
   String get connectToWifiFirst =>
@@ -1478,7 +1461,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Meer acties staan hier: de kat privé markeren, verbergen, duplicaten samenvoegen of een waarneming vastleggen.';
+      'Hier staan meer acties: verberg de kat, voeg duplicaten samen of noteer een waarneming.';
 
   @override
   String get spotDone => 'Begrepen';
@@ -1651,22 +1634,16 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privé';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catalogus: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Markeren als privé';
+
+  @override
+  String get unmarkPrivate => 'Privémarkering verwijderen';
 }

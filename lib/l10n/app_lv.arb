@@ -175,7 +175,6 @@
   "noDuplicates": "Šobrīd nav iespējamu dublikātu.",
   "similarName": "Līdzīgs vārds",
   "sharePublicly": "Kopīgot publiski…",
-  "privateNoShare": "Šis kaķis ir atzīmēts kā privāts — privāti dati nekad nepamet jūsu ierīci. Vispirms noņemiet atzīmi, lai kopīgotu publiski.",
   "pickFramesTitle": "Kadru izvēle",
   "suggestedFrames": "Ieteiktie kadri",
   "scrubFrames": "Pārtīt video",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Rādīt padomus vēlreiz",
   "helpHome": "Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.",
   "helpClowder": "Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver.",
-  "helpCat": "Viss par šo kaķi: attēli, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilga lauka piespiešana ved tieši uz tā rediģēšanu; attēla — atver tā izvēlni. Izvēlnē augšā pa labi ir pārējais: privāts, paslēpt, apvienot, pierakstīt novērojumu, kopīgot.",
+  "helpCat": "Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku.",
   "helpStrays": "Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta.",
   "helpMap": "Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.",
   "helpCard": "Kaķa izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.",
   "markPrivate": "Atzīmēt kā privātu",
   "unmarkPrivate": "Noņemt privātuma atzīmi",
-  "includePrivate": "Iekļaut privātos datus",
-  "includePrivateExplainer": "Tā tiek nosūtīts arī viss, ko atzīmējāt kā privātu. Tas, ar ko sinhronizējat, to redzēs.",
+  "includePrivate": "Kopīgot privātos datus",
   "hideLabel": "Paslēpt šajā ierīcē",
   "unhideLabel": "Rādīt atkal",
   "showHiddenLabel": "Rādīt paslēptos",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Tas nav cat(a)log fails",
   "nothingNewInBundle": "Failā nekā jauna — viss jau ir",
   "syncChooserInPerson": "Klātienē",
-  "syncChooserInPersonSub": "Esat vienā telpā — noskenē kodu, gatavs sekundēs",
+  "syncChooserInPersonSub": "Sinhronizācija caur Wi-Fi",
   "syncChooserRemote": "Attālināti",
-  "syncChooserRemoteSub": "Caur koplietotu mapi kā Dropbox vai USB zibatmiņu",
+  "syncChooserRemoteSub": "Sinhronizācija caur mapi vai USB zibatmiņu",
   "syncChooserMessenger": "Ziņotne",
-  "syncChooserMessengerSub": "Sūtiet visu kā vienu failu ar jebkuru ziņotni — un importējiet saņemto .catsync failu šeit",
+  "syncChooserMessengerSub": "Eksports un imports caur sociālajiem tīkliem",
   "connectToWifiFirst": "Vispirms pieslēdzies Wi-Fi — tad ierīces atradīs viena otru",
   "trustQuestion": "{author} ({device}) vēlas sinhronizēt",
   "trustBothWaysNote": "Katalogi tiks apmainīti abos virzienos.",
@@ -423,7 +421,7 @@
   "introBody4": "Redzat sludinājumu par pazudušu kaķi? Nofotografējiet to lietotnē: tā saglabā kaķi, saimnieka kontaktu un vietu. Ja vēlāk parādīsies līdzīgs klaiņotājs, lietotne ieteiks iespējamās sakritības.",
   "spotMapSearch": "Ierakstiet kaķi, vietu vai cilvēku, lai kartē pārlektu turp.",
   "spotCardChips": "Atzīmējiet, kam jābūt koplietojamā kartītē — pārējais paliek ārpusē.",
-  "spotCatMenu": "Vairāk darbību šeit: atzīmējiet kaķi kā privātu, paslēpiet to, apvienojiet dublikātus vai pierakstiet novērojumu.",
+  "spotCatMenu": "Šeit ir vēl darbības: paslēpt kaķi, apvienot dublikātus vai pierakstīt novērojumu.",
   "spotDone": "Skaidrs",
   "spotReplayTitle": "Jaunumu tūre",
   "spotReplaySubtitle": "Rādīt padomus atkal katrā lapā",
@@ -440,30 +438,90 @@
   "newCatalog": "Jauns katalogs",
   "catalogNameLabel": "Kataloga nosaukums",
   "catalogNameTaken": "Katalogs ar nosaukumu {name} jau pastāv. Izvēlies citu nosaukumu.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Pārvaldīt katalogus",
   "helpCatalogs": "Katrs katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
   "spotHomeCatalog": "Šis ir katalogs, kurā esi. Pieskaries nosaukumam, lai pārslēgtu vai izveidotu jaunu.",
   "deleteCatalog": "Dzēst katalogu",
   "deleteCatalogBody": "Viss katalogā {name} pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} dzēsts. Fails ir {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Ieraksti {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nekas netika dzēsts: kataloga failu neizdevās ierakstīt ({error}). Atbrīvo vietu vai mēģini vēlāk.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Pārvietot uz citu katalogu",
   "movedToCatalog": "{count} pārvietoti uz {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Kas pārvietojas?",
   "moveIntoNewCatalog": "Pārvietot kaut ko uz {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Atsaukt šo importu",
   "undoImportBody": "{count} šī importa izmaiņas tiks noņemtas. Vispirms tās tiek ierakstītas failā, kura imports tās atgriež. Tie, ar kuriem jau sinhronizēji, patur savu kopiju — to atsaukt nevar.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Atsaukts. Fails ir {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Doties atpakaļ",
   "goBackToHere": "Atgriezties šeit",
   "momentImport": "Pirms importa",
@@ -474,12 +532,32 @@
   "momentManual": "Tevis atzīmēts",
   "showOlderMoments": "Rādīt vecākus",
   "goBackBody": "Viss pēc šī brīža tiek noņemts — {count} izmaiņas. Vispirms tas tiek ierakstīts failā, kura imports visu atgriež, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur kopiju — to atsaukt nevar.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Nosauc šo brīdi",
   "helpGoBack": "Brīži, kad šis katalogs mainīja formu: pirms katra importa un katras sinhronizācijas, pirms apvienošanas, arhivēšanas vai dzēšanas, un ikreiz, kad pats atzīmēji brīdi. Izvēloties vienu, katalogs atgriežas tajā stāvoklī — viss pēc tā tiek ierakstīts failā, ko paturi, un tad noņemts, un katrs jaunāks brīdis pazūd līdzi. Tie, ar kuriem jau sinhronizēji, patur saņemto.",
   "goBackFileFailed": "Nekas netika noņemts: failu, kas to saglabā, neizdevās ierakstīt ({error}). Atbrīvo vietu un mēģini vēlreiz.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Šis ir katalogs, kurā esi. Pārslēdzies uz citu un tad dzēs to.",
   "shareFileFailed": "Koplietošanas failu neizdevās ierakstīt ({error}). Atbrīvo vietu un mēģini vēlreiz.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privāts",
+  "sharedCatalogIs": "Katalogs: {name}"
 }

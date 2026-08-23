@@ -175,7 +175,6 @@
   "noDuplicates": "Momenteel geen mogelijke duplicaten.",
   "similarName": "Vergelijkbare naam",
   "sharePublicly": "Openbaar delen…",
-  "privateNoShare": "Deze kat is gemarkeerd als privé — privégegevens verlaten je apparaat nooit. Verwijder eerst de markering om openbaar te delen.",
   "pickFramesTitle": "Frames kiezen",
   "suggestedFrames": "Voorgestelde frames",
   "scrubFrames": "Door de video spoelen",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Tips opnieuw tonen",
   "helpHome": "Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.",
   "helpClowder": "Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen.",
-  "helpCat": "Alles over deze kat: foto's, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld ingedrukt om het meteen te bewerken; een foto voor haar menu. Het menu rechtsboven heeft de rest: privé markeren, verbergen, samenvoegen, waarneming vastleggen, delen.",
+  "helpCat": "Alles over deze kat: foto's, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld.",
   "helpStrays": "Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.",
   "helpMap": "Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.",
   "helpCard": "De printbare kaart van deze kat: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Blijft het mislukken op iPhone/iPad: Instellingen → Privacy en beveiliging → Lokaal netwerk → cat(a)log toestaan en opnieuw proberen.",
   "markPrivate": "Markeren als privé",
   "unmarkPrivate": "Privémarkering verwijderen",
-  "includePrivate": "Privégegevens meenemen",
-  "includePrivateExplainer": "Dit verstuurt ook alles wat je privé hebt gemarkeerd. Degene met wie je synchroniseert ziet het dan.",
+  "includePrivate": "Privégegevens delen",
   "hideLabel": "Verbergen op dit apparaat",
   "unhideLabel": "Opnieuw tonen",
   "showHiddenLabel": "Verborgen items tonen",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Dat is geen cat(a)log-bestand",
   "nothingNewInBundle": "Niets nieuws in dat bestand — je hebt alles al",
   "syncChooserInPerson": "In dezelfde kamer",
-  "syncChooserInPersonSub": "Jullie zijn in dezelfde ruimte — scan een code, klaar in seconden",
+  "syncChooserInPersonSub": "Synchronisatie via wifi",
   "syncChooserRemote": "Op afstand",
-  "syncChooserRemoteSub": "Via een gedeelde map zoals Dropbox of een USB-stick",
+  "syncChooserRemoteSub": "Synchronisatie via map of usb-stick",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Verstuur alles als één bestand via elke messenger — en importeer hier een ontvangen .catsync-bestand",
+  "syncChooserMessengerSub": "Export en import via social media",
   "connectToWifiFirst": "Maak eerst verbinding met wifi — dan vinden de apparaten elkaar",
   "trustQuestion": "{author} ({device}) wil synchroniseren",
   "trustBothWaysNote": "Jullie catalogi worden in beide richtingen uitgewisseld.",
@@ -423,7 +421,7 @@
   "introBody4": "Zie je een poster van een vermiste kat? Fotografeer hem in de app: die bewaart de kat, het contact van de eigenaar en de plek. Duikt later een vergelijkbare zwerver op, dan stelt de app mogelijke matches voor.",
   "spotMapSearch": "Typ een kat, plaats of persoon om er op de kaart naartoe te springen.",
   "spotCardChips": "Vink aan wat op de deelbare kaart moet staan — de rest blijft eraf.",
-  "spotCatMenu": "Meer acties staan hier: de kat privé markeren, verbergen, duplicaten samenvoegen of een waarneming vastleggen.",
+  "spotCatMenu": "Hier staan meer acties: verberg de kat, voeg duplicaten samen of noteer een waarneming.",
   "spotDone": "Begrepen",
   "spotReplayTitle": "Wat-is-nieuw-tour",
   "spotReplaySubtitle": "Tips opnieuw tonen op elke pagina",
@@ -440,30 +438,90 @@
   "newCatalog": "Nieuwe catalogus",
   "catalogNameLabel": "Naam van de catalogus",
   "catalogNameTaken": "Er is al een catalogus met de naam {name}. Kies een andere naam.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Catalogi beheren",
   "helpCatalogs": "Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
   "spotHomeCatalog": "Dit is de catalogus waarin je zit. Tik op de naam om te wisselen of er een te maken.",
   "deleteCatalog": "Catalogus verwijderen",
   "deleteCatalogBody": "Alles in {name} verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} verwijderd. Het bestand staat in {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Typ {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Er is niets verwijderd: het catalogusbestand kon niet worden weggeschreven ({error}). Maak ruimte vrij of probeer het later.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Naar een andere catalogus verplaatsen",
   "movedToCatalog": "{count} verplaatst naar {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Wat verhuist er mee?",
   "moveIntoNewCatalog": "Iets naar {name} verplaatsen?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Deze import ongedaan maken",
   "undoImportBody": "De {count} wijzigingen van deze import worden weggehaald. Ze worden eerst naar een bestand geschreven; dat importeren zet ze terug. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Ongedaan gemaakt. Het bestand staat in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Terug naar eerder",
   "goBackToHere": "Hierheen terug",
   "momentImport": "Vóór de import",
@@ -474,12 +532,32 @@
   "momentManual": "Door jou gemarkeerd",
   "showOlderMoments": "Oudere tonen",
   "goBackBody": "Alles na dit moment wordt weggehaald — {count} wijzigingen. Het wordt eerst naar een bestand geschreven; dat importeren zet alles terug, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt zijn kopie — dat kun je niet terugnemen.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Geef dit moment een naam",
   "helpGoBack": "De momenten waarop deze catalogus van vorm veranderde: vóór elke import en elke synchronisatie, vóór een samenvoeging, een archivering of een verwijdering, en telkens als je er zelf een markeerde. Er een kiezen zet de catalogus terug in die staat: alles daarna wordt naar een bestand geschreven dat je houdt en daarna weggehaald, en elk nieuwer moment gaat mee. Wie al gesynchroniseerd heeft, houdt wat hij kreeg.",
   "goBackFileFailed": "Er is niets weggehaald: het bestand dat het bewaart kon niet worden geschreven ({error}). Maak ruimte vrij en probeer opnieuw.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.",
   "shareFileFailed": "Het deelbestand kon niet worden geschreven ({error}). Maak ruimte vrij en probeer opnieuw.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privé",
+  "sharedCatalogIs": "Catalogus: {name}"
 }

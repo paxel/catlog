@@ -175,7 +175,6 @@
   "noDuplicates": "Nessun possibile duplicato al momento.",
   "similarName": "Nome simile",
   "sharePublicly": "Condividi pubblicamente…",
-  "privateNoShare": "Questo gatto è contrassegnato come privato — i dati privati non lasciano mai il tuo dispositivo. Rimuovi prima il contrassegno per condividerlo pubblicamente.",
   "pickFramesTitle": "Scegli fotogrammi",
   "suggestedFrames": "Fotogrammi suggeriti",
   "scrubFrames": "Scorri il video",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Mostra di nuovo i suggerimenti",
   "helpHome": "La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa. Il nome in alto è il catalogo in cui sei: toccalo per cambiare o aggiungerne uno.",
   "helpClowder": "Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo.",
-  "helpCat": "Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo direttamente; una foto per il suo menu. Il menu in alto a destra ha il resto: segna privato, nascondi, unisci, registra un avvistamento, condividi.",
+  "helpCat": "Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo.",
   "helpStrays": "Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto.",
   "helpMap": "Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all'altro, un tocco prolungato registra un avvistamento.",
   "helpCard": "La scheda stampabile del gatto: scegli in alto con i chip cosa compare, poi condividila come immagine o PDF. Gli identificativi si stampano come QR o codice a barre, e una posizione diventa un QR che apre una mappa, più un breve Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Se continua a fallire su iPhone/iPad: Impostazioni → Privacy e sicurezza → Rete locale → consenti cat(a)log, poi riprova.",
   "markPrivate": "Segna come privato",
   "unmarkPrivate": "Rimuovi contrassegno privato",
-  "includePrivate": "Includi dati privati",
-  "includePrivateExplainer": "Questo invia anche tutto ciò che hai contrassegnato come privato. Chi sincronizza con te lo vedrà.",
+  "includePrivate": "Condividi i dati privati",
   "hideLabel": "Nascondi su questo dispositivo",
   "unhideLabel": "Mostra di nuovo",
   "showHiddenLabel": "Mostra nascosti",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Questo non è un file cat(a)log",
   "nothingNewInBundle": "Niente di nuovo nel file — hai già tutto",
   "syncChooserInPerson": "Di persona",
-  "syncChooserInPersonSub": "Siete nella stessa stanza — scansiona un codice, fatto in secondi",
+  "syncChooserInPersonSub": "Sincronizzazione via Wi-Fi",
   "syncChooserRemote": "A distanza",
-  "syncChooserRemoteSub": "Tramite una cartella condivisa come Dropbox o una chiavetta USB",
+  "syncChooserRemoteSub": "Sincronizzazione via cartella o chiavetta USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Invia tutto come un unico file con qualsiasi messenger — e importa qui un file .catsync ricevuto",
+  "syncChooserMessengerSub": "Esporta e importa via social",
   "connectToWifiFirst": "Collegati prima a una Wi-Fi — così i dispositivi si trovano",
   "trustQuestion": "{author} ({device}) vuole sincronizzare",
   "trustBothWaysNote": "I cataloghi verranno scambiati in entrambe le direzioni.",
@@ -423,7 +421,7 @@
   "introBody4": "Vedi un volantino di gatto scomparso? Fotografalo nell'app: salva il gatto, il contatto del proprietario e il luogo. Se più tardi compare un randagio simile, l'app suggerisce possibili corrispondenze.",
   "spotMapSearch": "Scrivi un gatto, un luogo o una persona per saltarci sulla mappa.",
   "spotCardChips": "Spunta ciò che deve comparire sulla scheda da condividere — il resto ne resta fuori.",
-  "spotCatMenu": "Qui trovi altre azioni: contrassegnare il gatto come privato, nasconderlo, unire duplicati o registrare un avvistamento.",
+  "spotCatMenu": "Qui ci sono altre azioni: nascondi il gatto, unisci i duplicati o registra un avvistamento.",
   "spotDone": "Capito",
   "spotReplayTitle": "Tour delle novità",
   "spotReplaySubtitle": "Mostra di nuovo i suggerimenti su ogni pagina",
@@ -440,30 +438,90 @@
   "newCatalog": "Nuovo catalogo",
   "catalogNameLabel": "Nome del catalogo",
   "catalogNameTaken": "Esiste già un catalogo chiamato {name}. Scegli un altro nome.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Gestisci cataloghi",
   "helpCatalogs": "Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.",
   "spotHomeCatalog": "Questo è il catalogo in cui sei. Tocca il nome per cambiare o crearne un altro.",
   "deleteCatalog": "Elimina catalogo",
   "deleteCatalogBody": "Tutto ciò che è in {name} sparisce: i gatti, le foto, la cronologia. Prima viene salvato un file completo dove vanno i backup automatici; importarlo riporta indietro il catalogo. Scrivi il nome per confermare.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} eliminato. Il file è in {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Scrivi {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Non è stato eliminato nulla: il file del catalogo non è stato scritto ({error}). Libera spazio o riprova più tardi.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Sposta in un altro catalogo",
   "movedToCatalog": "{count} spostati in {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Che cosa si sposta?",
   "moveIntoNewCatalog": "Spostare qualcosa in {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Annulla questa importazione",
   "undoImportBody": "I {count} cambiamenti portati da questa importazione vengono tolti. Prima vengono scritti in un file; importarlo li riporta. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Annullato. Il file è in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Torna indietro",
   "goBackToHere": "Torna qui",
   "momentImport": "Prima dell’importazione",
@@ -474,12 +532,32 @@
   "momentManual": "Segnato da te",
   "showOlderMoments": "Mostra i più vecchi",
   "goBackBody": "Tutto ciò che viene dopo questo momento viene tolto — {count} cambiamenti. Prima viene scritto in un file; importarlo lo riporta, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva la sua copia: quello non si può ritirare.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Dai un nome a questo momento",
   "helpGoBack": "I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto.",
   "goBackFileFailed": "Non è stato tolto nulla: il file che lo conserva non è stato scritto ({error}). Libera spazio e riprova.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Questo è il catalogo in cui sei. Passa a un altro, poi eliminalo.",
   "shareFileFailed": "Il file di condivisione non è stato scritto ({error}). Libera spazio e riprova.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privato",
+  "sharedCatalogIs": "Catalogo: {name}"
 }

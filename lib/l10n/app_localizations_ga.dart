@@ -266,10 +266,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get sharePublicly => 'Comhroinn go poiblí…';
 
   @override
-  String get privateNoShare =>
-      'Tá an cat seo marcáilte príobháideach — ní fhágann sonraí príobháideacha do ghléas riamh. Bain an marc ar dtús chun é a chomhroinnt go poiblí.';
-
-  @override
   String get pickFramesTitle => 'Roghnaigh frámaí';
 
   @override
@@ -900,7 +896,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Gach rud faoin gcat seo: grianghraif, réimsí, muintir, stair. Tá an leathanach inléite go dtí go dtapálann tú an peann luaidhe. Tugann brú fada ar réimse díreach chuig a eagarthóireacht thú; ar ghrianghraf osclaíonn sé a roghchlár. Tá an chuid eile sa roghchlár ag barr na láimhe deise: príobháideach, folaigh, cumaisc, taifead amharc, roinn.';
+      'Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar.';
 
   @override
   String get helpStrays =>
@@ -1131,17 +1127,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.';
 
   @override
-  String get markPrivate => 'Marcáil mar phríobháideach';
-
-  @override
-  String get unmarkPrivate => 'Bain an marc príobháideach';
-
-  @override
-  String get includePrivate => 'Cuir sonraí príobháideacha san áireamh';
-
-  @override
-  String get includePrivateExplainer =>
-      'Seolann sé seo freisin gach rud a mharcáil tú príobháideach. Feicfidh an duine a shioncronaíonn leat é.';
+  String get includePrivate => 'Comhroinn sonraí príobháideacha';
 
   @override
   String get hideLabel => 'Folaigh ar an ngléas seo';
@@ -1340,22 +1326,20 @@ class AppLocalizationsGa extends AppLocalizations {
   String get syncChooserInPerson => 'Go pearsanta';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Tá sibh sa seomra céanna — scan cód, déanta i soicindí';
+  String get syncChooserInPersonSub => 'Sioncronú trí Wi-Fi';
 
   @override
   String get syncChooserRemote => 'I gcéin';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Trí fhillteán roinnte cosúil le Dropbox nó méaróg USB';
+  String get syncChooserRemoteSub => 'Sioncronú trí fhillteán nó méaróg USB';
 
   @override
   String get syncChooserMessenger => 'Teachtaire';
 
   @override
   String get syncChooserMessengerSub =>
-      'Seol gach rud mar chomhad amháin trí theachtaire ar bith — agus iompórtáil comhad .catsync a fuarthas anseo';
+      'Easpórtáil agus iompórtáil trí na meáin shóisialta';
 
   @override
   String get connectToWifiFirst =>
@@ -1479,7 +1463,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Tuilleadh gníomhartha anseo: marcáil an cat príobháideach, folaigh é, cumaisc dúblaigh nó taifead amharc.';
+      'Tuilleadh gníomhartha anseo: folaigh an cat, cumaisc dúbailtí, nó taifead amharc.';
 
   @override
   String get spotDone => 'Tuigim';
@@ -1653,22 +1637,16 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Príobháideach';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catalóg: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Marcáil mar phríobháideach';
+
+  @override
+  String get unmarkPrivate => 'Bain an marc príobháideach';
 }

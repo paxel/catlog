@@ -267,10 +267,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get sharePublicly => 'Deila opinberlega…';
 
   @override
-  String get privateNoShare =>
-      'Þessi köttur er merktur einka — einkagögn yfirgefa aldrei tækið þitt. Fjarlægðu merkinguna fyrst til að deila opinberlega.';
-
-  @override
   String get pickFramesTitle => 'Velja ramma';
 
   @override
@@ -899,7 +895,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lestrar þar til þú ýtir á blýantinn. Haltu reit inni til að fara beint í breytingu hans; mynd til að opna valmynd hennar. Valmyndin efst til hægri geymir afganginn: einkamál, fela, sameina, skrá athugun, deila.';
+      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt.';
 
   @override
   String get helpStrays =>
@@ -1130,17 +1126,7 @@ class AppLocalizationsIs extends AppLocalizations {
       'Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.';
 
   @override
-  String get markPrivate => 'Merkja sem einka';
-
-  @override
-  String get unmarkPrivate => 'Fjarlægja einkamerki';
-
-  @override
-  String get includePrivate => 'Taka einkagögn með';
-
-  @override
-  String get includePrivateExplainer =>
-      'Þetta sendir líka allt sem þú merktir sem einka. Sá sem þú samstillir við mun sjá það.';
+  String get includePrivate => 'Deila einkagögnum';
 
   @override
   String get hideLabel => 'Fela á þessu tæki';
@@ -1338,22 +1324,20 @@ class AppLocalizationsIs extends AppLocalizations {
   String get syncChooserInPerson => 'Í eigin persónu';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Þið eruð í sama herbergi — skannaðu kóða, tilbúið á sekúndum';
+  String get syncChooserInPersonSub => 'Samstilling um Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Fjarlægt';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Í gegnum sameiginlega möppu eins og Dropbox eða USB-lykil';
+  String get syncChooserRemoteSub => 'Samstilling um möppu eða USB-lykil';
 
   @override
   String get syncChooserMessenger => 'Skilaboðaforrit';
 
   @override
   String get syncChooserMessengerSub =>
-      'Sendu allt sem eina skrá í hvaða skilaboðaforriti sem er — og flyttu inn móttekna .catsync-skrá hér';
+      'Út- og innflutningur um samfélagsmiðla';
 
   @override
   String get connectToWifiFirst =>
@@ -1477,7 +1461,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Fleiri aðgerðir hér: merktu köttinn einka, feldu hann, sameinaðu tvítök eða skráðu athugun.';
+      'Hér eru fleiri aðgerðir: fela köttinn, sameina tvítök eða skrá að kötturinn sást.';
 
   @override
   String get spotDone => 'Skilið';
@@ -1650,22 +1634,16 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Einkamál';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Skrá: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Merkja sem einka';
+
+  @override
+  String get unmarkPrivate => 'Fjarlægja einkamerki';
 }

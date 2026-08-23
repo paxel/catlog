@@ -175,7 +175,6 @@
   "noDuplicates": "Obecnie brak możliwych duplikatów.",
   "similarName": "Podobne imię",
   "sharePublicly": "Udostępnij publicznie…",
-  "privateNoShare": "Ten kot jest oznaczony jako prywatny — prywatne dane nigdy nie opuszczają urządzenia. Najpierw usuń oznaczenie, aby udostępnić publicznie.",
   "pickFramesTitle": "Wybór klatek",
   "suggestedFrames": "Sugerowane klatki",
   "scrubFrames": "Przewijanie wideo",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Pokaż wskazówki ponownie",
   "helpHome": "Przegląd twoich kolonii — kolonia to miejsce, gdzie mieszkają koty: twój dom, dom tymczasowy, schronisko. Dotknij karty, by zobaczyć jej koty; przytrzymaj, by otworzyć menu. Przycisk na dole po prawej tworzy kolonię, a karta bezdomniaków zbiera wszystkie koty bez domu. Nazwa u góry to katalog, w którym jesteś — dotknij, aby przełączyć lub dodać.",
   "helpClowder": "Wszystko o tym miejscu: jego koty, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie kota przenosi, ukrywa lub otwiera go.",
-  "helpCat": "Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by przejść wprost do jego edycji; zdjęcie — by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: prywatny, ukryj, scal, zapisz obserwację, udostępnij.",
+  "helpCat": "Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by od razu je edytować; przytrzymaj zdjęcie, by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: ukryj, scal, zapisz zaobserwowanie, udostępnij kota. „Prywatne“ ustawia się przy edycji pola.",
   "helpStrays": "Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu.",
   "helpMap": "Wszystkie koty i miejsca z pozycją. Wyszukiwanie znajduje koty, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego kota i wokół domu, z którego uciekł. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację.",
   "helpCard": "Karta kota do druku: u góry chipami wybierasz, co ma się na niej znaleźć, potem udostępniasz ją jako obrazek lub PDF. Numery mogą być drukowane jako QR albo kod kreskowy, a pozycja staje się kodem QR otwierającym mapę oraz krótkim Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Jeśli na iPhone/iPad wciąż się nie udaje: Ustawienia → Prywatność i ochrona → Sieć lokalna → zezwól cat(a)log i spróbuj ponownie.",
   "markPrivate": "Oznacz jako prywatne",
   "unmarkPrivate": "Usuń oznaczenie prywatne",
-  "includePrivate": "Uwzględnij dane prywatne",
-  "includePrivateExplainer": "To wysyła też wszystko, co oznaczono jako prywatne. Osoba, z którą synchronizujesz, to zobaczy.",
+  "includePrivate": "Udostępnij prywatne dane",
   "hideLabel": "Ukryj na tym urządzeniu",
   "unhideLabel": "Pokaż ponownie",
   "showHiddenLabel": "Pokaż ukryte",
@@ -384,11 +382,11 @@
   "notACatlogFile": "To nie jest plik cat(a)log",
   "nothingNewInBundle": "Nic nowego w pliku — masz już wszystko",
   "syncChooserInPerson": "Osobiście",
-  "syncChooserInPersonSub": "Jesteście w tym samym pokoju — zeskanuj kod, gotowe w sekundy",
+  "syncChooserInPersonSub": "Synchronizacja przez Wi-Fi",
   "syncChooserRemote": "Zdalnie",
-  "syncChooserRemoteSub": "Przez wspólny folder jak Dropbox lub pendrive",
+  "syncChooserRemoteSub": "Synchronizacja przez folder lub pendrive",
   "syncChooserMessenger": "Komunikator",
-  "syncChooserMessengerSub": "Wyślij wszystko jako jeden plik dowolnym komunikatorem — i zaimportuj tu otrzymany plik .catsync",
+  "syncChooserMessengerSub": "Eksport i import przez media społecznościowe",
   "connectToWifiFirst": "Najpierw połącz się z Wi-Fi — wtedy urządzenia się znajdą",
   "trustQuestion": "{author} ({device}) chce synchronizować",
   "trustBothWaysNote": "Katalogi zostaną wymienione w obie strony.",
@@ -423,7 +421,7 @@
   "introBody4": "Widzisz ogłoszenie o zaginionym kocie? Sfotografuj je w aplikacji: zapisze kota, kontakt właściciela i miejsce. Gdy później pojawi się podobny bezdomniak, aplikacja podpowie możliwe dopasowania.",
   "spotMapSearch": "Wpisz kota, miejsce lub osobę, by skoczyć tam na mapie.",
   "spotCardChips": "Zaznacz, co ma być na udostępnianej karcie — reszta zostaje poza nią.",
-  "spotCatMenu": "Więcej działań tutaj: oznacz kota jako prywatnego, ukryj go, scal duplikaty albo zapisz obserwację.",
+  "spotCatMenu": "Tu jest więcej działań: ukryj kota, scal duplikaty lub zapisz zaobserwowanie.",
   "spotDone": "Rozumiem",
   "spotReplayTitle": "Przegląd nowości",
   "spotReplaySubtitle": "Pokaż wskazówki ponownie na każdej stronie",
@@ -440,30 +438,90 @@
   "newCatalog": "Nowy katalog",
   "catalogNameLabel": "Nazwa katalogu",
   "catalogNameTaken": "Katalog o nazwie {name} już istnieje. Wybierz inną nazwę.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Zarządzaj katalogami",
   "helpCatalogs": "Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.",
   "spotHomeCatalog": "To katalog, w którym jesteś. Dotknij nazwy, aby przełączyć lub utworzyć nowy.",
   "deleteCatalog": "Usuń katalog",
   "deleteCatalogBody": "Wszystko w katalogu {name} znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz nazwę, aby potwierdzić.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "Usunięto {name}. Plik jest w {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Wpisz {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku katalogu ({error}). Zwolnij miejsce lub spróbuj później.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Przenieś do innego katalogu",
   "movedToCatalog": "Przeniesiono {count} do {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Co ma się przenieść?",
   "moveIntoNewCatalog": "Przenieść coś do {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Cofnij ten import",
   "undoImportBody": "{count} zmian z tego importu zostanie usuniętych. Najpierw trafią do pliku, którego import je przywróci. Osoby, z którymi już zsynchronizowałeś, zachowają swoją kopię — tego nie da się cofnąć.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Cofnięto. Plik jest w {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Cofnij się",
   "goBackToHere": "Wróć tutaj",
   "momentImport": "Przed importem",
@@ -474,12 +532,32 @@
   "momentManual": "Oznaczone przez ciebie",
   "showOlderMoments": "Pokaż starsze",
   "goBackBody": "Wszystko po tej chwili zostanie usunięte — {count} zmian. Najpierw trafi do pliku, którego import to przywróci, a każda nowsza chwila zniknie razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowają kopię — tego nie da się cofnąć.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Nazwij tę chwilę",
   "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.",
   "goBackFileFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku, który to przechowuje ({error}). Zwolnij miejsce i spróbuj ponownie.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń.",
   "shareFileFailed": "Nie udało się zapisać pliku do udostępnienia ({error}). Zwolnij miejsce i spróbuj ponownie.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Prywatne",
+  "sharedCatalogIs": "Katalog: {name}"
 }

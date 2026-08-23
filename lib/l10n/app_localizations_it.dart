@@ -266,10 +266,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sharePublicly => 'Condividi pubblicamente…';
 
   @override
-  String get privateNoShare =>
-      'Questo gatto è contrassegnato come privato — i dati privati non lasciano mai il tuo dispositivo. Rimuovi prima il contrassegno per condividerlo pubblicamente.';
-
-  @override
   String get pickFramesTitle => 'Scegli fotogrammi';
 
   @override
@@ -899,7 +895,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo direttamente; una foto per il suo menu. Il menu in alto a destra ha il resto: segna privato, nascondi, unisci, registra un avvistamento, condividi.';
+      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo.';
 
   @override
   String get helpStrays =>
@@ -1130,17 +1126,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Se continua a fallire su iPhone/iPad: Impostazioni → Privacy e sicurezza → Rete locale → consenti cat(a)log, poi riprova.';
 
   @override
-  String get markPrivate => 'Segna come privato';
-
-  @override
-  String get unmarkPrivate => 'Rimuovi contrassegno privato';
-
-  @override
-  String get includePrivate => 'Includi dati privati';
-
-  @override
-  String get includePrivateExplainer =>
-      'Questo invia anche tutto ciò che hai contrassegnato come privato. Chi sincronizza con te lo vedrà.';
+  String get includePrivate => 'Condividi i dati privati';
 
   @override
   String get hideLabel => 'Nascondi su questo dispositivo';
@@ -1338,22 +1324,20 @@ class AppLocalizationsIt extends AppLocalizations {
   String get syncChooserInPerson => 'Di persona';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Siete nella stessa stanza — scansiona un codice, fatto in secondi';
+  String get syncChooserInPersonSub => 'Sincronizzazione via Wi-Fi';
 
   @override
   String get syncChooserRemote => 'A distanza';
 
   @override
   String get syncChooserRemoteSub =>
-      'Tramite una cartella condivisa come Dropbox o una chiavetta USB';
+      'Sincronizzazione via cartella o chiavetta USB';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Invia tutto come un unico file con qualsiasi messenger — e importa qui un file .catsync ricevuto';
+  String get syncChooserMessengerSub => 'Esporta e importa via social';
 
   @override
   String get connectToWifiFirst =>
@@ -1479,7 +1463,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Qui trovi altre azioni: contrassegnare il gatto come privato, nasconderlo, unire duplicati o registrare un avvistamento.';
+      'Qui ci sono altre azioni: nascondi il gatto, unisci i duplicati o registra un avvistamento.';
 
   @override
   String get spotDone => 'Capito';
@@ -1653,22 +1637,16 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privato';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catalogo: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Segna come privato';
+
+  @override
+  String get unmarkPrivate => 'Rimuovi contrassegno privato';
 }

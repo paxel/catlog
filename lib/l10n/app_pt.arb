@@ -175,7 +175,6 @@
   "noDuplicates": "Sem possíveis duplicados de momento.",
   "similarName": "Nome parecido",
   "sharePublicly": "Partilhar publicamente…",
-  "privateNoShare": "Este gato está marcado como privado — os dados privados nunca saem do seu dispositivo. Remova primeiro a marca para partilhar publicamente.",
   "pickFramesTitle": "Escolher fotogramas",
   "suggestedFrames": "Fotogramas sugeridos",
   "scrubFrames": "Percorrer o vídeo",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Mostrar as dicas outra vez",
   "helpHome": "A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa. O nome no topo é o catálogo em que estás — toca para trocar ou criar outro.",
   "helpClowder": "Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o.",
-  "helpCat": "Tudo sobre este gato: fotos, campos, família, histórico. A página fica só de leitura até tocares no lápis. Manter premido um campo abre logo a edição; numa foto abre o menu dela. O menu no canto superior direito tem o resto: marcar privado, esconder, fundir, registar avistamento, partilhar.",
+  "helpCat": "Tudo sobre este gato: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o gato. «Privado» define-se ao editar um campo.",
   "helpStrays": "Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz.",
   "helpMap": "Todos os gatos e sítios com posição. A pesquisa encontra gatos, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um gato desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento.",
   "helpCard": "O cartão imprimível deste gato: escolhe em cima com as etiquetas o que aparece e partilha-o como imagem ou PDF. Os números podem sair em QR ou código de barras, e uma posição vira um QR que abre um mapa, mais um Plus Code curto.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Se continuar a falhar no iPhone/iPad: Definições → Privacidade e segurança → Rede local → permitir cat(a)log e tenta de novo.",
   "markPrivate": "Marcar como privado",
   "unmarkPrivate": "Remover marca de privado",
-  "includePrivate": "Incluir dados privados",
-  "includePrivateExplainer": "Isto também envia tudo o que marcaste como privado. Quem sincronizar contigo vai vê-lo.",
+  "includePrivate": "Partilhar dados privados",
   "hideLabel": "Ocultar neste dispositivo",
   "unhideLabel": "Mostrar novamente",
   "showHiddenLabel": "Mostrar ocultos",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Isso não é um ficheiro cat(a)log",
   "nothingNewInBundle": "Nada de novo no ficheiro — já tem tudo",
   "syncChooserInPerson": "Presencial",
-  "syncChooserInPersonSub": "Estão na mesma sala — digitalize um código, pronto em segundos",
+  "syncChooserInPersonSub": "Sincronização por Wi-Fi",
   "syncChooserRemote": "À distância",
-  "syncChooserRemoteSub": "Através de uma pasta partilhada como Dropbox ou uma pen USB",
+  "syncChooserRemoteSub": "Sincronização por pasta ou pen USB",
   "syncChooserMessenger": "Mensageiro",
-  "syncChooserMessengerSub": "Envie tudo como um ficheiro por qualquer messenger — e importe aqui um ficheiro .catsync recebido",
+  "syncChooserMessengerSub": "Exportar e importar por redes sociais",
   "connectToWifiFirst": "Ligue-se primeiro a uma Wi-Fi — assim os dispositivos encontram-se",
   "trustQuestion": "{author} ({device}) quer sincronizar",
   "trustBothWaysNote": "Os catálogos serão trocados em ambas as direções.",
@@ -423,7 +421,7 @@
   "introBody4": "Vês um cartaz de gato desaparecido? Fotografa-o na app: ela guarda o gato, o contacto do dono e o local. Se mais tarde surgir um vadio parecido, a app sugere possíveis correspondências.",
   "spotMapSearch": "Escreve um gato, um lugar ou uma pessoa para saltar até lá no mapa.",
   "spotCardChips": "Marca o que deve aparecer no cartão partilhável — o resto fica de fora.",
-  "spotCatMenu": "Mais ações aqui: marcar o gato como privado, ocultá-lo, fundir duplicados ou registar um avistamento.",
+  "spotCatMenu": "Aqui há mais ações: ocultar o gato, fundir duplicados ou registar um avistamento.",
   "spotDone": "Entendi",
   "spotReplayTitle": "Tour das novidades",
   "spotReplaySubtitle": "Mostrar as dicas novamente em cada página",
@@ -440,30 +438,90 @@
   "newCatalog": "Novo catálogo",
   "catalogNameLabel": "Nome do catálogo",
   "catalogNameTaken": "Já existe um catálogo chamado {name}. Escolhe outro nome.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Gerir catálogos",
   "helpCatalogs": "Cada catálogo é um mundo próprio: os seus gatos, colónias, campos, fotos e parceiros de sincronização. Berlim e Paris nunca se misturam. Toca no nome no topo do ecrã inicial para trocar, criar outro ou mudar o nome. O teu nome, o idioma e as dicas já vistas são comuns a todos.",
   "spotHomeCatalog": "Este é o catálogo em que estás. Toca no nome para trocar ou criar outro.",
   "deleteCatalog": "Eliminar catálogo",
   "deleteCatalogBody": "Tudo em {name} desaparece: os gatos, as fotos, o histórico. Primeiro é guardado um ficheiro completo onde vão as cópias automáticas; importá-lo traz o catálogo de volta. Escreve o nome para confirmar.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} eliminado. O ficheiro está em {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Escreve {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Não foi eliminado nada: o ficheiro do catálogo não pôde ser escrito ({error}). Liberta espaço ou tenta mais tarde.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Mover para outro catálogo",
   "movedToCatalog": "{count} movidos para {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "O que vai mudar?",
   "moveIntoNewCatalog": "Mover algo para {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Desfazer esta importação",
   "undoImportBody": "As {count} alterações que esta importação trouxe são removidas. São primeiro escritas num ficheiro; importá-lo devolve-as. Quem já sincronizou fica com a sua cópia — isso não se pode retirar.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Desfeito. O ficheiro está em {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Voltar atrás",
   "goBackToHere": "Voltar para aqui",
   "momentImport": "Antes da importação",
@@ -474,12 +532,32 @@
   "momentManual": "Marcado por ti",
   "showOlderMoments": "Mostrar mais antigos",
   "goBackBody": "Tudo depois deste momento é removido — {count} alterações. É primeiro escrito num ficheiro; importá-lo devolve tudo, e cada momento mais recente vai junto. Quem já sincronizou fica com a sua cópia — isso não se pode retirar.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Dá um nome a este momento",
   "helpGoBack": "Os momentos em que este catálogo mudou de forma: antes de cada importação e de cada sincronização, antes de juntar, arquivar ou apagar, e sempre que marcaste um. Escolher um devolve o catálogo a esse estado — tudo o que veio depois é escrito num ficheiro que guardas e depois removido, e cada momento mais recente vai junto. Quem já sincronizou fica com o que recebeu.",
   "goBackFileFailed": "Não foi removido nada: o ficheiro que o guarda não pôde ser escrito ({error}). Liberta espaço e tenta outra vez.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Este é o catálogo em que estás. Muda para outro e depois elimina-o.",
   "shareFileFailed": "O ficheiro de partilha não pôde ser escrito ({error}). Liberta espaço e tenta outra vez.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privado",
+  "sharedCatalogIs": "Catálogo: {name}"
 }

@@ -266,10 +266,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sharePublicly => 'Поділитися публічно…';
 
   @override
-  String get privateNoShare =>
-      'Цього кота позначено як особистого — особисті дані ніколи не покидають пристрій. Спершу зніміть позначку, щоб поділитися публічно.';
-
-  @override
   String get pickFramesTitle => 'Вибір кадрів';
 
   @override
@@ -895,7 +891,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Усе про цього кота: фото, поля, родина, історія. Сторінка лише для читання, доки ви не торкнетеся олівця. Довге натискання на поле відкриває його редагування; на фото — його меню. У меню праворуч угорі решта: позначити особистим, приховати, об\'єднати, записати спостереження, поділитися.';
+      'Усе про цю кішку: фото, поля, родина, історія. Сторінка лише для читання, поки не торкнешся олівця. Довге натискання на поле одразу відкриває редагування; довге натискання на фото відкриває його меню. Меню праворуч угорі тримає решту: сховати, об\'єднати, записати спостереження, поділитися кішкою. «Приватно» задається під час редагування поля.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Якщо на iPhone/iPad далі не вдається: Параметри → Конфіденційність і безпека → Локальна мережа → дозвольте cat(a)log і спробуйте ще раз.';
 
   @override
-  String get markPrivate => 'Позначити як особисте';
-
-  @override
-  String get unmarkPrivate => 'Зняти особисту позначку';
-
-  @override
-  String get includePrivate => 'Включити особисті дані';
-
-  @override
-  String get includePrivateExplainer =>
-      'При цьому надішлеться і все, що ви позначили як особисте. Той, з ким ви синхронізуєтеся, це побачить.';
+  String get includePrivate => 'Поділитися приватними даними';
 
   @override
   String get hideLabel => 'Сховати на цьому пристрої';
@@ -1334,22 +1320,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get syncChooserInPerson => 'Особисто';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Ви в одній кімнаті — відскануйте код, готово за секунди';
+  String get syncChooserInPersonSub => 'Синхронізація через Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Віддалено';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Через спільну папку на кшталт Dropbox чи USB-флешки';
+  String get syncChooserRemoteSub => 'Синхронізація через теку або USB-флешку';
 
   @override
   String get syncChooserMessenger => 'Месенджер';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Надішліть усе одним файлом через будь-який месенджер — і імпортуйте отриманий файл .catsync тут';
+  String get syncChooserMessengerSub => 'Експорт та імпорт через соцмережі';
 
   @override
   String get connectToWifiFirst =>
@@ -1473,7 +1456,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Тут більше дій: позначити кота особистим, приховати його, об\'єднати дублікати чи записати спостереження.';
+      'Тут ще дії: сховати кішку, об\'єднати дублікати або записати спостереження.';
 
   @override
   String get spotDone => 'Зрозуміло';
@@ -1646,22 +1629,16 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Приватно';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Каталог: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Позначити як особисте';
+
+  @override
+  String get unmarkPrivate => 'Зняти особисту позначку';
 }

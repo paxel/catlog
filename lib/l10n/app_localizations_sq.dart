@@ -266,10 +266,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sharePublicly => 'Ndaje publikisht…';
 
   @override
-  String get privateNoShare =>
-      'Kjo mace është shënuar private — të dhënat private s\'e lënë kurrë pajisjen tuaj. Hiqni fillimisht shenjën për ta ndarë publikisht.';
-
-  @override
   String get pickFramesTitle => 'Zgjidh kuadro';
 
   @override
@@ -898,7 +894,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Gjithçka për këtë mace: fotot, fushat, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Shtypja e gjatë mbi një fushë të çon drejt e në redaktimin e saj; mbi një foto hap menynë e saj. Menyja lart djathtas ka pjesën tjetër: private, fshih, bashko, shëno vëzhgim, shpërnda.';
+      'Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe.';
 
   @override
   String get helpStrays =>
@@ -1128,17 +1124,7 @@ class AppLocalizationsSq extends AppLocalizations {
       'Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.';
 
   @override
-  String get markPrivate => 'Shëno si private';
-
-  @override
-  String get unmarkPrivate => 'Hiq shënimin privat';
-
-  @override
-  String get includePrivate => 'Përfshi të dhënat private';
-
-  @override
-  String get includePrivateExplainer =>
-      'Kështu dërgohet edhe gjithçka që ke shënuar private. Ai me të cilin sinkronizon do ta shohë.';
+  String get includePrivate => 'Ndaj të dhënat private';
 
   @override
   String get hideLabel => 'Fshih në këtë pajisje';
@@ -1335,22 +1321,20 @@ class AppLocalizationsSq extends AppLocalizations {
   String get syncChooserInPerson => 'Personalisht';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Jeni në të njëjtën dhomë — skano një kod, gati për sekonda';
+  String get syncChooserInPersonSub => 'Sinkronizim përmes Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Në distancë';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Përmes një dosjeje të përbashkët si Dropbox ose USB';
+  String get syncChooserRemoteSub => 'Sinkronizim përmes dosjes ose USB-së';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
   String get syncChooserMessengerSub =>
-      'Dërgoni gjithçka si një skedar me çdo messenger — dhe importoni këtu një skedar .catsync të marrë';
+      'Eksport dhe import përmes rrjeteve sociale';
 
   @override
   String get connectToWifiFirst =>
@@ -1475,7 +1459,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Më shumë veprime këtu: shëno macen private, fshihe, bashko dublikata ose regjistro një vëzhgim.';
+      'Këtu ka më shumë veprime: fshih macen, bashko dublikatat ose shëno një vëzhgim.';
 
   @override
   String get spotDone => 'Kuptova';
@@ -1648,22 +1632,16 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Private';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalogu: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Shëno si private';
+
+  @override
+  String get unmarkPrivate => 'Hiq shënimin privat';
 }

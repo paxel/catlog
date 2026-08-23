@@ -34,6 +34,13 @@ class SyncScreen extends StatelessWidget {
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.error)),
             ),
+          // What all three ways share: the catalog open right now.
+          if (store.localSetting(catalogNameKey) case final name?)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Text(t.sharedCatalogIs(name),
+                  style: Theme.of(context).textTheme.titleMedium),
+            ),
           _ChooserCard(
             icon: Icons.qr_code,
             title: t.syncChooserInPerson,

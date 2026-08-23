@@ -175,7 +175,6 @@
   "noDuplicates": "Engin möguleg tvítök núna.",
   "similarName": "Svipað nafn",
   "sharePublicly": "Deila opinberlega…",
-  "privateNoShare": "Þessi köttur er merktur einka — einkagögn yfirgefa aldrei tækið þitt. Fjarlægðu merkinguna fyrst til að deila opinberlega.",
   "pickFramesTitle": "Velja ramma",
   "suggestedFrames": "Tillögur að römmum",
   "scrubFrames": "Spóla í myndbandinu",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Sýna ábendingar aftur",
   "helpHome": "Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.",
   "helpClowder": "Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.",
-  "helpCat": "Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lestrar þar til þú ýtir á blýantinn. Haltu reit inni til að fara beint í breytingu hans; mynd til að opna valmynd hennar. Valmyndin efst til hægri geymir afganginn: einkamál, fela, sameina, skrá athugun, deila.",
+  "helpCat": "Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt.",
   "helpStrays": "Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.",
   "helpMap": "Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.",
   "helpCard": "Prentanlegt spjald kattarins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Ef það mistekst áfram á iPhone/iPad: Stillingar → Persónuvernd og öryggi → Staðarnet → leyfa cat(a)log og reyna aftur.",
   "markPrivate": "Merkja sem einka",
   "unmarkPrivate": "Fjarlægja einkamerki",
-  "includePrivate": "Taka einkagögn með",
-  "includePrivateExplainer": "Þetta sendir líka allt sem þú merktir sem einka. Sá sem þú samstillir við mun sjá það.",
+  "includePrivate": "Deila einkagögnum",
   "hideLabel": "Fela á þessu tæki",
   "unhideLabel": "Sýna aftur",
   "showHiddenLabel": "Sýna falið",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Þetta er ekki cat(a)log-skrá",
   "nothingNewInBundle": "Ekkert nýtt í skránni — þú átt allt nú þegar",
   "syncChooserInPerson": "Í eigin persónu",
-  "syncChooserInPersonSub": "Þið eruð í sama herbergi — skannaðu kóða, tilbúið á sekúndum",
+  "syncChooserInPersonSub": "Samstilling um Wi-Fi",
   "syncChooserRemote": "Fjarlægt",
-  "syncChooserRemoteSub": "Í gegnum sameiginlega möppu eins og Dropbox eða USB-lykil",
+  "syncChooserRemoteSub": "Samstilling um möppu eða USB-lykil",
   "syncChooserMessenger": "Skilaboðaforrit",
-  "syncChooserMessengerSub": "Sendu allt sem eina skrá í hvaða skilaboðaforriti sem er — og flyttu inn móttekna .catsync-skrá hér",
+  "syncChooserMessengerSub": "Út- og innflutningur um samfélagsmiðla",
   "connectToWifiFirst": "Tengstu fyrst Wi-Fi — þá finna tækin hvort annað",
   "trustQuestion": "{author} ({device}) vill samstilla",
   "trustBothWaysNote": "Skrárnar ykkar skiptast í báðar áttir.",
@@ -423,7 +421,7 @@
   "introBody4": "Sérðu auglýsingu um týndan kött? Myndaðu hana í appinu: það vistar köttinn, tengilið eigandans og staðinn. Ef svipaður flækingur birtist síðar stingur appið upp á mögulegum samsvörunum.",
   "spotMapSearch": "Sláðu inn kött, stað eða manneskju til að hoppa þangað á kortinu.",
   "spotCardChips": "Merktu við það sem á að sjást á deilanlega spjaldinu — annað verður ekki með.",
-  "spotCatMenu": "Fleiri aðgerðir hér: merktu köttinn einka, feldu hann, sameinaðu tvítök eða skráðu athugun.",
+  "spotCatMenu": "Hér eru fleiri aðgerðir: fela köttinn, sameina tvítök eða skrá að kötturinn sást.",
   "spotDone": "Skilið",
   "spotReplayTitle": "Nýjungaferð",
   "spotReplaySubtitle": "Sýna ábendingar aftur á hverri síðu",
@@ -440,30 +438,90 @@
   "newCatalog": "Ný skrá",
   "catalogNameLabel": "Heiti skrár",
   "catalogNameTaken": "Skrá sem heitir {name} er þegar til. Veldu annað heiti.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Sýsla með skrár",
   "helpCatalogs": "Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.",
   "spotHomeCatalog": "Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.",
   "deleteCatalog": "Eyða skrá",
   "deleteCatalogBody": "Allt í {name} hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} eytt. Skráin er í {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Sláðu inn {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Engu var eytt: ekki tókst að skrifa skráarskrána ({error}). Losaðu pláss eða reyndu aftur síðar.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Færa í aðra skrá",
   "movedToCatalog": "{count} færð í {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Hvað á að flytja?",
   "moveIntoNewCatalog": "Færa eitthvað í {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Afturkalla þennan innflutning",
   "undoImportBody": "{count} breytingar sem þessi innflutningur kom með verða fjarlægðar. Þær eru fyrst skrifaðar í skrá og innflutningur hennar skilar þeim. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Afturkallað. Skráin er í {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Fara til baka",
   "goBackToHere": "Fara hingað til baka",
   "momentImport": "Fyrir innflutning",
@@ -474,12 +532,32 @@
   "momentManual": "Merkt af þér",
   "showOlderMoments": "Sýna eldri",
   "goBackBody": "Allt eftir þessa stund verður fjarlægt — {count} breytingar. Það er fyrst skrifað í skrá og innflutningur hennar skilar öllu; hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda sínu eintaki — það verður ekki afturkallað.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Gefðu þessari stund heiti",
   "helpGoBack": "Stundirnar þegar þessi skrá breytti um lögun: fyrir hvern innflutning og hverja samstillingu, fyrir sameiningu, söfnun eða eyðingu, og alltaf þegar þú merktir stund sjálf. Ef þú velur eina fer skráin aftur í það ástand — allt eftir hana er skrifað í skrá sem þú heldur og síðan fjarlægt, og hver nýrri stund fer með. Þeir sem þú hefur þegar samstillt við halda því sem þeir fengu.",
   "goBackFileFailed": "Engu var eytt: skráin sem geymir það var ekki skrifuð ({error}). Losaðu pláss og reyndu aftur.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.",
   "shareFileFailed": "Ekki tókst að skrifa deiliskrána ({error}). Losaðu pláss og reyndu aftur.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Einkamál",
+  "sharedCatalogIs": "Skrá: {name}"
 }

@@ -175,7 +175,6 @@
   "noDuplicates": "Ei mahdollisia kaksoiskappaleita juuri nyt.",
   "similarName": "Samankaltainen nimi",
   "sharePublicly": "Jaa julkisesti…",
-  "privateNoShare": "Tämä kissa on merkitty yksityiseksi — yksityiset tiedot eivät koskaan poistu laitteeltasi. Poista merkintä ensin jakaaksesi julkisesti.",
   "pickFramesTitle": "Valitse ruudut",
   "suggestedFrames": "Ehdotetut ruudut",
   "scrubFrames": "Kelaa videota",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Näytä vinkit uudelleen",
   "helpHome": "Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.",
   "helpClowder": "Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.",
-  "helpCat": "Kaikki tästä kissasta: kuvat, kentät, suku, historia. Sivu on vain luettava, kunnes napautat kynää. Pidä kenttää painettuna päästäksesi suoraan sen muokkaukseen; kuvaa avataksesi sen valikon. Oikean yläkulman valikossa on loput: merkitse yksityiseksi, piilota, yhdistä, kirjaa havainto, jaa.",
+  "helpCat": "Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa.",
   "helpStrays": "Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.",
   "helpMap": "Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.",
   "helpCard": "Kissan tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.",
   "markPrivate": "Merkitse yksityiseksi",
   "unmarkPrivate": "Poista yksityisyysmerkintä",
-  "includePrivate": "Sisällytä yksityiset tiedot",
-  "includePrivateExplainer": "Tämä lähettää myös kaiken yksityiseksi merkityn. Se, jonka kanssa synkronoit, näkee sen.",
+  "includePrivate": "Jaa yksityiset tiedot",
   "hideLabel": "Piilota tällä laitteella",
   "unhideLabel": "Näytä uudelleen",
   "showHiddenLabel": "Näytä piilotetut",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Tuo ei ole cat(a)log-tiedosto",
   "nothingNewInBundle": "Ei mitään uutta — sinulla on jo kaikki",
   "syncChooserInPerson": "Kasvokkain",
-  "syncChooserInPersonSub": "Olette samassa huoneessa — skannaa koodi, valmis sekunneissa",
+  "syncChooserInPersonSub": "Synkronointi Wi-Fin kautta",
   "syncChooserRemote": "Etänä",
-  "syncChooserRemoteSub": "Jaetun kansion kautta, kuten Dropbox tai USB-tikku",
+  "syncChooserRemoteSub": "Synkronointi kansion tai USB-tikun kautta",
   "syncChooserMessenger": "Viestisovellus",
-  "syncChooserMessengerSub": "Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä — ja tuo vastaanotettu .catsync-tiedosto tässä",
+  "syncChooserMessengerSub": "Vienti ja tuonti somen kautta",
   "connectToWifiFirst": "Yhdistä ensin Wi-Fiin — sitten laitteet löytävät toisensa",
   "trustQuestion": "{author} ({device}) haluaa synkronoida",
   "trustBothWaysNote": "Luettelot vaihdetaan molempiin suuntiin.",
@@ -423,7 +421,7 @@
   "introBody4": "Näetkö ilmoituksen kadonneesta kissasta? Kuvaa se sovelluksessa: se tallentaa kissan, omistajan yhteystiedot ja paikan. Jos samankaltainen kulkukissa ilmestyy myöhemmin, sovellus ehdottaa mahdollisia osumia.",
   "spotMapSearch": "Kirjoita kissa, paikka tai henkilö hypätäksesi sinne kartalla.",
   "spotCardChips": "Valitse, mitä jaettavalla kortilla näkyy — muu jää pois.",
-  "spotCatMenu": "Lisää toimintoja täällä: merkitse kissa yksityiseksi, piilota se, yhdistä kaksoiskappaleet tai kirjaa havainto.",
+  "spotCatMenu": "Täältä löytyy lisää toimintoja: piilota kissa, yhdistä kaksoiskappaleet tai kirjaa havainto.",
   "spotDone": "Selvä",
   "spotReplayTitle": "Uutuuskierros",
   "spotReplaySubtitle": "Näytä vinkit uudelleen joka sivulla",
@@ -440,30 +438,90 @@
   "newCatalog": "Uusi luettelo",
   "catalogNameLabel": "Luettelon nimi",
   "catalogNameTaken": "Luettelo nimeltä {name} on jo olemassa. Valitse toinen nimi.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Hallitse luetteloita",
   "helpCatalogs": "Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
   "spotHomeCatalog": "Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.",
   "deleteCatalog": "Poista luettelo",
   "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} poistettu. Tiedosto on kohteessa {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Kirjoita {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Mitään ei poistettu: luettelotiedostoa ei voitu kirjoittaa ({error}). Vapauta tilaa tai yritä myöhemmin.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Siirrä toiseen luetteloon",
   "movedToCatalog": "{count} siirretty luetteloon {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Mikä siirtyy?",
   "moveIntoNewCatalog": "Siirretäänkö jotain luetteloon {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Kumoa tämä tuonti",
   "undoImportBody": "Tämän tuonnin tuomat {count} muutosta poistetaan. Ne kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa ne. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Kumottu. Tiedosto on kohteessa {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Palaa taaksepäin",
   "goBackToHere": "Palaa tähän",
   "momentImport": "Ennen tuontia",
@@ -474,12 +532,32 @@
   "momentManual": "Itse merkitsemäsi",
   "showOlderMoments": "Näytä vanhemmat",
   "goBackBody": "Kaikki tämän hetken jälkeen poistetaan — {count} muutosta. Se kirjoitetaan ensin tiedostoon, jonka tuonti palauttaa kaiken, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät kopionsa — sitä ei saa peruttua.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Nimeä tämä hetki",
   "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.",
   "goBackFileFailed": "Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.",
   "shareFileFailed": "Jakotiedostoa ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Yksityinen",
+  "sharedCatalogIs": "Luettelo: {name}"
 }

@@ -27,10 +27,6 @@ class FieldList extends StatelessWidget {
   /// Shown as an "Add field" row at the end of the edit-mode list (#50).
   final VoidCallback? onAddField;
 
-  /// Toggles whether this one value stays on the device. Null on screens
-  /// that do not offer it.
-  final void Function(FieldDef def)? onTogglePrivate;
-
   const FieldList(
       {super.key,
       required this.store,
@@ -43,8 +39,7 @@ class FieldList extends StatelessWidget {
       required this.onShowMap,
       this.onLookup,
       this.onReadLongPress,
-      this.onAddField,
-      this.onTogglePrivate});
+      this.onAddField});
 
   bool _filled(FieldDef def) {
     final value = store.current(entityId, def.key);
@@ -52,9 +47,9 @@ class FieldList extends StatelessWidget {
   }
 
   String _display(BuildContext context, FieldDef def) {
-    // A value the sender kept private: the slot is not empty, it is
-    // withheld, and saying so beats showing nothing.
-    if (store.isWithheld(entityId, def.key)) return context.t.valueWithheld;
+    // A value the sender kept private: the lock says it all, the value
+    // line stays empty.
+    if (store.isWithheld(entityId, def.key)) return '';
     final value = store.current(entityId, def.key);
     if (def.type == FieldType.cat && value != null) {
       return store.current(store.resolveEntity(value), Keys.name) ?? '?';
@@ -84,46 +79,39 @@ class FieldList extends StatelessWidget {
           final lookup = onLookup != null &&
               value != null &&
               lookupUrl(def, value) != null;
-          final private = store.isFieldPrivate(entityId, def.key);
+          // Read mode marks a private value with a lock at the end of
+          // the row — your own and one a partner kept back look alike.
+          // Edit mode shows no lock; the field editor's checkmark is
+          // where Private is set.
+          final lock = !editing &&
+              (store.isFieldPrivate(entityId, def.key) ||
+                  store.isWithheld(entityId, def.key));
+          final action = conflict
+              ? const Icon(Icons.warning_amber, color: Colors.amber)
+              : mapJump
+                  ? IconButton(
+                      icon: const Icon(Icons.map_outlined),
+                      tooltip: context.t.showOnMap,
+                      onPressed: () => onShowMap(value),
+                    )
+                  : lookup
+                      ? IconButton(
+                          icon: const Icon(Icons.open_in_new),
+                          tooltip: context.t.lookUpId,
+                          onPressed: () => onLookup!(def, value),
+                        )
+                  : editing
+                      ? const Icon(Icons.edit_outlined)
+                      : null;
           return ListTile(
             title: Text(fieldDefName(context.t, def)),
             subtitle: Text(_display(context, def)),
-            // Read mode marks what stays home; edit mode lets it be
-            // switched, one value at a time.
-            leading: private && !editing
-                ? Icon(Icons.lock_outline,
-                    size: 18, color: Theme.of(context).colorScheme.primary)
-                : null,
-            trailing: editing && onTogglePrivate != null && !conflict
+            trailing: lock
                 ? Row(mainAxisSize: MainAxisSize.min, children: [
-                    IconButton(
-                      icon: Icon(private
-                          ? Icons.lock_outline
-                          : Icons.lock_open_outlined),
-                      tooltip: private
-                          ? context.t.shareThisValue
-                          : context.t.keepThisValuePrivate,
-                      onPressed: () => onTogglePrivate!(def),
-                    ),
-                    const Icon(Icons.edit_outlined),
+                    ?action,
+                    const Icon(Icons.lock, size: 20),
                   ])
-                : conflict
-                ? const Icon(Icons.warning_amber, color: Colors.amber)
-                : mapJump
-                    ? IconButton(
-                        icon: const Icon(Icons.map_outlined),
-                        tooltip: context.t.showOnMap,
-                        onPressed: () => onShowMap(value),
-                      )
-                    : lookup
-                        ? IconButton(
-                            icon: const Icon(Icons.open_in_new),
-                            tooltip: context.t.lookUpId,
-                            onPressed: () => onLookup!(def, value),
-                          )
-                    : editing
-                        ? const Icon(Icons.edit_outlined)
-                        : null,
+                : action,
             onTap: conflict
                 ? () => onConflict(def)
                 : editing

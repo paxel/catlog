@@ -266,10 +266,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sharePublicly => 'اشتراک عمومی…';
 
   @override
-  String get privateNoShare =>
-      'این گربه خصوصی علامت‌گذاری شده — داده‌های خصوصی هرگز دستگاه شما را ترک نمی‌کنند. برای اشتراک عمومی ابتدا علامت را بردارید.';
-
-  @override
   String get pickFramesTitle => 'انتخاب فریم‌ها';
 
   @override
@@ -894,7 +890,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'همه‌چیز دربارهٔ این گربه: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه تا زدن مداد فقط خواندنی است. فشار طولانی روی فیلد یک‌راست به ویرایش می‌برد؛ روی عکس منوی آن را باز می‌کند. منوی بالا سمت راست بقیه را دارد: خصوصی، پنهان، ادغام، ثبت مشاهده، اشتراک.';
+      'همه چیز درباره این گربه: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه فقط‌خواندنی است تا روی مداد بزنی. نگه‌داشتن یک فیلد مستقیم به ویرایش آن می‌رود؛ نگه‌داشتن یک عکس منوی آن را باز می‌کند. منوی بالا بقیه را دارد: پنهان کردن، ادغام، ثبت مشاهده، اشتراک گربه. «خصوصی» هنگام ویرایش فیلد تنظیم می‌شود.';
 
   @override
   String get helpStrays =>
@@ -1124,17 +1120,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'اگر در iPhone/iPad همچنان ناموفق است: تنظیمات → حریم خصوصی و امنیت → شبکه محلی → به cat(a)log اجازه دهید و دوباره امتحان کنید.';
 
   @override
-  String get markPrivate => 'علامت‌گذاری به‌عنوان خصوصی';
-
-  @override
-  String get unmarkPrivate => 'حذف علامت خصوصی';
-
-  @override
-  String get includePrivate => 'شامل کردن داده‌های خصوصی';
-
-  @override
-  String get includePrivateExplainer =>
-      'با این کار هر چیزی که خصوصی علامت زده‌اید هم فرستاده می‌شود. کسی که با شما همگام می‌شود آن را می‌بیند.';
+  String get includePrivate => 'اشتراک داده‌های خصوصی';
 
   @override
   String get hideLabel => 'پنهان کردن در این دستگاه';
@@ -1331,22 +1317,20 @@ class AppLocalizationsFa extends AppLocalizations {
   String get syncChooserInPerson => 'حضوری';
 
   @override
-  String get syncChooserInPersonSub =>
-      'در یک اتاق هستید — کد را اسکن کنید، در چند ثانیه تمام';
+  String get syncChooserInPersonSub => 'همگام‌سازی از طریق Wi-Fi';
 
   @override
   String get syncChooserRemote => 'از راه دور';
 
   @override
-  String get syncChooserRemoteSub =>
-      'از طریق پوشه مشترک مانند Dropbox یا فلش USB';
+  String get syncChooserRemoteSub => 'همگام‌سازی از طریق پوشه یا USB';
 
   @override
   String get syncChooserMessenger => 'پیام‌رسان';
 
   @override
   String get syncChooserMessengerSub =>
-      'همه چیز را به‌صورت یک فایل با هر پیام‌رسانی بفرستید — و فایل .catsync دریافتی را اینجا وارد کنید';
+      'صادرات و واردات از طریق شبکه‌های اجتماعی';
 
   @override
   String get connectToWifiFirst =>
@@ -1470,7 +1454,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'کارهای بیشتر اینجاست: گربه را خصوصی کنید، پنهانش کنید، تکراری‌ها را ادغام یا مشاهده‌ای ثبت کنید.';
+      'اینجا کارهای بیشتری هست: پنهان کردن گربه، ادغام موارد تکراری یا ثبت مشاهده.';
 
   @override
   String get spotDone => 'متوجه شدم';
@@ -1643,22 +1627,16 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'خصوصی';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'کاتالوگ: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'علامت‌گذاری به‌عنوان خصوصی';
+
+  @override
+  String get unmarkPrivate => 'حذف علامت خصوصی';
 }

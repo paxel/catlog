@@ -175,7 +175,6 @@
   "noDuplicates": "Momentálně žádné možné duplicity.",
   "similarName": "Podobné jméno",
   "sharePublicly": "Sdílet veřejně…",
-  "privateNoShare": "Tato kočka je označena jako soukromá — soukromá data nikdy neopouštějí vaše zařízení. Nejdřív označení zrušte, pak ji lze sdílet veřejně.",
   "pickFramesTitle": "Výběr snímků",
   "suggestedFrames": "Navržené snímky",
   "scrubFrames": "Posouvání videa",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Zobrazit tipy znovu",
   "helpHome": "Přehled vašich kolonií — kolonie je místo, kde žijí kočky: váš domov, dočaska, útulek. Klepnutím na kartu zobrazíte její kočky; podržením otevřete menu. Tlačítko vpravo dole založí kolonii a karta toulavých sbírá všechny kočky bez domova. Název nahoře je katalog, ve kterém jsi — klepnutím přepneš nebo přidáš další.",
   "helpClowder": "Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete.",
-  "helpCat": "Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen ke čtení, dokud neklepnete na tužku. Podržte pole a upravíte ho přímo; podržte fotku a otevřete její menu. Menu vpravo nahoře má zbytek: soukromé, skrýt, sloučit, zapsat pozorování, sdílet.",
+  "helpCat": "Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen pro čtení, dokud neklepneš na tužku. Dlouze podrž pole a rovnou ho upravíš; dlouze podrž fotku pro její menu. Menu vpravo nahoře drží zbytek: skrýt, sloučit, zaznamenat spatření, sdílet kočku. „Soukromé“ se nastavuje při úpravě pole.",
   "helpStrays": "Kočky, které teď nemají domov: nalezené, utečené nebo z letáku. Tlačítko fotoaparátu zapíše kočku, která sedí před vámi; tlačítko letáku promění plakát v kočku i s kontaktem majitele; skener přečte kód cat(a)log z plakátu.",
   "helpMap": "Všechny kočky a místa s pozicí. Hledání najde kočky, lidi i místa — neznámé jméno hledá po celém světě. Tlačítko vrstev nakreslí kruhy 500 m kolem míst letáků pohřešované kočky a kolem domova, ze kterého utekla. Šipky vedou od špendlíku ke špendlíku, podržením mapy zapíšete pozorování.",
   "helpCard": "Tisknutelná karta kočky: nahoře čipy vyberete, co na ní bude, pak ji sdílíte jako obrázek nebo PDF. Čísla lze vytisknout jako QR nebo čárový kód a z pozice vznikne QR otevírající mapu plus krátký Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Pokud to na iPhonu/iPadu dál selhává: Nastavení → Soukromí a zabezpečení → Místní síť → povolit cat(a)log a zkusit znovu.",
   "markPrivate": "Označit jako soukromé",
   "unmarkPrivate": "Odebrat soukromé označení",
-  "includePrivate": "Zahrnout soukromá data",
-  "includePrivateExplainer": "Tímto se pošle i vše, co jste označili jako soukromé. Ten, s kým synchronizujete, to uvidí.",
+  "includePrivate": "Sdílet soukromá data",
   "hideLabel": "Skrýt na tomto zařízení",
   "unhideLabel": "Znovu zobrazit",
   "showHiddenLabel": "Zobrazit skryté",
@@ -384,11 +382,11 @@
   "notACatlogFile": "To není soubor cat(a)log",
   "nothingNewInBundle": "V souboru nic nového — všechno už máš",
   "syncChooserInPerson": "Osobně",
-  "syncChooserInPersonSub": "Jste ve stejné místnosti — naskenuj kód, hotovo za pár vteřin",
+  "syncChooserInPersonSub": "Synchronizace přes Wi-Fi",
   "syncChooserRemote": "Na dálku",
-  "syncChooserRemoteSub": "Přes sdílenou složku jako Dropbox nebo USB disk",
+  "syncChooserRemoteSub": "Synchronizace přes složku nebo USB disk",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Pošlete vše jako jeden soubor přes libovolný messenger — a přijatý soubor .catsync importujte zde",
+  "syncChooserMessengerSub": "Export a import přes sociální sítě",
   "connectToWifiFirst": "Nejprve se připoj k Wi-Fi — pak se zařízení najdou",
   "trustQuestion": "{author} ({device}) chce synchronizovat",
   "trustBothWaysNote": "Katalogy se vymění oběma směry.",
@@ -423,7 +421,7 @@
   "introBody4": "Vidíte leták s pohřešovanou kočkou? Vyfoťte ho v aplikaci: uloží kočku, kontakt na majitele i místo. Objeví-li se později podobná toulavá kočka, aplikace navrhne možné shody.",
   "spotMapSearch": "Napište kočku, místo nebo osobu a skočte tam na mapě.",
   "spotCardChips": "Zaškrtněte, co má být na sdílené kartě — zbytek na ní nebude.",
-  "spotCatMenu": "Další akce jsou tady: označit kočku jako soukromou, skrýt ji, sloučit duplicity nebo zapsat pozorování.",
+  "spotCatMenu": "Tady jsou další akce: skrýt kočku, sloučit duplicity nebo zaznamenat spatření.",
   "spotDone": "Rozumím",
   "spotReplayTitle": "Prohlídka novinek",
   "spotReplaySubtitle": "Znovu ukázat tipy na každé stránce",
@@ -440,30 +438,90 @@
   "newCatalog": "Nový katalog",
   "catalogNameLabel": "Název katalogu",
   "catalogNameTaken": "Katalog s názvem {name} už existuje. Zvol jiný název.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Správa katalogů",
   "helpCatalogs": "Každý katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.",
   "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího.",
   "deleteCatalog": "Smazat katalog",
   "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} smazán. Soubor je v {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Napiš {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nic se nesmazalo: soubor katalogu se nepodařilo zapsat ({error}). Uvolni místo nebo to zkus později.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Přesunout do jiného katalogu",
   "movedToCatalog": "{count} přesunuto do {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Co se má přesunout?",
   "moveIntoNewCatalog": "Přesunout něco do {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Vrátit tento import",
   "undoImportBody": "{count} změn z tohoto importu zmizí. Nejdřív se zapíšou do souboru, jehož import je vrátí. Kdo už synchronizoval, svou kopii si nechá — to vzít zpět nejde.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Vráceno. Soubor je v {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Vrátit se zpět",
   "goBackToHere": "Vrátit se sem",
   "momentImport": "Před importem",
@@ -474,12 +532,32 @@
   "momentManual": "Označeno tebou",
   "showOlderMoments": "Zobrazit starší",
   "goBackBody": "Všechno po tomto okamžiku zmizí — {count} změn. Nejdřív se zapíše do souboru, jehož import to vrátí, a každý novější okamžik jde s tím. Kdo už synchronizoval, kopii si nechá — to vzít zpět nejde.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Pojmenuj tento okamžik",
   "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.",
   "goBackFileFailed": "Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.",
   "shareFileFailed": "Soubor ke sdílení se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Soukromé",
+  "sharedCatalogIs": "Katalog: {name}"
 }

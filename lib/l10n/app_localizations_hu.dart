@@ -266,10 +266,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get sharePublicly => 'Nyilvános megosztás…';
 
   @override
-  String get privateNoShare =>
-      'Ez a macska privátként van megjelölve — a privát adatok sosem hagyják el az eszközét. Előbb vegye le a jelölést a nyilvános megosztáshoz.';
-
-  @override
   String get pickFramesTitle => 'Képkockák kiválasztása';
 
   @override
@@ -895,7 +891,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mezőt hosszan nyomva egyből a szerkesztésébe ugorsz; egy fotót hosszan nyomva a menüje nyílik. A jobb felső menüben van a többi: priváttá tétel, elrejtés, összevonás, észlelés rögzítése, megosztás.';
+      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a macska megosztása. A Privát a mező szerkesztésekor állítható.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.';
 
   @override
-  String get markPrivate => 'Megjelölés privátként';
-
-  @override
-  String get unmarkPrivate => 'Privát jelölés eltávolítása';
-
-  @override
-  String get includePrivate => 'Privát adatok belefoglalása';
-
-  @override
-  String get includePrivateExplainer =>
-      'Ezzel minden privátnak jelölt adat is elmegy. Akivel szinkronizálsz, látni fogja.';
+  String get includePrivate => 'Privát adatok megosztása';
 
   @override
   String get hideLabel => 'Elrejtés ezen az eszközön';
@@ -1334,22 +1320,19 @@ class AppLocalizationsHu extends AppLocalizations {
   String get syncChooserInPerson => 'Személyesen';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Egy szobában vagytok — kód beolvasása, kész másodpercek alatt';
+  String get syncChooserInPersonSub => 'Szinkronizálás Wi-Fi-n';
 
   @override
   String get syncChooserRemote => 'Távolról';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Megosztott mappán át, mint a Dropbox vagy egy pendrive';
+  String get syncChooserRemoteSub => 'Szinkronizálás mappán vagy USB-n át';
 
   @override
   String get syncChooserMessenger => 'Üzenetküldő';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Küldjön mindent egy fájlként bármely üzenetküldőn — és itt importálja a kapott .catsync fájlt';
+  String get syncChooserMessengerSub => 'Export és import közösségi médián át';
 
   @override
   String get connectToWifiFirst =>
@@ -1474,7 +1457,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'További műveletek itt: macska priváttá jelölése, elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
+      'Itt több művelet van: a macska elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
 
   @override
   String get spotDone => 'Értem';
@@ -1647,22 +1630,16 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privát';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalógus: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Megjelölés privátként';
+
+  @override
+  String get unmarkPrivate => 'Privát jelölés eltávolítása';
 }

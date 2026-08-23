@@ -267,10 +267,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sharePublicly => 'Aqsam pubblikament…';
 
   @override
-  String get privateNoShare =>
-      'Dan il-qattus huwa mmarkat bħala privat — data privata qatt ma titlaq mill-apparat tiegħek. L-ewwel neħħi l-marka biex taqsmu pubblikament.';
-
-  @override
   String get pickFramesTitle => 'Agħżel frejms';
 
   @override
@@ -898,7 +894,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija read-only sakemm tagħfas il-lapes. Għafsa twila fuq qasam tieħdok dritt fl-editjar tiegħu; fuq ritratt tiftaħ il-menu tiegħu. Il-menu fuq il-lemin fuq għandu l-bqija: privat, aħbi, għaqqad, niżżel osservazzjoni, aqsam.';
+      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam.';
 
   @override
   String get helpStrays =>
@@ -1130,17 +1126,7 @@ class AppLocalizationsMt extends AppLocalizations {
       'Jekk jibqa\' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa\' pprova.';
 
   @override
-  String get markPrivate => 'Immarka bħala privat';
-
-  @override
-  String get unmarkPrivate => 'Neħħi l-marka privata';
-
-  @override
-  String get includePrivate => 'Inkludi data privata';
-
-  @override
-  String get includePrivateExplainer =>
-      'B\'hekk jintbagħat ukoll dak kollu li mmarkajt bħala privat. Min jissinkronizza miegħek se jarah.';
+  String get includePrivate => 'Aqsam id-data privata';
 
   @override
   String get hideLabel => 'Aħbi fuq dan l-apparat';
@@ -1337,22 +1323,20 @@ class AppLocalizationsMt extends AppLocalizations {
   String get syncChooserInPerson => 'Wiċċ imb wiċċ';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Qegħdin fl-istess kamra — skennja kodiċi, lest f\'sekondi';
+  String get syncChooserInPersonSub => 'Sinkronizzazzjoni bil-Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Mill-bogħod';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Permezz ta\' folder kondiviż bħal Dropbox jew USB';
+  String get syncChooserRemoteSub => 'Sinkronizzazzjoni b\'folder jew USB';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
   String get syncChooserMessengerSub =>
-      'Ibgħat kollox bħala fajl wieħed minn kwalunkwe messenger — u importa fajl .catsync riċevut hawn';
+      'Esportazzjoni u importazzjoni bil-midja soċjali';
 
   @override
   String get connectToWifiFirst =>
@@ -1477,7 +1461,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Aktar azzjonijiet hawn: immarka l-qattus bħala privat, aħbih, għaqqad duplikati jew niżżel osservazzjoni.';
+      'Hawn aktar azzjonijiet: aħbi l-qattus, għaqqad id-duplikati, jew irreġistra dehra.';
 
   @override
   String get spotDone => 'Fhimt';
@@ -1650,22 +1634,16 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privat';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalgu: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Immarka bħala privat';
+
+  @override
+  String get unmarkPrivate => 'Neħħi l-marka privata';
 }

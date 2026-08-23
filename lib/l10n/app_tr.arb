@@ -175,7 +175,6 @@
   "noDuplicates": "Şu anda olası kopya yok.",
   "similarName": "Benzer ad",
   "sharePublicly": "Herkese açık paylaş…",
-  "privateNoShare": "Bu kedi özel olarak işaretli — özel veriler cihazınızdan asla çıkmaz. Herkese açık paylaşmak için önce işareti kaldırın.",
   "pickFramesTitle": "Kare seç",
   "suggestedFrames": "Önerilen kareler",
   "scrubFrames": "Videoda gezin",
@@ -260,7 +259,7 @@
   "showTipsAgain": "İpuçlarını tekrar göster",
   "helpHome": "Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.",
   "helpClowder": "Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar.",
-  "helpCat": "Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun basmak doğrudan düzenlemeye götürür; bir fotoğrafa uzun basmak menüsünü açar. Sağ üstteki menüde gerisi var: özel işaretle, gizle, birleştir, görülme kaydet, paylaş.",
+  "helpCat": "Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır.",
   "helpStrays": "Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur.",
   "helpMap": "Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.",
   "helpCard": "Kedinin yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR'a ve kısa bir Plus Code'a dönüşür.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "iPhone/iPad'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log'a izin ver, sonra tekrar dene.",
   "markPrivate": "Özel olarak işaretle",
   "unmarkPrivate": "Özel işaretini kaldır",
-  "includePrivate": "Özel verileri dahil et",
-  "includePrivateExplainer": "Bu, özel olarak işaretlediğiniz her şeyi de gönderir. Eşitlediğiniz kişi bunları görür.",
+  "includePrivate": "Özel verileri paylaş",
   "hideLabel": "Bu cihazda gizle",
   "unhideLabel": "Yeniden göster",
   "showHiddenLabel": "Gizlenenleri göster",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Bu bir cat(a)log dosyası değil",
   "nothingNewInBundle": "Dosyada yeni bir şey yok — zaten her şeye sahipsin",
   "syncChooserInPerson": "Yüz yüze",
-  "syncChooserInPersonSub": "Aynı odadasınız — kodu tarayın, saniyeler içinde biter",
+  "syncChooserInPersonSub": "Wi-Fi ile eşitleme",
   "syncChooserRemote": "Uzaktan",
-  "syncChooserRemoteSub": "Dropbox veya USB bellek gibi paylaşılan bir klasör üzerinden",
+  "syncChooserRemoteSub": "Klasör veya USB bellek ile eşitleme",
   "syncChooserMessenger": "Mesajlaşma",
-  "syncChooserMessengerSub": "Her şeyi tek dosya olarak herhangi bir mesajlaşma uygulamasıyla gönderin — alınan .catsync dosyasını da buradan içe aktarın",
+  "syncChooserMessengerSub": "Sosyal medya ile dışa ve içe aktarma",
   "connectToWifiFirst": "Önce bir Wi-Fi'ye bağlanın — cihazlar birbirini o zaman bulur",
   "trustQuestion": "{author} ({device}) eşitlemek istiyor",
   "trustBothWaysNote": "Kataloglarınız iki yönde de değiştirilecek.",
@@ -423,7 +421,7 @@
   "introBody4": "Kayıp kedi ilanı mı gördünüz? Uygulamada fotoğraflayın: kediyi, sahibinin iletişimini ve yeri kaydeder. Daha sonra benzer bir sokak kedisi görülürse uygulama olası eşleşmeler önerir.",
   "spotMapSearch": "Haritada oraya atlamak için bir kedi, yer veya kişi yazın.",
   "spotCardChips": "Paylaşılabilir kartta ne görüneceğini işaretleyin — gerisi kartta yer almaz.",
-  "spotCatMenu": "Daha fazla eylem burada: kediyi özel işaretleyin, gizleyin, kopyaları birleştirin veya bir görülme kaydedin.",
+  "spotCatMenu": "Burada daha çok işlem var: kediyi gizle, kopyaları birleştir veya bir görülme kaydet.",
   "spotDone": "Anladım",
   "spotReplayTitle": "Yenilik turu",
   "spotReplaySubtitle": "İpuçlarını her sayfada yeniden göster",
@@ -440,30 +438,90 @@
   "newCatalog": "Yeni katalog",
   "catalogNameLabel": "Katalog adı",
   "catalogNameTaken": "{name} adlı bir katalog zaten var. Başka bir ad seç.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Katalogları yönet",
   "helpCatalogs": "Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.",
   "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.",
   "deleteCatalog": "Kataloğu sil",
   "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} silindi. Dosya {where} içinde.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "{name} yaz",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Hiçbir şey silinmedi: katalog dosyası yazılamadı ({error}). Yer aç ya da daha sonra yeniden dene.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Başka bir kataloğa taşı",
   "movedToCatalog": "{count} öğe {name} kataloğuna taşındı",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Ne taşınsın?",
   "moveIntoNewCatalog": "{name} kataloğuna bir şey taşınsın mı?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Bu içe aktarmayı geri al",
   "undoImportBody": "Bu içe aktarmanın getirdiği {count} değişiklik kaldırılır. Önce bir dosyaya yazılır; onu içe aktarmak geri getirir. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Geri alındı. Dosya {where} içinde.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Geri dön",
   "goBackToHere": "Buraya dön",
   "momentImport": "İçe aktarmadan önce",
@@ -474,12 +532,32 @@
   "momentManual": "Senin işaretlediğin",
   "showOlderMoments": "Daha eskileri göster",
   "goBackBody": "Bu andan sonraki her şey kaldırılır — {count} değişiklik. Önce bir dosyaya yazılır; onu içe aktarmak hepsini geri getirir, bundan yeni her an da onunla gider. Daha önce eşitlediğin kişilerde kopya kalır — o geri alınamaz.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Bu ana bir ad ver",
   "helpGoBack": "Bu kataloğun biçim değiştirdiği anlar: her içe aktarmadan ve her eşitlemeden önce, birleştirme, arşivleme veya silme öncesinde, ve kendin bir an işaretlediğin her seferde. Birini seçmek kataloğu o duruma döndürür: sonrasındaki her şey elinde kalan bir dosyaya yazılır ve kaldırılır, ondan yeni her an da onunla gider. Daha önce eşitlediğin kişiler aldıklarını korur.",
   "goBackFileFailed": "Hiçbir şey kaldırılmadı: onu saklayan dosya yazılamadı ({error}). Yer aç ve yeniden dene.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.",
   "shareFileFailed": "Paylaşım dosyası yazılamadı ({error}). Yer aç ve yeniden dene.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Özel",
+  "sharedCatalogIs": "Katalog: {name}"
 }

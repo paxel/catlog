@@ -266,10 +266,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sharePublicly => 'Bendrinti viešai…';
 
   @override
-  String get privateNoShare =>
-      'Ši katė pažymėta kaip privati — privatūs duomenys niekada nepalieka jūsų įrenginio. Norėdami bendrinti viešai, pirmiausia nuimkite žymę.';
-
-  @override
   String get pickFramesTitle => 'Kadrų pasirinkimas';
 
   @override
@@ -897,7 +893,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitymui, kol nepaliesite pieštuko. Ilgas laukо paspaudimas veda tiesiai į jo redagavimą; nuotraukos — atveria jos meniu. Meniu viršuje dešinėje yra likusi dalis: privatu, slėpti, sujungti, įrašyti pastebėjimą, dalintis.';
+      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti katę. „Privatu“ nustatoma redaguojant lauką.';
 
   @override
   String get helpStrays =>
@@ -1128,17 +1124,7 @@ class AppLocalizationsLt extends AppLocalizations {
       'Jei iPhone/iPad vis nepavyksta: Nustatymai → Privatumas ir sauga → Vietinis tinklas → leisti cat(a)log ir bandyti dar kartą.';
 
   @override
-  String get markPrivate => 'Pažymėti kaip privatų';
-
-  @override
-  String get unmarkPrivate => 'Pašalinti privatumo žymą';
-
-  @override
-  String get includePrivate => 'Įtraukti privačius duomenis';
-
-  @override
-  String get includePrivateExplainer =>
-      'Taip išsiunčiama ir visa, ką pažymėjote kaip privačią. Tas, su kuo sinchronizuojate, tai matys.';
+  String get includePrivate => 'Bendrinti privačius duomenis';
 
   @override
   String get hideLabel => 'Slėpti šiame įrenginyje';
@@ -1336,22 +1322,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get syncChooserInPerson => 'Gyvai';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Esate tame pačiame kambaryje — nuskenuok kodą, baigta per sekundes';
+  String get syncChooserInPersonSub => 'Sinchronizavimas per Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Nuotoliniu būdu';
 
   @override
   String get syncChooserRemoteSub =>
-      'Per bendrinamą aplanką, pvz., Dropbox ar USB atmintinę';
+      'Sinchronizavimas per aplanką ar USB atmintinę';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
   String get syncChooserMessengerSub =>
-      'Siųskite viską kaip vieną failą bet kuria programėle — ir čia importuokite gautą .catsync failą';
+      'Eksportas ir importas per socialinius tinklus';
 
   @override
   String get connectToWifiFirst =>
@@ -1475,7 +1460,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Daugiau veiksmų čia: pažymėkite katę kaip privačią, paslėpkite, sujunkite dublikatus ar užrašykite pastebėjimą.';
+      'Čia daugiau veiksmų: paslėpti katę, sujungti dublikatus ar užfiksuoti pastebėjimą.';
 
   @override
   String get spotDone => 'Supratau';
@@ -1648,22 +1633,16 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privatu';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalogas: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Pažymėti kaip privatų';
+
+  @override
+  String get unmarkPrivate => 'Pašalinti privatumo žymą';
 }

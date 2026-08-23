@@ -175,7 +175,6 @@
   "noDuplicates": "Nicio dublură posibilă momentan.",
   "similarName": "Nume asemănător",
   "sharePublicly": "Distribuie public…",
-  "privateNoShare": "Această pisică este marcată ca privată — datele private nu părăsesc niciodată dispozitivul. Eliminați mai întâi marcajul pentru a o distribui public.",
   "pickFramesTitle": "Alege cadre",
   "suggestedFrames": "Cadre sugerate",
   "scrubFrames": "Derulează videoclipul",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Arată sfaturile din nou",
   "helpHome": "Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.",
   "helpClowder": "Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide.",
-  "helpCat": "Tot despre această pisică: poze, câmpuri, familie, istoric. Pagina e doar pentru citit până atingi creionul. Ține apăsat un câmp ca să intri direct în editarea lui; o poză pentru meniul ei. Meniul din dreapta sus are restul: marchează privat, ascunde, unește, notează observare, partajează.",
+  "helpCat": "Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.",
   "helpStrays": "Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș.",
   "helpMap": "Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.",
   "helpCard": "Cardul de tipărit al pisicii: alege sus, cu etichetele, ce apare pe el, apoi partajează-l ca imagine sau PDF. Numerele pot fi tipărite ca QR sau cod de bare, iar o poziție devine un QR care deschide o hartă, plus un Plus Code scurt.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.",
   "markPrivate": "Marchează ca privat",
   "unmarkPrivate": "Elimină marcajul privat",
-  "includePrivate": "Include datele private",
-  "includePrivateExplainer": "Astfel se trimite și tot ce ai marcat ca privat. Persoana cu care sincronizezi va vedea acele date.",
+  "includePrivate": "Partajează datele private",
   "hideLabel": "Ascunde pe acest dispozitiv",
   "unhideLabel": "Afișează din nou",
   "showHiddenLabel": "Afișează elementele ascunse",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Acesta nu este un fișier cat(a)log",
   "nothingNewInBundle": "Nimic nou în fișier — ai deja totul",
   "syncChooserInPerson": "Față în față",
-  "syncChooserInPersonSub": "Sunteți în aceeași cameră — scanează un cod, gata în secunde",
+  "syncChooserInPersonSub": "Sincronizare prin Wi-Fi",
   "syncChooserRemote": "De la distanță",
-  "syncChooserRemoteSub": "Printr-un dosar partajat precum Dropbox sau un stick USB",
+  "syncChooserRemoteSub": "Sincronizare prin folder sau stick USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Trimiteți totul ca un singur fișier prin orice messenger — și importați aici un fișier .catsync primit",
+  "syncChooserMessengerSub": "Export și import prin rețele sociale",
   "connectToWifiFirst": "Conectează-te mai întâi la Wi-Fi — apoi dispozitivele se găsesc",
   "trustQuestion": "{author} ({device}) vrea să sincronizeze",
   "trustBothWaysNote": "Cataloagele vor fi schimbate în ambele direcții.",
@@ -423,7 +421,7 @@
   "introBody4": "Vezi un afiș cu o pisică dispărută? Fotografiază-l în aplicație: salvează pisica, contactul stăpânului și locul. Dacă mai târziu apare un vagabond asemănător, aplicația sugerează potriviri posibile.",
   "spotMapSearch": "Scrie o pisică, un loc sau o persoană ca să sari acolo pe hartă.",
   "spotCardChips": "Bifează ce apare pe cardul de partajat — restul rămâne în afara lui.",
-  "spotCatMenu": "Mai multe acțiuni aici: marchează pisica privată, ascunde-o, unește dubluri sau notează o observare.",
+  "spotCatMenu": "Aici sunt mai multe acțiuni: ascunde pisica, unește duplicatele sau notează o observare.",
   "spotDone": "Am înțeles",
   "spotReplayTitle": "Turul noutăților",
   "spotReplaySubtitle": "Arată indiciile din nou pe fiecare pagină",
@@ -440,30 +438,90 @@
   "newCatalog": "Catalog nou",
   "catalogNameLabel": "Numele catalogului",
   "catalogNameTaken": "Există deja un catalog numit {name}. Alege alt nume.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Gestionează cataloagele",
   "helpCatalogs": "Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.",
   "spotHomeCatalog": "Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.",
   "deleteCatalog": "Șterge catalogul",
   "deleteCatalogBody": "Tot ce e în {name} dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} șters. Fișierul e în {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Scrie {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nu s-a șters nimic: fișierul catalogului nu a putut fi scris ({error}). Eliberează spațiu sau încearcă mai târziu.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Mută în alt catalog",
   "movedToCatalog": "{count} mutate în {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Ce se mută?",
   "moveIntoNewCatalog": "Muți ceva în {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Anulează acest import",
   "undoImportBody": "Cele {count} modificări aduse de acest import se elimină. Sunt scrise mai întâi într-un fișier, al cărui import le aduce înapoi. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Anulat. Fișierul e în {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Înapoi la un moment anterior",
   "goBackToHere": "Înapoi aici",
   "momentImport": "Înainte de import",
@@ -474,12 +532,32 @@
   "momentManual": "Marcat de tine",
   "showOlderMoments": "Arată mai vechi",
   "goBackBody": "Tot ce vine după acest moment se elimină — {count} modificări. Se scrie mai întâi într-un fișier, al cărui import aduce totul înapoi, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja își păstrează copia — asta nu se poate retrage.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Denumește acest moment",
   "helpGoBack": "Momentele în care acest catalog și-a schimbat forma: înainte de fiecare import și fiecare sincronizare, înainte de o îmbinare, o arhivare sau o ștergere, și ori de câte ori ai marcat tu unul. Alegând unul, catalogul revine la acea stare — tot ce vine după se scrie într-un fișier pe care îl păstrezi și apoi se elimină, iar fiecare moment mai nou pleacă odată cu el. Cei cu care ai sincronizat deja păstrează ce au primit.",
   "goBackFileFailed": "Nu s-a eliminat nimic: fișierul care îl păstrează nu a putut fi scris ({error}). Eliberează spațiu și încearcă din nou.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.",
   "shareFileFailed": "Fișierul de partajare nu a putut fi scris ({error}). Eliberează spațiu și încearcă din nou.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privat",
+  "sharedCatalogIs": "Catalog: {name}"
 }

@@ -175,7 +175,6 @@
   "noDuplicates": "Aktualisht s'ka dublikata të mundshme.",
   "similarName": "Emër i ngjashëm",
   "sharePublicly": "Ndaje publikisht…",
-  "privateNoShare": "Kjo mace është shënuar private — të dhënat private s'e lënë kurrë pajisjen tuaj. Hiqni fillimisht shenjën për ta ndarë publikisht.",
   "pickFramesTitle": "Zgjidh kuadro",
   "suggestedFrames": "Kuadro të sugjeruara",
   "scrubFrames": "Lëviz nëpër video",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Shfaq sërish këshillat",
   "helpHome": "Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.",
   "helpClowder": "Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap.",
-  "helpCat": "Gjithçka për këtë mace: fotot, fushat, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Shtypja e gjatë mbi një fushë të çon drejt e në redaktimin e saj; mbi një foto hap menynë e saj. Menyja lart djathtas ka pjesën tjetër: private, fshih, bashko, shëno vëzhgim, shpërnda.",
+  "helpCat": "Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe.",
   "helpStrays": "Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja.",
   "helpMap": "Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.",
   "helpCard": "Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Nëse dështon ende në iPhone/iPad: Cilësimet → Privatësia dhe siguria → Rrjeti lokal → lejo cat(a)log dhe provo sërish.",
   "markPrivate": "Shëno si private",
   "unmarkPrivate": "Hiq shënimin privat",
-  "includePrivate": "Përfshi të dhënat private",
-  "includePrivateExplainer": "Kështu dërgohet edhe gjithçka që ke shënuar private. Ai me të cilin sinkronizon do ta shohë.",
+  "includePrivate": "Ndaj të dhënat private",
   "hideLabel": "Fshih në këtë pajisje",
   "unhideLabel": "Shfaq përsëri",
   "showHiddenLabel": "Shfaq të fshehurat",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Ky nuk është skedar cat(a)log",
   "nothingNewInBundle": "Asgjë e re në skedar — i ke të gjitha",
   "syncChooserInPerson": "Personalisht",
-  "syncChooserInPersonSub": "Jeni në të njëjtën dhomë — skano një kod, gati për sekonda",
+  "syncChooserInPersonSub": "Sinkronizim përmes Wi-Fi",
   "syncChooserRemote": "Në distancë",
-  "syncChooserRemoteSub": "Përmes një dosjeje të përbashkët si Dropbox ose USB",
+  "syncChooserRemoteSub": "Sinkronizim përmes dosjes ose USB-së",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Dërgoni gjithçka si një skedar me çdo messenger — dhe importoni këtu një skedar .catsync të marrë",
+  "syncChooserMessengerSub": "Eksport dhe import përmes rrjeteve sociale",
   "connectToWifiFirst": "Lidhu fillimisht me Wi-Fi — atëherë pajisjet gjejnë njëra-tjetrën",
   "trustQuestion": "{author} ({device}) do të sinkronizojë",
   "trustBothWaysNote": "Katalogët do të shkëmbehen në të dyja drejtimet.",
@@ -423,7 +421,7 @@
   "introBody4": "Sheh një fletushkë për mace të humbur? Fotografoje në aplikacion: ruan macen, kontaktin e pronarit dhe vendin. Nëse më vonë shfaqet një endacake e ngjashme, aplikacioni sugjeron përputhje të mundshme.",
   "spotMapSearch": "Shkruaj një mace, vend a person që të hidhesh aty në hartë.",
   "spotCardChips": "Shëno çfarë duhet të shfaqet në kartën e ndashme — pjesa tjetër mbetet jashtë.",
-  "spotCatMenu": "Më shumë veprime këtu: shëno macen private, fshihe, bashko dublikata ose regjistro një vëzhgim.",
+  "spotCatMenu": "Këtu ka më shumë veprime: fshih macen, bashko dublikatat ose shëno një vëzhgim.",
   "spotDone": "Kuptova",
   "spotReplayTitle": "Turi i risive",
   "spotReplaySubtitle": "Shfaq këshillat sërish në çdo faqe",
@@ -440,30 +438,90 @@
   "newCatalog": "Katalog i ri",
   "catalogNameLabel": "Emri i katalogut",
   "catalogNameTaken": "Një katalog me emrin {name} ekziston tashmë. Zgjidh një emër tjetër.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Menaxho katalogët",
   "helpCatalogs": "Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.",
   "spotHomeCatalog": "Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.",
   "deleteCatalog": "Fshi katalogun",
   "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} u fshi. Skedari është në {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Shkruaj {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nuk u fshi asgjë: skedari i katalogut nuk u shkrua dot ({error}). Liro pak hapësirë ose provo më vonë.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Zhvendos në një katalog tjetër",
   "movedToCatalog": "{count} u zhvendosën te {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Çfarë do të zhvendoset?",
   "moveIntoNewCatalog": "Të zhvendoset diçka te {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Zhbëj këtë importim",
   "undoImportBody": "{count} ndryshimet që solli ky importim hiqen. Së pari shkruhen në një skedar, importimi i të cilit i kthen. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen e tyre — kjo nuk merret mbrapsht.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "U zhbë. Skedari është në {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Kthehu prapa",
   "goBackToHere": "Kthehu këtu",
   "momentImport": "Para importimit",
@@ -474,12 +532,32 @@
   "momentManual": "Shënuar prej teje",
   "showOlderMoments": "Shfaq më të vjetrat",
   "goBackBody": "Gjithçka pas këtij çasti hiqet — {count} ndryshime. Së pari shkruhet në një skedar, importimi i të cilit e kthen gjithçka, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë e mbajnë kopjen — kjo nuk merret mbrapsht.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Emërto këtë çast",
   "helpGoBack": "Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.",
   "goBackFileFailed": "Nuk u hoq asgjë: skedari që e ruan nuk u shkrua dot ({error}). Liro pak hapësirë dhe provo sërish.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije.",
   "shareFileFailed": "Skedari i ndarjes nuk u shkrua dot ({error}). Liro pak hapësirë dhe provo sërish.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Private",
+  "sharedCatalogIs": "Katalogu: {name}"
 }

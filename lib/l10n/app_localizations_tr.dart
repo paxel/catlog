@@ -266,10 +266,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sharePublicly => 'Herkese açık paylaş…';
 
   @override
-  String get privateNoShare =>
-      'Bu kedi özel olarak işaretli — özel veriler cihazınızdan asla çıkmaz. Herkese açık paylaşmak için önce işareti kaldırın.';
-
-  @override
   String get pickFramesTitle => 'Kare seç';
 
   @override
@@ -895,7 +891,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun basmak doğrudan düzenlemeye götürür; bir fotoğrafa uzun basmak menüsünü açar. Sağ üstteki menüde gerisi var: özel işaretle, gizle, birleştir, görülme kaydet, paylaş.';
+      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'iPhone/iPad\'de hâlâ olmuyorsa: Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ → cat(a)log\'a izin ver, sonra tekrar dene.';
 
   @override
-  String get markPrivate => 'Özel olarak işaretle';
-
-  @override
-  String get unmarkPrivate => 'Özel işaretini kaldır';
-
-  @override
-  String get includePrivate => 'Özel verileri dahil et';
-
-  @override
-  String get includePrivateExplainer =>
-      'Bu, özel olarak işaretlediğiniz her şeyi de gönderir. Eşitlediğiniz kişi bunları görür.';
+  String get includePrivate => 'Özel verileri paylaş';
 
   @override
   String get hideLabel => 'Bu cihazda gizle';
@@ -1335,22 +1321,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncChooserInPerson => 'Yüz yüze';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Aynı odadasınız — kodu tarayın, saniyeler içinde biter';
+  String get syncChooserInPersonSub => 'Wi-Fi ile eşitleme';
 
   @override
   String get syncChooserRemote => 'Uzaktan';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Dropbox veya USB bellek gibi paylaşılan bir klasör üzerinden';
+  String get syncChooserRemoteSub => 'Klasör veya USB bellek ile eşitleme';
 
   @override
   String get syncChooserMessenger => 'Mesajlaşma';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Her şeyi tek dosya olarak herhangi bir mesajlaşma uygulamasıyla gönderin — alınan .catsync dosyasını da buradan içe aktarın';
+  String get syncChooserMessengerSub => 'Sosyal medya ile dışa ve içe aktarma';
 
   @override
   String get connectToWifiFirst =>
@@ -1474,7 +1457,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Daha fazla eylem burada: kediyi özel işaretleyin, gizleyin, kopyaları birleştirin veya bir görülme kaydedin.';
+      'Burada daha çok işlem var: kediyi gizle, kopyaları birleştir veya bir görülme kaydet.';
 
   @override
   String get spotDone => 'Anladım';
@@ -1647,22 +1630,16 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Özel';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Özel olarak işaretle';
+
+  @override
+  String get unmarkPrivate => 'Özel işaretini kaldır';
 }

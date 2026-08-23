@@ -256,9 +256,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sharePublicly => '公开分享…';
 
   @override
-  String get privateNoShare => '这只猫被标记为私密——私密数据绝不会离开您的设备。要公开分享，请先取消私密标记。';
-
-  @override
   String get pickFramesTitle => '挑选画面';
 
   @override
@@ -865,7 +862,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpCat =>
-      '关于这只猫的一切：照片、字段、家庭、历史。点铅笔前页面只读。长按字段直接进入编辑；长按照片打开其菜单。右上角菜单里是其余功能：设为私密、隐藏、合并、记录目击、分享。';
+      '关于这只猫的一切：照片、字段、家庭、历史。在点击铅笔之前页面为只读。长按字段可直接编辑；长按照片打开其菜单。右上角菜单包含其余操作：隐藏、合并、记录目击、分享这只猫。私密在编辑字段时设置。';
 
   @override
   String get helpStrays =>
@@ -1093,16 +1090,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。';
 
   @override
-  String get markPrivate => '标记为私密';
-
-  @override
-  String get unmarkPrivate => '取消私密标记';
-
-  @override
-  String get includePrivate => '包含私密数据';
-
-  @override
-  String get includePrivateExplainer => '这也会发送你标记为私密的所有内容。与你同步的人将会看到。';
+  String get includePrivate => '分享私密数据';
 
   @override
   String get hideLabel => '在此设备上隐藏';
@@ -1298,20 +1286,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncChooserInPerson => '面对面';
 
   @override
-  String get syncChooserInPersonSub => '你们在同一房间——扫码即可，几秒完成';
+  String get syncChooserInPersonSub => '通过 Wi-Fi 同步';
 
   @override
   String get syncChooserRemote => '远程';
 
   @override
-  String get syncChooserRemoteSub => '通过 Dropbox 或 U 盘等共享文件夹';
+  String get syncChooserRemoteSub => '通过文件夹或U盘同步';
 
   @override
   String get syncChooserMessenger => '通讯软件';
 
   @override
-  String get syncChooserMessengerSub =>
-      '通过任意通讯软件将全部数据作为一个文件发送——收到的 .catsync 文件也在这里导入';
+  String get syncChooserMessengerSub => '通过社交媒体导出和导入';
 
   @override
   String get connectToWifiFirst => '请先连接 Wi-Fi——设备才能互相发现';
@@ -1422,7 +1409,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotCardChips => '勾选要出现在分享卡片上的内容——其余不会出现。';
 
   @override
-  String get spotCatMenu => '更多操作在这里：设为私密、隐藏、合并重复项或记录目击。';
+  String get spotCatMenu => '这里有更多操作：隐藏这只猫、合并重复项或记录一次目击。';
 
   @override
   String get spotDone => '知道了';
@@ -1590,22 +1577,16 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => '私密';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return '目录：$name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => '标记为私密';
+
+  @override
+  String get unmarkPrivate => '取消私密标记';
 }

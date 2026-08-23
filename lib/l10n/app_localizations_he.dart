@@ -265,10 +265,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get sharePublicly => 'שיתוף ציבורי…';
 
   @override
-  String get privateNoShare =>
-      'החתול הזה מסומן כפרטי — נתונים פרטיים לעולם לא עוזבים את המכשיר. הסירו את הסימון תחילה כדי לשתף בפומבי.';
-
-  @override
   String get pickFramesTitle => 'בחירת פריימים';
 
   @override
@@ -891,7 +887,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'הכול על החתול הזה: תמונות, שדות, משפחה, היסטוריה. הדף לקריאה בלבד עד שתקישו על העיפרון. לחיצה ארוכה על שדה קופצת ישר לעריכה שלו; על תמונה פותחת את התפריט שלה. בתפריט הימני העליון כל השאר: סימון פרטי, הסתרה, מיזוג, רישום תצפית, שיתוף.';
+      'הכול על החתול הזה: תמונות, שדות, משפחה, היסטוריה. הדף לקריאה בלבד עד שנוגעים בעיפרון. לחיצה ארוכה על שדה עוברת ישר לעריכתו; לחיצה ארוכה על תמונה פותחת את התפריט שלה. התפריט למעלה מחזיק את השאר: הסתרה, מיזוג, רישום תצפית, שיתוף החתול. פרטי נקבע בעת עריכת שדה.';
 
   @override
   String get helpStrays =>
@@ -1121,17 +1117,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'אם זה ממשיך להיכשל ב-iPhone/iPad: הגדרות → פרטיות ואבטחה → רשת מקומית → אפשרו ל-cat(a)log ונסו שוב.';
 
   @override
-  String get markPrivate => 'סמן כפרטי';
-
-  @override
-  String get unmarkPrivate => 'הסר סימון פרטי';
-
-  @override
-  String get includePrivate => 'כלול נתונים פרטיים';
-
-  @override
-  String get includePrivateExplainer =>
-      'כך נשלח גם כל מה שסימנתם כפרטי. מי שמסתנכרן אתכם יראה זאת.';
+  String get includePrivate => 'שיתוף נתונים פרטיים';
 
   @override
   String get hideLabel => 'הסתר במכשיר זה';
@@ -1327,20 +1313,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncChooserInPerson => 'פנים אל פנים';
 
   @override
-  String get syncChooserInPersonSub => 'אתם באותו חדר — סרקו קוד, מוכן בשניות';
+  String get syncChooserInPersonSub => 'סנכרון דרך Wi-Fi';
 
   @override
   String get syncChooserRemote => 'מרחוק';
 
   @override
-  String get syncChooserRemoteSub => 'דרך תיקייה משותפת כמו Dropbox או USB';
+  String get syncChooserRemoteSub => 'סנכרון דרך תיקייה או USB';
 
   @override
   String get syncChooserMessenger => 'מסנג\'ר';
 
   @override
-  String get syncChooserMessengerSub =>
-      'שלחו הכול כקובץ אחד בכל מסנג\'ר — וייבאו כאן קובץ ‎.catsync שהתקבל';
+  String get syncChooserMessengerSub => 'ייצוא וייבוא דרך רשתות חברתיות';
 
   @override
   String get connectToWifiFirst =>
@@ -1462,7 +1447,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'פעולות נוספות כאן: סימון החתול כפרטי, הסתרה, מיזוג כפילויות או רישום תצפית.';
+      'כאן יש פעולות נוספות: הסתרת החתול, מיזוג כפילויות או רישום תצפית.';
 
   @override
   String get spotDone => 'הבנתי';
@@ -1635,22 +1620,16 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'פרטי';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'קטלוג: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'סמן כפרטי';
+
+  @override
+  String get unmarkPrivate => 'הסר סימון פרטי';
 }

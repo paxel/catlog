@@ -266,10 +266,6 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sharePublicly => 'Подели јавно…';
 
   @override
-  String get privateNoShare =>
-      'Ова мачка је означена као приватна — приватни подаци никада не напуштају ваш уређај. Прво уклоните ознаку да бисте је јавно поделили.';
-
-  @override
   String get pickFramesTitle => 'Избор кадрова';
 
   @override
@@ -896,7 +892,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Све о овој мачки: фотографије, поља, породица, историја. Страница је само за читање док не додирнеш оловку. Дуги притисак на поље води право у његово уређивање; на фотографију отвара њен мени. Мени горе десно има остало: приватно, сакриј, споји, забележи виђење, подели.';
+      'Све о овој мачки: фотографије, поља, породица, историја. Страница је само за читање док не додирнеш оловку. Дуго притисни поље да га одмах уредиш; дуго притисни фотографију за њен мени. Мени горе десно држи остало: сакриј, споји, забележи виђење, подели мачку. „Приватно“ се поставља при уређивању поља.';
 
   @override
   String get helpStrays =>
@@ -1127,17 +1123,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Ако и даље не успева на iPhone/iPad-у: Подешавања → Приватност и безбедност → Локална мрежа → дозволи cat(a)log па покушај поново.';
 
   @override
-  String get markPrivate => 'Означи као приватно';
-
-  @override
-  String get unmarkPrivate => 'Уклони приватну ознаку';
-
-  @override
-  String get includePrivate => 'Укључи приватне податке';
-
-  @override
-  String get includePrivateExplainer =>
-      'Тиме се шаље и све што сте означили као приватно. Особа са којом синхронизујете то ће видети.';
+  String get includePrivate => 'Подели приватне податке';
 
   @override
   String get hideLabel => 'Сакриј на овом уређају';
@@ -1334,22 +1320,19 @@ class AppLocalizationsSr extends AppLocalizations {
   String get syncChooserInPerson => 'Уживо';
 
   @override
-  String get syncChooserInPersonSub =>
-      'У истој сте просторији — скенирај код, готово за секунде';
+  String get syncChooserInPersonSub => 'Синхронизација преко Wi-Fi';
 
   @override
   String get syncChooserRemote => 'На даљину';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Преко дељене фасцикле попут Dropbox-а или USB-а';
+  String get syncChooserRemoteSub => 'Синхронизација преко фасцикле или USB-а';
 
   @override
   String get syncChooserMessenger => 'Месинџер';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Пошаљите све као једну датотеку преко било ког месинџера — и увезите примљену .catsync датотеку овде';
+  String get syncChooserMessengerSub => 'Извоз и увоз преко друштвених мрежа';
 
   @override
   String get connectToWifiFirst =>
@@ -1473,7 +1456,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Више радњи овде: означите мачку као приватну, сакријте је, спојите дупликате или забележите виђење.';
+      'Овде има још радњи: сакриј мачку, споји дупликате или забележи виђење.';
 
   @override
   String get spotDone => 'Јасно';
@@ -1646,22 +1629,16 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Приватно';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Каталог: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Означи као приватно';
+
+  @override
+  String get unmarkPrivate => 'Уклони приватну ознаку';
 }

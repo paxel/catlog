@@ -121,10 +121,11 @@ void main() {
     addTearDown(migrated.close);
     expect(migrated.current(home, Keys.privateField('f:phone')), 'yes');
     expect(migrated.current(home, Keys.withheld('f:phone')), 'yes');
-    // And the keeper is told once that the name travels now.
-    expect(migrated.privacyMeaningChanged(), contains(home));
-    migrated.privacyChangeSeen();
-    expect(migrated.privacyMeaningChanged(), isEmpty);
+    // The old entity mark has no effect of its own anymore: a value
+    // added after the conversion is public until its editor says
+    // otherwise.
+    migrated.append(home, 'f:responsible', 'Wolf');
+    expect(migrated.isFieldPrivate(home, 'f:responsible'), isFalse);
   });
 
   test('marking an entity private marks the values it has', () {

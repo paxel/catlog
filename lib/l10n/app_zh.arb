@@ -175,7 +175,6 @@
   "noDuplicates": "当前没有疑似重复。",
   "similarName": "相似的名字",
   "sharePublicly": "公开分享…",
-  "privateNoShare": "这只猫被标记为私密——私密数据绝不会离开您的设备。要公开分享，请先取消私密标记。",
   "pickFramesTitle": "挑选画面",
   "suggestedFrames": "推荐画面",
   "scrubFrames": "拖动视频",
@@ -260,7 +259,7 @@
   "showTipsAgain": "再次显示提示",
   "helpHome": "你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。 顶部的名称是你当前所在的目录，点按即可切换或新建。",
   "helpClowder": "关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。",
-  "helpCat": "关于这只猫的一切：照片、字段、家庭、历史。点铅笔前页面只读。长按字段直接进入编辑；长按照片打开其菜单。右上角菜单里是其余功能：设为私密、隐藏、合并、记录目击、分享。",
+  "helpCat": "关于这只猫的一切：照片、字段、家庭、历史。在点击铅笔之前页面为只读。长按字段可直接编辑；长按照片打开其菜单。右上角菜单包含其余操作：隐藏、合并、记录目击、分享这只猫。私密在编辑字段时设置。",
   "helpStrays": "当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。",
   "helpMap": "所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。",
   "helpCard": "这只猫的可打印卡片：用顶部的标签选择卡片内容，然后以图片或 PDF 分享。编号可打印为二维码或条形码，位置会变成打开地图的二维码，外加一个简短的 Plus Code。",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "如果在 iPhone/iPad 上仍然失败：设置 → 隐私与安全性 → 本地网络 → 允许 cat(a)log，然后重试。",
   "markPrivate": "标记为私密",
   "unmarkPrivate": "取消私密标记",
-  "includePrivate": "包含私密数据",
-  "includePrivateExplainer": "这也会发送你标记为私密的所有内容。与你同步的人将会看到。",
+  "includePrivate": "分享私密数据",
   "hideLabel": "在此设备上隐藏",
   "unhideLabel": "重新显示",
   "showHiddenLabel": "显示隐藏项",
@@ -384,11 +382,11 @@
   "notACatlogFile": "这不是 cat(a)log 文件",
   "nothingNewInBundle": "文件中没有新内容——您已拥有全部数据",
   "syncChooserInPerson": "面对面",
-  "syncChooserInPersonSub": "你们在同一房间——扫码即可，几秒完成",
+  "syncChooserInPersonSub": "通过 Wi-Fi 同步",
   "syncChooserRemote": "远程",
-  "syncChooserRemoteSub": "通过 Dropbox 或 U 盘等共享文件夹",
+  "syncChooserRemoteSub": "通过文件夹或U盘同步",
   "syncChooserMessenger": "通讯软件",
-  "syncChooserMessengerSub": "通过任意通讯软件将全部数据作为一个文件发送——收到的 .catsync 文件也在这里导入",
+  "syncChooserMessengerSub": "通过社交媒体导出和导入",
   "connectToWifiFirst": "请先连接 Wi-Fi——设备才能互相发现",
   "trustQuestion": "{author}（{device}）请求同步",
   "trustBothWaysNote": "双方的目录将双向交换。",
@@ -423,7 +421,7 @@
   "introBody4": "看到寻猫启事？在应用里拍下来：它会保存这只猫、主人的联系方式和地点。以后出现相似的流浪猫时，应用会提示可能的匹配。",
   "spotMapSearch": "输入猫、地点或人名，即可在地图上跳转过去。",
   "spotCardChips": "勾选要出现在分享卡片上的内容——其余不会出现。",
-  "spotCatMenu": "更多操作在这里：设为私密、隐藏、合并重复项或记录目击。",
+  "spotCatMenu": "这里有更多操作：隐藏这只猫、合并重复项或记录一次目击。",
   "spotDone": "知道了",
   "spotReplayTitle": "新功能导览",
   "spotReplaySubtitle": "在每个页面重新显示提示",
@@ -440,30 +438,90 @@
   "newCatalog": "新建目录",
   "catalogNameLabel": "目录名称",
   "catalogNameTaken": "已经有名为 {name} 的目录。请换一个名称。",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "管理目录",
   "helpCatalogs": "每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。",
   "spotHomeCatalog": "这是你当前所在的目录。点按名称即可切换或新建。",
   "deleteCatalog": "删除目录",
   "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "已删除 {name}。文件在 {where}。",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "输入 {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "没有删除任何内容：无法写入目录文件（{error}）。请腾出空间或稍后再试。",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "移动到其他目录",
   "movedToCatalog": "已将 {count} 项移动到 {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "要移动什么？",
   "moveIntoNewCatalog": "要把什么移动到 {name} 吗？",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "撤销这次导入",
   "undoImportBody": "这次导入带来的 {count} 处改动会被移除。它们会先写入一个文件，导入该文件即可恢复。已经与你同步过的人仍保有各自的副本，这一点无法收回。",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "已撤销。文件在 {where}。",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "回到之前",
   "goBackToHere": "回到这里",
   "momentImport": "导入之前",
@@ -474,12 +532,32 @@
   "momentManual": "你标记的时刻",
   "showOlderMoments": "显示更早的",
   "goBackBody": "这一刻之后的一切都会被移除，共 {count} 处改动。全部会先写入文件，导入即可恢复；比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有副本，无法收回。",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "给这个时刻起个名字",
   "helpGoBack": "这个目录发生较大变化的时刻：每次导入和同步之前，合并、归档或删除之前，以及你自己标记的时候。选择其中一个，目录就回到那个状态——之后的一切会先写入你保留的文件再移除，比它更新的每个时刻也会一并消失。已经与你同步过的人仍保有收到的内容。",
   "goBackFileFailed": "没有移除任何内容：保存它的文件无法写入（{error}）。请腾出空间后重试。",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "这是你当前所在的目录。请先切换到另一个目录，再删除它。",
   "shareFileFailed": "无法写入分享文件（{error}）。请腾出空间后重试。",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "私密",
+  "sharedCatalogIs": "目录：{name}"
 }

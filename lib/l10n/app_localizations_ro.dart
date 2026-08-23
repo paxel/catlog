@@ -266,10 +266,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sharePublicly => 'Distribuie public…';
 
   @override
-  String get privateNoShare =>
-      'Această pisică este marcată ca privată — datele private nu părăsesc niciodată dispozitivul. Eliminați mai întâi marcajul pentru a o distribui public.';
-
-  @override
   String get pickFramesTitle => 'Alege cadre';
 
   @override
@@ -897,7 +893,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Tot despre această pisică: poze, câmpuri, familie, istoric. Pagina e doar pentru citit până atingi creionul. Ține apăsat un câmp ca să intri direct în editarea lui; o poză pentru meniul ei. Meniul din dreapta sus are restul: marchează privat, ascunde, unește, notează observare, partajează.';
+      'Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.';
 
   @override
   String get helpStrays =>
@@ -1128,17 +1124,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'Dacă tot eșuează pe iPhone/iPad: Configurări → Confidențialitate și securitate → Rețea locală → permite cat(a)log, apoi încearcă din nou.';
 
   @override
-  String get markPrivate => 'Marchează ca privat';
-
-  @override
-  String get unmarkPrivate => 'Elimină marcajul privat';
-
-  @override
-  String get includePrivate => 'Include datele private';
-
-  @override
-  String get includePrivateExplainer =>
-      'Astfel se trimite și tot ce ai marcat ca privat. Persoana cu care sincronizezi va vedea acele date.';
+  String get includePrivate => 'Partajează datele private';
 
   @override
   String get hideLabel => 'Ascunde pe acest dispozitiv';
@@ -1335,22 +1321,19 @@ class AppLocalizationsRo extends AppLocalizations {
   String get syncChooserInPerson => 'Față în față';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Sunteți în aceeași cameră — scanează un cod, gata în secunde';
+  String get syncChooserInPersonSub => 'Sincronizare prin Wi-Fi';
 
   @override
   String get syncChooserRemote => 'De la distanță';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Printr-un dosar partajat precum Dropbox sau un stick USB';
+  String get syncChooserRemoteSub => 'Sincronizare prin folder sau stick USB';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Trimiteți totul ca un singur fișier prin orice messenger — și importați aici un fișier .catsync primit';
+  String get syncChooserMessengerSub => 'Export și import prin rețele sociale';
 
   @override
   String get connectToWifiFirst =>
@@ -1475,7 +1458,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Mai multe acțiuni aici: marchează pisica privată, ascunde-o, unește dubluri sau notează o observare.';
+      'Aici sunt mai multe acțiuni: ascunde pisica, unește duplicatele sau notează o observare.';
 
   @override
   String get spotDone => 'Am înțeles';
@@ -1648,22 +1631,16 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privat';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Marchează ca privat';
+
+  @override
+  String get unmarkPrivate => 'Elimină marcajul privat';
 }

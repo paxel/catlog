@@ -175,7 +175,6 @@
   "noDuplicates": "現在、重複の可能性はありません。",
   "similarName": "似た名前",
   "sharePublicly": "公開共有…",
-  "privateNoShare": "この猫はプライベットに設定されています。プライベートなデータは端末の外に出ません。公開共有するには先に設定を解除してください。",
   "pickFramesTitle": "フレームを選ぶ",
   "suggestedFrames": "おすすめフレーム",
   "scrubFrames": "動画をスクラブ",
@@ -260,7 +259,7 @@
   "showTipsAgain": "ヒントをもう一度表示",
   "helpHome": "コロニーの一覧です。コロニーとは猫が暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとその猫が見えます。長押しでメニュー。右下のボタンで新しいコロニーを作成、野良カードには家のない猫がすべて集まります。 上の名前はいま開いているカタログです。タップすると切り替えや追加ができます。",
   "helpClowder": "この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。",
-  "helpCat": "この猫のすべて：写真、項目、家族、履歴。鉛筆をタップするまでは閲覧のみです。項目を長押しするとその編集へ直行、写真を長押しするとメニュー。右上のメニューにその他（プライベート、非表示、統合、目撃の記録、共有）があります。",
+  "helpCat": "この猫のすべて: 写真、フィールド、家族、履歴。鉛筆をタップするまでページは読み取り専用です。フィールドを長押しするとすぐ編集できます。写真を長押しするとそのメニューが開きます。右上のメニューに残りがあります: 非表示、統合、目撃の記録、猫の共有。「プライベート」はフィールド編集時に設定します。",
   "helpStrays": "いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。",
   "helpMap": "位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。",
   "helpCard": "この猫の印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。",
   "markPrivate": "プライベートに設定",
   "unmarkPrivate": "プライベート設定を解除",
-  "includePrivate": "プライベートデータを含める",
-  "includePrivateExplainer": "これをオンにすると、プライベートにした項目も送信されます。同期相手には見えるようになります。",
+  "includePrivate": "プライベートデータを共有",
   "hideLabel": "この端末で非表示にする",
   "unhideLabel": "再表示する",
   "showHiddenLabel": "非表示の項目を表示",
@@ -384,11 +382,11 @@
   "notACatlogFile": "cat(a)log のファイルではありません",
   "nothingNewInBundle": "新しい内容はありません — すべて既にあります",
   "syncChooserInPerson": "対面",
-  "syncChooserInPersonSub": "同じ部屋にいるとき — コードをスキャンして数秒で完了",
+  "syncChooserInPersonSub": "Wi-Fiで同期",
   "syncChooserRemote": "リモート",
-  "syncChooserRemoteSub": "Dropbox や USB メモリなどの共有フォルダ経由",
+  "syncChooserRemoteSub": "フォルダーまたはUSBメモリで同期",
   "syncChooserMessenger": "メッセンジャー",
-  "syncChooserMessengerSub": "任意のメッセンジャーで全データを1ファイルとして送信 — 受け取った.catsyncファイルの取り込みもここから",
+  "syncChooserMessengerSub": "SNSでエクスポート・インポート",
   "connectToWifiFirst": "まず Wi-Fi に接続してください — 端末同士が見つかります",
   "trustQuestion": "{author}（{device}）が同期を求めています",
   "trustBothWaysNote": "カタログは双方向で交換されます。",
@@ -423,7 +421,7 @@
   "introBody4": "迷子猫のチラシを見つけたら、アプリで撮影を。猫、飼い主の連絡先、場所が保存されます。後で似た野良猫が現れたら、アプリが候補を提案します。",
   "spotMapSearch": "猫・場所・人を入力すると、地図上のその場所へジャンプします。",
   "spotCardChips": "共有カードに載せる項目にチェックを。それ以外は載りません。",
-  "spotCatMenu": "その他の操作はここ：プライベット設定、非表示、重複の統合、目撃の記録。",
+  "spotCatMenu": "ここには他の操作があります: 猫を非表示、重複を統合、目撃を記録。",
   "spotDone": "OK",
   "spotReplayTitle": "新機能ツアー",
   "spotReplaySubtitle": "各ページでヒントを再表示",
@@ -440,30 +438,90 @@
   "newCatalog": "新しいカタログ",
   "catalogNameLabel": "カタログ名",
   "catalogNameTaken": "{name} という名前のカタログはすでにあります。別の名前を選んでください。",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "カタログの管理",
   "helpCatalogs": "カタログはそれぞれ独立した世界です。猫もコロニーも項目も写真も同期相手も別々で、ベルリンとパリが混ざることはありません。ホーム画面上部の名前をタップすると、切り替え・追加・名前の変更ができます。あなたの名前、言語、見終わったヒントはすべてのカタログで共通です。",
   "spotHomeCatalog": "いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。",
   "deleteCatalog": "カタログを削除",
   "deleteCatalogBody": "{name} の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} を削除しました。ファイルは {where} にあります。",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "{name} と入力",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "何も削除していません。カタログのファイルを書き出せませんでした（{error}）。空き容量を作るか、時間をおいてやり直してください。",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "別のカタログへ移動",
   "movedToCatalog": "{count} 件を {name} に移動しました",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "何を移動しますか？",
   "moveIntoNewCatalog": "{name} に何か移動しますか？",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "この読み込みを取り消す",
   "undoImportBody": "この読み込みで入った {count} 件の変更を取り除きます。先にファイルへ書き出すので、それを読み込めば戻せます。すでに同期した相手の手元には残ります。取り消せません。",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "取り消しました。ファイルは {where} にあります。",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "前の状態に戻す",
   "goBackToHere": "ここに戻す",
   "momentImport": "読み込みの前",
@@ -474,12 +532,32 @@
   "momentManual": "自分で付けた印",
   "showOlderMoments": "古いものを表示",
   "goBackBody": "この時点より後はすべて取り除かれます（{count} 件）。先にファイルへ書き出すので読み込めば戻せますが、これより新しい時点も一緒に消えます。すでに同期した相手の手元には残り、取り消せません。",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "この時点に名前をつける",
   "helpGoBack": "このカタログが大きく変わった時点の一覧です。読み込みや同期の前、統合・アーカイブ・削除の前、そして自分で印を付けたときに記録されます。ひとつ選ぶとカタログはその状態に戻ります。それ以降はすべて手元に残るファイルに書き出してから取り除かれ、それより新しい時点も一緒に消えます。すでに同期した相手は受け取ったものを持ち続けます。",
   "goBackFileFailed": "何も取り除いていません。控えのファイルを書き出せませんでした（{error}）。空き容量を作ってやり直してください。",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "いま開いているカタログです。別のカタログに切り替えてから削除してください。",
   "shareFileFailed": "共有ファイルを書き出せませんでした（{error}）。空き容量を作ってやり直してください。",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "プライベート",
+  "sharedCatalogIs": "カタログ: {name}"
 }

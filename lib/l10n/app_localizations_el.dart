@@ -266,10 +266,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sharePublicly => 'Δημόσια κοινοποίηση…';
 
   @override
-  String get privateNoShare =>
-      'Αυτή η γάτα είναι επισημασμένη ως ιδιωτική — τα ιδιωτικά δεδομένα δεν φεύγουν ποτέ από τη συσκευή σας. Αφαιρέστε πρώτα την επισήμανση για δημόσια κοινοποίηση.';
-
-  @override
   String get pickFramesTitle => 'Επιλογή καρέ';
 
   @override
@@ -899,7 +895,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Όλα για αυτή τη γάτα: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Παρατεταμένο πάτημα σε πεδίο πάει κατευθείαν στην επεξεργασία του· σε φωτογραφία ανοίγει το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: ιδιωτικό, απόκρυψη, συγχώνευση, καταγραφή παρατήρησης, κοινοποίηση.';
+      'Τα πάντα για αυτή τη γάτα: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Κράτησε πατημένο ένα πεδίο για να το επεξεργαστείς αμέσως· κράτησε πατημένη μια φωτογραφία για το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: απόκρυψη, συγχώνευση, καταγραφή θέασης, κοινοποίηση της γάτας. Το «Ιδιωτικό» ορίζεται κατά την επεξεργασία πεδίου.';
 
   @override
   String get helpStrays =>
@@ -1131,17 +1127,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αν συνεχίζει να αποτυγχάνει σε iPhone/iPad: Ρυθμίσεις → Απόρρητο και ασφάλεια → Τοπικό δίκτυο → επιτρέψτε το cat(a)log και δοκιμάστε ξανά.';
 
   @override
-  String get markPrivate => 'Σήμανση ως ιδιωτικό';
-
-  @override
-  String get unmarkPrivate => 'Αφαίρεση ιδιωτικής σήμανσης';
-
-  @override
-  String get includePrivate => 'Συμπερίληψη ιδιωτικών δεδομένων';
-
-  @override
-  String get includePrivateExplainer =>
-      'Έτσι στέλνονται και όσα έχεις σημειώσει ως ιδιωτικά. Όποιος συγχρονίζει μαζί σου θα τα δει.';
+  String get includePrivate => 'Κοινοποίηση ιδιωτικών δεδομένων';
 
   @override
   String get hideLabel => 'Απόκρυψη σε αυτήν τη συσκευή';
@@ -1338,22 +1324,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncChooserInPerson => 'Από κοντά';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Είστε στον ίδιο χώρο — σκανάρετε έναν κωδικό, έτοιμο σε δευτερόλεπτα';
+  String get syncChooserInPersonSub => 'Συγχρονισμός μέσω Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Απομακρυσμένα';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Μέσω κοινόχρηστου φακέλου όπως Dropbox ή USB';
+  String get syncChooserRemoteSub => 'Συγχρονισμός μέσω φακέλου ή USB';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
   String get syncChooserMessengerSub =>
-      'Στείλτε τα πάντα ως ένα αρχείο μέσω οποιουδήποτε messenger — και εισαγάγετε εδώ ένα ληφθέν αρχείο .catsync';
+      'Εξαγωγή και εισαγωγή μέσω κοινωνικών δικτύων';
 
   @override
   String get connectToWifiFirst =>
@@ -1478,7 +1462,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Περισσότερες ενέργειες εδώ: σημείωσε τη γάτα ως ιδιωτική, κρύψ\' την, συγχώνευσε διπλότυπα ή κατέγραψε μια παρατήρηση.';
+      'Εδώ υπάρχουν κι άλλες ενέργειες: απόκρυψη της γάτας, συγχώνευση διπλότυπων ή καταγραφή θέασης.';
 
   @override
   String get spotDone => 'Κατάλαβα';
@@ -1651,22 +1635,16 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Ιδιωτικό';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Κατάλογος: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Σήμανση ως ιδιωτικό';
+
+  @override
+  String get unmarkPrivate => 'Αφαίρεση ιδιωτικής σήμανσης';
 }

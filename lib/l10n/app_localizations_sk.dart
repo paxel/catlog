@@ -266,10 +266,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get sharePublicly => 'Zdieľať verejne…';
 
   @override
-  String get privateNoShare =>
-      'Táto mačka je označená ako súkromná — súkromné dáta nikdy neopúšťajú vaše zariadenie. Najprv označenie zrušte, potom ju možno zdieľať verejne.';
-
-  @override
   String get pickFramesTitle => 'Výber snímok';
 
   @override
@@ -896,7 +892,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neťukneš na ceruzku. Podrž pole a dostaneš sa rovno do jeho úpravy; podrž fotku a otvoríš jej menu. Menu vpravo hore má zvyšok: súkromné, skryť, zlúčiť, zapísať pozorovanie, zdieľať.';
+      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať mačku. „Súkromné“ sa nastavuje pri úprave poľa.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Ak to na iPhone/iPade ďalej zlyháva: Nastavenia → Súkromie a bezpečnosť → Lokálna sieť → povoliť cat(a)log a skúsiť znova.';
 
   @override
-  String get markPrivate => 'Označiť ako súkromné';
-
-  @override
-  String get unmarkPrivate => 'Odstrániť súkromné označenie';
-
-  @override
-  String get includePrivate => 'Zahrnúť súkromné údaje';
-
-  @override
-  String get includePrivateExplainer =>
-      'Týmto sa pošle aj všetko, čo ste označili ako súkromné. Ten, s kým synchronizujete, to uvidí.';
+  String get includePrivate => 'Zdieľať súkromné údaje';
 
   @override
   String get hideLabel => 'Skryť na tomto zariadení';
@@ -1333,22 +1319,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get syncChooserInPerson => 'Osobne';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Ste v jednej miestnosti — naskenuj kód, hotovo za pár sekúnd';
+  String get syncChooserInPersonSub => 'Synchronizácia cez Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Na diaľku';
 
   @override
   String get syncChooserRemoteSub =>
-      'Cez zdieľaný priečinok ako Dropbox alebo USB kľúč';
+      'Synchronizácia cez priečinok alebo USB kľúč';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Pošlite všetko ako jeden súbor cez ľubovoľný messenger — a prijatý súbor .catsync importujte tu';
+  String get syncChooserMessengerSub => 'Export a import cez sociálne siete';
 
   @override
   String get connectToWifiFirst =>
@@ -1472,7 +1456,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Ďalšie akcie sú tu: označte mačku ako súkromnú, skryte ju, zlúčte duplicity alebo zapíšte pozorovanie.';
+      'Tu sú ďalšie akcie: skryť mačku, zlúčiť duplikáty alebo zaznamenať spozorovanie.';
 
   @override
   String get spotDone => 'Rozumiem';
@@ -1645,22 +1629,16 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Súkromné';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalóg: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Označiť ako súkromné';
+
+  @override
+  String get unmarkPrivate => 'Odstrániť súkromné označenie';
 }

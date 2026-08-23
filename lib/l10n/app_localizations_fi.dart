@@ -266,10 +266,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sharePublicly => 'Jaa julkisesti…';
 
   @override
-  String get privateNoShare =>
-      'Tämä kissa on merkitty yksityiseksi — yksityiset tiedot eivät koskaan poistu laitteeltasi. Poista merkintä ensin jakaaksesi julkisesti.';
-
-  @override
   String get pickFramesTitle => 'Valitse ruudut';
 
   @override
@@ -896,7 +892,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Kaikki tästä kissasta: kuvat, kentät, suku, historia. Sivu on vain luettava, kunnes napautat kynää. Pidä kenttää painettuna päästäksesi suoraan sen muokkaukseen; kuvaa avataksesi sen valikon. Oikean yläkulman valikossa on loput: merkitse yksityiseksi, piilota, yhdistä, kirjaa havainto, jaa.';
+      'Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa.';
 
   @override
   String get helpStrays =>
@@ -1128,17 +1124,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Jos epäonnistuu yhä iPhonella/iPadilla: Asetukset → Tietosuoja ja turvallisuus → Paikallisverkko → salli cat(a)log ja yritä uudelleen.';
 
   @override
-  String get markPrivate => 'Merkitse yksityiseksi';
-
-  @override
-  String get unmarkPrivate => 'Poista yksityisyysmerkintä';
-
-  @override
-  String get includePrivate => 'Sisällytä yksityiset tiedot';
-
-  @override
-  String get includePrivateExplainer =>
-      'Tämä lähettää myös kaiken yksityiseksi merkityn. Se, jonka kanssa synkronoit, näkee sen.';
+  String get includePrivate => 'Jaa yksityiset tiedot';
 
   @override
   String get hideLabel => 'Piilota tällä laitteella';
@@ -1335,22 +1321,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncChooserInPerson => 'Kasvokkain';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Olette samassa huoneessa — skannaa koodi, valmis sekunneissa';
+  String get syncChooserInPersonSub => 'Synkronointi Wi-Fin kautta';
 
   @override
   String get syncChooserRemote => 'Etänä';
 
   @override
   String get syncChooserRemoteSub =>
-      'Jaetun kansion kautta, kuten Dropbox tai USB-tikku';
+      'Synkronointi kansion tai USB-tikun kautta';
 
   @override
   String get syncChooserMessenger => 'Viestisovellus';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Lähetä kaikki yhtenä tiedostona millä tahansa viestimellä — ja tuo vastaanotettu .catsync-tiedosto tässä';
+  String get syncChooserMessengerSub => 'Vienti ja tuonti somen kautta';
 
   @override
   String get connectToWifiFirst =>
@@ -1474,7 +1458,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Lisää toimintoja täällä: merkitse kissa yksityiseksi, piilota se, yhdistä kaksoiskappaleet tai kirjaa havainto.';
+      'Täältä löytyy lisää toimintoja: piilota kissa, yhdistä kaksoiskappaleet tai kirjaa havainto.';
 
   @override
   String get spotDone => 'Selvä';
@@ -1647,22 +1631,16 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Yksityinen';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Luettelo: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Merkitse yksityiseksi';
+
+  @override
+  String get unmarkPrivate => 'Poista yksityisyysmerkintä';
 }

@@ -267,10 +267,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sharePublicly => 'Öffentlich teilen…';
 
   @override
-  String get privateNoShare =>
-      'Diese Katze ist als privat markiert — private Daten verlassen dein Gerät nie. Hebe die Markierung auf, um sie öffentlich zu teilen.';
-
-  @override
   String get pickFramesTitle => 'Bilder auswählen';
 
   @override
@@ -900,7 +896,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: privat markieren, ausblenden, zusammenführen, Sichtung eintragen, Katze teilen.';
+      'Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Katze teilen. Privat setzt du beim Bearbeiten eines Feldes.';
 
   @override
   String get helpStrays =>
@@ -1131,17 +1127,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wenn es auf iPhone/iPad weiter scheitert: Einstellungen → Datenschutz & Sicherheit → Lokales Netzwerk → cat(a)log erlauben, dann erneut versuchen.';
 
   @override
-  String get markPrivate => 'Als privat markieren';
-
-  @override
-  String get unmarkPrivate => 'Privat-Markierung entfernen';
-
-  @override
-  String get includePrivate => 'Private Daten einbeziehen';
-
-  @override
-  String get includePrivateExplainer =>
-      'Damit wird auch alles gesendet, was du als privat markiert hast. Wer mit dir synchronisiert, sieht es dann.';
+  String get includePrivate => 'Private Daten teilen';
 
   @override
   String get hideLabel => 'Auf diesem Gerät ausblenden';
@@ -1340,22 +1326,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get syncChooserInPerson => 'Persönlich';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Ihr seid im selben Raum — Code scannen, in Sekunden fertig';
+  String get syncChooserInPersonSub => 'Sync via WLAN';
 
   @override
   String get syncChooserRemote => 'Entfernt';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Über einen geteilten Ordner wie Dropbox oder einen USB-Stick';
+  String get syncChooserRemoteSub => 'Sync via Ordner oder USB-Stick';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Alles als eine Datei über einen Messenger senden — und eine empfangene .catsync-Datei hier importieren';
+  String get syncChooserMessengerSub => 'Ex- und Import via Social Media';
 
   @override
   String get connectToWifiFirst =>
@@ -1481,7 +1464,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Hier gibt es mehr Aktionen: Katze privat markieren, ausblenden, Duplikate zusammenführen oder eine Sichtung eintragen.';
+      'Hier gibt es mehr Aktionen: Katze ausblenden, Duplikate zusammenführen oder eine Sichtung eintragen.';
 
   @override
   String get spotDone => 'Verstanden';
@@ -1654,22 +1637,16 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Zurückgehalten';
+  String get privateLabel => 'Privat';
 
   @override
-  String get keepThisValuePrivate => 'Nur auf diesem Gerät behalten';
-
-  @override
-  String get shareThisValue => 'Wieder teilen';
-
-  @override
-  String get privacyChangedTitle => 'Privat bedeutet jetzt etwas anderes';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Privat hielt bisher eine ganze Katze oder Kolonie von der Leitung fern. Jetzt bleiben ihre Werte zu Hause — der Name bleibt sichtbar, damit bei deinem Gegenüber nichts ankommt, das auf etwas Unbekanntes zeigt. Diese Namen werden beim nächsten Sync sichtbar: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Verstanden';
+  String get markPrivate => 'Als privat markieren';
+
+  @override
+  String get unmarkPrivate => 'Privat-Markierung entfernen';
 }

@@ -266,10 +266,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sharePublicly => 'Compartir públicamente…';
 
   @override
-  String get privateNoShare =>
-      'Este gato está marcado como privado — los datos privados nunca salen de tu dispositivo. Quita primero la marca para compartirlo públicamente.';
-
-  @override
   String get pickFramesTitle => 'Elegir fotogramas';
 
   @override
@@ -899,7 +895,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Todo sobre este gato: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; una foto para su menú. El menú de arriba a la derecha tiene el resto: marcar privado, ocultar, fusionar, anotar un avistamiento, compartir.';
+      'Todo sobre este gato: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; mantén pulsada una foto para su menú. El menú de arriba a la derecha tiene el resto: ocultar, fusionar, registrar un avistamiento, compartir el gato. «Privado» se marca al editar un campo.';
 
   @override
   String get helpStrays =>
@@ -1131,17 +1127,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Si sigue fallando en iPhone/iPad: Ajustes → Privacidad y seguridad → Red local → permitir cat(a)log y vuelve a intentarlo.';
 
   @override
-  String get markPrivate => 'Marcar como privado';
-
-  @override
-  String get unmarkPrivate => 'Quitar marca privada';
-
-  @override
-  String get includePrivate => 'Incluir datos privados';
-
-  @override
-  String get includePrivateExplainer =>
-      'Esto también envía todo lo que marcaste como privado. Quien sincronice contigo lo verá.';
+  String get includePrivate => 'Compartir datos privados';
 
   @override
   String get hideLabel => 'Ocultar en este dispositivo';
@@ -1340,22 +1326,20 @@ class AppLocalizationsEs extends AppLocalizations {
   String get syncChooserInPerson => 'En persona';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Estáis en la misma habitación — escanea un código y listo';
+  String get syncChooserInPersonSub => 'Sincronización por Wi-Fi';
 
   @override
   String get syncChooserRemote => 'A distancia';
 
   @override
-  String get syncChooserRemoteSub =>
-      'A través de una carpeta compartida como Dropbox o un USB';
+  String get syncChooserRemoteSub => 'Sincronización por carpeta o USB';
 
   @override
   String get syncChooserMessenger => 'Mensajería';
 
   @override
   String get syncChooserMessengerSub =>
-      'Envía todo como un archivo por cualquier mensajería — e importa aquí un archivo .catsync recibido';
+      'Exportar e importar por redes sociales';
 
   @override
   String get connectToWifiFirst =>
@@ -1480,7 +1464,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Aquí hay más acciones: marcar el gato como privado, ocultarlo, fusionar duplicados o anotar un avistamiento.';
+      'Aquí hay más acciones: ocultar el gato, fusionar duplicados o registrar un avistamiento.';
 
   @override
   String get spotDone => 'Entendido';
@@ -1653,22 +1637,16 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privado';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Catálogo: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Marcar como privado';
+
+  @override
+  String get unmarkPrivate => 'Quitar marca privada';
 }

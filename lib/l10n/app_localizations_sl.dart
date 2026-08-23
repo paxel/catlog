@@ -266,10 +266,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get sharePublicly => 'Deli javno…';
 
   @override
-  String get privateNoShare =>
-      'Ta mačka je označena kot zasebna — zasebni podatki nikoli ne zapustijo vaše naprave. Najprej odstranite oznako za javno deljenje.';
-
-  @override
   String get pickFramesTitle => 'Izbira sličic';
 
   @override
@@ -896,7 +892,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Vse o tej mački: fotografije, polja, družina, zgodovina. Stran je samo za branje, dokler ne tapneš svinčnika. Dolg pritisk na polje te pelje naravnost v urejanje; na fotografijo odpre njen meni. Meni zgoraj desno ima ostalo: zasebno, skrij, združi, zabeleži opažanje, deli.';
+      'Vse o tej mački: fotografije, polja, družina, zgodovina. Stran je samo za branje, dokler se ne dotakneš svinčnika. Dolgo pridrži polje, da ga takoj urediš; dolgo pridrži fotografijo za njen meni. Meni zgoraj desno drži ostalo: skrij, združi, zabeleži opažanje, deli mačko. „Zasebno“ se nastavi ob urejanju polja.';
 
   @override
   String get helpStrays =>
@@ -1127,17 +1123,7 @@ class AppLocalizationsSl extends AppLocalizations {
       'Če na iPhonu/iPadu še vedno ne uspe: Nastavitve → Zasebnost in varnost → Lokalno omrežje → dovoli cat(a)log in poskusi znova.';
 
   @override
-  String get markPrivate => 'Označi kot zasebno';
-
-  @override
-  String get unmarkPrivate => 'Odstrani zasebno oznako';
-
-  @override
-  String get includePrivate => 'Vključi zasebne podatke';
-
-  @override
-  String get includePrivateExplainer =>
-      'S tem se pošlje tudi vse, kar ste označili kot zasebno. Oseba, s katero sinhronizirate, bo to videla.';
+  String get includePrivate => 'Deli zasebne podatke';
 
   @override
   String get hideLabel => 'Skrij na tej napravi';
@@ -1334,22 +1320,19 @@ class AppLocalizationsSl extends AppLocalizations {
   String get syncChooserInPerson => 'V živo';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Sta v istem prostoru — skeniraj kodo, končano v sekundah';
+  String get syncChooserInPersonSub => 'Sinhronizacija prek Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Na daljavo';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Prek deljene mape, kot je Dropbox ali USB ključek';
+  String get syncChooserRemoteSub => 'Sinhronizacija prek mape ali USB ključka';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Pošljite vse kot eno datoteko prek katerega koli messengerja — in tu uvozite prejeto datoteko .catsync';
+  String get syncChooserMessengerSub => 'Izvoz in uvoz prek družbenih omrežij';
 
   @override
   String get connectToWifiFirst =>
@@ -1473,7 +1456,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Več dejanj tukaj: označite mačko kot zasebno, jo skrijte, združite dvojnike ali zabeležite opažanje.';
+      'Tu je več dejanj: skrij mačko, združi dvojnike ali zabeleži opažanje.';
 
   @override
   String get spotDone => 'Razumem';
@@ -1646,22 +1629,16 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Zasebno';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Označi kot zasebno';
+
+  @override
+  String get unmarkPrivate => 'Odstrani zasebno oznako';
 }

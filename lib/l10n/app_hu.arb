@@ -175,7 +175,6 @@
   "noDuplicates": "Jelenleg nincs lehetséges duplikátum.",
   "similarName": "Hasonló név",
   "sharePublicly": "Nyilvános megosztás…",
-  "privateNoShare": "Ez a macska privátként van megjelölve — a privát adatok sosem hagyják el az eszközét. Előbb vegye le a jelölést a nyilvános megosztáshoz.",
   "pickFramesTitle": "Képkockák kiválasztása",
   "suggestedFrames": "Javasolt képkockák",
   "scrubFrames": "Videó léptetése",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Tippek újra",
   "helpHome": "A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.",
   "helpClowder": "Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod.",
-  "helpCat": "Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mezőt hosszan nyomva egyből a szerkesztésébe ugorsz; egy fotót hosszan nyomva a menüje nyílik. A jobb felső menüben van a többi: priváttá tétel, elrejtés, összevonás, észlelés rögzítése, megosztás.",
+  "helpCat": "Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a macska megosztása. A Privát a mező szerkesztésekor állítható.",
   "helpStrays": "Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot.",
   "helpMap": "Minden macska és hely, aminek van pozíciója. A keresés macskát, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt macska plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz.",
   "helpCard": "A macska nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Ha iPhone-on/iPaden továbbra sem megy: Beállítások → Adatvédelem és biztonság → Helyi hálózat → engedélyezd a cat(a)log-ot, majd próbáld újra.",
   "markPrivate": "Megjelölés privátként",
   "unmarkPrivate": "Privát jelölés eltávolítása",
-  "includePrivate": "Privát adatok belefoglalása",
-  "includePrivateExplainer": "Ezzel minden privátnak jelölt adat is elmegy. Akivel szinkronizálsz, látni fogja.",
+  "includePrivate": "Privát adatok megosztása",
   "hideLabel": "Elrejtés ezen az eszközön",
   "unhideLabel": "Újra megjelenítés",
   "showHiddenLabel": "Rejtettek megjelenítése",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Ez nem cat(a)log-fájl",
   "nothingNewInBundle": "Semmi új a fájlban — már mindened megvan",
   "syncChooserInPerson": "Személyesen",
-  "syncChooserInPersonSub": "Egy szobában vagytok — kód beolvasása, kész másodpercek alatt",
+  "syncChooserInPersonSub": "Szinkronizálás Wi-Fi-n",
   "syncChooserRemote": "Távolról",
-  "syncChooserRemoteSub": "Megosztott mappán át, mint a Dropbox vagy egy pendrive",
+  "syncChooserRemoteSub": "Szinkronizálás mappán vagy USB-n át",
   "syncChooserMessenger": "Üzenetküldő",
-  "syncChooserMessengerSub": "Küldjön mindent egy fájlként bármely üzenetküldőn — és itt importálja a kapott .catsync fájlt",
+  "syncChooserMessengerSub": "Export és import közösségi médián át",
   "connectToWifiFirst": "Előbb csatlakozz Wi-Fi-hez — akkor a készülékek megtalálják egymást",
   "trustQuestion": "{author} ({device}) szinkronizálni szeretne",
   "trustBothWaysNote": "A katalógusok mindkét irányban kicserélődnek.",
@@ -423,7 +421,7 @@
   "introBody4": "Eltűnt macskát kereső plakátot látsz? Fotózd le az appban: elmenti a macskát, a gazda elérhetőségét és a helyet. Ha később hasonló kóbor bukkan fel, az app lehetséges egyezéseket javasol.",
   "spotMapSearch": "Írj be egy macskát, helyet vagy személyt, és a térkép odaugrik.",
   "spotCardChips": "Jelöld be, mi kerüljön a megosztható kártyára — a többi lemarad róla.",
-  "spotCatMenu": "További műveletek itt: macska priváttá jelölése, elrejtése, duplikátumok összevonása vagy észlelés rögzítése.",
+  "spotCatMenu": "Itt több művelet van: a macska elrejtése, duplikátumok összevonása vagy észlelés rögzítése.",
   "spotDone": "Értem",
   "spotReplayTitle": "Újdonság-túra",
   "spotReplaySubtitle": "Tippek újbóli megjelenítése minden oldalon",
@@ -440,30 +438,90 @@
   "newCatalog": "Új katalógus",
   "catalogNameLabel": "A katalógus neve",
   "catalogNameTaken": "Már van {name} nevű katalógus. Válassz másik nevet.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Katalógusok kezelése",
   "helpCatalogs": "Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.",
   "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.",
   "deleteCatalog": "Katalógus törlése",
   "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} törölve. A fájl itt van: {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Írd be: {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Semmi sem törlődött: a katalógusfájlt nem sikerült kiírni ({error}). Szabadíts fel helyet, vagy próbáld később.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Áthelyezés másik katalógusba",
   "movedToCatalog": "{count} áthelyezve ide: {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Mi költözzön?",
   "moveIntoNewCatalog": "Áthelyezel valamit ide: {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Az importálás visszavonása",
   "undoImportBody": "Az importálás hozta {count} változás eltűnik. Előbb fájlba kerülnek, annak importálása visszahozza őket. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Visszavonva. A fájl itt van: {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Vissza egy korábbi állapotra",
   "goBackToHere": "Vissza ide",
   "momentImport": "Importálás előtt",
@@ -474,12 +532,32 @@
   "momentManual": "Te jelölted meg",
   "showOlderMoments": "Régebbiek mutatása",
   "goBackBody": "Minden eltűnik e pillanat után — {count} változás. Előbb fájlba kerül, annak importálása mindent visszahoz, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják a másolatukat — azt nem lehet visszavonni.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Nevezd el ezt a pillanatot",
   "helpGoBack": "Azok a pillanatok, amikor ez a katalógus alakot váltott: minden importálás és szinkronizálás előtt, összevonás, archiválás vagy törlés előtt, és mindig, amikor te magad jelöltél meg egyet. Egyet választva a katalógus visszatér abba az állapotba — minden utána következő fájlba kerül, amit megtartasz, majd eltűnik, és minden újabb pillanat vele megy. Akikkel már szinkronizáltál, megtartják, amit kaptak.",
   "goBackFileFailed": "Semmi sem tűnt el: a fájl, ami megőrzi, nem volt kiírható ({error}). Szabadíts fel helyet, és próbáld újra.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.",
   "shareFileFailed": "A megosztási fájlt nem sikerült kiírni ({error}). Szabadíts fel helyet, és próbáld újra.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privát",
+  "sharedCatalogIs": "Katalógus: {name}"
 }

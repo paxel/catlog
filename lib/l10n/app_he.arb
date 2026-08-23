@@ -175,7 +175,6 @@
   "noDuplicates": "אין כפילויות אפשריות כרגע.",
   "similarName": "שם דומה",
   "sharePublicly": "שיתוף ציבורי…",
-  "privateNoShare": "החתול הזה מסומן כפרטי — נתונים פרטיים לעולם לא עוזבים את המכשיר. הסירו את הסימון תחילה כדי לשתף בפומבי.",
   "pickFramesTitle": "בחירת פריימים",
   "suggestedFrames": "פריימים מוצעים",
   "scrubFrames": "גלילה בסרטון",
@@ -260,7 +259,7 @@
   "showTipsAgain": "הצג טיפים שוב",
   "helpHome": "סקירת המושבות שלך — מושבה היא מקום שבו חיים חתולים: הבית שלך, בית אומנה, מקלט. הקישו על כרטיס כדי לראות את החתולים; לחיצה ארוכה פותחת תפריט. הכפתור מימין למטה יוצר מושבה, וכרטיס חתולי הרחוב מרכז את כל החתולים בלי בית. השם למעלה הוא הקטלוג שאתה נמצא בו — הקש עליו כדי להחליף או להוסיף.",
   "helpClowder": "הכול על המקום הזה: החתולים, השדות (כתובת, איש קשר, סוג) וההיסטוריה. הדף נפתח לקריאה בלבד; העיפרון מפעיל עריכה, ושם אפשר גם להוסיף שדה. לחיצה ארוכה על שדה עורכת אותו מיד, על חתול מעבירה, מסתירה או פותחת אותו.",
-  "helpCat": "הכול על החתול הזה: תמונות, שדות, משפחה, היסטוריה. הדף לקריאה בלבד עד שתקישו על העיפרון. לחיצה ארוכה על שדה קופצת ישר לעריכה שלו; על תמונה פותחת את התפריט שלה. בתפריט הימני העליון כל השאר: סימון פרטי, הסתרה, מיזוג, רישום תצפית, שיתוף.",
+  "helpCat": "הכול על החתול הזה: תמונות, שדות, משפחה, היסטוריה. הדף לקריאה בלבד עד שנוגעים בעיפרון. לחיצה ארוכה על שדה עוברת ישר לעריכתו; לחיצה ארוכה על תמונה פותחת את התפריט שלה. התפריט למעלה מחזיק את השאר: הסתרה, מיזוג, רישום תצפית, שיתוף החתול. פרטי נקבע בעת עריכת שדה.",
   "helpStrays": "חתולים שאין להם בית כרגע: נמצאו, ברחו או הגיעו ממודעה. כפתור המצלמה מתעד חתול שיושב מולך; כפתור המודעה הופך מודעת נעדר לחתול עם פרטי הבעלים; הסורק קורא קוד cat(a)log מהמודעה.",
   "helpMap": "כל החתולים והמקומות עם מיקום. החיפוש מוצא חתולים, אנשים ומקומות — שם לא מוכר נבדק בכל העולם. כפתור השכבות מצייר מעגלי 500 מ' סביב מקומות המודעות של חתול נעדר וסביב הבית שממנו ברח. החצים עוברים מסיכה לסיכה, לחיצה ארוכה על המפה רושמת תצפית.",
   "helpCard": "הכרטיס להדפסה של החתול: בחרו למעלה בעזרת התוויות מה יופיע בו, ואז שתפו כתמונה או PDF. מספרים אפשר להדפיס כ-QR או ברקוד, ומיקום הופך ל-QR שפותח מפה, בתוספת Plus Code קצר.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "אם זה ממשיך להיכשל ב-iPhone/iPad: הגדרות → פרטיות ואבטחה → רשת מקומית → אפשרו ל-cat(a)log ונסו שוב.",
   "markPrivate": "סמן כפרטי",
   "unmarkPrivate": "הסר סימון פרטי",
-  "includePrivate": "כלול נתונים פרטיים",
-  "includePrivateExplainer": "כך נשלח גם כל מה שסימנתם כפרטי. מי שמסתנכרן אתכם יראה זאת.",
+  "includePrivate": "שיתוף נתונים פרטיים",
   "hideLabel": "הסתר במכשיר זה",
   "unhideLabel": "הצג שוב",
   "showHiddenLabel": "הצג מוסתרים",
@@ -384,11 +382,11 @@
   "notACatlogFile": "זה לא קובץ cat(a)log",
   "nothingNewInBundle": "אין חדש בקובץ — הכול כבר אצלך",
   "syncChooserInPerson": "פנים אל פנים",
-  "syncChooserInPersonSub": "אתם באותו חדר — סרקו קוד, מוכן בשניות",
+  "syncChooserInPersonSub": "סנכרון דרך Wi-Fi",
   "syncChooserRemote": "מרחוק",
-  "syncChooserRemoteSub": "דרך תיקייה משותפת כמו Dropbox או USB",
+  "syncChooserRemoteSub": "סנכרון דרך תיקייה או USB",
   "syncChooserMessenger": "מסנג'ר",
-  "syncChooserMessengerSub": "שלחו הכול כקובץ אחד בכל מסנג'ר — וייבאו כאן קובץ ‎.catsync שהתקבל",
+  "syncChooserMessengerSub": "ייצוא וייבוא דרך רשתות חברתיות",
   "connectToWifiFirst": "התחברו קודם ל-Wi-Fi — אז המכשירים ימצאו זה את זה",
   "trustQuestion": "{author} ({device}) רוצה לסנכרן",
   "trustBothWaysNote": "הקטלוגים יוחלפו בשני הכיוונים.",
@@ -423,7 +421,7 @@
   "introBody4": "ראיתם מודעה על חתול נעדר? צלמו אותה באפליקציה: היא שומרת את החתול, פרטי הבעלים והמקום. אם יופיע אחר כך חתול רחוב דומה, האפליקציה תציע התאמות אפשריות.",
   "spotMapSearch": "הקלידו חתול, מקום או אדם כדי לקפוץ לשם במפה.",
   "spotCardChips": "סמנו מה יופיע בכרטיס לשיתוף — השאר נשאר מחוץ לו.",
-  "spotCatMenu": "פעולות נוספות כאן: סימון החתול כפרטי, הסתרה, מיזוג כפילויות או רישום תצפית.",
+  "spotCatMenu": "כאן יש פעולות נוספות: הסתרת החתול, מיזוג כפילויות או רישום תצפית.",
   "spotDone": "הבנתי",
   "spotReplayTitle": "סיור חידושים",
   "spotReplaySubtitle": "הצג את הרמזים שוב בכל עמוד",
@@ -440,30 +438,90 @@
   "newCatalog": "קטלוג חדש",
   "catalogNameLabel": "שם הקטלוג",
   "catalogNameTaken": "כבר קיים קטלוג בשם {name}. בחר שם אחר.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "ניהול קטלוגים",
   "helpCatalogs": "כל קטלוג הוא עולם בפני עצמו: החתולים, המושבות, השדות, התמונות ושותפי הסנכרון שלו. ברלין ופריז לעולם לא מתערבבות. הקש על השם בראש המסך הראשי כדי להחליף, להוסיף או לשנות שם. השם שלך, השפה והטיפים שכבר ראית משותפים לכולם.",
   "spotHomeCatalog": "זה הקטלוג שאתה נמצא בו. הקש על השם כדי להחליף או ליצור עוד אחד.",
   "deleteCatalog": "מחיקת קטלוג",
   "deleteCatalogBody": "כל מה שיש ב-{name} נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} נמחק. הקובץ נמצא ב-{where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "הקלד {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "שום דבר לא נמחק: לא ניתן היה לכתוב את קובץ הקטלוג ({error}). פנה מקום או נסה שוב מאוחר יותר.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "העברה לקטלוג אחר",
   "movedToCatalog": "{count} הועברו אל {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "מה עובר?",
   "moveIntoNewCatalog": "להעביר משהו אל {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "ביטול הייבוא הזה",
   "undoImportBody": "{count} השינויים שהייבוא הזה הביא יוסרו. הם נכתבים תחילה לקובץ, וייבוא שלו מחזיר אותם. מי שכבר סנכרנת איתו שומר על העותק שלו — את זה אי אפשר לבטל.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "בוטל. הקובץ נמצא ב-{where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "חזרה אחורה",
   "goBackToHere": "לחזור לכאן",
   "momentImport": "לפני הייבוא",
@@ -474,12 +532,32 @@
   "momentManual": "סומן על ידך",
   "showOlderMoments": "הצג ישנים יותר",
   "goBackBody": "כל מה שאחרי הרגע הזה יוסר — {count} שינויים. הכול נכתב תחילה לקובץ, וייבוא שלו מחזיר הכול, וכל רגע חדש יותר הולך איתו. מי שכבר סנכרנת איתו שומר על העותק שלו — את זה אי אפשר לבטל.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "תן שם לרגע הזה",
   "helpGoBack": "הרגעים שבהם הקטלוג הזה שינה צורה: לפני כל ייבוא וכל סנכרון, לפני מיזוג, ארכוב או מחיקה, ובכל פעם שסימנת רגע בעצמך. בחירה באחד מהם מחזירה את הקטלוג לאותו מצב — כל מה שאחריו נכתב לקובץ שאתה שומר ואז מוסר, וכל רגע חדש יותר הולך איתו. מי שכבר סנכרנת איתו שומר את מה שקיבל.",
   "goBackFileFailed": "שום דבר לא הוסר: לא ניתן היה לכתוב את הקובץ ששומר אותו ({error}). פנה מקום ונסה שוב.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "זה הקטלוג שאתה נמצא בו. עבור לאחר ואז מחק אותו.",
   "shareFileFailed": "לא ניתן היה לכתוב את קובץ השיתוף ({error}). פנה מקום ונסה שוב.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "פרטי",
+  "sharedCatalogIs": "קטלוג: {name}"
 }

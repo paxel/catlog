@@ -175,7 +175,6 @@
   "noDuplicates": "Praegu pole võimalikke duplikaate.",
   "similarName": "Sarnane nimi",
   "sharePublicly": "Jaga avalikult…",
-  "privateNoShare": "See kass on märgitud privaatseks — privaatsed andmed ei lahku kunagi sinu seadmest. Avalikuks jagamiseks eemalda esmalt märgistus.",
   "pickFramesTitle": "Kaadrite valik",
   "suggestedFrames": "Soovitatud kaadrid",
   "scrubFrames": "Keri videot",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Näita nõuandeid uuesti",
   "helpHome": "Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.",
   "helpClowder": "Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab.",
-  "helpCat": "Kõik selle kassi kohta: pildid, väljad, suhted, ajalugu. Leht on lugemiseks, kuni puudutad pliiatsit. Välja pikk vajutus viib otse selle muutmisse; pildi oma avab menüü. Menüü üleval paremal sisaldab ülejäänut: privaatne, peida, ühenda, kirjuta nägemine, jaga.",
+  "helpCat": "Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel.",
   "helpStrays": "Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi.",
   "helpMap": "Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.",
   "helpCard": "Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Kui iPhone'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.",
   "markPrivate": "Märgi privaatseks",
   "unmarkPrivate": "Eemalda privaatsuse märge",
-  "includePrivate": "Kaasa privaatsed andmed",
-  "includePrivateExplainer": "Sellega saadetakse ka kõik privaatseks märgitu. See, kellega sünkroonid, näeb seda.",
+  "includePrivate": "Jaga privaatseid andmeid",
   "hideLabel": "Peida selles seadmes",
   "unhideLabel": "Näita uuesti",
   "showHiddenLabel": "Näita peidetuid",
@@ -384,11 +382,11 @@
   "notACatlogFile": "See pole cat(a)logi fail",
   "nothingNewInBundle": "Failis pole midagi uut — sul on kõik olemas",
   "syncChooserInPerson": "Kohapeal",
-  "syncChooserInPersonSub": "Olete samas ruumis — skanni kood, valmis sekunditega",
+  "syncChooserInPersonSub": "Sünkroonimine Wi-Fi kaudu",
   "syncChooserRemote": "Eemalt",
-  "syncChooserRemoteSub": "Jagatud kausta kaudu nagu Dropbox või USB-pulk",
+  "syncChooserRemoteSub": "Sünkroonimine kausta või USB-pulga kaudu",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Saada kõik ühe failina mis tahes sõnumirakendusega — ja impordi saadud .catsync-fail siin",
+  "syncChooserMessengerSub": "Eksport ja import sotsiaalmeedia kaudu",
   "connectToWifiFirst": "Ühendu kõigepealt Wi-Fi-ga — siis seadmed leiavad teineteise",
   "trustQuestion": "{author} ({device}) soovib sünkroonida",
   "trustBothWaysNote": "Kataloogid vahetatakse mõlemas suunas.",
@@ -423,7 +421,7 @@
   "introBody4": "Näed kadunud kassi kuulutust? Pildista see äpis: salvestatakse kass, omaniku kontakt ja koht. Kui hiljem ilmub sarnane hulkuja, pakub äpp võimalikke vasteid.",
   "spotMapSearch": "Sisesta kass, koht või inimene, et kaardil sinna hüpata.",
   "spotCardChips": "Märgi, mis peaks jagataval kaardil olema — ülejäänu jääb sellelt välja.",
-  "spotCatMenu": "Rohkem toiminguid siin: märgi kass privaatseks, peida ta, liida duplikaadid või kirjuta nägemine üles.",
+  "spotCatMenu": "Siin on veel toiminguid: peida kass, liida duplikaadid või märgi nägemine.",
   "spotDone": "Selge",
   "spotReplayTitle": "Uuenduste tuur",
   "spotReplaySubtitle": "Näita vihjeid igal lehel uuesti",
@@ -440,30 +438,90 @@
   "newCatalog": "Uus kataloog",
   "catalogNameLabel": "Kataloogi nimi",
   "catalogNameTaken": "Kataloog nimega {name} on juba olemas. Vali teine nimi.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Halda katalooge",
   "helpCatalogs": "Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.",
   "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.",
   "deleteCatalog": "Kustuta kataloog",
   "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} kustutatud. Fail on kaustas {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Kirjuta {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Midagi ei kustutatud: kataloogifaili ei õnnestunud kirjutada ({error}). Vabasta ruumi või proovi hiljem uuesti.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Teisalda teise kataloogi",
   "movedToCatalog": "{count} teisaldatud kataloogi {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Mis liigub kaasa?",
   "moveIntoNewCatalog": "Kas liigutada midagi kataloogi {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Võta see import tagasi",
   "undoImportBody": "Selle impordi toodud {count} muudatust eemaldatakse. Enne kirjutatakse need faili, mille import toob need tagasi. Need, kellega juba sünkroonisid, säilitavad oma koopia — seda ei saa tagasi võtta.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Tagasi võetud. Fail on {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Mine tagasi",
   "goBackToHere": "Mine siia tagasi",
   "momentImport": "Enne importimist",
@@ -474,12 +532,32 @@
   "momentManual": "Sinu märgitud",
   "showOlderMoments": "Näita vanemaid",
   "goBackBody": "Kõik pärast seda hetke eemaldatakse — {count} muudatust. Enne kirjutatakse see faili, mille import toob kõik tagasi, ja iga uuem hetk kaob koos sellega. Need, kellega juba sünkroonisid, säilitavad koopia — seda ei saa tagasi võtta.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Anna sellele hetkele nimi",
   "helpGoBack": "Hetked, mil see kataloog kuju muutis: enne iga importi ja iga sünkroonimist, enne ühendamist, arhiveerimist või kustutamist ning alati, kui ise hetke märkisid. Ühe valimine viib kataloogi sellesse olekusse tagasi — kõik pärast seda kirjutatakse faili, mille sa endale jätad, ja seejärel eemaldatakse; iga uuem hetk läheb kaasa. Need, kellega juba sünkroonisid, säilitavad saadu.",
   "goBackFileFailed": "Midagi ei eemaldatud: faili, mis selle alles hoiab, ei õnnestunud kirjutada ({error}). Vabasta ruumi ja proovi uuesti.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "See on kataloog, milles oled. Vaheta teisele ja kustuta see siis.",
   "shareFileFailed": "Jagamisfaili ei õnnestunud kirjutada ({error}). Vabasta ruumi ja proovi uuesti.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privaatne",
+  "sharedCatalogIs": "Kataloog: {name}"
 }

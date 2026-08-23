@@ -266,10 +266,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sharePublicly => 'Kopīgot publiski…';
 
   @override
-  String get privateNoShare =>
-      'Šis kaķis ir atzīmēts kā privāts — privāti dati nekad nepamet jūsu ierīci. Vispirms noņemiet atzīmi, lai kopīgotu publiski.';
-
-  @override
   String get pickFramesTitle => 'Kadru izvēle';
 
   @override
@@ -895,7 +891,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Viss par šo kaķi: attēli, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilga lauka piespiešana ved tieši uz tā rediģēšanu; attēla — atver tā izvēlni. Izvēlnē augšā pa labi ir pārējais: privāts, paslēpt, apvienot, pierakstīt novērojumu, kopīgot.';
+      'Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Ja iPhone/iPad joprojām neizdodas: Iestatījumi → Privātums un drošība → Lokālais tīkls → atļaut cat(a)log un mēģināt vēlreiz.';
 
   @override
-  String get markPrivate => 'Atzīmēt kā privātu';
-
-  @override
-  String get unmarkPrivate => 'Noņemt privātuma atzīmi';
-
-  @override
-  String get includePrivate => 'Iekļaut privātos datus';
-
-  @override
-  String get includePrivateExplainer =>
-      'Tā tiek nosūtīts arī viss, ko atzīmējāt kā privātu. Tas, ar ko sinhronizējat, to redzēs.';
+  String get includePrivate => 'Kopīgot privātos datus';
 
   @override
   String get hideLabel => 'Paslēpt šajā ierīcē';
@@ -1333,22 +1319,21 @@ class AppLocalizationsLv extends AppLocalizations {
   String get syncChooserInPerson => 'Klātienē';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Esat vienā telpā — noskenē kodu, gatavs sekundēs';
+  String get syncChooserInPersonSub => 'Sinhronizācija caur Wi-Fi';
 
   @override
   String get syncChooserRemote => 'Attālināti';
 
   @override
   String get syncChooserRemoteSub =>
-      'Caur koplietotu mapi kā Dropbox vai USB zibatmiņu';
+      'Sinhronizācija caur mapi vai USB zibatmiņu';
 
   @override
   String get syncChooserMessenger => 'Ziņotne';
 
   @override
   String get syncChooserMessengerSub =>
-      'Sūtiet visu kā vienu failu ar jebkuru ziņotni — un importējiet saņemto .catsync failu šeit';
+      'Eksports un imports caur sociālajiem tīkliem';
 
   @override
   String get connectToWifiFirst =>
@@ -1472,7 +1457,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Vairāk darbību šeit: atzīmējiet kaķi kā privātu, paslēpiet to, apvienojiet dublikātus vai pierakstiet novērojumu.';
+      'Šeit ir vēl darbības: paslēpt kaķi, apvienot dublikātus vai pierakstīt novērojumu.';
 
   @override
   String get spotDone => 'Skaidrs';
@@ -1645,22 +1630,16 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privāts';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalogs: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Atzīmēt kā privātu';
+
+  @override
+  String get unmarkPrivate => 'Noņemt privātuma atzīmi';
 }

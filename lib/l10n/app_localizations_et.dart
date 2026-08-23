@@ -266,10 +266,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sharePublicly => 'Jaga avalikult…';
 
   @override
-  String get privateNoShare =>
-      'See kass on märgitud privaatseks — privaatsed andmed ei lahku kunagi sinu seadmest. Avalikuks jagamiseks eemalda esmalt märgistus.';
-
-  @override
   String get pickFramesTitle => 'Kaadrite valik';
 
   @override
@@ -894,7 +890,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Kõik selle kassi kohta: pildid, väljad, suhted, ajalugu. Leht on lugemiseks, kuni puudutad pliiatsit. Välja pikk vajutus viib otse selle muutmisse; pildi oma avab menüü. Menüü üleval paremal sisaldab ülejäänut: privaatne, peida, ühenda, kirjuta nägemine, jaga.';
+      'Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel.';
 
   @override
   String get helpStrays =>
@@ -1125,17 +1121,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kui iPhone\'is/iPadis endiselt ebaõnnestub: Seaded → Privaatsus ja turvalisus → Kohalik võrk → luba cat(a)log ja proovi uuesti.';
 
   @override
-  String get markPrivate => 'Märgi privaatseks';
-
-  @override
-  String get unmarkPrivate => 'Eemalda privaatsuse märge';
-
-  @override
-  String get includePrivate => 'Kaasa privaatsed andmed';
-
-  @override
-  String get includePrivateExplainer =>
-      'Sellega saadetakse ka kõik privaatseks märgitu. See, kellega sünkroonid, näeb seda.';
+  String get includePrivate => 'Jaga privaatseid andmeid';
 
   @override
   String get hideLabel => 'Peida selles seadmes';
@@ -1333,22 +1319,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncChooserInPerson => 'Kohapeal';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Olete samas ruumis — skanni kood, valmis sekunditega';
+  String get syncChooserInPersonSub => 'Sünkroonimine Wi-Fi kaudu';
 
   @override
   String get syncChooserRemote => 'Eemalt';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Jagatud kausta kaudu nagu Dropbox või USB-pulk';
+  String get syncChooserRemoteSub => 'Sünkroonimine kausta või USB-pulga kaudu';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
   String get syncChooserMessengerSub =>
-      'Saada kõik ühe failina mis tahes sõnumirakendusega — ja impordi saadud .catsync-fail siin';
+      'Eksport ja import sotsiaalmeedia kaudu';
 
   @override
   String get connectToWifiFirst =>
@@ -1472,7 +1456,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Rohkem toiminguid siin: märgi kass privaatseks, peida ta, liida duplikaadid või kirjuta nägemine üles.';
+      'Siin on veel toiminguid: peida kass, liida duplikaadid või märgi nägemine.';
 
   @override
   String get spotDone => 'Selge';
@@ -1645,22 +1629,16 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privaatne';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Kataloog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Märgi privaatseks';
+
+  @override
+  String get unmarkPrivate => 'Eemalda privaatsuse märge';
 }

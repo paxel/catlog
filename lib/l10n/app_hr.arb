@@ -175,7 +175,6 @@
   "noDuplicates": "Trenutačno nema mogućih duplikata.",
   "similarName": "Slično ime",
   "sharePublicly": "Podijeli javno…",
-  "privateNoShare": "Ova mačka je označena kao privatna — privatni podaci nikad ne napuštaju vaš uređaj. Najprije uklonite oznaku da biste je javno podijelili.",
   "pickFramesTitle": "Odabir kadrova",
   "suggestedFrames": "Predloženi kadrovi",
   "scrubFrames": "Premotavanje videa",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Prikaži savjete ponovno",
   "helpHome": "Pregled tvojih kolonija — kolonija je mjesto gdje žive mačke: tvoj dom, udomiteljska kuća, sklonište. Dodirni karticu za njezine mačke; dugi pritisak otvara izbornik. Gumb dolje desno stvara koloniju, a kartica lutalica skuplja sve mačke bez doma. Ime na vrhu je katalog u kojem si — dodirni ga da prebaciš ili dodaš novi.",
   "helpClowder": "Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i povijest. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara.",
-  "helpCat": "Sve o ovoj mački: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugi pritisak na polje vodi ravno u njegovo uređivanje; na fotografiju otvara njezin izbornik. Izbornik gore desno ima ostalo: privatno, sakrij, spoji, zabilježi viđenje, podijeli.",
+  "helpCat": "Sve o ovoj mački: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njezin izbornik. Izbornik gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli mačku. „Privatno“ se postavlja pri uređivanju polja.",
   "helpStrays": "Mačke koje trenutno nemaju dom: pronađene, pobjegle ili s letka. Gumb s kamerom bilježi mačku pred tobom; gumb s letkom pretvara plakat u mačku s kontaktom vlasnika; skener čita cat(a)log kod s plakata.",
   "helpMap": "Sve mačke i mjesta s pozicijom. Pretraga nalazi mačke, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestale mačke i oko doma iz kojeg je pobjegla. Strelice idu od igle do igle, dugi pritisak na kartu bilježi viđenje.",
   "helpCard": "Kartica mačke za ispis: gore čipovima biraš što je na njoj, zatim je dijeliš kao sliku ili PDF. Brojevi se mogu ispisati kao QR ili barkod, a pozicija postaje QR koji otvara kartu, uz kratki Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Ako i dalje ne uspijeva na iPhoneu/iPadu: Postavke → Privatnost i sigurnost → Lokalna mreža → dopusti cat(a)log pa pokušaj ponovno.",
   "markPrivate": "Označi kao privatno",
   "unmarkPrivate": "Ukloni privatnu oznaku",
-  "includePrivate": "Uključi privatne podatke",
-  "includePrivateExplainer": "Time se šalje i sve što ste označili kao privatno. Osoba s kojom sinkronizirate to će vidjeti.",
+  "includePrivate": "Podijeli privatne podatke",
   "hideLabel": "Sakrij na ovom uređaju",
   "unhideLabel": "Prikaži ponovno",
   "showHiddenLabel": "Prikaži skriveno",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Ovo nije cat(a)log datoteka",
   "nothingNewInBundle": "Ništa novo u datoteci — već imaš sve",
   "syncChooserInPerson": "Uživo",
-  "syncChooserInPersonSub": "U istoj ste prostoriji — skeniraj kod, gotovo za nekoliko sekundi",
+  "syncChooserInPersonSub": "Sinkronizacija putem Wi-Fi",
   "syncChooserRemote": "Na daljinu",
-  "syncChooserRemoteSub": "Preko dijeljene mape poput Dropboxa ili USB sticka",
+  "syncChooserRemoteSub": "Sinkronizacija putem mape ili USB sticka",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Pošaljite sve kao jednu datoteku bilo kojim messengerom — i uvezite primljenu .catsync datoteku ovdje",
+  "syncChooserMessengerSub": "Izvoz i uvoz putem društvenih mreža",
   "connectToWifiFirst": "Prvo se spoji na Wi-Fi — tada se uređaji pronalaze",
   "trustQuestion": "{author} ({device}) želi sinkronizaciju",
   "trustBothWaysNote": "Katalozi će se razmijeniti u oba smjera.",
@@ -423,7 +421,7 @@
   "introBody4": "Vidite letak o nestaloj mački? Fotografirajte ga u aplikaciji: sprema mačku, kontakt vlasnika i mjesto. Pojavi li se kasnije slična lutalica, aplikacija predlaže moguće parove.",
   "spotMapSearch": "Upišite mačku, mjesto ili osobu da biste skočili onamo na karti.",
   "spotCardChips": "Označite što treba biti na kartici za dijeljenje — ostalo ostaje izvan nje.",
-  "spotCatMenu": "Više radnji ovdje: označite mačku privatnom, sakrijte je, spojite duplikate ili zabilježite viđenje.",
+  "spotCatMenu": "Ovdje ima još radnji: sakrij mačku, spoji duplikate ili zabilježi viđenje.",
   "spotDone": "Jasno",
   "spotReplayTitle": "Tura kroz novosti",
   "spotReplaySubtitle": "Ponovno prikaži savjete na svakoj stranici",
@@ -440,30 +438,90 @@
   "newCatalog": "Novi katalog",
   "catalogNameLabel": "Naziv kataloga",
   "catalogNameTaken": "Katalog pod nazivom {name} već postoji. Odaberi drugo ime.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Upravljanje katalozima",
   "helpCatalogs": "Svaki katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz se nikada ne miješaju. Dodirni ime na vrhu početnog zaslona da prebaciš, dodaš ili preimenuješ. Tvoje ime, jezik i već viđeni savjeti zajednički su svima.",
   "spotHomeCatalog": "Ovo je katalog u kojem si. Dodirni ime da prebaciš ili napraviš novi.",
   "deleteCatalog": "Obriši katalog",
   "deleteCatalogBody": "Sve u {name} nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši ime za potvrdu.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} je obrisan. Datoteka je u {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Upiši {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Ništa nije obrisano: datoteku kataloga nije bilo moguće zapisati ({error}). Oslobodi prostor ili pokušaj kasnije.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Premjesti u drugi katalog",
   "movedToCatalog": "{count} premješteno u {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Što se seli?",
   "moveIntoNewCatalog": "Premjestiti nešto u {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Poništi ovaj uvoz",
   "undoImportBody": "{count} promjena iz ovog uvoza uklanja se. Prvo se zapisuju u datoteku, čiji ih uvoz vraća. Oni s kojima si već sinkronizirao zadržavaju svoju kopiju — to se ne može povući.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Poništeno. Datoteka je u {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Vrati se natrag",
   "goBackToHere": "Vrati se ovdje",
   "momentImport": "Prije uvoza",
@@ -474,12 +532,32 @@
   "momentManual": "Označio si sam",
   "showOlderMoments": "Prikaži starije",
   "goBackBody": "Sve nakon ovog trenutka uklanja se — {count} promjena. Prvo se zapisuje u datoteku, čiji ga uvoz vraća, a svaki noviji trenutak odlazi s njim. Oni s kojima si već sinkronizirao zadržavaju kopiju — to se ne može povući.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Imenuj ovaj trenutak",
   "helpGoBack": "Trenuci u kojima je ovaj katalog promijenio oblik: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve nakon njega zapisuje se u datoteku koju zadržavaš i zatim uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili.",
   "goBackFileFailed": "Ništa nije uklonjeno: datoteku koja to čuva nije bilo moguće zapisati ({error}). Oslobodi prostor i pokušaj ponovno.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Ovo je katalog u kojem si. Prebaci se na drugi, pa ga obriši.",
   "shareFileFailed": "Datoteku za dijeljenje nije bilo moguće zapisati ({error}). Oslobodi prostor i pokušaj ponovno.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privatno",
+  "sharedCatalogIs": "Katalog: {name}"
 }

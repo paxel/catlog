@@ -150,6 +150,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       return;
     }
     store.append(id, def.key, edit.value, date: edit.date);
+    if (edit.private != store.isFieldPrivate(id, def.key)) {
+      store.setFieldPrivate(id, def.key, edit.private);
+    }
     if (!mounted) return;
     setState(() {});
   }
@@ -379,8 +382,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               icon: const Icon(Icons.history),
               tooltip: context.t.timeline,
               onPressed: _openTimeline),
-          if (store.isPrivate(id))
-            Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
           Spotlight(
             id: 'cat-menu',
             child: PopupMenuButton<String>(
@@ -395,10 +396,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   builder: (_) =>
                       SharePubliclyScreen(store: store, catId: id),
                 ));
-              }
-              if (v == 'private') {
-                setState(() =>
-                    store.setPrivate(id, !store.isPrivate(id)));
               }
               if (v == 'hide') {
                 final wasHidden = store.isHidden(id);
@@ -422,11 +419,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               PopupMenuItem(
                   value: 'share',
                   child: Text(context.t.sharePublicly)),
-              PopupMenuItem(
-                  value: 'private',
-                  child: Text(store.isPrivate(id)
-                      ? context.t.unmarkPrivate
-                      : context.t.markPrivate)),
               PopupMenuItem(
                   value: 'hide',
                   child: Text(store.isHidden(id)
@@ -492,8 +484,6 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   await showNewFieldDialog(context, store, initialScope: FieldScope.cat);
               if (created && mounted) setState(() {});
             },
-            onTogglePrivate: (def) => setState(() => store.setFieldPrivate(
-                id, def.key, !store.isFieldPrivate(id, def.key))),
           ),
           if (_hasFamily())
             ...[

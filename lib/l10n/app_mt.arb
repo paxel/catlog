@@ -175,7 +175,6 @@
   "noDuplicates": "M'hemm l-ebda duplikat possibbli bħalissa.",
   "similarName": "Isem simili",
   "sharePublicly": "Aqsam pubblikament…",
-  "privateNoShare": "Dan il-qattus huwa mmarkat bħala privat — data privata qatt ma titlaq mill-apparat tiegħek. L-ewwel neħħi l-marka biex taqsmu pubblikament.",
   "pickFramesTitle": "Agħżel frejms",
   "suggestedFrames": "Frejms issuġġeriti",
   "scrubFrames": "Skrolja l-video",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Uri l-pariri mill-ġdid",
   "helpHome": "Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.",
   "helpClowder": "Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu.",
-  "helpCat": "Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija read-only sakemm tagħfas il-lapes. Għafsa twila fuq qasam tieħdok dritt fl-editjar tiegħu; fuq ritratt tiftaħ il-menu tiegħu. Il-menu fuq il-lemin fuq għandu l-bqija: privat, aħbi, għaqqad, niżżel osservazzjoni, aqsam.",
+  "helpCat": "Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta' qasam.",
   "helpStrays": "Qtates li bħalissa m'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta' qattus mitluf f'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.",
   "helpMap": "Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta' 500 m madwar il-postijiet tal-fliers ta' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.",
   "helpCard": "Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma' Plus Code qasir.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Jekk jibqa' jfalli fuq iPhone/iPad: Settings → Privatezza u sigurtà → Netwerk lokali → ħalli cat(a)log u erġa' pprova.",
   "markPrivate": "Immarka bħala privat",
   "unmarkPrivate": "Neħħi l-marka privata",
-  "includePrivate": "Inkludi data privata",
-  "includePrivateExplainer": "B'hekk jintbagħat ukoll dak kollu li mmarkajt bħala privat. Min jissinkronizza miegħek se jarah.",
+  "includePrivate": "Aqsam id-data privata",
   "hideLabel": "Aħbi fuq dan l-apparat",
   "unhideLabel": "Erġa' uri",
   "showHiddenLabel": "Uri l-moħbija",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Dan mhux fajl ta' cat(a)log",
   "nothingNewInBundle": "Xejn ġdid fil-fajl — għandek kollox diġà",
   "syncChooserInPerson": "Wiċċ imb wiċċ",
-  "syncChooserInPersonSub": "Qegħdin fl-istess kamra — skennja kodiċi, lest f'sekondi",
+  "syncChooserInPersonSub": "Sinkronizzazzjoni bil-Wi-Fi",
   "syncChooserRemote": "Mill-bogħod",
-  "syncChooserRemoteSub": "Permezz ta' folder kondiviż bħal Dropbox jew USB",
+  "syncChooserRemoteSub": "Sinkronizzazzjoni b'folder jew USB",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Ibgħat kollox bħala fajl wieħed minn kwalunkwe messenger — u importa fajl .catsync riċevut hawn",
+  "syncChooserMessengerSub": "Esportazzjoni u importazzjoni bil-midja soċjali",
   "connectToWifiFirst": "L-ewwel aqbad ma' Wi-Fi — imbagħad l-apparati jsibu lil xulxin",
   "trustQuestion": "{author} ({device}) irid jissinkronizza",
   "trustBothWaysNote": "Il-katalgi jiġu skambjati fiż-żewġ direzzjonijiet.",
@@ -423,7 +421,7 @@
   "introBody4": "Tara flier ta' qattus mitluf? Ħu ritratt tiegħu fl-app: iżżomm il-qattus, il-kuntatt ta' sidu u l-post. Jekk aktar tard jitfaċċa qattus tat-triq simili, l-app tissuġġerixxi tqabbil possibbli.",
   "spotMapSearch": "Ikteb qattus, post jew persuna biex taqbeż hemm fuq il-mappa.",
   "spotCardChips": "Immarka x'għandu jidher fuq il-kard li tinqasam — il-bqija jibqa' barra.",
-  "spotCatMenu": "Aktar azzjonijiet hawn: immarka l-qattus bħala privat, aħbih, għaqqad duplikati jew niżżel osservazzjoni.",
+  "spotCatMenu": "Hawn aktar azzjonijiet: aħbi l-qattus, għaqqad id-duplikati, jew irreġistra dehra.",
   "spotDone": "Fhimt",
   "spotReplayTitle": "Dawra tal-ġodda",
   "spotReplaySubtitle": "Erġa' uri s-suġġerimenti f'kull paġna",
@@ -440,30 +438,90 @@
   "newCatalog": "Katalgu ġdid",
   "catalogNameLabel": "Isem tal-katalgu",
   "catalogNameTaken": "Diġà hemm katalgu jismu {name}. Agħżel isem ieħor.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Immaniġġja l-katalgi",
   "helpCatalogs": "Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.",
   "spotHomeCatalog": "Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.",
   "deleteCatalog": "Ħassar il-katalgu",
   "deleteCatalogBody": "Kollox f’{name} jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} tħassar. Il-fajl qiegħed f’{where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Ikteb {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Ma tħassar xejn: il-fajl tal-katalgu ma setax jinkiteb ({error}). Illibera spazju jew erġa’ pprova aktar tard.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Mexxi għal katalgu ieħor",
   "movedToCatalog": "{count} imxew għal {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "X’għandu jitmexxa?",
   "moveIntoNewCatalog": "Tmexxi xi ħaġa għal {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Ħassar din l-importazzjoni",
   "undoImportBody": "It-{count} bidliet li ġabet din l-importazzjoni jitneħħew. L-ewwel jinkitbu f’fajl, u l-importazzjoni tiegħu ġġibhom lura. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Imħassar. Il-fajl qiegħed f’{where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Mur lura",
   "goBackToHere": "Erġa’ lura hawn",
   "momentImport": "Qabel l-importazzjoni",
@@ -474,12 +532,32 @@
   "momentManual": "Immarkat minnek",
   "showOlderMoments": "Uri l-eqdem",
   "goBackBody": "Kollox wara dan il-mument jitneħħa — {count} bidliet. L-ewwel jinkiteb f’fajl, u l-importazzjoni tiegħu ġġib kollox lura; kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm il-kopja tiegħu — dak ma jistax jiġi rtirat.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Agħti isem lil dan il-mument",
   "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.",
   "goBackFileFailed": "Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.",
   "shareFileFailed": "Il-fajl tal-qsim ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privat",
+  "sharedCatalogIs": "Katalgu: {name}"
 }

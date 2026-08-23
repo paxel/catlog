@@ -23,16 +23,11 @@ Uint8List catShareBytes(CatalogStore store,
     required Set<String> fields,
     bool includePhotos = true}) {
   final cat = store.resolveEntity(catId);
-  // Private stays home, hard: a Private cat never leaves through the
-  // public share (CONTEXT.md: Private). The UI refuses earlier with an
-  // explanation; this guard catches every other caller.
-  if (store.isPrivate(cat)) {
-    throw StateError('Private cats are never shared publicly');
-  }
+  // Privacy is per value: the loops below skip every private one, so a
+  // cat with private values shares fine — those values stay home.
   final clowderId = store.current(cat, Keys.clowder);
-  var clowder = clowderId == null ? null : store.resolveEntity(clowderId);
-  // A Private clowder stays out of the share entirely.
-  if (clowder != null && store.isPrivate(clowder)) clowder = null;
+  final clowder =
+      clowderId == null ? null : store.resolveEntity(clowderId);
 
   final device = 'share-${_randomId()}';
   var dseq = 0;

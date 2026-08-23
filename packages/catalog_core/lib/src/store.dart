@@ -1198,20 +1198,24 @@ class CatalogStore {
 
   /// True when this entity's value for [field] stays home.
   ///
-  /// A per-value marker decides; without one, the entity's own Private
-  /// mark covers everything it carries, and a Private field definition
-  /// covers that field on every entity. Structural fields are never
-  /// private, and a field definition's own properties never are: they
-  /// describe the field, not a cat.
+  /// The per-value marker decides, and a Private field definition covers
+  /// that field on every entity. An entity's own Private mark has no
+  /// effect of its own — the conversion at open turned old marks into
+  /// per-value ones, and there the entity mark's story ends. Structural
+  /// fields are never private, and a field definition's own properties
+  /// never are: they describe the field, not a cat.
   bool isFieldPrivate(String id, String field) {
     if (Keys.isStructural(field)) return false;
+    // Rows can carry a key that was merged away; the marker lives under
+    // the surviving key. Without this, history written under the old
+    // key would slip past the marker.
+    final key = canonicalKey(field);
     final entity = resolveEntity(id);
     if (current(entity, Keys.type) == Kinds.fieldDef) return false;
-    final marker = current(entity, Keys.privateField(field));
+    final marker = current(entity, Keys.privateField(key));
     if (marker != null) return marker == 'yes';
-    if (current(entity, Keys.private) == 'yes') return true;
-    if (field.startsWith('f:')) {
-      final def = resolveEntity('fielddef:${field.substring(2)}');
+    if (key.startsWith('f:')) {
+      final def = resolveEntity('fielddef:${key.substring(2)}');
       if (current(def, Keys.private) == 'yes') return true;
     }
     return false;
@@ -1219,9 +1223,10 @@ class CatalogStore {
 
   /// True when a partner knows a value exists here but was not given it.
   bool isWithheld(String id, String field) {
+    final key = canonicalKey(field);
     final entity = resolveEntity(id);
-    return current(entity, Keys.withheld(field)) == 'yes' &&
-        current(entity, field) == null;
+    return current(entity, Keys.withheld(key)) == 'yes' &&
+        current(entity, key) == null;
   }
 
   /// Marks or unmarks one value private. Unmarking re-asserts the value
@@ -1242,24 +1247,6 @@ class CatalogStore {
     append(entity, Keys.withheld(field), private ? 'yes' : 'no', date: date);
     if (reassert) _reassertField(entity, field);
   }
-
-  /// Cats and Clowders that were marked Private under the old rule,
-  /// where the mark kept the whole entity off the wire. Their names
-  /// travel now, so the app says so once before the next sync.
-  List<String> privacyMeaningChanged() {
-    if (localSetting('privacyChangeSeen') == '1') return const [];
-    return [
-      for (final r in _db.select(
-          'SELECT DISTINCT entity FROM entries WHERE field = ?',
-          [Keys.private]))
-        if (isPrivate(r['entity'] as String) &&
-            current(resolveEntity(r['entity'] as String), Keys.type) !=
-                Kinds.fieldDef)
-          resolveEntity(r['entity'] as String)
-    ];
-  }
-
-  void privacyChangeSeen() => setLocalSetting('privacyChangeSeen', '1');
 
   /// Gives every value of an entity marked Private under the old rule
   /// its own marker and its public trace, so a partner sees redacted

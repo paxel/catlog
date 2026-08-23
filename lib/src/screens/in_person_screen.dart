@@ -313,7 +313,6 @@ class _InPersonScreenState extends State<InPersonScreen> {
             secondary: Icon(
                 _includePrivate ? Icons.lock_open : Icons.lock_outline),
             title: Text(t.includePrivate),
-            subtitle: Text(t.includePrivateExplainer),
             contentPadding: EdgeInsets.zero,
           ),
           const Divider(height: 24),

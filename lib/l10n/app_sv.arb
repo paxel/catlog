@@ -175,7 +175,6 @@
   "noDuplicates": "Inga möjliga dubbletter just nu.",
   "similarName": "Liknande namn",
   "sharePublicly": "Dela offentligt…",
-  "privateNoShare": "Den här katten är markerad som privat — privata data lämnar aldrig din enhet. Ta bort markeringen först för att dela offentligt.",
   "pickFramesTitle": "Välj bildrutor",
   "suggestedFrames": "Föreslagna bildrutor",
   "scrubFrames": "Spola i videon",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Visa tipsen igen",
   "helpHome": "Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem. Namnet högst upp är katalogen du är i — tryck för att byta eller lägga till en.",
   "helpClowder": "Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den.",
-  "helpCat": "Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Håll in ett fält för att redigera det direkt; ett foto för dess meny. Menyn uppe till höger har resten: märk privat, dölj, slå ihop, anteckna observation, dela.",
+  "helpCat": "Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela katten. Privat ställs in när du redigerar ett fält.",
   "helpStrays": "Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget.",
   "helpMap": "Alla katter och platser med position. Sökningen hittar katter, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt en försvunnen katts anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation.",
   "helpCard": "Kattens utskrivbara kort: välj överst med chipsen vad som ska stå på det, dela det sedan som bild eller PDF. Nummer kan skrivas ut som QR eller streckkod, och en position blir en QR som öppnar en karta, plus en kort Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Om det fortsätter misslyckas på iPhone/iPad: Inställningar → Integritet och säkerhet → Lokalt nätverk → tillåt cat(a)log och försök igen.",
   "markPrivate": "Markera som privat",
   "unmarkPrivate": "Ta bort privat markering",
-  "includePrivate": "Inkludera privata data",
-  "includePrivateExplainer": "Detta skickar också allt du markerat som privat. Den du synkar med kommer att se det.",
+  "includePrivate": "Dela privata data",
   "hideLabel": "Dölj på den här enheten",
   "unhideLabel": "Visa igen",
   "showHiddenLabel": "Visa dolda",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Det är inte en cat(a)log-fil",
   "nothingNewInBundle": "Inget nytt i filen — du har redan allt",
   "syncChooserInPerson": "Ansikte mot ansikte",
-  "syncChooserInPersonSub": "Ni är i samma rum — skanna en kod, klart på sekunder",
+  "syncChooserInPersonSub": "Synkronisering via Wi-Fi",
   "syncChooserRemote": "På distans",
-  "syncChooserRemoteSub": "Via en delad mapp som Dropbox eller ett USB-minne",
+  "syncChooserRemoteSub": "Synkronisering via mapp eller USB-minne",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Skicka allt som en fil via valfri messenger — och importera en mottagen .catsync-fil här",
+  "syncChooserMessengerSub": "Export och import via sociala medier",
   "connectToWifiFirst": "Anslut till Wi-Fi först — då hittar enheterna varandra",
   "trustQuestion": "{author} ({device}) vill synkronisera",
   "trustBothWaysNote": "Era kataloger utbyts i båda riktningarna.",
@@ -423,7 +421,7 @@
   "introBody4": "Ser du ett anslag om en försvunnen katt? Fotografera det i appen: den sparar katten, ägarens kontakt och platsen. Dyker en liknande strykare upp senare föreslår appen möjliga träffar.",
   "spotMapSearch": "Skriv en katt, plats eller person för att hoppa dit på kartan.",
   "spotCardChips": "Kryssa i vad som ska synas på det delbara kortet — resten hålls utanför.",
-  "spotCatMenu": "Fler åtgärder här: markera katten som privat, dölj den, slå ihop dubbletter eller anteckna en observation.",
+  "spotCatMenu": "Här finns fler åtgärder: dölj katten, slå ihop dubbletter eller notera en observation.",
   "spotDone": "Uppfattat",
   "spotReplayTitle": "Nyhetstur",
   "spotReplaySubtitle": "Visa tipsen igen på varje sida",
@@ -440,30 +438,90 @@
   "newCatalog": "Ny katalog",
   "catalogNameLabel": "Katalogens namn",
   "catalogNameTaken": "Det finns redan en katalog som heter {name}. Välj ett annat namn.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Hantera kataloger",
   "helpCatalogs": "Varje katalog är en egen värld: egna katter, kolonier, fält, foton och synkroniseringspartner. Berlin och Paris blandas aldrig. Tryck på namnet högst upp på startskärmen för att byta, lägga till eller byta namn. Ditt namn, ditt språk och tipsen du sett delas av alla.",
   "spotHomeCatalog": "Det här är katalogen du är i. Tryck på namnet för att byta eller skapa en ny.",
   "deleteCatalog": "Ta bort katalog",
   "deleteCatalogBody": "Allt i {name} försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen. Skriv namnet för att bekräfta.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} har tagits bort. Filen finns i {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Skriv {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Inget togs bort: katalogfilen kunde inte skrivas ({error}). Frigör utrymme eller försök igen senare.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Flytta till en annan katalog",
   "movedToCatalog": "{count} flyttade till {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Vad ska flyttas?",
   "moveIntoNewCatalog": "Ska något flyttas till {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Ångra den här importen",
   "undoImportBody": "De {count} ändringar den här importen förde in tas bort. De skrivs först till en fil, och att importera den hämtar tillbaka dem. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Ångrat. Filen finns i {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Gå tillbaka",
   "goBackToHere": "Gå tillbaka hit",
   "momentImport": "Före importen",
@@ -474,12 +532,32 @@
   "momentManual": "Markerat av dig",
   "showOlderMoments": "Visa äldre",
   "goBackBody": "Allt efter det här ögonblicket tas bort — {count} ändringar. Det skrivs först till en fil, och att importera den hämtar tillbaka allt; varje nyare ögonblick följer med. De du redan synkat med behåller sin kopia — det går inte att ta tillbaka.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Ge det här ögonblicket ett namn",
   "helpGoBack": "Ögonblicken då den här katalogen ändrade form: före varje import och varje synkronisering, före en sammanslagning, en arkivering eller en radering — och varje gång du själv markerade ett. Väljer du ett går katalogen tillbaka till det tillståndet: allt därefter skrivs till en fil du behåller och tas sedan bort, och varje nyare ögonblick följer med. De du redan synkat med behåller det de fick.",
   "goBackFileFailed": "Inget togs bort: filen som bevarar det kunde inte skrivas ({error}). Frigör utrymme och försök igen.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Det här är katalogen du är i. Byt till en annan och ta bort den sedan.",
   "shareFileFailed": "Delningsfilen kunde inte skrivas ({error}). Frigör utrymme och försök igen.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privat",
+  "sharedCatalogIs": "Katalog: {name}"
 }

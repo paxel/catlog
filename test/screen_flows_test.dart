@@ -58,11 +58,19 @@ void main() {
   }
 
   group('a clowder', () {
-    testWidgets('can be made private and back', (tester) async {
+    testWidgets('a value turns private in its editor', (tester) async {
       await pump(tester,
           ClowderDetailScreen(store: store, clowderId: clowder));
-      await menu(tester, 'Mark as private');
-      expect(store.isPrivate(clowder), isTrue);
+      await tester.tap(find.byIcon(Icons.edit));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Address'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField).first, 'Main St 1');
+      await tester.tap(find.text('Private'));
+      await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+      await tester.pumpAndSettle();
+      expect(store.isFieldPrivate(clowder, 'f:address'), isTrue);
+      expect(store.current(clowder, 'f:address'), 'Main St 1');
     });
 
     testWidgets('can be hidden from the lists', (tester) async {
@@ -104,10 +112,21 @@ void main() {
       expect(find.text('Breed'), findsOneWidget);
     });
 
-    testWidgets('can be marked private', (tester) async {
+    testWidgets('a private value shows its lock in read mode',
+        (tester) async {
       await pump(tester, CatDetailScreen(store: store, catId: cat));
-      await menu(tester, 'Mark as private');
-      expect(store.isPrivate(cat), isTrue);
+      await tester.tap(find.byIcon(Icons.edit));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Color'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Private'));
+      await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+      await tester.pumpAndSettle();
+      expect(store.isFieldPrivate(cat, 'f:color'), isTrue);
+      // Back to read mode: the lock sits at the end of the row.
+      await tester.tap(find.byIcon(Icons.check));
+      await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.lock), findsOneWidget);
     });
 
     testWidgets('its card is one tap away', (tester) async {

@@ -37,8 +37,7 @@ class ArchiveCandidate {
 }
 
 /// Cats recorded as deceased and clowders without any cat, quiet for
-/// at least [inactiveFor]. Private entities are never offered — they
-/// are nobody else's business, including this sweep's.
+/// at least [inactiveFor].
 List<ArchiveCandidate> archiveCandidates(CatalogStore store,
     {Duration inactiveFor = const Duration(days: 365 * 2),
     DateTime? now}) {
@@ -54,7 +53,6 @@ List<ArchiveCandidate> archiveCandidates(CatalogStore store,
   }
 
   void add(String id, String name, bool isCat) {
-    if (store.isPrivate(id)) return;
     final last = newest[store.resolveEntity(id)];
     if (last == null || today.difference(last) < inactiveFor) return;
     var bytes = 0;

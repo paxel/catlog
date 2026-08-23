@@ -95,21 +95,19 @@ void main() {
     expect(finder.current(mother, Keys.name), isNull);
   });
 
-  test('Private stays home: cat refused, clowder and fields dropped', () {
-    // A private cat never exports.
-    owner.setPrivate(cat, true);
-    expect(
-        () => catShareBytes(owner,
-            catId: cat, fields: {Keys.userField('gender')}),
-        throwsStateError);
-    owner.setPrivate(cat, false);
-
-    // A private clowder silently stays out of the share.
-    owner.setPrivate(home, true);
+  test('Private stays home: values dropped, cat and clowder travel', () {
+    // A cat with private values exports — without those values.
+    owner.append(cat, Keys.userField('gender'), 'female');
+    owner.setFieldPrivate(cat, Keys.userField('gender'), true);
     final path = shareFile({Keys.userField('gender')});
     importBundle(finder, path);
-    expect(finder.clowders(), isEmpty);
     expect(finder.cats().single.name, 'Minka');
+    expect(
+        finder.current(
+            finder.cats().single.id, Keys.userField('gender')),
+        isNull);
+    // The clowder travels by name; its private values would not.
+    expect(finder.clowders(), hasLength(1));
 
     // A private field definition never travels, whitelisted or not.
     owner.setPrivate('fielddef:gender', true);

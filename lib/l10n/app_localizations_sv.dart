@@ -266,10 +266,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sharePublicly => 'Dela offentligt…';
 
   @override
-  String get privateNoShare =>
-      'Den här katten är markerad som privat — privata data lämnar aldrig din enhet. Ta bort markeringen först för att dela offentligt.';
-
-  @override
   String get pickFramesTitle => 'Välj bildrutor';
 
   @override
@@ -895,7 +891,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Håll in ett fält för att redigera det direkt; ett foto för dess meny. Menyn uppe till höger har resten: märk privat, dölj, slå ihop, anteckna observation, dela.';
+      'Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela katten. Privat ställs in när du redigerar ett fält.';
 
   @override
   String get helpStrays =>
@@ -1126,17 +1122,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Om det fortsätter misslyckas på iPhone/iPad: Inställningar → Integritet och säkerhet → Lokalt nätverk → tillåt cat(a)log och försök igen.';
 
   @override
-  String get markPrivate => 'Markera som privat';
-
-  @override
-  String get unmarkPrivate => 'Ta bort privat markering';
-
-  @override
-  String get includePrivate => 'Inkludera privata data';
-
-  @override
-  String get includePrivateExplainer =>
-      'Detta skickar också allt du markerat som privat. Den du synkar med kommer att se det.';
+  String get includePrivate => 'Dela privata data';
 
   @override
   String get hideLabel => 'Dölj på den här enheten';
@@ -1333,22 +1319,19 @@ class AppLocalizationsSv extends AppLocalizations {
   String get syncChooserInPerson => 'Ansikte mot ansikte';
 
   @override
-  String get syncChooserInPersonSub =>
-      'Ni är i samma rum — skanna en kod, klart på sekunder';
+  String get syncChooserInPersonSub => 'Synkronisering via Wi-Fi';
 
   @override
   String get syncChooserRemote => 'På distans';
 
   @override
-  String get syncChooserRemoteSub =>
-      'Via en delad mapp som Dropbox eller ett USB-minne';
+  String get syncChooserRemoteSub => 'Synkronisering via mapp eller USB-minne';
 
   @override
   String get syncChooserMessenger => 'Messenger';
 
   @override
-  String get syncChooserMessengerSub =>
-      'Skicka allt som en fil via valfri messenger — och importera en mottagen .catsync-fil här';
+  String get syncChooserMessengerSub => 'Export och import via sociala medier';
 
   @override
   String get connectToWifiFirst =>
@@ -1472,7 +1455,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
-      'Fler åtgärder här: markera katten som privat, dölj den, slå ihop dubbletter eller anteckna en observation.';
+      'Här finns fler åtgärder: dölj katten, slå ihop dubbletter eller notera en observation.';
 
   @override
   String get spotDone => 'Uppfattat';
@@ -1645,22 +1628,16 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'Privat';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'Katalog: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'Markera som privat';
+
+  @override
+  String get unmarkPrivate => 'Ta bort privat markering';
 }

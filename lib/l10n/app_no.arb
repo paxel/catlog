@@ -175,7 +175,6 @@
   "noDuplicates": "Ingen mulige duplikater akkurat nå.",
   "similarName": "Lignende navn",
   "sharePublicly": "Del offentlig…",
-  "privateNoShare": "Denne katten er merket som privat — private data forlater aldri enheten din. Fjern merkingen først for å dele offentlig.",
   "pickFramesTitle": "Velg bilder",
   "suggestedFrames": "Foreslåtte bilder",
   "scrubFrames": "Spol i videoen",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Vis tipsene igjen",
   "helpHome": "Oversikten over koloniene dine — en koloni er et sted der katter bor: hjemmet ditt, et fosterhjem, et internat. Trykk på et kort for å se kattene; hold inne for menyen. Knappen nede til høyre lager en koloni, og streiferkortet samler alle katter uten hjem. Navnet øverst er katalogen du er i — trykk for å bytte eller legge til en.",
   "helpClowder": "Alt om dette stedet: kattene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, en katt for å flytte, skjule eller åpne den.",
-  "helpCat": "Alt om denne katten: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Hold inne et felt for å redigere det direkte; et bilde for menyen. Menyen øverst til høyre har resten: merk privat, skjul, slå sammen, noter observasjon, del.",
+  "helpCat": "Alt om denne katten: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del katten. Privat settes når du redigerer et felt.",
   "helpStrays": "Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget.",
   "helpMap": "Alle katter og steder med posisjon. Søket finner katter, personer og steder — et ukjent navn slås opp i hele verden. Lagknappen tegner 500 m-sirklene rundt oppslagsstedene til en savnet katt og rundt det gamle hjemmet. Pilene går fra nål til nål, langt trykk noterer en observasjon.",
   "helpCard": "Kattens utskrivbare kort: velg øverst med brikkene hva som skal stå på det, del det så som bilde eller PDF. Numre kan skrives ut som QR eller strekkode, og en posisjon blir en QR som åpner et kart, pluss en kort Plus Code.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Hvis det fortsatt feiler på iPhone/iPad: Innstillinger → Personvern og sikkerhet → Lokalt nettverk → tillat cat(a)log og prøv igjen.",
   "markPrivate": "Merk som privat",
   "unmarkPrivate": "Fjern privat merking",
-  "includePrivate": "Ta med private data",
-  "includePrivateExplainer": "Dette sender også alt du har merket som privat. Den du synkroniserer med, vil se det.",
+  "includePrivate": "Del private data",
   "hideLabel": "Skjul på denne enheten",
   "unhideLabel": "Vis igjen",
   "showHiddenLabel": "Vis skjulte",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Det er ikke en cat(a)log-fil",
   "nothingNewInBundle": "Ikke noe nytt i filen — du har alt allerede",
   "syncChooserInPerson": "Ansikt til ansikt",
-  "syncChooserInPersonSub": "Dere er i samme rom — skann en kode, ferdig på sekunder",
+  "syncChooserInPersonSub": "Synkronisering via Wi-Fi",
   "syncChooserRemote": "På avstand",
-  "syncChooserRemoteSub": "Via en delt mappe som Dropbox eller en USB-pinne",
+  "syncChooserRemoteSub": "Synkronisering via mappe eller USB-pinne",
   "syncChooserMessenger": "Messenger",
-  "syncChooserMessengerSub": "Send alt som én fil gjennom hvilken som helst messenger — og importer en mottatt .catsync-fil her",
+  "syncChooserMessengerSub": "Eksport og import via sosiale medier",
   "connectToWifiFirst": "Koble til Wi-Fi først — da finner enhetene hverandre",
   "trustQuestion": "{author} ({device}) vil synkronisere",
   "trustBothWaysNote": "Katalogene utveksles i begge retninger.",
@@ -423,7 +421,7 @@
   "introBody4": "Ser du et oppslag om en savnet katt? Fotografer det i appen: den lagrer katten, eierens kontakt og stedet. Dukker en lignende streifer opp senere, foreslår appen mulige treff.",
   "spotMapSearch": "Skriv en katt, et sted eller en person for å hoppe dit på kartet.",
   "spotCardChips": "Merk av hva som skal stå på det delbare kortet — resten holdes utenfor.",
-  "spotCatMenu": "Flere handlinger her: merk katten som privat, skjul den, slå sammen duplikater eller noter en observasjon.",
+  "spotCatMenu": "Her er flere handlinger: skjul katten, slå sammen duplikater eller noter en observasjon.",
   "spotDone": "Skjønner",
   "spotReplayTitle": "Nyhetstur",
   "spotReplaySubtitle": "Vis tipsene igjen på hver side",
@@ -440,30 +438,90 @@
   "newCatalog": "Ny katalog",
   "catalogNameLabel": "Navn på katalogen",
   "catalogNameTaken": "Det finnes allerede en katalog som heter {name}. Velg et annet navn.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Administrer kataloger",
   "helpCatalogs": "Hver katalog er sin egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.",
   "spotHomeCatalog": "Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny.",
   "deleteCatalog": "Slett katalog",
   "deleteCatalogBody": "Alt i {name} forsvinner: kattene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} er slettet. Filen ligger i {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Skriv {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Ingenting ble slettet: katalogfilen kunne ikke skrives ({error}). Frigjør plass, eller prøv igjen senere.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Flytt til en annen katalog",
   "movedToCatalog": "{count} flyttet til {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Hva skal flyttes?",
   "moveIntoNewCatalog": "Skal noe flyttes til {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Angre denne importen",
   "undoImportBody": "De {count} endringene denne importen brakte inn, fjernes. De skrives først til en fil, og å importere den henter dem tilbake. De du allerede har synkronisert med, beholder kopien sin — det kan ikke tas tilbake.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Angret. Filen ligger i {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Gå tilbake",
   "goBackToHere": "Gå tilbake hit",
   "momentImport": "Før importen",
@@ -474,12 +532,32 @@
   "momentManual": "Merket av deg",
   "showOlderMoments": "Vis eldre",
   "goBackBody": "Alt etter dette øyeblikket fjernes — {count} endringer. Det skrives først til en fil, og å importere den henter alt tilbake; hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder kopien sin — det kan ikke tas tilbake.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Gi dette øyeblikket et navn",
   "helpGoBack": "Øyeblikkene da denne katalogen endret form: før hver import og hver synkronisering, før en sammenslåing, en arkivering eller en sletting — og hver gang du selv merket ett. Velger du ett, går katalogen tilbake til den tilstanden: alt etterpå skrives til en fil du beholder og fjernes så, og hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder det de fikk.",
   "goBackFileFailed": "Ingenting ble fjernet: filen som tar vare på det, kunne ikke skrives ({error}). Frigjør plass og prøv igjen.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Dette er katalogen du er i. Bytt til en annen, og slett den så.",
   "shareFileFailed": "Delingsfilen kunne ikke skrives ({error}). Frigjør plass og prøv igjen.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Privat",
+  "sharedCatalogIs": "Katalog: {name}"
 }

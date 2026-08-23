@@ -175,7 +175,6 @@
   "noDuplicates": "Níl aon dúblach féideartha faoi láthair.",
   "similarName": "Ainm cosúil",
   "sharePublicly": "Comhroinn go poiblí…",
-  "privateNoShare": "Tá an cat seo marcáilte príobháideach — ní fhágann sonraí príobháideacha do ghléas riamh. Bain an marc ar dtús chun é a chomhroinnt go poiblí.",
   "pickFramesTitle": "Roghnaigh frámaí",
   "suggestedFrames": "Frámaí molta",
   "scrubFrames": "Scrollaigh tríd an bhfíseán",
@@ -260,7 +259,7 @@
   "showTipsAgain": "Taispeáin na leideanna arís",
   "helpHome": "Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.",
   "helpClowder": "Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt.",
-  "helpCat": "Gach rud faoin gcat seo: grianghraif, réimsí, muintir, stair. Tá an leathanach inléite go dtí go dtapálann tú an peann luaidhe. Tugann brú fada ar réimse díreach chuig a eagarthóireacht thú; ar ghrianghraf osclaíonn sé a roghchlár. Tá an chuid eile sa roghchlár ag barr na láimhe deise: príobháideach, folaigh, cumaisc, taifead amharc, roinn.",
+  "helpCat": "Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar.",
   "helpStrays": "Cait gan bhaile faoi láthair: cait a fuarthas, cait a d'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer.",
   "helpMap": "Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.",
   "helpCard": "Cárta inphriontáilte an chait: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.",
@@ -323,8 +322,7 @@
   "iosLocalNetworkHint": "Má theipeann air i gcónaí ar iPhone/iPad: Socruithe → Príobháideachas agus slándáil → Líonra áitiúil → ceadaigh cat(a)log agus bain triail eile as.",
   "markPrivate": "Marcáil mar phríobháideach",
   "unmarkPrivate": "Bain an marc príobháideach",
-  "includePrivate": "Cuir sonraí príobháideacha san áireamh",
-  "includePrivateExplainer": "Seolann sé seo freisin gach rud a mharcáil tú príobháideach. Feicfidh an duine a shioncronaíonn leat é.",
+  "includePrivate": "Comhroinn sonraí príobháideacha",
   "hideLabel": "Folaigh ar an ngléas seo",
   "unhideLabel": "Taispeáin arís",
   "showHiddenLabel": "Taispeáin rudaí folaithe",
@@ -384,11 +382,11 @@
   "notACatlogFile": "Ní comhad cat(a)log é sin",
   "nothingNewInBundle": "Níl aon rud nua sa chomhad — tá gach rud agat cheana",
   "syncChooserInPerson": "Go pearsanta",
-  "syncChooserInPersonSub": "Tá sibh sa seomra céanna — scan cód, déanta i soicindí",
+  "syncChooserInPersonSub": "Sioncronú trí Wi-Fi",
   "syncChooserRemote": "I gcéin",
-  "syncChooserRemoteSub": "Trí fhillteán roinnte cosúil le Dropbox nó méaróg USB",
+  "syncChooserRemoteSub": "Sioncronú trí fhillteán nó méaróg USB",
   "syncChooserMessenger": "Teachtaire",
-  "syncChooserMessengerSub": "Seol gach rud mar chomhad amháin trí theachtaire ar bith — agus iompórtáil comhad .catsync a fuarthas anseo",
+  "syncChooserMessengerSub": "Easpórtáil agus iompórtáil trí na meáin shóisialta",
   "connectToWifiFirst": "Ceangail le Wi-Fi ar dtús — ansin aimsíonn na gléasanna a chéile",
   "trustQuestion": "Ba mhaith le {author} ({device}) sioncronú",
   "trustBothWaysNote": "Malartófar bhur gcatalóga sa dá threo.",
@@ -423,7 +421,7 @@
   "introBody4": "An bhfeiceann tú póstaer faoi chat ar iarraidh? Glac grianghraf de san aip: sábhálann sí an cat, teagmháil an úinéara agus an áit. Má thagann fánaí cosúil leis chun cinn níos déanaí, molann an aip meaitseálacha féideartha.",
   "spotMapSearch": "Clóscríobh cat, áit nó duine chun léim ansin ar an léarscáil.",
   "spotCardChips": "Ticeáil an méid ba chóir a bheith ar an gcárta inroinnte — fanann an chuid eile de.",
-  "spotCatMenu": "Tuilleadh gníomhartha anseo: marcáil an cat príobháideach, folaigh é, cumaisc dúblaigh nó taifead amharc.",
+  "spotCatMenu": "Tuilleadh gníomhartha anseo: folaigh an cat, cumaisc dúbailtí, nó taifead amharc.",
   "spotDone": "Tuigim",
   "spotReplayTitle": "Turas na nuachta",
   "spotReplaySubtitle": "Taispeáin na leideanna arís ar gach leathanach",
@@ -440,30 +438,90 @@
   "newCatalog": "Catalóg nua",
   "catalogNameLabel": "Ainm na catalóige",
   "catalogNameTaken": "Tá catalóg darb ainm {name} ann cheana. Roghnaigh ainm eile.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Bainistigh catalóga",
   "helpCatalogs": "Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.",
   "spotHomeCatalog": "Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.",
   "deleteCatalog": "Scrios an chatalóg",
   "deleteCatalogBody": "Imíonn gach rud in {name}: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.",
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "Scriosadh {name}. Tá an comhad in {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "Clóscríobh {name}",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Níor scriosadh aon rud: níorbh fhéidir comhad na catalóige a scríobh ({error}). Déan spás a shaoradh nó bain triail eile as níos déanaí.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "Bog go catalóg eile",
   "movedToCatalog": "Bogadh {count} go {name}",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Cad a bhogfaidh?",
   "moveIntoNewCatalog": "Rud éigin a bhogadh go {name}?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Cealaigh an t-iompórtáil seo",
   "undoImportBody": "Baintear na {count} athrú a thug an t-iompórtáil seo isteach. Scríobhtar iad chuig comhad ar dtús, agus tugann a iompórtáil ar ais iad. Coinníonn na daoine ar shioncronaigh tú leo cheana a gcóip féin — ní féidir é sin a tharraingt siar.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Cealaithe. Tá an comhad in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Téigh siar",
   "goBackToHere": "Fill anseo",
   "momentImport": "Roimh an iompórtáil",
@@ -474,12 +532,32 @@
   "momentManual": "Marcáilte agatsa",
   "showOlderMoments": "Taispeáin cinn níos sine",
   "goBackBody": "Baintear gach rud i ndiaidh na nóiméide seo — {count} athrú. Scríobhtar é chuig comhad ar dtús, agus tugann a iompórtáil ar ais é; imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo a gcóip — ní féidir é sin a tharraingt siar.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Ainmnigh an nóiméad seo",
   "helpGoBack": "Na nóiméid inar athraigh an chatalóg seo a cruth: roimh gach iompórtáil agus gach sioncronú, roimh chumasc, cartlannú nó scriosadh, agus gach uair a mharcáil tú féin ceann. Má roghnaíonn tú ceann, filleann an chatalóg ar an staid sin — scríobhtar gach rud ina dhiaidh chuig comhad a choinníonn tú agus baintear ansin é, agus imíonn gach nóiméad níos nuaí leis. Coinníonn na daoine ar shioncronaigh tú leo an méid a fuair siad.",
   "goBackFileFailed": "Níor baineadh aon rud: níorbh fhéidir an comhad a choinníonn é a scríobh ({error}). Saor spás agus bain triail eile as.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í.",
   "shareFileFailed": "Níorbh fhéidir an comhad comhroinnte a scríobh ({error}). Saor spás agus bain triail eile as.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "privateLabel": "Príobháideach",
+  "sharedCatalogIs": "Catalóg: {name}"
 }

@@ -263,10 +263,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sharePublicly => '公開共有…';
 
   @override
-  String get privateNoShare =>
-      'この猫はプライベットに設定されています。プライベートなデータは端末の外に出ません。公開共有するには先に設定を解除してください。';
-
-  @override
   String get pickFramesTitle => 'フレームを選ぶ';
 
   @override
@@ -877,7 +873,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpCat =>
-      'この猫のすべて：写真、項目、家族、履歴。鉛筆をタップするまでは閲覧のみです。項目を長押しするとその編集へ直行、写真を長押しするとメニュー。右上のメニューにその他（プライベート、非表示、統合、目撃の記録、共有）があります。';
+      'この猫のすべて: 写真、フィールド、家族、履歴。鉛筆をタップするまでページは読み取り専用です。フィールドを長押しするとすぐ編集できます。写真を長押しするとそのメニューが開きます。右上のメニューに残りがあります: 非表示、統合、目撃の記録、猫の共有。「プライベート」はフィールド編集時に設定します。';
 
   @override
   String get helpStrays =>
@@ -1106,17 +1102,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'iPhone/iPad で失敗し続ける場合：設定 → プライバシーとセキュリティ → ローカルネットワーク → cat(a)log を許可して再試行してください。';
 
   @override
-  String get markPrivate => 'プライベートに設定';
-
-  @override
-  String get unmarkPrivate => 'プライベート設定を解除';
-
-  @override
-  String get includePrivate => 'プライベートデータを含める';
-
-  @override
-  String get includePrivateExplainer =>
-      'これをオンにすると、プライベートにした項目も送信されます。同期相手には見えるようになります。';
+  String get includePrivate => 'プライベートデータを共有';
 
   @override
   String get hideLabel => 'この端末で非表示にする';
@@ -1312,20 +1298,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncChooserInPerson => '対面';
 
   @override
-  String get syncChooserInPersonSub => '同じ部屋にいるとき — コードをスキャンして数秒で完了';
+  String get syncChooserInPersonSub => 'Wi-Fiで同期';
 
   @override
   String get syncChooserRemote => 'リモート';
 
   @override
-  String get syncChooserRemoteSub => 'Dropbox や USB メモリなどの共有フォルダ経由';
+  String get syncChooserRemoteSub => 'フォルダーまたはUSBメモリで同期';
 
   @override
   String get syncChooserMessenger => 'メッセンジャー';
 
   @override
-  String get syncChooserMessengerSub =>
-      '任意のメッセンジャーで全データを1ファイルとして送信 — 受け取った.catsyncファイルの取り込みもここから';
+  String get syncChooserMessengerSub => 'SNSでエクスポート・インポート';
 
   @override
   String get connectToWifiFirst => 'まず Wi-Fi に接続してください — 端末同士が見つかります';
@@ -1438,7 +1423,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotCardChips => '共有カードに載せる項目にチェックを。それ以外は載りません。';
 
   @override
-  String get spotCatMenu => 'その他の操作はここ：プライベット設定、非表示、重複の統合、目撃の記録。';
+  String get spotCatMenu => 'ここには他の操作があります: 猫を非表示、重複を統合、目撃を記録。';
 
   @override
   String get spotDone => 'OK';
@@ -1607,22 +1592,16 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get valueWithheld => 'Withheld';
+  String get privateLabel => 'プライベート';
 
   @override
-  String get keepThisValuePrivate => 'Keep this on this device';
-
-  @override
-  String get shareThisValue => 'Share this again';
-
-  @override
-  String get privacyChangedTitle => 'Private now means something else';
-
-  @override
-  String privacyChangedBody(String names) {
-    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  String sharedCatalogIs(String name) {
+    return 'カタログ: $name';
   }
 
   @override
-  String get privacyChangedUnderstood => 'Understood';
+  String get markPrivate => 'プライベートに設定';
+
+  @override
+  String get unmarkPrivate => 'プライベート設定を解除';
 }

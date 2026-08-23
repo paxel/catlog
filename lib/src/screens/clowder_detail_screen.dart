@@ -48,6 +48,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         store: store, excludeId: id);
     if (edit == null || !mounted) return;
     store.append(id, def.key, edit.value, date: edit.date);
+    if (edit.private != store.isFieldPrivate(id, def.key)) {
+      store.setFieldPrivate(id, def.key, edit.private);
+    }
     setState(() {});
   }
 
@@ -182,8 +185,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             await showNewFieldDialog(context, store, initialScope: FieldScope.clowder);
         if (created && mounted) setState(() {});
       },
-      onTogglePrivate: (def) => setState(() => store.setFieldPrivate(
-          id, def.key, !store.isFieldPrivate(id, def.key))),
     );
     final gallery = <Widget>[
       Padding(
@@ -224,17 +225,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
               if (mounted) setState(() {});
             },
           ),
-          if (store.isPrivate(id))
-            Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'delete') _deleteClowder();
               if (v == 'moveCatalog') _moveToCatalog();
               if (v == 'merge') _mergeClowder();
-              if (v == 'private') {
-                setState(() =>
-                    store.setPrivate(id, !store.isPrivate(id)));
-              }
               if (v == 'hide') {
                 final wasHidden = store.isHidden(id);
                 store.setHidden(id, !wasHidden);
@@ -250,11 +245,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                 PopupMenuItem(
                     value: 'moveCatalog',
                     child: Text(context.t.moveToCatalog)),
-              PopupMenuItem(
-                  value: 'private',
-                  child: Text(store.isPrivate(id)
-                      ? context.t.unmarkPrivate
-                      : context.t.markPrivate)),
               PopupMenuItem(
                   value: 'hide',
                   child: Text(store.isHidden(id)
