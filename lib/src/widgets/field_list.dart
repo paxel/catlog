@@ -27,6 +27,10 @@ class FieldList extends StatelessWidget {
   /// Shown as an "Add field" row at the end of the edit-mode list (#50).
   final VoidCallback? onAddField;
 
+  /// Toggles whether this one value stays on the device. Null on screens
+  /// that do not offer it.
+  final void Function(FieldDef def)? onTogglePrivate;
+
   const FieldList(
       {super.key,
       required this.store,
@@ -39,7 +43,8 @@ class FieldList extends StatelessWidget {
       required this.onShowMap,
       this.onLookup,
       this.onReadLongPress,
-      this.onAddField});
+      this.onAddField,
+      this.onTogglePrivate});
 
   bool _filled(FieldDef def) {
     final value = store.current(entityId, def.key);
@@ -47,6 +52,9 @@ class FieldList extends StatelessWidget {
   }
 
   String _display(BuildContext context, FieldDef def) {
+    // A value the sender kept private: the slot is not empty, it is
+    // withheld, and saying so beats showing nothing.
+    if (store.isWithheld(entityId, def.key)) return context.t.valueWithheld;
     final value = store.current(entityId, def.key);
     if (def.type == FieldType.cat && value != null) {
       return store.current(store.resolveEntity(value), Keys.name) ?? '?';
@@ -60,7 +68,10 @@ class FieldList extends StatelessWidget {
         ? defs
         : [
             for (final def in defs)
-              if (_filled(def) || store.hasConflict(entityId, def.key)) def
+              if (_filled(def) ||
+                  store.isWithheld(entityId, def.key) ||
+                  store.hasConflict(entityId, def.key))
+                def
           ];
     return Column(mainAxisSize: MainAxisSize.min, children: [
       for (final def in rows)
@@ -73,10 +84,30 @@ class FieldList extends StatelessWidget {
           final lookup = onLookup != null &&
               value != null &&
               lookupUrl(def, value) != null;
+          final private = store.isFieldPrivate(entityId, def.key);
           return ListTile(
             title: Text(fieldDefName(context.t, def)),
             subtitle: Text(_display(context, def)),
-            trailing: conflict
+            // Read mode marks what stays home; edit mode lets it be
+            // switched, one value at a time.
+            leading: private && !editing
+                ? Icon(Icons.lock_outline,
+                    size: 18, color: Theme.of(context).colorScheme.primary)
+                : null,
+            trailing: editing && onTogglePrivate != null && !conflict
+                ? Row(mainAxisSize: MainAxisSize.min, children: [
+                    IconButton(
+                      icon: Icon(private
+                          ? Icons.lock_outline
+                          : Icons.lock_open_outlined),
+                      tooltip: private
+                          ? context.t.shareThisValue
+                          : context.t.keepThisValuePrivate,
+                      onPressed: () => onTogglePrivate!(def),
+                    ),
+                    const Icon(Icons.edit_outlined),
+                  ])
+                : conflict
                 ? const Icon(Icons.warning_amber, color: Colors.amber)
                 : mapJump
                     ? IconButton(

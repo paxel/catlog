@@ -1641,4 +1641,24 @@ class AppLocalizationsFa extends AppLocalizations {
   String shareFileFailed(String error) {
     return 'فایل اشتراک‌گذاری نوشته نشد ($error). کمی فضا آزاد کنید و دوباره تلاش کنید.';
   }
+
+  @override
+  String get valueWithheld => 'Withheld';
+
+  @override
+  String get keepThisValuePrivate => 'Keep this on this device';
+
+  @override
+  String get shareThisValue => 'Share this again';
+
+  @override
+  String get privacyChangedTitle => 'Private now means something else';
+
+  @override
+  String privacyChangedBody(String names) {
+    return 'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: $names';
+  }
+
+  @override
+  String get privacyChangedUnderstood => 'Understood';
 }

@@ -125,10 +125,16 @@ Uint8List catShareBytes(CatalogStore store,
   emitCurrent(cat, Keys.name);
   if (clowder != null) emitAs(cat, Keys.clowder, clowder);
   for (final key in fields) {
-    if (store.current(cat, key) != null) emitCurrent(cat, key);
+    if (store.current(cat, key) != null &&
+        !store.isFieldPrivate(cat, key)) {
+      emitCurrent(cat, key);
+    }
   }
   final images = includePhotos ? store.images(cat) : const <String>[];
   for (final hash in images) {
+    // A flier is as public as a lamp post: a withheld photo has no
+    // business on one, whitelisted or not.
+    if (store.isFieldPrivate(cat, Keys.image(hash))) continue;
     emitCurrent(cat, Keys.image(hash));
   }
   if (includePhotos && store.profileImage(cat) != null) {
@@ -140,7 +146,8 @@ Uint8List catShareBytes(CatalogStore store,
     emitCurrent(clowder, Keys.type);
     emitCurrent(clowder, Keys.name);
     for (final key in fields) {
-      if (store.current(clowder, key) != null) {
+      if (store.current(clowder, key) != null &&
+          !store.isFieldPrivate(clowder, key)) {
         emitCurrent(clowder, key);
       }
     }

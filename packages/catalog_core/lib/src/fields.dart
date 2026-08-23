@@ -29,10 +29,40 @@ abstract final class Keys {
   /// Per-image presence marker: `$image:<hash>`, value `added`/`deleted`.
   static const imagePrefix = r'$image:';
 
-  /// `yes` while the entity is Private: it and all its entries stay off
-  /// the wire unless a sync explicitly includes private data. The marker
-  /// itself travels only in such syncs.
+  /// `yes` while the entity is Private: every value it carries is
+  /// private, and values added later start private too. The marker
+  /// itself travels only in syncs that include private data.
   static const private = r'$private';
+
+  /// Per-value privacy: `$private:<field>` with value `yes` or `no`.
+  /// Privacy belongs to the value, not to the entity and not to the
+  /// field definition — a clowder's phone number can stay home while
+  /// its name travels. Never leaves the device.
+  static const privatePrefix = r'$private:';
+
+  /// The public trace of a withheld value: `$withheld:<field>` = `yes`
+  /// tells a partner that a value exists here without carrying it, so
+  /// the slot reads "redacted" instead of "empty". Travels in every
+  /// sync; the value itself only travels in a private-included one.
+  static const withheldPrefix = r'$withheld:';
+
+  static String privateField(String field) => '$privatePrefix$field';
+
+  static String withheld(String field) => '$withheldPrefix$field';
+
+  /// Fields that carry no personal detail and hold the catalog together:
+  /// without them a partner receives rows pointing at entities they have
+  /// never heard of. Never private, on any entity.
+  static bool isStructural(String field) =>
+      field == type ||
+      field == name ||
+      field == clowder ||
+      field == deleted ||
+      field == mergedInto ||
+      field == private ||
+      field.startsWith(privatePrefix) ||
+      field.startsWith(withheldPrefix) ||
+      field.startsWith(conflictPrefix);
 
   /// Field-definition properties.
   static const fieldType = 'type';

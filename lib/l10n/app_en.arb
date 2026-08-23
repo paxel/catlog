@@ -800,5 +800,12 @@
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
   "switchBeforeDeleting": "This is the catalog you are in. Switch to another one, then delete it.",
   "shareFileFailed": "The share file could not be written ({error}). Free some space and try again.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "valueWithheld": "Withheld",
+  "keepThisValuePrivate": "Keep this on this device",
+  "shareThisValue": "Share this again",
+  "privacyChangedTitle": "Private now means something else",
+  "privacyChangedBody": "Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: {names}",
+  "@privacyChangedBody": {"placeholders": {"names": {"type": "String"}}},
+  "privacyChangedUnderstood": "Understood"
 }

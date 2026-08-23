@@ -492,6 +492,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   await showNewFieldDialog(context, store, initialScope: FieldScope.cat);
               if (created && mounted) setState(() {});
             },
+            onTogglePrivate: (def) => setState(() => store.setFieldPrivate(
+                id, def.key, !store.isFieldPrivate(id, def.key))),
           ),
           if (_hasFamily())
             ...[

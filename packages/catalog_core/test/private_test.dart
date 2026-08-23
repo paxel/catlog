@@ -35,27 +35,29 @@ void main() {
   });
 
   group('private stripping', () {
-    test('public sync carries neither the entity nor its marker', () {
+    test('public sync carries the cat and its name, not its values', () {
       final home = a.createClowder('Home');
       final cat = a.createCat('Secret', clowderId: home);
+      a.append(cat, 'f:color', 'black');
       a.setPrivate(cat, true);
       sync(a, b);
-      expect(b.cats(), isEmpty);
-      expect(b.clowders().map((c) => c.id), contains(home));
-      expect(
-          b.entriesSince(const {}, includePrivate: true), isNot(isEmpty));
-      expect(
-          b
-              .entriesSince(const {}, includePrivate: true)
-              .where((e) => e.entity == cat),
-          isEmpty);
+      expect(b.cats().map((c) => c.id), contains(cat));
+      expect(b.current(cat, Keys.name), 'Secret');
+      expect(b.current(cat, 'f:color'), isNull);
+      expect(b.isWithheld(cat, 'f:color'), isTrue);
+      // Which values are private is not the partner's business.
+      expect(b.isPrivate(cat), isFalse);
+      expect(b.current(cat, Keys.privateField('f:color')), isNull);
     });
 
-    test('private clowder stays home, its marker too', () {
+    test('a private clowder keeps its name and loses its address', () {
       final hidden = a.createClowder('Hideout');
+      a.append(hidden, 'f:address', 'holbeinstr 15');
       a.setPrivate(hidden, true);
       sync(a, b);
-      expect(b.clowders(), isEmpty);
+      expect(b.clowders().map((c) => c.id), contains(hidden));
+      expect(b.current(hidden, Keys.name), 'Hideout');
+      expect(b.current(hidden, 'f:address'), isNull);
     });
 
     test('private field definition strips its values on every cat', () {
@@ -67,33 +69,38 @@ void main() {
       a.setPrivate(def, true);
       sync(a, b);
       expect(b.cats().map((c) => c.id), contains(cat));
-      expect(b.fieldDefs().where((d) => d.id == def), isEmpty);
+      // The definition travels — a partner needs it to render the field
+      // at all — but no cat's value for it does.
+      expect(b.fieldDefs().map((d) => d.id), contains(def));
       expect(b.current(cat, key), isNull);
+      expect(b.isWithheld(cat, key), isTrue);
     });
 
-    test('include-private transfers the entity AND the marker', () {
+    test('include-private transfers the values AND the marker', () {
       final cat = a.createCat('Secret');
+      a.append(cat, 'f:color', 'black');
       a.setPrivate(cat, true);
       sync(a, b, aPrivate: true);
-      expect(b.cats().map((c) => c.id), contains(cat));
+      expect(b.current(cat, 'f:color'), 'black');
       expect(b.isPrivate(cat), isTrue);
       // The receiving device withholds it from third parties in turn.
       final c = CatalogStore.inMemory()..author = 'cleo';
       sync(b, c);
-      expect(c.cats(), isEmpty);
+      expect(c.cats().map((x) => x.id), contains(cat));
+      expect(c.current(cat, 'f:color'), isNull);
       c.close();
     });
 
-    test('unmark re-asserts history past peers\' advanced vectors', () {
+    test('unmark re-asserts values past peers\' advanced vectors', () {
       final cat = a.createCat('Shy');
       a.append(cat, 'f:color', 'black', date: DateTime.utc(2020, 1, 1));
       a.setPrivate(cat, true);
       sync(a, b); // b's vector advances past the withheld rows
-      expect(b.cats(), isEmpty);
+      expect(b.current(cat, 'f:color'), isNull);
       a.setPrivate(cat, false);
       sync(a, b);
-      expect(b.cats().map((c) => c.id), contains(cat));
       expect(b.current(cat, 'f:color'), 'black');
+      expect(b.isWithheld(cat, 'f:color'), isFalse);
     });
 
     test('re-assertion does not double the diary', () {
@@ -108,7 +115,7 @@ void main() {
   });
 
   group('bundle privacy', () {
-    test('public bundle excludes private cats, entries and photos', () {
+    test('public bundle excludes private values and their photos', () {
       final cat = a.createCat('Secret');
       a.addImage(cat, jpeg(40, 40));
       a.setPrivate(cat, true);
@@ -117,7 +124,8 @@ void main() {
       addTearDown(() => dir.deleteSync(recursive: true));
 
       importBundle(b, writeBundle(a, '${dir.path}/pub.catsync'));
-      expect(b.cats().map((c) => c.id), [pub]);
+      expect(b.cats().map((c) => c.id).toSet(), {cat, pub});
+      expect(b.images(cat), isEmpty);
       expect(b.missingBlobs(), isEmpty);
 
       final c = CatalogStore.inMemory()..author = 'cleo';
@@ -127,6 +135,7 @@ void main() {
               includePrivate: true));
       expect(c.cats().length, 2);
       expect(c.isPrivate(cat), isTrue);
+      expect(c.images(cat).length, 1);
       expect(c.missingBlobs(), isEmpty);
       c.close();
     });

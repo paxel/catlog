@@ -182,6 +182,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             await showNewFieldDialog(context, store, initialScope: FieldScope.clowder);
         if (created && mounted) setState(() {});
       },
+      onTogglePrivate: (def) => setState(() => store.setFieldPrivate(
+          id, def.key, !store.isFieldPrivate(id, def.key))),
     );
     final gallery = <Widget>[
       Padding(

@@ -67,7 +67,12 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
     final mine = store.versionVector();
     final fresh = [
       for (final e in foreign)
-        if (e.dseq > (mine[e.device] ?? 0)) e
+        // A value this device only ever received as withheld sits below
+        // the watermark for good; without this it could never arrive,
+        // however often the writer shares with private included.
+        if (e.dseq > (mine[e.device] ?? 0) ||
+            store.isWithheld(e.entity, e.field))
+          e
     ];
     final imported =
         store.applyEntries(fresh, senderVector: writerVector);
@@ -97,8 +102,13 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   }
   final live = <String>{};
   for (final entity in [...store.cats(), ...store.clowders()]) {
-    if (!includePrivate && store.isPrivate(entity.id)) continue;
-    live.addAll(store.images(entity.id));
+    for (final hash in store.images(entity.id)) {
+      if (!includePrivate &&
+          store.isFieldPrivate(entity.id, Keys.image(hash))) {
+        continue;
+      }
+      live.add(hash);
+    }
   }
   for (final hash in live) {
     final f = File('${blobDir.path}/$hash.jpg');

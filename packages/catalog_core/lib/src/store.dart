@@ -125,6 +125,7 @@ class CatalogStore {
         ON entries (entity, field);
     ''');
     store._seedStarterFields();
+    store._migrateValuePrivacy();
     return store;
   }
 
@@ -443,6 +444,14 @@ class CatalogStore {
         _iso(now),
       ],
     );
+    // A value written while this entity (or its field) is private needs
+    // its public trace right away, or a partner sees an empty slot
+    // instead of a redacted one.
+    if (!Keys.isStructural(field) &&
+        isFieldPrivate(entity, field) &&
+        current(entity, Keys.withheld(field)) != 'yes') {
+      append(entity, Keys.withheld(field), 'yes', date: date, as: as);
+    }
   }
 
   /// Takes entries from another catalog as this device's own: the same
@@ -1149,49 +1158,152 @@ class CatalogStore {
 
   /// Every entry a peer with [vector] is missing, ordered (device, dseq).
   ///
-  /// Defaults to public-only: Private entities, their entries, entries of
-  /// Private field definitions, and all $private markers are stripped —
-  /// forgetting the flag can never leak. Own-device consumers (backup,
-  /// history scans) pass [includePrivate] true.
+  /// Defaults to public-only: private VALUES stay home, and so do the
+  /// markers that say which values are private. What identifies an
+  /// entity — its kind, its name, its Clowder membership — always
+  /// travels, so a partner never receives a row pointing at something
+  /// they have never heard of. Each withheld value leaves its
+  /// `$withheld:<field>` marker behind, so the slot reads as redacted
+  /// rather than empty.
+  ///
+  /// With [includePrivate] the private values come too, and they come
+  /// regardless of [vector]: a peer that saw only the stub is past their
+  /// numbers for good, and `applyEntries` ignores what it already holds.
   List<Entry> entriesSince(Map<String, int> vector,
       {bool includePrivate = false}) {
-    final private = includePrivate ? const <String>{} : _privateEntities();
     final all = _db
         .select('SELECT * FROM entries ORDER BY device, dseq')
         .map(_entry);
+    final result = <Entry>[];
+    for (final e in all) {
+      final fresh = e.dseq > (vector[e.device] ?? 0);
+      final private = _isPrivateValue(e);
+      if (includePrivate) {
+        if (fresh || private) result.add(e);
+        continue;
+      }
+      if (!fresh) continue;
+      // Which values are private is nobody else's business either.
+      if (e.field == Keys.private ||
+          e.field.startsWith(Keys.privatePrefix)) {
+        continue;
+      }
+      if (!private) result.add(e);
+    }
+    return result;
+  }
+
+  bool _isPrivateValue(Entry e) =>
+      isFieldPrivate(e.entity, e.field);
+
+  /// True when this entity's value for [field] stays home.
+  ///
+  /// A per-value marker decides; without one, the entity's own Private
+  /// mark covers everything it carries, and a Private field definition
+  /// covers that field on every entity. Structural fields are never
+  /// private, and a field definition's own properties never are: they
+  /// describe the field, not a cat.
+  bool isFieldPrivate(String id, String field) {
+    if (Keys.isStructural(field)) return false;
+    final entity = resolveEntity(id);
+    if (current(entity, Keys.type) == Kinds.fieldDef) return false;
+    final marker = current(entity, Keys.privateField(field));
+    if (marker != null) return marker == 'yes';
+    if (current(entity, Keys.private) == 'yes') return true;
+    if (field.startsWith('f:')) {
+      final def = resolveEntity('fielddef:${field.substring(2)}');
+      if (current(def, Keys.private) == 'yes') return true;
+    }
+    return false;
+  }
+
+  /// True when a partner knows a value exists here but was not given it.
+  bool isWithheld(String id, String field) {
+    final entity = resolveEntity(id);
+    return current(entity, Keys.withheld(field)) == 'yes' &&
+        current(entity, field) == null;
+  }
+
+  /// Marks or unmarks one value private. Unmarking re-asserts the value
+  /// under fresh numbers, because peers moved past the originals while
+  /// they were withheld.
+  void setFieldPrivate(String id, String field, bool private,
+      {DateTime? date}) =>
+      _setFieldPrivate(id, field, private, date: date, reassert: !private);
+
+  void _setFieldPrivate(String id, String field, bool private,
+      {DateTime? date, required bool reassert}) {
+    if (Keys.isStructural(field)) {
+      throw StateError('$field identifies the entity and is never private');
+    }
+    final entity = resolveEntity(id);
+    append(entity, Keys.privateField(field), private ? 'yes' : 'no',
+        date: date);
+    append(entity, Keys.withheld(field), private ? 'yes' : 'no', date: date);
+    if (reassert) _reassertField(entity, field);
+  }
+
+  /// Cats and Clowders that were marked Private under the old rule,
+  /// where the mark kept the whole entity off the wire. Their names
+  /// travel now, so the app says so once before the next sync.
+  List<String> privacyMeaningChanged() {
+    if (localSetting('privacyChangeSeen') == '1') return const [];
     return [
-      for (final e in all)
-        if (e.dseq > (vector[e.device] ?? 0) &&
-            (includePrivate || !_isPrivateEntry(e, private)))
-          e
+      for (final r in _db.select(
+          'SELECT DISTINCT entity FROM entries WHERE field = ?',
+          [Keys.private]))
+        if (isPrivate(r['entity'] as String) &&
+            current(resolveEntity(r['entity'] as String), Keys.type) !=
+                Kinds.fieldDef)
+          resolveEntity(r['entity'] as String)
     ];
   }
 
-  /// Canonical ids of every entity whose latest $private marker is `yes`.
-  Set<String> _privateEntities() {
-    final rows = _db.select(
-      'SELECT * FROM entries WHERE field = ? $_latest',
-      [Keys.private],
-    );
-    final latest = <String, String?>{};
-    for (final r in rows) {
-      latest.putIfAbsent(r['entity'] as String, () => r['value'] as String?);
+  void privacyChangeSeen() => setLocalSetting('privacyChangeSeen', '1');
+
+  /// Gives every value of an entity marked Private under the old rule
+  /// its own marker and its public trace, so a partner sees redacted
+  /// slots instead of empty ones. Runs once per catalog.
+  void _migrateValuePrivacy() {
+    if (localSetting('privacyValuesMigrated') == '1') return;
+    for (final r in _db.select(
+        'SELECT DISTINCT entity FROM entries WHERE field = ?',
+        [Keys.private])) {
+      final entity = resolveEntity(r['entity'] as String);
+      if (!isPrivate(entity)) continue;
+      if (current(entity, Keys.type) == Kinds.fieldDef) continue;
+      for (final field in valueFields(entity)) {
+        if (current(entity, Keys.privateField(field)) != null) continue;
+        append(entity, Keys.privateField(field), 'yes', as: seedAuthor);
+        append(entity, Keys.withheld(field), 'yes', as: seedAuthor);
+      }
     }
-    return {
-      for (final e in latest.entries)
-        if (e.value == 'yes') resolveEntity(e.key)
-    };
+    setLocalSetting('privacyValuesMigrated', '1');
   }
 
-  bool _isPrivateEntry(Entry e, Set<String> private) {
-    if (e.field == Keys.private) return true;
-    if (private.isEmpty) return false;
-    if (private.contains(resolveEntity(e.entity))) return true;
-    if (e.field.startsWith('f:')) {
-      return private
-          .contains(resolveEntity('fielddef:${e.field.substring(2)}'));
-    }
-    return false;
+  /// Canonical ids of every entity that holds a value for [field] —
+  /// where a definition's privacy has to leave its public trace.
+  List<String> entitiesWithValueFor(String field) {
+    final keys = _keysFor(field);
+    return {
+      for (final r in _db.select(
+          'SELECT DISTINCT entity FROM entries WHERE field IN '
+          '(${_placeholders(keys.length)})',
+          keys))
+        resolveEntity(r['entity'] as String)
+    }.toList();
+  }
+
+  /// Every field this entity carries a value for, private or not.
+  List<String> valueFields(String id) {
+    final entity = resolveEntity(id);
+    return [
+      for (final r in _db.select(
+          'SELECT DISTINCT field FROM entries WHERE entity IN '
+          '(${_placeholders(_group(entity).length)})',
+          _group(entity)))
+        if (!Keys.isStructural(r['field'] as String)) r['field'] as String
+    ];
   }
 
   /// True when the entity carries a Private marker.
@@ -1207,7 +1319,66 @@ class CatalogStore {
   void setPrivate(String id, bool private, {DateTime? date}) {
     final canonical = resolveEntity(id);
     append(canonical, Keys.private, private ? 'yes' : 'no', date: date);
+    // The entity switch is a shortcut for marking what it carries: every
+    // value it has now, and — through the marker above — every value it
+    // gets while the switch is on. A field definition is not marked
+    // value by value: its mark means "this field is private on every
+    // cat", which `isFieldPrivate` reads directly.
+    if (current(canonical, Keys.type) == Kinds.fieldDef) {
+      // A definition's mark covers that field everywhere, so the values
+      // need no marks of their own — only the public trace that says a
+      // value is there, on every entity that has one.
+      final field = canonicalKey('f:${canonical.substring('fielddef:'.length)}');
+      for (final entity in entitiesWithValueFor(field)) {
+        if (current(entity, Keys.withheld(field)) == (private ? 'yes' : 'no')) {
+          continue;
+        }
+        append(entity, Keys.withheld(field), private ? 'yes' : 'no',
+            date: date);
+      }
+    } else {
+      for (final field in valueFields(canonical)) {
+        final marker = current(canonical, Keys.privateField(field));
+        if (marker == (private ? 'yes' : 'no')) continue;
+        // Unmarking re-asserts the whole entity once, below.
+        _setFieldPrivate(canonical, field, private,
+            date: date, reassert: false);
+      }
+    }
     if (!private) _reassertGroup(canonical);
+  }
+
+  /// Re-asserts one field's history under fresh numbers of this device,
+  /// so a value that was withheld while private reaches peers whose
+  /// version vectors already moved past the originals.
+  void _reassertField(String canonical, String field) {
+    final entities = _group(canonical);
+    final rows = _db
+        .select(
+            'SELECT * FROM entries WHERE entity IN '
+            '(${_placeholders(entities.length)}) AND field = ? '
+            'ORDER BY device, dseq',
+            [...entities, field])
+        .map(_entry)
+        .toList();
+    final device = deviceId;
+    var next = _nextDseq(device);
+    for (final e in rows) {
+      _db.execute(
+        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [
+          device,
+          next++,
+          e.entity,
+          e.field,
+          e.value,
+          _iso(e.date),
+          e.author,
+          _iso(e.recorded),
+        ],
+      );
+    }
   }
 
   void _reassertGroup(String canonical) {

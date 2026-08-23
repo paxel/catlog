@@ -95,7 +95,7 @@ A Clowder Field with suggested canonical values (foster, forever home, clinic/ve
 _Avoid_: clowder type, category
 
 **Private**:
-A per-entity marker (Cat, Clowder, or Field definition) that keeps the entity and all its entries off the wire by default. Every share/sync offers "public only" (default) or "include private"; the marker travels only in private-included syncs, so receiving own devices withhold it too. Trust is decided per handshake by the human, not by the system.
+A marker on a **value** — this cat's phone number, that clowder's address — keeping that value off the wire by default. Privacy is about doxing, not about hiding that a cat or a clowder exists: entity id, kind, name and Clowder membership always travel, so nothing a partner receives ever points at something they have never heard of. A withheld value leaves a `$withheld:<field>` trace behind, so the slot reads as redacted rather than empty, and the value itself arrives later if a private-included sync ever carries it. Marking a Cat or Clowder Private marks every value it carries and every value it gets while the mark is on; marking a Field definition Private marks that field on every entity. Every share/sync offers "public only" (default) or "include private"; the markers themselves travel only in private-included syncs. Trust is decided per handshake by the human, not by the system.
 _Avoid_: hidden (that's display-only), secret
 
 **Hidden**:

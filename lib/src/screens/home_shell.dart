@@ -37,6 +37,41 @@ class _HomeShellState extends State<HomeShell> {
       widget.catalogName ?? widget.switching?.active.name;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _announcePrivacyChange());
+  }
+
+  /// Private used to keep a whole cat or clowder off the wire; it now
+  /// keeps their values home and lets the name travel. Whoever marked
+  /// something private under the old rule hears it once, before their
+  /// next sync tells their partner instead.
+  Future<void> _announcePrivacyChange() async {
+    final changed = widget.store.privacyMeaningChanged();
+    if (changed.isEmpty || !mounted) return;
+    final t = context.t;
+    final names = [
+      for (final id in changed)
+        widget.store.current(id, Keys.name) ?? t.unnamed
+    ];
+    await showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.privacyChangedTitle),
+        content: Text(t.privacyChangedBody(names.join(', '))),
+        actions: [
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(t.privacyChangedUnderstood),
+          ),
+        ],
+      ),
+    );
+    widget.store.privacyChangeSeen();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       // The table is for scanning the columns you picked; squeezed into

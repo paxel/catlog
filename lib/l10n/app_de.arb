@@ -480,5 +480,12 @@
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
   "switchBeforeDeleting": "Das ist der Katalog, in dem du bist. Wechsle zu einem anderen, dann lösche ihn.",
   "shareFileFailed": "Die Teilen-Datei ließ sich nicht schreiben ({error}). Schaff Platz und versuch es noch einmal.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}}
+  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "valueWithheld": "Zurückgehalten",
+  "keepThisValuePrivate": "Nur auf diesem Gerät behalten",
+  "shareThisValue": "Wieder teilen",
+  "privacyChangedTitle": "Privat bedeutet jetzt etwas anderes",
+  "privacyChangedBody": "Privat hielt bisher eine ganze Katze oder Kolonie von der Leitung fern. Jetzt bleiben ihre Werte zu Hause — der Name bleibt sichtbar, damit bei deinem Gegenüber nichts ankommt, das auf etwas Unbekanntes zeigt. Diese Namen werden beim nächsten Sync sichtbar: {names}",
+  "@privacyChangedBody": {"placeholders": {"names": {"type": "String"}}},
+  "privacyChangedUnderstood": "Verstanden"
 }

@@ -27,8 +27,9 @@ class BundleResult {
   String toString() => '$entriesIn entries + $blobsIn photos in';
 }
 
-/// Writes the bundle zip and returns its path. Private entities and
-/// their photos stay out unless [includePrivate] is set.
+/// Writes the bundle zip and returns its path. Private values and the
+/// photos among them stay out unless [includePrivate] is set; what
+/// identifies a cat or a clowder always travels.
 String writeBundle(CatalogStore store, String path,
     {bool includePrivate = false}) {
   final archive = Archive();
@@ -40,8 +41,13 @@ String writeBundle(CatalogStore store, String path,
   archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
   final seen = <String>{};
   for (final entity in [...store.cats(), ...store.clowders()]) {
-    if (!includePrivate && store.isPrivate(entity.id)) continue;
     for (final hash in store.images(entity.id)) {
+      // A photo is a value like any other: withheld ones leave their
+      // marker behind and their bytes at home.
+      if (!includePrivate &&
+          store.isFieldPrivate(entity.id, Keys.image(hash))) {
+        continue;
+      }
       if (!seen.add(hash)) continue;
       final bytes = store.imageBytes(hash);
       if (bytes != null) {

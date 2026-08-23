@@ -2983,6 +2983,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The share file could not be written ({error}). Free some space and try again.'**
   String shareFileFailed(String error);
+
+  /// No description provided for @valueWithheld.
+  ///
+  /// In en, this message translates to:
+  /// **'Withheld'**
+  String get valueWithheld;
+
+  /// No description provided for @keepThisValuePrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep this on this device'**
+  String get keepThisValuePrivate;
+
+  /// No description provided for @shareThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this again'**
+  String get shareThisValue;
+
+  /// No description provided for @privacyChangedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Private now means something else'**
+  String get privacyChangedTitle;
+
+  /// No description provided for @privacyChangedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Private used to keep a whole cat or clowder off the wire. It now keeps their values home — the name stays visible, so nothing arrives pointing at something your partner has never heard of. These names become visible on the next sync: {names}'**
+  String privacyChangedBody(String names);
+
+  /// No description provided for @privacyChangedUnderstood.
+  ///
+  /// In en, this message translates to:
+  /// **'Understood'**
+  String get privacyChangedUnderstood;
 }
 
 class _AppLocalizationsDelegate

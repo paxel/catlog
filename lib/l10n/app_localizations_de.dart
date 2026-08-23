@@ -1652,4 +1652,24 @@ class AppLocalizationsDe extends AppLocalizations {
   String shareFileFailed(String error) {
     return 'Die Teilen-Datei ließ sich nicht schreiben ($error). Schaff Platz und versuch es noch einmal.';
   }
+
+  @override
+  String get valueWithheld => 'Zurückgehalten';
+
+  @override
+  String get keepThisValuePrivate => 'Nur auf diesem Gerät behalten';
+
+  @override
+  String get shareThisValue => 'Wieder teilen';
+
+  @override
+  String get privacyChangedTitle => 'Privat bedeutet jetzt etwas anderes';
+
+  @override
+  String privacyChangedBody(String names) {
+    return 'Privat hielt bisher eine ganze Katze oder Kolonie von der Leitung fern. Jetzt bleiben ihre Werte zu Hause — der Name bleibt sichtbar, damit bei deinem Gegenüber nichts ankommt, das auf etwas Unbekanntes zeigt. Diese Namen werden beim nächsten Sync sichtbar: $names';
+  }
+
+  @override
+  String get privacyChangedUnderstood => 'Verstanden';
 }

@@ -74,7 +74,9 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
       deceased.add(entity);
     } else if (e.field.startsWith(Keys.conflictPrefix)) {
       if (e.value == 'open') conflicts++;
-    } else if (e.field == Keys.private) {
+    } else if (e.field == Keys.private ||
+        e.field.startsWith(Keys.privatePrefix) ||
+        e.field.startsWith(Keys.withheldPrefix)) {
       // Marker bookkeeping, not news.
     } else {
       other++;

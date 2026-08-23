@@ -53,13 +53,17 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
     for (final def in store.fieldDefs()) {
       if (store.isPrivate(def.id)) continue;
       final onCat = store.current(id, def.key);
-      if (onCat != null && onCat.isNotEmpty) {
+      if (onCat != null &&
+          onCat.isNotEmpty &&
+          !store.isFieldPrivate(id, def.key)) {
         result.add((def, onCat));
         continue;
       }
       if (clowderId != null) {
         final onClowder = store.current(clowderId, def.key);
-        if (onClowder != null && onClowder.isNotEmpty) {
+        if (onClowder != null &&
+            onClowder.isNotEmpty &&
+            !store.isFieldPrivate(clowderId, def.key)) {
           result.add((def, onClowder));
         }
       }
