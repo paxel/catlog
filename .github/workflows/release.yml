@@ -133,7 +133,9 @@ jobs:
           # Glob, not the tag: the file is named without the leading "v"
           # and a `with:` value cannot strip it.
           releaseFiles: dist/*-android-playstore.aab
-          track: beta
+          # Internal testing only. Promoting to closed testing is a
+          # decision, taken in the Console after the build was tried.
+          track: internal
           status: completed
 
   build-linux:
