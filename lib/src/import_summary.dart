@@ -48,6 +48,13 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
   var other = 0;
   for (final e in applied) {
     final entity = store.resolveEntity(e.entity);
+    // Field definitions are configuration, not news. Every catalog is
+    // seeded with the same starter Fields, so an empty catalog arriving
+    // used to report "58 other changes" — the definitions, not one cat.
+    if (entity.startsWith('${Kinds.fieldDef}:') ||
+        store.current(entity, Keys.type) == Kinds.fieldDef) {
+      continue;
+    }
     if (e.field == Keys.type) {
       if (e.value == Kinds.cat) {
         newCats.add(entity);

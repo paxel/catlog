@@ -59,4 +59,22 @@ void main() {
     expect(summary.escaped, [cat]);
     expect(summary.deceased, [old]);
   });
+
+  test('an empty catalog arrives as nothing at all', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+
+    // Both catalogs carry the same starter Fields, written on their own
+    // device: every definition row is news to the other side and used to
+    // be counted as one more change.
+    final applied = b.applyEntries(a.entriesSince(const {}),
+        senderVector: a.versionVector());
+    expect(applied, isNotEmpty);
+
+    final summary = classifyImport(b, applied);
+    expect(summary.other, 0);
+    expect(summary.isEmpty, isTrue);
+  });
 }
