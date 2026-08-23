@@ -121,6 +121,20 @@ jobs:
         with:
           name: android
           path: dist/*
+      # The tag ships Android too, the way it ships Homebrew and Scoop.
+      # `status: completed` is the whole point: `draft` parks the release
+      # in the Console and waits for a human to press Start rollout.
+      - name: Publish to Google Play
+        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: io.github.paxel.catlog
+          # Glob, not the tag: the file is named without the leading "v"
+          # and a `with:` value cannot strip it.
+          releaseFiles: dist/*-android-playstore.aab
+          track: beta
+          status: completed
 
   build-linux:
     name: Linux bundle (${{ matrix.arch }})
