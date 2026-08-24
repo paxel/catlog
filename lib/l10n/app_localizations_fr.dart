@@ -561,7 +561,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Commence ici, puis saisis l\'adresse et le PIN sur l\'autre appareil.';
+      'Commence ici, puis scanne le code ou saisis-le sur l\'autre appareil.';
 
   @override
   String get startHosting => 'Commencer à héberger';
@@ -1151,7 +1151,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get statusFoster => 'Famille d\'accueil';
 
   @override
-  String get statusForeverHome => 'Foyer définitif';
+  String get statusForeverHome => 'Foyer';
 
   @override
   String get statusClinic => 'Clinique';
@@ -1173,7 +1173,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Confettis et acclamations quand un chat rejoint son foyer définitif';
+      'Confettis et acclamations quand un chat rejoint son foyer';
 
   @override
   String get onMapLabel => 'Sur la carte';

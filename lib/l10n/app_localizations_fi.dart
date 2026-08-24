@@ -558,7 +558,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Aloita tästä ja syötä sitten osoite ja PIN toisella laitteella.';
+      'Aloita tästä ja skannaa sitten koodi tai syötä se toisella laitteella.';
 
   @override
   String get startHosting => 'Aloita isännöinti';
@@ -1148,7 +1148,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get statusFoster => 'Sijaiskoti';
 
   @override
-  String get statusForeverHome => 'Ikuinen koti';
+  String get statusForeverHome => 'Koti';
 
   @override
   String get statusClinic => 'Klinikka';
@@ -1170,7 +1170,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfettia ja hurraus, kun kissa muuttaa ikuiseen kotiinsa';
+      'Konfettia ja hurraus, kun kissa muuttaa kotiinsa';
 
   @override
   String get onMapLabel => 'Kartalla';

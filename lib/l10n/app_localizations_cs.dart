@@ -558,7 +558,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Začněte zde a pak na druhém zařízení zadejte adresu a PIN.';
+      'Začněte zde a pak na druhém zařízení naskenujte kód nebo ho zadejte.';
 
   @override
   String get startHosting => 'Spustit hostování';
@@ -1147,7 +1147,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get statusFoster => 'Dočasná péče';
 
   @override
-  String get statusForeverHome => 'Domov navždy';
+  String get statusForeverHome => 'Domov';
 
   @override
   String get statusClinic => 'Klinika';
@@ -1169,7 +1169,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfety a jásot, když se kočka stěhuje do domova navždy';
+      'Konfety a jásot, když se kočka stěhuje do svého domova';
 
   @override
   String get onMapLabel => 'Na mapě';

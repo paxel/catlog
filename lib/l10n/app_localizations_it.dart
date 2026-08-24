@@ -560,7 +560,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Inizia qui, poi inserisci indirizzo e PIN sull\'altro dispositivo.';
+      'Inizia qui, poi scansiona il codice o inseriscilo sull\'altro dispositivo.';
 
   @override
   String get startHosting => 'Inizia a ospitare';
@@ -1150,7 +1150,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get statusFoster => 'Casa affidataria';
 
   @override
-  String get statusForeverHome => 'Casa per sempre';
+  String get statusForeverHome => 'Casa';
 
   @override
   String get statusClinic => 'Clinica';
@@ -1172,7 +1172,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Coriandoli e applausi quando un gatto trasloca nella casa per sempre';
+      'Coriandoli e applausi quando un gatto trasloca nella sua casa';
 
   @override
   String get onMapLabel => 'Sulla mappa';

@@ -558,7 +558,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Începe aici, apoi introdu adresa și PIN-ul pe celălalt dispozitiv.';
+      'Începe aici, apoi scanează codul sau introdu-l pe celălalt dispozitiv.';
 
   @override
   String get startHosting => 'Pornește găzduirea';
@@ -1148,7 +1148,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get statusFoster => 'Casă de plasament';
 
   @override
-  String get statusForeverHome => 'Cămin definitiv';
+  String get statusForeverHome => 'Cămin';
 
   @override
   String get statusClinic => 'Clinică';
@@ -1170,7 +1170,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Confetti și urale când o pisică se mută în căminul definitiv';
+      'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
   String get onMapLabel => 'Pe hartă';

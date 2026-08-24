@@ -559,7 +559,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Begin hier en voer daarna het adres en de PIN op het andere apparaat in.';
+      'Begin hier en scan daarna de code of voer die in op het andere apparaat.';
 
   @override
   String get startHosting => 'Beginnen met hosten';
@@ -1149,7 +1149,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get statusFoster => 'Opvanggezin';
 
   @override
-  String get statusForeverHome => 'Voor-altijd-thuis';
+  String get statusForeverHome => 'Thuis';
 
   @override
   String get statusClinic => 'Kliniek';
@@ -1171,7 +1171,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Confetti en gejuich wanneer een kat naar zijn voor-altijd-thuis verhuist';
+      'Confetti en gejuich wanneer een kat naar zijn thuis verhuist';
 
   @override
   String get onMapLabel => 'Op de kaart';

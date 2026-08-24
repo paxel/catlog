@@ -561,7 +561,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Hier starten, dann Adresse und PIN auf dem anderen Gerät eingeben.';
+      'Hier starten, dann den Code auf dem anderen Gerät scannen oder eingeben.';
 
   @override
   String get startHosting => 'Sync anbieten';
@@ -716,7 +716,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get buyCoffee => 'Dem Entwickler einen Kaffee spendieren';
 
   @override
-  String get coffeeSubtitle => 'Völlig freiwillig — die App ist kostenlos';
+  String get coffeeSubtitle =>
+      'Die App bleibt kostenlos. Auch wenn ich keinen Kaffee krieg :)';
 
   @override
   String get openSourceLicenses => 'Open-Source-Lizenzen';
@@ -833,7 +834,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Wer die Katze vermisst — daraus wird deren Karte, mit dem Kontakt vom Aushang.';
+      'Wer die Katze vermisst — daraus wird deren Kolonie, mit dem Kontakt vom Aushang.';
 
   @override
   String get stepFaceHint =>
@@ -845,7 +846,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Keine Register-Links auf diesem Aushang — hier ist nichts zu tun.';
+      'Keine Register-Links auf diesem Aushang - Falls sie übersehen wurden bitte Bug melden.';
 
   @override
   String get unknownServiceHint => 'Unbekannter Dienst';
@@ -1151,7 +1152,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get statusFoster => 'Pflegestelle';
 
   @override
-  String get statusForeverHome => 'Für-immer-Zuhause';
+  String get statusForeverHome => 'Zuhause';
 
   @override
   String get statusClinic => 'Klinik';
@@ -1173,7 +1174,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfetti und Jubel, wenn eine Katze in ihr Für-immer-Zuhause zieht';
+      'Konfetti und Jubel, wenn eine Katze in ihr Zuhause zieht';
 
   @override
   String get onMapLabel => 'Auf der Karte';

@@ -548,7 +548,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get host => 'ホスト';
 
   @override
-  String get hostExplainer => 'ここから開始し、もう一方の端末でアドレスと PIN を入力してください。';
+  String get hostExplainer => 'ここから開始し、もう一方の端末でコードをスキャンするか入力してください。';
 
   @override
   String get startHosting => 'ホストを開始';
@@ -1126,7 +1126,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get statusFoster => '預かり宅';
 
   @override
-  String get statusForeverHome => '永遠のおうち';
+  String get statusForeverHome => 'おうち';
 
   @override
   String get statusClinic => 'クリニック';
@@ -1147,7 +1147,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get celebrationsToggle => '譲渡をお祝いする';
 
   @override
-  String get celebrationsSubtitle => '猫が永遠のおうちに移るときに紙吹雪と歓声';
+  String get celebrationsSubtitle => '猫がおうちに移るときに紙吹雪と歓声';
 
   @override
   String get onMapLabel => '地図上';

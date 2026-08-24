@@ -560,7 +560,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Почнете тука, потоа внесете ја адресата и PIN-от на другиот уред.';
+      'Почнете тука, потоа скенирајте го кодот или внесете го на другиот уред.';
 
   @override
   String get startHosting => 'Започни домаќинство';
@@ -1150,7 +1150,7 @@ class AppLocalizationsMk extends AppLocalizations {
   String get statusFoster => 'Згрижувачки дом';
 
   @override
-  String get statusForeverHome => 'Постојан дом';
+  String get statusForeverHome => 'Дом';
 
   @override
   String get statusClinic => 'Клиника';
@@ -1172,7 +1172,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Конфети и радост кога мачка се сели во постојан дом';
+      'Конфети и радост кога мачка се сели во својот дом';
 
   @override
   String get onMapLabel => 'На картата';

@@ -557,7 +557,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Kezdd itt, majd írd be a címet és a PIN-t a másik eszközön.';
+      'Kezdd itt, majd olvasd be a kódot vagy írd be a másik eszközön.';
 
   @override
   String get startHosting => 'Kiszolgálás indítása';
@@ -1146,7 +1146,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get statusFoster => 'Ideiglenes befogadó';
 
   @override
-  String get statusForeverHome => 'Örökbefogadó otthon';
+  String get statusForeverHome => 'Otthon';
 
   @override
   String get statusClinic => 'Klinika';
@@ -1168,7 +1168,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfetti és éljenzés, amikor egy macska örökbefogadó otthonba költözik';
+      'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
 
   @override
   String get onMapLabel => 'A térképen';

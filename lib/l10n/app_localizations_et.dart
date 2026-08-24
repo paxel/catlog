@@ -557,7 +557,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Alusta siit, seejärel sisesta teises seadmes aadress ja PIN.';
+      'Alusta siit, seejärel skanni kood või sisesta see teises seadmes.';
 
   @override
   String get startHosting => 'Alusta võõrustamist';
@@ -1145,7 +1145,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get statusFoster => 'Hoiukodu';
 
   @override
-  String get statusForeverHome => 'Päriskodu';
+  String get statusForeverHome => 'Kodu';
 
   @override
   String get statusClinic => 'Kliinik';
@@ -1166,8 +1166,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get celebrationsToggle => 'Tähista lapsendamisi';
 
   @override
-  String get celebrationsSubtitle =>
-      'Konfetid ja hõisked, kui kass kolib päriskoju';
+  String get celebrationsSubtitle => 'Konfetid ja hõisked, kui kass kolib koju';
 
   @override
   String get onMapLabel => 'Kaardil';

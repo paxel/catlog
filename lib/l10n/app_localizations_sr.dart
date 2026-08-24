@@ -557,7 +557,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Почните овде, затим унесите адресу и PIN на другом уређају.';
+      'Почните овде, затим скенирајте код или га унесите на другом уређају.';
 
   @override
   String get startHosting => 'Покрени домаћинство';
@@ -1147,7 +1147,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get statusFoster => 'Хранитељски дом';
 
   @override
-  String get statusForeverHome => 'Трајни дом';
+  String get statusForeverHome => 'Дом';
 
   @override
   String get statusClinic => 'Клиника';
@@ -1169,7 +1169,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Конфете и клицање када се мачка сели у трајни дом';
+      'Конфете и клицање када се мачка сели у свој дом';
 
   @override
   String get onMapLabel => 'На карти';

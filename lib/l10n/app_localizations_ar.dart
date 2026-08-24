@@ -557,7 +557,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'ابدأ هنا، ثم أدخل العنوان ورمز PIN على الجهاز الآخر.';
+      'ابدأ هنا، ثم امسح الرمز أو أدخله على الجهاز الآخر.';
 
   @override
   String get startHosting => 'بدء الاستضافة';
@@ -1142,7 +1142,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statusFoster => 'دار رعاية';
 
   @override
-  String get statusForeverHome => 'منزل دائم';
+  String get statusForeverHome => 'منزل';
 
   @override
   String get statusClinic => 'عيادة';
@@ -1164,7 +1164,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها الدائم';
+      'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
 
   @override
   String get onMapLabel => 'على الخريطة';

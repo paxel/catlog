@@ -558,7 +558,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Почніть тут, потім введіть адресу та PIN на іншому пристрої.';
+      'Почніть тут, потім відскануйте код або введіть його на іншому пристрої.';
 
   @override
   String get startHosting => 'Почати роздачу';
@@ -1146,7 +1146,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get statusFoster => 'Тимчасовий дім';
 
   @override
-  String get statusForeverHome => 'Постійний дім';
+  String get statusForeverHome => 'Дім';
 
   @override
   String get statusClinic => 'Клініка';
@@ -1168,7 +1168,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Конфеті та радість, коли кіт переїжджає в постійний дім';
+      'Конфеті та радість, коли кіт переїжджає у свій дім';
 
   @override
   String get onMapLabel => 'На карті';

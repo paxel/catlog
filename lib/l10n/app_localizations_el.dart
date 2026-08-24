@@ -560,7 +560,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Ξεκινήστε εδώ και μετά εισαγάγετε διεύθυνση και PIN στην άλλη συσκευή.';
+      'Ξεκινήστε εδώ και μετά σαρώστε τον κωδικό ή εισαγάγετέ τον στην άλλη συσκευή.';
 
   @override
   String get startHosting => 'Έναρξη φιλοξενίας';
@@ -1151,7 +1151,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get statusFoster => 'Ανάδοχο σπίτι';
 
   @override
-  String get statusForeverHome => 'Μόνιμο σπίτι';
+  String get statusForeverHome => 'Σπίτι';
 
   @override
   String get statusClinic => 'Κλινική';
@@ -1173,7 +1173,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο μόνιμο σπίτι της';
+      'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της';
 
   @override
   String get onMapLabel => 'Στον χάρτη';

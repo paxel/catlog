@@ -1133,7 +1133,7 @@ abstract class AppLocalizations {
   /// No description provided for @hostExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Start here, then enter the address and PIN on the other device.'**
+  /// **'Start here, then scan the code or type it on the other device.'**
   String get hostExplainer;
 
   /// No description provided for @startHosting.

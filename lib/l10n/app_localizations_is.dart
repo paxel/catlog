@@ -560,7 +560,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Byrjaðu hér og sláðu svo inn netfang og PIN á hinu tækinu.';
+      'Byrjaðu hér og skannaðu svo kóðann eða sláðu hann inn á hinu tækinu.';
 
   @override
   String get startHosting => 'Hefja hýsingu';
@@ -1150,7 +1150,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get statusFoster => 'Fósturheimili';
 
   @override
-  String get statusForeverHome => 'Framtíðarheimili';
+  String get statusForeverHome => 'Heimili';
 
   @override
   String get statusClinic => 'Dýralæknastofa';
@@ -1172,7 +1172,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Skrautborðar og fagnaðarlæti þegar köttur flytur á framtíðarheimili';
+      'Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt';
 
   @override
   String get onMapLabel => 'Á kortinu';

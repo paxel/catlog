@@ -560,7 +560,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Ibda hawn, imbagħad daħħal l-indirizz u l-PIN fuq l-apparat l-ieħor.';
+      'Ibda hawn, imbagħad skennja l-kodiċi jew daħħlu fuq l-apparat l-ieħor.';
 
   @override
   String get startHosting => 'Ibda ospita';
@@ -1150,7 +1150,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get statusFoster => 'Dar tal-fostering';
 
   @override
-  String get statusForeverHome => 'Dar għal dejjem';
+  String get statusForeverHome => 'Dar';
 
   @override
   String get statusClinic => 'Klinika';
@@ -1171,8 +1171,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get celebrationsToggle => 'Iċċelebra l-adozzjonijiet';
 
   @override
-  String get celebrationsSubtitle =>
-      'Konfetti u ferħ meta qattus imur f\'dar għal dejjem';
+  String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
   String get onMapLabel => 'Fuq il-mappa';

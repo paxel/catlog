@@ -557,7 +557,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Start here, then enter the address and PIN on the other device.';
+      'Start here, then scan the code or type it on the other device.';
 
   @override
   String get startHosting => 'Start hosting';

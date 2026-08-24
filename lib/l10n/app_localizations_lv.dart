@@ -557,7 +557,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Sāciet šeit, tad otrā ierīcē ievadiet adresi un PIN.';
+      'Sāciet šeit, tad otrā ierīcē noskenējiet kodu vai ievadiet to.';
 
   @override
   String get startHosting => 'Sākt uzņemšanu';
@@ -1146,7 +1146,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get statusFoster => 'Pagaidu mājas';
 
   @override
-  String get statusForeverHome => 'Pastāvīgās mājas';
+  String get statusForeverHome => 'Mājas';
 
   @override
   String get statusClinic => 'Klīnika';
@@ -1168,7 +1168,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfeti un gaviles, kad kaķis pārceļas uz pastāvīgajām mājām';
+      'Konfeti un gaviles, kad kaķis pārceļas uz mājām';
 
   @override
   String get onMapLabel => 'Kartē';

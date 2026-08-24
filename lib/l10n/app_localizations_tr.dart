@@ -557,7 +557,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Buradan başlayın, sonra adres ve PIN\'i diğer cihaza girin.';
+      'Buradan başlayın, sonra kodu diğer cihazda tarayın veya girin.';
 
   @override
   String get startHosting => 'Sunmayı başlat';
@@ -1146,7 +1146,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get statusFoster => 'Geçici yuva';
 
   @override
-  String get statusForeverHome => 'Kalıcı yuva';
+  String get statusForeverHome => 'Yuva';
 
   @override
   String get statusClinic => 'Klinik';
@@ -1168,7 +1168,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Bir kedi kalıcı yuvasına taşındığında konfeti ve tezahürat';
+      'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
 
   @override
   String get onMapLabel => 'Haritada';

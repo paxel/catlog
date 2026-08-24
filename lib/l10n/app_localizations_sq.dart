@@ -560,7 +560,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Filloni këtu, pastaj shkruani adresën dhe PIN-in në pajisjen tjetër.';
+      'Filloni këtu, pastaj skanoni kodin ose shkruajeni në pajisjen tjetër.';
 
   @override
   String get startHosting => 'Fillo pritjen';
@@ -1148,7 +1148,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get statusFoster => 'Shtëpi kujdestarie';
 
   @override
-  String get statusForeverHome => 'Shtëpi përgjithmonë';
+  String get statusForeverHome => 'Shtëpi';
 
   @override
   String get statusClinic => 'Klinikë';
@@ -1170,7 +1170,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e përhershme';
+      'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
   String get onMapLabel => 'Në hartë';

@@ -538,7 +538,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get host => '主机';
 
   @override
-  String get hostExplainer => '从这里开始，然后在另一台设备上输入地址和 PIN。';
+  String get hostExplainer => '从这里开始，然后在另一台设备上扫描或输入代码。';
 
   @override
   String get startHosting => '开始托管';
@@ -1114,7 +1114,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get statusFoster => '寄养家庭';
 
   @override
-  String get statusForeverHome => '永久的家';
+  String get statusForeverHome => '家';
 
   @override
   String get statusClinic => '诊所';
@@ -1135,7 +1135,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get celebrationsToggle => '庆祝领养';
 
   @override
-  String get celebrationsSubtitle => '猫咪搬进永久的家时撒彩纸并欢呼';
+  String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
   String get onMapLabel => '在地图上';

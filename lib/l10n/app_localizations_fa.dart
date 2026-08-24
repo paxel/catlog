@@ -557,7 +557,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'از اینجا شروع کنید، سپس نشانی و PIN را در دستگاه دیگر وارد کنید.';
+      'از اینجا شروع کنید، سپس کد را در دستگاه دیگر اسکن یا وارد کنید.';
 
   @override
   String get startHosting => 'شروع میزبانی';
@@ -1144,7 +1144,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get statusFoster => 'خانه موقت';
 
   @override
-  String get statusForeverHome => 'خانه همیشگی';
+  String get statusForeverHome => 'خانه';
 
   @override
   String get statusClinic => 'درمانگاه';
@@ -1166,7 +1166,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'کاغذرنگی و هلهله وقتی گربه‌ای به خانه همیشگی‌اش می‌رود';
+      'کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود';
 
   @override
   String get onMapLabel => 'روی نقشه';

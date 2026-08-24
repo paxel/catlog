@@ -292,7 +292,7 @@
   "newStray": "New stray",
   "searchByNameHint": "Search cats by name…",
   "host": "Host",
-  "hostExplainer": "Start here, then enter the address and PIN on the other device.",
+  "hostExplainer": "Start here, then scan the code or type it on the other device.",
   "startHosting": "Start hosting",
   "stopHosting": "Stop hosting",
   "pinLabel": "PIN: {pin}",

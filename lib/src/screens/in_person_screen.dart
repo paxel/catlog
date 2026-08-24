@@ -395,7 +395,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
             const SizedBox(height: 8),
             if (_canScan) ...[
               FilledButton.icon(
-                onPressed: _joining ? null : _scan,
+                onPressed: (_joining || _host != null) ? null : _scan,
                 icon: const Icon(Icons.qr_code_scanner),
                 label: Text(t.scanCode),
               ),
@@ -403,6 +403,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
             ],
             TextField(
               controller: _code,
+              // Joining our own host would sync the device with itself.
+              enabled: _host == null,
               decoration: InputDecoration(
                 labelText: t.orTypeCode,
                 hintText: 'xxxxx_xxxxx_xxxxx',
@@ -419,7 +421,9 @@ class _InPersonScreenState extends State<InPersonScreen> {
                     : IconButton(
                         icon: const Icon(Icons.sync),
                         tooltip: t.syncNow,
-                        onPressed: () => _joinWith(_code.text),
+                        onPressed: _host != null
+                            ? null
+                            : () => _joinWith(_code.text),
                       ),
               ),
               inputFormatters: [PairCodeFormatter()],

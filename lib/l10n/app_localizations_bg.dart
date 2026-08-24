@@ -557,7 +557,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Започнете тук, после въведете адреса и PIN на другото устройство.';
+      'Започнете тук, после сканирайте кода или го въведете на другото устройство.';
 
   @override
   String get startHosting => 'Стартирай домакинство';
@@ -1147,7 +1147,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get statusFoster => 'Приемен дом';
 
   @override
-  String get statusForeverHome => 'Постоянен дом';
+  String get statusForeverHome => 'Дом';
 
   @override
   String get statusClinic => 'Клиника';
@@ -1169,7 +1169,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Конфети и радост, когато котка се мести в постоянен дом';
+      'Конфети и радост, когато котка се мести в своя дом';
 
   @override
   String get onMapLabel => 'На картата';

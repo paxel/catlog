@@ -558,7 +558,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Börja här och ange sedan adress och PIN på den andra enheten.';
+      'Börja här och skanna sedan koden eller ange den på den andra enheten.';
 
   @override
   String get startHosting => 'Börja agera värd';
@@ -1146,7 +1146,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get statusFoster => 'Jourhem';
 
   @override
-  String get statusForeverHome => 'För-alltid-hem';
+  String get statusForeverHome => 'Hem';
 
   @override
   String get statusClinic => 'Klinik';
@@ -1168,7 +1168,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Konfetti och jubel när en katt flyttar till sitt för-alltid-hem';
+      'Konfetti och jubel när en katt flyttar till sitt hem';
 
   @override
   String get onMapLabel => 'På kartan';

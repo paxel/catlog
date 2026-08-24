@@ -561,7 +561,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'Tosaigh anseo, ansin cuir isteach an seoladh agus an PIN ar an ngléas eile.';
+      'Tosaigh anseo, ansin scan an cód nó cuir isteach é ar an ngléas eile.';
 
   @override
   String get startHosting => 'Tosaigh ag óstáil';
@@ -1151,7 +1151,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get statusFoster => 'Teach altrama';
 
   @override
-  String get statusForeverHome => 'Baile buan';
+  String get statusForeverHome => 'Baile';
 
   @override
   String get statusClinic => 'Clinic';
@@ -1173,7 +1173,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle =>
-      'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile buan';
+      'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
   String get onMapLabel => 'Ar an léarscáil';

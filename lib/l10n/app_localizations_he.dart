@@ -556,7 +556,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get hostExplainer =>
-      'התחילו כאן, ואז הזינו את הכתובת וה-PIN במכשיר השני.';
+      'התחילו כאן, ואז סרקו את הקוד או הזינו אותו במכשיר השני.';
 
   @override
   String get startHosting => 'התחלת אירוח';
@@ -1141,7 +1141,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get statusFoster => 'בית אומנה';
 
   @override
-  String get statusForeverHome => 'בית לתמיד';
+  String get statusForeverHome => 'בית';
 
   @override
   String get statusClinic => 'מרפאה';
@@ -1162,7 +1162,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get celebrationsToggle => 'חגיגת אימוצים';
 
   @override
-  String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית לתמיד';
+  String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית';
 
   @override
   String get onMapLabel => 'על המפה';
