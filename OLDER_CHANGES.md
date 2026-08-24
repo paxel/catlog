@@ -2,6 +2,16 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [0.3.2] - 2026-08-23
+
+### Changed
+
+- Privacy is set per value, in the field editor: a checkmark keeps that
+  one value in this catalog. The lock at the end of a row shows what is
+  private. Marking a whole cat or clowder private is gone.
+- The sync screen and Share publicly name the catalog that is shared,
+  and the three sync ways introduce themselves in one line each.
+
 ## [0.3.1] - 2026-08-23
 
 ### Changed
