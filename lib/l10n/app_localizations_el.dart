@@ -715,7 +715,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get buyCoffee => 'Κεράστε τον προγραμματιστή έναν καφέ';
 
   @override
-  String get coffeeSubtitle => 'Εντελώς προαιρετικό — η εφαρμογή είναι δωρεάν';
+  String get coffeeSubtitle =>
+      'Η εφαρμογή μένει δωρεάν. Ακόμα κι αν δεν πάρω καφέ :)';
 
   @override
   String get openSourceLicenses => 'Άδειες ανοιχτού κώδικα';
@@ -832,7 +833,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Όποιος ψάχνει τη γάτα — αυτό γίνεται η κάρτα του, με την επαφή από την αφίσα.';
+      'Όποιος ψάχνει τη γάτα — αυτό γίνεται η ομάδα του, με την επαφή από την αφίσα.';
 
   @override
   String get stepFaceHint =>
@@ -844,7 +845,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Δεν υπάρχουν σύνδεσμοι μητρώου σε αυτή την αφίσα — δεν χρειάζεται κάτι εδώ.';
+      'Δεν υπάρχουν σύνδεσμοι μητρώου σε αυτή την αφίσα — αν κάποιοι διέφυγαν, αναφέρετε σφάλμα.';
 
   @override
   String get unknownServiceHint => 'Άγνωστη υπηρεσία';

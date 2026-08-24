@@ -712,7 +712,8 @@ class AppLocalizationsBg extends AppLocalizations {
   String get buyCoffee => 'Почерпете разработчика с кафе';
 
   @override
-  String get coffeeSubtitle => 'Напълно доброволно — приложението е безплатно';
+  String get coffeeSubtitle =>
+      'Приложението остава безплатно. Дори и да не получа кафе :)';
 
   @override
   String get openSourceLicenses => 'Лицензи с отворен код';
@@ -829,7 +830,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Този, който търси котката — от това става неговата карта с контакта от обявата.';
+      'Този, който търси котката — от това става неговият клаудер с контакта от обявата.';
 
   @override
   String get stepFaceHint =>
@@ -841,7 +842,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'В тази обява няма връзки към регистри — тук няма какво да се прави.';
+      'В тази обява няма връзки към регистри — ако някоя е пропусната, моля, докладвайте грешка.';
 
   @override
   String get unknownServiceHint => 'Непозната услуга';

@@ -711,7 +711,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get buyCoffee => 'Geliştiriciye kahve ısmarla';
 
   @override
-  String get coffeeSubtitle => 'Tamamen isteğe bağlı — uygulama ücretsiz';
+  String get coffeeSubtitle =>
+      'Uygulama ücretsiz kalacak. Kahve alamasam bile :)';
 
   @override
   String get openSourceLicenses => 'Açık kaynak lisansları';
@@ -828,7 +829,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Kediyi arayan kişi — bu, ilandaki iletişim bilgisiyle onun kartı olur.';
+      'Kediyi arayan kişi — bu, ilandaki iletişim bilgisiyle onun clowder\'ı olur.';
 
   @override
   String get stepFaceHint =>
@@ -840,7 +841,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Bu ilanda kayıt servisi bağlantısı yok — burada yapılacak bir şey yok.';
+      'Bu ilanda kayıt servisi bağlantısı yok — gözden kaçan varsa lütfen hata bildirin.';
 
   @override
   String get unknownServiceHint => 'Bilinmeyen servis';

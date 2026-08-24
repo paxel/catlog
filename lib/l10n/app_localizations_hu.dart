@@ -712,7 +712,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get buyCoffee => 'Hívd meg a fejlesztőt egy kávéra';
 
   @override
-  String get coffeeSubtitle => 'Teljesen önkéntes — az app ingyenes';
+  String get coffeeSubtitle =>
+      'Az app ingyenes marad. Akkor is, ha nem kapok kávét :)';
 
   @override
   String get openSourceLicenses => 'Nyílt forráskódú licencek';
@@ -829,7 +830,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Aki keresi a macskát — ebből lesz az ő kártyája, a plakáton szereplő elérhetőséggel.';
+      'Aki keresi a macskát — ebből lesz az ő clowdere, a plakáton szereplő elérhetőséggel.';
 
   @override
   String get stepFaceHint =>
@@ -841,7 +842,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Nincs nyilvántartási link ezen a plakáton — itt nincs teendő.';
+      'Nincs nyilvántartási link ezen a plakáton — ha valamelyik kimaradt, kérjük, jelezd hibaként.';
 
   @override
   String get unknownServiceHint => 'Ismeretlen szolgáltatás';

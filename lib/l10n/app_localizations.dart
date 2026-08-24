@@ -1379,7 +1379,7 @@ abstract class AppLocalizations {
   /// No description provided for @coffeeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Entirely optional — the app is free'**
+  /// **'The app stays free. Even if I don\'t get a coffee :)'**
   String get coffeeSubtitle;
 
   /// No description provided for @openSourceLicenses.
@@ -1601,7 +1601,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepOwnerHint.
   ///
   /// In en, this message translates to:
-  /// **'Whoever is missing the cat — this becomes their card, with the contact from the poster.'**
+  /// **'Whoever is missing the cat — this becomes their clowder, with the contact from the poster.'**
   String get stepOwnerHint;
 
   /// No description provided for @stepFaceHint.
@@ -1619,7 +1619,7 @@ abstract class AppLocalizations {
   /// No description provided for @noRegistryLinks.
   ///
   /// In en, this message translates to:
-  /// **'No registry links on this poster — nothing to do here.'**
+  /// **'No registry links on this poster — if any were missed, please report a bug.'**
   String get noRegistryLinks;
 
   /// No description provided for @unknownServiceHint.

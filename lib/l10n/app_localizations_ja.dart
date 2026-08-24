@@ -700,7 +700,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get buyCoffee => '開発者にコーヒーをおごる';
 
   @override
-  String get coffeeSubtitle => '完全に任意です — アプリは無料';
+  String get coffeeSubtitle => 'アプリはずっと無料です。コーヒーをもらえなくても :)';
 
   @override
   String get openSourceLicenses => 'オープンソースライセンス';
@@ -815,7 +815,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stepReview => '確認して保存';
 
   @override
-  String get stepOwnerHint => '猫を探している人。ここからその人のカードができます（チラシの連絡先つき）。';
+  String get stepOwnerHint => '猫を探している人。ここからその人のクラウダーができます（チラシの連絡先つき）。';
 
   @override
   String get stepFaceHint => 'チラシから猫の顔を切り抜くとプロフィール写真になります。省略もできます。';
@@ -824,7 +824,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stepRegistryHint => 'チラシで見つかった番号。チェックしたものは猫に保存され、あとで開けます。';
 
   @override
-  String get noRegistryLinks => 'このチラシに登録サービスのリンクはありません。ここですることはありません。';
+  String get noRegistryLinks => 'このチラシに登録サービスのリンクはありません。見落としがあればバグとして報告してください。';
 
   @override
   String get unknownServiceHint => '不明なサービス';

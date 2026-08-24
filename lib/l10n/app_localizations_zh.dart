@@ -690,7 +690,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get buyCoffee => '请开发者喝杯咖啡';
 
   @override
-  String get coffeeSubtitle => '完全自愿——应用免费';
+  String get coffeeSubtitle => '应用保持免费。即使我喝不到咖啡 :)';
 
   @override
   String get openSourceLicenses => '开源许可证';
@@ -805,7 +805,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepReview => '检查并保存';
 
   @override
-  String get stepOwnerHint => '寻猫的人——这里会生成他的卡片，附上启事上的联系方式。';
+  String get stepOwnerHint => '寻猫的人——这里会生成他的猫群，附上启事上的联系方式。';
 
   @override
   String get stepFaceHint => '从启事中裁出猫的脸，作为头像。此步可跳过。';
@@ -814,7 +814,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepRegistryHint => '在启事上找到的号码。勾选的会保存到猫，之后可以打开。';
 
   @override
-  String get noRegistryLinks => '这张启事没有登记服务链接——此处无需操作。';
+  String get noRegistryLinks => '这张启事没有登记服务链接——如有遗漏，请报告 bug。';
 
   @override
   String get unknownServiceHint => '未知服务';

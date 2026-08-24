@@ -714,7 +714,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get buyCoffee => 'Pagar um café ao programador';
 
   @override
-  String get coffeeSubtitle => 'Totalmente opcional — a app é grátis';
+  String get coffeeSubtitle =>
+      'A app continua grátis. Mesmo que eu não receba café :)';
 
   @override
   String get openSourceLicenses => 'Licenças open source';
@@ -831,7 +832,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Quem dá pelo gato como desaparecido — isto torna-se o cartão dessa pessoa, com o contacto do cartaz.';
+      'Quem dá pelo gato como desaparecido — isto torna-se o clowder dessa pessoa, com o contacto do cartaz.';
 
   @override
   String get stepFaceHint =>
@@ -843,7 +844,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Sem ligações de registo neste cartaz — nada a fazer aqui.';
+      'Sem ligações de registo neste cartaz — se alguma passou despercebida, reporta um bug.';
 
   @override
   String get unknownServiceHint => 'Serviço desconhecido';

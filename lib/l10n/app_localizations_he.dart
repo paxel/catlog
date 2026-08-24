@@ -709,7 +709,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get buyCoffee => 'קנו קפה למפתח';
 
   @override
-  String get coffeeSubtitle => 'לגמרי רשות — האפליקציה חינמית';
+  String get coffeeSubtitle => 'האפליקציה נשארת חינמית. גם אם לא אקבל קפה :)';
 
   @override
   String get openSourceLicenses => 'רישיונות קוד פתוח';
@@ -826,7 +826,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'מי שמחפש את החתול — מזה נוצר הכרטיס שלו, עם פרטי הקשר מהמודעה.';
+      'מי שמחפש את החתול — מזה נוצרת הקבוצה שלו, עם פרטי הקשר מהמודעה.';
 
   @override
   String get stepFaceHint =>
@@ -838,7 +838,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'אין קישורי מרשם במודעה הזו — אין כאן מה לעשות.';
+      'אין קישורי מרשם במודעה הזו — אם פוספסו, נא לדווח על באג.';
 
   @override
   String get unknownServiceHint => 'שירות לא מוכר';

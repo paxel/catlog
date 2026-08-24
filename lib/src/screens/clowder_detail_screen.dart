@@ -19,6 +19,7 @@ import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
 import 'card_screen.dart';
 import 'cat_detail_screen.dart';
+import 'clowder_card_screen.dart';
 import 'map_screen.dart';
 import 'timeline_screen.dart';
 
@@ -209,6 +210,14 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             : Text(name),
         actions: [
           HelpButton(store: store, screenId: 'clowder'),
+          IconButton(
+            icon: const Icon(Icons.badge_outlined),
+            tooltip: context.t.card,
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) =>
+                  ClowderCardScreen(store: store, clowderId: id),
+            )),
+          ),
           IconButton(
             icon: Icon(_editing ? Icons.check : Icons.edit),
             tooltip: _editing ? context.t.doneLabel : context.t.editLabel,

@@ -711,7 +711,8 @@ class AppLocalizationsLv extends AppLocalizations {
   String get buyCoffee => 'Uzsauc izstrādātājam kafiju';
 
   @override
-  String get coffeeSubtitle => 'Pilnīgi brīvprātīgi — lietotne ir bezmaksas';
+  String get coffeeSubtitle =>
+      'Lietotne paliek bezmaksas. Pat ja kafiju nedabūšu :)';
 
   @override
   String get openSourceLicenses => 'Atvērtā koda licences';
@@ -828,7 +829,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Tas, kam kaķis pazudis — no tā top viņa kartīte ar kontaktu no sludinājuma.';
+      'Tas, kam kaķis pazudis — no tā top viņa klauderis ar kontaktu no sludinājuma.';
 
   @override
   String get stepFaceHint =>
@@ -840,7 +841,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Šajā sludinājumā nav reģistru saišu — šeit nav ko darīt.';
+      'Šajā sludinājumā nav reģistru saišu — ja kāda palaista garām, lūdzu, ziņojiet par kļūdu.';
 
   @override
   String get unknownServiceHint => 'Nezināms pakalpojums';

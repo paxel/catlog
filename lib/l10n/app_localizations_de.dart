@@ -846,7 +846,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Keine Register-Links auf diesem Aushang - Falls sie übersehen wurden bitte Bug melden.';
+      'Keine Register-Links auf diesem Aushang — falls sie übersehen wurden, bitte Bug melden.';
 
   @override
   String get unknownServiceHint => 'Unbekannter Dienst';

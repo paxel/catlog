@@ -715,7 +715,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get coffeeSubtitle =>
-      'Krejtësisht vullnetare — aplikacioni është falas';
+      'Aplikacioni mbetet falas. Edhe nëse s\'marr kafe :)';
 
   @override
   String get openSourceLicenses => 'Licencat me burim të hapur';
@@ -832,7 +832,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Ai që i ka humbur macja — nga kjo del karta e tij, me kontaktin nga fletushka.';
+      'Ai që i ka humbur macja — nga kjo del clowderi i tij, me kontaktin nga fletushka.';
 
   @override
   String get stepFaceHint =>
@@ -844,7 +844,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Asnjë lidhje regjistri në këtë fletushkë — s\'ka gjë për të bërë këtu.';
+      'Asnjë lidhje regjistri në këtë fletushkë — nëse ndonjëra është anashkaluar, ju lutem raportoni një bug.';
 
   @override
   String get unknownServiceHint => 'Shërbim i panjohur';

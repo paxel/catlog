@@ -713,7 +713,8 @@ class AppLocalizationsRo extends AppLocalizations {
   String get buyCoffee => 'Fă-i cinste dezvoltatorului cu o cafea';
 
   @override
-  String get coffeeSubtitle => 'Complet opțional — aplicația e gratuită';
+  String get coffeeSubtitle =>
+      'Aplicația rămâne gratuită. Chiar dacă nu primesc cafea :)';
 
   @override
   String get openSourceLicenses => 'Licențe open source';
@@ -830,7 +831,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Cine îi duce dorul pisicii — asta devine fișa lui, cu contactul de pe afiș.';
+      'Cine îi duce dorul pisicii — asta devine clowderul lui, cu contactul de pe afiș.';
 
   @override
   String get stepFaceHint =>
@@ -842,7 +843,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Niciun link de registru pe acest afiș — nimic de făcut aici.';
+      'Niciun link de registru pe acest afiș — dacă vreunul a fost omis, te rugăm să raportezi un bug.';
 
   @override
   String get unknownServiceHint => 'Serviciu necunoscut';

@@ -711,7 +711,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get buyCoffee => 'Osta arendajale kohv';
 
   @override
-  String get coffeeSubtitle => 'Täiesti vabatahtlik — rakendus on tasuta';
+  String get coffeeSubtitle =>
+      'Rakendus jääb tasuta. Isegi kui ma kohvi ei saa :)';
 
   @override
   String get openSourceLicenses => 'Avatud lähtekoodi litsentsid';
@@ -828,7 +829,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'See, kes kassi taga otsib — sellest saab tema kaart koos kuulutuse kontaktiga.';
+      'See, kes kassi taga otsib — sellest saab tema klauder koos kuulutuse kontaktiga.';
 
   @override
   String get stepFaceHint =>
@@ -840,7 +841,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Sellel kuulutusel pole registrilinke — siin pole midagi teha.';
+      'Sellel kuulutusel pole registrilinke — kui mõni jäi kahe silma vahele, teata veast.';
 
   @override
   String get unknownServiceHint => 'Tundmatu teenus';

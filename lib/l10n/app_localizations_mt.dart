@@ -715,7 +715,8 @@ class AppLocalizationsMt extends AppLocalizations {
   String get buyCoffee => 'Ixtri kafè lill-iżviluppatur';
 
   @override
-  String get coffeeSubtitle => 'Kompletament volontarju — l-app hija b\'xejn';
+  String get coffeeSubtitle =>
+      'L-app tibqa\' b\'xejn. Anke jekk ma niħux kafè :)';
 
   @override
   String get openSourceLicenses => 'Liċenzji open source';
@@ -832,7 +833,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Min tilef il-qattus — minn dan issir il-kard tiegħu, bil-kuntatt mill-flier.';
+      'Min tilef il-qattus — minn dan isir il-clowder tiegħu, bil-kuntatt mill-flier.';
 
   @override
   String get stepFaceHint =>
@@ -844,7 +845,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'L-ebda link ta\' reġistru fuq dan il-flier — m\'hemm xejn x\'tagħmel hawn.';
+      'L-ebda link ta\' reġistru fuq dan il-flier — jekk xi ħaġa ntesiet, jekk jogħġbok irrapporta bug.';
 
   @override
   String get unknownServiceHint => 'Servizz mhux magħruf';

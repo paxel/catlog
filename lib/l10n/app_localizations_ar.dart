@@ -711,7 +711,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get buyCoffee => 'اشترِ قهوة للمطوّر';
 
   @override
-  String get coffeeSubtitle => 'اختياري تمامًا — التطبيق مجاني';
+  String get coffeeSubtitle =>
+      'التطبيق يبقى مجانيًا. حتى لو لم أحصل على قهوة :)';
 
   @override
   String get openSourceLicenses => 'تراخيص المصادر المفتوحة';
@@ -828,7 +829,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'من يبحث عن القطة — تصبح هذه بطاقته مع بيانات التواصل من المنشور.';
+      'من يبحث عن القطة — تصبح هذه مجموعته مع بيانات التواصل من المنشور.';
 
   @override
   String get stepFaceHint =>
@@ -839,7 +840,8 @@ class AppLocalizationsAr extends AppLocalizations {
       'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
 
   @override
-  String get noRegistryLinks => 'لا روابط سجلات في هذا المنشور — لا شيء هنا.';
+  String get noRegistryLinks =>
+      'لا روابط سجلات في هذا المنشور — إن فات شيء منها، فيرجى الإبلاغ عن خلل.';
 
   @override
   String get unknownServiceHint => 'خدمة غير معروفة';

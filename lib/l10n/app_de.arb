@@ -241,7 +241,7 @@
   "stepOwnerHint": "Wer die Katze vermisst — daraus wird deren Kolonie, mit dem Kontakt vom Aushang.",
   "stepFaceHint": "Schneide das Gesicht der Katze aus dem Aushang aus; es wird zum Profilbild. Kannst du auch überspringen.",
   "stepRegistryHint": "Nummern vom Aushang. Angehakte werden bei der Katze gespeichert und lassen sich später öffnen.",
-  "noRegistryLinks": "Keine Register-Links auf diesem Aushang - Falls sie übersehen wurden bitte Bug melden.",
+  "noRegistryLinks": "Keine Register-Links auf diesem Aushang — falls sie übersehen wurden, bitte Bug melden.",
   "unknownServiceHint": "Unbekannter Dienst",
   "rememberService": "Dienst merken",
   "rememberServiceHint": "Benenne den Dienst und zeige auf die Nummer im Link. Der nächste Aushang füllt sich dann von selbst.",

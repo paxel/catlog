@@ -712,7 +712,8 @@ class AppLocalizationsSk extends AppLocalizations {
   String get buyCoffee => 'Kúpiť vývojárovi kávu';
 
   @override
-  String get coffeeSubtitle => 'Úplne dobrovoľné — aplikácia je zadarmo';
+  String get coffeeSubtitle =>
+      'Aplikácia zostane zadarmo. Aj keď kávu nedostanem :)';
 
   @override
   String get openSourceLicenses => 'Open source licencie';
@@ -829,7 +830,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Kto mačku postráda — z toho vznikne jeho karta s kontaktom z letáka.';
+      'Kto mačku postráda — z toho vznikne jeho clowder s kontaktom z letáka.';
 
   @override
   String get stepFaceHint =>
@@ -841,7 +842,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Na tomto letáku nie sú odkazy na registre — tu nie je čo robiť.';
+      'Na tomto letáku nie sú odkazy na registre — ak boli prehliadnuté, nahláste prosím chybu.';
 
   @override
   String get unknownServiceHint => 'Neznáma služba';

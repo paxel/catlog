@@ -713,7 +713,8 @@ class AppLocalizationsLt extends AppLocalizations {
   String get buyCoffee => 'Nupirkti kūrėjui kavos';
 
   @override
-  String get coffeeSubtitle => 'Visiškai savanoriška — programa nemokama';
+  String get coffeeSubtitle =>
+      'Programa lieka nemokama. Net jei kavos negausiu :)';
 
   @override
   String get openSourceLicenses => 'Atvirojo kodo licencijos';
@@ -830,7 +831,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Tas, kas pasigedo katės — iš to atsiras jo kortelė su kontaktu iš skelbimo.';
+      'Tas, kas pasigedo katės — iš to atsiras jo klauderis su kontaktu iš skelbimo.';
 
   @override
   String get stepFaceHint =>
@@ -842,7 +843,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Šiame skelbime registrų nuorodų nėra — čia nieko daryti nereikia.';
+      'Šiame skelbime registrų nuorodų nėra — jei kurios praleistos, praneškite apie klaidą.';
 
   @override
   String get unknownServiceHint => 'Nežinoma paslauga';

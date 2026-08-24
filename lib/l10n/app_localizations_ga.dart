@@ -716,7 +716,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get buyCoffee => 'Ceannaigh caife don fhorbróir';
 
   @override
-  String get coffeeSubtitle => 'Go hiomlán roghnach — tá an aip saor in aisce';
+  String get coffeeSubtitle =>
+      'Fanann an aip saor in aisce. Fiú mura bhfaighidh mé caife :)';
 
   @override
   String get openSourceLicenses => 'Ceadúnais foinse oscailte';
@@ -833,7 +834,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'An té a chaill an cat — déantar a chárta as seo, leis an teagmháil ón bpóstaer.';
+      'An té a chaill an cat — déantar a chlowdar as seo, leis an teagmháil ón bpóstaer.';
 
   @override
   String get stepFaceHint =>
@@ -845,7 +846,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Níl aon nasc cláir ar an bpóstaer seo — níl aon rud le déanamh anseo.';
+      'Níl aon nasc cláir ar an bpóstaer seo — má rinneadh dearmad ar cheann, tuairiscigh fabht le do thoil.';
 
   @override
   String get unknownServiceHint => 'Seirbhís anaithnid';

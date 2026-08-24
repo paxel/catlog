@@ -711,7 +711,8 @@ class AppLocalizationsFa extends AppLocalizations {
   String get buyCoffee => 'برای توسعه‌دهنده قهوه بخر';
 
   @override
-  String get coffeeSubtitle => 'کاملاً اختیاری — برنامه رایگان است';
+  String get coffeeSubtitle =>
+      'برنامه رایگان می‌ماند. حتی اگر قهوه‌ای گیرم نیاید :)';
 
   @override
   String get openSourceLicenses => 'مجوزهای متن‌باز';
@@ -828,7 +829,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'کسی که گربه‌اش گم شده — این کارت او می‌شود، با تماس روی آگهی.';
+      'کسی که گربه‌اش گم شده — این گروه او می‌شود، با تماس روی آگهی.';
 
   @override
   String get stepFaceHint =>
@@ -840,7 +841,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'در این آگهی پیوند سامانه‌ای نیست — اینجا کاری نیست.';
+      'در این آگهی پیوند سامانه‌ای نیست — اگر موردی از قلم افتاده، لطفاً باگ گزارش کنید.';
 
   @override
   String get unknownServiceHint => 'سرویس ناشناس';

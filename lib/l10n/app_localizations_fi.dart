@@ -713,7 +713,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get buyCoffee => 'Tarjoa kehittäjälle kahvit';
 
   @override
-  String get coffeeSubtitle => 'Täysin vapaaehtoista — sovellus on ilmainen';
+  String get coffeeSubtitle =>
+      'Sovellus pysyy ilmaisena. Vaikka en kahvia saisikaan :)';
 
   @override
   String get openSourceLicenses => 'Avoimen lähdekoodin lisenssit';
@@ -830,7 +831,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Se, jolta kissa on kadonnut — tästä tulee hänen korttinsa ilmoituksen yhteystiedoin.';
+      'Se, jolta kissa on kadonnut — tästä tulee hänen clowderinsa ilmoituksen yhteystiedoin.';
 
   @override
   String get stepFaceHint =>
@@ -842,7 +843,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Tässä ilmoituksessa ei ole rekisterilinkkejä — täällä ei ole tehtävää.';
+      'Tässä ilmoituksessa ei ole rekisterilinkkejä — jos jokin jäi huomaamatta, ilmoita viasta.';
 
   @override
   String get unknownServiceHint => 'Tuntematon palvelu';

@@ -712,7 +712,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get buyCoffee => 'Giv udvikleren en kop kaffe';
 
   @override
-  String get coffeeSubtitle => 'Helt frivilligt — appen er gratis';
+  String get coffeeSubtitle =>
+      'Appen forbliver gratis. Også selvom jeg ikke får kaffe :)';
 
   @override
   String get openSourceLicenses => 'Open source-licenser';
@@ -829,7 +830,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get stepOwnerHint =>
-      'Den, der savner katten — det bliver deres kort, med kontakten fra opslaget.';
+      'Den, der savner katten — det bliver deres clowder, med kontakten fra opslaget.';
 
   @override
   String get stepFaceHint =>
@@ -841,7 +842,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noRegistryLinks =>
-      'Ingen registerlinks på dette opslag — intet at gøre her.';
+      'Ingen registerlinks på dette opslag — hvis nogle er overset, så meld venligst en fejl.';
 
   @override
   String get unknownServiceHint => 'Ukendt tjeneste';
