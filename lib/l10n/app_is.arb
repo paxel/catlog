@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Aðgangur að dagatali er lokaður, svo speglunin er slökkt. Leyfðu hann í kerfisstillingum og kveiktu aftur á speglun.",
   "calendarNotChosen": "Ekkert dagatal valið, svo speglunin er slökkt. Kveiktu aftur á henni og veldu eitt.",
   "calendarGone": "Valda dagatalið er ekki lengur til, svo speglunin er slökkt. Kveiktu aftur á henni og veldu annað.",
-  "noWritableCalendar": "Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur."
+  "noWritableCalendar": "Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur.",
+  "spotHomeAgenda": "Áminningarnar: allt sem er á döfinni, fyrir alla ketti og clowdera.",
+  "spotAddReminder": "Bæta við áminningu — áætlun með dagsetningu. Hún birtist í áminningum, ekki á síðunni, þar til þú merkir hana lokið.",
+  "spotAgendaAdd": "Ný áætlun: veldu reit, dagsetningu og gildi.",
+  "spotAgendaCalendar": "Kveiktu á þessu til að sjá hvern gjalddaga í dagatali símans.",
+  "helpAgenda": "Allt sem er á döfinni, eftir dagsetningu; það sem er of seint helst efst þar til það er afgreitt. Ýttu á spjald til að opna köttinn eða clowderinn. Hakið merkir áætlun lokið — það skráir gildið og getur áætlað næstu umferð. Haltu spjaldi inni til að breyta dagsetningu eða fjarlægja það. Dagatalsrofinn speglar hvern gjalddaga í dagatal símans; valmyndin flytur þá út sem dagatalsskrá.",
+  "calendarRowOff": "Dagatal: slökkt",
+  "calendarRowOn": "Dagatal: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

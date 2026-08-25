@@ -518,5 +518,13 @@
   "calendarPermissionDenied": "Der Kalenderzugriff ist blockiert, deshalb ist die Spiegelung aus. Erlaube ihn in den Systemeinstellungen und schalte die Spiegelung wieder ein.",
   "calendarNotChosen": "Kein Kalender gewählt, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen.",
   "calendarGone": "Der gewählte Kalender existiert nicht mehr, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen anderen.",
-  "noWritableCalendar": "Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut."
+  "noWritableCalendar": "Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut.",
+  "spotHomeAgenda": "Die Agenda: alles, was fällig ist — über alle Katzen und Kolonien.",
+  "spotAddReminder": "Erinnerung hinzufügen — ein Plan mit Datum. Er erscheint in der Agenda, nicht auf der Seite, bis du ihn als erledigt markierst.",
+  "spotAgendaAdd": "Neuer Plan: Feld, Datum und Wert wählen.",
+  "spotAgendaCalendar": "Schalte das ein, um jedes Fälligkeitsdatum im Kalender deines Telefons zu sehen.",
+  "helpAgenda": "Alles, was fällig ist, nach Datum sortiert; Überfälliges bleibt oben, bis es erledigt ist. Tippe auf eine Karte, um Katze oder Kolonie zu öffnen. Der Haken markiert einen Plan als erledigt — er trägt den Wert ein und kann die nächste Runde planen. Halte eine Karte gedrückt, um ihr Datum zu ändern oder sie zu entfernen. Der Kalender-Schalter spiegelt jedes Fälligkeitsdatum in einen Kalender deines Telefons; das Menü exportiert sie als Kalenderdatei.",
+  "calendarRowOff": "Kalender: aus",
+  "calendarRowOn": "Kalender: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

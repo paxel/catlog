@@ -1770,4 +1770,31 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'در هیچ تقویمی روی این دستگاه نمی‌توان نوشت. در تنظیمات سیستم یک حساب تقویم اضافه کن و دوباره امتحان کن.';
+
+  @override
+  String get spotHomeAgenda =>
+      'یادآورها: هرچه در پیش است، برای همهٔ گربه‌ها و گروه‌ها.';
+
+  @override
+  String get spotAddReminder =>
+      'یادآور اضافه کن — برنامه‌ای با تاریخ. تا وقتی انجام‌شده علامتش نزنی، در یادآورها نمایان است نه در صفحه.';
+
+  @override
+  String get spotAgendaAdd => 'برنامهٔ جدید: فیلد، تاریخ و مقدار را انتخاب کن.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'این را روشن کن تا هر سررسید را در تقویم گوشی‌ات ببینی.';
+
+  @override
+  String get helpAgenda =>
+      'هرچه در پیش است، به ترتیب تاریخ؛ عقب‌افتاده‌ها بالا می‌مانند تا رسیدگی شوند. روی کارت بزن تا گربه یا گروه باز شود. تیک، برنامه را انجام‌شده علامت می‌زند — مقدار را ثبت می‌کند و می‌تواند دور بعدی را زمان‌بندی کند. کارت را نگه دار تا تاریخش را تغییر دهی یا حذفش کنی. کلید تقویم هر سررسید را در تقویم گوشی بازتاب می‌دهد؛ منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند.';
+
+  @override
+  String get calendarRowOff => 'تقویم: خاموش';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'تقویم: $name';
+  }
 }

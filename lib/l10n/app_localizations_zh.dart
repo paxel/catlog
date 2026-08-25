@@ -1710,4 +1710,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noWritableCalendar => '本设备上没有可写入的日历。请在系统设置中添加日历账户，然后重试。';
+
+  @override
+  String get spotHomeAgenda => '日程：所有猫和猫群的待办事项都在这里。';
+
+  @override
+  String get spotAddReminder => '添加提醒——带日期的计划。在你标记完成之前，它显示在日程中，而不是页面上。';
+
+  @override
+  String get spotAgendaAdd => '新计划：选择字段、日期和值。';
+
+  @override
+  String get spotAgendaCalendar => '打开后，每个到期日都会出现在手机日历中。';
+
+  @override
+  String get helpAgenda =>
+      '所有待办按日期排列；超期的会一直置顶，直到处理完毕。点击卡片打开猫或猫群。勾选表示完成——记录该值，并可安排下一轮。长按卡片可更改日期或删除。日历开关把每个到期日同步到手机日历；菜单可导出为日历文件。';
+
+  @override
+  String get calendarRowOff => '日历：关';
+
+  @override
+  String calendarRowOn(String name) {
+    return '日历：$name';
+  }
 }

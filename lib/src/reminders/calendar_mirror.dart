@@ -11,6 +11,7 @@ import 'calendar_port.dart';
 /// get the events in their own calendars.
 const calendarMirrorEnabledKey = 'calendarMirror';
 const calendarMirrorCalendarKey = 'calendarMirror:calendar';
+const calendarMirrorCalendarNameKey = 'calendarMirror:calendarName';
 const _mapKey = 'calendarMirror:map';
 
 bool calendarMirrorEnabled(CatalogStore store) =>

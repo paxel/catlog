@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Accesul la calendar este blocat, așa că oglindirea e oprită. Permite-l în setările sistemului și pornește oglindirea din nou.",
   "calendarNotChosen": "Niciun calendar ales, așa că oglindirea e oprită. Pornește-o din nou și alege unul.",
   "calendarGone": "Calendarul ales nu mai există, așa că oglindirea e oprită. Pornește-o din nou și alege altul.",
-  "noWritableCalendar": "Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou."
+  "noWritableCalendar": "Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou.",
+  "spotHomeAgenda": "Agenda: tot ce este scadent, pentru toate pisicile și clowderii.",
+  "spotAddReminder": "Adaugă un memento — un plan cu dată. Apare în agendă, nu pe pagină, până îl marchezi ca făcut.",
+  "spotAgendaAdd": "Plan nou: alege un câmp, o dată și o valoare.",
+  "spotAgendaCalendar": "Pornește asta ca să vezi fiecare scadență în calendarul telefonului.",
+  "helpAgenda": "Tot ce este scadent, după dată; ce a întârziat rămâne sus până e rezolvat. Atinge un card ca să deschizi pisica sau clowderul. Bifa marchează un plan ca făcut — înregistrează valoarea și poate programa runda următoare. Ține apăsat un card ca să-i schimbi data sau să-l elimini. Comutatorul de calendar oglindește fiecare scadență într-un calendar al telefonului; meniul le exportă ca fișier de calendar.",
+  "calendarRowOff": "Calendar: oprit",
+  "calendarRowOn": "Calendar: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

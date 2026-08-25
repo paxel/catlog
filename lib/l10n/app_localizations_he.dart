@@ -1764,4 +1764,30 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'אי אפשר לכתוב לשום יומן במכשיר הזה. הוסיפו חשבון יומן בהגדרות המערכת ונסו שוב.';
+
+  @override
+  String get spotHomeAgenda => 'התזכורות: כל מה שקרוב, בכל החתולים והקבוצות.';
+
+  @override
+  String get spotAddReminder =>
+      'הוסיפו תזכורת — תוכנית עם תאריך. היא מוצגת בתזכורות, לא בדף, עד שתסמנו אותה כבוצעה.';
+
+  @override
+  String get spotAgendaAdd => 'תוכנית חדשה: בחרו שדה, תאריך וערך.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'הפעילו את זה כדי לראות כל מועד ביומן של הטלפון.';
+
+  @override
+  String get helpAgenda =>
+      'כל מה שקרוב, לפי תאריך; מה שבאיחור נשאר למעלה עד שמטפלים בו. הקישו על כרטיס כדי לפתוח את החתול או הקבוצה. הסימון מסמן תוכנית כבוצעה — הוא רושם את הערך ויכול לתזמן את הסבב הבא. לחצו לחיצה ארוכה על כרטיס כדי לשנות את התאריך או להסירו. מתג היומן משקף כל מועד ליומן בטלפון; התפריט מייצא אותם כקובץ יומן.';
+
+  @override
+  String get calendarRowOff => 'יומן: כבוי';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'יומן: $name';
+  }
 }

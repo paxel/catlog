@@ -1776,4 +1776,31 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Atgādinājumi: viss, kas gaidāms, visiem kaķiem un klauderiem.';
+
+  @override
+  String get spotAddReminder =>
+      'Pievienot atgādinājumu — plānu ar datumu. Tas rādās atgādinājumos, nevis lapā, līdz atzīmēsi to kā izdarītu.';
+
+  @override
+  String get spotAgendaAdd => 'Jauns plāns: izvēlies lauku, datumu un vērtību.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Ieslēdz šo, lai redzētu katru termiņu tālruņa kalendārā.';
+
+  @override
+  String get helpAgenda =>
+      'Viss, kas gaidāms, pēc datuma; nokavētais paliek augšā, līdz tiek nokārtots. Pieskaries kartītei, lai atvērtu kaķi vai klauderi. Ķeksītis atzīmē plānu kā izdarītu — ieraksta vērtību un var ieplānot nākamo reizi. Turi kartīti nospiestu, lai mainītu datumu vai to noņemtu. Kalendāra slēdzis atspoguļo katru termiņu tālruņa kalendārā; izvēlne tos eksportē kā kalendāra failu.';
+
+  @override
+  String get calendarRowOff => 'Kalendārs: izslēgts';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendārs: $name';
+  }
 }

@@ -1781,4 +1781,31 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'L-ebda kalendarju fuq dan l-apparat ma jista\' jinkiteb. Żid kont ta\' kalendarju fis-settings tas-sistema u erġa\' pprova.';
+
+  @override
+  String get spotHomeAgenda =>
+      'It-tfakkiriet: kulma hu dovut, għall-qtates u l-clowders kollha.';
+
+  @override
+  String get spotAddReminder =>
+      'Żid tfakkira — pjan b\'data. Tidher fit-tfakkiriet, mhux fil-paġna, sakemm timmarkaha bħala magħmula.';
+
+  @override
+  String get spotAgendaAdd => 'Pjan ġdid: agħżel qasam, data u valur.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Ixgħel dan biex tara kull skadenza fil-kalendarju tat-telefown tiegħek.';
+
+  @override
+  String get helpAgenda =>
+      'Kulma hu dovut, skont id-data; dak li hu tard jibqa\' fuq sakemm jiġi ttrattat. Mess kard biex tiftaħ il-qattus jew il-clowder. Is-sinjal jimmarka pjan bħala magħmul — jirreġistra l-valur u jista\' jippjana r-rawnd li jmiss. Żomm kard magħfusa biex tibdel id-data jew tneħħiha. Is-swiċċ tal-kalendarju jirrifletti kull skadenza f\'kalendarju tat-telefown tiegħek; il-menu jesportahom bħala fajl tal-kalendarju.';
+
+  @override
+  String get calendarRowOff => 'Kalendarju: mitfi';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendarju: $name';
+  }
 }

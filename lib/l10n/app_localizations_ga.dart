@@ -1787,4 +1787,31 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ní féidir scríobh chuig aon fhéilire ar an ngléas seo. Cuir cuntas féilire leis i socruithe an chórais agus bain triail eile as.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Na meabhrúcháin: gach a bhfuil le déanamh, ar fud na gcat agus na gclowdar.';
+
+  @override
+  String get spotAddReminder =>
+      'Cuir meabhrúchán leis — plean le dáta. Feictear é sna meabhrúcháin, ní ar an leathanach, go dtí go marcálann tú déanta é.';
+
+  @override
+  String get spotAgendaAdd => 'Plean nua: roghnaigh réimse, dáta agus luach.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Cas air seo chun gach spriocdháta a fheiceáil i bhféilire do ghutháin.';
+
+  @override
+  String get helpAgenda =>
+      'Gach a bhfuil le déanamh, de réir dáta; fanann an rud thar téarma ar barr go dtí go ndéileáiltear leis. Tapáil cárta chun an cat nó an clowdar a oscailt. Marcálann an tic plean mar dhéanta — taifeadann sé an luach agus is féidir leis an chéad bhabhta eile a sceidealú. Coinnigh cárta brúite chun a dháta a athrú nó é a bhaint. Scáthánaíonn lasc an fhéilire gach spriocdháta isteach i bhféilire do ghutháin; easpórtálann an roghchlár iad mar chomhad féilire.';
+
+  @override
+  String get calendarRowOff => 'Féilire: as';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Féilire: $name';
+  }
 }

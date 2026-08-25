@@ -1775,4 +1775,32 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Muistutukset: kaikki erääntyvä, kaikista kissoista ja clowdereista.';
+
+  @override
+  String get spotAddReminder =>
+      'Lisää muistutus — suunnitelma päivämäärällä. Se näkyy muistutuksissa, ei sivulla, kunnes merkitset sen tehdyksi.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Uusi suunnitelma: valitse kenttä, päivämäärä ja arvo.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Kytke tämä päälle nähdäksesi jokaisen eräpäivän puhelimesi kalenterissa.';
+
+  @override
+  String get helpAgenda =>
+      'Kaikki erääntyvä päivämäärän mukaan; myöhässä oleva pysyy ylimpänä, kunnes se on hoidettu. Napauta korttia avataksesi kissan tai clowderin. Väkänen merkitsee suunnitelman tehdyksi — se tallentaa arvon ja voi ajoittaa seuraavan kierroksen. Paina korttia pitkään muuttaaksesi päivämäärää tai poistaaksesi sen. Kalenterikytkin peilaa jokaisen eräpäivän puhelimesi kalenteriin; valikko vie ne kalenteritiedostona.';
+
+  @override
+  String get calendarRowOff => 'Kalenteri: pois';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalenteri: $name';
+  }
 }

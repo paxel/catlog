@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "L'accesso al calendario è bloccato, quindi il rispecchiamento è spento. Consentilo nelle impostazioni di sistema e riattiva il rispecchiamento.",
   "calendarNotChosen": "Nessun calendario scelto, quindi il rispecchiamento è spento. Riattivalo e scegline uno.",
   "calendarGone": "Il calendario scelto non esiste più, quindi il rispecchiamento è spento. Riattivalo e scegline un altro.",
-  "noWritableCalendar": "Nessun calendario su questo dispositivo è scrivibile. Aggiungi un account calendario nelle impostazioni di sistema e riprova."
+  "noWritableCalendar": "Nessun calendario su questo dispositivo è scrivibile. Aggiungi un account calendario nelle impostazioni di sistema e riprova.",
+  "spotHomeAgenda": "L'agenda: tutto ciò che è in scadenza, per tutti i gatti e i clowder.",
+  "spotAddReminder": "Aggiungi un promemoria — un piano con una data. Compare nell'agenda, non nella pagina, finché non lo segni come fatto.",
+  "spotAgendaAdd": "Nuovo piano: scegli un campo, una data e un valore.",
+  "spotAgendaCalendar": "Attivalo per vedere ogni scadenza nel calendario del tuo telefono.",
+  "helpAgenda": "Tutto ciò che è in scadenza, per data; ciò che è in ritardo resta in alto finché non è gestito. Tocca una scheda per aprire il gatto o il clowder. La spunta segna un piano come fatto: registra il valore e può programmare il prossimo giro. Tieni premuta una scheda per cambiarne la data o rimuoverla. L'interruttore del calendario rispecchia ogni scadenza in un calendario del tuo telefono; il menu le esporta come file calendario.",
+  "calendarRowOff": "Calendario: spento",
+  "calendarRowOn": "Calendario: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

@@ -1771,4 +1771,31 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ingen kalender på denne enheten kan skrives til. Legg til en kalenderkonto i systeminnstillingene, og prøv igjen.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Påminnelsene: alt som forfaller, på tvers av alle katter og clowdere.';
+
+  @override
+  String get spotAddReminder =>
+      'Legg til en påminnelse — en plan med en dato. Den vises i påminnelsene, ikke på siden, til du merker den utført.';
+
+  @override
+  String get spotAgendaAdd => 'Ny plan: velg et felt, en dato og en verdi.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Slå dette på for å se hver forfallsdato i telefonens kalender.';
+
+  @override
+  String get helpAgenda =>
+      'Alt som forfaller, etter dato; det forsinkede blir øverst til det er ordnet. Trykk på et kort for å åpne katten eller clowderen. Haken merker en plan som utført — den lagrer verdien og kan planlegge neste runde. Hold et kort inne for å endre datoen eller fjerne det. Kalenderbryteren speiler hver forfallsdato til en kalender på telefonen din; menyen eksporterer dem som kalenderfil.';
+
+  @override
+  String get calendarRowOff => 'Kalender: av';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalender: $name';
+  }
 }

@@ -1774,4 +1774,32 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Ajanda: tüm kediler ve clowderlar için bekleyen her şey.';
+
+  @override
+  String get spotAddReminder =>
+      'Hatırlatma ekle — tarihli bir plan. Yapıldı olarak işaretleyene kadar sayfada değil, ajandada görünür.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Yeni plan: bir alan, bir tarih ve bir değer seç.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Her vadeyi telefonunun takviminde görmek için bunu aç.';
+
+  @override
+  String get helpAgenda =>
+      'Bekleyen her şey, tarihe göre; gecikmiş olan halledilene kadar üstte kalır. Kediyi veya clowder\'ı açmak için bir karta dokun. Onay işareti planı yapıldı olarak işaretler — değeri kaydeder ve sonraki turu planlayabilir. Tarihini değiştirmek veya kaldırmak için bir kartı basılı tut. Takvim anahtarı her vadeyi telefonunun bir takvimine yansıtır; menü onları takvim dosyası olarak dışa aktarır.';
+
+  @override
+  String get calendarRowOff => 'Takvim: kapalı';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Takvim: $name';
+  }
 }

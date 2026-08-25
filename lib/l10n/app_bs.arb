@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Pristup kalendaru je blokiran, pa je zrcaljenje isključeno. Dozvoli ga u postavkama sistema i ponovo uključi zrcaljenje.",
   "calendarNotChosen": "Nije odabran kalendar, pa je zrcaljenje isključeno. Uključi ga ponovo i odaberi jedan.",
   "calendarGone": "Odabrani kalendar više ne postoji, pa je zrcaljenje isključeno. Uključi ga ponovo i odaberi drugi.",
-  "noWritableCalendar": "Ni u jedan kalendar na ovom uređaju ne može se pisati. Dodaj račun kalendara u postavkama sistema i pokušaj ponovo."
+  "noWritableCalendar": "Ni u jedan kalendar na ovom uređaju ne može se pisati. Dodaj račun kalendara u postavkama sistema i pokušaj ponovo.",
+  "spotHomeAgenda": "Podsjetnici: sve što dospijeva, za sve mačke i clowdere.",
+  "spotAddReminder": "Dodaj podsjetnik — plan s datumom. Prikazuje se u podsjetnicima, ne na stranici, dok ga ne označiš obavljenim.",
+  "spotAgendaAdd": "Novi plan: odaberi polje, datum i vrijednost.",
+  "spotAgendaCalendar": "Uključi ovo da vidiš svaki rok u kalendaru svog telefona.",
+  "helpAgenda": "Sve što dospijeva, po datumu; zakašnjelo ostaje na vrhu dok se ne riješi. Dodirni karticu da otvoriš mačku ili clowder. Kvačica označava plan obavljenim — bilježi vrijednost i može zakazati sljedeći krug. Drži karticu pritisnutu da promijeniš datum ili je ukloniš. Prekidač kalendara zrcali svaki rok u kalendar tvog telefona; meni ih izvozi kao kalendarski fajl.",
+  "calendarRowOff": "Kalendar: isključen",
+  "calendarRowOn": "Kalendar: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

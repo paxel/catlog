@@ -1778,4 +1778,31 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Áminningarnar: allt sem er á döfinni, fyrir alla ketti og clowdera.';
+
+  @override
+  String get spotAddReminder =>
+      'Bæta við áminningu — áætlun með dagsetningu. Hún birtist í áminningum, ekki á síðunni, þar til þú merkir hana lokið.';
+
+  @override
+  String get spotAgendaAdd => 'Ný áætlun: veldu reit, dagsetningu og gildi.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Kveiktu á þessu til að sjá hvern gjalddaga í dagatali símans.';
+
+  @override
+  String get helpAgenda =>
+      'Allt sem er á döfinni, eftir dagsetningu; það sem er of seint helst efst þar til það er afgreitt. Ýttu á spjald til að opna köttinn eða clowderinn. Hakið merkir áætlun lokið — það skráir gildið og getur áætlað næstu umferð. Haltu spjaldi inni til að breyta dagsetningu eða fjarlægja það. Dagatalsrofinn speglar hvern gjalddaga í dagatal símans; valmyndin flytur þá út sem dagatalsskrá.';
+
+  @override
+  String get calendarRowOff => 'Dagatal: slökkt';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Dagatal: $name';
+  }
 }

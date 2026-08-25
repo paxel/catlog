@@ -1775,4 +1775,31 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ni u jedan kalendar na ovom uređaju ne može se pisati. Dodaj račun kalendara u postavkama sistema i pokušaj ponovo.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Podsjetnici: sve što dospijeva, za sve mačke i clowdere.';
+
+  @override
+  String get spotAddReminder =>
+      'Dodaj podsjetnik — plan s datumom. Prikazuje se u podsjetnicima, ne na stranici, dok ga ne označiš obavljenim.';
+
+  @override
+  String get spotAgendaAdd => 'Novi plan: odaberi polje, datum i vrijednost.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Uključi ovo da vidiš svaki rok u kalendaru svog telefona.';
+
+  @override
+  String get helpAgenda =>
+      'Sve što dospijeva, po datumu; zakašnjelo ostaje na vrhu dok se ne riješi. Dodirni karticu da otvoriš mačku ili clowder. Kvačica označava plan obavljenim — bilježi vrijednost i može zakazati sljedeći krug. Drži karticu pritisnutu da promijeniš datum ili je ukloniš. Prekidač kalendara zrcali svaki rok u kalendar tvog telefona; meni ih izvozi kao kalendarski fajl.';
+
+  @override
+  String get calendarRowOff => 'Kalendar: isključen';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendar: $name';
+  }
 }

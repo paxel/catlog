@@ -1778,4 +1778,31 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Żaden kalendarz na tym urządzeniu nie pozwala na zapis. Dodaj konto kalendarza w ustawieniach systemu i spróbuj ponownie.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Przypomnienia: wszystko, co zaplanowane, dla wszystkich kotów i clowderów.';
+
+  @override
+  String get spotAddReminder =>
+      'Dodaj przypomnienie — plan z datą. Widać go w przypomnieniach, nie na stronie, dopóki nie oznaczysz jako zrobione.';
+
+  @override
+  String get spotAgendaAdd => 'Nowy plan: wybierz pole, datę i wartość.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Włącz to, aby widzieć każdy termin w kalendarzu telefonu.';
+
+  @override
+  String get helpAgenda =>
+      'Wszystko, co zaplanowane, według daty; zaległe zostaje na górze, dopóki nie zostanie załatwione. Dotknij karty, aby otworzyć kota lub clowder. Ptaszek oznacza plan jako zrobiony — zapisuje wartość i może zaplanować kolejną rundę. Przytrzymaj kartę, aby zmienić datę lub ją usunąć. Przełącznik kalendarza odbija każdy termin w kalendarzu telefonu; menu eksportuje je jako plik kalendarza.';
+
+  @override
+  String get calendarRowOff => 'Kalendarz: wyłączony';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendarz: $name';
+  }
 }

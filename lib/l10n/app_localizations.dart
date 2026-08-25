@@ -3187,6 +3187,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.'**
   String get noWritableCalendar;
+
+  /// No description provided for @spotHomeAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'The Agenda: everything that is due, across all cats and clowders.'**
+  String get spotHomeAgenda;
+
+  /// No description provided for @spotAddReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a reminder — a plan with a date. It shows in the Agenda, not on the page, until you mark it done.'**
+  String get spotAddReminder;
+
+  /// No description provided for @spotAgendaAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'New plan: pick a field, a date and a value.'**
+  String get spotAgendaAdd;
+
+  /// No description provided for @spotAgendaCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch this on to see every due date in your phone\'s calendar.'**
+  String get spotAgendaCalendar;
+
+  /// No description provided for @helpAgenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything that is due, ordered by date; overdue stays on top until handled. Tap a card to open the cat or clowder. The check marks a plan done — it records the value and can schedule the next round. Hold a card to change its date or remove it. The calendar switch mirrors every due date into a calendar of your phone; the menu exports them as a calendar file.'**
+  String get helpAgenda;
+
+  /// No description provided for @calendarRowOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar: off'**
+  String get calendarRowOff;
+
+  /// No description provided for @calendarRowOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar: {name}'**
+  String calendarRowOn(String name);
 }
 
 class _AppLocalizationsDelegate

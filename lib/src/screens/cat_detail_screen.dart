@@ -409,10 +409,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => CardScreen(store: store, catId: id),
                   ))),
-          IconButton(
-              icon: const Icon(Icons.alarm_add),
-              tooltip: context.t.addReminder,
-              onPressed: _addReminder),
+          Spotlight(
+            id: 'cat-reminder',
+            child: IconButton(
+                icon: const Icon(Icons.alarm_add),
+                tooltip: context.t.addReminder,
+                onPressed: _addReminder),
+          ),
           Spotlight(
             id: 'cat-edit',
             child: IconButton(

@@ -1776,4 +1776,31 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Opomniki: vse, kar zapade, za vse mačke in clowderje.';
+
+  @override
+  String get spotAddReminder =>
+      'Dodaj opomnik — načrt z datumom. Prikazuje se med opomniki, ne na strani, dokler ga ne označiš kot opravljenega.';
+
+  @override
+  String get spotAgendaAdd => 'Nov načrt: izberi polje, datum in vrednost.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Vklopi to, da vidiš vsak rok v koledarju svojega telefona.';
+
+  @override
+  String get helpAgenda =>
+      'Vse, kar zapade, po datumu; zamujeno ostane na vrhu, dokler ni urejeno. Tapni kartico, da odpreš mačko ali clowder. Kljukica označi načrt kot opravljen — zabeleži vrednost in lahko načrtuje naslednji krog. Pridrži kartico, da spremeniš datum ali jo odstraniš. Stikalo koledarja zrcali vsak rok v koledar tvojega telefona; meni jih izvozi kot koledarsko datoteko.';
+
+  @override
+  String get calendarRowOff => 'Koledar: izklopljen';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Koledar: $name';
+  }
 }

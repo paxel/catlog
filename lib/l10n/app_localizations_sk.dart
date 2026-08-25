@@ -1774,4 +1774,31 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Pripomienky: všetko, čo je naplánované, naprieč mačkami a clowdermi.';
+
+  @override
+  String get spotAddReminder =>
+      'Pridať pripomienku — plán s dátumom. Zobrazuje sa v pripomienkach, nie na stránke, kým ju neoznačíš ako hotovú.';
+
+  @override
+  String get spotAgendaAdd => 'Nový plán: zvoľ pole, dátum a hodnotu.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Zapni to, aby si videl každý termín v kalendári telefónu.';
+
+  @override
+  String get helpAgenda =>
+      'Všetko, čo je naplánované, podľa dátumu; čo je po termíne, ostáva navrchu, kým to nevybavíš. Ťukni na kartu a otvoríš mačku alebo clowder. Fajka označí plán ako hotový — zapíše hodnotu a môže naplánovať ďalšie kolo. Podrž kartu a zmeníš dátum alebo ju odstrániš. Prepínač kalendára zrkadlí každý termín do kalendára telefónu; ponuka ich exportuje ako súbor kalendára.';
+
+  @override
+  String get calendarRowOff => 'Kalendár: vypnuté';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendár: $name';
+  }
 }

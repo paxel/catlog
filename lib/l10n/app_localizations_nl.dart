@@ -1778,4 +1778,32 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Geen enkele agenda op dit apparaat is beschrijfbaar. Voeg in de systeeminstellingen een agenda-account toe en probeer het opnieuw.';
+
+  @override
+  String get spotHomeAgenda =>
+      'De agenda: alles wat verschuldigd is, over alle katten en clowders.';
+
+  @override
+  String get spotAddReminder =>
+      'Herinnering toevoegen — een plan met een datum. Het staat in de agenda, niet op de pagina, tot je het als klaar markeert.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Nieuw plan: kies een veld, een datum en een waarde.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Zet dit aan om elke vervaldatum in de agenda van je telefoon te zien.';
+
+  @override
+  String get helpAgenda =>
+      'Alles wat verschuldigd is, op datum; wat te laat is blijft bovenaan tot het is afgehandeld. Tik op een kaart om de kat of clowder te openen. Het vinkje markeert een plan als klaar — het legt de waarde vast en kan de volgende ronde plannen. Houd een kaart ingedrukt om de datum te wijzigen of het plan te verwijderen. De agendaschakelaar spiegelt elke vervaldatum naar een agenda van je telefoon; het menu exporteert ze als agendabestand.';
+
+  @override
+  String get calendarRowOff => 'Agenda: uit';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Agenda: $name';
+  }
 }

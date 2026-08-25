@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Tá rochtain ar an bhféilire blocáilte, mar sin tá an scáthánú múchta. Ceadaigh í i socruithe an chórais agus cas an scáthánú air arís.",
   "calendarNotChosen": "Níor roghnaíodh féilire, mar sin tá an scáthánú múchta. Cas air arís é agus roghnaigh ceann.",
   "calendarGone": "Níl an féilire roghnaithe ann a thuilleadh, mar sin tá an scáthánú múchta. Cas air arís é agus roghnaigh ceann eile.",
-  "noWritableCalendar": "Ní féidir scríobh chuig aon fhéilire ar an ngléas seo. Cuir cuntas féilire leis i socruithe an chórais agus bain triail eile as."
+  "noWritableCalendar": "Ní féidir scríobh chuig aon fhéilire ar an ngléas seo. Cuir cuntas féilire leis i socruithe an chórais agus bain triail eile as.",
+  "spotHomeAgenda": "Na meabhrúcháin: gach a bhfuil le déanamh, ar fud na gcat agus na gclowdar.",
+  "spotAddReminder": "Cuir meabhrúchán leis — plean le dáta. Feictear é sna meabhrúcháin, ní ar an leathanach, go dtí go marcálann tú déanta é.",
+  "spotAgendaAdd": "Plean nua: roghnaigh réimse, dáta agus luach.",
+  "spotAgendaCalendar": "Cas air seo chun gach spriocdháta a fheiceáil i bhféilire do ghutháin.",
+  "helpAgenda": "Gach a bhfuil le déanamh, de réir dáta; fanann an rud thar téarma ar barr go dtí go ndéileáiltear leis. Tapáil cárta chun an cat nó an clowdar a oscailt. Marcálann an tic plean mar dhéanta — taifeadann sé an luach agus is féidir leis an chéad bhabhta eile a sceidealú. Coinnigh cárta brúite chun a dháta a athrú nó é a bhaint. Scáthánaíonn lasc an fhéilire gach spriocdháta isteach i bhféilire do ghutháin; easpórtálann an roghchlár iad mar chomhad féilire.",
+  "calendarRowOff": "Féilire: as",
+  "calendarRowOn": "Féilire: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

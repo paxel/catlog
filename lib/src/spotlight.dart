@@ -33,6 +33,14 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
     SpotlightItem('home-sync', (t) => t.spotHomeSync),
     SpotlightItem('home-menu', (t) => t.spotHomeMenu),
     SpotlightItem('home-ear', (t) => t.spotEar),
+    SpotlightItem('home-agenda', (t) => t.spotHomeAgenda),
+  ],
+  'agenda': [
+    SpotlightItem('agenda-add', (t) => t.spotAgendaAdd),
+    SpotlightItem('agenda-calendar', (t) => t.spotAgendaCalendar),
+  ],
+  'clowder': [
+    SpotlightItem('clowder-reminder', (t) => t.spotAddReminder),
   ],
   'map': [
     SpotlightItem('map-search', (t) => t.spotMapSearch),
@@ -44,6 +52,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
   'cat': [
     SpotlightItem('cat-edit', (t) => t.spotCatEdit),
     SpotlightItem('cat-menu', (t) => t.spotCatMenu),
+    SpotlightItem('cat-reminder', (t) => t.spotAddReminder),
   ],
   'strays': [
     SpotlightItem('strays-flier', (t) => t.spotStraysFlier),

@@ -1781,4 +1781,31 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Die Agenda: alles, was fällig ist — über alle Katzen und Kolonien.';
+
+  @override
+  String get spotAddReminder =>
+      'Erinnerung hinzufügen — ein Plan mit Datum. Er erscheint in der Agenda, nicht auf der Seite, bis du ihn als erledigt markierst.';
+
+  @override
+  String get spotAgendaAdd => 'Neuer Plan: Feld, Datum und Wert wählen.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Schalte das ein, um jedes Fälligkeitsdatum im Kalender deines Telefons zu sehen.';
+
+  @override
+  String get helpAgenda =>
+      'Alles, was fällig ist, nach Datum sortiert; Überfälliges bleibt oben, bis es erledigt ist. Tippe auf eine Karte, um Katze oder Kolonie zu öffnen. Der Haken markiert einen Plan als erledigt — er trägt den Wert ein und kann die nächste Runde planen. Halte eine Karte gedrückt, um ihr Datum zu ändern oder sie zu entfernen. Der Kalender-Schalter spiegelt jedes Fälligkeitsdatum in einen Kalender deines Telefons; das Menü exportiert sie als Kalenderdatei.';
+
+  @override
+  String get calendarRowOff => 'Kalender: aus';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalender: $name';
+  }
 }

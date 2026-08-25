@@ -1773,4 +1773,30 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'لا يمكن الكتابة في أي تقويم على هذا الجهاز. أضف حساب تقويم في إعدادات النظام ثم حاول مجددًا.';
+
+  @override
+  String get spotHomeAgenda =>
+      'المواعيد: كل ما هو مستحق، عبر كل القطط والمجموعات.';
+
+  @override
+  String get spotAddReminder =>
+      'أضف تذكيرًا — خطة بتاريخ. تظهر في المواعيد لا في الصفحة، حتى تعلّمها كمنجزة.';
+
+  @override
+  String get spotAgendaAdd => 'خطة جديدة: اختر حقلًا وتاريخًا وقيمة.';
+
+  @override
+  String get spotAgendaCalendar => 'شغّل هذا لترى كل موعد في تقويم هاتفك.';
+
+  @override
+  String get helpAgenda =>
+      'كل ما هو مستحق، مرتبًا بالتاريخ؛ المتأخر يبقى في الأعلى حتى يُعالج. اضغط بطاقة لفتح القطة أو المجموعة. علامة الصح تعلّم الخطة كمنجزة — تسجل القيمة ويمكنها جدولة الجولة التالية. اضغط بطاقة مطولًا لتغيير تاريخها أو إزالتها. مفتاح التقويم يعكس كل موعد في تقويم هاتفك؛ والقائمة تصدّرها كملف تقويم.';
+
+  @override
+  String get calendarRowOff => 'التقويم: متوقف';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'التقويم: $name';
+  }
 }

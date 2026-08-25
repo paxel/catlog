@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Takvim erişimi engelli, bu yüzden yansıtma kapalı. Sistem ayarlarından izin ver ve yansıtmayı yeniden aç.",
   "calendarNotChosen": "Takvim seçilmedi, bu yüzden yansıtma kapalı. Yeniden aç ve bir takvim seç.",
   "calendarGone": "Seçilen takvim artık yok, bu yüzden yansıtma kapalı. Yeniden aç ve başka bir takvim seç.",
-  "noWritableCalendar": "Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene."
+  "noWritableCalendar": "Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene.",
+  "spotHomeAgenda": "Ajanda: tüm kediler ve clowderlar için bekleyen her şey.",
+  "spotAddReminder": "Hatırlatma ekle — tarihli bir plan. Yapıldı olarak işaretleyene kadar sayfada değil, ajandada görünür.",
+  "spotAgendaAdd": "Yeni plan: bir alan, bir tarih ve bir değer seç.",
+  "spotAgendaCalendar": "Her vadeyi telefonunun takviminde görmek için bunu aç.",
+  "helpAgenda": "Bekleyen her şey, tarihe göre; gecikmiş olan halledilene kadar üstte kalır. Kediyi veya clowder'ı açmak için bir karta dokun. Onay işareti planı yapıldı olarak işaretler — değeri kaydeder ve sonraki turu planlayabilir. Tarihini değiştirmek veya kaldırmak için bir kartı basılı tut. Takvim anahtarı her vadeyi telefonunun bir takvimine yansıtır; menü onları takvim dosyası olarak dışa aktarır.",
+  "calendarRowOff": "Takvim: kapalı",
+  "calendarRowOn": "Takvim: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

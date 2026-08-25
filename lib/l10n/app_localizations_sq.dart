@@ -1775,4 +1775,32 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Në asnjë kalendar të kësaj pajisjeje s\'mund të shkruhet. Shto një llogari kalendari te cilësimet e sistemit dhe provo sërish.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Përkujtuesit: gjithçka që pritet, për të gjitha macet dhe clowderët.';
+
+  @override
+  String get spotAddReminder =>
+      'Shto një përkujtues — një plan me datë. Shfaqet te përkujtuesit, jo në faqe, derisa ta shënosh si të bërë.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Plan i ri: zgjidh një fushë, një datë dhe një vlerë.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Ndize këtë për të parë çdo afat në kalendarin e telefonit.';
+
+  @override
+  String get helpAgenda =>
+      'Gjithçka që pritet, sipas datës; e vonuara mbetet lart derisa të rregullohet. Prek një kartë për të hapur macen ose clowderin. Shenja e shënon planin si të bërë — regjistron vlerën dhe mund të planifikojë raundin tjetër. Mbaje shtypur një kartë për t\'i ndryshuar datën ose për ta hequr. Çelësi i kalendarit pasqyron çdo afat në një kalendar të telefonit; menyja i eksporton si skedar kalendari.';
+
+  @override
+  String get calendarRowOff => 'Kalendari: fikur';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendari: $name';
+  }
 }

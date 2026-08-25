@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Kalenderåtkomst är blockerad, så speglingen är av. Tillåt den i systeminställningarna och slå på speglingen igen.",
   "calendarNotChosen": "Ingen kalender vald, så speglingen är av. Slå på den igen och välj en.",
   "calendarGone": "Den valda kalendern finns inte längre, så speglingen är av. Slå på den igen och välj en annan.",
-  "noWritableCalendar": "Ingen kalender på den här enheten går att skriva till. Lägg till ett kalenderkonto i systeminställningarna och försök igen."
+  "noWritableCalendar": "Ingen kalender på den här enheten går att skriva till. Lägg till ett kalenderkonto i systeminställningarna och försök igen.",
+  "spotHomeAgenda": "Påminnelserna: allt som förfaller, för alla katter och clowders.",
+  "spotAddReminder": "Lägg till en påminnelse — en plan med ett datum. Den visas bland påminnelserna, inte på sidan, tills du markerar den klar.",
+  "spotAgendaAdd": "Ny plan: välj ett fält, ett datum och ett värde.",
+  "spotAgendaCalendar": "Slå på detta för att se varje förfallodatum i telefonens kalender.",
+  "helpAgenda": "Allt som förfaller, efter datum; det försenade stannar överst tills det är hanterat. Tryck på ett kort för att öppna katten eller clowdern. Bocken markerar en plan som klar — den sparar värdet och kan planera nästa omgång. Håll ett kort intryckt för att ändra datum eller ta bort det. Kalenderbrytaren speglar varje förfallodatum till en kalender i din telefon; menyn exporterar dem som kalenderfil.",
+  "calendarRowOff": "Kalender: av",
+  "calendarRowOn": "Kalender: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

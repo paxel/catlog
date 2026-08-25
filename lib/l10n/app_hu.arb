@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "A naptárhoz való hozzáférés le van tiltva, ezért a tükrözés ki van kapcsolva. Engedélyezd a rendszerbeállításokban, majd kapcsold be újra a tükrözést.",
   "calendarNotChosen": "Nincs kiválasztott naptár, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz egyet.",
   "calendarGone": "A kiválasztott naptár már nem létezik, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz másikat.",
-  "noWritableCalendar": "Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra."
+  "noWritableCalendar": "Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra.",
+  "spotHomeAgenda": "A teendők: minden, ami esedékes, az összes macskára és clowderre.",
+  "spotAddReminder": "Emlékeztető hozzáadása — egy terv dátummal. A teendők között jelenik meg, nem az oldalon, amíg késznek nem jelölöd.",
+  "spotAgendaAdd": "Új terv: válassz mezőt, dátumot és értéket.",
+  "spotAgendaCalendar": "Kapcsold be, hogy minden határidőt láss a telefonod naptárában.",
+  "helpAgenda": "Minden, ami esedékes, dátum szerint; a lejárt felül marad, amíg el nem intézed. Koppints egy kártyára a macska vagy a clowder megnyitásához. A pipa késznek jelöli a tervet — rögzíti az értéket, és beütemezheti a következő kört. Tartsd nyomva a kártyát a dátum módosításához vagy az eltávolításhoz. A naptárkapcsoló minden határidőt a telefonod naptárába tükröz; a menü naptárfájlként exportálja őket.",
+  "calendarRowOff": "Naptár: ki",
+  "calendarRowOn": "Naptár: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

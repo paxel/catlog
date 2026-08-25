@@ -8,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../field_labels.dart';
+import '../help.dart';
 import '../l10n.dart';
 import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
@@ -16,6 +17,7 @@ import '../reminders/device_calendar_port.dart';
 import '../reminders/mirror_hook.dart';
 import '../reminders/reminder_dialog.dart';
 import '../share.dart';
+import '../spotlight.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
@@ -51,6 +53,13 @@ class AgendaScreen extends StatefulWidget {
 
 class _AgendaScreenState extends State<AgendaScreen> {
   CatalogStore get store => widget.store;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, store, 'agenda'));
+  }
 
   bool get _calendarAvailable =>
       widget.calendarPort != null || deviceCalendarAvailable;
@@ -152,6 +161,8 @@ class _AgendaScreenState extends State<AgendaScreen> {
     );
     if (chosen == null || !mounted) return;
     store.setLocalSetting(calendarMirrorCalendarKey, chosen);
+    store.setLocalSetting(calendarMirrorCalendarNameKey,
+        calendars.firstWhere((c) => c.id == chosen).name);
     store.setLocalSetting(calendarMirrorEnabledKey, 'on');
     setState(() {});
     mirrorAfterChange(context, store, port: widget.calendarPort);
@@ -166,44 +177,58 @@ class _AgendaScreenState extends State<AgendaScreen> {
         context,
         title: Text(t.agenda),
         actions: [
+          HelpButton(store: store, screenId: 'agenda'),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'ics') _exportIcs();
-              if (v == 'mirror') _toggleMirror();
             },
             itemBuilder: (context) => [
-              if (_calendarAvailable)
-                CheckedPopupMenuItem(
-                    value: 'mirror',
-                    checked: calendarMirrorEnabled(store),
-                    child: Text(t.calendarMirrorLabel)),
               PopupMenuItem(value: 'ics', child: Text(t.exportIcs)),
             ],
           ),
         ],
       ),
-      body: active.isEmpty
-          ? Padding(
-              padding: const EdgeInsets.all(32),
-              child: Text(t.agendaEmpty),
-            )
-          : ListView(
-              // The last card scrolls clear of the floating button.
-              padding: const EdgeInsets.fromLTRB(8, 8, 8, 88),
-              children: [
-                for (final r in active)
-                  ReminderCard(
-                    store: store,
-                    reminder: r,
-                    onChanged: _changed,
-                    onOpen: () => _openEntity(r.entity),
-                  ),
-              ],
+      body: ListView(
+        // The last card scrolls clear of the floating button.
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 88),
+        children: [
+          // The calendar switch as a visible row — state readable at a
+          // glance, nothing buried in a menu.
+          if (_calendarAvailable)
+            Spotlight(
+              id: 'agenda-calendar',
+              child: SwitchListTile(
+                secondary: const Icon(Icons.calendar_month_outlined),
+                title: Text(calendarMirrorEnabled(store)
+                    ? t.calendarRowOn(
+                        store.localSetting(calendarMirrorCalendarNameKey) ??
+                            '')
+                    : t.calendarRowOff),
+                value: calendarMirrorEnabled(store),
+                onChanged: (_) => _toggleMirror(),
+              ),
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _add,
-        tooltip: t.addReminder,
-        child: const Icon(Icons.alarm_add),
+          if (active.isEmpty)
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: Text(t.agendaEmpty),
+            ),
+          for (final r in active)
+            ReminderCard(
+              store: store,
+              reminder: r,
+              onChanged: _changed,
+              onOpen: () => _openEntity(r.entity),
+            ),
+        ],
+      ),
+      floatingActionButton: Spotlight(
+        id: 'agenda-add',
+        child: FloatingActionButton(
+          onPressed: _add,
+          tooltip: t.addReminder,
+          child: const Icon(Icons.alarm_add),
+        ),
       ),
     );
   }

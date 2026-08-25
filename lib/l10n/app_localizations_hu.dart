@@ -1774,4 +1774,31 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra.';
+
+  @override
+  String get spotHomeAgenda =>
+      'A teendők: minden, ami esedékes, az összes macskára és clowderre.';
+
+  @override
+  String get spotAddReminder =>
+      'Emlékeztető hozzáadása — egy terv dátummal. A teendők között jelenik meg, nem az oldalon, amíg késznek nem jelölöd.';
+
+  @override
+  String get spotAgendaAdd => 'Új terv: válassz mezőt, dátumot és értéket.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Kapcsold be, hogy minden határidőt láss a telefonod naptárában.';
+
+  @override
+  String get helpAgenda =>
+      'Minden, ami esedékes, dátum szerint; a lejárt felül marad, amíg el nem intézed. Koppints egy kártyára a macska vagy a clowder megnyitásához. A pipa késznek jelöli a tervet — rögzíti az értéket, és beütemezheti a következő kört. Tartsd nyomva a kártyát a dátum módosításához vagy az eltávolításhoz. A naptárkapcsoló minden határidőt a telefonod naptárába tükröz; a menü naptárfájlként exportálja őket.';
+
+  @override
+  String get calendarRowOff => 'Naptár: ki';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Naptár: $name';
+  }
 }

@@ -21,6 +21,7 @@ import '../widgets/field_list.dart';
 import '../widgets/reminder_card.dart';
 import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
+import '../spotlight.dart';
 import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
@@ -46,6 +47,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   /// Read-only until the pencil is pressed (#46); every visit starts calm.
   bool _editing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => runSpotlights(context, store, 'clowder'));
+  }
 
   Future<void> _editField(FieldDef def) async {
     final edit = await editFieldValue(
@@ -256,10 +264,13 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
                   ClowderCardScreen(store: store, clowderId: id),
             )),
           ),
-          IconButton(
-            icon: const Icon(Icons.alarm_add),
-            tooltip: context.t.addReminder,
-            onPressed: _addReminder,
+          Spotlight(
+            id: 'clowder-reminder',
+            child: IconButton(
+              icon: const Icon(Icons.alarm_add),
+              tooltip: context.t.addReminder,
+              onPressed: _addReminder,
+            ),
           ),
           IconButton(
             icon: Icon(_editing ? Icons.check : Icons.edit),

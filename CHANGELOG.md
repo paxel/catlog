@@ -22,9 +22,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   reminder.
 - The agenda has its own bell in the home bar on every screen size;
   Fields moved into the home menu.
-- The calendar mirror now asks which of the phone's calendars to use
-  instead of creating a hidden local one, and says why when it cannot
-  write — permission blocked, no calendar chosen, calendar gone.
+- The calendar mirror is a visible switch at the top of the agenda. It
+  asks which of the phone's calendars to use instead of creating a
+  hidden local one, and says why when it cannot write — permission
+  blocked, no calendar chosen, calendar gone.
+- Tips introduce the agenda bell, Add reminder, the agenda's plus
+  button and the calendar switch on first sight; the agenda has its own
+  help page.
 
 ### Fixed
 

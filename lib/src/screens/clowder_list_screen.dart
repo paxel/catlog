@@ -232,10 +232,13 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 id: 'search',
                 build: (_) => SearchScreen(store: widget.store))),
           ),
-          IconButton(
-            icon: const Icon(Icons.alarm),
-            tooltip: context.t.agenda,
-            onPressed: _openAgenda,
+          Spotlight(
+            id: 'home-agenda',
+            child: IconButton(
+              icon: const Icon(Icons.alarm),
+              tooltip: context.t.agenda,
+              onPressed: _openAgenda,
+            ),
           ),
           IconButton(
             icon: const Icon(Icons.map_outlined),

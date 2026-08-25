@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "El acceso al calendario está bloqueado, así que el reflejo está apagado. Permítelo en los ajustes del sistema y vuelve a activar el reflejo.",
   "calendarNotChosen": "No se eligió ningún calendario, así que el reflejo está apagado. Actívalo de nuevo y elige uno.",
   "calendarGone": "El calendario elegido ya no existe, así que el reflejo está apagado. Actívalo de nuevo y elige otro.",
-  "noWritableCalendar": "Ningún calendario de este dispositivo admite escritura. Añade una cuenta de calendario en los ajustes del sistema y vuelve a intentarlo."
+  "noWritableCalendar": "Ningún calendario de este dispositivo admite escritura. Añade una cuenta de calendario en los ajustes del sistema y vuelve a intentarlo.",
+  "spotHomeAgenda": "La agenda: todo lo pendiente, de todos los gatos y clowders.",
+  "spotAddReminder": "Añadir recordatorio: un plan con fecha. Aparece en la agenda, no en la página, hasta que lo marques como hecho.",
+  "spotAgendaAdd": "Nuevo plan: elige un campo, una fecha y un valor.",
+  "spotAgendaCalendar": "Actívalo para ver cada vencimiento en el calendario de tu teléfono.",
+  "helpAgenda": "Todo lo pendiente, por fecha; lo atrasado se queda arriba hasta que se resuelva. Toca una tarjeta para abrir el gato o el clowder. La marca da un plan por hecho: registra el valor y puede programar la siguiente ronda. Mantén pulsada una tarjeta para cambiar su fecha o quitarla. El interruptor del calendario refleja cada vencimiento en un calendario de tu teléfono; el menú los exporta como archivo de calendario.",
+  "calendarRowOff": "Calendario: apagado",
+  "calendarRowOn": "Calendario: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

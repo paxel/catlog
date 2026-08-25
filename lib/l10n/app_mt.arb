@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "L-aċċess għall-kalendarju huwa mblukkat, għalhekk ir-riflessjoni hija mitfija. Ippermettih fis-settings tas-sistema u erġa' ixgħel ir-riflessjoni.",
   "calendarNotChosen": "Ma ntgħażel l-ebda kalendarju, għalhekk ir-riflessjoni hija mitfija. Erġa' ixgħelha u agħżel wieħed.",
   "calendarGone": "Il-kalendarju magħżul m'għadux jeżisti, għalhekk ir-riflessjoni hija mitfija. Erġa' ixgħelha u agħżel ieħor.",
-  "noWritableCalendar": "L-ebda kalendarju fuq dan l-apparat ma jista' jinkiteb. Żid kont ta' kalendarju fis-settings tas-sistema u erġa' pprova."
+  "noWritableCalendar": "L-ebda kalendarju fuq dan l-apparat ma jista' jinkiteb. Żid kont ta' kalendarju fis-settings tas-sistema u erġa' pprova.",
+  "spotHomeAgenda": "It-tfakkiriet: kulma hu dovut, għall-qtates u l-clowders kollha.",
+  "spotAddReminder": "Żid tfakkira — pjan b'data. Tidher fit-tfakkiriet, mhux fil-paġna, sakemm timmarkaha bħala magħmula.",
+  "spotAgendaAdd": "Pjan ġdid: agħżel qasam, data u valur.",
+  "spotAgendaCalendar": "Ixgħel dan biex tara kull skadenza fil-kalendarju tat-telefown tiegħek.",
+  "helpAgenda": "Kulma hu dovut, skont id-data; dak li hu tard jibqa' fuq sakemm jiġi ttrattat. Mess kard biex tiftaħ il-qattus jew il-clowder. Is-sinjal jimmarka pjan bħala magħmul — jirreġistra l-valur u jista' jippjana r-rawnd li jmiss. Żomm kard magħfusa biex tibdel id-data jew tneħħiha. Is-swiċċ tal-kalendarju jirrifletti kull skadenza f'kalendarju tat-telefown tiegħek; il-menu jesportahom bħala fajl tal-kalendarju.",
+  "calendarRowOff": "Kalendarju: mitfi",
+  "calendarRowOn": "Kalendarju: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

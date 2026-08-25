@@ -1772,4 +1772,31 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Meeldetuletused: kõik, mis on tulemas, kõigi kasside ja klauderite peale.';
+
+  @override
+  String get spotAddReminder =>
+      'Lisa meeldetuletus — plaan kuupäevaga. See kuvatakse meeldetuletustes, mitte lehel, kuni märgid selle tehtuks.';
+
+  @override
+  String get spotAgendaAdd => 'Uus plaan: vali väli, kuupäev ja väärtus.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Lülita see sisse, et näha iga tähtaega oma telefoni kalendris.';
+
+  @override
+  String get helpAgenda =>
+      'Kõik, mis on tulemas, kuupäeva järgi; hilinenu jääb üles, kuni see on korras. Puuduta kaarti, et avada kass või klauder. Linnuke märgib plaani tehtuks — see salvestab väärtuse ja võib planeerida järgmise korra. Hoia kaarti all, et muuta kuupäeva või see eemaldada. Kalendrilüliti peegeldab iga tähtaja sinu telefoni kalendrisse; menüü ekspordib need kalendrifailina.';
+
+  @override
+  String get calendarRowOff => 'Kalender: väljas';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalender: $name';
+  }
 }

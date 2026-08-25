@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Kalenderadgang er blokeret, så spejlingen er slået fra. Tillad den i systemindstillingerne, og slå spejlingen til igen.",
   "calendarNotChosen": "Ingen kalender valgt, så spejlingen er slået fra. Slå den til igen, og vælg en.",
   "calendarGone": "Den valgte kalender findes ikke længere, så spejlingen er slået fra. Slå den til igen, og vælg en anden.",
-  "noWritableCalendar": "Ingen kalender på denne enhed kan skrives til. Tilføj en kalenderkonto i systemindstillingerne, og prøv igen."
+  "noWritableCalendar": "Ingen kalender på denne enhed kan skrives til. Tilføj en kalenderkonto i systemindstillingerne, og prøv igen.",
+  "spotHomeAgenda": "Påmindelserne: alt, der forfalder, på tværs af alle katte og clowders.",
+  "spotAddReminder": "Tilføj en påmindelse — en plan med en dato. Den vises i påmindelserne, ikke på siden, indtil du markerer den udført.",
+  "spotAgendaAdd": "Ny plan: vælg et felt, en dato og en værdi.",
+  "spotAgendaCalendar": "Slå dette til for at se hver forfaldsdato i telefonens kalender.",
+  "helpAgenda": "Alt, der forfalder, efter dato; det forsinkede bliver øverst, indtil det er ordnet. Tryk på et kort for at åbne katten eller clowderen. Fluebenet markerer en plan som udført — det gemmer værdien og kan planlægge næste runde. Hold et kort nede for at ændre datoen eller fjerne det. Kalenderkontakten spejler hver forfaldsdato til en kalender på din telefon; menuen eksporterer dem som kalenderfil.",
+  "calendarRowOff": "Kalender: fra",
+  "calendarRowOn": "Kalender: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

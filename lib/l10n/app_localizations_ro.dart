@@ -1777,4 +1777,31 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Agenda: tot ce este scadent, pentru toate pisicile și clowderii.';
+
+  @override
+  String get spotAddReminder =>
+      'Adaugă un memento — un plan cu dată. Apare în agendă, nu pe pagină, până îl marchezi ca făcut.';
+
+  @override
+  String get spotAgendaAdd => 'Plan nou: alege un câmp, o dată și o valoare.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Pornește asta ca să vezi fiecare scadență în calendarul telefonului.';
+
+  @override
+  String get helpAgenda =>
+      'Tot ce este scadent, după dată; ce a întârziat rămâne sus până e rezolvat. Atinge un card ca să deschizi pisica sau clowderul. Bifa marchează un plan ca făcut — înregistrează valoarea și poate programa runda următoare. Ține apăsat un card ca să-i schimbi data sau să-l elimini. Comutatorul de calendar oglindește fiecare scadență într-un calendar al telefonului; meniul le exportă ca fișier de calendar.';
+
+  @override
+  String get calendarRowOff => 'Calendar: oprit';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Calendar: $name';
+  }
 }

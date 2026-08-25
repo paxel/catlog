@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Piekļuve kalendāram ir bloķēta, tāpēc atspoguļošana ir izslēgta. Atļauj to sistēmas iestatījumos un ieslēdz atspoguļošanu vēlreiz.",
   "calendarNotChosen": "Kalendārs nav izvēlēts, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies kalendāru.",
   "calendarGone": "Izvēlētais kalendārs vairs nepastāv, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies citu.",
-  "noWritableCalendar": "Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz."
+  "noWritableCalendar": "Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz.",
+  "spotHomeAgenda": "Atgādinājumi: viss, kas gaidāms, visiem kaķiem un klauderiem.",
+  "spotAddReminder": "Pievienot atgādinājumu — plānu ar datumu. Tas rādās atgādinājumos, nevis lapā, līdz atzīmēsi to kā izdarītu.",
+  "spotAgendaAdd": "Jauns plāns: izvēlies lauku, datumu un vērtību.",
+  "spotAgendaCalendar": "Ieslēdz šo, lai redzētu katru termiņu tālruņa kalendārā.",
+  "helpAgenda": "Viss, kas gaidāms, pēc datuma; nokavētais paliek augšā, līdz tiek nokārtots. Pieskaries kartītei, lai atvērtu kaķi vai klauderi. Ķeksītis atzīmē plānu kā izdarītu — ieraksta vērtību un var ieplānot nākamo reizi. Turi kartīti nospiestu, lai mainītu datumu vai to noņemtu. Kalendāra slēdzis atspoguļo katru termiņu tālruņa kalendārā; izvēlne tos eksportē kā kalendāra failu.",
+  "calendarRowOff": "Kalendārs: izslēgts",
+  "calendarRowOn": "Kalendārs: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

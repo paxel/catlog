@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Prieiga prie kalendoriaus užblokuota, todėl atspindėjimas išjungtas. Leisk ją sistemos nustatymuose ir vėl įjunk atspindėjimą.",
   "calendarNotChosen": "Kalendorius nepasirinktas, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kalendorių.",
   "calendarGone": "Pasirinkto kalendoriaus nebėra, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kitą.",
-  "noWritableCalendar": "Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą."
+  "noWritableCalendar": "Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą.",
+  "spotHomeAgenda": "Priminimai: viskas, kas laukia, per visas kates ir klauderius.",
+  "spotAddReminder": "Pridėti priminimą — planą su data. Jis rodomas priminimuose, ne puslapyje, kol pažymėsi kaip atliktą.",
+  "spotAgendaAdd": "Naujas planas: pasirink lauką, datą ir reikšmę.",
+  "spotAgendaCalendar": "Įjunk tai, kad matytum kiekvieną terminą telefono kalendoriuje.",
+  "helpAgenda": "Viskas, kas laukia, pagal datą; pavėluota lieka viršuje, kol sutvarkoma. Bakstelėk kortelę, kad atvertum katę ar klauderį. Varnelė pažymi planą atliktu — įrašo reikšmę ir gali suplanuoti kitą kartą. Palaikyk kortelę nuspaudę, kad pakeistum datą ar pašalintum. Kalendoriaus jungiklis atspindi kiekvieną terminą telefono kalendoriuje; meniu juos eksportuoja kalendoriaus failu.",
+  "calendarRowOff": "Kalendorius: išjungta",
+  "calendarRowOn": "Kalendorius: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

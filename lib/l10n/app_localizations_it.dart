@@ -1781,4 +1781,32 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Nessun calendario su questo dispositivo è scrivibile. Aggiungi un account calendario nelle impostazioni di sistema e riprova.';
+
+  @override
+  String get spotHomeAgenda =>
+      'L\'agenda: tutto ciò che è in scadenza, per tutti i gatti e i clowder.';
+
+  @override
+  String get spotAddReminder =>
+      'Aggiungi un promemoria — un piano con una data. Compare nell\'agenda, non nella pagina, finché non lo segni come fatto.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Nuovo piano: scegli un campo, una data e un valore.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Attivalo per vedere ogni scadenza nel calendario del tuo telefono.';
+
+  @override
+  String get helpAgenda =>
+      'Tutto ciò che è in scadenza, per data; ciò che è in ritardo resta in alto finché non è gestito. Tocca una scheda per aprire il gatto o il clowder. La spunta segna un piano come fatto: registra il valore e può programmare il prossimo giro. Tieni premuta una scheda per cambiarne la data o rimuoverla. L\'interruttore del calendario rispecchia ogni scadenza in un calendario del tuo telefono; il menu le esporta come file calendario.';
+
+  @override
+  String get calendarRowOff => 'Calendario: spento';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Calendario: $name';
+  }
 }

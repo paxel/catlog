@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Qasja te kalendari është bllokuar, prandaj pasqyrimi është fikur. Lejoje te cilësimet e sistemit dhe ndize pasqyrimin sërish.",
   "calendarNotChosen": "Nuk është zgjedhur kalendar, prandaj pasqyrimi është fikur. Ndize sërish dhe zgjidh një.",
   "calendarGone": "Kalendari i zgjedhur nuk ekziston më, prandaj pasqyrimi është fikur. Ndize sërish dhe zgjidh një tjetër.",
-  "noWritableCalendar": "Në asnjë kalendar të kësaj pajisjeje s'mund të shkruhet. Shto një llogari kalendari te cilësimet e sistemit dhe provo sërish."
+  "noWritableCalendar": "Në asnjë kalendar të kësaj pajisjeje s'mund të shkruhet. Shto një llogari kalendari te cilësimet e sistemit dhe provo sërish.",
+  "spotHomeAgenda": "Përkujtuesit: gjithçka që pritet, për të gjitha macet dhe clowderët.",
+  "spotAddReminder": "Shto një përkujtues — një plan me datë. Shfaqet te përkujtuesit, jo në faqe, derisa ta shënosh si të bërë.",
+  "spotAgendaAdd": "Plan i ri: zgjidh një fushë, një datë dhe një vlerë.",
+  "spotAgendaCalendar": "Ndize këtë për të parë çdo afat në kalendarin e telefonit.",
+  "helpAgenda": "Gjithçka që pritet, sipas datës; e vonuara mbetet lart derisa të rregullohet. Prek një kartë për të hapur macen ose clowderin. Shenja e shënon planin si të bërë — regjistron vlerën dhe mund të planifikojë raundin tjetër. Mbaje shtypur një kartë për t'i ndryshuar datën ose për ta hequr. Çelësi i kalendarit pasqyron çdo afat në një kalendar të telefonit; menyja i eksporton si skedar kalendari.",
+  "calendarRowOff": "Kalendari: fikur",
+  "calendarRowOn": "Kalendari: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Prístup ku kalendáru je zablokovaný, takže zrkadlenie je vypnuté. Povoľ ho v nastaveniach systému a zrkadlenie znova zapni.",
   "calendarNotChosen": "Nie je vybraný žiadny kalendár, takže zrkadlenie je vypnuté. Znova ho zapni a nejaký vyber.",
   "calendarGone": "Vybraný kalendár už neexistuje, takže zrkadlenie je vypnuté. Znova ho zapni a vyber iný.",
-  "noWritableCalendar": "Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova."
+  "noWritableCalendar": "Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova.",
+  "spotHomeAgenda": "Pripomienky: všetko, čo je naplánované, naprieč mačkami a clowdermi.",
+  "spotAddReminder": "Pridať pripomienku — plán s dátumom. Zobrazuje sa v pripomienkach, nie na stránke, kým ju neoznačíš ako hotovú.",
+  "spotAgendaAdd": "Nový plán: zvoľ pole, dátum a hodnotu.",
+  "spotAgendaCalendar": "Zapni to, aby si videl každý termín v kalendári telefónu.",
+  "helpAgenda": "Všetko, čo je naplánované, podľa dátumu; čo je po termíne, ostáva navrchu, kým to nevybavíš. Ťukni na kartu a otvoríš mačku alebo clowder. Fajka označí plán ako hotový — zapíše hodnotu a môže naplánovať ďalšie kolo. Podrž kartu a zmeníš dátum alebo ju odstrániš. Prepínač kalendára zrkadlí každý termín do kalendára telefónu; ponuka ich exportuje ako súbor kalendára.",
+  "calendarRowOff": "Kalendár: vypnuté",
+  "calendarRowOn": "Kalendár: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

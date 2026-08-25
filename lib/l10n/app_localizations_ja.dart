@@ -1730,4 +1730,29 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'この端末に書き込めるカレンダーがありません。システム設定でカレンダーのアカウントを追加して、やり直してください。';
+
+  @override
+  String get spotHomeAgenda => '予定表：すべての猫とクラウダーの期日をまとめて見られます。';
+
+  @override
+  String get spotAddReminder =>
+      'リマインダーを追加 — 日付付きの予定です。完了にするまで、ページではなく予定表に表示されます。';
+
+  @override
+  String get spotAgendaAdd => '新しい予定：フィールド、日付、値を選びます。';
+
+  @override
+  String get spotAgendaCalendar => 'これをオンにすると、期日がスマートフォンのカレンダーにも表示されます。';
+
+  @override
+  String get helpAgenda =>
+      '期日の順に並んだ、すべての予定。期限切れは対応するまで上に残ります。カードをタップすると猫やクラウダーが開きます。チェックで完了にすると、値が記録され、次回の予定を組めます。カードを長押しすると日付の変更や削除ができます。カレンダーのスイッチは各期日をスマートフォンのカレンダーに反映し、メニューからカレンダーファイルとして書き出せます。';
+
+  @override
+  String get calendarRowOff => 'カレンダー：オフ';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'カレンダー：$name';
+  }
 }

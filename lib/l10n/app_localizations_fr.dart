@@ -1783,4 +1783,32 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Aucun calendrier de cet appareil n\'est modifiable. Ajoute un compte de calendrier dans les réglages du système, puis réessaie.';
+
+  @override
+  String get spotHomeAgenda =>
+      'L\'agenda : tout ce qui est à venir, pour tous les chats et clowders.';
+
+  @override
+  String get spotAddReminder =>
+      'Ajouter un rappel — un plan avec une date. Il apparaît dans l\'agenda, pas sur la page, jusqu\'à ce que tu le marques fait.';
+
+  @override
+  String get spotAgendaAdd =>
+      'Nouveau plan : choisis un champ, une date et une valeur.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Active ceci pour voir chaque échéance dans le calendrier de ton téléphone.';
+
+  @override
+  String get helpAgenda =>
+      'Tout ce qui est à venir, par date ; ce qui est en retard reste en haut jusqu\'à ce que ce soit réglé. Touche une carte pour ouvrir le chat ou le clowder. La coche marque un plan fait — elle enregistre la valeur et peut prévoir le prochain tour. Reste appuyé sur une carte pour changer sa date ou la retirer. L\'interrupteur calendrier reflète chaque échéance dans un calendrier de ton téléphone ; le menu les exporte en fichier calendrier.';
+
+  @override
+  String get calendarRowOff => 'Calendrier : désactivé';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Calendrier : $name';
+  }
 }

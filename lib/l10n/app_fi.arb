@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Kalenterin käyttö on estetty, joten peilaus on pois päältä. Salli se järjestelmän asetuksissa ja kytke peilaus uudelleen päälle.",
   "calendarNotChosen": "Kalenteria ei ole valittu, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse kalenteri.",
   "calendarGone": "Valittua kalenteria ei enää ole, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse toinen.",
-  "noWritableCalendar": "Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen."
+  "noWritableCalendar": "Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen.",
+  "spotHomeAgenda": "Muistutukset: kaikki erääntyvä, kaikista kissoista ja clowdereista.",
+  "spotAddReminder": "Lisää muistutus — suunnitelma päivämäärällä. Se näkyy muistutuksissa, ei sivulla, kunnes merkitset sen tehdyksi.",
+  "spotAgendaAdd": "Uusi suunnitelma: valitse kenttä, päivämäärä ja arvo.",
+  "spotAgendaCalendar": "Kytke tämä päälle nähdäksesi jokaisen eräpäivän puhelimesi kalenterissa.",
+  "helpAgenda": "Kaikki erääntyvä päivämäärän mukaan; myöhässä oleva pysyy ylimpänä, kunnes se on hoidettu. Napauta korttia avataksesi kissan tai clowderin. Väkänen merkitsee suunnitelman tehdyksi — se tallentaa arvon ja voi ajoittaa seuraavan kierroksen. Paina korttia pitkään muuttaaksesi päivämäärää tai poistaaksesi sen. Kalenterikytkin peilaa jokaisen eräpäivän puhelimesi kalenteriin; valikko vie ne kalenteritiedostona.",
+  "calendarRowOff": "Kalenteri: pois",
+  "calendarRowOn": "Kalenteri: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

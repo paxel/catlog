@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Dostop do koledarja je blokiran, zato je zrcaljenje izklopljeno. Dovoli ga v sistemskih nastavitvah in znova vklopi zrcaljenje.",
   "calendarNotChosen": "Koledar ni izbran, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi enega.",
   "calendarGone": "Izbrani koledar ne obstaja več, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi drugega.",
-  "noWritableCalendar": "V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova."
+  "noWritableCalendar": "V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova.",
+  "spotHomeAgenda": "Opomniki: vse, kar zapade, za vse mačke in clowderje.",
+  "spotAddReminder": "Dodaj opomnik — načrt z datumom. Prikazuje se med opomniki, ne na strani, dokler ga ne označiš kot opravljenega.",
+  "spotAgendaAdd": "Nov načrt: izberi polje, datum in vrednost.",
+  "spotAgendaCalendar": "Vklopi to, da vidiš vsak rok v koledarju svojega telefona.",
+  "helpAgenda": "Vse, kar zapade, po datumu; zamujeno ostane na vrhu, dokler ni urejeno. Tapni kartico, da odpreš mačko ali clowder. Kljukica označi načrt kot opravljen — zabeleži vrednost in lahko načrtuje naslednji krog. Pridrži kartico, da spremeniš datum ali jo odstraniš. Stikalo koledarja zrcali vsak rok v koledar tvojega telefona; meni jih izvozi kot koledarsko datoteko.",
+  "calendarRowOff": "Koledar: izklopljen",
+  "calendarRowOn": "Koledar: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }

@@ -1781,4 +1781,31 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą.';
+
+  @override
+  String get spotHomeAgenda =>
+      'Priminimai: viskas, kas laukia, per visas kates ir klauderius.';
+
+  @override
+  String get spotAddReminder =>
+      'Pridėti priminimą — planą su data. Jis rodomas priminimuose, ne puslapyje, kol pažymėsi kaip atliktą.';
+
+  @override
+  String get spotAgendaAdd => 'Naujas planas: pasirink lauką, datą ir reikšmę.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Įjunk tai, kad matytum kiekvieną terminą telefono kalendoriuje.';
+
+  @override
+  String get helpAgenda =>
+      'Viskas, kas laukia, pagal datą; pavėluota lieka viršuje, kol sutvarkoma. Bakstelėk kortelę, kad atvertum katę ar klauderį. Varnelė pažymi planą atliktu — įrašo reikšmę ir gali suplanuoti kitą kartą. Palaikyk kortelę nuspaudę, kad pakeistum datą ar pašalintum. Kalendoriaus jungiklis atspindi kiekvieną terminą telefono kalendoriuje; meniu juos eksportuoja kalendoriaus failu.';
+
+  @override
+  String get calendarRowOff => 'Kalendorius: išjungta';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Kalendorius: $name';
+  }
 }

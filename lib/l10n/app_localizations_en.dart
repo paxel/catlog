@@ -1773,4 +1773,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noWritableCalendar =>
       'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.';
+
+  @override
+  String get spotHomeAgenda =>
+      'The Agenda: everything that is due, across all cats and clowders.';
+
+  @override
+  String get spotAddReminder =>
+      'Add a reminder — a plan with a date. It shows in the Agenda, not on the page, until you mark it done.';
+
+  @override
+  String get spotAgendaAdd => 'New plan: pick a field, a date and a value.';
+
+  @override
+  String get spotAgendaCalendar =>
+      'Switch this on to see every due date in your phone\'s calendar.';
+
+  @override
+  String get helpAgenda =>
+      'Everything that is due, ordered by date; overdue stays on top until handled. Tap a card to open the cat or clowder. The check marks a plan done — it records the value and can schedule the next round. Hold a card to change its date or remove it. The calendar switch mirrors every due date into a calendar of your phone; the menu exports them as a calendar file.';
+
+  @override
+  String get calendarRowOff => 'Calendar: off';
+
+  @override
+  String calendarRowOn(String name) {
+    return 'Calendar: $name';
+  }
 }

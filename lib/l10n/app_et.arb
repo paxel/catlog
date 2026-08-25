@@ -596,5 +596,13 @@
   "calendarPermissionDenied": "Kalendri kasutus on blokeeritud, seega on peegeldus väljas. Luba see süsteemi seadetes ja lülita peegeldus uuesti sisse.",
   "calendarNotChosen": "Kalendrit pole valitud, seega on peegeldus väljas. Lülita see uuesti sisse ja vali üks.",
   "calendarGone": "Valitud kalendrit enam pole, seega on peegeldus väljas. Lülita see uuesti sisse ja vali teine.",
-  "noWritableCalendar": "Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti."
+  "noWritableCalendar": "Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti.",
+  "spotHomeAgenda": "Meeldetuletused: kõik, mis on tulemas, kõigi kasside ja klauderite peale.",
+  "spotAddReminder": "Lisa meeldetuletus — plaan kuupäevaga. See kuvatakse meeldetuletustes, mitte lehel, kuni märgid selle tehtuks.",
+  "spotAgendaAdd": "Uus plaan: vali väli, kuupäev ja väärtus.",
+  "spotAgendaCalendar": "Lülita see sisse, et näha iga tähtaega oma telefoni kalendris.",
+  "helpAgenda": "Kõik, mis on tulemas, kuupäeva järgi; hilinenu jääb üles, kuni see on korras. Puuduta kaarti, et avada kass või klauder. Linnuke märgib plaani tehtuks — see salvestab väärtuse ja võib planeerida järgmise korra. Hoia kaarti all, et muuta kuupäeva või see eemaldada. Kalendrilüliti peegeldab iga tähtaja sinu telefoni kalendrisse; menüü ekspordib need kalendrifailina.",
+  "calendarRowOff": "Kalender: väljas",
+  "calendarRowOn": "Kalender: {name}",
+  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}}
 }
