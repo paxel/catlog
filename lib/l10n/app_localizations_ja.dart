@@ -1690,4 +1690,7 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。';
+
+  @override
+  String get spotEar => '隅の小さな猫耳は「長押しでもっと」の印です。';
 }

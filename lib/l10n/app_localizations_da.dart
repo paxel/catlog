@@ -1731,4 +1731,8 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Denne fil kommer fra et nyere cat(a)log. Opdater cat(a)log på denne enhed for at importere den.';
+
+  @override
+  String get spotEar =>
+      'Et lille katteøre i et hjørne betyder: hold nede for mere.';
 }

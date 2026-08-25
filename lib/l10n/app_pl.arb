@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Każdy termin staje się całodniowym wydarzeniem w kalendarzu cat(a)log na tym urządzeniu. Daty zmieniaj w cat(a)log, nie w kalendarzu.",
   "syncPeerOlder": "Drugie urządzenie ma starszy cat(a)log bez przypomnień. Zaktualizuj tam cat(a)log i zsynchronizuj ponownie.",
   "syncPeerNewer": "Drugie urządzenie ma nowszy cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu i zsynchronizuj ponownie.",
-  "bundleNewerError": "Ten plik pochodzi z nowszego cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu, aby go zaimportować."
+  "bundleNewerError": "Ten plik pochodzi z nowszego cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu, aby go zaimportować.",
+  "spotEar": "Małe kocie ucho w rogu oznacza: przytrzymaj, aby zobaczyć więcej."
 }

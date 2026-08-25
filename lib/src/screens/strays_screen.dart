@@ -16,6 +16,7 @@ import 'match_candidates_screen.dart';
 import '../field_labels.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 
 /// Cats currently in no Clowder. The map view arrives with milestone M3;
@@ -190,7 +191,8 @@ class _StraysScreenState extends State<StraysScreen> {
             if (!mounted) return;
             setState(() {});
           },
-          child: FloatingActionButton.extended(
+          child: WithCatEar(
+              child: FloatingActionButton.extended(
           heroTag: 'strayCam',
           onPressed: () async {
             final catId = await strayCam(context, widget.store);
@@ -207,7 +209,7 @@ class _StraysScreenState extends State<StraysScreen> {
           },
           icon: const Icon(Icons.photo_camera),
           label: Text(context.t.strayCam),
-          ),
+          )),
         ),
         const SizedBox(height: 12),
         FloatingActionButton.extended(

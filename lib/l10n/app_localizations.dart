@@ -3115,6 +3115,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.'**
   String get bundleNewerError;
+
+  /// No description provided for @spotEar.
+  ///
+  /// In en, this message translates to:
+  /// **'A little cat ear in a corner means: press and hold for more.'**
+  String get spotEar;
 }
 
 class _AppLocalizationsDelegate

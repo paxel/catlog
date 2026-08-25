@@ -1734,4 +1734,8 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Este ficheiro vem de um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo para o importar.';
+
+  @override
+  String get spotEar =>
+      'Uma orelhinha de gato num canto significa: mantém premido para mais.';
 }

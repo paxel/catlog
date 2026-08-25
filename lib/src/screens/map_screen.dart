@@ -19,6 +19,7 @@ import '../map/place_view.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 
@@ -414,6 +415,61 @@ class _MapScreenState extends State<MapScreen>
     }
   }
 
+  /// Every map control in one row: layers, my location, pin stepping,
+  /// Stray Cam. Off the map so nothing overlays it.
+  Widget _toolbar(BuildContext context) {
+    return Material(
+      color: Theme.of(context).colorScheme.surfaceContainer,
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          child: Row(children: [
+            Spotlight(
+              id: 'map-layers',
+              child: IconButton(
+                icon: const Icon(Icons.layers_outlined),
+                tooltip: context.t.strayAreaLabel,
+                onPressed: _pickStrayAreas,
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.my_location),
+              tooltip: context.t.useMyLocation,
+              onPressed: _jumpToMyLocation,
+            ),
+            IconButton(
+              icon: const Icon(Icons.chevron_left),
+              tooltip: context.t.prevPin,
+              onPressed: () => _stepPins(-1),
+            ),
+            IconButton(
+              icon: const Icon(Icons.chevron_right),
+              tooltip: context.t.nextPin,
+              onPressed: () => _stepPins(1),
+            ),
+            const Spacer(),
+            FilledButton.tonalIcon(
+              onPressed: () async {
+                final catId = await strayCam(context, store);
+                if (catId != null && context.mounted) {
+                  await Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => CatDetailScreen(
+                        store: store, catId: catId, startEditing: true),
+                  ));
+                }
+                if (!mounted) return;
+                setState(() {});
+              },
+              icon: const Icon(Icons.photo_camera),
+              label: Text(context.t.strayCam),
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_tiles == null) {
@@ -434,16 +490,9 @@ class _MapScreenState extends State<MapScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text(context.t.map),
+        // All map controls live in the toolbar below the map.
         actions: [
           HelpButton(store: store, screenId: 'map'),
-          Spotlight(
-            id: 'map-layers',
-            child: IconButton(
-              icon: const Icon(Icons.layers_outlined),
-              tooltip: context.t.strayAreaLabel,
-              onPressed: _pickStrayAreas,
-            ),
-          ),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
@@ -473,49 +522,11 @@ class _MapScreenState extends State<MapScreen>
           ),
         ),
       ),
-      floatingActionButton:
-          Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.end, children: [
-        FloatingActionButton.small(
-          heroTag: 'map-my-location',
-          tooltip: context.t.useMyLocation,
-          onPressed: _jumpToMyLocation,
-          child: const Icon(Icons.my_location),
-        ),
-        const SizedBox(height: 8),
-        Row(mainAxisSize: MainAxisSize.min, children: [
-          FloatingActionButton.small(
-            heroTag: 'map-prev',
-            tooltip: context.t.prevPin,
-            onPressed: () => _stepPins(-1),
-            child: const Icon(Icons.chevron_left),
-          ),
-          const SizedBox(width: 8),
-          FloatingActionButton.small(
-            heroTag: 'map-next',
-            tooltip: context.t.nextPin,
-            onPressed: () => _stepPins(1),
-            child: const Icon(Icons.chevron_right),
-          ),
-        ]),
-        const SizedBox(height: 8),
-        FloatingActionButton.extended(
-        heroTag: 'map-stray-cam',
-        onPressed: () async {
-          final catId = await strayCam(context, store);
-          if (catId != null && context.mounted) {
-            await Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CatDetailScreen(
-                  store: store, catId: catId, startEditing: true),
-            ));
-          }
-          if (!mounted) return;
-          setState(() {});
-        },
-        icon: const Icon(Icons.photo_camera),
-        label: Text(context.t.strayCam),
-        ),
-      ]),
-      body: Stack(children: [
+      // One toolbar row below the map instead of buttons floating on
+      // it: nothing covers the map, and aiming at a button can no
+      // longer pan it (fat fingers, #74 sibling).
+      body: Column(children: [
+        Expanded(child: Stack(children: [
         FlutterMap(
         mapController: _controller,
         options: MapOptions(
@@ -684,6 +695,12 @@ class _MapScreenState extends State<MapScreen>
                       ),
                   ]),
           ),
+          // The whole map answers to long-press (records a sighting) —
+          // it wears the ear like every other hold-for-more surface.
+          const PositionedDirectional(
+              top: 0, end: 0, child: CatEarBadge()),
+        ])),
+        _toolbar(context),
       ]),
       bottomNavigationBar: _trailCat == null
           ? null

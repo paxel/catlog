@@ -1735,4 +1735,7 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Оваа датотека доаѓа од понов cat(a)log. Ажурирај го cat(a)log на овој уред за да ја увезеш.';
+
+  @override
+  String get spotEar => 'Мало мачешко уво во аголот значи: задржи за повеќе.';
 }

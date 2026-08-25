@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Každý termín se stane celodenní událostí v kalendáři cat(a)log na tomto zařízení. Data měň v cat(a)logu, ne v kalendáři.",
   "syncPeerOlder": "Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.",
   "syncPeerNewer": "Druhé zařízení má novější cat(a)log. Aktualizuj cat(a)log na tomto zařízení a synchronizuj znovu.",
-  "bundleNewerError": "Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat."
+  "bundleNewerError": "Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.",
+  "spotEar": "Malé kočičí ucho v rohu znamená: podrž pro víc."
 }

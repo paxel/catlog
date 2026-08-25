@@ -32,6 +32,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
     SpotlightItem('home-strays', (t) => t.spotHomeStrays),
     SpotlightItem('home-sync', (t) => t.spotHomeSync),
     SpotlightItem('home-menu', (t) => t.spotHomeMenu),
+    SpotlightItem('home-ear', (t) => t.spotEar),
   ],
   'map': [
     SpotlightItem('map-search', (t) => t.spotMapSearch),

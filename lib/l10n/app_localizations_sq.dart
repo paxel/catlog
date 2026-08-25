@@ -1733,4 +1733,8 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Ky skedar vjen nga një cat(a)log më i ri. Përditëso cat(a)log në këtë pajisje për ta importuar.';
+
+  @override
+  String get spotEar =>
+      'Një vesh i vogël maceje në qoshe do të thotë: mbaje shtypur për më shumë.';
 }

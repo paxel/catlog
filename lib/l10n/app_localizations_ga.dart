@@ -1745,4 +1745,8 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Tagann an comhad seo ó cat(a)log níos nuaí. Nuashonraigh cat(a)log ar an ngléas seo chun é a iompórtáil.';
+
+  @override
+  String get spotEar =>
+      'Ciallaíonn cluas bheag cait i gcúinne: coinnigh brúite le haghaidh tuilleadh.';
 }

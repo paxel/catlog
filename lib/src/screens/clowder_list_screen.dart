@@ -17,6 +17,7 @@ import '../name_date_dialog.dart';
 import '../share.dart';
 import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
 import 'agenda_screen.dart';
@@ -352,7 +353,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     ));
               }
               final clowder = clowders[i - 1];
-              return _ClowderCard(
+              final card = _ClowderCard(
                 store: widget.store,
                 clowder: clowder,
                 selected:
@@ -382,6 +383,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 },
                 onTap: () => _open(_clowderPage(clowder.id)),
               );
+              // The first clowder card carries the one-time lesson
+              // naming the ear.
+              return i == 1
+                  ? Spotlight(id: 'home-ear', child: card)
+                  : card;
             },
           ),
         ],
@@ -558,7 +564,14 @@ class _ClowderCard extends StatelessWidget {
         onSecondaryTapDown: onContextMenu == null
             ? null
             : (d) => onContextMenu!(d.globalPosition),
-        child: Stack(fit: StackFit.expand, children: [
+        // Long-press = menu, the app-wide gesture convention; the cat
+        // ear in the corner announces it.
+        onLongPress: null,
+        child: GestureDetector(
+          onLongPressStart: onContextMenu == null
+              ? null
+              : (d) => onContextMenu!(d.globalPosition),
+          child: Stack(fit: StackFit.expand, children: [
           if (cover != null)
             Opacity(
               opacity: 0.55,
@@ -619,7 +632,11 @@ class _ClowderCard extends StatelessWidget {
                 ),
               ),
             ),
+          if (onContextMenu != null)
+            const PositionedDirectional(
+                top: 0, end: 0, child: CatEarBadge()),
         ]),
+        ),
       ),
     );
   }

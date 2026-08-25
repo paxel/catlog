@@ -14,6 +14,7 @@ import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
 import '../reminders/device_calendar_port.dart';
 import '../share.dart';
+import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 
@@ -254,7 +255,8 @@ class _AgendaScreenState extends State<AgendaScreen> {
       child: GestureDetector(
         onLongPressStart: (d) => _menu(r, d.globalPosition),
         onSecondaryTapDown: (d) => _menu(r, d.globalPosition),
-        child: ListTile(
+        child: WithCatEar(
+            child: ListTile(
           onTap: () => _openEntity(r.entity),
           title: Text(
               '${_relative(context, r.due)} · '
@@ -269,7 +271,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
             tooltip: t.markDone,
             onPressed: () => _markDone(r),
           ),
-        ),
+        )),
       ),
     );
   }

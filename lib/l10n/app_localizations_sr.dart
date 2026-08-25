@@ -1733,4 +1733,7 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Ова датотека долази из новијег cat(a)log-а. Ажурирај cat(a)log на овом уређају да је увезеш.';
+
+  @override
+  String get spotEar => 'Мало мачје уво у углу значи: држи притиснуто за више.';
 }

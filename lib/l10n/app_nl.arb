@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Elke vervaldatum wordt een hele-dag-afspraak in een cat(a)log-agenda op dit apparaat. Wijzig datums in cat(a)log, niet in de agenda.",
   "syncPeerOlder": "Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.",
   "syncPeerNewer": "Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.",
-  "bundleNewerError": "Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren."
+  "bundleNewerError": "Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.",
+  "spotEar": "Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer."
 }

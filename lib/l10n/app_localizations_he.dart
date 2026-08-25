@@ -1723,4 +1723,7 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'הקובץ הזה מגיע מ-cat(a)log חדש יותר. עדכנו את cat(a)log במכשיר הזה כדי לייבא אותו.';
+
+  @override
+  String get spotEar => 'אוזן חתול קטנה בפינה פירושה: לחיצה ארוכה לעוד.';
 }

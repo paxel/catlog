@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Hver gjalddagi verður heilsdagsviðburður í cat(a)log-dagatali á þessu tæki. Breyttu dagsetningum í cat(a)log, ekki í dagatalinu.",
   "syncPeerOlder": "Hitt tækið keyrir eldra cat(a)log án áminninga. Uppfærðu cat(a)log þar og samstilltu aftur.",
   "syncPeerNewer": "Hitt tækið keyrir nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki og samstilltu aftur.",
-  "bundleNewerError": "Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn."
+  "bundleNewerError": "Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.",
+  "spotEar": "Lítið kattareyra í horni þýðir: haltu inni fyrir meira."
 }

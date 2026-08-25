@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Hver forfallsdato blir en heldagshendelse i en cat(a)log-kalender på denne enheten. Endre datoer i cat(a)log, ikke i kalenderen.",
   "syncPeerOlder": "Den andre enheten kjører et eldre cat(a)log uten påminnelser. Oppdater cat(a)log der, og synkroniser igjen.",
   "syncPeerNewer": "Den andre enheten kjører et nyere cat(a)log. Oppdater cat(a)log på denne enheten, og synkroniser igjen.",
-  "bundleNewerError": "Denne filen kommer fra et nyere cat(a)log. Oppdater cat(a)log på denne enheten for å importere den."
+  "bundleNewerError": "Denne filen kommer fra et nyere cat(a)log. Oppdater cat(a)log på denne enheten for å importere den.",
+  "spotEar": "Et lite katteøre i et hjørne betyr: hold inne for mer."
 }

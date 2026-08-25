@@ -1735,4 +1735,8 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.';
+
+  @override
+  String get spotEar =>
+      'O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult.';
 }

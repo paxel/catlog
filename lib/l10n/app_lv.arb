@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Katrs termiņš kļūst par visas dienas notikumu cat(a)log kalendārā šajā ierīcē. Datumus maini cat(a)log, nevis kalendārā.",
   "syncPeerOlder": "Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.",
   "syncPeerNewer": "Otrā ierīcē ir jaunāks cat(a)log. Atjaunini cat(a)log šajā ierīcē un sinhronizē vēlreiz.",
-  "bundleNewerError": "Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu."
+  "bundleNewerError": "Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.",
+  "spotEar": "Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk."
 }

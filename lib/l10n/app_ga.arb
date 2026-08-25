@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Éiríonn gach spriocdháta ina imeacht lae iomláin i bhféilire cat(a)log ar an ngléas seo. Athraigh dátaí in cat(a)log, ní san fhéilire.",
   "syncPeerOlder": "Tá cat(a)log níos sine gan mheabhrúcháin ar an ngléas eile. Nuashonraigh cat(a)log ansin agus sioncronaigh arís.",
   "syncPeerNewer": "Tá cat(a)log níos nuaí ar an ngléas eile. Nuashonraigh cat(a)log ar an ngléas seo agus sioncronaigh arís.",
-  "bundleNewerError": "Tagann an comhad seo ó cat(a)log níos nuaí. Nuashonraigh cat(a)log ar an ngléas seo chun é a iompórtáil."
+  "bundleNewerError": "Tagann an comhad seo ó cat(a)log níos nuaí. Nuashonraigh cat(a)log ar an ngléas seo chun é a iompórtáil.",
+  "spotEar": "Ciallaíonn cluas bheag cait i gcúinne: coinnigh brúite le haghaidh tuilleadh."
 }

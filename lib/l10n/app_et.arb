@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Iga tähtaeg saab kogu päeva sündmuseks cat(a)log kalendris selles seadmes. Kuupäevi muuda cat(a)logis, mitte kalendris.",
   "syncPeerOlder": "Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.",
   "syncPeerNewer": "Teises seadmes on uuem cat(a)log. Uuenda cat(a)log selles seadmes ja sünkrooni uuesti.",
-  "bundleNewerError": "See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida."
+  "bundleNewerError": "See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.",
+  "spotEar": "Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem."
 }

@@ -1732,4 +1732,8 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Bu dosya daha yeni bir cat(a)log sürümünden geliyor. İçe aktarmak için bu cihazda cat(a)log uygulamasını güncelle.';
+
+  @override
+  String get spotEar =>
+      'Köşedeki küçük kedi kulağı şu demek: daha fazlası için basılı tut.';
 }

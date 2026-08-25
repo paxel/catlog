@@ -1733,4 +1733,7 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.';
+
+  @override
+  String get spotEar => 'Malé kočičí ucho v rohu znamená: podrž pro víc.';
 }

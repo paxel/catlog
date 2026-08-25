@@ -1732,4 +1732,7 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Този файл идва от по-нов cat(a)log. Обнови cat(a)log на това устройство, за да го импортираш.';
+
+  @override
+  String get spotEar => 'Малко котешко ухо в ъгъла означава: задръж за повече.';
 }

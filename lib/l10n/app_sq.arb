@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Çdo afat bëhet ngjarje gjithëditore në një kalendar cat(a)log në këtë pajisje. Datat ndryshoji në cat(a)log, jo në kalendar.",
   "syncPeerOlder": "Pajisja tjetër ka një cat(a)log më të vjetër pa përkujtues. Përditëso cat(a)log atje dhe sinkronizo sërish.",
   "syncPeerNewer": "Pajisja tjetër ka një cat(a)log më të ri. Përditëso cat(a)log në këtë pajisje dhe sinkronizo sërish.",
-  "bundleNewerError": "Ky skedar vjen nga një cat(a)log më i ri. Përditëso cat(a)log në këtë pajisje për ta importuar."
+  "bundleNewerError": "Ky skedar vjen nga një cat(a)log më i ri. Përditëso cat(a)log në këtë pajisje për ta importuar.",
+  "spotEar": "Një vesh i vogël maceje në qoshe do të thotë: mbaje shtypur për më shumë."
 }

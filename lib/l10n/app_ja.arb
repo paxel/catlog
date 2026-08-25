@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "各期日は、この端末の cat(a)log カレンダーに終日の予定として入ります。日付の変更はカレンダーではなく cat(a)log で行ってください。",
   "syncPeerOlder": "相手の端末はリマインダーのない古い cat(a)log です。そちらで cat(a)log を更新して、もう一度同期してください。",
   "syncPeerNewer": "相手の端末は新しい cat(a)log です。この端末で cat(a)log を更新して、もう一度同期してください。",
-  "bundleNewerError": "このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。"
+  "bundleNewerError": "このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。",
+  "spotEar": "隅の小さな猫耳は「長押しでもっと」の印です。"
 }

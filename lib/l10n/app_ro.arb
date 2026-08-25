@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Fiecare scadență devine un eveniment de o zi întreagă într-un calendar cat(a)log pe acest dispozitiv. Schimbă datele în cat(a)log, nu în calendar.",
   "syncPeerOlder": "Celălalt dispozitiv rulează un cat(a)log mai vechi, fără mementouri. Actualizează cat(a)log acolo și sincronizează din nou.",
   "syncPeerNewer": "Celălalt dispozitiv rulează un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv și sincronizează din nou.",
-  "bundleNewerError": "Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți."
+  "bundleNewerError": "Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.",
+  "spotEar": "O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult."
 }

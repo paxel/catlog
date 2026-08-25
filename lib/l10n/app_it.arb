@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Ogni scadenza diventa un evento di un giorno intero in un calendario cat(a)log su questo dispositivo. Cambia le date in cat(a)log, non nel calendario.",
   "syncPeerOlder": "L'altro dispositivo usa un cat(a)log più vecchio senza promemoria. Aggiorna cat(a)log lì e sincronizza di nuovo.",
   "syncPeerNewer": "L'altro dispositivo usa un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo e sincronizza di nuovo.",
-  "bundleNewerError": "Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo."
+  "bundleNewerError": "Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo.",
+  "spotEar": "Un orecchio di gatto in un angolo significa: tieni premuto per altro."
 }

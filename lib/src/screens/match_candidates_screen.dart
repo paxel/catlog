@@ -6,6 +6,7 @@ import '../field_labels.dart';
 import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 
 /// Possible same-cat pairs (#33): exact ID matches first, then cats
@@ -85,7 +86,8 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
                   ]),
                 ),
               for (final c in candidates)
-                ListTile(
+                WithCatEar(
+                    child: ListTile(
                   leading: SizedBox(
                     width: 64,
                     child: Row(children: [
@@ -107,7 +109,7 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
                     builder: (_) =>
                         CatDetailScreen(store: store, catId: c.a),
                   )),
-                ),
+                )),
             ]),
     );
   }

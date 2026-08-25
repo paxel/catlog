@@ -1736,4 +1736,8 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.';
+
+  @override
+  String get spotEar =>
+      'Lítið kattareyra í horni þýðir: haltu inni fyrir meira.';
 }

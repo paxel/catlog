@@ -1732,4 +1732,8 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.';
+
+  @override
+  String get spotEar =>
+      'Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért.';
 }

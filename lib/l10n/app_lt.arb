@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Kiekvienas terminas tampa visos dienos įvykiu cat(a)log kalendoriuje šiame įrenginyje. Datas keisk cat(a)log, ne kalendoriuje.",
   "syncPeerOlder": "Kitame įrenginyje senesnis cat(a)log be priminimų. Atnaujink cat(a)log ten ir sinchronizuok iš naujo.",
   "syncPeerNewer": "Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.",
-  "bundleNewerError": "Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum."
+  "bundleNewerError": "Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.",
+  "spotEar": "Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau."
 }

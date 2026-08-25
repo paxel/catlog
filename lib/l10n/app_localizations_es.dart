@@ -1739,4 +1739,8 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Este archivo viene de un cat(a)log más nuevo. Actualiza cat(a)log en este dispositivo para importarlo.';
+
+  @override
+  String get spotEar =>
+      'Una orejita de gato en una esquina significa: mantén pulsado para más.';
 }

@@ -506,5 +506,6 @@
   "calendarMirrorSubtitle": "Jedes Fälligkeitsdatum wird ein ganztägiger Termin in einem cat(a)log-Kalender auf diesem Gerät. Daten in cat(a)log ändern, nicht im Kalender.",
   "syncPeerOlder": "Das andere Gerät hat ein älteres cat(a)log ohne Erinnerungen. Dort cat(a)log aktualisieren und erneut synchronisieren.",
   "syncPeerNewer": "Das andere Gerät hat ein neueres cat(a)log. Auf diesem Gerät cat(a)log aktualisieren und erneut synchronisieren.",
-  "bundleNewerError": "Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren."
+  "bundleNewerError": "Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren.",
+  "spotEar": "Ein kleines Katzenohr in einer Ecke heißt: gedrückt halten für mehr."
 }

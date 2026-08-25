@@ -1732,4 +1732,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'هذا الملف من نسخة أحدث من cat(a)log. حدّث cat(a)log على هذا الجهاز لاستيراده.';
+
+  @override
+  String get spotEar => 'أذن قطة صغيرة في الزاوية تعني: اضغط مطولًا للمزيد.';
 }

@@ -1729,4 +1729,7 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'این پرونده از cat(a)log جدیدتری می‌آید. برای درون‌ریزی، cat(a)log را روی این دستگاه به‌روز کن.';
+
+  @override
+  String get spotEar => 'گوش کوچک گربه در گوشه یعنی: برای بیشتر، نگه دار.';
 }

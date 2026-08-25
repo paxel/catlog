@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../field_labels.dart';
 import '../l10n.dart';
+import 'cat_ear.dart';
 
 /// The Field rows of a detail page, in both of its moods (#46):
 /// read mode shows only filled fields, nicely formatted and inert;
@@ -103,7 +104,9 @@ class FieldList extends StatelessWidget {
                   : editing
                       ? const Icon(Icons.edit_outlined)
                       : null;
-          return ListTile(
+          final hasHold =
+              editing || onReadLongPress != null;
+          final tile = ListTile(
             title: Text(fieldDefName(context.t, def)),
             subtitle: Text(_display(context, def)),
             trailing: lock
@@ -123,6 +126,7 @@ class FieldList extends StatelessWidget {
                     ? null
                     : () => onReadLongPress!(def),
           );
+          return hasHold ? WithCatEar(child: tile) : tile;
         }),
       if (editing && onAddField != null)
         ListTile(

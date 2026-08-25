@@ -1739,4 +1739,8 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.';
+
+  @override
+  String get spotEar =>
+      'Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau.';
 }

@@ -14,6 +14,7 @@ import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
 import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
@@ -307,47 +308,52 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             itemCount: cats.length,
             itemBuilder: (context, i) {
               final cat = cats[i];
+              Future<void> menu(Offset at) async {
+                final action = await showMenu<String>(
+                  context: context,
+                  position:
+                      RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+                  items: [
+                    PopupMenuItem(
+                        value: 'open', child: Text(context.t.open)),
+                    PopupMenuItem(
+                        value: 'card', child: Text(context.t.card)),
+                  ],
+                );
+                if (!context.mounted) return;
+                if (action == 'open') _openCat(cat.id);
+                if (action == 'card') {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) =>
+                        CardScreen(store: store, catId: cat.id),
+                  ));
+                }
+              }
+
               return InkWell(
                 onTap: () => _openCat(cat.id),
-                onSecondaryTapDown: (d) async {
-                  final action = await showMenu<String>(
-                    context: context,
-                    position: RelativeRect.fromLTRB(
-                        d.globalPosition.dx,
-                        d.globalPosition.dy,
-                        d.globalPosition.dx,
-                        d.globalPosition.dy),
-                    items: [
-                      PopupMenuItem(
-                          value: 'open', child: Text(context.t.open)),
-                      PopupMenuItem(
-                          value: 'card', child: Text(context.t.card)),
-                    ],
-                  );
-                  if (!context.mounted) return;
-                  if (action == 'open') _openCat(cat.id);
-                  if (action == 'card') {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) =>
-                          CardScreen(store: store, catId: cat.id),
-                    ));
-                  }
-                },
+                // Long-press = menu, the app-wide gesture convention —
+                // right-click stays as the desktop way in.
+                onSecondaryTapDown: (d) => menu(d.globalPosition),
                 borderRadius: BorderRadius.circular(12),
-                child: Column(children: [
-                  Expanded(
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child:
-                          CatAvatar(store: store, catId: cat.id, size: 96),
+                child: GestureDetector(
+                  onLongPressStart: (d) => menu(d.globalPosition),
+                  child: WithCatEar(
+                      child: Column(children: [
+                    Expanded(
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: CatAvatar(
+                            store: store, catId: cat.id, size: 96),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text(cat.name,
-                        overflow: TextOverflow.ellipsis, maxLines: 1),
-                  ),
-                ]),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Text(cat.name,
+                          overflow: TextOverflow.ellipsis, maxLines: 1),
+                    ),
+                  ])),
+                ),
               );
             },
           );

@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Minden határidő egész napos esemény lesz egy cat(a)log naptárban ezen az eszközön. A dátumokat a cat(a)logban módosítsd, ne a naptárban.",
   "syncPeerOlder": "A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.",
   "syncPeerNewer": "A másik eszközön újabb cat(a)log fut. Frissítsd a cat(a)logot ezen az eszközön, és szinkronizálj újra.",
-  "bundleNewerError": "Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön."
+  "bundleNewerError": "Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.",
+  "spotEar": "Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért."
 }

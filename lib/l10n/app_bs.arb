@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Svaki rok postaje cjelodnevni događaj u cat(a)log kalendaru na ovom uređaju. Datume mijenjaj u cat(a)logu, ne u kalendaru.",
   "syncPeerOlder": "Drugi uređaj ima stariji cat(a)log bez podsjetnika. Ažuriraj cat(a)log tamo i sinhroniziraj ponovo.",
   "syncPeerNewer": "Drugi uređaj ima noviji cat(a)log. Ažuriraj cat(a)log na ovom uređaju i sinhroniziraj ponovo.",
-  "bundleNewerError": "Ovaj fajl dolazi iz novijeg cat(a)loga. Ažuriraj cat(a)log na ovom uređaju da ga uvezeš."
+  "bundleNewerError": "Ovaj fajl dolazi iz novijeg cat(a)loga. Ažuriraj cat(a)log na ovom uređaju da ga uvezeš.",
+  "spotEar": "Malo mačje uho u uglu znači: drži pritisnuto za više."
 }

@@ -1730,4 +1730,8 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Den här filen kommer från ett nyare cat(a)log. Uppdatera cat(a)log på den här enheten för att importera den.';
+
+  @override
+  String get spotEar =>
+      'Ett litet kattöra i ett hörn betyder: håll intryckt för mer.';
 }

@@ -1739,4 +1739,8 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Dan il-fajl ġej minn cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat biex timportah.';
+
+  @override
+  String get spotEar =>
+      'Widna żgħira ta\' qattus f\'rokna tfisser: żomm magħfus għal aktar.';
 }

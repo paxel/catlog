@@ -1734,4 +1734,7 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Ovaj fajl dolazi iz novijeg cat(a)loga. Ažuriraj cat(a)log na ovom uređaju da ga uvezeš.';
+
+  @override
+  String get spotEar => 'Malo mačje uho u uglu znači: drži pritisnuto za više.';
 }

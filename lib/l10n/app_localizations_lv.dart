@@ -1734,4 +1734,8 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.';
+
+  @override
+  String get spotEar =>
+      'Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk.';
 }

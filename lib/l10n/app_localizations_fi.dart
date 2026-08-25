@@ -1733,4 +1733,8 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Tämä tiedosto on uudemmasta cat(a)logista. Päivitä cat(a)log tällä laitteella, jotta voit tuoda sen.';
+
+  @override
+  String get spotEar =>
+      'Pieni kissankorva kulmassa tarkoittaa: paina pitkään, niin näet lisää.';
 }

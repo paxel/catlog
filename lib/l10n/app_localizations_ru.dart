@@ -1735,4 +1735,8 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Этот файл из более нового cat(a)log. Обновите cat(a)log на этом устройстве, чтобы импортировать его.';
+
+  @override
+  String get spotEar =>
+      'Маленькое кошачье ухо в углу означает: удерживайте, чтобы увидеть больше.';
 }

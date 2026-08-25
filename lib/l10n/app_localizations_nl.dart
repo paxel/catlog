@@ -1736,4 +1736,8 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.';
+
+  @override
+  String get spotEar =>
+      'Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer.';
 }

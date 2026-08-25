@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "每个到期日都会成为本设备 cat(a)log 日历中的全天事件。请在 cat(a)log 中修改日期，不要在日历中改。",
   "syncPeerOlder": "对方设备运行的 cat(a)log 版本较旧，不支持提醒。请在那台设备上更新 cat(a)log 后重新同步。",
   "syncPeerNewer": "对方设备运行的 cat(a)log 版本较新。请在本设备上更新 cat(a)log 后重新同步。",
-  "bundleNewerError": "此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。"
+  "bundleNewerError": "此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。",
+  "spotEar": "角落里的小猫耳表示：长按可查看更多。"
 }

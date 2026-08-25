@@ -584,5 +584,6 @@
   "calendarMirrorSubtitle": "Cada vencimento torna-se um evento de dia inteiro num calendário cat(a)log neste dispositivo. Muda as datas no cat(a)log, não no calendário.",
   "syncPeerOlder": "O outro dispositivo usa um cat(a)log mais antigo sem lembretes. Atualiza o cat(a)log lá e sincroniza de novo.",
   "syncPeerNewer": "O outro dispositivo usa um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo e sincroniza de novo.",
-  "bundleNewerError": "Este ficheiro vem de um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo para o importar."
+  "bundleNewerError": "Este ficheiro vem de um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo para o importar.",
+  "spotEar": "Uma orelhinha de gato num canto significa: mantém premido para mais."
 }

@@ -1674,4 +1674,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get bundleNewerError => '此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。';
+
+  @override
+  String get spotEar => '角落里的小猫耳表示：长按可查看更多。';
 }

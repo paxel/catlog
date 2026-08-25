@@ -1730,4 +1730,8 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.';
+
+  @override
+  String get spotEar =>
+      'Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem.';
 }

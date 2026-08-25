@@ -826,5 +826,6 @@
   "calendarMirrorSubtitle": "Each due date becomes an all-day event in a cat(a)log calendar on this device. Change dates in cat(a)log, not in the calendar.",
   "syncPeerOlder": "The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.",
   "syncPeerNewer": "The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.",
-  "bundleNewerError": "This file comes from a newer cat(a)log. Update cat(a)log on this device to import it."
+  "bundleNewerError": "This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.",
+  "spotEar": "A little cat ear in a corner means: press and hold for more."
 }

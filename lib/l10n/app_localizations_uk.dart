@@ -1735,4 +1735,8 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Цей файл із новішого cat(a)log. Оновіть cat(a)log на цьому пристрої, щоб імпортувати його.';
+
+  @override
+  String get spotEar =>
+      'Маленьке котяче вухо в куті означає: утримуйте, щоб побачити більше.';
 }

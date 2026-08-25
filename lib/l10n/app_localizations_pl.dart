@@ -1736,4 +1736,8 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Ten plik pochodzi z nowszego cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu, aby go zaimportować.';
+
+  @override
+  String get spotEar =>
+      'Małe kocie ucho w rogu oznacza: przytrzymaj, aby zobaczyć więcej.';
 }

@@ -24,6 +24,7 @@ import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
@@ -448,7 +449,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 ),
               ),
             ),
-          ListTile(
+          WithCatEar(
+              child: ListTile(
             leading: Icon(clowderId == null ? Icons.explore : Icons.home),
             title: Text(context.t.clowderLabel),
             subtitle: Text(clowderId == null
@@ -458,7 +460,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 _editing ? const Icon(Icons.drive_file_move_outline) : null,
             onTap: _editing ? _move : null,
             onLongPress: () => _openTimeline(field: Keys.clowder),
-          ),
+          )),
           const Divider(),
           FieldList(
             store: store,
@@ -544,6 +546,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                         child: Icon(Icons.star, color: Colors.amber),
                       ),
                     ),
+                  // Top start, because the profile star owns the end.
+                  const PositionedDirectional(
+                      top: 0, start: 0, child: CatEarBadge(atStart: true)),
                 ]),
               );
             },

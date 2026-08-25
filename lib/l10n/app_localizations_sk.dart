@@ -1733,4 +1733,7 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Tento súbor pochádza z novšieho cat(a)logu. Aktualizuj cat(a)log na tomto zariadení, aby sa dal importovať.';
+
+  @override
+  String get spotEar => 'Malé mačacie ucho v rohu znamená: podrž pre viac.';
 }

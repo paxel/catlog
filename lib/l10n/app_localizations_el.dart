@@ -1738,4 +1738,8 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get bundleNewerError =>
       'Αυτό το αρχείο προέρχεται από νεότερο cat(a)log. Ενημέρωσε το cat(a)log σε αυτήν τη συσκευή για να το εισαγάγεις.';
+
+  @override
+  String get spotEar =>
+      'Ένα μικρό αυτί γάτας σε μια γωνία σημαίνει: κράτησε πατημένο για περισσότερα.';
 }
