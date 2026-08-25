@@ -29,10 +29,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Managing catalogs: tapping a catalog switches to it and stays on the
   screen, so several catalogs can be handled in one visit; the back
   button leaves.
-
 - The sync format now carries reminders. Syncing and file exchange
   with 0.3.x devices keep working until the first reminder is used;
   from then on the other devices must update.
+
+### Fixed
+
+- The map no longer crashes ("Infinity or NaN toInt") when a search
+  finds several hits on the same spot — and a map already stuck in
+  that crash frees itself on the first open after this update.
 
 ---
 

@@ -181,6 +181,71 @@ void main() {
     expect(camera.zoom, greaterThan(14));
   });
 
+  testWidgets('two hits on the same spot never blow the zoom to infinity',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_samespot');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    // Two cats named alike, sighted at the identical position — the
+    // search fit gets zero-size bounds (field crash: "Infinity or NaN
+    // toInt" on every later tile update).
+    for (final name in ['Miezi', 'Miezi II']) {
+      final cat = store.createCat(name);
+      store.recordPosition(cat, 51.34, 12.37,
+          kind: PositionKind.sighting);
+    }
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(
+          store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.enterText(find.byType(TextField), 'Miezi');
+    await tester.testTextInput.receiveAction(TextInputAction.search);
+    await tester.pump(const Duration(seconds: 1));
+
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    final camera = map.mapController!.camera;
+    expect(camera.zoom.isFinite, isTrue);
+    expect(camera.zoom, lessThanOrEqualTo(17));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('a poisoned stored viewport is rejected, not restored',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_poison');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    // double.tryParse accepts this — a crashed camera would otherwise
+    // crash the map on every open, forever.
+    store.setLocalSetting(mapViewportKey, '51.34,12.37,Infinity');
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(
+          store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    expect(map.mapController!.camera.zoom.isFinite, isTrue);
+    expect(tester.takeException(), isNull);
+  });
+
   test('navChain walks pins nearest-neighbor from the start', () {
     const a = EntityView('cat:a', 'A');
     const b = EntityView('cat:b', 'B');

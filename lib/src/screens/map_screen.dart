@@ -111,14 +111,27 @@ class _MapScreenState extends State<MapScreen>
     final lon = double.tryParse(parts[1]);
     final zoom = double.tryParse(parts[2]);
     if (lat == null || lon == null || zoom == null) return null;
+    // tryParse accepts "Infinity" and "NaN". A camera that once went
+    // infinite (degenerate bounds fit) would be saved and then crash
+    // the map on every open — reject it and start fresh instead.
+    if (!lat.isFinite || !lon.isFinite || !zoom.isFinite) return null;
+    if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+    if (zoom < 1 || zoom > 20) return null;
     return (LatLng(lat, lon), zoom);
   }
 
   void _rememberViewport(MapCamera camera) {
     _viewportSave?.cancel();
     _viewportSave = Timer(const Duration(seconds: 1), () {
+      final center = camera.center;
+      // Never persist a broken camera (see _storedViewport).
+      if (!center.latitude.isFinite ||
+          !center.longitude.isFinite ||
+          !camera.zoom.isFinite) {
+        return;
+      }
       store.setLocalSetting(mapViewportKey,
-          '${camera.center.latitude},${camera.center.longitude},${camera.zoom}');
+          '${center.latitude},${center.longitude},${camera.zoom}');
     });
   }
 
@@ -411,6 +424,10 @@ class _MapScreenState extends State<MapScreen>
       _controller.fitCamera(CameraFit.bounds(
         bounds: LatLngBounds.fromPoints([for (final f in found) f.$2]),
         padding: const EdgeInsets.all(64),
+        // Several hits on the same spot make zero-size bounds; without
+        // a ceiling the fit computes an infinite zoom and every tile
+        // update crashes with "Infinity or NaN toInt".
+        maxZoom: 17,
       ));
     }
   }
