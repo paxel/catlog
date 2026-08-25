@@ -1644,4 +1644,93 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Poista yksityisyysmerkintä';
+
+  @override
+  String get agenda => 'Muistutukset';
+
+  @override
+  String get reminderLabel => 'Muistutus';
+
+  @override
+  String get agendaEmpty =>
+      'Mikään ei ole erääntymässä. Valitse kentälle tuleva päivämäärä, niin se näkyy täällä.';
+
+  @override
+  String get dueToday => 'tänään';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count päivän päästä',
+      one: '1 päivän päästä',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count päivää myöhässä',
+      one: '1 päivän myöhässä',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Tehty';
+
+  @override
+  String get repeatTitle => 'Uudelleen…';
+
+  @override
+  String get noRepeatLabel => 'Ei toistoa';
+
+  @override
+  String get unitDays => 'päivän päästä';
+
+  @override
+  String get unitWeeks => 'viikon päästä';
+
+  @override
+  String get unitMonths => 'kuukauden päästä';
+
+  @override
+  String get unitYears => 'vuoden päästä';
+
+  @override
+  String get changeDateLabel => 'Muuta päivämäärää';
+
+  @override
+  String get removeReminderLabel => 'Poista muistutus';
+
+  @override
+  String get exportIcs => 'Vie kalenteritiedosto';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalenteritiedosto tallennettu polkuun $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Peilaa laitteen kalenteriin';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Jokaisesta eräpäivästä tulee koko päivän tapahtuma cat(a)log-kalenteriin tällä laitteella. Muuta päivämääriä cat(a)logissa, älä kalenterissa.';
+
+  @override
+  String get syncPeerOlder =>
+      'Toisella laitteella on vanhempi cat(a)log ilman muistutuksia. Päivitä cat(a)log siellä ja synkronoi uudelleen.';
+
+  @override
+  String get syncPeerNewer =>
+      'Toisella laitteella on uudempi cat(a)log. Päivitä cat(a)log tällä laitteella ja synkronoi uudelleen.';
+
+  @override
+  String get bundleNewerError =>
+      'Tämä tiedosto on uudemmasta cat(a)logista. Päivitä cat(a)log tällä laitteella, jotta voit tuoda sen.';
 }

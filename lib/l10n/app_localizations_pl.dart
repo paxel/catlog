@@ -1643,4 +1643,97 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Usuń oznaczenie prywatne';
+
+  @override
+  String get agenda => 'Przypomnienia';
+
+  @override
+  String get reminderLabel => 'Przypomnienie';
+
+  @override
+  String get agendaEmpty =>
+      'Nic nie jest zaplanowane. Wybierz przyszłą datę w polu, a pojawi się tutaj.';
+
+  @override
+  String get dueToday => 'dzisiaj';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'za $count dnia',
+      many: 'za $count dni',
+      few: 'za $count dni',
+      one: 'za 1 dzień',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dnia po terminie',
+      many: '$count dni po terminie',
+      few: '$count dni po terminie',
+      one: '1 dzień po terminie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Zrobione';
+
+  @override
+  String get repeatTitle => 'Znowu za…';
+
+  @override
+  String get noRepeatLabel => 'Bez powtarzania';
+
+  @override
+  String get unitDays => 'dni';
+
+  @override
+  String get unitWeeks => 'tygodni';
+
+  @override
+  String get unitMonths => 'miesięcy';
+
+  @override
+  String get unitYears => 'lat';
+
+  @override
+  String get changeDateLabel => 'Zmień datę';
+
+  @override
+  String get removeReminderLabel => 'Usuń przypomnienie';
+
+  @override
+  String get exportIcs => 'Eksportuj plik kalendarza';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Plik kalendarza zapisano w $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Odbij w kalendarzu urządzenia';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Każdy termin staje się całodniowym wydarzeniem w kalendarzu cat(a)log na tym urządzeniu. Daty zmieniaj w cat(a)log, nie w kalendarzu.';
+
+  @override
+  String get syncPeerOlder =>
+      'Drugie urządzenie ma starszy cat(a)log bez przypomnień. Zaktualizuj tam cat(a)log i zsynchronizuj ponownie.';
+
+  @override
+  String get syncPeerNewer =>
+      'Drugie urządzenie ma nowszy cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu i zsynchronizuj ponownie.';
+
+  @override
+  String get bundleNewerError =>
+      'Ten plik pochodzi z nowszego cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu, aby go zaimportować.';
 }

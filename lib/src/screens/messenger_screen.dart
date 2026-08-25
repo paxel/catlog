@@ -56,6 +56,8 @@ class _MessengerScreenState extends State<MessengerScreen> {
         await showImportSummary(context, widget.store, result.applied,
             undo: imported.moment);
       }
+    } on UnsupportedBundleFormat {
+      setState(() => _lastResult = t.bundleNewerError);
     } catch (e) {
       setState(() => _lastResult = t.notACatlogFile);
     }

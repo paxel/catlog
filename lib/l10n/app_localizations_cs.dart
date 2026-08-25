@@ -1642,4 +1642,95 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Odebrat soukromé označení';
+
+  @override
+  String get agenda => 'Připomínky';
+
+  @override
+  String get reminderLabel => 'Připomínka';
+
+  @override
+  String get agendaEmpty =>
+      'Nic není na spadnutí. Zvol u pole budoucí datum a objeví se tady.';
+
+  @override
+  String get dueToday => 'dnes';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'za $count dní',
+      few: 'za $count dny',
+      one: 'za 1 den',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dní po termínu',
+      few: '$count dny po termínu',
+      one: '1 den po termínu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Hotovo';
+
+  @override
+  String get repeatTitle => 'Znovu za…';
+
+  @override
+  String get noRepeatLabel => 'Bez opakování';
+
+  @override
+  String get unitDays => 'dní';
+
+  @override
+  String get unitWeeks => 'týdnů';
+
+  @override
+  String get unitMonths => 'měsíců';
+
+  @override
+  String get unitYears => 'let';
+
+  @override
+  String get changeDateLabel => 'Změnit datum';
+
+  @override
+  String get removeReminderLabel => 'Odebrat připomínku';
+
+  @override
+  String get exportIcs => 'Exportovat soubor kalendáře';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Soubor kalendáře uložen do $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Zrcadlit do kalendáře zařízení';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Každý termín se stane celodenní událostí v kalendáři cat(a)log na tomto zařízení. Data měň v cat(a)logu, ne v kalendáři.';
+
+  @override
+  String get syncPeerOlder =>
+      'Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.';
+
+  @override
+  String get syncPeerNewer =>
+      'Druhé zařízení má novější cat(a)log. Aktualizuj cat(a)log na tomto zařízení a synchronizuj znovu.';
+
+  @override
+  String get bundleNewerError =>
+      'Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.';
 }

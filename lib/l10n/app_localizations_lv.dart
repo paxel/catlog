@@ -1643,4 +1643,95 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Noņemt privātuma atzīmi';
+
+  @override
+  String get agenda => 'Atgādinājumi';
+
+  @override
+  String get reminderLabel => 'Atgādinājums';
+
+  @override
+  String get agendaEmpty =>
+      'Nekas nav gaidāms. Izvēlies laukam nākotnes datumu, un tas parādīsies šeit.';
+
+  @override
+  String get dueToday => 'šodien';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pēc $count dienām',
+      one: 'pēc $count dienas',
+      zero: 'pēc $count dienām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'nokavēts par $count dienām',
+      one: 'nokavēts par $count dienu',
+      zero: 'nokavēts par $count dienām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Izdarīts';
+
+  @override
+  String get repeatTitle => 'Atkal pēc…';
+
+  @override
+  String get noRepeatLabel => 'Bez atkārtošanas';
+
+  @override
+  String get unitDays => 'dienām';
+
+  @override
+  String get unitWeeks => 'nedēļām';
+
+  @override
+  String get unitMonths => 'mēnešiem';
+
+  @override
+  String get unitYears => 'gadiem';
+
+  @override
+  String get changeDateLabel => 'Mainīt datumu';
+
+  @override
+  String get removeReminderLabel => 'Noņemt atgādinājumu';
+
+  @override
+  String get exportIcs => 'Eksportēt kalendāra failu';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalendāra fails saglabāts $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Atspoguļot ierīces kalendārā';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Katrs termiņš kļūst par visas dienas notikumu cat(a)log kalendārā šajā ierīcē. Datumus maini cat(a)log, nevis kalendārā.';
+
+  @override
+  String get syncPeerOlder =>
+      'Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.';
+
+  @override
+  String get syncPeerNewer =>
+      'Otrā ierīcē ir jaunāks cat(a)log. Atjaunini cat(a)log šajā ierīcē un sinhronizē vēlreiz.';
+
+  @override
+  String get bundleNewerError =>
+      'Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.';
 }

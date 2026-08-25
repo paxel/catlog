@@ -256,9 +256,12 @@ class _InPersonScreenState extends State<InPersonScreen> {
       }
     } on SyncException catch (e) {
       if (mounted) {
-        setState(() => _lastResult = e.message == 'declined'
-            ? context.t.syncDeclined
-            : context.t.syncFailed(e.message));
+        setState(() => _lastResult = switch (e.message) {
+              'declined' => context.t.syncDeclined,
+              'peer-older' => context.t.syncPeerOlder,
+              'peer-newer' => context.t.syncPeerNewer,
+              _ => context.t.syncFailed(e.message),
+            });
       }
     } on SocketException {
       if (mounted) {

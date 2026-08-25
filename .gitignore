@@ -46,3 +46,4 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+/packages/catalog_core/build/test_cache/build/3aefcf5282b8d73fb605759cba0683d2.cache.dill.track.dill

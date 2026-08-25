@@ -48,7 +48,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         context, def, store.current(id, def.key),
         store: store, excludeId: id);
     if (edit == null || !mounted) return;
-    store.append(id, def.key, edit.value, date: edit.date);
+    store.append(id, def.key, edit.value,
+        date: edit.date, reminder: edit.reminder);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }

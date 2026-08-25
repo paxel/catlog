@@ -2983,6 +2983,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove private mark'**
   String get unmarkPrivate;
+
+  /// No description provided for @agenda.
+  ///
+  /// In en, this message translates to:
+  /// **'Agenda'**
+  String get agenda;
+
+  /// No description provided for @reminderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder'**
+  String get reminderLabel;
+
+  /// No description provided for @agendaEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is due. Pick a future date on any field and it appears here.'**
+  String get agendaEmpty;
+
+  /// No description provided for @dueToday.
+  ///
+  /// In en, this message translates to:
+  /// **'due today'**
+  String get dueToday;
+
+  /// No description provided for @dueInDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{in 1 day} other{in {count} days}}'**
+  String dueInDays(int count);
+
+  /// No description provided for @overdueByDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{1 day overdue} other{{count} days overdue}}'**
+  String overdueByDays(int count);
+
+  /// No description provided for @markDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get markDone;
+
+  /// No description provided for @repeatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Again in…'**
+  String get repeatTitle;
+
+  /// No description provided for @noRepeatLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'No repeat'**
+  String get noRepeatLabel;
+
+  /// No description provided for @unitDays.
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get unitDays;
+
+  /// No description provided for @unitWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'weeks'**
+  String get unitWeeks;
+
+  /// No description provided for @unitMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'months'**
+  String get unitMonths;
+
+  /// No description provided for @unitYears.
+  ///
+  /// In en, this message translates to:
+  /// **'years'**
+  String get unitYears;
+
+  /// No description provided for @changeDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Change date'**
+  String get changeDateLabel;
+
+  /// No description provided for @removeReminderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove reminder'**
+  String get removeReminderLabel;
+
+  /// No description provided for @exportIcs.
+  ///
+  /// In en, this message translates to:
+  /// **'Export calendar file'**
+  String get exportIcs;
+
+  /// No description provided for @icsSavedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar file saved under {path}'**
+  String icsSavedTo(String path);
+
+  /// No description provided for @calendarMirrorLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Mirror to device calendar'**
+  String get calendarMirrorLabel;
+
+  /// No description provided for @calendarMirrorSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Each due date becomes an all-day event in a cat(a)log calendar on this device. Change dates in cat(a)log, not in the calendar.'**
+  String get calendarMirrorSubtitle;
+
+  /// No description provided for @syncPeerOlder.
+  ///
+  /// In en, this message translates to:
+  /// **'The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.'**
+  String get syncPeerOlder;
+
+  /// No description provided for @syncPeerNewer.
+  ///
+  /// In en, this message translates to:
+  /// **'The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.'**
+  String get syncPeerNewer;
+
+  /// No description provided for @bundleNewerError.
+  ///
+  /// In en, this message translates to:
+  /// **'This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.'**
+  String get bundleNewerError;
 }
 
 class _AppLocalizationsDelegate

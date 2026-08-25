@@ -39,12 +39,25 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   blobDir.createSync(recursive: true);
 
   // ---- read every foreign device's file (never write them)
+  //
+  // `.jsonl2` carries the reminder flag (#74); plain `.jsonl` is what
+  // pre-1.0.0 devices write — still importable, flag-free by
+  // definition. Own output is `.jsonl2` only: a pre-1.0.0 reader skips
+  // it (it only reads `.jsonl`), which stops it from silently
+  // stripping flags and turning plans into facts. It stops receiving
+  // from this device until updated — the legacy own-file is removed
+  // below so it at least does not read stale data as current.
   var entriesIn = 0;
   final applied = <Entry>[];
   for (final file in root.listSync().whereType<File>()) {
-    if (!file.path.endsWith('.jsonl')) continue;
+    if (!file.path.endsWith('.jsonl') && !file.path.endsWith('.jsonl2')) {
+      continue;
+    }
     final name = file.uri.pathSegments.last;
-    if (name == '${store.deviceId}.jsonl') continue;
+    if (name == '${store.deviceId}.jsonl' ||
+        name == '${store.deviceId}.jsonl2') {
+      continue;
+    }
     final foreign = <Entry>[];
     for (final line in file.readAsLinesSync()) {
       if (line.trim().isEmpty) continue;
@@ -81,13 +94,23 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   }
 
   // ---- write own file: full knowledge, atomically via temp + rename
-  final own = File('${root.path}/${store.deviceId}.jsonl');
-  final previousLines = own.existsSync() ? own.readAsLinesSync().length : 0;
+  //
+  // A payload with no flagged entry is byte-identical to the old
+  // format and keeps the `.jsonl` name, so 0.3.x devices in the folder
+  // keep receiving until the first reminder is used. The other name
+  // must not linger as a stale data source.
   final all = store.entriesSince(const {}, includePrivate: includePrivate);
+  final flagged = all.any((e) => e.reminder);
+  final own = File(
+      '${root.path}/${store.deviceId}.jsonl${flagged ? '2' : ''}');
+  final stale = File(
+      '${root.path}/${store.deviceId}.jsonl${flagged ? '' : '2'}');
+  final previousLines = own.existsSync() ? own.readAsLinesSync().length : 0;
   final tmp = File('${own.path}.tmp');
   tmp.writeAsStringSync(
       all.map((e) => jsonEncode(e.toJson())).join('\n'));
   tmp.renameSync(own.path);
+  if (stale.existsSync()) stale.deleteSync();
   final entriesOut =
       all.length > previousLines ? all.length - previousLines : 0;
 

@@ -1642,4 +1642,97 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Зняти особисту позначку';
+
+  @override
+  String get agenda => 'Нагадування';
+
+  @override
+  String get reminderLabel => 'Нагадування';
+
+  @override
+  String get agendaEmpty =>
+      'Нічого не заплановано. Виберіть у поля майбутню дату, і вона з\'явиться тут.';
+
+  @override
+  String get dueToday => 'сьогодні';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'через $count дня',
+      many: 'через $count днів',
+      few: 'через $count дні',
+      one: 'через $count день',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'прострочено на $count дня',
+      many: 'прострочено на $count днів',
+      few: 'прострочено на $count дні',
+      one: 'прострочено на $count день',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Готово';
+
+  @override
+  String get repeatTitle => 'Знову через…';
+
+  @override
+  String get noRepeatLabel => 'Без повтору';
+
+  @override
+  String get unitDays => 'днів';
+
+  @override
+  String get unitWeeks => 'тижнів';
+
+  @override
+  String get unitMonths => 'місяців';
+
+  @override
+  String get unitYears => 'років';
+
+  @override
+  String get changeDateLabel => 'Змінити дату';
+
+  @override
+  String get removeReminderLabel => 'Прибрати нагадування';
+
+  @override
+  String get exportIcs => 'Експортувати файл календаря';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Файл календаря збережено в $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Віддзеркалювати в календар пристрою';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Кожен термін стає подією на весь день у календарі cat(a)log на цьому пристрої. Дати змінюйте в cat(a)log, а не в календарі.';
+
+  @override
+  String get syncPeerOlder =>
+      'На іншому пристрої старіший cat(a)log без нагадувань. Оновіть cat(a)log там і синхронізуйте знову.';
+
+  @override
+  String get syncPeerNewer =>
+      'На іншому пристрої новіший cat(a)log. Оновіть cat(a)log на цьому пристрої й синхронізуйте знову.';
+
+  @override
+  String get bundleNewerError =>
+      'Цей файл із новішого cat(a)log. Оновіть cat(a)log на цьому пристрої, щоб імпортувати його.';
 }

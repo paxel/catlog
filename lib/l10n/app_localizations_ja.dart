@@ -1604,4 +1604,90 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'プライベート設定を解除';
+
+  @override
+  String get agenda => '予定表';
+
+  @override
+  String get reminderLabel => 'リマインダー';
+
+  @override
+  String get agendaEmpty => '期日はありません。どれかのフィールドに未来の日付を選ぶと、ここに表示されます。';
+
+  @override
+  String get dueToday => '今日';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 日後',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 日超過',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => '完了';
+
+  @override
+  String get repeatTitle => '次回は…';
+
+  @override
+  String get noRepeatLabel => '繰り返さない';
+
+  @override
+  String get unitDays => '日後';
+
+  @override
+  String get unitWeeks => '週間後';
+
+  @override
+  String get unitMonths => 'か月後';
+
+  @override
+  String get unitYears => '年後';
+
+  @override
+  String get changeDateLabel => '日付を変更';
+
+  @override
+  String get removeReminderLabel => 'リマインダーを削除';
+
+  @override
+  String get exportIcs => 'カレンダーファイルを書き出す';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'カレンダーファイルを $path に保存しました';
+  }
+
+  @override
+  String get calendarMirrorLabel => '端末のカレンダーへ反映';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      '各期日は、この端末の cat(a)log カレンダーに終日の予定として入ります。日付の変更はカレンダーではなく cat(a)log で行ってください。';
+
+  @override
+  String get syncPeerOlder =>
+      '相手の端末はリマインダーのない古い cat(a)log です。そちらで cat(a)log を更新して、もう一度同期してください。';
+
+  @override
+  String get syncPeerNewer =>
+      '相手の端末は新しい cat(a)log です。この端末で cat(a)log を更新して、もう一度同期してください。';
+
+  @override
+  String get bundleNewerError =>
+      'このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。';
 }

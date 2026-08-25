@@ -1646,4 +1646,97 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Pašalinti privatumo žymą';
+
+  @override
+  String get agenda => 'Priminimai';
+
+  @override
+  String get reminderLabel => 'Priminimas';
+
+  @override
+  String get agendaEmpty =>
+      'Nieko nelaukia. Pasirink lauke būsimą datą ir ji atsiras čia.';
+
+  @override
+  String get dueToday => 'šiandien';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'po $count dienų',
+      many: 'po $count dienos',
+      few: 'po $count dienų',
+      one: 'po $count dienos',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'vėluojama $count dienų',
+      many: 'vėluojama $count dienos',
+      few: 'vėluojama $count dienas',
+      one: 'vėluojama $count dieną',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Atlikta';
+
+  @override
+  String get repeatTitle => 'Vėl po…';
+
+  @override
+  String get noRepeatLabel => 'Nekartoti';
+
+  @override
+  String get unitDays => 'dienų';
+
+  @override
+  String get unitWeeks => 'savaičių';
+
+  @override
+  String get unitMonths => 'mėnesių';
+
+  @override
+  String get unitYears => 'metų';
+
+  @override
+  String get changeDateLabel => 'Keisti datą';
+
+  @override
+  String get removeReminderLabel => 'Pašalinti priminimą';
+
+  @override
+  String get exportIcs => 'Eksportuoti kalendoriaus failą';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalendoriaus failas išsaugotas $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Atspindėti įrenginio kalendoriuje';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Kiekvienas terminas tampa visos dienos įvykiu cat(a)log kalendoriuje šiame įrenginyje. Datas keisk cat(a)log, ne kalendoriuje.';
+
+  @override
+  String get syncPeerOlder =>
+      'Kitame įrenginyje senesnis cat(a)log be priminimų. Atnaujink cat(a)log ten ir sinchronizuok iš naujo.';
+
+  @override
+  String get syncPeerNewer =>
+      'Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.';
+
+  @override
+  String get bundleNewerError =>
+      'Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.';
 }

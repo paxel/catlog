@@ -1642,4 +1642,97 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Odstrani zasebno oznako';
+
+  @override
+  String get agenda => 'Opomniki';
+
+  @override
+  String get reminderLabel => 'Opomnik';
+
+  @override
+  String get agendaEmpty =>
+      'Nič ne zapade. Izberi prihodnji datum na polju in prikazal se bo tukaj.';
+
+  @override
+  String get dueToday => 'danes';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'čez $count dni',
+      few: 'čez $count dni',
+      two: 'čez $count dneva',
+      one: 'čez $count dan',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dni zamude',
+      few: '$count dni zamude',
+      two: '$count dneva zamude',
+      one: '$count dan zamude',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Opravljeno';
+
+  @override
+  String get repeatTitle => 'Znova čez…';
+
+  @override
+  String get noRepeatLabel => 'Brez ponavljanja';
+
+  @override
+  String get unitDays => 'dni';
+
+  @override
+  String get unitWeeks => 'tednov';
+
+  @override
+  String get unitMonths => 'mesecev';
+
+  @override
+  String get unitYears => 'let';
+
+  @override
+  String get changeDateLabel => 'Spremeni datum';
+
+  @override
+  String get removeReminderLabel => 'Odstrani opomnik';
+
+  @override
+  String get exportIcs => 'Izvozi koledarsko datoteko';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Koledarska datoteka shranjena v $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Zrcali v koledar naprave';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Vsak rok postane celodnevni dogodek v koledarju cat(a)log na tej napravi. Datume spreminjaj v cat(a)logu, ne v koledarju.';
+
+  @override
+  String get syncPeerOlder =>
+      'Druga naprava ima starejši cat(a)log brez opomnikov. Posodobi cat(a)log tam in znova sinhroniziraj.';
+
+  @override
+  String get syncPeerNewer =>
+      'Druga naprava ima novejši cat(a)log. Posodobi cat(a)log na tej napravi in znova sinhroniziraj.';
+
+  @override
+  String get bundleNewerError =>
+      'Ta datoteka prihaja iz novejšega cat(a)loga. Posodobi cat(a)log na tej napravi, da jo uvoziš.';
 }

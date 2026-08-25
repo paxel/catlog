@@ -1647,4 +1647,93 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Fjarlægja einkamerki';
+
+  @override
+  String get agenda => 'Áminningar';
+
+  @override
+  String get reminderLabel => 'Áminning';
+
+  @override
+  String get agendaEmpty =>
+      'Ekkert er á döfinni. Veldu framtíðardagsetningu á reit og hún birtist hér.';
+
+  @override
+  String get dueToday => 'í dag';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'eftir $count daga',
+      one: 'eftir 1 dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dögum of seint',
+      one: '1 degi of seint',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Lokið';
+
+  @override
+  String get repeatTitle => 'Aftur eftir…';
+
+  @override
+  String get noRepeatLabel => 'Engin endurtekning';
+
+  @override
+  String get unitDays => 'daga';
+
+  @override
+  String get unitWeeks => 'vikur';
+
+  @override
+  String get unitMonths => 'mánuði';
+
+  @override
+  String get unitYears => 'ár';
+
+  @override
+  String get changeDateLabel => 'Breyta dagsetningu';
+
+  @override
+  String get removeReminderLabel => 'Fjarlægja áminningu';
+
+  @override
+  String get exportIcs => 'Flytja út dagatalsskrá';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Dagatalsskrá vistuð undir $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Spegla í dagatal tækisins';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Hver gjalddagi verður heilsdagsviðburður í cat(a)log-dagatali á þessu tæki. Breyttu dagsetningum í cat(a)log, ekki í dagatalinu.';
+
+  @override
+  String get syncPeerOlder =>
+      'Hitt tækið keyrir eldra cat(a)log án áminninga. Uppfærðu cat(a)log þar og samstilltu aftur.';
+
+  @override
+  String get syncPeerNewer =>
+      'Hitt tækið keyrir nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki og samstilltu aftur.';
+
+  @override
+  String get bundleNewerError =>
+      'Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.';
 }

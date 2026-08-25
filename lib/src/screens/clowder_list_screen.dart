@@ -19,6 +19,7 @@ import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
+import 'agenda_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
 import 'fields_screen.dart';
@@ -26,6 +27,8 @@ import 'map_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
 import '../move_to_catalog.dart';
+import '../reminders/calendar_mirror.dart';
+import '../reminders/device_calendar_port.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 
@@ -96,8 +99,32 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-        (_) => runSpotlights(context, widget.store, 'home'));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      // Something due within 3 days opens the agenda by itself — once
+      // per app run, so backing out of it stays backed out (#74).
+      if (!agendaAutoOpened && agendaWantsAttention(widget.store)) {
+        agendaAutoOpened = true;
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => AgendaScreen(store: widget.store),
+        ));
+      }
+      if (!mounted) return;
+      // Reminders set in editors or arrived by sync reach the device
+      // calendar without a visit to the agenda.
+      if (deviceCalendarAvailable && calendarMirrorEnabled(widget.store)) {
+        reconcileCalendar(widget.store, DeviceCalendarPort(), context.t);
+      }
+      runSpotlights(context, widget.store, 'home');
+    });
+  }
+
+  Future<void> _openAgenda() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => AgendaScreen(store: widget.store),
+    ));
+    if (!mounted) return;
+    setState(() {});
   }
 
   Future<void> _exportCsv() async {
@@ -207,6 +234,15 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 id: 'search',
                 build: (_) => SearchScreen(store: widget.store))),
           ),
+          // A phone bar has no room for an eighth icon (the action row
+          // overflows at 360dp) — there the agenda lives in the menu.
+          if (widget.onOpenPage == null &&
+              MediaQuery.sizeOf(context).width >= desktopBreakpoint)
+            IconButton(
+              icon: const Icon(Icons.alarm),
+              tooltip: context.t.agenda,
+              onPressed: _openAgenda,
+            ),
           IconButton(
             icon: const Icon(Icons.map_outlined),
             tooltip: context.t.map,
@@ -243,6 +279,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             id: 'home-menu',
             child: PopupMenuButton<String>(
             onSelected: (v) {
+              if (v == 'agenda') _openAgenda();
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
                 _open(PanePage(
@@ -262,6 +299,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
             },
             itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 'agenda', child: Text(context.t.agenda)),
               PopupMenuItem(
                   value: 'hidden',
                   child: Text(showHidden.value

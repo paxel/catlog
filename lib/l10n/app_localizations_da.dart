@@ -1642,4 +1642,93 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Fjern privat markering';
+
+  @override
+  String get agenda => 'Påmindelser';
+
+  @override
+  String get reminderLabel => 'Påmindelse';
+
+  @override
+  String get agendaEmpty =>
+      'Intet forfalder. Vælg en fremtidig dato på et felt, så vises den her.';
+
+  @override
+  String get dueToday => 'i dag';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'om $count dage',
+      one: 'om 1 dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dage forsinket',
+      one: '1 dag forsinket',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Udført';
+
+  @override
+  String get repeatTitle => 'Igen om…';
+
+  @override
+  String get noRepeatLabel => 'Ingen gentagelse';
+
+  @override
+  String get unitDays => 'dage';
+
+  @override
+  String get unitWeeks => 'uger';
+
+  @override
+  String get unitMonths => 'måneder';
+
+  @override
+  String get unitYears => 'år';
+
+  @override
+  String get changeDateLabel => 'Skift dato';
+
+  @override
+  String get removeReminderLabel => 'Fjern påmindelse';
+
+  @override
+  String get exportIcs => 'Eksportér kalenderfil';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalenderfil gemt under $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Spejl til enhedens kalender';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Hver forfaldsdato bliver en heldagsbegivenhed i en cat(a)log-kalender på denne enhed. Ret datoer i cat(a)log, ikke i kalenderen.';
+
+  @override
+  String get syncPeerOlder =>
+      'Den anden enhed kører et ældre cat(a)log uden påmindelser. Opdater cat(a)log dér, og synkronisér igen.';
+
+  @override
+  String get syncPeerNewer =>
+      'Den anden enhed kører et nyere cat(a)log. Opdater cat(a)log på denne enhed, og synkronisér igen.';
+
+  @override
+  String get bundleNewerError =>
+      'Denne fil kommer fra et nyere cat(a)log. Opdater cat(a)log på denne enhed for at importere den.';
 }

@@ -1644,4 +1644,93 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Hiq shënimin privat';
+
+  @override
+  String get agenda => 'Përkujtues';
+
+  @override
+  String get reminderLabel => 'Përkujtues';
+
+  @override
+  String get agendaEmpty =>
+      'S\'ka asgjë në pritje. Zgjidh një datë të ardhshme te një fushë dhe shfaqet këtu.';
+
+  @override
+  String get dueToday => 'sot';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pas $count ditësh',
+      one: 'pas 1 dite',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ditë vonesë',
+      one: '1 ditë vonesë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'U bë';
+
+  @override
+  String get repeatTitle => 'Sërish pas…';
+
+  @override
+  String get noRepeatLabel => 'Pa përsëritje';
+
+  @override
+  String get unitDays => 'ditësh';
+
+  @override
+  String get unitWeeks => 'javësh';
+
+  @override
+  String get unitMonths => 'muajsh';
+
+  @override
+  String get unitYears => 'vjetësh';
+
+  @override
+  String get changeDateLabel => 'Ndrysho datën';
+
+  @override
+  String get removeReminderLabel => 'Hiq përkujtuesin';
+
+  @override
+  String get exportIcs => 'Eksporto skedarin e kalendarit';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Skedari i kalendarit u ruajt te $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Pasqyro në kalendarin e pajisjes';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Çdo afat bëhet ngjarje gjithëditore në një kalendar cat(a)log në këtë pajisje. Datat ndryshoji në cat(a)log, jo në kalendar.';
+
+  @override
+  String get syncPeerOlder =>
+      'Pajisja tjetër ka një cat(a)log më të vjetër pa përkujtues. Përditëso cat(a)log atje dhe sinkronizo sërish.';
+
+  @override
+  String get syncPeerNewer =>
+      'Pajisja tjetër ka një cat(a)log më të ri. Përditëso cat(a)log në këtë pajisje dhe sinkronizo sërish.';
+
+  @override
+  String get bundleNewerError =>
+      'Ky skedar vjen nga një cat(a)log më i ri. Përditëso cat(a)log në këtë pajisje për ta importuar.';
 }

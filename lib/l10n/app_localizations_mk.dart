@@ -1646,4 +1646,93 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Отстрани приватна ознака';
+
+  @override
+  String get agenda => 'Потсетници';
+
+  @override
+  String get reminderLabel => 'Потсетник';
+
+  @override
+  String get agendaEmpty =>
+      'Ништо не доспева. Избери иден датум на поле и ќе се појави тука.';
+
+  @override
+  String get dueToday => 'денес';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'за $count дена',
+      one: 'за $count ден',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count дена задоцнување',
+      one: '$count ден задоцнување',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Завршено';
+
+  @override
+  String get repeatTitle => 'Повторно за…';
+
+  @override
+  String get noRepeatLabel => 'Без повторување';
+
+  @override
+  String get unitDays => 'дена';
+
+  @override
+  String get unitWeeks => 'недели';
+
+  @override
+  String get unitMonths => 'месеци';
+
+  @override
+  String get unitYears => 'години';
+
+  @override
+  String get changeDateLabel => 'Промени датум';
+
+  @override
+  String get removeReminderLabel => 'Отстрани потсетник';
+
+  @override
+  String get exportIcs => 'Извези календарска датотека';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Календарската датотека е зачувана во $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Пресликај во календарот на уредот';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Секој рок станува целодневен настан во cat(a)log календар на овој уред. Датумите менувај ги во cat(a)log, не во календарот.';
+
+  @override
+  String get syncPeerOlder =>
+      'Другиот уред има постар cat(a)log без потсетници. Ажурирај го cat(a)log таму и синхронизирај повторно.';
+
+  @override
+  String get syncPeerNewer =>
+      'Другиот уред има понов cat(a)log. Ажурирај го cat(a)log на овој уред и синхронизирај повторно.';
+
+  @override
+  String get bundleNewerError =>
+      'Оваа датотека доаѓа од понов cat(a)log. Ажурирај го cat(a)log на овој уред за да ја увезеш.';
 }

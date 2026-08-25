@@ -1589,4 +1589,89 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get unmarkPrivate => '取消私密标记';
+
+  @override
+  String get agenda => '日程';
+
+  @override
+  String get reminderLabel => '提醒';
+
+  @override
+  String get agendaEmpty => '没有待办事项。在任意字段选一个未来日期，它就会出现在这里。';
+
+  @override
+  String get dueToday => '今天到期';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 天后',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已超期 $count 天',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => '完成';
+
+  @override
+  String get repeatTitle => '下次间隔…';
+
+  @override
+  String get noRepeatLabel => '不重复';
+
+  @override
+  String get unitDays => '天后';
+
+  @override
+  String get unitWeeks => '周后';
+
+  @override
+  String get unitMonths => '个月后';
+
+  @override
+  String get unitYears => '年后';
+
+  @override
+  String get changeDateLabel => '更改日期';
+
+  @override
+  String get removeReminderLabel => '移除提醒';
+
+  @override
+  String get exportIcs => '导出日历文件';
+
+  @override
+  String icsSavedTo(String path) {
+    return '日历文件已保存到 $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => '同步到设备日历';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      '每个到期日都会成为本设备 cat(a)log 日历中的全天事件。请在 cat(a)log 中修改日期，不要在日历中改。';
+
+  @override
+  String get syncPeerOlder =>
+      '对方设备运行的 cat(a)log 版本较旧，不支持提醒。请在那台设备上更新 cat(a)log 后重新同步。';
+
+  @override
+  String get syncPeerNewer =>
+      '对方设备运行的 cat(a)log 版本较新。请在本设备上更新 cat(a)log 后重新同步。';
+
+  @override
+  String get bundleNewerError => '此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。';
 }

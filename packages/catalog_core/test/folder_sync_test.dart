@@ -48,6 +48,7 @@ void main() {
     a.createCat('Miezi');
     folderSync(a, dir.path);
     folderSync(b, dir.path);
+    // No reminder was ever used, so the file keeps the pre-1.0.0 name.
     final aFile = File('${dir.path}/catlog-sync/${a.deviceId}.jsonl');
     final before = aFile.readAsStringSync();
     folderSync(b, dir.path);

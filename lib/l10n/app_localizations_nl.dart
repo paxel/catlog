@@ -1647,4 +1647,93 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Privémarkering verwijderen';
+
+  @override
+  String get agenda => 'Agenda';
+
+  @override
+  String get reminderLabel => 'Herinnering';
+
+  @override
+  String get agendaEmpty =>
+      'Niets is verschuldigd. Kies bij een veld een datum in de toekomst en het verschijnt hier.';
+
+  @override
+  String get dueToday => 'vandaag';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'over $count dagen',
+      one: 'over 1 dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dagen te laat',
+      one: '1 dag te laat',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Klaar';
+
+  @override
+  String get repeatTitle => 'Opnieuw over…';
+
+  @override
+  String get noRepeatLabel => 'Niet herhalen';
+
+  @override
+  String get unitDays => 'dagen';
+
+  @override
+  String get unitWeeks => 'weken';
+
+  @override
+  String get unitMonths => 'maanden';
+
+  @override
+  String get unitYears => 'jaren';
+
+  @override
+  String get changeDateLabel => 'Datum wijzigen';
+
+  @override
+  String get removeReminderLabel => 'Herinnering verwijderen';
+
+  @override
+  String get exportIcs => 'Agendabestand exporteren';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Agendabestand opgeslagen onder $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Spiegelen naar apparaatagenda';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Elke vervaldatum wordt een hele-dag-afspraak in een cat(a)log-agenda op dit apparaat. Wijzig datums in cat(a)log, niet in de agenda.';
+
+  @override
+  String get syncPeerOlder =>
+      'Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.';
+
+  @override
+  String get syncPeerNewer =>
+      'Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.';
+
+  @override
+  String get bundleNewerError =>
+      'Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.';
 }

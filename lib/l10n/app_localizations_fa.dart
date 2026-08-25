@@ -1640,4 +1640,93 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'حذف علامت خصوصی';
+
+  @override
+  String get agenda => 'یادآورها';
+
+  @override
+  String get reminderLabel => 'یادآور';
+
+  @override
+  String get agendaEmpty =>
+      'چیزی در پیش نیست. برای یک فیلد تاریخی در آینده انتخاب کن تا اینجا نمایان شود.';
+
+  @override
+  String get dueToday => 'امروز';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count روز دیگر',
+      one: '$count روز دیگر',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count روز عقب‌افتاده',
+      one: '$count روز عقب‌افتاده',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'انجام شد';
+
+  @override
+  String get repeatTitle => 'دوباره پس از…';
+
+  @override
+  String get noRepeatLabel => 'بدون تکرار';
+
+  @override
+  String get unitDays => 'روز';
+
+  @override
+  String get unitWeeks => 'هفته';
+
+  @override
+  String get unitMonths => 'ماه';
+
+  @override
+  String get unitYears => 'سال';
+
+  @override
+  String get changeDateLabel => 'تغییر تاریخ';
+
+  @override
+  String get removeReminderLabel => 'حذف یادآور';
+
+  @override
+  String get exportIcs => 'برون‌بری پروندهٔ تقویم';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'پروندهٔ تقویم در $path ذخیره شد';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'بازتاب در تقویم دستگاه';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'هر سررسید به رویدادی تمام‌روز در تقویم cat(a)log روی این دستگاه تبدیل می‌شود. تاریخ‌ها را در cat(a)log تغییر بده، نه در تقویم.';
+
+  @override
+  String get syncPeerOlder =>
+      'دستگاه دیگر cat(a)log قدیمی‌تری بدون یادآور دارد. آنجا cat(a)log را به‌روز کن و دوباره همگام‌سازی کن.';
+
+  @override
+  String get syncPeerNewer =>
+      'دستگاه دیگر cat(a)log جدیدتری دارد. روی این دستگاه cat(a)log را به‌روز کن و دوباره همگام‌سازی کن.';
+
+  @override
+  String get bundleNewerError =>
+      'این پرونده از cat(a)log جدیدتری می‌آید. برای درون‌ریزی، cat(a)log را روی این دستگاه به‌روز کن.';
 }

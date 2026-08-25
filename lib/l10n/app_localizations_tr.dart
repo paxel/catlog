@@ -1643,4 +1643,93 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Özel işaretini kaldır';
+
+  @override
+  String get agenda => 'Ajanda';
+
+  @override
+  String get reminderLabel => 'Hatırlatma';
+
+  @override
+  String get agendaEmpty =>
+      'Bekleyen bir şey yok. Bir alanda gelecekteki bir tarih seç, burada görünür.';
+
+  @override
+  String get dueToday => 'bugün';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gün içinde',
+      one: '1 gün içinde',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gün gecikmiş',
+      one: '1 gün gecikmiş',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Yapıldı';
+
+  @override
+  String get repeatTitle => 'Tekrar…';
+
+  @override
+  String get noRepeatLabel => 'Tekrar yok';
+
+  @override
+  String get unitDays => 'gün sonra';
+
+  @override
+  String get unitWeeks => 'hafta sonra';
+
+  @override
+  String get unitMonths => 'ay sonra';
+
+  @override
+  String get unitYears => 'yıl sonra';
+
+  @override
+  String get changeDateLabel => 'Tarihi değiştir';
+
+  @override
+  String get removeReminderLabel => 'Hatırlatmayı kaldır';
+
+  @override
+  String get exportIcs => 'Takvim dosyasını dışa aktar';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Takvim dosyası $path konumuna kaydedildi';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Cihaz takvimine yansıt';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Her vade, bu cihazdaki bir cat(a)log takviminde tüm gün süren bir etkinlik olur. Tarihleri takvimde değil, cat(a)log içinde değiştir.';
+
+  @override
+  String get syncPeerOlder =>
+      'Diğer cihazda hatırlatmasız daha eski bir cat(a)log var. Orada cat(a)log uygulamasını güncelle ve yeniden eşitle.';
+
+  @override
+  String get syncPeerNewer =>
+      'Diğer cihazda daha yeni bir cat(a)log var. Bu cihazda cat(a)log uygulamasını güncelle ve yeniden eşitle.';
+
+  @override
+  String get bundleNewerError =>
+      'Bu dosya daha yeni bir cat(a)log sürümünden geliyor. İçe aktarmak için bu cihazda cat(a)log uygulamasını güncelle.';
 }

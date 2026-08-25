@@ -14,6 +14,7 @@ export 'src/entry.dart';
 export 'src/fields.dart';
 export 'src/folder_sync.dart';
 export 'src/flier_share.dart';
+export 'src/ics.dart';
 export 'src/match.dart';
 export 'src/transfer.dart';
 export 'src/pair_code.dart';

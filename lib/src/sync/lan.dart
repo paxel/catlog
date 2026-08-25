@@ -27,6 +27,14 @@ class SyncResult {
 }
 
 const _pinHeader = 'x-catlog-pin';
+const _formatHeader = 'x-catlog-format';
+
+/// The sync wire format this build speaks. Format 2 (1.0.0, #74):
+/// entries carry the reminder flag. A pre-1.0.0 peer would silently
+/// strip the flag and record plans as facts, so both sides refuse a
+/// format-1 peer instead of corrupting it — with a message naming the
+/// fix (update the other device).
+const syncFormat = 2;
 
 /// Hosts a sync session on the LAN: a small HTTP server the joiner
 /// drives. The PIN gates every request — it prevents accidents in a
@@ -80,11 +88,37 @@ class LanSyncHost {
       }
       final path = req.uri.path;
       if (req.method == 'GET' && path == '/vector') {
+        req.response.headers.set(_formatHeader, '$syncFormat');
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode(store.versionVector()));
       } else if (req.method == 'POST' && path == '/sync') {
         final body =
             jsonDecode(await utf8.decoder.bind(req).join()) as Map;
+        final joinerFormat = body['format'] as int? ?? 1;
+        if (joinerFormat != syncFormat &&
+            // Compatibility window: while no entry ever carried the
+            // reminder flag, this catalog's payloads are byte-identical
+            // to the old format — an older joiner syncs losslessly.
+            !(joinerFormat < syncFormat && !store.hasReminders())) {
+          req.response.statusCode = HttpStatus.forbidden;
+          if (joinerFormat == 1) {
+            // A pre-1.0.0 joiner cannot receive flagged entries and
+            // parses only this word; it shows "host declined" — wrong
+            // reason, right outcome, its shipped reader has no better.
+            req.response.write('declined');
+          } else {
+            // From format 2 on, refusals carry their reason, so a
+            // future mismatch names the fix instead of guessing.
+            req.response.headers.contentType = ContentType.json;
+            req.response.write(jsonEncode({
+              'refusal': joinerFormat < syncFormat
+                  ? 'joiner-older'
+                  : 'joiner-newer',
+              'format': syncFormat,
+            }));
+          }
+          return;
+        }
         final decision = onJoinRequest == null
             ? const JoinDecision(true, false)
             : await onJoinRequest!(
@@ -156,6 +190,7 @@ Future<SyncResult> lanSync(
   // the Local Network permission prompt until the user answers it.
   final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
   try {
+    var hostFormat = 1;
     Future<dynamic> call(String method, String path, {Object? body}) async {
       final req = await client.openUrl(method, Uri.parse('http://$host:$port$path'));
       req.headers.set(_pinHeader, pin);
@@ -166,8 +201,23 @@ Future<SyncResult> lanSync(
         req.add(body);
       }
       final res = await req.close();
+      hostFormat =
+          int.tryParse(res.headers.value(_formatHeader) ?? '') ?? 1;
       if (res.statusCode == HttpStatus.forbidden) {
         final body = await utf8.decoder.bind(res).join();
+        // A refusal from format 2 on is JSON naming its reason.
+        try {
+          final refusal =
+              (jsonDecode(body) as Map)['refusal'] as String?;
+          if (refusal == 'joiner-older') {
+            throw const SyncException('peer-newer');
+          }
+          if (refusal == 'joiner-newer') {
+            throw const SyncException('peer-older');
+          }
+        } on FormatException {
+          // Not JSON — a plain PIN or decline refusal.
+        }
         throw SyncException(
             body.contains('declined') ? 'declined' : 'Wrong PIN');
       }
@@ -187,11 +237,21 @@ Future<SyncResult> lanSync(
 
     final hostVector = (await call('GET', '/vector') as Map)
         .map((k, v) => MapEntry(k as String, v as int));
+    // An older host would strip the reminder flag off entries and
+    // record plans as facts (#74) — refuse it before anything is sent,
+    // unless this catalog has never used a reminder: then the payload
+    // is byte-identical to the old format and syncs losslessly. A
+    // NEWER host is not prejudged — it may run the same compatibility
+    // window, and if not, its refusal names the reason.
+    if (hostFormat < syncFormat && store.hasReminders()) {
+      throw const SyncException('peer-older');
+    }
     final myVector = store.versionVector();
     final toSend =
         store.entriesSince(hostVector, includePrivate: includePrivate);
 
     final response = await call('POST', '/sync', body: {
+      'format': syncFormat,
       'vector': myVector,
       'entries': [for (final e in toSend) e.toJson()],
       'author': store.author ?? '?',

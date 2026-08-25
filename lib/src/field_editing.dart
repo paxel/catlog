@@ -15,7 +15,11 @@ class FieldEdit {
 
   /// The Privat checkmark: this value stays in the local catalog.
   final bool private;
-  const FieldEdit(this.value, this.date, {this.private = false});
+
+  /// The reminder checkmark (#74): store as a plan, not a fact.
+  final bool reminder;
+  const FieldEdit(this.value, this.date,
+      {this.private = false, this.reminder = false});
 }
 
 /// Type-aware editor dialog for a Field value. Returns null on cancel.
@@ -56,6 +60,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   late bool _private = widget.store != null &&
       widget.excludeId != null &&
       widget.store!.isFieldPrivate(widget.excludeId!, def.key);
+  bool _reminder = false;
 
   FieldDef get def => widget.def;
 
@@ -78,21 +83,30 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   }
 
   void _submit(String? value) => Navigator.of(context)
-      .pop(FieldEdit(value, _asOf, private: _private));
+      .pop(FieldEdit(value, _asOf, private: _private, reminder: _reminder));
 
   Future<void> _pickAsOf() async {
     final picked = await showDatePicker(
       context: context,
       initialDate: _asOf,
       firstDate: DateTime(2000),
-      lastDate: DateTime.now().add(const Duration(days: 1)),
+      // Future dates carry plans (#74); the reminder toggle below
+      // auto-enables for them.
+      lastDate: DateTime(2100),
       // The picker falls back to a text field (e.g. with screen readers);
       // the stock error doesn't say which format is expected.
       errorFormatText: context.t
           .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
     );
     if (!mounted) return;
-    if (picked != null) setState(() => _asOf = picked);
+    if (picked != null) {
+      setState(() {
+        _asOf = picked;
+        // A future date is almost always a plan, not a fact — flag it,
+        // visibly and overridably.
+        if (picked.isAfter(DateTime.now())) _reminder = true;
+      });
+    }
   }
 
   Widget _input() {
@@ -284,6 +298,14 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                     .format(_asOf))),
             trailing: const Icon(Icons.edit_calendar_outlined),
             onTap: _pickAsOf,
+          ),
+          CheckboxListTile(
+            contentPadding: EdgeInsets.zero,
+            value: _reminder,
+            onChanged: (v) => setState(() => _reminder = v ?? false),
+            title: Text(context.t.reminderLabel),
+            secondary: const Icon(Icons.alarm),
+            controlAffinity: ListTileControlAffinity.trailing,
           ),
         ]),
       ),

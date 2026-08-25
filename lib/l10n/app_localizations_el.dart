@@ -1648,4 +1648,94 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Αφαίρεση ιδιωτικής σήμανσης';
+
+  @override
+  String get agenda => 'Υπενθυμίσεις';
+
+  @override
+  String get reminderLabel => 'Υπενθύμιση';
+
+  @override
+  String get agendaEmpty =>
+      'Τίποτα δεν εκκρεμεί. Διάλεξε μελλοντική ημερομηνία σε ένα πεδίο και θα εμφανιστεί εδώ.';
+
+  @override
+  String get dueToday => 'σήμερα';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'σε $count ημέρες',
+      one: 'σε 1 ημέρα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ημέρες καθυστέρηση',
+      one: '1 ημέρα καθυστέρηση',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Έγινε';
+
+  @override
+  String get repeatTitle => 'Ξανά σε…';
+
+  @override
+  String get noRepeatLabel => 'Χωρίς επανάληψη';
+
+  @override
+  String get unitDays => 'ημέρες';
+
+  @override
+  String get unitWeeks => 'εβδομάδες';
+
+  @override
+  String get unitMonths => 'μήνες';
+
+  @override
+  String get unitYears => 'χρόνια';
+
+  @override
+  String get changeDateLabel => 'Αλλαγή ημερομηνίας';
+
+  @override
+  String get removeReminderLabel => 'Αφαίρεση υπενθύμισης';
+
+  @override
+  String get exportIcs => 'Εξαγωγή αρχείου ημερολογίου';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Το αρχείο ημερολογίου αποθηκεύτηκε στο $path';
+  }
+
+  @override
+  String get calendarMirrorLabel =>
+      'Αντικατοπτρισμός στο ημερολόγιο της συσκευής';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Κάθε προθεσμία γίνεται ολοήμερο συμβάν σε ένα ημερολόγιο cat(a)log σε αυτήν τη συσκευή. Άλλαζε τις ημερομηνίες στο cat(a)log, όχι στο ημερολόγιο.';
+
+  @override
+  String get syncPeerOlder =>
+      'Η άλλη συσκευή έχει παλαιότερο cat(a)log χωρίς υπενθυμίσεις. Ενημέρωσε το cat(a)log εκεί και συγχρόνισε ξανά.';
+
+  @override
+  String get syncPeerNewer =>
+      'Η άλλη συσκευή έχει νεότερο cat(a)log. Ενημέρωσε το cat(a)log σε αυτήν τη συσκευή και συγχρόνισε ξανά.';
+
+  @override
+  String get bundleNewerError =>
+      'Αυτό το αρχείο προέρχεται από νεότερο cat(a)log. Ενημέρωσε το cat(a)log σε αυτήν τη συσκευή για να το εισαγάγεις.';
 }

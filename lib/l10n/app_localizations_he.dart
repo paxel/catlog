@@ -1632,4 +1632,95 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'הסר סימון פרטי';
+
+  @override
+  String get agenda => 'תזכורות';
+
+  @override
+  String get reminderLabel => 'תזכורת';
+
+  @override
+  String get agendaEmpty =>
+      'אין שום דבר קרוב. בחרו תאריך עתידי בשדה כלשהו והוא יופיע כאן.';
+
+  @override
+  String get dueToday => 'היום';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'בעוד $count ימים',
+      two: 'בעוד יומיים',
+      one: 'בעוד יום',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'באיחור של $count ימים',
+      two: 'באיחור של יומיים',
+      one: 'באיחור של יום',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'בוצע';
+
+  @override
+  String get repeatTitle => 'שוב בעוד…';
+
+  @override
+  String get noRepeatLabel => 'ללא חזרה';
+
+  @override
+  String get unitDays => 'ימים';
+
+  @override
+  String get unitWeeks => 'שבועות';
+
+  @override
+  String get unitMonths => 'חודשים';
+
+  @override
+  String get unitYears => 'שנים';
+
+  @override
+  String get changeDateLabel => 'שינוי תאריך';
+
+  @override
+  String get removeReminderLabel => 'הסרת תזכורת';
+
+  @override
+  String get exportIcs => 'ייצוא קובץ יומן';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'קובץ היומן נשמר תחת $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'שיקוף ליומן המכשיר';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'כל מועד הופך לאירוע של יום שלם ביומן cat(a)log במכשיר הזה. שנו תאריכים ב-cat(a)log, לא ביומן.';
+
+  @override
+  String get syncPeerOlder =>
+      'במכשיר השני פועל cat(a)log ישן יותר בלי תזכורות. עדכנו שם את cat(a)log וסנכרנו שוב.';
+
+  @override
+  String get syncPeerNewer =>
+      'במכשיר השני פועל cat(a)log חדש יותר. עדכנו את cat(a)log במכשיר הזה וסנכרנו שוב.';
+
+  @override
+  String get bundleNewerError =>
+      'הקובץ הזה מגיע מ-cat(a)log חדש יותר. עדכנו את cat(a)log במכשיר הזה כדי לייבא אותו.';
 }

@@ -1637,4 +1637,99 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'إزالة علامة الخصوصية';
+
+  @override
+  String get agenda => 'المواعيد';
+
+  @override
+  String get reminderLabel => 'تذكير';
+
+  @override
+  String get agendaEmpty =>
+      'لا شيء مستحق. اختر تاريخًا مستقبليًا في أي حقل وسيظهر هنا.';
+
+  @override
+  String get dueToday => 'اليوم';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'بعد $count يوم',
+      many: 'بعد $count يومًا',
+      few: 'بعد $count أيام',
+      two: 'بعد يومين',
+      one: 'بعد يوم واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'متأخر $count يوم',
+      many: 'متأخر $count يومًا',
+      few: 'متأخر $count أيام',
+      two: 'متأخر يومين',
+      one: 'متأخر يومًا واحدًا',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'تم';
+
+  @override
+  String get repeatTitle => 'مجددًا بعد…';
+
+  @override
+  String get noRepeatLabel => 'بلا تكرار';
+
+  @override
+  String get unitDays => 'أيام';
+
+  @override
+  String get unitWeeks => 'أسابيع';
+
+  @override
+  String get unitMonths => 'أشهر';
+
+  @override
+  String get unitYears => 'سنوات';
+
+  @override
+  String get changeDateLabel => 'تغيير التاريخ';
+
+  @override
+  String get removeReminderLabel => 'إزالة التذكير';
+
+  @override
+  String get exportIcs => 'تصدير ملف التقويم';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'حُفظ ملف التقويم في $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'انعكاس في تقويم الجهاز';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'كل موعد يصبح حدثًا ليوم كامل في تقويم cat(a)log على هذا الجهاز. غيّر التواريخ في cat(a)log لا في التقويم.';
+
+  @override
+  String get syncPeerOlder =>
+      'الجهاز الآخر يشغّل نسخة أقدم من cat(a)log بلا تذكيرات. حدّث cat(a)log هناك ثم زامن مجددًا.';
+
+  @override
+  String get syncPeerNewer =>
+      'الجهاز الآخر يشغّل نسخة أحدث من cat(a)log. حدّث cat(a)log على هذا الجهاز ثم زامن مجددًا.';
+
+  @override
+  String get bundleNewerError =>
+      'هذا الملف من نسخة أحدث من cat(a)log. حدّث cat(a)log على هذا الجهاز لاستيراده.';
 }

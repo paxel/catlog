@@ -149,7 +149,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       await explainObjection(context, objection);
       return;
     }
-    store.append(id, def.key, edit.value, date: edit.date);
+    store.append(id, def.key, edit.value,
+        date: edit.date, reminder: edit.reminder);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }

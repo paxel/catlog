@@ -1651,4 +1651,94 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Retirer le marquage privé';
+
+  @override
+  String get agenda => 'Agenda';
+
+  @override
+  String get reminderLabel => 'Rappel';
+
+  @override
+  String get agendaEmpty =>
+      'Rien à venir. Choisis une date future sur un champ et elle apparaît ici.';
+
+  @override
+  String get dueToday => 'aujourd\'hui';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'dans $count jours',
+      one: 'dans 1 jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'en retard de $count jours',
+      one: 'en retard de 1 jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Fait';
+
+  @override
+  String get repeatTitle => 'À nouveau dans…';
+
+  @override
+  String get noRepeatLabel => 'Pas de répétition';
+
+  @override
+  String get unitDays => 'jours';
+
+  @override
+  String get unitWeeks => 'semaines';
+
+  @override
+  String get unitMonths => 'mois';
+
+  @override
+  String get unitYears => 'ans';
+
+  @override
+  String get changeDateLabel => 'Changer la date';
+
+  @override
+  String get removeReminderLabel => 'Supprimer le rappel';
+
+  @override
+  String get exportIcs => 'Exporter le fichier calendrier';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Fichier calendrier enregistré sous $path';
+  }
+
+  @override
+  String get calendarMirrorLabel =>
+      'Refléter dans le calendrier de l\'appareil';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Chaque échéance devient un événement d\'une journée dans un calendrier cat(a)log sur cet appareil. Change les dates dans cat(a)log, pas dans le calendrier.';
+
+  @override
+  String get syncPeerOlder =>
+      'L\'autre appareil utilise un cat(a)log plus ancien sans rappels. Mets-y cat(a)log à jour, puis resynchronise.';
+
+  @override
+  String get syncPeerNewer =>
+      'L\'autre appareil utilise un cat(a)log plus récent. Mets cat(a)log à jour sur cet appareil, puis resynchronise.';
+
+  @override
+  String get bundleNewerError =>
+      'Ce fichier vient d\'un cat(a)log plus récent. Mets cat(a)log à jour sur cet appareil pour l\'importer.';
 }

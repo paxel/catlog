@@ -30,6 +30,8 @@ dependencies:
   printing: ^5.13.2
   audioplayers: ^6.1.0
   connectivity_plus: ^6.1.0
+  device_calendar: ^4.3.3
+  timezone: any
   window_manager: ^0.4.3
   qr_flutter: ^4.1.0
   share_plus: ^10.1.0

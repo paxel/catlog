@@ -1642,4 +1642,93 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Remove private mark';
+
+  @override
+  String get agenda => 'Agenda';
+
+  @override
+  String get reminderLabel => 'Reminder';
+
+  @override
+  String get agendaEmpty =>
+      'Nothing is due. Pick a future date on any field and it appears here.';
+
+  @override
+  String get dueToday => 'due today';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'in $count days',
+      one: 'in 1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days overdue',
+      one: '1 day overdue',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Done';
+
+  @override
+  String get repeatTitle => 'Again in…';
+
+  @override
+  String get noRepeatLabel => 'No repeat';
+
+  @override
+  String get unitDays => 'days';
+
+  @override
+  String get unitWeeks => 'weeks';
+
+  @override
+  String get unitMonths => 'months';
+
+  @override
+  String get unitYears => 'years';
+
+  @override
+  String get changeDateLabel => 'Change date';
+
+  @override
+  String get removeReminderLabel => 'Remove reminder';
+
+  @override
+  String get exportIcs => 'Export calendar file';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Calendar file saved under $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Mirror to device calendar';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Each due date becomes an all-day event in a cat(a)log calendar on this device. Change dates in cat(a)log, not in the calendar.';
+
+  @override
+  String get syncPeerOlder =>
+      'The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.';
+
+  @override
+  String get syncPeerNewer =>
+      'The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.';
+
+  @override
+  String get bundleNewerError =>
+      'This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.';
 }

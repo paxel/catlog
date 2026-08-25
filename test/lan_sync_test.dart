@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/src/sync/lan.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -90,4 +93,113 @@ void main() {
     expect(b.cats().map((c) => c.id), contains(secret));
     expect(b.isPrivate(secret), isTrue);
   });
+  /// A 0.3.x joiner: no `format` in the /sync body.
+  Future<(int, String)> postLegacySync(int port, String pin,
+      Map<String, Object?> vector) async {
+    final client = HttpClient();
+    try {
+      final req = await client
+          .postUrl(Uri.parse('http://127.0.0.1:$port/sync'));
+      req.headers.set('x-catlog-pin', pin);
+      req.headers.contentType = ContentType.json;
+      req.write(jsonEncode({
+        'vector': vector,
+        'entries': const [],
+        'author': 'old',
+        'deviceName': 'old-phone',
+        'deviceId': 'dev-old',
+      }));
+      final res = await req.close();
+      final body = await utf8.decoder.bind(res).join();
+      return (res.statusCode, body);
+    } finally {
+      client.close(force: true);
+    }
+  }
+
+  test('a flag-free host still syncs with a pre-1.0.0 joiner', () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    addTearDown(a.close);
+    a.createCat('Miezi');
+
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+
+    final (status, body) = await postLegacySync(host.port, '123456', {});
+    expect(status, 200);
+    expect(body, contains('Miezi'));
+    expect(body, isNot(contains('"reminder"')));
+  });
+
+  test('a host with reminders refuses a pre-1.0.0 joiner as declined',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    addTearDown(a.close);
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:vaccine', 'refresh',
+        date: DateTime.now().add(const Duration(days: 30)),
+        reminder: true);
+
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+
+    final (status, body) = await postLegacySync(host.port, '123456', {});
+    expect(status, 403);
+    expect(body, 'declined');
+  });
+
+  test('a refusal to a format-aware joiner names its reason', () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    addTearDown(a.close);
+    a.createCat('Miezi');
+
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+
+    // A joiner from the future (format 99) — the host cannot serve it
+    // and says so in a machine-readable refusal.
+    final client = HttpClient();
+    addTearDown(() => client.close(force: true));
+    final req = await client
+        .postUrl(Uri.parse('http://127.0.0.1:${host.port}/sync'));
+    req.headers.set('x-catlog-pin', '123456');
+    req.headers.contentType = ContentType.json;
+    req.write(jsonEncode({
+      'format': 99,
+      'vector': const <String, int>{},
+      'entries': const [],
+      'author': 'future',
+      'deviceName': 'future-phone',
+      'deviceId': 'dev-future',
+    }));
+    final res = await req.close();
+    final body = await utf8.decoder.bind(res).join();
+    expect(res.statusCode, 403);
+    final refusal = (jsonDecode(body) as Map);
+    expect(refusal['refusal'], 'joiner-newer');
+    expect(refusal['format'], 2);
+  });
+
+  test('two 1.0.0 devices sync reminders as plans', () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:vaccine', 'refresh',
+        date: DateTime.now().add(const Duration(days: 30)),
+        reminder: true);
+
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+
+    await lanSync(b, '127.0.0.1', host.port, '123456');
+    expect(b.activeReminders(), hasLength(1));
+    expect(b.current(cat, 'f:vaccine'), isNull);
+  });
 }
+

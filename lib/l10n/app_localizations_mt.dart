@@ -1646,4 +1646,97 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Neħħi l-marka privata';
+
+  @override
+  String get agenda => 'Tfakkiriet';
+
+  @override
+  String get reminderLabel => 'Tfakkira';
+
+  @override
+  String get agendaEmpty =>
+      'M\'hemm xejn dovut. Agħżel data fil-futur fuq xi qasam u tidher hawn.';
+
+  @override
+  String get dueToday => 'illum';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'fi żmien $count jum',
+      many: 'fi żmien $count-il jum',
+      few: 'fi żmien $count ijiem',
+      one: 'fi żmien ġurnata',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jum tard',
+      many: '$count-il jum tard',
+      few: '$count ijiem tard',
+      one: 'ġurnata tard',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Sar';
+
+  @override
+  String get repeatTitle => 'Mill-ġdid fi żmien…';
+
+  @override
+  String get noRepeatLabel => 'Mingħajr repetizzjoni';
+
+  @override
+  String get unitDays => 'ijiem';
+
+  @override
+  String get unitWeeks => 'ġimgħat';
+
+  @override
+  String get unitMonths => 'xhur';
+
+  @override
+  String get unitYears => 'snin';
+
+  @override
+  String get changeDateLabel => 'Ibdel id-data';
+
+  @override
+  String get removeReminderLabel => 'Neħħi t-tfakkira';
+
+  @override
+  String get exportIcs => 'Esporta l-fajl tal-kalendarju';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Il-fajl tal-kalendarju ġie salvat f\'$path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Irrifletti fil-kalendarju tal-apparat';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Kull skadenza ssir avveniment ta\' ġurnata sħiħa f\'kalendarju cat(a)log fuq dan l-apparat. Ibdel id-dati f\'cat(a)log, mhux fil-kalendarju.';
+
+  @override
+  String get syncPeerOlder =>
+      'L-apparat l-ieħor għandu cat(a)log eqdem mingħajr tfakkiriet. Aġġorna cat(a)log hemmhekk u ssinkronizza mill-ġdid.';
+
+  @override
+  String get syncPeerNewer =>
+      'L-apparat l-ieħor għandu cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat u ssinkronizza mill-ġdid.';
+
+  @override
+  String get bundleNewerError =>
+      'Dan il-fajl ġej minn cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat biex timportah.';
 }

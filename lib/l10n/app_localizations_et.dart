@@ -1641,4 +1641,93 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Eemalda privaatsuse märge';
+
+  @override
+  String get agenda => 'Meeldetuletused';
+
+  @override
+  String get reminderLabel => 'Meeldetuletus';
+
+  @override
+  String get agendaEmpty =>
+      'Midagi pole tulemas. Vali väljale tulevane kuupäev ja see ilmub siia.';
+
+  @override
+  String get dueToday => 'täna';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count päeva pärast',
+      one: '1 päeva pärast',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count päeva üle tähtaja',
+      one: '1 päev üle tähtaja',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Tehtud';
+
+  @override
+  String get repeatTitle => 'Uuesti…';
+
+  @override
+  String get noRepeatLabel => 'Ei kordu';
+
+  @override
+  String get unitDays => 'päeva pärast';
+
+  @override
+  String get unitWeeks => 'nädala pärast';
+
+  @override
+  String get unitMonths => 'kuu pärast';
+
+  @override
+  String get unitYears => 'aasta pärast';
+
+  @override
+  String get changeDateLabel => 'Muuda kuupäeva';
+
+  @override
+  String get removeReminderLabel => 'Eemalda meeldetuletus';
+
+  @override
+  String get exportIcs => 'Ekspordi kalendrifail';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalendrifail salvestatud asukohta $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Peegelda seadme kalendrisse';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Iga tähtaeg saab kogu päeva sündmuseks cat(a)log kalendris selles seadmes. Kuupäevi muuda cat(a)logis, mitte kalendris.';
+
+  @override
+  String get syncPeerOlder =>
+      'Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.';
+
+  @override
+  String get syncPeerNewer =>
+      'Teises seadmes on uuem cat(a)log. Uuenda cat(a)log selles seadmes ja sünkrooni uuesti.';
+
+  @override
+  String get bundleNewerError =>
+      'See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.';
 }

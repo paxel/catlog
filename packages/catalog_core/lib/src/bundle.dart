@@ -13,6 +13,26 @@ import 'store.dart';
 /// WhatsApp, Signal, mail, anything that moves files. Importing runs
 /// the same idempotent engine as every other transport, with the
 /// bundle's own vector as causal context for conflict detection.
+/// The bundle format this build writes and the highest it reads.
+///
+/// Format 2 (1.0.0, #74): entries carry the reminder flag and live in
+/// `entries2.jsonl` beside a `format` marker file. Pre-1.0.0 readers
+/// only look for `entries.jsonl`, so a v2 bundle imports as zero
+/// entries there — a safe no-op instead of silently stripping the
+/// flag and turning plans into facts. This reader still accepts the
+/// old name for bundles written by pre-1.0.0 devices.
+const bundleFormat = 2;
+
+/// A bundle written by a newer app than this one reads.
+class UnsupportedBundleFormat implements Exception {
+  final int format;
+  const UnsupportedBundleFormat(this.format);
+
+  @override
+  String toString() =>
+      'Bundle format $format is newer than this app reads ($bundleFormat)';
+}
+
 class BundleResult {
   final int entriesIn;
   final int blobsIn;
@@ -33,12 +53,12 @@ class BundleResult {
 String writeBundle(CatalogStore store, String path,
     {bool includePrivate = false}) {
   final archive = Archive();
-  final jsonl = store
-      .entriesSince(const {}, includePrivate: includePrivate)
-      .map((e) => jsonEncode(e.toJson()))
-      .join('\n');
+  final entries =
+      store.entriesSince(const {}, includePrivate: includePrivate);
+  final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
   final jsonlBytes = utf8.encode(jsonl);
-  archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
+  _addFormatAndEntries(archive, jsonlBytes,
+      flagged: entries.any((e) => e.reminder));
   final seen = <String>{};
   for (final entity in [...store.cats(), ...store.clowders()]) {
     for (final hash in store.images(entity.id)) {
@@ -72,7 +92,8 @@ String writeEntriesBundle(
   final archive = Archive();
   final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
   final jsonlBytes = utf8.encode(jsonl);
-  archive.addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
+  _addFormatAndEntries(archive, jsonlBytes,
+      flagged: entries.any((e) => e.reminder));
   final seen = <String>{};
   for (final e in entries) {
     if (!e.field.startsWith(Keys.imagePrefix)) continue;
@@ -85,6 +106,22 @@ String writeEntriesBundle(
   }
   File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);
   return path;
+}
+
+/// A payload without a single flagged entry is byte-identical to the
+/// pre-1.0.0 format, so it ships under the old name and stays
+/// importable on 0.3.x. Only actual reminders force the v2 layout.
+void _addFormatAndEntries(Archive archive, List<int> jsonlBytes,
+    {required bool flagged}) {
+  if (!flagged) {
+    archive
+        .addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
+    return;
+  }
+  final format = utf8.encode('$bundleFormat');
+  archive.addFile(ArchiveFile('format', format.length, format));
+  archive
+      .addFile(ArchiveFile('entries2.jsonl', jsonlBytes.length, jsonlBytes));
 }
 
 /// Imports a bundle file; unknown entries and missing photos land,
@@ -100,7 +137,14 @@ BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
   final blobs = <String, List<int>>{};
   for (final file in archive.files) {
     if (!file.isFile) continue;
-    if (file.name == 'entries.jsonl') {
+    if (file.name == 'format') {
+      final declared = int.tryParse(
+          utf8.decode(file.content as List<int>).trim());
+      if (declared != null && declared > bundleFormat) {
+        throw UnsupportedBundleFormat(declared);
+      }
+    } else if (file.name == 'entries2.jsonl' ||
+        file.name == 'entries.jsonl') {
       for (final line in utf8.decode(file.content as List<int>).split('\n')) {
         if (line.trim().isEmpty) continue;
         entries.add(

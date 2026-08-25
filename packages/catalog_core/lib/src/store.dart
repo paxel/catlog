@@ -43,6 +43,34 @@ class EntityView {
   const EntityView(this.id, this.name);
 }
 
+/// One live plan (#74): the newest — by append order — entry of an
+/// (entity, field) pair is reminder-flagged with a value. See
+/// [CatalogStore.activeReminders].
+class ActiveReminder {
+  /// Canonical entity id (`cat:…` or `clowder:…`).
+  final String entity;
+
+  /// Canonical field key.
+  final String field;
+
+  /// The plan's note — what is due.
+  final String value;
+
+  /// The flagged entry itself; [due] is its effective date.
+  final Entry entry;
+
+  const ActiveReminder(
+      {required this.entity,
+      required this.field,
+      required this.value,
+      required this.entry});
+
+  /// Entry dates are stored as UTC instants; the due DAY is a local
+  /// notion — without toLocal a midnight due date reads as the
+  /// previous evening and every day comparison shifts by one.
+  DateTime get due => entry.date.toLocal();
+}
+
 /// One arrival or departure in a Clowder's combined timeline.
 class ClowderEvent {
   /// The underlying membership entry on the Cat.
@@ -100,7 +128,8 @@ class CatalogStore {
         value    TEXT,
         date     TEXT NOT NULL,
         author   TEXT NOT NULL,
-        recorded TEXT NOT NULL
+        recorded TEXT NOT NULL,
+        reminder INTEGER NOT NULL DEFAULT 0
       );
       CREATE TABLE IF NOT EXISTS local_settings (
         key   TEXT PRIMARY KEY,
@@ -117,6 +146,7 @@ class CatalogStore {
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
     store._migrateV1();
+    store._migrateReminder();
     store._normalizeTimestamps();
     db.execute('''
       CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
@@ -175,6 +205,18 @@ class CatalogStore {
     _db.execute('ALTER TABLE entries ADD COLUMN dseq INTEGER NOT NULL DEFAULT 0');
     _db.execute(
         'UPDATE entries SET device = ?, dseq = seq', [deviceId]);
+  }
+
+  /// Adds the reminder flag (#74) to a pre-1.0.0 database; existing
+  /// rows are facts, so the DEFAULT 0 backfill is the correct history.
+  void _migrateReminder() {
+    final cols = _db
+        .select('PRAGMA table_info(entries)')
+        .map((r) => r['name'] as String)
+        .toSet();
+    if (cols.contains('reminder')) return;
+    _db.execute(
+        'ALTER TABLE entries ADD COLUMN reminder INTEGER NOT NULL DEFAULT 0');
   }
 
   void close() => _db.dispose();
@@ -424,15 +466,15 @@ class CatalogStore {
   /// date and defaults to now. Uses the configured [author] unless [as]
   /// overrides it (seeding).
   void append(String entity, String field, String? value,
-      {DateTime? date, String? as}) {
+      {DateTime? date, String? as, bool reminder = false}) {
     final by = as ?? author;
     if (by == null) throw StateError('No author configured');
     final now = DateTime.now().toUtc();
     final device = deviceId;
     final next = _nextDseq(device);
     _db.execute(
-      'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
-      'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder) '
+      'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [
         device,
         next,
@@ -442,6 +484,7 @@ class CatalogStore {
         _iso(date ?? now),
         by,
         _iso(now),
+        reminder ? 1 : 0,
       ],
     );
     // A value written while this entity (or its field) is private needs
@@ -466,8 +509,8 @@ class CatalogStore {
     var next = _nextDseq(device);
     for (final e in entries) {
       _db.execute(
-        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO entries (device, dseq, entity, field, value, date, author, recorded, reminder) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           device,
           next++,
@@ -477,6 +520,7 @@ class CatalogStore {
           _iso(e.date),
           e.author,
           _iso(e.recorded),
+          e.reminder ? 1 : 0,
         ],
       );
     }
@@ -492,6 +536,7 @@ class CatalogStore {
         date: DateTime.parse(r['date'] as String),
         author: r['author'] as String,
         recorded: DateTime.parse(r['recorded'] as String),
+        reminder: (r['reminder'] as int? ?? 0) != 0,
       );
 
   /// Deterministic latest-wins ordering (ADR-0001): effective date, then
@@ -580,7 +625,8 @@ class CatalogStore {
     final keys = _keysFor(field);
     final rows = _db.select(
       'SELECT * FROM entries WHERE entity IN (${_placeholders(entities.length)}) '
-      'AND field IN (${_placeholders(keys.length)}) $_latest LIMIT 1',
+      'AND field IN (${_placeholders(keys.length)}) '
+      'AND reminder = 0 $_latest LIMIT 1',
       [...entities, ...keys],
     );
     if (rows.isEmpty) return null;
@@ -595,7 +641,8 @@ class CatalogStore {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     final rows = _db.select(
       'SELECT field, value FROM entries '
-      'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
+      'WHERE entity IN (${_placeholders(entities.length)}) '
+      'AND reminder = 0 $_latest',
       entities,
     );
     final result = <String, String?>{};
@@ -648,6 +695,49 @@ class CatalogStore {
 
   bool isDeleted(String entity) => current(entity, Keys.deleted) == 'true';
 
+  /// Whether any entry ever carried the reminder flag (#74). While
+  /// false, every outgoing payload is byte-identical to the pre-1.0.0
+  /// format, so exports and sync stay compatible with 0.3.x peers.
+  /// Practically monotonic — even a cancelled plan is a flagged row —
+  /// flipping back only when going back removes the flagged entries.
+  bool hasReminders() => _db
+      .select('SELECT 1 FROM entries WHERE reminder = 1 LIMIT 1')
+      .isNotEmpty;
+
+  /// The live plans (#74): for every (entity, field) pair whose newest
+  /// entry — by APPEND order — is reminder-flagged with a value, one
+  /// [ActiveReminder]. Ordered by due date, earliest first.
+  ///
+  /// Retirement deliberately uses append order (recorded, author,
+  /// device, dseq), NOT the effective-date `_latest` ordering: a
+  /// done-fact recorded today must retire a plan whose due date lies
+  /// years ahead — under `_latest` the plan's future date would win
+  /// forever. Any later-appended entry on the field retires the plan:
+  /// an unflagged fact (done), a new flagged entry (rescheduled), or a
+  /// flagged null (cancelled).
+  List<ActiveReminder> activeReminders() {
+    final rows = _db.select(
+      'SELECT * FROM entries '
+      'ORDER BY recorded DESC, author DESC, device DESC, dseq DESC',
+    );
+    final newest = <(String, String), Entry>{};
+    for (final r in rows) {
+      final e = _entry(r);
+      if (!_unionKind(e.entity)) continue;
+      final key = (resolveEntity(e.entity), canonicalKey(e.field));
+      newest.putIfAbsent(key, () => e);
+    }
+    final result = <ActiveReminder>[
+      for (final MapEntry(key: (String entity, String field), value: Entry e)
+          in newest.entries)
+        if (e.reminder && e.value != null && !isDeleted(entity))
+          ActiveReminder(
+              entity: entity, field: field, value: e.value!, entry: e)
+    ];
+    result.sort((a, b) => a.due.compareTo(b.due));
+    return result;
+  }
+
   /// True when [field] may be reverted from the history UI. Structural
   /// markers and photo entries are not revertable (photo bytes are gone
   /// for good once deleted).
@@ -674,6 +764,7 @@ class CatalogStore {
     // sorts strictly before the reverted one in projection order.
     final prev = _db.select(
       'SELECT * FROM entries WHERE entity = ? AND field = ? '
+      'AND reminder = 0 '
       'AND (date, recorded, author, device, dseq) < (?, ?, ?, ?, ?) '
       '$_latest LIMIT 1',
       [
@@ -1423,8 +1514,11 @@ class CatalogStore {
     final pre = <(String, String), Entry?>{};
     if (senderVector != null) {
       for (final t in touched) {
+        // reminder = 0: a plan must not pose as the pre-import winner,
+        // or a fact arriving over it would flag a bogus conflict.
         final rows = _db.select(
-          'SELECT * FROM entries WHERE entity = ? AND field = ? $_latest LIMIT 1',
+          'SELECT * FROM entries WHERE entity = ? AND field = ? '
+          'AND reminder = 0 $_latest LIMIT 1',
           [t.$1, t.$2],
         );
         pre[t] = rows.isEmpty ? null : _entry(rows.first);
@@ -1438,8 +1532,8 @@ class CatalogStore {
       }
       _db.execute(
         'INSERT OR IGNORE INTO entries '
-        '(device, dseq, entity, field, value, date, author, recorded) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        '(device, dseq, entity, field, value, date, author, recorded, reminder) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           e.device,
           e.dseq,
@@ -1449,6 +1543,7 @@ class CatalogStore {
           _iso(e.date),
           e.author,
           _iso(e.recorded),
+          e.reminder ? 1 : 0,
         ],
       );
       if (_db.updatedRows > 0) imported.add(e);
@@ -1523,12 +1618,29 @@ class CatalogStore {
       // entries would otherwise override in the combined projection.
       final survivorFields = currentFields(survivorId);
       final loserFields = currentFields(loserId);
+      // Snapshot the pair's live plans first: a fact re-assertion below
+      // is a newer append and would retire a plan on the same field
+      // (#74) — those plans are re-asserted afterwards, so they stay
+      // the newest append.
+      final pairPlans = [
+        for (final r in activeReminders())
+          if (resolveEntity(r.entity) == resolveEntity(survivorId) ||
+              resolveEntity(r.entity) == loserId)
+            r
+      ];
+      final reasserted = <String>{};
       for (final key in survivorFields.keys) {
         if (key == Keys.type || key == Keys.deleted) continue;
         if (key.startsWith(Keys.imagePrefix)) continue;
         if (!loserFields.containsKey(key)) continue;
         if (loserFields[key] == survivorFields[key]) continue;
         append(survivorId, key, survivorFields[key], date: date);
+        reasserted.add(key);
+      }
+      for (final r in pairPlans) {
+        if (!reasserted.contains(r.field)) continue;
+        append(survivorId, r.field, r.value,
+            date: r.entry.date, reminder: true);
       }
     }
     append(loserId, Keys.mergedInto, survivorId, date: date);

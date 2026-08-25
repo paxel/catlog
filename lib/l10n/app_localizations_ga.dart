@@ -1650,4 +1650,99 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Bain an marc príobháideach';
+
+  @override
+  String get agenda => 'Meabhrúcháin';
+
+  @override
+  String get reminderLabel => 'Meabhrúchán';
+
+  @override
+  String get agendaEmpty =>
+      'Níl aon rud le déanamh. Roghnaigh dáta amach anseo ar réimse agus taispeánfar anseo é.';
+
+  @override
+  String get dueToday => 'inniu';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'i gceann $count lá',
+      many: 'i gceann $count lá',
+      few: 'i gceann $count lá',
+      two: 'i gceann $count lá',
+      one: 'i gceann 1 lá',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lá thar téarma',
+      many: '$count lá thar téarma',
+      few: '$count lá thar téarma',
+      two: '$count lá thar téarma',
+      one: '1 lá thar téarma',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Déanta';
+
+  @override
+  String get repeatTitle => 'Arís i gceann…';
+
+  @override
+  String get noRepeatLabel => 'Gan athdhéanamh';
+
+  @override
+  String get unitDays => 'lá';
+
+  @override
+  String get unitWeeks => 'seachtaine';
+
+  @override
+  String get unitMonths => 'mí';
+
+  @override
+  String get unitYears => 'bliana';
+
+  @override
+  String get changeDateLabel => 'Athraigh an dáta';
+
+  @override
+  String get removeReminderLabel => 'Bain an meabhrúchán';
+
+  @override
+  String get exportIcs => 'Easpórtáil comhad féilire';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Sábháladh an comhad féilire faoi $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Scáthánaigh chuig féilire an ghléis';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Éiríonn gach spriocdháta ina imeacht lae iomláin i bhféilire cat(a)log ar an ngléas seo. Athraigh dátaí in cat(a)log, ní san fhéilire.';
+
+  @override
+  String get syncPeerOlder =>
+      'Tá cat(a)log níos sine gan mheabhrúcháin ar an ngléas eile. Nuashonraigh cat(a)log ansin agus sioncronaigh arís.';
+
+  @override
+  String get syncPeerNewer =>
+      'Tá cat(a)log níos nuaí ar an ngléas eile. Nuashonraigh cat(a)log ar an ngléas seo agus sioncronaigh arís.';
+
+  @override
+  String get bundleNewerError =>
+      'Tagann an comhad seo ó cat(a)log níos nuaí. Nuashonraigh cat(a)log ar an ngléas seo chun é a iompórtáil.';
 }

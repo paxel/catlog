@@ -1643,4 +1643,95 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Ukloni privatnu oznaku';
+
+  @override
+  String get agenda => 'Podsjetnici';
+
+  @override
+  String get reminderLabel => 'Podsjetnik';
+
+  @override
+  String get agendaEmpty =>
+      'Ništa ne dospijeva. Odaberi budući datum na polju i pojavit će se ovdje.';
+
+  @override
+  String get dueToday => 'danas';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'za $count dana',
+      few: 'za $count dana',
+      one: 'za $count dan',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dana kašnjenja',
+      few: '$count dana kašnjenja',
+      one: '$count dan kašnjenja',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Obavljeno';
+
+  @override
+  String get repeatTitle => 'Ponovo za…';
+
+  @override
+  String get noRepeatLabel => 'Bez ponavljanja';
+
+  @override
+  String get unitDays => 'dana';
+
+  @override
+  String get unitWeeks => 'sedmica';
+
+  @override
+  String get unitMonths => 'mjeseci';
+
+  @override
+  String get unitYears => 'godina';
+
+  @override
+  String get changeDateLabel => 'Promijeni datum';
+
+  @override
+  String get removeReminderLabel => 'Ukloni podsjetnik';
+
+  @override
+  String get exportIcs => 'Izvezi kalendarski fajl';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalendarski fajl sačuvan u $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Zrcali u kalendar uređaja';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Svaki rok postaje cjelodnevni događaj u cat(a)log kalendaru na ovom uređaju. Datume mijenjaj u cat(a)logu, ne u kalendaru.';
+
+  @override
+  String get syncPeerOlder =>
+      'Drugi uređaj ima stariji cat(a)log bez podsjetnika. Ažuriraj cat(a)log tamo i sinhroniziraj ponovo.';
+
+  @override
+  String get syncPeerNewer =>
+      'Drugi uređaj ima noviji cat(a)log. Ažuriraj cat(a)log na ovom uređaju i sinhroniziraj ponovo.';
+
+  @override
+  String get bundleNewerError =>
+      'Ovaj fajl dolazi iz novijeg cat(a)loga. Ažuriraj cat(a)log na ovom uređaju da ga uvezeš.';
 }

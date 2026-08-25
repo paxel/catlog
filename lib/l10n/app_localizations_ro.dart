@@ -1644,4 +1644,95 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Elimină marcajul privat';
+
+  @override
+  String get agenda => 'Agendă';
+
+  @override
+  String get reminderLabel => 'Memento';
+
+  @override
+  String get agendaEmpty =>
+      'Nimic scadent. Alege o dată viitoare la un câmp și apare aici.';
+
+  @override
+  String get dueToday => 'azi';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'peste $count de zile',
+      few: 'peste $count zile',
+      one: 'peste 1 zi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de zile întârziere',
+      few: '$count zile întârziere',
+      one: '1 zi întârziere',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Gata';
+
+  @override
+  String get repeatTitle => 'Din nou peste…';
+
+  @override
+  String get noRepeatLabel => 'Fără repetare';
+
+  @override
+  String get unitDays => 'zile';
+
+  @override
+  String get unitWeeks => 'săptămâni';
+
+  @override
+  String get unitMonths => 'luni';
+
+  @override
+  String get unitYears => 'ani';
+
+  @override
+  String get changeDateLabel => 'Schimbă data';
+
+  @override
+  String get removeReminderLabel => 'Elimină mementoul';
+
+  @override
+  String get exportIcs => 'Exportă fișierul de calendar';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Fișierul de calendar a fost salvat în $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Oglindește în calendarul dispozitivului';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Fiecare scadență devine un eveniment de o zi întreagă într-un calendar cat(a)log pe acest dispozitiv. Schimbă datele în cat(a)log, nu în calendar.';
+
+  @override
+  String get syncPeerOlder =>
+      'Celălalt dispozitiv rulează un cat(a)log mai vechi, fără mementouri. Actualizează cat(a)log acolo și sincronizează din nou.';
+
+  @override
+  String get syncPeerNewer =>
+      'Celălalt dispozitiv rulează un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv și sincronizează din nou.';
+
+  @override
+  String get bundleNewerError =>
+      'Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.';
 }

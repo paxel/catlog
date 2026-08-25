@@ -2,7 +2,8 @@
 ///
 /// Entries are never updated or removed (ADR-0001). The displayed value of
 /// a field is the entry with the highest ([date], [recorded], [author],
-/// [seq]) for its (entity, field) pair.
+/// [seq]) for its (entity, field) pair — among entries that are not
+/// [reminder]-flagged: a flagged entry is a plan, never a fact.
 class Entry {
   /// Local insertion order — a local handle only (revert, UI). Differs
   /// between devices; never used for cross-device ordering.
@@ -33,6 +34,11 @@ class Entry {
   /// Wall clock at recording time; tiebreak after [date].
   final DateTime recorded;
 
+  /// A plan, not a fact (#74): the entry names a due date but never
+  /// becomes the current value — not even after the date passes, a
+  /// missed appointment is not a treatment.
+  final bool reminder;
+
   const Entry({
     required this.seq,
     required this.device,
@@ -43,6 +49,7 @@ class Entry {
     required this.date,
     required this.author,
     required this.recorded,
+    this.reminder = false,
   });
 
   @override
@@ -60,6 +67,7 @@ class Entry {
         'date': date.toIso8601String(),
         'author': author,
         'recorded': recorded.toIso8601String(),
+        if (reminder) 'reminder': true,
       };
 
   factory Entry.fromJson(Map<String, dynamic> json) => Entry(
@@ -72,5 +80,7 @@ class Entry {
         date: DateTime.parse(json['date'] as String),
         author: json['author'] as String,
         recorded: DateTime.parse(json['recorded'] as String),
+        // Absent in every pre-1.0.0 file and payload.
+        reminder: json['reminder'] == true,
       );
 }

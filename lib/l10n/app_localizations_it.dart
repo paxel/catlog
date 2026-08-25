@@ -1650,4 +1650,93 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Rimuovi contrassegno privato';
+
+  @override
+  String get agenda => 'Agenda';
+
+  @override
+  String get reminderLabel => 'Promemoria';
+
+  @override
+  String get agendaEmpty =>
+      'Niente in scadenza. Scegli una data futura su un campo e comparirà qui.';
+
+  @override
+  String get dueToday => 'oggi';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'tra $count giorni',
+      one: 'tra 1 giorno',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'in ritardo di $count giorni',
+      one: 'in ritardo di 1 giorno',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Fatto';
+
+  @override
+  String get repeatTitle => 'Di nuovo tra…';
+
+  @override
+  String get noRepeatLabel => 'Nessuna ripetizione';
+
+  @override
+  String get unitDays => 'giorni';
+
+  @override
+  String get unitWeeks => 'settimane';
+
+  @override
+  String get unitMonths => 'mesi';
+
+  @override
+  String get unitYears => 'anni';
+
+  @override
+  String get changeDateLabel => 'Cambia data';
+
+  @override
+  String get removeReminderLabel => 'Rimuovi promemoria';
+
+  @override
+  String get exportIcs => 'Esporta file calendario';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'File calendario salvato in $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Rispecchia nel calendario del dispositivo';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Ogni scadenza diventa un evento di un giorno intero in un calendario cat(a)log su questo dispositivo. Cambia le date in cat(a)log, non nel calendario.';
+
+  @override
+  String get syncPeerOlder =>
+      'L\'altro dispositivo usa un cat(a)log più vecchio senza promemoria. Aggiorna cat(a)log lì e sincronizza di nuovo.';
+
+  @override
+  String get syncPeerNewer =>
+      'L\'altro dispositivo usa un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo e sincronizza di nuovo.';
+
+  @override
+  String get bundleNewerError =>
+      'Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo.';
 }

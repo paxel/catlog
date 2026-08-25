@@ -1650,4 +1650,93 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Privat-Markierung entfernen';
+
+  @override
+  String get agenda => 'Agenda';
+
+  @override
+  String get reminderLabel => 'Erinnerung';
+
+  @override
+  String get agendaEmpty =>
+      'Nichts fällig. Wähle bei einem Feld ein Datum in der Zukunft, dann erscheint es hier.';
+
+  @override
+  String get dueToday => 'heute fällig';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'in $count Tagen',
+      one: 'in 1 Tag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tage überfällig',
+      one: '1 Tag überfällig',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Erledigt';
+
+  @override
+  String get repeatTitle => 'Wieder in…';
+
+  @override
+  String get noRepeatLabel => 'Keine Wiederholung';
+
+  @override
+  String get unitDays => 'Tagen';
+
+  @override
+  String get unitWeeks => 'Wochen';
+
+  @override
+  String get unitMonths => 'Monaten';
+
+  @override
+  String get unitYears => 'Jahren';
+
+  @override
+  String get changeDateLabel => 'Datum ändern';
+
+  @override
+  String get removeReminderLabel => 'Erinnerung entfernen';
+
+  @override
+  String get exportIcs => 'Kalenderdatei exportieren';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'Kalenderdatei gespeichert unter $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'In Gerätekalender spiegeln';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Jedes Fälligkeitsdatum wird ein ganztägiger Termin in einem cat(a)log-Kalender auf diesem Gerät. Daten in cat(a)log ändern, nicht im Kalender.';
+
+  @override
+  String get syncPeerOlder =>
+      'Das andere Gerät hat ein älteres cat(a)log ohne Erinnerungen. Dort cat(a)log aktualisieren und erneut synchronisieren.';
+
+  @override
+  String get syncPeerNewer =>
+      'Das andere Gerät hat ein neueres cat(a)log. Auf diesem Gerät cat(a)log aktualisieren und erneut synchronisieren.';
+
+  @override
+  String get bundleNewerError =>
+      'Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren.';
 }

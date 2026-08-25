@@ -1643,4 +1643,93 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get unmarkPrivate => 'Privát jelölés eltávolítása';
+
+  @override
+  String get agenda => 'Teendők';
+
+  @override
+  String get reminderLabel => 'Emlékeztető';
+
+  @override
+  String get agendaEmpty =>
+      'Nincs esedékes teendő. Válassz egy mezőnél jövőbeli dátumot, és itt megjelenik.';
+
+  @override
+  String get dueToday => 'ma esedékes';
+
+  @override
+  String dueInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count nap múlva',
+      one: '1 nap múlva',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String overdueByDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count napja lejárt',
+      one: '1 napja lejárt',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get markDone => 'Kész';
+
+  @override
+  String get repeatTitle => 'Újra ennyi idő múlva…';
+
+  @override
+  String get noRepeatLabel => 'Nincs ismétlés';
+
+  @override
+  String get unitDays => 'nap';
+
+  @override
+  String get unitWeeks => 'hét';
+
+  @override
+  String get unitMonths => 'hónap';
+
+  @override
+  String get unitYears => 'év';
+
+  @override
+  String get changeDateLabel => 'Dátum módosítása';
+
+  @override
+  String get removeReminderLabel => 'Emlékeztető eltávolítása';
+
+  @override
+  String get exportIcs => 'Naptárfájl exportálása';
+
+  @override
+  String icsSavedTo(String path) {
+    return 'A naptárfájl ide került: $path';
+  }
+
+  @override
+  String get calendarMirrorLabel => 'Tükrözés az eszköz naptárába';
+
+  @override
+  String get calendarMirrorSubtitle =>
+      'Minden határidő egész napos esemény lesz egy cat(a)log naptárban ezen az eszközön. A dátumokat a cat(a)logban módosítsd, ne a naptárban.';
+
+  @override
+  String get syncPeerOlder =>
+      'A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.';
+
+  @override
+  String get syncPeerNewer =>
+      'A másik eszközön újabb cat(a)log fut. Frissítsd a cat(a)logot ezen az eszközön, és szinkronizálj újra.';
+
+  @override
+  String get bundleNewerError =>
+      'Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.';
 }
