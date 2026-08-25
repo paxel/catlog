@@ -585,5 +585,16 @@
   "syncPeerOlder": "Druhé zariadenie má starší cat(a)log bez pripomienok. Aktualizuj tam cat(a)log a synchronizuj znova.",
   "syncPeerNewer": "Druhé zariadenie má novší cat(a)log. Aktualizuj cat(a)log na tomto zariadení a synchronizuj znova.",
   "bundleNewerError": "Tento súbor pochádza z novšieho cat(a)logu. Aktualizuj cat(a)log na tomto zariadení, aby sa dal importovať.",
-  "spotEar": "Malé mačacie ucho v rohu znamená: podrž pre viac."
+  "spotEar": "Malé mačacie ucho v rohu znamená: podrž pre viac.",
+  "addReminder": "Pridať pripomienku",
+  "plannedSection": "Naplánované",
+  "reminderDialogHint": "Zobrazuje sa v pripomienkach, kým ju neoznačíš ako hotovú. Súčasná hodnota zostáva, aká je.",
+  "reminderFor": "Pre",
+  "reminderField": "Pole",
+  "dueDateLabel": "Termín",
+  "pickCalendar": "Ktorý kalendár?",
+  "calendarPermissionDenied": "Prístup ku kalendáru je zablokovaný, takže zrkadlenie je vypnuté. Povoľ ho v nastaveniach systému a zrkadlenie znova zapni.",
+  "calendarNotChosen": "Nie je vybraný žiadny kalendár, takže zrkadlenie je vypnuté. Znova ho zapni a nejaký vyber.",
+  "calendarGone": "Vybraný kalendár už neexistuje, takže zrkadlenie je vypnuté. Znova ho zapni a vyber iný.",
+  "noWritableCalendar": "Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova."
 }

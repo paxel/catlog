@@ -1739,4 +1739,42 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get spotEar =>
       'O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult.';
+
+  @override
+  String get addReminder => 'Adaugă memento';
+
+  @override
+  String get plannedSection => 'Planificat';
+
+  @override
+  String get reminderDialogHint =>
+      'Apare în agendă până îl marchezi ca făcut. Valoarea curentă rămâne așa cum este.';
+
+  @override
+  String get reminderFor => 'Pentru';
+
+  @override
+  String get reminderField => 'Câmp';
+
+  @override
+  String get dueDateLabel => 'Data scadentă';
+
+  @override
+  String get pickCalendar => 'Care calendar?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Accesul la calendar este blocat, așa că oglindirea e oprită. Permite-l în setările sistemului și pornește oglindirea din nou.';
+
+  @override
+  String get calendarNotChosen =>
+      'Niciun calendar ales, așa că oglindirea e oprită. Pornește-o din nou și alege unul.';
+
+  @override
+  String get calendarGone =>
+      'Calendarul ales nu mai există, așa că oglindirea e oprită. Pornește-o din nou și alege altul.';
+
+  @override
+  String get noWritableCalendar =>
+      'Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou.';
 }

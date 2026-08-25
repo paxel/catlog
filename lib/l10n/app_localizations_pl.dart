@@ -1740,4 +1740,42 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get spotEar =>
       'Małe kocie ucho w rogu oznacza: przytrzymaj, aby zobaczyć więcej.';
+
+  @override
+  String get addReminder => 'Dodaj przypomnienie';
+
+  @override
+  String get plannedSection => 'Zaplanowane';
+
+  @override
+  String get reminderDialogHint =>
+      'Widoczne w przypomnieniach, dopóki nie oznaczysz jako zrobione. Bieżąca wartość pozostaje bez zmian.';
+
+  @override
+  String get reminderFor => 'Dla';
+
+  @override
+  String get reminderField => 'Pole';
+
+  @override
+  String get dueDateLabel => 'Termin';
+
+  @override
+  String get pickCalendar => 'Który kalendarz?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Dostęp do kalendarza jest zablokowany, więc odbicie jest wyłączone. Zezwól na niego w ustawieniach systemu i włącz odbicie ponownie.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nie wybrano kalendarza, więc odbicie jest wyłączone. Włącz je ponownie i wybierz kalendarz.';
+
+  @override
+  String get calendarGone =>
+      'Wybrany kalendarz już nie istnieje, więc odbicie jest wyłączone. Włącz je ponownie i wybierz inny.';
+
+  @override
+  String get noWritableCalendar =>
+      'Żaden kalendarz na tym urządzeniu nie pozwala na zapis. Dodaj konto kalendarza w ustawieniach systemu i spróbuj ponownie.';
 }

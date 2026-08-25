@@ -585,5 +585,16 @@
   "syncPeerOlder": "El otro dispositivo usa un cat(a)log más antiguo sin recordatorios. Actualiza cat(a)log allí y vuelve a sincronizar.",
   "syncPeerNewer": "El otro dispositivo usa un cat(a)log más nuevo. Actualiza cat(a)log en este dispositivo y vuelve a sincronizar.",
   "bundleNewerError": "Este archivo viene de un cat(a)log más nuevo. Actualiza cat(a)log en este dispositivo para importarlo.",
-  "spotEar": "Una orejita de gato en una esquina significa: mantén pulsado para más."
+  "spotEar": "Una orejita de gato en una esquina significa: mantén pulsado para más.",
+  "addReminder": "Añadir recordatorio",
+  "plannedSection": "Planificado",
+  "reminderDialogHint": "Aparece en la agenda hasta que lo marques como hecho. El valor actual se queda como está.",
+  "reminderFor": "Para",
+  "reminderField": "Campo",
+  "dueDateLabel": "Fecha de vencimiento",
+  "pickCalendar": "¿Qué calendario?",
+  "calendarPermissionDenied": "El acceso al calendario está bloqueado, así que el reflejo está apagado. Permítelo en los ajustes del sistema y vuelve a activar el reflejo.",
+  "calendarNotChosen": "No se eligió ningún calendario, así que el reflejo está apagado. Actívalo de nuevo y elige uno.",
+  "calendarGone": "El calendario elegido ya no existe, así que el reflejo está apagado. Actívalo de nuevo y elige otro.",
+  "noWritableCalendar": "Ningún calendario de este dispositivo admite escritura. Añade una cuenta de calendario en los ajustes del sistema y vuelve a intentarlo."
 }

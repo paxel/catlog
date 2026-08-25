@@ -585,5 +585,16 @@
   "syncPeerOlder": "Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.",
   "syncPeerNewer": "Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.",
   "bundleNewerError": "Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.",
-  "spotEar": "Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer."
+  "spotEar": "Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer.",
+  "addReminder": "Herinnering toevoegen",
+  "plannedSection": "Gepland",
+  "reminderDialogHint": "Staat in de agenda tot je het als klaar markeert. De huidige waarde blijft zoals hij is.",
+  "reminderFor": "Voor",
+  "reminderField": "Veld",
+  "dueDateLabel": "Vervaldatum",
+  "pickCalendar": "Welke agenda?",
+  "calendarPermissionDenied": "Agendatoegang is geblokkeerd, dus het spiegelen staat uit. Sta het toe in de systeeminstellingen en zet het spiegelen weer aan.",
+  "calendarNotChosen": "Geen agenda gekozen, dus het spiegelen staat uit. Zet het weer aan en kies er een.",
+  "calendarGone": "De gekozen agenda bestaat niet meer, dus het spiegelen staat uit. Zet het weer aan en kies een andere.",
+  "noWritableCalendar": "Geen enkele agenda op dit apparaat is beschrijfbaar. Voeg in de systeeminstellingen een agenda-account toe en probeer het opnieuw."
 }

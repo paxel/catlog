@@ -1736,4 +1736,42 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotEar => 'Malo mačje uho u kutu znači: drži pritisnuto za više.';
+
+  @override
+  String get addReminder => 'Dodaj podsjetnik';
+
+  @override
+  String get plannedSection => 'Planirano';
+
+  @override
+  String get reminderDialogHint =>
+      'Prikazuje se u podsjetnicima dok ga ne označiš obavljenim. Trenutačna vrijednost ostaje kakva jest.';
+
+  @override
+  String get reminderFor => 'Za';
+
+  @override
+  String get reminderField => 'Polje';
+
+  @override
+  String get dueDateLabel => 'Rok';
+
+  @override
+  String get pickCalendar => 'Koji kalendar?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Pristup kalendaru je blokiran, pa je zrcaljenje isključeno. Dopusti ga u postavkama sustava i ponovno uključi zrcaljenje.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nije odabran kalendar, pa je zrcaljenje isključeno. Uključi ga ponovno i odaberi jedan.';
+
+  @override
+  String get calendarGone =>
+      'Odabrani kalendar više ne postoji, pa je zrcaljenje isključeno. Uključi ga ponovno i odaberi drugi.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ni u jedan kalendar na ovom uređaju ne može se pisati. Dodaj račun kalendara u postavkama sustava i pokušaj ponovno.';
 }

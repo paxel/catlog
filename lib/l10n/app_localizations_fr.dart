@@ -1745,4 +1745,42 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get spotEar =>
       'Une petite oreille de chat dans un coin signifie : rester appuyé pour plus.';
+
+  @override
+  String get addReminder => 'Ajouter un rappel';
+
+  @override
+  String get plannedSection => 'Prévu';
+
+  @override
+  String get reminderDialogHint =>
+      'Apparaît dans l\'agenda jusqu\'à ce que tu le marques fait. La valeur actuelle reste telle quelle.';
+
+  @override
+  String get reminderFor => 'Pour';
+
+  @override
+  String get reminderField => 'Champ';
+
+  @override
+  String get dueDateLabel => 'Échéance';
+
+  @override
+  String get pickCalendar => 'Quel calendrier ?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'L\'accès au calendrier est bloqué, le reflet est donc désactivé. Autorise-le dans les réglages du système, puis réactive le reflet.';
+
+  @override
+  String get calendarNotChosen =>
+      'Aucun calendrier choisi, le reflet est donc désactivé. Réactive-le et choisis-en un.';
+
+  @override
+  String get calendarGone =>
+      'Le calendrier choisi n\'existe plus, le reflet est donc désactivé. Réactive-le et choisis-en un autre.';
+
+  @override
+  String get noWritableCalendar =>
+      'Aucun calendrier de cet appareil n\'est modifiable. Ajoute un compte de calendrier dans les réglages du système, puis réessaie.';
 }

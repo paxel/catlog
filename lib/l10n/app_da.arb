@@ -585,5 +585,16 @@
   "syncPeerOlder": "Den anden enhed kører et ældre cat(a)log uden påmindelser. Opdater cat(a)log dér, og synkronisér igen.",
   "syncPeerNewer": "Den anden enhed kører et nyere cat(a)log. Opdater cat(a)log på denne enhed, og synkronisér igen.",
   "bundleNewerError": "Denne fil kommer fra et nyere cat(a)log. Opdater cat(a)log på denne enhed for at importere den.",
-  "spotEar": "Et lille katteøre i et hjørne betyder: hold nede for mere."
+  "spotEar": "Et lille katteøre i et hjørne betyder: hold nede for mere.",
+  "addReminder": "Tilføj påmindelse",
+  "plannedSection": "Planlagt",
+  "reminderDialogHint": "Vises i påmindelserne, indtil du markerer den som udført. Den nuværende værdi forbliver, som den er.",
+  "reminderFor": "For",
+  "reminderField": "Felt",
+  "dueDateLabel": "Forfaldsdato",
+  "pickCalendar": "Hvilken kalender?",
+  "calendarPermissionDenied": "Kalenderadgang er blokeret, så spejlingen er slået fra. Tillad den i systemindstillingerne, og slå spejlingen til igen.",
+  "calendarNotChosen": "Ingen kalender valgt, så spejlingen er slået fra. Slå den til igen, og vælg en.",
+  "calendarGone": "Den valgte kalender findes ikke længere, så spejlingen er slået fra. Slå den til igen, og vælg en anden.",
+  "noWritableCalendar": "Ingen kalender på denne enhed kan skrives til. Tilføj en kalenderkonto i systemindstillingerne, og prøv igen."
 }

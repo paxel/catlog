@@ -1734,4 +1734,42 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get spotEar =>
       'Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem.';
+
+  @override
+  String get addReminder => 'Lisa meeldetuletus';
+
+  @override
+  String get plannedSection => 'Plaanis';
+
+  @override
+  String get reminderDialogHint =>
+      'Kuvatakse meeldetuletustes, kuni märgid selle tehtuks. Praegune väärtus jääb, nagu on.';
+
+  @override
+  String get reminderFor => 'Kellele';
+
+  @override
+  String get reminderField => 'Väli';
+
+  @override
+  String get dueDateLabel => 'Tähtaeg';
+
+  @override
+  String get pickCalendar => 'Milline kalender?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Kalendri kasutus on blokeeritud, seega on peegeldus väljas. Luba see süsteemi seadetes ja lülita peegeldus uuesti sisse.';
+
+  @override
+  String get calendarNotChosen =>
+      'Kalendrit pole valitud, seega on peegeldus väljas. Lülita see uuesti sisse ja vali üks.';
+
+  @override
+  String get calendarGone =>
+      'Valitud kalendrit enam pole, seega on peegeldus väljas. Lülita see uuesti sisse ja vali teine.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti.';
 }

@@ -1693,4 +1693,41 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get spotEar => '隅の小さな猫耳は「長押しでもっと」の印です。';
+
+  @override
+  String get addReminder => 'リマインダーを追加';
+
+  @override
+  String get plannedSection => '予定';
+
+  @override
+  String get reminderDialogHint => '完了にするまで予定表に表示されます。現在の値はそのままです。';
+
+  @override
+  String get reminderFor => '対象';
+
+  @override
+  String get reminderField => 'フィールド';
+
+  @override
+  String get dueDateLabel => '期日';
+
+  @override
+  String get pickCalendar => 'どのカレンダー？';
+
+  @override
+  String get calendarPermissionDenied =>
+      'カレンダーへのアクセスが拒否されているため、反映はオフです。システム設定で許可して、もう一度反映をオンにしてください。';
+
+  @override
+  String get calendarNotChosen =>
+      'カレンダーが選ばれていないため、反映はオフです。もう一度オンにして、カレンダーを選んでください。';
+
+  @override
+  String get calendarGone =>
+      '選んだカレンダーがなくなったため、反映はオフです。もう一度オンにして、別のカレンダーを選んでください。';
+
+  @override
+  String get noWritableCalendar =>
+      'この端末に書き込めるカレンダーがありません。システム設定でカレンダーのアカウントを追加して、やり直してください。';
 }

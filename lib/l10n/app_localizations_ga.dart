@@ -1749,4 +1749,42 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get spotEar =>
       'Ciallaíonn cluas bheag cait i gcúinne: coinnigh brúite le haghaidh tuilleadh.';
+
+  @override
+  String get addReminder => 'Cuir meabhrúchán leis';
+
+  @override
+  String get plannedSection => 'Beartaithe';
+
+  @override
+  String get reminderDialogHint =>
+      'Feictear é sna meabhrúcháin go dtí go marcálann tú déanta é. Fanann an luach reatha mar atá.';
+
+  @override
+  String get reminderFor => 'Do';
+
+  @override
+  String get reminderField => 'Réimse';
+
+  @override
+  String get dueDateLabel => 'Spriocdháta';
+
+  @override
+  String get pickCalendar => 'Cén féilire?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Tá rochtain ar an bhféilire blocáilte, mar sin tá an scáthánú múchta. Ceadaigh í i socruithe an chórais agus cas an scáthánú air arís.';
+
+  @override
+  String get calendarNotChosen =>
+      'Níor roghnaíodh féilire, mar sin tá an scáthánú múchta. Cas air arís é agus roghnaigh ceann.';
+
+  @override
+  String get calendarGone =>
+      'Níl an féilire roghnaithe ann a thuilleadh, mar sin tá an scáthánú múchta. Cas air arís é agus roghnaigh ceann eile.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ní féidir scríobh chuig aon fhéilire ar an ngléas seo. Cuir cuntas féilire leis i socruithe an chórais agus bain triail eile as.';
 }

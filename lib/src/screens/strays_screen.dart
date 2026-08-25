@@ -222,6 +222,9 @@ class _StraysScreenState extends State<StraysScreen> {
       body: strays.isEmpty
           ? Center(child: Text(context.t.noStraysRightNow))
           : ListView.builder(
+              // Two floating buttons stack here; the last row scrolls
+              // clear of both.
+              padding: const EdgeInsets.only(bottom: 144),
               itemCount: strays.length,
               itemBuilder: (context, i) {
                 final cat = strays[i];

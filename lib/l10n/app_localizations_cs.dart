@@ -1736,4 +1736,42 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get spotEar => 'Malé kočičí ucho v rohu znamená: podrž pro víc.';
+
+  @override
+  String get addReminder => 'Přidat připomínku';
+
+  @override
+  String get plannedSection => 'Naplánováno';
+
+  @override
+  String get reminderDialogHint =>
+      'Zobrazuje se v připomínkách, dokud ji neoznačíš jako hotovou. Současná hodnota zůstává, jak je.';
+
+  @override
+  String get reminderFor => 'Pro';
+
+  @override
+  String get reminderField => 'Pole';
+
+  @override
+  String get dueDateLabel => 'Termín';
+
+  @override
+  String get pickCalendar => 'Který kalendář?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Přístup ke kalendáři je zablokovaný, takže zrcadlení je vypnuté. Povol ho v nastavení systému a zrcadlení znovu zapni.';
+
+  @override
+  String get calendarNotChosen =>
+      'Není vybraný žádný kalendář, takže zrcadlení je vypnuté. Znovu ho zapni a nějaký vyber.';
+
+  @override
+  String get calendarGone =>
+      'Vybraný kalendář už neexistuje, takže zrcadlení je vypnuté. Znovu ho zapni a vyber jiný.';
+
+  @override
+  String get noWritableCalendar =>
+      'Do žádného kalendáře na tomto zařízení nejde zapisovat. Přidej v nastavení systému účet kalendáře a zkus to znovu.';
 }

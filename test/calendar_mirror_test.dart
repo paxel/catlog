@@ -15,8 +15,12 @@ class FakeCalendar implements CalendarPort {
   @override
   Future<bool> ensureAccess() async => true;
 
+  var calendars = const [
+    CalendarChoice(id: 'cal-1', name: 'Work', account: 'me@example.org'),
+  ];
+
   @override
-  Future<String?> ensureCalendar() async => 'cal-1';
+  Future<List<CalendarChoice>> listCalendars() async => calendars;
 
   @override
   Future<String?> createEvent(String calendarId, DateTime day,
@@ -59,6 +63,7 @@ void main() {
     store = CatalogStore.inMemory();
     store.author = 'test';
     store.setLocalSetting(calendarMirrorEnabledKey, 'on');
+    store.setLocalSetting(calendarMirrorCalendarKey, 'cal-1');
     calendar = FakeCalendar();
     cat = store.createCat('Miezi');
   });
@@ -127,5 +132,36 @@ void main() {
         date: inDays(10), reminder: true);
     await reconcileCalendar(store, calendar, t);
     expect(calendar.events, isEmpty);
+  });
+
+  test('no chosen calendar is reported, not guessed', () async {
+    store.removeLocalSetting(calendarMirrorCalendarKey);
+    store.append(cat, Keys.userField('remarks'), 'worming',
+        date: inDays(10), reminder: true);
+    final outcome = await reconcileCalendar(store, calendar, t);
+    expect(outcome, MirrorOutcome.noCalendarChosen);
+    expect(calendar.events, isEmpty);
+  });
+
+  test('a vanished calendar is reported', () async {
+    calendar.calendars = const [];
+    final outcome = await reconcileCalendar(store, calendar, t);
+    expect(outcome, MirrorOutcome.calendarGone);
+  });
+
+  test('switching calendars moves the events instead of doubling them',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'worming',
+        date: inDays(10), reminder: true);
+    await reconcileCalendar(store, calendar, t);
+    calendar.calendars = const [
+      CalendarChoice(id: 'cal-1', name: 'Work'),
+      CalendarChoice(id: 'cal-2', name: 'Home'),
+    ];
+    store.setLocalSetting(calendarMirrorCalendarKey, 'cal-2');
+    await reconcileCalendar(store, calendar, t);
+    expect(calendar.events, hasLength(1));
+    expect(calendar.deleted, 1);
+    expect(calendar.created, 2);
   });
 }

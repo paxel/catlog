@@ -585,5 +585,16 @@
   "syncPeerOlder": "Hitt tækið keyrir eldra cat(a)log án áminninga. Uppfærðu cat(a)log þar og samstilltu aftur.",
   "syncPeerNewer": "Hitt tækið keyrir nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki og samstilltu aftur.",
   "bundleNewerError": "Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.",
-  "spotEar": "Lítið kattareyra í horni þýðir: haltu inni fyrir meira."
+  "spotEar": "Lítið kattareyra í horni þýðir: haltu inni fyrir meira.",
+  "addReminder": "Bæta við áminningu",
+  "plannedSection": "Áætlað",
+  "reminderDialogHint": "Birtist í áminningum þar til þú merkir hana lokið. Núverandi gildi helst óbreytt.",
+  "reminderFor": "Fyrir",
+  "reminderField": "Reitur",
+  "dueDateLabel": "Gjalddagi",
+  "pickCalendar": "Hvaða dagatal?",
+  "calendarPermissionDenied": "Aðgangur að dagatali er lokaður, svo speglunin er slökkt. Leyfðu hann í kerfisstillingum og kveiktu aftur á speglun.",
+  "calendarNotChosen": "Ekkert dagatal valið, svo speglunin er slökkt. Kveiktu aftur á henni og veldu eitt.",
+  "calendarGone": "Valda dagatalið er ekki lengur til, svo speglunin er slökkt. Kveiktu aftur á henni og veldu annað.",
+  "noWritableCalendar": "Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur."
 }

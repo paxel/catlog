@@ -585,5 +585,16 @@
   "syncPeerOlder": "Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.",
   "syncPeerNewer": "Teises seadmes on uuem cat(a)log. Uuenda cat(a)log selles seadmes ja sünkrooni uuesti.",
   "bundleNewerError": "See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.",
-  "spotEar": "Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem."
+  "spotEar": "Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem.",
+  "addReminder": "Lisa meeldetuletus",
+  "plannedSection": "Plaanis",
+  "reminderDialogHint": "Kuvatakse meeldetuletustes, kuni märgid selle tehtuks. Praegune väärtus jääb, nagu on.",
+  "reminderFor": "Kellele",
+  "reminderField": "Väli",
+  "dueDateLabel": "Tähtaeg",
+  "pickCalendar": "Milline kalender?",
+  "calendarPermissionDenied": "Kalendri kasutus on blokeeritud, seega on peegeldus väljas. Luba see süsteemi seadetes ja lülita peegeldus uuesti sisse.",
+  "calendarNotChosen": "Kalendrit pole valitud, seega on peegeldus väljas. Lülita see uuesti sisse ja vali üks.",
+  "calendarGone": "Valitud kalendrit enam pole, seega on peegeldus väljas. Lülita see uuesti sisse ja vali teine.",
+  "noWritableCalendar": "Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti."
 }

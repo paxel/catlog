@@ -585,5 +585,16 @@
   "syncPeerOlder": "Toisella laitteella on vanhempi cat(a)log ilman muistutuksia. Päivitä cat(a)log siellä ja synkronoi uudelleen.",
   "syncPeerNewer": "Toisella laitteella on uudempi cat(a)log. Päivitä cat(a)log tällä laitteella ja synkronoi uudelleen.",
   "bundleNewerError": "Tämä tiedosto on uudemmasta cat(a)logista. Päivitä cat(a)log tällä laitteella, jotta voit tuoda sen.",
-  "spotEar": "Pieni kissankorva kulmassa tarkoittaa: paina pitkään, niin näet lisää."
+  "spotEar": "Pieni kissankorva kulmassa tarkoittaa: paina pitkään, niin näet lisää.",
+  "addReminder": "Lisää muistutus",
+  "plannedSection": "Suunniteltu",
+  "reminderDialogHint": "Näkyy muistutuksissa, kunnes merkitset sen tehdyksi. Nykyinen arvo pysyy ennallaan.",
+  "reminderFor": "Kenelle",
+  "reminderField": "Kenttä",
+  "dueDateLabel": "Eräpäivä",
+  "pickCalendar": "Mikä kalenteri?",
+  "calendarPermissionDenied": "Kalenterin käyttö on estetty, joten peilaus on pois päältä. Salli se järjestelmän asetuksissa ja kytke peilaus uudelleen päälle.",
+  "calendarNotChosen": "Kalenteria ei ole valittu, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse kalenteri.",
+  "calendarGone": "Valittua kalenteria ei enää ole, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse toinen.",
+  "noWritableCalendar": "Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen."
 }

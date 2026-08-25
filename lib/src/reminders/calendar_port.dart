@@ -5,9 +5,10 @@ abstract class CalendarPort {
   /// Asks for calendar permission; false means the mirror stays off.
   Future<bool> ensureAccess();
 
-  /// The dedicated cat(a)log calendar's id, created on first use.
-  /// Null when the platform refuses.
-  Future<String?> ensureCalendar();
+  /// The calendars this device can write to — the user picks one.
+  /// Never creates a calendar: a locally created one is invisible to
+  /// the phone's account and syncs nowhere (1.0.1).
+  Future<List<CalendarChoice>> listCalendars();
 
   /// Creates one all-day event; returns its id, null on failure.
   /// Never sets alarms — the calendar shows what is due, no more.
@@ -25,4 +26,16 @@ abstract class CalendarPort {
   /// the mirror recreates those whose plan is still alive.
   Future<Set<String>> existingEventIds(
       String calendarId, Iterable<String> ids);
+}
+
+/// One writable calendar on the device.
+class CalendarChoice {
+  final String id;
+  final String name;
+
+  /// The account it belongs to (e.g. a Google address), or null for a
+  /// local calendar.
+  final String? account;
+
+  const CalendarChoice({required this.id, required this.name, this.account});
 }

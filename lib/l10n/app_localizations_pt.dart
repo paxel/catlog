@@ -1738,4 +1738,42 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get spotEar =>
       'Uma orelhinha de gato num canto significa: mantém premido para mais.';
+
+  @override
+  String get addReminder => 'Adicionar lembrete';
+
+  @override
+  String get plannedSection => 'Planeado';
+
+  @override
+  String get reminderDialogHint =>
+      'Aparece na agenda até o marcares como feito. O valor atual fica como está.';
+
+  @override
+  String get reminderFor => 'Para';
+
+  @override
+  String get reminderField => 'Campo';
+
+  @override
+  String get dueDateLabel => 'Data limite';
+
+  @override
+  String get pickCalendar => 'Que calendário?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'O acesso ao calendário está bloqueado, por isso o espelho está desligado. Permite-o nas definições do sistema e volta a ligar o espelho.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nenhum calendário escolhido, por isso o espelho está desligado. Liga-o de novo e escolhe um.';
+
+  @override
+  String get calendarGone =>
+      'O calendário escolhido já não existe, por isso o espelho está desligado. Liga-o de novo e escolhe outro.';
+
+  @override
+  String get noWritableCalendar =>
+      'Nenhum calendário neste dispositivo permite escrita. Adiciona uma conta de calendário nas definições do sistema e tenta de novo.';
 }

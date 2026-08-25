@@ -1737,4 +1737,42 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get spotEar =>
       'Një vesh i vogël maceje në qoshe do të thotë: mbaje shtypur për më shumë.';
+
+  @override
+  String get addReminder => 'Shto përkujtues';
+
+  @override
+  String get plannedSection => 'Planifikuar';
+
+  @override
+  String get reminderDialogHint =>
+      'Shfaqet te përkujtuesit derisa ta shënosh si të bërë. Vlera aktuale mbetet siç është.';
+
+  @override
+  String get reminderFor => 'Për';
+
+  @override
+  String get reminderField => 'Fusha';
+
+  @override
+  String get dueDateLabel => 'Afati';
+
+  @override
+  String get pickCalendar => 'Cili kalendar?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Qasja te kalendari është bllokuar, prandaj pasqyrimi është fikur. Lejoje te cilësimet e sistemit dhe ndize pasqyrimin sërish.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nuk është zgjedhur kalendar, prandaj pasqyrimi është fikur. Ndize sërish dhe zgjidh një.';
+
+  @override
+  String get calendarGone =>
+      'Kalendari i zgjedhur nuk ekziston më, prandaj pasqyrimi është fikur. Ndize sërish dhe zgjidh një tjetër.';
+
+  @override
+  String get noWritableCalendar =>
+      'Në asnjë kalendar të kësaj pajisjeje s\'mund të shkruhet. Shto një llogari kalendari te cilësimet e sistemit dhe provo sërish.';
 }

@@ -4,7 +4,6 @@ import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -12,9 +11,12 @@ import '../field_labels.dart';
 import '../l10n.dart';
 import '../layout.dart';
 import '../reminders/calendar_mirror.dart';
+import '../reminders/calendar_port.dart';
 import '../reminders/device_calendar_port.dart';
+import '../reminders/mirror_hook.dart';
+import '../reminders/reminder_dialog.dart';
 import '../share.dart';
-import '../widgets/cat_ear.dart';
+import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 
@@ -38,7 +40,10 @@ bool agendaWantsAttention(CatalogStore store) {
 class AgendaScreen extends StatefulWidget {
   final CatalogStore store;
 
-  const AgendaScreen({super.key, required this.store});
+  /// Test override for the device calendar; null = the real one.
+  final CalendarPort? calendarPort;
+
+  const AgendaScreen({super.key, required this.store, this.calendarPort});
 
   @override
   State<AgendaScreen> createState() => _AgendaScreenState();
@@ -47,69 +52,37 @@ class AgendaScreen extends StatefulWidget {
 class _AgendaScreenState extends State<AgendaScreen> {
   CatalogStore get store => widget.store;
 
-  Map<String, FieldDef> get _defs => {
-        for (final def in store.fieldDefs()) def.key: def,
-      };
+  bool get _calendarAvailable =>
+      widget.calendarPort != null || deviceCalendarAvailable;
 
-  /// Fire-and-forget one-way reconcile after any plan change.
-  void _mirror() {
-    if (!deviceCalendarAvailable || !calendarMirrorEnabled(store)) return;
-    final t = context.t;
-    reconcileCalendar(store, DeviceCalendarPort(), t);
+  void _changed() {
+    setState(() {});
+    mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
-  Future<void> _markDone(ActiveReminder r) async {
-    store.append(r.entity, r.field, r.value);
-    setState(() {});
-    final again = await _askRepeat();
-    if (!mounted) return;
-    if (again != null) {
-      store.append(r.entity, r.field, r.value,
-          date: again, reminder: true);
-    }
-    _mirror();
-    setState(() {});
+  Future<void> _add() async {
+    if (await showAddReminder(context, store) && mounted) _changed();
   }
 
-  /// "Again in…" — returns the next due date, or null for no repeat.
-  Future<DateTime?> _askRepeat() => showDialog<DateTime>(
-        context: context,
-        builder: (context) => const _RepeatDialog(),
-      );
-
-  Future<void> _changeDate(ActiveReminder r) async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: r.due,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-      errorFormatText: context.t
-          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
-    );
-    if (picked == null || !mounted) return;
-    store.append(r.entity, r.field, r.value, date: picked, reminder: true);
-    _mirror();
-    setState(() {});
-  }
-
-  void _cancel(ActiveReminder r) {
-    store.append(r.entity, r.field, null, reminder: true);
-    _mirror();
-    setState(() {});
+  Future<void> _openEntity(String id) async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => id.startsWith('cat:')
+          ? CatDetailScreen(store: store, catId: id)
+          : ClowderDetailScreen(store: store, clowderId: id),
+    ));
+    if (mounted) setState(() {});
   }
 
   /// The desktop and escape-hatch path: one .ics file of every plan.
   Future<void> _exportIcs() async {
     final t = context.t;
-    final defs = _defs;
+    final defs = {for (final def in store.fieldDefs()) def.key: def};
     final ics = writeIcs([
       for (final r in store.activeReminders())
         IcsEvent(
-          uid: 'catlog-${r.entity}-${r.field}@catlog'
-              .replaceAll(':', '-'),
+          uid: 'catlog-${r.entity}-${r.field}@catlog'.replaceAll(':', '-'),
           date: r.due,
-          summary:
-              '${store.current(r.entity, Keys.name) ?? t.unnamed} — '
+          summary: '${store.current(r.entity, Keys.name) ?? t.unnamed} — '
               '${defs[r.field] == null ? r.field : fieldDefName(t, defs[r.field]!)}',
           description: r.value,
         ),
@@ -131,6 +104,11 @@ class _AgendaScreenState extends State<AgendaScreen> {
     }
   }
 
+  void _say(String message) => ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(message)));
+
+  /// Switching the mirror on: permission, then the user picks one of
+  /// the device's writable calendars. Every refusal is named.
   Future<void> _toggleMirror() async {
     final t = context.t;
     if (calendarMirrorEnabled(store)) {
@@ -138,73 +116,51 @@ class _AgendaScreenState extends State<AgendaScreen> {
       setState(() {});
       return;
     }
-    // One dialog says what the switch does before anything is written.
-    final ok = await showDialog<bool>(
+    final port = widget.calendarPort ?? DeviceCalendarPort();
+    if (!await port.ensureAccess()) {
+      if (mounted) _say(t.calendarPermissionDenied);
+      return;
+    }
+    final calendars = await port.listCalendars();
+    if (!mounted) return;
+    if (calendars.isEmpty) {
+      _say(t.noWritableCalendar);
+      return;
+    }
+    final chosen = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(t.calendarMirrorLabel),
-        content: Text(t.calendarMirrorSubtitle),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(t.cancel),
+      builder: (context) => SimpleDialog(
+        title: Text(t.pickCalendar),
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 8),
+            child: Text(t.calendarMirrorSubtitle,
+                style: Theme.of(context).textTheme.bodySmall),
           ),
-          FilledButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(t.ok),
-          ),
+          for (final c in calendars)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(context).pop(c.id),
+              child: ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.calendar_month_outlined),
+                title: Text(c.name),
+                subtitle: c.account == null ? null : Text(c.account!),
+              ),
+            ),
         ],
       ),
     );
-    if (ok != true || !mounted) return;
+    if (chosen == null || !mounted) return;
+    store.setLocalSetting(calendarMirrorCalendarKey, chosen);
     store.setLocalSetting(calendarMirrorEnabledKey, 'on');
-    _mirror();
     setState(() {});
-  }
-
-  Future<void> _openEntity(String id) async {
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => id.startsWith('cat:')
-          ? CatDetailScreen(store: store, catId: id)
-          : ClowderDetailScreen(store: store, clowderId: id),
-    ));
-    if (mounted) setState(() {});
-  }
-
-  Future<void> _menu(ActiveReminder r, Offset position) async {
-    final action = await showMenu<String>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-          position.dx, position.dy, position.dx, position.dy),
-      items: [
-        PopupMenuItem(
-            value: 'date', child: Text(context.t.changeDateLabel)),
-        PopupMenuItem(
-            value: 'remove', child: Text(context.t.removeReminderLabel)),
-      ],
-    );
-    if (!mounted) return;
-    if (action == 'date') await _changeDate(r);
-    if (action == 'remove') _cancel(r);
-  }
-
-  String _relative(BuildContext context, DateTime due) {
-    final today = DateUtils.dateOnly(DateTime.now());
-    final day = DateUtils.dateOnly(due);
-    final days = day.difference(today).inDays;
-    if (days == 0) return context.t.dueToday;
-    if (days > 0) return context.t.dueInDays(days);
-    return context.t.overdueByDays(-days);
+    mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
     final active = store.activeReminders();
-    final defs = _defs;
-    final today = DateUtils.dateOnly(DateTime.now());
-    final dateFormat =
-        DateFormat.yMd(Localizations.localeOf(context).toString());
     return Scaffold(
       appBar: roomyAppBar(
         context,
@@ -216,13 +172,12 @@ class _AgendaScreenState extends State<AgendaScreen> {
               if (v == 'mirror') _toggleMirror();
             },
             itemBuilder: (context) => [
-              if (deviceCalendarAvailable)
+              if (_calendarAvailable)
                 CheckedPopupMenuItem(
                     value: 'mirror',
                     checked: calendarMirrorEnabled(store),
                     child: Text(t.calendarMirrorLabel)),
-              PopupMenuItem(
-                  value: 'ics', child: Text(t.exportIcs)),
+              PopupMenuItem(value: 'ics', child: Text(t.exportIcs)),
             ],
           ),
         ],
@@ -233,127 +188,23 @@ class _AgendaScreenState extends State<AgendaScreen> {
               child: Text(t.agendaEmpty),
             )
           : ListView(
-              padding: const EdgeInsets.all(8),
+              // The last card scrolls clear of the floating button.
+              padding: const EdgeInsets.fromLTRB(8, 8, 8, 88),
               children: [
                 for (final r in active)
-                  _card(context, r, defs, today, dateFormat),
+                  ReminderCard(
+                    store: store,
+                    reminder: r,
+                    onChanged: _changed,
+                    onOpen: () => _openEntity(r.entity),
+                  ),
               ],
             ),
-    );
-  }
-
-  Widget _card(BuildContext context, ActiveReminder r,
-      Map<String, FieldDef> defs, DateTime today, DateFormat dateFormat) {
-    final t = context.t;
-    final overdue = DateUtils.dateOnly(r.due).isBefore(today);
-    final name = store.current(r.entity, Keys.name) ?? t.unnamed;
-    final def = defs[r.field];
-    final fieldName =
-        def == null ? r.field : fieldDefName(t, def);
-    final color = overdue ? Theme.of(context).colorScheme.error : null;
-    return Card(
-      child: GestureDetector(
-        onLongPressStart: (d) => _menu(r, d.globalPosition),
-        onSecondaryTapDown: (d) => _menu(r, d.globalPosition),
-        child: WithCatEar(
-            child: ListTile(
-          onTap: () => _openEntity(r.entity),
-          title: Text(
-              '${_relative(context, r.due)} · '
-              '${dateFormat.format(r.due)}',
-              style:
-                  TextStyle(color: color, fontWeight: FontWeight.bold)),
-          subtitle: Text('$name · $fieldName\n${r.value}',
-              maxLines: 2, overflow: TextOverflow.ellipsis),
-          isThreeLine: true,
-          trailing: IconButton(
-            icon: const Icon(Icons.check_circle_outline),
-            tooltip: t.markDone,
-            onPressed: () => _markDone(r),
-          ),
-        )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _add,
+        tooltip: t.addReminder,
+        child: const Icon(Icons.alarm_add),
       ),
-    );
-  }
-}
-
-/// Number + unit for the next cycle; pops the computed date, or null
-/// for no repeat.
-class _RepeatDialog extends StatefulWidget {
-  const _RepeatDialog();
-
-  @override
-  State<_RepeatDialog> createState() => _RepeatDialogState();
-}
-
-class _RepeatDialogState extends State<_RepeatDialog> {
-  final _count = TextEditingController(text: '3');
-  String _unit = 'months';
-
-  @override
-  void dispose() {
-    _count.dispose();
-    super.dispose();
-  }
-
-  DateTime? _next() {
-    final n = int.tryParse(_count.text.trim());
-    if (n == null || n <= 0) return null;
-    final now = DateTime.now();
-    return switch (_unit) {
-      'days' => now.add(Duration(days: n)),
-      'weeks' => now.add(Duration(days: 7 * n)),
-      'months' => DateTime(now.year, now.month + n, now.day),
-      _ => DateTime(now.year + n, now.month, now.day),
-    };
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.t;
-    final units = {
-      'days': t.unitDays,
-      'weeks': t.unitWeeks,
-      'months': t.unitMonths,
-      'years': t.unitYears,
-    };
-    return AlertDialog(
-      title: Text(t.repeatTitle),
-      content: Row(children: [
-        SizedBox(
-          width: 64,
-          child: TextField(
-            controller: _count,
-            autofocus: true,
-            keyboardType: TextInputType.number,
-            onChanged: (_) => setState(() {}),
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: DropdownButton<String>(
-            value: _unit,
-            isExpanded: true,
-            items: [
-              for (final MapEntry(:key, :value) in units.entries)
-                DropdownMenuItem(value: key, child: Text(value)),
-            ],
-            onChanged: (v) =>
-                setState(() => _unit = v ?? _unit),
-          ),
-        ),
-      ]),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(t.noRepeatLabel),
-        ),
-        FilledButton(
-          onPressed:
-              _next() == null ? null : () => Navigator.of(context).pop(_next()),
-          child: Text(t.save),
-        ),
-      ],
     );
   }
 }

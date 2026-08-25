@@ -1738,4 +1738,42 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotEar => 'Majhno mačje uho v kotu pomeni: pridrži za več.';
+
+  @override
+  String get addReminder => 'Dodaj opomnik';
+
+  @override
+  String get plannedSection => 'Načrtovano';
+
+  @override
+  String get reminderDialogHint =>
+      'Prikazuje se med opomniki, dokler ga ne označiš kot opravljenega. Trenutna vrednost ostane, kakršna je.';
+
+  @override
+  String get reminderFor => 'Za';
+
+  @override
+  String get reminderField => 'Polje';
+
+  @override
+  String get dueDateLabel => 'Rok';
+
+  @override
+  String get pickCalendar => 'Kateri koledar?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Dostop do koledarja je blokiran, zato je zrcaljenje izklopljeno. Dovoli ga v sistemskih nastavitvah in znova vklopi zrcaljenje.';
+
+  @override
+  String get calendarNotChosen =>
+      'Koledar ni izbran, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi enega.';
+
+  @override
+  String get calendarGone =>
+      'Izbrani koledar ne obstaja več, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi drugega.';
+
+  @override
+  String get noWritableCalendar =>
+      'V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova.';
 }

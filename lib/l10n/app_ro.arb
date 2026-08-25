@@ -585,5 +585,16 @@
   "syncPeerOlder": "Celălalt dispozitiv rulează un cat(a)log mai vechi, fără mementouri. Actualizează cat(a)log acolo și sincronizează din nou.",
   "syncPeerNewer": "Celălalt dispozitiv rulează un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv și sincronizează din nou.",
   "bundleNewerError": "Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.",
-  "spotEar": "O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult."
+  "spotEar": "O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult.",
+  "addReminder": "Adaugă memento",
+  "plannedSection": "Planificat",
+  "reminderDialogHint": "Apare în agendă până îl marchezi ca făcut. Valoarea curentă rămâne așa cum este.",
+  "reminderFor": "Pentru",
+  "reminderField": "Câmp",
+  "dueDateLabel": "Data scadentă",
+  "pickCalendar": "Care calendar?",
+  "calendarPermissionDenied": "Accesul la calendar este blocat, așa că oglindirea e oprită. Permite-l în setările sistemului și pornește oglindirea din nou.",
+  "calendarNotChosen": "Niciun calendar ales, așa că oglindirea e oprită. Pornește-o din nou și alege unul.",
+  "calendarGone": "Calendarul ales nu mai există, așa că oglindirea e oprită. Pornește-o din nou și alege altul.",
+  "noWritableCalendar": "Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou."
 }

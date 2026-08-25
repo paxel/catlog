@@ -585,5 +585,16 @@
   "syncPeerOlder": "O outro dispositivo usa um cat(a)log mais antigo sem lembretes. Atualiza o cat(a)log lá e sincroniza de novo.",
   "syncPeerNewer": "O outro dispositivo usa um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo e sincroniza de novo.",
   "bundleNewerError": "Este ficheiro vem de um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo para o importar.",
-  "spotEar": "Uma orelhinha de gato num canto significa: mantém premido para mais."
+  "spotEar": "Uma orelhinha de gato num canto significa: mantém premido para mais.",
+  "addReminder": "Adicionar lembrete",
+  "plannedSection": "Planeado",
+  "reminderDialogHint": "Aparece na agenda até o marcares como feito. O valor atual fica como está.",
+  "reminderFor": "Para",
+  "reminderField": "Campo",
+  "dueDateLabel": "Data limite",
+  "pickCalendar": "Que calendário?",
+  "calendarPermissionDenied": "O acesso ao calendário está bloqueado, por isso o espelho está desligado. Permite-o nas definições do sistema e volta a ligar o espelho.",
+  "calendarNotChosen": "Nenhum calendário escolhido, por isso o espelho está desligado. Liga-o de novo e escolhe um.",
+  "calendarGone": "O calendário escolhido já não existe, por isso o espelho está desligado. Liga-o de novo e escolhe outro.",
+  "noWritableCalendar": "Nenhum calendário neste dispositivo permite escrita. Adiciona uma conta de calendário nas definições do sistema e tenta de novo."
 }

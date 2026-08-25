@@ -827,5 +827,16 @@
   "syncPeerOlder": "The other device runs an older cat(a)log that cannot carry reminders. Update cat(a)log there, then sync again.",
   "syncPeerNewer": "The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.",
   "bundleNewerError": "This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.",
-  "spotEar": "A little cat ear in a corner means: press and hold for more."
+  "spotEar": "A little cat ear in a corner means: press and hold for more.",
+  "addReminder": "Add reminder",
+  "plannedSection": "Planned",
+  "reminderDialogHint": "Shows in the Agenda until you mark it done. The current value stays as it is.",
+  "reminderFor": "For",
+  "reminderField": "Field",
+  "dueDateLabel": "Due date",
+  "pickCalendar": "Which calendar?",
+  "calendarPermissionDenied": "Calendar access is blocked, so the mirror is off. Allow it in the system settings, then switch the mirror on again.",
+  "calendarNotChosen": "No calendar chosen, so the mirror is off. Switch it on again and pick one.",
+  "calendarGone": "The chosen calendar no longer exists, so the mirror is off. Switch it on again and pick another one.",
+  "noWritableCalendar": "No calendar on this device can be written to. Add a calendar account in the system settings, then try again."
 }

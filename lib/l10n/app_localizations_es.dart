@@ -1743,4 +1743,42 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get spotEar =>
       'Una orejita de gato en una esquina significa: mantén pulsado para más.';
+
+  @override
+  String get addReminder => 'Añadir recordatorio';
+
+  @override
+  String get plannedSection => 'Planificado';
+
+  @override
+  String get reminderDialogHint =>
+      'Aparece en la agenda hasta que lo marques como hecho. El valor actual se queda como está.';
+
+  @override
+  String get reminderFor => 'Para';
+
+  @override
+  String get reminderField => 'Campo';
+
+  @override
+  String get dueDateLabel => 'Fecha de vencimiento';
+
+  @override
+  String get pickCalendar => '¿Qué calendario?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'El acceso al calendario está bloqueado, así que el reflejo está apagado. Permítelo en los ajustes del sistema y vuelve a activar el reflejo.';
+
+  @override
+  String get calendarNotChosen =>
+      'No se eligió ningún calendario, así que el reflejo está apagado. Actívalo de nuevo y elige uno.';
+
+  @override
+  String get calendarGone =>
+      'El calendario elegido ya no existe, así que el reflejo está apagado. Actívalo de nuevo y elige otro.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ningún calendario de este dispositivo admite escritura. Añade una cuenta de calendario en los ajustes del sistema y vuelve a intentarlo.';
 }

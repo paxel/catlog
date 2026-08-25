@@ -28,8 +28,7 @@ import 'map_screen.dart';
 import 'search_screen.dart';
 import 'strays_screen.dart';
 import '../move_to_catalog.dart';
-import '../reminders/calendar_mirror.dart';
-import '../reminders/device_calendar_port.dart';
+import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 
@@ -113,9 +112,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       if (!mounted) return;
       // Reminders set in editors or arrived by sync reach the device
       // calendar without a visit to the agenda.
-      if (deviceCalendarAvailable && calendarMirrorEnabled(widget.store)) {
-        reconcileCalendar(widget.store, DeviceCalendarPort(), context.t);
-      }
+      mirrorAfterChange(context, widget.store);
       runSpotlights(context, widget.store, 'home');
     });
   }
@@ -235,15 +232,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                 id: 'search',
                 build: (_) => SearchScreen(store: widget.store))),
           ),
-          // A phone bar has no room for an eighth icon (the action row
-          // overflows at 360dp) — there the agenda lives in the menu.
-          if (widget.onOpenPage == null &&
-              MediaQuery.sizeOf(context).width >= desktopBreakpoint)
-            IconButton(
-              icon: const Icon(Icons.alarm),
-              tooltip: context.t.agenda,
-              onPressed: _openAgenda,
-            ),
+          IconButton(
+            icon: const Icon(Icons.alarm),
+            tooltip: context.t.agenda,
+            onPressed: _openAgenda,
+          ),
           IconButton(
             icon: const Icon(Icons.map_outlined),
             tooltip: context.t.map,
@@ -269,18 +262,15 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               },
             ),
           ),
-          IconButton(
-            icon: const Icon(Icons.tune),
-            tooltip: context.t.fields,
-            onPressed: () => _open(PanePage(
-                id: 'fields',
-                build: (_) => FieldsScreen(store: widget.store))),
-          ),
           Spotlight(
             id: 'home-menu',
             child: PopupMenuButton<String>(
             onSelected: (v) {
-              if (v == 'agenda') _openAgenda();
+              if (v == 'fields') {
+                _open(PanePage(
+                    id: 'fields',
+                    build: (_) => FieldsScreen(store: widget.store)));
+              }
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
                 _open(PanePage(
@@ -300,8 +290,10 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
             },
             itemBuilder: (context) => [
+              // Fields moved here from the bar to make room for the
+              // agenda; Add field on the detail pages covers daily use.
               PopupMenuItem(
-                  value: 'agenda', child: Text(context.t.agenda)),
+                  value: 'fields', child: Text(context.t.fields)),
               PopupMenuItem(
                   value: 'hidden',
                   child: Text(showHidden.value

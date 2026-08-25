@@ -14,8 +14,11 @@ import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
 import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
+import '../reminders/mirror_hook.dart';
+import '../reminders/reminder_dialog.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
+import '../widgets/reminder_card.dart';
 import '../widgets/status_chip.dart';
 import '../registry_lookup.dart';
 import 'card_screen.dart';
@@ -49,8 +52,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         context, def, store.current(id, def.key),
         store: store, excludeId: id);
     if (edit == null || !mounted) return;
-    store.append(id, def.key, edit.value,
-        date: edit.date, reminder: edit.reminder);
+    store.append(id, def.key, edit.value, date: edit.date);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }
@@ -143,6 +145,40 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     ));
   }
 
+  Future<void> _addReminder() async {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
+      _plansChanged();
+    }
+  }
+
+  void _plansChanged() {
+    setState(() {});
+    mirrorAfterChange(context, store);
+  }
+
+  /// The clowder's live plans, as the agenda shows them.
+  List<Widget> _plannedSection() {
+    final plans = [
+      for (final r in store.activeReminders())
+        if (r.entity == store.resolveEntity(id)) r
+    ];
+    if (plans.isEmpty) return const [];
+    return [
+      const Divider(),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Text(context.t.plannedSection,
+            style: Theme.of(context).textTheme.titleMedium),
+      ),
+      for (final r in plans)
+        ReminderCard(
+            store: store,
+            reminder: r,
+            showEntity: false,
+            onChanged: _plansChanged),
+    ];
+  }
+
   Future<void> _openCat(String catId) async {
     await Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CatDetailScreen(store: store, catId: catId),
@@ -221,6 +257,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
             )),
           ),
           IconButton(
+            icon: const Icon(Icons.alarm_add),
+            tooltip: context.t.addReminder,
+            onPressed: _addReminder,
+          ),
+          IconButton(
             icon: Icon(_editing ? Icons.check : Icons.edit),
             tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
             onPressed: () => setState(() => _editing = !_editing),
@@ -283,6 +324,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           // edit mode leads with its purpose — the fields (#46).
           if (_editing) ...[fields, const Divider(), ...gallery]
           else ...[...gallery, const Divider(), fields],
+          ..._plannedSection(),
           const SizedBox(height: 80),
         ],
       ),

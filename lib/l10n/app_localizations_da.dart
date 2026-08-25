@@ -1735,4 +1735,42 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get spotEar =>
       'Et lille katteøre i et hjørne betyder: hold nede for mere.';
+
+  @override
+  String get addReminder => 'Tilføj påmindelse';
+
+  @override
+  String get plannedSection => 'Planlagt';
+
+  @override
+  String get reminderDialogHint =>
+      'Vises i påmindelserne, indtil du markerer den som udført. Den nuværende værdi forbliver, som den er.';
+
+  @override
+  String get reminderFor => 'For';
+
+  @override
+  String get reminderField => 'Felt';
+
+  @override
+  String get dueDateLabel => 'Forfaldsdato';
+
+  @override
+  String get pickCalendar => 'Hvilken kalender?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Kalenderadgang er blokeret, så spejlingen er slået fra. Tillad den i systemindstillingerne, og slå spejlingen til igen.';
+
+  @override
+  String get calendarNotChosen =>
+      'Ingen kalender valgt, så spejlingen er slået fra. Slå den til igen, og vælg en.';
+
+  @override
+  String get calendarGone =>
+      'Den valgte kalender findes ikke længere, så spejlingen er slået fra. Slå den til igen, og vælg en anden.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ingen kalender på denne enhed kan skrives til. Tilføj en kalenderkonto i systemindstillingerne, og prøv igen.';
 }

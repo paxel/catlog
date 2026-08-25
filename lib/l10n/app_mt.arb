@@ -585,5 +585,16 @@
   "syncPeerOlder": "L-apparat l-ieħor għandu cat(a)log eqdem mingħajr tfakkiriet. Aġġorna cat(a)log hemmhekk u ssinkronizza mill-ġdid.",
   "syncPeerNewer": "L-apparat l-ieħor għandu cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat u ssinkronizza mill-ġdid.",
   "bundleNewerError": "Dan il-fajl ġej minn cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat biex timportah.",
-  "spotEar": "Widna żgħira ta' qattus f'rokna tfisser: żomm magħfus għal aktar."
+  "spotEar": "Widna żgħira ta' qattus f'rokna tfisser: żomm magħfus għal aktar.",
+  "addReminder": "Żid tfakkira",
+  "plannedSection": "Ippjanat",
+  "reminderDialogHint": "Tidher fit-tfakkiriet sakemm timmarkaha bħala magħmula. Il-valur attwali jibqa' kif inhu.",
+  "reminderFor": "Għal",
+  "reminderField": "Qasam",
+  "dueDateLabel": "Data tal-iskadenza",
+  "pickCalendar": "Liema kalendarju?",
+  "calendarPermissionDenied": "L-aċċess għall-kalendarju huwa mblukkat, għalhekk ir-riflessjoni hija mitfija. Ippermettih fis-settings tas-sistema u erġa' ixgħel ir-riflessjoni.",
+  "calendarNotChosen": "Ma ntgħażel l-ebda kalendarju, għalhekk ir-riflessjoni hija mitfija. Erġa' ixgħelha u agħżel wieħed.",
+  "calendarGone": "Il-kalendarju magħżul m'għadux jeżisti, għalhekk ir-riflessjoni hija mitfija. Erġa' ixgħelha u agħżel ieħor.",
+  "noWritableCalendar": "L-ebda kalendarju fuq dan l-apparat ma jista' jinkiteb. Żid kont ta' kalendarju fis-settings tas-sistema u erġa' pprova."
 }

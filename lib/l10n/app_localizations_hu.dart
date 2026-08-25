@@ -1736,4 +1736,42 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get spotEar =>
       'Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért.';
+
+  @override
+  String get addReminder => 'Emlékeztető hozzáadása';
+
+  @override
+  String get plannedSection => 'Tervezett';
+
+  @override
+  String get reminderDialogHint =>
+      'A teendők között marad, amíg késznek nem jelölöd. A jelenlegi érték változatlan marad.';
+
+  @override
+  String get reminderFor => 'Kinek';
+
+  @override
+  String get reminderField => 'Mező';
+
+  @override
+  String get dueDateLabel => 'Határidő';
+
+  @override
+  String get pickCalendar => 'Melyik naptár?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'A naptárhoz való hozzáférés le van tiltva, ezért a tükrözés ki van kapcsolva. Engedélyezd a rendszerbeállításokban, majd kapcsold be újra a tükrözést.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nincs kiválasztott naptár, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz egyet.';
+
+  @override
+  String get calendarGone =>
+      'A kiválasztott naptár már nem létezik, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz másikat.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra.';
 }

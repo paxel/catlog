@@ -1735,4 +1735,42 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotEar => 'أذن قطة صغيرة في الزاوية تعني: اضغط مطولًا للمزيد.';
+
+  @override
+  String get addReminder => 'إضافة تذكير';
+
+  @override
+  String get plannedSection => 'مخطط';
+
+  @override
+  String get reminderDialogHint =>
+      'يظهر في المواعيد حتى تعلّمه كمنجز. القيمة الحالية تبقى كما هي.';
+
+  @override
+  String get reminderFor => 'لمن';
+
+  @override
+  String get reminderField => 'الحقل';
+
+  @override
+  String get dueDateLabel => 'تاريخ الاستحقاق';
+
+  @override
+  String get pickCalendar => 'أي تقويم؟';
+
+  @override
+  String get calendarPermissionDenied =>
+      'الوصول إلى التقويم محظور، لذا الانعكاس متوقف. اسمح به في إعدادات النظام ثم شغّل الانعكاس مجددًا.';
+
+  @override
+  String get calendarNotChosen =>
+      'لم يُختر تقويم، لذا الانعكاس متوقف. شغّله مجددًا واختر تقويمًا.';
+
+  @override
+  String get calendarGone =>
+      'التقويم المختار لم يعد موجودًا، لذا الانعكاس متوقف. شغّله مجددًا واختر تقويمًا آخر.';
+
+  @override
+  String get noWritableCalendar =>
+      'لا يمكن الكتابة في أي تقويم على هذا الجهاز. أضف حساب تقويم في إعدادات النظام ثم حاول مجددًا.';
 }

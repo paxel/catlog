@@ -1737,4 +1737,42 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get spotEar =>
       'Pieni kissankorva kulmassa tarkoittaa: paina pitkään, niin näet lisää.';
+
+  @override
+  String get addReminder => 'Lisää muistutus';
+
+  @override
+  String get plannedSection => 'Suunniteltu';
+
+  @override
+  String get reminderDialogHint =>
+      'Näkyy muistutuksissa, kunnes merkitset sen tehdyksi. Nykyinen arvo pysyy ennallaan.';
+
+  @override
+  String get reminderFor => 'Kenelle';
+
+  @override
+  String get reminderField => 'Kenttä';
+
+  @override
+  String get dueDateLabel => 'Eräpäivä';
+
+  @override
+  String get pickCalendar => 'Mikä kalenteri?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Kalenterin käyttö on estetty, joten peilaus on pois päältä. Salli se järjestelmän asetuksissa ja kytke peilaus uudelleen päälle.';
+
+  @override
+  String get calendarNotChosen =>
+      'Kalenteria ei ole valittu, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse kalenteri.';
+
+  @override
+  String get calendarGone =>
+      'Valittua kalenteria ei enää ole, joten peilaus on pois päältä. Kytke se uudelleen päälle ja valitse toinen.';
+
+  @override
+  String get noWritableCalendar =>
+      'Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen.';
 }

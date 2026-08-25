@@ -585,5 +585,16 @@
   "syncPeerOlder": "L'altro dispositivo usa un cat(a)log più vecchio senza promemoria. Aggiorna cat(a)log lì e sincronizza di nuovo.",
   "syncPeerNewer": "L'altro dispositivo usa un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo e sincronizza di nuovo.",
   "bundleNewerError": "Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo.",
-  "spotEar": "Un orecchio di gatto in un angolo significa: tieni premuto per altro."
+  "spotEar": "Un orecchio di gatto in un angolo significa: tieni premuto per altro.",
+  "addReminder": "Aggiungi promemoria",
+  "plannedSection": "Pianificato",
+  "reminderDialogHint": "Compare nell'agenda finché non lo segni come fatto. Il valore attuale resta com'è.",
+  "reminderFor": "Per",
+  "reminderField": "Campo",
+  "dueDateLabel": "Scadenza",
+  "pickCalendar": "Quale calendario?",
+  "calendarPermissionDenied": "L'accesso al calendario è bloccato, quindi il rispecchiamento è spento. Consentilo nelle impostazioni di sistema e riattiva il rispecchiamento.",
+  "calendarNotChosen": "Nessun calendario scelto, quindi il rispecchiamento è spento. Riattivalo e scegline uno.",
+  "calendarGone": "Il calendario scelto non esiste più, quindi il rispecchiamento è spento. Riattivalo e scegline un altro.",
+  "noWritableCalendar": "Nessun calendario su questo dispositivo è scrivibile. Aggiungi un account calendario nelle impostazioni di sistema e riprova."
 }

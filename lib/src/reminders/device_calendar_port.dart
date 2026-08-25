@@ -18,7 +18,6 @@ bool get deviceCalendarAvailable =>
 class DeviceCalendarPort implements CalendarPort {
   final DeviceCalendarPlugin _plugin = DeviceCalendarPlugin();
 
-  static const _calendarName = 'cat(a)log';
   static bool _tzReady = false;
 
   DeviceCalendarPort() {
@@ -37,13 +36,14 @@ class DeviceCalendarPort implements CalendarPort {
   }
 
   @override
-  Future<String?> ensureCalendar() async {
+  Future<List<CalendarChoice>> listCalendars() async {
     final calendars = await _plugin.retrieveCalendars();
-    for (final c in calendars.data ?? const <Calendar>[]) {
-      if (c.name == _calendarName && c.isReadOnly != true) return c.id;
-    }
-    final created = await _plugin.createCalendar(_calendarName);
-    return created.data;
+    return [
+      for (final c in calendars.data ?? const <Calendar>[])
+        if (c.id != null && c.isReadOnly != true)
+          CalendarChoice(
+              id: c.id!, name: c.name ?? c.id!, account: c.accountName),
+    ];
   }
 
   Event _event(String calendarId, DateTime day, String title,

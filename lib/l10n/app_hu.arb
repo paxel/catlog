@@ -585,5 +585,16 @@
   "syncPeerOlder": "A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.",
   "syncPeerNewer": "A másik eszközön újabb cat(a)log fut. Frissítsd a cat(a)logot ezen az eszközön, és szinkronizálj újra.",
   "bundleNewerError": "Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.",
-  "spotEar": "Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért."
+  "spotEar": "Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért.",
+  "addReminder": "Emlékeztető hozzáadása",
+  "plannedSection": "Tervezett",
+  "reminderDialogHint": "A teendők között marad, amíg késznek nem jelölöd. A jelenlegi érték változatlan marad.",
+  "reminderFor": "Kinek",
+  "reminderField": "Mező",
+  "dueDateLabel": "Határidő",
+  "pickCalendar": "Melyik naptár?",
+  "calendarPermissionDenied": "A naptárhoz való hozzáférés le van tiltva, ezért a tükrözés ki van kapcsolva. Engedélyezd a rendszerbeállításokban, majd kapcsold be újra a tükrözést.",
+  "calendarNotChosen": "Nincs kiválasztott naptár, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz egyet.",
+  "calendarGone": "A kiválasztott naptár már nem létezik, ezért a tükrözés ki van kapcsolva. Kapcsold be újra, és válassz másikat.",
+  "noWritableCalendar": "Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra."
 }

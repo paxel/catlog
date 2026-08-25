@@ -1735,4 +1735,42 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get spotEar =>
       'A little cat ear in a corner means: press and hold for more.';
+
+  @override
+  String get addReminder => 'Add reminder';
+
+  @override
+  String get plannedSection => 'Planned';
+
+  @override
+  String get reminderDialogHint =>
+      'Shows in the Agenda until you mark it done. The current value stays as it is.';
+
+  @override
+  String get reminderFor => 'For';
+
+  @override
+  String get reminderField => 'Field';
+
+  @override
+  String get dueDateLabel => 'Due date';
+
+  @override
+  String get pickCalendar => 'Which calendar?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Calendar access is blocked, so the mirror is off. Allow it in the system settings, then switch the mirror on again.';
+
+  @override
+  String get calendarNotChosen =>
+      'No calendar chosen, so the mirror is off. Switch it on again and pick one.';
+
+  @override
+  String get calendarGone =>
+      'The chosen calendar no longer exists, so the mirror is off. Switch it on again and pick another one.';
+
+  @override
+  String get noWritableCalendar =>
+      'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.';
 }

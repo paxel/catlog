@@ -585,5 +585,16 @@
   "syncPeerOlder": "Drugie urządzenie ma starszy cat(a)log bez przypomnień. Zaktualizuj tam cat(a)log i zsynchronizuj ponownie.",
   "syncPeerNewer": "Drugie urządzenie ma nowszy cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu i zsynchronizuj ponownie.",
   "bundleNewerError": "Ten plik pochodzi z nowszego cat(a)log. Zaktualizuj cat(a)log na tym urządzeniu, aby go zaimportować.",
-  "spotEar": "Małe kocie ucho w rogu oznacza: przytrzymaj, aby zobaczyć więcej."
+  "spotEar": "Małe kocie ucho w rogu oznacza: przytrzymaj, aby zobaczyć więcej.",
+  "addReminder": "Dodaj przypomnienie",
+  "plannedSection": "Zaplanowane",
+  "reminderDialogHint": "Widoczne w przypomnieniach, dopóki nie oznaczysz jako zrobione. Bieżąca wartość pozostaje bez zmian.",
+  "reminderFor": "Dla",
+  "reminderField": "Pole",
+  "dueDateLabel": "Termin",
+  "pickCalendar": "Który kalendarz?",
+  "calendarPermissionDenied": "Dostęp do kalendarza jest zablokowany, więc odbicie jest wyłączone. Zezwól na niego w ustawieniach systemu i włącz odbicie ponownie.",
+  "calendarNotChosen": "Nie wybrano kalendarza, więc odbicie jest wyłączone. Włącz je ponownie i wybierz kalendarz.",
+  "calendarGone": "Wybrany kalendarz już nie istnieje, więc odbicie jest wyłączone. Włącz je ponownie i wybierz inny.",
+  "noWritableCalendar": "Żaden kalendarz na tym urządzeniu nie pozwala na zapis. Dodaj konto kalendarza w ustawieniach systemu i spróbuj ponownie."
 }

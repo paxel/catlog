@@ -1743,4 +1743,42 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get spotEar =>
       'Ein kleines Katzenohr in einer Ecke heißt: gedrückt halten für mehr.';
+
+  @override
+  String get addReminder => 'Erinnerung hinzufügen';
+
+  @override
+  String get plannedSection => 'Geplant';
+
+  @override
+  String get reminderDialogHint =>
+      'Erscheint in der Agenda, bis du es als erledigt markierst. Der aktuelle Wert bleibt, wie er ist.';
+
+  @override
+  String get reminderFor => 'Für';
+
+  @override
+  String get reminderField => 'Feld';
+
+  @override
+  String get dueDateLabel => 'Fälligkeitsdatum';
+
+  @override
+  String get pickCalendar => 'Welcher Kalender?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Der Kalenderzugriff ist blockiert, deshalb ist die Spiegelung aus. Erlaube ihn in den Systemeinstellungen und schalte die Spiegelung wieder ein.';
+
+  @override
+  String get calendarNotChosen =>
+      'Kein Kalender gewählt, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen.';
+
+  @override
+  String get calendarGone =>
+      'Der gewählte Kalender existiert nicht mehr, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen anderen.';
+
+  @override
+  String get noWritableCalendar =>
+      'Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut.';
 }

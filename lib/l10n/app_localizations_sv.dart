@@ -1734,4 +1734,42 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get spotEar =>
       'Ett litet kattöra i ett hörn betyder: håll intryckt för mer.';
+
+  @override
+  String get addReminder => 'Lägg till påminnelse';
+
+  @override
+  String get plannedSection => 'Planerat';
+
+  @override
+  String get reminderDialogHint =>
+      'Visas bland påminnelserna tills du markerar den som klar. Det nuvarande värdet förblir som det är.';
+
+  @override
+  String get reminderFor => 'För';
+
+  @override
+  String get reminderField => 'Fält';
+
+  @override
+  String get dueDateLabel => 'Förfallodatum';
+
+  @override
+  String get pickCalendar => 'Vilken kalender?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Kalenderåtkomst är blockerad, så speglingen är av. Tillåt den i systeminställningarna och slå på speglingen igen.';
+
+  @override
+  String get calendarNotChosen =>
+      'Ingen kalender vald, så speglingen är av. Slå på den igen och välj en.';
+
+  @override
+  String get calendarGone =>
+      'Den valda kalendern finns inte längre, så speglingen är av. Slå på den igen och välj en annan.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ingen kalender på den här enheten går att skriva till. Lägg till ett kalenderkonto i systeminställningarna och försök igen.';
 }

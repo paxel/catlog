@@ -1743,4 +1743,42 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get spotEar =>
       'Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau.';
+
+  @override
+  String get addReminder => 'Pridėti priminimą';
+
+  @override
+  String get plannedSection => 'Suplanuota';
+
+  @override
+  String get reminderDialogHint =>
+      'Rodoma priminimuose, kol pažymėsi kaip atliktą. Dabartinė reikšmė lieka tokia, kokia yra.';
+
+  @override
+  String get reminderFor => 'Kam';
+
+  @override
+  String get reminderField => 'Laukas';
+
+  @override
+  String get dueDateLabel => 'Terminas';
+
+  @override
+  String get pickCalendar => 'Kuris kalendorius?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Prieiga prie kalendoriaus užblokuota, todėl atspindėjimas išjungtas. Leisk ją sistemos nustatymuose ir vėl įjunk atspindėjimą.';
+
+  @override
+  String get calendarNotChosen =>
+      'Kalendorius nepasirinktas, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kalendorių.';
+
+  @override
+  String get calendarGone =>
+      'Pasirinkto kalendoriaus nebėra, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kitą.';
+
+  @override
+  String get noWritableCalendar =>
+      'Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą.';
 }

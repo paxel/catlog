@@ -1740,4 +1740,42 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get spotEar =>
       'Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer.';
+
+  @override
+  String get addReminder => 'Herinnering toevoegen';
+
+  @override
+  String get plannedSection => 'Gepland';
+
+  @override
+  String get reminderDialogHint =>
+      'Staat in de agenda tot je het als klaar markeert. De huidige waarde blijft zoals hij is.';
+
+  @override
+  String get reminderFor => 'Voor';
+
+  @override
+  String get reminderField => 'Veld';
+
+  @override
+  String get dueDateLabel => 'Vervaldatum';
+
+  @override
+  String get pickCalendar => 'Welke agenda?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Agendatoegang is geblokkeerd, dus het spiegelen staat uit. Sta het toe in de systeeminstellingen en zet het spiegelen weer aan.';
+
+  @override
+  String get calendarNotChosen =>
+      'Geen agenda gekozen, dus het spiegelen staat uit. Zet het weer aan en kies er een.';
+
+  @override
+  String get calendarGone =>
+      'De gekozen agenda bestaat niet meer, dus het spiegelen staat uit. Zet het weer aan en kies een andere.';
+
+  @override
+  String get noWritableCalendar =>
+      'Geen enkele agenda op dit apparaat is beschrijfbaar. Voeg in de systeeminstellingen een agenda-account toe en probeer het opnieuw.';
 }

@@ -585,5 +585,16 @@
   "syncPeerOlder": "对方设备运行的 cat(a)log 版本较旧，不支持提醒。请在那台设备上更新 cat(a)log 后重新同步。",
   "syncPeerNewer": "对方设备运行的 cat(a)log 版本较新。请在本设备上更新 cat(a)log 后重新同步。",
   "bundleNewerError": "此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。",
-  "spotEar": "角落里的小猫耳表示：长按可查看更多。"
+  "spotEar": "角落里的小猫耳表示：长按可查看更多。",
+  "addReminder": "添加提醒",
+  "plannedSection": "计划",
+  "reminderDialogHint": "在你标记完成之前，它会显示在日程中。当前值保持不变。",
+  "reminderFor": "对象",
+  "reminderField": "字段",
+  "dueDateLabel": "到期日",
+  "pickCalendar": "哪个日历？",
+  "calendarPermissionDenied": "日历访问已被阻止，因此同步已关闭。请在系统设置中允许，然后重新打开同步。",
+  "calendarNotChosen": "未选择日历，因此同步已关闭。请重新打开并选择一个日历。",
+  "calendarGone": "所选日历已不存在，因此同步已关闭。请重新打开并选择另一个日历。",
+  "noWritableCalendar": "本设备上没有可写入的日历。请在系统设置中添加日历账户，然后重试。"
 }

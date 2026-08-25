@@ -585,5 +585,16 @@
   "syncPeerOlder": "Den andra enheten kör ett äldre cat(a)log utan påminnelser. Uppdatera cat(a)log där och synkronisera igen.",
   "syncPeerNewer": "Den andra enheten kör ett nyare cat(a)log. Uppdatera cat(a)log på den här enheten och synkronisera igen.",
   "bundleNewerError": "Den här filen kommer från ett nyare cat(a)log. Uppdatera cat(a)log på den här enheten för att importera den.",
-  "spotEar": "Ett litet kattöra i ett hörn betyder: håll intryckt för mer."
+  "spotEar": "Ett litet kattöra i ett hörn betyder: håll intryckt för mer.",
+  "addReminder": "Lägg till påminnelse",
+  "plannedSection": "Planerat",
+  "reminderDialogHint": "Visas bland påminnelserna tills du markerar den som klar. Det nuvarande värdet förblir som det är.",
+  "reminderFor": "För",
+  "reminderField": "Fält",
+  "dueDateLabel": "Förfallodatum",
+  "pickCalendar": "Vilken kalender?",
+  "calendarPermissionDenied": "Kalenderåtkomst är blockerad, så speglingen är av. Tillåt den i systeminställningarna och slå på speglingen igen.",
+  "calendarNotChosen": "Ingen kalender vald, så speglingen är av. Slå på den igen och välj en.",
+  "calendarGone": "Den valda kalendern finns inte längre, så speglingen är av. Slå på den igen och välj en annan.",
+  "noWritableCalendar": "Ingen kalender på den här enheten går att skriva till. Lägg till ett kalenderkonto i systeminställningarna och försök igen."
 }

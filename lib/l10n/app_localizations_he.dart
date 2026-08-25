@@ -1726,4 +1726,42 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get spotEar => 'אוזן חתול קטנה בפינה פירושה: לחיצה ארוכה לעוד.';
+
+  @override
+  String get addReminder => 'הוספת תזכורת';
+
+  @override
+  String get plannedSection => 'מתוכנן';
+
+  @override
+  String get reminderDialogHint =>
+      'מוצג בתזכורות עד שתסמנו כבוצע. הערך הנוכחי נשאר כמו שהוא.';
+
+  @override
+  String get reminderFor => 'עבור';
+
+  @override
+  String get reminderField => 'שדה';
+
+  @override
+  String get dueDateLabel => 'תאריך יעד';
+
+  @override
+  String get pickCalendar => 'איזה יומן?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'הגישה ליומן חסומה, ולכן השיקוף כבוי. אפשרו אותה בהגדרות המערכת והפעילו את השיקוף מחדש.';
+
+  @override
+  String get calendarNotChosen =>
+      'לא נבחר יומן, ולכן השיקוף כבוי. הפעילו אותו מחדש ובחרו יומן.';
+
+  @override
+  String get calendarGone =>
+      'היומן שנבחר כבר לא קיים, ולכן השיקוף כבוי. הפעילו אותו מחדש ובחרו יומן אחר.';
+
+  @override
+  String get noWritableCalendar =>
+      'אי אפשר לכתוב לשום יומן במכשיר הזה. הוסיפו חשבון יומן בהגדרות המערכת ונסו שוב.';
 }

@@ -1739,4 +1739,42 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get spotEar =>
       'Маленькое кошачье ухо в углу означает: удерживайте, чтобы увидеть больше.';
+
+  @override
+  String get addReminder => 'Добавить напоминание';
+
+  @override
+  String get plannedSection => 'Запланировано';
+
+  @override
+  String get reminderDialogHint =>
+      'Показывается в напоминаниях, пока вы не отметите его выполненным. Текущее значение остаётся как есть.';
+
+  @override
+  String get reminderFor => 'Для';
+
+  @override
+  String get reminderField => 'Поле';
+
+  @override
+  String get dueDateLabel => 'Срок';
+
+  @override
+  String get pickCalendar => 'Какой календарь?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Доступ к календарю запрещён, поэтому отражение выключено. Разрешите его в настройках системы и включите отражение снова.';
+
+  @override
+  String get calendarNotChosen =>
+      'Календарь не выбран, поэтому отражение выключено. Включите его снова и выберите календарь.';
+
+  @override
+  String get calendarGone =>
+      'Выбранного календаря больше нет, поэтому отражение выключено. Включите его снова и выберите другой.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ни в один календарь на этом устройстве нельзя записывать. Добавьте учётную запись календаря в настройках системы и попробуйте снова.';
 }

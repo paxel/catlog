@@ -585,5 +585,16 @@
   "syncPeerOlder": "Diğer cihazda hatırlatmasız daha eski bir cat(a)log var. Orada cat(a)log uygulamasını güncelle ve yeniden eşitle.",
   "syncPeerNewer": "Diğer cihazda daha yeni bir cat(a)log var. Bu cihazda cat(a)log uygulamasını güncelle ve yeniden eşitle.",
   "bundleNewerError": "Bu dosya daha yeni bir cat(a)log sürümünden geliyor. İçe aktarmak için bu cihazda cat(a)log uygulamasını güncelle.",
-  "spotEar": "Köşedeki küçük kedi kulağı şu demek: daha fazlası için basılı tut."
+  "spotEar": "Köşedeki küçük kedi kulağı şu demek: daha fazlası için basılı tut.",
+  "addReminder": "Hatırlatma ekle",
+  "plannedSection": "Planlanan",
+  "reminderDialogHint": "Yapıldı olarak işaretleyene kadar ajandada görünür. Mevcut değer olduğu gibi kalır.",
+  "reminderFor": "Kimin için",
+  "reminderField": "Alan",
+  "dueDateLabel": "Son tarih",
+  "pickCalendar": "Hangi takvim?",
+  "calendarPermissionDenied": "Takvim erişimi engelli, bu yüzden yansıtma kapalı. Sistem ayarlarından izin ver ve yansıtmayı yeniden aç.",
+  "calendarNotChosen": "Takvim seçilmedi, bu yüzden yansıtma kapalı. Yeniden aç ve bir takvim seç.",
+  "calendarGone": "Seçilen takvim artık yok, bu yüzden yansıtma kapalı. Yeniden aç ve başka bir takvim seç.",
+  "noWritableCalendar": "Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene."
 }

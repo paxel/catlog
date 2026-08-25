@@ -10,21 +10,35 @@ import 'calendar_port.dart';
 /// manages exactly its own events, so two keepers of one catalog each
 /// get the events in their own calendars.
 const calendarMirrorEnabledKey = 'calendarMirror';
+const calendarMirrorCalendarKey = 'calendarMirror:calendar';
 const _mapKey = 'calendarMirror:map';
 
 bool calendarMirrorEnabled(CatalogStore store) =>
     store.localSetting(calendarMirrorEnabledKey) == 'on';
 
+/// The calendar the user picked on this device, or null.
+String? chosenCalendar(CatalogStore store) =>
+    store.localSetting(calendarMirrorCalendarKey);
+
+/// What a reconcile found. Everything but [ok] and [off] names a cause
+/// the user can act on; the caller shows it and switches the mirror
+/// off, so a silent failure cannot pretend to be a working mirror.
+enum MirrorOutcome { ok, off, noAccess, noCalendarChosen, calendarGone }
+
 /// One-way reconcile, the app is the source of truth: create missing
 /// events, patch changed ones, delete retired ones, recreate what the
 /// user deleted while the plan is alive. Fields the app does not own
 /// (alerts, attendees) are never written.
-Future<void> reconcileCalendar(
+Future<MirrorOutcome> reconcileCalendar(
     CatalogStore store, CalendarPort port, AppLocalizations t) async {
-  if (!calendarMirrorEnabled(store)) return;
-  if (!await port.ensureAccess()) return;
-  final calendarId = await port.ensureCalendar();
-  if (calendarId == null) return;
+  if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
+  if (!await port.ensureAccess()) return MirrorOutcome.noAccess;
+  final calendarId = chosenCalendar(store);
+  if (calendarId == null) return MirrorOutcome.noCalendarChosen;
+  final calendars = await port.listCalendars();
+  if (!calendars.any((c) => c.id == calendarId)) {
+    return MirrorOutcome.calendarGone;
+  }
 
   final defs = {for (final def in store.fieldDefs()) def.key: def};
   final desired = <String, ({DateTime day, String title, String desc})>{};
@@ -42,20 +56,21 @@ Future<void> reconcileCalendar(
   final stored = _readMap(store);
   final next = <String, Map<String, String>>{};
 
-  // Retired plans lose their event.
+  // Retired plans lose their event; so do events written into a
+  // calendar that is no longer the chosen one (the user switched) —
+  // they would double otherwise.
+  final known = <String, String>{};
   for (final MapEntry(:key, :value) in stored.entries) {
-    if (desired.containsKey(key)) continue;
     final eventId = value['event'];
-    if (eventId != null) await port.deleteEvent(calendarId, eventId);
+    if (eventId == null) continue;
+    final inCalendar = value['calendar'] ?? calendarId;
+    if (!desired.containsKey(key) || inCalendar != calendarId) {
+      await port.deleteEvent(inCalendar, eventId);
+      continue;
+    }
+    known[key] = eventId;
   }
-
-  final known = {
-    for (final MapEntry(:key, :value) in stored.entries)
-      if (desired.containsKey(key) && value['event'] != null)
-        key: value['event']!
-  };
-  final alive =
-      await port.existingEventIds(calendarId, known.values);
+  final alive = await port.existingEventIds(calendarId, known.values);
 
   for (final MapEntry(:key, :value) in desired.entries) {
     final snapshot =
@@ -66,7 +81,11 @@ Future<void> reconcileCalendar(
       final created = await port.createEvent(
           calendarId, value.day, value.title, value.desc);
       if (created != null) {
-        next[key] = {'event': created, 'snapshot': snapshot};
+        next[key] = {
+          'event': created,
+          'calendar': calendarId,
+          'snapshot': snapshot
+        };
       }
       continue;
     }
@@ -75,10 +94,15 @@ Future<void> reconcileCalendar(
       await port.updateEvent(
           calendarId, eventId, value.day, value.title, value.desc);
     }
-    next[key] = {'event': eventId, 'snapshot': snapshot};
+    next[key] = {
+      'event': eventId,
+      'calendar': calendarId,
+      'snapshot': snapshot
+    };
   }
 
   store.setLocalSetting(_mapKey, jsonEncode(next));
+  return MirrorOutcome.ok;
 }
 
 Map<String, Map<String, String>> _readMap(CatalogStore store) {

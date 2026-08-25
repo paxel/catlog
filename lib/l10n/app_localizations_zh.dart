@@ -1677,4 +1677,37 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spotEar => '角落里的小猫耳表示：长按可查看更多。';
+
+  @override
+  String get addReminder => '添加提醒';
+
+  @override
+  String get plannedSection => '计划';
+
+  @override
+  String get reminderDialogHint => '在你标记完成之前，它会显示在日程中。当前值保持不变。';
+
+  @override
+  String get reminderFor => '对象';
+
+  @override
+  String get reminderField => '字段';
+
+  @override
+  String get dueDateLabel => '到期日';
+
+  @override
+  String get pickCalendar => '哪个日历？';
+
+  @override
+  String get calendarPermissionDenied => '日历访问已被阻止，因此同步已关闭。请在系统设置中允许，然后重新打开同步。';
+
+  @override
+  String get calendarNotChosen => '未选择日历，因此同步已关闭。请重新打开并选择一个日历。';
+
+  @override
+  String get calendarGone => '所选日历已不存在，因此同步已关闭。请重新打开并选择另一个日历。';
+
+  @override
+  String get noWritableCalendar => '本设备上没有可写入的日历。请在系统设置中添加日历账户，然后重试。';
 }

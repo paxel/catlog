@@ -1736,4 +1736,42 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotEar => 'Malé mačacie ucho v rohu znamená: podrž pre viac.';
+
+  @override
+  String get addReminder => 'Pridať pripomienku';
+
+  @override
+  String get plannedSection => 'Naplánované';
+
+  @override
+  String get reminderDialogHint =>
+      'Zobrazuje sa v pripomienkach, kým ju neoznačíš ako hotovú. Súčasná hodnota zostáva, aká je.';
+
+  @override
+  String get reminderFor => 'Pre';
+
+  @override
+  String get reminderField => 'Pole';
+
+  @override
+  String get dueDateLabel => 'Termín';
+
+  @override
+  String get pickCalendar => 'Ktorý kalendár?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Prístup ku kalendáru je zablokovaný, takže zrkadlenie je vypnuté. Povoľ ho v nastaveniach systému a zrkadlenie znova zapni.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nie je vybraný žiadny kalendár, takže zrkadlenie je vypnuté. Znova ho zapni a nejaký vyber.';
+
+  @override
+  String get calendarGone =>
+      'Vybraný kalendár už neexistuje, takže zrkadlenie je vypnuté. Znova ho zapni a vyber iný.';
+
+  @override
+  String get noWritableCalendar =>
+      'Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova.';
 }

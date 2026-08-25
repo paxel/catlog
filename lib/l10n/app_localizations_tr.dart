@@ -1736,4 +1736,42 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get spotEar =>
       'Köşedeki küçük kedi kulağı şu demek: daha fazlası için basılı tut.';
+
+  @override
+  String get addReminder => 'Hatırlatma ekle';
+
+  @override
+  String get plannedSection => 'Planlanan';
+
+  @override
+  String get reminderDialogHint =>
+      'Yapıldı olarak işaretleyene kadar ajandada görünür. Mevcut değer olduğu gibi kalır.';
+
+  @override
+  String get reminderFor => 'Kimin için';
+
+  @override
+  String get reminderField => 'Alan';
+
+  @override
+  String get dueDateLabel => 'Son tarih';
+
+  @override
+  String get pickCalendar => 'Hangi takvim?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Takvim erişimi engelli, bu yüzden yansıtma kapalı. Sistem ayarlarından izin ver ve yansıtmayı yeniden aç.';
+
+  @override
+  String get calendarNotChosen =>
+      'Takvim seçilmedi, bu yüzden yansıtma kapalı. Yeniden aç ve bir takvim seç.';
+
+  @override
+  String get calendarGone =>
+      'Seçilen takvim artık yok, bu yüzden yansıtma kapalı. Yeniden aç ve başka bir takvim seç.';
+
+  @override
+  String get noWritableCalendar =>
+      'Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene.';
 }

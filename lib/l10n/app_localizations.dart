@@ -3121,6 +3121,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A little cat ear in a corner means: press and hold for more.'**
   String get spotEar;
+
+  /// No description provided for @addReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Add reminder'**
+  String get addReminder;
+
+  /// No description provided for @plannedSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Planned'**
+  String get plannedSection;
+
+  /// No description provided for @reminderDialogHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Shows in the Agenda until you mark it done. The current value stays as it is.'**
+  String get reminderDialogHint;
+
+  /// No description provided for @reminderFor.
+  ///
+  /// In en, this message translates to:
+  /// **'For'**
+  String get reminderFor;
+
+  /// No description provided for @reminderField.
+  ///
+  /// In en, this message translates to:
+  /// **'Field'**
+  String get reminderField;
+
+  /// No description provided for @dueDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get dueDateLabel;
+
+  /// No description provided for @pickCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Which calendar?'**
+  String get pickCalendar;
+
+  /// No description provided for @calendarPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar access is blocked, so the mirror is off. Allow it in the system settings, then switch the mirror on again.'**
+  String get calendarPermissionDenied;
+
+  /// No description provided for @calendarNotChosen.
+  ///
+  /// In en, this message translates to:
+  /// **'No calendar chosen, so the mirror is off. Switch it on again and pick one.'**
+  String get calendarNotChosen;
+
+  /// No description provided for @calendarGone.
+  ///
+  /// In en, this message translates to:
+  /// **'The chosen calendar no longer exists, so the mirror is off. Switch it on again and pick another one.'**
+  String get calendarGone;
+
+  /// No description provided for @noWritableCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.'**
+  String get noWritableCalendar;
 }
 
 class _AppLocalizationsDelegate

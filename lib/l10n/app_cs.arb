@@ -585,5 +585,16 @@
   "syncPeerOlder": "Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.",
   "syncPeerNewer": "Druhé zařízení má novější cat(a)log. Aktualizuj cat(a)log na tomto zařízení a synchronizuj znovu.",
   "bundleNewerError": "Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.",
-  "spotEar": "Malé kočičí ucho v rohu znamená: podrž pro víc."
+  "spotEar": "Malé kočičí ucho v rohu znamená: podrž pro víc.",
+  "addReminder": "Přidat připomínku",
+  "plannedSection": "Naplánováno",
+  "reminderDialogHint": "Zobrazuje se v připomínkách, dokud ji neoznačíš jako hotovou. Současná hodnota zůstává, jak je.",
+  "reminderFor": "Pro",
+  "reminderField": "Pole",
+  "dueDateLabel": "Termín",
+  "pickCalendar": "Který kalendář?",
+  "calendarPermissionDenied": "Přístup ke kalendáři je zablokovaný, takže zrcadlení je vypnuté. Povol ho v nastavení systému a zrcadlení znovu zapni.",
+  "calendarNotChosen": "Není vybraný žádný kalendář, takže zrcadlení je vypnuté. Znovu ho zapni a nějaký vyber.",
+  "calendarGone": "Vybraný kalendář už neexistuje, takže zrcadlení je vypnuté. Znovu ho zapni a vyber jiný.",
+  "noWritableCalendar": "Do žádného kalendáře na tomto zařízení nejde zapisovat. Přidej v nastavení systému účet kalendáře a zkus to znovu."
 }

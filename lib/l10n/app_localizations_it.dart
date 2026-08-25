@@ -1743,4 +1743,42 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get spotEar =>
       'Un orecchio di gatto in un angolo significa: tieni premuto per altro.';
+
+  @override
+  String get addReminder => 'Aggiungi promemoria';
+
+  @override
+  String get plannedSection => 'Pianificato';
+
+  @override
+  String get reminderDialogHint =>
+      'Compare nell\'agenda finché non lo segni come fatto. Il valore attuale resta com\'è.';
+
+  @override
+  String get reminderFor => 'Per';
+
+  @override
+  String get reminderField => 'Campo';
+
+  @override
+  String get dueDateLabel => 'Scadenza';
+
+  @override
+  String get pickCalendar => 'Quale calendario?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'L\'accesso al calendario è bloccato, quindi il rispecchiamento è spento. Consentilo nelle impostazioni di sistema e riattiva il rispecchiamento.';
+
+  @override
+  String get calendarNotChosen =>
+      'Nessun calendario scelto, quindi il rispecchiamento è spento. Riattivalo e scegline uno.';
+
+  @override
+  String get calendarGone =>
+      'Il calendario scelto non esiste più, quindi il rispecchiamento è spento. Riattivalo e scegline un altro.';
+
+  @override
+  String get noWritableCalendar =>
+      'Nessun calendario su questo dispositivo è scrivibile. Aggiungi un account calendario nelle impostazioni di sistema e riprova.';
 }

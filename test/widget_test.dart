@@ -247,7 +247,10 @@ void main() {
     store.author = 'axel';
 
     await tester.pumpWidget(CatlogApp(store: store));
-    await tester.tap(find.byTooltip('Fields'));
+    // Fields lives in the home menu since 1.0.1.
+    await tester.tap(find.byType(PopupMenuButton<String>));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Fields'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Color'));
     await tester.pumpAndSettle();

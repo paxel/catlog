@@ -1732,4 +1732,42 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get spotEar => 'گوش کوچک گربه در گوشه یعنی: برای بیشتر، نگه دار.';
+
+  @override
+  String get addReminder => 'افزودن یادآور';
+
+  @override
+  String get plannedSection => 'برنامه‌ریزی‌شده';
+
+  @override
+  String get reminderDialogHint =>
+      'تا وقتی انجام‌شده علامتش نزنی، در یادآورها نمایان است. مقدار فعلی همان‌طور که هست می‌ماند.';
+
+  @override
+  String get reminderFor => 'برای';
+
+  @override
+  String get reminderField => 'فیلد';
+
+  @override
+  String get dueDateLabel => 'سررسید';
+
+  @override
+  String get pickCalendar => 'کدام تقویم؟';
+
+  @override
+  String get calendarPermissionDenied =>
+      'دسترسی به تقویم مسدود است، پس بازتاب خاموش است. در تنظیمات سیستم اجازه بده و بازتاب را دوباره روشن کن.';
+
+  @override
+  String get calendarNotChosen =>
+      'تقویمی انتخاب نشده، پس بازتاب خاموش است. دوباره روشنش کن و یکی را انتخاب کن.';
+
+  @override
+  String get calendarGone =>
+      'تقویم انتخاب‌شده دیگر وجود ندارد، پس بازتاب خاموش است. دوباره روشنش کن و تقویم دیگری انتخاب کن.';
+
+  @override
+  String get noWritableCalendar =>
+      'در هیچ تقویمی روی این دستگاه نمی‌توان نوشت. در تنظیمات سیستم یک حساب تقویم اضافه کن و دوباره امتحان کن.';
 }

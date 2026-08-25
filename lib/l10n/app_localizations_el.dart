@@ -1742,4 +1742,42 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get spotEar =>
       'Ένα μικρό αυτί γάτας σε μια γωνία σημαίνει: κράτησε πατημένο για περισσότερα.';
+
+  @override
+  String get addReminder => 'Προσθήκη υπενθύμισης';
+
+  @override
+  String get plannedSection => 'Προγραμματισμένα';
+
+  @override
+  String get reminderDialogHint =>
+      'Εμφανίζεται στις υπενθυμίσεις μέχρι να το σημειώσεις ως έγινε. Η τρέχουσα τιμή μένει όπως είναι.';
+
+  @override
+  String get reminderFor => 'Για';
+
+  @override
+  String get reminderField => 'Πεδίο';
+
+  @override
+  String get dueDateLabel => 'Προθεσμία';
+
+  @override
+  String get pickCalendar => 'Ποιο ημερολόγιο;';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Η πρόσβαση στο ημερολόγιο είναι μπλοκαρισμένη, οπότε ο αντικατοπτρισμός είναι απενεργοποιημένος. Επίτρεψέ την στις ρυθμίσεις συστήματος και ενεργοποίησέ τον ξανά.';
+
+  @override
+  String get calendarNotChosen =>
+      'Δεν επιλέχθηκε ημερολόγιο, οπότε ο αντικατοπτρισμός είναι απενεργοποιημένος. Ενεργοποίησέ τον ξανά και διάλεξε ένα.';
+
+  @override
+  String get calendarGone =>
+      'Το επιλεγμένο ημερολόγιο δεν υπάρχει πια, οπότε ο αντικατοπτρισμός είναι απενεργοποιημένος. Ενεργοποίησέ τον ξανά και διάλεξε άλλο.';
+
+  @override
+  String get noWritableCalendar =>
+      'Κανένα ημερολόγιο σε αυτήν τη συσκευή δεν είναι εγγράψιμο. Πρόσθεσε έναν λογαριασμό ημερολογίου στις ρυθμίσεις συστήματος και δοκίμασε ξανά.';
 }

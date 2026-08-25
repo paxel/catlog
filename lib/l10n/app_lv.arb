@@ -585,5 +585,16 @@
   "syncPeerOlder": "Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.",
   "syncPeerNewer": "Otrā ierīcē ir jaunāks cat(a)log. Atjaunini cat(a)log šajā ierīcē un sinhronizē vēlreiz.",
   "bundleNewerError": "Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.",
-  "spotEar": "Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk."
+  "spotEar": "Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk.",
+  "addReminder": "Pievienot atgādinājumu",
+  "plannedSection": "Ieplānots",
+  "reminderDialogHint": "Rādās atgādinājumos, līdz atzīmēsi kā izdarītu. Pašreizējā vērtība paliek, kāda ir.",
+  "reminderFor": "Kam",
+  "reminderField": "Lauks",
+  "dueDateLabel": "Termiņš",
+  "pickCalendar": "Kurš kalendārs?",
+  "calendarPermissionDenied": "Piekļuve kalendāram ir bloķēta, tāpēc atspoguļošana ir izslēgta. Atļauj to sistēmas iestatījumos un ieslēdz atspoguļošanu vēlreiz.",
+  "calendarNotChosen": "Kalendārs nav izvēlēts, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies kalendāru.",
+  "calendarGone": "Izvēlētais kalendārs vairs nepastāv, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies citu.",
+  "noWritableCalendar": "Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz."
 }

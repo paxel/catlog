@@ -15,11 +15,7 @@ class FieldEdit {
 
   /// The Privat checkmark: this value stays in the local catalog.
   final bool private;
-
-  /// The reminder checkmark (#74): store as a plan, not a fact.
-  final bool reminder;
-  const FieldEdit(this.value, this.date,
-      {this.private = false, this.reminder = false});
+  const FieldEdit(this.value, this.date, {this.private = false});
 }
 
 /// Type-aware editor dialog for a Field value. Returns null on cancel.
@@ -35,9 +31,64 @@ Future<FieldEdit?> editFieldValue(
   );
 }
 
-class _FieldEditDialog extends StatefulWidget {
+/// The state behind a [FieldValueInput]: what the user picked or typed,
+/// resolved per field type into the value to store. Shared by the field
+/// editor and the reminder dialog, so a plan's value is as well-formed
+/// as a fact's.
+class FieldValueController extends ChangeNotifier {
   final FieldDef def;
-  final String? current;
+  final TextEditingController text;
+  String? _choice;
+
+  FieldValueController(this.def, {String? current})
+      : text = TextEditingController(text: current ?? ''),
+        _choice = current {
+    // For choice fields the text controller holds only off-list values;
+    // a current value that IS an option belongs to the radios alone.
+    if (def.type == FieldType.choice && def.options.contains(current)) {
+      text.clear();
+    }
+    text.addListener(notifyListeners);
+  }
+
+  String? get choice => _choice;
+  set choice(String? v) {
+    _choice = v;
+    notifyListeners();
+  }
+
+  /// The value to store, or null for "cleared".
+  String? get value {
+    switch (def.type) {
+      case FieldType.choice:
+        // Choice values are suggestions, not a closed list — a freely
+        // typed value wins over the radio selection.
+        final free = text.text.trim();
+        return free.isNotEmpty ? free : _choice;
+      case FieldType.yesNo:
+      case FieldType.date:
+      case FieldType.cat:
+        return _choice;
+      case FieldType.text:
+      case FieldType.location:
+      case FieldType.number:
+      case FieldType.id:
+        final v = text.text.trim();
+        return v.isEmpty ? null : v;
+    }
+  }
+
+  @override
+  void dispose() {
+    text.dispose();
+    super.dispose();
+  }
+}
+
+/// The type-aware input for one Field value: radios for choices, a
+/// calendar for dates, a map picker for locations, a scanner for IDs.
+class FieldValueInput extends StatefulWidget {
+  final FieldValueController controller;
 
   /// Needed for cat-reference fields (picker of existing cats).
   final CatalogStore? store;
@@ -45,71 +96,19 @@ class _FieldEditDialog extends StatefulWidget {
   /// The entity being edited — a cat never references itself.
   final String? excludeId;
 
-  const _FieldEditDialog(
-      {required this.def, required this.current, this.store, this.excludeId});
+  const FieldValueInput(
+      {super.key, required this.controller, this.store, this.excludeId});
 
   @override
-  State<_FieldEditDialog> createState() => _FieldEditDialogState();
+  State<FieldValueInput> createState() => _FieldValueInputState();
 }
 
-class _FieldEditDialogState extends State<_FieldEditDialog> {
-  late final TextEditingController _text =
-      TextEditingController(text: widget.current ?? '');
-  String? _choice;
-  DateTime _asOf = DateTime.now();
-  late bool _private = widget.store != null &&
-      widget.excludeId != null &&
-      widget.store!.isFieldPrivate(widget.excludeId!, def.key);
-  bool _reminder = false;
-
-  FieldDef get def => widget.def;
+class _FieldValueInputState extends State<FieldValueInput> {
+  FieldValueController get c => widget.controller;
+  FieldDef get def => c.def;
 
   @override
-  void initState() {
-    super.initState();
-    _choice = widget.current;
-    // For choice fields the text controller holds only off-list values;
-    // a current value that IS an option belongs to the radios alone.
-    if (def.type == FieldType.choice &&
-        def.options.contains(widget.current)) {
-      _text.clear();
-    }
-  }
-
-  @override
-  void dispose() {
-    _text.dispose();
-    super.dispose();
-  }
-
-  void _submit(String? value) => Navigator.of(context)
-      .pop(FieldEdit(value, _asOf, private: _private, reminder: _reminder));
-
-  Future<void> _pickAsOf() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _asOf,
-      firstDate: DateTime(2000),
-      // Future dates carry plans (#74); the reminder toggle below
-      // auto-enables for them.
-      lastDate: DateTime(2100),
-      // The picker falls back to a text field (e.g. with screen readers);
-      // the stock error doesn't say which format is expected.
-      errorFormatText: context.t
-          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
-    );
-    if (!mounted) return;
-    if (picked != null) {
-      setState(() {
-        _asOf = picked;
-        // A future date is almost always a plan, not a fact — flag it,
-        // visibly and overridably.
-        if (picked.isAfter(DateTime.now())) _reminder = true;
-      });
-    }
-  }
-
-  Widget _input() {
+  Widget build(BuildContext context) {
     switch (def.type) {
       case FieldType.yesNo:
       case FieldType.choice:
@@ -117,10 +116,10 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
             def.type == FieldType.yesNo ? const ['yes', 'no'] : def.options;
         return Column(mainAxisSize: MainAxisSize.min, children: [
           RadioGroup<String>(
-            groupValue: _choice,
+            groupValue: c.choice,
             onChanged: (v) => setState(() {
-              _choice = v;
-              _text.clear();
+              c.choice = v;
+              c.text.clear();
             }),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               for (final option in options)
@@ -130,15 +129,13 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                     value: option),
             ]),
           ),
-          // Choice values are suggestions, not a closed list — a freely
-          // typed value wins over the radio selection.
           if (def.type == FieldType.choice)
             TextField(
-              controller: _text,
+              controller: c.text,
               decoration:
                   InputDecoration(labelText: context.t.ownValue),
               onChanged: (v) => setState(() {
-                if (v.trim().isNotEmpty) _choice = null;
+                if (v.trim().isNotEmpty) c.choice = null;
               }),
             ),
         ]);
@@ -146,9 +143,9 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         // Birth and death dates can't lie in the future; other date
         // fields legitimately can (appointments, due dates).
         final pastOnly = def.slug == 'birthdate' || def.slug == 'deceased';
-        final last = pastOnly ? DateUtils.dateOnly(DateTime.now()) : DateTime(2100);
-        var initial =
-            DateTime.tryParse(widget.current ?? '') ?? DateTime.now();
+        final last =
+            pastOnly ? DateUtils.dateOnly(DateTime.now()) : DateTime(2100);
+        var initial = DateTime.tryParse(c.choice ?? '') ?? DateTime.now();
         if (initial.isAfter(last)) initial = last;
         // The picker pages months in a viewport, which cannot answer the
         // intrinsic-width question AlertDialog asks. Unbounded, its page
@@ -162,12 +159,12 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
             firstDate: DateTime(2000),
             lastDate: last,
             onDateChanged: (d) =>
-                _choice = d.toIso8601String().substring(0, 10),
+                c.choice = d.toIso8601String().substring(0, 10),
           ),
         );
       case FieldType.number:
         return TextField(
-          controller: _text,
+          controller: c.text,
           autofocus: true,
           keyboardType:
               const TextInputType.numberWithOptions(decimal: true),
@@ -177,27 +174,25 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         return ListTile(
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.location_pin),
-          title: Text(_text.text.isEmpty
-              ? context.t.pickOnMap
-              : _text.text),
+          title: Text(
+              c.text.text.isEmpty ? context.t.pickOnMap : c.text.text),
           trailing: const Icon(Icons.map_outlined),
           onTap: () async {
             final picked = await Navigator.of(context).push<String>(
               MaterialPageRoute(
                 builder: (_) => PositionPickerScreen(
-                    initial:
-                        _text.text.isEmpty ? null : _text.text),
+                    initial: c.text.text.isEmpty ? null : c.text.text),
               ),
             );
             if (!mounted) return;
-            if (picked != null) setState(() => _text.text = picked);
+            if (picked != null) setState(() => c.text.text = picked);
           },
         );
       case FieldType.text:
         // Remarks holds whole notes (OCR dumps included) — multiline.
         final multiline = def.slug == 'remarks';
         return TextField(
-          controller: _text,
+          controller: c.text,
           autofocus: true,
           minLines: multiline ? 3 : 1,
           maxLines: multiline ? 8 : 1,
@@ -208,7 +203,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         // "Scan" means the PRINTED code: a tester pointed the camera at
         // the cat, expecting to read the implanted transponder.
         return TextField(
-          controller: _text,
+          controller: c.text,
           autofocus: true,
           decoration: InputDecoration(
             labelText: context.t.value,
@@ -222,7 +217,7 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
                 final value = await Navigator.of(context).push<String>(
                     MaterialPageRoute(builder: (_) => const ScanScreen()));
                 if (value != null && value.isNotEmpty) {
-                  setState(() => _text.text = value);
+                  setState(() => c.text.text = value);
                 }
               },
             ),
@@ -232,51 +227,82 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
         final store = widget.store;
         if (store == null) return const SizedBox.shrink();
         final cats = [
-          for (final c in store.cats())
-            if (store.resolveEntity(c.id) !=
+          for (final cat in store.cats())
+            if (store.resolveEntity(cat.id) !=
                 store.resolveEntity(widget.excludeId ?? ''))
-              c
+              cat
         ];
         return ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 320),
           child: RadioGroup<String>(
-            groupValue: _choice,
-            onChanged: (v) => setState(() => _choice = v),
+            groupValue: c.choice,
+            onChanged: (v) => setState(() => c.choice = v),
             child: ListView(shrinkWrap: true, children: [
-              for (final c in cats)
-                RadioListTile<String>(title: Text(c.name), value: c.id),
+              for (final cat in cats)
+                RadioListTile<String>(title: Text(cat.name), value: cat.id),
             ]),
           ),
         );
     }
   }
+}
 
-  String? _result() {
-    switch (def.type) {
-      case FieldType.choice:
-        final free = _text.text.trim();
-        return free.isNotEmpty ? free : _choice;
-      case FieldType.yesNo:
-      case FieldType.date:
-      case FieldType.cat:
-        return _choice;
-      case FieldType.text:
-      case FieldType.location:
-      case FieldType.number:
-      case FieldType.id:
-        final v = _text.text.trim();
-        return v.isEmpty ? null : v;
-    }
+class _FieldEditDialog extends StatefulWidget {
+  final FieldDef def;
+  final String? current;
+  final CatalogStore? store;
+  final String? excludeId;
+
+  const _FieldEditDialog(
+      {required this.def, required this.current, this.store, this.excludeId});
+
+  @override
+  State<_FieldEditDialog> createState() => _FieldEditDialogState();
+}
+
+class _FieldEditDialogState extends State<_FieldEditDialog> {
+  late final FieldValueController _value =
+      FieldValueController(widget.def, current: widget.current);
+  DateTime _asOf = DateTime.now();
+  late bool _private = widget.store != null &&
+      widget.excludeId != null &&
+      widget.store!.isFieldPrivate(widget.excludeId!, widget.def.key);
+
+  @override
+  void dispose() {
+    _value.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickAsOf() async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _asOf,
+      firstDate: DateTime(2000),
+      // "As of" is when something happened — never the future. Plans
+      // are made in the reminder dialog; a forward-dated fact would
+      // win the latest-wins ordering and pose as the current value.
+      lastDate: DateTime.now().add(const Duration(days: 1)),
+      // The picker falls back to a text field (e.g. with screen readers);
+      // the stock error doesn't say which format is expected.
+      errorFormatText: context.t
+          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
+    );
+    if (!mounted) return;
+    if (picked != null) setState(() => _asOf = picked);
   }
 
   @override
   Widget build(BuildContext context) {
     final sameDay = DateUtils.isSameDay(_asOf, DateTime.now());
     return AlertDialog(
-      title: Text(fieldDefName(context.t, def)),
+      title: Text(fieldDefName(context.t, widget.def)),
       content: SingleChildScrollView(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          _input(),
+          FieldValueInput(
+              controller: _value,
+              store: widget.store,
+              excludeId: widget.excludeId),
           const SizedBox(height: 8),
           if (widget.store != null && widget.excludeId != null)
             CheckboxListTile(
@@ -299,14 +325,6 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
             trailing: const Icon(Icons.edit_calendar_outlined),
             onTap: _pickAsOf,
           ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _reminder,
-            onChanged: (v) => setState(() => _reminder = v ?? false),
-            title: Text(context.t.reminderLabel),
-            secondary: const Icon(Icons.alarm),
-            controlAffinity: ListTileControlAffinity.trailing,
-          ),
         ]),
       ),
       actions: [
@@ -315,7 +333,8 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           child: Text(context.t.cancel),
         ),
         FilledButton(
-          onPressed: () => _submit(_result()),
+          onPressed: () => Navigator.of(context)
+              .pop(FieldEdit(_value.value, _asOf, private: _private)),
           child: Text(context.t.save),
         ),
       ],

@@ -1738,4 +1738,42 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get spotEar => 'Мало мачешко уво во аголот значи: задржи за повеќе.';
+
+  @override
+  String get addReminder => 'Додај потсетник';
+
+  @override
+  String get plannedSection => 'Планирано';
+
+  @override
+  String get reminderDialogHint =>
+      'Се прикажува во потсетниците додека не го означиш како завршено. Тековната вредност останува каква што е.';
+
+  @override
+  String get reminderFor => 'За';
+
+  @override
+  String get reminderField => 'Поле';
+
+  @override
+  String get dueDateLabel => 'Рок';
+
+  @override
+  String get pickCalendar => 'Кој календар?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Пристапот до календарот е блокиран, па пресликувањето е исклучено. Дозволи го во системските поставки и повторно вклучи го пресликувањето.';
+
+  @override
+  String get calendarNotChosen =>
+      'Не е избран календар, па пресликувањето е исклучено. Вклучи го повторно и избери еден.';
+
+  @override
+  String get calendarGone =>
+      'Избраниот календар веќе не постои, па пресликувањето е исклучено. Вклучи го повторно и избери друг.';
+
+  @override
+  String get noWritableCalendar =>
+      'Во ниту еден календар на овој уред не може да се запишува. Додај сметка за календар во системските поставки и обиди се повторно.';
 }

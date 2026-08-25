@@ -585,5 +585,16 @@
   "syncPeerOlder": "Kitame įrenginyje senesnis cat(a)log be priminimų. Atnaujink cat(a)log ten ir sinchronizuok iš naujo.",
   "syncPeerNewer": "Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.",
   "bundleNewerError": "Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.",
-  "spotEar": "Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau."
+  "spotEar": "Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau.",
+  "addReminder": "Pridėti priminimą",
+  "plannedSection": "Suplanuota",
+  "reminderDialogHint": "Rodoma priminimuose, kol pažymėsi kaip atliktą. Dabartinė reikšmė lieka tokia, kokia yra.",
+  "reminderFor": "Kam",
+  "reminderField": "Laukas",
+  "dueDateLabel": "Terminas",
+  "pickCalendar": "Kuris kalendorius?",
+  "calendarPermissionDenied": "Prieiga prie kalendoriaus užblokuota, todėl atspindėjimas išjungtas. Leisk ją sistemos nustatymuose ir vėl įjunk atspindėjimą.",
+  "calendarNotChosen": "Kalendorius nepasirinktas, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kalendorių.",
+  "calendarGone": "Pasirinkto kalendoriaus nebėra, todėl atspindėjimas išjungtas. Vėl įjunk jį ir pasirink kitą.",
+  "noWritableCalendar": "Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą."
 }

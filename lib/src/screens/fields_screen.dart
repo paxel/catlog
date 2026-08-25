@@ -123,6 +123,8 @@ class _FieldsScreenState extends State<FieldsScreen> {
         HelpButton(store: widget.store, screenId: 'fields'),
       ]),
       body: ListView(
+        // The last row scrolls clear of the floating button.
+        padding: const EdgeInsets.only(bottom: 88),
         children: [
           for (final def in defs)
             ListTile(

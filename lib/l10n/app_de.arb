@@ -507,5 +507,16 @@
   "syncPeerOlder": "Das andere Gerät hat ein älteres cat(a)log ohne Erinnerungen. Dort cat(a)log aktualisieren und erneut synchronisieren.",
   "syncPeerNewer": "Das andere Gerät hat ein neueres cat(a)log. Auf diesem Gerät cat(a)log aktualisieren und erneut synchronisieren.",
   "bundleNewerError": "Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren.",
-  "spotEar": "Ein kleines Katzenohr in einer Ecke heißt: gedrückt halten für mehr."
+  "spotEar": "Ein kleines Katzenohr in einer Ecke heißt: gedrückt halten für mehr.",
+  "addReminder": "Erinnerung hinzufügen",
+  "plannedSection": "Geplant",
+  "reminderDialogHint": "Erscheint in der Agenda, bis du es als erledigt markierst. Der aktuelle Wert bleibt, wie er ist.",
+  "reminderFor": "Für",
+  "reminderField": "Feld",
+  "dueDateLabel": "Fälligkeitsdatum",
+  "pickCalendar": "Welcher Kalender?",
+  "calendarPermissionDenied": "Der Kalenderzugriff ist blockiert, deshalb ist die Spiegelung aus. Erlaube ihn in den Systemeinstellungen und schalte die Spiegelung wieder ein.",
+  "calendarNotChosen": "Kein Kalender gewählt, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen.",
+  "calendarGone": "Der gewählte Kalender existiert nicht mehr, deshalb ist die Spiegelung aus. Schalte sie wieder ein und wähle einen anderen.",
+  "noWritableCalendar": "Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut."
 }

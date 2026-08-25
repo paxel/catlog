@@ -1740,4 +1740,42 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get spotEar =>
       'Lítið kattareyra í horni þýðir: haltu inni fyrir meira.';
+
+  @override
+  String get addReminder => 'Bæta við áminningu';
+
+  @override
+  String get plannedSection => 'Áætlað';
+
+  @override
+  String get reminderDialogHint =>
+      'Birtist í áminningum þar til þú merkir hana lokið. Núverandi gildi helst óbreytt.';
+
+  @override
+  String get reminderFor => 'Fyrir';
+
+  @override
+  String get reminderField => 'Reitur';
+
+  @override
+  String get dueDateLabel => 'Gjalddagi';
+
+  @override
+  String get pickCalendar => 'Hvaða dagatal?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Aðgangur að dagatali er lokaður, svo speglunin er slökkt. Leyfðu hann í kerfisstillingum og kveiktu aftur á speglun.';
+
+  @override
+  String get calendarNotChosen =>
+      'Ekkert dagatal valið, svo speglunin er slökkt. Kveiktu aftur á henni og veldu eitt.';
+
+  @override
+  String get calendarGone =>
+      'Valda dagatalið er ekki lengur til, svo speglunin er slökkt. Kveiktu aftur á henni og veldu annað.';
+
+  @override
+  String get noWritableCalendar =>
+      'Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur.';
 }

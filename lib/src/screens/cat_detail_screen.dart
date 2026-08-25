@@ -24,8 +24,11 @@ import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../reminders/mirror_hook.dart';
+import '../reminders/reminder_dialog.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
+import '../widgets/reminder_card.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
 import 'map_screen.dart';
@@ -150,8 +153,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       await explainObjection(context, objection);
       return;
     }
-    store.append(id, def.key, edit.value,
-        date: edit.date, reminder: edit.reminder);
+    store.append(id, def.key, edit.value, date: edit.date);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }
@@ -167,6 +169,41 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       builder: (_) => MapScreen(
           store: store, initialCenter: LatLng(pos.$1, pos.$2)),
     ));
+  }
+
+  Future<void> _addReminder() async {
+    if (await showAddReminder(context, store, entityId: id) && mounted) {
+      _plansChanged();
+    }
+  }
+
+  void _plansChanged() {
+    setState(() {});
+    mirrorAfterChange(context, store);
+  }
+
+  /// The cat's live plans, as the agenda shows them — nothing vanishes
+  /// into the agenda alone, and a field without a fact can carry one.
+  List<Widget> _plannedSection() {
+    final plans = [
+      for (final r in store.activeReminders())
+        if (r.entity == store.resolveEntity(id)) r
+    ];
+    if (plans.isEmpty) return const [];
+    return [
+      const Divider(),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Text(context.t.plannedSection,
+            style: Theme.of(context).textTheme.titleMedium),
+      ),
+      for (final r in plans)
+        ReminderCard(
+            store: store,
+            reminder: r,
+            showEntity: false,
+            onChanged: _plansChanged),
+    ];
   }
 
   Future<void> _openTimeline({String? field}) async {
@@ -372,6 +409,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => CardScreen(store: store, catId: id),
                   ))),
+          IconButton(
+              icon: const Icon(Icons.alarm_add),
+              tooltip: context.t.addReminder,
+              onPressed: _addReminder),
           Spotlight(
             id: 'cat-edit',
             child: IconButton(
@@ -488,6 +529,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               if (created && mounted) setState(() {});
             },
           ),
+          ..._plannedSection(),
           if (_hasFamily())
             ...[
               const Divider(),

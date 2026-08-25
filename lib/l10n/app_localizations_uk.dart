@@ -1739,4 +1739,42 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get spotEar =>
       'Маленьке котяче вухо в куті означає: утримуйте, щоб побачити більше.';
+
+  @override
+  String get addReminder => 'Додати нагадування';
+
+  @override
+  String get plannedSection => 'Заплановано';
+
+  @override
+  String get reminderDialogHint =>
+      'Показується в нагадуваннях, доки ви не позначите його виконаним. Поточне значення лишається як є.';
+
+  @override
+  String get reminderFor => 'Для';
+
+  @override
+  String get reminderField => 'Поле';
+
+  @override
+  String get dueDateLabel => 'Термін';
+
+  @override
+  String get pickCalendar => 'Який календар?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Доступ до календаря заблоковано, тому віддзеркалення вимкнено. Дозвольте його в налаштуваннях системи й увімкніть віддзеркалення знову.';
+
+  @override
+  String get calendarNotChosen =>
+      'Календар не вибрано, тому віддзеркалення вимкнено. Увімкніть його знову й виберіть календар.';
+
+  @override
+  String get calendarGone =>
+      'Вибраного календаря більше немає, тому віддзеркалення вимкнено. Увімкніть його знову й виберіть інший.';
+
+  @override
+  String get noWritableCalendar =>
+      'У жоден календар на цьому пристрої не можна записувати. Додайте обліковий запис календаря в налаштуваннях системи й спробуйте знову.';
 }

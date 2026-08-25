@@ -585,5 +585,16 @@
   "syncPeerOlder": "相手の端末はリマインダーのない古い cat(a)log です。そちらで cat(a)log を更新して、もう一度同期してください。",
   "syncPeerNewer": "相手の端末は新しい cat(a)log です。この端末で cat(a)log を更新して、もう一度同期してください。",
   "bundleNewerError": "このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。",
-  "spotEar": "隅の小さな猫耳は「長押しでもっと」の印です。"
+  "spotEar": "隅の小さな猫耳は「長押しでもっと」の印です。",
+  "addReminder": "リマインダーを追加",
+  "plannedSection": "予定",
+  "reminderDialogHint": "完了にするまで予定表に表示されます。現在の値はそのままです。",
+  "reminderFor": "対象",
+  "reminderField": "フィールド",
+  "dueDateLabel": "期日",
+  "pickCalendar": "どのカレンダー？",
+  "calendarPermissionDenied": "カレンダーへのアクセスが拒否されているため、反映はオフです。システム設定で許可して、もう一度反映をオンにしてください。",
+  "calendarNotChosen": "カレンダーが選ばれていないため、反映はオフです。もう一度オンにして、カレンダーを選んでください。",
+  "calendarGone": "選んだカレンダーがなくなったため、反映はオフです。もう一度オンにして、別のカレンダーを選んでください。",
+  "noWritableCalendar": "この端末に書き込めるカレンダーがありません。システム設定でカレンダーのアカウントを追加して、やり直してください。"
 }

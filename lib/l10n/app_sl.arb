@@ -585,5 +585,16 @@
   "syncPeerOlder": "Druga naprava ima starejši cat(a)log brez opomnikov. Posodobi cat(a)log tam in znova sinhroniziraj.",
   "syncPeerNewer": "Druga naprava ima novejši cat(a)log. Posodobi cat(a)log na tej napravi in znova sinhroniziraj.",
   "bundleNewerError": "Ta datoteka prihaja iz novejšega cat(a)loga. Posodobi cat(a)log na tej napravi, da jo uvoziš.",
-  "spotEar": "Majhno mačje uho v kotu pomeni: pridrži za več."
+  "spotEar": "Majhno mačje uho v kotu pomeni: pridrži za več.",
+  "addReminder": "Dodaj opomnik",
+  "plannedSection": "Načrtovano",
+  "reminderDialogHint": "Prikazuje se med opomniki, dokler ga ne označiš kot opravljenega. Trenutna vrednost ostane, kakršna je.",
+  "reminderFor": "Za",
+  "reminderField": "Polje",
+  "dueDateLabel": "Rok",
+  "pickCalendar": "Kateri koledar?",
+  "calendarPermissionDenied": "Dostop do koledarja je blokiran, zato je zrcaljenje izklopljeno. Dovoli ga v sistemskih nastavitvah in znova vklopi zrcaljenje.",
+  "calendarNotChosen": "Koledar ni izbran, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi enega.",
+  "calendarGone": "Izbrani koledar ne obstaja več, zato je zrcaljenje izklopljeno. Znova ga vklopi in izberi drugega.",
+  "noWritableCalendar": "V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova."
 }

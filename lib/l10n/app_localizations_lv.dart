@@ -1738,4 +1738,42 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get spotEar =>
       'Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk.';
+
+  @override
+  String get addReminder => 'Pievienot atgādinājumu';
+
+  @override
+  String get plannedSection => 'Ieplānots';
+
+  @override
+  String get reminderDialogHint =>
+      'Rādās atgādinājumos, līdz atzīmēsi kā izdarītu. Pašreizējā vērtība paliek, kāda ir.';
+
+  @override
+  String get reminderFor => 'Kam';
+
+  @override
+  String get reminderField => 'Lauks';
+
+  @override
+  String get dueDateLabel => 'Termiņš';
+
+  @override
+  String get pickCalendar => 'Kurš kalendārs?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Piekļuve kalendāram ir bloķēta, tāpēc atspoguļošana ir izslēgta. Atļauj to sistēmas iestatījumos un ieslēdz atspoguļošanu vēlreiz.';
+
+  @override
+  String get calendarNotChosen =>
+      'Kalendārs nav izvēlēts, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies kalendāru.';
+
+  @override
+  String get calendarGone =>
+      'Izvēlētais kalendārs vairs nepastāv, tāpēc atspoguļošana ir izslēgta. Ieslēdz to vēlreiz un izvēlies citu.';
+
+  @override
+  String get noWritableCalendar =>
+      'Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz.';
 }

@@ -1743,4 +1743,42 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get spotEar =>
       'Widna żgħira ta\' qattus f\'rokna tfisser: żomm magħfus għal aktar.';
+
+  @override
+  String get addReminder => 'Żid tfakkira';
+
+  @override
+  String get plannedSection => 'Ippjanat';
+
+  @override
+  String get reminderDialogHint =>
+      'Tidher fit-tfakkiriet sakemm timmarkaha bħala magħmula. Il-valur attwali jibqa\' kif inhu.';
+
+  @override
+  String get reminderFor => 'Għal';
+
+  @override
+  String get reminderField => 'Qasam';
+
+  @override
+  String get dueDateLabel => 'Data tal-iskadenza';
+
+  @override
+  String get pickCalendar => 'Liema kalendarju?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'L-aċċess għall-kalendarju huwa mblukkat, għalhekk ir-riflessjoni hija mitfija. Ippermettih fis-settings tas-sistema u erġa\' ixgħel ir-riflessjoni.';
+
+  @override
+  String get calendarNotChosen =>
+      'Ma ntgħażel l-ebda kalendarju, għalhekk ir-riflessjoni hija mitfija. Erġa\' ixgħelha u agħżel wieħed.';
+
+  @override
+  String get calendarGone =>
+      'Il-kalendarju magħżul m\'għadux jeżisti, għalhekk ir-riflessjoni hija mitfija. Erġa\' ixgħelha u agħżel ieħor.';
+
+  @override
+  String get noWritableCalendar =>
+      'L-ebda kalendarju fuq dan l-apparat ma jista\' jinkiteb. Żid kont ta\' kalendarju fis-settings tas-sistema u erġa\' pprova.';
 }

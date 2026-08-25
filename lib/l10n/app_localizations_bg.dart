@@ -1735,4 +1735,42 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get spotEar => 'Малко котешко ухо в ъгъла означава: задръж за повече.';
+
+  @override
+  String get addReminder => 'Добави напомняне';
+
+  @override
+  String get plannedSection => 'Планирано';
+
+  @override
+  String get reminderDialogHint =>
+      'Показва се в напомнянията, докато не го отбележиш като готово. Текущата стойност остава както е.';
+
+  @override
+  String get reminderFor => 'За';
+
+  @override
+  String get reminderField => 'Поле';
+
+  @override
+  String get dueDateLabel => 'Срок';
+
+  @override
+  String get pickCalendar => 'Кой календар?';
+
+  @override
+  String get calendarPermissionDenied =>
+      'Достъпът до календара е блокиран, затова отразяването е изключено. Разреши го в системните настройки и включи отразяването отново.';
+
+  @override
+  String get calendarNotChosen =>
+      'Не е избран календар, затова отразяването е изключено. Включи го отново и избери един.';
+
+  @override
+  String get calendarGone =>
+      'Избраният календар вече не съществува, затова отразяването е изключено. Включи го отново и избери друг.';
+
+  @override
+  String get noWritableCalendar =>
+      'В нито един календар на това устройство не може да се записва. Добави акаунт за календар в системните настройки и опитай отново.';
 }
