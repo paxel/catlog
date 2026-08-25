@@ -206,7 +206,7 @@ void main() {
           store: open,
           switching: CatalogSwitching(
             catalogs: catalogs,
-            onSwitch: (to) {
+            onSwitch: (to, {bool unwind = true}) {
               final previous = open;
               catalogs.active = to;
               setState(() => open = catalogs.openStore(to));

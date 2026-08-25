@@ -140,7 +140,11 @@ class _CatlogAppState extends State<CatlogApp>
   /// to the home screen and the old catalog is closed only once those
   /// pages are gone. Closing it any earlier leaves them reading from a
   /// database that is no longer open.
-  void _switchCatalog(CatalogInfo to) {
+  ///
+  /// The manage screen passes [unwind] false to stay open: it reads
+  /// the store through a live lookup, so it is the one page a switch
+  /// cannot strand on a closed database.
+  void _switchCatalog(CatalogInfo to, {bool unwind = true}) {
     final manager = widget.catalogs;
     if (manager == null || to.id == manager.active.id) return;
     final next = manager.openStore(to);
@@ -148,7 +152,9 @@ class _CatlogAppState extends State<CatlogApp>
     manager.active = to;
     setState(() => _store = next);
     activeStore = next;
-    navigatorKey.currentState?.popUntil((route) => route.isFirst);
+    if (unwind) {
+      navigatorKey.currentState?.popUntil((route) => route.isFirst);
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) => previous.close());
   }
 

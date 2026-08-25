@@ -16,9 +16,11 @@ import 'go_back_screen.dart';
 class CatalogsScreen extends StatefulWidget {
   final CatalogManager catalogs;
 
-  /// The catalog currently open — the help button reads its settings.
-  final CatalogStore store;
-  final void Function(CatalogInfo) onSwitch;
+  /// The catalog currently open, looked up live: tapping a catalog
+  /// switches without leaving this screen, so a captured store would
+  /// be the closed one a moment later.
+  final CatalogStore Function() storeOf;
+  final void Function(CatalogInfo, {bool unwind}) onSwitch;
 
   /// Called whenever the list itself changed, so whoever shows the
   /// catalog's name can redraw it.
@@ -35,7 +37,7 @@ class CatalogsScreen extends StatefulWidget {
   const CatalogsScreen(
       {super.key,
       required this.catalogs,
-      required this.store,
+      required this.storeOf,
       required this.onSwitch,
       this.onChanged,
       this.saveTo,
@@ -46,6 +48,8 @@ class CatalogsScreen extends StatefulWidget {
 }
 
 class _CatalogsScreenState extends State<CatalogsScreen> {
+  CatalogStore get store => widget.storeOf();
+
   void _changed() {
     setState(() {});
     widget.onChanged?.call();
@@ -61,7 +65,7 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       // afterwards from a cat or a clowder.
       await _offerMoveInto(made);
       if (!mounted) return;
-      widget.onSwitch(made);
+      widget.onSwitch(made, unwind: false);
       _changed();
     } on DuplicateCatalogName {
       if (mounted) _sayTaken(name);
@@ -84,10 +88,10 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       ),
     );
     if (wants != true || !mounted) return;
-    final chosen = await pickWhatToMove(context, widget.store);
+    final chosen = await pickWhatToMove(context, store);
     if (chosen == null || chosen.isEmpty || !mounted) return;
     final count =
-        await moveInto(widget.store, widget.catalogs, made, chosen);
+        await moveInto(store, widget.catalogs, made, chosen);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(context.t.movedToCatalog(count, made.name))));
@@ -159,7 +163,7 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
     final active = widget.catalogs.active;
     return Scaffold(
       appBar: roomyAppBar(context, title: Text(t.catalogsTitle), actions: [
-        HelpButton(store: widget.store, screenId: 'catalogs'),
+        HelpButton(store: store, screenId: 'catalogs'),
       ]),
       body: ListView(children: [
         ListTile(
@@ -167,7 +171,7 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
           title: Text(t.goBackTitle),
           trailing: const Icon(Icons.chevron_right),
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => GoBackScreen(store: widget.store),
+            builder: (_) => GoBackScreen(store: store),
           )),
         ),
         const Divider(height: 1),
@@ -198,8 +202,10 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
                       : () => _delete(catalog),
                 ),
             ]),
+            // Tap activates and stays — leaving is the back button's
+            // job, so several catalogs can be handled in one visit.
             onTap: () {
-              widget.onSwitch(catalog);
+              widget.onSwitch(catalog, unwind: false);
               _changed();
             },
           ),
@@ -247,8 +253,8 @@ Future<String?> askCatalogName(BuildContext context, String title,
 Future<void> showCatalogSwitcher(
   BuildContext context, {
   required CatalogManager catalogs,
-  required CatalogStore store,
-  required void Function(CatalogInfo) onSwitch,
+  required CatalogStore Function() storeOf,
+  required void Function(CatalogInfo, {bool unwind}) onSwitch,
   VoidCallback? onChanged,
 }) async {
   final t = context.t;
@@ -280,7 +286,7 @@ Future<void> showCatalogSwitcher(
             Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => CatalogsScreen(
                 catalogs: catalogs,
-                store: store,
+                storeOf: storeOf,
                 onSwitch: onSwitch,
                 onChanged: onChanged,
               ),

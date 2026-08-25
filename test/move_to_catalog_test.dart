@@ -144,8 +144,8 @@ void main() {
       supportedLocales: AppLocalizations.supportedLocales,
       home: CatalogsScreen(
         catalogs: catalogs,
-        store: store,
-        onSwitch: (_) {},
+        storeOf: () => store,
+        onSwitch: (_, {bool unwind = true}) {},
       ),
     ));
     await tester.pumpAndSettle();
@@ -176,8 +176,8 @@ void main() {
       supportedLocales: AppLocalizations.supportedLocales,
       home: CatalogsScreen(
         catalogs: catalogs,
-        store: store,
-        onSwitch: (_) {},
+        storeOf: () => store,
+        onSwitch: (_, {bool unwind = true}) {},
       ),
     ));
     await tester.pumpAndSettle();

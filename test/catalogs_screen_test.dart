@@ -40,7 +40,7 @@ void main() {
           store: store,
           switching: CatalogSwitching(
             catalogs: catalogs,
-            onSwitch: (to) {
+            onSwitch: (to, {bool unwind = true}) {
               store.close();
               catalogs.active = to;
               store = catalogs.openStore(to);
@@ -169,8 +169,8 @@ void main() {
         supportedLocales: AppLocalizations.supportedLocales,
         home: CatalogsScreen(
           catalogs: catalogs,
-          store: store,
-          onSwitch: (to) {
+          storeOf: () => store,
+          onSwitch: (to, {bool unwind = true}) {
             store.close();
             catalogs.active = to;
             store = catalogs.openStore(to);
@@ -266,8 +266,8 @@ void main() {
       supportedLocales: AppLocalizations.supportedLocales,
       home: CatalogsScreen(
         catalogs: catalogs,
-        store: store,
-        onSwitch: (_) {},
+        storeOf: () => store,
+        onSwitch: (_, {bool unwind = true}) {},
         removeSaved: (name) async => removed.add(name),
       ),
     ));
@@ -288,7 +288,7 @@ void main() {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: CatalogsScreen(
-          catalogs: catalogs, store: store, onSwitch: (_) {}),
+          catalogs: catalogs, storeOf: () => store, onSwitch: (_, {bool unwind = true}) {}),
     ));
     await tester.pumpAndSettle();
 
@@ -301,11 +301,12 @@ void main() {
         findsNWidgets(2));
   });
 
-  testWidgets('switching from the manage screen leaves no page reading a '
-      'closed catalog', (tester) async {
+  testWidgets('switching from the manage screen stays there; back leaves '
+      'into the new catalog', (tester) async {
     catalogs.create('Paris');
-    // The real app, so the real switch runs: it unwinds to the list and
-    // closes the catalog being left only once its pages are gone.
+    // The real app, so the real switch runs: tap activates in place —
+    // several catalogs can be handled in one visit — and the screen
+    // reads the store through a live lookup, never a closed database.
     await tester.pumpWidget(CatlogApp(store: store, catalogs: catalogs));
     await tester.pumpAndSettle();
 
@@ -317,9 +318,17 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
+    // Still on the manage screen, Paris now marked active.
+    expect(find.text('Catalogs'), findsOneWidget);
+    final parisTile = tester.widget<ListTile>(find.ancestor(
+        of: find.text('Paris'), matching: find.byType(ListTile)));
+    expect(parisTile.selected, isTrue);
+
+    // Back leaves into the switched catalog.
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
     expect(find.widgetWithText(AppBar, 'Paris'), findsOneWidget);
-    expect(find.text('Manage catalogs'), findsNothing,
-        reason: 'the page of the catalog we left is gone');
   });
 
   testWidgets('each catalog keeps its own backup file across a switch',

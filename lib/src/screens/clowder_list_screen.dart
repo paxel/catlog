@@ -171,7 +171,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       child: InkWell(
         onTap: () => showCatalogSwitcher(context,
             catalogs: switching.catalogs,
-            store: widget.store,
+            storeOf: () => widget.store,
             onSwitch: switching.onSwitch,
             onChanged: () {
               switching.onChanged?.call();

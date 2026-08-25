@@ -12,7 +12,11 @@ CatalogManager? catalogManager;
 /// These three always travel together, so they travel as one.
 class CatalogSwitching {
   final CatalogManager catalogs;
-  final void Function(CatalogInfo) onSwitch;
+  /// Switches the app to [CatalogInfo]. With `unwind` (the default)
+  /// the navigation stack collapses to the home screen; the manage
+  /// screen passes false to stay open across the switch (#46 sibling:
+  /// tap activates, back leaves).
+  final void Function(CatalogInfo, {bool unwind}) onSwitch;
   final VoidCallback? onChanged;
 
   const CatalogSwitching(
