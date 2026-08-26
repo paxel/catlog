@@ -167,6 +167,9 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Add reminder'));
     await tester.pumpAndSettle();
+    // The plus asks which kind first (#75).
+    await tester.tap(find.textContaining('Reminder — a value'));
+    await tester.pumpAndSettle();
     expect(find.textContaining('The appointment shows in the Agenda'), findsOneWidget);
     await tester.tap(find.byType(DropdownButtonFormField<String>).last);
     await tester.pumpAndSettle();

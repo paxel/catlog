@@ -1786,7 +1786,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Påminnelserna visar de planerade mötena efter datum. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil.';
+      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil.';
 
   @override
   String get calendarRowOff => 'Kalender: av';
@@ -1806,4 +1806,63 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'skrivskyddad';
+
+  @override
+  String get appointmentLabel => 'Möte';
+
+  @override
+  String get addAppointment => 'Lägg till möte';
+
+  @override
+  String get planChooserTitle => 'Möte eller påminnelse?';
+
+  @override
+  String get planChooserAppointment =>
+      'Möte — ett besök på ett datum och en tid, med anteckningar';
+
+  @override
+  String get planChooserReminder =>
+      'Påminnelse — ett värde som förfaller en dag';
+
+  @override
+  String get appointmentTitleLabel => 'Vad';
+
+  @override
+  String get notesLabel => 'Anteckningar';
+
+  @override
+  String get timeLabel => 'Tid';
+
+  @override
+  String get allDayLabel => 'Hela dagen';
+
+  @override
+  String get alertLabel => 'Avisering';
+
+  @override
+  String get alertNone => 'Ingen';
+
+  @override
+  String get alertDayBefore => 'Dagen innan';
+
+  @override
+  String get alertHourBefore => 'En timme innan';
+
+  @override
+  String get linkFieldLabel => 'Skriv i ett fält när det är klart';
+
+  @override
+  String get noLinkedField => 'Inget fält';
+
+  @override
+  String get outcomeTitle => 'Hur gick det?';
+
+  @override
+  String get finishLabel => 'Avsluta';
+
+  @override
+  String get editLabelAppointment => 'Redigera möte';
+
+  @override
+  String get deleteAppointment => 'Ta bort möte';
 }

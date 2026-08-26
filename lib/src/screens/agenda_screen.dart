@@ -15,9 +15,10 @@ import '../reminders/calendar_mirror.dart';
 import '../reminders/calendar_port.dart';
 import '../reminders/device_calendar_port.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/reminder_dialog.dart';
+import '../reminders/plan_chooser.dart';
 import '../share.dart';
 import '../spotlight.dart';
+import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
@@ -28,12 +29,46 @@ bool agendaAutoOpened = false;
 
 const agendaAutoOpenWindow = Duration(days: 3);
 
-/// True when the next due date warrants opening the agenda on start.
+/// True when the next due date warrants opening the agenda on start —
+/// a reminder's day or an appointment's start, whichever comes first.
 bool agendaWantsAttention(CatalogStore store) {
-  final active = store.activeReminders();
-  if (active.isEmpty) return false;
-  final next = active.first.due;
-  return !next.isAfter(DateTime.now().add(agendaAutoOpenWindow));
+  final limit = DateTime.now().add(agendaAutoOpenWindow);
+  final reminders = store.activeReminders();
+  if (reminders.isNotEmpty && !reminders.first.due.isAfter(limit)) {
+    return true;
+  }
+  final appointments = store.openAppointments();
+  return appointments.isNotEmpty &&
+      !appointments.first.start.isAfter(limit);
+}
+
+/// One row of the agenda: a reminder or an appointment, sorted together.
+sealed class AgendaItem {
+  DateTime get when;
+}
+
+class ReminderItem extends AgendaItem {
+  final ActiveReminder reminder;
+  ReminderItem(this.reminder);
+  @override
+  DateTime get when => reminder.due;
+}
+
+class AppointmentItem extends AgendaItem {
+  final Appointment appointment;
+  AppointmentItem(this.appointment);
+  @override
+  DateTime get when => appointment.start;
+}
+
+/// Everything open, both kinds, earliest first.
+List<AgendaItem> agendaItems(CatalogStore store) {
+  final items = <AgendaItem>[
+    for (final r in store.activeReminders()) ReminderItem(r),
+    for (final a in store.openAppointments()) AppointmentItem(a),
+  ];
+  items.sort((x, y) => x.when.compareTo(y.when));
+  return items;
 }
 
 /// Everything due, ordered by date (#74): one card per active plan —
@@ -70,7 +105,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
   }
 
   Future<void> _add() async {
-    if (await showAddReminder(context, store) && mounted) _changed();
+    if (await showPlanChooser(context, store) && mounted) _changed();
   }
 
   Future<void> _openEntity(String id) async {
@@ -183,7 +218,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final active = store.activeReminders();
+    final items = agendaItems(store);
     return Scaffold(
       appBar: roomyAppBar(
         context,
@@ -220,26 +255,34 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 onChanged: (_) => _toggleMirror(),
               ),
             ),
-          if (active.isEmpty)
+          if (items.isEmpty)
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(t.agendaEmpty),
             ),
-          for (final r in active)
-            ReminderCard(
-              store: store,
-              reminder: r,
-              onChanged: _changed,
-              onOpen: () => _openEntity(r.entity),
-            ),
+          for (final item in items)
+            switch (item) {
+              ReminderItem(:final reminder) => ReminderCard(
+                  store: store,
+                  reminder: reminder,
+                  onChanged: _changed,
+                  onOpen: () => _openEntity(reminder.entity),
+                ),
+              AppointmentItem(:final appointment) => AppointmentCard(
+                  store: store,
+                  appointment: appointment,
+                  onChanged: _changed,
+                  onOpen: () => _openEntity(appointment.entity),
+                ),
+            },
         ],
       ),
       floatingActionButton: Spotlight(
         id: 'agenda-add',
         child: FloatingActionButton(
           onPressed: _add,
-          tooltip: t.addReminder,
-          child: const Icon(Icons.alarm_add),
+          tooltip: t.addAppointment,
+          child: const Icon(Icons.add),
         ),
       ),
     );

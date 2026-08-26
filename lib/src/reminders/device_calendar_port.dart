@@ -53,36 +53,38 @@ class DeviceCalendarPort implements CalendarPort {
     ];
   }
 
-  Event _event(String calendarId, DateTime day, String title,
-      String description,
-      {String? eventId}) {
-    final start = tz.TZDateTime(tz.local, day.year, day.month, day.day);
+  Event _event(String calendarId, EventSpec spec,
+      {String? eventId, bool withAlert = false}) {
+    tz.TZDateTime at(DateTime d) =>
+        tz.TZDateTime(tz.local, d.year, d.month, d.day, d.hour, d.minute);
     return Event(
       calendarId,
       eventId: eventId,
-      title: title,
-      description: description,
-      start: start,
-      end: start.add(const Duration(days: 1)),
-      allDay: true,
+      title: spec.title,
+      description: spec.description,
+      start: at(spec.start),
+      end: at(spec.end),
+      allDay: spec.allDay,
+      // Alerts are written on creation only (#75); an update leaves
+      // whatever the user set by hand.
+      reminders: withAlert && spec.alertMinutesBefore != null
+          ? [Reminder(minutes: spec.alertMinutesBefore!)]
+          : null,
     );
   }
 
   @override
-  Future<String?> createEvent(String calendarId, DateTime day,
-      String title, String description) async {
+  Future<String?> createEvent(String calendarId, EventSpec spec) async {
     final result = await _plugin
-        .createOrUpdateEvent(_event(calendarId, day, title, description));
+        .createOrUpdateEvent(_event(calendarId, spec, withAlert: true));
     return result?.data;
   }
 
   @override
-  Future<bool> updateEvent(String calendarId, String eventId, DateTime day,
-      String title, String description) async {
-    // createOrUpdateEvent with the event id patches in place; the
-    // plugin leaves reminders/attendees untouched when they are null.
-    final result = await _plugin.createOrUpdateEvent(
-        _event(calendarId, day, title, description, eventId: eventId));
+  Future<bool> updateEvent(
+      String calendarId, String eventId, EventSpec spec) async {
+    final result = await _plugin
+        .createOrUpdateEvent(_event(calendarId, spec, eventId: eventId));
     return result?.data != null;
   }
 

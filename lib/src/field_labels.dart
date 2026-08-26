@@ -106,6 +106,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
 /// through their definitions and mapping reserved keys.
 String fieldLabel(AppLocalizations t, CatalogStore store, String key) {
   if (key == Keys.name) return t.labelName;
+  if (key.startsWith(Keys.appointmentPrefix)) return t.appointmentLabel;
   if (key == Keys.clowder) return t.clowderLabel;
   if (key == Keys.profileImage) return t.labelProfileImage;
   if (key.startsWith(Keys.imagePrefix)) return t.labelPhoto;
@@ -121,6 +122,18 @@ String valueLabel(
   if (value == null) return '—';
   if (key == Keys.clowder) {
     return store.current(value, Keys.name) ?? value;
+  }
+  if (key.startsWith(Keys.appointmentPrefix)) {
+    // The stored document is JSON; the timeline shows the visit, not
+    // the encoding.
+    final a = Appointment.fromJson(
+        key.substring(Keys.appointmentPrefix.length), '', value);
+    if (a == null) return value;
+    final when = a.time == null
+        ? ''
+        : ' ${a.time!.hour.toString().padLeft(2, '0')}:'
+            '${a.time!.minute.toString().padLeft(2, '0')}';
+    return '${a.title}$when${a.done ? ' ✓' : ''}';
   }
   if (key.startsWith(Keys.imagePrefix)) return value;
   if (key == Keys.profileImage) return '·';

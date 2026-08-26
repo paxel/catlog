@@ -1791,7 +1791,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Agenda listează programările planificate după dată. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar.';
 
   @override
   String get calendarRowOff => 'Calendar: oprit';
@@ -1811,4 +1811,63 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'doar citire';
+
+  @override
+  String get appointmentLabel => 'Programare';
+
+  @override
+  String get addAppointment => 'Adaugă programare';
+
+  @override
+  String get planChooserTitle => 'Programare sau memento?';
+
+  @override
+  String get planChooserAppointment =>
+      'Programare — o vizită la o dată și oră, cu note';
+
+  @override
+  String get planChooserReminder =>
+      'Memento — o valoare care devine scadentă într-o zi';
+
+  @override
+  String get appointmentTitleLabel => 'Ce';
+
+  @override
+  String get notesLabel => 'Note';
+
+  @override
+  String get timeLabel => 'Ora';
+
+  @override
+  String get allDayLabel => 'Toată ziua';
+
+  @override
+  String get alertLabel => 'Alertă';
+
+  @override
+  String get alertNone => 'Niciuna';
+
+  @override
+  String get alertDayBefore => 'Cu o zi înainte';
+
+  @override
+  String get alertHourBefore => 'Cu o oră înainte';
+
+  @override
+  String get linkFieldLabel => 'La finalizare, scrie într-un câmp';
+
+  @override
+  String get noLinkedField => 'Niciun câmp';
+
+  @override
+  String get outcomeTitle => 'Cum a fost?';
+
+  @override
+  String get finishLabel => 'Finalizează';
+
+  @override
+  String get editLabelAppointment => 'Editează programarea';
+
+  @override
+  String get deleteAppointment => 'Șterge programarea';
 }

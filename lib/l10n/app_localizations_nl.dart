@@ -1792,7 +1792,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'De agenda toont de geplande afspraken op datum. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand.';
+      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand.';
 
   @override
   String get calendarRowOff => 'Agenda: uit';
@@ -1812,4 +1812,63 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'alleen lezen';
+
+  @override
+  String get appointmentLabel => 'Afspraak';
+
+  @override
+  String get addAppointment => 'Afspraak toevoegen';
+
+  @override
+  String get planChooserTitle => 'Afspraak of herinnering?';
+
+  @override
+  String get planChooserAppointment =>
+      'Afspraak — een bezoek op een datum met tijd en notities';
+
+  @override
+  String get planChooserReminder =>
+      'Herinnering — een waarde die op een dag verschuldigd wordt';
+
+  @override
+  String get appointmentTitleLabel => 'Wat';
+
+  @override
+  String get notesLabel => 'Notities';
+
+  @override
+  String get timeLabel => 'Tijd';
+
+  @override
+  String get allDayLabel => 'Hele dag';
+
+  @override
+  String get alertLabel => 'Melding';
+
+  @override
+  String get alertNone => 'Geen';
+
+  @override
+  String get alertDayBefore => 'De dag ervoor';
+
+  @override
+  String get alertHourBefore => 'Een uur ervoor';
+
+  @override
+  String get linkFieldLabel => 'Bij afronden in een veld schrijven';
+
+  @override
+  String get noLinkedField => 'Geen veld';
+
+  @override
+  String get outcomeTitle => 'Hoe ging het?';
+
+  @override
+  String get finishLabel => 'Afronden';
+
+  @override
+  String get editLabelAppointment => 'Afspraak bewerken';
+
+  @override
+  String get deleteAppointment => 'Afspraak verwijderen';
 }

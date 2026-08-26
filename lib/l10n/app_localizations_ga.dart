@@ -1801,7 +1801,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Tá dhá chineál ann: coinní le ham an lae, agus meabhrúcháin a bhaineann le lá. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire.';
 
   @override
   String get calendarRowOff => 'Féilire: as';
@@ -1821,4 +1821,63 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'inléite amháin';
+
+  @override
+  String get appointmentLabel => 'Coinne';
+
+  @override
+  String get addAppointment => 'Cuir coinne leis';
+
+  @override
+  String get planChooserTitle => 'Coinne nó meabhrúchán?';
+
+  @override
+  String get planChooserAppointment =>
+      'Coinne — cuairt ar dháta agus ag am, le nótaí';
+
+  @override
+  String get planChooserReminder =>
+      'Meabhrúchán — luach a bhíonn dlite lá éigin';
+
+  @override
+  String get appointmentTitleLabel => 'Cad';
+
+  @override
+  String get notesLabel => 'Nótaí';
+
+  @override
+  String get timeLabel => 'Am';
+
+  @override
+  String get allDayLabel => 'An lá ar fad';
+
+  @override
+  String get alertLabel => 'Foláireamh';
+
+  @override
+  String get alertNone => 'Ceann ar bith';
+
+  @override
+  String get alertDayBefore => 'An lá roimhe';
+
+  @override
+  String get alertHourBefore => 'Uair an chloig roimhe';
+
+  @override
+  String get linkFieldLabel => 'Nuair a bheidh sé déanta, scríobh i réimse';
+
+  @override
+  String get noLinkedField => 'Gan réimse';
+
+  @override
+  String get outcomeTitle => 'Conas a d\'éirigh leis?';
+
+  @override
+  String get finishLabel => 'Críochnaigh';
+
+  @override
+  String get editLabelAppointment => 'Cuir an choinne in eagar';
+
+  @override
+  String get deleteAppointment => 'Scrios an choinne';
 }

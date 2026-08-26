@@ -25,9 +25,10 @@ import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
-import '../reminders/reminder_dialog.dart';
+import '../reminders/plan_chooser.dart';
 import '../widgets/cat_ear.dart';
 import '../widgets/field_list.dart';
+import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'card_screen.dart';
 import 'photo_edit_screen.dart';
@@ -172,7 +173,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   Future<void> _addReminder() async {
-    if (await showAddReminder(context, store, entityId: id) && mounted) {
+    if (await showPlanChooser(context, store, entityId: id) && mounted) {
       _plansChanged();
     }
   }
@@ -189,7 +190,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       for (final r in store.activeReminders())
         if (r.entity == store.resolveEntity(id)) r
     ];
-    if (plans.isEmpty) return const [];
+    final appointments = store.appointmentsOf(id);
+    if (plans.isEmpty && appointments.isEmpty) return const [];
     return [
       const Divider(),
       Padding(
@@ -197,6 +199,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         child: Text(context.t.plannedSection,
             style: Theme.of(context).textTheme.titleMedium),
       ),
+      for (final a in appointments)
+        AppointmentCard(
+            store: store,
+            appointment: a,
+            showEntity: false,
+            onChanged: _plansChanged),
       for (final r in plans)
         ReminderCard(
             store: store,

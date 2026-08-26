@@ -50,6 +50,12 @@ abstract final class Keys {
 
   static String withheld(String field) => '$withheldPrefix$field';
 
+  /// An appointment on a cat or clowder (#75): `$appt:<id>` holds one
+  /// small JSON document per appointment; later entries on the same key
+  /// edit, finish or delete it.
+  static const appointmentPrefix = r'$appt:';
+  static String appointment(String id) => '$appointmentPrefix$id';
+
   /// Fields that carry no personal detail and hold the catalog together:
   /// without them a partner receives rows pointing at entities they have
   /// never heard of. Never private, on any entity.

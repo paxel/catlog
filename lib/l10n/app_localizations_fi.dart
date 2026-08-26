@@ -1789,7 +1789,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona.';
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona.';
 
   @override
   String get calendarRowOff => 'Kalenteri: pois';
@@ -1809,4 +1809,63 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'vain luku';
+
+  @override
+  String get appointmentLabel => 'Tapaaminen';
+
+  @override
+  String get addAppointment => 'Lisää tapaaminen';
+
+  @override
+  String get planChooserTitle => 'Tapaaminen vai muistutus?';
+
+  @override
+  String get planChooserAppointment =>
+      'Tapaaminen — käynti tiettynä päivänä ja kellonaikana, muistiinpanoineen';
+
+  @override
+  String get planChooserReminder =>
+      'Muistutus — arvo, joka erääntyy tiettynä päivänä';
+
+  @override
+  String get appointmentTitleLabel => 'Mitä';
+
+  @override
+  String get notesLabel => 'Muistiinpanot';
+
+  @override
+  String get timeLabel => 'Kellonaika';
+
+  @override
+  String get allDayLabel => 'Koko päivä';
+
+  @override
+  String get alertLabel => 'Hälytys';
+
+  @override
+  String get alertNone => 'Ei mitään';
+
+  @override
+  String get alertDayBefore => 'Edellisenä päivänä';
+
+  @override
+  String get alertHourBefore => 'Tuntia ennen';
+
+  @override
+  String get linkFieldLabel => 'Kirjoita kenttään, kun valmis';
+
+  @override
+  String get noLinkedField => 'Ei kenttää';
+
+  @override
+  String get outcomeTitle => 'Miten meni?';
+
+  @override
+  String get finishLabel => 'Valmis';
+
+  @override
+  String get editLabelAppointment => 'Muokkaa tapaamista';
+
+  @override
+  String get deleteAppointment => 'Poista tapaaminen';
 }

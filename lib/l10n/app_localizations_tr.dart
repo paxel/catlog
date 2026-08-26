@@ -1788,7 +1788,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Ajanda planlanan randevuları tarihe göre listeler. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
@@ -1808,4 +1808,63 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'salt okunur';
+
+  @override
+  String get appointmentLabel => 'Randevu';
+
+  @override
+  String get addAppointment => 'Randevu ekle';
+
+  @override
+  String get planChooserTitle => 'Randevu mu, hatırlatma mı?';
+
+  @override
+  String get planChooserAppointment =>
+      'Randevu — bir tarih ve saatte ziyaret, notlarla';
+
+  @override
+  String get planChooserReminder =>
+      'Hatırlatma — bir gün vadesi gelen bir değer';
+
+  @override
+  String get appointmentTitleLabel => 'Ne';
+
+  @override
+  String get notesLabel => 'Notlar';
+
+  @override
+  String get timeLabel => 'Saat';
+
+  @override
+  String get allDayLabel => 'Tüm gün';
+
+  @override
+  String get alertLabel => 'Uyarı';
+
+  @override
+  String get alertNone => 'Yok';
+
+  @override
+  String get alertDayBefore => 'Bir gün önce';
+
+  @override
+  String get alertHourBefore => 'Bir saat önce';
+
+  @override
+  String get linkFieldLabel => 'Bitince bir alana yaz';
+
+  @override
+  String get noLinkedField => 'Alan yok';
+
+  @override
+  String get outcomeTitle => 'Nasıl geçti?';
+
+  @override
+  String get finishLabel => 'Bitir';
+
+  @override
+  String get editLabelAppointment => 'Randevuyu düzenle';
+
+  @override
+  String get deleteAppointment => 'Randevuyu sil';
 }

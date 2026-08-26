@@ -1743,7 +1743,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '予定表は計画した予定を日付順に並べます。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。';
 
   @override
   String get calendarRowOff => 'カレンダー：オフ';
@@ -1761,4 +1761,61 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => '読み取り専用';
+
+  @override
+  String get appointmentLabel => '予定';
+
+  @override
+  String get addAppointment => '予定を追加';
+
+  @override
+  String get planChooserTitle => '予定とリマインダー、どちら？';
+
+  @override
+  String get planChooserAppointment => '予定 — 日付と時刻のある訪問、メモ付き';
+
+  @override
+  String get planChooserReminder => 'リマインダー — ある日に期日となる値';
+
+  @override
+  String get appointmentTitleLabel => '内容';
+
+  @override
+  String get notesLabel => 'メモ';
+
+  @override
+  String get timeLabel => '時刻';
+
+  @override
+  String get allDayLabel => '終日';
+
+  @override
+  String get alertLabel => '通知';
+
+  @override
+  String get alertNone => 'なし';
+
+  @override
+  String get alertDayBefore => '前日';
+
+  @override
+  String get alertHourBefore => '1時間前';
+
+  @override
+  String get linkFieldLabel => '完了時にフィールドへ書き込む';
+
+  @override
+  String get noLinkedField => 'フィールドなし';
+
+  @override
+  String get outcomeTitle => 'どうでしたか？';
+
+  @override
+  String get finishLabel => '完了';
+
+  @override
+  String get editLabelAppointment => '予定を編集';
+
+  @override
+  String get deleteAppointment => '予定を削除';
 }

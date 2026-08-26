@@ -1785,7 +1785,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Påminnelsene viser de planlagte avtalene etter dato. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil.';
+      'Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil.';
 
   @override
   String get calendarRowOff => 'Kalender: av';
@@ -1805,4 +1805,63 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'skrivebeskyttet';
+
+  @override
+  String get appointmentLabel => 'Avtale';
+
+  @override
+  String get addAppointment => 'Legg til avtale';
+
+  @override
+  String get planChooserTitle => 'Avtale eller påminnelse?';
+
+  @override
+  String get planChooserAppointment =>
+      'Avtale — et besøk på en dato og et tidspunkt, med notater';
+
+  @override
+  String get planChooserReminder =>
+      'Påminnelse — en verdi som forfaller en dag';
+
+  @override
+  String get appointmentTitleLabel => 'Hva';
+
+  @override
+  String get notesLabel => 'Notater';
+
+  @override
+  String get timeLabel => 'Tidspunkt';
+
+  @override
+  String get allDayLabel => 'Hele dagen';
+
+  @override
+  String get alertLabel => 'Varsel';
+
+  @override
+  String get alertNone => 'Ingen';
+
+  @override
+  String get alertDayBefore => 'Dagen før';
+
+  @override
+  String get alertHourBefore => 'En time før';
+
+  @override
+  String get linkFieldLabel => 'Skriv i et felt når den er utført';
+
+  @override
+  String get noLinkedField => 'Ingen felt';
+
+  @override
+  String get outcomeTitle => 'Hvordan gikk det?';
+
+  @override
+  String get finishLabel => 'Avslutt';
+
+  @override
+  String get editLabelAppointment => 'Rediger avtale';
+
+  @override
+  String get deleteAppointment => 'Slett avtale';
 }

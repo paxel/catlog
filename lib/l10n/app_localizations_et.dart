@@ -1786,7 +1786,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina.';
 
   @override
   String get calendarRowOff => 'Kalender: väljas';
@@ -1806,4 +1806,63 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'kirjutuskaitstud';
+
+  @override
+  String get appointmentLabel => 'Visiit';
+
+  @override
+  String get addAppointment => 'Lisa visiit';
+
+  @override
+  String get planChooserTitle => 'Visiit või meeldetuletus?';
+
+  @override
+  String get planChooserAppointment =>
+      'Visiit — külastus kuupäeval ja kellaajal, märkmetega';
+
+  @override
+  String get planChooserReminder =>
+      'Meeldetuletus — väärtus, mille tähtaeg saabub mingil päeval';
+
+  @override
+  String get appointmentTitleLabel => 'Mis';
+
+  @override
+  String get notesLabel => 'Märkmed';
+
+  @override
+  String get timeLabel => 'Kellaaeg';
+
+  @override
+  String get allDayLabel => 'Kogu päev';
+
+  @override
+  String get alertLabel => 'Hoiatus';
+
+  @override
+  String get alertNone => 'Puudub';
+
+  @override
+  String get alertDayBefore => 'Päev enne';
+
+  @override
+  String get alertHourBefore => 'Tund enne';
+
+  @override
+  String get linkFieldLabel => 'Lõpetamisel kirjuta väljale';
+
+  @override
+  String get noLinkedField => 'Väli puudub';
+
+  @override
+  String get outcomeTitle => 'Kuidas läks?';
+
+  @override
+  String get finishLabel => 'Lõpeta';
+
+  @override
+  String get editLabelAppointment => 'Muuda visiiti';
+
+  @override
+  String get deleteAppointment => 'Kustuta visiit';
 }

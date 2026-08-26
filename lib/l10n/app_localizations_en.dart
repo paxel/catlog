@@ -1787,7 +1787,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'The Agenda lists the planned appointments by date. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.';
+      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.';
 
   @override
   String get calendarRowOff => 'Calendar: off';
@@ -1807,4 +1807,63 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'read only';
+
+  @override
+  String get appointmentLabel => 'Appointment';
+
+  @override
+  String get addAppointment => 'Add appointment';
+
+  @override
+  String get planChooserTitle => 'Appointment or reminder?';
+
+  @override
+  String get planChooserAppointment =>
+      'Appointment — a visit at a date and time, with notes';
+
+  @override
+  String get planChooserReminder =>
+      'Reminder — a value that becomes due on a day';
+
+  @override
+  String get appointmentTitleLabel => 'What';
+
+  @override
+  String get notesLabel => 'Notes';
+
+  @override
+  String get timeLabel => 'Time';
+
+  @override
+  String get allDayLabel => 'All day';
+
+  @override
+  String get alertLabel => 'Alert';
+
+  @override
+  String get alertNone => 'None';
+
+  @override
+  String get alertDayBefore => 'The day before';
+
+  @override
+  String get alertHourBefore => 'One hour before';
+
+  @override
+  String get linkFieldLabel => 'When done, write into a field';
+
+  @override
+  String get noLinkedField => 'No field';
+
+  @override
+  String get outcomeTitle => 'How did it go?';
+
+  @override
+  String get finishLabel => 'Finish';
+
+  @override
+  String get editLabelAppointment => 'Edit appointment';
+
+  @override
+  String get deleteAppointment => 'Delete appointment';
 }

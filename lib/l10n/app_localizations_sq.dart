@@ -1789,7 +1789,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';
@@ -1809,4 +1809,63 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'vetëm lexim';
+
+  @override
+  String get appointmentLabel => 'Takim';
+
+  @override
+  String get addAppointment => 'Shto takim';
+
+  @override
+  String get planChooserTitle => 'Takim apo përkujtues?';
+
+  @override
+  String get planChooserAppointment =>
+      'Takim — një vizitë në një datë dhe orë, me shënime';
+
+  @override
+  String get planChooserReminder =>
+      'Përkujtues — një vlerë që bëhet e detyrueshme një ditë';
+
+  @override
+  String get appointmentTitleLabel => 'Çfarë';
+
+  @override
+  String get notesLabel => 'Shënime';
+
+  @override
+  String get timeLabel => 'Ora';
+
+  @override
+  String get allDayLabel => 'Gjithë ditën';
+
+  @override
+  String get alertLabel => 'Sinjalizim';
+
+  @override
+  String get alertNone => 'Asnjë';
+
+  @override
+  String get alertDayBefore => 'Një ditë para';
+
+  @override
+  String get alertHourBefore => 'Një orë para';
+
+  @override
+  String get linkFieldLabel => 'Kur të kryhet, shkruaje në një fushë';
+
+  @override
+  String get noLinkedField => 'Asnjë fushë';
+
+  @override
+  String get outcomeTitle => 'Si shkoi?';
+
+  @override
+  String get finishLabel => 'Përfundo';
+
+  @override
+  String get editLabelAppointment => 'Ndrysho takimin';
+
+  @override
+  String get deleteAppointment => 'Fshi takimin';
 }

@@ -1788,7 +1788,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket.';
 
   @override
   String get calendarRowOff => 'Naptár: ki';
@@ -1808,4 +1808,63 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'csak olvasható';
+
+  @override
+  String get appointmentLabel => 'Időpont';
+
+  @override
+  String get addAppointment => 'Időpont hozzáadása';
+
+  @override
+  String get planChooserTitle => 'Időpont vagy emlékeztető?';
+
+  @override
+  String get planChooserAppointment =>
+      'Időpont — látogatás egy dátumon és időben, jegyzetekkel';
+
+  @override
+  String get planChooserReminder =>
+      'Emlékeztető — egy érték, amely egy napon esedékes lesz';
+
+  @override
+  String get appointmentTitleLabel => 'Mi';
+
+  @override
+  String get notesLabel => 'Jegyzetek';
+
+  @override
+  String get timeLabel => 'Idő';
+
+  @override
+  String get allDayLabel => 'Egész nap';
+
+  @override
+  String get alertLabel => 'Riasztás';
+
+  @override
+  String get alertNone => 'Nincs';
+
+  @override
+  String get alertDayBefore => 'Előző nap';
+
+  @override
+  String get alertHourBefore => 'Egy órával előtte';
+
+  @override
+  String get linkFieldLabel => 'Befejezéskor mezőbe írás';
+
+  @override
+  String get noLinkedField => 'Nincs mező';
+
+  @override
+  String get outcomeTitle => 'Hogy ment?';
+
+  @override
+  String get finishLabel => 'Befejezés';
+
+  @override
+  String get editLabelAppointment => 'Időpont szerkesztése';
+
+  @override
+  String get deleteAppointment => 'Időpont törlése';
 }

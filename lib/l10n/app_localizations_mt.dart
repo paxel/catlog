@@ -1795,7 +1795,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju.';
+      'It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b\'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista\' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta\' fuq jirrifletti l-appuntamenti f\'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju.';
 
   @override
   String get calendarRowOff => 'Kalendarju: mitfi';
@@ -1815,4 +1815,62 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'qari biss';
+
+  @override
+  String get appointmentLabel => 'Appuntament';
+
+  @override
+  String get addAppointment => 'Żid appuntament';
+
+  @override
+  String get planChooserTitle => 'Appuntament jew tfakkira?';
+
+  @override
+  String get planChooserAppointment =>
+      'Appuntament — żjara f\'data u ħin, b\'noti';
+
+  @override
+  String get planChooserReminder => 'Tfakkira — valur li jsir dovut f\'ġurnata';
+
+  @override
+  String get appointmentTitleLabel => 'X\'inhu';
+
+  @override
+  String get notesLabel => 'Noti';
+
+  @override
+  String get timeLabel => 'Ħin';
+
+  @override
+  String get allDayLabel => 'Il-ġurnata kollha';
+
+  @override
+  String get alertLabel => 'Twissija';
+
+  @override
+  String get alertNone => 'Xejn';
+
+  @override
+  String get alertDayBefore => 'Il-ġurnata ta\' qabel';
+
+  @override
+  String get alertHourBefore => 'Siegħa qabel';
+
+  @override
+  String get linkFieldLabel => 'Meta jitlesta, ikteb f\'qasam';
+
+  @override
+  String get noLinkedField => 'L-ebda qasam';
+
+  @override
+  String get outcomeTitle => 'Kif mar?';
+
+  @override
+  String get finishLabel => 'Lesti';
+
+  @override
+  String get editLabelAppointment => 'Editja l-appuntament';
+
+  @override
+  String get deleteAppointment => 'Ħassar l-appuntament';
 }

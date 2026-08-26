@@ -1778,7 +1778,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן.';
+      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן.';
 
   @override
   String get calendarRowOff => 'יומן: כבוי';
@@ -1798,4 +1798,61 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'קריאה בלבד';
+
+  @override
+  String get appointmentLabel => 'פגישה';
+
+  @override
+  String get addAppointment => 'הוספת פגישה';
+
+  @override
+  String get planChooserTitle => 'פגישה או תזכורת?';
+
+  @override
+  String get planChooserAppointment => 'פגישה — ביקור בתאריך ושעה, עם הערות';
+
+  @override
+  String get planChooserReminder => 'תזכורת — ערך שמגיע מועדו ביום מסוים';
+
+  @override
+  String get appointmentTitleLabel => 'מה';
+
+  @override
+  String get notesLabel => 'הערות';
+
+  @override
+  String get timeLabel => 'שעה';
+
+  @override
+  String get allDayLabel => 'כל היום';
+
+  @override
+  String get alertLabel => 'התראה';
+
+  @override
+  String get alertNone => 'ללא';
+
+  @override
+  String get alertDayBefore => 'יום לפני';
+
+  @override
+  String get alertHourBefore => 'שעה לפני';
+
+  @override
+  String get linkFieldLabel => 'בסיום, לכתוב לשדה';
+
+  @override
+  String get noLinkedField => 'ללא שדה';
+
+  @override
+  String get outcomeTitle => 'איך היה?';
+
+  @override
+  String get finishLabel => 'סיום';
+
+  @override
+  String get editLabelAppointment => 'עריכת פגישה';
+
+  @override
+  String get deleteAppointment => 'מחיקת פגישה';
 }

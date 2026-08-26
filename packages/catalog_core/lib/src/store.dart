@@ -219,6 +219,9 @@ class CatalogStore {
         'ALTER TABLE entries ADD COLUMN reminder INTEGER NOT NULL DEFAULT 0');
   }
 
+  /// A fresh id for an appointment key (#75).
+  String newAppointmentId() => _uuid();
+
   void close() => _db.dispose();
 
   // ---------------------------------------------------------------- author

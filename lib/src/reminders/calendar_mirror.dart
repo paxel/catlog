@@ -26,10 +26,49 @@ String? chosenCalendar(CatalogStore store) =>
 /// off, so a silent failure cannot pretend to be a working mirror.
 enum MirrorOutcome { ok, off, noAccess, noCalendarChosen, calendarGone }
 
+/// The events the calendar should hold right now: reminders as all-day
+/// events without alert (#74), appointments timed with their alert
+/// (#75).
+Map<String, EventSpec> desiredEvents(CatalogStore store, AppLocalizations t) {
+  final defs = {for (final def in store.fieldDefs()) def.key: def};
+  String nameOf(String entity) => store.current(entity, Keys.name) ?? t.unnamed;
+  final desired = <String, EventSpec>{};
+  for (final r in store.activeReminders()) {
+    final def = defs[r.field];
+    final fieldName = def == null ? r.field : fieldDefName(t, def);
+    final day = DateTime(r.due.year, r.due.month, r.due.day);
+    desired['${r.entity}|${r.field}'] = EventSpec(
+      start: day,
+      end: day.add(const Duration(days: 1)),
+      allDay: true,
+      title: '${nameOf(r.entity)} — $fieldName',
+      description: '${r.value}\ncat(a)log',
+    );
+  }
+  for (final a in store.openAppointments()) {
+    final start = a.start;
+    desired['appt|${a.id}'] = EventSpec(
+      start: start,
+      end: a.allDay
+          ? start.add(const Duration(days: 1))
+          : start.add(const Duration(hours: 1)),
+      allDay: a.allDay,
+      title: '${nameOf(a.entity)} — ${a.title}',
+      description: '${a.notes}\ncat(a)log'.trim(),
+      alertMinutesBefore: switch (a.alert) {
+        AppointmentAlert.none => null,
+        AppointmentAlert.dayBefore => 24 * 60,
+        AppointmentAlert.hourBefore => 60,
+      },
+    );
+  }
+  return desired;
+}
+
 /// One-way reconcile, the app is the source of truth: create missing
 /// events, patch changed ones, delete retired ones, recreate what the
 /// user deleted while the plan is alive. Fields the app does not own
-/// (alerts, attendees) are never written.
+/// (alerts after creation, attendees) are never written.
 Future<MirrorOutcome> reconcileCalendar(
     CatalogStore store, CalendarPort port, AppLocalizations t) async {
   if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
@@ -41,19 +80,7 @@ Future<MirrorOutcome> reconcileCalendar(
     return MirrorOutcome.calendarGone;
   }
 
-  final defs = {for (final def in store.fieldDefs()) def.key: def};
-  final desired = <String, ({DateTime day, String title, String desc})>{};
-  for (final r in store.activeReminders()) {
-    final name = store.current(r.entity, Keys.name) ?? t.unnamed;
-    final def = defs[r.field];
-    final fieldName = def == null ? r.field : fieldDefName(t, def);
-    desired['${r.entity}|${r.field}'] = (
-      day: DateTime(r.due.year, r.due.month, r.due.day),
-      title: '$name — $fieldName',
-      desc: '${r.value}\ncat(a)log',
-    );
-  }
-
+  final desired = desiredEvents(store, t);
   final stored = _readMap(store);
   final next = <String, Map<String, String>>{};
 
@@ -74,13 +101,11 @@ Future<MirrorOutcome> reconcileCalendar(
   final alive = await port.existingEventIds(calendarId, known.values);
 
   for (final MapEntry(:key, :value) in desired.entries) {
-    final snapshot =
-        '${value.day.toIso8601String()}|${value.title}|${value.desc}';
+    final snapshot = value.snapshot;
     final eventId = known[key];
     if (eventId == null || !alive.contains(eventId)) {
       // New plan — or the user deleted the event while the plan lives.
-      final created = await port.createEvent(
-          calendarId, value.day, value.title, value.desc);
+      final created = await port.createEvent(calendarId, value);
       if (created != null) {
         next[key] = {
           'event': created,
@@ -92,8 +117,7 @@ Future<MirrorOutcome> reconcileCalendar(
     }
     if (stored[key]?['snapshot'] != snapshot) {
       // Date, name or note changed in the app — patch, alerts survive.
-      await port.updateEvent(
-          calendarId, eventId, value.day, value.title, value.desc);
+      await port.updateEvent(calendarId, eventId, value);
     }
     next[key] = {
       'event': eventId,

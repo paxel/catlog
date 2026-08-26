@@ -1787,7 +1787,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Напомнянията показват планираните часове по дата. Пропуснатите остават най-отгоре. Докосване отваря котката или клаудера. Отметката потвърждава час: стойността се записва в полето и веднага можеш да планираш следващия, например след три месеца. Задържане променя датата или изтрива часа. Превключвателят отгоре отразява часовете в календар на телефона ти. Менюто ги експортира като календарен файл.';
+      'Напомнянията показват планираните часове по дата. Има два вида: часове с точно време и напомняния, които важат за ден. Пропуснатите остават най-отгоре. Докосване отваря котката или клаудера. Отметката потвърждава час: стойността се записва в полето и веднага можеш да планираш следващия, например след три месеца. Задържане променя датата или изтрива часа. Превключвателят отгоре отразява часовете в календар на телефона ти. Менюто ги експортира като календарен файл.';
 
   @override
   String get calendarRowOff => 'Календар: изкл.';
@@ -1807,4 +1807,63 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'само за четене';
+
+  @override
+  String get appointmentLabel => 'Час';
+
+  @override
+  String get addAppointment => 'Добави час';
+
+  @override
+  String get planChooserTitle => 'Час или напомняне?';
+
+  @override
+  String get planChooserAppointment =>
+      'Час — посещение на дата и час, с бележки';
+
+  @override
+  String get planChooserReminder =>
+      'Напомняне — стойност, която става дължима в определен ден';
+
+  @override
+  String get appointmentTitleLabel => 'Какво';
+
+  @override
+  String get notesLabel => 'Бележки';
+
+  @override
+  String get timeLabel => 'Час';
+
+  @override
+  String get allDayLabel => 'Цял ден';
+
+  @override
+  String get alertLabel => 'Известие';
+
+  @override
+  String get alertNone => 'Няма';
+
+  @override
+  String get alertDayBefore => 'Ден по-рано';
+
+  @override
+  String get alertHourBefore => 'Час по-рано';
+
+  @override
+  String get linkFieldLabel => 'При приключване запиши в поле';
+
+  @override
+  String get noLinkedField => 'Няма поле';
+
+  @override
+  String get outcomeTitle => 'Как мина?';
+
+  @override
+  String get finishLabel => 'Приключи';
+
+  @override
+  String get editLabelAppointment => 'Редактирай часа';
+
+  @override
+  String get deleteAppointment => 'Изтрий часа';
 }

@@ -1791,7 +1791,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Нагадування показують заплановані візити за датою. Пропущені лишаються вгорі. Дотик відкриває кота чи клаудер. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря.';
+      'Нагадування показують заплановані візити за датою. Є два види: візити із зазначенням часу і нагадування на день. Пропущені лишаються вгорі. Дотик відкриває кота чи клаудер. Галочка підтверджує візит: значення записується в поле, і можна одразу запланувати наступний, наприклад через три місяці. Утримання змінює дату або видаляє візит. Перемикач угорі віддзеркалює візити в календар телефона. Меню експортує їх файлом календаря.';
 
   @override
   String get calendarRowOff => 'Календар: вимк.';
@@ -1811,4 +1811,63 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'лише читання';
+
+  @override
+  String get appointmentLabel => 'Візит';
+
+  @override
+  String get addAppointment => 'Додати візит';
+
+  @override
+  String get planChooserTitle => 'Візит чи нагадування?';
+
+  @override
+  String get planChooserAppointment =>
+      'Візит — відвідування в день і час, із нотатками';
+
+  @override
+  String get planChooserReminder =>
+      'Нагадування — значення, що настає певного дня';
+
+  @override
+  String get appointmentTitleLabel => 'Що';
+
+  @override
+  String get notesLabel => 'Нотатки';
+
+  @override
+  String get timeLabel => 'Час';
+
+  @override
+  String get allDayLabel => 'Увесь день';
+
+  @override
+  String get alertLabel => 'Сповіщення';
+
+  @override
+  String get alertNone => 'Немає';
+
+  @override
+  String get alertDayBefore => 'За день';
+
+  @override
+  String get alertHourBefore => 'За годину';
+
+  @override
+  String get linkFieldLabel => 'Після завершення записати в поле';
+
+  @override
+  String get noLinkedField => 'Без поля';
+
+  @override
+  String get outcomeTitle => 'Як минуло?';
+
+  @override
+  String get finishLabel => 'Завершити';
+
+  @override
+  String get editLabelAppointment => 'Змінити візит';
+
+  @override
+  String get deleteAppointment => 'Видалити візит';
 }

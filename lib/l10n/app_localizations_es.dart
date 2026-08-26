@@ -1795,7 +1795,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'La agenda lista las citas planificadas por fecha. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario.';
+      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario.';
 
   @override
   String get calendarRowOff => 'Calendario: apagado';
@@ -1815,4 +1815,62 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'solo lectura';
+
+  @override
+  String get appointmentLabel => 'Cita';
+
+  @override
+  String get addAppointment => 'Añadir cita';
+
+  @override
+  String get planChooserTitle => '¿Cita o recordatorio?';
+
+  @override
+  String get planChooserAppointment =>
+      'Cita — una visita en una fecha y hora, con notas';
+
+  @override
+  String get planChooserReminder => 'Recordatorio — un valor que vence un día';
+
+  @override
+  String get appointmentTitleLabel => 'Qué';
+
+  @override
+  String get notesLabel => 'Notas';
+
+  @override
+  String get timeLabel => 'Hora';
+
+  @override
+  String get allDayLabel => 'Todo el día';
+
+  @override
+  String get alertLabel => 'Aviso';
+
+  @override
+  String get alertNone => 'Ninguno';
+
+  @override
+  String get alertDayBefore => 'El día anterior';
+
+  @override
+  String get alertHourBefore => 'Una hora antes';
+
+  @override
+  String get linkFieldLabel => 'Al terminar, escribir en un campo';
+
+  @override
+  String get noLinkedField => 'Ningún campo';
+
+  @override
+  String get outcomeTitle => '¿Cómo fue?';
+
+  @override
+  String get finishLabel => 'Terminar';
+
+  @override
+  String get editLabelAppointment => 'Editar cita';
+
+  @override
+  String get deleteAppointment => 'Borrar cita';
 }

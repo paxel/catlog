@@ -1795,7 +1795,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu.';
 
   @override
   String get calendarRowOff => 'Kalendorius: išjungta';
@@ -1815,4 +1815,63 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'tik skaityti';
+
+  @override
+  String get appointmentLabel => 'Vizitas';
+
+  @override
+  String get addAppointment => 'Pridėti vizitą';
+
+  @override
+  String get planChooserTitle => 'Vizitas ar priminimas?';
+
+  @override
+  String get planChooserAppointment =>
+      'Vizitas — apsilankymas tam tikrą dieną ir valandą, su pastabomis';
+
+  @override
+  String get planChooserReminder =>
+      'Priminimas — reikšmė, kurios terminas sueina tam tikrą dieną';
+
+  @override
+  String get appointmentTitleLabel => 'Kas';
+
+  @override
+  String get notesLabel => 'Pastabos';
+
+  @override
+  String get timeLabel => 'Laikas';
+
+  @override
+  String get allDayLabel => 'Visą dieną';
+
+  @override
+  String get alertLabel => 'Įspėjimas';
+
+  @override
+  String get alertNone => 'Nėra';
+
+  @override
+  String get alertDayBefore => 'Dieną prieš';
+
+  @override
+  String get alertHourBefore => 'Valandą prieš';
+
+  @override
+  String get linkFieldLabel => 'Užbaigus įrašyti į lauką';
+
+  @override
+  String get noLinkedField => 'Nėra lauko';
+
+  @override
+  String get outcomeTitle => 'Kaip sekėsi?';
+
+  @override
+  String get finishLabel => 'Užbaigti';
+
+  @override
+  String get editLabelAppointment => 'Redaguoti vizitą';
+
+  @override
+  String get deleteAppointment => 'Ištrinti vizitą';
 }

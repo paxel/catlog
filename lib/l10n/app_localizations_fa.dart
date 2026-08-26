@@ -1784,7 +1784,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند.';
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند.';
 
   @override
   String get calendarRowOff => 'تقویم: خاموش';
@@ -1804,4 +1804,62 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'فقط خواندنی';
+
+  @override
+  String get appointmentLabel => 'قرار';
+
+  @override
+  String get addAppointment => 'افزودن قرار';
+
+  @override
+  String get planChooserTitle => 'قرار یا یادآور؟';
+
+  @override
+  String get planChooserAppointment =>
+      'قرار — دیداری در تاریخ و ساعتی مشخص، با یادداشت';
+
+  @override
+  String get planChooserReminder => 'یادآور — مقداری که در روزی سررسید می‌شود';
+
+  @override
+  String get appointmentTitleLabel => 'چه';
+
+  @override
+  String get notesLabel => 'یادداشت‌ها';
+
+  @override
+  String get timeLabel => 'ساعت';
+
+  @override
+  String get allDayLabel => 'تمام روز';
+
+  @override
+  String get alertLabel => 'هشدار';
+
+  @override
+  String get alertNone => 'هیچ';
+
+  @override
+  String get alertDayBefore => 'روز قبل';
+
+  @override
+  String get alertHourBefore => 'یک ساعت قبل';
+
+  @override
+  String get linkFieldLabel => 'پس از انجام، در فیلدی نوشته شود';
+
+  @override
+  String get noLinkedField => 'بدون فیلد';
+
+  @override
+  String get outcomeTitle => 'چطور بود؟';
+
+  @override
+  String get finishLabel => 'پایان';
+
+  @override
+  String get editLabelAppointment => 'ویرایش قرار';
+
+  @override
+  String get deleteAppointment => 'حذف قرار';
 }

@@ -3209,7 +3209,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpAgenda.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.'**
   String get helpAgenda;
 
   /// No description provided for @calendarRowOff.
@@ -3241,6 +3241,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'read only'**
   String get readOnlyCalendar;
+
+  /// No description provided for @appointmentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment'**
+  String get appointmentLabel;
+
+  /// No description provided for @addAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Add appointment'**
+  String get addAppointment;
+
+  /// No description provided for @planChooserTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment or reminder?'**
+  String get planChooserTitle;
+
+  /// No description provided for @planChooserAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment — a visit at a date and time, with notes'**
+  String get planChooserAppointment;
+
+  /// No description provided for @planChooserReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder — a value that becomes due on a day'**
+  String get planChooserReminder;
+
+  /// No description provided for @appointmentTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What'**
+  String get appointmentTitleLabel;
+
+  /// No description provided for @notesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesLabel;
+
+  /// No description provided for @timeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timeLabel;
+
+  /// No description provided for @allDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'All day'**
+  String get allDayLabel;
+
+  /// No description provided for @alertLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert'**
+  String get alertLabel;
+
+  /// No description provided for @alertNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get alertNone;
+
+  /// No description provided for @alertDayBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'The day before'**
+  String get alertDayBefore;
+
+  /// No description provided for @alertHourBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'One hour before'**
+  String get alertHourBefore;
+
+  /// No description provided for @linkFieldLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'When done, write into a field'**
+  String get linkFieldLabel;
+
+  /// No description provided for @noLinkedField.
+  ///
+  /// In en, this message translates to:
+  /// **'No field'**
+  String get noLinkedField;
+
+  /// No description provided for @outcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How did it go?'**
+  String get outcomeTitle;
+
+  /// No description provided for @finishLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get finishLabel;
+
+  /// No description provided for @editLabelAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit appointment'**
+  String get editLabelAppointment;
+
+  /// No description provided for @deleteAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete appointment'**
+  String get deleteAppointment;
 }
 
 class _AppLocalizationsDelegate

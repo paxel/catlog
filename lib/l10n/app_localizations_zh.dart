@@ -1722,7 +1722,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '日程按日期列出已计划的安排。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。';
 
   @override
   String get calendarRowOff => '日历：关';
@@ -1740,4 +1740,61 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => '只读';
+
+  @override
+  String get appointmentLabel => '安排';
+
+  @override
+  String get addAppointment => '添加安排';
+
+  @override
+  String get planChooserTitle => '安排还是提醒？';
+
+  @override
+  String get planChooserAppointment => '安排——在某个日期和时间的拜访，附带备注';
+
+  @override
+  String get planChooserReminder => '提醒——在某一天到期的值';
+
+  @override
+  String get appointmentTitleLabel => '事项';
+
+  @override
+  String get notesLabel => '备注';
+
+  @override
+  String get timeLabel => '时间';
+
+  @override
+  String get allDayLabel => '全天';
+
+  @override
+  String get alertLabel => '提醒通知';
+
+  @override
+  String get alertNone => '无';
+
+  @override
+  String get alertDayBefore => '前一天';
+
+  @override
+  String get alertHourBefore => '提前一小时';
+
+  @override
+  String get linkFieldLabel => '完成时写入字段';
+
+  @override
+  String get noLinkedField => '无字段';
+
+  @override
+  String get outcomeTitle => '情况如何？';
+
+  @override
+  String get finishLabel => '完成';
+
+  @override
+  String get editLabelAppointment => '编辑安排';
+
+  @override
+  String get deleteAppointment => '删除安排';
 }

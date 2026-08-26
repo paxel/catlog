@@ -1788,7 +1788,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Подсетници приказују планиране термине по датуму. Пропуштени остају на врху. Додир отвара мачку или клаудер. Квачица потврђује термин: вредност се уписује у поље и одмах можеш да планираш следећи, на пример за три месеца. Држање мења датум или брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку.';
+      'Подсетници приказују планиране термине по датуму. Постоје две врсте: термини са временом и подсетници који важе за дан. Пропуштени остају на врху. Додир отвара мачку или клаудер. Квачица потврђује термин: вредност се уписује у поље и одмах можеш да планираш следећи, на пример за три месеца. Држање мења датум или брише термин. Прекидач на врху пресликава термине у календар твог телефона. Мени их извози као календарску датотеку.';
 
   @override
   String get calendarRowOff => 'Календар: искључен';
@@ -1808,4 +1808,63 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'само за читање';
+
+  @override
+  String get appointmentLabel => 'Термин';
+
+  @override
+  String get addAppointment => 'Додај термин';
+
+  @override
+  String get planChooserTitle => 'Термин или подсетник?';
+
+  @override
+  String get planChooserAppointment =>
+      'Термин — посета на датум и време, са белешкама';
+
+  @override
+  String get planChooserReminder =>
+      'Подсетник — вредност која доспева одређеног дана';
+
+  @override
+  String get appointmentTitleLabel => 'Шта';
+
+  @override
+  String get notesLabel => 'Белешке';
+
+  @override
+  String get timeLabel => 'Време';
+
+  @override
+  String get allDayLabel => 'Цео дан';
+
+  @override
+  String get alertLabel => 'Упозорење';
+
+  @override
+  String get alertNone => 'Нема';
+
+  @override
+  String get alertDayBefore => 'Дан раније';
+
+  @override
+  String get alertHourBefore => 'Сат раније';
+
+  @override
+  String get linkFieldLabel => 'По завршетку упиши у поље';
+
+  @override
+  String get noLinkedField => 'Нема поља';
+
+  @override
+  String get outcomeTitle => 'Како је прошло?';
+
+  @override
+  String get finishLabel => 'Заврши';
+
+  @override
+  String get editLabelAppointment => 'Уреди термин';
+
+  @override
+  String get deleteAppointment => 'Обриши термин';
 }

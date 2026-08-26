@@ -1797,7 +1797,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'L\'agenda liste les rendez-vous prévus par date. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier.';
+      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier.';
 
   @override
   String get calendarRowOff => 'Calendrier : désactivé';
@@ -1817,4 +1817,63 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'lecture seule';
+
+  @override
+  String get appointmentLabel => 'Rendez-vous';
+
+  @override
+  String get addAppointment => 'Ajouter un rendez-vous';
+
+  @override
+  String get planChooserTitle => 'Rendez-vous ou rappel ?';
+
+  @override
+  String get planChooserAppointment =>
+      'Rendez-vous — une visite à une date et une heure, avec des notes';
+
+  @override
+  String get planChooserReminder =>
+      'Rappel — une valeur qui arrive à échéance un jour';
+
+  @override
+  String get appointmentTitleLabel => 'Quoi';
+
+  @override
+  String get notesLabel => 'Notes';
+
+  @override
+  String get timeLabel => 'Heure';
+
+  @override
+  String get allDayLabel => 'Toute la journée';
+
+  @override
+  String get alertLabel => 'Alerte';
+
+  @override
+  String get alertNone => 'Aucune';
+
+  @override
+  String get alertDayBefore => 'La veille';
+
+  @override
+  String get alertHourBefore => 'Une heure avant';
+
+  @override
+  String get linkFieldLabel => 'Une fois fait, écrire dans un champ';
+
+  @override
+  String get noLinkedField => 'Aucun champ';
+
+  @override
+  String get outcomeTitle => 'Comment ça s\'est passé ?';
+
+  @override
+  String get finishLabel => 'Terminer';
+
+  @override
+  String get editLabelAppointment => 'Modifier le rendez-vous';
+
+  @override
+  String get deleteAppointment => 'Supprimer le rendez-vous';
 }

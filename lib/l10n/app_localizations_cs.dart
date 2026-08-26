@@ -1788,7 +1788,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Připomínky ukazují naplánované termíny podle data. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře.';
+      'Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře.';
 
   @override
   String get calendarRowOff => 'Kalendář: vypnuto';
@@ -1808,4 +1808,63 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'jen ke čtení';
+
+  @override
+  String get appointmentLabel => 'Termín';
+
+  @override
+  String get addAppointment => 'Přidat termín';
+
+  @override
+  String get planChooserTitle => 'Termín, nebo připomínka?';
+
+  @override
+  String get planChooserAppointment =>
+      'Termín — návštěva v den a hodinu, s poznámkami';
+
+  @override
+  String get planChooserReminder =>
+      'Připomínka — hodnota, která je v určitý den na řadě';
+
+  @override
+  String get appointmentTitleLabel => 'Co';
+
+  @override
+  String get notesLabel => 'Poznámky';
+
+  @override
+  String get timeLabel => 'Čas';
+
+  @override
+  String get allDayLabel => 'Celý den';
+
+  @override
+  String get alertLabel => 'Upozornění';
+
+  @override
+  String get alertNone => 'Žádné';
+
+  @override
+  String get alertDayBefore => 'Den předem';
+
+  @override
+  String get alertHourBefore => 'Hodinu předem';
+
+  @override
+  String get linkFieldLabel => 'Po dokončení zapsat do pole';
+
+  @override
+  String get noLinkedField => 'Žádné pole';
+
+  @override
+  String get outcomeTitle => 'Jak to dopadlo?';
+
+  @override
+  String get finishLabel => 'Dokončit';
+
+  @override
+  String get editLabelAppointment => 'Upravit termín';
+
+  @override
+  String get deleteAppointment => 'Smazat termín';
 }

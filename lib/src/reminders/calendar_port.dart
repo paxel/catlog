@@ -1,5 +1,5 @@
-/// The narrow seam between the reminder mirror and a platform
-/// calendar (#74). One implementation talks to the device through the
+/// The narrow seam between the mirror and a platform calendar (#74,
+/// #75). One implementation talks to the device through the
 /// device_calendar plugin; tests drive the mirror with a fake.
 abstract class CalendarPort {
   /// Asks for calendar permission; false means the mirror stays off.
@@ -14,15 +14,13 @@ abstract class CalendarPort {
   /// platform answers with an error instead of a list.
   Future<List<CalendarChoice>> listCalendars();
 
-  /// Creates one all-day event; returns its id, null on failure.
-  /// Never sets alarms — the calendar shows what is due, no more.
-  Future<String?> createEvent(
-      String calendarId, DateTime day, String title, String description);
+  /// Creates one event; returns its id, null on failure. The alert in
+  /// [spec] is written here and only here.
+  Future<String?> createEvent(String calendarId, EventSpec spec);
 
-  /// Rewrites date, title and description of [eventId] — and nothing
-  /// else, so alerts a user added by hand survive.
-  Future<bool> updateEvent(String calendarId, String eventId, DateTime day,
-      String title, String description);
+  /// Rewrites time, title and description of [eventId] — never the
+  /// alerts, so what the user set by hand survives.
+  Future<bool> updateEvent(String calendarId, String eventId, EventSpec spec);
 
   Future<void> deleteEvent(String calendarId, String eventId);
 
@@ -30,6 +28,35 @@ abstract class CalendarPort {
   /// the mirror recreates those whose plan is still alive.
   Future<Set<String>> existingEventIds(
       String calendarId, Iterable<String> ids);
+}
+
+/// What one mirrored event looks like.
+class EventSpec {
+  /// Start moment (local). For [allDay] only the day matters.
+  final DateTime start;
+
+  /// End moment; the next day for all-day events, one hour later for
+  /// timed ones.
+  final DateTime end;
+  final bool allDay;
+  final String title;
+  final String description;
+
+  /// Minutes before [start] for the alert; null = no alert.
+  final int? alertMinutesBefore;
+
+  const EventSpec({
+    required this.start,
+    required this.end,
+    required this.allDay,
+    required this.title,
+    required this.description,
+    this.alertMinutesBefore,
+  });
+
+  /// What the mirror compares to know whether an event needs a patch.
+  String get snapshot =>
+      '${start.toIso8601String()}|${end.toIso8601String()}|$allDay|$title|$description';
 }
 
 /// One calendar on the device.

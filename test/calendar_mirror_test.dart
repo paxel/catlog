@@ -8,33 +8,33 @@ import 'package:flutter_test/flutter_test.dart';
 /// are created, patched, deleted and recreated to match the plans,
 /// and nothing the app does not own is ever written.
 class FakeCalendar implements CalendarPort {
-  final events = <String, ({DateTime day, String title, String desc})>{};
+  final events = <String, EventSpec>{};
+  final alerts = <String, int?>{};
   var nextId = 0;
   var created = 0, updated = 0, deleted = 0;
-
-  @override
-  Future<bool> ensureAccess() async => true;
-
   var calendars = const [
     CalendarChoice(id: 'cal-1', name: 'Work', account: 'me@example.org'),
   ];
 
   @override
+  Future<bool> ensureAccess() async => true;
+
+  @override
   Future<List<CalendarChoice>> listCalendars() async => calendars;
 
   @override
-  Future<String?> createEvent(String calendarId, DateTime day,
-      String title, String description) async {
+  Future<String?> createEvent(String calendarId, EventSpec spec) async {
     final id = 'ev-${nextId++}';
-    events[id] = (day: day, title: title, desc: description);
+    events[id] = spec;
+    alerts[id] = spec.alertMinutesBefore;
     created++;
     return id;
   }
 
   @override
-  Future<bool> updateEvent(String calendarId, String eventId, DateTime day,
-      String title, String description) async {
-    events[eventId] = (day: day, title: title, desc: description);
+  Future<bool> updateEvent(
+      String calendarId, String eventId, EventSpec spec) async {
+    events[eventId] = spec; // alerts untouched, like the real port
     updated++;
     return true;
   }
@@ -42,6 +42,7 @@ class FakeCalendar implements CalendarPort {
   @override
   Future<void> deleteEvent(String calendarId, String eventId) async {
     events.remove(eventId);
+    alerts.remove(eventId);
     deleted++;
   }
 
@@ -79,7 +80,9 @@ void main() {
     expect(calendar.events, hasLength(1));
     final event = calendar.events.values.single;
     expect(event.title, contains('Miezi'));
-    expect(event.desc, contains('vaccine refresh'));
+    expect(event.description, contains('vaccine refresh'));
+    expect(event.allDay, isTrue);
+    expect(event.alertMinutesBefore, isNull);
   });
 
   test('reconcile twice changes nothing', () async {
@@ -102,7 +105,7 @@ void main() {
     await reconcileCalendar(store, calendar, t);
     expect(calendar.events.keys.single, id);
     expect(calendar.updated, 1);
-    expect(calendar.events[id]!.day.day, inDays(20).day);
+    expect(calendar.events[id]!.start.day, inDays(20).day);
   });
 
   test('a done plan loses its event', () async {
@@ -163,5 +166,67 @@ void main() {
     expect(calendar.events, hasLength(1));
     expect(calendar.deleted, 1);
     expect(calendar.created, 2);
+  });
+
+  test('an appointment becomes a timed event with its alert', () async {
+    store.createAppointment(Appointment(
+      id: '',
+      entity: cat,
+      date: DateTime(2026, 9, 3),
+      time: (hour: 14, minute: 30),
+      title: 'Vet',
+      notes: 'bring the form',
+      alert: AppointmentAlert.hourBefore,
+    ));
+    await reconcileCalendar(store, calendar, t);
+    final event = calendar.events.values.single;
+    expect(event.allDay, isFalse);
+    expect(event.start, DateTime(2026, 9, 3, 14, 30));
+    expect(event.end, DateTime(2026, 9, 3, 15, 30));
+    expect(event.title, 'Miezi — Vet');
+    expect(event.description, contains('bring the form'));
+    expect(event.alertMinutesBefore, 60);
+  });
+
+  test('an all-day appointment without alert stays silent', () async {
+    store.createAppointment(Appointment(
+      id: '',
+      entity: cat,
+      date: DateTime(2026, 9, 3),
+      title: 'Vet',
+      alert: AppointmentAlert.none,
+    ));
+    await reconcileCalendar(store, calendar, t);
+    final event = calendar.events.values.single;
+    expect(event.allDay, isTrue);
+    expect(event.alertMinutesBefore, isNull);
+  });
+
+  test('finishing an appointment removes its event', () async {
+    final made = store.createAppointment(Appointment(
+        id: '', entity: cat, date: DateTime(2026, 9, 3), title: 'Vet'));
+    await reconcileCalendar(store, calendar, t);
+    store.finishAppointment(made, notes: 'fine');
+    await reconcileCalendar(store, calendar, t);
+    expect(calendar.events, isEmpty);
+  });
+
+  test('rescheduling patches the event and leaves its alert alone',
+      () async {
+    final made = store.createAppointment(Appointment(
+        id: '',
+        entity: cat,
+        date: DateTime(2026, 9, 3),
+        time: (hour: 9, minute: 0),
+        title: 'Vet',
+        alert: AppointmentAlert.dayBefore));
+    await reconcileCalendar(store, calendar, t);
+    final id = calendar.events.keys.single;
+    store.updateAppointment(made.copyWith(date: DateTime(2026, 9, 4)));
+    await reconcileCalendar(store, calendar, t);
+    expect(calendar.events.keys.single, id);
+    expect(calendar.events[id]!.start, DateTime(2026, 9, 4, 9, 0));
+    expect(calendar.alerts[id], 24 * 60);
+    expect(calendar.updated, 1);
   });
 }

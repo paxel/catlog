@@ -1794,7 +1794,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει τη γάτα ή την ομάδα. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου.';
+      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει τη γάτα ή την ομάδα. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου.';
 
   @override
   String get calendarRowOff => 'Ημερολόγιο: ανενεργό';
@@ -1814,4 +1814,62 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'μόνο ανάγνωση';
+
+  @override
+  String get appointmentLabel => 'Ραντεβού';
+
+  @override
+  String get addAppointment => 'Προσθήκη ραντεβού';
+
+  @override
+  String get planChooserTitle => 'Ραντεβού ή υπενθύμιση;';
+
+  @override
+  String get planChooserAppointment =>
+      'Ραντεβού — μια επίσκεψη σε ημερομηνία και ώρα, με σημειώσεις';
+
+  @override
+  String get planChooserReminder => 'Υπενθύμιση — μια τιμή που λήγει μια μέρα';
+
+  @override
+  String get appointmentTitleLabel => 'Τι';
+
+  @override
+  String get notesLabel => 'Σημειώσεις';
+
+  @override
+  String get timeLabel => 'Ώρα';
+
+  @override
+  String get allDayLabel => 'Ολοήμερο';
+
+  @override
+  String get alertLabel => 'Ειδοποίηση';
+
+  @override
+  String get alertNone => 'Καμία';
+
+  @override
+  String get alertDayBefore => 'Την προηγούμενη μέρα';
+
+  @override
+  String get alertHourBefore => 'Μία ώρα πριν';
+
+  @override
+  String get linkFieldLabel => 'Όταν γίνει, γράψε σε ένα πεδίο';
+
+  @override
+  String get noLinkedField => 'Κανένα πεδίο';
+
+  @override
+  String get outcomeTitle => 'Πώς πήγε;';
+
+  @override
+  String get finishLabel => 'Ολοκλήρωση';
+
+  @override
+  String get editLabelAppointment => 'Επεξεργασία ραντεβού';
+
+  @override
+  String get deleteAppointment => 'Διαγραφή ραντεβού';
 }

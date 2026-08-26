@@ -1792,7 +1792,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';
@@ -1812,4 +1812,63 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'aðeins lestur';
+
+  @override
+  String get appointmentLabel => 'Tími';
+
+  @override
+  String get addAppointment => 'Bæta við tíma';
+
+  @override
+  String get planChooserTitle => 'Tími eða áminning?';
+
+  @override
+  String get planChooserAppointment =>
+      'Tími — heimsókn á dagsetningu og tíma, með athugasemdum';
+
+  @override
+  String get planChooserReminder =>
+      'Áminning — gildi sem fellur á gjalddaga á degi';
+
+  @override
+  String get appointmentTitleLabel => 'Hvað';
+
+  @override
+  String get notesLabel => 'Athugasemdir';
+
+  @override
+  String get timeLabel => 'Tími';
+
+  @override
+  String get allDayLabel => 'Allan daginn';
+
+  @override
+  String get alertLabel => 'Viðvörun';
+
+  @override
+  String get alertNone => 'Engin';
+
+  @override
+  String get alertDayBefore => 'Daginn áður';
+
+  @override
+  String get alertHourBefore => 'Klukkustund áður';
+
+  @override
+  String get linkFieldLabel => 'Skrifa í reit þegar lokið';
+
+  @override
+  String get noLinkedField => 'Enginn reitur';
+
+  @override
+  String get outcomeTitle => 'Hvernig gekk?';
+
+  @override
+  String get finishLabel => 'Ljúka';
+
+  @override
+  String get editLabelAppointment => 'Breyta tíma';
+
+  @override
+  String get deleteAppointment => 'Eyða tíma';
 }

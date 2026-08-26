@@ -1790,7 +1790,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu.';
+      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu.';
 
   @override
   String get calendarRowOff => 'Kalendārs: izslēgts';
@@ -1810,4 +1810,63 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'tikai lasāms';
+
+  @override
+  String get appointmentLabel => 'Vizīte';
+
+  @override
+  String get addAppointment => 'Pievienot vizīti';
+
+  @override
+  String get planChooserTitle => 'Vizīte vai atgādinājums?';
+
+  @override
+  String get planChooserAppointment =>
+      'Vizīte — apmeklējums datumā un laikā, ar piezīmēm';
+
+  @override
+  String get planChooserReminder =>
+      'Atgādinājums — vērtība, kurai kādā dienā pienāk termiņš';
+
+  @override
+  String get appointmentTitleLabel => 'Kas';
+
+  @override
+  String get notesLabel => 'Piezīmes';
+
+  @override
+  String get timeLabel => 'Laiks';
+
+  @override
+  String get allDayLabel => 'Visu dienu';
+
+  @override
+  String get alertLabel => 'Brīdinājums';
+
+  @override
+  String get alertNone => 'Nav';
+
+  @override
+  String get alertDayBefore => 'Dienu iepriekš';
+
+  @override
+  String get alertHourBefore => 'Stundu iepriekš';
+
+  @override
+  String get linkFieldLabel => 'Pabeidzot ierakstīt laukā';
+
+  @override
+  String get noLinkedField => 'Nav lauka';
+
+  @override
+  String get outcomeTitle => 'Kā gāja?';
+
+  @override
+  String get finishLabel => 'Pabeigt';
+
+  @override
+  String get editLabelAppointment => 'Rediģēt vizīti';
+
+  @override
+  String get deleteAppointment => 'Dzēst vizīti';
 }

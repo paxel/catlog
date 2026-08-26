@@ -1792,7 +1792,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Przypomnienia pokazują zaplanowane terminy według daty. Przegapione zostają na górze. Dotknięcie otwiera kota lub clowder. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza.';
+      'Przypomnienia pokazują zaplanowane terminy według daty. Są dwa rodzaje: terminy z godziną i przypomnienia obowiązujące na dany dzień. Przegapione zostają na górze. Dotknięcie otwiera kota lub clowder. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza.';
 
   @override
   String get calendarRowOff => 'Kalendarz: wyłączony';
@@ -1812,4 +1812,63 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'tylko do odczytu';
+
+  @override
+  String get appointmentLabel => 'Termin';
+
+  @override
+  String get addAppointment => 'Dodaj termin';
+
+  @override
+  String get planChooserTitle => 'Termin czy przypomnienie?';
+
+  @override
+  String get planChooserAppointment =>
+      'Termin — wizyta w dniu i o godzinie, z notatkami';
+
+  @override
+  String get planChooserReminder =>
+      'Przypomnienie — wartość, która staje się należna danego dnia';
+
+  @override
+  String get appointmentTitleLabel => 'Co';
+
+  @override
+  String get notesLabel => 'Notatki';
+
+  @override
+  String get timeLabel => 'Godzina';
+
+  @override
+  String get allDayLabel => 'Cały dzień';
+
+  @override
+  String get alertLabel => 'Powiadomienie';
+
+  @override
+  String get alertNone => 'Brak';
+
+  @override
+  String get alertDayBefore => 'Dzień wcześniej';
+
+  @override
+  String get alertHourBefore => 'Godzinę wcześniej';
+
+  @override
+  String get linkFieldLabel => 'Po zakończeniu wpisz do pola';
+
+  @override
+  String get noLinkedField => 'Brak pola';
+
+  @override
+  String get outcomeTitle => 'Jak poszło?';
+
+  @override
+  String get finishLabel => 'Zakończ';
+
+  @override
+  String get editLabelAppointment => 'Edytuj termin';
+
+  @override
+  String get deleteAppointment => 'Usuń termin';
 }

@@ -1795,7 +1795,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'L\'agenda elenca gli appuntamenti pianificati per data. Quelli mancati restano in cima. Un tocco apre il gatto o il clowder. La spunta conferma un appuntamento: il valore viene scritto nel campo e puoi pianificare subito il prossimo, per esempio tra tre mesi. Tenere premuto cambia la data o elimina l\'appuntamento. L\'interruttore in alto rispecchia gli appuntamenti in un calendario del tuo telefono. Il menu li esporta come file calendario.';
+      'L\'agenda elenca gli appuntamenti pianificati per data. Ci sono due tipi: appuntamenti con un\'ora e promemoria che valgono per un giorno. Quelli mancati restano in cima. Un tocco apre il gatto o il clowder. La spunta conferma un appuntamento: il valore viene scritto nel campo e puoi pianificare subito il prossimo, per esempio tra tre mesi. Tenere premuto cambia la data o elimina l\'appuntamento. L\'interruttore in alto rispecchia gli appuntamenti in un calendario del tuo telefono. Il menu li esporta come file calendario.';
 
   @override
   String get calendarRowOff => 'Calendario: spento';
@@ -1815,4 +1815,63 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'sola lettura';
+
+  @override
+  String get appointmentLabel => 'Appuntamento';
+
+  @override
+  String get addAppointment => 'Aggiungi appuntamento';
+
+  @override
+  String get planChooserTitle => 'Appuntamento o promemoria?';
+
+  @override
+  String get planChooserAppointment =>
+      'Appuntamento — una visita in una data e a un\'ora, con note';
+
+  @override
+  String get planChooserReminder =>
+      'Promemoria — un valore che scade in un giorno';
+
+  @override
+  String get appointmentTitleLabel => 'Cosa';
+
+  @override
+  String get notesLabel => 'Note';
+
+  @override
+  String get timeLabel => 'Ora';
+
+  @override
+  String get allDayLabel => 'Tutto il giorno';
+
+  @override
+  String get alertLabel => 'Avviso';
+
+  @override
+  String get alertNone => 'Nessuno';
+
+  @override
+  String get alertDayBefore => 'Il giorno prima';
+
+  @override
+  String get alertHourBefore => 'Un\'ora prima';
+
+  @override
+  String get linkFieldLabel => 'Al termine, scrivi in un campo';
+
+  @override
+  String get noLinkedField => 'Nessun campo';
+
+  @override
+  String get outcomeTitle => 'Com\'è andata?';
+
+  @override
+  String get finishLabel => 'Termina';
+
+  @override
+  String get editLabelAppointment => 'Modifica appuntamento';
+
+  @override
+  String get deleteAppointment => 'Elimina appuntamento';
 }

@@ -1787,7 +1787,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم.';
+      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم.';
 
   @override
   String get calendarRowOff => 'التقويم: متوقف';
@@ -1807,4 +1807,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'للقراءة فقط';
+
+  @override
+  String get appointmentLabel => 'موعد';
+
+  @override
+  String get addAppointment => 'إضافة موعد';
+
+  @override
+  String get planChooserTitle => 'موعد أم تذكير؟';
+
+  @override
+  String get planChooserAppointment => 'موعد — زيارة في تاريخ ووقت، مع ملاحظات';
+
+  @override
+  String get planChooserReminder => 'تذكير — قيمة تستحق في يوم ما';
+
+  @override
+  String get appointmentTitleLabel => 'ماذا';
+
+  @override
+  String get notesLabel => 'ملاحظات';
+
+  @override
+  String get timeLabel => 'الوقت';
+
+  @override
+  String get allDayLabel => 'طوال اليوم';
+
+  @override
+  String get alertLabel => 'تنبيه';
+
+  @override
+  String get alertNone => 'بلا';
+
+  @override
+  String get alertDayBefore => 'في اليوم السابق';
+
+  @override
+  String get alertHourBefore => 'قبل ساعة';
+
+  @override
+  String get linkFieldLabel => 'عند الإنجاز، اكتب في حقل';
+
+  @override
+  String get noLinkedField => 'لا حقل';
+
+  @override
+  String get outcomeTitle => 'كيف كان؟';
+
+  @override
+  String get finishLabel => 'إنهاء';
+
+  @override
+  String get editLabelAppointment => 'تعديل الموعد';
+
+  @override
+  String get deleteAppointment => 'حذف الموعد';
 }

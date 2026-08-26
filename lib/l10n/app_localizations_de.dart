@@ -1795,7 +1795,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Die Agenda listet die geplanten Termine nach Datum. Verpasste Termine bleiben oben stehen. Tippen öffnet die Katze oder Kolonie. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren.';
+      'Die Agenda listet die geplanten Termine nach Datum. Es gibt zwei Arten: Termine mit Uhrzeit und Erinnerungen, die für einen Tag gelten. Verpasste Termine bleiben oben stehen. Tippen öffnet die Katze oder Kolonie. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren.';
 
   @override
   String get calendarRowOff => 'Kalender: aus';
@@ -1815,4 +1815,63 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get readOnlyCalendar => 'nur lesen';
+
+  @override
+  String get appointmentLabel => 'Termin';
+
+  @override
+  String get addAppointment => 'Termin hinzufügen';
+
+  @override
+  String get planChooserTitle => 'Termin oder Erinnerung?';
+
+  @override
+  String get planChooserAppointment =>
+      'Termin — ein Besuch an einem Datum mit Uhrzeit und Notizen';
+
+  @override
+  String get planChooserReminder =>
+      'Erinnerung — ein Wert, der an einem Tag fällig wird';
+
+  @override
+  String get appointmentTitleLabel => 'Was';
+
+  @override
+  String get notesLabel => 'Notizen';
+
+  @override
+  String get timeLabel => 'Uhrzeit';
+
+  @override
+  String get allDayLabel => 'Ganztägig';
+
+  @override
+  String get alertLabel => 'Erinnerung';
+
+  @override
+  String get alertNone => 'Keine';
+
+  @override
+  String get alertDayBefore => 'Am Tag davor';
+
+  @override
+  String get alertHourBefore => 'Eine Stunde davor';
+
+  @override
+  String get linkFieldLabel => 'Beim Erledigen in ein Feld schreiben';
+
+  @override
+  String get noLinkedField => 'Kein Feld';
+
+  @override
+  String get outcomeTitle => 'Wie war es?';
+
+  @override
+  String get finishLabel => 'Erledigen';
+
+  @override
+  String get editLabelAppointment => 'Termin bearbeiten';
+
+  @override
+  String get deleteAppointment => 'Termin löschen';
 }
