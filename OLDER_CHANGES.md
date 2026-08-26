@@ -2,6 +2,19 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.0.2] - 2026-08-26
+
+### Changed
+
+- The tips and the help page for the agenda, reminders and the
+  calendar switch say plainly what each thing does.
+
+### Fixed
+
+- The calendar picker lists every calendar the phone has; read-only
+  ones are shown greyed instead of the whole list being reported as
+  empty.
+
 ## [1.0.1] - 2026-08-25
 
 ### Added
