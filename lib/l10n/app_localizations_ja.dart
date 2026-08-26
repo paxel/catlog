@@ -1612,7 +1612,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderLabel => 'リマインダー';
 
   @override
-  String get agendaEmpty => '期日はありません。どれかのフィールドに未来の日付を選ぶと、ここに表示されます。';
+  String get agendaEmpty => '計画した予定はありません。ここのプラス、または猫やクラウダーのページで新しい予定を計画できます。';
 
   @override
   String get dueToday => '今日';
@@ -1677,7 +1677,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      '各期日は、この端末の cat(a)log カレンダーに終日の予定として入ります。日付の変更はカレンダーではなく cat(a)log で行ってください。';
+      '予定はカレンダーに終日の予定として表示されます。cat(a)log は起動のたび、また変更のたびにカレンダー側を更新します。予定の通知はカレンダーで管理できます。';
 
   @override
   String get syncPeerOlder =>
@@ -1701,7 +1701,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get plannedSection => '予定';
 
   @override
-  String get reminderDialogHint => '完了にするまで予定表に表示されます。現在の値はそのままです。';
+  String get reminderDialogHint =>
+      '予定は予定表に表示されます。そこで確定するか取り消せます。値が取り込まれるのは、予定を確定したときだけです。';
 
   @override
   String get reminderFor => '対象';
@@ -1729,24 +1730,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'この端末に書き込めるカレンダーがありません。システム設定でカレンダーのアカウントを追加して、やり直してください。';
+      'カレンダーが見つかりません。システム設定でカレンダーのアカウント（Google など）にログインして、もう一度お試しください。';
 
   @override
-  String get spotHomeAgenda => '予定表：すべての猫とクラウダーの期日をまとめて見られます。';
+  String get spotHomeAgenda => '予定表：計画した予定の一覧 — 通院、投薬、健診。';
 
   @override
-  String get spotAddReminder =>
-      'リマインダーを追加 — 日付付きの予定です。完了にするまで、ページではなく予定表に表示されます。';
+  String get spotAgendaAdd => '新しい予定を計画します。';
 
   @override
-  String get spotAgendaAdd => '新しい予定：フィールド、日付、値を選びます。';
-
-  @override
-  String get spotAgendaCalendar => 'これをオンにすると、期日がスマートフォンのカレンダーにも表示されます。';
+  String get spotAgendaCalendar => 'ここをオンにすると、cat(a)log の予定を選んだカレンダーに反映します。';
 
   @override
   String get helpAgenda =>
-      '期日の順に並んだ、すべての予定。期限切れは対応するまで上に残ります。カードをタップすると猫やクラウダーが開きます。チェックで完了にすると、値が記録され、次回の予定を組めます。カードを長押しすると日付の変更や削除ができます。カレンダーのスイッチは各期日をスマートフォンのカレンダーに反映し、メニューからカレンダーファイルとして書き出せます。';
+      '予定表は計画した予定を日付順に並べます。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。';
 
   @override
   String get calendarRowOff => 'カレンダー：オフ';
@@ -1755,4 +1752,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'カレンダー：$name';
   }
+
+  @override
+  String get spotAddReminderCat => 'この猫の予定を計画します。予定表に表示され、そこで確定します。';
+
+  @override
+  String get spotAddReminderClowder => 'このクラウダーの予定を計画します。予定表に表示され、そこで確定します。';
+
+  @override
+  String get readOnlyCalendar => '読み取り専用';
 }

@@ -1652,7 +1652,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nic nie jest zaplanowane. Wybierz przyszłą datę w polu, a pojawi się tutaj.';
+      'Brak zaplanowanych terminów. Nowe planujesz tutaj plusem albo na stronie kota lub clowdera.';
 
   @override
   String get dueToday => 'dzisiaj';
@@ -1723,7 +1723,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Każdy termin staje się całodniowym wydarzeniem w kalendarzu cat(a)log na tym urządzeniu. Daty zmieniaj w cat(a)log, nie w kalendarzu.';
+      'Terminy pojawiają się jako całodniowe wydarzenia w kalendarzu. cat(a)log aktualizuje je tam przy każdym uruchomieniu i po każdej zmianie. Przypomnieniami o terminach zarządzasz w kalendarzu.';
 
   @override
   String get syncPeerOlder =>
@@ -1749,7 +1749,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Widoczne w przypomnieniach, dopóki nie oznaczysz jako zrobione. Bieżąca wartość pozostaje bez zmian.';
+      'Termin widać w przypomnieniach. Tam możesz go potwierdzić lub odrzucić. Wartość jest przejmowana tylko wtedy, gdy termin został potwierdzony.';
 
   @override
   String get reminderFor => 'Dla';
@@ -1777,26 +1777,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Żaden kalendarz na tym urządzeniu nie pozwala na zapis. Dodaj konto kalendarza w ustawieniach systemu i spróbuj ponownie.';
+      'Nie znaleziono kalendarza. Zaloguj się w ustawieniach systemu na konto kalendarza, na przykład Google, i spróbuj ponownie.';
 
   @override
   String get spotHomeAgenda =>
-      'Przypomnienia: wszystko, co zaplanowane, dla wszystkich kotów i clowderów.';
+      'Przypomnienia: lista zaplanowanych terminów — weterynarz, leki, kontrole.';
 
   @override
-  String get spotAddReminder =>
-      'Dodaj przypomnienie — plan z datą. Widać go w przypomnieniach, nie na stronie, dopóki nie oznaczysz jako zrobione.';
-
-  @override
-  String get spotAgendaAdd => 'Nowy plan: wybierz pole, datę i wartość.';
+  String get spotAgendaAdd => 'Zaplanuj nowy termin.';
 
   @override
   String get spotAgendaCalendar =>
-      'Włącz to, aby widzieć każdy termin w kalendarzu telefonu.';
+      'Włącz tutaj odbijanie terminów cat(a)log w wybranym kalendarzu.';
 
   @override
   String get helpAgenda =>
-      'Wszystko, co zaplanowane, według daty; zaległe zostaje na górze, dopóki nie zostanie załatwione. Dotknij karty, aby otworzyć kota lub clowder. Ptaszek oznacza plan jako zrobiony — zapisuje wartość i może zaplanować kolejną rundę. Przytrzymaj kartę, aby zmienić datę lub ją usunąć. Przełącznik kalendarza odbija każdy termin w kalendarzu telefonu; menu eksportuje je jako plik kalendarza.';
+      'Przypomnienia pokazują zaplanowane terminy według daty. Przegapione zostają na górze. Dotknięcie otwiera kota lub clowder. Ptaszek potwierdza termin: wartość trafia do pola i możesz od razu zaplanować kolejny, na przykład za trzy miesiące. Przytrzymanie zmienia datę lub usuwa termin. Przełącznik u góry odbija terminy w kalendarzu telefonu. Menu eksportuje je jako plik kalendarza.';
 
   @override
   String get calendarRowOff => 'Kalendarz: wyłączony';
@@ -1805,4 +1801,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendarz: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Zaplanuj termin dla tego kota. Widać go w przypomnieniach i tam się go potwierdza.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Zaplanuj termin dla tego clowdera. Widać go w przypomnieniach i tam się go potwierdza.';
+
+  @override
+  String get readOnlyCalendar => 'tylko do odczytu';
 }

@@ -1656,7 +1656,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Niets is verschuldigd. Kies bij een veld een datum in de toekomst en het verschijnt hier.';
+      'Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een kat of clowder.';
 
   @override
   String get dueToday => 'vandaag';
@@ -1723,7 +1723,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Elke vervaldatum wordt een hele-dag-afspraak in een cat(a)log-agenda op dit apparaat. Wijzig datums in cat(a)log, niet in de agenda.';
+      'De afspraken verschijnen als hele-dag-afspraken in de agenda. cat(a)log werkt ze daar bij bij elke start en na elke wijziging. Herinneringen aan de afspraken beheer je in de agenda.';
 
   @override
   String get syncPeerOlder =>
@@ -1749,7 +1749,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Staat in de agenda tot je het als klaar markeert. De huidige waarde blijft zoals hij is.';
+      'De afspraak staat in de agenda. Daar bevestig of verwerp je hem. De waarde wordt pas overgenomen als de afspraak is bevestigd.';
 
   @override
   String get reminderFor => 'Voor';
@@ -1777,27 +1777,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Geen enkele agenda op dit apparaat is beschrijfbaar. Voeg in de systeeminstellingen een agenda-account toe en probeer het opnieuw.';
+      'Geen agenda gevonden. Meld je in de systeeminstellingen aan bij een agenda-account, bijvoorbeeld Google, en probeer het opnieuw.';
 
   @override
   String get spotHomeAgenda =>
-      'De agenda: alles wat verschuldigd is, over alle katten en clowders.';
+      'Agenda: de lijst met geplande afspraken — dierenarts, medicijnen, controles.';
 
   @override
-  String get spotAddReminder =>
-      'Herinnering toevoegen — een plan met een datum. Het staat in de agenda, niet op de pagina, tot je het als klaar markeert.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Nieuw plan: kies een veld, een datum en een waarde.';
+  String get spotAgendaAdd => 'Een nieuwe afspraak plannen.';
 
   @override
   String get spotAgendaCalendar =>
-      'Zet dit aan om elke vervaldatum in de agenda van je telefoon te zien.';
+      'Zet hier het spiegelen van de cat(a)log-afspraken naar een agenda van je keuze aan.';
 
   @override
   String get helpAgenda =>
-      'Alles wat verschuldigd is, op datum; wat te laat is blijft bovenaan tot het is afgehandeld. Tik op een kaart om de kat of clowder te openen. Het vinkje markeert een plan als klaar — het legt de waarde vast en kan de volgende ronde plannen. Houd een kaart ingedrukt om de datum te wijzigen of het plan te verwijderen. De agendaschakelaar spiegelt elke vervaldatum naar een agenda van je telefoon; het menu exporteert ze als agendabestand.';
+      'De agenda toont de geplande afspraken op datum. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand.';
 
   @override
   String get calendarRowOff => 'Agenda: uit';
@@ -1806,4 +1801,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Agenda: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Plan een afspraak voor deze kat. Die staat in de agenda en wordt daar bevestigd.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Plan een afspraak voor deze clowder. Die staat in de agenda en wordt daar bevestigd.';
+
+  @override
+  String get readOnlyCalendar => 'alleen lezen';
 }

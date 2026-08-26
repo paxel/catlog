@@ -1660,7 +1660,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Rien à venir. Choisis une date future sur un champ et elle apparaît ici.';
+      'Aucun rendez-vous prévu. Prévois-en ici avec le plus, ou sur la page d\'un chat ou d\'un clowder.';
 
   @override
   String get dueToday => 'aujourd\'hui';
@@ -1728,7 +1728,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Chaque échéance devient un événement d\'une journée dans un calendrier cat(a)log sur cet appareil. Change les dates dans cat(a)log, pas dans le calendrier.';
+      'Les rendez-vous apparaissent comme des événements d\'une journée dans le calendrier. cat(a)log les y met à jour à chaque démarrage et après chaque modification. Tu peux gérer les alertes de ces rendez-vous dans le calendrier.';
 
   @override
   String get syncPeerOlder =>
@@ -1754,7 +1754,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Apparaît dans l\'agenda jusqu\'à ce que tu le marques fait. La valeur actuelle reste telle quelle.';
+      'Le rendez-vous apparaît dans l\'agenda. Tu peux l\'y confirmer ou le rejeter. La valeur n\'est reprise que si le rendez-vous est confirmé.';
 
   @override
   String get reminderFor => 'Pour';
@@ -1782,27 +1782,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Aucun calendrier de cet appareil n\'est modifiable. Ajoute un compte de calendrier dans les réglages du système, puis réessaie.';
+      'Aucun calendrier trouvé. Connecte-toi à un compte de calendrier dans les réglages du système, Google par exemple, puis réessaie.';
 
   @override
   String get spotHomeAgenda =>
-      'L\'agenda : tout ce qui est à venir, pour tous les chats et clowders.';
+      'Agenda : la liste des rendez-vous prévus — vétérinaire, médicaments, contrôles.';
 
   @override
-  String get spotAddReminder =>
-      'Ajouter un rappel — un plan avec une date. Il apparaît dans l\'agenda, pas sur la page, jusqu\'à ce que tu le marques fait.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Nouveau plan : choisis un champ, une date et une valeur.';
+  String get spotAgendaAdd => 'Prévoir un nouveau rendez-vous.';
 
   @override
   String get spotAgendaCalendar =>
-      'Active ceci pour voir chaque échéance dans le calendrier de ton téléphone.';
+      'Active ici le reflet des rendez-vous cat(a)log dans un calendrier de ton choix.';
 
   @override
   String get helpAgenda =>
-      'Tout ce qui est à venir, par date ; ce qui est en retard reste en haut jusqu\'à ce que ce soit réglé. Touche une carte pour ouvrir le chat ou le clowder. La coche marque un plan fait — elle enregistre la valeur et peut prévoir le prochain tour. Reste appuyé sur une carte pour changer sa date ou la retirer. L\'interrupteur calendrier reflète chaque échéance dans un calendrier de ton téléphone ; le menu les exporte en fichier calendrier.';
+      'L\'agenda liste les rendez-vous prévus par date. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier.';
 
   @override
   String get calendarRowOff => 'Calendrier : désactivé';
@@ -1811,4 +1806,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Calendrier : $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Prévoir un rendez-vous pour ce chat. Il apparaît dans l\'agenda et s\'y confirme.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Prévoir un rendez-vous pour ce clowder. Il apparaît dans l\'agenda et s\'y confirme.';
+
+  @override
+  String get readOnlyCalendar => 'lecture seule';
 }

@@ -1597,7 +1597,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderLabel => '提醒';
 
   @override
-  String get agendaEmpty => '没有待办事项。在任意字段选一个未来日期，它就会出现在这里。';
+  String get agendaEmpty => '没有已计划的安排。可以在这里用加号，或在猫或猫群的页面上计划新的安排。';
 
   @override
   String get dueToday => '今天到期';
@@ -1662,7 +1662,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      '每个到期日都会成为本设备 cat(a)log 日历中的全天事件。请在 cat(a)log 中修改日期，不要在日历中改。';
+      '安排会以全天事件的形式出现在日历中。cat(a)log 每次启动和每次更改后都会在那里更新它们。安排的提醒可以在日历中管理。';
 
   @override
   String get syncPeerOlder =>
@@ -1685,7 +1685,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get plannedSection => '计划';
 
   @override
-  String get reminderDialogHint => '在你标记完成之前，它会显示在日程中。当前值保持不变。';
+  String get reminderDialogHint => '安排会显示在日程中。你可以在那里确认或放弃它。只有在确认安排后，该值才会被采用。';
 
   @override
   String get reminderFor => '对象';
@@ -1709,23 +1709,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String get calendarGone => '所选日历已不存在，因此同步已关闭。请重新打开并选择另一个日历。';
 
   @override
-  String get noWritableCalendar => '本设备上没有可写入的日历。请在系统设置中添加日历账户，然后重试。';
+  String get noWritableCalendar => '未找到日历。请在系统设置中登录一个日历账户（例如 Google），然后重试。';
 
   @override
-  String get spotHomeAgenda => '日程：所有猫和猫群的待办事项都在这里。';
+  String get spotHomeAgenda => '日程：已计划的安排列表——看兽医、用药、检查。';
 
   @override
-  String get spotAddReminder => '添加提醒——带日期的计划。在你标记完成之前，它显示在日程中，而不是页面上。';
+  String get spotAgendaAdd => '计划一次新的安排。';
 
   @override
-  String get spotAgendaAdd => '新计划：选择字段、日期和值。';
-
-  @override
-  String get spotAgendaCalendar => '打开后，每个到期日都会出现在手机日历中。';
+  String get spotAgendaCalendar => '在这里开启，把 cat(a)log 的安排同步到你选择的日历。';
 
   @override
   String get helpAgenda =>
-      '所有待办按日期排列；超期的会一直置顶，直到处理完毕。点击卡片打开猫或猫群。勾选表示完成——记录该值，并可安排下一轮。长按卡片可更改日期或删除。日历开关把每个到期日同步到手机日历；菜单可导出为日历文件。';
+      '日程按日期列出已计划的安排。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。';
 
   @override
   String get calendarRowOff => '日历：关';
@@ -1734,4 +1731,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String calendarRowOn(String name) {
     return '日历：$name';
   }
+
+  @override
+  String get spotAddReminderCat => '为这只猫计划一次安排。它会显示在日程中，并在那里确认。';
+
+  @override
+  String get spotAddReminderClowder => '为这个猫群计划一次安排。它会显示在日程中，并在那里确认。';
+
+  @override
+  String get readOnlyCalendar => '只读';
 }

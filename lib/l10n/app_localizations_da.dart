@@ -1651,7 +1651,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Intet forfalder. Vælg en fremtidig dato på et felt, så vises den her.';
+      'Ingen aftaler planlagt. Planlæg nye her med plusset eller på en kats eller clowders side.';
 
   @override
   String get dueToday => 'i dag';
@@ -1718,7 +1718,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Hver forfaldsdato bliver en heldagsbegivenhed i en cat(a)log-kalender på denne enhed. Ret datoer i cat(a)log, ikke i kalenderen.';
+      'Aftalerne vises som heldagsaftaler i kalenderen. cat(a)log opdaterer dem dér ved hver start og efter hver ændring. Påmindelser om aftalerne styrer du i kalenderen.';
 
   @override
   String get syncPeerOlder =>
@@ -1744,7 +1744,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Vises i påmindelserne, indtil du markerer den som udført. Den nuværende værdi forbliver, som den er.';
+      'Aftalen vises i påmindelserne. Dér kan du bekræfte eller forkaste den. Værdien overtages først, når aftalen er bekræftet.';
 
   @override
   String get reminderFor => 'For';
@@ -1772,26 +1772,22 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Ingen kalender på denne enhed kan skrives til. Tilføj en kalenderkonto i systemindstillingerne, og prøv igen.';
+      'Ingen kalender fundet. Log ind på en kalenderkonto i systemindstillingerne, fx Google, og prøv igen.';
 
   @override
   String get spotHomeAgenda =>
-      'Påmindelserne: alt, der forfalder, på tværs af alle katte og clowders.';
+      'Påmindelser: listen over planlagte aftaler — dyrlæge, medicin, kontroller.';
 
   @override
-  String get spotAddReminder =>
-      'Tilføj en påmindelse — en plan med en dato. Den vises i påmindelserne, ikke på siden, indtil du markerer den udført.';
-
-  @override
-  String get spotAgendaAdd => 'Ny plan: vælg et felt, en dato og en værdi.';
+  String get spotAgendaAdd => 'Planlæg en ny aftale.';
 
   @override
   String get spotAgendaCalendar =>
-      'Slå dette til for at se hver forfaldsdato i telefonens kalender.';
+      'Slå spejlingen af cat(a)log-aftalerne til en kalender efter eget valg til her.';
 
   @override
   String get helpAgenda =>
-      'Alt, der forfalder, efter dato; det forsinkede bliver øverst, indtil det er ordnet. Tryk på et kort for at åbne katten eller clowderen. Fluebenet markerer en plan som udført — det gemmer værdien og kan planlægge næste runde. Hold et kort nede for at ændre datoen eller fjerne det. Kalenderkontakten spejler hver forfaldsdato til en kalender på din telefon; menuen eksporterer dem som kalenderfil.';
+      'Påmindelserne viser de planlagte aftaler efter dato. Oversete aftaler bliver stående øverst. Tryk åbner katten eller clowderen. Fluebenet bekræfter en aftale: Værdien skrives i feltet, og du kan straks planlægge den næste, fx om tre måneder. Hold nede for at ændre datoen eller slette aftalen. Kontakten øverst spejler aftalerne til en kalender på din telefon. Menuen eksporterer dem som kalenderfil.';
 
   @override
   String get calendarRowOff => 'Kalender: fra';
@@ -1800,4 +1796,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalender: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Planlæg en aftale for denne kat. Den vises i påmindelserne og bekræftes dér.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Planlæg en aftale for denne clowder. Den vises i påmindelserne og bekræftes dér.';
+
+  @override
+  String get readOnlyCalendar => 'skrivebeskyttet';
 }

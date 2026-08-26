@@ -1651,7 +1651,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nič ne zapade. Izberi prihodnji datum na polju in prikazal se bo tukaj.';
+      'Ni načrtovanih terminov. Nove načrtuješ tukaj s plusom ali na strani mačke ali clowderja.';
 
   @override
   String get dueToday => 'danes';
@@ -1722,7 +1722,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Vsak rok postane celodnevni dogodek v koledarju cat(a)log na tej napravi. Datume spreminjaj v cat(a)logu, ne v koledarju.';
+      'Termini se v koledarju prikažejo kot celodnevni dogodki. cat(a)log jih tam posodobi ob vsakem zagonu in po vsaki spremembi. Opomnike na termine upravljaš v koledarju.';
 
   @override
   String get syncPeerOlder =>
@@ -1747,7 +1747,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Prikazuje se med opomniki, dokler ga ne označiš kot opravljenega. Trenutna vrednost ostane, kakršna je.';
+      'Termin se prikaže med opomniki. Tam ga lahko potrdiš ali zavržeš. Vrednost se prevzame le, če je termin potrjen.';
 
   @override
   String get reminderFor => 'Za';
@@ -1775,26 +1775,22 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'V noben koledar na tej napravi ni mogoče pisati. Dodaj račun koledarja v sistemskih nastavitvah in poskusi znova.';
+      'Koledarja ni bilo mogoče najti. V sistemskih nastavitvah se prijavi v račun koledarja, na primer Google, in poskusi znova.';
 
   @override
   String get spotHomeAgenda =>
-      'Opomniki: vse, kar zapade, za vse mačke in clowderje.';
+      'Opomniki: seznam načrtovanih terminov — veterinar, zdravila, pregledi.';
 
   @override
-  String get spotAddReminder =>
-      'Dodaj opomnik — načrt z datumom. Prikazuje se med opomniki, ne na strani, dokler ga ne označiš kot opravljenega.';
-
-  @override
-  String get spotAgendaAdd => 'Nov načrt: izberi polje, datum in vrednost.';
+  String get spotAgendaAdd => 'Načrtuj nov termin.';
 
   @override
   String get spotAgendaCalendar =>
-      'Vklopi to, da vidiš vsak rok v koledarju svojega telefona.';
+      'Tukaj vklopi zrcaljenje terminov cat(a)log v izbrani koledar.';
 
   @override
   String get helpAgenda =>
-      'Vse, kar zapade, po datumu; zamujeno ostane na vrhu, dokler ni urejeno. Tapni kartico, da odpreš mačko ali clowder. Kljukica označi načrt kot opravljen — zabeleži vrednost in lahko načrtuje naslednji krog. Pridrži kartico, da spremeniš datum ali jo odstraniš. Stikalo koledarja zrcali vsak rok v koledar tvojega telefona; meni jih izvozi kot koledarsko datoteko.';
+      'Opomniki prikazujejo načrtovane termine po datumu. Zamujeni ostanejo na vrhu. Dotik odpre mačko ali clowder. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko.';
 
   @override
   String get calendarRowOff => 'Koledar: izklopljen';
@@ -1803,4 +1799,15 @@ class AppLocalizationsSl extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Koledar: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Načrtuj termin za to mačko. Prikaže se med opomniki in se tam potrdi.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Načrtuj termin za ta clowder. Prikaže se med opomniki in se tam potrdi.';
+
+  @override
+  String get readOnlyCalendar => 'samo za branje';
 }

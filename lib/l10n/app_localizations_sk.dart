@@ -1651,7 +1651,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nič nie je naplánované. Zvoľ pri poli budúci dátum a objaví sa tu.';
+      'Žiadne termíny nie sú naplánované. Nové naplánuješ tu plusom alebo na stránke mačky či clowderu.';
 
   @override
   String get dueToday => 'dnes';
@@ -1720,7 +1720,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Každý termín sa stane celodennou udalosťou v kalendári cat(a)log na tomto zariadení. Dátumy meň v cat(a)logu, nie v kalendári.';
+      'Termíny sa v kalendári objavia ako celodenné udalosti. cat(a)log ich tam aktualizuje pri každom spustení a po každej zmene. Upozornenia na termíny spravuješ v kalendári.';
 
   @override
   String get syncPeerOlder =>
@@ -1745,7 +1745,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Zobrazuje sa v pripomienkach, kým ju neoznačíš ako hotovú. Súčasná hodnota zostáva, aká je.';
+      'Termín sa zobrazí v pripomienkach. Tam ho môžeš potvrdiť alebo zahodiť. Hodnota sa prevezme, len ak bol termín potvrdený.';
 
   @override
   String get reminderFor => 'Pre';
@@ -1773,26 +1773,22 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Do žiadneho kalendára na tomto zariadení sa nedá zapisovať. Pridaj v nastaveniach systému účet kalendára a skús to znova.';
+      'Kalendár sa nenašiel. Prihlás sa v nastaveniach systému do účtu kalendára, napríklad Google, a skús to znova.';
 
   @override
   String get spotHomeAgenda =>
-      'Pripomienky: všetko, čo je naplánované, naprieč mačkami a clowdermi.';
+      'Pripomienky: zoznam naplánovaných termínov — veterinár, lieky, kontroly.';
 
   @override
-  String get spotAddReminder =>
-      'Pridať pripomienku — plán s dátumom. Zobrazuje sa v pripomienkach, nie na stránke, kým ju neoznačíš ako hotovú.';
-
-  @override
-  String get spotAgendaAdd => 'Nový plán: zvoľ pole, dátum a hodnotu.';
+  String get spotAgendaAdd => 'Naplánovať nový termín.';
 
   @override
   String get spotAgendaCalendar =>
-      'Zapni to, aby si videl každý termín v kalendári telefónu.';
+      'Zapni tu zrkadlenie termínov cat(a)logu do vybraného kalendára.';
 
   @override
   String get helpAgenda =>
-      'Všetko, čo je naplánované, podľa dátumu; čo je po termíne, ostáva navrchu, kým to nevybavíš. Ťukni na kartu a otvoríš mačku alebo clowder. Fajka označí plán ako hotový — zapíše hodnotu a môže naplánovať ďalšie kolo. Podrž kartu a zmeníš dátum alebo ju odstrániš. Prepínač kalendára zrkadlí každý termín do kalendára telefónu; ponuka ich exportuje ako súbor kalendára.';
+      'Pripomienky ukazujú naplánované termíny podľa dátumu. Zmeškané ostávajú navrchu. Ťuknutie otvorí mačku alebo clowder. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára.';
 
   @override
   String get calendarRowOff => 'Kalendár: vypnuté';
@@ -1801,4 +1797,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendár: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Naplánuj termín pre túto mačku. Zobrazí sa v pripomienkach a tam sa potvrdí.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Naplánuj termín pre tento clowder. Zobrazí sa v pripomienkach a tam sa potvrdí.';
+
+  @override
+  String get readOnlyCalendar => 'len na čítanie';
 }

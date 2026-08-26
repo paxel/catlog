@@ -1653,7 +1653,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Mikään ei ole erääntymässä. Valitse kentälle tuleva päivämäärä, niin se näkyy täällä.';
+      'Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai kissan tai clowderin sivulta.';
 
   @override
   String get dueToday => 'tänään';
@@ -1720,7 +1720,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Jokaisesta eräpäivästä tulee koko päivän tapahtuma cat(a)log-kalenteriin tällä laitteella. Muuta päivämääriä cat(a)logissa, älä kalenterissa.';
+      'Tapaamiset näkyvät koko päivän tapahtumina kalenterissa. cat(a)log päivittää ne siellä jokaisella käynnistyksellä ja jokaisen muutoksen jälkeen. Tapaamisten hälytyksiä hallitset kalenterissa.';
 
   @override
   String get syncPeerOlder =>
@@ -1746,7 +1746,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Näkyy muistutuksissa, kunnes merkitset sen tehdyksi. Nykyinen arvo pysyy ennallaan.';
+      'Tapaaminen näkyy muistutuksissa. Siellä voit vahvistaa tai hylätä sen. Arvo otetaan käyttöön vasta, kun tapaaminen on vahvistettu.';
 
   @override
   String get reminderFor => 'Kenelle';
@@ -1774,27 +1774,22 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Tämän laitteen kalentereihin ei voi kirjoittaa. Lisää kalenteritili järjestelmän asetuksissa ja yritä uudelleen.';
+      'Kalenteria ei löytynyt. Kirjaudu järjestelmän asetuksissa kalenteritilille, esimerkiksi Googleen, ja yritä uudelleen.';
 
   @override
   String get spotHomeAgenda =>
-      'Muistutukset: kaikki erääntyvä, kaikista kissoista ja clowdereista.';
+      'Muistutukset: suunniteltujen tapaamisten lista — eläinlääkäri, lääkkeet, tarkastukset.';
 
   @override
-  String get spotAddReminder =>
-      'Lisää muistutus — suunnitelma päivämäärällä. Se näkyy muistutuksissa, ei sivulla, kunnes merkitset sen tehdyksi.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Uusi suunnitelma: valitse kenttä, päivämäärä ja arvo.';
+  String get spotAgendaAdd => 'Suunnittele uusi tapaaminen.';
 
   @override
   String get spotAgendaCalendar =>
-      'Kytke tämä päälle nähdäksesi jokaisen eräpäivän puhelimesi kalenterissa.';
+      'Kytke tästä päälle cat(a)login tapaamisten peilaus valitsemaasi kalenteriin.';
 
   @override
   String get helpAgenda =>
-      'Kaikki erääntyvä päivämäärän mukaan; myöhässä oleva pysyy ylimpänä, kunnes se on hoidettu. Napauta korttia avataksesi kissan tai clowderin. Väkänen merkitsee suunnitelman tehdyksi — se tallentaa arvon ja voi ajoittaa seuraavan kierroksen. Paina korttia pitkään muuttaaksesi päivämäärää tai poistaaksesi sen. Kalenterikytkin peilaa jokaisen eräpäivän puhelimesi kalenteriin; valikko vie ne kalenteritiedostona.';
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona.';
 
   @override
   String get calendarRowOff => 'Kalenteri: pois';
@@ -1803,4 +1798,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalenteri: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Suunnittele tapaaminen tälle kissalle. Se näkyy muistutuksissa ja vahvistetaan siellä.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Suunnittele tapaaminen tälle clowderille. Se näkyy muistutuksissa ja vahvistetaan siellä.';
+
+  @override
+  String get readOnlyCalendar => 'vain luku';
 }

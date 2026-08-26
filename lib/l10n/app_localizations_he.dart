@@ -1641,7 +1641,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'אין שום דבר קרוב. בחרו תאריך עתידי בשדה כלשהו והוא יופיע כאן.';
+      'אין פגישות מתוכננות. תכננו חדשות כאן בפלוס, או בדף של חתול או קבוצה.';
 
   @override
   String get dueToday => 'היום';
@@ -1710,7 +1710,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'כל מועד הופך לאירוע של יום שלם ביומן cat(a)log במכשיר הזה. שנו תאריכים ב-cat(a)log, לא ביומן.';
+      'הפגישות מופיעות ביומן כאירועים של יום שלם. cat(a)log מעדכן אותן שם בכל הפעלה ואחרי כל שינוי. את ההתראות לפגישות מנהלים ביומן.';
 
   @override
   String get syncPeerOlder =>
@@ -1735,7 +1735,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'מוצג בתזכורות עד שתסמנו כבוצע. הערך הנוכחי נשאר כמו שהוא.';
+      'הפגישה מוצגת בתזכורות. שם אפשר לאשר או לדחות אותה. הערך מאומץ רק כשהפגישה אושרה.';
 
   @override
   String get reminderFor => 'עבור';
@@ -1763,25 +1763,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'אי אפשר לכתוב לשום יומן במכשיר הזה. הוסיפו חשבון יומן בהגדרות המערכת ונסו שוב.';
+      'לא נמצא יומן. היכנסו בהגדרות המערכת לחשבון יומן, למשל Google, ונסו שוב.';
 
   @override
-  String get spotHomeAgenda => 'התזכורות: כל מה שקרוב, בכל החתולים והקבוצות.';
+  String get spotHomeAgenda =>
+      'התזכורות: רשימת הפגישות המתוכננות — וטרינר, תרופות, בדיקות.';
 
   @override
-  String get spotAddReminder =>
-      'הוסיפו תזכורת — תוכנית עם תאריך. היא מוצגת בתזכורות, לא בדף, עד שתסמנו אותה כבוצעה.';
-
-  @override
-  String get spotAgendaAdd => 'תוכנית חדשה: בחרו שדה, תאריך וערך.';
+  String get spotAgendaAdd => 'תכננו פגישה חדשה.';
 
   @override
   String get spotAgendaCalendar =>
-      'הפעילו את זה כדי לראות כל מועד ביומן של הטלפון.';
+      'הפעילו כאן את שיקוף הפגישות של cat(a)log ליומן לבחירתכם.';
 
   @override
   String get helpAgenda =>
-      'כל מה שקרוב, לפי תאריך; מה שבאיחור נשאר למעלה עד שמטפלים בו. הקישו על כרטיס כדי לפתוח את החתול או הקבוצה. הסימון מסמן תוכנית כבוצעה — הוא רושם את הערך ויכול לתזמן את הסבב הבא. לחצו לחיצה ארוכה על כרטיס כדי לשנות את התאריך או להסירו. מתג היומן משקף כל מועד ליומן בטלפון; התפריט מייצא אותם כקובץ יומן.';
+      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן.';
 
   @override
   String get calendarRowOff => 'יומן: כבוי';
@@ -1790,4 +1787,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'יומן: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'תכננו פגישה לחתול הזה. היא מוצגת בתזכורות ומאושרת שם.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'תכננו פגישה לקבוצה הזו. היא מוצגת בתזכורות ומאושרת שם.';
+
+  @override
+  String get readOnlyCalendar => 'קריאה בלבד';
 }

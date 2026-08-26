@@ -1652,7 +1652,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Bekleyen bir şey yok. Bir alanda gelecekteki bir tarih seç, burada görünür.';
+      'Planlanmış randevu yok. Yenilerini burada artı ile ya da bir kedinin veya clowder\'ın sayfasında planla.';
 
   @override
   String get dueToday => 'bugün';
@@ -1719,7 +1719,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Her vade, bu cihazdaki bir cat(a)log takviminde tüm gün süren bir etkinlik olur. Tarihleri takvimde değil, cat(a)log içinde değiştir.';
+      'Randevular takvimde tüm gün süren etkinlikler olarak görünür. cat(a)log her açılışta ve her değişiklikten sonra onları orada günceller. Randevu uyarılarını takvimde yönetebilirsin.';
 
   @override
   String get syncPeerOlder =>
@@ -1745,7 +1745,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Yapıldı olarak işaretleyene kadar ajandada görünür. Mevcut değer olduğu gibi kalır.';
+      'Randevu ajandada görünür. Orada onaylayabilir veya vazgeçebilirsin. Değer yalnızca randevu onaylandığında alınır.';
 
   @override
   String get reminderFor => 'Kimin için';
@@ -1773,27 +1773,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Bu cihazda yazılabilir bir takvim yok. Sistem ayarlarından bir takvim hesabı ekle ve yeniden dene.';
+      'Takvim bulunamadı. Sistem ayarlarında bir takvim hesabına, örneğin Google\'a giriş yap ve yeniden dene.';
 
   @override
   String get spotHomeAgenda =>
-      'Ajanda: tüm kediler ve clowderlar için bekleyen her şey.';
+      'Ajanda: planlanan randevuların listesi — veteriner, ilaç, kontroller.';
 
   @override
-  String get spotAddReminder =>
-      'Hatırlatma ekle — tarihli bir plan. Yapıldı olarak işaretleyene kadar sayfada değil, ajandada görünür.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Yeni plan: bir alan, bir tarih ve bir değer seç.';
+  String get spotAgendaAdd => 'Yeni bir randevu planla.';
 
   @override
   String get spotAgendaCalendar =>
-      'Her vadeyi telefonunun takviminde görmek için bunu aç.';
+      'cat(a)log randevularının seçtiğin bir takvime yansıtılmasını buradan aç.';
 
   @override
   String get helpAgenda =>
-      'Bekleyen her şey, tarihe göre; gecikmiş olan halledilene kadar üstte kalır. Kediyi veya clowder\'ı açmak için bir karta dokun. Onay işareti planı yapıldı olarak işaretler — değeri kaydeder ve sonraki turu planlayabilir. Tarihini değiştirmek veya kaldırmak için bir kartı basılı tut. Takvim anahtarı her vadeyi telefonunun bir takvimine yansıtır; menü onları takvim dosyası olarak dışa aktarır.';
+      'Ajanda planlanan randevuları tarihe göre listeler. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
@@ -1802,4 +1797,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Takvim: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Bu kedi için bir randevu planla. Ajandada görünür ve orada onaylanır.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Bu clowder için bir randevu planla. Ajandada görünür ve orada onaylanır.';
+
+  @override
+  String get readOnlyCalendar => 'salt okunur';
 }

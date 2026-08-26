@@ -38,11 +38,18 @@ class DeviceCalendarPort implements CalendarPort {
   @override
   Future<List<CalendarChoice>> listCalendars() async {
     final calendars = await _plugin.retrieveCalendars();
+    if (calendars.hasErrors) {
+      throw CalendarPortException(
+          calendars.errors.map((e) => e.errorMessage).join('; '));
+    }
     return [
       for (final c in calendars.data ?? const <Calendar>[])
-        if (c.id != null && c.isReadOnly != true)
+        if (c.id != null)
           CalendarChoice(
-              id: c.id!, name: c.name ?? c.id!, account: c.accountName),
+              id: c.id!,
+              name: c.name ?? c.id!,
+              account: c.accountName,
+              writable: c.isReadOnly != true),
     ];
   }
 

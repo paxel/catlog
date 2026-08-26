@@ -54,7 +54,7 @@ void main() {
 
   testWidgets('empty agenda explains itself', (tester) async {
     await pump(tester);
-    expect(find.textContaining('Nothing is due'), findsOneWidget);
+    expect(find.textContaining('No appointments planned'), findsOneWidget);
   });
 
   testWidgets('done records the fact; declining repeat ends the plan',
@@ -69,7 +69,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(store.activeReminders(), isEmpty);
     expect(store.current(cat, Keys.userField('remarks')), 'worming');
-    expect(find.textContaining('Nothing is due'), findsOneWidget);
+    expect(find.textContaining('No appointments planned'), findsOneWidget);
   });
 
   testWidgets('done with a repeat schedules the next cycle',
@@ -167,7 +167,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byTooltip('Add reminder'));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Shows in the Agenda'), findsOneWidget);
+    expect(find.textContaining('The appointment shows in the Agenda'), findsOneWidget);
     await tester.tap(find.byType(DropdownButtonFormField<String>).last);
     await tester.pumpAndSettle();
     // What a cat *is* cannot be planned: no Gender in the list.

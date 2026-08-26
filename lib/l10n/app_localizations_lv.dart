@@ -1652,7 +1652,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nekas nav gaidāms. Izvēlies laukam nākotnes datumu, un tas parādīsies šeit.';
+      'Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai kaķa vai klaudera lapā.';
 
   @override
   String get dueToday => 'šodien';
@@ -1721,7 +1721,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Katrs termiņš kļūst par visas dienas notikumu cat(a)log kalendārā šajā ierīcē. Datumus maini cat(a)log, nevis kalendārā.';
+      'Vizītes kalendārā parādās kā visas dienas notikumi. cat(a)log tās tur atjaunina katrā palaišanā un pēc katras izmaiņas. Vizīšu atgādinājumus pārvaldi kalendārā.';
 
   @override
   String get syncPeerOlder =>
@@ -1747,7 +1747,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Rādās atgādinājumos, līdz atzīmēsi kā izdarītu. Pašreizējā vērtība paliek, kāda ir.';
+      'Vizīte rādās atgādinājumos. Tur vari to apstiprināt vai noraidīt. Vērtība tiek pārņemta tikai tad, ja vizīte ir apstiprināta.';
 
   @override
   String get reminderFor => 'Kam';
@@ -1775,26 +1775,22 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Nevienā šīs ierīces kalendārā nevar rakstīt. Pievieno kalendāra kontu sistēmas iestatījumos un mēģini vēlreiz.';
+      'Kalendārs nav atrasts. Sistēmas iestatījumos pieslēdzies kalendāra kontam, piemēram Google, un mēģini vēlreiz.';
 
   @override
   String get spotHomeAgenda =>
-      'Atgādinājumi: viss, kas gaidāms, visiem kaķiem un klauderiem.';
+      'Atgādinājumi: ieplānoto vizīšu saraksts — veterinārārsts, zāles, pārbaudes.';
 
   @override
-  String get spotAddReminder =>
-      'Pievienot atgādinājumu — plānu ar datumu. Tas rādās atgādinājumos, nevis lapā, līdz atzīmēsi to kā izdarītu.';
-
-  @override
-  String get spotAgendaAdd => 'Jauns plāns: izvēlies lauku, datumu un vērtību.';
+  String get spotAgendaAdd => 'Ieplānot jaunu vizīti.';
 
   @override
   String get spotAgendaCalendar =>
-      'Ieslēdz šo, lai redzētu katru termiņu tālruņa kalendārā.';
+      'Šeit ieslēdz cat(a)log vizīšu atspoguļošanu izvēlētā kalendārā.';
 
   @override
   String get helpAgenda =>
-      'Viss, kas gaidāms, pēc datuma; nokavētais paliek augšā, līdz tiek nokārtots. Pieskaries kartītei, lai atvērtu kaķi vai klauderi. Ķeksītis atzīmē plānu kā izdarītu — ieraksta vērtību un var ieplānot nākamo reizi. Turi kartīti nospiestu, lai mainītu datumu vai to noņemtu. Kalendāra slēdzis atspoguļo katru termiņu tālruņa kalendārā; izvēlne tos eksportē kā kalendāra failu.';
+      'Atgādinājumi rāda ieplānotās vizītes pēc datuma. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu.';
 
   @override
   String get calendarRowOff => 'Kalendārs: izslēgts';
@@ -1803,4 +1799,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendārs: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Ieplāno vizīti šim kaķim. Tā rādās atgādinājumos un tur tiek apstiprināta.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Ieplāno vizīti šim klauderim. Tā rādās atgādinājumos un tur tiek apstiprināta.';
+
+  @override
+  String get readOnlyCalendar => 'tikai lasāms';
 }

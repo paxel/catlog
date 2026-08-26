@@ -1655,7 +1655,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nieko nelaukia. Pasirink lauke būsimą datą ir ji atsiras čia.';
+      'Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba katės ar klauderio puslapyje.';
 
   @override
   String get dueToday => 'šiandien';
@@ -1726,7 +1726,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Kiekvienas terminas tampa visos dienos įvykiu cat(a)log kalendoriuje šiame įrenginyje. Datas keisk cat(a)log, ne kalendoriuje.';
+      'Vizitai kalendoriuje rodomi kaip visos dienos įvykiai. cat(a)log juos ten atnaujina kiekvieną kartą paleidus ir po kiekvieno pakeitimo. Vizitų priminimus tvarkai kalendoriuje.';
 
   @override
   String get syncPeerOlder =>
@@ -1752,7 +1752,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Rodoma priminimuose, kol pažymėsi kaip atliktą. Dabartinė reikšmė lieka tokia, kokia yra.';
+      'Vizitas rodomas priminimuose. Ten gali jį patvirtinti arba atmesti. Reikšmė perimama tik tada, kai vizitas patvirtintas.';
 
   @override
   String get reminderFor => 'Kam';
@@ -1780,26 +1780,22 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Į jokį šio įrenginio kalendorių negalima rašyti. Pridėk kalendoriaus paskyrą sistemos nustatymuose ir bandyk dar kartą.';
+      'Kalendorius nerastas. Sistemos nustatymuose prisijunk prie kalendoriaus paskyros, pavyzdžiui Google, ir bandyk dar kartą.';
 
   @override
   String get spotHomeAgenda =>
-      'Priminimai: viskas, kas laukia, per visas kates ir klauderius.';
+      'Priminimai: suplanuotų vizitų sąrašas — veterinaras, vaistai, patikros.';
 
   @override
-  String get spotAddReminder =>
-      'Pridėti priminimą — planą su data. Jis rodomas priminimuose, ne puslapyje, kol pažymėsi kaip atliktą.';
-
-  @override
-  String get spotAgendaAdd => 'Naujas planas: pasirink lauką, datą ir reikšmę.';
+  String get spotAgendaAdd => 'Suplanuoti naują vizitą.';
 
   @override
   String get spotAgendaCalendar =>
-      'Įjunk tai, kad matytum kiekvieną terminą telefono kalendoriuje.';
+      'Čia įjunk cat(a)log vizitų atspindėjimą į pasirinktą kalendorių.';
 
   @override
   String get helpAgenda =>
-      'Viskas, kas laukia, pagal datą; pavėluota lieka viršuje, kol sutvarkoma. Bakstelėk kortelę, kad atvertum katę ar klauderį. Varnelė pažymi planą atliktu — įrašo reikšmę ir gali suplanuoti kitą kartą. Palaikyk kortelę nuspaudę, kad pakeistum datą ar pašalintum. Kalendoriaus jungiklis atspindi kiekvieną terminą telefono kalendoriuje; meniu juos eksportuoja kalendoriaus failu.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu.';
 
   @override
   String get calendarRowOff => 'Kalendorius: išjungta';
@@ -1808,4 +1804,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendorius: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Suplanuok vizitą šiai katei. Jis rodomas priminimuose ir ten patvirtinamas.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Suplanuok vizitą šiam klauderiui. Jis rodomas priminimuose ir ten patvirtinamas.';
+
+  @override
+  String get readOnlyCalendar => 'tik skaityti';
 }

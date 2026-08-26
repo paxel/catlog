@@ -1653,7 +1653,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nimic scadent. Alege o dată viitoare la un câmp și apare aici.';
+      'Nicio programare planificată. Planifică altele aici cu plusul sau pe pagina unei pisici sau a unui clowder.';
 
   @override
   String get dueToday => 'azi';
@@ -1722,7 +1722,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Fiecare scadență devine un eveniment de o zi întreagă într-un calendar cat(a)log pe acest dispozitiv. Schimbă datele în cat(a)log, nu în calendar.';
+      'Programările apar ca evenimente de o zi întreagă în calendar. cat(a)log le actualizează acolo la fiecare pornire și după fiecare modificare. Alertele pentru programări le gestionezi în calendar.';
 
   @override
   String get syncPeerOlder =>
@@ -1748,7 +1748,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Apare în agendă până îl marchezi ca făcut. Valoarea curentă rămâne așa cum este.';
+      'Programarea apare în agendă. Acolo o poți confirma sau respinge. Valoarea este preluată doar dacă programarea a fost confirmată.';
 
   @override
   String get reminderFor => 'Pentru';
@@ -1776,26 +1776,22 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Niciun calendar de pe acest dispozitiv nu permite scrierea. Adaugă un cont de calendar în setările sistemului și încearcă din nou.';
+      'Niciun calendar găsit. Conectează-te la un cont de calendar în setările sistemului, de exemplu Google, și încearcă din nou.';
 
   @override
   String get spotHomeAgenda =>
-      'Agenda: tot ce este scadent, pentru toate pisicile și clowderii.';
+      'Agenda: lista programărilor planificate — veterinar, medicamente, controale.';
 
   @override
-  String get spotAddReminder =>
-      'Adaugă un memento — un plan cu dată. Apare în agendă, nu pe pagină, până îl marchezi ca făcut.';
-
-  @override
-  String get spotAgendaAdd => 'Plan nou: alege un câmp, o dată și o valoare.';
+  String get spotAgendaAdd => 'Planifică o programare nouă.';
 
   @override
   String get spotAgendaCalendar =>
-      'Pornește asta ca să vezi fiecare scadență în calendarul telefonului.';
+      'Pornește aici oglindirea programărilor cat(a)log într-un calendar la alegere.';
 
   @override
   String get helpAgenda =>
-      'Tot ce este scadent, după dată; ce a întârziat rămâne sus până e rezolvat. Atinge un card ca să deschizi pisica sau clowderul. Bifa marchează un plan ca făcut — înregistrează valoarea și poate programa runda următoare. Ține apăsat un card ca să-i schimbi data sau să-l elimini. Comutatorul de calendar oglindește fiecare scadență într-un calendar al telefonului; meniul le exportă ca fișier de calendar.';
+      'Agenda listează programările planificate după dată. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar.';
 
   @override
   String get calendarRowOff => 'Calendar: oprit';
@@ -1804,4 +1800,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Calendar: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Planifică o programare pentru această pisică. Apare în agendă și se confirmă acolo.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Planifică o programare pentru acest clowder. Apare în agendă și se confirmă acolo.';
+
+  @override
+  String get readOnlyCalendar => 'doar citire';
 }

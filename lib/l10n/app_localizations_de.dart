@@ -1659,7 +1659,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nichts fällig. Wähle bei einem Feld ein Datum in der Zukunft, dann erscheint es hier.';
+      'Keine Termine geplant. Neue Termine planst du hier mit dem Plus oder auf der Seite einer Katze oder Kolonie.';
 
   @override
   String get dueToday => 'heute fällig';
@@ -1726,7 +1726,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Jedes Fälligkeitsdatum wird ein ganztägiger Termin in einem cat(a)log-Kalender auf diesem Gerät. Daten in cat(a)log ändern, nicht im Kalender.';
+      'Die Termine erscheinen als ganztägige Termine im Kalender. cat(a)log aktualisiert sie dort bei jedem Start und nach jeder Änderung. Erinnerungen an die Termine kannst du im Kalender verwalten.';
 
   @override
   String get syncPeerOlder =>
@@ -1752,7 +1752,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Erscheint in der Agenda, bis du es als erledigt markierst. Der aktuelle Wert bleibt, wie er ist.';
+      'Der Termin wird in der Agenda angezeigt. Dort kannst du ihn bestätigen oder verwerfen. Der Wert wird nur übernommen, wenn der Termin bestätigt wurde.';
 
   @override
   String get reminderFor => 'Für';
@@ -1780,26 +1780,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Auf diesem Gerät ist kein Kalender beschreibbar. Füge in den Systemeinstellungen ein Kalenderkonto hinzu und versuche es erneut.';
+      'Kein Kalender gefunden. Melde dich in den Systemeinstellungen bei einem Kalenderkonto an, zum Beispiel Google, und versuche es erneut.';
 
   @override
   String get spotHomeAgenda =>
-      'Die Agenda: alles, was fällig ist — über alle Katzen und Kolonien.';
+      'Agenda: die Liste der geplanten Termine — Tierarzt, Medikamente, Kontrollen.';
 
   @override
-  String get spotAddReminder =>
-      'Erinnerung hinzufügen — ein Plan mit Datum. Er erscheint in der Agenda, nicht auf der Seite, bis du ihn als erledigt markierst.';
-
-  @override
-  String get spotAgendaAdd => 'Neuer Plan: Feld, Datum und Wert wählen.';
+  String get spotAgendaAdd => 'Einen neuen Termin planen.';
 
   @override
   String get spotAgendaCalendar =>
-      'Schalte das ein, um jedes Fälligkeitsdatum im Kalender deines Telefons zu sehen.';
+      'Aktiviere hier die Spiegelung der cat(a)log-Termine in einen ausgesuchten Kalender.';
 
   @override
   String get helpAgenda =>
-      'Alles, was fällig ist, nach Datum sortiert; Überfälliges bleibt oben, bis es erledigt ist. Tippe auf eine Karte, um Katze oder Kolonie zu öffnen. Der Haken markiert einen Plan als erledigt — er trägt den Wert ein und kann die nächste Runde planen. Halte eine Karte gedrückt, um ihr Datum zu ändern oder sie zu entfernen. Der Kalender-Schalter spiegelt jedes Fälligkeitsdatum in einen Kalender deines Telefons; das Menü exportiert sie als Kalenderdatei.';
+      'Die Agenda listet die geplanten Termine nach Datum. Verpasste Termine bleiben oben stehen. Tippen öffnet die Katze oder Kolonie. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren.';
 
   @override
   String get calendarRowOff => 'Kalender: aus';
@@ -1808,4 +1804,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalender: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Einen Termin für diese Katze planen. Der Termin wird in der Agenda angezeigt und kann dort bestätigt werden.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Einen Termin für diese Kolonie planen. Der Termin wird in der Agenda angezeigt und kann dort bestätigt werden.';
+
+  @override
+  String get readOnlyCalendar => 'nur lesen';
 }

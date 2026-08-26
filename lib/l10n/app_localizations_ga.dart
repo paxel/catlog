@@ -1659,7 +1659,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Níl aon rud le déanamh. Roghnaigh dáta amach anseo ar réimse agus taispeánfar anseo é.';
+      'Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach cait nó clowdair.';
 
   @override
   String get dueToday => 'inniu';
@@ -1732,7 +1732,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Éiríonn gach spriocdháta ina imeacht lae iomláin i bhféilire cat(a)log ar an ngléas seo. Athraigh dátaí in cat(a)log, ní san fhéilire.';
+      'Feictear na coinní mar imeachtaí lae iomláin san fhéilire. Nuashonraíonn cat(a)log ansin iad ag gach tosú agus tar éis gach athraithe. Is féidir leat foláirimh do na coinní a bhainistiú san fhéilire.';
 
   @override
   String get syncPeerOlder =>
@@ -1758,7 +1758,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Feictear é sna meabhrúcháin go dtí go marcálann tú déanta é. Fanann an luach reatha mar atá.';
+      'Feictear an choinne sna meabhrúcháin. Is féidir leat í a dheimhniú nó a dhiúltú ansin. Ní ghlactar an luach ach amháin nuair a dheimhnítear an choinne.';
 
   @override
   String get reminderFor => 'Do';
@@ -1786,26 +1786,22 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Ní féidir scríobh chuig aon fhéilire ar an ngléas seo. Cuir cuntas féilire leis i socruithe an chórais agus bain triail eile as.';
+      'Níor aimsíodh aon fhéilire. Logáil isteach i gcuntas féilire i socruithe an chórais, Google mar shampla, agus bain triail eile as.';
 
   @override
   String get spotHomeAgenda =>
-      'Na meabhrúcháin: gach a bhfuil le déanamh, ar fud na gcat agus na gclowdar.';
+      'Meabhrúcháin: liosta na gcoinní beartaithe — tréidlia, cógais, seiceálacha.';
 
   @override
-  String get spotAddReminder =>
-      'Cuir meabhrúchán leis — plean le dáta. Feictear é sna meabhrúcháin, ní ar an leathanach, go dtí go marcálann tú déanta é.';
-
-  @override
-  String get spotAgendaAdd => 'Plean nua: roghnaigh réimse, dáta agus luach.';
+  String get spotAgendaAdd => 'Beartaigh coinne nua.';
 
   @override
   String get spotAgendaCalendar =>
-      'Cas air seo chun gach spriocdháta a fheiceáil i bhféilire do ghutháin.';
+      'Cas air anseo scáthánú choinní cat(a)log isteach i bhféilire de do rogha.';
 
   @override
   String get helpAgenda =>
-      'Gach a bhfuil le déanamh, de réir dáta; fanann an rud thar téarma ar barr go dtí go ndéileáiltear leis. Tapáil cárta chun an cat nó an clowdar a oscailt. Marcálann an tic plean mar dhéanta — taifeadann sé an luach agus is féidir leis an chéad bhabhta eile a sceidealú. Coinnigh cárta brúite chun a dháta a athrú nó é a bhaint. Scáthánaíonn lasc an fhéilire gach spriocdháta isteach i bhféilire do ghutháin; easpórtálann an roghchlár iad mar chomhad féilire.';
+      'Liostálann na meabhrúcháin na coinní beartaithe de réir dáta. Fanann na cinn a cailleadh ar barr. Osclaíonn tapáil an cat nó an clowdar. Deimhníonn an tic coinne: scríobhtar an luach isteach sa réimse, agus is féidir leat an chéad cheann eile a bheartú láithreach, i gceann trí mhí mar shampla. Athraíonn brú fada an dáta nó scriosann sé an choinne. Scáthánaíonn an lasc ar barr na coinní isteach i bhféilire do ghutháin. Easpórtálann an roghchlár iad mar chomhad féilire.';
 
   @override
   String get calendarRowOff => 'Féilire: as';
@@ -1814,4 +1810,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Féilire: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Beartaigh coinne don chat seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Beartaigh coinne don chlowdar seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
+
+  @override
+  String get readOnlyCalendar => 'inléite amháin';
 }

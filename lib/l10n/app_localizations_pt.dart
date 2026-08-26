@@ -1654,7 +1654,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nada por vencer. Escolhe uma data futura num campo e aparece aqui.';
+      'Nenhum compromisso planeado. Planeia novos aqui com o mais, ou na página de um gato ou clowder.';
 
   @override
   String get dueToday => 'hoje';
@@ -1721,7 +1721,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Cada vencimento torna-se um evento de dia inteiro num calendário cat(a)log neste dispositivo. Muda as datas no cat(a)log, não no calendário.';
+      'Os compromissos aparecem como eventos de dia inteiro no calendário. O cat(a)log atualiza-os lá em cada arranque e depois de cada alteração. Os alertas dos compromissos geres no calendário.';
 
   @override
   String get syncPeerOlder =>
@@ -1747,7 +1747,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Aparece na agenda até o marcares como feito. O valor atual fica como está.';
+      'O compromisso aparece na agenda. Lá podes confirmá-lo ou rejeitá-lo. O valor só é adotado quando o compromisso é confirmado.';
 
   @override
   String get reminderFor => 'Para';
@@ -1775,27 +1775,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Nenhum calendário neste dispositivo permite escrita. Adiciona uma conta de calendário nas definições do sistema e tenta de novo.';
+      'Nenhum calendário encontrado. Inicia sessão numa conta de calendário nas definições do sistema, por exemplo Google, e tenta de novo.';
 
   @override
   String get spotHomeAgenda =>
-      'A agenda: tudo o que está por vencer, em todos os gatos e clowders.';
+      'Agenda: a lista dos compromissos planeados — veterinário, medicação, controlos.';
 
   @override
-  String get spotAddReminder =>
-      'Adicionar lembrete — um plano com data. Aparece na agenda, não na página, até o marcares como feito.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Novo plano: escolhe um campo, uma data e um valor.';
+  String get spotAgendaAdd => 'Planear um novo compromisso.';
 
   @override
   String get spotAgendaCalendar =>
-      'Liga isto para ver cada vencimento no calendário do teu telemóvel.';
+      'Liga aqui o espelho dos compromissos do cat(a)log para um calendário à tua escolha.';
 
   @override
   String get helpAgenda =>
-      'Tudo o que está por vencer, por data; o que está atrasado fica no topo até ser tratado. Toca num cartão para abrir o gato ou o clowder. O visto marca um plano como feito — regista o valor e pode agendar a próxima ronda. Mantém um cartão premido para mudar a data ou removê-lo. O interruptor do calendário espelha cada vencimento num calendário do teu telemóvel; o menu exporta-os como ficheiro de calendário.';
+      'A agenda lista os compromissos planeados por data. Os que passaram ficam no topo. Tocar abre o gato ou o clowder. O visto confirma um compromisso: o valor é escrito no campo e podes planear logo o próximo, por exemplo daqui a três meses. Manter premido muda a data ou apaga o compromisso. O interruptor no topo espelha os compromissos para um calendário do teu telemóvel. O menu exporta-os como ficheiro de calendário.';
 
   @override
   String get calendarRowOff => 'Calendário: desligado';
@@ -1804,4 +1799,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Calendário: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Planeia um compromisso para este gato. Aparece na agenda e é confirmado lá.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Planeia um compromisso para este clowder. Aparece na agenda e é confirmado lá.';
+
+  @override
+  String get readOnlyCalendar => 'só leitura';
 }

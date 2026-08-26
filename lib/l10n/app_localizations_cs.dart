@@ -1651,7 +1651,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nic není na spadnutí. Zvol u pole budoucí datum a objeví se tady.';
+      'Žádné termíny nejsou naplánované. Nové naplánuješ tady plusem nebo na stránce kočky či clowderu.';
 
   @override
   String get dueToday => 'dnes';
@@ -1720,7 +1720,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Každý termín se stane celodenní událostí v kalendáři cat(a)log na tomto zařízení. Data měň v cat(a)logu, ne v kalendáři.';
+      'Termíny se v kalendáři objeví jako celodenní události. cat(a)log je tam aktualizuje při každém spuštění a po každé změně. Upozornění na termíny spravuješ v kalendáři.';
 
   @override
   String get syncPeerOlder =>
@@ -1745,7 +1745,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Zobrazuje se v připomínkách, dokud ji neoznačíš jako hotovou. Současná hodnota zůstává, jak je.';
+      'Termín se zobrazí v připomínkách. Tam ho můžeš potvrdit nebo zahodit. Hodnota se převezme jen tehdy, když byl termín potvrzen.';
 
   @override
   String get reminderFor => 'Pro';
@@ -1773,26 +1773,22 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Do žádného kalendáře na tomto zařízení nejde zapisovat. Přidej v nastavení systému účet kalendáře a zkus to znovu.';
+      'Kalendář nenalezen. Přihlas se v nastavení systému k účtu kalendáře, třeba Google, a zkus to znovu.';
 
   @override
   String get spotHomeAgenda =>
-      'Připomínky: všechno, co je na spadnutí, napříč kočkami a clowdery.';
+      'Připomínky: seznam naplánovaných termínů — veterinář, léky, kontroly.';
 
   @override
-  String get spotAddReminder =>
-      'Přidat připomínku — plán s datem. Zobrazuje se v připomínkách, ne na stránce, dokud ji neoznačíš jako hotovou.';
-
-  @override
-  String get spotAgendaAdd => 'Nový plán: zvol pole, datum a hodnotu.';
+  String get spotAgendaAdd => 'Naplánovat nový termín.';
 
   @override
   String get spotAgendaCalendar =>
-      'Zapni to, abys viděl každý termín v kalendáři telefonu.';
+      'Zapni tady zrcadlení termínů cat(a)logu do vybraného kalendáře.';
 
   @override
   String get helpAgenda =>
-      'Všechno, co je na spadnutí, podle data; co je po termínu, zůstává nahoře, dokud to nevyřídíš. Klepni na kartu a otevřeš kočku nebo clowder. Fajfka označí plán jako hotový — zapíše hodnotu a může naplánovat další kolo. Podrž kartu a změníš datum nebo ji odebereš. Přepínač kalendáře zrcadlí každý termín do kalendáře telefonu; nabídka je exportuje jako soubor kalendáře.';
+      'Připomínky ukazují naplánované termíny podle data. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře.';
 
   @override
   String get calendarRowOff => 'Kalendář: vypnuto';
@@ -1801,4 +1797,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendář: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Naplánuj termín pro tuto kočku. Zobrazí se v připomínkách a tam se potvrdí.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Naplánuj termín pro tento clowder. Zobrazí se v připomínkách a tam se potvrdí.';
+
+  @override
+  String get readOnlyCalendar => 'jen ke čtení';
 }

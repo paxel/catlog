@@ -1650,7 +1650,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Midagi pole tulemas. Vali väljale tulevane kuupäev ja see ilmub siia.';
+      'Visiite pole plaanitud. Uusi plaanid siin plussiga või kassi või klauderi lehel.';
 
   @override
   String get dueToday => 'täna';
@@ -1717,7 +1717,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Iga tähtaeg saab kogu päeva sündmuseks cat(a)log kalendris selles seadmes. Kuupäevi muuda cat(a)logis, mitte kalendris.';
+      'Visiidid ilmuvad kalendrisse kogu päeva sündmustena. cat(a)log uuendab neid seal igal käivitusel ja pärast iga muudatust. Visiitide meeldetuletusi haldad kalendris.';
 
   @override
   String get syncPeerOlder =>
@@ -1743,7 +1743,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Kuvatakse meeldetuletustes, kuni märgid selle tehtuks. Praegune väärtus jääb, nagu on.';
+      'Visiit kuvatakse meeldetuletustes. Seal saad selle kinnitada või tagasi lükata. Väärtus võetakse üle ainult siis, kui visiit on kinnitatud.';
 
   @override
   String get reminderFor => 'Kellele';
@@ -1771,26 +1771,22 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Ühtegi selle seadme kalendrit ei saa kirjutada. Lisa süsteemi seadetes kalendrikonto ja proovi uuesti.';
+      'Kalendrit ei leitud. Logi süsteemi seadetes kalendrikontosse sisse, näiteks Google, ja proovi uuesti.';
 
   @override
   String get spotHomeAgenda =>
-      'Meeldetuletused: kõik, mis on tulemas, kõigi kasside ja klauderite peale.';
+      'Meeldetuletused: plaanitud visiitide nimekiri — loomaarst, ravimid, kontrollid.';
 
   @override
-  String get spotAddReminder =>
-      'Lisa meeldetuletus — plaan kuupäevaga. See kuvatakse meeldetuletustes, mitte lehel, kuni märgid selle tehtuks.';
-
-  @override
-  String get spotAgendaAdd => 'Uus plaan: vali väli, kuupäev ja väärtus.';
+  String get spotAgendaAdd => 'Plaani uus visiit.';
 
   @override
   String get spotAgendaCalendar =>
-      'Lülita see sisse, et näha iga tähtaega oma telefoni kalendris.';
+      'Lülita siin sisse cat(a)logi visiitide peegeldus valitud kalendrisse.';
 
   @override
   String get helpAgenda =>
-      'Kõik, mis on tulemas, kuupäeva järgi; hilinenu jääb üles, kuni see on korras. Puuduta kaarti, et avada kass või klauder. Linnuke märgib plaani tehtuks — see salvestab väärtuse ja võib planeerida järgmise korra. Hoia kaarti all, et muuta kuupäeva või see eemaldada. Kalendrilüliti peegeldab iga tähtaja sinu telefoni kalendrisse; menüü ekspordib need kalendrifailina.';
+      'Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. Möödalastud jäävad üles. Puudutus avab kassi või klauderi. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina.';
 
   @override
   String get calendarRowOff => 'Kalender: väljas';
@@ -1799,4 +1795,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalender: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Plaani sellele kassile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Plaani sellele klauderile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
+
+  @override
+  String get readOnlyCalendar => 'kirjutuskaitstud';
 }

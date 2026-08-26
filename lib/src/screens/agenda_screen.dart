@@ -130,7 +130,14 @@ class _AgendaScreenState extends State<AgendaScreen> {
       if (mounted) _say(t.calendarPermissionDenied);
       return;
     }
-    final calendars = await port.listCalendars();
+    final List<CalendarChoice> calendars;
+    try {
+      calendars = await port.listCalendars();
+    } on CalendarPortException catch (e) {
+      // The platform's own wording beats a guess at the cause.
+      if (mounted) _say(e.message);
+      return;
+    }
     if (!mounted) return;
     if (calendars.isEmpty) {
       _say(t.noWritableCalendar);
@@ -148,12 +155,17 @@ class _AgendaScreenState extends State<AgendaScreen> {
           ),
           for (final c in calendars)
             SimpleDialogOption(
-              onPressed: () => Navigator.of(context).pop(c.id),
+              onPressed:
+                  c.writable ? () => Navigator.of(context).pop(c.id) : null,
               child: ListTile(
                 contentPadding: EdgeInsets.zero,
+                enabled: c.writable,
                 leading: const Icon(Icons.calendar_month_outlined),
                 title: Text(c.name),
-                subtitle: c.account == null ? null : Text(c.account!),
+                subtitle: Text([
+                  ?c.account,
+                  if (!c.writable) t.readOnlyCalendar,
+                ].join(' · ')),
               ),
             ),
         ],

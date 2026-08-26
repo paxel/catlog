@@ -1656,7 +1656,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Ekkert er á döfinni. Veldu framtíðardagsetningu á reit og hún birtist hér.';
+      'Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu kattar eða clowders.';
 
   @override
   String get dueToday => 'í dag';
@@ -1723,7 +1723,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Hver gjalddagi verður heilsdagsviðburður í cat(a)log-dagatali á þessu tæki. Breyttu dagsetningum í cat(a)log, ekki í dagatalinu.';
+      'Tímarnir birtast sem heilsdagsviðburðir í dagatalinu. cat(a)log uppfærir þá þar við hverja ræsingu og eftir hverja breytingu. Áminningar um tímana stýrir þú í dagatalinu.';
 
   @override
   String get syncPeerOlder =>
@@ -1749,7 +1749,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Birtist í áminningum þar til þú merkir hana lokið. Núverandi gildi helst óbreytt.';
+      'Tíminn birtist í áminningum. Þar getur þú staðfest hann eða hafnað honum. Gildið er aðeins tekið upp þegar tíminn er staðfestur.';
 
   @override
   String get reminderFor => 'Fyrir';
@@ -1777,26 +1777,22 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Ekki er hægt að skrifa í neitt dagatal á þessu tæki. Bættu við dagatalsreikningi í kerfisstillingum og reyndu aftur.';
+      'Ekkert dagatal fannst. Skráðu þig inn á dagatalsreikning í kerfisstillingum, til dæmis Google, og reyndu aftur.';
 
   @override
   String get spotHomeAgenda =>
-      'Áminningarnar: allt sem er á döfinni, fyrir alla ketti og clowdera.';
+      'Áminningar: listi yfir áætlaða tíma — dýralæknir, lyf, eftirlit.';
 
   @override
-  String get spotAddReminder =>
-      'Bæta við áminningu — áætlun með dagsetningu. Hún birtist í áminningum, ekki á síðunni, þar til þú merkir hana lokið.';
-
-  @override
-  String get spotAgendaAdd => 'Ný áætlun: veldu reit, dagsetningu og gildi.';
+  String get spotAgendaAdd => 'Áætla nýjan tíma.';
 
   @override
   String get spotAgendaCalendar =>
-      'Kveiktu á þessu til að sjá hvern gjalddaga í dagatali símans.';
+      'Kveiktu hér á speglun cat(a)log-tíma í dagatal að eigin vali.';
 
   @override
   String get helpAgenda =>
-      'Allt sem er á döfinni, eftir dagsetningu; það sem er of seint helst efst þar til það er afgreitt. Ýttu á spjald til að opna köttinn eða clowderinn. Hakið merkir áætlun lokið — það skráir gildið og getur áætlað næstu umferð. Haltu spjaldi inni til að breyta dagsetningu eða fjarlægja það. Dagatalsrofinn speglar hvern gjalddaga í dagatal símans; valmyndin flytur þá út sem dagatalsskrá.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';
@@ -1805,4 +1801,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Dagatal: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Áætlaðu tíma fyrir þennan kött. Hann birtist í áminningum og er staðfestur þar.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Áætlaðu tíma fyrir þennan clowder. Hann birtist í áminningum og er staðfestur þar.';
+
+  @override
+  String get readOnlyCalendar => 'aðeins lestur';
 }

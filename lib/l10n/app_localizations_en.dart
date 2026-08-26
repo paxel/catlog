@@ -1651,7 +1651,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nothing is due. Pick a future date on any field and it appears here.';
+      'No appointments planned. Plan new ones here with the plus, or on a cat\'s or clowder\'s page.';
 
   @override
   String get dueToday => 'due today';
@@ -1718,7 +1718,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Each due date becomes an all-day event in a cat(a)log calendar on this device. Change dates in cat(a)log, not in the calendar.';
+      'The appointments appear as all-day entries in the calendar. cat(a)log updates them there at every start and after every change. You can manage alerts for them in the calendar.';
 
   @override
   String get syncPeerOlder =>
@@ -1744,7 +1744,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Shows in the Agenda until you mark it done. The current value stays as it is.';
+      'The appointment shows in the Agenda. There you confirm or discard it. The value is taken over only when the appointment is confirmed.';
 
   @override
   String get reminderFor => 'For';
@@ -1772,26 +1772,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.';
+      'No calendar found. Sign in to a calendar account in the system settings, Google for example, and try again.';
 
   @override
   String get spotHomeAgenda =>
-      'The Agenda: everything that is due, across all cats and clowders.';
+      'Agenda: the list of planned appointments — vet visits, medicine, check-ups.';
 
   @override
-  String get spotAddReminder =>
-      'Add a reminder — a plan with a date. It shows in the Agenda, not on the page, until you mark it done.';
-
-  @override
-  String get spotAgendaAdd => 'New plan: pick a field, a date and a value.';
+  String get spotAgendaAdd => 'Plan a new appointment.';
 
   @override
   String get spotAgendaCalendar =>
-      'Switch this on to see every due date in your phone\'s calendar.';
+      'Switch on here to mirror the cat(a)log appointments into a calendar of your choice.';
 
   @override
   String get helpAgenda =>
-      'Everything that is due, ordered by date; overdue stays on top until handled. Tap a card to open the cat or clowder. The check marks a plan done — it records the value and can schedule the next round. Hold a card to change its date or remove it. The calendar switch mirrors every due date into a calendar of your phone; the menu exports them as a calendar file.';
+      'The Agenda lists the planned appointments by date. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.';
 
   @override
   String get calendarRowOff => 'Calendar: off';
@@ -1800,4 +1796,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Calendar: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Plan an appointment for this cat. It shows in the Agenda and is confirmed there.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Plan an appointment for this clowder. It shows in the Agenda and is confirmed there.';
+
+  @override
+  String get readOnlyCalendar => 'read only';
 }

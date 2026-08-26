@@ -2999,7 +2999,7 @@ abstract class AppLocalizations {
   /// No description provided for @agendaEmpty.
   ///
   /// In en, this message translates to:
-  /// **'Nothing is due. Pick a future date on any field and it appears here.'**
+  /// **'No appointments planned. Plan new ones here with the plus, or on a cat\'s or clowder\'s page.'**
   String get agendaEmpty;
 
   /// No description provided for @dueToday.
@@ -3095,7 +3095,7 @@ abstract class AppLocalizations {
   /// No description provided for @calendarMirrorSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Each due date becomes an all-day event in a cat(a)log calendar on this device. Change dates in cat(a)log, not in the calendar.'**
+  /// **'The appointments appear as all-day entries in the calendar. cat(a)log updates them there at every start and after every change. You can manage alerts for them in the calendar.'**
   String get calendarMirrorSubtitle;
 
   /// No description provided for @syncPeerOlder.
@@ -3137,7 +3137,7 @@ abstract class AppLocalizations {
   /// No description provided for @reminderDialogHint.
   ///
   /// In en, this message translates to:
-  /// **'Shows in the Agenda until you mark it done. The current value stays as it is.'**
+  /// **'The appointment shows in the Agenda. There you confirm or discard it. The value is taken over only when the appointment is confirmed.'**
   String get reminderDialogHint;
 
   /// No description provided for @reminderFor.
@@ -3185,37 +3185,31 @@ abstract class AppLocalizations {
   /// No description provided for @noWritableCalendar.
   ///
   /// In en, this message translates to:
-  /// **'No calendar on this device can be written to. Add a calendar account in the system settings, then try again.'**
+  /// **'No calendar found. Sign in to a calendar account in the system settings, Google for example, and try again.'**
   String get noWritableCalendar;
 
   /// No description provided for @spotHomeAgenda.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda: everything that is due, across all cats and clowders.'**
+  /// **'Agenda: the list of planned appointments — vet visits, medicine, check-ups.'**
   String get spotHomeAgenda;
-
-  /// No description provided for @spotAddReminder.
-  ///
-  /// In en, this message translates to:
-  /// **'Add a reminder — a plan with a date. It shows in the Agenda, not on the page, until you mark it done.'**
-  String get spotAddReminder;
 
   /// No description provided for @spotAgendaAdd.
   ///
   /// In en, this message translates to:
-  /// **'New plan: pick a field, a date and a value.'**
+  /// **'Plan a new appointment.'**
   String get spotAgendaAdd;
 
   /// No description provided for @spotAgendaCalendar.
   ///
   /// In en, this message translates to:
-  /// **'Switch this on to see every due date in your phone\'s calendar.'**
+  /// **'Switch on here to mirror the cat(a)log appointments into a calendar of your choice.'**
   String get spotAgendaCalendar;
 
   /// No description provided for @helpAgenda.
   ///
   /// In en, this message translates to:
-  /// **'Everything that is due, ordered by date; overdue stays on top until handled. Tap a card to open the cat or clowder. The check marks a plan done — it records the value and can schedule the next round. Hold a card to change its date or remove it. The calendar switch mirrors every due date into a calendar of your phone; the menu exports them as a calendar file.'**
+  /// **'The Agenda lists the planned appointments by date. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.'**
   String get helpAgenda;
 
   /// No description provided for @calendarRowOff.
@@ -3229,6 +3223,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Calendar: {name}'**
   String calendarRowOn(String name);
+
+  /// No description provided for @spotAddReminderCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan an appointment for this cat. It shows in the Agenda and is confirmed there.'**
+  String get spotAddReminderCat;
+
+  /// No description provided for @spotAddReminderClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan an appointment for this clowder. It shows in the Agenda and is confirmed there.'**
+  String get spotAddReminderClowder;
+
+  /// No description provided for @readOnlyCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'read only'**
+  String get readOnlyCalendar;
 }
 
 class _AppLocalizationsDelegate

@@ -1646,7 +1646,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'لا شيء مستحق. اختر تاريخًا مستقبليًا في أي حقل وسيظهر هنا.';
+      'لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة قطة أو مجموعة.';
 
   @override
   String get dueToday => 'اليوم';
@@ -1719,7 +1719,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'كل موعد يصبح حدثًا ليوم كامل في تقويم cat(a)log على هذا الجهاز. غيّر التواريخ في cat(a)log لا في التقويم.';
+      'تظهر المواعيد كأحداث ليوم كامل في التقويم. يحدّثها cat(a)log هناك عند كل تشغيل وبعد كل تغيير. ويمكنك إدارة تنبيهات المواعيد في التقويم.';
 
   @override
   String get syncPeerOlder =>
@@ -1744,7 +1744,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'يظهر في المواعيد حتى تعلّمه كمنجز. القيمة الحالية تبقى كما هي.';
+      'يظهر الموعد في المواعيد. هناك يمكنك تأكيده أو رفضه. لا تُعتمد القيمة إلا إذا تم تأكيد الموعد.';
 
   @override
   String get reminderFor => 'لمن';
@@ -1772,25 +1772,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'لا يمكن الكتابة في أي تقويم على هذا الجهاز. أضف حساب تقويم في إعدادات النظام ثم حاول مجددًا.';
+      'لم يُعثر على تقويم. سجّل الدخول إلى حساب تقويم في إعدادات النظام، مثل Google، ثم حاول مجددًا.';
 
   @override
   String get spotHomeAgenda =>
-      'المواعيد: كل ما هو مستحق، عبر كل القطط والمجموعات.';
+      'المواعيد: قائمة المواعيد المخططة — البيطري، الدواء، الفحوص.';
 
   @override
-  String get spotAddReminder =>
-      'أضف تذكيرًا — خطة بتاريخ. تظهر في المواعيد لا في الصفحة، حتى تعلّمها كمنجزة.';
+  String get spotAgendaAdd => 'خطّط موعدًا جديدًا.';
 
   @override
-  String get spotAgendaAdd => 'خطة جديدة: اختر حقلًا وتاريخًا وقيمة.';
-
-  @override
-  String get spotAgendaCalendar => 'شغّل هذا لترى كل موعد في تقويم هاتفك.';
+  String get spotAgendaCalendar =>
+      'شغّل هنا انعكاس مواعيد cat(a)log في تقويم تختاره.';
 
   @override
   String get helpAgenda =>
-      'كل ما هو مستحق، مرتبًا بالتاريخ؛ المتأخر يبقى في الأعلى حتى يُعالج. اضغط بطاقة لفتح القطة أو المجموعة. علامة الصح تعلّم الخطة كمنجزة — تسجل القيمة ويمكنها جدولة الجولة التالية. اضغط بطاقة مطولًا لتغيير تاريخها أو إزالتها. مفتاح التقويم يعكس كل موعد في تقويم هاتفك؛ والقائمة تصدّرها كملف تقويم.';
+      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم.';
 
   @override
   String get calendarRowOff => 'التقويم: متوقف';
@@ -1799,4 +1796,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'التقويم: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.';
+
+  @override
+  String get readOnlyCalendar => 'للقراءة فقط';
 }

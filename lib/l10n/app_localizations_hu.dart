@@ -1652,7 +1652,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'Nincs esedékes teendő. Válassz egy mezőnél jövőbeli dátumot, és itt megjelenik.';
+      'Nincs tervezett időpont. Újat itt a plusszal, vagy egy macska vagy clowder oldalán tervezhetsz.';
 
   @override
   String get dueToday => 'ma esedékes';
@@ -1719,7 +1719,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Minden határidő egész napos esemény lesz egy cat(a)log naptárban ezen az eszközön. A dátumokat a cat(a)logban módosítsd, ne a naptárban.';
+      'Az időpontok egész napos eseményként jelennek meg a naptárban. A cat(a)log minden indításkor és minden változás után frissíti őket ott. Az időpontok emlékeztetőit a naptárban kezelheted.';
 
   @override
   String get syncPeerOlder =>
@@ -1745,7 +1745,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'A teendők között marad, amíg késznek nem jelölöd. A jelenlegi érték változatlan marad.';
+      'Az időpont a teendők között jelenik meg. Ott hagyhatod jóvá vagy vetheted el. Az érték csak akkor kerül átvételre, ha az időpontot jóváhagytad.';
 
   @override
   String get reminderFor => 'Kinek';
@@ -1773,26 +1773,22 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Ezen az eszközön egyetlen naptárba sem lehet írni. Adj hozzá naptárfiókot a rendszerbeállításokban, és próbáld újra.';
+      'Nem található naptár. Jelentkezz be egy naptárfiókba a rendszerbeállításokban, például Google, és próbáld újra.';
 
   @override
   String get spotHomeAgenda =>
-      'A teendők: minden, ami esedékes, az összes macskára és clowderre.';
+      'Teendők: a tervezett időpontok listája — állatorvos, gyógyszer, ellenőrzés.';
 
   @override
-  String get spotAddReminder =>
-      'Emlékeztető hozzáadása — egy terv dátummal. A teendők között jelenik meg, nem az oldalon, amíg késznek nem jelölöd.';
-
-  @override
-  String get spotAgendaAdd => 'Új terv: válassz mezőt, dátumot és értéket.';
+  String get spotAgendaAdd => 'Új időpont tervezése.';
 
   @override
   String get spotAgendaCalendar =>
-      'Kapcsold be, hogy minden határidőt láss a telefonod naptárában.';
+      'Itt kapcsold be a cat(a)log időpontjainak tükrözését egy általad választott naptárba.';
 
   @override
   String get helpAgenda =>
-      'Minden, ami esedékes, dátum szerint; a lejárt felül marad, amíg el nem intézed. Koppints egy kártyára a macska vagy a clowder megnyitásához. A pipa késznek jelöli a tervet — rögzíti az értéket, és beütemezheti a következő kört. Tartsd nyomva a kártyát a dátum módosításához vagy az eltávolításhoz. A naptárkapcsoló minden határidőt a telefonod naptárába tükröz; a menü naptárfájlként exportálja őket.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket.';
 
   @override
   String get calendarRowOff => 'Naptár: ki';
@@ -1801,4 +1797,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Naptár: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Tervezz időpontot ennek a macskának. A teendők között jelenik meg, és ott hagyható jóvá.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Tervezz időpontot ennek a clowdernek. A teendők között jelenik meg, és ott hagyható jóvá.';
+
+  @override
+  String get readOnlyCalendar => 'csak olvasható';
 }

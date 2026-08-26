@@ -1653,7 +1653,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
-      'S\'ka asgjë në pritje. Zgjidh një datë të ardhshme te një fushë dhe shfaqet këtu.';
+      'S\'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një maceje a clowderi.';
 
   @override
   String get dueToday => 'sot';
@@ -1720,7 +1720,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get calendarMirrorSubtitle =>
-      'Çdo afat bëhet ngjarje gjithëditore në një kalendar cat(a)log në këtë pajisje. Datat ndryshoji në cat(a)log, jo në kalendar.';
+      'Takimet shfaqen si ngjarje gjithëditore në kalendar. cat(a)log i përditëson atje në çdo nisje dhe pas çdo ndryshimi. Sinjalizimet për takimet i menaxhon në kalendar.';
 
   @override
   String get syncPeerOlder =>
@@ -1746,7 +1746,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get reminderDialogHint =>
-      'Shfaqet te përkujtuesit derisa ta shënosh si të bërë. Vlera aktuale mbetet siç është.';
+      'Takimi shfaqet te përkujtuesit. Atje mund ta konfirmosh ose ta hedhësh poshtë. Vlera merret vetëm kur takimi është konfirmuar.';
 
   @override
   String get reminderFor => 'Për';
@@ -1774,27 +1774,22 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get noWritableCalendar =>
-      'Në asnjë kalendar të kësaj pajisjeje s\'mund të shkruhet. Shto një llogari kalendari te cilësimet e sistemit dhe provo sërish.';
+      'S\'u gjet asnjë kalendar. Hyr te cilësimet e sistemit në një llogari kalendari, për shembull Google, dhe provo sërish.';
 
   @override
   String get spotHomeAgenda =>
-      'Përkujtuesit: gjithçka që pritet, për të gjitha macet dhe clowderët.';
+      'Përkujtuesit: lista e takimeve të planifikuara — veterineri, ilaçet, kontrollet.';
 
   @override
-  String get spotAddReminder =>
-      'Shto një përkujtues — një plan me datë. Shfaqet te përkujtuesit, jo në faqe, derisa ta shënosh si të bërë.';
-
-  @override
-  String get spotAgendaAdd =>
-      'Plan i ri: zgjidh një fushë, një datë dhe një vlerë.';
+  String get spotAgendaAdd => 'Planifiko një takim të ri.';
 
   @override
   String get spotAgendaCalendar =>
-      'Ndize këtë për të parë çdo afat në kalendarin e telefonit.';
+      'Ndize këtu pasqyrimin e takimeve të cat(a)log në një kalendar sipas zgjedhjes.';
 
   @override
   String get helpAgenda =>
-      'Gjithçka që pritet, sipas datës; e vonuara mbetet lart derisa të rregullohet. Prek një kartë për të hapur macen ose clowderin. Shenja e shënon planin si të bërë — regjistron vlerën dhe mund të planifikojë raundin tjetër. Mbaje shtypur një kartë për t\'i ndryshuar datën ose për ta hequr. Çelësi i kalendarit pasqyron çdo afat në një kalendar të telefonit; menyja i eksporton si skedar kalendari.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';
@@ -1803,4 +1798,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String calendarRowOn(String name) {
     return 'Kalendari: $name';
   }
+
+  @override
+  String get spotAddReminderCat =>
+      'Planifiko një takim për këtë mace. Shfaqet te përkujtuesit dhe konfirmohet atje.';
+
+  @override
+  String get spotAddReminderClowder =>
+      'Planifiko një takim për këtë clowder. Shfaqet te përkujtuesit dhe konfirmohet atje.';
+
+  @override
+  String get readOnlyCalendar => 'vetëm lexim';
 }
