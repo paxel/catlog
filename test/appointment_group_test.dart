@@ -115,6 +115,26 @@ void main() {
     });
   });
 
+  testWidgets('editing a clowder\'s own appointment offers no cats', (
+    tester,
+  ) async {
+    store.createAppointment(
+      Appointment(
+        id: '',
+        entity: home,
+        date: DateTime.now().add(const Duration(days: 1)),
+        title: 'House visit',
+      ),
+    );
+    await pump(tester, ClowderDetailScreen(store: store, clowderId: home));
+    await tester.longPress(find.textContaining('House visit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Edit appointment'));
+    await tester.pumpAndSettle();
+    expect(find.text('Cats on this appointment'), findsNothing);
+    expect(find.widgetWithText(ActionChip, 'Add cat'), findsNothing);
+  });
+
   group('agenda and pages', () {
     late List<Appointment> run;
 

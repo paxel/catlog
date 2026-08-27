@@ -245,8 +245,11 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
       AppointmentAlert.dayBefore: t.alertDayBefore,
       AppointmentAlert.hourBefore: t.alertHourBefore,
     };
+    // A clowder's own appointment (a house visit) never grows cats
+    // while being edited — clowder and cats do not share a run.
     final showCats =
-        _offered.any((id) => id.startsWith('cat:')) || _fromClowder;
+        _offered.any((id) => id.startsWith('cat:')) ||
+        (_fromClowder && widget.existing == null);
     return AlertDialog(
       title: Text(
         widget.existing == null ? t.addAppointment : t.editLabelAppointment,
