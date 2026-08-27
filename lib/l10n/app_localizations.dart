@@ -3439,6 +3439,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep going'**
   String get keepScanning;
+
+  /// No description provided for @catsOnAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats on this appointment'**
+  String get catsOnAppointment;
+
+  /// No description provided for @noCatsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'No cat ticked — the appointment is the clowder\'s own.'**
+  String get noCatsHint;
+
+  /// No description provided for @pickCatsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Which cats come along?'**
+  String get pickCatsTitle;
+
+  /// No description provided for @catsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} cats'**
+  String catsCount(int count);
+
+  /// No description provided for @finishUntickHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Untick the cats that were not treated; they stay planned.'**
+  String get finishUntickHint;
+
+  /// No description provided for @deleteAppointmentGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete appointment for all {count} cats'**
+  String deleteAppointmentGroup(int count);
 }
 
 class _AppLocalizationsDelegate

@@ -883,5 +883,13 @@
   "abortScanTitle": "Abort the scan?",
   "abortScanBody": "Nothing gets saved.",
   "abortScan": "Abort",
-  "keepScanning": "Keep going"
+  "keepScanning": "Keep going",
+  "catsOnAppointment": "Cats on this appointment",
+  "noCatsHint": "No cat ticked — the appointment is the clowder's own.",
+  "pickCatsTitle": "Which cats come along?",
+  "catsCount": "{count} cats",
+  "@catsCount": {"placeholders": {"count": {"type": "int"}}},
+  "finishUntickHint": "Untick the cats that were not treated; they stay planned.",
+  "deleteAppointmentGroup": "Delete appointment for all {count} cats",
+  "@deleteAppointmentGroup": {"placeholders": {"count": {"type": "int"}}}
 }

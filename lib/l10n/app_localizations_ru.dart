@@ -1918,4 +1918,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get keepScanning => 'Продолжить';
+
+  @override
+  String get catsOnAppointment => 'Cats on this appointment';
+
+  @override
+  String get noCatsHint =>
+      'No cat ticked — the appointment is the clowder\'s own.';
+
+  @override
+  String get pickCatsTitle => 'Which cats come along?';
+
+  @override
+  String catsCount(int count) {
+    return '$count cats';
+  }
+
+  @override
+  String get finishUntickHint =>
+      'Untick the cats that were not treated; they stay planned.';
+
+  @override
+  String deleteAppointmentGroup(int count) {
+    return 'Delete appointment for all $count cats';
+  }
 }
