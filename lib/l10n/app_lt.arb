@@ -625,5 +625,19 @@
   "outcomeTitle": "Kaip sekėsi?",
   "finishLabel": "Užbaigti",
   "editLabelAppointment": "Redaguoti vizitą",
-  "deleteAppointment": "Ištrinti vizitą"
+  "deleteAppointment": "Ištrinti vizitą",
+  "stepFlierText": "Skelbimo tekstas",
+  "qrFoundHint": "Skelbime rastas QR kodas. Pažymėti kodai skaitomi ieškant registro numerių ir nuorodų.",
+  "useCode": "Naudoti šį kodą",
+  "qrNone": "Nuotraukoje QR kodas nerastas.",
+  "qrFailed": "Nepavyko nuskaityti QR kodo: {error}",
+  "flierRecognized": "Atpažintas {name} skelbimas. Žemiau patikrinkite, į kurį lauką patenka kiekviena eilutė.",
+  "flierLayoutUnknown": "Nežinomas skelbimo išdėstymas. Priskirkite eilutes laukams žemiau; likusi dalis lieka pastabose.",
+  "targetRegistryNumber": "Registro numeris",
+  "targetLostPlace": "Adresas (dingimo vieta)",
+  "targetContact": "Registro kontaktas",
+  "abortScanTitle": "Nutraukti skenavimą?",
+  "abortScanBody": "Niekas nebus išsaugota.",
+  "abortScan": "Nutraukti",
+  "keepScanning": "Tęsti"
 }

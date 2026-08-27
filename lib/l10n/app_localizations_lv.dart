@@ -1871,50 +1871,50 @@ class AppLocalizationsLv extends AppLocalizations {
   String get deleteAppointment => 'Dzēst vizīti';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Sludinājuma teksts';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Sludinājumā atrasts QR kods. Atzīmētie kodi tiek lasīti reģistra numuriem un saitēm.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Izmantot šo kodu';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Fotoattēlā QR kods nav atrasts.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'QR koda nolasīšana neizdevās: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Atpazīts $name sludinājums. Pārbaudi zemāk, kurā laukā nonāk katra rinda.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Nezināms sludinājuma izkārtojums. Piešķir rindas laukiem zemāk; pārējais paliek piezīmēs.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Reģistra numurs';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adrese (pazušanas vieta)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Reģistra kontakts';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Pārtraukt skenēšanu?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Nekas netiks saglabāts.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Pārtraukt';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Turpināt';
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "¿Cómo fue?",
   "finishLabel": "Terminar",
   "editLabelAppointment": "Editar cita",
-  "deleteAppointment": "Borrar cita"
+  "deleteAppointment": "Borrar cita",
+  "stepFlierText": "Texto del cartel",
+  "qrFoundHint": "Se encontró un código QR en el cartel. Los códigos marcados se leen en busca de números de registro y enlaces.",
+  "useCode": "Usar este código",
+  "qrNone": "No se encontró ningún código QR en la foto.",
+  "qrFailed": "Error al leer el código QR: {error}",
+  "flierRecognized": "Cartel de {name} reconocido. Comprueba abajo a qué campo va cada línea.",
+  "flierLayoutUnknown": "Diseño de cartel desconocido. Asigna las líneas a campos abajo; el resto queda en observaciones.",
+  "targetRegistryNumber": "Número de registro",
+  "targetLostPlace": "Dirección (lugar de pérdida)",
+  "targetContact": "Contacto del registro",
+  "abortScanTitle": "¿Cancelar la captura?",
+  "abortScanBody": "No se guardará nada.",
+  "abortScan": "Cancelar",
+  "keepScanning": "Seguir"
 }

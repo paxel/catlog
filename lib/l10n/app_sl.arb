@@ -625,5 +625,19 @@
   "outcomeTitle": "Kako je šlo?",
   "finishLabel": "Zaključi",
   "editLabelAppointment": "Uredi termin",
-  "deleteAppointment": "Izbriši termin"
+  "deleteAppointment": "Izbriši termin",
+  "stepFlierText": "Besedilo letaka",
+  "qrFoundHint": "Na letaku je bila najdena koda QR. Označene kode se berejo za številke registra in povezave.",
+  "useCode": "Uporabi to kodo",
+  "qrNone": "Na fotografiji ni bila najdena koda QR.",
+  "qrFailed": "Branje kode QR ni uspelo: {error}",
+  "flierRecognized": "Prepoznan letak {name}. Spodaj preveri, v katero polje gre vsaka vrstica.",
+  "flierLayoutUnknown": "Neznana postavitev letaka. Spodaj dodeli vrstice poljem; ostalo ostane v opombah.",
+  "targetRegistryNumber": "Številka registra",
+  "targetLostPlace": "Naslov (kraj izginotja)",
+  "targetContact": "Kontakt registra",
+  "abortScanTitle": "Prekinem zajem?",
+  "abortScanBody": "Nič ne bo shranjeno.",
+  "abortScan": "Prekini",
+  "keepScanning": "Nadaljuj"
 }

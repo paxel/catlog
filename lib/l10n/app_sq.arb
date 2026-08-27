@@ -625,5 +625,19 @@
   "outcomeTitle": "Si shkoi?",
   "finishLabel": "Përfundo",
   "editLabelAppointment": "Ndrysho takimin",
-  "deleteAppointment": "Fshi takimin"
+  "deleteAppointment": "Fshi takimin",
+  "stepFlierText": "Teksti i fletushkës",
+  "qrFoundHint": "Në fletushkë u gjet një kod QR. Kodet e shënuara lexohen për numra regjistri dhe lidhje.",
+  "useCode": "Përdor këtë kod",
+  "qrNone": "Nuk u gjet asnjë kod QR në foto.",
+  "qrFailed": "Leximi i kodit QR dështoi: {error}",
+  "flierRecognized": "Fletushka {name} u njoh. Kontrollo më poshtë në cilën fushë shkon çdo rresht.",
+  "flierLayoutUnknown": "Skemë e panjohur fletushke. Cakto rreshtat në fusha më poshtë; pjesa tjetër mbetet në shënime.",
+  "targetRegistryNumber": "Numri i regjistrit",
+  "targetLostPlace": "Adresa (vendi i humbjes)",
+  "targetContact": "Kontakti i regjistrit",
+  "abortScanTitle": "Të ndërpritet skanimi?",
+  "abortScanBody": "Asgjë nuk do të ruhet.",
+  "abortScan": "Ndërprit",
+  "keepScanning": "Vazhdo"
 }

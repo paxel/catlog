@@ -1869,50 +1869,50 @@ class AppLocalizationsSk extends AppLocalizations {
   String get deleteAppointment => 'Vymazať termín';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Text letáku';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Na letáku sa našiel QR kód. Zaškrtnuté kódy sa čítajú kvôli číslam registra a odkazom.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Použiť tento kód';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Na fotke sa nenašiel žiadny QR kód.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Čítanie QR kódu zlyhalo: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Rozpoznaný leták $name. Skontrolujte nižšie, do ktorého poľa každý riadok patrí.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Neznáme rozloženie letáku. Priraďte riadky poliam nižšie; zvyšok ostane v poznámkach.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Číslo registra';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adresa (miesto straty)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Kontakt registra';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Prerušiť snímanie?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Nič sa neuloží.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Prerušiť';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Pokračovať';
 }

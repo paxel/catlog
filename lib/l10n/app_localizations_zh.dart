@@ -1799,50 +1799,48 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteAppointment => '删除安排';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => '启事文字';
 
   @override
-  String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+  String get qrFoundHint => '在启事上发现二维码。勾选的二维码会用于读取登记编号和链接。';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => '使用此二维码';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => '照片中未找到二维码。';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return '二维码读取失败：$error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '已识别 $name 启事。请在下方检查每一行归入哪个字段。';
   }
 
   @override
-  String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+  String get flierLayoutUnknown => '未知的启事版式。请在下方将各行分配到字段；其余内容保留在备注中。';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => '登记编号';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => '地址（走失地点）';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => '登记服务联系方式';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => '中止扫描？';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => '不会保存任何内容。';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => '中止';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => '继续';
 }

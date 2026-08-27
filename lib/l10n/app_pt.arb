@@ -625,5 +625,19 @@
   "outcomeTitle": "Como correu?",
   "finishLabel": "Terminar",
   "editLabelAppointment": "Editar compromisso",
-  "deleteAppointment": "Apagar compromisso"
+  "deleteAppointment": "Apagar compromisso",
+  "stepFlierText": "Texto do cartaz",
+  "qrFoundHint": "Foi encontrado um código QR no cartaz. Os códigos marcados são lidos para números de registo e ligações.",
+  "useCode": "Usar este código",
+  "qrNone": "Nenhum código QR encontrado na foto.",
+  "qrFailed": "Falha ao ler o código QR: {error}",
+  "flierRecognized": "Cartaz {name} reconhecido. Verifique abaixo para que campo vai cada linha.",
+  "flierLayoutUnknown": "Disposição do cartaz desconhecida. Atribua as linhas a campos abaixo; o resto fica nas observações.",
+  "targetRegistryNumber": "Número de registo",
+  "targetLostPlace": "Morada (local do desaparecimento)",
+  "targetContact": "Contacto do registo",
+  "abortScanTitle": "Cancelar a captura?",
+  "abortScanBody": "Nada será guardado.",
+  "abortScan": "Cancelar",
+  "keepScanning": "Continuar"
 }

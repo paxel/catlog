@@ -625,5 +625,19 @@
   "outcomeTitle": "Kuidas läks?",
   "finishLabel": "Lõpeta",
   "editLabelAppointment": "Muuda visiiti",
-  "deleteAppointment": "Kustuta visiit"
+  "deleteAppointment": "Kustuta visiit",
+  "stepFlierText": "Kuulutuse tekst",
+  "qrFoundHint": "Kuulutuselt leiti QR-kood. Märgitud koodidest loetakse registrinumbreid ja linke.",
+  "useCode": "Kasuta seda koodi",
+  "qrNone": "Fotolt QR-koodi ei leitud.",
+  "qrFailed": "QR-koodi lugemine ebaõnnestus: {error}",
+  "flierRecognized": "{name} kuulutus tuvastatud. Kontrolli allpool, millisele väljale iga rida läheb.",
+  "flierLayoutUnknown": "Tundmatu kuulutuse paigutus. Määra read allpool väljadele; ülejäänu jääb märkustesse.",
+  "targetRegistryNumber": "Registrinumber",
+  "targetLostPlace": "Aadress (kadumiskoht)",
+  "targetContact": "Registri kontakt",
+  "abortScanTitle": "Katkestada jäädvustamine?",
+  "abortScanBody": "Midagi ei salvestata.",
+  "abortScan": "Katkesta",
+  "keepScanning": "Jätka"
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "Hvordan gik det?",
   "finishLabel": "Afslut",
   "editLabelAppointment": "Rediger aftale",
-  "deleteAppointment": "Slet aftale"
+  "deleteAppointment": "Slet aftale",
+  "stepFlierText": "Opslagets tekst",
+  "qrFoundHint": "Der blev fundet en QR-kode på opslaget. Afkrydsede koder læses for registernumre og links.",
+  "useCode": "Brug denne kode",
+  "qrNone": "Ingen QR-kode fundet på billedet.",
+  "qrFailed": "Læsning af QR-kode mislykkedes: {error}",
+  "flierRecognized": "{name}-opslag genkendt. Tjek nedenfor, hvilket felt hver linje går til.",
+  "flierLayoutUnknown": "Ukendt opslagslayout. Tildel linjerne til felter nedenfor; resten bliver i bemærkningerne.",
+  "targetRegistryNumber": "Registernummer",
+  "targetLostPlace": "Adresse (forsvundet fra)",
+  "targetContact": "Registerets kontakt",
+  "abortScanTitle": "Afbryd registreringen?",
+  "abortScanBody": "Intet bliver gemt.",
+  "abortScan": "Afbryd",
+  "keepScanning": "Fortsæt"
 }

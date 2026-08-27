@@ -1873,50 +1873,50 @@ class AppLocalizationsIs extends AppLocalizations {
   String get deleteAppointment => 'Eyða tíma';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Texti auglýsingar';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'QR-kóði fannst á auglýsingunni. Merktir kóðar eru lesnir fyrir skráningarnúmer og tengla.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Nota þennan kóða';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Enginn QR-kóði fannst á myndinni.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Lestur QR-kóða mistókst: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '$name-auglýsing þekkt. Athugaðu hér að neðan í hvaða reit hver lína fer.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Óþekkt uppsetning auglýsingar. Úthlutaðu línunum á reiti hér að neðan; afgangurinn verður í athugasemdum.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Skráningarnúmer';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Heimilisfang (týndist hér)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Tengiliður skrárinnar';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Hætta við skráninguna?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Ekkert verður vistað.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Hætta við';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Halda áfram';
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "Kā gāja?",
   "finishLabel": "Pabeigt",
   "editLabelAppointment": "Rediģēt vizīti",
-  "deleteAppointment": "Dzēst vizīti"
+  "deleteAppointment": "Dzēst vizīti",
+  "stepFlierText": "Sludinājuma teksts",
+  "qrFoundHint": "Sludinājumā atrasts QR kods. Atzīmētie kodi tiek lasīti reģistra numuriem un saitēm.",
+  "useCode": "Izmantot šo kodu",
+  "qrNone": "Fotoattēlā QR kods nav atrasts.",
+  "qrFailed": "QR koda nolasīšana neizdevās: {error}",
+  "flierRecognized": "Atpazīts {name} sludinājums. Pārbaudi zemāk, kurā laukā nonāk katra rinda.",
+  "flierLayoutUnknown": "Nezināms sludinājuma izkārtojums. Piešķir rindas laukiem zemāk; pārējais paliek piezīmēs.",
+  "targetRegistryNumber": "Reģistra numurs",
+  "targetLostPlace": "Adrese (pazušanas vieta)",
+  "targetContact": "Reģistra kontakts",
+  "abortScanTitle": "Pārtraukt skenēšanu?",
+  "abortScanBody": "Nekas netiks saglabāts.",
+  "abortScan": "Pārtraukt",
+  "keepScanning": "Turpināt"
 }

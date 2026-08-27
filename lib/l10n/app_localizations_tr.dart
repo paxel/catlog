@@ -1869,50 +1869,50 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteAppointment => 'Randevuyu sil';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'İlan metni';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'İlanda bir QR kod bulundu. İşaretli kodlar kayıt numaraları ve bağlantılar için okunur.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Bu kodu kullan';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Fotoğrafta QR kod bulunamadı.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'QR kod okunamadı: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '$name ilanı tanındı. Her satırın hangi alana gideceğini aşağıda kontrol edin.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Bilinmeyen ilan düzeni. Satırları aşağıda alanlara atayın; kalanı notlarda kalır.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Kayıt numarası';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adres (kaybolduğu yer)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Kayıt servisi iletişimi';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Tarama iptal edilsin mi?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Hiçbir şey kaydedilmez.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'İptal';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Devam et';
 }

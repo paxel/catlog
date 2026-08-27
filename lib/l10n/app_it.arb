@@ -625,5 +625,19 @@
   "outcomeTitle": "Com'è andata?",
   "finishLabel": "Termina",
   "editLabelAppointment": "Modifica appuntamento",
-  "deleteAppointment": "Elimina appuntamento"
+  "deleteAppointment": "Elimina appuntamento",
+  "stepFlierText": "Testo del volantino",
+  "qrFoundHint": "Sul volantino è stato trovato un codice QR. I codici spuntati vengono letti per numeri di registro e link.",
+  "useCode": "Usa questo codice",
+  "qrNone": "Nessun codice QR trovato nella foto.",
+  "qrFailed": "Lettura del codice QR fallita: {error}",
+  "flierRecognized": "Volantino {name} riconosciuto. Controlla sotto in quale campo va ogni riga.",
+  "flierLayoutUnknown": "Layout del volantino sconosciuto. Assegna le righe ai campi qui sotto; il resto resta nelle note.",
+  "targetRegistryNumber": "Numero di registro",
+  "targetLostPlace": "Indirizzo (luogo di smarrimento)",
+  "targetContact": "Contatto del registro",
+  "abortScanTitle": "Annullare l'acquisizione?",
+  "abortScanBody": "Non verrà salvato nulla.",
+  "abortScan": "Annulla",
+  "keepScanning": "Continua"
 }

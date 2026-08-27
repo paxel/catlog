@@ -625,5 +625,19 @@
   "outcomeTitle": "Cum a fost?",
   "finishLabel": "Finalizează",
   "editLabelAppointment": "Editează programarea",
-  "deleteAppointment": "Șterge programarea"
+  "deleteAppointment": "Șterge programarea",
+  "stepFlierText": "Textul afișului",
+  "qrFoundHint": "Pe afiș a fost găsit un cod QR. Codurile bifate sunt citite pentru numere de registru și linkuri.",
+  "useCode": "Folosește acest cod",
+  "qrNone": "Niciun cod QR găsit în fotografie.",
+  "qrFailed": "Citirea codului QR a eșuat: {error}",
+  "flierRecognized": "Afiș {name} recunoscut. Verifică mai jos în ce câmp merge fiecare rând.",
+  "flierLayoutUnknown": "Aspect necunoscut al afișului. Atribuie rândurile câmpurilor de mai jos; restul rămâne în observații.",
+  "targetRegistryNumber": "Număr de registru",
+  "targetLostPlace": "Adresă (locul pierderii)",
+  "targetContact": "Contactul registrului",
+  "abortScanTitle": "Renunți la scanare?",
+  "abortScanBody": "Nu se salvează nimic.",
+  "abortScan": "Renunță",
+  "keepScanning": "Continuă"
 }

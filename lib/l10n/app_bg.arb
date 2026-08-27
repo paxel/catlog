@@ -625,5 +625,19 @@
   "outcomeTitle": "Как мина?",
   "finishLabel": "Приключи",
   "editLabelAppointment": "Редактирай часа",
-  "deleteAppointment": "Изтрий часа"
+  "deleteAppointment": "Изтрий часа",
+  "stepFlierText": "Текст на обявата",
+  "qrFoundHint": "На обявата е намерен QR код. Отметнатите кодове се четат за регистрационни номера и връзки.",
+  "useCode": "Използвай този код",
+  "qrNone": "Не е намерен QR код на снимката.",
+  "qrFailed": "Четенето на QR кода се провали: {error}",
+  "flierRecognized": "Разпозната обява на {name}. Провери по-долу в кое поле отива всеки ред.",
+  "flierLayoutUnknown": "Непознато оформление на обявата. Присвои редовете към полета по-долу; останалото остава в бележките.",
+  "targetRegistryNumber": "Регистрационен номер",
+  "targetLostPlace": "Адрес (място на изгубване)",
+  "targetContact": "Контакт на регистъра",
+  "abortScanTitle": "Прекратяване на заснемането?",
+  "abortScanBody": "Нищо няма да се запази.",
+  "abortScan": "Прекрати",
+  "keepScanning": "Продължи"
 }

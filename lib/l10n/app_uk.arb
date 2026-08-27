@@ -625,5 +625,19 @@
   "outcomeTitle": "Як минуло?",
   "finishLabel": "Завершити",
   "editLabelAppointment": "Змінити візит",
-  "deleteAppointment": "Видалити візит"
+  "deleteAppointment": "Видалити візит",
+  "stepFlierText": "Текст оголошення",
+  "qrFoundHint": "На оголошенні знайдено QR-код. Позначені коди читаються для пошуку номерів реєстру та посилань.",
+  "useCode": "Використати цей код",
+  "qrNone": "QR-код на фото не знайдено.",
+  "qrFailed": "Не вдалося прочитати QR-код: {error}",
+  "flierRecognized": "Розпізнано оголошення {name}. Перевірте нижче, у яке поле потрапляє кожен рядок.",
+  "flierLayoutUnknown": "Невідомий формат оголошення. Призначте рядки полям нижче; решта залишиться в нотатках.",
+  "targetRegistryNumber": "Номер у реєстрі",
+  "targetLostPlace": "Адреса (місце зникнення)",
+  "targetContact": "Контакт реєстру",
+  "abortScanTitle": "Перервати сканування?",
+  "abortScanBody": "Нічого не буде збережено.",
+  "abortScan": "Перервати",
+  "keepScanning": "Продовжити"
 }

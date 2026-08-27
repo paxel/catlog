@@ -625,5 +625,19 @@
   "outcomeTitle": "Jak to dopadlo?",
   "finishLabel": "Dokončit",
   "editLabelAppointment": "Upravit termín",
-  "deleteAppointment": "Smazat termín"
+  "deleteAppointment": "Smazat termín",
+  "stepFlierText": "Text letáku",
+  "qrFoundHint": "Na letáku byl nalezen QR kód. Zaškrtnuté kódy se čtou kvůli číslům registru a odkazům.",
+  "useCode": "Použít tento kód",
+  "qrNone": "Na fotce nebyl nalezen žádný QR kód.",
+  "qrFailed": "Čtení QR kódu selhalo: {error}",
+  "flierRecognized": "Rozpoznán leták {name}. Zkontrolujte níže, do kterého pole každý řádek patří.",
+  "flierLayoutUnknown": "Neznámé rozvržení letáku. Přiřaďte řádky polím níže; zbytek zůstane v poznámkách.",
+  "targetRegistryNumber": "Číslo registru",
+  "targetLostPlace": "Adresa (místo ztráty)",
+  "targetContact": "Kontakt registru",
+  "abortScanTitle": "Přerušit snímání?",
+  "abortScanBody": "Nic se neuloží.",
+  "abortScan": "Přerušit",
+  "keepScanning": "Pokračovat"
 }

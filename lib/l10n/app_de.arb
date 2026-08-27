@@ -547,5 +547,19 @@
   "outcomeTitle": "Wie war es?",
   "finishLabel": "Erledigen",
   "editLabelAppointment": "Termin bearbeiten",
-  "deleteAppointment": "Termin löschen"
+  "deleteAppointment": "Termin löschen",
+  "stepFlierText": "Text des Aushangs",
+  "qrFoundHint": "Auf dem Aushang wurde ein QR-Code gefunden. Angehakte Codes werden nach Registernummern und Links ausgelesen.",
+  "useCode": "Diesen Code verwenden",
+  "qrNone": "Kein QR-Code auf dem Foto gefunden.",
+  "qrFailed": "QR-Code lesen fehlgeschlagen: {error}",
+  "flierRecognized": "{name}-Aushang erkannt. Prüfe unten, in welches Feld jede Zeile kommt.",
+  "flierLayoutUnknown": "Unbekanntes Aushang-Layout. Ordne die Zeilen unten Feldern zu; der Rest bleibt in den Bemerkungen.",
+  "targetRegistryNumber": "Registernummer",
+  "targetLostPlace": "Adresse (Verlustort)",
+  "targetContact": "Kontakt des Registers",
+  "abortScanTitle": "Erfassung abbrechen?",
+  "abortScanBody": "Es wird nichts gespeichert.",
+  "abortScan": "Abbrechen",
+  "keepScanning": "Weitermachen"
 }

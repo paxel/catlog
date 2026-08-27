@@ -625,5 +625,19 @@
   "outcomeTitle": "Comment ça s'est passé ?",
   "finishLabel": "Terminer",
   "editLabelAppointment": "Modifier le rendez-vous",
-  "deleteAppointment": "Supprimer le rendez-vous"
+  "deleteAppointment": "Supprimer le rendez-vous",
+  "stepFlierText": "Texte de l'affiche",
+  "qrFoundHint": "Un code QR a été trouvé sur l'affiche. Les codes cochés sont lus pour trouver numéros de registre et liens.",
+  "useCode": "Utiliser ce code",
+  "qrNone": "Aucun code QR trouvé sur la photo.",
+  "qrFailed": "Lecture du code QR échouée : {error}",
+  "flierRecognized": "Affiche {name} reconnue. Vérifiez ci-dessous dans quel champ va chaque ligne.",
+  "flierLayoutUnknown": "Mise en page inconnue. Attribuez les lignes aux champs ci-dessous ; le reste va dans les remarques.",
+  "targetRegistryNumber": "Numéro de registre",
+  "targetLostPlace": "Adresse (lieu de disparition)",
+  "targetContact": "Contact du registre",
+  "abortScanTitle": "Abandonner la capture ?",
+  "abortScanBody": "Rien ne sera enregistré.",
+  "abortScan": "Abandonner",
+  "keepScanning": "Continuer"
 }

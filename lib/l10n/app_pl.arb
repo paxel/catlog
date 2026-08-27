@@ -625,5 +625,19 @@
   "outcomeTitle": "Jak poszło?",
   "finishLabel": "Zakończ",
   "editLabelAppointment": "Edytuj termin",
-  "deleteAppointment": "Usuń termin"
+  "deleteAppointment": "Usuń termin",
+  "stepFlierText": "Tekst ogłoszenia",
+  "qrFoundHint": "Na ogłoszeniu znaleziono kod QR. Zaznaczone kody są odczytywane pod kątem numerów rejestru i linków.",
+  "useCode": "Użyj tego kodu",
+  "qrNone": "Na zdjęciu nie znaleziono kodu QR.",
+  "qrFailed": "Odczyt kodu QR nie powiódł się: {error}",
+  "flierRecognized": "Rozpoznano ogłoszenie {name}. Sprawdź poniżej, do którego pola trafia każda linia.",
+  "flierLayoutUnknown": "Nieznany układ ogłoszenia. Przypisz linie do pól poniżej; reszta zostanie w uwagach.",
+  "targetRegistryNumber": "Numer rejestru",
+  "targetLostPlace": "Adres (miejsce zaginięcia)",
+  "targetContact": "Kontakt rejestru",
+  "abortScanTitle": "Przerwać skanowanie?",
+  "abortScanBody": "Nic nie zostanie zapisane.",
+  "abortScan": "Przerwij",
+  "keepScanning": "Kontynuuj"
 }

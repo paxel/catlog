@@ -625,5 +625,19 @@
   "outcomeTitle": "Nasıl geçti?",
   "finishLabel": "Bitir",
   "editLabelAppointment": "Randevuyu düzenle",
-  "deleteAppointment": "Randevuyu sil"
+  "deleteAppointment": "Randevuyu sil",
+  "stepFlierText": "İlan metni",
+  "qrFoundHint": "İlanda bir QR kod bulundu. İşaretli kodlar kayıt numaraları ve bağlantılar için okunur.",
+  "useCode": "Bu kodu kullan",
+  "qrNone": "Fotoğrafta QR kod bulunamadı.",
+  "qrFailed": "QR kod okunamadı: {error}",
+  "flierRecognized": "{name} ilanı tanındı. Her satırın hangi alana gideceğini aşağıda kontrol edin.",
+  "flierLayoutUnknown": "Bilinmeyen ilan düzeni. Satırları aşağıda alanlara atayın; kalanı notlarda kalır.",
+  "targetRegistryNumber": "Kayıt numarası",
+  "targetLostPlace": "Adres (kaybolduğu yer)",
+  "targetContact": "Kayıt servisi iletişimi",
+  "abortScanTitle": "Tarama iptal edilsin mi?",
+  "abortScanBody": "Hiçbir şey kaydedilmez.",
+  "abortScan": "İptal",
+  "keepScanning": "Devam et"
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "Hoe ging het?",
   "finishLabel": "Afronden",
   "editLabelAppointment": "Afspraak bewerken",
-  "deleteAppointment": "Afspraak verwijderen"
+  "deleteAppointment": "Afspraak verwijderen",
+  "stepFlierText": "Tekst van de poster",
+  "qrFoundHint": "Er is een QR-code op de poster gevonden. Aangevinkte codes worden gelezen voor registernummers en links.",
+  "useCode": "Deze code gebruiken",
+  "qrNone": "Geen QR-code op de foto gevonden.",
+  "qrFailed": "QR-code lezen mislukt: {error}",
+  "flierRecognized": "{name}-poster herkend. Controleer hieronder naar welk veld elke regel gaat.",
+  "flierLayoutUnknown": "Onbekende posterindeling. Wijs de regels hieronder aan velden toe; de rest blijft in de opmerkingen.",
+  "targetRegistryNumber": "Registernummer",
+  "targetLostPlace": "Adres (plaats van vermissing)",
+  "targetContact": "Contact van het register",
+  "abortScanTitle": "Opname afbreken?",
+  "abortScanBody": "Er wordt niets opgeslagen.",
+  "abortScan": "Afbreken",
+  "keepScanning": "Doorgaan"
 }

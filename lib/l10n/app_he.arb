@@ -625,5 +625,19 @@
   "outcomeTitle": "איך היה?",
   "finishLabel": "סיום",
   "editLabelAppointment": "עריכת פגישה",
-  "deleteAppointment": "מחיקת פגישה"
+  "deleteAppointment": "מחיקת פגישה",
+  "stepFlierText": "טקסט המודעה",
+  "qrFoundHint": "נמצא קוד QR במודעה. קודים מסומנים נקראים לאיתור מספרי מרשם וקישורים.",
+  "useCode": "להשתמש בקוד זה",
+  "qrNone": "לא נמצא קוד QR בתמונה.",
+  "qrFailed": "קריאת קוד ה-QR נכשלה: {error}",
+  "flierRecognized": "זוהתה מודעה של {name}. יש לבדוק למטה לאיזה שדה הולכת כל שורה.",
+  "flierLayoutUnknown": "פריסת מודעה לא מוכרת. יש לשייך את השורות לשדות למטה; השאר נשאר בהערות.",
+  "targetRegistryNumber": "מספר מרשם",
+  "targetLostPlace": "כתובת (מקום האובדן)",
+  "targetContact": "איש קשר של המרשם",
+  "abortScanTitle": "לבטל את הסריקה?",
+  "abortScanBody": "שום דבר לא יישמר.",
+  "abortScan": "ביטול",
+  "keepScanning": "להמשיך"
 }

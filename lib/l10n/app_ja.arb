@@ -625,5 +625,19 @@
   "outcomeTitle": "どうでしたか？",
   "finishLabel": "完了",
   "editLabelAppointment": "予定を編集",
-  "deleteAppointment": "予定を削除"
+  "deleteAppointment": "予定を削除",
+  "stepFlierText": "チラシの文字",
+  "qrFoundHint": "チラシにQRコードが見つかりました。チェックしたコードから登録番号とリンクを読み取ります。",
+  "useCode": "このコードを使う",
+  "qrNone": "写真にQRコードは見つかりませんでした。",
+  "qrFailed": "QRコードの読み取りに失敗しました: {error}",
+  "flierRecognized": "{name}のチラシを認識しました。各行がどの項目に入るか下で確認してください。",
+  "flierLayoutUnknown": "チラシの形式が不明です。下で各行を項目に割り当ててください。残りは備考に残ります。",
+  "targetRegistryNumber": "登録番号",
+  "targetLostPlace": "住所（迷子になった場所）",
+  "targetContact": "登録サービスの連絡先",
+  "abortScanTitle": "取り込みを中止しますか？",
+  "abortScanBody": "何も保存されません。",
+  "abortScan": "中止",
+  "keepScanning": "続ける"
 }

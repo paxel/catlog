@@ -625,5 +625,19 @@
   "outcomeTitle": "情况如何？",
   "finishLabel": "完成",
   "editLabelAppointment": "编辑安排",
-  "deleteAppointment": "删除安排"
+  "deleteAppointment": "删除安排",
+  "stepFlierText": "启事文字",
+  "qrFoundHint": "在启事上发现二维码。勾选的二维码会用于读取登记编号和链接。",
+  "useCode": "使用此二维码",
+  "qrNone": "照片中未找到二维码。",
+  "qrFailed": "二维码读取失败：{error}",
+  "flierRecognized": "已识别 {name} 启事。请在下方检查每一行归入哪个字段。",
+  "flierLayoutUnknown": "未知的启事版式。请在下方将各行分配到字段；其余内容保留在备注中。",
+  "targetRegistryNumber": "登记编号",
+  "targetLostPlace": "地址（走失地点）",
+  "targetContact": "登记服务联系方式",
+  "abortScanTitle": "中止扫描？",
+  "abortScanBody": "不会保存任何内容。",
+  "abortScan": "中止",
+  "keepScanning": "继续"
 }

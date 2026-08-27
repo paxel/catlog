@@ -1864,50 +1864,50 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deleteAppointment => 'حذف قرار';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'متن آگهی';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'یک کد QR روی آگهی پیدا شد. کدهای علامت‌خورده برای شماره‌های ثبت و پیوندها خوانده می‌شوند.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'استفاده از این کد';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'کد QR در عکس پیدا نشد.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'خواندن کد QR ناموفق بود: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'آگهی $name شناسایی شد. در زیر بررسی کنید هر خط به کدام فیلد می‌رود.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'چیدمان آگهی ناشناخته است. خط‌ها را در زیر به فیلدها اختصاص دهید؛ بقیه در یادداشت‌ها می‌ماند.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'شماره ثبت';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'نشانی (محل گم شدن)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'تماس سامانه ثبت';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'اسکن لغو شود؟';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'چیزی ذخیره نمی‌شود.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'لغو';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'ادامه';
 }

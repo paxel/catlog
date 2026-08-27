@@ -625,5 +625,19 @@
   "outcomeTitle": "كيف كان؟",
   "finishLabel": "إنهاء",
   "editLabelAppointment": "تعديل الموعد",
-  "deleteAppointment": "حذف الموعد"
+  "deleteAppointment": "حذف الموعد",
+  "stepFlierText": "نص المنشور",
+  "qrFoundHint": "تم العثور على رمز QR في المنشور. تُقرأ الرموز المحددة بحثًا عن أرقام السجل والروابط.",
+  "useCode": "استخدام هذا الرمز",
+  "qrNone": "لم يُعثر على رمز QR في الصورة.",
+  "qrFailed": "فشل قراءة رمز QR: {error}",
+  "flierRecognized": "تم التعرف على منشور {name}. تحقق أدناه من الحقل الذي يذهب إليه كل سطر.",
+  "flierLayoutUnknown": "تخطيط المنشور غير معروف. عيّن الأسطر إلى الحقول أدناه؛ ويبقى الباقي في الملاحظات.",
+  "targetRegistryNumber": "رقم السجل",
+  "targetLostPlace": "العنوان (مكان الفقد)",
+  "targetContact": "جهة اتصال السجل",
+  "abortScanTitle": "إلغاء المسح؟",
+  "abortScanBody": "لن يُحفظ أي شيء.",
+  "abortScan": "إلغاء",
+  "keepScanning": "متابعة"
 }

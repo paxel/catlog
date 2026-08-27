@@ -625,5 +625,19 @@
   "outcomeTitle": "Како помина?",
   "finishLabel": "Заврши",
   "editLabelAppointment": "Уреди термин",
-  "deleteAppointment": "Избриши термин"
+  "deleteAppointment": "Избриши термин",
+  "stepFlierText": "Текст на огласот",
+  "qrFoundHint": "На огласот е пронајден QR-код. Означените кодови се читаат за регистарски броеви и врски.",
+  "useCode": "Користи го овој код",
+  "qrNone": "Не е пронајден QR-код на фотографијата.",
+  "qrFailed": "Читањето на QR-кодот не успеа: {error}",
+  "flierRecognized": "Препознаен оглас на {name}. Провери подолу во кое поле оди секој ред.",
+  "flierLayoutUnknown": "Непознат распоред на огласот. Додели ги редовите на полиња подолу; остатокот останува во забелешките.",
+  "targetRegistryNumber": "Регистарски број",
+  "targetLostPlace": "Адреса (место на исчезнување)",
+  "targetContact": "Контакт на регистарот",
+  "abortScanTitle": "Прекини снимање?",
+  "abortScanBody": "Ништо нема да се зачува.",
+  "abortScan": "Прекини",
+  "keepScanning": "Продолжи"
 }

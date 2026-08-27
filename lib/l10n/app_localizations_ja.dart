@@ -1820,50 +1820,48 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteAppointment => '予定を削除';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'チラシの文字';
 
   @override
-  String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+  String get qrFoundHint => 'チラシにQRコードが見つかりました。チェックしたコードから登録番号とリンクを読み取ります。';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'このコードを使う';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => '写真にQRコードは見つかりませんでした。';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'QRコードの読み取りに失敗しました: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '$nameのチラシを認識しました。各行がどの項目に入るか下で確認してください。';
   }
 
   @override
-  String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+  String get flierLayoutUnknown => 'チラシの形式が不明です。下で各行を項目に割り当ててください。残りは備考に残ります。';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => '登録番号';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => '住所（迷子になった場所）';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => '登録サービスの連絡先';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => '取り込みを中止しますか？';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => '何も保存されません。';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => '中止';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => '続ける';
 }

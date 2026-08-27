@@ -1872,50 +1872,50 @@ class AppLocalizationsRo extends AppLocalizations {
   String get deleteAppointment => 'Șterge programarea';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Textul afișului';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Pe afiș a fost găsit un cod QR. Codurile bifate sunt citite pentru numere de registru și linkuri.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Folosește acest cod';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Niciun cod QR găsit în fotografie.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Citirea codului QR a eșuat: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Afiș $name recunoscut. Verifică mai jos în ce câmp merge fiecare rând.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Aspect necunoscut al afișului. Atribuie rândurile câmpurilor de mai jos; restul rămâne în observații.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Număr de registru';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adresă (locul pierderii)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Contactul registrului';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Renunți la scanare?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Nu se salvează nimic.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Renunță';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Continuă';
 }

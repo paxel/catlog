@@ -625,5 +625,19 @@
   "outcomeTitle": "Kif mar?",
   "finishLabel": "Lesti",
   "editLabelAppointment": "Editja l-appuntament",
-  "deleteAppointment": "Ħassar l-appuntament"
+  "deleteAppointment": "Ħassar l-appuntament",
+  "stepFlierText": "Test tal-flier",
+  "qrFoundHint": "Instab kodiċi QR fuq il-flier. Il-kodiċijiet immarkati jinqraw għal numri tar-reġistru u links.",
+  "useCode": "Uża dan il-kodiċi",
+  "qrNone": "Ma nstab l-ebda kodiċi QR fir-ritratt.",
+  "qrFailed": "Il-qari tal-kodiċi QR falla: {error}",
+  "flierRecognized": "Flier ta' {name} rikonoxxut. Iċċekkja hawn taħt f'liema qasam tmur kull linja.",
+  "flierLayoutUnknown": "Layout tal-flier mhux magħruf. Assenja l-linji lill-oqsma hawn taħt; il-bqija jibqa' fir-rimarki.",
+  "targetRegistryNumber": "Numru tar-reġistru",
+  "targetLostPlace": "Indirizz (fejn intilef)",
+  "targetContact": "Kuntatt tar-reġistru",
+  "abortScanTitle": "Twaqqaf l-iskan?",
+  "abortScanBody": "Xejn ma jiġi salvat.",
+  "abortScan": "Waqqaf",
+  "keepScanning": "Kompli"
 }

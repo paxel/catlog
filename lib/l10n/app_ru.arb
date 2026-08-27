@@ -625,5 +625,19 @@
   "outcomeTitle": "Как прошло?",
   "finishLabel": "Завершить",
   "editLabelAppointment": "Изменить визит",
-  "deleteAppointment": "Удалить визит"
+  "deleteAppointment": "Удалить визит",
+  "stepFlierText": "Текст объявления",
+  "qrFoundHint": "На объявлении найден QR-код. Отмеченные коды читаются для поиска номеров реестра и ссылок.",
+  "useCode": "Использовать этот код",
+  "qrNone": "QR-код на фото не найден.",
+  "qrFailed": "Не удалось прочитать QR-код: {error}",
+  "flierRecognized": "Распознано объявление {name}. Проверьте ниже, в какое поле попадает каждая строка.",
+  "flierLayoutUnknown": "Неизвестный формат объявления. Назначьте строки полям ниже; остальное останется в заметках.",
+  "targetRegistryNumber": "Номер в реестре",
+  "targetLostPlace": "Адрес (место пропажи)",
+  "targetContact": "Контакт реестра",
+  "abortScanTitle": "Прервать сканирование?",
+  "abortScanBody": "Ничего не будет сохранено.",
+  "abortScan": "Прервать",
+  "keepScanning": "Продолжить"
 }

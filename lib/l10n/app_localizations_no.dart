@@ -1866,50 +1866,50 @@ class AppLocalizationsNo extends AppLocalizations {
   String get deleteAppointment => 'Slett avtale';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Oppslagets tekst';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'En QR-kode ble funnet på oppslaget. Avkryssede koder leses for registernumre og lenker.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Bruk denne koden';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Ingen QR-kode funnet på bildet.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Lesing av QR-kode mislyktes: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '$name-oppslag gjenkjent. Sjekk nedenfor hvilket felt hver linje går til.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Ukjent oppslagsoppsett. Tildel linjene til felt nedenfor; resten blir i merknadene.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Registernummer';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adresse (forsvunnet fra)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Registerets kontakt';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Avbryte registreringen?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Ingenting blir lagret.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Avbryt';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Fortsett';
 }

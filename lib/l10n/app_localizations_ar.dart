@@ -1866,50 +1866,50 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteAppointment => 'حذف الموعد';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'نص المنشور';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'تم العثور على رمز QR في المنشور. تُقرأ الرموز المحددة بحثًا عن أرقام السجل والروابط.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'استخدام هذا الرمز';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'لم يُعثر على رمز QR في الصورة.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'فشل قراءة رمز QR: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'تم التعرف على منشور $name. تحقق أدناه من الحقل الذي يذهب إليه كل سطر.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'تخطيط المنشور غير معروف. عيّن الأسطر إلى الحقول أدناه؛ ويبقى الباقي في الملاحظات.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'رقم السجل';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'العنوان (مكان الفقد)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'جهة اتصال السجل';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'إلغاء المسح؟';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'لن يُحفظ أي شيء.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'إلغاء';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'متابعة';
 }

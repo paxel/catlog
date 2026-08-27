@@ -1876,50 +1876,50 @@ class AppLocalizationsLt extends AppLocalizations {
   String get deleteAppointment => 'Ištrinti vizitą';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Skelbimo tekstas';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Skelbime rastas QR kodas. Pažymėti kodai skaitomi ieškant registro numerių ir nuorodų.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Naudoti šį kodą';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Nuotraukoje QR kodas nerastas.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Nepavyko nuskaityti QR kodo: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Atpažintas $name skelbimas. Žemiau patikrinkite, į kurį lauką patenka kiekviena eilutė.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Nežinomas skelbimo išdėstymas. Priskirkite eilutes laukams žemiau; likusi dalis lieka pastabose.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Registro numeris';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adresas (dingimo vieta)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Registro kontaktas';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Nutraukti skenavimą?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Niekas nebus išsaugota.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Nutraukti';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Tęsti';
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "چطور بود؟",
   "finishLabel": "پایان",
   "editLabelAppointment": "ویرایش قرار",
-  "deleteAppointment": "حذف قرار"
+  "deleteAppointment": "حذف قرار",
+  "stepFlierText": "متن آگهی",
+  "qrFoundHint": "یک کد QR روی آگهی پیدا شد. کدهای علامت‌خورده برای شماره‌های ثبت و پیوندها خوانده می‌شوند.",
+  "useCode": "استفاده از این کد",
+  "qrNone": "کد QR در عکس پیدا نشد.",
+  "qrFailed": "خواندن کد QR ناموفق بود: {error}",
+  "flierRecognized": "آگهی {name} شناسایی شد. در زیر بررسی کنید هر خط به کدام فیلد می‌رود.",
+  "flierLayoutUnknown": "چیدمان آگهی ناشناخته است. خط‌ها را در زیر به فیلدها اختصاص دهید؛ بقیه در یادداشت‌ها می‌ماند.",
+  "targetRegistryNumber": "شماره ثبت",
+  "targetLostPlace": "نشانی (محل گم شدن)",
+  "targetContact": "تماس سامانه ثبت",
+  "abortScanTitle": "اسکن لغو شود؟",
+  "abortScanBody": "چیزی ذخیره نمی‌شود.",
+  "abortScan": "لغو",
+  "keepScanning": "ادامه"
 }

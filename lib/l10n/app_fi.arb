@@ -625,5 +625,19 @@
   "outcomeTitle": "Miten meni?",
   "finishLabel": "Valmis",
   "editLabelAppointment": "Muokkaa tapaamista",
-  "deleteAppointment": "Poista tapaaminen"
+  "deleteAppointment": "Poista tapaaminen",
+  "stepFlierText": "Ilmoituksen teksti",
+  "qrFoundHint": "Ilmoituksesta löytyi QR-koodi. Valitut koodit luetaan rekisterinumeroiden ja linkkien varalta.",
+  "useCode": "Käytä tätä koodia",
+  "qrNone": "Kuvasta ei löytynyt QR-koodia.",
+  "qrFailed": "QR-koodin luku epäonnistui: {error}",
+  "flierRecognized": "{name}-ilmoitus tunnistettu. Tarkista alta, mihin kenttään kukin rivi menee.",
+  "flierLayoutUnknown": "Tuntematon ilmoituksen asettelu. Kohdista rivit kenttiin alla; loput jäävät huomautuksiin.",
+  "targetRegistryNumber": "Rekisterinumero",
+  "targetLostPlace": "Osoite (katoamispaikka)",
+  "targetContact": "Rekisterin yhteystiedot",
+  "abortScanTitle": "Keskeytetäänkö tallennus?",
+  "abortScanBody": "Mitään ei tallenneta.",
+  "abortScan": "Keskeytä",
+  "keepScanning": "Jatka"
 }

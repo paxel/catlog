@@ -1875,50 +1875,50 @@ class AppLocalizationsMt extends AppLocalizations {
   String get deleteAppointment => 'Ħassar l-appuntament';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Test tal-flier';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Instab kodiċi QR fuq il-flier. Il-kodiċijiet immarkati jinqraw għal numri tar-reġistru u links.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Uża dan il-kodiċi';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Ma nstab l-ebda kodiċi QR fir-ritratt.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Il-qari tal-kodiċi QR falla: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Flier ta\' $name rikonoxxut. Iċċekkja hawn taħt f\'liema qasam tmur kull linja.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Layout tal-flier mhux magħruf. Assenja l-linji lill-oqsma hawn taħt; il-bqija jibqa\' fir-rimarki.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Numru tar-reġistru';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Indirizz (fejn intilef)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Kuntatt tar-reġistru';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Twaqqaf l-iskan?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Xejn ma jiġi salvat.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Waqqaf';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Kompli';
 }

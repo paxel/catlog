@@ -625,5 +625,19 @@
   "outcomeTitle": "Hur gick det?",
   "finishLabel": "Avsluta",
   "editLabelAppointment": "Redigera möte",
-  "deleteAppointment": "Ta bort möte"
+  "deleteAppointment": "Ta bort möte",
+  "stepFlierText": "Anslagets text",
+  "qrFoundHint": "En QR-kod hittades på anslaget. Markerade koder läses för registernummer och länkar.",
+  "useCode": "Använd den här koden",
+  "qrNone": "Ingen QR-kod hittades på bilden.",
+  "qrFailed": "Läsning av QR-kod misslyckades: {error}",
+  "flierRecognized": "{name}-anslag igenkänt. Kontrollera nedan vilket fält varje rad går till.",
+  "flierLayoutUnknown": "Okänd anslagslayout. Tilldela raderna till fält nedan; resten stannar i anmärkningarna.",
+  "targetRegistryNumber": "Registernummer",
+  "targetLostPlace": "Adress (försvunnen från)",
+  "targetContact": "Registrets kontakt",
+  "abortScanTitle": "Avbryta registreringen?",
+  "abortScanBody": "Inget sparas.",
+  "abortScan": "Avbryt",
+  "keepScanning": "Fortsätt"
 }

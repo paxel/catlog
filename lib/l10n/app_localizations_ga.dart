@@ -1882,50 +1882,50 @@ class AppLocalizationsGa extends AppLocalizations {
   String get deleteAppointment => 'Scrios an choinne';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Téacs na bileoige';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Aimsíodh cód QR ar an mbileog. Léitear cóid thiceáilte le haghaidh uimhreacha cláir agus nasc.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Úsáid an cód seo';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Níor aimsíodh cód QR sa ghrianghraf.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Theip ar léamh an chóid QR: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Bileog $name aitheanta. Seiceáil thíos cén réimse a dtéann gach líne isteach ann.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Leagan amach anaithnid. Sann na línte do réimsí thíos; fanann an chuid eile sna nótaí.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Uimhir chláir';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Seoladh (áit ar cailleadh é)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Teagmháil an chláir';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Éirigh as an scanadh?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Ní shábhálfar rud ar bith.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Éirigh as';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Lean ar aghaidh';
 }

@@ -625,5 +625,19 @@
   "outcomeTitle": "Hvernig gekk?",
   "finishLabel": "Ljúka",
   "editLabelAppointment": "Breyta tíma",
-  "deleteAppointment": "Eyða tíma"
+  "deleteAppointment": "Eyða tíma",
+  "stepFlierText": "Texti auglýsingar",
+  "qrFoundHint": "QR-kóði fannst á auglýsingunni. Merktir kóðar eru lesnir fyrir skráningarnúmer og tengla.",
+  "useCode": "Nota þennan kóða",
+  "qrNone": "Enginn QR-kóði fannst á myndinni.",
+  "qrFailed": "Lestur QR-kóða mistókst: {error}",
+  "flierRecognized": "{name}-auglýsing þekkt. Athugaðu hér að neðan í hvaða reit hver lína fer.",
+  "flierLayoutUnknown": "Óþekkt uppsetning auglýsingar. Úthlutaðu línunum á reiti hér að neðan; afgangurinn verður í athugasemdum.",
+  "targetRegistryNumber": "Skráningarnúmer",
+  "targetLostPlace": "Heimilisfang (týndist hér)",
+  "targetContact": "Tengiliður skrárinnar",
+  "abortScanTitle": "Hætta við skráninguna?",
+  "abortScanBody": "Ekkert verður vistað.",
+  "abortScan": "Hætta við",
+  "keepScanning": "Halda áfram"
 }

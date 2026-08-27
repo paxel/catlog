@@ -1876,50 +1876,50 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteAppointment => 'Termin löschen';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Text des Aushangs';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Auf dem Aushang wurde ein QR-Code gefunden. Angehakte Codes werden nach Registernummern und Links ausgelesen.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Diesen Code verwenden';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Kein QR-Code auf dem Foto gefunden.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'QR-Code lesen fehlgeschlagen: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return '$name-Aushang erkannt. Prüfe unten, in welches Feld jede Zeile kommt.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Unbekanntes Aushang-Layout. Ordne die Zeilen unten Feldern zu; der Rest bleibt in den Bemerkungen.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Registernummer';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Adresse (Verlustort)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Kontakt des Registers';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Erfassung abbrechen?';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Es wird nichts gespeichert.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Abbrechen';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Weitermachen';
 }

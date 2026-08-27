@@ -625,5 +625,19 @@
   "outcomeTitle": "Hvordan gikk det?",
   "finishLabel": "Avslutt",
   "editLabelAppointment": "Rediger avtale",
-  "deleteAppointment": "Slett avtale"
+  "deleteAppointment": "Slett avtale",
+  "stepFlierText": "Oppslagets tekst",
+  "qrFoundHint": "En QR-kode ble funnet på oppslaget. Avkryssede koder leses for registernumre og lenker.",
+  "useCode": "Bruk denne koden",
+  "qrNone": "Ingen QR-kode funnet på bildet.",
+  "qrFailed": "Lesing av QR-kode mislyktes: {error}",
+  "flierRecognized": "{name}-oppslag gjenkjent. Sjekk nedenfor hvilket felt hver linje går til.",
+  "flierLayoutUnknown": "Ukjent oppslagsoppsett. Tildel linjene til felt nedenfor; resten blir i merknadene.",
+  "targetRegistryNumber": "Registernummer",
+  "targetLostPlace": "Adresse (forsvunnet fra)",
+  "targetContact": "Registerets kontakt",
+  "abortScanTitle": "Avbryte registreringen?",
+  "abortScanBody": "Ingenting blir lagret.",
+  "abortScan": "Avbryt",
+  "keepScanning": "Fortsett"
 }

@@ -1874,50 +1874,50 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteAppointment => 'Διαγραφή ραντεβού';
 
   @override
-  String get stepFlierText => 'Flier text';
+  String get stepFlierText => 'Κείμενο της αφίσας';
 
   @override
   String get qrFoundHint =>
-      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+      'Βρέθηκε κωδικός QR στην αφίσα. Οι επιλεγμένοι κωδικοί διαβάζονται για αριθμούς μητρώου και συνδέσμους.';
 
   @override
-  String get useCode => 'Use this code';
+  String get useCode => 'Χρήση αυτού του κωδικού';
 
   @override
-  String get qrNone => 'No QR code found in the photo.';
+  String get qrNone => 'Δεν βρέθηκε κωδικός QR στη φωτογραφία.';
 
   @override
   String qrFailed(String error) {
-    return 'QR reading failed: $error';
+    return 'Η ανάγνωση του κωδικού QR απέτυχε: $error';
   }
 
   @override
   String flierRecognized(String name) {
-    return '$name poster recognized. Check below which field each line goes to.';
+    return 'Αναγνωρίστηκε αφίσα $name. Ελέγξτε παρακάτω σε ποιο πεδίο πηγαίνει κάθε γραμμή.';
   }
 
   @override
   String get flierLayoutUnknown =>
-      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+      'Άγνωστη διάταξη αφίσας. Αντιστοιχίστε τις γραμμές σε πεδία παρακάτω· τα υπόλοιπα μένουν στις σημειώσεις.';
 
   @override
-  String get targetRegistryNumber => 'Registry number';
+  String get targetRegistryNumber => 'Αριθμός μητρώου';
 
   @override
-  String get targetLostPlace => 'Address (lost at)';
+  String get targetLostPlace => 'Διεύθυνση (τόπος απώλειας)';
 
   @override
-  String get targetContact => 'Registry contact';
+  String get targetContact => 'Επικοινωνία μητρώου';
 
   @override
-  String get abortScanTitle => 'Abort the scan?';
+  String get abortScanTitle => 'Ακύρωση της σάρωσης;';
 
   @override
-  String get abortScanBody => 'Nothing gets saved.';
+  String get abortScanBody => 'Δεν θα αποθηκευτεί τίποτα.';
 
   @override
-  String get abortScan => 'Abort';
+  String get abortScan => 'Ακύρωση';
 
   @override
-  String get keepScanning => 'Keep going';
+  String get keepScanning => 'Συνέχεια';
 }

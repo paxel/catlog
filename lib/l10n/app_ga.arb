@@ -625,5 +625,19 @@
   "outcomeTitle": "Conas a d'éirigh leis?",
   "finishLabel": "Críochnaigh",
   "editLabelAppointment": "Cuir an choinne in eagar",
-  "deleteAppointment": "Scrios an choinne"
+  "deleteAppointment": "Scrios an choinne",
+  "stepFlierText": "Téacs na bileoige",
+  "qrFoundHint": "Aimsíodh cód QR ar an mbileog. Léitear cóid thiceáilte le haghaidh uimhreacha cláir agus nasc.",
+  "useCode": "Úsáid an cód seo",
+  "qrNone": "Níor aimsíodh cód QR sa ghrianghraf.",
+  "qrFailed": "Theip ar léamh an chóid QR: {error}",
+  "flierRecognized": "Bileog {name} aitheanta. Seiceáil thíos cén réimse a dtéann gach líne isteach ann.",
+  "flierLayoutUnknown": "Leagan amach anaithnid. Sann na línte do réimsí thíos; fanann an chuid eile sna nótaí.",
+  "targetRegistryNumber": "Uimhir chláir",
+  "targetLostPlace": "Seoladh (áit ar cailleadh é)",
+  "targetContact": "Teagmháil an chláir",
+  "abortScanTitle": "Éirigh as an scanadh?",
+  "abortScanBody": "Ní shábhálfar rud ar bith.",
+  "abortScan": "Éirigh as",
+  "keepScanning": "Lean ar aghaidh"
 }

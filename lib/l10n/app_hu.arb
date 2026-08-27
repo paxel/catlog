@@ -625,5 +625,19 @@
   "outcomeTitle": "Hogy ment?",
   "finishLabel": "Befejezés",
   "editLabelAppointment": "Időpont szerkesztése",
-  "deleteAppointment": "Időpont törlése"
+  "deleteAppointment": "Időpont törlése",
+  "stepFlierText": "A plakát szövege",
+  "qrFoundHint": "A plakáton QR-kód található. A bejelölt kódokból nyilvántartási számokat és linkeket olvasunk ki.",
+  "useCode": "Ezt a kódot használja",
+  "qrNone": "Nem található QR-kód a fotón.",
+  "qrFailed": "A QR-kód olvasása nem sikerült: {error}",
+  "flierRecognized": "{name} plakát felismerve. Ellenőrizze lent, melyik mezőbe kerül az egyes sorok.",
+  "flierLayoutUnknown": "Ismeretlen plakátelrendezés. Rendelje a sorokat mezőkhöz lent; a többi a megjegyzésekben marad.",
+  "targetRegistryNumber": "Nyilvántartási szám",
+  "targetLostPlace": "Cím (elveszett itt)",
+  "targetContact": "A nyilvántartás elérhetősége",
+  "abortScanTitle": "Megszakítja a felvételt?",
+  "abortScanBody": "Semmi nem lesz mentve.",
+  "abortScan": "Megszakítás",
+  "keepScanning": "Folytatás"
 }
