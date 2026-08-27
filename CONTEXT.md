@@ -45,6 +45,10 @@ _Avoid_: lost cat record, flier cat
 **Flier Position**:
 The place a Flier was photographed — where the poster hangs, not where the cat was seen. Never shown as a sighting pin; it only anchors the Possible Stray Area.
 
+**Flier Template**:
+How one registry lays out its posters — which printed labels stand for which Field, how the name line reads, which lines are the registry's own contact. Shipped as data (`assets/fliers/templates.json`); the best-matching Template reads a Flier, an unmatched layout leaves every line for the user to assign.
+_Avoid_: parser, OCR rules, hardcoded TASSO
+
 **Possible Stray Area**:
 A toggleable map overlay for a Missing Cat: the union of 500 m circles around its Flier Positions, marking where the cat is likely to roam (three quarters of lost cats are found within 500 m).
 _Avoid_: search radius, home range
