@@ -1,66 +1,9 @@
 import 'dart:io';
-import 'dart:ui';
 
-import 'package:catlog/src/flier_ocr.dart';
 import 'package:catlog/src/flier_template.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-FlierLine _line(
-  String text,
-  double left,
-  double top, {
-  double width = 300,
-  double height = 30,
-}) => FlierLine(text, Rect.fromLTWH(left, top, width, height));
-
-/// The TASSO poster for Hugo, in the order ML Kit returned it: the
-/// label block first, the value block after, name and body text
-/// around them.
-List<FlierLine> _hugoLines() {
-  const labels = [
-    'Suchdienstnummer',
-    'Tierart, Geschlecht, Kastriert',
-    'Rasse',
-    'Farbe',
-    'Geburtsdatum',
-    'Kennzeichnung',
-    'Verlustdatum',
-    'Verlustort',
-  ];
-  const values = [
-    'S2983764',
-    'Katze, männich, kastriert',
-    'Europäische Langhaarkatze',
-    'braun',
-    '26.05.2024',
-    'Das Tier ist gechipt.',
-    '05.06.2025',
-    '04207 Leipzig, Colberger Weg. Deutschland',
-  ];
-  return [
-    _line('GESUCHT!', 450, 250, width: 900, height: 150),
-    for (var i = 0; i < labels.length; i++)
-      _line(labels[i], 130, 990 + 55.0 * i, width: 380),
-    _line('Kater HUGO', 560, 890, width: 300, height: 60),
-    for (var i = 0; i < values.length; i++)
-      _line(values[i], 540, 993 + 55.0 * i, width: 600),
-    _line(
-      'TASSO-Tipp: Katzen werden oft versehentlich eingesperrt. Werfen Sie deshalb bitte auch einen Blick in',
-      130,
-      1330,
-      width: 1200,
-    ),
-    _line('Ihre Garagen, Kellerräume und Gartenhäuser.', 130, 1360, width: 500),
-    _line('24-Stunden-Notruf-Nummer:', 300, 1690),
-    _line('06190/ 93 73 00', 300, 1730, width: 400, height: 50),
-    _line(
-      'Fax: 0 61 90/93 74 00 info@tasso.net www.tasso.net',
-      400,
-      1920,
-      width: 700,
-    ),
-  ];
-}
+import 'flier_fixtures.dart';
 
 /// Rudi's poster as pairs: a different TASSO layout — no species row,
 /// a composite "Geschlecht, kastriert" row, a month as birthday.
@@ -91,7 +34,7 @@ void main() {
 
   group('pairing', () {
     test('a label pairs with the value at its height, whatever the order', () {
-      final pairs = pairLines(_hugoLines());
+      final pairs = pairLines(hugoLines());
       expect(pairs, contains(const FlierPair('Suchdienstnummer', 'S2983764')));
       expect(
         pairs,
@@ -106,7 +49,7 @@ void main() {
     });
 
     test('lone lines stay lone, body text never becomes a label', () {
-      final pairs = pairLines(_hugoLines());
+      final pairs = pairLines(hugoLines());
       expect(pairs, contains(const FlierPair(null, 'Kater HUGO')));
       expect(pairs, contains(const FlierPair(null, 'GESUCHT!')));
       expect(
@@ -117,8 +60,8 @@ void main() {
 
     test('a value below, not beside, does not pair', () {
       final pairs = pairLines([
-        _line('Name', 100, 100),
-        _line('Minka', 100, 140),
+        flierLine('Name', 100, 100),
+        flierLine('Minka', 100, 140),
       ]);
       expect(pairs, [
         const FlierPair(null, 'Name'),
@@ -134,7 +77,7 @@ void main() {
     });
 
     test('Hugo is read as a TASSO poster, every row on its field', () {
-      final reading = readFlier(pairLines(_hugoLines()), templates);
+      final reading = readFlier(pairLines(hugoLines()), templates);
       expect(reading.template?.name, 'TASSO');
       expect(reading.first(FlierTarget.registryNumber), 'S2983764');
       expect(reading.first(FlierTarget.name), 'HUGO');
@@ -144,7 +87,7 @@ void main() {
       expect(reading.first('breed'), 'Europäische Langhaarkatze');
       expect(reading.first('color'), 'braun');
       expect(reading.first('birthday'), '26.05.2024');
-      expect(reading.first(FlierTarget.chipNote), 'Das Tier ist gechipt.');
+      expect(reading.first('chipid'), 'Das Tier ist gechipt.');
       expect(reading.first(FlierTarget.missingSince), '05.06.2025');
       expect(
         reading.first(FlierTarget.lostPlace),
@@ -153,7 +96,7 @@ void main() {
     });
 
     test('the registry hotline and mail are contact, never remarks fields', () {
-      final reading = readFlier(pairLines(_hugoLines()), templates);
+      final reading = readFlier(pairLines(hugoLines()), templates);
       expect(
         reading.of(FlierTarget.contact).map((e) => e.value),
         containsAll([
@@ -164,7 +107,7 @@ void main() {
     });
 
     test('remarks keep only what no field took', () {
-      final remarks = readFlier(pairLines(_hugoLines()), templates).remarks();
+      final remarks = readFlier(pairLines(hugoLines()), templates).remarks();
       expect(remarks, contains('GESUCHT!'));
       expect(remarks, contains('TASSO-Tipp'));
       expect(remarks, contains('06190/ 93 73 00'));

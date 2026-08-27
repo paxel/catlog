@@ -1868,4 +1868,52 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deleteAppointment => 'Fshi takimin';
+
+  @override
+  String get stepFlierText => 'Flier text';
+
+  @override
+  String get qrFoundHint =>
+      'A QR code was found on the poster. Ticked codes are read for registry numbers and links.';
+
+  @override
+  String get useCode => 'Use this code';
+
+  @override
+  String get qrNone => 'No QR code found in the photo.';
+
+  @override
+  String qrFailed(String error) {
+    return 'QR reading failed: $error';
+  }
+
+  @override
+  String flierRecognized(String name) {
+    return '$name poster recognized. Check below which field each line goes to.';
+  }
+
+  @override
+  String get flierLayoutUnknown =>
+      'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.';
+
+  @override
+  String get targetRegistryNumber => 'Registry number';
+
+  @override
+  String get targetLostPlace => 'Address (lost at)';
+
+  @override
+  String get targetContact => 'Registry contact';
+
+  @override
+  String get abortScanTitle => 'Abort the scan?';
+
+  @override
+  String get abortScanBody => 'Nothing gets saved.';
+
+  @override
+  String get abortScan => 'Abort';
+
+  @override
+  String get keepScanning => 'Keep going';
 }

@@ -3355,6 +3355,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete appointment'**
   String get deleteAppointment;
+
+  /// No description provided for @stepFlierText.
+  ///
+  /// In en, this message translates to:
+  /// **'Flier text'**
+  String get stepFlierText;
+
+  /// No description provided for @qrFoundHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A QR code was found on the poster. Ticked codes are read for registry numbers and links.'**
+  String get qrFoundHint;
+
+  /// No description provided for @useCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Use this code'**
+  String get useCode;
+
+  /// No description provided for @qrNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No QR code found in the photo.'**
+  String get qrNone;
+
+  /// No description provided for @qrFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'QR reading failed: {error}'**
+  String qrFailed(String error);
+
+  /// No description provided for @flierRecognized.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} poster recognized. Check below which field each line goes to.'**
+  String flierRecognized(String name);
+
+  /// No description provided for @flierLayoutUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.'**
+  String get flierLayoutUnknown;
+
+  /// No description provided for @targetRegistryNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Registry number'**
+  String get targetRegistryNumber;
+
+  /// No description provided for @targetLostPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Address (lost at)'**
+  String get targetLostPlace;
+
+  /// No description provided for @targetContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Registry contact'**
+  String get targetContact;
+
+  /// No description provided for @abortScanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Abort the scan?'**
+  String get abortScanTitle;
+
+  /// No description provided for @abortScanBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing gets saved.'**
+  String get abortScanBody;
+
+  /// No description provided for @abortScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Abort'**
+  String get abortScan;
+
+  /// No description provided for @keepScanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going'**
+  String get keepScanning;
 }
 
 class _AppLocalizationsDelegate

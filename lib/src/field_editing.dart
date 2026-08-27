@@ -22,12 +22,20 @@ class FieldEdit {
 /// Every editor carries an "as of" date so entries can be backdated
 /// ("spayed on 3 May", entered today).
 Future<FieldEdit?> editFieldValue(
-    BuildContext context, FieldDef def, String? current,
-    {CatalogStore? store, String? excludeId}) {
+  BuildContext context,
+  FieldDef def,
+  String? current, {
+  CatalogStore? store,
+  String? excludeId,
+}) {
   return showDialog<FieldEdit>(
     context: context,
     builder: (context) => _FieldEditDialog(
-        def: def, current: current, store: store, excludeId: excludeId),
+      def: def,
+      current: current,
+      store: store,
+      excludeId: excludeId,
+    ),
   );
 }
 
@@ -41,8 +49,8 @@ class FieldValueController extends ChangeNotifier {
   String? _choice;
 
   FieldValueController(this.def, {String? current})
-      : text = TextEditingController(text: current ?? ''),
-        _choice = current {
+    : text = TextEditingController(text: current ?? ''),
+      _choice = current {
     // For choice fields the text controller holds only off-list values;
     // a current value that IS an option belongs to the radios alone.
     if (def.type == FieldType.choice && def.options.contains(current)) {
@@ -96,8 +104,17 @@ class FieldValueInput extends StatefulWidget {
   /// The entity being edited — a cat never references itself.
   final String? excludeId;
 
-  const FieldValueInput(
-      {super.key, required this.controller, this.store, this.excludeId});
+  /// Typed inputs grab the focus — right in a dialog, wrong on a page
+  /// that lists several of them.
+  final bool autofocus;
+
+  const FieldValueInput({
+    super.key,
+    required this.controller,
+    this.store,
+    this.excludeId,
+    this.autofocus = true,
+  });
 
   @override
   State<FieldValueInput> createState() => _FieldValueInputState();
@@ -112,39 +129,46 @@ class _FieldValueInputState extends State<FieldValueInput> {
     switch (def.type) {
       case FieldType.yesNo:
       case FieldType.choice:
-        final options =
-            def.type == FieldType.yesNo ? const ['yes', 'no'] : def.options;
-        return Column(mainAxisSize: MainAxisSize.min, children: [
-          RadioGroup<String>(
-            groupValue: c.choice,
-            onChanged: (v) => setState(() {
-              c.choice = v;
-              c.text.clear();
-            }),
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              for (final option in options)
-                RadioListTile<String>(
-                    title: Text(
-                        fieldValueDisplay(context.t, def, option)),
-                    value: option),
-            ]),
-          ),
-          if (def.type == FieldType.choice)
-            TextField(
-              controller: c.text,
-              decoration:
-                  InputDecoration(labelText: context.t.ownValue),
+        final options = def.type == FieldType.yesNo
+            ? const ['yes', 'no']
+            : def.options;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            RadioGroup<String>(
+              groupValue: c.choice,
               onChanged: (v) => setState(() {
-                if (v.trim().isNotEmpty) c.choice = null;
+                c.choice = v;
+                c.text.clear();
               }),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (final option in options)
+                    RadioListTile<String>(
+                      title: Text(fieldValueDisplay(context.t, def, option)),
+                      value: option,
+                    ),
+                ],
+              ),
             ),
-        ]);
+            if (def.type == FieldType.choice)
+              TextField(
+                controller: c.text,
+                decoration: InputDecoration(labelText: context.t.ownValue),
+                onChanged: (v) => setState(() {
+                  if (v.trim().isNotEmpty) c.choice = null;
+                }),
+              ),
+          ],
+        );
       case FieldType.date:
         // Birth and death dates can't lie in the future; other date
         // fields legitimately can (appointments, due dates).
         final pastOnly = def.slug == 'birthdate' || def.slug == 'deceased';
-        final last =
-            pastOnly ? DateUtils.dateOnly(DateTime.now()) : DateTime(2100);
+        final last = pastOnly
+            ? DateUtils.dateOnly(DateTime.now())
+            : DateTime(2100);
         var initial = DateTime.tryParse(c.choice ?? '') ?? DateTime.now();
         if (initial.isAfter(last)) initial = last;
         // The picker pages months in a viewport, which cannot answer the
@@ -165,23 +189,22 @@ class _FieldValueInputState extends State<FieldValueInput> {
       case FieldType.number:
         return TextField(
           controller: c.text,
-          autofocus: true,
-          keyboardType:
-              const TextInputType.numberWithOptions(decimal: true),
+          autofocus: widget.autofocus,
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
           decoration: InputDecoration(labelText: context.t.value),
         );
       case FieldType.location:
         return ListTile(
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.location_pin),
-          title: Text(
-              c.text.text.isEmpty ? context.t.pickOnMap : c.text.text),
+          title: Text(c.text.text.isEmpty ? context.t.pickOnMap : c.text.text),
           trailing: const Icon(Icons.map_outlined),
           onTap: () async {
             final picked = await Navigator.of(context).push<String>(
               MaterialPageRoute(
                 builder: (_) => PositionPickerScreen(
-                    initial: c.text.text.isEmpty ? null : c.text.text),
+                  initial: c.text.text.isEmpty ? null : c.text.text,
+                ),
               ),
             );
             if (!mounted) return;
@@ -193,7 +216,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
         final multiline = def.slug == 'remarks';
         return TextField(
           controller: c.text,
-          autofocus: true,
+          autofocus: widget.autofocus,
           minLines: multiline ? 3 : 1,
           maxLines: multiline ? 8 : 1,
           decoration: InputDecoration(labelText: context.t.value),
@@ -204,18 +227,18 @@ class _FieldValueInputState extends State<FieldValueInput> {
         // the cat, expecting to read the implanted transponder.
         return TextField(
           controller: c.text,
-          autofocus: true,
+          autofocus: widget.autofocus,
           decoration: InputDecoration(
             labelText: context.t.value,
-            helperText:
-                def.slug == 'chipid' ? context.t.chipScanHint : null,
+            helperText: def.slug == 'chipid' ? context.t.chipScanHint : null,
             helperMaxLines: 3,
             suffixIcon: IconButton(
               icon: const Icon(Icons.qr_code_scanner),
               tooltip: context.t.scanPrintedCode,
               onPressed: () async {
                 final value = await Navigator.of(context).push<String>(
-                    MaterialPageRoute(builder: (_) => const ScanScreen()));
+                  MaterialPageRoute(builder: (_) => const ScanScreen()),
+                );
                 if (value != null && value.isNotEmpty) {
                   setState(() => c.text.text = value);
                 }
@@ -230,17 +253,20 @@ class _FieldValueInputState extends State<FieldValueInput> {
           for (final cat in store.cats())
             if (store.resolveEntity(cat.id) !=
                 store.resolveEntity(widget.excludeId ?? ''))
-              cat
+              cat,
         ];
         return ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 320),
           child: RadioGroup<String>(
             groupValue: c.choice,
             onChanged: (v) => setState(() => c.choice = v),
-            child: ListView(shrinkWrap: true, children: [
-              for (final cat in cats)
-                RadioListTile<String>(title: Text(cat.name), value: cat.id),
-            ]),
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                for (final cat in cats)
+                  RadioListTile<String>(title: Text(cat.name), value: cat.id),
+              ],
+            ),
           ),
         );
     }
@@ -253,18 +279,25 @@ class _FieldEditDialog extends StatefulWidget {
   final CatalogStore? store;
   final String? excludeId;
 
-  const _FieldEditDialog(
-      {required this.def, required this.current, this.store, this.excludeId});
+  const _FieldEditDialog({
+    required this.def,
+    required this.current,
+    this.store,
+    this.excludeId,
+  });
 
   @override
   State<_FieldEditDialog> createState() => _FieldEditDialogState();
 }
 
 class _FieldEditDialogState extends State<_FieldEditDialog> {
-  late final FieldValueController _value =
-      FieldValueController(widget.def, current: widget.current);
+  late final FieldValueController _value = FieldValueController(
+    widget.def,
+    current: widget.current,
+  );
   DateTime _asOf = DateTime.now();
-  late bool _private = widget.store != null &&
+  late bool _private =
+      widget.store != null &&
       widget.excludeId != null &&
       widget.store!.isFieldPrivate(widget.excludeId!, widget.def.key);
 
@@ -285,8 +318,9 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
       lastDate: DateTime.now().add(const Duration(days: 1)),
       // The picker falls back to a text field (e.g. with screen readers);
       // the stock error doesn't say which format is expected.
-      errorFormatText: context.t
-          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
+      errorFormatText: context.t.dateFormatError(
+        MaterialLocalizations.of(context).dateHelpText,
+      ),
     );
     if (!mounted) return;
     if (picked != null) setState(() => _asOf = picked);
@@ -298,34 +332,41 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
     return AlertDialog(
       title: Text(fieldDefName(context.t, widget.def)),
       content: SingleChildScrollView(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          FieldValueInput(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FieldValueInput(
               controller: _value,
               store: widget.store,
-              excludeId: widget.excludeId),
-          const SizedBox(height: 8),
-          if (widget.store != null && widget.excludeId != null)
-            CheckboxListTile(
-              contentPadding: EdgeInsets.zero,
-              value: _private,
-              onChanged: (v) =>
-                  setState(() => _private = v ?? false),
-              title: Text(context.t.privateLabel),
-              secondary: const Icon(Icons.lock_outline),
-              controlAffinity: ListTileControlAffinity.trailing,
+              excludeId: widget.excludeId,
             ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: const Icon(Icons.event),
-            title: Text(sameDay
-                ? context.t.asOfToday
-                : context.t.asOfDate(DateFormat.yMd(
-                        Localizations.localeOf(context).toString())
-                    .format(_asOf))),
-            trailing: const Icon(Icons.edit_calendar_outlined),
-            onTap: _pickAsOf,
-          ),
-        ]),
+            const SizedBox(height: 8),
+            if (widget.store != null && widget.excludeId != null)
+              CheckboxListTile(
+                contentPadding: EdgeInsets.zero,
+                value: _private,
+                onChanged: (v) => setState(() => _private = v ?? false),
+                title: Text(context.t.privateLabel),
+                secondary: const Icon(Icons.lock_outline),
+                controlAffinity: ListTileControlAffinity.trailing,
+              ),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.event),
+              title: Text(
+                sameDay
+                    ? context.t.asOfToday
+                    : context.t.asOfDate(
+                        DateFormat.yMd(
+                          Localizations.localeOf(context).toString(),
+                        ).format(_asOf),
+                      ),
+              ),
+              trailing: const Icon(Icons.edit_calendar_outlined),
+              onTap: _pickAsOf,
+            ),
+          ],
+        ),
       ),
       actions: [
         TextButton(
@@ -333,8 +374,9 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
           child: Text(context.t.cancel),
         ),
         FilledButton(
-          onPressed: () => Navigator.of(context)
-              .pop(FieldEdit(_value.value, _asOf, private: _private)),
+          onPressed: () =>
+              Navigator.of(context)
+                  .pop(FieldEdit(_value.value, _asOf, private: _private)),
           child: Text(context.t.save),
         ),
       ],

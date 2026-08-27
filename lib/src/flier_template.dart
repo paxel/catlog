@@ -12,7 +12,6 @@ abstract final class FlierTarget {
   static const registryNumber = 'registryNumber';
   static const missingSince = 'missingSince';
   static const lostPlace = 'lostPlace';
-  static const chipNote = 'chipNote';
 
   /// Registry hotline, mail, website — never the owner's contact.
   static const contact = 'contact';
@@ -20,13 +19,7 @@ abstract final class FlierTarget {
   /// Free text: goes to remarks.
   static const remarks = 'remarks';
 
-  static const wizard = {
-    name,
-    registryNumber,
-    missingSince,
-    lostPlace,
-    chipNote,
-  };
+  static const wizard = {name, registryNumber, missingSince, lostPlace};
 }
 
 /// A label with the value printed next to it — or a lone line when

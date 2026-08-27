@@ -867,5 +867,21 @@
   "outcomeTitle": "How did it go?",
   "finishLabel": "Finish",
   "editLabelAppointment": "Edit appointment",
-  "deleteAppointment": "Delete appointment"
+  "deleteAppointment": "Delete appointment",
+  "stepFlierText": "Flier text",
+  "qrFoundHint": "A QR code was found on the poster. Ticked codes are read for registry numbers and links.",
+  "useCode": "Use this code",
+  "qrNone": "No QR code found in the photo.",
+  "qrFailed": "QR reading failed: {error}",
+  "@qrFailed": {"placeholders": {"error": {"type": "String"}}},
+  "flierRecognized": "{name} poster recognized. Check below which field each line goes to.",
+  "@flierRecognized": {"placeholders": {"name": {"type": "String"}}},
+  "flierLayoutUnknown": "Unknown poster layout. Assign the lines to fields below; the rest stays in remarks.",
+  "targetRegistryNumber": "Registry number",
+  "targetLostPlace": "Address (lost at)",
+  "targetContact": "Registry contact",
+  "abortScanTitle": "Abort the scan?",
+  "abortScanBody": "Nothing gets saved.",
+  "abortScan": "Abort",
+  "keepScanning": "Keep going"
 }

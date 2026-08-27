@@ -12,7 +12,7 @@
         "breed": ["Rasse", "Breed"],
         "color": ["Farbe", "Colour", "Color"],
         "birthday": ["Geburtsdatum", "Date of birth", "Born"],
-        "chipNote": ["Kennzeichnung", "Identification", "Marking"],
+        "chipid": ["Kennzeichnung", "Identification", "Marking", "Chip", "Transponder"],
         "missingSince": ["Verlustdatum", "Vermisst seit", "Date lost", "Missing since"],
         "lostPlace": ["Verlustort", "Place lost", "Lost in", "Missing from"]
       },
