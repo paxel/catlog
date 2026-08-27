@@ -35,8 +35,11 @@ class ClowderDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String clowderId;
 
-  const ClowderDetailScreen(
-      {super.key, required this.store, required this.clowderId});
+  const ClowderDetailScreen({
+    super.key,
+    required this.store,
+    required this.clowderId,
+  });
 
   @override
   State<ClowderDetailScreen> createState() => _ClowderDetailScreenState();
@@ -53,13 +56,18 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-        (_) => runSpotlights(context, store, 'clowder'));
+      (_) => runSpotlights(context, store, 'clowder'),
+    );
   }
 
   Future<void> _editField(FieldDef def) async {
     final edit = await editFieldValue(
-        context, def, store.current(id, def.key),
-        store: store, excludeId: id);
+      context,
+      def,
+      store.current(id, def.key),
+      store: store,
+      excludeId: id,
+    );
     if (edit == null || !mounted) return;
     store.append(id, def.key, edit.value, date: edit.date);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
@@ -70,8 +78,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   Future<void> _rename() async {
     final current = store.current(id, Keys.name) ?? '';
-    final name =
-        await _askForText(context, context.t.renameClowder, current);
+    final name = await _askForText(context, context.t.renameClowder, current);
     if (name == null || name.isEmpty || name == current) return;
     store.append(id, Keys.name, name);
     if (!mounted) return;
@@ -80,20 +87,28 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   Future<void> _addCat() async {
     final locale = Localizations.localeOf(context);
-    final result = await askNameAndDate(context, context.t.newCat,
-        propose: () => proposeCatName(store, locale));
+    final result = await askNameAndDate(
+      context,
+      context.t.newCat,
+      propose: () => proposeCatName(store, locale),
+    );
     if (result == null || !mounted) return;
-    final catId =
-        store.createCat(result.name, clowderId: id, date: result.date);
+    final catId = store.createCat(
+      result.name,
+      clowderId: id,
+      date: result.date,
+    );
     setState(() {});
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) =>
-          CatDetailScreen(
-              store: store,
-              catId: catId,
-              promptPhoto: true,
-              startEditing: true),
-    ));
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => CatDetailScreen(
+          store: store,
+          catId: catId,
+          promptPhoto: true,
+          startEditing: true,
+        ),
+      ),
+    );
     if (!mounted) return;
     setState(() {});
   }
@@ -124,9 +139,11 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(context.t.deleteQuestion(name)),
-        content: Text(count == 0
-            ? context.t.deleteClowderEmptyBody
-            : context.t.deleteClowderBody(count)),
+        content: Text(
+          count == 0
+              ? context.t.deleteClowderEmptyBody
+              : context.t.deleteClowderBody(count),
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -144,14 +161,15 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     Navigator.of(context).pop();
   }
 
-
   void _showOnMap(String value) {
     final pos = CatalogStore.parsePosition(value);
     if (pos == null) return;
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => MapScreen(
-          store: store, initialCenter: LatLng(pos.$1, pos.$2)),
-    ));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) =>
+            MapScreen(store: store, initialCenter: LatLng(pos.$1, pos.$2)),
+      ),
+    );
   }
 
   Future<void> _addReminder() async {
@@ -169,7 +187,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   List<Widget> _plannedSection() {
     final plans = [
       for (final r in store.activeReminders())
-        if (r.entity == store.resolveEntity(id)) r
+        if (r.entity == store.resolveEntity(id)) r,
     ];
     final appointments = store.appointmentsOf(id);
     if (plans.isEmpty && appointments.isEmpty) return const [];
@@ -177,28 +195,38 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       const Divider(),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(context.t.plannedSection,
-            style: Theme.of(context).textTheme.titleMedium),
+        child: Text(
+          context.t.plannedSection,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
       ),
+      // A vet run shows its other cats as chips; delete here takes only
+      // this entity out of it.
       for (final a in appointments)
         AppointmentCard(
-            store: store,
-            appointment: a,
-            showEntity: false,
-            onChanged: _plansChanged),
+          store: store,
+          appointment: a,
+          members: store.groupOf(a),
+          showEntity: false,
+          onChanged: _plansChanged,
+          onOpenEntity: _openCat,
+        ),
       for (final r in plans)
         ReminderCard(
-            store: store,
-            reminder: r,
-            showEntity: false,
-            onChanged: _plansChanged),
+          store: store,
+          reminder: r,
+          showEntity: false,
+          onChanged: _plansChanged,
+        ),
     ];
   }
 
   Future<void> _openCat(String catId) async {
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => CatDetailScreen(store: store, catId: catId),
-    ));
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => CatDetailScreen(store: store, catId: catId),
+      ),
+    );
     if (!mounted) return;
     setState(() {});
   }
@@ -220,10 +248,12 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         setState(() {});
       },
       onHistory: (def) async {
-        await Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) =>
-              TimelineScreen(store: store, entityId: id, field: def.key),
-        ));
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) =>
+                TimelineScreen(store: store, entityId: id, field: def.key),
+          ),
+        );
         // Reverts happen on the timeline — the page must show them.
         if (mounted) setState(() {});
       },
@@ -236,16 +266,21 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         _editField(def);
       },
       onAddField: () async {
-        final created =
-            await showNewFieldDialog(context, store, initialScope: FieldScope.clowder);
+        final created = await showNewFieldDialog(
+          context,
+          store,
+          initialScope: FieldScope.clowder,
+        );
         if (created && mounted) setState(() {});
       },
     );
     final gallery = <Widget>[
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text('${context.t.cats} (${cats.length})',
-            style: Theme.of(context).textTheme.titleMedium),
+        child: Text(
+          '${context.t.cats} (${cats.length})',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
       ),
       _catGrid(cats),
     ];
@@ -256,172 +291,193 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         if (!didPop) setState(() => _editing = false);
       },
       child: Scaffold(
-      appBar: roomyAppBar(
-        context,
-        // Renaming lives in edit mode: the title becomes tappable there.
-        title: _editing
-            ? InkWell(onTap: _rename, child: Text(name))
-            : Text(name),
-        actions: [
-          HelpButton(store: store, screenId: 'clowder'),
-          IconButton(
-            icon: const Icon(Icons.badge_outlined),
-            tooltip: context.t.card,
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) =>
-                  ClowderCardScreen(store: store, clowderId: id),
-            )),
-          ),
-          Spotlight(
-            id: 'clowder-reminder',
-            child: IconButton(
-              icon: const Icon(Icons.alarm_add),
-              tooltip: context.t.addReminder,
-              onPressed: _addReminder,
-            ),
-          ),
-          IconButton(
-            icon: Icon(_editing ? Icons.check : Icons.edit),
-            tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
-            onPressed: () => setState(() => _editing = !_editing),
-          ),
-          IconButton(
-            icon: const Icon(Icons.history),
-            tooltip: context.t.timeline,
-            onPressed: () async {
-              await Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) =>
-                    TimelineScreen(store: store, entityId: id),
-              ));
-              if (mounted) setState(() {});
-            },
-          ),
-          PopupMenuButton<String>(
-            onSelected: (v) {
-              if (v == 'delete') _deleteClowder();
-              if (v == 'moveCatalog') _moveToCatalog();
-              if (v == 'merge') _mergeClowder();
-              if (v == 'hide') {
-                final wasHidden = store.isHidden(id);
-                store.setHidden(id, !wasHidden);
-                if (wasHidden || showHidden.value) {
-                  setState(() {});
-                } else {
-                  Navigator.of(context).pop();
-                }
-              }
-            },
-            itemBuilder: (context) => [
-              if (canMoveBetweenCatalogs)
-                PopupMenuItem(
-                    value: 'moveCatalog',
-                    child: Text(context.t.moveToCatalog)),
-              PopupMenuItem(
-                  value: 'hide',
-                  child: Text(store.isHidden(id)
-                      ? context.t.unhideLabel
-                      : context.t.hideLabel)),
-              PopupMenuItem(
-                  value: 'merge', child: Text(context.t.mergeInto)),
-              PopupMenuItem(
-                  value: 'delete', child: Text(context.t.deleteClowder)),
-            ],
-          ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          if (store.current(id, 'f:status') != null)
-            Padding(
-              padding: const EdgeInsets.only(left: 16, top: 8),
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: StatusChip(store: store, clowderId: id),
+        appBar: roomyAppBar(
+          context,
+          // Renaming lives in edit mode: the title becomes tappable there.
+          title: _editing
+              ? InkWell(onTap: _rename, child: Text(name))
+              : Text(name),
+          actions: [
+            HelpButton(store: store, screenId: 'clowder'),
+            IconButton(
+              icon: const Icon(Icons.badge_outlined),
+              tooltip: context.t.card,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      ClowderCardScreen(store: store, clowderId: id),
+                ),
               ),
             ),
-          // Read mode leads with what one opens a clowder for — the cats;
-          // edit mode leads with its purpose — the fields (#46).
-          if (_editing) ...[fields, const Divider(), ...gallery]
-          else ...[...gallery, const Divider(), fields],
-          ..._plannedSection(),
-          const SizedBox(height: 80),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _addCat,
-        icon: const Icon(Icons.add),
-        label: Text(context.t.addCat),
-      ),
+            Spotlight(
+              id: 'clowder-reminder',
+              child: IconButton(
+                icon: const Icon(Icons.alarm_add),
+                tooltip: context.t.addReminder,
+                onPressed: _addReminder,
+              ),
+            ),
+            IconButton(
+              icon: Icon(_editing ? Icons.check : Icons.edit),
+              tooltip: _editing ? context.t.doneLabel : context.t.editLabel,
+              onPressed: () => setState(() => _editing = !_editing),
+            ),
+            IconButton(
+              icon: const Icon(Icons.history),
+              tooltip: context.t.timeline,
+              onPressed: () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => TimelineScreen(store: store, entityId: id),
+                  ),
+                );
+                if (mounted) setState(() {});
+              },
+            ),
+            PopupMenuButton<String>(
+              onSelected: (v) {
+                if (v == 'delete') _deleteClowder();
+                if (v == 'moveCatalog') _moveToCatalog();
+                if (v == 'merge') _mergeClowder();
+                if (v == 'hide') {
+                  final wasHidden = store.isHidden(id);
+                  store.setHidden(id, !wasHidden);
+                  if (wasHidden || showHidden.value) {
+                    setState(() {});
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                }
+              },
+              itemBuilder: (context) => [
+                if (canMoveBetweenCatalogs)
+                  PopupMenuItem(
+                    value: 'moveCatalog',
+                    child: Text(context.t.moveToCatalog),
+                  ),
+                PopupMenuItem(
+                  value: 'hide',
+                  child: Text(
+                    store.isHidden(id)
+                        ? context.t.unhideLabel
+                        : context.t.hideLabel,
+                  ),
+                ),
+                PopupMenuItem(value: 'merge', child: Text(context.t.mergeInto)),
+                PopupMenuItem(
+                  value: 'delete',
+                  child: Text(context.t.deleteClowder),
+                ),
+              ],
+            ),
+          ],
+        ),
+        body: ListView(
+          children: [
+            if (store.current(id, 'f:status') != null)
+              Padding(
+                padding: const EdgeInsets.only(left: 16, top: 8),
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: StatusChip(store: store, clowderId: id),
+                ),
+              ),
+            // Read mode leads with what one opens a clowder for — the cats;
+            // edit mode leads with its purpose — the fields (#46).
+            if (_editing) ...[
+              fields,
+              const Divider(),
+              ...gallery,
+            ] else ...[
+              ...gallery,
+              const Divider(),
+              fields,
+            ],
+            ..._plannedSection(),
+            const SizedBox(height: 80),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: _addCat,
+          icon: const Icon(Icons.add),
+          label: Text(context.t.addCat),
+        ),
       ),
     );
   }
 
   Widget _catGrid(List<EntityView> cats) => GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(8),
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 120,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              childAspectRatio: 0.8,
+    shrinkWrap: true,
+    physics: const NeverScrollableScrollPhysics(),
+    padding: const EdgeInsets.all(8),
+    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+      maxCrossAxisExtent: 120,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      childAspectRatio: 0.8,
+    ),
+    itemCount: cats.length,
+    itemBuilder: (context, i) {
+      final cat = cats[i];
+      Future<void> menu(Offset at) async {
+        final action = await showMenu<String>(
+          context: context,
+          position: RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
+          items: [
+            PopupMenuItem(value: 'open', child: Text(context.t.open)),
+            PopupMenuItem(value: 'card', child: Text(context.t.card)),
+          ],
+        );
+        if (!context.mounted) return;
+        if (action == 'open') _openCat(cat.id);
+        if (action == 'card') {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => CardScreen(store: store, catId: cat.id),
             ),
-            itemCount: cats.length,
-            itemBuilder: (context, i) {
-              final cat = cats[i];
-              Future<void> menu(Offset at) async {
-                final action = await showMenu<String>(
-                  context: context,
-                  position:
-                      RelativeRect.fromLTRB(at.dx, at.dy, at.dx, at.dy),
-                  items: [
-                    PopupMenuItem(
-                        value: 'open', child: Text(context.t.open)),
-                    PopupMenuItem(
-                        value: 'card', child: Text(context.t.card)),
-                  ],
-                );
-                if (!context.mounted) return;
-                if (action == 'open') _openCat(cat.id);
-                if (action == 'card') {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) =>
-                        CardScreen(store: store, catId: cat.id),
-                  ));
-                }
-              }
-
-              return InkWell(
-                onTap: () => _openCat(cat.id),
-                // Long-press = menu, the app-wide gesture convention —
-                // right-click stays as the desktop way in.
-                onSecondaryTapDown: (d) => menu(d.globalPosition),
-                borderRadius: BorderRadius.circular(12),
-                child: GestureDetector(
-                  onLongPressStart: (d) => menu(d.globalPosition),
-                  child: WithCatEar(
-                      child: Column(children: [
-                    Expanded(
-                      child: AspectRatio(
-                        aspectRatio: 1,
-                        child: CatAvatar(
-                            store: store, catId: cat.id, size: 96),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Text(cat.name,
-                          overflow: TextOverflow.ellipsis, maxLines: 1),
-                    ),
-                  ])),
-                ),
-              );
-            },
           );
+        }
+      }
+
+      return InkWell(
+        onTap: () => _openCat(cat.id),
+        // Long-press = menu, the app-wide gesture convention —
+        // right-click stays as the desktop way in.
+        onSecondaryTapDown: (d) => menu(d.globalPosition),
+        borderRadius: BorderRadius.circular(12),
+        child: GestureDetector(
+          onLongPressStart: (d) => menu(d.globalPosition),
+          child: WithCatEar(
+            child: Column(
+              children: [
+                Expanded(
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: CatAvatar(store: store, catId: cat.id, size: 96),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    cat.name,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
 
 Future<String?> _askForText(
-    BuildContext context, String title, String? initial) {
+  BuildContext context,
+  String title,
+  String? initial,
+) {
   final controller = TextEditingController(text: initial ?? '');
   return showDialog<String>(
     context: context,
