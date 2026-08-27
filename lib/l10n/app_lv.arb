@@ -258,7 +258,7 @@
   "helpTitle": "Palīdzība",
   "showTipsAgain": "Rādīt padomus vēlreiz",
   "helpHome": "Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.",
-  "helpClowder": "Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver.",
+  "helpClowder": "Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus kolonijas kaķus, piemēram, uz sterilizāciju: atzīmē kaķus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem.",
   "helpCat": "Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku.",
   "helpStrays": "Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta.",
   "helpMap": "Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Atgādinājumi: ieplānoto vizīšu saraksts — veterinārārsts, zāles, pārbaudes.",
   "spotAgendaAdd": "Ieplānot jaunu vizīti.",
   "spotAgendaCalendar": "Šeit ieslēdz cat(a)log vizīšu atspoguļošanu izvēlētā kalendārā.",
-  "helpAgenda": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu.",
+  "helpAgenda": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver kaķi vai klauderi. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem kaķiem ir viens pieraksts: atzīmē kaķus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri kaķi tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti.",
   "calendarRowOff": "Kalendārs: izslēgts",
   "calendarRowOn": "Kalendārs: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Pārtraukt skenēšanu?",
   "abortScanBody": "Nekas netiks saglabāts.",
   "abortScan": "Pārtraukt",
-  "keepScanning": "Turpināt"
+  "keepScanning": "Turpināt",
+  "catsOnAppointment": "Kaķi šajā pierakstā",
+  "noCatsHint": "Neviens kaķis nav atzīmēts — pieraksts pieder pašai kolonijai.",
+  "pickCatsTitle": "Kuri kaķi brauc līdzi?",
+  "catsCount": "{count} kaķi",
+  "finishUntickHint": "Noņem atzīmi kaķiem, kuri netika ārstēti; tie paliek plānoti.",
+  "deleteAppointmentGroup": "Dzēst pierakstu visiem {count} kaķiem"
 }

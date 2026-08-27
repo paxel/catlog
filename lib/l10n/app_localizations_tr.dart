@@ -888,7 +888,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar.';
+      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu koloninin birkaç kedisini götürebilir, örneğin kısırlaştırma seferi: gelen kedileri işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.';
 
   @override
   String get helpCat =>
@@ -1788,7 +1788,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır.';
+      'Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder\'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.';
 
   @override
   String get calendarRowOff => 'Takvim: kapalı';
@@ -1917,26 +1917,26 @@ class AppLocalizationsTr extends AppLocalizations {
   String get keepScanning => 'Devam et';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Bu randevudaki kediler';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Hiçbir kedi işaretli değil — randevu koloninin kendisine ait.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Hangi kediler geliyor?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count kedi';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Tedavi edilmeyen kedilerin işaretini kaldırın; planlı kalırlar.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Randevuyu $count kedinin tümü için sil';
   }
 }

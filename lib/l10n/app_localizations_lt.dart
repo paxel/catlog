@@ -890,7 +890,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama.';
+      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama. Čia pridėtas vizitas gali pasiimti kelias kolonijos kates, pavyzdžiui, sterilizacijai: pažymėkite vykstančias kates, užbaikite vieną kartą, nuimkite žymą nuo negydytų.';
 
   @override
   String get helpCat =>
@@ -1795,7 +1795,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu.';
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos.';
 
   @override
   String get calendarRowOff => 'Kalendorius: išjungta';
@@ -1924,26 +1924,26 @@ class AppLocalizationsLt extends AppLocalizations {
   String get keepScanning => 'Tęsti';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Katės šiame vizite';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Nė viena katė nepažymėta — vizitas priklauso pačiai kolonijai.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Kurios katės vyksta?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count katės';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Nuimkite žymą nuo kačių, kurios nebuvo gydytos; jos lieka suplanuotos.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Ištrinti vizitą visoms $count katėms';
   }
 }

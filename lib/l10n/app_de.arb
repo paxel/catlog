@@ -255,7 +255,7 @@
   "helpTitle": "Hilfe",
   "showTipsAgain": "Tipps nochmal zeigen",
   "helpHome": "Die Übersicht deiner Kolonien — eine Kolonie ist ein Ort, an dem Katzen leben: dein Zuhause, eine Pflegestelle, ein Tierheim. Tippe auf eine Karte, um ihre Katzen zu sehen; langes Drücken öffnet das Menü. Der Knopf unten rechts legt eine neue Kolonie an, und die Streuner-Karte sammelt alle Katzen ohne Zuhause. Der Name oben ist der Katalog, in dem du bist — antippen wechselt oder legt einen an.",
-  "helpClowder": "Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie.",
+  "helpClowder": "Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie. Ein hier angelegter Termin kann mehrere Katzen der Kolonie mitnehmen — etwa eine Kastrationsfahrt: mitkommende Katzen anhaken, einmal abschließen, nicht behandelte abhaken.",
   "helpCat": "Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Katze teilen. Privat setzt du beim Bearbeiten eines Feldes.",
   "helpStrays": "Katzen, die gerade kein Zuhause haben: Fundkatzen, entlaufene Katzen, Katzen von einem Aushang. Der Kamera-Knopf hält eine Katze fest, die vor dir sitzt; der Aushang-Knopf macht aus einem Vermisst-Plakat eine Katze samt Besitzer-Kontakt; der Scanner liest einen cat(a)log-Code vom Plakat.",
   "helpMap": "Alle Katzen und Orte mit Position. Die Suche findet Katzen, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte einer vermissten Katze und um ihr altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein.",
@@ -522,7 +522,7 @@
   "spotHomeAgenda": "Agenda: die Liste der geplanten Termine — Tierarzt, Medikamente, Kontrollen.",
   "spotAgendaAdd": "Einen neuen Termin planen.",
   "spotAgendaCalendar": "Aktiviere hier die Spiegelung der cat(a)log-Termine in einen ausgesuchten Kalender.",
-  "helpAgenda": "Die Agenda listet die geplanten Termine nach Datum. Es gibt zwei Arten: Termine mit Uhrzeit und Erinnerungen, die für einen Tag gelten. Verpasste Termine bleiben oben stehen. Tippen öffnet die Katze oder Kolonie. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren.",
+  "helpAgenda": "Die Agenda listet die geplanten Termine nach Datum. Es gibt zwei Arten: Termine mit Uhrzeit und Erinnerungen, die für einen Tag gelten. Verpasste Termine bleiben oben stehen. Tippen öffnet die Katze oder Kolonie. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren. Ein Tierarztbesuch mit mehreren Katzen ist ein Termin: Katzen darin anhaken, die Agenda zeigt eine Karte mit ihren Namen, und beim Abschließen wird gefragt, welche Katzen behandelt wurden — nicht behandelte abhaken, sie bleiben geplant.",
   "calendarRowOff": "Kalender: aus",
   "calendarRowOn": "Kalender: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -561,5 +561,11 @@
   "abortScanTitle": "Erfassung abbrechen?",
   "abortScanBody": "Es wird nichts gespeichert.",
   "abortScan": "Abbrechen",
-  "keepScanning": "Weitermachen"
+  "keepScanning": "Weitermachen",
+  "catsOnAppointment": "Katzen bei diesem Termin",
+  "noCatsHint": "Keine Katze angehakt — der Termin gehört der Kolonie selbst.",
+  "pickCatsTitle": "Welche Katzen kommen mit?",
+  "catsCount": "{count} Katzen",
+  "finishUntickHint": "Hake die Katzen ab, die nicht behandelt wurden; sie bleiben geplant.",
+  "deleteAppointmentGroup": "Termin für alle {count} Katzen löschen"
 }

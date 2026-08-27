@@ -889,7 +889,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete.';
+      'Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete. Schůzka přidaná zde může vzít více koček kolonie, například kastrační výjezd: zaškrtněte kočky, které jedou, dokončete jednou, odškrtněte ty, které nebyly ošetřeny.';
 
   @override
   String get helpCat =>
@@ -1788,7 +1788,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře.';
+      'Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více kočkami je jedna schůzka: zaškrtněte kočky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, které kočky byly ošetřeny — ostatní odškrtněte, zůstanou naplánované.';
 
   @override
   String get calendarRowOff => 'Kalendář: vypnuto';
@@ -1917,26 +1917,26 @@ class AppLocalizationsCs extends AppLocalizations {
   String get keepScanning => 'Pokračovat';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Kočky na této schůzce';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Žádná kočka nezaškrtnuta — schůzka patří samotné kolonii.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Které kočky jedou s sebou?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count koček';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Odškrtněte kočky, které nebyly ošetřeny; zůstanou naplánované.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Smazat schůzku pro všech $count koček';
   }
 }

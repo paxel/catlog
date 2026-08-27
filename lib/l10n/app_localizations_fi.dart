@@ -889,7 +889,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.';
+      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta.';
 
   @override
   String get helpCat =>
@@ -1789,7 +1789,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona.';
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.';
 
   @override
   String get calendarRowOff => 'Kalenteri: pois';
@@ -1918,26 +1918,26 @@ class AppLocalizationsFi extends AppLocalizations {
   String get keepScanning => 'Jatka';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Kissat tässä ajanvarauksessa';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Yhtään kissaa ei valittu — ajanvaraus on kolonian oma.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Mitkä kissat tulevat mukaan?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count kissaa';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Poista valinta kissoilta, joita ei hoidettu; ne pysyvät suunniteltuina.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Poista ajanvaraus kaikilta $count kissalta';
   }
 }

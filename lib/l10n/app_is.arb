@@ -258,7 +258,7 @@
   "helpTitle": "Hjálp",
   "showTipsAgain": "Sýna ábendingar aftur",
   "helpHome": "Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.",
-  "helpClowder": "Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.",
+  "helpClowder": "Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann. Tími sem bætt er við hér getur tekið nokkra ketti nýlendunnar með, t.d. geldingarferð: merktu kettina sem koma með, ljúktu einu sinni, afmerktu þá sem ekki voru meðhöndlaðir.",
   "helpCat": "Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt.",
   "helpStrays": "Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.",
   "helpMap": "Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Áminningar: listi yfir áætlaða tíma — dýralæknir, lyf, eftirlit.",
   "spotAgendaAdd": "Áætla nýjan tíma.",
   "spotAgendaCalendar": "Kveiktu hér á speglun cat(a)log-tíma í dagatal að eigin vali.",
-  "helpAgenda": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá.",
+  "helpAgenda": "Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir.",
   "calendarRowOff": "Dagatal: slökkt",
   "calendarRowOn": "Dagatal: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Hætta við skráninguna?",
   "abortScanBody": "Ekkert verður vistað.",
   "abortScan": "Hætta við",
-  "keepScanning": "Halda áfram"
+  "keepScanning": "Halda áfram",
+  "catsOnAppointment": "Kettir í þessum tíma",
+  "noCatsHint": "Enginn köttur merktur — tíminn tilheyrir nýlendunni sjálfri.",
+  "pickCatsTitle": "Hvaða kettir koma með?",
+  "catsCount": "{count} kettir",
+  "finishUntickHint": "Afmerktu ketti sem ekki voru meðhöndlaðir; þeir haldast áætlaðir.",
+  "deleteAppointmentGroup": "Eyða tíma fyrir alla {count} kettina"
 }

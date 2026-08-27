@@ -888,7 +888,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod.';
+      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a kolónia több macskáját is viheti, például egy ivartalanítási útra: jelöld be a macskákat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél.';
 
   @override
   String get helpCat =>
@@ -1788,7 +1788,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket.';
+      'A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a macskát vagy a clowdert. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több macskával egyetlen időpont: jelöld be a macskákat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely macskákat kezelték — a többinél vedd ki a jelölést, tervezve maradnak.';
 
   @override
   String get calendarRowOff => 'Naptár: ki';
@@ -1917,26 +1917,26 @@ class AppLocalizationsHu extends AppLocalizations {
   String get keepScanning => 'Folytatás';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Macskák ezen az időponton';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Nincs macska bejelölve — az időpont magáé a kolóniáé.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Melyik macskák jönnek?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count macska';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Vedd ki a jelölést azoknál a macskáknál, amelyeket nem kezeltek; tervezve maradnak.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Időpont törlése mind a $count macskánál';
   }
 }

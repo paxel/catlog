@@ -258,7 +258,7 @@
   "helpTitle": "Yardım",
   "showTipsAgain": "İpuçlarını tekrar göster",
   "helpHome": "Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.",
-  "helpClowder": "Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar.",
+  "helpClowder": "Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu koloninin birkaç kedisini götürebilir, örneğin kısırlaştırma seferi: gelen kedileri işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.",
   "helpCat": "Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır.",
   "helpStrays": "Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur.",
   "helpMap": "Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Ajanda: planlanan randevuların listesi — veteriner, ilaç, kontroller.",
   "spotAgendaAdd": "Yeni bir randevu planla.",
   "spotAgendaCalendar": "cat(a)log randevularının seçtiğin bir takvime yansıtılmasını buradan aç.",
-  "helpAgenda": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır.",
+  "helpAgenda": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak kediyi veya clowder'ı açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç kediyle veteriner ziyareti tek bir randevudur: kedileri işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi kedilerin tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar.",
   "calendarRowOff": "Takvim: kapalı",
   "calendarRowOn": "Takvim: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Tarama iptal edilsin mi?",
   "abortScanBody": "Hiçbir şey kaydedilmez.",
   "abortScan": "İptal",
-  "keepScanning": "Devam et"
+  "keepScanning": "Devam et",
+  "catsOnAppointment": "Bu randevudaki kediler",
+  "noCatsHint": "Hiçbir kedi işaretli değil — randevu koloninin kendisine ait.",
+  "pickCatsTitle": "Hangi kediler geliyor?",
+  "catsCount": "{count} kedi",
+  "finishUntickHint": "Tedavi edilmeyen kedilerin işaretini kaldırın; planlı kalırlar.",
+  "deleteAppointmentGroup": "Randevuyu {count} kedinin tümü için sil"
 }

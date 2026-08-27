@@ -258,7 +258,7 @@
   "helpTitle": "Help",
   "showTipsAgain": "Tips opnieuw tonen",
   "helpHome": "Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.",
-  "helpClowder": "Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen.",
+  "helpClowder": "Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere katten van de kolonie meenemen, bijvoorbeeld een castratierit: vink de katten aan die meegaan, rond één keer af, vink de niet-behandelde uit.",
   "helpCat": "Alles over deze kat: foto's, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld.",
   "helpStrays": "Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.",
   "helpMap": "Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Agenda: de lijst met geplande afspraken — dierenarts, medicijnen, controles.",
   "spotAgendaAdd": "Een nieuwe afspraak plannen.",
   "spotAgendaCalendar": "Zet hier het spiegelen van de cat(a)log-afspraken naar een agenda van je keuze aan.",
-  "helpAgenda": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand.",
+  "helpAgenda": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland.",
   "calendarRowOff": "Agenda: uit",
   "calendarRowOn": "Agenda: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Opname afbreken?",
   "abortScanBody": "Er wordt niets opgeslagen.",
   "abortScan": "Afbreken",
-  "keepScanning": "Doorgaan"
+  "keepScanning": "Doorgaan",
+  "catsOnAppointment": "Katten bij deze afspraak",
+  "noCatsHint": "Geen kat aangevinkt — de afspraak is van de kolonie zelf.",
+  "pickCatsTitle": "Welke katten gaan mee?",
+  "catsCount": "{count} katten",
+  "finishUntickHint": "Vink de katten uit die niet behandeld zijn; ze blijven gepland.",
+  "deleteAppointmentGroup": "Afspraak voor alle {count} katten verwijderen"
 }

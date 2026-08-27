@@ -886,7 +886,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها.';
+      'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها. الموعد المضاف هنا يمكن أن يأخذ عدة قطط من المستعمرة، مثل رحلة تعقيم: حدّد القطط التي ستأتي، أنهِ مرة واحدة، وألغِ تحديد التي لم تُعالج.';
 
   @override
   String get helpCat =>
@@ -1787,7 +1787,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم.';
+      'تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح القطة أو المجموعة. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة قطط هي موعد واحد: حدّد القطط، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي القطط عولجت — ألغِ تحديد الباقي، فتبقى مخططة.';
 
   @override
   String get calendarRowOff => 'التقويم: متوقف';
@@ -1914,26 +1914,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String get keepScanning => 'متابعة';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'القطط في هذا الموعد';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => 'لم يتم تحديد أي قطة — الموعد يخص المستعمرة نفسها.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'أي القطط ستأتي؟';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count قطط';
   }
 
   @override
-  String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+  String get finishUntickHint => 'ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'حذف الموعد لكل القطط الـ$count';
   }
 }

@@ -258,7 +258,7 @@
   "helpTitle": "Hjelp",
   "showTipsAgain": "Vis tipsene igjen",
   "helpHome": "Oversikten over koloniene dine — en koloni er et sted der katter bor: hjemmet ditt, et fosterhjem, et internat. Trykk på et kort for å se kattene; hold inne for menyen. Knappen nede til høyre lager en koloni, og streiferkortet samler alle katter uten hjem. Navnet øverst er katalogen du er i — trykk for å bytte eller legge til en.",
-  "helpClowder": "Alt om dette stedet: kattene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, en katt for å flytte, skjule eller åpne den.",
+  "helpClowder": "Alt om dette stedet: kattene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, en katt for å flytte, skjule eller åpne den. En avtale lagt til her kan ta med flere av koloniens katter, for eksempel en kastreringstur: kryss av kattene som blir med, avslutt én gang, fjern krysset for dem som ikke ble behandlet.",
   "helpCat": "Alt om denne katten: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del katten. Privat settes når du redigerer et felt.",
   "helpStrays": "Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget.",
   "helpMap": "Alle katter og steder med posisjon. Søket finner katter, personer og steder — et ukjent navn slås opp i hele verden. Lagknappen tegner 500 m-sirklene rundt oppslagsstedene til en savnet katt og rundt det gamle hjemmet. Pilene går fra nål til nål, langt trykk noterer en observasjon.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Påminnelser: listen over planlagte avtaler — veterinær, medisin, kontroller.",
   "spotAgendaAdd": "Planlegg en ny avtale.",
   "spotAgendaCalendar": "Slå på speiling av cat(a)log-avtalene til en kalender du velger her.",
-  "helpAgenda": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil.",
+  "helpAgenda": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner katten eller clowderen. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere katter er én avtale: kryss av kattene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke katter som ble behandlet — fjern krysset for de andre, de forblir planlagt.",
   "calendarRowOff": "Kalender: av",
   "calendarRowOn": "Kalender: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Avbryte registreringen?",
   "abortScanBody": "Ingenting blir lagret.",
   "abortScan": "Avbryt",
-  "keepScanning": "Fortsett"
+  "keepScanning": "Fortsett",
+  "catsOnAppointment": "Katter på denne avtalen",
+  "noCatsHint": "Ingen katt avkrysset — avtalen er koloniens egen.",
+  "pickCatsTitle": "Hvilke katter blir med?",
+  "catsCount": "{count} katter",
+  "finishUntickHint": "Fjern krysset for katter som ikke ble behandlet; de forblir planlagt.",
+  "deleteAppointmentGroup": "Slett avtalen for alle {count} katter"
 }

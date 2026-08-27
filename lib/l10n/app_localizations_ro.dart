@@ -890,7 +890,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide.';
+      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate.';
 
   @override
   String get helpCat =>
@@ -1791,7 +1791,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar.';
+      'Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate.';
 
   @override
   String get calendarRowOff => 'Calendar: oprit';
@@ -1920,26 +1920,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String get keepScanning => 'Continuă';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Pisici la această programare';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => 'Nicio pisică bifată — programarea este a coloniei.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Care pisici vin?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count pisici';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Debifează pisicile care nu au fost tratate; rămân planificate.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Șterge programarea pentru toate cele $count pisici';
   }
 }

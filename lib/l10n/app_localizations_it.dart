@@ -892,7 +892,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo.';
+      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più gatti della colonia, per esempio un giro di sterilizzazioni: spunta i gatti che vengono, concludi una volta, togli la spunta a quelli non trattati.';
 
   @override
   String get helpCat =>
@@ -1795,7 +1795,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'L\'agenda elenca gli appuntamenti pianificati per data. Ci sono due tipi: appuntamenti con un\'ora e promemoria che valgono per un giorno. Quelli mancati restano in cima. Un tocco apre il gatto o il clowder. La spunta conferma un appuntamento: il valore viene scritto nel campo e puoi pianificare subito il prossimo, per esempio tra tre mesi. Tenere premuto cambia la data o elimina l\'appuntamento. L\'interruttore in alto rispecchia gli appuntamenti in un calendario del tuo telefono. Il menu li esporta come file calendario.';
+      'L\'agenda elenca gli appuntamenti pianificati per data. Ci sono due tipi: appuntamenti con un\'ora e promemoria che valgono per un giorno. Quelli mancati restano in cima. Un tocco apre il gatto o il clowder. La spunta conferma un appuntamento: il valore viene scritto nel campo e puoi pianificare subito il prossimo, per esempio tra tre mesi. Tenere premuto cambia la data o elimina l\'appuntamento. L\'interruttore in alto rispecchia gli appuntamenti in un calendario del tuo telefono. Il menu li esporta come file calendario. Una visita dal veterinario con più gatti è un solo appuntamento: spunta i gatti, l\'Agenda mostra una scheda con i loro nomi e al termine chiede quali gatti sono stati trattati; togli la spunta agli altri, restano pianificati.';
 
   @override
   String get calendarRowOff => 'Calendario: spento';
@@ -1924,26 +1924,26 @@ class AppLocalizationsIt extends AppLocalizations {
   String get keepScanning => 'Continua';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Gatti in questo appuntamento';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Nessun gatto spuntato: l\'appuntamento è della colonia stessa.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Quali gatti vengono?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count gatti';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Togli la spunta ai gatti non trattati; restano pianificati.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Elimina l\'appuntamento per tutti i $count gatti';
   }
 }

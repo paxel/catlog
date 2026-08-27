@@ -892,7 +892,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Todo sobre este lugar: sus gatos, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o un gato para moverlo, ocultarlo o abrirlo.';
+      'Todo sobre este lugar: sus gatos, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o un gato para moverlo, ocultarlo o abrirlo. Una cita añadida aquí puede llevar varios gatos de la colonia, por ejemplo una ronda de esterilización: marca los gatos que van, termina una vez y desmarca los que no fueron tratados.';
 
   @override
   String get helpCat =>
@@ -1795,7 +1795,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario.';
+      'La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre el gato o el clowder. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varios gatos es una sola cita: marca los gatos, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué gatos fueron tratados; desmarca los demás, siguen planificados.';
 
   @override
   String get calendarRowOff => 'Calendario: apagado';
@@ -1923,26 +1923,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get keepScanning => 'Seguir';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Gatos en esta cita';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Ningún gato marcado: la cita es de la propia colonia.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => '¿Qué gatos vienen?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count gatos';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Desmarca los gatos que no fueron tratados; siguen planificados.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Eliminar la cita para los $count gatos';
   }
 }

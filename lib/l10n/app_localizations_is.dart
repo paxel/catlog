@@ -892,7 +892,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann.';
+      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann. Tími sem bætt er við hér getur tekið nokkra ketti nýlendunnar með, t.d. geldingarferð: merktu kettina sem koma með, ljúktu einu sinni, afmerktu þá sem ekki voru meðhöndlaðir.';
 
   @override
   String get helpCat =>
@@ -1792,7 +1792,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá.';
+      'Áminningarnar sýna áætlaða tíma eftir dagsetningu. Það eru tvær gerðir: tímar með klukkutíma og áminningar sem gilda fyrir dag. Tímar sem fórust fyrir haldast efst. Snerting opnar köttinn eða clowderinn. Hakið staðfestir tíma: gildið er skrifað í reitinn og þú getur strax áætlað næsta, til dæmis eftir þrjá mánuði. Haltu inni til að breyta dagsetningu eða eyða tímanum. Rofinn efst speglar tímana í dagatal símans. Valmyndin flytur þá út sem dagatalsskrá. Dýralæknisferð með nokkrum köttum er einn tími: merktu kettina, Dagskráin sýnir eitt spjald með nöfnum þeirra, og við lok er spurt hvaða kettir voru meðhöndlaðir — afmerktu hina, þeir haldast áætlaðir.';
 
   @override
   String get calendarRowOff => 'Dagatal: slökkt';
@@ -1921,26 +1921,26 @@ class AppLocalizationsIs extends AppLocalizations {
   String get keepScanning => 'Halda áfram';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Kettir í þessum tíma';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Enginn köttur merktur — tíminn tilheyrir nýlendunni sjálfri.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Hvaða kettir koma með?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count kettir';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Afmerktu ketti sem ekki voru meðhöndlaðir; þeir haldast áætlaðir.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Eyða tíma fyrir alla $count kettina';
   }
 }

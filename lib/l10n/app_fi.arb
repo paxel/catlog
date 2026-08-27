@@ -258,7 +258,7 @@
   "helpTitle": "Ohje",
   "showTipsAgain": "Näytä vinkit uudelleen",
   "helpHome": "Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.",
-  "helpClowder": "Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen.",
+  "helpClowder": "Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta.",
   "helpCat": "Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa.",
   "helpStrays": "Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.",
   "helpMap": "Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Muistutukset: suunniteltujen tapaamisten lista — eläinlääkäri, lääkkeet, tarkastukset.",
   "spotAgendaAdd": "Suunnittele uusi tapaaminen.",
   "spotAgendaCalendar": "Kytke tästä päälle cat(a)login tapaamisten peilaus valitsemaasi kalenteriin.",
-  "helpAgenda": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona.",
+  "helpAgenda": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.",
   "calendarRowOff": "Kalenteri: pois",
   "calendarRowOn": "Kalenteri: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Keskeytetäänkö tallennus?",
   "abortScanBody": "Mitään ei tallenneta.",
   "abortScan": "Keskeytä",
-  "keepScanning": "Jatka"
+  "keepScanning": "Jatka",
+  "catsOnAppointment": "Kissat tässä ajanvarauksessa",
+  "noCatsHint": "Yhtään kissaa ei valittu — ajanvaraus on kolonian oma.",
+  "pickCatsTitle": "Mitkä kissat tulevat mukaan?",
+  "catsCount": "{count} kissaa",
+  "finishUntickHint": "Poista valinta kissoilta, joita ei hoidettu; ne pysyvät suunniteltuina.",
+  "deleteAppointmentGroup": "Poista ajanvaraus kaikilta {count} kissalta"
 }

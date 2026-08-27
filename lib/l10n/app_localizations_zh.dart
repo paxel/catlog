@@ -858,7 +858,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。';
+      '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。 在此添加的预约可以带上猫群中的多只猫，例如一次绝育出行：勾选同去的猫，一次完成，取消勾选未处理的猫。';
 
   @override
   String get helpCat =>
@@ -1722,7 +1722,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。';
+      '日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开猫或猫群。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只猫一起看兽医是一个预约：勾选这些猫，日程会显示一张带有它们名字的卡片，完成时会询问哪些猫接受了处理——取消勾选其余的猫，它们仍保持计划中。';
 
   @override
   String get calendarRowOff => '日历：关';
@@ -1845,26 +1845,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get keepScanning => '继续';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => '此预约中的猫';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => '未勾选任何猫 — 该预约属于猫群本身。';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => '哪些猫一起去？';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count 只猫';
   }
 
   @override
-  String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+  String get finishUntickHint => '取消勾选未接受处理的猫；它们仍保持计划中。';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return '删除全部 $count 只猫的预约';
   }
 }

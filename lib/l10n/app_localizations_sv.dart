@@ -888,7 +888,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den.';
+      'Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den. En bokning som läggs till här kan ta med flera av kolonins katter, till exempel en kastreringsresa: markera katterna som följer med, avsluta en gång, avmarkera de som inte behandlades.';
 
   @override
   String get helpCat =>
@@ -1786,7 +1786,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil.';
+      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera katter är en bokning: markera katterna, Agendan visar ett kort med deras namn, och vid avslut frågas vilka katter som behandlades — avmarkera de andra, de förblir planerade.';
 
   @override
   String get calendarRowOff => 'Kalender: av';
@@ -1915,26 +1915,25 @@ class AppLocalizationsSv extends AppLocalizations {
   String get keepScanning => 'Fortsätt';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Katter på denna bokning';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => 'Ingen katt markerad — bokningen är kolonins egen.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Vilka katter följer med?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count katter';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Avmarkera katter som inte behandlades; de förblir planerade.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Ta bort bokningen för alla $count katter';
   }
 }

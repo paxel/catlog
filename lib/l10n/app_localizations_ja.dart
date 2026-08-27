@@ -869,7 +869,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。';
+      'この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。 ここで追加する予定にはコロニーの複数の猫を含められます（例：去勢・避妊の通院）。一緒に行く猫にチェックを入れ、一度で完了し、処置されなかった猫のチェックを外します。';
 
   @override
   String get helpCat =>
@@ -1743,7 +1743,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。';
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。';
 
   @override
   String get calendarRowOff => 'カレンダー：オフ';
@@ -1866,26 +1866,24 @@ class AppLocalizationsJa extends AppLocalizations {
   String get keepScanning => '続ける';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'この予定の猫';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => '猫が選ばれていません — この予定はコロニー自体のものです。';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'どの猫が一緒に行きますか？';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count匹の猫';
   }
 
   @override
-  String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+  String get finishUntickHint => '処置されなかった猫のチェックを外してください。予定のまま残ります。';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return '$count匹すべての予定を削除';
   }
 }

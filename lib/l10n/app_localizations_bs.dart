@@ -889,7 +889,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i historija. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara.';
+      'Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i historija. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara. Termin dodan ovdje može povesti više mačaka kolonije, na primjer na kastraciju: označi mačke koje idu, završi jednom, odznači one koje nisu tretirane.';
 
   @override
   String get helpCat =>
@@ -1789,7 +1789,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl.';
+      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više mačaka je jedan termin: označi mačke, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koje su mačke tretirane — odznači ostale, ostaju planirane.';
 
   @override
   String get calendarRowOff => 'Kalendar: isključen';
@@ -1918,26 +1918,26 @@ class AppLocalizationsBs extends AppLocalizations {
   String get keepScanning => 'Nastavi';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Mačke na ovom terminu';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Nijedna mačka nije označena — termin pripada samoj koloniji.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Koje mačke idu?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count mačaka';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Odznači mačke koje nisu tretirane; ostaju planirane.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Obriši termin za svih $count mačaka';
   }
 }

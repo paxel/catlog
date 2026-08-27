@@ -258,7 +258,7 @@
   "helpTitle": "Hjälp",
   "showTipsAgain": "Visa tipsen igen",
   "helpHome": "Översikten över dina kolonier — en koloni är en plats där katter bor: ditt hem, ett jourhem, ett katthem. Tryck på ett kort för att se dess katter; håll in för menyn. Knappen nere till höger skapar en koloni, och strykarkortet samlar alla katter utan hem. Namnet högst upp är katalogen du är i — tryck för att byta eller lägga till en.",
-  "helpClowder": "Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den.",
+  "helpClowder": "Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den. En bokning som läggs till här kan ta med flera av kolonins katter, till exempel en kastreringsresa: markera katterna som följer med, avsluta en gång, avmarkera de som inte behandlades.",
   "helpCat": "Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela katten. Privat ställs in när du redigerar ett fält.",
   "helpStrays": "Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget.",
   "helpMap": "Alla katter och platser med position. Sökningen hittar katter, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt en försvunnen katts anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Påminnelser: listan över planerade möten — veterinär, medicin, kontroller.",
   "spotAgendaAdd": "Planera ett nytt möte.",
   "spotAgendaCalendar": "Slå på spegling av cat(a)log-mötena till en kalender du väljer här.",
-  "helpAgenda": "Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil.",
+  "helpAgenda": "Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera katter är en bokning: markera katterna, Agendan visar ett kort med deras namn, och vid avslut frågas vilka katter som behandlades — avmarkera de andra, de förblir planerade.",
   "calendarRowOff": "Kalender: av",
   "calendarRowOn": "Kalender: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Avbryta registreringen?",
   "abortScanBody": "Inget sparas.",
   "abortScan": "Avbryt",
-  "keepScanning": "Fortsätt"
+  "keepScanning": "Fortsätt",
+  "catsOnAppointment": "Katter på denna bokning",
+  "noCatsHint": "Ingen katt markerad — bokningen är kolonins egen.",
+  "pickCatsTitle": "Vilka katter följer med?",
+  "catsCount": "{count} katter",
+  "finishUntickHint": "Avmarkera katter som inte behandlades; de förblir planerade.",
+  "deleteAppointmentGroup": "Ta bort bokningen för alla {count} katter"
 }

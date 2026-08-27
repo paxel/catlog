@@ -883,7 +883,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'הכול על המקום הזה: החתולים, השדות (כתובת, איש קשר, סוג) וההיסטוריה. הדף נפתח לקריאה בלבד; העיפרון מפעיל עריכה, ושם אפשר גם להוסיף שדה. לחיצה ארוכה על שדה עורכת אותו מיד, על חתול מעבירה, מסתירה או פותחת אותו.';
+      'הכול על המקום הזה: החתולים, השדות (כתובת, איש קשר, סוג) וההיסטוריה. הדף נפתח לקריאה בלבד; העיפרון מפעיל עריכה, ושם אפשר גם להוסיף שדה. לחיצה ארוכה על שדה עורכת אותו מיד, על חתול מעבירה, מסתירה או פותחת אותו. תור שנוסף כאן יכול לקחת כמה חתולים מהמושבה, למשל לעיקור: סמנו את החתולים שבאים, סיימו פעם אחת, בטלו את הסימון של אלה שלא טופלו.';
 
   @override
   String get helpCat =>
@@ -1778,7 +1778,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן.';
+      'התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את החתול או הקבוצה. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חתולים הוא תור אחד: סמנו את החתולים, סדר היום מציג כרטיס אחד עם שמותיהם, ובסיום נשאל אילו חתולים טופלו — בטלו את הסימון של השאר, הם נשארים מתוכננים.';
 
   @override
   String get calendarRowOff => 'יומן: כבוי';
@@ -1905,26 +1905,25 @@ class AppLocalizationsHe extends AppLocalizations {
   String get keepScanning => 'להמשיך';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'חתולים בתור הזה';
 
   @override
-  String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+  String get noCatsHint => 'לא סומן אף חתול — התור שייך למושבה עצמה.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'אילו חתולים באים?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count חתולים';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'בטלו את הסימון של חתולים שלא טופלו; הם נשארים מתוכננים.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'מחיקת התור לכל $count החתולים';
   }
 }

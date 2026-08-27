@@ -258,7 +258,7 @@
   "helpTitle": "Pomoć",
   "showTipsAgain": "Prikaži savjete ponovo",
   "helpHome": "Pregled tvojih kolonija — kolonija je mjesto gdje žive mačke: tvoj dom, udomiteljska kuća, sklonište. Dodirni karticu za njezine mačke; dugi pritisak otvara izbornik. Gumb dolje desno stvara koloniju, a kartica lutalica skuplja sve mačke bez doma. Ime na vrhu je katalog u kojem si — dodirni ga da promijeniš ili dodaš novi.",
-  "helpClowder": "Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i historija. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara.",
+  "helpClowder": "Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i historija. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara. Termin dodan ovdje može povesti više mačaka kolonije, na primjer na kastraciju: označi mačke koje idu, završi jednom, odznači one koje nisu tretirane.",
   "helpCat": "Sve o ovoj mački: fotografije, polja, porodica, historija. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njen meni. Meni gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli mačku. „Privatno“ se postavlja pri uređivanju polja.",
   "helpStrays": "Mačke koje trenutno nemaju dom: pronađene, pobjegle ili s letka. Gumb s kamerom bilježi mačku pred tobom; gumb s letkom pretvara plakat u mačku s kontaktom vlasnika; skener čita cat(a)log kod s plakata.",
   "helpMap": "Sve mačke i mjesta s pozicijom. Pretraga nalazi mačke, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestale mačke i oko doma iz kojeg je pobjegla. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Podsjetnici: spisak planiranih termina — veterinar, lijekovi, kontrole.",
   "spotAgendaAdd": "Planiraj novi termin.",
   "spotAgendaCalendar": "Uključi ovdje zrcaljenje cat(a)log termina u odabrani kalendar.",
-  "helpAgenda": "Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl.",
+  "helpAgenda": "Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više mačaka je jedan termin: označi mačke, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koje su mačke tretirane — odznači ostale, ostaju planirane.",
   "calendarRowOff": "Kalendar: isključen",
   "calendarRowOn": "Kalendar: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Prekinuti snimanje?",
   "abortScanBody": "Ništa neće biti sačuvano.",
   "abortScan": "Prekini",
-  "keepScanning": "Nastavi"
+  "keepScanning": "Nastavi",
+  "catsOnAppointment": "Mačke na ovom terminu",
+  "noCatsHint": "Nijedna mačka nije označena — termin pripada samoj koloniji.",
+  "pickCatsTitle": "Koje mačke idu?",
+  "catsCount": "{count} mačaka",
+  "finishUntickHint": "Odznači mačke koje nisu tretirane; ostaju planirane.",
+  "deleteAppointmentGroup": "Obriši termin za svih {count} mačaka"
 }

@@ -258,7 +258,7 @@
   "helpTitle": "Ajuda",
   "showTipsAgain": "Mostrar as dicas outra vez",
   "helpHome": "A vista geral das tuas colónias — uma colónia é um sítio onde vivem gatos: a tua casa, uma família de acolhimento, um abrigo. Toca num cartão para ver os gatos; mantém premido para o menu. O botão em baixo à direita cria uma colónia, e o cartão dos vadios junta todos os gatos sem casa. O nome no topo é o catálogo em que estás — toca para trocar ou criar outro.",
-  "helpClowder": "Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o.",
+  "helpClowder": "Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários gatos da colónia, por exemplo uma ronda de esterilização: marque os gatos que vão, conclua uma vez, desmarque os que não foram tratados.",
   "helpCat": "Tudo sobre este gato: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o gato. «Privado» define-se ao editar um campo.",
   "helpStrays": "Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz.",
   "helpMap": "Todos os gatos e sítios com posição. A pesquisa encontra gatos, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um gato desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Agenda: a lista dos compromissos planeados — veterinário, medicação, controlos.",
   "spotAgendaAdd": "Planear um novo compromisso.",
   "spotAgendaCalendar": "Liga aqui o espelho dos compromissos do cat(a)log para um calendário à tua escolha.",
-  "helpAgenda": "A agenda lista os compromissos planeados por data. Há dois tipos: compromissos com hora e lembretes que valem para um dia. Os que passaram ficam no topo. Tocar abre o gato ou o clowder. O visto confirma um compromisso: o valor é escrito no campo e podes planear logo o próximo, por exemplo daqui a três meses. Manter premido muda a data ou apaga o compromisso. O interruptor no topo espelha os compromissos para um calendário do teu telemóvel. O menu exporta-os como ficheiro de calendário.",
+  "helpAgenda": "A agenda lista os compromissos planeados por data. Há dois tipos: compromissos com hora e lembretes que valem para um dia. Os que passaram ficam no topo. Tocar abre o gato ou o clowder. O visto confirma um compromisso: o valor é escrito no campo e podes planear logo o próximo, por exemplo daqui a três meses. Manter premido muda a data ou apaga o compromisso. O interruptor no topo espelha os compromissos para um calendário do teu telemóvel. O menu exporta-os como ficheiro de calendário. Uma ida ao veterinário com vários gatos é uma só consulta: marque os gatos, a Agenda mostra um cartão com os nomes e ao concluir pergunta que gatos foram tratados — desmarque os outros, continuam planeados.",
   "calendarRowOff": "Calendário: desligado",
   "calendarRowOn": "Calendário: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Cancelar a captura?",
   "abortScanBody": "Nada será guardado.",
   "abortScan": "Cancelar",
-  "keepScanning": "Continuar"
+  "keepScanning": "Continuar",
+  "catsOnAppointment": "Gatos nesta consulta",
+  "noCatsHint": "Nenhum gato marcado — a consulta é da própria colónia.",
+  "pickCatsTitle": "Que gatos vêm?",
+  "catsCount": "{count} gatos",
+  "finishUntickHint": "Desmarque os gatos que não foram tratados; continuam planeados.",
+  "deleteAppointmentGroup": "Eliminar a consulta para todos os {count} gatos"
 }

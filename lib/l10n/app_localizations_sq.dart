@@ -890,7 +890,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap.';
+      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa mace të kolonisë, për shembull për sterilizim: shëno macet që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan.';
 
   @override
   String get helpCat =>
@@ -1789,7 +1789,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari.';
+      'Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap macen ose clowderin. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa mace është një takim i vetëm: shëno macet, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat mace u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara.';
 
   @override
   String get calendarRowOff => 'Kalendari: fikur';
@@ -1918,26 +1918,26 @@ class AppLocalizationsSq extends AppLocalizations {
   String get keepScanning => 'Vazhdo';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Macet në këtë takim';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Asnjë mace e shënuar — takimi i përket vetë kolonisë.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Cilat mace vijnë?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count mace';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Hiq shenjën nga macet që nuk u trajtuan; ato mbeten të planifikuara.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Fshi takimin për të gjitha $count macet';
   }
 }

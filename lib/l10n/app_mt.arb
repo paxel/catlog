@@ -258,7 +258,7 @@
   "helpTitle": "Għajnuna",
   "showTipsAgain": "Uri l-pariri mill-ġdid",
   "helpHome": "Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.",
-  "helpClowder": "Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu.",
+  "helpClowder": "Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista' jieħu diversi qtates tal-kolonja, pereżempju ġurnata ta' sterilizzazzjoni: immarka l-qtates li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati.",
   "helpCat": "Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta' qasam.",
   "helpStrays": "Qtates li bħalissa m'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta' qattus mitluf f'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.",
   "helpMap": "Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta' 500 m madwar il-postijiet tal-fliers ta' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "It-tfakkiriet: il-lista tal-appuntamenti ppjanati — veterinarju, mediċina, kontrolli.",
   "spotAgendaAdd": "Ippjana appuntament ġdid.",
   "spotAgendaCalendar": "Ixgħel hawn ir-riflessjoni tal-appuntamenti ta' cat(a)log f'kalendarju tal-għażla tiegħek.",
-  "helpAgenda": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju.",
+  "helpAgenda": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ il-qattus jew il-clowder. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi qtates hija appuntament wieħed: immarka l-qtates, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema qtates ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati.",
   "calendarRowOff": "Kalendarju: mitfi",
   "calendarRowOn": "Kalendarju: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Twaqqaf l-iskan?",
   "abortScanBody": "Xejn ma jiġi salvat.",
   "abortScan": "Waqqaf",
-  "keepScanning": "Kompli"
+  "keepScanning": "Kompli",
+  "catsOnAppointment": "Qtates f'dan l-appuntament",
+  "noCatsHint": "L-ebda qattus immarkat — l-appuntament hu tal-kolonja stess.",
+  "pickCatsTitle": "Liema qtates ġejjin?",
+  "catsCount": "{count} qtates",
+  "finishUntickHint": "Neħħi l-marka mill-qtates li ma ġewx ittrattati; jibqgħu ppjanati.",
+  "deleteAppointmentGroup": "Ħassar l-appuntament għall-{count} qtates kollha"
 }

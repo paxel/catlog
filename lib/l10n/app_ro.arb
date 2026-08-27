@@ -258,7 +258,7 @@
   "helpTitle": "Ajutor",
   "showTipsAgain": "Arată sfaturile din nou",
   "helpHome": "Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.",
-  "helpClowder": "Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide.",
+  "helpClowder": "Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate.",
   "helpCat": "Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.",
   "helpStrays": "Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș.",
   "helpMap": "Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.",
@@ -600,7 +600,7 @@
   "spotHomeAgenda": "Agenda: lista programărilor planificate — veterinar, medicamente, controale.",
   "spotAgendaAdd": "Planifică o programare nouă.",
   "spotAgendaCalendar": "Pornește aici oglindirea programărilor cat(a)log într-un calendar la alegere.",
-  "helpAgenda": "Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar.",
+  "helpAgenda": "Agenda listează programările planificate după dată. Sunt două feluri: programări cu oră și mementouri valabile pentru o zi. Cele ratate rămân sus. Atingerea deschide pisica sau clowderul. Bifa confirmă o programare: valoarea se scrie în câmp și poți planifica imediat următoarea, de exemplu peste trei luni. Apăsarea lungă schimbă data sau șterge programarea. Comutatorul de sus oglindește programările într-un calendar al telefonului. Meniul le exportă ca fișier de calendar. O vizită la veterinar cu mai multe pisici este o singură programare: bifează pisicile, Agenda arată un card cu numele lor, iar la încheiere întreabă ce pisici au fost tratate — debifează-le pe celelalte, rămân planificate.",
   "calendarRowOff": "Calendar: oprit",
   "calendarRowOn": "Calendar: {name}",
   "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
@@ -639,5 +639,11 @@
   "abortScanTitle": "Renunți la scanare?",
   "abortScanBody": "Nu se salvează nimic.",
   "abortScan": "Renunță",
-  "keepScanning": "Continuă"
+  "keepScanning": "Continuă",
+  "catsOnAppointment": "Pisici la această programare",
+  "noCatsHint": "Nicio pisică bifată — programarea este a coloniei.",
+  "pickCatsTitle": "Care pisici vin?",
+  "catsCount": "{count} pisici",
+  "finishUntickHint": "Debifează pisicile care nu au fost tratate; rămân planificate.",
+  "deleteAppointmentGroup": "Șterge programarea pentru toate cele {count} pisici"
 }

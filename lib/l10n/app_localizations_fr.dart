@@ -893,7 +893,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l\'ouvre.';
+      'Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l\'ouvre. Un rendez-vous ajouté ici peut emmener plusieurs chats de la colonie, par exemple une tournée de stérilisation : cochez les chats qui viennent, terminez une fois, décochez ceux qui n\'ont pas été traités.';
 
   @override
   String get helpCat =>
@@ -1797,7 +1797,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier.';
+      'L\'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre le chat ou le clowder. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L\'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs chats est un seul rendez-vous : cochez les chats concernés, l\'Agenda affiche une carte avec leurs noms, et à la fin on demande quels chats ont été traités — décochez les autres, ils restent planifiés.';
 
   @override
   String get calendarRowOff => 'Calendrier : désactivé';
@@ -1926,26 +1926,26 @@ class AppLocalizationsFr extends AppLocalizations {
   String get keepScanning => 'Continuer';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Chats de ce rendez-vous';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Aucun chat coché — le rendez-vous appartient à la colonie.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Quels chats viennent ?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count chats';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Décochez les chats non traités ; ils restent planifiés.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Supprimer le rendez-vous pour les $count chats';
   }
 }

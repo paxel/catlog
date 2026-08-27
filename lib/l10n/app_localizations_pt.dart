@@ -890,7 +890,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o.';
+      'Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários gatos da colónia, por exemplo uma ronda de esterilização: marque os gatos que vão, conclua uma vez, desmarque os que não foram tratados.';
 
   @override
   String get helpCat =>
@@ -1790,7 +1790,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpAgenda =>
-      'A agenda lista os compromissos planeados por data. Há dois tipos: compromissos com hora e lembretes que valem para um dia. Os que passaram ficam no topo. Tocar abre o gato ou o clowder. O visto confirma um compromisso: o valor é escrito no campo e podes planear logo o próximo, por exemplo daqui a três meses. Manter premido muda a data ou apaga o compromisso. O interruptor no topo espelha os compromissos para um calendário do teu telemóvel. O menu exporta-os como ficheiro de calendário.';
+      'A agenda lista os compromissos planeados por data. Há dois tipos: compromissos com hora e lembretes que valem para um dia. Os que passaram ficam no topo. Tocar abre o gato ou o clowder. O visto confirma um compromisso: o valor é escrito no campo e podes planear logo o próximo, por exemplo daqui a três meses. Manter premido muda a data ou apaga o compromisso. O interruptor no topo espelha os compromissos para um calendário do teu telemóvel. O menu exporta-os como ficheiro de calendário. Uma ida ao veterinário com vários gatos é uma só consulta: marque os gatos, a Agenda mostra um cartão com os nomes e ao concluir pergunta que gatos foram tratados — desmarque os outros, continuam planeados.';
 
   @override
   String get calendarRowOff => 'Calendário: desligado';
@@ -1918,26 +1918,26 @@ class AppLocalizationsPt extends AppLocalizations {
   String get keepScanning => 'Continuar';
 
   @override
-  String get catsOnAppointment => 'Cats on this appointment';
+  String get catsOnAppointment => 'Gatos nesta consulta';
 
   @override
   String get noCatsHint =>
-      'No cat ticked — the appointment is the clowder\'s own.';
+      'Nenhum gato marcado — a consulta é da própria colónia.';
 
   @override
-  String get pickCatsTitle => 'Which cats come along?';
+  String get pickCatsTitle => 'Que gatos vêm?';
 
   @override
   String catsCount(int count) {
-    return '$count cats';
+    return '$count gatos';
   }
 
   @override
   String get finishUntickHint =>
-      'Untick the cats that were not treated; they stay planned.';
+      'Desmarque os gatos que não foram tratados; continuam planeados.';
 
   @override
   String deleteAppointmentGroup(int count) {
-    return 'Delete appointment for all $count cats';
+    return 'Eliminar a consulta para todos os $count gatos';
   }
 }

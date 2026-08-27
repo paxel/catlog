@@ -1703,7 +1703,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpClowder.
   ///
   /// In en, this message translates to:
-  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it.'**
+  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated.'**
   String get helpClowder;
 
   /// No description provided for @helpCat.
@@ -3209,7 +3209,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpAgenda.
   ///
   /// In en, this message translates to:
-  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file.'**
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.'**
   String get helpAgenda;
 
   /// No description provided for @calendarRowOff.
