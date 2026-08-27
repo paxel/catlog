@@ -18,6 +18,7 @@ import '../reminders/mirror_hook.dart';
 import '../reminders/plan_chooser.dart';
 import '../share.dart';
 import '../spotlight.dart';
+import '../reminders/appointment_dialog.dart';
 import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
@@ -38,8 +39,7 @@ bool agendaWantsAttention(CatalogStore store) {
     return true;
   }
   final appointments = store.openAppointments();
-  return appointments.isNotEmpty &&
-      !appointments.first.start.isAfter(limit);
+  return appointments.isNotEmpty && !appointments.first.start.isAfter(limit);
 }
 
 /// One row of the agenda: a reminder or an appointment, sorted together.
@@ -54,9 +54,12 @@ class ReminderItem extends AgendaItem {
   DateTime get when => reminder.due;
 }
 
+/// One appointment, or one vet run: [members] are the group's open
+/// appointments, the first stands for the card.
 class AppointmentItem extends AgendaItem {
-  final Appointment appointment;
-  AppointmentItem(this.appointment);
+  final List<Appointment> members;
+  AppointmentItem(this.members);
+  Appointment get appointment => members.first;
   @override
   DateTime get when => appointment.start;
 }
@@ -65,7 +68,7 @@ class AppointmentItem extends AgendaItem {
 List<AgendaItem> agendaItems(CatalogStore store) {
   final items = <AgendaItem>[
     for (final r in store.activeReminders()) ReminderItem(r),
-    for (final a in store.openAppointments()) AppointmentItem(a),
+    for (final g in store.openAppointmentGroups()) AppointmentItem(g),
   ];
   items.sort((x, y) => x.when.compareTo(y.when));
   return items;
@@ -93,7 +96,8 @@ class _AgendaScreenState extends State<AgendaScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-        (_) => runSpotlights(context, store, 'agenda'));
+      (_) => runSpotlights(context, store, 'agenda'),
+    );
   }
 
   bool get _calendarAvailable =>
@@ -109,12 +113,33 @@ class _AgendaScreenState extends State<AgendaScreen> {
   }
 
   Future<void> _openEntity(String id) async {
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => id.startsWith('cat:')
-          ? CatDetailScreen(store: store, catId: id)
-          : ClowderDetailScreen(store: store, clowderId: id),
-    ));
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => id.startsWith('cat:')
+            ? CatDetailScreen(store: store, catId: id)
+            : ClowderDetailScreen(store: store, clowderId: id),
+      ),
+    );
     if (mounted) setState(() {});
+  }
+
+  /// A run's card opens the clowder all its cats share, else the
+  /// appointment itself; a single appointment opens its entity.
+  Future<void> _openGroup(List<Appointment> members) async {
+    if (members.length == 1) return _openEntity(members.single.entity);
+    final homes = {
+      for (final m in members) store.current(m.entity, Keys.clowder),
+    };
+    if (homes.length == 1 && homes.single != null) {
+      return _openEntity(homes.single!);
+    }
+    final saved = await showAppointmentDialog(
+      context,
+      store,
+      entityId: members.first.entity,
+      existing: members.first,
+    );
+    if (saved != null && mounted) _changed();
   }
 
   /// The desktop and escape-hatch path: one .ics file of every plan.
@@ -126,15 +151,19 @@ class _AgendaScreenState extends State<AgendaScreen> {
         IcsEvent(
           uid: 'catlog-${r.entity}-${r.field}@catlog'.replaceAll(':', '-'),
           date: r.due,
-          summary: '${store.current(r.entity, Keys.name) ?? t.unnamed} — '
+          summary:
+              '${store.current(r.entity, Keys.name) ?? t.unnamed} — '
               '${defs[r.field] == null ? r.field : fieldDefName(t, defs[r.field]!)}',
           description: r.value,
         ),
     ], stamp: DateTime.now());
     try {
       await shareFiles(context, [
-        XFile.fromData(Uint8List.fromList(utf8.encode(ics)),
-            mimeType: 'text/calendar', name: 'catlog.ics'),
+        XFile.fromData(
+          Uint8List.fromList(utf8.encode(ics)),
+          mimeType: 'text/calendar',
+          name: 'catlog.ics',
+        ),
       ]);
     } catch (_) {
       // Share sheet unavailable (some desktops): save next to the data.
@@ -142,14 +171,15 @@ class _AgendaScreenState extends State<AgendaScreen> {
       final file = File('${dir.path}/catlog.ics');
       await file.writeAsString(ics);
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.t.icsSavedTo(file.path))),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(context.t.icsSavedTo(file.path))));
     }
   }
 
-  void _say(String message) => ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(message)));
+  void _say(String message) =>
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
 
   /// Switching the mirror on: permission, then the user picks one of
   /// the device's writable calendars. Every refusal is named.
@@ -185,22 +215,24 @@ class _AgendaScreenState extends State<AgendaScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 0, 24, 8),
-            child: Text(t.calendarMirrorSubtitle,
-                style: Theme.of(context).textTheme.bodySmall),
+            child: Text(
+              t.calendarMirrorSubtitle,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ),
           for (final c in calendars)
             SimpleDialogOption(
-              onPressed:
-                  c.writable ? () => Navigator.of(context).pop(c.id) : null,
+              onPressed: c.writable
+                  ? () => Navigator.of(context).pop(c.id)
+                  : null,
               child: ListTile(
                 contentPadding: EdgeInsets.zero,
                 enabled: c.writable,
                 leading: const Icon(Icons.calendar_month_outlined),
                 title: Text(c.name),
-                subtitle: Text([
-                  ?c.account,
-                  if (!c.writable) t.readOnlyCalendar,
-                ].join(' · ')),
+                subtitle: Text(
+                  [?c.account, if (!c.writable) t.readOnlyCalendar].join(' · '),
+                ),
               ),
             ),
         ],
@@ -208,8 +240,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
     );
     if (chosen == null || !mounted) return;
     store.setLocalSetting(calendarMirrorCalendarKey, chosen);
-    store.setLocalSetting(calendarMirrorCalendarNameKey,
-        calendars.firstWhere((c) => c.id == chosen).name);
+    store.setLocalSetting(
+      calendarMirrorCalendarNameKey,
+      calendars.firstWhere((c) => c.id == chosen).name,
+    );
     store.setLocalSetting(calendarMirrorEnabledKey, 'on');
     setState(() {});
     mirrorAfterChange(context, store, port: widget.calendarPort);
@@ -246,11 +280,14 @@ class _AgendaScreenState extends State<AgendaScreen> {
               id: 'agenda-calendar',
               child: SwitchListTile(
                 secondary: const Icon(Icons.calendar_month_outlined),
-                title: Text(calendarMirrorEnabled(store)
-                    ? t.calendarRowOn(
-                        store.localSetting(calendarMirrorCalendarNameKey) ??
-                            '')
-                    : t.calendarRowOff),
+                title: Text(
+                  calendarMirrorEnabled(store)
+                      ? t.calendarRowOn(
+                          store.localSetting(calendarMirrorCalendarNameKey) ??
+                              '',
+                        )
+                      : t.calendarRowOff,
+                ),
                 value: calendarMirrorEnabled(store),
                 onChanged: (_) => _toggleMirror(),
               ),
@@ -263,16 +300,20 @@ class _AgendaScreenState extends State<AgendaScreen> {
           for (final item in items)
             switch (item) {
               ReminderItem(:final reminder) => ReminderCard(
-                  store: store,
-                  reminder: reminder,
-                  onChanged: _changed,
-                  onOpen: () => _openEntity(reminder.entity),
-                ),
-              AppointmentItem(:final appointment) => AppointmentCard(
+                store: store,
+                reminder: reminder,
+                onChanged: _changed,
+                onOpen: () => _openEntity(reminder.entity),
+              ),
+              AppointmentItem(:final appointment, :final members) =>
+                AppointmentCard(
                   store: store,
                   appointment: appointment,
+                  members: members,
+                  wholeGroup: true,
                   onChanged: _changed,
-                  onOpen: () => _openEntity(appointment.entity),
+                  onOpen: () => _openGroup(members),
+                  onOpenEntity: _openEntity,
                 ),
             },
         ],

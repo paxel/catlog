@@ -45,16 +45,24 @@ Map<String, EventSpec> desiredEvents(CatalogStore store, AppLocalizations t) {
       description: '${r.value}\ncat(a)log',
     );
   }
-  for (final a in store.openAppointments()) {
+  // A vet run is one event, keyed by its group: "Neutering — 10 cats",
+  // the names in the description.
+  for (final members in store.openAppointmentGroups()) {
+    final a = members.first;
     final start = a.start;
-    desired['appt|${a.id}'] = EventSpec(
+    final names = members.map((m) => nameOf(m.entity)).join(', ');
+    desired['appt|${a.group ?? a.id}'] = EventSpec(
       start: start,
       end: a.allDay
           ? start.add(const Duration(days: 1))
           : start.add(const Duration(hours: 1)),
       allDay: a.allDay,
-      title: '${nameOf(a.entity)} — ${a.title}',
-      description: '${a.notes}\ncat(a)log'.trim(),
+      title: members.length == 1
+          ? '$names — ${a.title}'
+          : '${a.title} — ${t.catsCount(members.length)}',
+      description: members.length == 1
+          ? '${a.notes}\ncat(a)log'.trim()
+          : '$names\n${a.notes}\ncat(a)log'.trim(),
       alertMinutesBefore: switch (a.alert) {
         AppointmentAlert.none => null,
         AppointmentAlert.dayBefore => 24 * 60,
@@ -70,7 +78,10 @@ Map<String, EventSpec> desiredEvents(CatalogStore store, AppLocalizations t) {
 /// user deleted while the plan is alive. Fields the app does not own
 /// (alerts after creation, attendees) are never written.
 Future<MirrorOutcome> reconcileCalendar(
-    CatalogStore store, CalendarPort port, AppLocalizations t) async {
+  CatalogStore store,
+  CalendarPort port,
+  AppLocalizations t,
+) async {
   if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
   if (!await port.ensureAccess()) return MirrorOutcome.noAccess;
   final calendarId = chosenCalendar(store);
@@ -110,7 +121,7 @@ Future<MirrorOutcome> reconcileCalendar(
         next[key] = {
           'event': created,
           'calendar': calendarId,
-          'snapshot': snapshot
+          'snapshot': snapshot,
         };
       }
       continue;
@@ -122,7 +133,7 @@ Future<MirrorOutcome> reconcileCalendar(
     next[key] = {
       'event': eventId,
       'calendar': calendarId,
-      'snapshot': snapshot
+      'snapshot': snapshot,
     };
   }
 
@@ -134,8 +145,9 @@ Map<String, Map<String, String>> _readMap(CatalogStore store) {
   final raw = store.localSetting(_mapKey);
   if (raw == null) return {};
   try {
-    return (jsonDecode(raw) as Map).map((k, v) => MapEntry(
-        k as String, (v as Map).cast<String, String>()));
+    return (jsonDecode(raw) as Map).map(
+      (k, v) => MapEntry(k as String, (v as Map).cast<String, String>()),
+    );
   } catch (_) {
     return {};
   }
