@@ -104,8 +104,8 @@ class FlierCaptureScreen extends StatefulWidget {
   final Future<Uint8List?> Function(BuildContext)? pickPhoto;
   final Locator? locate;
   final Future<String?> Function(BuildContext)? scan;
-  final Future<String?> Function(Uint8List)? ocr;
-  final Future<List<String>> Function(Uint8List)? codes;
+  final Future<FlierText?> Function(Uint8List)? ocr;
+  final Future<FlierCodes> Function(Uint8List)? codes;
   final GeocodeSearch? geocode;
 
   const FlierCaptureScreen(
@@ -204,8 +204,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   Future<void> _runOcr() async {
     final photo = _photo;
     if (photo == null) return;
-    final text = await (widget.ocr ?? recognizeFlierText)(photo);
-    final codes = await (widget.codes ?? recognizeFlierCodes)(photo);
+    final text = (await (widget.ocr ?? recognizeFlierText)(photo))?.text;
+    final codes = (await (widget.codes ?? recognizeFlierCodes)(photo)).codes;
     if (!mounted) return;
     setState(() => _ocrTried = true);
     setState(() {

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/flier_capture.dart';
+import 'package:catlog/src/flier_ocr.dart';
 import 'package:catlog/src/geocode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -62,8 +63,8 @@ void main() {
         pickPhoto: (_) async => _jpeg(),
         locate: () async => (pos: (48.1, 11.5), failure: null),
         scan: (_) async => null,
-        ocr: (_) async => text,
-        codes: (_) async => codes,
+        ocr: (_) async => FlierText(text, const []),
+        codes: (_) async => FlierCodes(codes),
         geocode: (q) async => [GeoHit('Somewhere', 48.2, 11.6)],
       ),
     ));
