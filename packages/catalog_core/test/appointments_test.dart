@@ -29,8 +29,7 @@ void main() {
 
   test('an appointment round-trips with date, time, notes and alert', () {
     final cat = a.createCat('Miezi');
-    final made = a.createAppointment(
-        draft(cat, time: (hour: 14, minute: 30)));
+    final made = a.createAppointment(draft(cat, time: (hour: 14, minute: 30)));
     final open = a.appointmentsOf(cat);
     expect(open, hasLength(1));
     final got = open.single;
@@ -58,8 +57,8 @@ void main() {
   test('editing writes the new state, the old one stays in history', () {
     final cat = a.createCat('Miezi');
     final made = a.createAppointment(draft(cat));
-    a.updateAppointment(made.copyWith(
-        date: DateTime(2026, 9, 5), time: (hour: 10, minute: 15)));
+    a.updateAppointment(made
+        .copyWith(date: DateTime(2026, 9, 5), time: (hour: 10, minute: 15)));
     final got = a.appointmentsOf(cat).single;
     expect(got.start, DateTime(2026, 9, 5, 10, 15));
     expect(a.fieldHistory(cat, made.key), hasLength(2));
@@ -103,8 +102,7 @@ void main() {
   test('appointments sync as ordinary entries', () {
     final cat = a.createCat('Miezi');
     a.createAppointment(draft(cat, time: (hour: 14, minute: 30)));
-    b.applyEntries(a.entriesSince(const {}),
-        senderVector: a.versionVector());
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
     expect(b.appointmentsOf(cat).single.title, 'Vet');
   });
 
@@ -122,5 +120,114 @@ void main() {
     final cat = a.createCat('Miezi');
     a.append(cat, Keys.appointment('x'), 'not json');
     expect(a.appointmentsOf(cat), isEmpty);
+  });
+
+  group('vet run with several cats', () {
+    late String hugo, rudi, minka;
+
+    setUp(() {
+      hugo = a.createCat('Hugo');
+      rudi = a.createCat('Rudi');
+      minka = a.createCat('Minka');
+    });
+
+    test('one draft becomes one appointment per cat, sharing a group', () {
+      final made = a.createAppointments(draft(hugo), [hugo, rudi, minka]);
+      expect(made, hasLength(3));
+      expect(made.map((m) => m.group).toSet(), hasLength(1));
+      expect(made.first.group, isNotNull);
+      expect(a.appointmentsOf(rudi).single.group, made.first.group);
+      expect(a.groupOf(made.first).map((m) => m.entity),
+          containsAll([hugo, rudi, minka]));
+    });
+
+    test('a single entity gets no group', () {
+      final made = a.createAppointments(draft(hugo), [hugo]);
+      expect(made.single.group, isNull);
+      expect(a.groupOf(made.single), hasLength(1));
+      expect(a.openAppointmentGroups().single, hasLength(1));
+    });
+
+    test('the agenda folds a group into one list, earliest first', () {
+      a.createAppointments(
+          draft(hugo, date: DateTime(2026, 9, 10)), [hugo, rudi]);
+      a.createAppointment(draft(minka, date: DateTime(2026, 9, 3)));
+      final groups = a.openAppointmentGroups();
+      expect(groups, hasLength(2));
+      expect(groups.first.single.entity, minka);
+      expect(groups.last.map((m) => m.entity), containsAll([hugo, rudi]));
+    });
+
+    test('editing one member moves the whole run', () {
+      final made = a.createAppointments(draft(hugo), [hugo, rudi]);
+      a.updateAppointmentGroup(made.first.copyWith(
+          date: DateTime(2026, 9, 5),
+          time: (hour: 8, minute: 0),
+          title: 'Neutering'));
+      for (final cat in [hugo, rudi]) {
+        final got = a.appointmentsOf(cat).single;
+        expect(got.start, DateTime(2026, 9, 5, 8, 0));
+        expect(got.title, 'Neutering');
+        expect(got.group, made.first.group);
+      }
+    });
+
+    test('finishing some leaves the others open on their own', () {
+      final made = a.createAppointments(
+          Appointment(
+              id: '',
+              entity: hugo,
+              date: DateTime(2026, 9, 3),
+              title: 'Neutering',
+              linkedField: 'f:neutered',
+              linkedValue: 'yes'),
+          [hugo, rudi, minka]);
+      final members = a.groupOf(made.first);
+      a.finishAppointments(members.where((m) => m.entity != rudi),
+          notes: 'both fine');
+      expect(a.current(hugo, 'f:neutered'), 'yes');
+      expect(a.current(minka, 'f:neutered'), 'yes');
+      expect(a.current(rudi, 'f:neutered'), isNull);
+      expect(a.appointmentsOf(hugo), isEmpty);
+      expect(a.appointmentsOf(rudi).single.group, made.first.group);
+      expect(a.openAppointmentGroups().single.single.entity, rudi);
+      expect(
+          a.appointmentsOf(hugo, includeDone: true).single.notes, 'both fine');
+    });
+
+    test('a cat can be added later, even to a lone appointment', () {
+      final lone = a.createAppointment(draft(hugo));
+      a.addToAppointmentGroup(lone, [rudi]);
+      final hugoNow = a.appointmentsOf(hugo).single;
+      expect(hugoNow.group, isNotNull);
+      expect(a.appointmentsOf(rudi).single.group, hugoNow.group);
+      expect(a.groupOf(hugoNow), hasLength(2));
+    });
+
+    test('deleting the run deletes every member', () {
+      final made = a.createAppointments(draft(hugo), [hugo, rudi]);
+      a.deleteAppointmentGroup(made.first);
+      expect(a.openAppointments(), isEmpty);
+    });
+
+    test('leaving one cat out deletes only its own', () {
+      final made = a.createAppointments(draft(hugo), [hugo, rudi]);
+      a.deleteAppointment(made.firstWhere((m) => m.entity == rudi));
+      expect(a.groupOf(made.first).map((m) => m.entity), [hugo]);
+    });
+
+    test('two merged members show once', () {
+      final made = a.createAppointments(draft(hugo), [hugo, rudi, minka]);
+      a.mergeCat(rudi, hugo);
+      final groups = a.openAppointmentGroups();
+      expect(groups.single.map((m) => m.entity).toSet(), {hugo, minka});
+      expect(a.groupOf(made.first), hasLength(2));
+    });
+
+    test('groups sync as ordinary entries', () {
+      a.createAppointments(draft(hugo), [hugo, rudi]);
+      b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+      expect(b.openAppointmentGroups().single, hasLength(2));
+    });
   });
 }

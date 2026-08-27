@@ -28,6 +28,12 @@ class Appointment {
   final AppointmentAlert alert;
   final bool done;
 
+  /// Shared by the appointments of one vet run with several cats: each
+  /// cat keeps its own entry, the group id folds them into one card and
+  /// one calendar event, and edits fan out over the members. Null for
+  /// an appointment that stands alone.
+  final String? group;
+
   const Appointment({
     required this.id,
     required this.entity,
@@ -39,6 +45,7 @@ class Appointment {
     this.linkedValue,
     this.alert = AppointmentAlert.dayBefore,
     this.done = false,
+    this.group,
   });
 
   String get key => Keys.appointment(id);
@@ -46,8 +53,8 @@ class Appointment {
   bool get allDay => time == null;
 
   /// The moment it starts, local time; midnight for all-day ones.
-  DateTime get start =>
-      DateTime(date.year, date.month, date.day, time?.hour ?? 0, time?.minute ?? 0);
+  DateTime get start => DateTime(
+      date.year, date.month, date.day, time?.hour ?? 0, time?.minute ?? 0);
 
   Appointment copyWith({
     DateTime? date,
@@ -60,10 +67,12 @@ class Appointment {
     bool clearLink = false,
     AppointmentAlert? alert,
     bool? done,
+    String? group,
   }) =>
       Appointment(
         id: id,
         entity: entity,
+        group: group ?? this.group,
         date: date ?? this.date,
         time: clearTime ? null : (time ?? this.time),
         title: title ?? this.title,
@@ -87,6 +96,7 @@ class Appointment {
         if (linkedValue != null) 'value': linkedValue,
         'alert': alert.name,
         if (done) 'done': true,
+        if (group != null) 'group': group,
       };
 
   /// Parses a stored value; null when it is not an appointment document
@@ -115,6 +125,7 @@ class Appointment {
             (a) => a.name == json['alert'],
             orElse: () => AppointmentAlert.dayBefore),
         done: json['done'] == true,
+        group: json['group'] as String?,
       );
     } catch (_) {
       return null;
@@ -139,9 +150,126 @@ extension Appointments on CatalogStore {
       linkedValue: draft.linkedValue,
       alert: draft.alert,
       done: draft.done,
+      group: draft.group,
     );
     append(made.entity, made.key, jsonEncode(made.toJson()), date: date);
     return made;
+  }
+
+  /// One vet run, several cats: the draft becomes one appointment per
+  /// entity, all sharing a fresh group id. A single entity gets a plain
+  /// appointment without a group — nothing to fold.
+  List<Appointment> createAppointments(Appointment draft, List<String> entities,
+      {DateTime? date}) {
+    final group = entities.length > 1 ? newAppointmentId() : null;
+    return [
+      for (final entity in entities)
+        createAppointment(
+            Appointment(
+              id: '',
+              entity: entity,
+              date: draft.date,
+              time: draft.time,
+              title: draft.title,
+              notes: draft.notes,
+              linkedField: draft.linkedField,
+              linkedValue: draft.linkedValue,
+              alert: draft.alert,
+              group: group,
+            ),
+            date: date),
+    ];
+  }
+
+  /// The open members of [a]'s group, [a] included, one per entity —
+  /// a Merge of two members leaves one canonical entity, shown once.
+  /// An appointment without a group is a group of one.
+  List<Appointment> groupOf(Appointment a) {
+    if (a.group == null) return [a];
+    final seen = <String>{};
+    return [
+      for (final m in openAppointments())
+        if (m.group == a.group && seen.add(m.entity)) m
+    ];
+  }
+
+  /// Writes [a]'s date, time, title, notes, link and alert onto every
+  /// member of its group — the whole vet run moves, never one cat.
+  void updateAppointmentGroup(Appointment a, {DateTime? date}) {
+    for (final m in groupOf(a)) {
+      updateAppointment(
+          m.copyWith(
+            date: a.date,
+            time: a.time,
+            clearTime: a.time == null,
+            title: a.title,
+            notes: a.notes,
+            linkedField: a.linkedField,
+            linkedValue: a.linkedValue,
+            clearLink: a.linkedField == null,
+            alert: a.alert,
+          ),
+          date: date);
+    }
+  }
+
+  /// Adds entities to an existing group. A lone appointment becomes a
+  /// group of itself plus the newcomers.
+  List<Appointment> addToAppointmentGroup(Appointment a, List<String> entities,
+      {DateTime? date}) {
+    var group = a.group;
+    if (group == null) {
+      group = newAppointmentId();
+      updateAppointment(a.copyWith(group: group), date: date);
+    }
+    return [
+      for (final entity in entities)
+        createAppointment(
+            Appointment(
+              id: '',
+              entity: entity,
+              date: a.date,
+              time: a.time,
+              title: a.title,
+              notes: a.notes,
+              linkedField: a.linkedField,
+              linkedValue: a.linkedValue,
+              alert: a.alert,
+              group: group,
+            ),
+            date: date),
+    ];
+  }
+
+  /// Finishes the given members with shared outcome notes; the ones not
+  /// listed stay open on their own.
+  void finishAppointments(Iterable<Appointment> members,
+      {String? notes, DateTime? date}) {
+    for (final m in members) {
+      finishAppointment(m, notes: notes, date: date);
+    }
+  }
+
+  /// Deletes every open member of [a]'s group.
+  void deleteAppointmentGroup(Appointment a, {DateTime? date}) {
+    for (final m in groupOf(a)) {
+      deleteAppointment(m, date: date);
+    }
+  }
+
+  /// Every open appointment folded by group, earliest first: one list
+  /// per vet run, a list of one for the rest.
+  List<List<Appointment>> openAppointmentGroups() {
+    final groups = <String, List<Appointment>>{};
+    final seenEntity = <String, Set<String>>{};
+    for (final a in openAppointments()) {
+      final key = a.group ?? a.id;
+      if (!(seenEntity[key] ??= {}).add(a.entity)) continue;
+      (groups[key] ??= []).add(a);
+    }
+    final result = groups.values.toList();
+    result.sort((x, y) => x.first.start.compareTo(y.first.start));
+    return result;
   }
 
   /// Writes the appointment's current state as a new entry.
