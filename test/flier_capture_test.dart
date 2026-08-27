@@ -439,4 +439,24 @@ void main() {
       'typed by hand',
     );
   });
+
+  testWidgets('a missing date in the future stays a remark', (tester) async {
+    await pump(
+      tester,
+      text: '',
+      lines: [
+        flierLine('Suchdienstnummer', 100, 100),
+        flierLine('S1', 500, 100),
+        flierLine('Verlustdatum', 100, 150),
+        flierLine('05.06.2099', 500, 150),
+      ],
+    );
+    await next(tester);
+    expect(find.text('6/5/2099'), findsNothing);
+    await save(tester);
+    expect(
+      store.current(store.cats().single.id, Keys.userField('remarks')),
+      contains('Verlustdatum: 05.06.2099'),
+    );
+  });
 }

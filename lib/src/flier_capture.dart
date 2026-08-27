@@ -273,8 +273,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         _name.text = reading.first(FlierTarget.name) ?? '';
         _address.text = reading.first(FlierTarget.lostPlace) ?? '';
         final since = reading.first(FlierTarget.missingSince);
-        final date = since == null ? null : parseFlierDate(since);
-        if (date != null) _missingSince = DateUtils.dateOnly(date);
+        final date = since == null ? null : _missingDate(since);
+        if (date != null) _missingSince = date;
       }
       for (final entry in reading.entries) {
         final label = entry.label;
@@ -284,7 +284,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           case FlierTarget.lostPlace:
             if (!_newCat) remarks.add(line);
           case FlierTarget.missingSince:
-            if (!_newCat || parseFlierDate(entry.value) == null) {
+            if (!_newCat || _missingDate(entry.value) == null) {
               remarks.add(line);
             }
           case FlierTarget.registryNumber:
@@ -361,6 +361,16 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         for (final url in urls)
           if (isUnknownService(url, defs)) url,
       ]);
+  }
+
+  /// The missing-since date a line carries, or null when it is no date
+  /// or lies in the future (a misread year) — the date picker only
+  /// reaches today, and such a line belongs in remarks.
+  DateTime? _missingDate(String text) {
+    final date = parseFlierDate(text);
+    if (date == null) return null;
+    final day = DateUtils.dateOnly(date);
+    return day.isAfter(DateUtils.dateOnly(DateTime.now())) ? null : day;
   }
 
   /// A hit for a number printed in the text: the registry named by the
