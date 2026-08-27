@@ -409,4 +409,34 @@ void main() {
       'reward!',
     );
   });
+
+  testWidgets('without text recognition the typed remarks survive Next', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: FlierCaptureScreen(
+          store: store,
+          pickPhoto: (_) async => _jpeg(),
+          locate: () async => (pos: null, failure: null),
+          scan: (_) async => null,
+          ocr: (_) async => null,
+          codes: (_) async => FlierCodes.none,
+          templates: () async => _templates,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.textContaining('not available'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'typed by hand');
+    await next(tester);
+    expect(find.widgetWithText(TextField, 'typed by hand'), findsOneWidget);
+    await save(tester);
+    expect(
+      store.current(store.cats().single.id, Keys.userField('remarks')),
+      'typed by hand',
+    );
+  });
 }

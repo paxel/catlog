@@ -157,7 +157,6 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   final _owner = TextEditingController();
   final _address = TextEditingController();
   final _remarks = TextEditingController();
-  bool _ocrTried = false;
   bool _locatingAddress = false;
   String? _addressError;
 
@@ -242,7 +241,6 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     final templates = await (widget.templates ?? FlierTemplateSet.load)();
     if (!mounted) return;
     setState(() {
-      _ocrTried = true;
       _codes = codes;
       if (text != null) {
         // Lines with boxes pair into label/value; a recognizer that
@@ -326,20 +324,21 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     }
     // Prefills are suggestions — every field stays editable (#32).
     // Contact lines belong to the registry, so the owner's phone and
-    // mail come from the rest of the text only.
-    final ownText = reading == null
-        ? ''
-        : [
-            for (final e in reading.entries)
-              if (e.target != FlierTarget.contact) e.value,
-          ].join('\n');
-    if (reading?.template == null && _chip.text.isEmpty) {
-      _chip.text = suggestChipId(ownText) ?? '';
+    // mail come from the rest of the text only. Without a reading the
+    // user types everything; nothing typed is touched.
+    var ownText = '';
+    if (reading != null) {
+      ownText = [
+        for (final e in reading.entries)
+          if (e.target != FlierTarget.contact) e.value,
+      ].join('\n');
+      if (reading.template == null && _chip.text.isEmpty) {
+        _chip.text = suggestChipId(ownText) ?? '';
+      }
+      _phone.text = suggestPhone(ownText) ?? '';
+      _email.text = suggestEmail(ownText) ?? '';
+      _remarks.text = remarks.join('\n');
     }
-    _phone.text = suggestPhone(ownText) ?? '';
-    _email.text = suggestEmail(ownText) ?? '';
-    _remarks.text = remarks.join('\n');
-    if (_ocrTried && reading == null) _remarks.text = '';
     // Links come from the printed text and from the QR codes the user
     // kept.
     final urls = [
