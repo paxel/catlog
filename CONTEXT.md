@@ -49,6 +49,14 @@ The place a Flier was photographed — where the poster hangs, not where the cat
 How one registry lays out its posters — which printed labels stand for which Field, how the name line reads, which lines are the registry's own contact. Shipped as data (`assets/fliers/templates.json`); the best-matching Template reads a Flier, an unmatched layout leaves every line for the user to assign.
 _Avoid_: parser, OCR rules, hardcoded TASSO
 
+**Appointment**:
+A visit with a date, optional time, what, and notes on one Cat or Clowder; finishing it can write a value into a Field. Stored as an ordinary entry, so it syncs and merges like any value.
+_Avoid_: event, booking
+
+**Vet Run**:
+One Appointment shared by several Cats — each Cat keeps its own Appointment entry, a group id folds them into one agenda card and one calendar event, editing moves all of them, finishing asks which Cats were treated. A Cat leaves a Vet Run by deleting its own Appointment.
+_Avoid_: group appointment, batch visit, multi-cat event
+
 **Possible Stray Area**:
 A toggleable map overlay for a Missing Cat: the union of 500 m circles around its Flier Positions, marking where the cat is likely to roam (three quarters of lost cats are found within 500 m).
 _Avoid_: search radius, home range
