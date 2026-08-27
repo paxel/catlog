@@ -1,0 +1,37 @@
+{
+  "templates": [
+    {
+      "name": "TASSO",
+      "registry": "Tasso",
+      "labels": {
+        "registryNumber": ["Suchdienstnummer", "Search number", "Suchnummer"],
+        "name": ["Name", "Tiername"],
+        "species": ["Tierart", "Species", "Animal"],
+        "gender": ["Geschlecht", "Sex", "Gender"],
+        "neutered": ["Kastriert", "Neutered", "Spayed"],
+        "breed": ["Rasse", "Breed"],
+        "color": ["Farbe", "Colour", "Color"],
+        "birthday": ["Geburtsdatum", "Date of birth", "Born"],
+        "chipNote": ["Kennzeichnung", "Identification", "Marking"],
+        "missingSince": ["Verlustdatum", "Vermisst seit", "Date lost", "Missing since"],
+        "lostPlace": ["Verlustort", "Place lost", "Lost in", "Missing from"]
+      },
+      "namePattern": "^(Kater|Katze|Hund|Rüde|Hündin|Tomcat|Cat)\\s+([^\\s].*)$",
+      "contact": ["tasso.net", "06190", "0 61 90", "6190 937", "TASSO e.V", "TASSO e V", "Notruf"]
+    }
+  ],
+  "values": {
+    "species": {
+      "cat": ["Katze", "Kater", "cat", "tomcat", "Hauskatze"],
+      "dog": ["Hund", "Rüde", "Hündin", "dog"]
+    },
+    "gender": {
+      "male": ["männlich", "männich", "male", "Kater", "Rüde"],
+      "female": ["weiblich", "female", "Hündin"]
+    },
+    "neutered": {
+      "no": ["nicht kastriert", "unkastriert", "not neutered", "intact"],
+      "yes": ["kastriert", "neutered", "spayed"]
+    }
+  }
+}

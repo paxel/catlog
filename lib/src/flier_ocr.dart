@@ -57,8 +57,9 @@ Future<FlierText?> recognizeFlierText(Uint8List bytes) async {
   await file.writeAsBytes(bytes);
   final recognizer = TextRecognizer();
   try {
-    final result =
-        await recognizer.processImage(InputImage.fromFilePath(file.path));
+    final result = await recognizer.processImage(
+      InputImage.fromFilePath(file.path),
+    );
     final text = result.text.trim();
     if (text.isEmpty) return null;
     return FlierText(text, [
@@ -89,7 +90,7 @@ Future<FlierCodes> recognizeFlierCodes(Uint8List bytes) async {
     return FlierCodes([
       for (final code in capture?.barcodes ?? const <Barcode>[])
         if (code.rawValue case final value?)
-          if (value.isNotEmpty) value
+          if (value.isNotEmpty) value,
     ]);
   } catch (e) {
     return FlierCodes(const [], error: e.toString());
