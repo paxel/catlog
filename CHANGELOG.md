@@ -17,6 +17,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   were treated; the unticked ones stay planned. The calendar mirror adds
   appointments as timed events with an alert of your choice — the day
   before, an hour before, or none; a shared appointment is one event.
+  The calendar file from the agenda menu carries appointments too, timed
+  and with their alarm.
 
 ### Changed
 
