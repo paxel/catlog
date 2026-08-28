@@ -116,6 +116,17 @@ void main() {
     expect(a.openAppointments(), hasLength(2));
   });
 
+  test('keys from a newer version survive an edit here', () {
+    final cat = a.createCat('Miezi');
+    a.append(cat, Keys.appointment('n1'),
+        '{"date":"2026-09-03","title":"Vet","alert":"none","future":42}');
+    final got = a.appointmentsOf(cat).single;
+    a.updateAppointment(got.copyWith(title: 'Vet, 9:00'));
+    final raw = a.current(cat, Keys.appointment('n1'))!;
+    expect(raw, contains('"future":42'));
+    expect(raw, contains('"title":"Vet, 9:00"'));
+  });
+
   test('a garbled document is ignored, not thrown', () {
     final cat = a.createCat('Miezi');
     a.append(cat, Keys.appointment('x'), 'not json');

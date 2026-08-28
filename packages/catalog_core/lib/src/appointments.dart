@@ -34,6 +34,11 @@ class Appointment {
   /// an appointment that stands alone.
   final String? group;
 
+  /// Keys this version does not know, carried through unchanged: an
+  /// older app editing a newer appointment must not strip what a newer
+  /// one wrote — exactly what happened to `group` before it existed.
+  final Map<String, dynamic> extra;
+
   const Appointment({
     required this.id,
     required this.entity,
@@ -46,6 +51,7 @@ class Appointment {
     this.alert = AppointmentAlert.dayBefore,
     this.done = false,
     this.group,
+    this.extra = const {},
   });
 
   String get key => Keys.appointment(id);
@@ -73,6 +79,7 @@ class Appointment {
         id: id,
         entity: entity,
         group: group ?? this.group,
+        extra: extra,
         date: date ?? this.date,
         time: clearTime ? null : (time ?? this.time),
         title: title ?? this.title,
@@ -83,7 +90,20 @@ class Appointment {
         done: done ?? this.done,
       );
 
+  static const _known = {
+    'date',
+    'time',
+    'title',
+    'notes',
+    'field',
+    'value',
+    'alert',
+    'done',
+    'group',
+  };
+
   Map<String, dynamic> toJson() => {
+        ...extra,
         'date': '${date.year.toString().padLeft(4, '0')}-'
             '${date.month.toString().padLeft(2, '0')}-'
             '${date.day.toString().padLeft(2, '0')}',
@@ -126,6 +146,10 @@ class Appointment {
             orElse: () => AppointmentAlert.dayBefore),
         done: json['done'] == true,
         group: json['group'] as String?,
+        extra: {
+          for (final e in json.entries)
+            if (!_known.contains(e.key)) e.key: e.value,
+        },
       );
     } catch (_) {
       return null;
@@ -151,6 +175,7 @@ extension Appointments on CatalogStore {
       alert: draft.alert,
       done: draft.done,
       group: draft.group,
+      extra: draft.extra,
     );
     append(made.entity, made.key, jsonEncode(made.toJson()), date: date);
     return made;
