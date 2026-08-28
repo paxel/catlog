@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../field_labels.dart';
 import '../help.dart';
 import '../l10n.dart';
 import '../layout.dart';
@@ -73,6 +72,21 @@ List<AgendaItem> agendaItems(CatalogStore store) {
   items.sort((x, y) => x.when.compareTo(y.when));
   return items;
 }
+
+/// The calendar file's events: the same ones the calendar mirror would
+/// write — reminders all-day, appointments timed with their alarm, a
+/// vet run as one event — so file and mirror never disagree.
+List<IcsEvent> icsEvents(CatalogStore store, AppLocalizations t) => [
+  for (final MapEntry(:key, :value) in desiredEvents(store, t).entries)
+    IcsEvent(
+      uid: 'catlog-$key@catlog'.replaceAll(RegExp(r'[:|]'), '-'),
+      date: value.start,
+      end: value.allDay ? null : value.end,
+      summary: value.title,
+      description: value.description,
+      alertMinutesBefore: value.alertMinutesBefore,
+    ),
+];
 
 /// Everything due, ordered by date (#74): one card per active plan —
 /// relative date, absolute date, who, what. Overdue stays pinned at the
@@ -145,18 +159,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
   /// The desktop and escape-hatch path: one .ics file of every plan.
   Future<void> _exportIcs() async {
     final t = context.t;
-    final defs = {for (final def in store.fieldDefs()) def.key: def};
-    final ics = writeIcs([
-      for (final r in store.activeReminders())
-        IcsEvent(
-          uid: 'catlog-${r.entity}-${r.field}@catlog'.replaceAll(':', '-'),
-          date: r.due,
-          summary:
-              '${store.current(r.entity, Keys.name) ?? t.unnamed} — '
-              '${defs[r.field] == null ? r.field : fieldDefName(t, defs[r.field]!)}',
-          description: r.value,
-        ),
-    ], stamp: DateTime.now());
+    final ics = writeIcs(icsEvents(store, t), stamp: DateTime.now());
     try {
       await shareFiles(context, [
         XFile.fromData(

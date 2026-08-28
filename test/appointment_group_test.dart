@@ -249,6 +249,34 @@ void main() {
       expect(store.openAppointmentGroups().single, hasLength(3));
     });
 
+    test('the calendar file carries the run as one timed event', () {
+      store.updateAppointmentGroup(
+        run.first.copyWith(
+          time: (hour: 8, minute: 30),
+          alert: AppointmentAlert.hourBefore,
+        ),
+      );
+      store.append(
+        minka,
+        Keys.userField('remarks'),
+        'worming',
+        date: DateTime.now().add(const Duration(days: 9)),
+        reminder: true,
+      );
+      final events = icsEvents(store, AppLocalizationsEn());
+      expect(events, hasLength(2));
+      final appt = events.firstWhere((e) => !e.allDay);
+      expect(appt.summary, 'Neutering — 2 cats');
+      expect(appt.description, contains('Rudi'));
+      expect(appt.alertMinutesBefore, 60);
+      expect(appt.end, appt.date.add(const Duration(hours: 1)));
+      expect(appt.uid, 'catlog-appt-${run.first.group}@catlog');
+      final ics = writeIcs(events, stamp: DateTime.utc(2026, 8, 28));
+      expect(ics, contains('TRIGGER:-PT60M'));
+      expect(ics, contains('SUMMARY:Neutering — 2 cats'));
+      expect(ics, contains('DTSTART;VALUE=DATE:'));
+    });
+
     test('the calendar mirror wants one event for the run', () {
       final t = AppLocalizationsEn();
       final events = desiredEvents(store, t);
