@@ -1,7 +1,7 @@
-/// iCalendar export of active reminders (#74): the non-syncing
-/// fallback for platforms without calendar integration. One all-day
-/// VEVENT per plan, no alarms — the calendar shows that something is
-/// due; booking the appointment stays the keeper's move.
+/// iCalendar export of active plans: the non-syncing fallback for
+/// platforms without calendar integration. Reminders (#74) are all-day
+/// VEVENTs without alarm — the calendar shows that something is due;
+/// appointments (#75) are timed, with the VALARM the keeper chose.
 library;
 
 /// One event for [writeIcs] — already localized and resolved; the
@@ -11,17 +11,28 @@ class IcsEvent {
   /// events instead of doubling them.
   final String uid;
 
-  /// The due date; rendered as an all-day event.
+  /// The due date, rendered as an all-day event — unless [end] is
+  /// given, then [date] is the exact local start of a timed event.
   final DateTime date;
+
+  /// Local end of a timed event; null for all-day.
+  final DateTime? end;
 
   final String summary;
   final String description;
 
+  /// A VALARM this many minutes before the start; null for none.
+  final int? alertMinutesBefore;
+
   const IcsEvent(
       {required this.uid,
       required this.date,
+      this.end,
       required this.summary,
-      required this.description});
+      required this.description,
+      this.alertMinutesBefore});
+
+  bool get allDay => end == null;
 }
 
 /// Serializes [events] as an iCalendar file (RFC 5545).
@@ -32,17 +43,34 @@ String writeIcs(List<IcsEvent> events, {required DateTime stamp}) {
     ..write('PRODID:-//cat(a)log//reminders//EN\r\n');
   final dtstamp = _utcStamp(stamp);
   for (final e in events) {
-    final day = e.date;
-    final next = day.add(const Duration(days: 1));
     b
       ..write('BEGIN:VEVENT\r\n')
       ..write(_fold('UID:${_escape(e.uid)}\r\n'))
-      ..write('DTSTAMP:$dtstamp\r\n')
-      ..write('DTSTART;VALUE=DATE:${_day(day)}\r\n')
-      ..write('DTEND;VALUE=DATE:${_day(next)}\r\n')
+      ..write('DTSTAMP:$dtstamp\r\n');
+    if (e.end case final end?) {
+      // Floating local time: the keeper reads it where the visit is.
+      b
+        ..write('DTSTART:${_local(e.date)}\r\n')
+        ..write('DTEND:${_local(end)}\r\n');
+    } else {
+      final day = e.date;
+      final next = day.add(const Duration(days: 1));
+      b
+        ..write('DTSTART;VALUE=DATE:${_day(day)}\r\n')
+        ..write('DTEND;VALUE=DATE:${_day(next)}\r\n');
+    }
+    b
       ..write(_fold('SUMMARY:${_escape(e.summary)}\r\n'))
-      ..write(_fold('DESCRIPTION:${_escape(e.description)}\r\n'))
-      ..write('END:VEVENT\r\n');
+      ..write(_fold('DESCRIPTION:${_escape(e.description)}\r\n'));
+    if (e.alertMinutesBefore case final minutes?) {
+      b
+        ..write('BEGIN:VALARM\r\n')
+        ..write('ACTION:DISPLAY\r\n')
+        ..write(_fold('DESCRIPTION:${_escape(e.summary)}\r\n'))
+        ..write('TRIGGER:-PT${minutes}M\r\n')
+        ..write('END:VALARM\r\n');
+    }
+    b.write('END:VEVENT\r\n');
   }
   b.write('END:VCALENDAR\r\n');
   return b.toString();
@@ -51,6 +79,11 @@ String writeIcs(List<IcsEvent> events, {required DateTime stamp}) {
 String _day(DateTime d) => '${d.year.toString().padLeft(4, '0')}'
     '${d.month.toString().padLeft(2, '0')}'
     '${d.day.toString().padLeft(2, '0')}';
+
+String _local(DateTime d) => '${_day(d)}T'
+    '${d.hour.toString().padLeft(2, '0')}'
+    '${d.minute.toString().padLeft(2, '0')}'
+    '${d.second.toString().padLeft(2, '0')}';
 
 String _utcStamp(DateTime d) {
   final u = d.toUtc();

@@ -34,8 +34,7 @@ void main() {
   test('a flagged entry stays a plan even after its date passes', () {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:checkup', 'look after her',
-        date: DateTime.now().subtract(const Duration(days: 3)),
-        reminder: true);
+        date: DateTime.now().subtract(const Duration(days: 3)), reminder: true);
     expect(a.current(cat, 'f:checkup'), isNull);
   });
 
@@ -108,8 +107,7 @@ void main() {
     expect(migrated.activeReminders(), hasLength(1));
   });
 
-  test('merge keeps the survivor plan a fact re-assertion would retire',
-      () {
+  test('merge keeps the survivor plan a fact re-assertion would retire', () {
     final keep = a.createCat('Keep');
     final lose = a.createCat('Lose');
     // Both hold differing facts on the field, so the merge re-asserts
@@ -147,18 +145,15 @@ void main() {
   test('the flag survives sync and applies on the peer', () {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
-    b.applyEntries(a.entriesSince(const {}),
-        senderVector: a.versionVector());
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
     expect(b.current(cat, 'f:vaccine'), isNull);
     expect(b.activeReminders(), hasLength(1));
     expect(b.activeReminders().single.value, 'refresh');
   });
 
-  test('a plan does not flag a bogus conflict against an arriving fact',
-      () {
+  test('a plan does not flag a bogus conflict against an arriving fact', () {
     final cat = a.createCat('Miezi');
-    b.applyEntries(a.entriesSince(const {}),
-        senderVector: a.versionVector());
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
     final vector = a.versionVector();
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
     b.append(cat, 'f:vaccine', 'done');
@@ -185,8 +180,7 @@ void main() {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:meds', 'secret plan', date: inDays(5), reminder: true);
     a.setFieldPrivate(cat, 'f:meds', true);
-    b.applyEntries(a.entriesSince(const {}),
-        senderVector: a.versionVector());
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
     expect(b.activeReminders(), isEmpty);
   });
 
@@ -214,9 +208,8 @@ void main() {
     expect(a.hasReminders(), isTrue);
     final path2 = writeBundle(a, '${dir.path}/b2.zip');
     final names2 = {
-      for (final f in ZipDecoder()
-          .decodeBytes(File(path2).readAsBytesSync())
-          .files)
+      for (final f
+          in ZipDecoder().decodeBytes(File(path2).readAsBytesSync()).files)
         if (f.isFile) f.name
     };
     expect(names2, contains('format'));
@@ -251,8 +244,7 @@ void main() {
     File('${root.path}/${a.deviceId}.jsonl').writeAsStringSync('');
     folderSync(a, dir.path);
     expect(File('${root.path}/${a.deviceId}.jsonl').existsSync(), isFalse);
-    expect(
-        File('${root.path}/${a.deviceId}.jsonl2').existsSync(), isTrue);
+    expect(File('${root.path}/${a.deviceId}.jsonl2').existsSync(), isTrue);
     folderSync(b, dir.path);
     expect(b.activeReminders(), hasLength(1));
     expect(b.current(cat, 'f:vaccine'), isNull);
@@ -263,9 +255,8 @@ void main() {
     a.append(cat, 'f:vaccine', 'first');
     a.append(cat, 'f:vaccine', 'planned', date: inDays(30), reminder: true);
     a.append(cat, 'f:vaccine', 'second');
-    final latest = a
-        .fieldHistory(cat, 'f:vaccine')
-        .firstWhere((e) => e.value == 'second');
+    final latest =
+        a.fieldHistory(cat, 'f:vaccine').firstWhere((e) => e.value == 'second');
     a.revertEntry(latest.seq);
     expect(a.current(cat, 'f:vaccine'), 'first');
   });
@@ -289,6 +280,23 @@ void main() {
       expect(utf8.encode(line).length, lessThanOrEqualTo(75));
     }
   });
+
+  test('ics export writes a timed event with its alarm', () {
+    final ics = writeIcs([
+      IcsEvent(
+          uid: 'catlog-appt-1@catlog',
+          date: DateTime(2029, 5, 4, 14, 30),
+          end: DateTime(2029, 5, 4, 15, 30),
+          summary: 'Neutering — 3 cats',
+          description: 'Hugo, Rudi, Minka',
+          alertMinutesBefore: 60),
+    ], stamp: DateTime.utc(2026, 8, 25, 12));
+    expect(ics, contains('DTSTART:20290504T143000'));
+    expect(ics, contains('DTEND:20290504T153000'));
+    expect(ics, isNot(contains('VALUE=DATE')));
+    expect(ics, contains('BEGIN:VALARM'));
+    expect(ics, contains('TRIGGER:-PT60M'));
+  });
 }
 
 /// Rewrites the bundle's `format` file to [version].
@@ -298,8 +306,8 @@ List<int> _withFormat(List<int> zipBytes, String version) {
   for (final f in archive.files) {
     if (!f.isFile) continue;
     if (f.name == 'format') continue;
-    out.addFile(ArchiveFile(
-        f.name, (f.content as List<int>).length, f.content));
+    out.addFile(
+        ArchiveFile(f.name, (f.content as List<int>).length, f.content));
   }
   final v = utf8.encode(version);
   out.addFile(ArchiveFile('format', v.length, v));
