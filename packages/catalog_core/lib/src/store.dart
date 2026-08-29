@@ -1007,9 +1007,31 @@ class CatalogStore {
   /// 2560 px prints sharp on a Card and stays cheap to sync.
   static const maxImageEdge = 2560;
 
+  /// More pixels than this and an image is refused before it is
+  /// decoded: a small file claiming 30000×30000 would otherwise ask for
+  /// gigabytes. Read from the header alone.
+  static const maxImagePixels = 40 * 1000 * 1000;
+
+  /// True when [bytes] declare more than [maxImagePixels] in their
+  /// header; false for anything decodable within bounds, and for bytes
+  /// no decoder recognises (those fail later, cheaply).
+  static bool imageTooLarge(Uint8List bytes) {
+    try {
+      final info = img.findDecoderForData(bytes)?.startDecode(bytes);
+      if (info == null) return false;
+      return info.width * info.height > maxImagePixels;
+    } catch (_) {
+      // Not even a readable header: nothing here to decode big.
+      return false;
+    }
+  }
+
   /// Pure function: re-encodes a photo as JPEG, scaled to [maxImageEdge].
   /// CPU-heavy — call through `Isolate.run` from UI code.
   static Uint8List compressImage(Uint8List bytes) {
+    if (imageTooLarge(bytes)) {
+      throw const FormatException('Image too large');
+    }
     var decoded = img.decodeImage(bytes);
     if (decoded == null) throw const FormatException('Not a decodable image');
     decoded = img.bakeOrientation(decoded);
@@ -1735,6 +1757,9 @@ class CatalogStore {
 
   /// Stores a blob received from a peer; verifies the content hash.
   void putBlob(String hash, Uint8List bytes) {
+    // A photo nobody could decode within bounds is not stored — the
+    // viewer would decode whatever arrives.
+    if (imageTooLarge(bytes)) return;
     if (sha256.convert(bytes).toString() != hash) {
       throw ArgumentError('Blob content does not match hash $hash');
     }
