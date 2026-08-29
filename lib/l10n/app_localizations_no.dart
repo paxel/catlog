@@ -906,7 +906,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget.';
+      'Katter uten hjem akkurat nå: funnet, rømt eller fra et oppslag. Kameraknappen registrerer en katt foran deg; oppslagsknappen gjør et savnet-oppslag om til en katt med eierens kontakt; skanneren leser en cat(a)log-kode fra oppslaget. Trykk på Stray Cam for et bilde; hold inne for å filme en video og beholde de beste rutene som bilder.';
 
   @override
   String get helpMap =>

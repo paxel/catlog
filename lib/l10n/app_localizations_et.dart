@@ -907,7 +907,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi.';
+      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. Puuduta Stray Cami foto jaoks; hoia all, et filmida video ja jätta parimad kaadrid fotodeks.';
 
   @override
   String get helpMap =>

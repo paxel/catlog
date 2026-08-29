@@ -910,7 +910,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz.';
+      'Gatos que agora não têm casa: encontrados, fugidos ou vindos de um cartaz. O botão da câmara regista um gato à tua frente; o botão do cartaz transforma um cartaz de desaparecido num gato com o contacto do dono; o leitor lê um código cat(a)log do cartaz. Toque em Stray Cam para uma foto; mantenha premido para filmar um vídeo e guardar os melhores fotogramas como fotos.';
 
   @override
   String get helpMap =>

@@ -19,6 +19,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
+import '../exclusive.dart';
 
 /// A Clowder's Card: its facts and the cats living there on one sheet,
 /// exportable as an image (share sheet), a PDF, or straight to the
@@ -313,12 +314,16 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
     ]);
   }
 
-  Future<void> _printCard(List<EntityView> cats) async {
-    final doc = await _buildPdf(cats);
-    await Printing.layoutPdf(onLayout: (_) => doc.save());
-  }
+  Future<void> _printCard(List<EntityView> cats) => runExclusive('print', () async {
+        final doc = await _buildPdf(cats);
+        await Printing.layoutPdf(onLayout: (_) => doc.save());
+      }, context: context);
 
-  Future<void> _sharePdf(List<EntityView> cats) async {
+  Future<void> _sharePdf(List<EntityView> cats) => runExclusive('share', () async {
+        await _sharePdfNow(cats);
+      }, context: context);
+
+  Future<void> _sharePdfNow(List<EntityView> cats) async {
     final doc = await _buildPdf(cats);
     final name = store.current(id, Keys.name) ?? 'clowder';
     await Printing.sharePdf(

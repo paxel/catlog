@@ -909,7 +909,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kočky, které teď nemají domov: nalezené, utečené nebo z letáku. Tlačítko fotoaparátu zapíše kočku, která sedí před vámi; tlačítko letáku promění plakát v kočku i s kontaktem majitele; skener přečte kód cat(a)log z plakátu.';
+      'Kočky, které teď nemají domov: nalezené, utečené nebo z letáku. Tlačítko fotoaparátu zapíše kočku, která sedí před vámi; tlačítko letáku promění plakát v kočku i s kontaktem majitele; skener přečte kód cat(a)log z plakátu. Klepnutím na Stray Cam pořídíš fotku; podržením natočíš video a nejlepší snímky si necháš jako fotky.';
 
   @override
   String get helpMap =>

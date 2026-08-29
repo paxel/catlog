@@ -910,7 +910,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo.';
+      'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
 
   @override
   String get helpMap =>

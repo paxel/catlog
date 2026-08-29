@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'l10n.dart';
 import 'screens/photo_edit_screen.dart';
 import 'video_frames_io.dart';
+import 'exclusive.dart';
 
 /// Lets the user pick or take a photo, offers the crop step (skippable;
 /// Stray Cam passes [allowCrop] false), compresses off the UI thread,
@@ -80,6 +81,12 @@ Future<bool> addPhotosViaSheet(
 /// bytes, or null if the user canceled. A preselected [source] skips
 /// the sheet.
 Future<Uint8List?> pickImageBytes(BuildContext context,
+    {bool allowCrop = true, ImageSource? source}) =>
+    runExclusive('imagePicker',
+        () => _pickImageBytes(context, allowCrop: allowCrop, source: source),
+        context: context);
+
+Future<Uint8List?> _pickImageBytes(BuildContext context,
     {bool allowCrop = true, ImageSource? source}) async {
   final canUseCamera = Platform.isAndroid || Platform.isIOS;
   var pickedSource = source ?? ImageSource.gallery;

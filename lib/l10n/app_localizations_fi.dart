@@ -909,7 +909,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta.';
+      'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. Napauta Stray Camia ottaaksesi kuvan; pidä pohjassa kuvataksesi videon ja säilytä parhaat ruudut kuvina.';
 
   @override
   String get helpMap =>

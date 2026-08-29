@@ -13,11 +13,17 @@ import 'image_import.dart';
 import 'l10n.dart';
 import 'stray_cam.dart';
 import 'video_frames.dart';
+import 'exclusive.dart';
 
 /// Picks (or films) a video and runs the frame picker over it. Returns
 /// the kept frames as JPEG bytes; the video is never stored (#41).
 /// Mobile only — elsewhere the reason is explained instead of failing.
 Future<List<Uint8List>?> pickVideoFrames(BuildContext context,
+    {ImageSource source = ImageSource.gallery}) =>
+    runExclusive('imagePicker', () => _pickVideoFrames(context, source: source),
+        context: context);
+
+Future<List<Uint8List>?> _pickVideoFrames(BuildContext context,
     {ImageSource source = ImageSource.gallery}) async {
   if (!Platform.isAndroid && !Platform.isIOS) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -40,7 +46,15 @@ Future<List<Uint8List>?> pickVideoFrames(BuildContext context,
   return Navigator.of(context).push<List<Uint8List>>(MaterialPageRoute(
     builder: (_) => VideoFramesScreen(
       duration: duration,
+      // Preview size while picking; photo size only for what is kept.
       extractFrame: (ms) => VideoThumbnail.thumbnailData(
+        video: video.path,
+        timeMs: ms,
+        imageFormat: ImageFormat.JPEG,
+        quality: 85,
+        maxWidth: 1024,
+      ),
+      extractFull: (ms) => VideoThumbnail.thumbnailData(
         video: video.path,
         timeMs: ms,
         imageFormat: ImageFormat.JPEG,

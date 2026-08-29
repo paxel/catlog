@@ -909,7 +909,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka.';
+      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. Tapni Stray Cam za fotografijo; pridrži za snemanje videa in obdrži najboljše sličice kot fotografije.';
 
   @override
   String get helpMap =>

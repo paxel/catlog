@@ -908,7 +908,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu.';
+      'Koty, które teraz nie mają domu: znalezione, zbiegłe albo z ogłoszenia. Przycisk aparatu zapisuje kota, który siedzi przed tobą; przycisk ogłoszenia zamienia plakat w kota wraz z kontaktem właściciela; skaner odczytuje kod cat(a)log z plakatu. Stuknij Stray Cam, aby zrobić zdjęcie; przytrzymaj, aby nagrać wideo i zachować najlepsze klatki jako zdjęcia.';
 
   @override
   String get helpMap =>

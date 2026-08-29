@@ -907,7 +907,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster.';
+      'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.';
 
   @override
   String get helpMap =>

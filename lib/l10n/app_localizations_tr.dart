@@ -908,7 +908,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur.';
+      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. Fotoğraf için Stray Cam\'e dokun; video çekmek için basılı tut ve en iyi kareleri fotoğraf olarak sakla.';
 
   @override
   String get helpMap =>

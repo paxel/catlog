@@ -12,6 +12,7 @@ import '../spotlight.dart';
 import 'intro_screen.dart';
 import 'archive_screen.dart';
 import 'moderation_screen.dart';
+import '../exclusive.dart';
 
 const _repoUrl = 'https://github.com/paxel/catlog';
 const _issuesUrl = '$_repoUrl/issues';
@@ -33,8 +34,10 @@ class AboutScreen extends StatefulWidget {
 
 class _AboutScreenState extends State<AboutScreen> {
 
-  Future<void> _open(String url) =>
-      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  Future<void> _open(String url) => runExclusive(
+      'link',
+      () => launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
+      context: context);
 
   @override
   Widget build(BuildContext context) {

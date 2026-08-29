@@ -878,7 +878,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。';
+      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。 点按 Stray Cam 拍照；长按录制视频，并把最佳画面保留为照片。';
 
   @override
   String get helpMap =>

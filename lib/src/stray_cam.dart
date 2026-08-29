@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'image_import.dart';
 import 'name_proposals.dart';
 import 'l10n.dart';
+import 'exclusive.dart';
 
 /// Why there is no position — each case gets its own explanation, and
 /// where the user can fix it, the matching settings screen.
@@ -96,7 +97,27 @@ Future<void> explainLocationFailure(
 /// position with a photo. No photo means no cat: the record is created
 /// only after the picture arrives, so a canceled or killed camera
 /// leaves no orphan behind.
+/// One Stray Cam at a time (#91): a second press while the fix or the
+/// camera is pending does nothing; a plugin error ends it with a
+/// message; the parked capture is cleared however it ends.
 Future<String?> strayCam(BuildContext context, CatalogStore store,
+    {Locator locate = locateDevice,
+    Future<Uint8List?> Function(BuildContext)? pickPhoto,
+    Future<bool> Function() openSettings = Geolocator.openAppSettings,
+    Future<bool> Function() openLocationSettings =
+        Geolocator.openLocationSettings}) {
+  return runExclusive(
+    'strayCam',
+    () => _strayCam(context, store,
+        locate: locate,
+        pickPhoto: pickPhoto,
+        openSettings: openSettings,
+        openLocationSettings: openLocationSettings),
+    context: context,
+  );
+}
+
+Future<String?> _strayCam(BuildContext context, CatalogStore store,
     {Locator locate = locateDevice,
     Future<Uint8List?> Function(BuildContext)? pickPhoto,
     Future<bool> Function() openSettings = Geolocator.openAppSettings,
@@ -124,12 +145,16 @@ Future<String?> strayCam(BuildContext context, CatalogStore store,
   store.setLocalSetting(strayCamPendingKey,
       jsonEncode({'lat': position.$1, 'lon': position.$2, 'name': name}));
   Uint8List? bytes;
-  if (context.mounted) {
-    // Field speed beats framing: Stray Cam skips the crop step.
-    bytes = await (pickPhoto ??
-        ((c) => pickImageBytes(c, allowCrop: false)))(context);
+  try {
+    if (context.mounted) {
+      // Field speed beats framing: Stray Cam skips the crop step.
+      bytes = await (pickPhoto ??
+          ((c) => pickImageBytes(c, allowCrop: false)))(context);
+    }
+  } finally {
+    // Cancelled, failed or done: nothing stays parked (#91).
+    if (store.isOpen) store.setLocalSetting(strayCamPendingKey, '');
   }
-  store.setLocalSetting(strayCamPendingKey, '');
   if (bytes == null) return null;
   final catId = store.createCat(name);
   store.recordPosition(catId, position.$1, position.$2);

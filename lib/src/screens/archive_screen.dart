@@ -91,7 +91,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
             context, [XFile(path, mimeType: 'application/zip')]);
         // The temp file is not a safe place: unless the share really
         // went somewhere, nothing may be deleted.
-        if (result.status != ShareResultStatus.success) {
+        if (result?.status != ShareResultStatus.success) {
           if (!mounted) return;
           setState(() => _working = false);
           ScaffoldMessenger.of(context)

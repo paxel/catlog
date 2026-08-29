@@ -20,6 +20,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
+import '../exclusive.dart';
 
 /// A Cat's Card: photo plus current facts on one screen, exportable as
 /// an image (share sheet), a PDF, or straight to the printer. The
@@ -314,12 +315,16 @@ class _CardScreenState extends State<CardScreen> {
     return doc;
   }
 
-  Future<void> _printCard() async {
-    final doc = await _buildPdf();
-    await Printing.layoutPdf(onLayout: (_) => doc.save());
-  }
+  Future<void> _printCard() => runExclusive('print', () async {
+        final doc = await _buildPdf();
+        await Printing.layoutPdf(onLayout: (_) => doc.save());
+      }, context: context);
 
-  Future<void> _sharePdf() async {
+  Future<void> _sharePdf() => runExclusive('share', () async {
+        await _sharePdfNow();
+      }, context: context);
+
+  Future<void> _sharePdfNow() async {
     final doc = await _buildPdf();
     final name = store.current(id, Keys.name) ?? 'cat';
     await Printing.sharePdf(

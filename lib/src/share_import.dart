@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'l10n.dart';
 import 'screens/scan_screen.dart';
+import 'exclusive.dart';
 
 /// Downloads a hosted share file; injectable for tests.
 Future<Uint8List> fetchShare(String url) async {
@@ -30,6 +31,12 @@ Future<Uint8List> fetchShare(String url) async {
 /// the cat, and import only after an explicit confirmation. Nothing
 /// enters the catalog silently, and a malformed code explains itself.
 Future<void> scanShareCode(BuildContext context, CatalogStore store,
+        {Future<String?> Function(BuildContext)? scan,
+        Future<Uint8List> Function(String url)? fetch}) =>
+    runExclusive('scan', () => _scanShareCode(context, store, scan: scan, fetch: fetch),
+        context: context);
+
+Future<void> _scanShareCode(BuildContext context, CatalogStore store,
     {Future<String?> Function(BuildContext)? scan,
     Future<Uint8List> Function(String url)? fetch}) async {
   final raw = await (scan ??

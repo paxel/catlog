@@ -911,7 +911,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster.';
+      'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. Tik op Stray Cam voor een foto; houd ingedrukt om een video te filmen en de beste beelden als foto\'s te bewaren.';
 
   @override
   String get helpMap =>

@@ -912,7 +912,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni.';
+      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. Ýttu á Stray Cam fyrir mynd; haltu inni til að taka myndband og geyma bestu rammana sem myndir.';
 
   @override
   String get helpMap =>

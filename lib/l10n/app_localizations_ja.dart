@@ -889,7 +889,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。';
+      'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。 Stray Cam をタップすると写真、長押しすると動画を撮影し、良いフレームを写真として残せます。';
 
   @override
   String get helpMap =>

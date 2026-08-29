@@ -16,6 +16,7 @@ import 'screens/photo_edit_screen.dart';
 import 'screens/scan_screen.dart';
 import 'stray_cam.dart';
 import 'widgets/date_entry.dart';
+import 'exclusive.dart';
 
 /// A transponder number on a flier: 15 digits, often printed with
 /// spaces or hyphens between groups.
@@ -477,11 +478,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   }
 
   Future<void> _scanCode() async {
-    final value =
-        await (widget.scan ??
-            (BuildContext c) => Navigator.of(c).push<String>(
-              MaterialPageRoute(builder: (_) => const ScanScreen()),
-            ))(context);
+    final value = await runExclusive(
+      'scan',
+      () => (widget.scan ??
+          (BuildContext c) => Navigator.of(c).push<String>(
+                MaterialPageRoute(builder: (_) => const ScanScreen()),
+              ))(context),
+      context: context,
+    );
     if (value != null && value.isNotEmpty && mounted) {
       setState(() => _chip.text = value);
     }

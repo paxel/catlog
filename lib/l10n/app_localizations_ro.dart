@@ -910,7 +910,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș.';
+      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. Atinge Stray Cam pentru o fotografie; ține apăsat pentru a filma un videoclip și a păstra cele mai bune cadre ca fotografii.';
 
   @override
   String get helpMap =>

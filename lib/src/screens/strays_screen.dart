@@ -15,6 +15,7 @@ import '../stray_cam.dart';
 import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'cat_list_screen.dart';
+import '../exclusive.dart';
 
 /// Cats currently in no Clowder: the shared cat list (#87) with the
 /// strays' own tools — flier capture, stray cam, match candidates,
@@ -153,7 +154,10 @@ class StraysScreen extends StatelessWidget {
                   if (!context.mounted) return;
                   await _openNew(context, catId, refresh, startEditing: true);
                 },
-                icon: const Icon(Icons.photo_camera),
+                icon: const BusyIcon(
+                  keys: {'strayCam', 'imagePicker'},
+                  icon: Icons.photo_camera,
+                ),
                 label: Text(context.t.strayCam),
               ),
             ),

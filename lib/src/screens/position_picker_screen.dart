@@ -11,6 +11,7 @@ import '../l10n.dart';
 import '../map/cached_tiles.dart';
 import '../map/place_view.dart';
 import '../stray_cam.dart';
+import '../exclusive.dart';
 
 /// Where the picker last was, so the next pick starts in the same
 /// region instead of a country-level default. Session memory is enough:
@@ -80,7 +81,10 @@ class _PositionPickerScreenState extends State<PositionPickerScreen> {
     super.dispose();
   }
 
-  Future<void> _useMyLocation() async {
+  Future<void> _useMyLocation() =>
+      runExclusive('locate', _useMyLocationNow, context: context);
+
+  Future<void> _useMyLocationNow() async {
     final outcome = await locateDevice();
     final position = outcome.pos;
     if (position == null) {

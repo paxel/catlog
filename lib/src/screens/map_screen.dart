@@ -23,6 +23,7 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'cat_list_screen.dart';
+import '../exclusive.dart';
 
 /// The map: Strays at their latest position, Clowders as home pins.
 /// Long-press places a Clowder or records a Stray sighting at that spot.
@@ -163,7 +164,10 @@ class _MapScreenState extends State<MapScreen>
     _glide = controller;
   }
 
-  Future<void> _jumpToMyLocation() async {
+  Future<void> _jumpToMyLocation() => runExclusive(
+      'locate', _jumpToMyLocationNow, context: context);
+
+  Future<void> _jumpToMyLocationNow() async {
     final outcome = await locateDevice();
     final pos = outcome.pos;
     if (pos == null) {
@@ -558,7 +562,7 @@ class _MapScreenState extends State<MapScreen>
               ),
             ),
             IconButton(
-              icon: const Icon(Icons.my_location),
+              icon: const BusyIcon(keys: {'locate'}, icon: Icons.my_location),
               tooltip: context.t.useMyLocation,
               onPressed: _jumpToMyLocation,
             ),

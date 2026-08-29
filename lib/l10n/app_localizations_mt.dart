@@ -911,7 +911,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster.';
+      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. Mess Stray Cam għal ritratt; żomm magħfus biex tiffilmja vidjo u żomm l-aħjar frames bħala ritratti.';
 
   @override
   String get helpMap =>

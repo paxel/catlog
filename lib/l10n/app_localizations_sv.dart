@@ -908,7 +908,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget.';
+      'Katter utan hem just nu: hittade, rymda eller från ett anslag. Kameraknappen registrerar en katt framför dig; anslagsknappen gör ett efterlysningsanslag till en katt med ägarens kontakt; skannern läser en cat(a)log-kod från anslaget. Tryck på Stray Cam för ett foto; håll nere för att filma en video och behåll de bästa bildrutorna som foton.';
 
   @override
   String get helpMap =>

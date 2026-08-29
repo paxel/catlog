@@ -908,7 +908,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpStrays =>
-      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta.';
+      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. Pieskaries Stray Cam, lai uzņemtu foto; turi nospiestu, lai filmētu video un labākos kadrus paturētu kā foto.';
 
   @override
   String get helpMap =>
