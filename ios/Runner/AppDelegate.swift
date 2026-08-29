@@ -51,9 +51,10 @@ import UIKit
     guard url.isFileURL else { return false }
     let needsAccess = url.startAccessingSecurityScopedResource()
     defer { if needsAccess { url.stopAccessingSecurityScopedResource() } }
+    // Unique per open: a second file must not overwrite one the app is
+    // still about to read; the app deletes it after the import.
     let target = FileManager.default.temporaryDirectory
-      .appendingPathComponent("incoming.catsync")
-    try? FileManager.default.removeItem(at: target)
+      .appendingPathComponent("incoming-\(Int(Date().timeIntervalSince1970 * 1000)).catsync")
     guard (try? FileManager.default.copyItem(at: url, to: target)) != nil else {
       return false
     }

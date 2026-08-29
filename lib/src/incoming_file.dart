@@ -26,8 +26,11 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
     {CatalogManager? catalogs, void Function(CatalogInfo)? switchTo}) {
   // One file at a time: a second file while the first still asks for
   // its catalog waits its turn instead of stacking a second dialog.
-  void import(String path) => _queue = _queue.then((_) =>
-      _import(navigator, store, path, catalogs: catalogs, switchTo: switchTo));
+  // Files the platform copied for us are ours to delete once read; a
+  // desktop launch argument is the keeper's own file and stays.
+  void import(String path, {bool deleteAfter = true}) =>
+      _queue = _queue.then((_) => importIncomingFile(navigator, store, path,
+          catalogs: catalogs, switchTo: switchTo, deleteAfter: deleteAfter));
   _channel.setMethodCallHandler((call) async {
     if (call.method == 'open') {
       import(call.arguments as String);
@@ -51,7 +54,27 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
   // Desktop: the associated file arrives as a launch argument.
   for (final arg in args) {
     if (arg.endsWith('.catsync') && File(arg).existsSync()) {
-      import(arg);
+      import(arg, deleteAfter: false);
+    }
+  }
+}
+
+/// Imports one delivered file (after asking for its catalog when
+/// [catalogs] is given) and, with [deleteAfter], removes the copy the
+/// platform made for us — whatever the outcome.
+Future<void> importIncomingFile(GlobalKey<NavigatorState> navigator,
+    CatalogStore Function() storeOf, String path,
+    {CatalogManager? catalogs,
+    void Function(CatalogInfo)? switchTo,
+    bool deleteAfter = false}) async {
+  try {
+    await _import(navigator, storeOf, path,
+        catalogs: catalogs, switchTo: switchTo);
+  } finally {
+    if (deleteAfter) {
+      try {
+        File(path).deleteSync();
+      } catch (_) {}
     }
   }
 }
@@ -68,6 +91,7 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
   }
   if (context == null || !context.mounted) return;
   final fileName = path.split(Platform.pathSeparator).last;
+  if (!File(path).existsSync()) return;
   if (catalogs != null && switchTo != null) {
     // Which catalog, before anything happens — a mis-tap in a chat
     // stops here, and a cat one only wants to look at gets a catalog

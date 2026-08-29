@@ -70,7 +70,10 @@ class MainActivity : FlutterActivity() {
         if (intent.action != Intent.ACTION_VIEW) return
         val uri: Uri = intent.data ?: return
         try {
-            val target = File(cacheDir, "incoming.catsync")
+            // Unique per intent: a second file must not overwrite one
+            // the app is still about to read. The app deletes it after
+            // the import.
+            val target = File(cacheDir, "incoming-${System.currentTimeMillis()}.catsync")
             contentResolver.openInputStream(uri)!!.use { input ->
                 target.outputStream().use { input.copyTo(it) }
             }
@@ -100,7 +103,7 @@ class MainActivity : FlutterActivity() {
         val paths = mutableListOf<String>()
         for ((i, uri) in uris.withIndex()) {
             try {
-                val target = File(cacheDir, "shared-$i.img")
+                val target = File(cacheDir, "shared-${System.currentTimeMillis()}-$i.img")
                 contentResolver.openInputStream(uri)!!.use { input ->
                     target.outputStream().use { input.copyTo(it) }
                 }
