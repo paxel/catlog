@@ -105,6 +105,7 @@ class _MapScreenState extends State<MapScreen>
     _glide?.dispose();
     _viewportSave?.cancel();
     _search.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
