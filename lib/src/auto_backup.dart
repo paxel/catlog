@@ -93,7 +93,22 @@ Future<String> saveBesideBackups(String path, String name) async {
   return to;
 }
 
+Future<void>? _inFlight;
+
+/// One backup at a time: Android fires "inactive" and "paused" back to
+/// back, and both would pass the vector check before either wrote it.
 Future<void> autoBackup(CatalogStore store,
+    {Future<String> Function(String path, String name)? save}) {
+  final running = _inFlight;
+  if (running != null) return running;
+  final run = _autoBackup(store, save: save).whenComplete(() {
+    _inFlight = null;
+  });
+  _inFlight = run;
+  return run;
+}
+
+Future<void> _autoBackup(CatalogStore store,
     {Future<String> Function(String path, String name)? save}) async {
   try {
     // Only when something actually changed since the last backup.
