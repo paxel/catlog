@@ -70,6 +70,21 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - The flier wizard's thumbnails and the share preview are decoded at
   their display size.
 - The map's tile folder is trimmed to 200 MB, oldest tiles first.
+- A typed pair code pointing outside the local network is refused
+  before anything is sent; a sync partner can only send photos the
+  catalog mentions; an image whose header claims more than 40 million
+  pixels is refused before decoding; map tiles are capped and cached
+  only once they decoded.
+- Files shared into the app get unique names and are deleted after the
+  import.
+- Photos of a switched-away catalog leave memory at once; a calendar
+  that never answers releases the mirror after two minutes; the map
+  and the celebration sound release what they hold.
+- Two joiners at once are served one after the other; the automatic
+  backup runs once per pause; imports, merges, the flier wizard's save
+  and appointment groups land as one transaction; a photo file is
+  written completely or not at all; the catalog list waits while a
+  catalog is being written out for deletion.
 - A location fix that never arrives gives up after 20 seconds with "no
   fix" instead of waiting for the rest of the session.
 - An error from the phone's calendar during the mirror switched the app
