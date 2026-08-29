@@ -380,7 +380,8 @@ void main() {
     );
     final remarks = store.current(cat.id, Keys.userField('remarks'))!;
     expect(remarks, contains('GESUCHT!'));
-    expect(remarks, contains('Geburtsdatum: 26.05.2024'));
+    expect(store.current(cat.id, Keys.userField('birthdate')), '2024-05-26');
+    expect(remarks, isNot(contains('26.05.2024')));
     expect(remarks, contains('Kennzeichnung: Das Tier ist gechipt.'));
     expect(remarks, isNot(contains('braun')));
     final clowder = store.clowders().single;

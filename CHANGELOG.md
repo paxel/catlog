@@ -11,6 +11,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   — "2021" or "May 2021" is stored and shown as such, never as an
   invented first day. The flier wizard reads such dates from posters.
 
+### Fixed
+
+- The birth date printed on a TASSO poster fills the Birth date field
+  instead of landing in remarks.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).

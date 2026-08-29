@@ -11,7 +11,7 @@
         "neutered": ["Kastriert", "Neutered", "Spayed"],
         "breed": ["Rasse", "Breed"],
         "color": ["Farbe", "Colour", "Color"],
-        "birthday": ["Geburtsdatum", "Date of birth", "Born"],
+        "birthdate": ["Geburtsdatum", "Date of birth", "Born"],
         "chipid": ["Kennzeichnung", "Identification", "Marking", "Chip", "Transponder"],
         "missingSince": ["Verlustdatum", "Vermisst seit", "Date lost", "Missing since"],
         "lostPlace": ["Verlustort", "Place lost", "Lost in", "Missing from"]

@@ -319,13 +319,17 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
             }
           case final slug:
             final def = defs.where((d) => d.slug == slug).firstOrNull;
-            if (def == null || def.scope == FieldScope.clowder) {
+            // A date field takes the poster's date in stored form, at
+            // the precision printed; a line without one stays text.
+            final value = def?.type == FieldType.date
+                ? parseFlierDate(entry.value)?.iso
+                : entry.value;
+            if (def == null ||
+                def.scope == FieldScope.clowder ||
+                value == null) {
               remarks.add(line);
             } else if (!_fieldInputs.containsKey(slug)) {
-              _fieldInputs[slug] = FieldValueController(
-                def,
-                current: entry.value,
-              );
+              _fieldInputs[slug] = FieldValueController(def, current: value);
             }
         }
       }

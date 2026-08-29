@@ -87,7 +87,7 @@ void main() {
       expect(reading.first('neutered'), 'yes');
       expect(reading.first('breed'), 'Europäische Langhaarkatze');
       expect(reading.first('color'), 'braun');
-      expect(reading.first('birthday'), '26.05.2024');
+      expect(reading.first('birthdate'), '26.05.2024');
       expect(reading.first('chipid'), 'Das Tier ist gechipt.');
       expect(reading.first(FlierTarget.missingSince), '05.06.2025');
       expect(
@@ -122,7 +122,7 @@ void main() {
       expect(reading.first('gender'), 'male');
       expect(reading.first('neutered'), 'yes');
       expect(reading.first(FlierTarget.name), 'RUDI');
-      expect(reading.first('birthday'), '5/2025');
+      expect(reading.first('birthdate'), '5/2025');
       expect(parseFlierDate('5/2025'), PartialDate.parse('2025-05'));
       expect(
         reading.of(FlierTarget.contact).map((e) => e.value),
