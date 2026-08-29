@@ -244,8 +244,14 @@ class LanSyncHost {
           req.response.statusCode = HttpStatus.requestEntityTooLarge;
           return;
         }
-        store.putBlob(path.substring('/blob/'.length), bytes);
-        onSession?.call(const []);
+        final hash = path.substring('/blob/'.length);
+        // Only a photo this catalog's log mentions — anything else is
+        // storage filled by whoever holds the PIN.
+        if (!store.knowsImage(hash)) {
+          req.response.statusCode = HttpStatus.notFound;
+          return;
+        }
+        store.putBlob(hash, bytes);
       } else {
         req.response.statusCode = HttpStatus.notFound;
       }

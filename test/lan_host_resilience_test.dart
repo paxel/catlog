@@ -136,4 +136,55 @@ void main() {
     await res.drain<void>();
     expect(asked, 2);
   });
+
+  test('a blob the log never mentions is not stored', () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    final b = CatalogStore.inMemory()..author = 'b';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final hash = b.addImage(
+        b.createCat('X'),
+        CatalogStore.compressImage(Uint8List.fromList(
+            img.encodeJpg(img.Image(width: 8, height: 8)))));
+    final host = LanSyncHost(a, '123456');
+    await host.start(bind: InternetAddress.loopbackIPv4);
+    addTearDown(host.stop);
+    final client = HttpClient();
+    addTearDown(() => client.close(force: true));
+    final req = await client.openUrl(
+        'POST', Uri.parse('http://127.0.0.1:${host.port}/blob/$hash'));
+    req.headers.set('x-catlog-pin', '123456');
+    req.add(b.imageBytes(hash)!);
+    final res = await req.close();
+    await res.drain<void>();
+    expect(res.statusCode, HttpStatus.notFound);
+    expect(a.imageBytes(hash), isNull);
+  });
+
+  test('two joiners are served one after the other', () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    final b = CatalogStore.inMemory()..author = 'b';
+    final c = CatalogStore.inMemory()..author = 'c';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    addTearDown(c.close);
+    b.createCat('B');
+    c.createCat('C');
+    var inFlight = 0, peak = 0;
+    final host = LanSyncHost(a, '123456', onJoinRequest: (_, _) async {
+      inFlight++;
+      peak = inFlight > peak ? inFlight : peak;
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+      inFlight--;
+      return const JoinDecision(true, false);
+    });
+    await host.start(bind: InternetAddress.loopbackIPv4);
+    addTearDown(host.stop);
+    await Future.wait([
+      lanSync(b, '127.0.0.1', host.port, '123456'),
+      lanSync(c, '127.0.0.1', host.port, '123456'),
+    ]);
+    expect(peak, 1);
+    expect(a.cats().map((x) => x.name), containsAll(['B', 'C']));
+  });
 }
