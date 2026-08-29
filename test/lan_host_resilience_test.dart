@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/src/sync/lan.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 /// A joiner that drops the connection mid-request must not take the
 /// host down: the next joiner still syncs.
