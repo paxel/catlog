@@ -166,6 +166,9 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   bool _locatingAddress = false;
   String? _addressError;
 
+  /// The place the search found, shown so a wrong hit is visible (#81).
+  String? _addressPlace;
+
   /// What the poster says, line by line with a target each — the Flier
   /// text page lets the user move lines between fields before they
   /// are applied.
@@ -467,6 +470,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     setState(() {
       _locatingAddress = true;
       _addressError = null;
+      _addressPlace = null;
     });
     List<GeoHit> hits;
     try {
@@ -482,6 +486,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         _addressError = context.t.addressNotFound;
       } else {
         _addressPosition = (hits.first.lat, hits.first.lon);
+        _addressPlace = hits.first.name;
       }
     });
   }
@@ -861,6 +866,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         decoration: InputDecoration(
           labelText: t.starterAddress,
           errorText: _addressError,
+          helperText: _addressPlace,
+          helperMaxLines: 3,
         ),
       ),
       Align(

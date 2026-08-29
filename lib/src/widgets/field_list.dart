@@ -29,6 +29,14 @@ class FieldList extends StatelessWidget {
   /// Shown as an "Add field" row at the end of the edit-mode list (#50).
   final VoidCallback? onAddField;
 
+  /// Turns the Address value into a Position on request (#81); the
+  /// button sits under the address row. Null where there is no address.
+  final VoidCallback? onLocate;
+
+  /// What the last locate found — the place name, or why nothing.
+  final String? locateNote;
+  final bool locating;
+
   const FieldList(
       {super.key,
       required this.store,
@@ -41,7 +49,10 @@ class FieldList extends StatelessWidget {
       required this.onShowMap,
       this.onLookup,
       this.onReadLongPress,
-      this.onAddField});
+      this.onAddField,
+      this.onLocate,
+      this.locateNote,
+      this.locating = false});
 
   bool _filled(FieldDef def) {
     final value = store.current(entityId, def.key);
@@ -133,7 +144,37 @@ class FieldList extends StatelessWidget {
                     ? null
                     : () => onReadLongPress!(def),
           );
-          return hasHold ? WithCatEar(child: tile) : tile;
+          final row = hasHold ? WithCatEar(child: tile) : tile;
+          // The address row carries the locate button beneath it (#81).
+          if (def.slug == 'address' && onLocate != null && value != null) {
+            return Column(mainAxisSize: MainAxisSize.min, children: [
+              row,
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                child: Row(children: [
+                  TextButton.icon(
+                    icon: locating
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Icon(Icons.add_location_alt_outlined),
+                    label: Text(context.t.locateAddress),
+                    onPressed: locating ? null : onLocate,
+                  ),
+                  if (locateNote != null)
+                    Expanded(
+                      child: Text(
+                        locateNote!,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                ]),
+              ),
+            ]);
+          }
+          return row;
         }),
       if (editing && onAddField != null)
         ListTile(

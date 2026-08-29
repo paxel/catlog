@@ -28,6 +28,7 @@ import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
 import 'timeline_screen.dart';
+import '../geocode.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -35,10 +36,14 @@ class ClowderDetailScreen extends StatefulWidget {
   final CatalogStore store;
   final String clowderId;
 
+  /// Address search; tests inject a stub instead of Nominatim.
+  final GeocodeSearch? geocode;
+
   const ClowderDetailScreen({
     super.key,
     required this.store,
     required this.clowderId,
+    this.geocode,
   });
 
   @override
@@ -51,6 +56,39 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
 
   /// Read-only until the pencil is pressed (#46); every visit starts calm.
   bool _editing = false;
+
+  bool _locating = false;
+
+  /// The place the address search found, or why it found none (#81).
+  String? _locateNote;
+
+  /// Turns the Address into a Position — on request only, because it
+  /// asks the geocoding service. The first hit's name is shown so a
+  /// wrong town does not pass unnoticed.
+  Future<void> _locateAddress() async {
+    final query = store.current(id, Keys.userField('address'))?.trim() ?? '';
+    if (query.isEmpty || _locating) return;
+    setState(() {
+      _locating = true;
+      _locateNote = null;
+    });
+    List<GeoHit> hits;
+    try {
+      hits = await (widget.geocode ?? nominatimSearch)(query);
+    } catch (_) {
+      hits = const [];
+    }
+    if (!mounted) return;
+    setState(() {
+      _locating = false;
+      if (hits.isEmpty) {
+        _locateNote = context.t.addressNotFound;
+      } else {
+        store.recordPosition(id, hits.first.lat, hits.first.lon);
+        _locateNote = hits.first.name;
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -258,6 +296,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         if (mounted) setState(() {});
       },
       onShowMap: _showOnMap,
+      onLocate: _locateAddress,
+      locateNote: _locateNote,
+      locating: _locating,
       onLookup: (def, value) => openLookup(context, def, value),
       // Long-press in read mode: jump into edit mode with the field's
       // editor open — fix what you just spotted (#46).

@@ -12,6 +12,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   invented first day. The flier wizard reads such dates from posters.
 - A cat's age next to its birth date and in the strays list — "3 yrs
   5 mo", "3 yrs" for a bare birth year, frozen at death.
+- "Find address on the map" under a clowder's address turns it into
+  the clowder's position and names the place it found. The flier
+  wizard's button now shows the found place too.
 
 ### Changed
 
