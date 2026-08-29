@@ -20,8 +20,14 @@ class DiskCachingTileProvider extends TileProvider {
   /// ~120 tiles ≈ a few MB of raw bytes.
   final _hits = <String, MemoryImage>{};
 
-  DiskCachingTileProvider(this.cacheDir) {
+  /// Disk cap: the oldest tiles go when the folder grows past it —
+  /// months of browsing a city otherwise pile up hundreds of MB that
+  /// count against the app and are never trimmed.
+  final int maxBytes;
+
+  DiskCachingTileProvider(this.cacheDir, {this.maxBytes = 200 << 20}) {
     cacheDir.createSync(recursive: true);
+    trimTileCache(cacheDir, maxBytes);
   }
 
   @override
@@ -45,6 +51,27 @@ class DiskCachingTileProvider extends TileProvider {
       return image;
     }
     return _CachedTileImage(url, file);
+  }
+}
+
+/// Deletes the least recently modified tiles until [dir] holds at most
+/// [maxBytes]. Synchronous and cheap: one directory listing.
+void trimTileCache(Directory dir, int maxBytes) {
+  final files = <(File, FileStat)>[];
+  var total = 0;
+  for (final f in dir.listSync().whereType<File>()) {
+    final stat = f.statSync();
+    files.add((f, stat));
+    total += stat.size;
+  }
+  if (total <= maxBytes) return;
+  files.sort((a, b) => a.$2.modified.compareTo(b.$2.modified));
+  for (final (f, stat) in files) {
+    if (total <= maxBytes) break;
+    try {
+      f.deleteSync();
+      total -= stat.size;
+    } catch (_) {}
   }
 }
 

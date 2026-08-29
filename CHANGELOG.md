@@ -57,6 +57,19 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   nothing on the receiving side.
 - Folder sync skips a partner file a cloud client is still writing
   instead of stopping at it.
+- A photo taken or shared while the catalog was switched away is
+  dropped instead of crashing on the closed catalog; archiving checks
+  the same before deleting.
+- Two files opened in quick succession are imported one after the
+  other instead of stacking two catalog dialogs.
+- On the in-person sync page, a second tap on Host during startup does
+  nothing, and backing out mid-start stops the server and hotspot.
+- The card decodes its photo at card size; the image behind "share as
+  picture" is released after use; the clowder card's PDF carries 240 px
+  roster thumbnails instead of full photos.
+- The flier wizard's thumbnails and the share preview are decoded at
+  their display size.
+- The map's tile folder is trimmed to 200 MB, oldest tiles first.
 - A location fix that never arrives gives up after 20 seconds with "no
   fix" instead of waiting for the rest of the session.
 - An error from the phone's calendar during the mirror switched the app
