@@ -2045,7 +2045,12 @@ class _FileBlobStore implements _BlobStore {
   @override
   void put(String hash, Uint8List bytes) {
     final f = _file(hash);
-    if (f != null && !f.existsSync()) f.writeAsBytesSync(bytes);
+    if (f == null || f.existsSync()) return;
+    // Written beside, then renamed: a kill mid-write leaves a stray
+    // .tmp, never a truncated photo that counts as present.
+    final tmp = File('${f.path}.tmp');
+    tmp.writeAsBytesSync(bytes, flush: true);
+    tmp.renameSync(f.path);
   }
 
   @override
