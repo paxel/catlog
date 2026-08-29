@@ -92,8 +92,12 @@ class LanSyncHost {
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode(store.versionVector()));
       } else if (req.method == 'POST' && path == '/sync') {
-        final body =
-            jsonDecode(await utf8.decoder.bind(req).join()) as Map;
+        final raw = await _readBody(req, maxEntriesBytes);
+        if (raw == null) {
+          req.response.statusCode = HttpStatus.requestEntityTooLarge;
+          return;
+        }
+        final body = jsonDecode(utf8.decode(raw)) as Map;
         final joinerFormat = body['format'] as int? ?? 1;
         if (joinerFormat != syncFormat &&
             // Compatibility window: while no entry ever carried the
@@ -163,12 +167,12 @@ class LanSyncHost {
           req.response.add(bytes);
         }
       } else if (req.method == 'POST' && path.startsWith('/blob/')) {
-        final builder = BytesBuilder();
-        await for (final chunk in req) {
-          builder.add(chunk);
+        final bytes = await _readBody(req, maxBlobBytes);
+        if (bytes == null) {
+          req.response.statusCode = HttpStatus.requestEntityTooLarge;
+          return;
         }
-        store.putBlob(
-            path.substring('/blob/'.length), builder.takeBytes());
+        store.putBlob(path.substring('/blob/'.length), bytes);
         onSession?.call(const []);
       } else {
         req.response.statusCode = HttpStatus.notFound;
@@ -183,6 +187,17 @@ class LanSyncHost {
       } catch (_) {}
     }
   }
+}
+
+/// The request body, or null once it exceeds [limit] — the rest is
+/// not read; a peer with the PIN must not be able to fill the memory.
+Future<Uint8List?> _readBody(HttpRequest req, int limit) async {
+  final builder = BytesBuilder();
+  await for (final chunk in req) {
+    builder.add(chunk);
+    if (builder.length > limit) return null;
+  }
+  return builder.takeBytes();
 }
 
 /// Joins a hosted session and runs a full two-way sync: entries both
@@ -225,12 +240,20 @@ Future<SyncResult> lanSync(
         throw SyncException(
             body.contains('declined') ? 'declined' : 'Wrong PIN');
       }
+      if (res.statusCode == HttpStatus.notFound && path.startsWith('/blob/')) {
+        // A photo the peer's log mentions but nobody holds any more —
+        // permanent in an append-only log; skip it, never fail on it.
+        return null;
+      }
       if (res.statusCode != HttpStatus.ok) {
         throw SyncException('Peer answered ${res.statusCode}');
       }
       final bytes = BytesBuilder();
       await for (final chunk in res) {
         bytes.add(chunk);
+        if (bytes.length > maxEntriesBytes) {
+          throw const SyncException('Peer sent too much');
+        }
       }
       final data = bytes.takeBytes();
       final type = res.headers.contentType?.mimeType;
@@ -276,20 +299,27 @@ Future<SyncResult> lanSync(
         cause: MomentCause.sync,
         label: host);
 
+    // The entries are in and recorded; whatever happens to the photos
+    // now (host gone, a bad blob) the keeper gets the summary with its
+    // undo — and the next sync fetches what is still missing.
     var blobsIn = 0, blobsOut = 0;
-    for (final hash in store.missingBlobs()) {
-      final bytes = await call('GET', '/blob/$hash');
-      if (bytes is Uint8List) {
-        store.putBlob(hash, bytes);
-        blobsIn++;
+    try {
+      for (final hash in store.missingBlobs()) {
+        final bytes = await call('GET', '/blob/$hash');
+        if (bytes is Uint8List) {
+          store.putBlob(hash, bytes);
+          blobsIn++;
+        }
       }
-    }
-    for (final hash in (response['wantBlobs'] as List).cast<String>()) {
-      final bytes = store.imageBytes(hash);
-      if (bytes != null) {
-        await call('POST', '/blob/$hash', body: bytes);
-        blobsOut++;
+      for (final hash in (response['wantBlobs'] as List).cast<String>()) {
+        final bytes = store.imageBytes(hash);
+        if (bytes != null) {
+          await call('POST', '/blob/$hash', body: bytes);
+          blobsOut++;
+        }
       }
+    } catch (_) {
+      // Counted what landed; the rest waits for the next sync.
     }
     return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
         applied: applied);

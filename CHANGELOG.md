@@ -16,6 +16,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Security
 
+- A shared file or a sync partner can no longer plant entries under
+  this device's own id, which would have made partners skip its real
+  changes.
+- Registry lookup links open only web addresses; a template pointing at
+  `sms:`, `tel:` or an app scheme is ignored.
+- Imports, syncs and share downloads refuse files and photos far above
+  the sizes the app writes, instead of unpacking them into memory.
 - A photo name inside a shared file or from a sync partner can no
   longer point outside the catalog's image folder — reading or
   deleting a photo needs a real hash.
@@ -29,6 +36,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   photo instead of unpacking everything into memory first.
 - A sync partner that dropped the connection mid-transfer could crash
   the hosting device.
+- A photo mentioned in the log that nobody holds any more no longer
+  makes every sync between the devices fail; a problem while fetching
+  photos no longer hides that the entries arrived.
 - A location fix that never arrives gives up after 20 seconds with "no
   fix" instead of waiting for the rest of the session.
 - An error from the phone's calendar during the mirror switched the app

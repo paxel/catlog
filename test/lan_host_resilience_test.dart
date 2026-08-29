@@ -36,4 +36,40 @@ void main() {
     expect(result.entriesReceived, greaterThan(0));
     expect(b.cats().map((c) => c.name), contains('Miezi'));
   });
+
+  test('a photo nobody holds is skipped, the entries still land',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    final b = CatalogStore.inMemory()..author = 'b';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final cat = a.createCat('Miezi');
+    // A photo entry whose bytes are gone — permanent in the log.
+    a.append(cat, '\$image:${'b' * 64}', 'added');
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+    final result = await lanSync(b, '127.0.0.1', host.port, '123456');
+    expect(result.entriesReceived, greaterThan(0));
+    expect(result.blobsIn, 0);
+    expect(b.cats().map((c) => c.name), contains('Miezi'));
+  });
+
+  test('a blob above the cap is refused with 413', () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    addTearDown(a.close);
+    final host = LanSyncHost(a, '123456');
+    await host.start();
+    addTearDown(host.stop);
+    final client = HttpClient();
+    addTearDown(() => client.close(force: true));
+    final req = await client.openUrl(
+        'POST', Uri.parse('http://127.0.0.1:${host.port}/blob/${'c' * 64}'));
+    req.headers.set('x-catlog-pin', '123456');
+    req.contentLength = maxBlobBytes + 1;
+    req.add(List<int>.filled(maxBlobBytes + 1, 0));
+    final res = await req.close();
+    expect(res.statusCode, HttpStatus.requestEntityTooLarge);
+    await res.drain<void>();
+  });
 }
