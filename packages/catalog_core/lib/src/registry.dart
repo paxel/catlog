@@ -29,6 +29,7 @@ const registryPresets = <RegistryPreset>[
 String? lookupUrl(FieldDef def, String value) {
   final template = def.lookupUrl;
   if (template == null || value.trim().isEmpty) return null;
+  if (!isWebLookup(template)) return null;
   return buildLookupUrl(template, value);
 }
 
@@ -79,6 +80,15 @@ String? idFromLookupUrl(String template, String url) {
   return null;
 }
 
+/// Whether [template] (or a scanned link) may be opened from an ID
+/// value: web links only. Templates travel as synced entries, so a
+/// partner's or a poster's `sms:`/`tel:`/app scheme must not become a
+/// tap target on every device.
+bool isWebLookup(String template) {
+  final uri = Uri.tryParse(template);
+  return uri != null && (uri.scheme == 'http' || uri.scheme == 'https');
+}
+
 /// Turns a scanned [url] into a template by replacing [value] with the
 /// placeholder — this is how an unknown registry becomes usable. Null
 /// when the URL does not carry the value at all. Volatile extras
@@ -87,7 +97,7 @@ String? idFromLookupUrl(String template, String url) {
 String? learnLookupTemplate(String url, String value) {
   final scanned = Uri.tryParse(url);
   final wanted = normalizeId(value);
-  if (scanned == null || wanted.isEmpty) return null;
+  if (scanned == null || wanted.isEmpty || !isWebLookup(url)) return null;
 
   for (final entry in scanned.queryParameters.entries) {
     if (normalizeId(entry.value) != wanted) continue;

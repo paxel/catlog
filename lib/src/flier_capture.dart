@@ -411,9 +411,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     final urls = [
       ...urlsIn(ownText),
       for (final code in _codes.codes)
-        if (!_rejectedCodes.contains(code) &&
-            code.toLowerCase().startsWith('http'))
-          code,
+        if (!_rejectedCodes.contains(code) && isWebLookup(code)) code,
     ];
     for (final hit in registryHitsIn(urls, defs: defs)) {
       if (!_registryHits.any(

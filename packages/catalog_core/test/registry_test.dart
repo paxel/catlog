@@ -96,4 +96,26 @@ void main() {
         other.fieldDefs().firstWhere((d) => d.slug == 'tasso');
     expect(def.lookupUrl, tasso);
   });
+
+  test('only web links become lookup templates or open', () {
+    expect(learnLookupTemplate('sms:+4990012345?body=S123', 'S123'), isNull);
+    expect(learnLookupTemplate('https://x.example/find?id=S123', 'S123'),
+        'https://x.example/find?id={value}');
+    final phone = FieldDef(
+        id: 'fielddef:reg',
+        slug: 'reg',
+        name: 'Reg',
+        type: FieldType.id,
+        scope: FieldScope.cat,
+        options: const [],
+        lookupUrl: 'tel:{value}');
+    expect(lookupUrl(phone, '123'), isNull);
+    expect(isWebLookup('httpx://evil'), isFalse);
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    store.defineField('Reg', FieldType.id);
+    expect(() => store.setFieldLookupUrl('fielddef:reg', 'sms:{value}'),
+        throwsArgumentError);
+    store.setFieldLookupUrl('fielddef:reg', 'https://x.example/{value}');
+  });
 }
