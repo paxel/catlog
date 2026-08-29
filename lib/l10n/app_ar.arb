@@ -440,6 +440,7 @@
   "crashLastRunBody": "توقف cat(a)log بشكل غير متوقع في المرة الماضية — على الأرجح نفدت الذاكرة. هل تريد إرسال تقرير قصير ليتم الإصلاح؟",
   "catalogsTitle": "الكتالوجات",
   "newCatalog": "كتالوج جديد",
+  "intoCatalog": "إلى الكتالوج",
   "catalogNameLabel": "اسم الكتالوج",
   "catalogNameTaken": "يوجد كتالوج باسم {name} بالفعل. اختر اسماً آخر.",
   "@catalogNameTaken": {

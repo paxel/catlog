@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log נעצר באופן בלתי צפוי בפעם הקודמת — כנראה נגמר הזיכרון. לשלוח דוח קצר כדי שנוכל לתקן?",
   "catalogsTitle": "קטלוגים",
   "newCatalog": "קטלוג חדש",
+  "intoCatalog": "לקטלוג",
   "catalogNameLabel": "שם הקטלוג",
   "catalogNameTaken": "כבר קיים קטלוג בשם {name}. בחר שם אחר.",
   "@catalogNameTaken": {

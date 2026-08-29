@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log stoppede uventet sidste gang — sandsynligvis løb den tør for hukommelse. Send en kort rapport, så det kan rettes?",
   "catalogsTitle": "Kataloger",
   "newCatalog": "Nyt katalog",
+  "intoCatalog": "Til katalog",
   "catalogNameLabel": "Katalogets navn",
   "catalogNameTaken": "Der findes allerede et katalog, der hedder {name}. Vælg et andet navn.",
   "@catalogNameTaken": {

@@ -1518,6 +1518,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get newCatalog => 'Nový katalóg';
 
   @override
+  String get intoCatalog => 'Do katalógu';
+
+  @override
   String get catalogNameLabel => 'Názov katalógu';
 
   @override

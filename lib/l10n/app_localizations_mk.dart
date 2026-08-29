@@ -1522,6 +1522,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get newCatalog => 'Нов каталог';
 
   @override
+  String get intoCatalog => 'Во каталог';
+
+  @override
   String get catalogNameLabel => 'Име на каталогот';
 
   @override

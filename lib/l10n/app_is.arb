@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log stöðvaðist óvænt síðast — líklega kláraðist minnið. Senda stutta skýrslu svo hægt sé að laga það?",
   "catalogsTitle": "Skrár",
   "newCatalog": "Ný skrá",
+  "intoCatalog": "Í skrá",
   "catalogNameLabel": "Heiti skrár",
   "catalogNameTaken": "Skrá sem heitir {name} er þegar til. Veldu annað heiti.",
   "@catalogNameTaken": {

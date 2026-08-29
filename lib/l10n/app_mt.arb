@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log waqaf għal għarrieda l-aħħar darba — x'aktarx spiċċat il-memorja. Tibgħat rapport qasir biex jissewwa?",
   "catalogsTitle": "Katalgi",
   "newCatalog": "Katalgu ġdid",
+  "intoCatalog": "Fil-katalgu",
   "catalogNameLabel": "Isem tal-katalgu",
   "catalogNameTaken": "Diġà hemm katalgu jismu {name}. Agħżel isem ieħor.",
   "@catalogNameTaken": {

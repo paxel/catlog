@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log pysähtyi viime kerralla odottamatta — todennäköisesti muisti loppui. Lähetetäänkö lyhyt raportti korjaamista varten?",
   "catalogsTitle": "Luettelot",
   "newCatalog": "Uusi luettelo",
+  "intoCatalog": "Luetteloon",
   "catalogNameLabel": "Luettelon nimi",
   "catalogNameTaken": "Luettelo nimeltä {name} on jo olemassa. Valitse toinen nimi.",
   "@catalogNameTaken": {

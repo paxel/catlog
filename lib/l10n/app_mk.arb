@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log запре неочекувано минатиот пат — најверојатно снема меморија. Да испратиме краток извештај за да се поправи?",
   "catalogsTitle": "Каталози",
   "newCatalog": "Нов каталог",
+  "intoCatalog": "Во каталог",
   "catalogNameLabel": "Име на каталогот",
   "catalogNameTaken": "Веќе постои каталог со име {name}. Избери друго име.",
   "@catalogNameTaken": {

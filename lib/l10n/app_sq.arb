@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log u ndal papritur herën e kaluar — me gjasë mbaroi memoria. Të dërgojmë një raport të shkurtër që të rregullohet?",
   "catalogsTitle": "Katalogët",
   "newCatalog": "Katalog i ri",
+  "intoCatalog": "Në katalog",
   "catalogNameLabel": "Emri i katalogut",
   "catalogNameTaken": "Një katalog me emrin {name} ekziston tashmë. Zgjidh një emër tjetër.",
   "@catalogNameTaken": {

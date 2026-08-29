@@ -1519,6 +1519,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get newCatalog => 'Jauns katalogs';
 
   @override
+  String get intoCatalog => 'Katalogā';
+
+  @override
   String get catalogNameLabel => 'Kataloga nosaukums';
 
   @override

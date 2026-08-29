@@ -1517,6 +1517,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get newCatalog => 'Ny katalog';
 
   @override
+  String get intoCatalog => 'Till katalog';
+
+  @override
   String get catalogNameLabel => 'Katalogens namn';
 
   @override

@@ -440,6 +440,7 @@
   "crashLastRunBody": "上次 cat(a)log 意外停止了——很可能是内存不足。发送一份简短报告以便修复吗？",
   "catalogsTitle": "目录",
   "newCatalog": "新建目录",
+  "intoCatalog": "导入到目录",
   "catalogNameLabel": "目录名称",
   "catalogNameTaken": "已经有名为 {name} 的目录。请换一个名称。",
   "@catalogNameTaken": {

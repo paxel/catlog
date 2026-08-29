@@ -1526,6 +1526,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get newCatalog => 'Nuevo catálogo';
 
   @override
+  String get intoCatalog => 'En el catálogo';
+
+  @override
   String get catalogNameLabel => 'Nombre del catálogo';
 
   @override

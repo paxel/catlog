@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log praėjusį kartą netikėtai sustojo — greičiausiai pritrūko atminties. Atsiųsti trumpą ataskaitą, kad būtų pataisyta?",
   "catalogsTitle": "Katalogai",
   "newCatalog": "Naujas katalogas",
+  "intoCatalog": "Į katalogą",
   "catalogNameLabel": "Katalogo pavadinimas",
   "catalogNameTaken": "Katalogas pavadinimu {name} jau yra. Pasirink kitą pavadinimą.",
   "@catalogNameTaken": {

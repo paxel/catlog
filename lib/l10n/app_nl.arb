@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log stopte de vorige keer onverwacht — waarschijnlijk was het geheugen op. Kort rapport sturen zodat het gemaakt kan worden?",
   "catalogsTitle": "Catalogi",
   "newCatalog": "Nieuwe catalogus",
+  "intoCatalog": "In catalogus",
   "catalogNameLabel": "Naam van de catalogus",
   "catalogNameTaken": "Er is al een catalogus met de naam {name}. Kies een andere naam.",
   "@catalogNameTaken": {

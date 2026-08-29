@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log спря неочаквано миналия път — най-вероятно свърши паметта. Да изпратим ли кратък доклад, за да се поправи?",
   "catalogsTitle": "Каталози",
   "newCatalog": "Нов каталог",
+  "intoCatalog": "В каталог",
   "catalogNameLabel": "Име на каталога",
   "catalogNameTaken": "Вече има каталог с името {name}. Изберете друго име.",
   "@catalogNameTaken": {

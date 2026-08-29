@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'import_summary.dart';
+import 'import_target.dart';
 import 'incoming_images.dart';
 import 'l10n.dart';
 
@@ -16,11 +17,17 @@ const _channel = MethodChannel('catlog/openfile');
 
 /// [store] is a getter, not a store: switching catalogs replaces the
 /// open one, and a file shared in afterwards belongs to the new one.
+/// With [catalogs] and [switchTo], a .catsync first asks which catalog
+/// it goes into — or creates one (#90); without them it lands in the
+/// open catalog as before.
 void initIncomingFiles(GlobalKey<NavigatorState> navigator,
-    CatalogStore Function() store, List<String> args) {
+    CatalogStore Function() store, List<String> args,
+    {CatalogManager? catalogs, void Function(CatalogInfo)? switchTo}) {
+  void import(String path) =>
+      _import(navigator, store, path, catalogs: catalogs, switchTo: switchTo);
   _channel.setMethodCallHandler((call) async {
     if (call.method == 'open') {
-      _import(navigator, store(), call.arguments as String);
+      import(call.arguments as String);
     }
     if (call.method == 'sharedImages') {
       handleSharedImages(navigator, store(),
@@ -29,7 +36,7 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
   });
   if (Platform.isAndroid || Platform.isIOS) {
     _channel.invokeMethod<String>('pending').then((path) {
-      if (path != null) _import(navigator, store(), path);
+      if (path != null) import(path);
     }).catchError((_) => null);
     _channel.invokeMethod<List<Object?>>('pendingImages').then((paths) {
       if (paths != null && paths.isNotEmpty) {
@@ -41,13 +48,14 @@ void initIncomingFiles(GlobalKey<NavigatorState> navigator,
   // Desktop: the associated file arrives as a launch argument.
   for (final arg in args) {
     if (arg.endsWith('.catsync') && File(arg).existsSync()) {
-      _import(navigator, store(), arg);
+      import(arg);
     }
   }
 }
 
 Future<void> _import(GlobalKey<NavigatorState> navigator,
-    CatalogStore store, String path) async {
+    CatalogStore Function() storeOf, String path,
+    {CatalogManager? catalogs, void Function(CatalogInfo)? switchTo}) async {
   // The first frame may not be up yet on a cold start — poll instead of
   // one fixed delay, or a slow start silently swallows the file.
   BuildContext? context;
@@ -56,9 +64,36 @@ Future<void> _import(GlobalKey<NavigatorState> navigator,
     context = navigator.currentContext;
   }
   if (context == null || !context.mounted) return;
+  final fileName = path.split(Platform.pathSeparator).last;
+  if (catalogs != null && switchTo != null) {
+    // Which catalog, before anything happens — a mis-tap in a chat
+    // stops here, and a cat one only wants to look at gets a catalog
+    // of its own (#90).
+    final target = await chooseImportTarget(context, catalogs, fileName);
+    if (target == null || !context.mounted) return;
+    CatalogInfo? to;
+    switch (target) {
+      case ImportInto(:final catalog):
+        if (catalog.id != catalogs.active.id) to = catalog;
+      case ImportIntoNew(:final name):
+        try {
+          to = catalogs.create(name);
+        } on DuplicateCatalogName {
+          _snack(context, context.t.catalogNameTaken(name));
+          return;
+        }
+    }
+    if (to != null) {
+      switchTo(to);
+      // The switch closes the old store a frame later; the new one is
+      // the getter's answer from here on.
+      await Future<void>.delayed(Duration.zero);
+      if (!context.mounted) return;
+    }
+  }
+  final store = storeOf();
   try {
-    final imported = importWithMoment(store, path,
-        label: path.split(Platform.pathSeparator).last);
+    final imported = importWithMoment(store, path, label: fileName);
     final result = imported.result;
     if (!context.mounted) return;
     if (result.applied.isEmpty && result.blobsIn == 0) {

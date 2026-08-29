@@ -1519,6 +1519,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get newCatalog => 'Yeni katalog';
 
   @override
+  String get intoCatalog => 'Kataloğa';
+
+  @override
   String get catalogNameLabel => 'Katalog adı';
 
   @override

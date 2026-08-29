@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log pagājušajā reizē negaidīti apstājās — visticamāk pietrūka atmiņas. Nosūtīt īsu ziņojumu, lai izlabotu?",
   "catalogsTitle": "Katalogi",
   "newCatalog": "Jauns katalogs",
+  "intoCatalog": "Katalogā",
   "catalogNameLabel": "Kataloga nosaukums",
   "catalogNameTaken": "Katalogs ar nosaukumu {name} jau pastāv. Izvēlies citu nosaukumu.",
   "@catalogNameTaken": {

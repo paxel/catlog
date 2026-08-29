@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log se je prejšnjič nepričakovano ustavil — najverjetneje je zmanjkalo pomnilnika. Pošljemo kratko poročilo, da se popravi?",
   "catalogsTitle": "Katalogi",
   "newCatalog": "Nov katalog",
+  "intoCatalog": "V katalog",
   "catalogNameLabel": "Ime kataloga",
   "catalogNameTaken": "Katalog z imenom {name} že obstaja. Izberi drugo ime.",
   "@catalogNameTaken": {

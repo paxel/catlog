@@ -437,6 +437,7 @@
   "crashLastRunBody": "cat(a)log wurde beim letzten Mal unerwartet beendet — vermutlich ging der Speicher aus. Kurzen Bericht senden, damit es behoben werden kann?",
   "catalogsTitle": "Kataloge",
   "newCatalog": "Neuer Katalog",
+  "intoCatalog": "In Katalog",
   "catalogNameLabel": "Name des Katalogs",
   "catalogNameTaken": "Einen Katalog namens {name} gibt es schon. Wähle einen anderen Namen.",
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},

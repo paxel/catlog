@@ -1520,6 +1520,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get newCatalog => 'Uusi luettelo';
 
   @override
+  String get intoCatalog => 'Luetteloon';
+
+  @override
   String get catalogNameLabel => 'Luettelon nimi';
 
   @override

@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log s-a oprit neașteptat data trecută — probabil a rămas fără memorie. Trimitem un raport scurt ca să fie reparat?",
   "catalogsTitle": "Cataloage",
   "newCatalog": "Catalog nou",
+  "intoCatalog": "În catalog",
   "catalogNameLabel": "Numele catalogului",
   "catalogNameTaken": "Există deja un catalog numit {name}. Alege alt nume.",
   "@catalogNameTaken": {

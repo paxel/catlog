@@ -22,6 +22,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   sortable, with the cat fields you choose as columns, an Age column,
   and a text filter over names and values. The search now starts from
   all cats.
+- A `.catsync` opened from a chat or a file manager asks which catalog
+  it goes into before importing — any catalog, or a new one named
+  from the file, so a cat you only want to look at stays out of your
+  own data. Cancel leaves the file alone.
 - "Find address on the map" under a clowder's address turns it into
   the clowder's position and names the place it found. The flier
   wizard's button now shows the found place too.

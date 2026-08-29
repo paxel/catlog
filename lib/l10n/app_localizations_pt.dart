@@ -1521,6 +1521,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get newCatalog => 'Novo catálogo';
 
   @override
+  String get intoCatalog => 'No catálogo';
+
+  @override
   String get catalogNameLabel => 'Nome do catálogo';
 
   @override

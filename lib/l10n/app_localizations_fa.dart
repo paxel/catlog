@@ -1516,6 +1516,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get newCatalog => 'کاتالوگ جدید';
 
   @override
+  String get intoCatalog => 'به کاتالوگ';
+
+  @override
   String get catalogNameLabel => 'نام کاتالوگ';
 
   @override

@@ -757,6 +757,7 @@
   "crashLastRunBody": "cat(a)log stopped unexpectedly last time — most likely it ran out of memory. Send a short report so it can be fixed?",
   "catalogsTitle": "Catalogs",
   "newCatalog": "New catalog",
+  "intoCatalog": "Into catalog",
   "catalogNameLabel": "Catalog name",
   "catalogNameTaken": "A catalog called {name} already exists. Pick a different name.",
   "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},

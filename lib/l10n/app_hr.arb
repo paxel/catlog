@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log se prošli put neočekivano zaustavio — najvjerojatnije je ponestalo memorije. Poslati kratak izvještaj da se popravi?",
   "catalogsTitle": "Katalozi",
   "newCatalog": "Novi katalog",
+  "intoCatalog": "U katalog",
   "catalogNameLabel": "Naziv kataloga",
   "catalogNameTaken": "Katalog pod nazivom {name} već postoji. Odaberi drugo ime.",
   "@catalogNameTaken": {

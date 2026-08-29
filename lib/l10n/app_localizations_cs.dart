@@ -1518,6 +1518,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get newCatalog => 'Nový katalog';
 
   @override
+  String get intoCatalog => 'Do katalogu';
+
+  @override
   String get catalogNameLabel => 'Název katalogu';
 
   @override

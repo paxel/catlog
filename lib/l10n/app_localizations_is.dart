@@ -1523,6 +1523,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get newCatalog => 'Ný skrá';
 
   @override
+  String get intoCatalog => 'Í skrá';
+
+  @override
   String get catalogNameLabel => 'Heiti skrár';
 
   @override

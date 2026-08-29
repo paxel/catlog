@@ -1522,6 +1522,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get newCatalog => 'Katalgu ġdid';
 
   @override
+  String get intoCatalog => 'Fil-katalgu';
+
+  @override
   String get catalogNameLabel => 'Isem tal-katalgu';
 
   @override

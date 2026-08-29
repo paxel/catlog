@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log zatrzymał się niespodziewanie ostatnim razem — prawdopodobnie zabrakło pamięci. Wysłać krótki raport, żeby to naprawić?",
   "catalogsTitle": "Katalogi",
   "newCatalog": "Nowy katalog",
+  "intoCatalog": "Do katalogu",
   "catalogNameLabel": "Nazwa katalogu",
   "catalogNameTaken": "Katalog o nazwie {name} już istnieje. Wybierz inną nazwę.",
   "@catalogNameTaken": {

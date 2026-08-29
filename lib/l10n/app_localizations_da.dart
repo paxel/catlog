@@ -1518,6 +1518,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get newCatalog => 'Nyt katalog';
 
   @override
+  String get intoCatalog => 'Til katalog';
+
+  @override
   String get catalogNameLabel => 'Katalogets navn';
 
   @override

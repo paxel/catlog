@@ -1518,6 +1518,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get newCatalog => 'Nov katalog';
 
   @override
+  String get intoCatalog => 'V katalog';
+
+  @override
   String get catalogNameLabel => 'Ime kataloga';
 
   @override

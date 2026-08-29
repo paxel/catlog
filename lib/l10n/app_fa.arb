@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log دفعه قبل به‌طور غیرمنتظره متوقف شد — احتمالاً حافظه تمام شد. گزارش کوتاهی فرستاده شود تا برطرف شود؟",
   "catalogsTitle": "کاتالوگ‌ها",
   "newCatalog": "کاتالوگ جدید",
+  "intoCatalog": "به کاتالوگ",
   "catalogNameLabel": "نام کاتالوگ",
   "catalogNameTaken": "کاتالوگی با نام {name} از قبل وجود دارد. نام دیگری انتخاب کنید.",
   "@catalogNameTaken": {

@@ -1525,6 +1525,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get newCatalog => 'Νέος κατάλογος';
 
   @override
+  String get intoCatalog => 'Στον κατάλογο';
+
+  @override
   String get catalogNameLabel => 'Όνομα καταλόγου';
 
   @override

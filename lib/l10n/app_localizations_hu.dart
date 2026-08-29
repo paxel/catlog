@@ -1519,6 +1519,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get newCatalog => 'Új katalógus';
 
   @override
+  String get intoCatalog => 'Katalógusba';
+
+  @override
   String get catalogNameLabel => 'A katalógus neve';
 
   @override

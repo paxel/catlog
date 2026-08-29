@@ -440,6 +440,7 @@
   "crashLastRunBody": "A cat(a)log legutóbb váratlanul leállt — valószínűleg elfogyott a memória. Küldjünk rövid jelentést, hogy javítható legyen?",
   "catalogsTitle": "Katalógusok",
   "newCatalog": "Új katalógus",
+  "intoCatalog": "Katalógusba",
   "catalogNameLabel": "A katalógus neve",
   "catalogNameTaken": "Már van {name} nevű katalógus. Válassz másik nevet.",
   "@catalogNameTaken": {

@@ -1520,6 +1520,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get newCatalog => 'Katalog i ri';
 
   @override
+  String get intoCatalog => 'Në katalog';
+
+  @override
   String get catalogNameLabel => 'Emri i katalogut';
 
   @override

@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log stannade oväntat förra gången — troligen tog minnet slut. Skicka en kort rapport så det kan lagas?",
   "catalogsTitle": "Kataloger",
   "newCatalog": "Ny katalog",
+  "intoCatalog": "Till katalog",
   "catalogNameLabel": "Katalogens namn",
   "catalogNameTaken": "Det finns redan en katalog som heter {name}. Välj ett annat namn.",
   "@catalogNameTaken": {

@@ -1508,6 +1508,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get newCatalog => 'קטלוג חדש';
 
   @override
+  String get intoCatalog => 'לקטלוג';
+
+  @override
   String get catalogNameLabel => 'שם הקטלוג';
 
   @override

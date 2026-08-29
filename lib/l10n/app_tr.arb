@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log geçen sefer beklenmedik şekilde durdu — büyük olasılıkla bellek doldu. Düzeltilmesi için kısa bir rapor gönderilsin mi?",
   "catalogsTitle": "Kataloglar",
   "newCatalog": "Yeni katalog",
+  "intoCatalog": "Kataloğa",
   "catalogNameLabel": "Katalog adı",
   "catalogNameTaken": "{name} adlı bir katalog zaten var. Başka bir ad seç.",
   "@catalogNameTaken": {

@@ -1526,6 +1526,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get newCatalog => 'Catalóg nua';
 
   @override
+  String get intoCatalog => 'Isteach sa chatalóg';
+
+  @override
   String get catalogNameLabel => 'Ainm na catalóige';
 
   @override

@@ -1467,6 +1467,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get newCatalog => '新建目录';
 
   @override
+  String get intoCatalog => '导入到目录';
+
+  @override
   String get catalogNameLabel => '目录名称';
 
   @override

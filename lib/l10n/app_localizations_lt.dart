@@ -1522,6 +1522,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get newCatalog => 'Naujas katalogas';
 
   @override
+  String get intoCatalog => 'Į katalogą';
+
+  @override
   String get catalogNameLabel => 'Katalogo pavadinimas';
 
   @override

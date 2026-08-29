@@ -1523,6 +1523,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get newCatalog => 'Nieuwe catalogus';
 
   @override
+  String get intoCatalog => 'In catalogus';
+
+  @override
   String get catalogNameLabel => 'Naam van de catalogus';
 
   @override

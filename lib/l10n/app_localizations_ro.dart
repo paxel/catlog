@@ -1520,6 +1520,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get newCatalog => 'Catalog nou';
 
   @override
+  String get intoCatalog => 'În catalog';
+
+  @override
   String get catalogNameLabel => 'Numele catalogului';
 
   @override

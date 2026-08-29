@@ -1518,6 +1518,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get newCatalog => 'Новий каталог';
 
   @override
+  String get intoCatalog => 'У каталог';
+
+  @override
   String get catalogNameLabel => 'Назва каталогу';
 
   @override

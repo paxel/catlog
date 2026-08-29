@@ -440,6 +440,7 @@
   "crashLastRunBody": "Stad cat(a)log gan choinne an uair dheireanach — is dócha gur rith an chuimhne amach. Tuairisc ghearr a sheoladh le go ndeiseofar é?",
   "catalogsTitle": "Catalóga",
   "newCatalog": "Catalóg nua",
+  "intoCatalog": "Isteach sa chatalóg",
   "catalogNameLabel": "Ainm na catalóige",
   "catalogNameTaken": "Tá catalóg darb ainm {name} ann cheana. Roghnaigh ainm eile.",
   "@catalogNameTaken": {

@@ -1519,6 +1519,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get newCatalog => 'Нов каталог';
 
   @override
+  String get intoCatalog => 'В каталог';
+
+  @override
   String get catalogNameLabel => 'Име на каталога';
 
   @override

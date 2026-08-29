@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log se minule nečekaně ukončil — nejspíš došla paměť. Poslat krátké hlášení, aby se to dalo opravit?",
   "catalogsTitle": "Katalogy",
   "newCatalog": "Nový katalog",
+  "intoCatalog": "Do katalogu",
   "catalogNameLabel": "Název katalogu",
   "catalogNameTaken": "Katalog s názvem {name} už existuje. Zvol jiný název.",
   "@catalogNameTaken": {

@@ -28,6 +28,10 @@ final navigatorKey = GlobalKey<NavigatorState>();
 /// happened to be open when the app started.
 CatalogStore? activeStore;
 
+/// Switches the app to another catalog — set by the running app so a
+/// file shared in can land in the catalog the keeper picks (#90).
+void Function(CatalogInfo)? switchCatalog;
+
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -71,7 +75,8 @@ Future<void> _openAndRun(
   catalogManager = catalogs;
   // A Stray Cam capture the OS killed mid-camera completes here.
   unawaited(recoverStrayCam(store));
-  initIncomingFiles(navigatorKey, () => activeStore ?? store, args);
+  initIncomingFiles(navigatorKey, () => activeStore ?? store, args,
+      catalogs: catalogs, switchTo: (to) => switchCatalog?.call(to));
   await _restoreWindow(store);
   runApp(CatlogApp(
       store: store, catalogs: catalogs, diedLastRun: diedLastRun));
@@ -166,6 +171,7 @@ class _CatlogAppState extends State<CatlogApp>
   @override
   void initState() {
     super.initState();
+    switchCatalog = (to) => _switchCatalog(to);
     WidgetsBinding.instance.addObserver(this);
     if (_isDesktop) windowManager.addListener(this);
     if (widget.diedLastRun) {

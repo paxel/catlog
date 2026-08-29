@@ -1513,6 +1513,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newCatalog => 'كتالوج جديد';
 
   @override
+  String get intoCatalog => 'إلى الكتالوج';
+
+  @override
   String get catalogNameLabel => 'اسم الكتالوج';
 
   @override

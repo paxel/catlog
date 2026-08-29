@@ -1516,6 +1516,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get newCatalog => 'Ny katalog';
 
   @override
+  String get intoCatalog => 'Til katalog';
+
+  @override
   String get catalogNameLabel => 'Navn på katalogen';
 
   @override

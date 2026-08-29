@@ -2792,6 +2792,12 @@ abstract class AppLocalizations {
   /// **'New catalog'**
   String get newCatalog;
 
+  /// No description provided for @intoCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Into catalog'**
+  String get intoCatalog;
+
   /// No description provided for @catalogNameLabel.
   ///
   /// In en, this message translates to:

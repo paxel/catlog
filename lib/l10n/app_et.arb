@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log peatus eelmisel korral ootamatult — tõenäoliselt sai mälu otsa. Kas saata lühike raport, et saaks parandada?",
   "catalogsTitle": "Kataloogid",
   "newCatalog": "Uus kataloog",
+  "intoCatalog": "Kataloogi",
   "catalogNameLabel": "Kataloogi nimi",
   "catalogNameTaken": "Kataloog nimega {name} on juba olemas. Vali teine nimi.",
   "@catalogNameTaken": {

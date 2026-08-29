@@ -440,6 +440,7 @@
   "crashLastRunBody": "cat(a)log s'est arrêté de façon inattendue la dernière fois — probablement à court de mémoire. Envoyer un court rapport pour corriger ?",
   "catalogsTitle": "Catalogues",
   "newCatalog": "Nouveau catalogue",
+  "intoCatalog": "Dans le catalogue",
   "catalogNameLabel": "Nom du catalogue",
   "catalogNameTaken": "Un catalogue nommé {name} existe déjà. Choisis un autre nom.",
   "@catalogNameTaken": {
