@@ -10,7 +10,7 @@ import 'package:test/test.dart';
 void main() {
   setUpAll(useSystemSqlite);
 
-  test('entries under the importing device id are dropped', () {
+  test('entries beyond the device\'s own counter are dropped', () {
     final a = CatalogStore.inMemory()..author = 'a';
     final b = CatalogStore.inMemory()..author = 'b';
     addTearDown(a.close);

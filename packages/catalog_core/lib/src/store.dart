@@ -1539,12 +1539,14 @@ class CatalogStore {
     }
     final imported = <Entry>[];
     final self = deviceId;
+    final ownMax = versionVector()[self] ?? 0;
     for (final e in entries) {
-      // Rows under this device's own id only ever originate here: one
-      // arriving from a bundle or a peer is forged — applied, it would
-      // let partners' version vectors skip this device's real, not yet
-      // synced entries for good.
-      if (e.device == self) continue;
+      // Rows under this device's own id come back only from its own
+      // go-back files, and those never reach past the counter. One
+      // beyond it is forged — applied, it would let partners' version
+      // vectors skip this device's real, not yet synced entries for
+      // good.
+      if (e.device == self && e.dseq > ownMax) continue;
       if (_isBannedEntry(e)) {
         _recordDiscarded(e.device, e.dseq);
         continue;
