@@ -34,6 +34,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - An error from the phone's calendar during the mirror switched the app
   to the crash screen on every start; the mirror now turns itself off
   and shows the calendar's message.
+- The crop screen after taking a photo decoded the full camera file
+  twice; it now reads the size from the header and shows a screen-size
+  preview.
+- Clowder pins on the map decoded their photo at full size on every
+  redraw.
+- Photos shared into the app are read one at a time instead of all at
+  once.
+- "Stream has been disposed" while many photos were on screen (an iPad
+  with a wide layout): a photo keeps the same image identity even after
+  the small cache let it go.
 
 - Pressing Stray Cam again while the GPS fix was still pending crashed
   the app on return from the camera ("Image picker is already active").
