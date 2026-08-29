@@ -20,6 +20,8 @@ import 'package:printing/printing.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import '../exclusive.dart';
+import 'dart:isolate';
+import 'package:image/image.dart' as img;
 
 /// A Clowder's Card: its facts and the cats living there on one sheet,
 /// exportable as an image (share sheet), a PDF, or straight to the
@@ -179,8 +181,12 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
     final boundary = _cardKey.currentContext!.findRenderObject()!
         as RenderRepaintBoundary;
     final image = await boundary.toImage(pixelRatio: 3);
-    final data = await image.toByteData(format: ui.ImageByteFormat.png);
-    return data!.buffer.asUint8List();
+    try {
+      final data = await image.toByteData(format: ui.ImageByteFormat.png);
+      return data!.buffer.asUint8List();
+    } finally {
+      image.dispose();
+    }
   }
 
   Future<void> _shareImage() async {
@@ -197,6 +203,17 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
     final name = store.current(id, Keys.name) ?? '(unnamed)';
     final facts = _facts();
     final roster = _selected.contains(_catsKey) ? cats : <EntityView>[];
+    // 60 pt tiles get 240 px thumbnails, not the full photos: a big
+    // clowder's roster was tens of MB inside the PDF and twice that in
+    // memory while it was built.
+    final thumbs = <String, Uint8List>{};
+    for (final cat in roster) {
+      final hash = store.profileImage(cat.id);
+      final bytes = hash == null ? null : store.imageBytes(hash);
+      if (bytes != null) {
+        thumbs[cat.id] = await Isolate.run(() => pdfThumbnail(bytes));
+      }
+    }
     final doc = pw.Document(title: '$name — cat(a)log card');
     doc.addPage(
       // MultiPage: a long roster flows onto further pages instead of
@@ -213,7 +230,7 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
               spacing: 10,
               runSpacing: 10,
               children: [
-                for (final cat in roster) _pdfCatTile(cat),
+                for (final cat in roster) _pdfCatTile(cat, thumbs[cat.id]),
               ],
             ),
             pw.SizedBox(height: 12),
@@ -283,9 +300,7 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
     return doc;
   }
 
-  pw.Widget _pdfCatTile(EntityView cat) {
-    final hash = store.profileImage(cat.id);
-    final photo = hash == null ? null : store.imageBytes(hash);
+  pw.Widget _pdfCatTile(EntityView cat, Uint8List? photo) {
     return pw.Column(children: [
       if (photo != null)
         pw.ClipRRect(
@@ -455,4 +470,13 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
       ),
     );
   }
+}
+
+/// A 240 px JPEG for a card roster tile; the input unchanged when it
+/// does not decode.
+Uint8List pdfThumbnail(Uint8List bytes) {
+  final decoded = img.decodeImage(bytes);
+  if (decoded == null) return bytes;
+  final small = img.copyResize(decoded, width: 240);
+  return Uint8List.fromList(img.encodeJpg(small, quality: 85));
 }

@@ -5,6 +5,9 @@ import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:catlog/src/screens/clowder_card_screen.dart';
+import 'package:image/image.dart' as img;
+import 'dart:typed_data';
 
 /// An ID field takes whatever a scanner reads. Code128 cannot carry all
 /// of it, and the card must survive that.
@@ -76,5 +79,31 @@ void main() {
     final plain = store.fieldDefs().firstWhere((d) => d.slug == 'chipid');
     expect(cardQrPayload(plain, '276098102345678'), '276098102345678');
     expect(find.text('Tasso: S2983764'), findsOneWidget);
+  });
+
+  testWidgets('the card photo is decoded at card size', (tester) async {
+    tester.view.physicalSize = const Size(500, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    store.addImage(cat, CatalogStore.compressImage(Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 300, height: 200)))));
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CardScreen(store: store, catId: cat),
+    ));
+    await tester.pumpAndSettle();
+    final photos = tester
+        .widgetList<Image>(find.byType(Image))
+        .where((w) => w.image is ResizeImage);
+    expect(photos, isNotEmpty);
+  });
+
+  test('a roster thumbnail is 240 px wide', () {
+    final big = Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 1200, height: 900)));
+    final small = pdfThumbnail(big);
+    expect(img.decodeImage(small)!.width, 240);
+    expect(small.length, lessThan(big.length));
   });
 }
