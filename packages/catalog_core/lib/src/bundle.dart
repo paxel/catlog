@@ -149,15 +149,26 @@ void _addFormatAndEntries(ZipFileEncoder encoder, List<int> jsonlBytes,
 
 /// Imports a bundle file; unknown entries and missing photos land,
 /// everything else is ignored.
-BundleResult importBundle(CatalogStore store, String path) =>
-    importBundleBytes(store, File(path).readAsBytesSync());
+BundleResult importBundle(CatalogStore store, String path) {
+  // Read from the file as needed: a backup with hundreds of photos is
+  // never in memory as a whole, let alone with every photo unpacked
+  // beside it — that killed the app on restore.
+  final input = InputFileStream(path);
+  try {
+    return _importArchive(store, ZipDecoder().decodeBuffer(input));
+  } finally {
+    input.close();
+  }
+}
 
 /// Same import from in-memory bytes — QR share payloads never touch
 /// disk (#40).
-BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
-  final archive = ZipDecoder().decodeBytes(zipBytes);
+BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) =>
+    _importArchive(store, ZipDecoder().decodeBytes(zipBytes));
+
+BundleResult _importArchive(CatalogStore store, Archive archive) {
   final entries = <Entry>[];
-  final blobs = <String, List<int>>{};
+  final blobFiles = <String, ArchiveFile>{};
   for (final file in archive.files) {
     if (!file.isFile) continue;
     if (file.name == 'format') {
@@ -176,7 +187,7 @@ BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
     } else if (file.name.startsWith('blobs/') && file.name.endsWith('.jpg')) {
       final hash = file.name.substring('blobs/'.length,
           file.name.length - '.jpg'.length);
-      blobs[hash] = file.content as List<int>;
+      blobFiles[hash] = file;
     }
   }
   final writerVector = <String, int>{};
@@ -188,12 +199,14 @@ BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) {
   final applied = store.applyEntries(entries, senderVector: writerVector);
   final imported = applied.length;
   var blobsIn = 0;
-  for (final entry in blobs.entries) {
+  for (final MapEntry(key: hash, value: file) in blobFiles.entries) {
     // Anything the catalog knows of and does not hold — deleted photos
-    // included, so an archive can be restored with its pictures.
-    if (!store.knowsImage(entry.key)) continue;
-    if (store.imageBytes(entry.key) != null) continue;
-    store.putBlob(entry.key, Uint8List.fromList(entry.value));
+    // included, so an archive can be restored with its pictures. Each
+    // photo is unpacked only now, stored, and let go before the next.
+    if (!store.knowsImage(hash)) continue;
+    if (store.imageBytes(hash) != null) continue;
+    store.putBlob(hash, Uint8List.fromList(file.content as List<int>));
+    file.clear();
     blobsIn++;
   }
   return BundleResult(imported, blobsIn, applied: applied);

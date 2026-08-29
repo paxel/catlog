@@ -25,6 +25,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Backups, shared files and archives with many photos no longer need
   twice the photos' size in memory while being written — the automatic
   backup on leaving the app could kill it on a phone with a big catalog.
+- Restoring or importing a file with many photos reads it photo by
+  photo instead of unpacking everything into memory first.
 
 - Pressing Stray Cam again while the GPS fix was still pending crashed
   the app on return from the camera ("Image picker is already active").
