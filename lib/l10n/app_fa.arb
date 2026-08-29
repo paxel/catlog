@@ -587,6 +587,7 @@
   "changeDateLabel": "تغییر تاریخ",
   "removeReminderLabel": "حذف یادآور",
   "exportIcs": "برون‌بری پروندهٔ تقویم",
+  "resyncCalendar": "همگام‌سازی مجدد تقویم",
   "icsSavedTo": "پروندهٔ تقویم در {path} ذخیره شد",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "بازتاب در تقویم دستگاه",

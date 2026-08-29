@@ -49,9 +49,10 @@ class FakeCalendar implements CalendarPort {
   }
 
   @override
-  Future<Set<String>> existingEventIds(
-          String calendarId, Iterable<String> ids) async =>
-      ids.where(events.containsKey).toSet();
+  Future<List<String>> markedEventIds(String calendarId) async => [
+        for (final MapEntry(:key, :value) in events.entries)
+          if (value.description.contains(eventMarker)) key
+      ];
 }
 
 /// A calendar that answers only when told — the catalog can be closed
@@ -132,15 +133,57 @@ void main() {
     expect(calendar.deleted, 1);
   });
 
-  test('an event the user deleted is recreated while the plan lives',
-      () async {
+  test('an event the user deleted stays deleted', () async {
     store.append(cat, Keys.userField('remarks'), 'worming',
         date: inDays(10), reminder: true);
     await reconcileCalendar(store, calendar, t);
     calendar.events.clear(); // deleted by hand in the calendar app
     await reconcileCalendar(store, calendar, t);
-    expect(calendar.events, hasLength(1));
-    expect(calendar.created, 2);
+    expect(calendar.events, isEmpty);
+    expect(calendar.created, 1);
+  });
+
+  test('two reconciles at once create one event, not two', () async {
+    store.append(cat, Keys.userField('remarks'), 'worming',
+        date: inDays(10), reminder: true);
+    final slow = SlowCalendar();
+    final first = reconcileCalendarOnce(store, slow, t);
+    final second = reconcileCalendarOnce(store, slow, t);
+    slow.gate.complete();
+    await first;
+    await second;
+    expect(slow.created, 1);
+    expect(slow.events, hasLength(1));
+  });
+
+  test('resync removes every cat(a)log event and writes the plans fresh',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'worming',
+        date: inDays(10), reminder: true);
+    await reconcileCalendar(store, calendar, t);
+    // Three stray copies from the old overlapping syncs, plus one the
+    // user made by hand.
+    final copy = calendar.events.values.single;
+    for (var i = 0; i < 3; i++) {
+      await calendar.createEvent('cal-1', copy);
+    }
+    await calendar.createEvent(
+        'cal-1',
+        EventSpec(
+            start: inDays(1),
+            end: inDays(2),
+            allDay: true,
+            title: 'Dentist',
+            description: 'mine',
+            alertMinutesBefore: null));
+    expect(calendar.events, hasLength(5));
+    final outcome = await resyncCalendar(store, calendar, t);
+    expect(outcome, MirrorOutcome.ok);
+    expect(calendar.events, hasLength(2));
+    expect(calendar.events.values.map((e) => e.title),
+        containsAll(['Dentist']));
+    expect(calendar.events.values.where((e) => e.title.contains('Miezi')),
+        hasLength(1));
   });
 
   test('the mirror stays silent when switched off', () async {

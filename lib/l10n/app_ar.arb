@@ -587,6 +587,7 @@
   "changeDateLabel": "تغيير التاريخ",
   "removeReminderLabel": "إزالة التذكير",
   "exportIcs": "تصدير ملف التقويم",
+  "resyncCalendar": "إعادة مزامنة التقويم",
   "icsSavedTo": "حُفظ ملف التقويم في {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "انعكاس في تقويم الجهاز",

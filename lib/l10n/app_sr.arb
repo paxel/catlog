@@ -587,6 +587,7 @@
   "changeDateLabel": "Промени датум",
   "removeReminderLabel": "Уклони подсетник",
   "exportIcs": "Извези календарску датотеку",
+  "resyncCalendar": "Поново синхронизуј календар",
   "icsSavedTo": "Календарска датотека сачувана у {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Пресликај у календар уређаја",

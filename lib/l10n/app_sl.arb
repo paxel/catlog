@@ -587,6 +587,7 @@
   "changeDateLabel": "Spremeni datum",
   "removeReminderLabel": "Odstrani opomnik",
   "exportIcs": "Izvozi koledarsko datoteko",
+  "resyncCalendar": "Znova sinhroniziraj koledar",
   "icsSavedTo": "Koledarska datoteka shranjena v {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Zrcali v koledar naprave",

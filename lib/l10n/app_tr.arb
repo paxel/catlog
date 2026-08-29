@@ -587,6 +587,7 @@
   "changeDateLabel": "Tarihi değiştir",
   "removeReminderLabel": "Hatırlatmayı kaldır",
   "exportIcs": "Takvim dosyasını dışa aktar",
+  "resyncCalendar": "Takvimi yeniden eşitle",
   "icsSavedTo": "Takvim dosyası {path} konumuna kaydedildi",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Cihaz takvimine yansıt",

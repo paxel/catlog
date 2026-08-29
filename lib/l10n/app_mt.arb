@@ -587,6 +587,7 @@
   "changeDateLabel": "Ibdel id-data",
   "removeReminderLabel": "Neħħi t-tfakkira",
   "exportIcs": "Esporta l-fajl tal-kalendarju",
+  "resyncCalendar": "Erġa' ssinkronizza l-kalendarju",
   "icsSavedTo": "Il-fajl tal-kalendarju ġie salvat f'{path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Irrifletti fil-kalendarju tal-apparat",

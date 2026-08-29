@@ -587,6 +587,7 @@
   "changeDateLabel": "Zmeniť dátum",
   "removeReminderLabel": "Odstrániť pripomienku",
   "exportIcs": "Exportovať súbor kalendára",
+  "resyncCalendar": "Znovu synchronizovať kalendár",
   "icsSavedTo": "Súbor kalendára uložený do {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Zrkadliť do kalendára zariadenia",

@@ -1748,6 +1748,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get exportIcs => 'Easpórtáil comhad féilire';
 
   @override
+  String get resyncCalendar => 'Athshioncronaigh an féilire';
+
+  @override
   String icsSavedTo(String path) {
     return 'Sábháladh an comhad féilire faoi $path';
   }

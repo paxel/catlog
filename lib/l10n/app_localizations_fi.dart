@@ -1736,6 +1736,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get exportIcs => 'Vie kalenteritiedosto';
 
   @override
+  String get resyncCalendar => 'Synkronoi kalenteri uudelleen';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalenteritiedosto tallennettu polkuun $path';
   }

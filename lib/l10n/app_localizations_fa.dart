@@ -1732,6 +1732,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get exportIcs => 'برون‌بری پروندهٔ تقویم';
 
   @override
+  String get resyncCalendar => 'همگام‌سازی مجدد تقویم';
+
+  @override
   String icsSavedTo(String path) {
     return 'پروندهٔ تقویم در $path ذخیره شد';
   }

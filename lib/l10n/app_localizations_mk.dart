@@ -1738,6 +1738,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get exportIcs => 'Извези календарска датотека';
 
   @override
+  String get resyncCalendar => 'Повторно синхронизирај календар';
+
+  @override
   String icsSavedTo(String path) {
     return 'Календарската датотека е зачувана во $path';
   }

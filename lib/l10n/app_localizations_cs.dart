@@ -1736,6 +1736,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get exportIcs => 'Exportovat soubor kalendáře';
 
   @override
+  String get resyncCalendar => 'Znovu synchronizovat kalendář';
+
+  @override
   String icsSavedTo(String path) {
     return 'Soubor kalendáře uložen do $path';
   }

@@ -587,6 +587,7 @@
   "changeDateLabel": "Keisti datą",
   "removeReminderLabel": "Pašalinti priminimą",
   "exportIcs": "Eksportuoti kalendoriaus failą",
+  "resyncCalendar": "Iš naujo sinchronizuoti kalendorių",
   "icsSavedTo": "Kalendoriaus failas išsaugotas {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Atspindėti įrenginio kalendoriuje",

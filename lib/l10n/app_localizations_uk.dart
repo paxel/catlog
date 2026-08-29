@@ -1738,6 +1738,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get exportIcs => 'Експортувати файл календаря';
 
   @override
+  String get resyncCalendar => 'Пересинхронізувати календар';
+
+  @override
   String icsSavedTo(String path) {
     return 'Файл календаря збережено в $path';
   }

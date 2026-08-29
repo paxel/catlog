@@ -587,6 +587,7 @@
   "changeDateLabel": "Cambiar fecha",
   "removeReminderLabel": "Quitar recordatorio",
   "exportIcs": "Exportar archivo de calendario",
+  "resyncCalendar": "Resincronizar calendario",
   "icsSavedTo": "Archivo de calendario guardado en {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Reflejar en el calendario del dispositivo",

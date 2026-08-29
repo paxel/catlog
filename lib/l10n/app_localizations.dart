@@ -3122,6 +3122,12 @@ abstract class AppLocalizations {
   /// **'Export calendar file'**
   String get exportIcs;
 
+  /// No description provided for @resyncCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Resync calendar'**
+  String get resyncCalendar;
+
   /// No description provided for @icsSavedTo.
   ///
   /// In en, this message translates to:

@@ -587,6 +587,7 @@
   "changeDateLabel": "Dátum módosítása",
   "removeReminderLabel": "Emlékeztető eltávolítása",
   "exportIcs": "Naptárfájl exportálása",
+  "resyncCalendar": "Naptár újraszinkronizálása",
   "icsSavedTo": "A naptárfájl ide került: {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Tükrözés az eszköz naptárába",

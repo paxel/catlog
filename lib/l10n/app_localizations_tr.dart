@@ -1735,6 +1735,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportIcs => 'Takvim dosyasını dışa aktar';
 
   @override
+  String get resyncCalendar => 'Takvimi yeniden eşitle';
+
+  @override
   String icsSavedTo(String path) {
     return 'Takvim dosyası $path konumuna kaydedildi';
   }

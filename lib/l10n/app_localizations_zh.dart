@@ -1678,6 +1678,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get exportIcs => '导出日历文件';
 
   @override
+  String get resyncCalendar => '重新同步日历';
+
+  @override
   String icsSavedTo(String path) {
     return '日历文件已保存到 $path';
   }

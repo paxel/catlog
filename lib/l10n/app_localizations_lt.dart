@@ -1742,6 +1742,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get exportIcs => 'Eksportuoti kalendoriaus failą';
 
   @override
+  String get resyncCalendar => 'Iš naujo sinchronizuoti kalendorių';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalendoriaus failas išsaugotas $path';
   }

@@ -587,6 +587,7 @@
   "changeDateLabel": "Promijeni datum",
   "removeReminderLabel": "Ukloni podsjetnik",
   "exportIcs": "Izvezi kalendarski fajl",
+  "resyncCalendar": "Ponovo sinhronizuj kalendar",
   "icsSavedTo": "Kalendarski fajl sačuvan u {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Zrcali u kalendar uređaja",

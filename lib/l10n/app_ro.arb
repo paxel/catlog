@@ -587,6 +587,7 @@
   "changeDateLabel": "Schimbă data",
   "removeReminderLabel": "Elimină mementoul",
   "exportIcs": "Exportă fișierul de calendar",
+  "resyncCalendar": "Resincronizează calendarul",
   "icsSavedTo": "Fișierul de calendar a fost salvat în {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Oglindește în calendarul dispozitivului",

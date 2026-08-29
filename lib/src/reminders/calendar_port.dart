@@ -24,11 +24,16 @@ abstract class CalendarPort {
 
   Future<void> deleteEvent(String calendarId, String eventId);
 
-  /// Which of [ids] still exist — a user may delete events by hand;
-  /// the mirror recreates those whose plan is still alive.
-  Future<Set<String>> existingEventIds(
-      String calendarId, Iterable<String> ids);
+  /// Every event in [calendarId] that cat(a)log wrote (its description
+  /// carries [eventMarker]). Asked only by "Resync calendar" — the
+  /// mirror otherwise keeps its own record and never reads the
+  /// calendar back.
+  Future<List<String>> markedEventIds(String calendarId);
 }
+
+/// The line every mirrored event's description ends with; how the
+/// app's own events are told from the user's.
+const eventMarker = 'cat(a)log';
 
 /// What one mirrored event looks like.
 class EventSpec {

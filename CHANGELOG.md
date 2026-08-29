@@ -45,11 +45,21 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - The flier wizard's Flier text page offers "Drop" for any line, and a
   line sent to remarks arrives as its value alone — the poster's labels
   ("Geschlecht:") no longer fill the cat's and owner's remarks.
+- The calendar mirror no longer recreates an event you deleted by hand
+  in the phone's calendar; your edits there stay until the plan
+  changes in the app or you resync.
 - Dates are typed — "14.05.2021", "05.2021" or "2021" — with the
   calendar behind an icon instead of a month grid filling the dialog.
   Reminders, appointments and "as of" dates use the same entry.
 
 ### Fixed
+
+- The calendar mirror wrote the same appointment into the phone's
+  calendar again and again — two syncs running at once each created
+  it. One sync runs at a time now, and events are written once and
+  only updated when the plan changes. "Resync calendar" in the agenda
+  menu removes every event cat(a)log wrote and writes the plans fresh
+  — the way to clear the duplicates.
 
 - The birth date printed on a TASSO poster fills the Birth date field
   instead of landing in remarks.

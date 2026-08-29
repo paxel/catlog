@@ -17,7 +17,8 @@ void mirrorAfterChange(BuildContext context, CatalogStore store,
   if (port == null && !deviceCalendarAvailable) return;
   final t = context.t;
   final messenger = ScaffoldMessenger.maybeOf(context);
-  reconcileCalendar(store, port ?? DeviceCalendarPort(), t).then((outcome) {
+  reconcileCalendarOnce(store, port ?? DeviceCalendarPort(), t)
+      .then((outcome) {
     final message = mirrorFailureMessage(t, outcome);
     // A catalog switched away mid-reconcile is closed by now: nothing
     // to record, nothing to report (#89).
@@ -25,6 +26,28 @@ void mirrorAfterChange(BuildContext context, CatalogStore store,
     store.setLocalSetting(calendarMirrorEnabledKey, 'off');
     messenger?.showSnackBar(SnackBar(content: Text(message)));
   }).catchError((_) {}, test: (e) => e is StateError && !store.isOpen);
+}
+
+/// "Resync calendar" from the agenda menu: deletes what cat(a)log wrote
+/// into the calendar and writes the plans fresh. Reports failure like
+/// the hook; on success says nothing — the calendar shows it.
+Future<void> resyncCalendarNow(BuildContext context, CatalogStore store,
+    {CalendarPort? port}) async {
+  if (port == null && !deviceCalendarAvailable) return;
+  final t = context.t;
+  final messenger = ScaffoldMessenger.maybeOf(context);
+  MirrorOutcome outcome;
+  try {
+    outcome = await resyncCalendar(store, port ?? DeviceCalendarPort(), t);
+  } on CalendarPortException catch (e) {
+    // The platform's own wording beats a guess at the cause.
+    messenger?.showSnackBar(SnackBar(content: Text(e.message)));
+    return;
+  }
+  final message = mirrorFailureMessage(t, outcome);
+  if (message == null || !store.isOpen) return;
+  store.setLocalSetting(calendarMirrorEnabledKey, 'off');
+  messenger?.showSnackBar(SnackBar(content: Text(message)));
 }
 
 /// The cause-plus-fix text for a failed reconcile, null when it worked

@@ -1739,6 +1739,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get exportIcs => 'Eksportuj plik kalendarza';
 
   @override
+  String get resyncCalendar => 'Zsynchronizuj kalendarz ponownie';
+
+  @override
   String icsSavedTo(String path) {
     return 'Plik kalendarza zapisano w $path';
   }

@@ -1741,6 +1741,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get exportIcs => 'Εξαγωγή αρχείου ημερολογίου';
 
   @override
+  String get resyncCalendar => 'Επανασυγχρονισμός ημερολογίου';
+
+  @override
   String icsSavedTo(String path) {
     return 'Το αρχείο ημερολογίου αποθηκεύτηκε στο $path';
   }

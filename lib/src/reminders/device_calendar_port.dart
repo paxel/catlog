@@ -105,18 +105,20 @@ class DeviceCalendarPort implements CalendarPort {
   }
 
   @override
-  Future<Set<String>> existingEventIds(
-      String calendarId, Iterable<String> ids) async {
-    final wanted = ids.toSet();
-    if (wanted.isEmpty) return {};
+  Future<List<String>> markedEventIds(String calendarId) async {
     final result = await _plugin.retrieveEvents(
         calendarId,
         RetrieveEventsParams(
             startDate: DateTime.now().subtract(const Duration(days: 3650)),
             endDate: DateTime.now().add(const Duration(days: 36500))));
-    return {
+    if (result.isSuccess != true) {
+      throw CalendarPortException(
+          result.errors.map((e) => e.errorMessage).join('; '));
+    }
+    return [
       for (final e in result.data ?? const <Event>[])
-        if (e.eventId != null && wanted.contains(e.eventId)) e.eventId!
-    };
+        if (e.eventId != null && (e.description ?? '').contains(eventMarker))
+          e.eventId!
+    ];
   }
 }

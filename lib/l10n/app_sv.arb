@@ -587,6 +587,7 @@
   "changeDateLabel": "Ändra datum",
   "removeReminderLabel": "Ta bort påminnelse",
   "exportIcs": "Exportera kalenderfil",
+  "resyncCalendar": "Synkronisera kalendern igen",
   "icsSavedTo": "Kalenderfil sparad under {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Spegla till enhetens kalender",

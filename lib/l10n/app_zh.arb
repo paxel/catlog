@@ -587,6 +587,7 @@
   "changeDateLabel": "更改日期",
   "removeReminderLabel": "移除提醒",
   "exportIcs": "导出日历文件",
+  "resyncCalendar": "重新同步日历",
   "icsSavedTo": "日历文件已保存到 {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "同步到设备日历",

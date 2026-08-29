@@ -509,6 +509,7 @@
   "changeDateLabel": "Datum ändern",
   "removeReminderLabel": "Erinnerung entfernen",
   "exportIcs": "Kalenderdatei exportieren",
+  "resyncCalendar": "Kalender neu abgleichen",
   "icsSavedTo": "Kalenderdatei gespeichert unter {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "In Gerätekalender spiegeln",

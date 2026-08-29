@@ -1735,6 +1735,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get exportIcs => 'Naptárfájl exportálása';
 
   @override
+  String get resyncCalendar => 'Naptár újraszinkronizálása';
+
+  @override
   String icsSavedTo(String path) {
     return 'A naptárfájl ide került: $path';
   }

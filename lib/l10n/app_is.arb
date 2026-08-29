@@ -587,6 +587,7 @@
   "changeDateLabel": "Breyta dagsetningu",
   "removeReminderLabel": "Fjarlægja áminningu",
   "exportIcs": "Flytja út dagatalsskrá",
+  "resyncCalendar": "Endursamstilla dagatal",
   "icsSavedTo": "Dagatalsskrá vistuð undir {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Spegla í dagatal tækisins",

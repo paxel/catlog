@@ -1735,6 +1735,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get exportIcs => 'Експортирай календарен файл';
 
   @override
+  String get resyncCalendar => 'Синхронизирай календара отново';
+
+  @override
   String icsSavedTo(String path) {
     return 'Календарният файл е записан в $path';
   }

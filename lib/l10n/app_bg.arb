@@ -587,6 +587,7 @@
   "changeDateLabel": "Промени датата",
   "removeReminderLabel": "Премахни напомнянето",
   "exportIcs": "Експортирай календарен файл",
+  "resyncCalendar": "Синхронизирай календара отново",
   "icsSavedTo": "Календарният файл е записан в {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Отразявай в календара на устройството",

@@ -587,6 +587,7 @@
   "changeDateLabel": "日付を変更",
   "removeReminderLabel": "リマインダーを削除",
   "exportIcs": "カレンダーファイルを書き出す",
+  "resyncCalendar": "カレンダーを再同期",
   "icsSavedTo": "カレンダーファイルを {path} に保存しました",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "端末のカレンダーへ反映",

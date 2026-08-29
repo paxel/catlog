@@ -1739,6 +1739,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exportIcs => 'Agendabestand exporteren';
 
   @override
+  String get resyncCalendar => 'Agenda opnieuw synchroniseren';
+
+  @override
   String icsSavedTo(String path) {
     return 'Agendabestand opgeslagen onder $path';
   }

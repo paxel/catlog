@@ -1739,6 +1739,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get exportIcs => 'Flytja út dagatalsskrá';
 
   @override
+  String get resyncCalendar => 'Endursamstilla dagatal';
+
+  @override
   String icsSavedTo(String path) {
     return 'Dagatalsskrá vistuð undir $path';
   }

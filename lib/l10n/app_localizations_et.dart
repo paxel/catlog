@@ -1733,6 +1733,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get exportIcs => 'Ekspordi kalendrifail';
 
   @override
+  String get resyncCalendar => 'Sünkrooni kalender uuesti';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalendrifail salvestatud asukohta $path';
   }

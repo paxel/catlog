@@ -1736,6 +1736,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get exportIcs => 'Eksporto skedarin e kalendarit';
 
   @override
+  String get resyncCalendar => 'Risinkronizo kalendarin';
+
+  @override
   String icsSavedTo(String path) {
     return 'Skedari i kalendarit u ruajt te $path';
   }

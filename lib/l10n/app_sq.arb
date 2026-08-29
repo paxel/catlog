@@ -587,6 +587,7 @@
   "changeDateLabel": "Ndrysho datën",
   "removeReminderLabel": "Hiq përkujtuesin",
   "exportIcs": "Eksporto skedarin e kalendarit",
+  "resyncCalendar": "Risinkronizo kalendarin",
   "icsSavedTo": "Skedari i kalendarit u ruajt te {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Pasqyro në kalendarin e pajisjes",

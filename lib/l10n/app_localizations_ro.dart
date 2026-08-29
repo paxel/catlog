@@ -1738,6 +1738,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get exportIcs => 'Exportă fișierul de calendar';
 
   @override
+  String get resyncCalendar => 'Resincronizează calendarul';
+
+  @override
   String icsSavedTo(String path) {
     return 'Fișierul de calendar a fost salvat în $path';
   }

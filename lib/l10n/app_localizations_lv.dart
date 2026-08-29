@@ -1737,6 +1737,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get exportIcs => 'Eksportēt kalendāra failu';
 
   @override
+  String get resyncCalendar => 'Sinhronizēt kalendāru vēlreiz';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalendāra fails saglabāts $path';
   }

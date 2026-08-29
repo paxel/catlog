@@ -1738,6 +1738,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get exportIcs => 'Izvozi koledarsko datoteko';
 
   @override
+  String get resyncCalendar => 'Znova sinhroniziraj koledar';
+
+  @override
   String icsSavedTo(String path) {
     return 'Koledarska datoteka shranjena v $path';
   }

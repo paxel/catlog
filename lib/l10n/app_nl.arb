@@ -587,6 +587,7 @@
   "changeDateLabel": "Datum wijzigen",
   "removeReminderLabel": "Herinnering verwijderen",
   "exportIcs": "Agendabestand exporteren",
+  "resyncCalendar": "Agenda opnieuw synchroniseren",
   "icsSavedTo": "Agendabestand opgeslagen onder {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Spiegelen naar apparaatagenda",

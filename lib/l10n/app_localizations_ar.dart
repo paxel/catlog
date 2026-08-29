@@ -1735,6 +1735,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exportIcs => 'تصدير ملف التقويم';
 
   @override
+  String get resyncCalendar => 'إعادة مزامنة التقويم';
+
+  @override
   String icsSavedTo(String path) {
     return 'حُفظ ملف التقويم في $path';
   }

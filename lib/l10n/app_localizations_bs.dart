@@ -1737,6 +1737,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get exportIcs => 'Izvezi kalendarski fajl';
 
   @override
+  String get resyncCalendar => 'Ponovo sinhronizuj kalendar';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalendarski fajl sačuvan u $path';
   }

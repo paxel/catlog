@@ -587,6 +587,7 @@
   "changeDateLabel": "Muuta päivämäärää",
   "removeReminderLabel": "Poista muistutus",
   "exportIcs": "Vie kalenteritiedosto",
+  "resyncCalendar": "Synkronoi kalenteri uudelleen",
   "icsSavedTo": "Kalenteritiedosto tallennettu polkuun {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Peilaa laitteen kalenteriin",

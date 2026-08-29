@@ -587,6 +587,7 @@
   "changeDateLabel": "שינוי תאריך",
   "removeReminderLabel": "הסרת תזכורת",
   "exportIcs": "ייצוא קובץ יומן",
+  "resyncCalendar": "סנכרן מחדש את היומן",
   "icsSavedTo": "קובץ היומן נשמר תחת {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "שיקוף ליומן המכשיר",

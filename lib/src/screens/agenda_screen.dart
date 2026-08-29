@@ -265,9 +265,14 @@ class _AgendaScreenState extends State<AgendaScreen> {
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'ics') _exportIcs();
+              if (v == 'resync') {
+                resyncCalendarNow(context, store, port: widget.calendarPort);
+              }
             },
             itemBuilder: (context) => [
               PopupMenuItem(value: 'ics', child: Text(t.exportIcs)),
+              if (calendarMirrorEnabled(store) && _calendarAvailable)
+                PopupMenuItem(value: 'resync', child: Text(t.resyncCalendar)),
             ],
           ),
         ],

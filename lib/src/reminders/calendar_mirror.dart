@@ -83,10 +83,12 @@ Map<String, EventSpec> desiredEvents(CatalogStore store, AppLocalizations t) {
   return desired;
 }
 
-/// One-way reconcile, the app is the source of truth: create missing
-/// events, patch changed ones, delete retired ones, recreate what the
-/// user deleted while the plan is alive. Fields the app does not own
-/// (alerts after creation, attendees) are never written.
+/// One-way reconcile from the app's own record: a plan's event is
+/// created once, patched when the plan changes, deleted when the plan
+/// retires. The calendar is never read back — an event the user edits
+/// or deletes by hand stays that way until the plan changes or
+/// [resyncCalendar] runs. Fields the app does not own (alerts after
+/// creation, attendees) are never written.
 Future<MirrorOutcome> reconcileCalendar(
   CatalogStore store,
   CalendarPort port,
@@ -123,13 +125,10 @@ Future<MirrorOutcome> reconcileCalendar(
     }
     known[key] = eventId;
   }
-  final alive = await port.existingEventIds(calendarId, known.values);
-
   for (final MapEntry(:key, :value) in desired.entries) {
     final snapshot = value.snapshot;
     final eventId = known[key];
-    if (eventId == null || !alive.contains(eventId)) {
-      // New plan — or the user deleted the event while the plan lives.
+    if (eventId == null) {
       final created = await port.createEvent(calendarId, value);
       if (created != null) {
         next[key] = {
@@ -142,7 +141,9 @@ Future<MirrorOutcome> reconcileCalendar(
     }
     if (stored[key]?['snapshot'] != snapshot) {
       // Date, name or note changed in the app — patch, alerts survive.
-      await port.updateEvent(calendarId, eventId, value);
+      // An event the user deleted cannot be patched: the record drops
+      // it and nothing comes back on its own.
+      if (!await port.updateEvent(calendarId, eventId, value)) continue;
     }
     next[key] = {
       'event': eventId,
@@ -154,6 +155,72 @@ Future<MirrorOutcome> reconcileCalendar(
   if (!store.isOpen) return MirrorOutcome.abandoned;
   store.setLocalSetting(_mapKey, jsonEncode(next));
   return MirrorOutcome.ok;
+}
+
+final _running = <CatalogStore, Future<MirrorOutcome>>{};
+final _queued = <CatalogStore>{};
+
+/// [reconcileCalendar], one at a time per catalog: a request while one
+/// runs queues a single re-run instead of a second run alongside —
+/// two side by side both created the same event (the duplicate
+/// Tuesdays).
+Future<MirrorOutcome> reconcileCalendarOnce(
+  CatalogStore store,
+  CalendarPort port,
+  AppLocalizations t,
+) {
+  final running = _running[store];
+  if (running != null) {
+    _queued.add(store);
+    return running;
+  }
+  final run = reconcileCalendar(store, port, t).whenComplete(() {
+    _running.remove(store);
+  }).then<MirrorOutcome>((outcome) {
+    if (_queued.remove(store) && store.isOpen) {
+      return reconcileCalendarOnce(store, port, t);
+    }
+    return outcome;
+  });
+  _running[store] = run;
+  return run;
+}
+
+/// Starts over: every event cat(a)log wrote into the chosen calendar
+/// is deleted (the one time the calendar is read), the record is
+/// cleared, and the plans are written fresh — the way out of
+/// duplicates or a calendar edited past recognition.
+Future<MirrorOutcome> resyncCalendar(
+  CatalogStore store,
+  CalendarPort port,
+  AppLocalizations t,
+) async {
+  if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
+  if (!await port.ensureAccess()) return MirrorOutcome.noAccess;
+  if (!store.isOpen) return MirrorOutcome.abandoned;
+  final calendarId = chosenCalendar(store);
+  if (calendarId == null) return MirrorOutcome.noCalendarChosen;
+  final calendars = await port.listCalendars();
+  if (!store.isOpen) return MirrorOutcome.abandoned;
+  if (!calendars.any((c) => c.id == calendarId)) {
+    return MirrorOutcome.calendarGone;
+  }
+  final gone = <String>{};
+  for (final id in await port.markedEventIds(calendarId)) {
+    await port.deleteEvent(calendarId, id);
+    gone.add(id);
+  }
+  // Events recorded in another calendar (a switch that never finished)
+  // go too.
+  for (final value in _readMap(store).values) {
+    final eventId = value['event'];
+    final inCalendar = value['calendar'] ?? calendarId;
+    if (eventId == null || gone.contains(eventId)) continue;
+    await port.deleteEvent(inCalendar, eventId);
+  }
+  if (!store.isOpen) return MirrorOutcome.abandoned;
+  store.setLocalSetting(_mapKey, jsonEncode(<String, Object>{}));
+  return reconcileCalendarOnce(store, port, t);
 }
 
 Map<String, Map<String, String>> _readMap(CatalogStore store) {

@@ -1726,6 +1726,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get exportIcs => 'ייצוא קובץ יומן';
 
   @override
+  String get resyncCalendar => 'סנכרן מחדש את היומן';
+
+  @override
   String icsSavedTo(String path) {
     return 'קובץ היומן נשמר תחת $path';
   }

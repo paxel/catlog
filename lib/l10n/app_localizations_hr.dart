@@ -1736,6 +1736,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get exportIcs => 'Izvezi kalendarsku datoteku';
 
   @override
+  String get resyncCalendar => 'Ponovno sinkroniziraj kalendar';
+
+  @override
   String icsSavedTo(String path) {
     return 'Kalendarska datoteka spremljena u $path';
   }

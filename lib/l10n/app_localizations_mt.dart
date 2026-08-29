@@ -1742,6 +1742,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get exportIcs => 'Esporta l-fajl tal-kalendarju';
 
   @override
+  String get resyncCalendar => 'Erġa\' ssinkronizza l-kalendarju';
+
+  @override
   String icsSavedTo(String path) {
     return 'Il-fajl tal-kalendarju ġie salvat f\'$path';
   }

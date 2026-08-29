@@ -1693,6 +1693,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get exportIcs => 'カレンダーファイルを書き出す';
 
   @override
+  String get resyncCalendar => 'カレンダーを再同期';
+
+  @override
   String icsSavedTo(String path) {
     return 'カレンダーファイルを $path に保存しました';
   }

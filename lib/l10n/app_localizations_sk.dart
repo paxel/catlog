@@ -1736,6 +1736,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get exportIcs => 'Exportovať súbor kalendára';
 
   @override
+  String get resyncCalendar => 'Znovu synchronizovať kalendár';
+
+  @override
   String icsSavedTo(String path) {
     return 'Súbor kalendára uložený do $path';
   }

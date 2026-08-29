@@ -587,6 +587,7 @@
   "changeDateLabel": "Athraigh an dáta",
   "removeReminderLabel": "Bain an meabhrúchán",
   "exportIcs": "Easpórtáil comhad féilire",
+  "resyncCalendar": "Athshioncronaigh an féilire",
   "icsSavedTo": "Sábháladh an comhad féilire faoi {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Scáthánaigh chuig féilire an ghléis",

@@ -587,6 +587,7 @@
   "changeDateLabel": "Αλλαγή ημερομηνίας",
   "removeReminderLabel": "Αφαίρεση υπενθύμισης",
   "exportIcs": "Εξαγωγή αρχείου ημερολογίου",
+  "resyncCalendar": "Επανασυγχρονισμός ημερολογίου",
   "icsSavedTo": "Το αρχείο ημερολογίου αποθηκεύτηκε στο {path}",
   "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
   "calendarMirrorLabel": "Αντικατοπτρισμός στο ημερολόγιο της συσκευής",
