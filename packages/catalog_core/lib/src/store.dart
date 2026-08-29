@@ -223,6 +223,21 @@ class CatalogStore {
   /// A fresh id for an appointment key (#75).
   String newAppointmentId() => _uuid();
 
+  /// Runs [body] as one SQLite transaction: all of its writes land, or
+  /// none do — a kill halfway through a move or a merge must not leave
+  /// half a cat.
+  T transaction<T>(T Function() body) {
+    _db.execute('BEGIN');
+    try {
+      final result = body();
+      _db.execute('COMMIT');
+      return result;
+    } catch (_) {
+      _db.execute('ROLLBACK');
+      rethrow;
+    }
+  }
+
   bool _closed = false;
 
   /// False once [close] ran — work that outlived its catalog (a slow

@@ -589,4 +589,18 @@ void main() {
     store.close();
     expect(store.isOpen, isFalse);
   });
+
+  test('a transaction that throws leaves nothing behind', () {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    expect(
+        () => store.transaction(() {
+              store.createCat('Half');
+              throw StateError('killed halfway');
+            }),
+        throwsStateError);
+    expect(store.cats(), isEmpty);
+    store.transaction(() => store.createCat('Whole'));
+    expect(store.cats().single.name, 'Whole');
+  });
 }

@@ -72,23 +72,28 @@ TransferResult transferEntities(CatalogStore from, CatalogStore to, Set<String> 
       photos++;
     }
   }
-  to.adoptEntries(entries);
-
-  // A cat whose clowder did not come along has no home over there.
-  for (final id in wanted) {
-    if (to.current(id, Keys.type) != Kinds.cat) continue;
-    final clowder = to.current(id, Keys.clowder);
-    if (clowder == null || clowder.isEmpty) continue;
-    if (wanted.contains(to.resolveEntity(clowder))) continue;
-    to.moveCat(id, null, date: date);
-  }
-
-  for (final id in wanted) {
-    if (from.current(id, Keys.type) == Kinds.clowder) {
-      from.deleteClowder(id, date: date);
-    } else {
-      from.deleteCat(id, date: date);
+  // Everything the destination learns lands in one transaction: killed
+  // halfway, it holds nothing of the cat rather than half of it.
+  to.transaction(() {
+    to.adoptEntries(entries);
+    // A cat whose clowder did not come along has no home over there.
+    for (final id in wanted) {
+      if (to.current(id, Keys.type) != Kinds.cat) continue;
+      final clowder = to.current(id, Keys.clowder);
+      if (clowder == null || clowder.isEmpty) continue;
+      if (wanted.contains(to.resolveEntity(clowder))) continue;
+      to.moveCat(id, null, date: date);
     }
-  }
+  });
+
+  from.transaction(() {
+    for (final id in wanted) {
+      if (from.current(id, Keys.type) == Kinds.clowder) {
+        from.deleteClowder(id, date: date);
+      } else {
+        from.deleteCat(id, date: date);
+      }
+    }
+  });
   return TransferResult(moved: wanted.toList(), photos: photos);
 }
