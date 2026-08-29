@@ -67,6 +67,18 @@ class SlowCalendar extends FakeCalendar {
   }
 }
 
+/// A calendar whose event creation waits for a gate — the catalog can
+/// close while an event is being created.
+class SlowCreateCalendar extends FakeCalendar {
+  final gate = Completer<void>();
+
+  @override
+  Future<String?> createEvent(String calendarId, EventSpec spec) async {
+    await gate.future;
+    return super.createEvent(calendarId, spec);
+  }
+}
+
 void main() {
   setUpAll(useSystemSqlite);
 
@@ -299,5 +311,33 @@ void main() {
     expect(slow.created, 0);
     // tearDown closes again; a second close must not throw either.
     store = CatalogStore.inMemory()..author = 'test';
+  });
+
+  test('an event created while the catalog closed is deleted again',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'vaccine refresh',
+        date: inDays(30), reminder: true);
+    final slow = SlowCreateCalendar();
+    final pending = reconcileCalendar(store, slow, t);
+    await Future<void>.delayed(Duration.zero);
+    store.close();
+    slow.gate.complete();
+    expect(await pending, MirrorOutcome.abandoned);
+    expect(slow.created, 1);
+    expect(slow.events, isEmpty, reason: 'nothing recorded, nothing kept');
+    store = CatalogStore.inMemory()..author = 'test';
+  });
+
+  test('resync waits for a running reconcile instead of racing it',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'vaccine refresh',
+        date: inDays(30), reminder: true);
+    final slow = SlowCalendar();
+    final running = reconcileCalendarOnce(store, slow, t);
+    final resync = resyncCalendar(store, slow, t);
+    slow.gate.complete();
+    await running;
+    expect(await resync, MirrorOutcome.ok);
+    expect(slow.events, hasLength(1));
   });
 }

@@ -110,6 +110,10 @@ Future<MirrorOutcome> reconcileCalendar(
   final desired = desiredEvents(store, t);
   final stored = _readMap(store);
   final next = <String, Map<String, String>>{};
+  // Events created in this run; if the catalog closes before the record
+  // is written they are deleted again — recorded nowhere, they would
+  // come back as duplicates on the next run.
+  final created = <String>[];
 
   // Retired plans lose their event; so do events written into a
   // calendar that is no longer the chosen one (the user switched) —
@@ -129,10 +133,11 @@ Future<MirrorOutcome> reconcileCalendar(
     final snapshot = value.snapshot;
     final eventId = known[key];
     if (eventId == null) {
-      final created = await port.createEvent(calendarId, value);
-      if (created != null) {
+      final eventId = await port.createEvent(calendarId, value);
+      if (eventId != null) {
+        created.add(eventId);
         next[key] = {
-          'event': created,
+          'event': eventId,
           'calendar': calendarId,
           'snapshot': snapshot,
         };
@@ -152,7 +157,12 @@ Future<MirrorOutcome> reconcileCalendar(
     };
   }
 
-  if (!store.isOpen) return MirrorOutcome.abandoned;
+  if (!store.isOpen) {
+    for (final id in created) {
+      await port.deleteEvent(calendarId, id);
+    }
+    return MirrorOutcome.abandoned;
+  }
   store.setLocalSetting(_mapKey, jsonEncode(next));
   return MirrorOutcome.ok;
 }
@@ -176,6 +186,9 @@ Future<MirrorOutcome> reconcileCalendarOnce(
   }
   final run = reconcileCalendar(store, port, t).whenComplete(() {
     _running.remove(store);
+  }).catchError((Object e) {
+    _queued.remove(store);
+    throw e;
   }).then<MirrorOutcome>((outcome) {
     if (_queued.remove(store) && store.isOpen) {
       return reconcileCalendarOnce(store, port, t);
@@ -195,6 +208,16 @@ Future<MirrorOutcome> resyncCalendar(
   CalendarPort port,
   AppLocalizations t,
 ) async {
+  // Never beside a running reconcile: it would record ids this resync
+  // is deleting. Wait for it, then start over.
+  final running = _running[store];
+  if (running != null) {
+    try {
+      await running;
+    } catch (_) {
+      // Its failure is its own; the resync goes ahead.
+    }
+  }
   if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
   if (!await port.ensureAccess()) return MirrorOutcome.noAccess;
   if (!store.isOpen) return MirrorOutcome.abandoned;
