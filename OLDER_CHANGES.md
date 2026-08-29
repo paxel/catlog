@@ -2,6 +2,13 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.0.5] - 2026-08-29
+
+### Fixed
+
+- Appointments in the phone's calendar were two hours late: the time
+  entered is now written as local time.
+
 ## [1.0.4] - 2026-08-28
 
 ### Fixed
