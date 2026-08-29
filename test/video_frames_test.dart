@@ -74,7 +74,11 @@ void main() {
     expect(find.byKey(const ValueKey('scrub-preview')), findsNothing);
     await tester.scrollUntilVisible(find.byType(Slider), 200,
         scrollable: find.byType(Scrollable).first);
-    await tester.drag(find.byType(Slider), const Offset(60, 0));
+    // The preview is decoded before it shows — real async work.
+    await tester.runAsync(() async {
+      await tester.drag(find.byType(Slider), const Offset(60, 0));
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+    });
     await tester.pumpAndSettle();
     expect(find.byKey(const ValueKey('scrub-preview')), findsOneWidget);
     // Suggestions rendered; keep one via tap, plus a scrubbed grab.

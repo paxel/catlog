@@ -18,6 +18,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - Pressing Stray Cam again while the GPS fix was still pending crashed
   the app on return from the camera ("Image picker is already active").
+- Scrubbing through a filmed video on an iPad could end in "Stream has
+  been disposed": the frame picker now keeps one image per frame and
+  decodes a preview before showing it.
 - Filming with Stray Cam (press and hold) killed the app on iPhones:
   the frame picker held a dozen full-size frames at once. It now works
   at preview size and fetches only the kept frames at photo size.

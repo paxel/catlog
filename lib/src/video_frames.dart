@@ -90,6 +90,32 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
   double _scrub = 0;
   Uint8List? _preview;
   int? _previewMs;
+
+  /// One provider per frame, kept for the screen's life: a fresh
+  /// `MemoryImage` on every rebuild is a new stream, and a decode that
+  /// finishes after its widget was swapped throws "Stream has been
+  /// disposed" (#44, seen on iPad while scrubbing).
+  final _tiles = <int, ImageProvider>{};
+  ImageProvider? _previewImage;
+  int _previewSeq = 0;
+
+  ImageProvider _tile(int ms) =>
+      _tiles[ms] ??= ResizeImage(MemoryImage(_frames[ms]!), width: 320);
+
+  /// The preview is decoded before it is shown, so the swap never
+  /// interrupts a decode; a slower extraction that arrives after a
+  /// newer one is dropped.
+  Future<void> _showPreview(int ms, Uint8List bytes) async {
+    final seq = ++_previewSeq;
+    final provider = ResizeImage(MemoryImage(bytes), height: 320);
+    await precacheImage(provider, context);
+    if (!mounted || seq != _previewSeq) return;
+    setState(() {
+      _preview = bytes;
+      _previewMs = ms;
+      _previewImage = provider;
+    });
+  }
   bool _busy = true;
 
   @override
@@ -133,12 +159,7 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
   Future<void> _previewAtScrub() async {
     final ms = _scrub.round();
     final bytes = await widget.extractFrame(ms);
-    if (bytes != null && mounted) {
-      setState(() {
-        _preview = bytes;
-        _previewMs = ms;
-      });
-    }
+    if (bytes != null && mounted) await _showPreview(ms, bytes);
   }
 
   Future<void> _grabAtScrub() async {
@@ -149,9 +170,8 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
       setState(() {
         _frames[ms] = bytes;
         _kept.add(ms);
-        _preview = bytes;
-        _previewMs = ms;
       });
+      await _showPreview(ms, bytes);
     }
   }
 
@@ -188,10 +208,9 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
                       child: Stack(fit: StackFit.expand, children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.memory(_frames[ms]!,
+                          child: Image(
+                              image: _tile(ms),
                               fit: BoxFit.cover,
-                              // Decoded at tile size, not photo size.
-                              cacheWidth: 320,
                               gaplessPlayback: true),
                         ),
                         Align(
@@ -213,15 +232,15 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
               const Divider(height: 32),
               Text(t.scrubFrames,
                   style: Theme.of(context).textTheme.titleMedium),
-              if (_preview != null)
+              if (_previewImage != null)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Image.memory(_preview!,
+                    child: Image(
+                        image: _previewImage!,
                         key: const ValueKey('scrub-preview'),
                         gaplessPlayback: true,
-                        cacheHeight: 320,
                         height: 160,
                         fit: BoxFit.contain),
                   ),
