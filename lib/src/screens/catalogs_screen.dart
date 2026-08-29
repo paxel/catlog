@@ -48,6 +48,9 @@ class CatalogsScreen extends StatefulWidget {
 }
 
 class _CatalogsScreenState extends State<CatalogsScreen> {
+  /// A catalog is being written out before deletion; taps wait.
+  bool _deleting = false;
+
   CatalogStore get store => widget.storeOf();
 
   void _changed() {
@@ -160,6 +163,8 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       // stops existing.
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(t.catalogExportFailed('$e'))));
+    } finally {
+      if (mounted) setState(() => _deleting = false);
     }
   }
 
@@ -213,10 +218,12 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
             ]),
             // Tap activates and stays — leaving is the back button's
             // job, so several catalogs can be handled in one visit.
-            onTap: () {
-              widget.onSwitch(catalog, unwind: false);
-              _changed();
-            },
+            onTap: _deleting
+                ? null
+                : () {
+                    widget.onSwitch(catalog, unwind: false);
+                    _changed();
+                  },
           ),
       ]),
       floatingActionButton: FloatingActionButton(
