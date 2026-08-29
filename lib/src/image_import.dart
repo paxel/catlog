@@ -23,10 +23,13 @@ Future<String?> pickAndAddImage(
   return addCompressedImage(store, catId, raw);
 }
 
-/// Compresses off the UI thread and stores the photo on the cat.
-Future<String> addCompressedImage(
+/// Compresses off the UI thread and stores the photo on the cat. Null
+/// when the catalog was switched away (and closed) meanwhile — the
+/// photo then has no home, and a write would be a crash.
+Future<String?> addCompressedImage(
     CatalogStore store, String catId, Uint8List bytes) async {
   final jpeg = await Isolate.run(() => CatalogStore.compressImage(bytes));
+  if (!store.isOpen) return null;
   return store.addImage(catId, jpeg);
 }
 

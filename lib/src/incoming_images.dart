@@ -38,8 +38,7 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
   for (final path in paths) {
     try {
       final bytes = await File(path).readAsBytes();
-      await addCompressedImage(store, catId, bytes);
-      added++;
+      if (await addCompressedImage(store, catId, bytes) != null) added++;
     } catch (_) {
       // Unreadable or not a photo — skip, count only real photos; one
       // bad share must not sink the rest.

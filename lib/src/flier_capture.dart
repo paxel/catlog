@@ -732,7 +732,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     await addCompressedImage(store, catId, photo);
     if (_portrait case final portrait?) {
       final hash = await addCompressedImage(store, catId, portrait);
-      store.setProfileImage(catId, hash);
+      if (hash != null) store.setProfileImage(catId, hash);
     }
     if (!mounted) return;
     Navigator.of(context).pop(catId);
@@ -752,7 +752,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
 
   Widget _flierThumb() => ClipRRect(
     borderRadius: BorderRadius.circular(12),
-    child: Image.memory(_photo!, height: 160, fit: BoxFit.contain),
+    child: Image.memory(_photo!,
+        height: 160, cacheHeight: 480, fit: BoxFit.contain),
   );
 
   /// The targets a line can be sent to: the wizard's own inputs and
@@ -1101,7 +1102,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       if (_portrait case final portrait?)
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: Image.memory(portrait, height: 220, fit: BoxFit.contain),
+          child: Image.memory(portrait,
+              height: 220, cacheHeight: 660, fit: BoxFit.contain),
         )
       else
         _flierThumb(),

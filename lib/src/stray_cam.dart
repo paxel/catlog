@@ -170,7 +170,7 @@ Future<String?> _strayCam(BuildContext context, CatalogStore store,
     // Cancelled, failed or done: nothing stays parked (#91).
     if (store.isOpen) store.setLocalSetting(strayCamPendingKey, '');
   }
-  if (bytes == null) return null;
+  if (bytes == null || !store.isOpen) return null;
   final catId = store.createCat(name);
   store.recordPosition(catId, position.$1, position.$2);
   await addCompressedImage(store, catId, bytes);
@@ -207,6 +207,7 @@ Future<void> recoverStrayCam(CatalogStore store,
   final lat = capture['lat'], lon = capture['lon'], name = capture['name'];
   if (lat is! num || lon is! num || name is! String) return;
   final bytes = await file.readAsBytes();
+  if (!store.isOpen) return;
   final catId = store.createCat(name);
   store.recordPosition(catId, lat.toDouble(), lon.toDouble());
   await addCompressedImage(store, catId, bytes);

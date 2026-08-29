@@ -106,7 +106,9 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
           .showSnackBar(SnackBar(content: Text(t.archiveFailed('$e'))));
       return;
     }
-    // Only now, with the file written, does anything get deleted.
+    // Only now, with the file written, does anything get deleted — and
+    // only into the catalog that is still open.
+    if (!store.isOpen) return;
     final before = store.currentSeq();
     deleteArchived(store, {..._selected});
     momentFor(store,
