@@ -26,8 +26,8 @@ void maybeCelebrateAdoption(
 }
 
 Future<void> _playCheer() async {
+  final player = AudioPlayer();
   try {
-    final player = AudioPlayer();
     await player.setAudioContext(AudioContext(
       iOS: AudioContextIOS(category: AVAudioSessionCategory.ambient),
       android: const AudioContextAndroid(
@@ -36,9 +36,14 @@ Future<void> _playCheer() async {
       ),
     ));
     await player.play(AssetSource('sounds/party.wav'));
-    player.onPlayerComplete.first.then((_) => player.dispose());
+    // Released when the sound ends — or after a few seconds if the
+    // platform never says so.
+    player.onPlayerComplete.first
+        .timeout(const Duration(seconds: 10), onTimeout: () => null)
+        .whenComplete(player.dispose);
   } catch (_) {
     // No audio device or platform quirk — the confetti still flies.
+    player.dispose();
   }
 }
 
