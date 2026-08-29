@@ -186,6 +186,7 @@ class _MapScreenState extends State<MapScreen>
     final pins = [
       ..._positioned(store.visibleClowders(), sightingsOnly: false),
       ..._positioned(store.visibleStrays(), sightingsOnly: true),
+      ..._flierPinned(store.visibleStrays()),
     ];
     if (pins.isEmpty) return;
     if (_navChain == null || _navChain!.length != pins.length) {
@@ -229,8 +230,9 @@ class _MapScreenState extends State<MapScreen>
     }
   }
 
-  /// Strays pin at their latest sighting; a flier-only stray stays off
-  /// the map (#30). Clowders pin at their plain position.
+  /// Strays pin at their latest sighting; their flier positions get
+  /// their own square pins ([_flierPinned], #83). Clowders pin at their
+  /// plain position.
   List<(EntityView, LatLng)> _positioned(List<EntityView> entities,
           {required bool sightingsOnly}) =>
       [
@@ -239,6 +241,15 @@ class _MapScreenState extends State<MapScreen>
                   ? store.sightingPositionOf(e.id)
                   : store.positionOf(e.id))
               case final pos?)
+            (e, LatLng(pos.$1, pos.$2))
+      ];
+
+  /// Each stray's latest flier position — where its poster says it was
+  /// lost — for the square pins (#83). Older flier positions stay in
+  /// the stray-area overlay (#55).
+  List<(EntityView, LatLng)> _flierPinned(List<EntityView> entities) => [
+        for (final e in entities)
+          if (store.flierPositions(e.id).firstOrNull case final pos?)
             (e, LatLng(pos.$1, pos.$2))
       ];
 
@@ -352,6 +363,32 @@ class _MapScreenState extends State<MapScreen>
     return Opacity(
       opacity: 0.65,
       child: ColorFiltered(colorFilter: greyscale, child: face),
+    );
+  }
+
+  /// The cat's face in a square frame: the flier pin (#83). Squarer
+  /// than a clowder's rounded ring, so the three pins read apart.
+  Widget _flierFace(String catId, bool highlighted) {
+    final hash = store.profileImage(catId);
+    final photo = hash == null ? null : imageProviderFor(store, hash);
+    return Container(
+      width: 42,
+      height: 42,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(3),
+        border: Border.all(
+            color: highlighted ? Colors.red : Colors.deepOrange, width: 3),
+        color: Colors.white,
+        image: photo != null
+            ? DecorationImage(
+                image: ResizeImage(photo, width: 96), fit: BoxFit.cover)
+            : null,
+      ),
+      child: photo == null
+          ? const CustomPaint(
+              size: Size(24, 24),
+              painter: _CatSilhouettePainter(Colors.deepOrange))
+          : null,
     );
   }
 
@@ -494,9 +531,10 @@ class _MapScreenState extends State<MapScreen>
     }
     final strays =
         _positioned(store.visibleStrays(), sightingsOnly: true);
+    final fliers = _flierPinned(store.visibleStrays());
     final clowders =
         _positioned(store.visibleClowders(), sightingsOnly: false);
-    final all = [...strays, ...clowders];
+    final all = [...strays, ...fliers, ...clowders];
     final stored = _storedViewport();
     final center = widget.initialCenter ??
         stored?.$1 ??
@@ -590,7 +628,7 @@ class _MapScreenState extends State<MapScreen>
             // Toggled stray areas carry the missing cat's face on each
             // flier position — flier-only cats become reachable (#55).
             for (final catId in _strayAreas)
-              for (final pos in store.flierPositions(catId))
+              for (final pos in store.flierPositions(catId).skip(1))
                 Marker(
                   point: LatLng(pos.$1, pos.$2),
                   width: 48,
@@ -633,6 +671,22 @@ class _MapScreenState extends State<MapScreen>
                   label: cat.name,
                   highlighted: _trailCat == cat.id,
                   child: _catFace(cat.id, _trailCat == cat.id),
+                  onTap: () => setState(() =>
+                      _trailCat = _trailCat == cat.id ? null : cat.id),
+                ),
+              ),
+            // Where the poster says the cat was lost: a square pin,
+            // apart from the round sighting pins (#83).
+            for (final (cat, point) in fliers)
+              Marker(
+                point: point,
+                width: 110,
+                height: 72,
+                alignment: Alignment.topCenter,
+                child: _MapPin(
+                  label: cat.name,
+                  highlighted: _trailCat == cat.id,
+                  child: _flierFace(cat.id, _trailCat == cat.id),
                   onTap: () => setState(() =>
                       _trailCat = _trailCat == cat.id ? null : cat.id),
                 ),

@@ -18,6 +18,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
+- A stray's flier position shows on the map as a square pin with its
+  face; sightings stay round. A cat known only from its poster is on
+  the map now, and "Show on map" from its page lands on a pin.
+
 - The card's QR code for a registry number (TASSO and the like) carries
   the registry's search link, so a phone camera opens the search;
   the caption still shows the number.

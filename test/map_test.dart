@@ -67,6 +67,33 @@ void main() {
   });
 
 
+  testWidgets('a flier-only stray pins where its poster says (#83)',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_map');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final lost = store.createCat('Minka');
+    store.recordPosition(lost, 52.50, 13.40, kind: PositionKind.flier);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Minka'), findsOneWidget);
+
+    // A later sighting adds the round pin; the square one stays.
+    store.recordPosition(lost, 52.51, 13.41);
+    await tester.tap(find.text('Minka'));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Minka'), findsNWidgets(2));
+  });
+
   testWidgets('the stray-area overlay draws 500 m flier circles',
       (tester) async {
     final dir = Directory.systemTemp.createTempSync('catlog_area');
