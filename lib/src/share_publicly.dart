@@ -2,13 +2,13 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'field_labels.dart';
 import 'l10n.dart';
 import 'share.dart';
+import 'private_temp.dart';
 
 /// Practical ceiling for the inline QR payload; beyond it the codes stop
 /// scanning reliably.
@@ -90,13 +90,13 @@ class _SharePubliclyScreenState extends State<SharePubliclyScreen> {
 
   Future<void> _exportFile() async {
     try {
-      final dir = await getTemporaryDirectory();
-      final path = writeCatShare(
-          store, '${dir.path}/${shareFileName(store.current(id, Keys.name))}',
-          catId: id, fields: _selected);
-      if (!mounted) return;
-      await shareFiles(
-          context, [XFile(path, mimeType: 'application/zip')]);
+      await withPrivateFile(shareFileName(store.current(id, Keys.name)),
+          (path) async {
+        writeCatShare(store, path, catId: id, fields: _selected);
+        if (!mounted) return;
+        await shareFiles(
+            context, [XFile(path, mimeType: 'application/zip')]);
+      });
     } catch (e) {
       // Sharing a cat must never take the app down with it.
       if (mounted) {

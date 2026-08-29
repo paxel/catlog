@@ -1,12 +1,12 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../help.dart';
 import '../l10n.dart';
 import '../share.dart';
+import '../private_temp.dart';
 
 /// Human-readable byte size, kept short: 12 MB, not 12,345,678 bytes.
 String formatBytes(int bytes) {
@@ -73,7 +73,6 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
     setState(() => _working = true);
     final stamp = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final name = 'catlog-archive-$stamp.catsync';
-    String path;
     try {
       if (widget.saveTo != null) {
         final chosen = await widget.saveTo!(name);
@@ -81,14 +80,14 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
           if (mounted) setState(() => _working = false);
           return;
         }
-        path = writeArchive(store, chosen, entityIds: {..._selected});
+        writeArchive(store, chosen, entityIds: {..._selected});
       } else {
-        final dir = await getTemporaryDirectory();
-        path = writeArchive(store, '${dir.path}/$name',
-            entityIds: {..._selected});
-        if (!mounted) return;
-        final result = await shareFiles(
-            context, [XFile(path, mimeType: 'application/zip')]);
+        final result = await withPrivateFile(name, (tmp) async {
+          writeArchive(store, tmp, entityIds: {..._selected});
+          if (!mounted) return null;
+          return shareFiles(
+              context, [XFile(tmp, mimeType: 'application/zip')]);
+        });
         // The temp file is not a safe place: unless the share really
         // went somewhere, nothing may be deleted.
         if (result?.status != ShareResultStatus.success) {

@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../import_summary.dart';
 import '../l10n.dart';
 import '../share.dart';
+import '../private_temp.dart';
 
 /// "Messenger": the whole catalog as one .catsync file through WhatsApp,
 /// Signal, mail — anything that moves files.
@@ -28,14 +28,14 @@ class _MessengerScreenState extends State<MessengerScreen> {
   Future<void> _shareBundle() async {
     final t = context.t;
     try {
-      final dir = await getTemporaryDirectory();
       final stamp = DateTime.now().toIso8601String().substring(0, 10);
-      final path = writeBundle(
-          widget.store, '${dir.path}/catlog-$stamp.catsync',
-          includePrivate: _includePrivate);
-      if (!mounted) return;
-      // iPads need the popover anchor or the share throws (#43).
-      await shareFiles(context, [XFile(path, mimeType: 'application/zip')]);
+      await withPrivateFile('catlog-$stamp.catsync', (path) async {
+        writeBundle(widget.store, path, includePrivate: _includePrivate);
+        if (!mounted) return;
+        // iPads need the popover anchor or the share throws (#43).
+        await shareFiles(
+            context, [XFile(path, mimeType: 'application/zip')]);
+      });
     } catch (e) {
       if (!mounted) return;
       setState(() => _lastResult = t.syncFailed('$e'));

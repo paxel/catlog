@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
+import 'private_temp.dart';
 
 /// Uninstall-proof safety net: whenever the app goes to the background
 /// and the catalog changed, a full sync bundle lands in a location the
@@ -92,7 +93,8 @@ Future<String> saveBesideBackups(String path, String name) async {
   return to;
 }
 
-Future<void> autoBackup(CatalogStore store) async {
+Future<void> autoBackup(CatalogStore store,
+    {Future<String> Function(String path, String name)? save}) async {
   try {
     // Only when something actually changed since the last backup.
     final vector = store.versionVector().toString();
@@ -103,12 +105,13 @@ Future<void> autoBackup(CatalogStore store) async {
     // user is about to restore. (Seeded starter Fields alone don't count.)
     if (store.cats().isEmpty && store.clowders().isEmpty) return;
 
-    final tmp = await getTemporaryDirectory();
-    // Own-device safety net: the backup always carries Private data too.
+    // Own-device safety net: the backup always carries Private data too
+    // — so the staging file is private and short-lived.
     final name = backupFileName(store.localSetting(catalogNameKey));
-    final path =
-        writeBundle(store, '${tmp.path}/$name', includePrivate: true);
-    await saveBesideBackups(path, name);
+    await withPrivateFile(name, (path) async {
+      writeBundle(store, path, includePrivate: true);
+      await (save ?? saveBesideBackups)(path, name);
+    });
     store.setLocalSetting('lastBackupVector', vector);
     store.setLocalSetting(backupErrorKey, '');
   } catch (e) {
