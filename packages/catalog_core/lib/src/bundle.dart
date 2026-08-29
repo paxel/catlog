@@ -166,11 +166,23 @@ BundleResult importBundle(CatalogStore store, String path) {
 BundleResult importBundleBytes(CatalogStore store, List<int> zipBytes) =>
     _importArchive(store, ZipDecoder().decodeBytes(zipBytes));
 
+/// A photo larger than this is not one of ours (compressImage stays
+/// far below) and is skipped; an entries file above its cap is refused
+/// before it is unpacked — a small zip that unpacks to gigabytes must
+/// not take the app down.
+const maxBlobBytes = 20 << 20;
+const maxEntriesBytes = 64 << 20;
+
 BundleResult _importArchive(CatalogStore store, Archive archive) {
   final entries = <Entry>[];
   final blobFiles = <String, ArchiveFile>{};
   for (final file in archive.files) {
     if (!file.isFile) continue;
+    if (file.name.startsWith('blobs/')) {
+      if (file.size > maxBlobBytes) continue;
+    } else if (file.size > maxEntriesBytes) {
+      throw const FormatException('Bundle too large');
+    }
     if (file.name == 'format') {
       final declared = int.tryParse(
           utf8.decode(file.content as List<int>).trim());

@@ -20,6 +20,10 @@ Future<Uint8List> fetchShare(String url) async {
     final builder = BytesBuilder();
     await for (final chunk in response) {
       builder.add(chunk);
+      // A share is one cat and a few photos; anything bigger is not one.
+      if (builder.length > maxEntriesBytes) {
+        throw HttpException('Share too large', uri: Uri.parse(url));
+      }
     }
     return builder.takeBytes();
   } finally {
