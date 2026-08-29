@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:archive/archive.dart';
 
+import 'bundle.dart';
 import 'entry.dart';
 import 'fields.dart';
 import 'store.dart';
@@ -87,7 +87,6 @@ String writeArchive(CatalogStore store, String path,
     {required Set<String> entityIds}) {
   final wanted = {for (final id in entityIds) store.resolveEntity(id)};
   final defs = {for (final def in store.fieldDefs()) def.id};
-  final archive = Archive();
   final entries = [
     for (final e in store.entriesSince(const {}, includePrivate: true))
       if (wanted.contains(store.resolveEntity(e.entity)) ||
@@ -114,19 +113,16 @@ String writeArchive(CatalogStore store, String path,
       recorded: e.recorded,
     ).toJson());
   }).join('\n');
-  final bytes = utf8.encode(jsonl);
-  archive.addFile(ArchiveFile('entries.jsonl', bytes.length, bytes));
   final seen = <String>{};
-  for (final id in wanted) {
-    for (final hash in store.images(id)) {
-      if (!seen.add(hash)) continue;
-      final blob = store.imageBytes(hash);
-      if (blob != null) {
-        archive.addFile(ArchiveFile('blobs/$hash.jpg', blob.length, blob));
-      }
-    }
-  }
-  File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);
+  final hashes = <String>[
+    for (final id in wanted)
+      for (final hash in store.images(id))
+        if (seen.add(hash)) hash
+  ];
+  // Streamed like every bundle: an archive of a big clowder must not
+  // need twice its photos in memory (see writeZipStreaming).
+  writeZipStreaming(path, utf8.encode(jsonl),
+      flagged: false, hashes: hashes, bytesOf: store.imageBytes);
   return path;
 }
 

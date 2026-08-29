@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:archive/archive.dart';
+import 'package:archive/archive_io.dart';
 
 import 'entry.dart';
 import 'fields.dart';
@@ -52,14 +52,11 @@ class BundleResult {
 /// identifies a cat or a clowder always travels.
 String writeBundle(CatalogStore store, String path,
     {bool includePrivate = false}) {
-  final archive = Archive();
   final entries =
       store.entriesSince(const {}, includePrivate: includePrivate);
   final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
-  final jsonlBytes = utf8.encode(jsonl);
-  _addFormatAndEntries(archive, jsonlBytes,
-      flagged: entries.any((e) => e.reminder));
   final seen = <String>{};
+  final hashes = <String>[];
   for (final entity in [...store.cats(), ...store.clowders()]) {
     for (final hash in store.images(entity.id)) {
       // A photo is a value like any other: withheld ones leave their
@@ -68,15 +65,45 @@ String writeBundle(CatalogStore store, String path,
           store.isFieldPrivate(entity.id, Keys.image(hash))) {
         continue;
       }
-      if (!seen.add(hash)) continue;
-      final bytes = store.imageBytes(hash);
-      if (bytes != null) {
-        archive.addFile(ArchiveFile('blobs/$hash.jpg', bytes.length, bytes));
-      }
+      if (seen.add(hash)) hashes.add(hash);
     }
   }
-  File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);
+  writeZipStreaming(path, utf8.encode(jsonl),
+      flagged: entries.any((e) => e.reminder),
+      hashes: hashes,
+      bytesOf: store.imageBytes);
   return path;
+}
+
+/// Writes a bundle zip one entry at a time: the entries deflated, each
+/// photo copied as it is (a JPEG does not shrink), straight to the
+/// file. The old way built the whole archive in memory and then a
+/// second copy for the zip — two times every photo, on every automatic
+/// backup; that is what killed the app on phones with many photos.
+void writeZipStreaming(String path, List<int> jsonlBytes,
+    {required bool flagged,
+    required Iterable<String> hashes,
+    required Uint8List? Function(String hash) bytesOf}) {
+  // The encoder would create missing folders on its own; a bundle
+  // belongs where the caller said and nowhere else, and callers rely on
+  // "cannot be written" being an error (going back removes nothing).
+  final parent = File(path).parent;
+  if (!parent.existsSync()) {
+    throw FileSystemException('No such directory', parent.path);
+  }
+  final encoder = ZipFileEncoder()..create(path);
+  try {
+    _addFormatAndEntries(encoder, jsonlBytes, flagged: flagged);
+    for (final hash in hashes) {
+      final bytes = bytesOf(hash);
+      if (bytes == null) continue;
+      encoder.addArchiveFile(
+          ArchiveFile('blobs/$hash.jpg', bytes.length, bytes)
+            ..compress = false);
+    }
+  } finally {
+    encoder.closeSync();
+  }
 }
 
 /// Writes a bundle of exactly [entries] plus the photos they mention.
@@ -89,39 +116,35 @@ String writeBundle(CatalogStore store, String path,
 /// than a doubled history.
 String writeEntriesBundle(
     CatalogStore store, String path, List<Entry> entries) {
-  final archive = Archive();
   final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
-  final jsonlBytes = utf8.encode(jsonl);
-  _addFormatAndEntries(archive, jsonlBytes,
-      flagged: entries.any((e) => e.reminder));
   final seen = <String>{};
-  for (final e in entries) {
-    if (!e.field.startsWith(Keys.imagePrefix)) continue;
-    final hash = e.field.substring(Keys.imagePrefix.length);
-    if (!seen.add(hash)) continue;
-    final bytes = store.imageBytes(hash);
-    if (bytes != null) {
-      archive.addFile(ArchiveFile('blobs/$hash.jpg', bytes.length, bytes));
-    }
-  }
-  File(path).writeAsBytesSync(ZipEncoder().encode(archive)!);
+  final hashes = <String>[
+    for (final e in entries)
+      if (e.field.startsWith(Keys.imagePrefix) &&
+          seen.add(e.field.substring(Keys.imagePrefix.length)))
+        e.field.substring(Keys.imagePrefix.length)
+  ];
+  writeZipStreaming(path, utf8.encode(jsonl),
+      flagged: entries.any((e) => e.reminder),
+      hashes: hashes,
+      bytesOf: store.imageBytes);
   return path;
 }
 
 /// A payload without a single flagged entry is byte-identical to the
 /// pre-1.0.0 format, so it ships under the old name and stays
 /// importable on 0.3.x. Only actual reminders force the v2 layout.
-void _addFormatAndEntries(Archive archive, List<int> jsonlBytes,
+void _addFormatAndEntries(ZipFileEncoder encoder, List<int> jsonlBytes,
     {required bool flagged}) {
   if (!flagged) {
-    archive
-        .addFile(ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
+    encoder.addArchiveFile(
+        ArchiveFile('entries.jsonl', jsonlBytes.length, jsonlBytes));
     return;
   }
   final format = utf8.encode('$bundleFormat');
-  archive.addFile(ArchiveFile('format', format.length, format));
-  archive
-      .addFile(ArchiveFile('entries2.jsonl', jsonlBytes.length, jsonlBytes));
+  encoder.addArchiveFile(ArchiveFile('format', format.length, format));
+  encoder.addArchiveFile(
+      ArchiveFile('entries2.jsonl', jsonlBytes.length, jsonlBytes));
 }
 
 /// Imports a bundle file; unknown entries and missing photos land,
