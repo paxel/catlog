@@ -470,8 +470,10 @@ class _MapScreenState extends State<MapScreen>
   /// from the round cat faces; house silhouette only as placeholder.
   Widget _clowderFace(String clowderId) {
     final images = store.images(clowderId);
-    final bytes =
-        images.isEmpty ? null : store.imageBytes(images.first);
+    // Same rule as the cat faces: the cached provider, decoded at pin
+    // size — a fresh full-size MemoryImage per build was the leak.
+    final photo =
+        images.isEmpty ? null : imageProviderFor(store, images.first);
     final color = Theme.of(context).colorScheme.primary;
     return Container(
       width: 42,
@@ -479,13 +481,13 @@ class _MapScreenState extends State<MapScreen>
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: color, width: 3),
-        color: bytes == null ? color : Colors.white,
-        image: bytes != null
+        color: photo == null ? color : Colors.white,
+        image: photo != null
             ? DecorationImage(
-                image: MemoryImage(bytes), fit: BoxFit.cover)
+                image: ResizeImage(photo, width: 96), fit: BoxFit.cover)
             : null,
       ),
-      child: bytes == null
+      child: photo == null
           ? const Icon(Icons.home, size: 22, color: Colors.white)
           : null,
     );

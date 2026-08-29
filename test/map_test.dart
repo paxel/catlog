@@ -40,6 +40,9 @@ void main() {
     store.author = 'axel';
     final home = store.createClowder('Home');
     store.recordPosition(home, 52.52, 13.40);
+    store.addImage(home,
+        CatalogStore.compressImage(Uint8List.fromList(
+            img.encodeJpg(img.Image(width: 60, height: 60)))));
     final stray = store.createCat('Roamer');
     store.recordPosition(stray, 52.53, 13.41);
     store.addImage(stray,
@@ -55,6 +58,19 @@ void main() {
 
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Roamer'), findsOneWidget);
+    // The clowder's photo is decoded at pin size, like the cat faces.
+    expect(
+        find.byWidgetPredicate((w) =>
+            w is Container &&
+            w.decoration is BoxDecoration &&
+            (w.decoration as BoxDecoration).image?.image is ResizeImage),
+        findsWidgets);
+    expect(
+        find.byWidgetPredicate((w) =>
+            w is Container &&
+            w.decoration is BoxDecoration &&
+            (w.decoration as BoxDecoration).image?.image is MemoryImage),
+        findsNothing);
     expect(find.text('OpenStreetMap contributors'), findsOneWidget);
     // A stray WITH a photo shows its face ring, never the paw fallback.
     expect(find.byIcon(Icons.pets), findsNothing);
