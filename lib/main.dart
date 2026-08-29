@@ -49,8 +49,13 @@ Future<void> main(List<String> args) async {
     // reach the keeper instead of dying in a zone with nothing to catch
     // it. Restart then tries the move again, which is exactly what the
     // message tells them to do.
-    await initCrashGuard(dir,
-        restart: () => unawaited(_openAndRun(dir, texts, args)));
+    await initCrashGuard(dir, restart: () {
+      // The previous run's handles go before a new one opens the same
+      // files.
+      activeStore?.close();
+      catalogManager?.close();
+      unawaited(_openAndRun(dir, texts, args));
+    });
     // Read the marker BEFORE re-arming it: dirty means the last run was
     // killed without a clean pause (out-of-memory, native crash).
     final diedLastRun = previousRunDied();
