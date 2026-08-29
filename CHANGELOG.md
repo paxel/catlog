@@ -48,6 +48,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A photo mentioned in the log that nobody holds any more no longer
   makes every sync between the devices fail; a problem while fetching
   photos no longer hides that the entries arrived.
+- "Resync calendar" waits for a running mirror pass, and a pass cut
+  off by a catalog switch removes the events it had just created —
+  two more ways duplicates could appear.
+- Going back to an earlier moment refuses if the catalog changed while
+  its file was being saved, so nothing that arrived meanwhile is lost.
+- Moving a cat or clowder to another catalog writes all of it or
+  nothing on the receiving side.
+- Folder sync skips a partner file a cloud client is still writing
+  instead of stopping at it.
 - A location fix that never arrives gives up after 20 seconds with "no
   fix" instead of waiting for the rest of the session.
 - An error from the phone's calendar during the mirror switched the app

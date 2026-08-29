@@ -92,4 +92,14 @@ void main() {
     folderSync(a, dir.path);
     expect(blob.existsSync(), isFalse);
   });
+
+  test('a half-written peer file is skipped, the whole one lands', () {
+    a.createCat('Miezi');
+    folderSync(a, dir.path);
+    File('${dir.path}/partial.jsonl').writeAsStringSync(
+        '{"device":"partial","dseq":1,"entity":"cat:x","field":"name","va');
+    final result = folderSync(b, dir.path);
+    expect(result.entriesIn, greaterThan(0));
+    expect(b.cats().map((c) => c.name), contains('Miezi'));
+  });
 }

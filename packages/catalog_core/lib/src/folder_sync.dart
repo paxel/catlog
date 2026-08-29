@@ -59,10 +59,17 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
       continue;
     }
     final foreign = <Entry>[];
-    for (final line in file.readAsLinesSync()) {
-      if (line.trim().isEmpty) continue;
-      foreign.add(
-          Entry.fromJson((jsonDecode(line) as Map).cast<String, dynamic>()));
+    try {
+      for (final line in file.readAsLinesSync()) {
+        if (line.trim().isEmpty) continue;
+        foreign.add(Entry.fromJson(
+            (jsonDecode(line) as Map).cast<String, dynamic>()));
+      }
+    } catch (_) {
+      // A file the cloud client is still writing, or a damaged one: it
+      // is skipped for this round, the others still land. Next round
+      // finds it whole.
+      continue;
     }
     // The writer's knowledge is exactly what its file contains — that
     // vector is the causal context for conflict detection.
@@ -118,9 +125,13 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   var blobsIn = 0, blobsOut = 0;
   for (final hash in store.missingBlobs()) {
     final f = File('${blobDir.path}/$hash.jpg');
-    if (f.existsSync()) {
+    if (!f.existsSync()) continue;
+    try {
       store.putBlob(hash, f.readAsBytesSync());
       blobsIn++;
+    } catch (_) {
+      // Truncated by a cloud client mid-upload: not this photo, not
+      // this time.
     }
   }
   final live = <String>{};
