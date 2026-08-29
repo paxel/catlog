@@ -275,10 +275,14 @@ class CatalogManager implements SharedSettings {
         _copyDir(oldImages, Directory('${dir.path}/images'));
       }
       final moved = CatalogStore.open('${dir.path}/catlog.db');
-      final name = moved.localSetting(catalogNameKey) ?? defaultName;
-      moved.setLocalSetting(catalogNameKey, name);
-      _liftSharedSettings(moved);
-      moved.close();
+      final String name;
+      try {
+        name = moved.localSetting(catalogNameKey) ?? defaultName;
+        moved.setLocalSetting(catalogNameKey, name);
+        _liftSharedSettings(moved);
+      } finally {
+        moved.close();
+      }
       _db.execute(
         'INSERT INTO catalogs (id, name, created) VALUES (?, ?, ?)',
         [id, name, DateTime.now().toUtc().toIso8601String()],

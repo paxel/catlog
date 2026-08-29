@@ -110,8 +110,11 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
         // the catalog must earn a new one at the next pause rather than
         // sit there with none.
         final renamed = widget.catalogs.openStore(widget.catalogs.byId(catalog.id)!);
-        renamed.removeLocalSetting('lastBackupVector');
-        renamed.close();
+        try {
+          renamed.removeLocalSetting('lastBackupVector');
+        } finally {
+          renamed.close();
+        }
         await (widget.removeSaved ?? removeBesideBackups)(before);
       }
       _changed();
@@ -130,13 +133,19 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
       builder: (context) => _DeleteCatalogDialog(catalog: catalog),
     );
     if (confirmed != true || !mounted) return;
+    // The list stays on screen while the file is saved: no tap may make
+    // the doomed catalog the active one meanwhile.
+    setState(() => _deleting = true);
     try {
-      final store = widget.catalogs.openStore(catalog);
       final tmp = Directory.systemTemp.createTempSync('catlog-export');
       final name = backupFileName(catalog.name);
-      final file =
-          writeBundle(store, '${tmp.path}/$name', includePrivate: true);
-      store.close();
+      final store = widget.catalogs.openStore(catalog);
+      final String file;
+      try {
+        file = writeBundle(store, '${tmp.path}/$name', includePrivate: true);
+      } finally {
+        store.close();
+      }
       final save = widget.saveTo ?? saveBesideBackups;
       final where = await save(file, name);
       tmp.deleteSync(recursive: true);
