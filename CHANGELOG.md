@@ -18,6 +18,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
+- The card's QR code for a registry number (TASSO and the like) carries
+  the registry's search link, so a phone camera opens the search;
+  the caption still shows the number.
+
 - The flier wizard's Flier text page offers "Drop" for any line, and a
   line sent to remarks arrives as its value alone — the poster's labels
   ("Geschlecht:") no longer fill the cat's and owner's remarks.

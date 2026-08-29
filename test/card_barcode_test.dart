@@ -51,4 +51,30 @@ void main() {
     expect(tester.takeException(), isNull);
     expect(find.textContaining('ÄÖÜ 1234'), findsWidgets);
   });
+
+  testWidgets('a registry QR carries the search link, the caption the id',
+      (tester) async {
+    tester.view.physicalSize = const Size(500, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    store.defineField('Tasso', FieldType.id,
+        scope: FieldScope.cat,
+        idDisplay: IdDisplay.qr,
+        lookupUrl: 'https://www.tasso.net/Tierregister/Suchmeldungen?snr={value}');
+    final tasso = store.fieldDefs().firstWhere((d) => d.slug == 'tasso');
+    store.append(cat, tasso.key, 'S2983764');
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: CardScreen(store: store, catId: cat),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(cardQrPayload(tasso, 'S2983764'),
+        'https://www.tasso.net/Tierregister/Suchmeldungen?snr=S2983764');
+    final plain = store.fieldDefs().firstWhere((d) => d.slug == 'chipid');
+    expect(cardQrPayload(plain, '276098102345678'), '276098102345678');
+    expect(find.text('Tasso: S2983764'), findsOneWidget);
+  });
 }

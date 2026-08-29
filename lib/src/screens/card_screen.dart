@@ -24,6 +24,11 @@ import 'package:share_plus/share_plus.dart';
 /// A Cat's Card: photo plus current facts on one screen, exportable as
 /// an image (share sheet), a PDF, or straight to the printer. The
 /// original reason this app exists.
+/// What the QR of an ID field encodes: the lookup URL where the field
+/// has one (#82), else the bare value.
+String cardQrPayload(FieldDef def, String value) =>
+    lookupUrl(def, value) ?? value;
+
 class CardScreen extends StatefulWidget {
   final CatalogStore store;
   final String catId;
@@ -137,7 +142,10 @@ class _CardScreenState extends State<CardScreen> {
         padding: const EdgeInsets.only(top: 12),
         child: Column(children: [
           if (def.idDisplay == IdDisplay.qr) ...[
-            QrImageView(data: value, size: 110),
+            // A registry ID's code carries the search link, so a phone
+            // camera lands on the registry as it does with the
+            // registry's own poster (#82); the caption stays the number.
+            QrImageView(data: cardQrPayload(def, value), size: 110),
             // The QR alone shows nothing readable — one caption line.
             Text('${fieldDefName(context.t, def)}: $value',
                 style: Theme.of(context).textTheme.bodySmall),
@@ -280,7 +288,9 @@ class _CardScreenState extends State<CardScreen> {
                       barcode: def.idDisplay == IdDisplay.qr
                           ? pw.Barcode.qrCode()
                           : pw.Barcode.code128(),
-                      data: value,
+                      data: def.idDisplay == IdDisplay.qr
+                          ? cardQrPayload(def, value)
+                          : value,
                       width: def.idDisplay == IdDisplay.qr ? 80 : 180,
                       height: def.idDisplay == IdDisplay.qr ? 80 : 44,
                     )
