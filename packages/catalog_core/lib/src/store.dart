@@ -1632,6 +1632,7 @@ class CatalogStore {
       }
     }
     return imported;
+    });
   }
 
   // ----------------------------------------------------------------- merge
@@ -1704,6 +1705,7 @@ class CatalogStore {
       }
     }
     append(loserId, Keys.mergedInto, survivorId, date: date);
+    });
   }
 
   // ------------------------------------------------------------- conflicts
@@ -2063,7 +2065,7 @@ class _FileBlobStore implements _BlobStore {
   (int, int) usage() {
     var bytes = 0, count = 0;
     for (final f in _dir.listSync()) {
-      if (f is File) {
+      if (f is File && f.path.endsWith('.jpg')) {
         bytes += f.lengthSync();
         count++;
       }
