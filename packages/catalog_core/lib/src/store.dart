@@ -222,7 +222,16 @@ class CatalogStore {
   /// A fresh id for an appointment key (#75).
   String newAppointmentId() => _uuid();
 
-  void close() => _db.dispose();
+  bool _closed = false;
+
+  /// False once [close] ran — work that outlived its catalog (a slow
+  /// platform call answering after a switch) must not touch it (#89).
+  bool get isOpen => !_closed;
+
+  void close() {
+    _closed = true;
+    _db.dispose();
+  }
 
   // ---------------------------------------------------------------- author
 

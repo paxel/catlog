@@ -582,4 +582,11 @@ void main() {
       expect(defs.map((d) => d.slug), isNot(contains('gender')));
     });
   });
+
+  test('isOpen turns false on close', () {
+    final store = CatalogStore.inMemory();
+    expect(store.isOpen, isTrue);
+    store.close();
+    expect(store.isOpen, isFalse);
+  });
 }

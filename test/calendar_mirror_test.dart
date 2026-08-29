@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations_en.dart';
 import 'package:catlog/src/reminders/calendar_mirror.dart';
@@ -50,6 +52,18 @@ class FakeCalendar implements CalendarPort {
   Future<Set<String>> existingEventIds(
           String calendarId, Iterable<String> ids) async =>
       ids.where(events.containsKey).toSet();
+}
+
+/// A calendar that answers only when told — the catalog can be closed
+/// in between, as a switch does (#89).
+class SlowCalendar extends FakeCalendar {
+  final gate = Completer<void>();
+
+  @override
+  Future<List<CalendarChoice>> listCalendars() async {
+    await gate.future;
+    return calendars;
+  }
 }
 
 void main() {
@@ -228,5 +242,19 @@ void main() {
     expect(calendar.events[id]!.start, DateTime(2026, 9, 4, 9, 0));
     expect(calendar.alerts[id], 24 * 60);
     expect(calendar.updated, 1);
+  });
+
+  test('a catalog closed mid-reconcile is left alone, without an error',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'vaccine refresh',
+        date: inDays(30), reminder: true);
+    final slow = SlowCalendar();
+    final pending = reconcileCalendar(store, slow, t);
+    store.close();
+    slow.gate.complete();
+    expect(await pending, MirrorOutcome.abandoned);
+    expect(slow.created, 0);
+    // tearDown closes again; a second close must not throw either.
+    store = CatalogStore.inMemory()..author = 'test';
   });
 }

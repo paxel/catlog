@@ -19,17 +19,19 @@ void mirrorAfterChange(BuildContext context, CatalogStore store,
   final messenger = ScaffoldMessenger.maybeOf(context);
   reconcileCalendar(store, port ?? DeviceCalendarPort(), t).then((outcome) {
     final message = mirrorFailureMessage(t, outcome);
-    if (message == null) return;
+    // A catalog switched away mid-reconcile is closed by now: nothing
+    // to record, nothing to report (#89).
+    if (message == null || !store.isOpen) return;
     store.setLocalSetting(calendarMirrorEnabledKey, 'off');
     messenger?.showSnackBar(SnackBar(content: Text(message)));
-  });
+  }).catchError((_) {}, test: (e) => e is StateError && !store.isOpen);
 }
 
 /// The cause-plus-fix text for a failed reconcile, null when it worked
 /// (or the mirror is simply off).
 String? mirrorFailureMessage(AppLocalizations t, MirrorOutcome outcome) =>
     switch (outcome) {
-      MirrorOutcome.ok || MirrorOutcome.off => null,
+      MirrorOutcome.ok || MirrorOutcome.off || MirrorOutcome.abandoned => null,
       MirrorOutcome.noAccess => t.calendarPermissionDenied,
       MirrorOutcome.noCalendarChosen => t.calendarNotChosen,
       MirrorOutcome.calendarGone => t.calendarGone,

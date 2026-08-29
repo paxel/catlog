@@ -34,6 +34,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - The birth date printed on a TASSO poster fills the Birth date field
   instead of landing in remarks.
+- Switching the catalog while the calendar mirror was still talking to
+  the phone's calendar crashed the app ("database has already been
+  closed").
 
 ---
 

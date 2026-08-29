@@ -24,7 +24,17 @@ String? chosenCalendar(CatalogStore store) =>
 /// What a reconcile found. Everything but [ok] and [off] names a cause
 /// the user can act on; the caller shows it and switches the mirror
 /// off, so a silent failure cannot pretend to be a working mirror.
-enum MirrorOutcome { ok, off, noAccess, noCalendarChosen, calendarGone }
+enum MirrorOutcome {
+  ok,
+  off,
+  noAccess,
+  noCalendarChosen,
+  calendarGone,
+
+  /// The catalog was closed while the calendar was answering (a switch
+  /// mid-reconcile, #89); nothing was recorded and nothing is wrong.
+  abandoned,
+}
 
 /// The events the calendar should hold right now: reminders as all-day
 /// events without alert (#74), appointments timed with their alert
@@ -84,9 +94,13 @@ Future<MirrorOutcome> reconcileCalendar(
 ) async {
   if (!calendarMirrorEnabled(store)) return MirrorOutcome.off;
   if (!await port.ensureAccess()) return MirrorOutcome.noAccess;
+  // Every platform call is a chance for the catalog to be switched
+  // away underneath; the store is checked before each read or write.
+  if (!store.isOpen) return MirrorOutcome.abandoned;
   final calendarId = chosenCalendar(store);
   if (calendarId == null) return MirrorOutcome.noCalendarChosen;
   final calendars = await port.listCalendars();
+  if (!store.isOpen) return MirrorOutcome.abandoned;
   if (!calendars.any((c) => c.id == calendarId)) {
     return MirrorOutcome.calendarGone;
   }
@@ -137,6 +151,7 @@ Future<MirrorOutcome> reconcileCalendar(
     };
   }
 
+  if (!store.isOpen) return MirrorOutcome.abandoned;
   store.setLocalSetting(_mapKey, jsonEncode(next));
   return MirrorOutcome.ok;
 }
