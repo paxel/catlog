@@ -270,16 +270,20 @@ extension Appointments on CatalogStore {
   /// listed stay open on their own.
   void finishAppointments(Iterable<Appointment> members,
       {String? notes, DateTime? date}) {
-    for (final m in members) {
-      finishAppointment(m, notes: notes, date: date);
-    }
+    transaction(() {
+      for (final m in members) {
+        finishAppointment(m, notes: notes, date: date);
+      }
+    });
   }
 
   /// Deletes every open member of [a]'s group.
   void deleteAppointmentGroup(Appointment a, {DateTime? date}) {
-    for (final m in groupOf(a)) {
-      deleteAppointment(m, date: date);
-    }
+    transaction(() {
+      for (final m in groupOf(a)) {
+        deleteAppointment(m, date: date);
+      }
+    });
   }
 
   /// Every open appointment folded by group, earliest first: one list

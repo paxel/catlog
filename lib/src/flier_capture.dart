@@ -604,10 +604,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     if (photo == null || _saving) return;
     setState(() => _saving = true);
     final t = context.t;
-    String catId;
+    late String catId;
     final catName = _name.text.trim().isEmpty
         ? t.captureFlier
         : _name.text.trim();
+    // Every fact of the poster lands, or none does.
+    store.transaction(() {
     // The owner: the picked clowder, or a new one for a new cat (#84).
     // A new clowder's facts are dated to the flier; on an existing one
     // they are recorded now, or an older value would keep winning.
@@ -727,6 +729,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         existing.isEmpty ? remarks : '$existing\n$remarks',
       );
     }
+    });
     // The full flier photo is provenance; the cropped portrait becomes
     // the face.
     await addCompressedImage(store, catId, photo);

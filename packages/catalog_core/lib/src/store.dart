@@ -1557,6 +1557,7 @@ class CatalogStore {
   /// the vector absent, no conflicts are flagged.
   List<Entry> applyEntries(List<Entry> entries,
       {Map<String, int>? senderVector}) {
+    return transaction(() {
     // Snapshot the pre-import winner of every field this batch touches.
     final touched = <(String, String)>{
       for (final e in entries) (e.entity, e.field)
@@ -1661,6 +1662,7 @@ class CatalogStore {
 
   void _merge(String loserId, String survivorId, String prefix, DateTime? date,
       {bool reassert = true}) {
+    return transaction(() {
     if (!loserId.startsWith(prefix) || !survivorId.startsWith(prefix)) {
       throw ArgumentError('Merge partners must both be ${prefix}entities');
     }
