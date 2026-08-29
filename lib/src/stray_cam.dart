@@ -195,6 +195,7 @@ Future<void> recoverStrayCam(CatalogStore store,
     // Retrieval failed — keep the parked capture for the next start.
     return;
   }
+  if (!store.isOpen) return;
   store.setLocalSetting(strayCamPendingKey, '');
   final file = response.file;
   if (file == null) return;

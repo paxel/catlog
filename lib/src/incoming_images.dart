@@ -44,7 +44,7 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
       // bad share must not sink the rest.
     }
   }
-  if (!context.mounted) return;
+  if (!context.mounted || !store.isOpen) return;
   if (added == 0) {
     ScaffoldMessenger.maybeOf(context)?.showSnackBar(
         SnackBar(content: Text(context.t.notACatlogFile)));
