@@ -1708,6 +1708,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unitYears => 'jaren';
 
   @override
+  String ageYears(int years) {
+    return '$years jr';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mnd';
+  }
+
+  @override
   String get changeDateLabel => 'Datum wijzigen';
 
   @override

@@ -1707,6 +1707,16 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unitYears => 'років';
 
   @override
+  String ageYears(int years) {
+    return '$years р.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months міс.';
+  }
+
+  @override
   String get changeDateLabel => 'Змінити дату';
 
   @override

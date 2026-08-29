@@ -1710,6 +1710,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unitYears => 'χρόνια';
 
   @override
+  String ageYears(int years) {
+    return '$years έτη';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months μήν.';
+  }
+
+  @override
   String get changeDateLabel => 'Αλλαγή ημερομηνίας';
 
   @override

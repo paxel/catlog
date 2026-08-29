@@ -10,6 +10,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Date fields take a year or a month and year when the day is unknown
   — "2021" or "May 2021" is stored and shown as such, never as an
   invented first day. The flier wizard reads such dates from posters.
+- A cat's age next to its birth date and in the strays list — "3 yrs
+  5 mo", "3 yrs" for a bare birth year, frozen at death.
 
 ### Changed
 

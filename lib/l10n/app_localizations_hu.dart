@@ -1704,6 +1704,16 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unitYears => 'év';
 
   @override
+  String ageYears(int years) {
+    return '$years év';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months hó';
+  }
+
+  @override
   String get changeDateLabel => 'Dátum módosítása';
 
   @override

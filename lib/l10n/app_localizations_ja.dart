@@ -1662,6 +1662,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unitYears => '年後';
 
   @override
+  String ageYears(int years) {
+    return '$years歳';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$monthsか月';
+  }
+
+  @override
   String get changeDateLabel => '日付を変更';
 
   @override

@@ -1705,6 +1705,16 @@ class AppLocalizationsHr extends AppLocalizations {
   String get unitYears => 'godina';
 
   @override
+  String ageYears(int years) {
+    return '$years god.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mj.';
+  }
+
+  @override
   String get changeDateLabel => 'Promijeni datum';
 
   @override

@@ -1706,6 +1706,16 @@ class AppLocalizationsLv extends AppLocalizations {
   String get unitYears => 'gadiem';
 
   @override
+  String ageYears(int years) {
+    return '$years g.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mēn.';
+  }
+
+  @override
   String get changeDateLabel => 'Mainīt datumu';
 
   @override

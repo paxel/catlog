@@ -1707,6 +1707,16 @@ class AppLocalizationsSl extends AppLocalizations {
   String get unitYears => 'let';
 
   @override
+  String ageYears(int years) {
+    return '$years l.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mes.';
+  }
+
+  @override
   String get changeDateLabel => 'Spremeni datum';
 
   @override

@@ -18,6 +18,7 @@ import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
+import '../age.dart';
 
 /// Cats currently in no Clowder. The map view arrives with milestone M3;
 /// until then this list keeps Strays visible.
@@ -66,9 +67,11 @@ class _StraysScreenState extends State<StraysScreen> {
       return fieldValueDisplay(t, def, value);
     }
 
-    return [display('gender'), display('color')]
-        .where((s) => s.isNotEmpty)
-        .join(' · ');
+    return [
+      ageDisplay(t, widget.store, catId) ?? '',
+      display('gender'),
+      display('color'),
+    ].where((s) => s.isNotEmpty).join(' · ');
   }
 
   Future<void> _addStray() async {

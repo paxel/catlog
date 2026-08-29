@@ -1711,6 +1711,16 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unitYears => 'snin';
 
   @override
+  String ageYears(int years) {
+    return '$years sn.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months xhr.';
+  }
+
+  @override
   String get changeDateLabel => 'Ibdel id-data';
 
   @override

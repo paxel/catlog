@@ -1717,6 +1717,16 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unitYears => 'bliana';
 
   @override
+  String ageYears(int years) {
+    return '$years bl.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mhí';
+  }
+
+  @override
   String get changeDateLabel => 'Athraigh an dáta';
 
   @override

@@ -1705,6 +1705,16 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unitYears => 'vjetësh';
 
   @override
+  String ageYears(int years) {
+    return '$years vj.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months muaj';
+  }
+
+  @override
   String get changeDateLabel => 'Ndrysho datën';
 
   @override

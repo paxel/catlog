@@ -1708,6 +1708,16 @@ class AppLocalizationsIs extends AppLocalizations {
   String get unitYears => 'ár';
 
   @override
+  String ageYears(int years) {
+    return '$years ára';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mán.';
+  }
+
+  @override
   String get changeDateLabel => 'Breyta dagsetningu';
 
   @override

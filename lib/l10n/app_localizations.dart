@@ -3068,6 +3068,18 @@ abstract class AppLocalizations {
   /// **'years'**
   String get unitYears;
 
+  /// No description provided for @ageYears.
+  ///
+  /// In en, this message translates to:
+  /// **'{years} yrs'**
+  String ageYears(int years);
+
+  /// No description provided for @ageMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'{months} mo'**
+  String ageMonths(int months);
+
   /// No description provided for @changeDateLabel.
   ///
   /// In en, this message translates to:

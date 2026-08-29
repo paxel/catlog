@@ -1703,6 +1703,16 @@ class AppLocalizationsDa extends AppLocalizations {
   String get unitYears => 'år';
 
   @override
+  String ageYears(int years) {
+    return '$years år';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mdr.';
+  }
+
+  @override
   String get changeDateLabel => 'Skift dato';
 
   @override

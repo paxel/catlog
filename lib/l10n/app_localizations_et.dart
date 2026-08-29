@@ -1702,6 +1702,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unitYears => 'aasta pärast';
 
   @override
+  String ageYears(int years) {
+    return '$years a';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months k';
+  }
+
+  @override
   String get changeDateLabel => 'Muuda kuupäeva';
 
   @override

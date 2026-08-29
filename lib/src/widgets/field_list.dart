@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import 'cat_ear.dart';
+import '../age.dart';
 
 /// The Field rows of a detail page, in both of its moods (#46):
 /// read mode shows only filled fields, nicely formatted and inert;
@@ -55,7 +56,13 @@ class FieldList extends StatelessWidget {
     if (def.type == FieldType.cat && value != null) {
       return store.current(store.resolveEntity(value), Keys.name) ?? '?';
     }
-    return fieldValueDisplay(context.t, def, value);
+    final display = fieldValueDisplay(context.t, def, value);
+    // The birth date answers "how old" right there (#80).
+    if (def.slug == 'birthdate' && value != null) {
+      final age = ageDisplay(context.t, store, entityId);
+      if (age != null) return '$display · $age';
+    }
+    return display;
   }
 
   @override

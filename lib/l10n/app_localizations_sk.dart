@@ -1705,6 +1705,16 @@ class AppLocalizationsSk extends AppLocalizations {
   String get unitYears => 'rokov';
 
   @override
+  String ageYears(int years) {
+    return '$years r.';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months mes.';
+  }
+
+  @override
   String get changeDateLabel => 'Zmeniť dátum';
 
   @override

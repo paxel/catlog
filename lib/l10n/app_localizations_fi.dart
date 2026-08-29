@@ -1705,6 +1705,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unitYears => 'vuoden päästä';
 
   @override
+  String ageYears(int years) {
+    return '$years v';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months kk';
+  }
+
+  @override
   String get changeDateLabel => 'Muuta päivämäärää';
 
   @override

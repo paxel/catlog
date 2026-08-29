@@ -1647,6 +1647,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unitYears => '年后';
 
   @override
+  String ageYears(int years) {
+    return '$years岁';
+  }
+
+  @override
+  String ageMonths(int months) {
+    return '$months个月';
+  }
+
+  @override
   String get changeDateLabel => '更改日期';
 
   @override
