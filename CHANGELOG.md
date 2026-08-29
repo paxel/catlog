@@ -23,6 +23,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   `sms:`, `tel:` or an app scheme is ignored.
 - Imports, syncs and share downloads refuse files and photos far above
   the sizes the app writes, instead of unpacking them into memory.
+- In-person sync listens on the Wi-Fi connection only, and an address
+  that sends five wrong PINs is locked out for that session.
+- "Always allow this device" now rests on a secret the host hands the
+  device, not on the device's own name for itself; devices remembered
+  by older versions are asked once more.
+- Files on their way to a share sheet or the backup folder are written
+  to a private, short-lived directory and deleted afterwards.
+- The catalogs are excluded from Android and iCloud device backups, as
+  the privacy text promises.
 - A photo name inside a shared file or from a sync partner can no
   longer point outside the catalog's image folder — reading or
   deleting a photo needs a real hash.

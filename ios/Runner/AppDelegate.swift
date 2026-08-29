@@ -10,7 +10,20 @@ import UIKit
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    excludeCatalogsFromBackup()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+
+  // The catalogs live in Application Support, which iCloud would back
+  // up by default; the privacy text promises no server, so they stay
+  // on the device (the keeper's own backups are the safety net).
+  private func excludeCatalogsFromBackup() {
+    guard var dir = FileManager.default.urls(
+      for: .applicationSupportDirectory, in: .userDomainMask).first else { return }
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    var values = URLResourceValues()
+    values.isExcludedFromBackup = true
+    try? dir.setResourceValues(values)
   }
 
   func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
