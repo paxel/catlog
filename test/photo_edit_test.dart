@@ -38,6 +38,8 @@ void main() {
     await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 400)));
     await tester.pump(const Duration(milliseconds: 400));
+    // The preview is decoded at screen size, never at photo size.
+    expect(tester.widget<Image>(find.byType(Image)).image, isA<ResizeImage>());
     await tester.pump(const Duration(milliseconds: 400));
 
     // Drag a selection across the middle of the image area.

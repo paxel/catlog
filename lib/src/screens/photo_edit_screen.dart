@@ -5,6 +5,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import 'dart:ui' as ui;
 
 enum PhotoEditMode { crop, mark }
 
@@ -36,12 +37,26 @@ class _PhotoEditScreenState extends State<PhotoEditScreen> {
   @override
   void initState() {
     super.initState();
-    decodeImageFromList(widget.bytes).then((image) {
-      if (mounted) {
-        setState(() =>
-            _imageSize = Size(image.width.toDouble(), image.height.toDouble()));
+    _readSize();
+  }
+
+  /// The photo's size from its header alone. A full decode of a
+  /// 12–50 MP camera file just to learn two numbers was 50–200 MB of
+  /// pixels — and a second copy sat behind the preview.
+  Future<void> _readSize() async {
+    final buffer = await ui.ImmutableBuffer.fromUint8List(widget.bytes);
+    final Size size;
+    try {
+      final descriptor = await ui.ImageDescriptor.encoded(buffer);
+      try {
+        size = Size(descriptor.width.toDouble(), descriptor.height.toDouble());
+      } finally {
+        descriptor.dispose();
       }
-    });
+    } finally {
+      buffer.dispose();
+    }
+    if (mounted) setState(() => _imageSize = size);
   }
 
   /// Where the image actually renders inside [box] with BoxFit.contain.
@@ -135,8 +150,13 @@ class _PhotoEditScreenState extends State<PhotoEditScreen> {
                       foregroundPainter: _SelectionPainter(
                           _selection, widget.mode == PhotoEditMode.mark),
                       child: SizedBox.expand(
+                        // Decoded at screen size: the selection is
+                        // fractional, the crop runs on the real bytes.
                         child: Image.memory(widget.bytes,
-                            fit: BoxFit.contain),
+                            fit: BoxFit.contain,
+                            cacheWidth: (MediaQuery.sizeOf(context).width *
+                                    MediaQuery.devicePixelRatioOf(context))
+                                .round()),
                       ),
                     ),
                   );
