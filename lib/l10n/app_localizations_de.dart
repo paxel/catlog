@@ -252,6 +252,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get viewAsTiles => 'Als Kacheln anzeigen';
 
   @override
+  String get viewAsList => 'Als Liste anzeigen';
+
+  @override
+  String get ageLabel => 'Alter';
+
+  @override
+  String get catList => 'Katzenliste';
+
+  @override
   String get matchCandidatesTitle => 'Mögliche Treffer';
 
   @override

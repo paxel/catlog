@@ -251,6 +251,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get viewAsTiles => 'Mostra come riquadri';
 
   @override
+  String get viewAsList => 'Mostra come elenco';
+
+  @override
+  String get ageLabel => 'Età';
+
+  @override
+  String get catList => 'Elenco gatti';
+
+  @override
   String get matchCandidatesTitle => 'Possibili corrispondenze';
 
   @override

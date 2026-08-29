@@ -608,6 +608,24 @@ abstract class AppLocalizations {
   /// **'Show as tiles'**
   String get viewAsTiles;
 
+  /// No description provided for @viewAsList.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as list'**
+  String get viewAsList;
+
+  /// No description provided for @ageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get ageLabel;
+
+  /// No description provided for @catList.
+  ///
+  /// In en, this message translates to:
+  /// **'Cat list'**
+  String get catList;
+
   /// No description provided for @matchCandidatesTitle.
   ///
   /// In en, this message translates to:

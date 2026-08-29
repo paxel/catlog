@@ -251,6 +251,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get viewAsTiles => 'Показати плитками';
 
   @override
+  String get viewAsList => 'Показати списком';
+
+  @override
+  String get ageLabel => 'Вік';
+
+  @override
+  String get catList => 'Список котів';
+
+  @override
   String get matchCandidatesTitle => 'Можливі збіги';
 
   @override

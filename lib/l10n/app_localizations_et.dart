@@ -251,6 +251,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get viewAsTiles => 'Kuva paanidena';
 
   @override
+  String get viewAsList => 'Kuva loendina';
+
+  @override
+  String get ageLabel => 'Vanus';
+
+  @override
+  String get catList => 'Kasside loend';
+
+  @override
   String get matchCandidatesTitle => 'Võimalikud vasted';
 
   @override

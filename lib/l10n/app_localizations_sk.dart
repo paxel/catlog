@@ -251,6 +251,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get viewAsTiles => 'Zobraziť ako dlaždice';
 
   @override
+  String get viewAsList => 'Zobraziť ako zoznam';
+
+  @override
+  String get ageLabel => 'Vek';
+
+  @override
+  String get catList => 'Zoznam mačiek';
+
+  @override
   String get matchCandidatesTitle => 'Možné zhody';
 
   @override

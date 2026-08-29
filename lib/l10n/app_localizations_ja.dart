@@ -248,6 +248,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get viewAsTiles => 'タイル表示';
 
   @override
+  String get viewAsList => 'リストで表示';
+
+  @override
+  String get ageLabel => '年齢';
+
+  @override
+  String get catList => '猫リスト';
+
+  @override
   String get matchCandidatesTitle => '一致候補';
 
   @override

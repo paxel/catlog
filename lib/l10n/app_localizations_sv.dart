@@ -251,6 +251,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get viewAsTiles => 'Visa som paneler';
 
   @override
+  String get viewAsList => 'Visa som lista';
+
+  @override
+  String get ageLabel => 'Ålder';
+
+  @override
+  String get catList => 'Kattlista';
+
+  @override
   String get matchCandidatesTitle => 'Möjliga matchningar';
 
   @override

@@ -251,6 +251,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get viewAsTiles => 'Ver como mosaicos';
 
   @override
+  String get viewAsList => 'Mostrar como lista';
+
+  @override
+  String get ageLabel => 'Edad';
+
+  @override
+  String get catList => 'Lista de gatos';
+
+  @override
   String get matchCandidatesTitle => 'Posibles coincidencias';
 
   @override

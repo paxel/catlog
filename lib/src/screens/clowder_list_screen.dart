@@ -25,7 +25,7 @@ import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
 import 'fields_screen.dart';
 import 'map_screen.dart';
-import 'search_screen.dart';
+import 'cat_list_screen.dart';
 import 'strays_screen.dart';
 import '../move_to_catalog.dart';
 import '../reminders/mirror_hook.dart';
@@ -228,9 +228,14 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
           IconButton(
             icon: const Icon(Icons.search),
             tooltip: context.t.searchCats,
+            // Searching is filtering the list of every cat (#87).
             onPressed: () => _open(PanePage(
                 id: 'search',
-                build: (_) => SearchScreen(store: widget.store))),
+                build: (_) => CatListScreen(
+                    store: widget.store,
+                    title: context.t.cats,
+                    source: (s) => s.visibleCats(),
+                    autofocusFilter: true))),
           ),
           Spotlight(
             id: 'home-agenda',

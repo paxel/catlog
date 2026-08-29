@@ -251,6 +251,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get viewAsTiles => 'عرض كبلاطات';
 
   @override
+  String get viewAsList => 'عرض كقائمة';
+
+  @override
+  String get ageLabel => 'العمر';
+
+  @override
+  String get catList => 'قائمة القطط';
+
+  @override
   String get matchCandidatesTitle => 'مرشّحو التطابق';
 
   @override

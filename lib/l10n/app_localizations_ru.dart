@@ -251,6 +251,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get viewAsTiles => 'Показать плитками';
 
   @override
+  String get viewAsList => 'Показать списком';
+
+  @override
+  String get ageLabel => 'Возраст';
+
+  @override
+  String get catList => 'Список кошек';
+
+  @override
   String get matchCandidatesTitle => 'Возможные совпадения';
 
   @override

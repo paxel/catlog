@@ -251,6 +251,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get viewAsTiles => 'Προβολή ως πλακίδια';
 
   @override
+  String get viewAsList => 'Εμφάνιση ως λίστα';
+
+  @override
+  String get ageLabel => 'Ηλικία';
+
+  @override
+  String get catList => 'Λίστα γατών';
+
+  @override
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
 
   @override

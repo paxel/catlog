@@ -251,6 +251,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String get viewAsTiles => 'Vis som fliser';
 
   @override
+  String get viewAsList => 'Vis som liste';
+
+  @override
+  String get ageLabel => 'Alder';
+
+  @override
+  String get catList => 'Katteliste';
+
+  @override
   String get matchCandidatesTitle => 'Mulige match';
 
   @override

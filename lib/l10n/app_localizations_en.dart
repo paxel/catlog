@@ -251,6 +251,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get viewAsTiles => 'Show as tiles';
 
   @override
+  String get viewAsList => 'Show as list';
+
+  @override
+  String get ageLabel => 'Age';
+
+  @override
+  String get catList => 'Cat list';
+
+  @override
   String get matchCandidatesTitle => 'Match candidates';
 
   @override

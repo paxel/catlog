@@ -12,12 +12,13 @@ import 'src/auto_backup.dart';
 import 'src/crash_guard.dart';
 import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
+import 'src/hidden.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
 import 'src/screens/home_shell.dart';
 import 'src/screens/intro_screen.dart';
-import 'src/screens/search_screen.dart';
+import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -259,7 +260,11 @@ class _CatlogAppState extends State<CatlogApp>
           bindings: {
             const SingleActivator(LogicalKeyboardKey.keyF, control: true):
                 () => navigatorKey.currentState?.push(MaterialPageRoute(
-                      builder: (_) => SearchScreen(store: _store),
+                      builder: (context) => CatListScreen(
+                          store: _store,
+                          title: context.t.cats,
+                          source: (s) => s.visibleCats(),
+                          autofocusFilter: true),
                     )),
             const SingleActivator(LogicalKeyboardKey.keyK, control: true):
                 () => navigatorKey.currentState?.push(MaterialPageRoute(

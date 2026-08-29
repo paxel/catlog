@@ -251,6 +251,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get viewAsTiles => 'Taispeáin mar thíleanna';
 
   @override
+  String get viewAsList => 'Taispeáin mar liosta';
+
+  @override
+  String get ageLabel => 'Aois';
+
+  @override
+  String get catList => 'Liosta cat';
+
+  @override
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
 
   @override

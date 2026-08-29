@@ -251,6 +251,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get viewAsTiles => 'Zobrazit jako dlaždice';
 
   @override
+  String get viewAsList => 'Zobrazit jako seznam';
+
+  @override
+  String get ageLabel => 'Věk';
+
+  @override
+  String get catList => 'Seznam koček';
+
+  @override
   String get matchCandidatesTitle => 'Možné shody';
 
   @override

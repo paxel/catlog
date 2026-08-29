@@ -251,6 +251,15 @@ class AppLocalizationsMk extends AppLocalizations {
   String get viewAsTiles => 'Прикажи како плочки';
 
   @override
+  String get viewAsList => 'Прикажи како листа';
+
+  @override
+  String get ageLabel => 'Возраст';
+
+  @override
+  String get catList => 'Листа на мачки';
+
+  @override
   String get matchCandidatesTitle => 'Можни совпаѓања';
 
   @override

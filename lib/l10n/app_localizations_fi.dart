@@ -251,6 +251,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get viewAsTiles => 'Näytä ruutuina';
 
   @override
+  String get viewAsList => 'Näytä luettelona';
+
+  @override
+  String get ageLabel => 'Ikä';
+
+  @override
+  String get catList => 'Kissaluettelo';
+
+  @override
   String get matchCandidatesTitle => 'Mahdolliset osumat';
 
   @override

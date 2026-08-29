@@ -251,6 +251,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get viewAsTiles => 'Shfaq si pllaka';
 
   @override
+  String get viewAsList => 'Shfaq si listë';
+
+  @override
+  String get ageLabel => 'Mosha';
+
+  @override
+  String get catList => 'Lista e maceve';
+
+  @override
   String get matchCandidatesTitle => 'Përputhje të mundshme';
 
   @override

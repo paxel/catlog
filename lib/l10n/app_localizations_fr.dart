@@ -251,6 +251,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get viewAsTiles => 'Afficher en vignettes';
 
   @override
+  String get viewAsList => 'Afficher en liste';
+
+  @override
+  String get ageLabel => 'Âge';
+
+  @override
+  String get catList => 'Liste des chats';
+
+  @override
   String get matchCandidatesTitle => 'Correspondances possibles';
 
   @override

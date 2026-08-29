@@ -251,6 +251,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get viewAsTiles => 'Karo olarak göster';
 
   @override
+  String get viewAsList => 'Liste olarak göster';
+
+  @override
+  String get ageLabel => 'Yaş';
+
+  @override
+  String get catList => 'Kedi listesi';
+
+  @override
   String get matchCandidatesTitle => 'Olası eşleşmeler';
 
   @override

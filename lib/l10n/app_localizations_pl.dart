@@ -251,6 +251,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get viewAsTiles => 'Pokaż jako kafelki';
 
   @override
+  String get viewAsList => 'Pokaż jako listę';
+
+  @override
+  String get ageLabel => 'Wiek';
+
+  @override
+  String get catList => 'Lista kotów';
+
+  @override
   String get matchCandidatesTitle => 'Możliwe dopasowania';
 
   @override

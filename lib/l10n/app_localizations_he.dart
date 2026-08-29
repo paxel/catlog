@@ -250,6 +250,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get viewAsTiles => 'הצגה כאריחים';
 
   @override
+  String get viewAsList => 'הצג כרשימה';
+
+  @override
+  String get ageLabel => 'גיל';
+
+  @override
+  String get catList => 'רשימת חתולים';
+
+  @override
   String get matchCandidatesTitle => 'התאמות אפשריות';
 
   @override

@@ -231,7 +231,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add stray'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'Foundling');
+    await tester.enterText(find.byType(TextField).last, 'Foundling');
     await tester.tap(find.text('Create'));
     await tester.pumpAndSettle();
 

@@ -251,6 +251,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String get viewAsTiles => 'Rādīt kā elementus';
 
   @override
+  String get viewAsList => 'Rādīt kā sarakstu';
+
+  @override
+  String get ageLabel => 'Vecums';
+
+  @override
+  String get catList => 'Kaķu saraksts';
+
+  @override
   String get matchCandidatesTitle => 'Iespējamās sakritības';
 
   @override

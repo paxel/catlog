@@ -29,6 +29,7 @@ import 'clowder_card_screen.dart';
 import 'map_screen.dart';
 import 'timeline_screen.dart';
 import '../geocode.dart';
+import 'cat_list_screen.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -318,10 +319,29 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     final gallery = <Widget>[
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(
-          '${context.t.cats} (${cats.length})',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        child: Row(children: [
+          Expanded(
+            child: Text(
+              '${context.t.cats} (${cats.length})',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
+          // The members as a sortable list or table (#87); the faces
+          // stay here.
+          TextButton.icon(
+            icon: const Icon(Icons.view_list),
+            label: Text(context.t.catList),
+            onPressed: () async {
+              await Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => CatListScreen(
+                    store: store,
+                    title: name,
+                    source: (s) => s.visibleCats(clowderId: id)),
+              ));
+              if (mounted) setState(() {});
+            },
+          ),
+        ]),
       ),
       _catGrid(cats),
     ];

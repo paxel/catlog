@@ -251,6 +251,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get viewAsTiles => 'Показване като плочки';
 
   @override
+  String get viewAsList => 'Покажи като списък';
+
+  @override
+  String get ageLabel => 'Възраст';
+
+  @override
+  String get catList => 'Списък с котки';
+
+  @override
   String get matchCandidatesTitle => 'Кандидати за съвпадение';
 
   @override

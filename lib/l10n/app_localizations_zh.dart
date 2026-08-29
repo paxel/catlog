@@ -241,6 +241,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get viewAsTiles => '以磁贴显示';
 
   @override
+  String get viewAsList => '以列表显示';
+
+  @override
+  String get ageLabel => '年龄';
+
+  @override
+  String get catList => '猫列表';
+
+  @override
   String get matchCandidatesTitle => '疑似匹配';
 
   @override

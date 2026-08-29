@@ -251,6 +251,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get viewAsTiles => 'Afișează ca plăci';
 
   @override
+  String get viewAsList => 'Afișează ca listă';
+
+  @override
+  String get ageLabel => 'Vârstă';
+
+  @override
+  String get catList => 'Lista pisicilor';
+
+  @override
   String get matchCandidatesTitle => 'Potriviri posibile';
 
   @override

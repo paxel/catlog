@@ -251,6 +251,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get viewAsTiles => 'Als tegels tonen';
 
   @override
+  String get viewAsList => 'Als lijst tonen';
+
+  @override
+  String get ageLabel => 'Leeftijd';
+
+  @override
+  String get catList => 'Kattenlijst';
+
+  @override
   String get matchCandidatesTitle => 'Mogelijke matches';
 
   @override

@@ -252,6 +252,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get viewAsTiles => 'Uri bħala madum';
 
   @override
+  String get viewAsList => 'Uri bħala lista';
+
+  @override
+  String get ageLabel => 'Età';
+
+  @override
+  String get catList => 'Lista tal-qtates';
+
+  @override
   String get matchCandidatesTitle => 'Tqabbil possibbli';
 
   @override

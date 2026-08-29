@@ -251,6 +251,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get viewAsTiles => 'Rodyti plytelėmis';
 
   @override
+  String get viewAsList => 'Rodyti kaip sąrašą';
+
+  @override
+  String get ageLabel => 'Amžius';
+
+  @override
+  String get catList => 'Kačių sąrašas';
+
+  @override
   String get matchCandidatesTitle => 'Galimi atitikmenys';
 
   @override

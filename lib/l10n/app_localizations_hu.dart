@@ -251,6 +251,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get viewAsTiles => 'Csempeként';
 
   @override
+  String get viewAsList => 'Megjelenítés listaként';
+
+  @override
+  String get ageLabel => 'Kor';
+
+  @override
+  String get catList => 'Macskalista';
+
+  @override
   String get matchCandidatesTitle => 'Lehetséges egyezések';
 
   @override

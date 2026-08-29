@@ -251,6 +251,15 @@ class AppLocalizationsHr extends AppLocalizations {
   String get viewAsTiles => 'Prikaži kao pločice';
 
   @override
+  String get viewAsList => 'Prikaži kao popis';
+
+  @override
+  String get ageLabel => 'Dob';
+
+  @override
+  String get catList => 'Popis mačaka';
+
+  @override
   String get matchCandidatesTitle => 'Mogući parovi';
 
   @override

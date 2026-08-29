@@ -7,10 +7,11 @@ import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_list_screen.dart';
 import 'package:catlog/src/screens/fields_screen.dart';
-import 'package:catlog/src/screens/search_screen.dart';
+import 'package:catlog/src/screens/cat_list_screen.dart';
 import 'package:catlog/src/screens/timeline_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:catlog/src/hidden.dart';
 
 /// The everyday paths through the detail screens: what a keeper does on
 /// a normal afternoon.
@@ -183,7 +184,13 @@ void main() {
     });
 
     testWidgets('search finds a cat by name', (tester) async {
-      await pump(tester, SearchScreen(store: store));
+      await pump(
+          tester,
+          CatListScreen(
+              store: store,
+              title: 'Cats',
+              source: (s) => s.visibleCats(),
+              autofocusFilter: true));
       await tester.enterText(find.byType(TextField), 'Mie');
       await tester.pumpAndSettle();
       expect(find.text('Miezi'), findsOneWidget);

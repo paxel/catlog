@@ -251,6 +251,15 @@ class AppLocalizationsBs extends AppLocalizations {
   String get viewAsTiles => 'Prikaži kao pločice';
 
   @override
+  String get viewAsList => 'Prikaži kao listu';
+
+  @override
+  String get ageLabel => 'Dob';
+
+  @override
+  String get catList => 'Lista mačaka';
+
+  @override
   String get matchCandidatesTitle => 'Mogući parovi';
 
   @override

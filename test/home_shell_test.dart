@@ -6,7 +6,7 @@ import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/move_to_catalog.dart' show CatalogSwitching;
 import 'package:catlog/src/screens/home_shell.dart';
-import 'package:catlog/src/screens/search_screen.dart';
+import 'package:catlog/src/screens/cat_list_screen.dart';
 import 'package:catlog/src/screens/strays_screen.dart';
 import 'package:catlog/src/screens/sync_screen.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +66,7 @@ void main() {
     await pump(tester);
     await tester.tap(find.byIcon(Icons.search));
     await tester.pumpAndSettle();
-    expect(inPane(tester, find.byType(SearchScreen)), isTrue);
+    expect(inPane(tester, find.byType(CatListScreen)), isTrue);
   });
 
   testWidgets('Sync still takes the whole window — it is an errand, not '

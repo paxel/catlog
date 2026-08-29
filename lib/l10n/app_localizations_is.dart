@@ -252,6 +252,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get viewAsTiles => 'Sýna sem flísar';
 
   @override
+  String get viewAsList => 'Sýna sem lista';
+
+  @override
+  String get ageLabel => 'Aldur';
+
+  @override
+  String get catList => 'Kattalisti';
+
+  @override
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
 
   @override

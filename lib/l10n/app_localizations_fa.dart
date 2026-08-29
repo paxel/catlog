@@ -251,6 +251,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get viewAsTiles => 'نمایش کاشی‌وار';
 
   @override
+  String get viewAsList => 'نمایش به صورت فهرست';
+
+  @override
+  String get ageLabel => 'سن';
+
+  @override
+  String get catList => 'فهرست گربه‌ها';
+
+  @override
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
 
   @override
