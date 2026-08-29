@@ -176,7 +176,11 @@ class LanSyncHost {
     } catch (_) {
       req.response.statusCode = HttpStatus.internalServerError;
     } finally {
-      await req.response.close();
+      // A joiner that vanished mid-answer makes close() itself throw;
+      // that is the joiner's problem, never the host's crash screen.
+      try {
+        await req.response.close();
+      } catch (_) {}
     }
   }
 }
