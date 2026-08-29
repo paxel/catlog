@@ -6,6 +6,7 @@ import 'dart:typed_data' show BytesBuilder;
 import 'package:catalog_core/catalog_core.dart';
 
 import 'package:flutter/foundation.dart';
+import 'dart:async';
 
 /// Outcome of one sync session, for the summary line.
 class SyncResult {
@@ -88,6 +89,10 @@ class LanSyncHost {
   final _failures = <String, int>{};
   var _failuresTotal = 0;
 
+  /// Sync requests are handled one after the other: two joiners at once
+  /// would stack two trust dialogs and interleave their imports.
+  Future<void> _syncTurn = Future.value();
+
   LanSyncHost(this.store, this.pin, {this.onJoinRequest, this.onSession});
 
   int get port => _server!.port;
@@ -139,6 +144,22 @@ class LanSyncHost {
   }
 
   Future<void> _handle(HttpRequest req) async {
+    if (req.method == 'POST' && req.uri.path == '/sync') {
+      final previous = _syncTurn;
+      final done = Completer<void>();
+      _syncTurn = done.future;
+      try {
+        await previous;
+        await _handleNow(req);
+      } finally {
+        done.complete();
+      }
+      return;
+    }
+    await _handleNow(req);
+  }
+
+  Future<void> _handleNow(HttpRequest req) async {
     try {
       final from = req.connectionInfo?.remoteAddress.address ?? '?';
       if (lockedOut || (_failures[from] ?? 0) >= pinFailuresPerAddress) {
