@@ -35,15 +35,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   highlighted pin. Cats of a clowder without a position pin at their
   own sightings. Cats sighted within 20 m of each other share one pin
   — one face, the name and "+2" — that opens the list of those cats.
-
 - The card's QR code for a registry number (TASSO and the like) carries
   the registry's search link, so a phone camera opens the search;
   the caption still shows the number.
-
 - The flier wizard's Flier text page offers "Drop" for any line, and a
   line sent to remarks arrives as its value alone — the poster's labels
   ("Geschlecht:") no longer fill the cat's and owner's remarks.
-
 - Dates are typed — "14.05.2021", "05.2021" or "2021" — with the
   calendar behind an icon instead of a month grid filling the dialog.
   Reminders, appointments and "as of" dates use the same entry.
