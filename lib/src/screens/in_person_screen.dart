@@ -254,7 +254,9 @@ class _InPersonScreenState extends State<InPersonScreen> {
 
   Future<void> _joinWith(String raw) async {
     final info = decodePairCode(raw);
-    if (info == null) {
+    // A code pointing outside the local network is not a pair code —
+    // nothing is sent anywhere.
+    if (info == null || !isPrivateHost(info.host)) {
       setState(() => _lastResult = context.t.invalidCode);
       return;
     }

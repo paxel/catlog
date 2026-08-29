@@ -15,6 +15,23 @@ class PairInfo {
   const PairInfo(this.host, this.port, this.pin);
 }
 
+/// Whether [host] is an address on a local network — the only place
+/// an in-person sync partner can be. A typed code carrying a public
+/// address would send every public entry to a stranger on the internet
+/// before any answer came back.
+bool isPrivateHost(String host) {
+  final parts = host.split('.');
+  if (parts.length != 4) return false;
+  final o = parts.map(int.tryParse).toList();
+  if (o.any((n) => n == null || n < 0 || n > 255)) return false;
+  final a = o[0]!, b = o[1]!;
+  return a == 10 ||
+      (a == 172 && b >= 16 && b <= 31) ||
+      (a == 192 && b == 168) ||
+      (a == 169 && b == 254) ||
+      a == 127;
+}
+
 String encodePairCode(String host, int port, String pin) {
   final address = InternetAddress(host);
   final pinNumber = int.parse(pin);
