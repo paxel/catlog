@@ -2,6 +2,13 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.0.4] - 2026-08-28
+
+### Fixed
+
+- The calendar mirror on Android found no calendar although the phone
+  had several; the picker now lists them.
+
 ## [1.0.3] - 2026-08-28
 
 ### Added

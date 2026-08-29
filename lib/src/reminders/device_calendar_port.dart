@@ -12,6 +12,19 @@ bool get deviceCalendarAvailable =>
     (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS);
 
+/// The instant the plugin writes for a local wall-clock moment.
+///
+/// `tz.local` is UTC unless someone calls `setLocalLocation`, which
+/// nobody does — so building a TZDateTime from the hour and minute
+/// stamped "10:00" as 10:00 UTC and the phone showed 12:00 in a German
+/// summer (1.0.5). Converting by instant keeps the moment the keeper
+/// typed. All-day events stay at UTC midnight of the day: Android
+/// stores them so and truncates any other instant to the day before.
+@visibleForTesting
+tz.TZDateTime calendarMoment(DateTime d, {required bool allDay}) => allDay
+    ? tz.TZDateTime.utc(d.year, d.month, d.day)
+    : tz.TZDateTime.from(d, tz.UTC);
+
 /// The real calendar behind [CalendarPort], via the device_calendar
 /// plugin. Only date, title and description are ever written; alarms
 /// and attendees belong to the user.
@@ -55,15 +68,13 @@ class DeviceCalendarPort implements CalendarPort {
 
   Event _event(String calendarId, EventSpec spec,
       {String? eventId, bool withAlert = false}) {
-    tz.TZDateTime at(DateTime d) =>
-        tz.TZDateTime(tz.local, d.year, d.month, d.day, d.hour, d.minute);
     return Event(
       calendarId,
       eventId: eventId,
       title: spec.title,
       description: spec.description,
-      start: at(spec.start),
-      end: at(spec.end),
+      start: calendarMoment(spec.start, allDay: spec.allDay),
+      end: calendarMoment(spec.end, allDay: spec.allDay),
       allDay: spec.allDay,
       // Alerts are written on creation only (#75); an update leaves
       // whatever the user set by hand.
