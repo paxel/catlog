@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
@@ -28,27 +27,22 @@ Future<void> handleSharedImages(GlobalKey<NavigatorState> navigator,
   }
   if (context == null || !context.mounted) return;
 
-  final bytesList = <Uint8List>[];
-  for (final path in paths) {
-    try {
-      bytesList.add(await File(path).readAsBytes());
-    } catch (_) {
-      // One unreadable share must not sink the rest.
-    }
-  }
-  if (bytesList.isEmpty || !context.mounted) return;
-
+  if (paths.isEmpty) return;
   final catId =
       await (chooseTarget ?? _chooseCat)(context, store);
   if (catId == null || !context.mounted) return;
 
   var added = 0;
-  for (final bytes in bytesList) {
+  // One photo in memory at a time: thirty shared camera files read up
+  // front were 150 MB before the first one was even compressed.
+  for (final path in paths) {
     try {
+      final bytes = await File(path).readAsBytes();
       await addCompressedImage(store, catId, bytes);
       added++;
     } catch (_) {
-      // Not a decodable image — skip, count only real photos.
+      // Unreadable or not a photo — skip, count only real photos; one
+      // bad share must not sink the rest.
     }
   }
   if (!context.mounted) return;
