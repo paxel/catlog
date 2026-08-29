@@ -54,6 +54,9 @@ class DiskCachingTileProvider extends TileProvider {
   }
 }
 
+/// The largest tile response kept: OSM tiles are well under 100 KB.
+const maxTileBytes = 2 << 20;
+
 /// Deletes the least recently modified tiles until [dir] holds at most
 /// [maxBytes]. Synchronous and cheap: one directory listing.
 void trimTileCache(Directory dir, int maxBytes) {
@@ -106,9 +109,14 @@ class _CachedTileImage extends ImageProvider<_CachedTileImage> {
         final builder = BytesBuilder();
         await for (final chunk in res) {
           builder.add(chunk);
+          // A tile is tens of KB; anything bigger is not a tile.
+          if (builder.length > maxTileBytes) {
+            throw NetworkImageLoadException(
+                statusCode: HttpStatus.requestEntityTooLarge,
+                uri: Uri.parse(url));
+          }
         }
         bytes = builder.takeBytes();
-        await file.writeAsBytes(bytes);
       } finally {
         client.close(force: true);
       }
@@ -116,6 +124,8 @@ class _CachedTileImage extends ImageProvider<_CachedTileImage> {
     final buffer = await ui.ImmutableBuffer.fromUint8List(bytes);
     final codec = await decode(buffer);
     final frame = await codec.getNextFrame();
+    // Cached only once it decoded: a bad answer is not kept for good.
+    if (!file.existsSync()) await file.writeAsBytes(bytes);
     return ImageInfo(image: frame.image);
   }
 
