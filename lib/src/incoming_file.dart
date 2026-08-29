@@ -14,6 +14,7 @@ import 'l10n.dart';
 /// argv) delivers a local path, we import it and show the summary.
 /// Garbage in is absorbed with a message, never a crash.
 const _channel = MethodChannel('catlog/openfile');
+Future<void> _queue = Future.value();
 
 /// [store] is a getter, not a store: switching catalogs replaces the
 /// open one, and a file shared in afterwards belongs to the new one.
@@ -23,8 +24,10 @@ const _channel = MethodChannel('catlog/openfile');
 void initIncomingFiles(GlobalKey<NavigatorState> navigator,
     CatalogStore Function() store, List<String> args,
     {CatalogManager? catalogs, void Function(CatalogInfo)? switchTo}) {
-  void import(String path) =>
-      _import(navigator, store, path, catalogs: catalogs, switchTo: switchTo);
+  // One file at a time: a second file while the first still asks for
+  // its catalog waits its turn instead of stacking a second dialog.
+  void import(String path) => _queue = _queue.then((_) =>
+      _import(navigator, store, path, catalogs: catalogs, switchTo: switchTo));
   _channel.setMethodCallHandler((call) async {
     if (call.method == 'open') {
       import(call.arguments as String);
