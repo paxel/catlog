@@ -22,6 +22,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
+import 'cat_list_screen.dart';
 
 /// The map: Strays at their latest position, Clowders as home pins.
 /// Long-press places a Clowder or records a Stray sighting at that spot.
@@ -38,12 +39,17 @@ class MapScreen extends StatefulWidget {
   /// Test override for the place search; defaults to OSM Nominatim.
   final GeocodeSearch? geocode;
 
+  /// The entity and spot "Show on map" was pressed for: drawn as a
+  /// highlighted pin whatever the map's own rules say (#88).
+  final (String, LatLng)? focus;
+
   const MapScreen(
       {super.key,
       required this.store,
       this.tileProvider,
       this.initialCenter,
-      this.geocode});
+      this.geocode,
+      this.focus});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -185,7 +191,7 @@ class _MapScreenState extends State<MapScreen>
   void _stepPins(int direction) {
     final pins = [
       ..._positioned(store.visibleClowders(), sightingsOnly: false),
-      ..._positioned(store.visibleStrays(), sightingsOnly: true),
+      for (final g in _grouped(_catPins())) (g.cats.first, g.point),
       ..._flierPinned(store.visibleStrays()),
     ];
     if (pins.isEmpty) return;
@@ -252,6 +258,70 @@ class _MapScreenState extends State<MapScreen>
           if (store.flierPositions(e.id).firstOrNull case final pos?)
             (e, LatLng(pos.$1, pos.$2))
       ];
+
+  /// Cats that pin on their own: strays, and members of a clowder that
+  /// has no position of its own (#88) — each at its latest sighting,
+  /// latest sighting first so a group shows the freshest face.
+  List<(EntityView, LatLng, DateTime)> _catPins() {
+    final pins = <(EntityView, LatLng, DateTime)>[];
+    for (final cat in store.visibleCats()) {
+      final clowderId = store.current(cat.id, Keys.clowder);
+      if (clowderId != null && store.positionOf(clowderId) != null) continue;
+      for (final e in store.fieldHistory(cat.id, CatalogStore.positionKey)) {
+        if (CatalogStore.parsePositionKind(e.value ?? '') !=
+            PositionKind.sighting) {
+          continue;
+        }
+        final pos = CatalogStore.parsePosition(e.value);
+        if (pos == null) continue;
+        pins.add((cat, LatLng(pos.$1, pos.$2), e.date));
+        break;
+      }
+    }
+    pins.sort((a, b) => b.$3.compareTo(a.$3));
+    return pins;
+  }
+
+  /// Cat pins within [groupMeters] of each other merge into one pin
+  /// (#88): one face, the name, and "+x"; tapping opens the cat list.
+  List<_PinGroup> _grouped(List<(EntityView, LatLng, DateTime)> pins) {
+    final groups = <_PinGroup>[];
+    for (final (cat, point, _) in pins) {
+      _PinGroup? near;
+      for (final g in groups) {
+        if (haversineMeters(g.point.latitude, g.point.longitude,
+                point.latitude, point.longitude) <=
+            groupMeters) {
+          near = g;
+          break;
+        }
+      }
+      if (near == null) {
+        groups.add(_PinGroup([cat], point));
+      } else {
+        near.cats.add(cat);
+      }
+    }
+    return groups;
+  }
+
+  Widget _focusFace(String id) =>
+      id.startsWith('clowder:') ? _clowderFace(id) : _catFace(id, true);
+
+  Future<void> _openGroup(_PinGroup group) async {
+    final ids = {for (final c in group.cats) c.id};
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => CatListScreen(
+        store: store,
+        title: context.t.cats,
+        source: (s) => [
+          for (final c in s.visibleCats())
+            if (ids.contains(c.id)) c
+        ],
+      ),
+    ));
+    if (mounted) setState(() {});
+  }
 
   // Only sightings are recorded from the map; a clowder's position is set
   // via its Position field — clowders move far too rarely for a map menu.
@@ -529,12 +599,15 @@ class _MapScreenState extends State<MapScreen>
     if (_tiles == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final strays =
-        _positioned(store.visibleStrays(), sightingsOnly: true);
+    final groups = _grouped(_catPins());
     final fliers = _flierPinned(store.visibleStrays());
     final clowders =
         _positioned(store.visibleClowders(), sightingsOnly: false);
-    final all = [...strays, ...fliers, ...clowders];
+    final all = [
+      for (final g in groups) (g.cats.first, g.point),
+      ...fliers,
+      ...clowders,
+    ];
     final stored = _storedViewport();
     final center = widget.initialCenter ??
         stored?.$1 ??
@@ -661,18 +734,46 @@ class _MapScreenState extends State<MapScreen>
                   )),
                 ),
               ),
-            for (final (cat, point) in strays)
+            for (final group in groups)
+              if (group.cats case [final cat])
+                Marker(
+                  point: group.point,
+                  width: 110,
+                  height: 72,
+                  alignment: Alignment.topCenter,
+                  child: _MapPin(
+                    label: cat.name,
+                    highlighted: _trailCat == cat.id,
+                    child: _catFace(cat.id, _trailCat == cat.id),
+                    onTap: () => setState(() =>
+                        _trailCat = _trailCat == cat.id ? null : cat.id),
+                  ),
+                )
+              else
+                // Several cats on one spot: one pin, the freshest face,
+                // the count — the list behind it tells them apart (#88).
+                Marker(
+                  point: group.point,
+                  width: 110,
+                  height: 72,
+                  alignment: Alignment.topCenter,
+                  child: _MapPin(
+                    label: '${group.cats.first.name} +${group.cats.length - 1}',
+                    child: _catFace(group.cats.first.id, false),
+                    onTap: () => _openGroup(group),
+                  ),
+                ),
+            if (widget.focus case (final id, final point))
               Marker(
                 point: point,
                 width: 110,
                 height: 72,
                 alignment: Alignment.topCenter,
                 child: _MapPin(
-                  label: cat.name,
-                  highlighted: _trailCat == cat.id,
-                  child: _catFace(cat.id, _trailCat == cat.id),
-                  onTap: () => setState(() =>
-                      _trailCat = _trailCat == cat.id ? null : cat.id),
+                  label: store.current(id, Keys.name) ?? context.t.unnamed,
+                  highlighted: true,
+                  child: _focusFace(id),
+                  onTap: () {},
                 ),
               ),
             // Where the poster says the cat was lost: a square pin,
@@ -807,6 +908,16 @@ class _MapScreenState extends State<MapScreen>
 }
 
 /// Map pin: avatar/icon with the name on a readable chip below.
+/// Cat pins within this distance merge into one (#88).
+const groupMeters = 20.0;
+
+class _PinGroup {
+  final List<EntityView> cats;
+  final LatLng point;
+
+  _PinGroup(this.cats, this.point);
+}
+
 class _MapPin extends StatelessWidget {
   final String label;
   final Widget child;

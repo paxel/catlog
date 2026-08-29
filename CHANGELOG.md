@@ -25,7 +25,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - A stray's flier position shows on the map as a square pin with its
   face; sightings stay round. A cat known only from its poster is on
-  the map now, and "Show on map" from its page lands on a pin.
+  the map now.
+- "Show on map" from a cat's or clowder's page marks that spot with a
+  highlighted pin. Cats of a clowder without a position pin at their
+  own sightings. Cats sighted within 20 m of each other share one pin
+  — one face, the name and "+2" — that opens the list of those cats.
 
 - The card's QR code for a registry number (TASSO and the like) carries
   the registry's search link, so a phone camera opens the search;

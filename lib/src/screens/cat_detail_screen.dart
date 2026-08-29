@@ -177,8 +177,13 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     if (pos == null) return;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) =>
-            MapScreen(store: store, initialCenter: LatLng(pos.$1, pos.$2)),
+        builder: (_) => MapScreen(
+          store: store,
+          initialCenter: LatLng(pos.$1, pos.$2),
+          // The spot the page asked for gets a pin, whatever the map's
+          // own rules say (#88).
+          focus: (id, LatLng(pos.$1, pos.$2)),
+        ),
       ),
     );
   }

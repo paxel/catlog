@@ -12,6 +12,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
+import 'package:catlog/src/screens/cat_list_screen.dart';
 
 /// Serves one local PNG for every tile — no network in tests.
 class _FakeTileProvider extends TileProvider {
@@ -92,6 +93,71 @@ void main() {
     await tester.tap(find.text('Minka'));
     await tester.pump(const Duration(seconds: 1));
     expect(find.text('Minka'), findsNWidgets(2));
+  });
+
+  testWidgets('members of a clowder without a position pin themselves; '
+      'cats on one spot share a pin that opens the list (#88)',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_map');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final yard = store.createClowder('Hühnerecken');
+    final hen = store.createCat('Schneeweißchen');
+    store.moveCat(hen, yard);
+    store.recordPosition(hen, 49.4264, 6.8376);
+    final rooster = store.createCat('Hahn');
+    store.moveCat(rooster, yard);
+    // Five metres away: the same spot.
+    store.recordPosition(rooster, 49.42644, 6.8376);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Hahn +1'), findsOneWidget);
+    expect(find.text('Schneeweißchen'), findsNothing);
+
+    await tester.tap(find.text('Hahn +1'));
+    await tester.pumpAndSettle();
+    expect(find.byType(CatListScreen), findsOneWidget);
+    expect(find.text('Hahn'), findsOneWidget);
+    expect(find.text('Schneeweißchen'), findsOneWidget);
+  });
+
+  testWidgets('"Show on map" pins the spot it was pressed for (#88)',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_map');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    store.author = 'axel';
+    final yard = store.createClowder('Hühnerecken');
+    store.recordPosition(yard, 49.0, 6.0);
+    final hen = store.createCat('Schneeweißchen');
+    store.moveCat(hen, yard);
+    store.recordPosition(hen, 49.4264, 6.8376);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(
+          store: store,
+          tileProvider: _FakeTileProvider(tile),
+          initialCenter: const LatLng(49.4264, 6.8376),
+          focus: (hen, const LatLng(49.4264, 6.8376))),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    // The clowder has a position, so the member would not pin on its
+    // own — the focus pin is there regardless.
+    expect(find.text('Schneeweißchen'), findsOneWidget);
   });
 
   testWidgets('the stray-area overlay draws 500 m flier circles',
