@@ -89,4 +89,47 @@ void main() {
     expect(result, isNotNull);
     expect(result!.length, greaterThanOrEqualTo(1));
   });
+
+  testWidgets('kept frames come back at photo size, previews stay small',
+      (tester) async {
+    final small = Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 64, height: 48)));
+    final big = Uint8List.fromList(
+        img.encodeJpg(img.Image(width: 256, height: 192)));
+    var fullCalls = 0;
+    List<Uint8List>? result;
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Builder(
+        builder: (context) => ElevatedButton(
+          onPressed: () async {
+            result = await Navigator.of(context)
+                .push<List<Uint8List>>(MaterialPageRoute(
+              builder: (_) => VideoFramesScreen(
+                duration: const Duration(seconds: 10),
+                samples: 3,
+                extractFrame: (ms) async => small,
+                extractFull: (ms) async {
+                  fullCalls++;
+                  return big;
+                },
+              ),
+            ));
+          },
+          child: const Text('go'),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('go'));
+    await tester.pumpAndSettle();
+    // Nothing full-size until something is kept.
+    expect(fullCalls, 0);
+    await tester.tap(find.byType(GestureDetector).first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Save'));
+    await tester.pumpAndSettle();
+    expect(fullCalls, 1);
+    expect(result, [big]);
+  });
 }

@@ -59,8 +59,15 @@ class VideoFramesScreen extends StatefulWidget {
   /// Total clip length.
   final Duration duration;
 
-  /// Extracts the frame at a position; null when extraction fails.
+  /// Extracts the frame at a position, at preview size — what the
+  /// picker holds and shows; null when extraction fails.
   final Future<Uint8List?> Function(int ms) extractFrame;
+
+  /// Extracts the frame at full photo size — asked only for the frames
+  /// the keeper keeps, when the picker closes. A dozen full-size
+  /// frames in memory at once killed the app on iPhones. Null uses
+  /// [extractFrame].
+  final Future<Uint8List?> Function(int ms)? extractFull;
 
   /// How many positions the auto pass samples across the clip.
   final int samples;
@@ -69,6 +76,7 @@ class VideoFramesScreen extends StatefulWidget {
       {super.key,
       required this.duration,
       required this.extractFrame,
+      this.extractFull,
       this.samples = 12});
 
   @override
@@ -110,6 +118,18 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
 
   /// Live preview while scrubbing: extracting every drag tick is too
   /// heavy, so the frame loads when the finger settles.
+  /// The kept frames at photo size, one at a time, then out.
+  Future<void> _keepAndClose() async {
+    setState(() => _busy = true);
+    final full = widget.extractFull ?? widget.extractFrame;
+    final kept = <Uint8List>[];
+    for (final ms in _kept.toList()..sort()) {
+      kept.add(await full(ms) ?? _frames[ms]!);
+    }
+    if (!mounted) return;
+    Navigator.of(context).pop(kept);
+  }
+
   Future<void> _previewAtScrub() async {
     final ms = _scrub.round();
     final bytes = await widget.extractFrame(ms);
@@ -144,12 +164,7 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
         IconButton(
           icon: const Icon(Icons.check),
           tooltip: t.save,
-          onPressed: _kept.isEmpty
-              ? null
-              : () => Navigator.of(context).pop(<Uint8List>[
-                    for (final ms in (_kept.toList()..sort()))
-                      _frames[ms]!
-                  ]),
+          onPressed: _kept.isEmpty || _busy ? null : _keepAndClose,
         ),
       ]),
       body: _busy
@@ -175,6 +190,8 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
                           borderRadius: BorderRadius.circular(8),
                           child: Image.memory(_frames[ms]!,
                               fit: BoxFit.cover,
+                              // Decoded at tile size, not photo size.
+                              cacheWidth: 320,
                               gaplessPlayback: true),
                         ),
                         Align(
@@ -204,6 +221,7 @@ class _VideoFramesScreenState extends State<VideoFramesScreen> {
                     child: Image.memory(_preview!,
                         key: const ValueKey('scrub-preview'),
                         gaplessPlayback: true,
+                        cacheHeight: 320,
                         height: 160,
                         fit: BoxFit.contain),
                   ),
