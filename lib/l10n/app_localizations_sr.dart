@@ -1636,6 +1636,10 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Ништа није уклоњено: каталог се променио док се датотека чувала. Покушај поново.';
+
+  @override
   String get switchBeforeDeleting =>
       'Ово је каталог у ком си. Пређи на други, па га обриши.';
 

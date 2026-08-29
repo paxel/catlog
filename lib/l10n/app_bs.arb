@@ -547,6 +547,7 @@
   "nameThisMoment": "Imenuj ovaj trenutak",
   "helpGoBack": "Trenuci u kojima se ovaj katalog jako promijenio: prije svakog uvoza i svake sinkronizacije, prije spajanja, arhiviranja ili brisanja, i kad god si sam označio trenutak. Odabir jednog vraća katalog u to stanje — sve poslije njega upisuje se u datoteku koju zadržavaš i onda uklanja, a svaki noviji trenutak odlazi s tim. Oni s kojima si već sinkronizirao zadržavaju ono što su dobili.",
   "goBackFileFailed": "Ništa nije uklonjeno: datoteka koja to čuva nije mogla biti zapisana ({error}). Oslobodi prostor i pokušaj ponovo.",
+  "goBackChanged": "Ništa nije uklonjeno: katalog se promijenio dok je datoteka spremana. Pokušaj ponovo.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

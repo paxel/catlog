@@ -1644,6 +1644,10 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Níor baineadh aon rud: d\'athraigh an chatalóg fad a bhí an comhad á shábháil. Bain triail eile as.';
+
+  @override
   String get switchBeforeDeleting =>
       'Seo an chatalóg ina bhfuil tú. Athraigh go ceann eile agus scrios ansin í.';
 

@@ -1635,6 +1635,10 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Inget togs bort: katalogen ändrades medan filen sparades. Försök igen.';
+
+  @override
   String get switchBeforeDeleting =>
       'Det här är katalogen du är i. Byt till en annan och ta bort den sedan.';
 

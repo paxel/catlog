@@ -1635,6 +1635,10 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Midagi ei eemaldatud: kataloog muutus faili salvestamise ajal. Proovi uuesti.';
+
+  @override
   String get switchBeforeDeleting =>
       'See on kataloog, milles oled. Vaheta teisele ja kustuta see siis.';
 

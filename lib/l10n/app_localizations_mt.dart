@@ -1640,6 +1640,10 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Xejn ma tneħħa: il-katalgu nbidel waqt li l-fajl kien qed jiġi salvat. Erġa\' pprova.';
+
+  @override
   String get switchBeforeDeleting =>
       'Dan huwa l-katalgu li qiegħed fih. Aqleb għal ieħor, imbagħad ħassru.';
 

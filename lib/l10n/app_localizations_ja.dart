@@ -1599,6 +1599,9 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged => '何も削除されませんでした：ファイルの保存中にカタログが変更されました。もう一度お試しください。';
+
+  @override
   String get switchBeforeDeleting => 'いま開いているカタログです。別のカタログに切り替えてから削除してください。';
 
   @override

@@ -1636,6 +1636,10 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Нічого не видалено: каталог змінився, поки файл зберігався. Спробуйте ще раз.';
+
+  @override
   String get switchBeforeDeleting =>
       'Це каталог, у якому ви зараз. Перемкніться на інший, потім видаліть його.';
 

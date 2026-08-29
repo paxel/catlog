@@ -547,6 +547,7 @@
   "nameThisMoment": "Da nombre a este momento",
   "helpGoBack": "Los momentos en que este catálogo cambió de forma: antes de cada importación y cada sincronización, antes de una fusión, un archivado o un borrado, y siempre que marcaste uno tú. Elegir uno devuelve el catálogo a ese estado: todo lo posterior se escribe en un archivo que conservas y luego se quita, y cada momento más nuevo se va con él. Quienes ya sincronizaron conservan lo que recibieron.",
   "goBackFileFailed": "No se quitó nada: no se pudo escribir el archivo que lo guarda ({error}). Libera espacio e inténtalo otra vez.",
+  "goBackChanged": "No se eliminó nada: el catálogo cambió mientras se guardaba el archivo. Inténtalo de nuevo.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

@@ -1637,6 +1637,10 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Нищо не беше премахнато: каталогът се промени, докато файлът се записваше. Опитай отново.';
+
+  @override
   String get switchBeforeDeleting =>
       'Това е каталогът, в който сте. Превключете към друг и после го изтрийте.';
 

@@ -1584,6 +1584,9 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged => '未删除任何内容：保存文件期间目录发生了变化。请重试。';
+
+  @override
   String get switchBeforeDeleting => '这是你当前所在的目录。请先切换到另一个目录，再删除它。';
 
   @override

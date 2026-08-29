@@ -547,6 +547,7 @@
   "nameThisMoment": "Nimeä tämä hetki",
   "helpGoBack": "Hetket, joina tämä luettelo muutti muotoaan: ennen jokaista tuontia ja synkronointia, ennen yhdistämistä, arkistointia tai poistoa, ja aina kun merkitsit hetken itse. Yhden valitseminen palauttaa luettelon siihen tilaan — kaikki sen jälkeen kirjoitetaan tiedostoon, jonka pidät, ja poistetaan, ja jokainen uudempi hetki lähtee mukana. Ne, joiden kanssa olet jo synkronoinut, pitävät saamansa.",
   "goBackFileFailed": "Mitään ei poistettu: tiedostoa, joka säilyttää sen, ei voitu kirjoittaa ({error}). Vapauta tilaa ja yritä uudelleen.",
+  "goBackChanged": "Mitään ei poistettu: luettelo muuttui tiedoston tallennuksen aikana. Yritä uudelleen.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

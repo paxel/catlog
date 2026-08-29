@@ -1645,6 +1645,10 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Rien n\'a été supprimé : le catalogue a changé pendant l\'enregistrement du fichier. Réessayez.';
+
+  @override
   String get switchBeforeDeleting =>
       'C’est le catalogue dans lequel tu es. Passe à un autre, puis supprime-le.';
 

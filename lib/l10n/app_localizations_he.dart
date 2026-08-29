@@ -1626,6 +1626,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'לא הוסר דבר: הקטלוג השתנה בזמן שמירת הקובץ. נסה שוב.';
+
+  @override
   String get switchBeforeDeleting =>
       'זה הקטלוג שאתה נמצא בו. עבור לאחר ואז מחק אותו.';
 

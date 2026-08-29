@@ -1643,6 +1643,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Δεν αφαιρέθηκε τίποτα: ο κατάλογος άλλαξε όσο αποθηκευόταν το αρχείο. Δοκίμασε ξανά.';
+
+  @override
   String get switchBeforeDeleting =>
       'Αυτός είναι ο κατάλογος στον οποίο βρίσκεσαι. Άλλαξε σε άλλον και μετά διάγραψέ τον.';
 

@@ -80,8 +80,18 @@ Future<bool> _confirmGoBack(
     // then remove anything: a file that never arrived must not cost the
     // entries it was supposed to hold.
     final name = undoFileName(point.at);
+    final seqBefore = store.currentSeq();
     writeGoBackFile(store, point, '${tmp.path}/$name');
     final where = await (saveTo ?? saveBesideBackups)('${tmp.path}/$name', name);
+    // Anything that arrived while the file was being saved (a sync in
+    // the background) is not in it — removing it would lose it.
+    if (store.currentSeq() != seqBefore) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(t.goBackChanged)));
+      }
+      return false;
+    }
     applyGoBack(store, point);
     if (context.mounted) {
       ScaffoldMessenger.of(context)

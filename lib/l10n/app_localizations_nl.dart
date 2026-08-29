@@ -1641,6 +1641,10 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Er is niets verwijderd: de catalogus veranderde terwijl het bestand werd opgeslagen. Probeer het opnieuw.';
+
+  @override
   String get switchBeforeDeleting =>
       'Dit is de catalogus waarin je zit. Ga naar een andere en verwijder hem dan.';
 

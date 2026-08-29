@@ -547,6 +547,7 @@
   "nameThisMoment": "Gi dette øyeblikket et navn",
   "helpGoBack": "Øyeblikkene da denne katalogen endret form: før hver import og hver synkronisering, før en sammenslåing, en arkivering eller en sletting — og hver gang du selv merket ett. Velger du ett, går katalogen tilbake til den tilstanden: alt etterpå skrives til en fil du beholder og fjernes så, og hvert nyere øyeblikk følger med. De du allerede har synkronisert med, beholder det de fikk.",
   "goBackFileFailed": "Ingenting ble fjernet: filen som tar vare på det, kunne ikke skrives ({error}). Frigjør plass og prøv igjen.",
+  "goBackChanged": "Ingenting ble fjernet: katalogen endret seg mens filen ble lagret. Prøv igjen.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

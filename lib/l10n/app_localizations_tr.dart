@@ -1637,6 +1637,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Hiçbir şey kaldırılmadı: dosya kaydedilirken katalog değişti. Tekrar dene.';
+
+  @override
   String get switchBeforeDeleting =>
       'Bu, içinde bulunduğun katalog. Başka birine geç, sonra sil.';
 

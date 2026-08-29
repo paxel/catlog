@@ -1640,6 +1640,10 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nieko nepašalinta: katalogas pasikeitė, kol failas buvo įrašomas. Bandykite dar kartą.';
+
+  @override
   String get switchBeforeDeleting =>
       'Tai katalogas, kuriame esi. Perjunk į kitą ir tada jį ištrink.';
 

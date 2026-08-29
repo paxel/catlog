@@ -1638,6 +1638,10 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nimic nu a fost eliminat: catalogul s-a schimbat în timp ce fișierul era salvat. Încearcă din nou.';
+
+  @override
   String get switchBeforeDeleting =>
       'Acesta e catalogul în care ești. Treci la altul, apoi șterge-l.';
 

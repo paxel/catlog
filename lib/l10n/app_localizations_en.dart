@@ -1636,6 +1636,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nothing was removed: the catalog changed while the file was being saved. Try again.';
+
+  @override
   String get switchBeforeDeleting =>
       'This is the catalog you are in. Switch to another one, then delete it.';
 

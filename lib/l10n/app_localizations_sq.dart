@@ -1638,6 +1638,10 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Asgjë nuk u hoq: katalogu ndryshoi ndërsa skedari po ruhej. Provo përsëri.';
+
+  @override
   String get switchBeforeDeleting =>
       'Ky është katalogu ku ndodhesh. Kalo te një tjetër, pastaj fshije.';
 

@@ -547,6 +547,7 @@
   "nameThisMoment": "Nazwij tę chwilę",
   "helpGoBack": "Chwile, w których ten katalog zmienił kształt: przed każdym importem i każdą synchronizacją, przed scaleniem, archiwizacją lub usunięciem, oraz zawsze, gdy sam oznaczyłeś chwilę. Wybór jednej przywraca katalog do tego stanu — wszystko po niej trafia do pliku, który zachowujesz, a potem znika, i każda nowsza chwila odchodzi razem z tym. Osoby, z którymi już zsynchronizowałeś, zachowują to, co dostały.",
   "goBackFileFailed": "Nic nie zostało usunięte: nie udało się zapisać pliku, który to przechowuje ({error}). Zwolnij miejsce i spróbuj ponownie.",
+  "goBackChanged": "Nic nie usunięto: katalog zmienił się podczas zapisywania pliku. Spróbuj ponownie.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

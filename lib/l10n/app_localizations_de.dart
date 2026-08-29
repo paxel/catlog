@@ -1644,6 +1644,10 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nichts wurde entfernt: Der Katalog hat sich geändert, während die Datei gespeichert wurde. Versuche es noch einmal.';
+
+  @override
   String get switchBeforeDeleting =>
       'Das ist der Katalog, in dem du bist. Wechsle zu einem anderen, dann lösche ihn.';
 

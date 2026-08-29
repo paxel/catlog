@@ -1641,6 +1641,10 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Engu var eytt: skráin breyttist á meðan skjalið var vistað. Reyndu aftur.';
+
+  @override
   String get switchBeforeDeleting =>
       'Þetta er skráin sem þú ert í. Skiptu yfir í aðra og eyddu henni svo.';
 

@@ -1636,6 +1636,10 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Intet blev fjernet: kataloget ændrede sig, mens filen blev gemt. Prøv igen.';
+
+  @override
   String get switchBeforeDeleting =>
       'Det er kataloget, du er i. Skift til et andet, og slet det så.';
 

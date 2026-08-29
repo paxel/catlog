@@ -1636,6 +1636,10 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nic nebylo odstraněno: katalog se během ukládání souboru změnil. Zkus to znovu.';
+
+  @override
   String get switchBeforeDeleting =>
       'Tohle je katalog, ve kterém jsi. Přepni na jiný a pak ho smaž.';
 

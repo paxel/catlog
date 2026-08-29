@@ -547,6 +547,7 @@
   "nameThisMoment": "Emërto këtë çast",
   "helpGoBack": "Çastet kur ky katalog ndryshoi formë: para çdo importimi dhe çdo sinkronizimi, para një bashkimi, arkivimi ose fshirjeje, dhe sa herë që shënove vetë një çast. Zgjedhja e njërit e kthen katalogun në atë gjendje — gjithçka pas tij shkruhet në një skedar që e mban dhe pastaj hiqet, dhe çdo çast më i ri ikën bashkë me të. Ata me të cilët je sinkronizuar tashmë mbajnë atë që morën.",
   "goBackFileFailed": "Nuk u hoq asgjë: skedari që e ruan nuk u shkrua dot ({error}). Liro pak hapësirë dhe provo sërish.",
+  "goBackChanged": "Asgjë nuk u hoq: katalogu ndryshoi ndërsa skedari po ruhej. Provo përsëri.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

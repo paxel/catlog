@@ -1638,6 +1638,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Mitään ei poistettu: luettelo muuttui tiedoston tallennuksen aikana. Yritä uudelleen.';
+
+  @override
   String get switchBeforeDeleting =>
       'Tämä on luettelo, jossa olet. Vaihda toiseen ja poista se sitten.';
 

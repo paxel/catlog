@@ -1637,6 +1637,10 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nekas netika noņemts: katalogs mainījās, kamēr fails tika saglabāts. Mēģini vēlreiz.';
+
+  @override
   String get switchBeforeDeleting =>
       'Šis ir katalogs, kurā esi. Pārslēdzies uz citu un tad dzēs to.';
 

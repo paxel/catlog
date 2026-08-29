@@ -547,6 +547,7 @@
   "nameThisMoment": "Pojmenuj tento okamžik",
   "helpGoBack": "Okamžiky, kdy tento katalog výrazně změnil tvar: před každým importem a každou synchronizací, před sloučením, archivací nebo mazáním, a kdykoli sis okamžik označil sám. Výběrem jednoho se katalog vrátí do toho stavu — všechno po něm se zapíše do souboru, který si necháš, a pak se odstraní; každý novější okamžik jde s tím. Kdo už synchronizoval, si ponechá, co dostal.",
   "goBackFileFailed": "Nic se neodstranilo: soubor, který to uchová, se nepodařilo zapsat ({error}). Uvolni místo a zkus to znovu.",
+  "goBackChanged": "Nic nebylo odstraněno: katalog se během ukládání souboru změnil. Zkus to znovu.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

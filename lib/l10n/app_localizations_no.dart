@@ -1634,6 +1634,10 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Ingenting ble fjernet: katalogen endret seg mens filen ble lagret. Prøv igjen.';
+
+  @override
   String get switchBeforeDeleting =>
       'Dette er katalogen du er i. Bytt til en annen, og slett den så.';
 

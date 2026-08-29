@@ -798,6 +798,7 @@
   "nameThisMoment": "Name this moment",
   "helpGoBack": "The moments this catalog changed shape: before every import and every sync, before a merge, an archive or a deletion, and whenever you marked one yourself. Choosing one returns the catalog to that state — everything after it is written to a file you keep and then removed, and every newer moment goes with it. People you already synced with keep what they received.",
   "goBackFileFailed": "Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.",
+  "goBackChanged": "Nothing was removed: the catalog changed while the file was being saved. Try again.",
   "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
   "switchBeforeDeleting": "This is the catalog you are in. Switch to another one, then delete it.",
   "shareFileFailed": "The share file could not be written ({error}). Free some space and try again.",

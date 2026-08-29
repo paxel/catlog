@@ -547,6 +547,7 @@
   "nameThisMoment": "Dai un nome a questo momento",
   "helpGoBack": "I momenti in cui questo catalogo ha cambiato forma: prima di ogni importazione e di ogni sincronizzazione, prima di un’unione, di un’archiviazione o di una cancellazione, e ogni volta che ne hai segnato uno tu. Sceglierne uno riporta il catalogo a quello stato: tutto ciò che viene dopo viene scritto in un file che conservi e poi tolto, e ogni momento più recente se ne va con esso. Chi ha già sincronizzato conserva ciò che ha ricevuto.",
   "goBackFileFailed": "Non è stato tolto nulla: il file che lo conserva non è stato scritto ({error}). Libera spazio e riprova.",
+  "goBackChanged": "Nulla è stato rimosso: il catalogo è cambiato durante il salvataggio del file. Riprova.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

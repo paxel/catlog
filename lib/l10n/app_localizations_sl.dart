@@ -1636,6 +1636,10 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nič ni bilo odstranjeno: katalog se je med shranjevanjem datoteke spremenil. Poskusi znova.';
+
+  @override
   String get switchBeforeDeleting =>
       'To je katalog, v katerem si. Preklopi na drugega in ga nato izbriši.';
 

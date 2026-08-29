@@ -2978,6 +2978,12 @@ abstract class AppLocalizations {
   /// **'Nothing was removed: the file that keeps it could not be written ({error}). Free some space and try again.'**
   String goBackFileFailed(String error);
 
+  /// No description provided for @goBackChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was removed: the catalog changed while the file was being saved. Try again.'**
+  String get goBackChanged;
+
   /// No description provided for @switchBeforeDeleting.
   ///
   /// In en, this message translates to:

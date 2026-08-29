@@ -547,6 +547,7 @@
   "nameThisMoment": "Nomme ce moment",
   "helpGoBack": "Les moments où ce catalogue a changé de forme : avant chaque import et chaque synchronisation, avant une fusion, un archivage ou une suppression, et chaque fois que tu en as marqué un toi-même. En choisir un ramène le catalogue à cet état : tout ce qui suit est écrit dans un fichier que tu gardes puis retiré, et chaque moment plus récent part avec. Les personnes avec qui tu as déjà synchronisé gardent ce qu’elles ont reçu.",
   "goBackFileFailed": "Rien n’a été retiré : le fichier qui le conserve n’a pas pu être écrit ({error}). Libère de la place et réessaie.",
+  "goBackChanged": "Rien n'a été supprimé : le catalogue a changé pendant l'enregistrement du fichier. Réessayez.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

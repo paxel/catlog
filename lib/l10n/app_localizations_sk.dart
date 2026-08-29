@@ -1636,6 +1636,10 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nič nebolo odstránené: katalóg sa počas ukladania súboru zmenil. Skús to znova.';
+
+  @override
   String get switchBeforeDeleting =>
       'Toto je katalóg, v ktorom si. Prepni na iný a potom ho zmaž.';
 

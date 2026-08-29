@@ -1637,6 +1637,10 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Semmi nem lett eltávolítva: a katalógus megváltozott a fájl mentése közben. Próbáld újra.';
+
+  @override
   String get switchBeforeDeleting =>
       'Ez az a katalógus, amelyben vagy. Válts egy másikra, aztán töröld.';
 

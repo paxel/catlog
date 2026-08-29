@@ -1631,6 +1631,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'لم تتم إزالة أي شيء: تغيّر الكتالوج أثناء حفظ الملف. حاول مرة أخرى.';
+
+  @override
   String get switchBeforeDeleting =>
       'هذا هو الكتالوج الذي أنت فيه. انتقل إلى كتالوج آخر ثم احذفه.';
 

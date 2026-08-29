@@ -547,6 +547,7 @@
   "nameThisMoment": "Agħti isem lil dan il-mument",
   "helpGoBack": "Il-mumenti meta dan il-katalgu nbidel: qabel kull importazzjoni u kull sinkronizzazzjoni, qabel għaqda, arkivjar jew tħassir, u kull darba li mmarkajt mument int. Jekk tagħżel wieħed, il-katalgu jerġa’ lura għal dak l-istat — kollox ta’ warajh jinkiteb f’fajl li żżomm u mbagħad jitneħħa, u kull mument aktar riċenti jmur miegħu. Min diġà sinkronizza jżomm dak li rċieva.",
   "goBackFileFailed": "Ma tneħħa xejn: il-fajl li jżommu ma setax jinkiteb ({error}). Illibera spazju u erġa’ pprova.",
+  "goBackChanged": "Xejn ma tneħħa: il-katalgu nbidel waqt li l-fajl kien qed jiġi salvat. Erġa' pprova.",
   "@goBackFileFailed": {
     "placeholders": {
       "error": {

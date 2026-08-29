@@ -1637,6 +1637,10 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get goBackChanged =>
+      'Nic nie usunięto: katalog zmienił się podczas zapisywania pliku. Spróbuj ponownie.';
+
+  @override
   String get switchBeforeDeleting =>
       'To katalog, w którym jesteś. Przełącz się na inny, a potem go usuń.';
 
