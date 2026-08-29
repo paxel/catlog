@@ -203,8 +203,12 @@ class _CardScreenState extends State<CardScreen> {
     final boundary = _cardKey.currentContext!.findRenderObject()!
         as RenderRepaintBoundary;
     final image = await boundary.toImage(pixelRatio: 3);
-    final data = await image.toByteData(format: ui.ImageByteFormat.png);
-    return data!.buffer.asUint8List();
+    try {
+      final data = await image.toByteData(format: ui.ImageByteFormat.png);
+      return data!.buffer.asUint8List();
+    } finally {
+      image.dispose();
+    }
   }
 
   Future<void> _shareImage() async {
@@ -383,7 +387,9 @@ class _CardScreenState extends State<CardScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Image(
-                          image: photo,
+                          // Sharp enough for the 3x export, a fraction
+                          // of a full decode.
+                          image: ResizeImage(photo, width: 1000),
                           width: 328,
                           height: 246,
                           fit: BoxFit.cover),
