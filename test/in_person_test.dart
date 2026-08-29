@@ -4,7 +4,9 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/in_person_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 /// Syncing with somebody in the room: the page has to explain both
 /// sides before anything is connected.
@@ -61,5 +63,25 @@ void main() {
   testWidgets('nothing is connected until asked', (tester) async {
     await pump(tester);
     expect(store.moments(), isEmpty);
+  });
+
+  testWidgets('tapping Host twice starts one host', (tester) async {
+    await pump(tester);
+    final host = find.text('Start hosting');
+    // Hosting needs a LAN interface; a machine without one shows no
+    // button and has nothing to test here.
+    if (host.evaluate().isEmpty) return;
+    await tester.tap(host);
+    await tester.tap(host);
+    for (var i = 0; i < 10; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    // The connectivity plugin is absent under test; nothing else may
+    // throw, and a second host must not appear.
+    final thrown = tester.takeException();
+    expect(thrown, anyOf(isNull, isA<MissingPluginException>()));
+    expect(find.byType(QrImageView).evaluate().length, lessThanOrEqualTo(1));
+    expect(find.text('Start hosting').evaluate().length +
+        find.byType(QrImageView).evaluate().length, 1);
   });
 }

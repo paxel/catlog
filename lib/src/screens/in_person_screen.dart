@@ -37,6 +37,9 @@ class _InPersonScreenState extends State<InPersonScreen> {
 
   final TextEditingController _code = TextEditingController();
   bool _joining = false;
+
+  /// A host is being started: a second tap waits, a pop stops it.
+  bool _starting = false;
   String? _lastResult;
 
   /// Joiner's own outbound choice; never persisted (default public).
@@ -126,6 +129,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
   }
 
   Future<void> _toggleHost() async {
+    if (_starting) return;
     if (_host != null) {
       await _host!.stop();
       if (_hotspotQr != null) await stopHotspot();
@@ -145,18 +149,34 @@ class _InPersonScreenState extends State<InPersonScreen> {
         showImportSummary(context, widget.store, applied);
       }
     });
-    final address = await host.start();
-    setState(() {
-      _host = host;
-      _pairCode = encodePairCode(address, host.port, pin);
-      _sessions = 0;
-    });
+    _starting = true;
+    try {
+      final address = await host.start();
+      if (!mounted) {
+        // Backed out while binding: nothing may keep serving.
+        await host.stop();
+        return;
+      }
+      setState(() {
+        _host = host;
+        _pairCode = encodePairCode(address, host.port, pin);
+        _sessions = 0;
+      });
+    } finally {
+      _starting = false;
+    }
   }
 
   /// Android without shared Wi-Fi: our own hotspot carries the sync.
   Future<void> _hostViaHotspot() async {
+    if (_starting) return;
+    _starting = true;
     try {
       final info = await startHotspot();
+      if (!mounted) {
+        await stopHotspot();
+        return;
+      }
       final pin = (Random.secure().nextInt(900000) + 100000).toString();
       final host = LanSyncHost(widget.store, pin,
           onJoinRequest: _onJoinRequest, onSession: (applied) {
@@ -167,6 +187,11 @@ class _InPersonScreenState extends State<InPersonScreen> {
         }
       });
       await host.start();
+      if (!mounted) {
+        await host.stop();
+        await stopHotspot();
+        return;
+      }
       final pairCode = encodePairCode(info.ip, host.port, pin);
       setState(() {
         _host = host;
@@ -179,6 +204,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
         setState(
             () => _lastResult = context.t.syncFailed('$e'));
       }
+    } finally {
+      _starting = false;
     }
   }
 
@@ -239,6 +266,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
       final result = await lanSync(
           widget.store, info.host, info.port, info.pin,
           includePrivate: _includePrivate);
+      if (!mounted || !widget.store.isOpen) return;
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
