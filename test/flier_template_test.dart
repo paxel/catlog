@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/src/flier_template.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -122,7 +123,7 @@ void main() {
       expect(reading.first('neutered'), 'yes');
       expect(reading.first(FlierTarget.name), 'RUDI');
       expect(reading.first('birthday'), '5/2025');
-      expect(parseFlierDate('5/2025'), isNull);
+      expect(parseFlierDate('5/2025'), PartialDate.parse('2025-05'));
       expect(
         reading.of(FlierTarget.contact).map((e) => e.value),
         containsAll(['+49 6190 937300', 'www.tasso.net/tier-gefunden']),
@@ -167,12 +168,12 @@ void main() {
     });
 
     test('dates as posters print them', () {
-      expect(parseFlierDate('05.06.2025'), DateTime(2025, 6, 5));
-      expect(parseFlierDate('5.6.2025'), DateTime(2025, 6, 5));
-      expect(parseFlierDate('2025-06-05'), DateTime(2025, 6, 5));
-      expect(parseFlierDate('seit 5/6/2025'), DateTime(2025, 6, 5));
+      expect(parseFlierDate('05.06.2025'), PartialDate.parse('2025-06-05'));
+      expect(parseFlierDate('5.6.2025'), PartialDate.parse('2025-06-05'));
+      expect(parseFlierDate('2025-06-05'), PartialDate.parse('2025-06-05'));
+      expect(parseFlierDate('seit 5/6/2025'), PartialDate.parse('2025-06-05'));
       expect(parseFlierDate('31.02.2025'), isNull);
-      expect(parseFlierDate('Sommer 2025'), isNull);
+      expect(parseFlierDate('Sommer 2025'), PartialDate.parse('2025'));
     });
   });
 }

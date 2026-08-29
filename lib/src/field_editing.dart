@@ -169,7 +169,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
         final last = pastOnly
             ? DateUtils.dateOnly(DateTime.now())
             : DateTime(2100);
-        var initial = DateTime.tryParse(c.choice ?? '') ?? DateTime.now();
+        var initial = PartialDate.parse(c.choice)?.earliest ?? DateTime.now();
         if (initial.isAfter(last)) initial = last;
         // The picker pages months in a viewport, which cannot answer the
         // intrinsic-width question AlertDialog asks. Unbounded, its page

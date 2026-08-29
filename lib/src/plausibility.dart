@@ -30,37 +30,46 @@ class Objection {
   const Objection(this.kind, {this.date, this.name});
 }
 
-DateTime? _date(String? value) =>
-    value == null || value.isEmpty ? null : DateTime.tryParse(value);
+/// A date field value at its own precision; the rules below object
+/// only when the whole period is impossible (#76).
+PartialDate? _date(String? value) =>
+    value == null || value.isEmpty ? null : PartialDate.parse(value);
 
 /// Plausibility check for starter fields — the app knows what those
 /// mean, so it refuses the impossible. Custom fields carry no known
 /// semantics and are never checked. Clearing a value is always fine.
 Objection? starterFieldObjection(
-    CatalogStore store, String entityId, FieldDef def, String? value,
-    {DateTime? today}) {
+  CatalogStore store,
+  String entityId,
+  FieldDef def,
+  String? value, {
+  DateTime? today,
+}) {
   if (value == null || value.isEmpty) return null;
   final limit = DateUtils.dateOnly(today ?? DateTime.now());
   switch (def.slug) {
     case 'birthdate':
       final born = _date(value);
       if (born == null) return null;
-      if (born.isAfter(limit)) {
+      if (born.earliest.isAfter(limit)) {
         return const Objection(ObjectionKind.birthdateInFuture);
       }
       final died = _date(store.current(entityId, Keys.userField('deceased')));
-      if (died != null && born.isAfter(died)) {
-        return Objection(ObjectionKind.bornAfterDeceased, date: died);
+      if (died != null && born.earliest.isAfter(died.latest)) {
+        return Objection(ObjectionKind.bornAfterDeceased, date: died.latest);
       }
     case 'deceased':
       final died = _date(value);
       if (died == null) return null;
-      if (died.isAfter(limit)) {
+      if (died.earliest.isAfter(limit)) {
         return const Objection(ObjectionKind.deceasedInFuture);
       }
       final born = _date(store.current(entityId, Keys.userField('birthdate')));
-      if (born != null && died.isBefore(born)) {
-        return Objection(ObjectionKind.deceasedBeforeBirth, date: born);
+      if (born != null && died.latest.isBefore(born.earliest)) {
+        return Objection(
+          ObjectionKind.deceasedBeforeBirth,
+          date: born.earliest,
+        );
       }
     case 'pregnant':
       if (value == 'yes' &&
@@ -68,13 +77,21 @@ Objection? starterFieldObjection(
         return const Objection(ObjectionKind.malePregnant);
       }
     case 'father':
-      return _parentObjection(store, entityId, value,
-          wrongGender: 'female',
-          objection: ObjectionKind.fatherNotMale);
+      return _parentObjection(
+        store,
+        entityId,
+        value,
+        wrongGender: 'female',
+        objection: ObjectionKind.fatherNotMale,
+      );
     case 'mother':
-      return _parentObjection(store, entityId, value,
-          wrongGender: 'male',
-          objection: ObjectionKind.motherNotFemale);
+      return _parentObjection(
+        store,
+        entityId,
+        value,
+        wrongGender: 'male',
+        objection: ObjectionKind.motherNotFemale,
+      );
     case 'gender':
       // The reverse guard: a recorded parent role pins the plausible
       // gender — refusing here explains WHY instead of corrupting later.
@@ -91,22 +108,29 @@ Objection? starterFieldObjection(
 /// Father must not be female, mother must not be male, and no parent is
 /// born on or after its kitten's birth date.
 Objection? _parentObjection(
-    CatalogStore store, String kittenId, String parentValue,
-    {required String wrongGender, required ObjectionKind objection}) {
+  CatalogStore store,
+  String kittenId,
+  String parentValue, {
+  required String wrongGender,
+  required ObjectionKind objection,
+}) {
   final parent = store.resolveEntity(parentValue);
   final parentName = store.current(parent, Keys.name) ?? '?';
   if (store.current(parent, Keys.userField('gender')) == wrongGender) {
     return Objection(objection, name: parentName);
   }
-  final parentBorn =
-      _date(store.current(parent, Keys.userField('birthdate')));
-  final kittenBorn =
-      _date(store.current(kittenId, Keys.userField('birthdate')));
+  final parentBorn = _date(store.current(parent, Keys.userField('birthdate')));
+  final kittenBorn = _date(
+    store.current(kittenId, Keys.userField('birthdate')),
+  );
   if (parentBorn != null &&
       kittenBorn != null &&
-      !parentBorn.isBefore(kittenBorn)) {
-    return Objection(ObjectionKind.parentBornAfterKitten,
-        date: parentBorn, name: parentName);
+      !parentBorn.earliest.isBefore(kittenBorn.latest)) {
+    return Objection(
+      ObjectionKind.parentBornAfterKitten,
+      date: parentBorn.earliest,
+      name: parentName,
+    );
   }
   return null;
 }
@@ -127,15 +151,17 @@ String objectionText(BuildContext context, Objection objection) {
   return switch (objection.kind) {
     ObjectionKind.birthdateInFuture => t.birthdateInFuture,
     ObjectionKind.deceasedInFuture => t.deceasedInFuture,
-    ObjectionKind.deceasedBeforeBirth =>
-      t.deceasedBeforeBirth(d(objection.date!)),
-    ObjectionKind.bornAfterDeceased =>
-      t.bornAfterDeceased(d(objection.date!)),
+    ObjectionKind.deceasedBeforeBirth => t.deceasedBeforeBirth(
+      d(objection.date!),
+    ),
+    ObjectionKind.bornAfterDeceased => t.bornAfterDeceased(d(objection.date!)),
     ObjectionKind.malePregnant => t.malePregnant,
     ObjectionKind.fatherNotMale => t.fatherNotMale(objection.name!),
     ObjectionKind.motherNotFemale => t.motherNotFemale(objection.name!),
-    ObjectionKind.parentBornAfterKitten =>
-      t.parentBornAfterKitten(objection.name!, d(objection.date!)),
+    ObjectionKind.parentBornAfterKitten => t.parentBornAfterKitten(
+      objection.name!,
+      d(objection.date!),
+    ),
     ObjectionKind.genderFatherFemale => t.genderFatherFemale,
     ObjectionKind.genderMotherMale => t.genderMotherMale,
   };

@@ -1,3 +1,5 @@
+import 'package:catalog_core/catalog_core.dart';
+
 import 'dart:convert';
 import 'dart:math';
 
@@ -387,32 +389,9 @@ List<FlierEntry> _loneLine(
 }
 
 /// A date as posters print it: 05.06.2025, 5.6.2025, 2025-06-05,
-/// 5/6/2025. Anything else (a month, words) is null.
-DateTime? parseFlierDate(String text) {
-  final dotted = RegExp(r'(\d{1,2})[./](\d{1,2})[./](\d{4})').firstMatch(text);
-  if (dotted != null) {
-    return _date(
-      int.parse(dotted.group(3)!),
-      int.parse(dotted.group(2)!),
-      int.parse(dotted.group(1)!),
-    );
-  }
-  final iso = RegExp(r'(\d{4})-(\d{2})-(\d{2})').firstMatch(text);
-  if (iso != null) {
-    return _date(
-      int.parse(iso.group(1)!),
-      int.parse(iso.group(2)!),
-      int.parse(iso.group(3)!),
-    );
-  }
-  return null;
-}
-
-DateTime? _date(int y, int m, int d) {
-  if (m < 1 || m > 12 || d < 1 || d > 31) return null;
-  final date = DateTime(y, m, d);
-  return date.month == m ? date : null;
-}
+/// 5/6/2025 — or only a month (05/2025) or a year (2025), kept at that
+/// precision (#76). Null when the line holds no date.
+PartialDate? parseFlierDate(String text) => PartialDate.find(text);
 
 String _fold(String s) =>
     s.toLowerCase().trim().replaceAll(RegExp(r'\s+'), ' ');

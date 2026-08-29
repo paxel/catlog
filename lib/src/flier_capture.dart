@@ -150,6 +150,11 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   (double, double)? _addressPosition;
   DateTime _missingSince = DateUtils.dateOnly(DateTime.now());
 
+  /// The poster's missing-since date at the precision it was printed
+  /// (#76); [_missingSince] is its first day, used for entry timestamps
+  /// only — a timestamp needs a day, a stored value never gets one.
+  PartialDate? _missingSincePartial;
+
   final _name = TextEditingController();
   final _chip = TextEditingController();
   final _phone = TextEditingController();
@@ -274,7 +279,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         _address.text = reading.first(FlierTarget.lostPlace) ?? '';
         final since = reading.first(FlierTarget.missingSince);
         final date = since == null ? null : _missingDate(since);
-        if (date != null) _missingSince = date;
+        if (date != null) {
+          _missingSince = date.earliest;
+          _missingSincePartial = date;
+        }
       }
       for (final entry in reading.entries) {
         final label = entry.label;
@@ -366,11 +374,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// The missing-since date a line carries, or null when it is no date
   /// or lies in the future (a misread year) — the date picker only
   /// reaches today, and such a line belongs in remarks.
-  DateTime? _missingDate(String text) {
+  PartialDate? _missingDate(String text) {
     final date = parseFlierDate(text);
     if (date == null) return null;
-    final day = DateUtils.dateOnly(date);
-    return day.isAfter(DateUtils.dateOnly(DateTime.now())) ? null : day;
+    return date.earliest.isAfter(DateUtils.dateOnly(DateTime.now()))
+        ? null
+        : date;
   }
 
   /// A hit for a number printed in the text: the registry named by the
@@ -420,6 +429,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     }
   }
 
+  String _missingSinceText(BuildContext context) {
+    final locale = Localizations.localeOf(context).toString();
+    final partial = _missingSincePartial;
+    return partial == null
+        ? DateFormat.yMd(locale).format(_missingSince)
+        : formatPartialDate(locale, partial);
+  }
+
   Future<void> _pickMissingSince() async {
     final picked = await showDatePicker(
       context: context,
@@ -431,7 +448,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       ),
     );
     if (picked != null && mounted) {
-      setState(() => _missingSince = DateUtils.dateOnly(picked));
+      setState(() {
+        _missingSince = DateUtils.dateOnly(picked);
+        _missingSincePartial = null;
+      });
     }
   }
 
@@ -791,10 +811,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.event_busy),
           title: Text(t.missingSinceLabel),
-          subtitle: Text(
-            DateFormat.yMd(Localizations.localeOf(context).toString())
-                .format(_missingSince),
-          ),
+          subtitle: Text(_missingSinceText(context)),
           onTap: _pickMissingSince,
         ),
       // Fields the poster filled, each with its own type-aware
@@ -926,12 +943,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           _name.text.trim().isEmpty ? t.captureFlier : _name.text.trim(),
         ),
       if (_chip.text.trim().isNotEmpty) (t.starterChipId, _chip.text.trim()),
-      if (_newCat)
-        (
-          t.missingSinceLabel,
-          DateFormat.yMd(Localizations.localeOf(context).toString())
-              .format(_missingSince),
-        ),
+      if (_newCat) (t.missingSinceLabel, _missingSinceText(context)),
       for (final input in _fieldInputs.values)
         if (input.value case final value?)
           (fieldDefName(t, input.def), fieldValueDisplay(t, input.def, value)),
