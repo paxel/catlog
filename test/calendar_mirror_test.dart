@@ -340,4 +340,18 @@ void main() {
     expect(await resync, MirrorOutcome.ok);
     expect(slow.events, hasLength(1));
   });
+
+  test('a calendar that never answers releases the catalog after the limit',
+      () async {
+    store.append(cat, Keys.userField('remarks'), 'vaccine refresh',
+        date: inDays(30), reminder: true);
+    final slow = SlowCalendar(); // gate never completes
+    await expectLater(
+        reconcileCalendarOnce(store, slow, t,
+            timeout: const Duration(milliseconds: 100)),
+        throwsA(isA<TimeoutException>()));
+    // The next pass is not blocked by the stuck one.
+    final fresh = FakeCalendar();
+    expect(await reconcileCalendarOnce(store, fresh, t), MirrorOutcome.ok);
+  });
 }

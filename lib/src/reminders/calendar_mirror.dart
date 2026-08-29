@@ -168,6 +168,9 @@ Future<MirrorOutcome> reconcileCalendar(
 }
 
 final _running = <CatalogStore, Future<MirrorOutcome>>{};
+
+/// Longest a mirror pass may take before it is given up on.
+const mirrorTimeout = Duration(minutes: 2);
 final _queued = <CatalogStore>{};
 
 /// [reconcileCalendar], one at a time per catalog: a request while one
@@ -177,14 +180,17 @@ final _queued = <CatalogStore>{};
 Future<MirrorOutcome> reconcileCalendarOnce(
   CatalogStore store,
   CalendarPort port,
-  AppLocalizations t,
-) {
+  AppLocalizations t, {
+  Duration timeout = mirrorTimeout,
+}) {
   final running = _running[store];
   if (running != null) {
     _queued.add(store);
     return running;
   }
-  final run = reconcileCalendar(store, port, t).whenComplete(() {
+  // A calendar that never answers must not hold the catalog — and the
+  // lock — for the rest of the session.
+  final run = reconcileCalendar(store, port, t).timeout(timeout).whenComplete(() {
     _running.remove(store);
   }).catchError((Object e) {
     _queued.remove(store);
