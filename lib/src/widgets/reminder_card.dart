@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
 import 'cat_ear.dart';
+import 'date_entry.dart';
 
 /// One live plan as a card (#74): relative and absolute date, who, what;
 /// done records the fact and offers the next cycle; long-press changes
@@ -55,14 +56,7 @@ class ReminderCard extends StatelessWidget {
 
   Future<void> _changeDate(BuildContext context) async {
     final r = reminder;
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: r.due,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-      errorFormatText: context.t
-          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
-    );
+    final picked = await pickDay(context, initial: r.due);
     if (picked == null) return;
     store.append(r.entity, r.field, r.value, date: picked, reminder: true);
     onChanged();

@@ -505,6 +505,9 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Kjo datë nuk mund të jetë në të ardhmen.';
+
+  @override
   String get value => 'Vlera';
 
   @override

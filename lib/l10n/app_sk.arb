@@ -73,6 +73,7 @@
   "asOfToday": "K dnešnému dňu",
   "asOfDate": "Ku dňu {date}",
   "dateFormatError": "Nesprávny formát — použite {format}",
+  "dateInFuture": "Tento dátum nemôže byť v budúcnosti.",
   "value": "Hodnota",
   "latitudeLongitude": "zemepisná šírka, dĺžka",
   "newField": "Nové pole",

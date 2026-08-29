@@ -73,6 +73,7 @@
   "asOfToday": "Με σημερινή ημερομηνία",
   "asOfDate": "Με ημερομηνία {date}",
   "dateFormatError": "Λάθος μορφή — χρησιμοποιήστε {format}",
+  "dateInFuture": "Αυτή η ημερομηνία δεν μπορεί να είναι στο μέλλον.",
   "value": "Τιμή",
   "latitudeLongitude": "γεωγρ. πλάτος, μήκος",
   "newField": "Νέο πεδίο",

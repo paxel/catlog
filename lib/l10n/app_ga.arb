@@ -73,6 +73,7 @@
   "asOfToday": "Amhail inniu",
   "asOfDate": "Amhail {date}",
   "dateFormatError": "Formáid mhícheart — úsáid {format}",
+  "dateInFuture": "Ní féidir leis an dáta seo a bheith sa todhchaí.",
   "value": "Luach",
   "latitudeLongitude": "domhanleithead, domhanfhad",
   "newField": "Réimse nua",

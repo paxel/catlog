@@ -502,6 +502,9 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Šis datums nevar būt nākotnē.';
+
+  @override
   String get value => 'Vērtība';
 
   @override

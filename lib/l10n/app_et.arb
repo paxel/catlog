@@ -73,6 +73,7 @@
   "asOfToday": "Tänase seisuga",
   "asOfDate": "Seisuga {date}",
   "dateFormatError": "Vale vorming — kasuta {format}",
+  "dateInFuture": "See kuupäev ei saa olla tulevikus.",
   "value": "Väärtus",
   "latitudeLongitude": "laius, pikkus",
   "newField": "Uus väli",

@@ -503,6 +503,9 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Toto datum nemůže být v budoucnosti.';
+
+  @override
   String get value => 'Hodnota';
 
   @override

@@ -503,6 +503,9 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Ši data negali būti ateityje.';
+
+  @override
   String get value => 'Reikšmė';
 
   @override

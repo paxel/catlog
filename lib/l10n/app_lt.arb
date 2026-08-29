@@ -73,6 +73,7 @@
   "asOfToday": "Šios dienos data",
   "asOfDate": "Data: {date}",
   "dateFormatError": "Neteisingas formatas — naudokite {format}",
+  "dateInFuture": "Ši data negali būti ateityje.",
   "value": "Reikšmė",
   "latitudeLongitude": "platuma, ilguma",
   "newField": "Naujas laukas",

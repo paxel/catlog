@@ -484,6 +484,9 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => '此日期不能是未来的日期。';
+
+  @override
   String get value => '值';
 
   @override

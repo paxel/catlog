@@ -502,6 +502,9 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Bu tarih gelecekte olamaz.';
+
+  @override
   String get value => 'Değer';
 
   @override

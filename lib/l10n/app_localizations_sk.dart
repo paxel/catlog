@@ -503,6 +503,9 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Tento dátum nemôže byť v budúcnosti.';
+
+  @override
   String get value => 'Hodnota';
 
   @override

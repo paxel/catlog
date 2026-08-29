@@ -73,6 +73,7 @@
   "asOfToday": "Pr. i dag",
   "asOfDate": "Pr. {date}",
   "dateFormatError": "Forkert format — brug {format}",
+  "dateInFuture": "Denne dato kan ikke ligge i fremtiden.",
   "value": "Værdi",
   "latitudeLongitude": "breddegrad, længdegrad",
   "newField": "Nyt felt",

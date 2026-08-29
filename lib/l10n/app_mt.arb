@@ -73,6 +73,7 @@
   "asOfToday": "Mil-lum",
   "asOfDate": "Mid-data {date}",
   "dateFormatError": "Format ħażin — uża {format}",
+  "dateInFuture": "Din id-data ma tistax tkun fil-futur.",
   "value": "Valur",
   "latitudeLongitude": "latitudni, lonġitudni",
   "newField": "Qasam ġdid",

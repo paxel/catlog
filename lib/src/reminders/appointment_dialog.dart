@@ -7,6 +7,7 @@ import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import 'reminder_dialog.dart' show plannable;
+import '../widgets/date_entry.dart';
 
 /// Creating or editing an appointment (#75): what the keeper leaves the
 /// vet's desk with — date, time if any, what, notes, an alert, and
@@ -137,15 +138,7 @@ class _AppointmentDialogState extends State<_AppointmentDialog> {
   ];
 
   Future<void> _pickDate() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _date,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-      errorFormatText: context.t.dateFormatError(
-        MaterialLocalizations.of(context).dateHelpText,
-      ),
-    );
+    final picked = await pickDay(context, initial: _date);
     if (picked != null && mounted) setState(() => _date = picked);
   }
 

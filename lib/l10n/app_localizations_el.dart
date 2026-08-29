@@ -505,6 +505,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture =>
+      'Αυτή η ημερομηνία δεν μπορεί να είναι στο μέλλον.';
+
+  @override
   String get value => 'Τιμή';
 
   @override

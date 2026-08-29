@@ -73,6 +73,7 @@
   "asOfToday": "Per i dag",
   "asOfDate": "Per {date}",
   "dateFormatError": "Fel format — använd {format}",
+  "dateInFuture": "Det här datumet kan inte ligga i framtiden.",
   "value": "Värde",
   "latitudeLongitude": "latitud, longitud",
   "newField": "Nytt fält",

@@ -503,6 +503,9 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Această dată nu poate fi în viitor.';
+
+  @override
   String get value => 'Valoare';
 
   @override

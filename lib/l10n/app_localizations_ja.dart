@@ -494,6 +494,9 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'この日付は未来にはできません。';
+
+  @override
   String get value => '値';
 
   @override

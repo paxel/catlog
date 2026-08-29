@@ -73,6 +73,7 @@
   "asOfToday": "به تاریخ امروز",
   "asOfDate": "به تاریخ {date}",
   "dateFormatError": "قالب نادرست — از {format} استفاده کنید",
+  "dateInFuture": "این تاریخ نمی‌تواند در آینده باشد.",
   "value": "مقدار",
   "latitudeLongitude": "عرض جغرافیایی، طول جغرافیایی",
   "newField": "فیلد جدید",

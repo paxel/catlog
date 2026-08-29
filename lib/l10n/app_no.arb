@@ -73,6 +73,7 @@
   "asOfToday": "Per i dag",
   "asOfDate": "Per {date}",
   "dateFormatError": "Feil format — bruk {format}",
+  "dateInFuture": "Denne datoen kan ikke ligge i fremtiden.",
   "value": "Verdi",
   "latitudeLongitude": "breddegrad, lengdegrad",
   "newField": "Nytt felt",

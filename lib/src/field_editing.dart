@@ -6,6 +6,7 @@ import 'field_labels.dart';
 import 'l10n.dart';
 import 'screens/position_picker_screen.dart';
 import 'screens/scan_screen.dart';
+import 'widgets/date_entry.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
 /// (possibly backdated) date.
@@ -166,25 +167,16 @@ class _FieldValueInputState extends State<FieldValueInput> {
         // Birth and death dates can't lie in the future; other date
         // fields legitimately can (appointments, due dates).
         final pastOnly = def.slug == 'birthdate' || def.slug == 'deceased';
-        final last = pastOnly
-            ? DateUtils.dateOnly(DateTime.now())
-            : DateTime(2100);
-        var initial = PartialDate.parse(c.choice)?.earliest ?? DateTime.now();
-        if (initial.isAfter(last)) initial = last;
-        // The picker pages months in a viewport, which cannot answer the
-        // intrinsic-width question AlertDialog asks. Unbounded, its page
-        // metrics degenerate and the month arrows jump several months
-        // per tap — a fixed box restores sane paging.
-        return SizedBox(
-          width: 328,
-          height: 346,
-          child: CalendarDatePicker(
-            initialDate: initial,
-            firstDate: DateTime(2000),
-            lastDate: last,
-            onDateChanged: (d) =>
-                c.choice = d.toIso8601String().substring(0, 10),
-          ),
+        final last = pastOnly ? DateUtils.dateOnly(DateTime.now()) : null;
+        // Typed, at the precision known — a year alone is a value (#76);
+        // the calendar sits behind the icon (#79).
+        return DateEntryField(
+          initial: PartialDate.parse(c.choice),
+          allowPartial: true,
+          lastDate: last,
+          label: context.t.value,
+          autofocus: widget.autofocus,
+          onChanged: (d) => c.choice = d?.iso,
         );
       case FieldType.number:
         return TextField(
@@ -308,19 +300,13 @@ class _FieldEditDialogState extends State<_FieldEditDialog> {
   }
 
   Future<void> _pickAsOf() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _asOf,
-      firstDate: DateTime(2000),
-      // "As of" is when something happened — never the future. Plans
-      // are made in the reminder dialog; a forward-dated fact would
-      // win the latest-wins ordering and pose as the current value.
+    // "As of" is when something happened — never the future. Plans
+    // are made in the reminder dialog; a forward-dated fact would
+    // win the latest-wins ordering and pose as the current value.
+    final picked = await pickDay(
+      context,
+      initial: _asOf,
       lastDate: DateTime.now().add(const Duration(days: 1)),
-      // The picker falls back to a text field (e.g. with screen readers);
-      // the stock error doesn't say which format is expected.
-      errorFormatText: context.t.dateFormatError(
-        MaterialLocalizations.of(context).dateHelpText,
-      ),
     );
     if (!mounted) return;
     if (picked != null) setState(() => _asOf = picked);

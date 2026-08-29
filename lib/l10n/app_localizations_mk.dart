@@ -505,6 +505,9 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Овој датум не може да биде во иднина.';
+
+  @override
   String get value => 'Вредност';
 
   @override

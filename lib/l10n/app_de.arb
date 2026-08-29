@@ -142,6 +142,7 @@
   "asOfToday": "Stand: heute",
   "asOfDate": "Stand: {date}",
   "dateFormatError": "Falsches Format — bitte {format} verwenden",
+  "dateInFuture": "Dieses Datum kann nicht in der Zukunft liegen.",
   "value": "Wert",
   "latitudeLongitude": "Breitengrad, Längengrad",
   "newField": "Neues Feld",

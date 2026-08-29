@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'l10n.dart';
+import 'widgets/date_entry.dart';
 
 class NameAndDate {
   final String name;
@@ -95,16 +96,10 @@ class _NameDateDialogState extends State<_NameDateDialog> {
                   .format(_asOf))),
           trailing: const Icon(Icons.edit_calendar_outlined),
           onTap: () async {
-            final picked = await showDatePicker(
-              context: context,
-              initialDate: _asOf,
-              firstDate: DateTime(1990),
+            final picked = await pickDay(
+              context,
+              initial: _asOf,
               lastDate: DateTime.now().add(const Duration(days: 1)),
-              // The picker falls back to a text field (e.g. with screen
-              // readers); the stock error doesn't say which format is
-              // expected.
-              errorFormatText: context.t.dateFormatError(
-                  MaterialLocalizations.of(context).dateHelpText),
             );
             if (!mounted) return;
             if (picked != null) setState(() => _asOf = picked);
@@ -157,13 +152,10 @@ class _AsOfDialogState extends State<_AsOfDialog> {
                 .format(_asOf))),
         trailing: const Icon(Icons.edit_calendar_outlined),
         onTap: () async {
-          final picked = await showDatePicker(
-            context: context,
-            initialDate: _asOf,
-            firstDate: DateTime(1990),
+          final picked = await pickDay(
+            context,
+            initial: _asOf,
             lastDate: DateTime.now().add(const Duration(days: 1)),
-            errorFormatText: context.t.dateFormatError(
-                MaterialLocalizations.of(context).dateHelpText),
           );
           if (!mounted) return;
           if (picked != null) setState(() => _asOf = picked);

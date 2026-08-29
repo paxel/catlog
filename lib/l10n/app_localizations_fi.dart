@@ -503,6 +503,9 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Tämä päivämäärä ei voi olla tulevaisuudessa.';
+
+  @override
   String get value => 'Arvo';
 
   @override

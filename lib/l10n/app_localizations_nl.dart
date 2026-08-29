@@ -504,6 +504,9 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Deze datum kan niet in de toekomst liggen.';
+
+  @override
   String get value => 'Waarde';
 
   @override

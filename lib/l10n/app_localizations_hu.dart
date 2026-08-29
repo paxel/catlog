@@ -502,6 +502,9 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Ez a dátum nem lehet a jövőben.';
+
+  @override
   String get value => 'Érték';
 
   @override

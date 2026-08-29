@@ -502,6 +502,9 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'See kuupäev ei saa olla tulevikus.';
+
+  @override
   String get value => 'Väärtus';
 
   @override

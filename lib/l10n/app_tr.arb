@@ -73,6 +73,7 @@
   "asOfToday": "Bugün itibarıyla",
   "asOfDate": "{date} itibarıyla",
   "dateFormatError": "Yanlış biçim — {format} kullanın",
+  "dateInFuture": "Bu tarih gelecekte olamaz.",
   "value": "Değer",
   "latitudeLongitude": "enlem, boylam",
   "newField": "Yeni alan",

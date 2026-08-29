@@ -73,6 +73,7 @@
   "asOfToday": "Miðað við í dag",
   "asOfDate": "Miðað við {date}",
   "dateFormatError": "Rangt snið — notaðu {format}",
+  "dateInFuture": "Þessi dagsetning getur ekki verið í framtíðinni.",
   "value": "Gildi",
   "latitudeLongitude": "breiddargráða, lengdargráða",
   "newField": "Nýtt svæði",

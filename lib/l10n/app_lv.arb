@@ -73,6 +73,7 @@
   "asOfToday": "Ar šodienas datumu",
   "asOfDate": "Ar datumu {date}",
   "dateFormatError": "Nepareizs formāts — izmantojiet {format}",
+  "dateInFuture": "Šis datums nevar būt nākotnē.",
   "value": "Vērtība",
   "latitudeLongitude": "platums, garums",
   "newField": "Jauns lauks",

@@ -73,6 +73,7 @@
   "asOfToday": "بتاريخ اليوم",
   "asOfDate": "بتاريخ {date}",
   "dateFormatError": "تنسيق خاطئ — استخدم {format}",
+  "dateInFuture": "لا يمكن أن يكون هذا التاريخ في المستقبل.",
   "value": "القيمة",
   "latitudeLongitude": "خط العرض، خط الطول",
   "newField": "حقل جديد",

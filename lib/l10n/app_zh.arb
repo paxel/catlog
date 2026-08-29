@@ -73,6 +73,7 @@
   "asOfToday": "记为今天",
   "asOfDate": "记为 {date}",
   "dateFormatError": "格式错误，请使用 {format}",
+  "dateInFuture": "此日期不能是未来的日期。",
   "value": "值",
   "latitudeLongitude": "纬度，经度",
   "newField": "新字段",

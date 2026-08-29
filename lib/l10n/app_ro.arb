@@ -73,6 +73,7 @@
   "asOfToday": "Cu data de azi",
   "asOfDate": "Cu data {date}",
   "dateFormatError": "Format greșit — folosiți {format}",
+  "dateInFuture": "Această dată nu poate fi în viitor.",
   "value": "Valoare",
   "latitudeLongitude": "latitudine, longitudine",
   "newField": "Câmp nou",

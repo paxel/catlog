@@ -73,6 +73,7 @@
   "asOfToday": "En date d'aujourd'hui",
   "asOfDate": "En date du {date}",
   "dateFormatError": "Format incorrect — utilisez {format}",
+  "dateInFuture": "Cette date ne peut pas être dans le futur.",
   "value": "Valeur",
   "latitudeLongitude": "latitude, longitude",
   "newField": "Nouveau champ",

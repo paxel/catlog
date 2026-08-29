@@ -502,6 +502,9 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Ta datum ne more biti v prihodnosti.';
+
+  @override
   String get value => 'Vrednost';
 
   @override

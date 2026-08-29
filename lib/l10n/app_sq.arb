@@ -73,6 +73,7 @@
   "asOfToday": "Me datën e sotme",
   "asOfDate": "Me datë {date}",
   "dateFormatError": "Format i gabuar — përdorni {format}",
+  "dateInFuture": "Kjo datë nuk mund të jetë në të ardhmen.",
   "value": "Vlera",
   "latitudeLongitude": "gjerësia, gjatësia gjeografike",
   "newField": "Fushë e re",

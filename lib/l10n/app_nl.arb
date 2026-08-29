@@ -73,6 +73,7 @@
   "asOfToday": "Per vandaag",
   "asOfDate": "Per {date}",
   "dateFormatError": "Verkeerd formaat — gebruik {format}",
+  "dateInFuture": "Deze datum kan niet in de toekomst liggen.",
   "value": "Waarde",
   "latitudeLongitude": "breedtegraad, lengtegraad",
   "newField": "Nieuw veld",

@@ -267,6 +267,7 @@
     }
   },
   "dateFormatError": "Wrong format — use {format}",
+  "dateInFuture": "This date can't be in the future.",
   "@dateFormatError": {
     "placeholders": {
       "format": {

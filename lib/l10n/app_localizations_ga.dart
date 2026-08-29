@@ -506,6 +506,9 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Ní féidir leis an dáta seo a bheith sa todhchaí.';
+
+  @override
   String get value => 'Luach';
 
   @override

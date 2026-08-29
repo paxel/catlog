@@ -14,6 +14,7 @@ import 'l10n.dart';
 import 'screens/photo_edit_screen.dart';
 import 'screens/scan_screen.dart';
 import 'stray_cam.dart';
+import 'widgets/date_entry.dart';
 
 /// A transponder number on a flier: 15 digits, often printed with
 /// spaces or hyphens between groups.
@@ -442,14 +443,10 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   }
 
   Future<void> _pickMissingSince() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _missingSince,
-      firstDate: DateTime(2000),
+    final picked = await pickDay(
+      context,
+      initial: _missingSince,
       lastDate: DateTime.now(),
-      errorFormatText: context.t.dateFormatError(
-        MaterialLocalizations.of(context).dateHelpText,
-      ),
     );
     if (picked != null && mounted) {
       setState(() {

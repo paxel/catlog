@@ -73,6 +73,7 @@
   "asOfToday": "Со денешен датум",
   "asOfDate": "Со датум {date}",
   "dateFormatError": "Погрешен формат — користете {format}",
+  "dateInFuture": "Овој датум не може да биде во иднина.",
   "value": "Вредност",
   "latitudeLongitude": "географска ширина, должина",
   "newField": "Ново поле",

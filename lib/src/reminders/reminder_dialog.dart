@@ -6,6 +6,7 @@ import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import '../widgets/date_entry.dart';
 
 /// Starter fields that state what a cat *is* — nothing to plan there.
 /// Plans belong to what happens or changes: status, neutered,
@@ -89,14 +90,7 @@ class _ReminderDialogState extends State<_ReminderDialog> {
   }
 
   Future<void> _pickDue() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _due,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-      errorFormatText: context.t
-          .dateFormatError(MaterialLocalizations.of(context).dateHelpText),
-    );
+    final picked = await pickDay(context, initial: _due);
     if (picked != null && mounted) setState(() => _due = picked);
   }
 

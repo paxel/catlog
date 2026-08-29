@@ -73,6 +73,7 @@
   "asOfToday": "今日付け",
   "asOfDate": "{date} 付け",
   "dateFormatError": "形式が正しくありません。{format} の形式で入力してください",
+  "dateInFuture": "この日付は未来にはできません。",
   "value": "値",
   "latitudeLongitude": "緯度、経度",
   "newField": "新しい項目",

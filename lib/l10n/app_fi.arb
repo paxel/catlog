@@ -73,6 +73,7 @@
   "asOfToday": "Tältä päivältä",
   "asOfDate": "Päivältä {date}",
   "dateFormatError": "Väärä muoto — käytä muotoa {format}",
+  "dateInFuture": "Tämä päivämäärä ei voi olla tulevaisuudessa.",
   "value": "Arvo",
   "latitudeLongitude": "leveysaste, pituusaste",
   "newField": "Uusi kenttä",

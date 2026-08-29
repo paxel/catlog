@@ -73,6 +73,7 @@
   "asOfToday": "Mai dátummal",
   "asOfDate": "Dátum: {date}",
   "dateFormatError": "Hibás formátum — használja: {format}",
+  "dateInFuture": "Ez a dátum nem lehet a jövőben.",
   "value": "Érték",
   "latitudeLongitude": "szélesség, hosszúság",
   "newField": "Új mező",

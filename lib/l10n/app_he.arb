@@ -73,6 +73,7 @@
   "asOfToday": "נכון להיום",
   "asOfDate": "נכון ל-{date}",
   "dateFormatError": "פורמט שגוי — יש להשתמש ב-{format}",
+  "dateInFuture": "תאריך זה לא יכול להיות בעתיד.",
   "value": "ערך",
   "latitudeLongitude": "קו רוחב, קו אורך",
   "newField": "שדה חדש",

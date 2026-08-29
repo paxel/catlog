@@ -1022,6 +1022,12 @@ abstract class AppLocalizations {
   /// **'Wrong format — use {format}'**
   String dateFormatError(String format);
 
+  /// No description provided for @dateInFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'This date can\'t be in the future.'**
+  String get dateInFuture;
+
   /// No description provided for @value.
   ///
   /// In en, this message translates to:

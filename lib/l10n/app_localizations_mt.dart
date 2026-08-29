@@ -505,6 +505,9 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get dateInFuture => 'Din id-data ma tistax tkun fil-futur.';
+
+  @override
   String get value => 'Valur';
 
   @override
