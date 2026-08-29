@@ -9,6 +9,7 @@ import 'package:sqlite3/sqlite3.dart';
 
 import 'entry.dart';
 import 'fields.dart';
+import 'registry.dart';
 
 /// Author name stamped on entries the store seeds itself (starter Fields).
 const seedAuthor = 'cat(a)log';
@@ -1537,7 +1538,13 @@ class CatalogStore {
       }
     }
     final imported = <Entry>[];
+    final self = deviceId;
     for (final e in entries) {
+      // Rows under this device's own id only ever originate here: one
+      // arriving from a bundle or a peer is forged — applied, it would
+      // let partners' version vectors skip this device's real, not yet
+      // synced entries for good.
+      if (e.device == self) continue;
       if (_isBannedEntry(e)) {
         _recordDiscarded(e.device, e.dseq);
         continue;
@@ -1895,6 +1902,9 @@ class CatalogStore {
       {DateTime? date}) {
     if (current(fieldDefId, Keys.type) != Kinds.fieldDef) {
       throw ArgumentError('Not a field definition: $fieldDefId');
+    }
+    if (template != null && template.isNotEmpty && !isWebLookup(template)) {
+      throw ArgumentError('A lookup link must start with http:// or https://');
     }
     append(fieldDefId, Keys.fieldLookupUrl,
         (template == null || template.isEmpty) ? null : template,
