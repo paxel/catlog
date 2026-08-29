@@ -84,13 +84,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
       String author, String deviceInfo) async {
     final parts = deviceInfo.split('|');
     final deviceName = parts.first;
-    final deviceId = parts.length > 1 ? parts[1] : '';
-    if (deviceId.isNotEmpty) {
-      final trusted = widget.store.localSetting('trust:$deviceId');
-      if (trusted != null) {
-        return JoinDecision(true, trusted.startsWith('private'));
-      }
-    }
+    // A remembered device never gets here: the host checks its secret
+    // first. Everything else is the keeper's call.
     if (!mounted) return const JoinDecision(false, false);
     var includePrivate = false;
     // 'once' / 'always' / null (decline)
@@ -127,11 +122,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
       ),
     );
     if (choice == null) return const JoinDecision(false, false);
-    if (choice == 'always' && deviceId.isNotEmpty) {
-      widget.store.setLocalSetting('trust:$deviceId',
-          '${includePrivate ? 'private' : 'public'}|$author|$deviceName');
-    }
-    return JoinDecision(true, includePrivate);
+    return JoinDecision(true, includePrivate, remember: choice == 'always');
   }
 
   Future<void> _toggleHost() async {

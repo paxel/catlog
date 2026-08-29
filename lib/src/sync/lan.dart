@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data' show BytesBuilder;
 
 import 'package:catalog_core/catalog_core.dart';
@@ -27,6 +28,12 @@ class SyncResult {
 }
 
 const _pinHeader = 'x-catlog-pin';
+const _deviceHeader = 'x-catlog-device';
+
+String _randomSecret() {
+  final r = Random.secure();
+  return List.generate(32, (_) => r.nextInt(256).toRadixString(16).padLeft(2, '0')).join();
+}
 const _formatHeader = 'x-catlog-format';
 
 /// The sync wire format this build speaks. Format 2 (1.0.0, #74):
@@ -43,8 +50,25 @@ const syncFormat = 2;
 class JoinDecision {
   final bool allow;
   final bool includePrivate;
-  const JoinDecision(this.allow, this.includePrivate);
+
+  /// "Always allow this device": the host issues it a secret and lets
+  /// it in without asking from then on — the secret, not the device's
+  /// self-declared id, is what is trusted.
+  final bool remember;
+  const JoinDecision(this.allow, this.includePrivate, {this.remember = false});
 }
+
+/// How many wrong PINs one address may send before it is locked out,
+/// and how many in total before the host stops serving: a 6-digit PIN
+/// on plain HTTP survives only if guessing is not free.
+const pinFailuresPerAddress = 5;
+const pinFailuresTotal = 20;
+
+/// Local-setting key of a trusted joiner: `private|author|name|secret`.
+String trustKey(String deviceId) => 'trust:$deviceId';
+
+/// Local-setting key, on the joiner, of the secret a host issued.
+String trustSecretKey(String hostDeviceId) => 'trustSecret:$hostDeviceId';
 
 class LanSyncHost {
   final CatalogStore store;
@@ -61,34 +85,77 @@ class LanSyncHost {
   final void Function(List<Entry> applied)? onSession;
 
   HttpServer? _server;
+  final _failures = <String, int>{};
+  var _failuresTotal = 0;
 
   LanSyncHost(this.store, this.pin, {this.onJoinRequest, this.onSession});
 
   int get port => _server!.port;
 
-  /// Starts serving and returns the LAN address to show the joiner.
-  Future<String> start() async {
-    _server = await HttpServer.bind(InternetAddress.anyIPv4, 0);
-    _server!.listen(_handle, onError: (_) {});
-    for (final iface in await NetworkInterface.list(
-        type: InternetAddressType.IPv4, includeLoopback: false)) {
-      if (iface.addresses.isNotEmpty) return iface.addresses.first.address;
+  /// True once too many wrong PINs arrived: the host no longer answers
+  /// anything and must be started again with a new PIN.
+  bool get lockedOut => _failuresTotal >= pinFailuresTotal;
+
+  /// Starts serving and returns the address to show the joiner. Bound
+  /// to the LAN interface only — not to every interface the phone has
+  /// (cellular, VPN); [bind] overrides for tests.
+  Future<String> start({InternetAddress? bind}) async {
+    var address = bind;
+    if (address == null) {
+      for (final iface in await NetworkInterface.list(
+          type: InternetAddressType.IPv4, includeLoopback: false)) {
+        if (iface.addresses.isNotEmpty) {
+          address = iface.addresses.first;
+          break;
+        }
+      }
     }
-    return 'localhost';
+    address ??= InternetAddress.loopbackIPv4;
+    _server = await HttpServer.bind(address, 0);
+    _server!.listen(_handle, onError: (_) {});
+    return address.address;
   }
 
   Future<void> stop() async => _server?.close(force: true);
 
+  /// The trust a joiner claims, checked against the secret this host
+  /// issued it. A stored trust without a secret (older versions) counts
+  /// as none: the keeper is asked once more and the secret is issued.
+  JoinDecision? _trusted(String deviceId, String? secret) {
+    if (deviceId.isEmpty || secret == null || secret.isEmpty) return null;
+    final stored = store.localSetting(trustKey(deviceId));
+    if (stored == null) return null;
+    final parts = stored.split('|');
+    if (parts.length < 4 || parts[3] != secret) return null;
+    return JoinDecision(true, parts.first == 'private');
+  }
+
+  String _remember(String deviceId, String author, String name,
+      bool includePrivate) {
+    final secret = _randomSecret();
+    store.setLocalSetting(trustKey(deviceId),
+        '${includePrivate ? 'private' : 'public'}|$author|$name|$secret');
+    return secret;
+  }
+
   Future<void> _handle(HttpRequest req) async {
     try {
-      if (req.headers.value(_pinHeader) != pin) {
+      final from = req.connectionInfo?.remoteAddress.address ?? '?';
+      if (lockedOut || (_failures[from] ?? 0) >= pinFailuresPerAddress) {
         req.response.statusCode = HttpStatus.forbidden;
-        await req.response.close();
+        req.response.write('locked');
+        return;
+      }
+      if (req.headers.value(_pinHeader) != pin) {
+        _failures[from] = (_failures[from] ?? 0) + 1;
+        _failuresTotal++;
+        req.response.statusCode = HttpStatus.forbidden;
         return;
       }
       final path = req.uri.path;
       if (req.method == 'GET' && path == '/vector') {
         req.response.headers.set(_formatHeader, '$syncFormat');
+        req.response.headers.set(_deviceHeader, store.deviceId);
         req.response.headers.contentType = ContentType.json;
         req.response.write(jsonEncode(store.versionVector()));
       } else if (req.method == 'POST' && path == '/sync') {
@@ -123,17 +190,21 @@ class LanSyncHost {
           }
           return;
         }
-        final decision = onJoinRequest == null
-            ? const JoinDecision(true, false)
-            : await onJoinRequest!(
-                body['author'] as String? ?? '?',
-                '${body['deviceName'] as String? ?? '?'}'
-                '|${body['deviceId'] as String? ?? ''}');
+        final author = body['author'] as String? ?? '?';
+        final deviceName = body['deviceName'] as String? ?? '?';
+        final deviceId = body['deviceId'] as String? ?? '';
+        final decision = _trusted(deviceId, body['trustSecret'] as String?) ??
+            (onJoinRequest == null
+                ? const JoinDecision(true, false)
+                : await onJoinRequest!(author, '$deviceName|$deviceId'));
         if (!decision.allow) {
           req.response.statusCode = HttpStatus.forbidden;
           req.response.write('declined');
           return;
         }
+        final issued = decision.remember && deviceId.isNotEmpty
+            ? _remember(deviceId, author, deviceName, decision.includePrivate)
+            : null;
         final joinerVector = (body['vector'] as Map)
             .map((k, v) => MapEntry(k as String, v as int));
         final incoming = [
@@ -156,6 +227,7 @@ class LanSyncHost {
               e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),
+          'trust': ?issued,
         }));
         onSession?.call(applied);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
@@ -210,7 +282,8 @@ Future<SyncResult> lanSync(
   final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
   try {
     var hostFormat = 1;
-    Future<dynamic> call(String method, String path, {Object? body}) async {
+    Future<dynamic> call(String method, String path,
+        {Object? body, void Function(HttpHeaders)? onHeaders}) async {
       final req = await client.openUrl(method, Uri.parse('http://$host:$port$path'));
       req.headers.set(_pinHeader, pin);
       if (body is Map) {
@@ -240,6 +313,7 @@ Future<SyncResult> lanSync(
         throw SyncException(
             body.contains('declined') ? 'declined' : 'Wrong PIN');
       }
+      onHeaders?.call(res.headers);
       if (res.statusCode == HttpStatus.notFound && path.startsWith('/blob/')) {
         // A photo the peer's log mentions but nobody holds any more —
         // permanent in an append-only log; skip it, never fail on it.
@@ -262,7 +336,9 @@ Future<SyncResult> lanSync(
           : Uint8List.fromList(data);
     }
 
-    final hostVector = (await call('GET', '/vector') as Map)
+    String? hostDevice;
+    final hostVector = (await call('GET', '/vector',
+            onHeaders: (h) => hostDevice = h.value(_deviceHeader)) as Map)
         .map((k, v) => MapEntry(k as String, v as int));
     // An older host would strip the reminder flag off entries and
     // record plans as facts (#74) — refuse it before anything is sent,
@@ -284,7 +360,15 @@ Future<SyncResult> lanSync(
       'author': store.author ?? '?',
       'deviceName': Platform.localHostname,
       'deviceId': store.deviceId,
+      'trustSecret': ?(hostDevice == null
+          ? null
+          : store.localSetting(trustSecretKey(hostDevice!))),
     }) as Map;
+    if (hostDevice != null && response['trust'] is String) {
+      // "Always allow" on the host: keep its secret for next time.
+      store.setLocalSetting(
+          trustSecretKey(hostDevice!), response['trust'] as String);
+    }
 
     final received = [
       for (final e in response['entries'] as List)

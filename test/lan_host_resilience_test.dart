@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -17,7 +18,7 @@ void main() {
     addTearDown(b.close);
     a.createCat('Miezi');
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     final socket = await Socket.connect('127.0.0.1', host.port);
@@ -47,11 +48,11 @@ void main() {
     // A photo entry whose bytes are gone — permanent in the log.
     a.append(cat, '\$image:${'b' * 64}', 'added');
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
     final result = await lanSync(b, '127.0.0.1', host.port, '123456');
     expect(result.entriesReceived, greaterThan(0));
-    expect(result.blobsIn, 0);
+    expect(result.blobsReceived, 0);
     expect(b.cats().map((c) => c.name), contains('Miezi'));
   });
 
@@ -59,7 +60,7 @@ void main() {
     final a = CatalogStore.inMemory()..author = 'a';
     addTearDown(a.close);
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
     final client = HttpClient();
     addTearDown(() => client.close(force: true));
@@ -68,8 +69,71 @@ void main() {
     req.headers.set('x-catlog-pin', '123456');
     req.contentLength = maxBlobBytes + 1;
     req.add(List<int>.filled(maxBlobBytes + 1, 0));
+    // The host answers 413 and closes; the client may see the answer
+    // or a closed connection — either way nothing was stored.
+    try {
+      final res = await req.close();
+      expect(res.statusCode, HttpStatus.requestEntityTooLarge);
+      await res.drain<void>();
+    } on HttpException {
+      // connection closed before the full body went out
+    }
+    expect(a.imageBytes('c' * 64), isNull);
+  });
+
+  test('five wrong PINs lock an address out, even with the right PIN',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    final b = CatalogStore.inMemory()..author = 'b';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final host = LanSyncHost(a, '123456');
+    await host.start(bind: InternetAddress.loopbackIPv4);
+    addTearDown(host.stop);
+    for (var i = 0; i < pinFailuresPerAddress; i++) {
+      await expectLater(lanSync(b, '127.0.0.1', host.port, '000000'),
+          throwsA(isA<SyncException>()));
+    }
+    await expectLater(lanSync(b, '127.0.0.1', host.port, '123456'),
+        throwsA(isA<SyncException>()));
+  });
+
+  test('"always allow" hands the joiner a secret; a bare device id is asked',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'a';
+    final b = CatalogStore.inMemory()..author = 'b';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    var asked = 0;
+    final host = LanSyncHost(a, '123456', onJoinRequest: (_, _) async {
+      asked++;
+      return const JoinDecision(true, false, remember: true);
+    });
+    await host.start(bind: InternetAddress.loopbackIPv4);
+    addTearDown(host.stop);
+    await lanSync(b, '127.0.0.1', host.port, '123456');
+    expect(asked, 1);
+    expect(b.localSetting(trustSecretKey(a.deviceId)), isNotNull);
+    // Second time: no question.
+    await lanSync(b, '127.0.0.1', host.port, '123456');
+    expect(asked, 1);
+    // Another device claiming b's id without the secret is asked.
+    final client = HttpClient();
+    addTearDown(() => client.close(force: true));
+    final req = await client.openUrl(
+        'POST', Uri.parse('http://127.0.0.1:${host.port}/sync'));
+    req.headers.set('x-catlog-pin', '123456');
+    req.headers.contentType = ContentType.json;
+    req.write(jsonEncode({
+      'format': 2,
+      'author': 'c',
+      'deviceName': 'impostor',
+      'deviceId': b.deviceId,
+      'vector': <String, int>{},
+      'entries': <Object>[],
+    }));
     final res = await req.close();
-    expect(res.statusCode, HttpStatus.requestEntityTooLarge);
     await res.drain<void>();
+    expect(asked, 2);
   });
 }

@@ -19,7 +19,7 @@ void main() {
     b.createCat('Wanderer');
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     final result = await lanSync(b, '127.0.0.1', host.port, '123456');
@@ -43,7 +43,7 @@ void main() {
     addTearDown(b.close);
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     expect(() => lanSync(b, '127.0.0.1', host.port, '000000'),
@@ -64,7 +64,7 @@ void main() {
       expect(author, 'stranger');
       return const JoinDecision(false, false);
     });
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     await expectLater(
@@ -86,7 +86,7 @@ void main() {
 
     final host = LanSyncHost(a, '123456',
         onJoinRequest: (_, _) async => const JoinDecision(true, true));
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     await lanSync(b, '127.0.0.1', host.port, '123456');
@@ -123,7 +123,7 @@ void main() {
     a.createCat('Miezi');
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     final (status, body) = await postLegacySync(host.port, '123456', {});
@@ -142,7 +142,7 @@ void main() {
         reminder: true);
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     final (status, body) = await postLegacySync(host.port, '123456', {});
@@ -156,7 +156,7 @@ void main() {
     a.createCat('Miezi');
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     // A joiner from the future (format 99) — the host cannot serve it
@@ -194,7 +194,7 @@ void main() {
         reminder: true);
 
     final host = LanSyncHost(a, '123456');
-    await host.start();
+    await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     await lanSync(b, '127.0.0.1', host.port, '123456');
