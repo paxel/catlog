@@ -1916,6 +1916,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get targetContact => 'Registrets kontakt';
 
   @override
+  String get targetDrop => 'Kasta';
+
+  @override
   String get abortScanTitle => 'Avbryta registreringen?';
 
   @override

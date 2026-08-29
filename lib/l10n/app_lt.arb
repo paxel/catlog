@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registro numeris",
   "targetLostPlace": "Adresas (dingimo vieta)",
   "targetContact": "Registro kontaktas",
+  "targetDrop": "Atmesti",
   "abortScanTitle": "Nutraukti skenavimą?",
   "abortScanBody": "Niekas nebus išsaugota.",
   "abortScan": "Nutraukti",

@@ -1915,6 +1915,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get targetContact => 'Registerets kontakt';
 
   @override
+  String get targetDrop => 'Forkast';
+
+  @override
   String get abortScanTitle => 'Avbryte registreringen?';
 
   @override

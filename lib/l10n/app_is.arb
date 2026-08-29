@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Skráningarnúmer",
   "targetLostPlace": "Heimilisfang (týndist hér)",
   "targetContact": "Tengiliður skrárinnar",
+  "targetDrop": "Sleppa",
   "abortScanTitle": "Hætta við skráninguna?",
   "abortScanBody": "Ekkert verður vistað.",
   "abortScan": "Hætta við",

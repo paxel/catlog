@@ -1918,6 +1918,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get targetContact => 'Kontakt registra';
 
   @override
+  String get targetDrop => 'Zahodiť';
+
+  @override
   String get abortScanTitle => 'Prerušiť snímanie?';
 
   @override

@@ -1924,6 +1924,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get targetContact => 'Kuntatt tar-reġistru';
 
   @override
+  String get targetDrop => 'Warrab';
+
+  @override
   String get abortScanTitle => 'Twaqqaf l-iskan?';
 
   @override

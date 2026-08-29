@@ -15,6 +15,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
+- The flier wizard's Flier text page offers "Drop" for any line, and a
+  line sent to remarks arrives as its value alone — the poster's labels
+  ("Geschlecht:") no longer fill the cat's and owner's remarks.
+
 - Dates are typed — "14.05.2021", "05.2021" or "2021" — with the
   calendar behind an icon instead of a month grid filling the dialog.
   Reminders, appointments and "as of" dates use the same entry.

@@ -382,7 +382,8 @@ void main() {
     expect(remarks, contains('GESUCHT!'));
     expect(store.current(cat.id, Keys.userField('birthdate')), '2024-05-26');
     expect(remarks, isNot(contains('26.05.2024')));
-    expect(remarks, contains('Kennzeichnung: Das Tier ist gechipt.'));
+    expect(remarks, contains('Das Tier ist gechipt.'));
+    expect(remarks, isNot(contains('Kennzeichnung')));
     expect(remarks, isNot(contains('braun')));
     final clowder = store.clowders().single;
     expect(store.current(clowder.id, Keys.userField('phone')), isNull);
@@ -390,6 +391,21 @@ void main() {
     expect(
       store.current(clowder.id, Keys.userField('address')),
       '04207 Leipzig, Colberger Weg. Deutschland',
+    );
+  });
+
+  testWidgets('a dropped line is stored nowhere', (tester) async {
+    await pump(tester, text: 'Minka\nreward!');
+    // Drop the second line.
+    await tester.tap(find.byType(DropdownButton<String>).last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Drop').last);
+    await tester.pumpAndSettle();
+    await next(tester);
+    await save(tester);
+    expect(
+      store.current(store.cats().single.id, Keys.userField('remarks')),
+      'Minka',
     );
   });
 
@@ -457,7 +473,7 @@ void main() {
     await save(tester);
     expect(
       store.current(store.cats().single.id, Keys.userField('remarks')),
-      contains('Verlustdatum: 05.06.2099'),
+      contains('05.06.2099'),
     );
   });
 }

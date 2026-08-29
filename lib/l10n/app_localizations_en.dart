@@ -1917,6 +1917,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get targetContact => 'Registry contact';
 
   @override
+  String get targetDrop => 'Drop';
+
+  @override
   String get abortScanTitle => 'Abort the scan?';
 
   @override

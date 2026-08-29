@@ -1924,6 +1924,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get targetContact => 'Contacto del registro';
 
   @override
+  String get targetDrop => 'Descartar';
+
+  @override
   String get abortScanTitle => '¿Cancelar la captura?';
 
   @override

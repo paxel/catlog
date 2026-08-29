@@ -1906,6 +1906,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get targetContact => 'איש קשר של המרשם';
 
   @override
+  String get targetDrop => 'התעלם';
+
+  @override
   String get abortScanTitle => 'לבטל את הסריקה?';
 
   @override

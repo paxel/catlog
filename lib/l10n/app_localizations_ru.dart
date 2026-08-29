@@ -1921,6 +1921,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get targetContact => 'Контакт реестра';
 
   @override
+  String get targetDrop => 'Отбросить';
+
+  @override
   String get abortScanTitle => 'Прервать сканирование?';
 
   @override

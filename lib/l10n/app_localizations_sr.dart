@@ -1918,6 +1918,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get targetContact => 'Контакт регистра';
 
   @override
+  String get targetDrop => 'Одбаци';
+
+  @override
   String get abortScanTitle => 'Прекинути снимање?';
 
   @override

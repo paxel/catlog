@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Numru tar-reġistru",
   "targetLostPlace": "Indirizz (fejn intilef)",
   "targetContact": "Kuntatt tar-reġistru",
+  "targetDrop": "Warrab",
   "abortScanTitle": "Twaqqaf l-iskan?",
   "abortScanBody": "Xejn ma jiġi salvat.",
   "abortScan": "Waqqaf",

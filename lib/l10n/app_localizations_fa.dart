@@ -1913,6 +1913,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get targetContact => 'تماس سامانه ثبت';
 
   @override
+  String get targetDrop => 'رد کردن';
+
+  @override
   String get abortScanTitle => 'اسکن لغو شود؟';
 
   @override

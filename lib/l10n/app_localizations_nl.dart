@@ -1922,6 +1922,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get targetContact => 'Contact van het register';
 
   @override
+  String get targetDrop => 'Weglaten';
+
+  @override
   String get abortScanTitle => 'Opname afbreken?';
 
   @override

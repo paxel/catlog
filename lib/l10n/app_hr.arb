@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Broj u registru",
   "targetLostPlace": "Adresa (mjesto nestanka)",
   "targetContact": "Kontakt registra",
+  "targetDrop": "Odbaci",
   "abortScanTitle": "Prekinuti snimanje?",
   "abortScanBody": "Ništa se neće spremiti.",
   "abortScan": "Prekini",

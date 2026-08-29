@@ -563,6 +563,7 @@
   "targetRegistryNumber": "Registernummer",
   "targetLostPlace": "Adresse (Verlustort)",
   "targetContact": "Kontakt des Registers",
+  "targetDrop": "Verwerfen",
   "abortScanTitle": "Erfassung abbrechen?",
   "abortScanBody": "Es wird nichts gespeichert.",
   "abortScan": "Abbrechen",

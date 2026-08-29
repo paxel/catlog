@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Kayıt numarası",
   "targetLostPlace": "Adres (kaybolduğu yer)",
   "targetContact": "Kayıt servisi iletişimi",
+  "targetDrop": "At",
   "abortScanTitle": "Tarama iptal edilsin mi?",
   "abortScanBody": "Hiçbir şey kaydedilmez.",
   "abortScan": "İptal",

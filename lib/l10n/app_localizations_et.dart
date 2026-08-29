@@ -1916,6 +1916,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get targetContact => 'Registri kontakt';
 
   @override
+  String get targetDrop => 'Jäta ära';
+
+  @override
   String get abortScanTitle => 'Katkestada jäädvustamine?';
 
   @override

@@ -641,6 +641,7 @@
   "targetRegistryNumber": "מספר מרשם",
   "targetLostPlace": "כתובת (מקום האובדן)",
   "targetContact": "איש קשר של המרשם",
+  "targetDrop": "התעלם",
   "abortScanTitle": "לבטל את הסריקה?",
   "abortScanBody": "שום דבר לא יישמר.",
   "abortScan": "ביטול",

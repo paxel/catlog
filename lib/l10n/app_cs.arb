@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Číslo registru",
   "targetLostPlace": "Adresa (místo ztráty)",
   "targetContact": "Kontakt registru",
+  "targetDrop": "Zahodit",
   "abortScanTitle": "Přerušit snímání?",
   "abortScanBody": "Nic se neuloží.",
   "abortScan": "Přerušit",

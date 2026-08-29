@@ -1921,6 +1921,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get targetContact => 'Contactul registrului';
 
   @override
+  String get targetDrop => 'Renunță';
+
+  @override
   String get abortScanTitle => 'Renunți la scanare?';
 
   @override

@@ -1918,6 +1918,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get targetContact => 'Kayıt servisi iletişimi';
 
   @override
+  String get targetDrop => 'At';
+
+  @override
   String get abortScanTitle => 'Tarama iptal edilsin mi?';
 
   @override

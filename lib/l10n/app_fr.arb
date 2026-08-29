@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Numéro de registre",
   "targetLostPlace": "Adresse (lieu de disparition)",
   "targetContact": "Contact du registre",
+  "targetDrop": "Ignorer",
   "abortScanTitle": "Abandonner la capture ?",
   "abortScanBody": "Rien ne sera enregistré.",
   "abortScan": "Abandonner",

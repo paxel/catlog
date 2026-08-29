@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Αριθμός μητρώου",
   "targetLostPlace": "Διεύθυνση (τόπος απώλειας)",
   "targetContact": "Επικοινωνία μητρώου",
+  "targetDrop": "Απόρριψη",
   "abortScanTitle": "Ακύρωση της σάρωσης;",
   "abortScanBody": "Δεν θα αποθηκευτεί τίποτα.",
   "abortScan": "Ακύρωση",

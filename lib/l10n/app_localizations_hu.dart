@@ -1918,6 +1918,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get targetContact => 'A nyilvántartás elérhetősége';
 
   @override
+  String get targetDrop => 'Elvetés';
+
+  @override
   String get abortScanTitle => 'Megszakítja a felvételt?';
 
   @override

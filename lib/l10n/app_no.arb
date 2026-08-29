@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registernummer",
   "targetLostPlace": "Adresse (forsvunnet fra)",
   "targetContact": "Registerets kontakt",
+  "targetDrop": "Forkast",
   "abortScanTitle": "Avbryte registreringen?",
   "abortScanBody": "Ingenting blir lagret.",
   "abortScan": "Avbryt",

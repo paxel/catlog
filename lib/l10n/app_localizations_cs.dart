@@ -1918,6 +1918,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get targetContact => 'Kontakt registru';
 
   @override
+  String get targetDrop => 'Zahodit';
+
+  @override
   String get abortScanTitle => 'Přerušit snímání?';
 
   @override

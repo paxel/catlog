@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Rekisterinumero",
   "targetLostPlace": "Osoite (katoamispaikka)",
   "targetContact": "Rekisterin yhteystiedot",
+  "targetDrop": "Hylkää",
   "abortScanTitle": "Keskeytetäänkö tallennus?",
   "abortScanBody": "Mitään ei tallenneta.",
   "abortScan": "Keskeytä",

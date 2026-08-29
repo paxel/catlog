@@ -1921,6 +1921,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get targetContact => 'Контакт реєстру';
 
   @override
+  String get targetDrop => 'Відкинути';
+
+  @override
   String get abortScanTitle => 'Перервати сканування?';
 
   @override

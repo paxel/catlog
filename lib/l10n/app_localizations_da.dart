@@ -1917,6 +1917,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get targetContact => 'Registerets kontakt';
 
   @override
+  String get targetDrop => 'Kassér';
+
+  @override
   String get abortScanTitle => 'Afbryd registreringen?';
 
   @override

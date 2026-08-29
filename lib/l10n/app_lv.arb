@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Reģistra numurs",
   "targetLostPlace": "Adrese (pazušanas vieta)",
   "targetContact": "Reģistra kontakts",
+  "targetDrop": "Atmest",
   "abortScanTitle": "Pārtraukt skenēšanu?",
   "abortScanBody": "Nekas netiks saglabāts.",
   "abortScan": "Pārtraukt",

@@ -1922,6 +1922,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get targetContact => 'Tengiliður skrárinnar';
 
   @override
+  String get targetDrop => 'Sleppa';
+
+  @override
   String get abortScanTitle => 'Hætta við skráninguna?';
 
   @override

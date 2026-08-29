@@ -1918,6 +1918,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get targetContact => 'Kontakt registra';
 
   @override
+  String get targetDrop => 'Odbaci';
+
+  @override
   String get abortScanTitle => 'Prekinuti snimanje?';
 
   @override

@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registernummer",
   "targetLostPlace": "Adresse (forsvundet fra)",
   "targetContact": "Registerets kontakt",
+  "targetDrop": "Kassér",
   "abortScanTitle": "Afbryd registreringen?",
   "abortScanBody": "Intet bliver gemt.",
   "abortScan": "Afbryd",

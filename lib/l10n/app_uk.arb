@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Номер у реєстрі",
   "targetLostPlace": "Адреса (місце зникнення)",
   "targetContact": "Контакт реєстру",
+  "targetDrop": "Відкинути",
   "abortScanTitle": "Перервати сканування?",
   "abortScanBody": "Нічого не буде збережено.",
   "abortScan": "Перервати",

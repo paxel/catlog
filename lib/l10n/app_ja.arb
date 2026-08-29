@@ -641,6 +641,7 @@
   "targetRegistryNumber": "登録番号",
   "targetLostPlace": "住所（迷子になった場所）",
   "targetContact": "登録サービスの連絡先",
+  "targetDrop": "破棄",
   "abortScanTitle": "取り込みを中止しますか？",
   "abortScanBody": "何も保存されません。",
   "abortScan": "中止",

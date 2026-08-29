@@ -1915,6 +1915,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get targetContact => 'جهة اتصال السجل';
 
   @override
+  String get targetDrop => 'تجاهل';
+
+  @override
   String get abortScanTitle => 'إلغاء المسح؟';
 
   @override

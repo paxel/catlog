@@ -3434,6 +3434,12 @@ abstract class AppLocalizations {
   /// **'Registry contact'**
   String get targetContact;
 
+  /// No description provided for @targetDrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop'**
+  String get targetDrop;
+
   /// No description provided for @abortScanTitle.
   ///
   /// In en, this message translates to:

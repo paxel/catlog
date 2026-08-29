@@ -286,9 +286,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         }
       }
       for (final entry in reading.entries) {
-        final label = entry.label;
-        final line = label == null ? entry.value : '$label: ${entry.value}';
+        // The label names the line on the Flier text page and nowhere
+        // else; only the value travels (#77).
+        final line = entry.value;
         switch (entry.target) {
+          case FlierTarget.drop:
+            break;
           case FlierTarget.name:
           case FlierTarget.lostPlace:
             if (!_newCat) remarks.add(line);
@@ -675,6 +678,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// The targets a line can be sent to: the wizard's own inputs and
   /// every cat Field, by localized name.
   List<DropdownMenuItem<String>> _targetItems(AppLocalizations t) => [
+    DropdownMenuItem(value: FlierTarget.drop, child: Text(t.targetDrop)),
     DropdownMenuItem(value: FlierTarget.remarks, child: Text(t.starterRemarks)),
     if (_newCat) ...[
       DropdownMenuItem(value: FlierTarget.name, child: Text(t.name)),

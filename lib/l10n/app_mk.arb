@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Регистарски број",
   "targetLostPlace": "Адреса (место на исчезнување)",
   "targetContact": "Контакт на регистарот",
+  "targetDrop": "Отфрли",
   "abortScanTitle": "Прекини снимање?",
   "abortScanBody": "Ништо нема да се зачува.",
   "abortScan": "Прекини",

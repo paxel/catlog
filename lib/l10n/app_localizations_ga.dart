@@ -1931,6 +1931,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get targetContact => 'Teagmháil an chláir';
 
   @override
+  String get targetDrop => 'Fág ar lár';
+
+  @override
   String get abortScanTitle => 'Éirigh as an scanadh?';
 
   @override

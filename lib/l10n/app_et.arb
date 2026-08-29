@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registrinumber",
   "targetLostPlace": "Aadress (kadumiskoht)",
   "targetContact": "Registri kontakt",
+  "targetDrop": "Jäta ära",
   "abortScanTitle": "Katkestada jäädvustamine?",
   "abortScanBody": "Midagi ei salvestata.",
   "abortScan": "Katkesta",

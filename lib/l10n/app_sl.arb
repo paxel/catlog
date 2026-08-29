@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Številka registra",
   "targetLostPlace": "Naslov (kraj izginotja)",
   "targetContact": "Kontakt registra",
+  "targetDrop": "Zavrzi",
   "abortScanTitle": "Prekinem zajem?",
   "abortScanBody": "Nič ne bo shranjeno.",
   "abortScan": "Prekini",

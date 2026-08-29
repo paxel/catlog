@@ -1867,6 +1867,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get targetContact => '登録サービスの連絡先';
 
   @override
+  String get targetDrop => '破棄';
+
+  @override
   String get abortScanTitle => '取り込みを中止しますか？';
 
   @override

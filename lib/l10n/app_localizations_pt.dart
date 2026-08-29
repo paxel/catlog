@@ -1919,6 +1919,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get targetContact => 'Contacto do registo';
 
   @override
+  String get targetDrop => 'Descartar';
+
+  @override
   String get abortScanTitle => 'Cancelar a captura?';
 
   @override

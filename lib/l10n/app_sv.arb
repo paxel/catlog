@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registernummer",
   "targetLostPlace": "Adress (försvunnen från)",
   "targetContact": "Registrets kontakt",
+  "targetDrop": "Kasta",
   "abortScanTitle": "Avbryta registreringen?",
   "abortScanBody": "Inget sparas.",
   "abortScan": "Avbryt",

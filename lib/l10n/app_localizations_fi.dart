@@ -1919,6 +1919,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get targetContact => 'Rekisterin yhteystiedot';
 
   @override
+  String get targetDrop => 'Hylkää';
+
+  @override
   String get abortScanTitle => 'Keskeytetäänkö tallennus?';
 
   @override

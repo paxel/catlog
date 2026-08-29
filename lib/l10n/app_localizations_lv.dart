@@ -1920,6 +1920,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get targetContact => 'Reģistra kontakts';
 
   @override
+  String get targetDrop => 'Atmest';
+
+  @override
   String get abortScanTitle => 'Pārtraukt skenēšanu?';
 
   @override

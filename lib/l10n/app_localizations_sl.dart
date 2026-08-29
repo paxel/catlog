@@ -1920,6 +1920,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get targetContact => 'Kontakt registra';
 
   @override
+  String get targetDrop => 'Zavrzi';
+
+  @override
   String get abortScanTitle => 'Prekinem zajem?';
 
   @override

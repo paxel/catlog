@@ -885,6 +885,7 @@
   "targetRegistryNumber": "Registry number",
   "targetLostPlace": "Address (lost at)",
   "targetContact": "Registry contact",
+  "targetDrop": "Drop",
   "abortScanTitle": "Abort the scan?",
   "abortScanBody": "Nothing gets saved.",
   "abortScan": "Abort",

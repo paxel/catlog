@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Номер в реестре",
   "targetLostPlace": "Адрес (место пропажи)",
   "targetContact": "Контакт реестра",
+  "targetDrop": "Отбросить",
   "abortScanTitle": "Прервать сканирование?",
   "abortScanBody": "Ничего не будет сохранено.",
   "abortScan": "Прервать",

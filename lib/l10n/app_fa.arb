@@ -641,6 +641,7 @@
   "targetRegistryNumber": "شماره ثبت",
   "targetLostPlace": "نشانی (محل گم شدن)",
   "targetContact": "تماس سامانه ثبت",
+  "targetDrop": "رد کردن",
   "abortScanTitle": "اسکن لغو شود؟",
   "abortScanBody": "چیزی ذخیره نمی‌شود.",
   "abortScan": "لغو",

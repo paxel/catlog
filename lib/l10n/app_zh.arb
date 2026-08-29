@@ -641,6 +641,7 @@
   "targetRegistryNumber": "登记编号",
   "targetLostPlace": "地址（走失地点）",
   "targetContact": "登记服务联系方式",
+  "targetDrop": "丢弃",
   "abortScanTitle": "中止扫描？",
   "abortScanBody": "不会保存任何内容。",
   "abortScan": "中止",

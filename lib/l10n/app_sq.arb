@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Numri i regjistrit",
   "targetLostPlace": "Adresa (vendi i humbjes)",
   "targetContact": "Kontakti i regjistrit",
+  "targetDrop": "Hidh",
   "abortScanTitle": "Të ndërpritet skanimi?",
   "abortScanBody": "Asgjë nuk do të ruhet.",
   "abortScan": "Ndërprit",

@@ -1917,6 +1917,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get targetContact => 'Контакт на регистъра';
 
   @override
+  String get targetDrop => 'Отхвърли';
+
+  @override
   String get abortScanTitle => 'Прекратяване на заснемането?';
 
   @override

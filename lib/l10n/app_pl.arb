@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Numer rejestru",
   "targetLostPlace": "Adres (miejsce zaginięcia)",
   "targetContact": "Kontakt rejestru",
+  "targetDrop": "Odrzuć",
   "abortScanTitle": "Przerwać skanowanie?",
   "abortScanBody": "Nic nie zostanie zapisane.",
   "abortScan": "Przerwij",

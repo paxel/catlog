@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Uimhir chláir",
   "targetLostPlace": "Seoladh (áit ar cailleadh é)",
   "targetContact": "Teagmháil an chláir",
+  "targetDrop": "Fág ar lár",
   "abortScanTitle": "Éirigh as an scanadh?",
   "abortScanBody": "Ní shábhálfar rud ar bith.",
   "abortScan": "Éirigh as",

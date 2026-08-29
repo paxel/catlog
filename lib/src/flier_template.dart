@@ -21,6 +21,10 @@ abstract final class FlierTarget {
   /// Free text: goes to remarks.
   static const remarks = 'remarks';
 
+  /// Not stored anywhere — a hotline, a heading, a value already in a
+  /// field (#77).
+  static const drop = 'drop';
+
   static const wizard = {name, registryNumber, missingSince, lostPlace};
 }
 

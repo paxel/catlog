@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Número de registo",
   "targetLostPlace": "Morada (local do desaparecimento)",
   "targetContact": "Contacto do registo",
+  "targetDrop": "Descartar",
   "abortScanTitle": "Cancelar a captura?",
   "abortScanBody": "Nada será guardado.",
   "abortScan": "Cancelar",

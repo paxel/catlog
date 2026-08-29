@@ -1922,6 +1922,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get targetContact => 'Kontakt rejestru';
 
   @override
+  String get targetDrop => 'Odrzuć';
+
+  @override
   String get abortScanTitle => 'Przerwać skanowanie?';
 
   @override

@@ -1846,6 +1846,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get targetContact => '登记服务联系方式';
 
   @override
+  String get targetDrop => '丢弃';
+
+  @override
   String get abortScanTitle => '中止扫描？';
 
   @override

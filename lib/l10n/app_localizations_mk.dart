@@ -1920,6 +1920,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get targetContact => 'Контакт на регистарот';
 
   @override
+  String get targetDrop => 'Отфрли';
+
+  @override
   String get abortScanTitle => 'Прекини снимање?';
 
   @override

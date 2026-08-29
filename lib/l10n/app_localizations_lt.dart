@@ -1925,6 +1925,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get targetContact => 'Registro kontaktas';
 
   @override
+  String get targetDrop => 'Atmesti';
+
+  @override
   String get abortScanTitle => 'Nutraukti skenavimą?';
 
   @override

@@ -1919,6 +1919,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get targetContact => 'Kontakti i regjistrit';
 
   @override
+  String get targetDrop => 'Hidh';
+
+  @override
   String get abortScanTitle => 'Të ndërpritet skanimi?';
 
   @override

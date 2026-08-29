@@ -641,6 +641,7 @@
   "targetRegistryNumber": "Registernummer",
   "targetLostPlace": "Adres (plaats van vermissing)",
   "targetContact": "Contact van het register",
+  "targetDrop": "Weglaten",
   "abortScanTitle": "Opname afbreken?",
   "abortScanBody": "Er wordt niets opgeslagen.",
   "abortScan": "Afbreken",

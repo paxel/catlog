@@ -641,6 +641,7 @@
   "targetRegistryNumber": "رقم السجل",
   "targetLostPlace": "العنوان (مكان الفقد)",
   "targetContact": "جهة اتصال السجل",
+  "targetDrop": "تجاهل",
   "abortScanTitle": "إلغاء المسح؟",
   "abortScanBody": "لن يُحفظ أي شيء.",
   "abortScan": "إلغاء",

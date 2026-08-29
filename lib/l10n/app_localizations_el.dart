@@ -1924,6 +1924,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get targetContact => 'Επικοινωνία μητρώου';
 
   @override
+  String get targetDrop => 'Απόρριψη';
+
+  @override
   String get abortScanTitle => 'Ακύρωση της σάρωσης;';
 
   @override
