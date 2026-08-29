@@ -41,10 +41,25 @@ Future<PositionOutcome> locateDevice() async {
   if (permission == LocationPermission.denied) {
     return (pos: null, failure: LocationFailure.denied);
   }
+  return positionWithin(
+    () => Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+            accuracy: LocationAccuracy.high, timeLimit: fixLimit)),
+  );
+}
+
+/// How long a fix may take before "no fix" is the answer: indoors GPS
+/// never answers, and a fix that never comes must not leave the Stray
+/// Cam or the map's locate button busy for the rest of the session.
+const fixLimit = Duration(seconds: 20);
+
+/// Runs [get] under [fixLimit] (with a little slack for the plugin's
+/// own limit to fire first); any failure, including the timeout, is
+/// "no fix".
+Future<PositionOutcome> positionWithin(Future<Position> Function() get,
+    {Duration limit = fixLimit}) async {
   try {
-    final p = await Geolocator.getCurrentPosition(
-        locationSettings:
-            const LocationSettings(accuracy: LocationAccuracy.high));
+    final p = await get().timeout(limit + const Duration(seconds: 5));
     return (pos: (p.latitude, p.longitude), failure: null);
   } catch (_) {
     return (pos: null, failure: LocationFailure.noFix);
