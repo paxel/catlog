@@ -1979,18 +1979,25 @@ class _FileBlobStore implements _BlobStore {
     _dir.createSync(recursive: true);
   }
 
-  File _file(String hash) => File('${_dir.path}/$hash.jpg');
+  /// A blob name is its SHA-256, nothing else: a hash arriving from a
+  /// bundle or a sync peer ("../../x") must never leave this directory.
+  /// Anything else is treated as a blob that does not exist — never an
+  /// error, so a hostile entry cannot abort an import either.
+  static final _hex64 = RegExp(r'^[0-9a-f]{64}$');
+
+  File? _file(String hash) =>
+      _hex64.hasMatch(hash) ? File('${_dir.path}/$hash.jpg') : null;
 
   @override
   void put(String hash, Uint8List bytes) {
     final f = _file(hash);
-    if (!f.existsSync()) f.writeAsBytesSync(bytes);
+    if (f != null && !f.existsSync()) f.writeAsBytesSync(bytes);
   }
 
   @override
   Uint8List? get(String hash) {
     final f = _file(hash);
-    return f.existsSync() ? f.readAsBytesSync() : null;
+    return f != null && f.existsSync() ? f.readAsBytesSync() : null;
   }
 
   @override
@@ -2008,7 +2015,7 @@ class _FileBlobStore implements _BlobStore {
   @override
   void remove(String hash) {
     final f = _file(hash);
-    if (f.existsSync()) f.deleteSync();
+    if (f != null && f.existsSync()) f.deleteSync();
   }
 }
 

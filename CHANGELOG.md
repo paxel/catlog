@@ -14,6 +14,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   instead of a crash. The Strays help explains tap versus press-and-hold
   on Stray Cam.
 
+### Security
+
+- A photo name inside a shared file or from a sync partner can no
+  longer point outside the catalog's image folder — reading or
+  deleting a photo needs a real hash.
+
 ### Fixed
 
 - Pressing Stray Cam again while the GPS fix was still pending crashed
