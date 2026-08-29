@@ -102,7 +102,8 @@ Future<void> _scanShareCode(BuildContext context, CatalogStore store,
         if (photo != null)
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.memory(photo, height: 140, fit: BoxFit.cover),
+            child: Image.memory(photo,
+                height: 140, cacheHeight: 420, fit: BoxFit.cover),
           ),
         const SizedBox(height: 8),
         Text(catName, style: Theme.of(context).textTheme.titleMedium),
