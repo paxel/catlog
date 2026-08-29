@@ -1934,6 +1934,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get targetDrop => 'Weglaten';
 
   @override
+  String get existingCat => 'Bestaande kat';
+
+  @override
+  String get existingClowder => 'Bestaande groep';
+
+  @override
+  String get createNewInstead => 'Geen — nieuw aanmaken';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Overschrijft huidige waarde \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Opname afbreken?';
 
   @override

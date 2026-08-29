@@ -9,6 +9,7 @@ import 'field_labels.dart';
 import 'flier_ocr.dart';
 import 'flier_template.dart';
 import 'geocode.dart';
+import 'hidden.dart';
 import 'image_import.dart';
 import 'l10n.dart';
 import 'screens/photo_edit_screen.dart';
@@ -194,7 +195,24 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// moment — a second tap must not create a second owner and cat.
   bool _saving = false;
 
-  bool get _newCat => widget.existingCatId == null;
+  /// The cat the poster is about, when it is already in the catalog —
+  /// fixed when the wizard opened from a cat's page, else picked on the
+  /// Cat step (#84). Null creates one.
+  late String? _existingCat = widget.existingCatId;
+
+  /// The owner's clowder when it is already in the catalog (#84); null
+  /// creates one for a new cat.
+  String? _existingClowder;
+
+  /// Clowder fields the poster filled, beyond the owner page's own
+  /// inputs (address, phone, mail, responsible person).
+  final _clowderInputs = <String, FieldValueController>{};
+
+  bool get _newCat => _existingCat == null;
+
+  /// Whether poster lines can be sent to clowder fields: a new cat gets
+  /// an owner clowder; an existing cat only when one was picked.
+  bool get _hasClowderTarget => _newCat || _existingClowder != null;
 
   @override
   void initState() {
@@ -216,6 +234,9 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       c.dispose();
     }
     for (final c in _fieldInputs.values) {
+      c.dispose();
+    }
+    for (final c in _clowderInputs.values) {
       c.dispose();
     }
     super.dispose();
@@ -274,6 +295,15 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       c.dispose();
     }
     _fieldInputs.clear();
+    for (final c in _clowderInputs.values) {
+      c.dispose();
+    }
+    _clowderInputs.clear();
+    if (reading != null) {
+      for (final c in [_owner, _phone, _email]) {
+        c.clear();
+      }
+    }
     // Hits are recomputed from the assignments and the kept codes; only
     // a service the user taught on this poster survives untouched.
     _registryHits.removeWhere((h) => !h.learned);
@@ -331,10 +361,26 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
             final value = def?.type == FieldType.date
                 ? parseFlierDate(entry.value)?.iso
                 : entry.value;
-            if (def == null ||
-                def.scope == FieldScope.clowder ||
-                value == null) {
+            if (def == null || value == null) {
               remarks.add(line);
+            } else if (def.scope == FieldScope.clowder) {
+              // Owner fields the page has inputs for fill those; other
+              // clowder fields get their own input on the owner page.
+              switch (slug) {
+                case 'address':
+                  _address.text = value;
+                case 'phone':
+                  _phone.text = value;
+                case 'email':
+                  _email.text = value;
+                case 'responsible':
+                  _owner.text = value;
+                default:
+                  _clowderInputs[slug] ??= FieldValueController(
+                    def,
+                    current: value,
+                  );
+              }
             } else if (!_fieldInputs.containsKey(slug)) {
               _fieldInputs[slug] = FieldValueController(def, current: value);
             }
@@ -354,8 +400,9 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       if (reading.template == null && _chip.text.isEmpty) {
         _chip.text = suggestChipId(ownText) ?? '';
       }
-      _phone.text = suggestPhone(ownText) ?? '';
-      _email.text = suggestEmail(ownText) ?? '';
+      // Suggestions fill only what no assigned line filled.
+      if (_phone.text.isEmpty) _phone.text = suggestPhone(ownText) ?? '';
+      if (_email.text.isEmpty) _email.text = suggestEmail(ownText) ?? '';
       _remarks.text = remarks.join('\n');
     }
     // Links come from the printed text and from the QR codes the user
@@ -559,37 +606,45 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     final catName = _name.text.trim().isEmpty
         ? t.captureFlier
         : _name.text.trim();
-    if (_newCat) {
-      // Owner clowder first: public flier data, no Private marker. A
-      // nameless owner is named after the cat, so the card isn't barren.
+    // The owner: the picked clowder, or a new one for a new cat (#84).
+    // A new clowder's facts are dated to the flier; on an existing one
+    // they are recorded now, or an older value would keep winning.
+    String? clowderId = _existingClowder;
+    final when = _existingClowder == null ? _missingSince : null;
+    if (_hasClowderTarget) {
       final ownerName = _owner.text.trim();
-      final clowderId = store.createClowder(
-        ownerName.isEmpty ? t.ownerOfCat(catName) : ownerName,
-        date: _missingSince,
-      );
-      store.append(
-        clowderId,
-        Keys.userField('status'),
-        'owner',
-        date: _missingSince,
-      );
+      if (clowderId == null) {
+        // Owner clowder first: public flier data, no Private marker. A
+        // nameless owner is named after the cat, so the card isn't
+        // barren.
+        clowderId = store.createClowder(
+          ownerName.isEmpty ? t.ownerOfCat(catName) : ownerName,
+          date: _missingSince,
+        );
+        store.append(
+          clowderId,
+          Keys.userField('status'),
+          'owner',
+          date: _missingSince,
+        );
+      }
       if (_address.text.trim().isNotEmpty) {
         store.append(
           clowderId,
           Keys.userField('address'),
           _address.text.trim(),
-          date: _missingSince,
+          date: when,
         );
       }
       if (_addressPosition case final pos?) {
-        store.recordPosition(clowderId, pos.$1, pos.$2, date: _missingSince);
+        store.recordPosition(clowderId, pos.$1, pos.$2, date: when);
       }
       if (ownerName.isNotEmpty) {
         store.append(
           clowderId,
           Keys.userField('responsible'),
           ownerName,
-          date: _missingSince,
+          date: when,
         );
       }
       // Contact details go into their own fields; the flier text stays
@@ -599,7 +654,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           clowderId,
           Keys.userField('phone'),
           _phone.text.trim(),
-          date: _missingSince,
+          date: when,
         );
       }
       if (_email.text.trim().isNotEmpty) {
@@ -607,17 +662,29 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           clowderId,
           Keys.userField('email'),
           _email.text.trim(),
-          date: _missingSince,
+          date: when,
         );
       }
       if (_remarks.text.trim().isNotEmpty) {
+        final existing = _existingClowder == null
+            ? ''
+            : store.current(clowderId, Keys.userField('remarks')) ?? '';
         store.append(
           clowderId,
           Keys.userField('remarks'),
-          _remarks.text.trim(),
-          date: _missingSince,
+          existing.isEmpty
+              ? _remarks.text.trim()
+              : '$existing\n${_remarks.text.trim()}',
+          date: when,
         );
       }
+      for (final input in _clowderInputs.values) {
+        if (input.value case final value?) {
+          store.append(clowderId, input.def.key, value, date: when);
+        }
+      }
+    }
+    if (_newCat) {
       // The cat lived with its owner until the flier's date — plain
       // Move semantics keep the history reconstructable after a Merge.
       catId = store.createCat(
@@ -627,7 +694,13 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       );
       store.moveCat(catId, null, date: _missingSince);
     } else {
-      catId = widget.existingCatId!;
+      catId = _existingCat!;
+      if (clowderId != null) {
+        // Known cat, known household: it lived there and went stray on
+        // the flier's date.
+        store.moveCat(catId, clowderId);
+        store.moveCat(catId, null);
+      }
     }
     if (_position case final pos?) {
       store.recordPosition(catId, pos.$1, pos.$2, kind: PositionKind.flier);
@@ -669,7 +742,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   List<({String title, Widget body})> _steps(AppLocalizations t) => [
     (title: t.stepFlierText, body: _textStep(t)),
     (title: t.stepCat, body: _catStep(t)),
-    if (_newCat) (title: t.stepOwner, body: _ownerStep(t)),
+    if (_hasClowderTarget) (title: t.stepOwner, body: _ownerStep(t)),
     (title: t.stepFace, body: _faceStep(t)),
     (title: t.stepRegistry, body: _registryStep(t)),
     (title: t.stepReview, body: _reviewStep(t)),
@@ -709,7 +782,78 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           def.type != FieldType.location &&
           def.type != FieldType.cat)
         DropdownMenuItem(value: def.slug, child: Text(fieldDefName(t, def))),
+    // The owner's fields, when a clowder is written (#84).
+    if (_hasClowderTarget)
+      for (final def in store.fieldDefs())
+        if (def.scope == FieldScope.clowder &&
+            def.type != FieldType.location &&
+            def.type != FieldType.cat)
+          DropdownMenuItem(
+            value: def.slug,
+            child: Text('${fieldDefName(t, def)} (${t.stepOwner})'),
+          ),
   ];
+
+  /// The value a line's target already holds on the picked existing cat
+  /// or clowder — shown so an overwrite is seen before it happens (#84).
+  String? _currentValueOf(String target) {
+    final def = store.fieldDefs().where((d) => d.slug == target).firstOrNull;
+    if (def == null) return null;
+    final entity = def.scope == FieldScope.clowder
+        ? _existingClowder
+        : _existingCat;
+    if (entity == null) return null;
+    final value = store.current(entity, def.key);
+    return value == null || value.isEmpty ? null : value;
+  }
+
+  String? _overwriteHint(AppLocalizations t, String target) {
+    final current = _currentValueOf(target);
+    return current == null ? null : t.overwritesValue(current);
+  }
+
+  /// One of [entities] by name, '' for "none — create new", null when
+  /// cancelled.
+  Future<String?> _pickEntity(
+    String title,
+    List<EntityView> entities,
+    String? current,
+  ) {
+    return showDialog<String>(
+      context: context,
+      builder: (context) => _EntityPickerDialog(
+        title: title,
+        entities: entities,
+        current: current ?? '',
+      ),
+    );
+  }
+
+  Future<void> _pickExistingCat() async {
+    final picked = await _pickEntity(
+      context.t.existingCat,
+      store.visibleCats(),
+      _existingCat,
+    );
+    if (picked == null || !mounted) return;
+    setState(() {
+      _existingCat = picked.isEmpty ? null : picked;
+      _applyReading();
+    });
+  }
+
+  Future<void> _pickExistingClowder() async {
+    final picked = await _pickEntity(
+      context.t.existingClowder,
+      store.visibleClowders(),
+      _existingClowder,
+    );
+    if (picked == null || !mounted) return;
+    setState(() {
+      _existingClowder = picked.isEmpty ? null : picked;
+      _applyReading();
+    });
+  }
 
   Widget _textStep(AppLocalizations t) {
     final reading = _reading;
@@ -764,7 +908,14 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(entry.value),
-              subtitle: entry.label == null ? null : Text(entry.label!),
+              subtitle: switch ((entry.label, _overwriteHint(t, entry.target))) {
+                (null, null) => null,
+                (final label?, null) => Text(label),
+                (null, final hint?) => Text(hint),
+                (final label?, final hint?) => Text('$label\n$hint'),
+              },
+              isThreeLine: entry.label != null &&
+                  _overwriteHint(t, entry.target) != null,
               trailing: DropdownButton<String>(
                 value: known.contains(entry.target)
                     ? entry.target
@@ -789,6 +940,32 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   Widget _catStep(AppLocalizations t) => ListView(
     padding: const EdgeInsets.all(16),
     children: [
+      // The poster may be about a cat or a household already in the
+      // catalog (#84); the wizard then writes there instead of
+      // creating.
+      if (widget.existingCatId == null)
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.pets),
+          title: Text(t.existingCat),
+          subtitle: Text(
+            _existingCat == null
+                ? t.createNewInstead
+                : store.current(_existingCat!, Keys.name) ?? t.unnamed,
+          ),
+          onTap: _pickExistingCat,
+        ),
+      ListTile(
+        contentPadding: EdgeInsets.zero,
+        leading: const Icon(Icons.home_outlined),
+        title: Text(t.existingClowder),
+        subtitle: Text(
+          _existingClowder == null
+              ? (_newCat ? t.createNewInstead : t.alertNone)
+              : store.current(_existingClowder!, Keys.name) ?? t.unnamed,
+        ),
+        onTap: _pickExistingClowder,
+      ),
       if (_newCat)
         TextField(
           controller: _name,
@@ -832,6 +1009,8 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           fieldDefName(t, input.def),
           style: Theme.of(context).textTheme.titleSmall,
         ),
+        if (_overwriteHint(t, input.def.slug) case final hint?)
+          Text(hint, style: Theme.of(context).textTheme.bodySmall),
         FieldValueInput(controller: input, store: store, autofocus: false),
       ],
       TextField(
@@ -849,27 +1028,46 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       Text(t.stepOwnerHint, style: Theme.of(context).textTheme.bodySmall),
       TextField(
         controller: _owner,
-        decoration: InputDecoration(labelText: t.starterResponsible),
+        decoration: InputDecoration(
+          labelText: t.starterResponsible,
+          helperText: _overwriteHint(t, 'responsible'),
+        ),
       ),
       TextField(
         controller: _phone,
         keyboardType: TextInputType.phone,
-        decoration: InputDecoration(labelText: t.starterPhone),
+        decoration: InputDecoration(
+          labelText: t.starterPhone,
+          helperText: _overwriteHint(t, 'phone'),
+        ),
       ),
       TextField(
         controller: _email,
         keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(labelText: t.starterEmail),
+        decoration: InputDecoration(
+          labelText: t.starterEmail,
+          helperText: _overwriteHint(t, 'email'),
+        ),
       ),
       TextField(
         controller: _address,
         decoration: InputDecoration(
           labelText: t.starterAddress,
           errorText: _addressError,
-          helperText: _addressPlace,
+          helperText: _addressPlace ?? _overwriteHint(t, 'address'),
           helperMaxLines: 3,
         ),
       ),
+      for (final input in _clowderInputs.values) ...[
+        const SizedBox(height: 8),
+        Text(
+          fieldDefName(t, input.def),
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        if (_overwriteHint(t, input.def.slug) case final hint?)
+          Text(hint, style: Theme.of(context).textTheme.bodySmall),
+        FieldValueInput(controller: input, store: store, autofocus: false),
+      ],
       Align(
         alignment: Alignment.centerLeft,
         child: TextButton.icon(
@@ -959,13 +1157,13 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
       for (final input in _fieldInputs.values)
         if (input.value case final value?)
           (fieldDefName(t, input.def), fieldValueDisplay(t, input.def, value)),
-      if (_newCat && _owner.text.trim().isNotEmpty)
+      if (_hasClowderTarget && _owner.text.trim().isNotEmpty)
         (t.starterResponsible, _owner.text.trim()),
-      if (_newCat && _phone.text.trim().isNotEmpty)
+      if (_hasClowderTarget && _phone.text.trim().isNotEmpty)
         (t.starterPhone, _phone.text.trim()),
-      if (_newCat && _email.text.trim().isNotEmpty)
+      if (_hasClowderTarget && _email.text.trim().isNotEmpty)
         (t.starterEmail, _email.text.trim()),
-      if (_newCat && _address.text.trim().isNotEmpty)
+      if (_hasClowderTarget && _address.text.trim().isNotEmpty)
         (t.starterAddress, _address.text.trim()),
       for (final hit in _registryHits)
         if (hit.take) (hit.serviceName, hit.value),
@@ -1153,6 +1351,86 @@ class _LearnServiceDialogState extends State<_LearnServiceDialog> {
                   );
                 },
           child: Text(t.save),
+        ),
+      ],
+    );
+  }
+}
+
+/// Picks one cat or clowder by name, with a filter for long lists; the
+/// first choice is "none — create new" (#84).
+class _EntityPickerDialog extends StatefulWidget {
+  final String title;
+  final List<EntityView> entities;
+  final String current;
+
+  const _EntityPickerDialog({
+    required this.title,
+    required this.entities,
+    required this.current,
+  });
+
+  @override
+  State<_EntityPickerDialog> createState() => _EntityPickerDialogState();
+}
+
+class _EntityPickerDialogState extends State<_EntityPickerDialog> {
+  late String _choice = widget.current;
+  String _filter = '';
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final q = _filter.trim().toLowerCase();
+    final shown = [
+      for (final e in widget.entities)
+        if (q.isEmpty || e.name.toLowerCase().contains(q)) e,
+    ];
+    return AlertDialog(
+      title: Text(widget.title),
+      content: SizedBox(
+        width: 360,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search),
+                hintText: t.searchByNameHint,
+                isDense: true,
+              ),
+              onChanged: (v) => setState(() => _filter = v),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 320),
+              child: RadioGroup<String>(
+                groupValue: _choice,
+                onChanged: (v) => setState(() => _choice = v ?? ''),
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    RadioListTile<String>(
+                      title: Text(t.createNewInstead),
+                      value: '',
+                    ),
+                    for (final e in shown)
+                      RadioListTile<String>(title: Text(e.name), value: e.id),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(_choice),
+          child: Text(MaterialLocalizations.of(context).okButtonLabel),
         ),
       ],
     );

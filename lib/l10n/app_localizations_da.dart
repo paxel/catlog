@@ -1929,6 +1929,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get targetDrop => 'Kassér';
 
   @override
+  String get existingCat => 'Eksisterende kat';
+
+  @override
+  String get existingClowder => 'Eksisterende gruppe';
+
+  @override
+  String get createNewInstead => 'Ingen — opret ny';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Overskriver nuværende værdi \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Afbryd registreringen?';
 
   @override

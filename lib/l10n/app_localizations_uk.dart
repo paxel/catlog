@@ -1933,6 +1933,20 @@ class AppLocalizationsUk extends AppLocalizations {
   String get targetDrop => 'Відкинути';
 
   @override
+  String get existingCat => 'Наявна кішка';
+
+  @override
+  String get existingClowder => 'Наявна група';
+
+  @override
+  String get createNewInstead => 'Немає — створити нову';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Перезапише поточне значення \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Перервати сканування?';
 
   @override

@@ -1937,6 +1937,20 @@ class AppLocalizationsLt extends AppLocalizations {
   String get targetDrop => 'Atmesti';
 
   @override
+  String get existingCat => 'Esama katė';
+
+  @override
+  String get existingClowder => 'Esama grupė';
+
+  @override
+  String get createNewInstead => 'Nėra — sukurti naują';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Perrašo dabartinę reikšmę \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Nutraukti skenavimą?';
 
   @override

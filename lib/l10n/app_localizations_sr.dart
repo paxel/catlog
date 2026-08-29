@@ -1930,6 +1930,20 @@ class AppLocalizationsSr extends AppLocalizations {
   String get targetDrop => 'Одбаци';
 
   @override
+  String get existingCat => 'Постојећа мачка';
+
+  @override
+  String get existingClowder => 'Постојећа група';
+
+  @override
+  String get createNewInstead => 'Ништа — направи ново';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Преписује тренутну вредност \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Прекинути снимање?';
 
   @override

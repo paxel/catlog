@@ -1939,6 +1939,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get targetDrop => 'Ignorer';
 
   @override
+  String get existingCat => 'Chat existant';
+
+  @override
+  String get existingClowder => 'Groupe existant';
+
+  @override
+  String get createNewInstead => 'Aucun — créer';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Remplace la valeur actuelle \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Abandonner la capture ?';
 
   @override

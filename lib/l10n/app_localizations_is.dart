@@ -1934,6 +1934,20 @@ class AppLocalizationsIs extends AppLocalizations {
   String get targetDrop => 'Sleppa';
 
   @override
+  String get existingCat => 'Núverandi köttur';
+
+  @override
+  String get existingClowder => 'Núverandi hópur';
+
+  @override
+  String get createNewInstead => 'Enginn — búa til nýtt';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Yfirskrifar núverandi gildi \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Hætta við skráninguna?';
 
   @override

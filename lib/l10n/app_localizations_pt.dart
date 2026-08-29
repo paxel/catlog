@@ -1931,6 +1931,20 @@ class AppLocalizationsPt extends AppLocalizations {
   String get targetDrop => 'Descartar';
 
   @override
+  String get existingCat => 'Gato existente';
+
+  @override
+  String get existingClowder => 'Grupo existente';
+
+  @override
+  String get createNewInstead => 'Nenhum — criar novo';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Substitui o valor atual \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Cancelar a captura?';
 
   @override

@@ -1931,6 +1931,20 @@ class AppLocalizationsBs extends AppLocalizations {
   String get targetDrop => 'Odbaci';
 
   @override
+  String get existingCat => 'Postojeća mačka';
+
+  @override
+  String get existingClowder => 'Postojeća grupa';
+
+  @override
+  String get createNewInstead => 'Ništa — kreiraj novo';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Prepisuje trenutnu vrijednost \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Prekinuti snimanje?';
 
   @override

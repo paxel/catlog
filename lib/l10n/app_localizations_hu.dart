@@ -1930,6 +1930,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get targetDrop => 'Elvetés';
 
   @override
+  String get existingCat => 'Meglévő macska';
+
+  @override
+  String get existingClowder => 'Meglévő csoport';
+
+  @override
+  String get createNewInstead => 'Nincs — új létrehozása';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Felülírja a jelenlegi értéket: \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Megszakítja a felvételt?';
 
   @override

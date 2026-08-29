@@ -1858,6 +1858,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String get targetDrop => '丢弃';
 
   @override
+  String get existingCat => '现有的猫';
+
+  @override
+  String get existingClowder => '现有的群';
+
+  @override
+  String get createNewInstead => '无 — 新建';
+
+  @override
+  String overwritesValue(String value) {
+    return '覆盖当前值 \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => '中止扫描？';
 
   @override

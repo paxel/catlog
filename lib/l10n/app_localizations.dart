@@ -3458,6 +3458,30 @@ abstract class AppLocalizations {
   /// **'Drop'**
   String get targetDrop;
 
+  /// No description provided for @existingCat.
+  ///
+  /// In en, this message translates to:
+  /// **'Existing cat'**
+  String get existingCat;
+
+  /// No description provided for @existingClowder.
+  ///
+  /// In en, this message translates to:
+  /// **'Existing clowder'**
+  String get existingClowder;
+
+  /// No description provided for @createNewInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'None — create new'**
+  String get createNewInstead;
+
+  /// No description provided for @overwritesValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwrites current value \"{value}\"'**
+  String overwritesValue(String value);
+
   /// No description provided for @abortScanTitle.
   ///
   /// In en, this message translates to:

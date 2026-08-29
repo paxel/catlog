@@ -1930,6 +1930,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get targetDrop => 'Zahodit';
 
   @override
+  String get existingCat => 'Existující kočka';
+
+  @override
+  String get existingClowder => 'Existující skupina';
+
+  @override
+  String get createNewInstead => 'Žádná — vytvořit novou';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Přepíše aktuální hodnotu \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Přerušit snímání?';
 
   @override

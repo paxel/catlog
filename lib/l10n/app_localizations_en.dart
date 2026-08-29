@@ -1929,6 +1929,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get targetDrop => 'Drop';
 
   @override
+  String get existingCat => 'Existing cat';
+
+  @override
+  String get existingClowder => 'Existing clowder';
+
+  @override
+  String get createNewInstead => 'None — create new';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Overwrites current value \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Abort the scan?';
 
   @override

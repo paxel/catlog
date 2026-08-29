@@ -1933,6 +1933,20 @@ class AppLocalizationsRo extends AppLocalizations {
   String get targetDrop => 'Renunță';
 
   @override
+  String get existingCat => 'Pisică existentă';
+
+  @override
+  String get existingClowder => 'Grup existent';
+
+  @override
+  String get createNewInstead => 'Niciunul — creează nou';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Suprascrie valoarea curentă \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Renunți la scanare?';
 
   @override

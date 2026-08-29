@@ -1932,6 +1932,20 @@ class AppLocalizationsLv extends AppLocalizations {
   String get targetDrop => 'Atmest';
 
   @override
+  String get existingCat => 'Esošs kaķis';
+
+  @override
+  String get existingClowder => 'Esoša grupa';
+
+  @override
+  String get createNewInstead => 'Nav — izveidot jaunu';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Pārraksta pašreizējo vērtību \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Pārtraukt skenēšanu?';
 
   @override

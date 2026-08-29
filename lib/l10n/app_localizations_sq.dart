@@ -1931,6 +1931,20 @@ class AppLocalizationsSq extends AppLocalizations {
   String get targetDrop => 'Hidh';
 
   @override
+  String get existingCat => 'Mace ekzistuese';
+
+  @override
+  String get existingClowder => 'Grup ekzistues';
+
+  @override
+  String get createNewInstead => 'Asnjë — krijo të re';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Mbishkruan vlerën aktuale \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Të ndërpritet skanimi?';
 
   @override

@@ -1918,6 +1918,20 @@ class AppLocalizationsHe extends AppLocalizations {
   String get targetDrop => 'התעלם';
 
   @override
+  String get existingCat => 'חתול קיים';
+
+  @override
+  String get existingClowder => 'קבוצה קיימת';
+
+  @override
+  String get createNewInstead => 'ללא — ליצור חדש';
+
+  @override
+  String overwritesValue(String value) {
+    return 'דורס את הערך הנוכחי \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'לבטל את הסריקה?';
 
   @override

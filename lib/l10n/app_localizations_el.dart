@@ -1936,6 +1936,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get targetDrop => 'Απόρριψη';
 
   @override
+  String get existingCat => 'Υπάρχουσα γάτα';
+
+  @override
+  String get existingClowder => 'Υπάρχουσα ομάδα';
+
+  @override
+  String get createNewInstead => 'Καμία — δημιουργία νέας';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Αντικαθιστά την τρέχουσα τιμή \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Ακύρωση της σάρωσης;';
 
   @override

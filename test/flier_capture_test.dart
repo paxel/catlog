@@ -409,6 +409,55 @@ void main() {
     );
   });
 
+  testWidgets('an existing clowder picked in the wizard takes the owner data',
+      (tester) async {
+    final home = store.createClowder('Home');
+    store.append(home, Keys.userField('phone'), '111');
+    await pump(tester);
+    await next(tester);
+    await tester.tap(find.text('Existing clowder'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Home'));
+    await tester.tap(find.text('OK'));
+    await tester.pumpAndSettle();
+    expect(find.text('Home'), findsOneWidget);
+    await next(tester);
+    // The owner page says what the poster's phone will replace.
+    expect(find.text('Overwrites current value "111"'), findsOneWidget);
+    await save(tester);
+
+    expect(store.clowders(), hasLength(1));
+    expect(store.current(home, Keys.userField('phone')), '089 1234567');
+    final cat = store.cats().single;
+    // Lived at Home, went stray on the flier's date.
+    expect(store.current(cat.id, Keys.clowder), isNull);
+    expect(
+      store.fieldHistory(cat.id, Keys.clowder).map((e) => e.value),
+      contains(home),
+    );
+  });
+
+  testWidgets('a line sent to a clowder field lands on the owner',
+      (tester) async {
+    await pump(tester, text: 'Minka\nreward!');
+    await tester.tap(find.byType(DropdownButton<String>).last);
+    await tester.pumpAndSettle();
+    // The owner's fields sit at the end of a long menu.
+    await tester.dragUntilVisible(
+      find.text('Phone (Owner)'),
+      find.byType(Scrollable).last,
+      const Offset(0, -100),
+    );
+    await tester.tap(find.text('Phone (Owner)').last);
+    await tester.pumpAndSettle();
+    await next(tester);
+    await save(tester);
+    expect(
+      store.current(store.clowders().single.id, Keys.userField('phone')),
+      'reward!',
+    );
+  });
+
   testWidgets('a line sent to another field lands there', (tester) async {
     await pump(tester, text: 'Minka\nreward!');
     expect(find.textContaining('Unknown poster layout'), findsOneWidget);

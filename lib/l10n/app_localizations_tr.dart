@@ -1930,6 +1930,20 @@ class AppLocalizationsTr extends AppLocalizations {
   String get targetDrop => 'At';
 
   @override
+  String get existingCat => 'Mevcut kedi';
+
+  @override
+  String get existingClowder => 'Mevcut grup';
+
+  @override
+  String get createNewInstead => 'Yok — yeni oluştur';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Mevcut değerin üzerine yazar: \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Tarama iptal edilsin mi?';
 
   @override

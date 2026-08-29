@@ -1932,6 +1932,20 @@ class AppLocalizationsSl extends AppLocalizations {
   String get targetDrop => 'Zavrzi';
 
   @override
+  String get existingCat => 'Obstoječa mačka';
+
+  @override
+  String get existingClowder => 'Obstoječa skupina';
+
+  @override
+  String get createNewInstead => 'Brez — ustvari novo';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Prepiše trenutno vrednost \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Prekinem zajem?';
 
   @override

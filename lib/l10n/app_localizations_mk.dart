@@ -1932,6 +1932,20 @@ class AppLocalizationsMk extends AppLocalizations {
   String get targetDrop => 'Отфрли';
 
   @override
+  String get existingCat => 'Постоечка мачка';
+
+  @override
+  String get existingClowder => 'Постоечка група';
+
+  @override
+  String get createNewInstead => 'Нема — создај нова';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Ја презапишува тековната вредност \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Прекини снимање?';
 
   @override

@@ -1930,6 +1930,20 @@ class AppLocalizationsHr extends AppLocalizations {
   String get targetDrop => 'Odbaci';
 
   @override
+  String get existingCat => 'Postojeća mačka';
+
+  @override
+  String get existingClowder => 'Postojeća skupina';
+
+  @override
+  String get createNewInstead => 'Ništa — stvori novo';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Prepisuje trenutnu vrijednost \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Prekinuti snimanje?';
 
   @override

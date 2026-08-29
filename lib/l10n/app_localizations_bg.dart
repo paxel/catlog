@@ -1929,6 +1929,20 @@ class AppLocalizationsBg extends AppLocalizations {
   String get targetDrop => 'Отхвърли';
 
   @override
+  String get existingCat => 'Съществуваща котка';
+
+  @override
+  String get existingClowder => 'Съществуваща група';
+
+  @override
+  String get createNewInstead => 'Няма — създай нова';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Презаписва текущата стойност \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Прекратяване на заснемането?';
 
   @override

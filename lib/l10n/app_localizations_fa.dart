@@ -1925,6 +1925,20 @@ class AppLocalizationsFa extends AppLocalizations {
   String get targetDrop => 'رد کردن';
 
   @override
+  String get existingCat => 'گربه موجود';
+
+  @override
+  String get existingClowder => 'گروه موجود';
+
+  @override
+  String get createNewInstead => 'هیچ — ایجاد جدید';
+
+  @override
+  String overwritesValue(String value) {
+    return 'مقدار فعلی \"$value\" را بازنویسی می‌کند';
+  }
+
+  @override
   String get abortScanTitle => 'اسکن لغو شود؟';
 
   @override

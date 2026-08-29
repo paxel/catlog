@@ -1879,6 +1879,20 @@ class AppLocalizationsJa extends AppLocalizations {
   String get targetDrop => '破棄';
 
   @override
+  String get existingCat => '既存の猫';
+
+  @override
+  String get existingClowder => '既存のグループ';
+
+  @override
+  String get createNewInstead => 'なし — 新規作成';
+
+  @override
+  String overwritesValue(String value) {
+    return '現在の値 \"$value\" を上書きします';
+  }
+
+  @override
   String get abortScanTitle => '取り込みを中止しますか？';
 
   @override

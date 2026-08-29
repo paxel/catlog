@@ -1927,6 +1927,20 @@ class AppLocalizationsNo extends AppLocalizations {
   String get targetDrop => 'Forkast';
 
   @override
+  String get existingCat => 'Eksisterende katt';
+
+  @override
+  String get existingClowder => 'Eksisterende gruppe';
+
+  @override
+  String get createNewInstead => 'Ingen — opprett ny';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Overskriver nåværende verdi \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Avbryte registreringen?';
 
   @override

@@ -1933,6 +1933,20 @@ class AppLocalizationsRu extends AppLocalizations {
   String get targetDrop => 'Отбросить';
 
   @override
+  String get existingCat => 'Существующая кошка';
+
+  @override
+  String get existingClowder => 'Существующая группа';
+
+  @override
+  String get createNewInstead => 'Нет — создать новую';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Перезапишет текущее значение \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Прервать сканирование?';
 
   @override

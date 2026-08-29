@@ -1931,6 +1931,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get targetDrop => 'Hylkää';
 
   @override
+  String get existingCat => 'Olemassa oleva kissa';
+
+  @override
+  String get existingClowder => 'Olemassa oleva ryhmä';
+
+  @override
+  String get createNewInstead => 'Ei mitään — luo uusi';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Korvaa nykyisen arvon \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Keskeytetäänkö tallennus?';
 
   @override

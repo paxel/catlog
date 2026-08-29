@@ -1928,6 +1928,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get targetDrop => 'Jäta ära';
 
   @override
+  String get existingCat => 'Olemasolev kass';
+
+  @override
+  String get existingClowder => 'Olemasolev rühm';
+
+  @override
+  String get createNewInstead => 'Puudub — loo uus';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Kirjutab üle praeguse väärtuse \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Katkestada jäädvustamine?';
 
   @override

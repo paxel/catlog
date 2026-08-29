@@ -12,6 +12,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   invented first day. The flier wizard reads such dates from posters.
 - A cat's age next to its birth date and in the strays list — "3 yrs
   5 mo", "3 yrs" for a bare birth year, frozen at death.
+- The flier wizard can attach the poster to a cat or a clowder already
+  in the catalog: pick them on the Cat page, and the poster's lines go
+  where you assign them — clowder fields (address, phone, mail…) are
+  in the dropdown too — with a note under any line that would
+  overwrite a value.
 - One cat list everywhere cats are listed — Strays, the cat search, a
   clowder's members via the list button on its page: list or table,
   sortable, with the cat fields you choose as columns, an Age column,

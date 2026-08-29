@@ -1930,6 +1930,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get targetDrop => 'Zahodiť';
 
   @override
+  String get existingCat => 'Existujúca mačka';
+
+  @override
+  String get existingClowder => 'Existujúca skupina';
+
+  @override
+  String get createNewInstead => 'Žiadna — vytvoriť novú';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Prepíše aktuálnu hodnotu \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Prerušiť snímanie?';
 
   @override

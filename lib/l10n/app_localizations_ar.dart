@@ -1927,6 +1927,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get targetDrop => 'تجاهل';
 
   @override
+  String get existingCat => 'قطة موجودة';
+
+  @override
+  String get existingClowder => 'مجموعة موجودة';
+
+  @override
+  String get createNewInstead => 'لا شيء — إنشاء جديد';
+
+  @override
+  String overwritesValue(String value) {
+    return 'يستبدل القيمة الحالية \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'إلغاء المسح؟';
 
   @override

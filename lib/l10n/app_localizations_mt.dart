@@ -1936,6 +1936,20 @@ class AppLocalizationsMt extends AppLocalizations {
   String get targetDrop => 'Warrab';
 
   @override
+  String get existingCat => 'Qattus eżistenti';
+
+  @override
+  String get existingClowder => 'Grupp eżistenti';
+
+  @override
+  String get createNewInstead => 'Xejn — oħloq ġdid';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Jissostitwixxi l-valur attwali \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Twaqqaf l-iskan?';
 
   @override

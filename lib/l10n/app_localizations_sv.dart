@@ -1928,6 +1928,20 @@ class AppLocalizationsSv extends AppLocalizations {
   String get targetDrop => 'Kasta';
 
   @override
+  String get existingCat => 'Befintlig katt';
+
+  @override
+  String get existingClowder => 'Befintlig grupp';
+
+  @override
+  String get createNewInstead => 'Ingen — skapa ny';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Skriver över nuvarande värde \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Avbryta registreringen?';
 
   @override

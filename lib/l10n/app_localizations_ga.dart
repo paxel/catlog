@@ -1943,6 +1943,20 @@ class AppLocalizationsGa extends AppLocalizations {
   String get targetDrop => 'Fág ar lár';
 
   @override
+  String get existingCat => 'Cat atá ann';
+
+  @override
+  String get existingClowder => 'Grúpa atá ann';
+
+  @override
+  String get createNewInstead => 'Ceann ar bith — cruthaigh nua';
+
+  @override
+  String overwritesValue(String value) {
+    return 'Forscríobhann sé an luach reatha \"$value\"';
+  }
+
+  @override
   String get abortScanTitle => 'Éirigh as an scanadh?';
 
   @override
