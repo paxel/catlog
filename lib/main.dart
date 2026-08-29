@@ -20,6 +20,7 @@ import 'src/screens/home_shell.dart';
 import 'src/screens/intro_screen.dart';
 import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
+import 'src/image_provider_cache.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -158,6 +159,7 @@ class _CatlogAppState extends State<CatlogApp>
     manager.active = to;
     setState(() => _store = next);
     activeStore = next;
+    clearImageProviders();
     if (unwind) {
       navigatorKey.currentState?.popUntil((route) => route.isFirst);
     }

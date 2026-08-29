@@ -38,4 +38,19 @@ void main() {
     await tester.pump();
     expect(tester.takeException(), isNull);
   });
+
+  test('clearing forgets what a switched-away catalog held', () {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    final cat = store.createCat('Sissi');
+    final hash = store.addImage(
+        cat,
+        CatalogStore.compressImage(Uint8List.fromList(
+            img.encodeJpg(img.Image(width: 8, height: 8)))));
+    final first = imageProviderFor(store, hash)!;
+    clearImageProviders();
+    final again = imageProviderFor(store, hash)!;
+    expect(identical(first, again), isFalse);
+    expect(again, equals(first));
+  });
 }

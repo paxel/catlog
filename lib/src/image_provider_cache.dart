@@ -17,6 +17,13 @@ const _maxEntries = 64;
 const _maxBytes = 24 << 20;
 var _bytesHeld = 0;
 
+/// Forgets every cached photo — on a catalog switch, the old catalog's
+/// bytes have no business staying in memory.
+void clearImageProviders() {
+  _providers.clear();
+  _bytesHeld = 0;
+}
+
 CatalogImage? imageProviderFor(CatalogStore store, String hash) {
   final cached = _providers.remove(hash);
   if (cached != null) {
