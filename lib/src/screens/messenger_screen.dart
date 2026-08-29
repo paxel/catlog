@@ -46,7 +46,7 @@ class _MessengerScreenState extends State<MessengerScreen> {
     final t = context.t;
     final picked = await FilePicker.platform.pickFiles();
     final path = picked?.files.single.path;
-    if (path == null) return;
+    if (path == null || !mounted || !widget.store.isOpen) return;
     try {
       final imported = importWithMoment(widget.store, path,
           label: path.split(Platform.pathSeparator).last);

@@ -38,6 +38,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
         await showImportSummary(context, widget.store, result.applied,
             undo: point);
       }
+      if (!mounted) return;
       setState(() => _lastResult = t.folderSynced('$result'));
     } on FileSystemException {
       setState(() => _lastResult = t.folderUnreachable);
@@ -76,7 +77,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
             TextButton(
               onPressed: () async {
                 final path = await FilePicker.platform.getDirectoryPath();
-                if (path != null) {
+                if (path != null && mounted && widget.store.isOpen) {
                   widget.store.setLocalSetting('syncFolder', path);
                   setState(() {});
                 }

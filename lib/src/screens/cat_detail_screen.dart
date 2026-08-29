@@ -414,7 +414,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                   builder: (_) => CatDetailScreen(store: store, catId: catId),
                 ),
               );
-              setState(() {});
+              if (mounted) setState(() {});
             },
           ),
       ],
