@@ -27,6 +27,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   backup on leaving the app could kill it on a phone with a big catalog.
 - Restoring or importing a file with many photos reads it photo by
   photo instead of unpacking everything into memory first.
+- A sync partner that dropped the connection mid-transfer could crash
+  the hosting device.
+- A location fix that never arrives gives up after 20 seconds with "no
+  fix" instead of waiting for the rest of the session.
+- An error from the phone's calendar during the mirror switched the app
+  to the crash screen on every start; the mirror now turns itself off
+  and shows the calendar's message.
 
 - Pressing Stray Cam again while the GPS fix was still pending crashed
   the app on return from the camera ("Image picker is already active").

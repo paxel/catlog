@@ -17,15 +17,25 @@ void mirrorAfterChange(BuildContext context, CatalogStore store,
   if (port == null && !deviceCalendarAvailable) return;
   final t = context.t;
   final messenger = ScaffoldMessenger.maybeOf(context);
+  void fail(String message) {
+    // A catalog switched away mid-reconcile is closed by now: nothing
+    // to record, nothing to report (#89).
+    if (!store.isOpen) return;
+    store.setLocalSetting(calendarMirrorEnabledKey, 'off');
+    messenger?.showSnackBar(SnackBar(content: Text(message)));
+  }
+
   reconcileCalendarOnce(store, port ?? DeviceCalendarPort(), t)
       .then((outcome) {
     final message = mirrorFailureMessage(t, outcome);
-    // A catalog switched away mid-reconcile is closed by now: nothing
-    // to record, nothing to report (#89).
-    if (message == null || !store.isOpen) return;
-    store.setLocalSetting(calendarMirrorEnabledKey, 'off');
-    messenger?.showSnackBar(SnackBar(content: Text(message)));
-  }).catchError((_) {}, test: (e) => e is StateError && !store.isOpen);
+    if (message != null) fail(message);
+  }).catchError((Object e) {
+    // The calendar answered with an error (the platform's own wording
+    // beats a guess): the mirror goes off, named, instead of the app
+    // going down on every start — the 1.0.0 lesson, once more.
+    if (e is StateError && !store.isOpen) return;
+    fail(e is CalendarPortException ? e.message : '$e');
+  });
 }
 
 /// "Resync calendar" from the agenda menu: deletes what cat(a)log wrote
