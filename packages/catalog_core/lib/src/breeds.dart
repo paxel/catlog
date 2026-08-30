@@ -52,13 +52,13 @@ const breedsBySpecies = {
   ],
 };
 
-/// The breed options for an animal of [species]: a cat (or an unknown
-/// species) gets the field's own list; every other species gets its
-/// built-in list plus what keepers added for it.
+/// The breed options for an animal of [species]: a cat gets the field's
+/// own list; every other species gets its built-in list plus what
+/// keepers added for it; an animal without a species gets free text
+/// only.
 List<String> breedOptions(FieldDef breed, String? species) {
-  if (species == null || species.isEmpty || species == 'cat') {
-    return breed.options;
-  }
+  if (species == null || species.isEmpty) return const [];
+  if (species == 'cat') return breed.options;
   return [
     ...?breedsBySpecies[species],
     for (final o in breed.extraOptions[species] ?? const <String>[])

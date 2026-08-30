@@ -6,6 +6,15 @@ import 'package:test/test.dart';
 void main() {
   setUpAll(useSystemSqlite);
 
+  test('an animal without a species gets free text only', () {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    final breed = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    expect(breedOptions(breed, null), isEmpty);
+    expect(breedOptions(breed, ''), isEmpty);
+    expect(breedOptions(breed, 'cat'), contains('Maine Coon'));
+  });
+
   test('a breed typed for a dog is offered for the next dog only', () {
     final store = CatalogStore.inMemory()..author = 'test';
     addTearDown(store.close);
