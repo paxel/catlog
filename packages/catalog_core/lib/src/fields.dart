@@ -1,4 +1,5 @@
 import 'units.dart';
+import 'breeds.dart';
 
 /// Reserved field keys. User-defined fields are keyed `f:<slug>`.
 abstract final class Keys {
@@ -85,6 +86,10 @@ abstract final class Keys {
   /// What a Unit Value field measures (see units.dart, #96).
   static const fieldDimension = 'dimension';
 
+  /// Per-species additions to a choice field's options (#95).
+  static String fieldOptionsFor(String species) => 'options:$species';
+  static const fieldOptionsPrefix = 'options:';
+
   static String image(String hash) => '$imagePrefix$hash';
   static String userField(String slug) => 'f:$slug';
 }
@@ -133,6 +138,10 @@ class FieldDef {
   /// What a Unit Value measures; null for every other type.
   final Dimension? dimension; // for FieldType.unitValue
 
+  /// Options keepers added for one species (#95): `options:dog` and
+  /// the like on the Breed field. Older versions ignore the key.
+  final Map<String, List<String>> extraOptions;
+
   const FieldDef({
     required this.id,
     required this.slug,
@@ -143,6 +152,7 @@ class FieldDef {
     this.idDisplay = IdDisplay.plain,
     this.lookupUrl,
     this.dimension,
+    this.extraOptions = const {},
   });
 
   /// The key under which values of this Field live on Cats/Clowders.

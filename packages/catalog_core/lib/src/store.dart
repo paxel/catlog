@@ -1906,6 +1906,12 @@ class CatalogStore {
             IdDisplay.plain,
         lookupUrl: fields[Keys.fieldLookupUrl],
         dimension: Dimension.values.asNameMap()[fields[Keys.fieldDimension]],
+        extraOptions: {
+          for (final MapEntry(:key, :value) in fields.entries)
+            if (key.startsWith(Keys.fieldOptionsPrefix) && value != null)
+              key.substring(Keys.fieldOptionsPrefix.length):
+                  value.split('\n').where((o) => o.isNotEmpty).toList(),
+        },
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);

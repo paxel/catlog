@@ -13,6 +13,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   neutral names. The choice syncs with the catalog; nothing in the
   data changes. The neutral wording is available in English and
   German; other languages keep the cat wording for now.
+- Species is a choice with presets — cat, dog, rabbit, guinea pig,
+  hamster, bird, horse, tortoise, ferret, or your own word. In pet
+  mode, adding an animal asks for it, starting from the one you picked
+  last.
+- Breed follows the species: a dog is offered dog breeds, a rabbit
+  rabbit breeds, and a breed you type for one species is offered again
+  for that species only. Cats keep the breed list as it is.
 
 - A "unit value" field type: pick what it measures — weight, length,
   volume or temperature — and enter and read it in your units (metric

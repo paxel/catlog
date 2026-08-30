@@ -7,6 +7,7 @@ library;
 
 export 'src/appointments.dart';
 export 'src/archive.dart';
+export 'src/breeds.dart';
 export 'src/bundle.dart';
 export 'src/catalogs.dart';
 export 'src/csv_export.dart';

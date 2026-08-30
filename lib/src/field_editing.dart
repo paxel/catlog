@@ -151,9 +151,16 @@ class _FieldValueInputState extends State<FieldValueInput> {
     switch (def.type) {
       case FieldType.yesNo:
       case FieldType.choice:
+        // Breed follows the animal's species (#95): a dog is offered
+        // dog breeds, the cat list stays the field's own.
+        final species = def.slug == 'breed' && widget.excludeId != null
+            ? widget.store?.current(widget.excludeId!, 'f:species')
+            : null;
         final options = def.type == FieldType.yesNo
             ? const ['yes', 'no']
-            : def.options;
+            : def.slug == 'breed'
+                ? breedOptions(def, species)
+                : def.options;
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
