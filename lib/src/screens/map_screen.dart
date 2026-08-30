@@ -364,39 +364,44 @@ class _MapScreenState extends State<MapScreen>
             strayHomePosition(store, cat.id) != null)
           cat
     ];
-    await showModalBottomSheet<void>(
+    // A dialog with OK, not a sheet: a sheet has no visible way out
+    // but tapping beside it, which nobody guesses.
+    await showDialog<void>(
       context: context,
       builder: (context) => StatefulBuilder(
-        builder: (context, setSheet) => SafeArea(
-          child: ListView(shrinkWrap: true, children: [
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(context.t.strayAreaLabel,
-                  style: Theme.of(context).textTheme.titleMedium),
+        builder: (context, setDialog) => AlertDialog(
+          title: Text(context.t.strayAreaLabel),
+          content: SizedBox(
+            width: 360,
+            child: missing.isEmpty
+                ? Text(context.t.noMissingCats)
+                : ListView(shrinkWrap: true, children: [
+                    for (final cat in missing)
+                      CheckboxListTile(
+                        contentPadding: EdgeInsets.zero,
+                        value: _strayAreas.contains(cat.id),
+                        title: Text(cat.name),
+                        secondary:
+                            CatAvatar(store: store, catId: cat.id, size: 36),
+                        onChanged: (on) {
+                          setDialog(() {});
+                          setState(() {
+                            if (on == true) {
+                              _strayAreas.add(cat.id);
+                            } else {
+                              _strayAreas.remove(cat.id);
+                            }
+                          });
+                        },
+                      ),
+                  ]),
+          ),
+          actions: [
+            FilledButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(MaterialLocalizations.of(context).okButtonLabel),
             ),
-            if (missing.isEmpty)
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(context.t.noMissingCats),
-              ),
-            for (final cat in missing)
-              CheckboxListTile(
-                value: _strayAreas.contains(cat.id),
-                title: Text(cat.name),
-                secondary:
-                    CatAvatar(store: store, catId: cat.id, size: 36),
-                onChanged: (on) {
-                  setSheet(() {});
-                  setState(() {
-                    if (on == true) {
-                      _strayAreas.add(cat.id);
-                    } else {
-                      _strayAreas.remove(cat.id);
-                    }
-                  });
-                },
-              ),
-          ]),
+          ],
         ),
       ),
     );

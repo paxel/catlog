@@ -204,7 +204,7 @@ void main() {
     await tester.tap(find.byType(CheckboxListTile));
     await tester.pumpAndSettle();
     // Close the sheet.
-    await tester.tapAt(const Offset(10, 10));
+    await tester.tap(find.text('OK'));
     await tester.pumpAndSettle();
     final layer =
         tester.widget<CircleLayer>(find.byType(CircleLayer));
