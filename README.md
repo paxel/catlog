@@ -56,6 +56,10 @@ who made it, and you can look at any cat's story like a diary.
 |---|---|---|
 | ![Clowder](docs/screenshots/02-clowder.png) | ![Timeline](docs/screenshots/05-timeline.png) | ![Map](docs/screenshots/06-map.png) |
 
+| Weight over time | The agenda | Pets, too |
+|---|---|---|
+| ![Graph](docs/screenshots/07-graph.png) | ![Agenda](docs/screenshots/08-agenda.png) | ![Pets](docs/screenshots/09-pets.png) |
+
 *(Demo data — the cats in your catalog will be considerably fluffier.)*
 
 ## Get it

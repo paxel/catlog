@@ -180,7 +180,9 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
               to: to ?? DateTime.now(),
               appointments: appointments,
               lineColor: Theme.of(context).colorScheme.primary,
-              textColor: Theme.of(context).colorScheme.onSurface,
+              // The painter draws its own text: it must carry the app's
+              // font, or it falls back to the engine's box glyphs.
+              labelStyle: Theme.of(context).textTheme.bodySmall!,
               tickColor: Theme.of(context).colorScheme.tertiary,
               format: _number,
               dateFormat: (d) => DateFormat.MMMd(locale).format(d),
@@ -206,7 +208,7 @@ class GraphPainter extends CustomPainter {
   final DateTime to;
   final List<DateTime> appointments;
   final Color lineColor;
-  final Color textColor;
+  final TextStyle labelStyle;
   final Color tickColor;
   final String Function(double) format;
   final String Function(DateTime) dateFormat;
@@ -217,7 +219,7 @@ class GraphPainter extends CustomPainter {
     required this.to,
     required this.appointments,
     required this.lineColor,
-    required this.textColor,
+    required this.labelStyle,
     required this.tickColor,
     required this.format,
     required this.dateFormat,
@@ -227,6 +229,7 @@ class GraphPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     const left = 8.0, right = 8.0, top = 20.0, bottom = 28.0;
     final plot = Rect.fromLTRB(left, top, size.width - right, size.height - bottom);
+    final textColor = labelStyle.color ?? Colors.black;
     final axis = Paint()
       ..color = textColor.withValues(alpha: 0.3)
       ..strokeWidth = 1;
@@ -275,8 +278,7 @@ class GraphPainter extends CustomPainter {
       canvas.drawCircle(o, 4, dot);
       final painter = TextPainter(
         text: TextSpan(
-            text: format(p.value),
-            style: TextStyle(color: textColor, fontSize: 11)),
+            text: format(p.value), style: labelStyle.copyWith(fontSize: 11)),
         textDirection: TextDirection.ltr,
       )..layout();
       final dx = (o.dx - painter.width / 2).clamp(plot.left, plot.right - painter.width);
@@ -296,8 +298,7 @@ class GraphPainter extends CustomPainter {
     for (final (d, alignRight) in [(start, false), (to, true)]) {
       final painter = TextPainter(
         text: TextSpan(
-            text: dateFormat(d),
-            style: TextStyle(color: textColor, fontSize: 10)),
+            text: dateFormat(d), style: labelStyle.copyWith(fontSize: 10)),
         textDirection: TextDirection.ltr,
       )..layout();
       painter.paint(

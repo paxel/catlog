@@ -22,6 +22,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:catlog/src/screens/field_graph_screen.dart';
+import 'package:catlog/src/screens/agenda_screen.dart';
+import 'package:catlog/src/pet_mode.dart';
 
 Future<void> _loadRealFonts() async {
   final root = Platform.environment['FLUTTER_ROOT']!;
@@ -66,6 +69,21 @@ CatalogStore _demoStore() {
   store.append(miezi, 'f:neutered', 'yes', date: DateTime.utc(2026, 6, 14));
   store.append(miezi, 'f:birthdate', '2026-03-01',
       date: DateTime.utc(2026, 5, 3));
+  // A weight every fortnight — the graph page has a curve to show.
+  for (final (i, grams) in [980, 1240, 1510, 1760, 2050, 2290, 2480, 2610]
+      .indexed) {
+    store.append(miezi, 'f:weight', '$grams',
+        date: DateTime.utc(2026, 5, 3).add(Duration(days: 14 * i)));
+  }
+  store.createAppointment(Appointment(
+    id: '',
+    entity: miezi,
+    date: DateTime.utc(2026, 9, 4),
+    time: (hour: 10, minute: 30),
+    title: 'Vaccination',
+    notes: 'Bring the blue booklet',
+    alert: AppointmentAlert.dayBefore,
+  ));
 
   final balu =
       store.createCat('Balu', clowderId: home, date: DateTime.utc(2026, 5, 3));
@@ -91,6 +109,25 @@ CatalogStore _demoStore() {
   store.recordPosition(home, 52.5170, 13.3990,
       date: DateTime.utc(2026, 5, 2));
 
+  return store;
+}
+
+/// A second catalog in pet mode: a household with a dog and a rabbit.
+CatalogStore _petStore() {
+  final store = CatalogStore.inMemory();
+  store.author = 'Alex';
+  setPetMode(store, true);
+  final home = store.createClowder('Meadow Lane 3',
+      date: DateTime.utc(2026, 6, 1));
+  store.append(home, 'f:responsible', 'Jonas',
+      date: DateTime.utc(2026, 6, 1));
+  final rex = store.createCat('Rex',
+      clowderId: home, date: DateTime.utc(2026, 6, 1), species: 'dog');
+  store.append(rex, 'f:breed', 'Beagle', date: DateTime.utc(2026, 6, 1));
+  store.append(rex, 'f:weight', '11200', date: DateTime.utc(2026, 6, 1));
+  final hoppel = store.createCat('Hoppel',
+      clowderId: home, date: DateTime.utc(2026, 6, 1), species: 'rabbit');
+  store.append(hoppel, 'f:weight', '1850', date: DateTime.utc(2026, 6, 1));
   return store;
 }
 
@@ -153,6 +190,19 @@ void main() {
         tester, CardScreen(store: store, catId: miezi), '04-card');
     await shoot(tester,
         TimelineScreen(store: store, entityId: miezi), '05-timeline');
+    final weight = store.fieldDefs().firstWhere((d) => d.slug == 'weight');
+    await shoot(
+        tester,
+        FieldGraphScreen(store: store, entityId: miezi, def: weight),
+        '07-graph');
+    await shoot(tester, AgendaScreen(store: store), '08-agenda');
+    final pets = _petStore();
+    addTearDown(pets.close);
+    final meadow = pets.clowders().single.id;
+    petMode.value = true;
+    await shoot(tester,
+        ClowderDetailScreen(store: pets, clowderId: meadow), '09-pets');
+    petMode.value = false;
 
     // Map with REAL pre-downloaded OSM tiles (test/screenshots/tiles,
     // fetched once by the tile script) — no network in tests.
@@ -166,19 +216,31 @@ void main() {
     Directory('docs/screenshots/appstore').createSync(recursive: true);
     const phone = Size(1320, 2868);
     const pad = Size(2064, 2752);
-    final shots = <String, Widget>{
-      '01-home': ClowderListScreen(store: store),
-      '02-clowder': ClowderDetailScreen(store: store, clowderId: home),
-      '03-cat': CatDetailScreen(store: store, catId: miezi),
-      '04-card': CardScreen(store: store, catId: miezi),
-      '05-timeline': TimelineScreen(store: store, entityId: miezi),
-      '06-map': MapScreen(store: store, tileProvider: tiles),
+    final shots = <String, Widget Function()>{
+      '01-home': () => ClowderListScreen(store: store),
+      '02-clowder': () => ClowderDetailScreen(store: store, clowderId: home),
+      '03-cat': () => CatDetailScreen(store: store, catId: miezi),
+      '04-card': () => CardScreen(store: store, catId: miezi),
+      '05-timeline': () => TimelineScreen(store: store, entityId: miezi),
+      '06-map': () => MapScreen(store: store, tileProvider: tiles),
+      '07-graph': () =>
+          FieldGraphScreen(store: store, entityId: miezi, def: weight),
+      '08-agenda': () => AgendaScreen(store: store),
+      '09-pets': () => ClowderDetailScreen(store: pets, clowderId: meadow),
     };
+    // Google Play set (9:16), into docs/screenshots/play/ — copied to
+    // catlog-ops/play/shots by hand.
+    Directory('docs/screenshots/play').createSync(recursive: true);
+    const play = Size(1080, 1920);
     for (final entry in shots.entries) {
-      await shoot(tester, entry.value, 'appstore/iphone-${entry.key}',
+      petMode.value = entry.key == '09-pets';
+      await shoot(tester, entry.value(), 'appstore/iphone-${entry.key}',
           physical: phone, dpr: 3);
-      await shoot(tester, entry.value, 'appstore/ipad-${entry.key}',
+      await shoot(tester, entry.value(), 'appstore/ipad-${entry.key}',
           physical: pad, dpr: 2);
+      await shoot(tester, entry.value(), 'play/play-${entry.key}',
+          physical: play, dpr: 3);
     }
+    petMode.value = false;
   });
 }
