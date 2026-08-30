@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.0] - Unreleased
 
+### Security
+
+- In-person sync runs over TLS: the host uses a certificate made once
+  on the device, the pair code carries its fingerprint (all of it in
+  the QR, the first part in the typed code), and the joiner accepts no
+  other. Nobody on the same Wi-Fi reads what passes any more. Both
+  devices need 1.1.0; an older partner is named as such.
+
 ### Added
 
 - Pet mode: on the catalogs page, "This catalog holds: Cats / Pets".

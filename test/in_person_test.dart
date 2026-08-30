@@ -6,6 +6,8 @@ import 'package:catlog/src/screens/in_person_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:catlog/src/sync/tls.dart';
+import 'tls_fixture.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 /// Syncing with somebody in the room: the page has to explain both
@@ -66,6 +68,11 @@ void main() {
   });
 
   testWidgets('tapping Host twice starts one host', (tester) async {
+    // A ready identity: generating one takes seconds the test clock
+    // does not have.
+    final identity = testIdentity();
+    store.setLocalSetting(tlsCertKey, identity.certPem);
+    store.setLocalSetting(tlsKeyKey, identity.keyPem);
     await pump(tester);
     final host = find.text('Start hosting');
     // Hosting needs a LAN interface; a machine without one shows no

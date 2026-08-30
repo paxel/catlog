@@ -12,6 +12,7 @@ import '../sync/hotspot.dart';
 import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
+import '../sync/tls.dart';
 
 /// "In person": two devices in the same room sync over the local
 /// network. Host shows a QR, joiner scans (or types the short code).
@@ -29,6 +30,9 @@ class InPersonScreen extends StatefulWidget {
 class _InPersonScreenState extends State<InPersonScreen> {
   LanSyncHost? _host;
   String? _pairCode;
+
+  /// The full-fingerprint code for the QR; [_pairCode] is the typed one.
+  String? _pairCodeQr;
 
   /// Set while hosting over our own LocalOnlyHotspot: the QR then
   /// carries the hotspot credentials too (Android-to-Android only).
@@ -136,21 +140,25 @@ class _InPersonScreenState extends State<InPersonScreen> {
       setState(() {
         _host = null;
         _pairCode = null;
+        _pairCodeQr = null;
         _hotspotQr = null;
       });
       return;
     }
     final pin = (Random.secure().nextInt(900000) + 100000).toString();
-    final host = LanSyncHost(widget.store, pin,
-        onJoinRequest: _onJoinRequest, onSession: (applied) {
-      if (!mounted) return;
-      setState(() => _sessions++);
-      if (applied.isNotEmpty) {
-        showImportSummary(context, widget.store, applied);
-      }
-    });
     _starting = true;
     try {
+      final identity = await tlsIdentity(widget.store);
+      if (!mounted) return;
+      final host = LanSyncHost(widget.store, pin,
+          identity: identity,
+          onJoinRequest: _onJoinRequest, onSession: (applied) {
+        if (!mounted) return;
+        setState(() => _sessions++);
+        if (applied.isNotEmpty) {
+          showImportSummary(context, widget.store, applied);
+        }
+      });
       final address = await host.start();
       if (!mounted) {
         // Backed out while binding: nothing may keep serving.
@@ -159,7 +167,12 @@ class _InPersonScreenState extends State<InPersonScreen> {
       }
       setState(() {
         _host = host;
-        _pairCode = encodePairCode(address, host.port, pin);
+        // The QR carries the whole fingerprint, the typed code its
+        // first bytes (#92).
+        _pairCodeQr = encodePairCode(address, host.port, pin,
+            fingerprint: host.fingerprint);
+        _pairCode = encodePairCode(address, host.port, pin,
+            fingerprint: host.fingerprint, typed: true);
         _sessions = 0;
       });
     } finally {
@@ -178,7 +191,13 @@ class _InPersonScreenState extends State<InPersonScreen> {
         return;
       }
       final pin = (Random.secure().nextInt(900000) + 100000).toString();
+      final identity = await tlsIdentity(widget.store);
+      if (!mounted) {
+        await stopHotspot();
+        return;
+      }
       final host = LanSyncHost(widget.store, pin,
+          identity: identity,
           onJoinRequest: _onJoinRequest, onSession: (applied) {
         if (!mounted) return;
         setState(() => _sessions++);
@@ -192,10 +211,13 @@ class _InPersonScreenState extends State<InPersonScreen> {
         await stopHotspot();
         return;
       }
-      final pairCode = encodePairCode(info.ip, host.port, pin);
+      final pairCode = encodePairCode(info.ip, host.port, pin,
+          fingerprint: host.fingerprint);
       setState(() {
         _host = host;
-        _pairCode = pairCode;
+        _pairCodeQr = pairCode;
+        _pairCode = encodePairCode(info.ip, host.port, pin,
+            fingerprint: host.fingerprint, typed: true);
         _hotspotQr = hotspotQrPayload(info, pairCode);
         _sessions = 0;
       });
@@ -260,6 +282,11 @@ class _InPersonScreenState extends State<InPersonScreen> {
       setState(() => _lastResult = context.t.invalidCode);
       return;
     }
+    // A code without a fingerprint comes from a version before TLS.
+    if (info.fingerprint == null) {
+      setState(() => _lastResult = context.t.syncPeerOlder);
+      return;
+    }
     setState(() {
       _joining = true;
       _lastResult = null;
@@ -267,7 +294,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
     try {
       final result = await lanSync(
           widget.store, info.host, info.port, info.pin,
-          includePrivate: _includePrivate);
+          fingerprint: info.fingerprint!, includePrivate: _includePrivate);
       if (!mounted || !widget.store.isOpen) return;
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
@@ -381,7 +408,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Column(children: [
                     QrImageView(
-                      data: _hotspotQr ?? _pairCode!,
+                      data: _hotspotQr ?? _pairCodeQr ?? _pairCode!,
                       size: 220,
                       backgroundColor: Colors.white,
                     ),

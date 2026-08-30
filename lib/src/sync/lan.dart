@@ -7,6 +7,7 @@ import 'package:catalog_core/catalog_core.dart';
 
 import 'package:flutter/foundation.dart';
 import 'dart:async';
+import 'tls.dart';
 
 /// Outcome of one sync session, for the summary line.
 class SyncResult {
@@ -93,7 +94,14 @@ class LanSyncHost {
   /// would stack two trust dialogs and interleave their imports.
   Future<void> _syncTurn = Future.value();
 
-  LanSyncHost(this.store, this.pin, {this.onJoinRequest, this.onSession});
+  /// The certificate the host serves with; its fingerprint goes into
+  /// the pair code (#92).
+  final TlsIdentity identity;
+
+  LanSyncHost(this.store, this.pin,
+      {required this.identity, this.onJoinRequest, this.onSession});
+
+  Uint8List get fingerprint => identity.fingerprint;
 
   int get port => _server!.port;
 
@@ -116,7 +124,7 @@ class LanSyncHost {
       }
     }
     address ??= InternetAddress.loopbackIPv4;
-    _server = await HttpServer.bind(address, 0);
+    _server = await HttpServer.bindSecure(address, 0, identity.context);
     _server!.listen(_handle, onError: (_) {});
     return address.address;
   }
@@ -303,15 +311,28 @@ Future<Uint8List?> _readBody(HttpRequest req, int limit) async {
 /// directions, then photos both directions.
 Future<SyncResult> lanSync(
     CatalogStore store, String host, int port, String pin,
-    {bool includePrivate = false}) async {
+    {required List<int> fingerprint, bool includePrivate = false}) async {
   // Generous timeout: on iOS the first-ever local connection blocks on
   // the Local Network permission prompt until the user answers it.
-  final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
+  // The host's self-signed certificate is accepted only when it is the
+  // one the pair code named (#92).
+  final client = HttpClient()
+    ..connectionTimeout = const Duration(seconds: 25)
+    ..badCertificateCallback =
+        (cert, _, _) => certificateMatches(cert, fingerprint);
   try {
     var hostFormat = 1;
     Future<dynamic> call(String method, String path,
         {Object? body, void Function(HttpHeaders)? onHeaders}) async {
-      final req = await client.openUrl(method, Uri.parse('http://$host:$port$path'));
+      final HttpClientRequest req;
+      try {
+        req = await client.openUrl(
+            method, Uri.parse('https://$host:$port$path'));
+      } on HandshakeException {
+        // No TLS on the other side: a version before 1.1.0, or not the
+        // host the code named.
+        throw const SyncException('peer-older');
+      }
       req.headers.set(_pinHeader, pin);
       if (body is Map) {
         req.headers.contentType = ContentType.json;

@@ -5,6 +5,8 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/src/sync/lan.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'tls_fixture.dart';
+
 void main() {
   setUpAll(useSystemSqlite);
 
@@ -18,11 +20,13 @@ void main() {
     a.createCat('Miezi', clowderId: home);
     b.createCat('Wanderer');
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
-    final result = await lanSync(b, '127.0.0.1', host.port, '123456');
+    final result = await lanSync(b, '127.0.0.1', host.port, '123456',
+          fingerprint: host.fingerprint);
     expect(result.entriesReceived, greaterThan(0));
     expect(result.entriesSent, greaterThan(0));
 
@@ -31,7 +35,8 @@ void main() {
     expect(b.clowders().single.name, 'Home');
 
     // Second sync is a no-op.
-    final again = await lanSync(b, '127.0.0.1', host.port, '123456');
+    final again = await lanSync(b, '127.0.0.1', host.port, '123456',
+          fingerprint: host.fingerprint);
     expect(again.entriesReceived, 0);
     expect(again.entriesSent, 0);
   });
@@ -42,11 +47,13 @@ void main() {
     addTearDown(a.close);
     addTearDown(b.close);
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
-    expect(() => lanSync(b, '127.0.0.1', host.port, '000000'),
+    expect(() => lanSync(b, '127.0.0.1', host.port, '000000',
+          fingerprint: host.fingerprint),
         throwsA(isA<SyncException>()));
   });
 
@@ -60,6 +67,7 @@ void main() {
     b.createCat('Poison');
 
     final host = LanSyncHost(a, '123456',
+        identity: testIdentity(),
         onJoinRequest: (author, device) async {
       expect(author, 'stranger');
       return const JoinDecision(false, false);
@@ -68,7 +76,8 @@ void main() {
     addTearDown(host.stop);
 
     await expectLater(
-      lanSync(b, '127.0.0.1', host.port, '123456'),
+      lanSync(b, '127.0.0.1', host.port, '123456',
+          fingerprint: host.fingerprint),
       throwsA(isA<SyncException>()
           .having((e) => e.message, 'message', 'declined')),
     );
@@ -85,21 +94,24 @@ void main() {
     a.setPrivate(secret, true);
 
     final host = LanSyncHost(a, '123456',
+        identity: testIdentity(),
         onJoinRequest: (_, _) async => const JoinDecision(true, true));
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
-    await lanSync(b, '127.0.0.1', host.port, '123456');
+    await lanSync(b, '127.0.0.1', host.port, '123456',
+          fingerprint: host.fingerprint);
     expect(b.cats().map((c) => c.id), contains(secret));
     expect(b.isPrivate(secret), isTrue);
   });
   /// A 0.3.x joiner: no `format` in the /sync body.
   Future<(int, String)> postLegacySync(int port, String pin,
       Map<String, Object?> vector) async {
-    final client = HttpClient();
+    final client = HttpClient()
+      ..badCertificateCallback = (_, _, _) => true;
     try {
       final req = await client
-          .postUrl(Uri.parse('http://127.0.0.1:$port/sync'));
+          .postUrl(Uri.parse('https://127.0.0.1:$port/sync'));
       req.headers.set('x-catlog-pin', pin);
       req.headers.contentType = ContentType.json;
       req.write(jsonEncode({
@@ -122,7 +134,8 @@ void main() {
     addTearDown(a.close);
     a.createCat('Miezi');
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
@@ -141,7 +154,8 @@ void main() {
         date: DateTime.now().add(const Duration(days: 30)),
         reminder: true);
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
@@ -155,16 +169,18 @@ void main() {
     addTearDown(a.close);
     a.createCat('Miezi');
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
     // A joiner from the future (format 99) — the host cannot serve it
     // and says so in a machine-readable refusal.
-    final client = HttpClient();
+    final client = HttpClient()
+      ..badCertificateCallback = (_, _, _) => true;
     addTearDown(() => client.close(force: true));
     final req = await client
-        .postUrl(Uri.parse('http://127.0.0.1:${host.port}/sync'));
+        .postUrl(Uri.parse('https://127.0.0.1:${host.port}/sync'));
     req.headers.set('x-catlog-pin', '123456');
     req.headers.contentType = ContentType.json;
     req.write(jsonEncode({
@@ -193,11 +209,13 @@ void main() {
         date: DateTime.now().add(const Duration(days: 30)),
         reminder: true);
 
-    final host = LanSyncHost(a, '123456');
+    final host = LanSyncHost(a, '123456',
+        identity: testIdentity());
     await host.start(bind: InternetAddress.loopbackIPv4);
     addTearDown(host.stop);
 
-    await lanSync(b, '127.0.0.1', host.port, '123456');
+    await lanSync(b, '127.0.0.1', host.port, '123456',
+          fingerprint: host.fingerprint);
     expect(b.activeReminders(), hasLength(1));
     expect(b.current(cat, 'f:vaccine'), isNull);
   });
