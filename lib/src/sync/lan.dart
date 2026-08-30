@@ -42,8 +42,10 @@ const _formatHeader = 'x-catlog-format';
 /// entries carry the reminder flag. A pre-1.0.0 peer would silently
 /// strip the flag and record plans as facts, so both sides refuse a
 /// format-1 peer instead of corrupting it — with a message naming the
-/// fix (update the other device).
-const syncFormat = 2;
+/// fix (update the other device). Format 3 (1.1.0, #92): the session
+/// runs over TLS; the payload is format 2's, so a format-2 joiner is
+/// served while no reminder exists and refused as older once one does.
+const syncFormat = 3;
 
 /// Hosts a sync session on the LAN: a small HTTP server the joiner
 /// drives. The PIN gates every request — it prevents accidents in a

@@ -167,7 +167,8 @@ void main() {
     expect(res.statusCode, 403);
     final refusal = (jsonDecode(body) as Map);
     expect(refusal['refusal'], 'joiner-newer');
-    expect(refusal['format'], 2);
+    expect(refusal['format'], syncFormat);
+    expect(syncFormat, 3);
   });
 
   test('two 1.0.0 devices sync reminders as plans', () async {
@@ -237,5 +238,32 @@ void main() {
         lanSync(b, '127.0.0.1', host.port, '123456',
             fingerprint: host.fingerprint.take(4).toList()),
         throwsA(isA<SyncException>()));
+  });
+
+  test('a joiner from before TLS is refused as older once reminders exist',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    addTearDown(a.close);
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:vaccine', 'refresh',
+        date: DateTime.now().add(const Duration(days: 30)), reminder: true);
+    final host = await testHost(a, '123456');
+    final client = insecureClient();
+    final req = await client
+        .postUrl(Uri.parse('https://127.0.0.1:${host.port}/sync'));
+    req.headers.set('x-catlog-pin', '123456');
+    req.headers.contentType = ContentType.json;
+    req.write(jsonEncode({
+      'format': 2,
+      'vector': const <String, int>{},
+      'entries': const [],
+      'author': 'old',
+      'deviceName': 'old-phone',
+      'deviceId': 'dev-old',
+    }));
+    final res = await req.close();
+    final body = await utf8.decoder.bind(res).join();
+    expect(res.statusCode, 403);
+    expect((jsonDecode(body) as Map)['refusal'], 'joiner-older');
   });
 }
