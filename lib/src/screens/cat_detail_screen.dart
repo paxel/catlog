@@ -166,16 +166,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       return;
     }
     store.append(id, def.key, edit.value, date: edit.date);
-    // A breed typed for a non-cat species is offered again for that
-    // species (#95).
-    final species = store.current(id, 'f:species');
-    if (def.slug == 'breed' &&
-        edit.value != null &&
-        species != null &&
-        species != 'cat' &&
-        !breedOptions(def, species).contains(edit.value)) {
-      store.addFieldOption(def.id, species, edit.value!);
-    }
+    if (def.slug == 'breed') store.learnBreed(id, edit.value);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }

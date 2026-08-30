@@ -7,6 +7,7 @@ import 'package:crypto/crypto.dart';
 import 'package:image/image.dart' as img;
 import 'package:sqlite3/sqlite3.dart';
 
+import 'breeds.dart';
 import 'entry.dart';
 import 'fields.dart';
 import 'registry.dart';
@@ -1971,6 +1972,18 @@ class CatalogStore {
     append(fieldDefId, Keys.fieldLookupUrl,
         (template == null || template.isEmpty) ? null : template,
         date: date);
+  }
+
+  /// A breed typed for an animal that is not a cat is offered again for
+  /// that species (#95): the Breed field's list for the species learns
+  /// [value]. Cats keep the field's own list; a known breed is a no-op.
+  void learnBreed(String catId, String? value) {
+    if (value == null || value.isEmpty) return;
+    final species = current(catId, Keys.userField('species'));
+    if (species == null || species.isEmpty || species == 'cat') return;
+    final breed = fieldDefs().where((d) => d.slug == 'breed').firstOrNull;
+    if (breed == null || breedOptions(breed, species).contains(value)) return;
+    addFieldOption(breed.id, species, value);
   }
 
   /// Adds [option] to a choice Field's list for one [species] (#95) —
