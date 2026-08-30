@@ -58,14 +58,16 @@ bool hasGraph(CatalogStore store, String entityId, FieldDef def) {
   return false;
 }
 
-/// The points inside [from]..[to] (both inclusive; null = open).
+/// Whether [at] lies inside [from]..[to] (both inclusive; null = open).
+bool inRange(DateTime at, DateTime? from, DateTime? to) =>
+    (from == null || !at.isBefore(from)) && (to == null || !at.isAfter(to));
+
+/// The points inside [from]..[to].
 List<GraphPoint> pointsBetween(
         List<GraphPoint> points, DateTime? from, DateTime? to) =>
     [
       for (final p in points)
-        if ((from == null || !p.at.isBefore(from)) &&
-            (to == null || !p.at.isAfter(to)))
-          p
+        if (inRange(p.at, from, to)) p
     ];
 
 /// A field's history as a curve (#97): range chips, the change since
@@ -99,23 +101,23 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
         GraphRange.year => (DateTime(now.year - 1, now.month, now.day), null),
         GraphRange.all => (null, null),
         GraphRange.custom => (
-            DateTime.tryParse(store.localSetting(graphRangeFromKey) ?? ''),
-            DateTime.tryParse(store.localSetting(graphRangeToKey) ?? '')
-                ?.add(const Duration(days: 1)),
+            _storedDay(graphRangeFromKey),
+            _storedDay(graphRangeToKey)?.add(const Duration(days: 1)),
           ),
       };
+
+  /// A day kept on this device under [key], or null.
+  DateTime? _storedDay(String key) =>
+      DateTime.tryParse(store.localSetting(key) ?? '');
 
   Future<void> _pick(GraphRange range) async {
     if (range == GraphRange.custom) {
       final from = await pickDay(context,
-          initial: DateTime.tryParse(
-                  store.localSetting(graphRangeFromKey) ?? '') ??
+          initial: _storedDay(graphRangeFromKey) ??
               DateTime.now().subtract(const Duration(days: 30)));
       if (from == null || !mounted) return;
       final to = await pickDay(context,
-          initial:
-              DateTime.tryParse(store.localSetting(graphRangeToKey) ?? '') ??
-                  DateTime.now());
+          initial: _storedDay(graphRangeToKey) ?? DateTime.now());
       if (to == null || !mounted) return;
       store.setLocalSetting(
           graphRangeFromKey, from.toIso8601String().substring(0, 10));
@@ -145,9 +147,7 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
     final shown = pointsBetween(all, from, to);
     final appointments = [
       for (final a in store.appointmentsOf(widget.entityId, includeDone: true))
-        if ((from == null || !a.date.isBefore(from)) &&
-            (to == null || !a.date.isAfter(to)))
-          a.date
+        if (inRange(a.date, from, to)) a.date
     ];
     final latest = all.isEmpty ? null : all.last;
     final previous = all.length < 2 ? null : all[all.length - 2];

@@ -44,6 +44,10 @@ void main() {
     store.append(cat, color.key, '1');
     store.append(cat, color.key, '2');
     expect(hasGraph(store, cat, color), isFalse);
+    expect(inRange(DateTime(2026, 2, 15), DateTime(2026, 2, 15), null), isTrue);
+    expect(inRange(DateTime(2026, 2, 14), DateTime(2026, 2, 15), null), isFalse);
+    expect(inRange(DateTime(2026, 2, 16), null, DateTime(2026, 2, 15)), isFalse);
+    expect(inRange(DateTime(2026, 2, 16), null, null), isTrue);
     expect(pointsBetween(points, DateTime(2026, 2, 15), null), hasLength(1));
     expect(pointsBetween(points, null, DateTime(2026, 2, 15)), hasLength(1));
   });
