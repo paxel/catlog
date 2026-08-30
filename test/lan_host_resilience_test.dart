@@ -21,10 +21,7 @@ void main() {
     addTearDown(a.close);
     addTearDown(b.close);
     a.createCat('Miezi');
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity());
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
+    final host = await testHost(a, '123456');
 
     final socket = await Socket.connect('127.0.0.1', host.port);
     socket.write('POST /sync HTTP/1.1\r\nHost: x\r\n'
@@ -38,8 +35,7 @@ void main() {
     second.destroy();
     await Future<void>.delayed(const Duration(milliseconds: 200));
 
-    final result = await lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint);
+    final result = await syncWith(b, host);
     expect(result.entriesReceived, greaterThan(0));
     expect(b.cats().map((c) => c.name), contains('Miezi'));
   });
@@ -53,12 +49,8 @@ void main() {
     final cat = a.createCat('Miezi');
     // A photo entry whose bytes are gone — permanent in the log.
     a.append(cat, '\$image:${'b' * 64}', 'added');
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity());
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
-    final result = await lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint);
+    final host = await testHost(a, '123456');
+    final result = await syncWith(b, host);
     expect(result.entriesReceived, greaterThan(0));
     expect(result.blobsReceived, 0);
     expect(b.cats().map((c) => c.name), contains('Miezi'));
@@ -67,13 +59,8 @@ void main() {
   test('a blob above the cap is refused with 413', () async {
     final a = CatalogStore.inMemory()..author = 'a';
     addTearDown(a.close);
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity());
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
-    final client = HttpClient()
-      ..badCertificateCallback = (_, _, _) => true;
-    addTearDown(() => client.close(force: true));
+    final host = await testHost(a, '123456');
+    final client = insecureClient();
     final req = await client.openUrl(
         'POST', Uri.parse('https://127.0.0.1:${host.port}/blob/${'c' * 64}'));
     req.headers.set('x-catlog-pin', '123456');
@@ -97,17 +84,12 @@ void main() {
     final b = CatalogStore.inMemory()..author = 'b';
     addTearDown(a.close);
     addTearDown(b.close);
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity());
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
+    final host = await testHost(a, '123456');
     for (var i = 0; i < pinFailuresPerAddress; i++) {
-      await expectLater(lanSync(b, '127.0.0.1', host.port, '000000',
-          fingerprint: host.fingerprint),
+      await expectLater(syncWith(b, host, pin: '000000'),
           throwsA(isA<SyncException>()));
     }
-    await expectLater(lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint),
+    await expectLater(syncWith(b, host),
         throwsA(isA<SyncException>()));
   });
 
@@ -118,25 +100,19 @@ void main() {
     addTearDown(a.close);
     addTearDown(b.close);
     var asked = 0;
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity(), onJoinRequest: (_, _) async {
+    final host = await testHost(a, '123456',
+        onJoinRequest: (_, _) async {
       asked++;
       return const JoinDecision(true, false, remember: true);
     });
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
-    await lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint);
+    await syncWith(b, host);
     expect(asked, 1);
     expect(b.localSetting(trustSecretKey(a.deviceId)), isNotNull);
     // Second time: no question.
-    await lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint);
+    await syncWith(b, host);
     expect(asked, 1);
     // Another device claiming b's id without the secret is asked.
-    final client = HttpClient()
-      ..badCertificateCallback = (_, _, _) => true;
-    addTearDown(() => client.close(force: true));
+    final client = insecureClient();
     final req = await client.openUrl(
         'POST', Uri.parse('https://127.0.0.1:${host.port}/sync'));
     req.headers.set('x-catlog-pin', '123456');
@@ -163,13 +139,8 @@ void main() {
         b.createCat('X'),
         CatalogStore.compressImage(Uint8List.fromList(
             img.encodeJpg(img.Image(width: 8, height: 8)))));
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity());
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
-    final client = HttpClient()
-      ..badCertificateCallback = (_, _, _) => true;
-    addTearDown(() => client.close(force: true));
+    final host = await testHost(a, '123456');
+    final client = insecureClient();
     final req = await client.openUrl(
         'POST', Uri.parse('https://127.0.0.1:${host.port}/blob/$hash'));
     req.headers.set('x-catlog-pin', '123456');
@@ -190,21 +161,17 @@ void main() {
     b.createCat('B');
     c.createCat('C');
     var inFlight = 0, peak = 0;
-    final host = LanSyncHost(a, '123456',
-        identity: testIdentity(), onJoinRequest: (_, _) async {
+    final host = await testHost(a, '123456',
+        onJoinRequest: (_, _) async {
       inFlight++;
       peak = inFlight > peak ? inFlight : peak;
       await Future<void>.delayed(const Duration(milliseconds: 100));
       inFlight--;
       return const JoinDecision(true, false);
     });
-    await host.start(bind: InternetAddress.loopbackIPv4);
-    addTearDown(host.stop);
     await Future.wait([
-      lanSync(b, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint),
-      lanSync(c, '127.0.0.1', host.port, '123456',
-          fingerprint: host.fingerprint),
+      syncWith(b, host),
+      syncWith(c, host),
     ]);
     expect(peak, 1);
     expect(a.cats().map((x) => x.name), containsAll(['B', 'C']));
