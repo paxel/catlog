@@ -32,6 +32,7 @@ import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 import '../units_dialog.dart';
+import '../pet_mode.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -111,6 +112,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
         ));
       }
       if (!mounted) return;
+      // A sync may have switched the catalog to pets meanwhile.
+      refreshPetMode(widget.store);
       // Reminders set in editors or arrived by sync reach the device
       // calendar without a visit to the agenda.
       mirrorAfterChange(context, widget.store);

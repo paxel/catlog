@@ -29,7 +29,14 @@ class AppLocalizationsSk extends AppLocalizations {
   String get clowders => 'Clowdery';
 
   @override
+  String get clowdersNeutral => 'Clowdery';
+
+  @override
   String get noClowdersYet =>
+      'Zatiaľ žiadne clowdery. Clowder je miesto, kde mačky žijú — tvoja dočasná starostlivosť, byt osvojiteľa. Založ prvý nižšie.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Zatiaľ žiadne clowdery. Clowder je miesto, kde mačky žijú — tvoja dočasná starostlivosť, byt osvojiteľa. Založ prvý nižšie.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get searchCats => 'Hľadať mačky';
+
+  @override
+  String get searchCatsNeutral => 'Hľadať mačky';
 
   @override
   String get map => 'Mapa';
@@ -55,6 +65,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get newClowder => 'Nový clowder';
+
+  @override
+  String get newClowderNeutral => 'Nový clowder';
 
   @override
   String get name => 'Meno';
@@ -89,6 +102,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get renameClowder => 'Premenovať clowder';
 
   @override
+  String get renameClowderNeutral => 'Premenovať clowder';
+
+  @override
   String get rename => 'Premenovať';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsSk extends AppLocalizations {
   String get deleteClowder => 'Vymazať clowder';
 
   @override
+  String get deleteClowderNeutral => 'Vymazať clowder';
+
+  @override
   String get cats => 'Mačky';
+
+  @override
+  String get catsNeutral => 'Mačky';
 
   @override
   String get addCat => 'Pridať mačku';
 
   @override
+  String get addCatNeutral => 'Pridať mačku';
+
+  @override
   String get newCat => 'Nová mačka';
+
+  @override
+  String get newCatNeutral => 'Nová mačka';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowder zmizne zo zoznamu.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Clowder zmizne zo zoznamu.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Jeho mačky ($count) sa nevymažú — stanú sa túlavými. Ak to nechcete, najprv ich presuňte do iného clowderu.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Jeho mačky ($count) sa nevymažú — stanú sa túlavými. Ak to nechcete, najprv ich presuňte do iného clowderu.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsSk extends AppLocalizations {
   String get renameCat => 'Premenovať mačku';
 
   @override
+  String get renameCatNeutral => 'Premenovať mačku';
+
+  @override
   String get seenHereNow => 'Práve videná tu';
 
   @override
   String get deleteCat => 'Vymazať mačku';
 
   @override
+  String get deleteCatNeutral => 'Vymazať mačku';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Clowder';
+
+  @override
   String get strayNoClowder => 'Túlavá — bez clowderu';
+
+  @override
+  String get strayNoClowderNeutral => 'Túlavá — bez clowderu';
 
   @override
   String get stray => 'Túlavá';
@@ -181,6 +229,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu aj, po ďalšej synchronizácii, na ostatných zariadeniach.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Mačka zmizne zo všetkých zoznamov a jej fotky sa odstránia — tu aj, po ďalšej synchronizácii, na ostatných zariadeniach.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Naskenuje vytlačený QR/čiarový kód z karty čipu alebo veterinárnych dokladov — čip v mačke telefón prečítať nedokáže.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Naskenuje vytlačený QR/čiarový kód z karty čipu alebo veterinárnych dokladov — čip v mačke telefón prečítať nedokáže.';
+
+  @override
   String get savingLabel => 'Ukladá sa…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get catList => 'Zoznam mačiek';
+
+  @override
+  String get catListNeutral => 'Zoznam mačiek';
 
   @override
   String get matchCandidatesTitle => 'Možné zhody';
@@ -320,6 +379,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get importShareTitle => 'Importovať túto mačku?';
 
   @override
+  String get importShareTitleNeutral => 'Importovať túto mačku?';
+
+  @override
   String shareSource(String url) {
     return 'Zdroj: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Zatiaľ žiadne nezvestné mačky s pozíciami letákov.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Zatiaľ žiadne nezvestné mačky s pozíciami letákov.';
 
   @override
@@ -417,6 +483,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Táto mačka je vedená ako kocúr — kocúr nemôže byť gravidný. Najprv skontrolujte pohlavie.';
 
   @override
+  String get malePregnantNeutral =>
+      'Táto mačka je vedená ako kocúr — kocúr nemôže byť gravidný. Najprv skontrolujte pohlavie.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name je vedená ako mačka (samica) a nemôže byť otcom. Najprv skontrolujte pohlavie.';
   }
@@ -432,7 +502,16 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name sa narodil $date — rodič sa nemôže narodiť po svojom mačati.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Táto mačka je vedená ako otec iných mačiek — otec nemôže byť samica. Najprv skontrolujte rodinu.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Táto mačka je vedená ako otec iných mačiek — otec nemôže byť samica. Najprv skontrolujte rodinu.';
 
   @override
@@ -440,10 +519,17 @@ class AppLocalizationsSk extends AppLocalizations {
       'Táto mačka je vedená ako matka iných mačiek — matka nemôže byť samec. Najprv skontrolujte rodinu.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Táto mačka je vedená ako matka iných mačiek — matka nemôže byť samec. Najprv skontrolujte rodinu.';
+
+  @override
   String get moveTo => 'Presunúť do';
 
   @override
   String get noClowderStrayOption => 'Bez clowderu — túlavá / ušla';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'Bez clowderu — túlavá / ušla';
 
   @override
   String timelineOf(String name) {
@@ -533,7 +619,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get forCats => 'mačky';
 
   @override
+  String get forCatsNeutral => 'mačky';
+
+  @override
   String get forClowders => 'clowdery';
+
+  @override
+  String get forClowdersNeutral => 'clowdery';
 
   @override
   String get forBoth => 'oboje';
@@ -564,6 +656,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Hľadať mačky podľa mena…';
+
+  @override
+  String get searchByNameHintNeutral => 'Hľadať mačky podľa mena…';
 
   @override
   String get host => 'Hostiť';
@@ -685,7 +780,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get kindCat => 'mačka';
 
   @override
+  String get kindCatNeutral => 'mačka';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'clowder';
 
   @override
   String get kindField => 'pole';
@@ -701,6 +802,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Lokálny katalóg mačiek v dočasnej starostlivosti. Vaše dáta zostávajú na vašich zariadeniach — žiadny server, žiadny účet.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Lokálny katalóg mačiek v dočasnej starostlivosti. Vaše dáta zostávajú na vašich zariadeniach — žiadny server, žiadny účet.';
 
   @override
@@ -829,6 +934,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get stepCat => 'Mačka';
 
   @override
+  String get stepCatNeutral => 'Mačka';
+
+  @override
   String get stepOwner => 'Majiteľ';
 
   @override
@@ -845,11 +953,23 @@ class AppLocalizationsSk extends AppLocalizations {
       'Kto mačku postráda — z toho vznikne jeho clowder s kontaktom z letáka.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Kto mačku postráda — z toho vznikne jeho clowder s kontaktom z letáka.';
+
+  @override
   String get stepFaceHint =>
       'Vystrihnite z letáka mačaciu tvár; stane sa profilovou fotkou. Môžete preskočiť.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Vystrihnite z letáka mačaciu tvár; stane sa profilovou fotkou. Môžete preskočiť.';
+
+  @override
   String get stepRegistryHint =>
+      'Čísla nájdené na letáku. Zaškrtnuté sa uložia k mačke a dajú sa neskôr otvoriť.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Čísla nájdené na letáku. Zaškrtnuté sa uložia k mačke a dajú sa neskôr otvoriť.';
 
   @override
@@ -900,7 +1020,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova. Názov hore je katalóg, v ktorom si — klepnutím prepneš alebo pridáš ďalší.';
 
   @override
+  String get helpHomeNeutral =>
+      'Prehľad tvojich kolónií — kolónia je miesto, kde žijú mačky: tvoj domov, dočasná opatera, útulok. Ťukni na kartu a uvidíš jej mačky; podržaním otvoríš menu. Tlačidlo vpravo dole vytvorí kolóniu a karta túlavých zbiera všetky mačky bez domova. Názov hore je katalóg, v ktorom si — klepnutím prepneš alebo pridáš ďalší.';
+
+  @override
   String get helpClowder =>
+      'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac mačiek kolónie, napríklad kastračný výjazd: zaškrtnite mačky, ktoré idú, dokončite raz, odškrtnite tie, ktoré neboli ošetrené.';
+
+  @override
+  String get helpClowderNeutral =>
       'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac mačiek kolónie, napríklad kastračný výjazd: zaškrtnite mačky, ktoré idú, dokončite raz, odškrtnite tie, ktoré neboli ošetrené.';
 
   @override
@@ -908,7 +1036,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať mačku. „Súkromné“ sa nastavuje pri úprave poľa.';
 
   @override
+  String get helpCatNeutral =>
+      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať mačku. „Súkromné“ sa nastavuje pri úprave poľa.';
+
+  @override
   String get helpStrays =>
+      'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. Ťuknutím na Stray Cam urobíš fotku; podržaním natočíš video a najlepšie snímky si necháš ako fotky.';
+
+  @override
+  String get helpStraysNeutral =>
       'Mačky, ktoré teraz nemajú domov: nájdené, ušlé alebo z letáka. Tlačidlo fotoaparátu zapíše mačku pred tebou; tlačidlo letáka premení plagát na mačku aj s kontaktom majiteľa; skener prečíta kód cat(a)log z plagátu. Ťuknutím na Stray Cam urobíš fotku; podržaním natočíš video a najlepšie snímky si necháš ako fotky.';
 
   @override
@@ -916,7 +1052,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
 
   @override
+  String get helpMapNeutral =>
+      'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
+
+  @override
   String get helpCard =>
+      'Tlačiteľná karta mačky: hore čipmi vyberieš, čo na nej bude, potom ju zdieľaš ako obrázok alebo PDF. Čísla sa dajú vytlačiť ako QR alebo čiarový kód a z pozície vznikne QR otvárajúci mapu plus krátky Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
       'Tlačiteľná karta mačky: hore čipmi vyberieš, čo na nej bude, potom ju zdieľaš ako obrázok alebo PDF. Čísla sa dajú vytlačiť ako QR alebo čiarový kód a z pozície vznikne QR otvárajúci mapu plus krátky Plus Code.';
 
   @override
@@ -928,6 +1072,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri mačke ťuknúť.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri mačke ťuknúť.';
+
+  @override
   String get helpTimeline =>
       'Každá kedy vykonaná zmena, najnovšia hore: kto čo kedy a na akú hodnotu zmenil. Každý záznam sa dá vrátiť — vznikne tým nový záznam, nič sa nikdy nemaže.';
 
@@ -936,7 +1084,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Mačky alebo kolónie, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Mačky alebo kolónie, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.';
+
+  @override
   String get helpMatches =>
+      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
 
   @override
@@ -944,10 +1100,18 @@ class AppLocalizationsSk extends AppLocalizations {
       'Z odfoteného letáka vznikne mačka aj majiteľ. Krok za krokom: údaje mačky, kontakt majiteľa, výrez tváre pre profilovku, čísla registrov z letáka a nakoniec kontrola. Všetko sú návrhy — oprav, čo fotoaparát prečítal zle.';
 
   @override
+  String get helpFlierNeutral =>
+      'Z odfoteného letáka vznikne mačka aj majiteľ. Krok za krokom: údaje mačky, kontakt majiteľa, výrez tváre pre profilovku, čísla registrov z letáka a nakoniec kontrola. Všetko sú návrhy — oprav, čo fotoaparát prečítal zle.';
+
+  @override
   String get archiveTitle => 'Archív';
 
   @override
   String get archiveExplainer =>
+      'Uhynuté mačky a prázdne kolónie, ktorých sa roky nikto nedotkol, stále zaberajú miesto — najmä ich fotky. Archivácia ich zapíše do súboru, ktorý si necháš, a potom ich odtiaľto zmaže.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Uhynuté mačky a prázdne kolónie, ktorých sa roky nikto nedotkol, stále zaberajú miesto — najmä ich fotky. Archivácia ich zapíše do súboru, ktorý si necháš, a potom ich odtiaľto zmaže.';
 
   @override
@@ -998,6 +1162,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Staré dáta stoja miesto, najmä fotky, ktoré si nesie každé synchronizované zariadenie. Tu vyberieš uhynuté mačky a prázdne kolónie, ktoré sú roky bez zmeny, zapíšeš ich do súboru, ktorý si necháš, a zmažeš ich. Zmazanie dorazí ku všetkým, s ktorými synchronizuješ; import súboru všetko obnoví.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Staré dáta stoja miesto, najmä fotky, ktoré si nesie každé synchronizované zariadenie. Tu vyberieš uhynuté mačky a prázdne kolónie, ktoré sú roky bez zmeny, zapíšeš ich do súboru, ktorý si necháš, a zmažeš ich. Zmazanie dorazí ku všetkým, s ktorými synchronizuješ; import súboru všetko obnoví.';
 
   @override
@@ -1054,6 +1222,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get markTitle => 'Označiť mačku';
 
   @override
+  String get markTitleNeutral => 'Označiť mačku';
+
+  @override
   String get applyCrop => 'Orezať';
 
   @override
@@ -1063,7 +1234,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get dragToSelect => 'Ťahom nakreslite obdĺžnik okolo mačky';
 
   @override
+  String get dragToSelectNeutral => 'Ťahom nakreslite obdĺžnik okolo mačky';
+
+  @override
   String get dragOverTheCat => 'Ťahom nakreslite elipsu cez mačku';
+
+  @override
+  String get dragOverTheCatNeutral => 'Ťahom nakreslite elipsu cez mačku';
 
   @override
   String get cropPhoto => 'Orezať…';
@@ -1147,6 +1324,15 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Jednotky';
+
+  @override
+  String get catalogHolds => 'Tento katalóg obsahuje';
+
+  @override
+  String get modeCats => 'Mačky';
+
+  @override
+  String get modePets => 'Zvieratá';
 
   @override
   String get graphLabel => 'Graf';
@@ -1240,6 +1426,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
+
+  @override
   String get onMapLabel => 'Na mape';
 
   @override
@@ -1253,6 +1443,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Hľadať mačky, skupiny, osoby';
+
+  @override
+  String get mapSearchHintNeutral => 'Hľadať mačky, skupiny, osoby';
 
   @override
   String get proposeAnotherName => 'Navrhnúť iné meno';
@@ -1333,6 +1526,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get kittensLabel => 'Mačiatka';
 
   @override
+  String get kittensLabelNeutral => 'Mačiatka';
+
+  @override
   String get toastSettingsTitle => 'Čo oznamovať';
 
   @override
@@ -1360,6 +1556,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Nové mačiatko: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Nové mačiatko: $cat ✨';
   }
 
@@ -1448,10 +1649,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get selectClowderHint => 'Vyber clowder vľavo';
 
   @override
+  String get selectClowderHintNeutral => 'Vyber clowder vľavo';
+
+  @override
   String get introTitle1 => 'Vaše mačky prehľadne';
 
   @override
+  String get introTitle1Neutral => 'Vaše mačky prehľadne';
+
+  @override
   String get introBody1 =>
+      'Založte každej mačke kartu: fotka, pohlavie, zdravie, čokoľvek chcete zaznamenať. Mačky sú zoskupené podľa miesta, kde žijú — aplikácia ho volá kolónia (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Založte každej mačke kartu: fotka, pohlavie, zdravie, čokoľvek chcete zaznamenať. Mačky sú zoskupené podľa miesta, kde žijú — aplikácia ho volá kolónia (clowder).';
 
   @override
@@ -1489,6 +1700,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Táto karta zbiera všetky túlavé mačky — mačky bez domova. Ťuknutím zobrazíte zoznam.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Táto karta zbiera všetky túlavé mačky — mačky bez domova. Ťuknutím zobrazíte zoznam.';
+
+  @override
   String get spotHomeMenu =>
       'V tomto menu: hľadanie a zlučovanie duplicít, export CSV a ďalšie.';
 
@@ -1497,7 +1712,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Ťuknite na ceruzku a mačku upravte. Tip: podržte pole a upravíte ho priamo.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Ťuknite na ceruzku a mačku upravte. Tip: podržte pole a upravíte ho priamo.';
+
+  @override
   String get spotMapLayers =>
+      'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov a okolo domova, z ktorého ušla.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Hľadáte nezvestnú mačku? Zobrazte kruhy okolo miest jej letákov a okolo domova, z ktorého ušla.';
 
   @override
@@ -1505,18 +1728,37 @@ class AppLocalizationsSk extends AppLocalizations {
       'Leták o nezvestnej mačke? Odfoťte ho tu — aplikácia uloží mačku aj kontakt za vás.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Leták o nezvestnej mačke? Odfoťte ho tu — aplikácia uloží mačku aj kontakt za vás.';
+
+  @override
   String get spotStraysScan =>
+      'Niektoré letáky majú QR kód cat(a)log. Naskenujte ho tu a mačku importujte bez písania.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Niektoré letáky majú QR kód cat(a)log. Naskenujte ho tu a mačku importujte bez písania.';
 
   @override
   String get introTitle4 => 'Hľadajte nezvestné mačky';
 
   @override
+  String get introTitle4Neutral => 'Hľadajte nezvestné mačky';
+
+  @override
   String get introBody4 =>
       'Vidíte leták s nezvestnou mačkou? Odfoťte ho v aplikácii: uloží mačku, kontakt majiteľa aj miesto. Ak sa neskôr objaví podobná túlavá mačka, aplikácia navrhne možné zhody.';
 
   @override
+  String get introBody4Neutral =>
+      'Vidíte leták s nezvestnou mačkou? Odfoťte ho v aplikácii: uloží mačku, kontakt majiteľa aj miesto. Ak sa neskôr objaví podobná túlavá mačka, aplikácia navrhne možné zhody.';
+
+  @override
   String get spotMapSearch =>
+      'Napíšte mačku, miesto alebo osobu a skočte tam na mape.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Napíšte mačku, miesto alebo osobu a skočte tam na mape.';
 
   @override
@@ -1525,6 +1767,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Tu sú ďalšie akcie: skryť mačku, zlúčiť duplikáty alebo zaznamenať spozorovanie.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Tu sú ďalšie akcie: skryť mačku, zlúčiť duplikáty alebo zaznamenať spozorovanie.';
 
   @override
@@ -1541,6 +1787,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Mačka s týmto menom sa nenašla';
+
+  @override
+  String get searchNoResultsNeutral => 'Mačka s týmto menom sa nenašla';
 
   @override
   String get syncUnreachable =>
@@ -1592,6 +1841,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Každý katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Každý katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
+
+  @override
   String get spotHomeCatalog =>
       'Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.';
 
@@ -1600,6 +1853,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.';
   }
 
@@ -1726,6 +1984,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Žiadne termíny nie sú naplánované. Nové naplánuješ tu plusom alebo na stránke mačky či clowderu.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Žiadne termíny nie sú naplánované. Nové naplánuješ tu plusom alebo na stránke mačky či clowderu.';
 
   @override
@@ -1891,7 +2153,15 @@ class AppLocalizationsSk extends AppLocalizations {
       'Naplánuj termín pre túto mačku. Zobrazí sa v pripomienkach a tam sa potvrdí.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Naplánuj termín pre túto mačku. Zobrazí sa v pripomienkach a tam sa potvrdí.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Naplánuj termín pre tento clowder. Zobrazí sa v pripomienkach a tam sa potvrdí.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Naplánuj termín pre tento clowder. Zobrazí sa v pripomienkach a tam sa potvrdí.';
 
   @override
@@ -1999,7 +2269,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get existingCat => 'Existujúca mačka';
 
   @override
+  String get existingCatNeutral => 'Existujúca mačka';
+
+  @override
   String get existingClowder => 'Existujúca skupina';
+
+  @override
+  String get existingClowderNeutral => 'Existujúca skupina';
 
   @override
   String get createNewInstead => 'Žiadna — vytvoriť novú';
@@ -2025,14 +2301,29 @@ class AppLocalizationsSk extends AppLocalizations {
   String get catsOnAppointment => 'Mačky na tomto stretnutí';
 
   @override
+  String get catsOnAppointmentNeutral => 'Mačky na tomto stretnutí';
+
+  @override
   String get noCatsHint =>
+      'Žiadna mačka nie je zaškrtnutá — stretnutie patrí samotnej kolónii.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Žiadna mačka nie je zaškrtnutá — stretnutie patrí samotnej kolónii.';
 
   @override
   String get pickCatsTitle => 'Ktoré mačky idú so sebou?';
 
   @override
+  String get pickCatsTitleNeutral => 'Ktoré mačky idú so sebou?';
+
+  @override
   String catsCount(int count) {
+    return '$count mačiek';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count mačiek';
   }
 
@@ -2041,7 +2332,16 @@ class AppLocalizationsSk extends AppLocalizations {
       'Odškrtnite mačky, ktoré neboli ošetrené; zostanú naplánované.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Odškrtnite mačky, ktoré neboli ošetrené; zostanú naplánované.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Zmazať stretnutie pre všetkých $count mačiek';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Zmazať stretnutie pre všetkých $count mačiek';
   }
 }

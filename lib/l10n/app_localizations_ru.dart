@@ -29,7 +29,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get clowders => 'Клаудеры';
 
   @override
+  String get clowdersNeutral => 'Клаудеры';
+
+  @override
   String get noClowdersYet =>
+      'Клаудеров пока нет. Клаудер — это место, где живут кошки: ваша передержка, квартира усыновителя. Создайте первый ниже.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Клаудеров пока нет. Клаудер — это место, где живут кошки: ваша передержка, квартира усыновителя. Создайте первый ниже.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get searchCats => 'Поиск кошек';
+
+  @override
+  String get searchCatsNeutral => 'Поиск кошек';
 
   @override
   String get map => 'Карта';
@@ -55,6 +65,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get newClowder => 'Новый клаудер';
+
+  @override
+  String get newClowderNeutral => 'Новый клаудер';
 
   @override
   String get name => 'Имя';
@@ -89,6 +102,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get renameClowder => 'Переименовать клаудер';
 
   @override
+  String get renameClowderNeutral => 'Переименовать клаудер';
+
+  @override
   String get rename => 'Переименовать';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deleteClowder => 'Удалить клаудер';
 
   @override
+  String get deleteClowderNeutral => 'Удалить клаудер';
+
+  @override
   String get cats => 'Кошки';
+
+  @override
+  String get catsNeutral => 'Кошки';
 
   @override
   String get addCat => 'Добавить кошку';
 
   @override
+  String get addCatNeutral => 'Добавить кошку';
+
+  @override
   String get newCat => 'Новая кошка';
+
+  @override
+  String get newCatNeutral => 'Новая кошка';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Клаудер исчезнет из списка.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Клаудер исчезнет из списка.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Его кошки ($count) не удаляются — они станут бездомными. Сначала переместите их в другой клаудер, если это не то, что нужно.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Его кошки ($count) не удаляются — они станут бездомными. Сначала переместите их в другой клаудер, если это не то, что нужно.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsRu extends AppLocalizations {
   String get renameCat => 'Переименовать кошку';
 
   @override
+  String get renameCatNeutral => 'Переименовать кошку';
+
+  @override
   String get seenHereNow => 'Видели здесь сейчас';
 
   @override
   String get deleteCat => 'Удалить кошку';
 
   @override
+  String get deleteCatNeutral => 'Удалить кошку';
+
+  @override
   String get clowderLabel => 'Клаудер';
 
   @override
+  String get clowderLabelNeutral => 'Клаудер';
+
+  @override
   String get strayNoClowder => 'Бездомная — без клаудера';
+
+  @override
+  String get strayNoClowderNeutral => 'Бездомная — без клаудера';
 
   @override
   String get stray => 'Бездомная';
@@ -181,6 +229,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Кошка исчезнет из всех списков, её фото будут удалены — здесь и, после следующей синхронизации, на остальных устройствах.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Кошка исчезнет из всех списков, её фото будут удалены — здесь и, после следующей синхронизации, на остальных устройствах.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Сканирует напечатанный QR/штрихкод с карты чипа или ветеринарных документов — сам чип в кошке телефон прочитать не может.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Сканирует напечатанный QR/штрихкод с карты чипа или ветеринарных документов — сам чип в кошке телефон прочитать не может.';
+
+  @override
   String get savingLabel => 'Сохранение…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get catList => 'Список кошек';
+
+  @override
+  String get catListNeutral => 'Список кошек';
 
   @override
   String get matchCandidatesTitle => 'Возможные совпадения';
@@ -320,6 +379,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get importShareTitle => 'Импортировать эту кошку?';
 
   @override
+  String get importShareTitleNeutral => 'Импортировать эту кошку?';
+
+  @override
   String shareSource(String url) {
     return 'Источник: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Пока нет пропавших кошек с позициями объявлений.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Пока нет пропавших кошек с позициями объявлений.';
 
   @override
@@ -417,6 +483,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Этот кот записан как самец — самец не может быть беременным. Сначала проверьте пол.';
 
   @override
+  String get malePregnantNeutral =>
+      'Этот кот записан как самец — самец не может быть беременным. Сначала проверьте пол.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name записана как самка и не может быть отцом. Сначала проверьте пол.';
   }
@@ -432,7 +502,16 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name родился $date — родитель не может родиться после своего котёнка.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Этот кот записан как отец других кошек — отец не может быть самкой. Сначала проверьте семью.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Этот кот записан как отец других кошек — отец не может быть самкой. Сначала проверьте семью.';
 
   @override
@@ -440,10 +519,18 @@ class AppLocalizationsRu extends AppLocalizations {
       'Эта кошка записана как мать других кошек — мать не может быть самцом. Сначала проверьте семью.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Эта кошка записана как мать других кошек — мать не может быть самцом. Сначала проверьте семью.';
+
+  @override
   String get moveTo => 'Переместить в';
 
   @override
   String get noClowderStrayOption => 'Без клаудера — бездомная / сбежала';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Без клаудера — бездомная / сбежала';
 
   @override
   String timelineOf(String name) {
@@ -533,7 +620,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get forCats => 'кошек';
 
   @override
+  String get forCatsNeutral => 'кошек';
+
+  @override
   String get forClowders => 'клаудеров';
+
+  @override
+  String get forClowdersNeutral => 'клаудеров';
 
   @override
   String get forBoth => 'обоих';
@@ -564,6 +657,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Поиск кошек по имени…';
+
+  @override
+  String get searchByNameHintNeutral => 'Поиск кошек по имени…';
 
   @override
   String get host => 'Раздать';
@@ -686,7 +782,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get kindCat => 'кошка';
 
   @override
+  String get kindCatNeutral => 'кошка';
+
+  @override
   String get kindClowder => 'клаудер';
+
+  @override
+  String get kindClowderNeutral => 'клаудер';
 
   @override
   String get kindField => 'поле';
@@ -702,6 +804,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Локальный каталог кошек на передержке. Ваши данные остаются на ваших устройствах — без сервера, без аккаунта.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Локальный каталог кошек на передержке. Ваши данные остаются на ваших устройствах — без сервера, без аккаунта.';
 
   @override
@@ -830,6 +936,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get stepCat => 'Кошка';
 
   @override
+  String get stepCatNeutral => 'Кошка';
+
+  @override
   String get stepOwner => 'Владелец';
 
   @override
@@ -846,11 +955,23 @@ class AppLocalizationsRu extends AppLocalizations {
       'Тот, кто ищет кошку, — из этого получится его клаудер с контактом с объявления.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Тот, кто ищет кошку, — из этого получится его клаудер с контактом с объявления.';
+
+  @override
   String get stepFaceHint =>
       'Вырежьте морду кошки с объявления; она станет фото профиля. Шаг можно пропустить.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Вырежьте морду кошки с объявления; она станет фото профиля. Шаг можно пропустить.';
+
+  @override
   String get stepRegistryHint =>
+      'Номера, найденные на объявлении. Отмеченные сохранятся у кошки и откроются позже.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Номера, найденные на объявлении. Отмеченные сохранятся у кошки и откроются позже.';
 
   @override
@@ -900,7 +1021,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Обзор ваших колоний — колония это место, где живут кошки: ваш дом, передержка, приют. Нажмите на карточку, чтобы увидеть её кошек; долгое нажатие открывает меню. Кнопка внизу справа создаёт колонию, а карточка бездомных собирает всех кошек без дома. Имя вверху — каталог, в котором вы находитесь; коснитесь, чтобы переключиться или добавить.';
 
   @override
+  String get helpHomeNeutral =>
+      'Обзор ваших колоний — колония это место, где живут кошки: ваш дом, передержка, приют. Нажмите на карточку, чтобы увидеть её кошек; долгое нажатие открывает меню. Кнопка внизу справа создаёт колонию, а карточка бездомных собирает всех кошек без дома. Имя вверху — каталог, в котором вы находитесь; коснитесь, чтобы переключиться или добавить.';
+
+  @override
   String get helpClowder =>
+      'Всё об этом месте: его кошки, поля (адрес, контакт, тип) и история. Страница открывается только для чтения; карандаш включает правку, там же можно добавить поле. Долгое нажатие на поле правит его сразу, на кошку — перемещает, скрывает или открывает её. Добавленный здесь приём может взять несколько кошек колонии, например на стерилизацию: отметьте кошек, которые едут, завершите один раз, снимите отметку с тех, кого не лечили.';
+
+  @override
+  String get helpClowderNeutral =>
       'Всё об этом месте: его кошки, поля (адрес, контакт, тип) и история. Страница открывается только для чтения; карандаш включает правку, там же можно добавить поле. Долгое нажатие на поле правит его сразу, на кошку — перемещает, скрывает или открывает её. Добавленный здесь приём может взять несколько кошек колонии, например на стерилизацию: отметьте кошек, которые едут, завершите один раз, снимите отметку с тех, кого не лечили.';
 
   @override
@@ -908,7 +1037,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Всё об этой кошке: фото, поля, семья, история. Страница только для чтения, пока не коснёшься карандаша. Долгое нажатие на поле сразу открывает его редактирование; долгое нажатие на фото открывает его меню. Меню справа вверху держит остальное: скрыть, объединить, записать наблюдение, поделиться кошкой. «Приватно» задаётся при редактировании поля.';
 
   @override
+  String get helpCatNeutral =>
+      'Всё об этой кошке: фото, поля, семья, история. Страница только для чтения, пока не коснёшься карандаша. Долгое нажатие на поле сразу открывает его редактирование; долгое нажатие на фото открывает его меню. Меню справа вверху держит остальное: скрыть, объединить, записать наблюдение, поделиться кошкой. «Приватно» задаётся при редактировании поля.';
+
+  @override
   String get helpStrays =>
+      'Кошки, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает кошку, которая сидит перед вами; кнопка объявления превращает плакат в кошку с контактом владельца; сканер читает код cat(a)log с плаката. Нажмите Stray Cam для фото; удерживайте, чтобы снять видео и сохранить лучшие кадры как фото.';
+
+  @override
+  String get helpStraysNeutral =>
       'Кошки, у которых сейчас нет дома: найденные, сбежавшие или взятые с объявления. Кнопка камеры записывает кошку, которая сидит перед вами; кнопка объявления превращает плакат в кошку с контактом владельца; сканер читает код cat(a)log с плаката. Нажмите Stray Cam для фото; удерживайте, чтобы снять видео и сохранить лучшие кадры как фото.';
 
   @override
@@ -916,7 +1053,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Все кошки и места с координатами. Поиск находит кошек, людей и места — незнакомое название ищется по всему миру. Кнопка слоёв рисует круги 500 м вокруг мест объявлений пропавшей кошки и вокруг дома, из которого она убежала. Стрелки ведут от метки к метке, долгое нажатие на карту записывает наблюдение.';
 
   @override
+  String get helpMapNeutral =>
+      'Все кошки и места с координатами. Поиск находит кошек, людей и места — незнакомое название ищется по всему миру. Кнопка слоёв рисует круги 500 м вокруг мест объявлений пропавшей кошки и вокруг дома, из которого она убежала. Стрелки ведут от метки к метке, долгое нажатие на карту записывает наблюдение.';
+
+  @override
   String get helpCard =>
+      'Печатная карточка кошки: сверху чипами выбираете, что на ней будет, затем делитесь ею как картинкой или PDF. Номера печатаются как QR или штрихкод, а координаты превращаются в QR, открывающий карту, плюс короткий Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
       'Печатная карточка кошки: сверху чипами выбираете, что на ней будет, затем делитесь ею как картинкой или PDF. Номера печатаются как QR или штрихкод, а координаты превращаются в QR, открывающий карту, плюс короткий Plus Code.';
 
   @override
@@ -928,6 +1073,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Поля, которые использует ваш каталог. Переименуйте их, измените варианты поля выбора или создайте свои. Поле-идентификатор может указывать на службу (реестр), тогда номер у кошки становится нажимаемым.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Поля, которые использует ваш каталог. Переименуйте их, измените варианты поля выбора или создайте свои. Поле-идентификатор может указывать на службу (реестр), тогда номер у кошки становится нажимаемым.';
+
+  @override
   String get helpTimeline =>
       'Каждое сделанное изменение, новые сверху: кто, когда и на какое значение что менял. Любую запись можно отменить — это создаёт новую запись, ничего никогда не стирается.';
 
@@ -936,7 +1085,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Кошки или колонии, которые выглядят как одно и то же дважды: одинаковые номера или очень похожие имена с совпадающими деталями. Нажмите на пару, чтобы объединить; объединение необратимо, поэтому сначала спросят.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Кошки или колонии, которые выглядят как одно и то же дважды: одинаковые номера или очень похожие имена с совпадающими деталями. Нажмите на пару, чтобы объединить; объединение необратимо, поэтому сначала спросят.';
+
+  @override
   String get helpMatches =>
+      'Кошки, которые могут быть одним животным: одинаковый номер или бездомная кошка, замеченная в зоне поиска пропавшей. Нажмите на пару, чтобы объединить, долгое нажатие открывает первую кошку для сравнения.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Кошки, которые могут быть одним животным: одинаковый номер или бездомная кошка, замеченная в зоне поиска пропавшей. Нажмите на пару, чтобы объединить, долгое нажатие открывает первую кошку для сравнения.';
 
   @override
@@ -944,10 +1101,18 @@ class AppLocalizationsRu extends AppLocalizations {
       'Из сфотографированного объявления получается кошка и её владелец. Шаг за шагом: данные кошки, контакт владельца, обрезка морды для фото профиля, номера реестров с объявления и финальная проверка. Всё это предложения — исправьте то, что камера прочитала неверно.';
 
   @override
+  String get helpFlierNeutral =>
+      'Из сфотографированного объявления получается кошка и её владелец. Шаг за шагом: данные кошки, контакт владельца, обрезка морды для фото профиля, номера реестров с объявления и финальная проверка. Всё это предложения — исправьте то, что камера прочитала неверно.';
+
+  @override
   String get archiveTitle => 'Архив';
 
   @override
   String get archiveExplainer =>
+      'Умершие кошки и пустые колонии, к которым годами никто не притрагивался, всё равно занимают место — особенно их фотографии. Архивация записывает их в файл, который вы храните, и затем удаляет их отсюда.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Умершие кошки и пустые колонии, к которым годами никто не притрагивался, всё равно занимают место — особенно их фотографии. Архивация записывает их в файл, который вы храните, и затем удаляет их отсюда.';
 
   @override
@@ -998,6 +1163,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Старые данные занимают место, прежде всего фотографии, которые тащит за собой каждое синхронизированное устройство. Здесь вы выбираете умерших кошек и пустые колонии, годами не менявшиеся, записываете их в файл, который храните, и удаляете. Удаление доходит до всех, с кем вы синхронизируетесь; импорт файла восстанавливает всё.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Старые данные занимают место, прежде всего фотографии, которые тащит за собой каждое синхронизированное устройство. Здесь вы выбираете умерших кошек и пустые колонии, годами не менявшиеся, записываете их в файл, который храните, и удаляете. Удаление доходит до всех, с кем вы синхронизируетесь; импорт файла восстанавливает всё.';
 
   @override
@@ -1054,6 +1223,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get markTitle => 'Отметить кошку';
 
   @override
+  String get markTitleNeutral => 'Отметить кошку';
+
+  @override
   String get applyCrop => 'Обрезать';
 
   @override
@@ -1063,7 +1235,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get dragToSelect => 'Проведите прямоугольник вокруг кошки';
 
   @override
+  String get dragToSelectNeutral => 'Проведите прямоугольник вокруг кошки';
+
+  @override
   String get dragOverTheCat => 'Проведите эллипс над кошкой';
+
+  @override
+  String get dragOverTheCatNeutral => 'Проведите эллипс над кошкой';
 
   @override
   String get cropPhoto => 'Обрезать…';
@@ -1147,6 +1325,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Единицы';
+
+  @override
+  String get catalogHolds => 'В этом каталоге';
+
+  @override
+  String get modeCats => 'Кошки';
+
+  @override
+  String get modePets => 'Питомцы';
 
   @override
   String get graphLabel => 'График';
@@ -1240,6 +1427,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Конфетти и ликование, когда кошка переезжает в свой дом';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Конфетти и ликование, когда кошка переезжает в свой дом';
+
+  @override
   String get onMapLabel => 'На карте';
 
   @override
@@ -1253,6 +1444,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Искать кошек, группы, людей';
+
+  @override
+  String get mapSearchHintNeutral => 'Искать кошек, группы, людей';
 
   @override
   String get proposeAnotherName => 'Предложить другое имя';
@@ -1333,6 +1527,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get kittensLabel => 'Котята';
 
   @override
+  String get kittensLabelNeutral => 'Котята';
+
+  @override
   String get toastSettingsTitle => 'О чём сообщать';
 
   @override
@@ -1360,6 +1557,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Новый котёнок: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Новый котёнок: $cat ✨';
   }
 
@@ -1447,10 +1649,20 @@ class AppLocalizationsRu extends AppLocalizations {
   String get selectClowderHint => 'Выберите клаудер слева';
 
   @override
+  String get selectClowderHintNeutral => 'Выберите клаудер слева';
+
+  @override
   String get introTitle1 => 'Ваши кошки под контролем';
 
   @override
+  String get introTitle1Neutral => 'Ваши кошки под контролем';
+
+  @override
   String get introBody1 =>
+      'Заведите карточку на каждую кошку: фото, пол, здоровье — всё, что хотите записать. Кошки сгруппированы по месту, где живут, — приложение называет его колонией (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Заведите карточку на каждую кошку: фото, пол, здоровье — всё, что хотите записать. Кошки сгруппированы по месту, где живут, — приложение называет его колонией (clowder).';
 
   @override
@@ -1488,6 +1700,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Эта карточка собирает всех бездомных кошек. Нажмите, чтобы увидеть список.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Эта карточка собирает всех бездомных кошек. Нажмите, чтобы увидеть список.';
+
+  @override
   String get spotHomeMenu =>
       'В этом меню: поиск и объединение дубликатов, экспорт CSV и другое.';
 
@@ -1496,7 +1712,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Нажмите на карандаш, чтобы редактировать кошку. Совет: долгое нажатие на поле редактирует его сразу.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Нажмите на карандаш, чтобы редактировать кошку. Совет: долгое нажатие на поле редактирует его сразу.';
+
+  @override
   String get spotMapLayers =>
+      'Ищете пропавшую кошку? Покажите круги вокруг мест её объявлений и вокруг дома, из которого она убежала.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Ищете пропавшую кошку? Покажите круги вокруг мест её объявлений и вокруг дома, из которого она убежала.';
 
   @override
@@ -1504,18 +1728,37 @@ class AppLocalizationsRu extends AppLocalizations {
       'Нашли объявление о пропавшей кошке? Сфотографируйте его здесь — приложение сохранит кошку и контакт за вас.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Нашли объявление о пропавшей кошке? Сфотографируйте его здесь — приложение сохранит кошку и контакт за вас.';
+
+  @override
   String get spotStraysScan =>
+      'На некоторых объявлениях есть QR-код cat(a)log. Отсканируйте его здесь и импортируйте кошку без набора текста.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'На некоторых объявлениях есть QR-код cat(a)log. Отсканируйте его здесь и импортируйте кошку без набора текста.';
 
   @override
   String get introTitle4 => 'Ищите пропавших кошек';
 
   @override
+  String get introTitle4Neutral => 'Ищите пропавших кошек';
+
+  @override
   String get introBody4 =>
       'Увидели объявление о пропавшей кошке? Сфотографируйте его в приложении: оно сохранит кошку, контакт хозяина и место. Если позже появится похожая бездомная кошка, приложение предложит возможные совпадения.';
 
   @override
+  String get introBody4Neutral =>
+      'Увидели объявление о пропавшей кошке? Сфотографируйте его в приложении: оно сохранит кошку, контакт хозяина и место. Если позже появится похожая бездомная кошка, приложение предложит возможные совпадения.';
+
+  @override
   String get spotMapSearch =>
+      'Введите кошку, место или человека, чтобы перейти туда на карте.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Введите кошку, место или человека, чтобы перейти туда на карте.';
 
   @override
@@ -1524,6 +1767,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Здесь ещё действия: скрыть кошку, объединить дубликаты или записать наблюдение.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Здесь ещё действия: скрыть кошку, объединить дубликаты или записать наблюдение.';
 
   @override
@@ -1541,6 +1788,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Кошка с таким именем не найдена';
+
+  @override
+  String get searchNoResultsNeutral => 'Кошка с таким именем не найдена';
 
   @override
   String get syncUnreachable =>
@@ -1592,6 +1842,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Каждый каталог — отдельный мир: свои кошки, колонии, поля, фотографии и партнёры синхронизации. Берлин и Париж никогда не смешиваются. Коснитесь имени вверху главного экрана, чтобы переключиться, добавить или переименовать. Ваше имя, язык и уже показанные подсказки общие для всех.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Каждый каталог — отдельный мир: свои кошки, колонии, поля, фотографии и партнёры синхронизации. Берлин и Париж никогда не смешиваются. Коснитесь имени вверху главного экрана, чтобы переключиться, добавить или переименовать. Ваше имя, язык и уже показанные подсказки общие для всех.';
+
+  @override
   String get spotHomeCatalog =>
       'Это каталог, в котором вы находитесь. Коснитесь имени, чтобы переключиться или создать другой.';
 
@@ -1600,6 +1854,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Всё в каталоге $name исчезнет: кошки, фотографии, история. Сначала полный файл сохраняется туда же, куда идут автоматические резервные копии, — его импорт вернёт каталог. Введите имя для подтверждения.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Всё в каталоге $name исчезнет: кошки, фотографии, история. Сначала полный файл сохраняется туда же, куда идут автоматические резервные копии, — его импорт вернёт каталог. Введите имя для подтверждения.';
   }
 
@@ -1726,6 +1985,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Визитов не запланировано. Новые планируйте здесь плюсом или на странице кошки или клаудера.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Визитов не запланировано. Новые планируйте здесь плюсом или на странице кошки или клаудера.';
 
   @override
@@ -1894,7 +2157,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Запланировать визит для этой кошки. Он показывается в напоминаниях и подтверждается там.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Запланировать визит для этой кошки. Он показывается в напоминаниях и подтверждается там.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Запланировать визит для этого клаудера. Он показывается в напоминаниях и подтверждается там.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Запланировать визит для этого клаудера. Он показывается в напоминаниях и подтверждается там.';
 
   @override
@@ -2002,7 +2273,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get existingCat => 'Существующая кошка';
 
   @override
+  String get existingCatNeutral => 'Существующая кошка';
+
+  @override
   String get existingClowder => 'Существующая группа';
+
+  @override
+  String get existingClowderNeutral => 'Существующая группа';
 
   @override
   String get createNewInstead => 'Нет — создать новую';
@@ -2028,14 +2305,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get catsOnAppointment => 'Кошки на этом приёме';
 
   @override
+  String get catsOnAppointmentNeutral => 'Кошки на этом приёме';
+
+  @override
   String get noCatsHint =>
+      'Ни одна кошка не отмечена — приём относится к самой колонии.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Ни одна кошка не отмечена — приём относится к самой колонии.';
 
   @override
   String get pickCatsTitle => 'Какие кошки едут?';
 
   @override
+  String get pickCatsTitleNeutral => 'Какие кошки едут?';
+
+  @override
   String catsCount(int count) {
+    return '$count кошек';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count кошек';
   }
 
@@ -2044,7 +2336,16 @@ class AppLocalizationsRu extends AppLocalizations {
       'Снимите отметку с кошек, которых не лечили; они остаются в плане.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Снимите отметку с кошек, которых не лечили; они остаются в плане.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Удалить приём для всех $count кошек';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Удалить приём для всех $count кошек';
   }
 }

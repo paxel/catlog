@@ -29,7 +29,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String get clowders => 'Klaudrid';
 
   @override
+  String get clowdersNeutral => 'Klaudrid';
+
+  @override
   String get noClowdersYet =>
+      'Veel pole ühtegi clowderit. Clowder on koht, kus kassid elavad — sinu hoiukodu, lapsendaja korter. Loo esimene allpool.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Veel pole ühtegi clowderit. Clowder on koht, kus kassid elavad — sinu hoiukodu, lapsendaja korter. Loo esimene allpool.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get searchCats => 'Otsi kasse';
+
+  @override
+  String get searchCatsNeutral => 'Otsi kasse';
 
   @override
   String get map => 'Kaart';
@@ -55,6 +65,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get newClowder => 'Uus klauder';
+
+  @override
+  String get newClowderNeutral => 'Uus klauder';
 
   @override
   String get name => 'Nimi';
@@ -89,6 +102,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get renameClowder => 'Nimeta klauder ümber';
 
   @override
+  String get renameClowderNeutral => 'Nimeta klauder ümber';
+
+  @override
   String get rename => 'Nimeta ümber';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deleteClowder => 'Kustuta klauder';
 
   @override
+  String get deleteClowderNeutral => 'Kustuta klauder';
+
+  @override
   String get cats => 'Kassid';
+
+  @override
+  String get catsNeutral => 'Kassid';
 
   @override
   String get addCat => 'Lisa kass';
 
   @override
+  String get addCatNeutral => 'Lisa kass';
+
+  @override
   String get newCat => 'Uus kass';
+
+  @override
+  String get newCatNeutral => 'Uus kass';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Klauder kaob loendist.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Klauder kaob loendist.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Selle $count kassi ei kustutata — neist saavad hulkujad. Kui sa seda ei soovi, liiguta nad enne teise klaudrisse.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Selle $count kassi ei kustutata — neist saavad hulkujad. Kui sa seda ei soovi, liiguta nad enne teise klaudrisse.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsEt extends AppLocalizations {
   String get renameCat => 'Nimeta kass ümber';
 
   @override
+  String get renameCatNeutral => 'Nimeta kass ümber';
+
+  @override
   String get seenHereNow => 'Nähtud siin praegu';
 
   @override
   String get deleteCat => 'Kustuta kass';
 
   @override
+  String get deleteCatNeutral => 'Kustuta kass';
+
+  @override
   String get clowderLabel => 'Klauder';
 
   @override
+  String get clowderLabelNeutral => 'Klauder';
+
+  @override
   String get strayNoClowder => 'Hulkuja — klaudrita';
+
+  @override
+  String get strayNoClowderNeutral => 'Hulkuja — klaudrita';
 
   @override
   String get stray => 'Hulkuja';
@@ -181,6 +229,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Kass kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Kass kaob kõigist loenditest ja tema fotod eemaldatakse — siit ja pärast järgmist sünkroonimist ka teistest seadmetest.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Skannib kiibikaardilt või loomaarsti paberitelt trükitud QR-/vöötkoodi — kassi sees olevat kiipi telefon lugeda ei suuda.';
+
+  @override
   String get savingLabel => 'Salvestamine…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get catList => 'Kasside loend';
+
+  @override
+  String get catListNeutral => 'Kasside loend';
 
   @override
   String get matchCandidatesTitle => 'Võimalikud vasted';
@@ -320,6 +379,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get importShareTitle => 'Kas importida see kass?';
 
   @override
+  String get importShareTitleNeutral => 'Kas importida see kass?';
+
+  @override
   String shareSource(String url) {
     return 'Allikas: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get noMissingCats => 'Veel pole kadunud kasse kuulutuse asukohtadega.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Veel pole kadunud kasse kuulutuse asukohtadega.';
 
   @override
   String get noMatchCandidates => 'Praegu pole võimalikke vasteid.';
@@ -416,6 +482,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
 
   @override
+  String get malePregnantNeutral =>
+      'See kass on kirjas isasena — isane kass ei saa olla tiine. Kontrolli esmalt sugu.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name on kirjas emasena ega saa olla isa. Kontrolli esmalt sugu.';
   }
@@ -431,7 +501,16 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name sündis $date — vanem ei saa sündida pärast oma poega.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'See kass on kirjas teiste kasside isana — isa ei saa olla emane. Kontrolli esmalt perekonda.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'See kass on kirjas teiste kasside isana — isa ei saa olla emane. Kontrolli esmalt perekonda.';
 
   @override
@@ -439,10 +518,17 @@ class AppLocalizationsEt extends AppLocalizations {
       'See kass on kirjas teiste kasside emana — ema ei saa olla isane. Kontrolli esmalt perekonda.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'See kass on kirjas teiste kasside emana — ema ei saa olla isane. Kontrolli esmalt perekonda.';
+
+  @override
   String get moveTo => 'Liiguta';
 
   @override
   String get noClowderStrayOption => 'Klaudrita — hulkuja / jooksis ära';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'Klaudrita — hulkuja / jooksis ära';
 
   @override
   String timelineOf(String name) {
@@ -532,7 +618,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get forCats => 'kassidel';
 
   @override
+  String get forCatsNeutral => 'kassidel';
+
+  @override
   String get forClowders => 'klaudritel';
+
+  @override
+  String get forClowdersNeutral => 'klaudritel';
 
   @override
   String get forBoth => 'mõlemal';
@@ -563,6 +655,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Otsi kasse nime järgi…';
+
+  @override
+  String get searchByNameHintNeutral => 'Otsi kasse nime järgi…';
 
   @override
   String get host => 'Võõrusta';
@@ -684,7 +779,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get kindCat => 'kass';
 
   @override
+  String get kindCatNeutral => 'kass';
+
+  @override
   String get kindClowder => 'klauder';
+
+  @override
+  String get kindClowderNeutral => 'klauder';
 
   @override
   String get kindField => 'väli';
@@ -700,6 +801,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Kohalik kataloog hoiukodukassidele. Sinu andmed jäävad sinu seadmetesse — ilma serverita, ilma kontota.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Kohalik kataloog hoiukodukassidele. Sinu andmed jäävad sinu seadmetesse — ilma serverita, ilma kontota.';
 
   @override
@@ -828,6 +933,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get stepCat => 'Kass';
 
   @override
+  String get stepCatNeutral => 'Kass';
+
+  @override
   String get stepOwner => 'Omanik';
 
   @override
@@ -844,11 +952,23 @@ class AppLocalizationsEt extends AppLocalizations {
       'See, kes kassi taga otsib — sellest saab tema klauder koos kuulutuse kontaktiga.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'See, kes kassi taga otsib — sellest saab tema klauder koos kuulutuse kontaktiga.';
+
+  @override
   String get stepFaceHint =>
       'Lõika kassi nägu kuulutuselt välja; sellest saab profiilipilt. Võid ka vahele jätta.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Lõika kassi nägu kuulutuselt välja; sellest saab profiilipilt. Võid ka vahele jätta.';
+
+  @override
   String get stepRegistryHint =>
+      'Kuulutuselt leitud numbrid. Märgitud salvestatakse kassi juurde ja neid saab hiljem avada.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Kuulutuselt leitud numbrid. Märgitud salvestatakse kassi juurde ja neid saab hiljem avada.';
 
   @override
@@ -898,7 +1018,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.';
 
   @override
+  String get helpHomeNeutral =>
+      'Sinu kolooniate ülevaade — koloonia on koht, kus kassid elavad: sinu kodu, hoiukodu, varjupaik. Puuduta kaarti, et näha selle kasse; pikk vajutus avab menüü. Nupp all paremal loob koloonia ja hulkurite kaart koondab kõik kodutud kassid. Nimi ülal on kataloog, milles oled — puuduta, et vahetada või uus lisada.';
+
+  @override
   String get helpClowder =>
+      'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu koloonia kassi, näiteks steriliseerimisele: märgi kaasa tulevad kassid, lõpeta üks kord, eemalda märge ravimata jäänutelt.';
+
+  @override
+  String get helpClowderNeutral =>
       'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu koloonia kassi, näiteks steriliseerimisele: märgi kaasa tulevad kassid, lõpeta üks kord, eemalda märge ravimata jäänutelt.';
 
   @override
@@ -906,7 +1034,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel.';
 
   @override
+  String get helpCatNeutral =>
+      'Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel.';
+
+  @override
   String get helpStrays =>
+      'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. Puuduta Stray Cami foto jaoks; hoia all, et filmida video ja jätta parimad kaadrid fotodeks.';
+
+  @override
+  String get helpStraysNeutral =>
       'Kassid, kellel praegu kodu pole: leitud, plehku pannud või kuulutuselt. Kaamera nupp salvestab kassi sinu ees; kuulutuse nupp teeb kadunud-kuulutusest kassi koos omaniku kontaktiga; skanner loeb kuulutuselt cat(a)log koodi. Puuduta Stray Cami foto jaoks; hoia all, et filmida video ja jätta parimad kaadrid fotodeks.';
 
   @override
@@ -914,7 +1050,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
 
   @override
+  String get helpMapNeutral =>
+      'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
+
+  @override
   String get helpCard =>
+      'Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
       'Kassi prinditav kaart: vali üleval kiipidega, mis sellel on, seejärel jaga seda pildi või PDF-ina. Numbreid saab printida QR- või vöötkoodina ja asukohast saab QR, mis avab kaardi, pluss lühike Plus Code.';
 
   @override
@@ -926,6 +1070,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.';
+
+  @override
   String get helpTimeline =>
       'Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.';
 
@@ -934,7 +1082,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.';
+
+  @override
   String get helpMatches =>
+      'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.';
 
   @override
@@ -942,10 +1098,18 @@ class AppLocalizationsEt extends AppLocalizations {
       'Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.';
 
   @override
+  String get helpFlierNeutral =>
+      'Pildistatud kuulutusest saab kass koos omanikuga. Samm-sammult: kassi andmed, omaniku kontakt, näo lõikamine profiilipildiks, registrinumbrid kuulutuselt ja lõpuks kontroll. Kõik on ettepanekud — paranda see, mille kaamera valesti luges.';
+
+  @override
   String get archiveTitle => 'Arhiiv';
 
   @override
   String get archiveExplainer =>
+      'Surnud kassid ja tühjad koloniad, mida keegi pole aastaid puutunud, võtavad ikka ruumi — eriti nende pildid. Arhiveerimine kirjutab need faili, mille sa alles hoiad, ja kustutab siis siit.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Surnud kassid ja tühjad koloniad, mida keegi pole aastaid puutunud, võtavad ikka ruumi — eriti nende pildid. Arhiveerimine kirjutab need faili, mille sa alles hoiad, ja kustutab siis siit.';
 
   @override
@@ -996,6 +1160,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Vanad andmed maksavad ruumi, eelkõige pildid, mida iga sünkroonitud seade kaasas kannab. Siin valid surnud kassid ja tühjad koloniad, mis on aastaid vaikinud, kirjutad need faili, mille alles hoiad, ja kustutad. Kustutamine jõuab kõigini, kellega sünkroonid; faili import taastab kõik.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Vanad andmed maksavad ruumi, eelkõige pildid, mida iga sünkroonitud seade kaasas kannab. Siin valid surnud kassid ja tühjad koloniad, mis on aastaid vaikinud, kirjutad need faili, mille alles hoiad, ja kustutad. Kustutamine jõuab kõigini, kellega sünkroonid; faili import taastab kõik.';
 
   @override
@@ -1053,6 +1221,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get markTitle => 'Märgi kass';
 
   @override
+  String get markTitleNeutral => 'Märgi kass';
+
+  @override
   String get applyCrop => 'Kärbi';
 
   @override
@@ -1062,7 +1233,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get dragToSelect => 'Lohista ristkülik kassi ümber';
 
   @override
+  String get dragToSelectNeutral => 'Lohista ristkülik kassi ümber';
+
+  @override
   String get dragOverTheCat => 'Lohista ellips kassi peale';
+
+  @override
+  String get dragOverTheCatNeutral => 'Lohista ellips kassi peale';
 
   @override
   String get cropPhoto => 'Kärbi…';
@@ -1146,6 +1323,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Ühikud';
+
+  @override
+  String get catalogHolds => 'See kataloog sisaldab';
+
+  @override
+  String get modeCats => 'Kassid';
+
+  @override
+  String get modePets => 'Lemmikloomad';
 
   @override
   String get graphLabel => 'Graafik';
@@ -1238,6 +1424,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetid ja hõisked, kui kass kolib koju';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfetid ja hõisked, kui kass kolib koju';
+
+  @override
   String get onMapLabel => 'Kaardil';
 
   @override
@@ -1251,6 +1441,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Otsi kasse, rühmi, inimesi';
+
+  @override
+  String get mapSearchHintNeutral => 'Otsi kasse, rühmi, inimesi';
 
   @override
   String get proposeAnotherName => 'Paku teine nimi';
@@ -1331,6 +1524,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get kittensLabel => 'Kassipojad';
 
   @override
+  String get kittensLabelNeutral => 'Kassipojad';
+
+  @override
   String get toastSettingsTitle => 'Millest teatada';
 
   @override
@@ -1358,6 +1554,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Uus kassipoeg: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Uus kassipoeg: $cat ✨';
   }
 
@@ -1447,10 +1648,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get selectClowderHint => 'Vali vasakult clowder';
 
   @override
+  String get selectClowderHintNeutral => 'Vali vasakult clowder';
+
+  @override
   String get introTitle1 => 'Sinu kassid, korras';
 
   @override
+  String get introTitle1Neutral => 'Sinu kassid, korras';
+
+  @override
   String get introBody1 =>
+      'Loo igale kassile kaart: foto, sugu, tervis, kõik mida tahad kirja panna. Kassid on rühmitatud elukoha järgi — äpp nimetab seda kohta kolooniaks (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Loo igale kassile kaart: foto, sugu, tervis, kõik mida tahad kirja panna. Kassid on rühmitatud elukoha järgi — äpp nimetab seda kohta kolooniaks (clowder).';
 
   @override
@@ -1488,6 +1699,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'See kaart kogub kõik hulkujad — kodutud kassid. Puuduta loendi nägemiseks.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'See kaart kogub kõik hulkujad — kodutud kassid. Puuduta loendi nägemiseks.';
+
+  @override
   String get spotHomeMenu =>
       'Selles menüüs: leia ja liida duplikaadid, ekspordi CSV ja muud.';
 
@@ -1496,7 +1711,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Puuduta pliiatsit, et kassi muuta. Vihje: hoia välja all, et seda otse muuta.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Puuduta pliiatsit, et kassi muuta. Vihje: hoia välja all, et seda otse muuta.';
+
+  @override
   String get spotMapLayers =>
+      'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ja tema endise kodu ümber.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Otsid kadunud kassi? Näita ringe tema kuulutuste kohtade ja tema endise kodu ümber.';
 
   @override
@@ -1504,18 +1727,37 @@ class AppLocalizationsEt extends AppLocalizations {
       'Leidsid kadunud kassi kuulutuse? Pildista see siin — äpp salvestab kassi ja kontakti sinu eest.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Leidsid kadunud kassi kuulutuse? Pildista see siin — äpp salvestab kassi ja kontakti sinu eest.';
+
+  @override
   String get spotStraysScan =>
+      'Mõnel kuulutusel on cat(a)log QR-kood. Skanni see siin ja impordi kass ilma tippimata.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Mõnel kuulutusel on cat(a)log QR-kood. Skanni see siin ja impordi kass ilma tippimata.';
 
   @override
   String get introTitle4 => 'Leia kadunud kassid';
 
   @override
+  String get introTitle4Neutral => 'Leia kadunud kassid';
+
+  @override
   String get introBody4 =>
       'Näed kadunud kassi kuulutust? Pildista see äpis: salvestatakse kass, omaniku kontakt ja koht. Kui hiljem ilmub sarnane hulkuja, pakub äpp võimalikke vasteid.';
 
   @override
+  String get introBody4Neutral =>
+      'Näed kadunud kassi kuulutust? Pildista see äpis: salvestatakse kass, omaniku kontakt ja koht. Kui hiljem ilmub sarnane hulkuja, pakub äpp võimalikke vasteid.';
+
+  @override
   String get spotMapSearch =>
+      'Sisesta kass, koht või inimene, et kaardil sinna hüpata.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Sisesta kass, koht või inimene, et kaardil sinna hüpata.';
 
   @override
@@ -1524,6 +1766,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Siin on veel toiminguid: peida kass, liida duplikaadid või märgi nägemine.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Siin on veel toiminguid: peida kass, liida duplikaadid või märgi nägemine.';
 
   @override
@@ -1540,6 +1786,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Selle nimega kassi ei leitud';
+
+  @override
+  String get searchNoResultsNeutral => 'Selle nimega kassi ei leitud';
 
   @override
   String get syncUnreachable =>
@@ -1591,6 +1840,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
+
+  @override
   String get spotHomeCatalog =>
       'See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.';
 
@@ -1599,6 +1852,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Kõik kataloogis $name kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Kõik kataloogis $name kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.';
   }
 
@@ -1725,6 +1983,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Visiite pole plaanitud. Uusi plaanid siin plussiga või kassi või klauderi lehel.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Visiite pole plaanitud. Uusi plaanid siin plussiga või kassi või klauderi lehel.';
 
   @override
@@ -1889,7 +2151,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Plaani sellele kassile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Plaani sellele kassile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Plaani sellele klauderile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Plaani sellele klauderile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.';
 
   @override
@@ -1997,7 +2267,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get existingCat => 'Olemasolev kass';
 
   @override
+  String get existingCatNeutral => 'Olemasolev kass';
+
+  @override
   String get existingClowder => 'Olemasolev rühm';
+
+  @override
+  String get existingClowderNeutral => 'Olemasolev rühm';
 
   @override
   String get createNewInstead => 'Puudub — loo uus';
@@ -2023,14 +2299,29 @@ class AppLocalizationsEt extends AppLocalizations {
   String get catsOnAppointment => 'Kassid sellel kohtumisel';
 
   @override
+  String get catsOnAppointmentNeutral => 'Kassid sellel kohtumisel';
+
+  @override
   String get noCatsHint =>
+      'Ükski kass pole märgitud — kohtumine kuulub kolooniale endale.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Ükski kass pole märgitud — kohtumine kuulub kolooniale endale.';
 
   @override
   String get pickCatsTitle => 'Millised kassid tulevad kaasa?';
 
   @override
+  String get pickCatsTitleNeutral => 'Millised kassid tulevad kaasa?';
+
+  @override
   String catsCount(int count) {
+    return '$count kassi';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count kassi';
   }
 
@@ -2039,7 +2330,16 @@ class AppLocalizationsEt extends AppLocalizations {
       'Eemalda märge kassidelt, keda ei ravitud; nad jäävad planeerituks.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Eemalda märge kassidelt, keda ei ravitud; nad jäävad planeerituks.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Kustuta kohtumine kõigi $count kassi jaoks';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Kustuta kohtumine kõigi $count kassi jaoks';
   }
 }

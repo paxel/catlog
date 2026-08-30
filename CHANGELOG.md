@@ -7,6 +7,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Added
 
+- Pet mode: on the catalogs page, "This catalog holds: Cats / Pets".
+  A pets catalog speaks of pets and households instead of cats and
+  clowders, shows a paw for an animal without a photo, and proposes
+  neutral names. The choice syncs with the catalog; nothing in the
+  data changes. The neutral wording is available in English and
+  German; other languages keep the cat wording for now.
+
 - A "unit value" field type: pick what it measures — weight, length,
   volume or temperature — and enter and read it in your units (metric
   or imperial, from your region or chosen under Units in the menu)

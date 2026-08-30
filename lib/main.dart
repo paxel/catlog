@@ -22,6 +22,7 @@ import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 import 'src/image_provider_cache.dart';
 import 'src/units.dart';
+import 'src/pet_mode.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -81,6 +82,7 @@ Future<void> _openAndRun(
   activeStore = store;
   catalogManager = catalogs;
   applyUnitSystem(store, _resolvedLocale());
+  refreshPetMode(store);
   // A Stray Cam capture the OS killed mid-camera completes here.
   unawaited(recoverStrayCam(store));
   initIncomingFiles(navigatorKey, () => activeStore ?? store, args,
@@ -168,6 +170,7 @@ class _CatlogAppState extends State<CatlogApp>
     setState(() => _store = next);
     activeStore = next;
     clearImageProviders();
+    refreshPetMode(next);
     if (unwind) {
       navigatorKey.currentState?.popUntil((route) => route.isFirst);
     }
@@ -182,6 +185,8 @@ class _CatlogAppState extends State<CatlogApp>
   void initState() {
     super.initState();
     switchCatalog = (to) => _switchCatalog(to);
+    // The words change with the mode; the whole tree reads them anew.
+    petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
     if (_isDesktop) windowManager.addListener(this);
     if (widget.diedLastRun) {
@@ -220,8 +225,13 @@ class _CatlogAppState extends State<CatlogApp>
     clearLastCrash();
   }
 
+  void _rebuild() {
+    if (mounted) setState(() {});
+  }
+
   @override
   void dispose() {
+    petMode.removeListener(_rebuild);
     if (_isDesktop) windowManager.removeListener(this);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();

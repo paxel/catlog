@@ -10,6 +10,7 @@ import '../l10n.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
 import 'go_back_screen.dart';
+import '../pet_mode.dart';
 
 /// Managing the catalogs on this device: which one you are in, adding
 /// one, renaming one, and what each costs in space.
@@ -187,6 +188,25 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => GoBackScreen(store: store),
           )),
+        ),
+        const Divider(height: 1),
+        // What the open catalog holds — its own choice, synced with it.
+        ListTile(
+          title: Text(t.catalogHolds),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: SegmentedButton<bool>(
+              segments: [
+                ButtonSegment(value: false, label: Text(t.modeCats)),
+                ButtonSegment(value: true, label: Text(t.modePets)),
+              ],
+              selected: {isPetMode(store)},
+              onSelectionChanged: (s) {
+                setPetMode(store, s.first);
+                _changed();
+              },
+            ),
+          ),
         ),
         const Divider(height: 1),
         for (final catalog in widget.catalogs.catalogs())

@@ -29,7 +29,14 @@ class AppLocalizationsSq extends AppLocalizations {
   String get clowders => 'Clowder-ët';
 
   @override
+  String get clowdersNeutral => 'Clowder-ët';
+
+  @override
   String get noClowdersYet =>
+      'Ende asnjë clowder. Clowder është një vend ku jetojnë macet — shtëpia jote e kujdestarisë, banesa e një birësuesi. Krijo të parin më poshtë.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Ende asnjë clowder. Clowder është një vend ku jetojnë macet — shtëpia jote e kujdestarisë, banesa e një birësuesi. Krijo të parin më poshtë.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get searchCats => 'Kërko mace';
+
+  @override
+  String get searchCatsNeutral => 'Kërko mace';
 
   @override
   String get map => 'Harta';
@@ -55,6 +65,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get newClowder => 'Clowder i ri';
+
+  @override
+  String get newClowderNeutral => 'Clowder i ri';
 
   @override
   String get name => 'Emri';
@@ -89,6 +102,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get renameClowder => 'Riemërto clowder-in';
 
   @override
+  String get renameClowderNeutral => 'Riemërto clowder-in';
+
+  @override
   String get rename => 'Riemërto';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsSq extends AppLocalizations {
   String get deleteClowder => 'Fshi clowder-in';
 
   @override
+  String get deleteClowderNeutral => 'Fshi clowder-in';
+
+  @override
   String get cats => 'Macet';
+
+  @override
+  String get catsNeutral => 'Macet';
 
   @override
   String get addCat => 'Shto mace';
 
   @override
+  String get addCatNeutral => 'Shto mace';
+
+  @override
   String get newCat => 'Mace e re';
+
+  @override
+  String get newCatNeutral => 'Mace e re';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowder-i zhduket nga lista.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Clowder-i zhduket nga lista.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Macet e tij ($count) nuk fshihen — bëhen endacake. Zhvendosini më parë në një clowder tjetër nëse nuk e doni këtë.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Macet e tij ($count) nuk fshihen — bëhen endacake. Zhvendosini më parë në një clowder tjetër nëse nuk e doni këtë.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsSq extends AppLocalizations {
   String get renameCat => 'Riemërto macen';
 
   @override
+  String get renameCatNeutral => 'Riemërto macen';
+
+  @override
   String get seenHereNow => 'U pa këtu tani';
 
   @override
   String get deleteCat => 'Fshi macen';
 
   @override
+  String get deleteCatNeutral => 'Fshi macen';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Clowder';
+
+  @override
   String get strayNoClowder => 'Endacake — pa clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Endacake — pa clowder';
 
   @override
   String get stray => 'Endacake';
@@ -181,6 +229,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Macja zhduket nga të gjitha listat dhe fotot e saj hiqen — këtu dhe, pas sinkronizimit të radhës, edhe në pajisjet e tjera.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Skanon kodin QR/barkodin e printuar nga karta e çipit ose dokumentet e veterinerit — çipin brenda maces telefoni s\'mund ta lexojë.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Skanon kodin QR/barkodin e printuar nga karta e çipit ose dokumentet e veterinerit — çipin brenda maces telefoni s\'mund ta lexojë.';
+
+  @override
   String get savingLabel => 'Po ruhet…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get catList => 'Lista e maceve';
+
+  @override
+  String get catListNeutral => 'Lista e maceve';
 
   @override
   String get matchCandidatesTitle => 'Përputhje të mundshme';
@@ -320,6 +379,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get importShareTitle => 'Të importohet kjo mace?';
 
   @override
+  String get importShareTitleNeutral => 'Të importohet kjo mace?';
+
+  @override
   String shareSource(String url) {
     return 'Burimi: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Ende asnjë mace e humbur me pozicione fletushkash.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Ende asnjë mace e humbur me pozicione fletushkash.';
 
   @override
@@ -419,6 +485,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
 
   @override
+  String get malePregnantNeutral =>
+      'Kjo mace është regjistruar si mashkull — një mashkull nuk mund të jetë shtatzënë. Kontrolloni fillimisht gjininë.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name është regjistruar si femër dhe s\'mund të jetë babai. Kontrolloni fillimisht gjininë.';
   }
@@ -434,7 +504,16 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name ka lindur më $date — një prind s\'mund të lindë pas të voglit të tij.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Kjo mace është regjistruar si babai i maceve të tjera — babai s\'mund të jetë femër. Kontrolloni fillimisht familjen.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Kjo mace është regjistruar si babai i maceve të tjera — babai s\'mund të jetë femër. Kontrolloni fillimisht familjen.';
 
   @override
@@ -442,10 +521,17 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kjo mace është regjistruar si nëna e maceve të tjera — nëna s\'mund të jetë mashkull. Kontrolloni fillimisht familjen.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Kjo mace është regjistruar si nëna e maceve të tjera — nëna s\'mund të jetë mashkull. Kontrolloni fillimisht familjen.';
+
+  @override
   String get moveTo => 'Zhvendos te';
 
   @override
   String get noClowderStrayOption => 'Pa clowder — endacake / iku';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'Pa clowder — endacake / iku';
 
   @override
   String timelineOf(String name) {
@@ -535,7 +621,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get forCats => 'macet';
 
   @override
+  String get forCatsNeutral => 'macet';
+
+  @override
   String get forClowders => 'clowder-ët';
+
+  @override
+  String get forClowdersNeutral => 'clowder-ët';
 
   @override
   String get forBoth => 'të dyja';
@@ -566,6 +658,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Kërko mace me emër…';
+
+  @override
+  String get searchByNameHintNeutral => 'Kërko mace me emër…';
 
   @override
   String get host => 'Prit';
@@ -687,7 +782,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get kindCat => 'mace';
 
   @override
+  String get kindCatNeutral => 'mace';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'clowder';
 
   @override
   String get kindField => 'fushë';
@@ -703,6 +804,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Katalog lokal për macet në kujdestari. Të dhënat tuaja mbeten në pajisjet tuaja — pa server, pa llogari.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Katalog lokal për macet në kujdestari. Të dhënat tuaja mbeten në pajisjet tuaja — pa server, pa llogari.';
 
   @override
@@ -831,6 +936,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get stepCat => 'Macja';
 
   @override
+  String get stepCatNeutral => 'Macja';
+
+  @override
   String get stepOwner => 'Pronari';
 
   @override
@@ -847,11 +955,23 @@ class AppLocalizationsSq extends AppLocalizations {
       'Ai që i ka humbur macja — nga kjo del clowderi i tij, me kontaktin nga fletushka.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Ai që i ka humbur macja — nga kjo del clowderi i tij, me kontaktin nga fletushka.';
+
+  @override
   String get stepFaceHint =>
       'Prije fytyrën e maces nga fletushka; bëhet fotoja e profilit. Mund ta kapërcesh.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Prije fytyrën e maces nga fletushka; bëhet fotoja e profilit. Mund ta kapërcesh.';
+
+  @override
   String get stepRegistryHint =>
+      'Numra të gjetur në fletushkë. Ata të shënuar ruhen te macja dhe hapen më vonë.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Numra të gjetur në fletushkë. Ata të shënuar ruhen te macja dhe hapen më vonë.';
 
   @override
@@ -901,7 +1021,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.';
 
   @override
+  String get helpHomeNeutral =>
+      'Pamja e kolonive të tua — një koloni është një vend ku jetojnë mace: shtëpia jote, një strehë e përkohshme, një strehimore. Prek një kartë për macet e saj; shtypja e gjatë hap menynë. Butoni poshtë djathtas krijon një koloni, ndërsa karta e endacakëve mbledh të gjitha macet pa shtëpi. Emri lart është katalogu ku ndodhesh — prekë për të ndërruar ose shtuar një.';
+
+  @override
   String get helpClowder =>
+      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa mace të kolonisë, për shembull për sterilizim: shëno macet që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan.';
+
+  @override
+  String get helpClowderNeutral =>
       'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa mace të kolonisë, për shembull për sterilizim: shëno macet që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan.';
 
   @override
@@ -909,7 +1037,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe.';
 
   @override
+  String get helpCatNeutral =>
+      'Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe.';
+
+  @override
   String get helpStrays =>
+      'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. Prek Stray Cam për një foto; mbaje shtypur për të filmuar një video dhe mbaj kuadrot më të mira si foto.';
+
+  @override
+  String get helpStraysNeutral =>
       'Mace që tani nuk kanë shtëpi: të gjetura, të arratisura ose nga një fletushkë. Butoni i kamerës regjistron një mace para teje; butoni i fletushkës e kthen një afishe në mace me kontaktin e pronarit; skaneri lexon një kod cat(a)log nga afishja. Prek Stray Cam për një foto; mbaje shtypur për të filmuar një video dhe mbaj kuadrot më të mira si foto.';
 
   @override
@@ -917,7 +1053,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
 
   @override
+  String get helpMapNeutral =>
+      'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
+
+  @override
   String get helpCard =>
+      'Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.';
+
+  @override
+  String get helpCardNeutral =>
       'Karta e printueshme e maces: lart me çipat zgjedh çfarë shfaqet, pastaj e ndan si imazh ose PDF. Numrat mund të printohen si QR ose barkod, dhe pozicioni bëhet një QR që hap hartën, plus një Plus Code i shkurtër.';
 
   @override
@@ -929,6 +1073,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.';
+
+  @override
   String get helpTimeline =>
       'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.';
 
@@ -937,7 +1085,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.';
+
+  @override
   String get helpMatches =>
+      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
 
   @override
@@ -945,10 +1101,18 @@ class AppLocalizationsSq extends AppLocalizations {
       'Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.';
 
   @override
+  String get helpFlierNeutral =>
+      'Një fletushkë e fotografuar bëhet mace bashkë me pronarin. Hap pas hapi: të dhënat e maces, kontakti i pronarit, prerja e fytyrës për foton e profilit, numrat e regjistrave nga fletushka, pastaj një kontroll i fundit. Gjithçka është sugjerim — korrigjo çfarë kamera lexoi gabim.';
+
+  @override
   String get archiveTitle => 'Arkivi';
 
   @override
   String get archiveExplainer =>
+      'Macet e ngordhura dhe koloni bosh që s\'i ka prekur njeri prej vitesh prapë zënë vend — sidomos fotot e tyre. Arkivimi i shkruan në një skedar që e mban ti dhe pastaj i fshin nga këtu.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Macet e ngordhura dhe koloni bosh që s\'i ka prekur njeri prej vitesh prapë zënë vend — sidomos fotot e tyre. Arkivimi i shkruan në një skedar që e mban ti dhe pastaj i fshin nga këtu.';
 
   @override
@@ -999,6 +1163,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Të dhënat e vjetra kushtojnë hapësirë, sidomos fotot që i mbart çdo pajisje e sinkronizuar. Këtu zgjedh macet e ngordhura dhe koloni bosh që rrinë prej vitesh, i shkruan në një skedar që e mban, dhe i fshin. Fshirja arrin te të gjithë me të cilët sinkronizon; importimi i skedarit i rikthen të gjitha.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Të dhënat e vjetra kushtojnë hapësirë, sidomos fotot që i mbart çdo pajisje e sinkronizuar. Këtu zgjedh macet e ngordhura dhe koloni bosh që rrinë prej vitesh, i shkruan në një skedar që e mban, dhe i fshin. Fshirja arrin te të gjithë me të cilët sinkronizon; importimi i skedarit i rikthen të gjitha.';
 
   @override
@@ -1055,6 +1223,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get markTitle => 'Shëno macen';
 
   @override
+  String get markTitleNeutral => 'Shëno macen';
+
+  @override
   String get applyCrop => 'Prit';
 
   @override
@@ -1064,7 +1235,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get dragToSelect => 'Tërhiq një drejtkëndësh rreth maces';
 
   @override
+  String get dragToSelectNeutral => 'Tërhiq një drejtkëndësh rreth maces';
+
+  @override
   String get dragOverTheCat => 'Tërhiq një elips mbi mace';
+
+  @override
+  String get dragOverTheCatNeutral => 'Tërhiq një elips mbi mace';
 
   @override
   String get cropPhoto => 'Prit…';
@@ -1148,6 +1325,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Njësitë';
+
+  @override
+  String get catalogHolds => 'Ky katalog përmban';
+
+  @override
+  String get modeCats => 'Mace';
+
+  @override
+  String get modePets => 'Kafshë';
 
   @override
   String get graphLabel => 'Grafik';
@@ -1241,6 +1427,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
+
+  @override
   String get onMapLabel => 'Në hartë';
 
   @override
@@ -1254,6 +1444,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Kërko mace, grupe, persona';
+
+  @override
+  String get mapSearchHintNeutral => 'Kërko mace, grupe, persona';
 
   @override
   String get proposeAnotherName => 'Propozo një emër tjetër';
@@ -1334,6 +1527,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get kittensLabel => 'Kotelet';
 
   @override
+  String get kittensLabelNeutral => 'Kotelet';
+
+  @override
   String get toastSettingsTitle => 'Çfarë të njoftohet';
 
   @override
@@ -1361,6 +1557,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Kotele e re: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Kotele e re: $cat ✨';
   }
 
@@ -1450,10 +1651,20 @@ class AppLocalizationsSq extends AppLocalizations {
   String get selectClowderHint => 'Zgjidh një clowder majtas';
 
   @override
+  String get selectClowderHintNeutral => 'Zgjidh një clowder majtas';
+
+  @override
   String get introTitle1 => 'Macet e tua, të organizuara';
 
   @override
+  String get introTitle1Neutral => 'Macet e tua, të organizuara';
+
+  @override
   String get introBody1 =>
+      'Krijo një kartë për çdo mace: foto, gjinia, shëndeti, gjithçka që do të shënosh. Macet grupohen sipas vendit ku jetojnë — aplikacioni e quan atë vend koloni (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Krijo një kartë për çdo mace: foto, gjinia, shëndeti, gjithçka që do të shënosh. Macet grupohen sipas vendit ku jetojnë — aplikacioni e quan atë vend koloni (clowder).';
 
   @override
@@ -1491,6 +1702,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Kjo kartë mbledh të gjithë endacakët — macet pa shtëpi. Prek për listën.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Kjo kartë mbledh të gjithë endacakët — macet pa shtëpi. Prek për listën.';
+
+  @override
   String get spotHomeMenu =>
       'Në këtë meny: gjej dhe bashko dublikatat, eksporto CSV e më shumë.';
 
@@ -1499,7 +1714,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Prek lapsin për ta redaktuar macen. Këshillë: shtypja e gjatë mbi një fushë e redakton direkt.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Prek lapsin për ta redaktuar macen. Këshillë: shtypja e gjatë mbi një fushë e redakton direkt.';
+
+  @override
   String get spotMapLayers =>
+      'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj dhe rreth shtëpisë nga iku.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Kërkon një mace të humbur? Shfaq rrathë rreth vendeve të fletushkave të saj dhe rreth shtëpisë nga iku.';
 
   @override
@@ -1507,18 +1730,37 @@ class AppLocalizationsSq extends AppLocalizations {
       'Fletushkë maceje të humbur? Fotografoje këtu — aplikacioni ruan macen dhe kontaktin për ty.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Fletushkë maceje të humbur? Fotografoje këtu — aplikacioni ruan macen dhe kontaktin për ty.';
+
+  @override
   String get spotStraysScan =>
+      'Disa fletushka kanë kod QR cat(a)log. Skanoje këtu dhe importo macen pa shtypur.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Disa fletushka kanë kod QR cat(a)log. Skanoje këtu dhe importo macen pa shtypur.';
 
   @override
   String get introTitle4 => 'Gjeni macet e humbura';
 
   @override
+  String get introTitle4Neutral => 'Gjeni macet e humbura';
+
+  @override
   String get introBody4 =>
       'Sheh një fletushkë për mace të humbur? Fotografoje në aplikacion: ruan macen, kontaktin e pronarit dhe vendin. Nëse më vonë shfaqet një endacake e ngjashme, aplikacioni sugjeron përputhje të mundshme.';
 
   @override
+  String get introBody4Neutral =>
+      'Sheh një fletushkë për mace të humbur? Fotografoje në aplikacion: ruan macen, kontaktin e pronarit dhe vendin. Nëse më vonë shfaqet një endacake e ngjashme, aplikacioni sugjeron përputhje të mundshme.';
+
+  @override
   String get spotMapSearch =>
+      'Shkruaj një mace, vend a person që të hidhesh aty në hartë.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Shkruaj një mace, vend a person që të hidhesh aty në hartë.';
 
   @override
@@ -1527,6 +1769,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Këtu ka më shumë veprime: fshih macen, bashko dublikatat ose shëno një vëzhgim.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Këtu ka më shumë veprime: fshih macen, bashko dublikatat ose shëno një vëzhgim.';
 
   @override
@@ -1543,6 +1789,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Nuk u gjet mace me atë emër';
+
+  @override
+  String get searchNoResultsNeutral => 'Nuk u gjet mace me atë emër';
 
   @override
   String get syncUnreachable =>
@@ -1594,6 +1843,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
+
+  @override
   String get spotHomeCatalog =>
       'Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.';
 
@@ -1602,6 +1855,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.';
   }
 
@@ -1728,6 +1986,10 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'S\'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një maceje a clowderi.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'S\'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një maceje a clowderi.';
 
   @override
@@ -1892,7 +2154,15 @@ class AppLocalizationsSq extends AppLocalizations {
       'Planifiko një takim për këtë mace. Shfaqet te përkujtuesit dhe konfirmohet atje.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Planifiko një takim për këtë mace. Shfaqet te përkujtuesit dhe konfirmohet atje.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Planifiko një takim për këtë clowder. Shfaqet te përkujtuesit dhe konfirmohet atje.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Planifiko një takim për këtë clowder. Shfaqet te përkujtuesit dhe konfirmohet atje.';
 
   @override
@@ -2000,7 +2270,13 @@ class AppLocalizationsSq extends AppLocalizations {
   String get existingCat => 'Mace ekzistuese';
 
   @override
+  String get existingCatNeutral => 'Mace ekzistuese';
+
+  @override
   String get existingClowder => 'Grup ekzistues';
+
+  @override
+  String get existingClowderNeutral => 'Grup ekzistues';
 
   @override
   String get createNewInstead => 'Asnjë — krijo të re';
@@ -2026,14 +2302,29 @@ class AppLocalizationsSq extends AppLocalizations {
   String get catsOnAppointment => 'Macet në këtë takim';
 
   @override
+  String get catsOnAppointmentNeutral => 'Macet në këtë takim';
+
+  @override
   String get noCatsHint =>
+      'Asnjë mace e shënuar — takimi i përket vetë kolonisë.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Asnjë mace e shënuar — takimi i përket vetë kolonisë.';
 
   @override
   String get pickCatsTitle => 'Cilat mace vijnë?';
 
   @override
+  String get pickCatsTitleNeutral => 'Cilat mace vijnë?';
+
+  @override
   String catsCount(int count) {
+    return '$count mace';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count mace';
   }
 
@@ -2042,7 +2333,16 @@ class AppLocalizationsSq extends AppLocalizations {
       'Hiq shenjën nga macet që nuk u trajtuan; ato mbeten të planifikuara.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Hiq shenjën nga macet që nuk u trajtuan; ato mbeten të planifikuara.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Fshi takimin për të gjitha $count macet';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Fshi takimin për të gjitha $count macet';
   }
 }

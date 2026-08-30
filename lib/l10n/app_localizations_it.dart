@@ -29,7 +29,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get clowders => 'Clowder';
 
   @override
+  String get clowdersNeutral => 'Clowder';
+
+  @override
   String get noClowdersYet =>
+      'Ancora nessun clowder. Un clowder è un posto dove vivono i gatti — la tua casa affidataria, l\'appartamento di un adottante. Crea il primo qui sotto.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Ancora nessun clowder. Un clowder è un posto dove vivono i gatti — la tua casa affidataria, l\'appartamento di un adottante. Crea il primo qui sotto.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get searchCats => 'Cerca gatti';
+
+  @override
+  String get searchCatsNeutral => 'Cerca gatti';
 
   @override
   String get map => 'Mappa';
@@ -55,6 +65,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get newClowder => 'Nuovo clowder';
+
+  @override
+  String get newClowderNeutral => 'Nuovo clowder';
 
   @override
   String get name => 'Nome';
@@ -89,6 +102,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get renameClowder => 'Rinomina clowder';
 
   @override
+  String get renameClowderNeutral => 'Rinomina clowder';
+
+  @override
   String get rename => 'Rinomina';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deleteClowder => 'Elimina clowder';
 
   @override
+  String get deleteClowderNeutral => 'Elimina clowder';
+
+  @override
   String get cats => 'Gatti';
+
+  @override
+  String get catsNeutral => 'Gatti';
 
   @override
   String get addCat => 'Aggiungi gatto';
 
   @override
+  String get addCatNeutral => 'Aggiungi gatto';
+
+  @override
   String get newCat => 'Nuovo gatto';
+
+  @override
+  String get newCatNeutral => 'Nuovo gatto';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,16 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Il clowder scompare dall\'elenco.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'Il clowder scompare dall\'elenco.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'I suoi $count gatto/i non vengono eliminati — diventano randagi. Spostali prima in un altro clowder se non è ciò che vuoi.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'I suoi $count gatto/i non vengono eliminati — diventano randagi. Spostali prima in un altro clowder se non è ciò che vuoi.';
   }
 
@@ -143,16 +180,28 @@ class AppLocalizationsIt extends AppLocalizations {
   String get renameCat => 'Rinomina gatto';
 
   @override
+  String get renameCatNeutral => 'Rinomina gatto';
+
+  @override
   String get seenHereNow => 'Visto qui ora';
 
   @override
   String get deleteCat => 'Elimina gatto';
 
   @override
+  String get deleteCatNeutral => 'Elimina gatto';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Clowder';
+
+  @override
   String get strayNoClowder => 'Randagio — senza clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Randagio — senza clowder';
 
   @override
   String get stray => 'Randagio';
@@ -181,6 +230,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche sugli altri dispositivi.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Il gatto sparisce da tutte le liste e le sue foto vengono rimosse — qui e, dopo la prossima sincronizzazione, anche sugli altri dispositivi.';
 
   @override
@@ -234,6 +287,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Scansiona il QR/codice a barre stampato dalla tessera del chip o dai documenti veterinari — il telefono non può leggere il chip dentro il gatto.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Scansiona il QR/codice a barre stampato dalla tessera del chip o dai documenti veterinari — il telefono non può leggere il chip dentro il gatto.';
+
+  @override
   String get savingLabel => 'Salvataggio…';
 
   @override
@@ -258,6 +315,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get catList => 'Elenco gatti';
+
+  @override
+  String get catListNeutral => 'Elenco gatti';
 
   @override
   String get matchCandidatesTitle => 'Possibili corrispondenze';
@@ -320,6 +380,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get importShareTitle => 'Importare questo gatto?';
 
   @override
+  String get importShareTitleNeutral => 'Importare questo gatto?';
+
+  @override
   String shareSource(String url) {
     return 'Fonte: $url';
   }
@@ -338,6 +401,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Ancora nessun gatto scomparso con posizioni di volantini.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Ancora nessun gatto scomparso con posizioni di volantini.';
 
   @override
@@ -419,6 +486,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Questo gatto è registrato come maschio — un maschio non può essere gravido. Controlla prima il sesso.';
 
   @override
+  String get malePregnantNeutral =>
+      'Questo gatto è registrato come maschio — un maschio non può essere gravido. Controlla prima il sesso.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name è registrata come femmina e non può essere il padre. Controlla prima il sesso.';
   }
@@ -434,7 +505,16 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name è nato il $date — un genitore non può nascere dopo il suo cucciolo.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Questo gatto è registrato come padre di altri gatti — il padre non può essere femmina. Controlla prima la famiglia.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Questo gatto è registrato come padre di altri gatti — il padre non può essere femmina. Controlla prima la famiglia.';
 
   @override
@@ -442,10 +522,18 @@ class AppLocalizationsIt extends AppLocalizations {
       'Questo gatto è registrato come madre di altri gatti — la madre non può essere maschio. Controlla prima la famiglia.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Questo gatto è registrato come madre di altri gatti — la madre non può essere maschio. Controlla prima la famiglia.';
+
+  @override
   String get moveTo => 'Sposta in';
 
   @override
   String get noClowderStrayOption => 'Nessun clowder — randagio / scappato';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Nessun clowder — randagio / scappato';
 
   @override
   String timelineOf(String name) {
@@ -535,7 +623,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get forCats => 'gatti';
 
   @override
+  String get forCatsNeutral => 'gatti';
+
+  @override
   String get forClowders => 'clowder';
+
+  @override
+  String get forClowdersNeutral => 'clowder';
 
   @override
   String get forBoth => 'entrambi';
@@ -566,6 +660,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Cerca gatti per nome…';
+
+  @override
+  String get searchByNameHintNeutral => 'Cerca gatti per nome…';
 
   @override
   String get host => 'Ospita';
@@ -688,7 +785,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get kindCat => 'gatto';
 
   @override
+  String get kindCatNeutral => 'gatto';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'clowder';
 
   @override
   String get kindField => 'campo';
@@ -704,6 +807,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Un catalogo locale per gatti in affido. I tuoi dati restano sui tuoi dispositivi — niente server, niente account.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Un catalogo locale per gatti in affido. I tuoi dati restano sui tuoi dispositivi — niente server, niente account.';
 
   @override
@@ -832,6 +939,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get stepCat => 'Gatto';
 
   @override
+  String get stepCatNeutral => 'Gatto';
+
+  @override
   String get stepOwner => 'Proprietario';
 
   @override
@@ -848,11 +958,23 @@ class AppLocalizationsIt extends AppLocalizations {
       'Chi ha perso il gatto: questo diventa il suo clowder, con il contatto del volantino.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Chi ha perso il gatto: questo diventa il suo clowder, con il contatto del volantino.';
+
+  @override
   String get stepFaceHint =>
       'Ritaglia il muso del gatto dal volantino; diventa la foto del profilo. Puoi saltare questo passo.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Ritaglia il muso del gatto dal volantino; diventa la foto del profilo. Puoi saltare questo passo.';
+
+  @override
   String get stepRegistryHint =>
+      'Numeri trovati sul volantino. Quelli spuntati vengono salvati con il gatto e si aprono più tardi.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Numeri trovati sul volantino. Quelli spuntati vengono salvati con il gatto e si aprono più tardi.';
 
   @override
@@ -903,7 +1025,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa. Il nome in alto è il catalogo in cui sei: toccalo per cambiare o aggiungerne uno.';
 
   @override
+  String get helpHomeNeutral =>
+      'La panoramica delle tue colonie: una colonia è un luogo dove vivono gatti — casa tua, una stalla di sosta, un rifugio. Tocca una scheda per vederne i gatti; tieni premuto per il menu. Il pulsante in basso a destra crea una colonia, e la scheda dei randagi raccoglie tutti i gatti senza casa. Il nome in alto è il catalogo in cui sei: toccalo per cambiare o aggiungerne uno.';
+
+  @override
   String get helpClowder =>
+      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più gatti della colonia, per esempio un giro di sterilizzazioni: spunta i gatti che vengono, concludi una volta, togli la spunta a quelli non trattati.';
+
+  @override
+  String get helpClowderNeutral =>
       'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più gatti della colonia, per esempio un giro di sterilizzazioni: spunta i gatti che vengono, concludi una volta, togli la spunta a quelli non trattati.';
 
   @override
@@ -911,7 +1041,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo.';
 
   @override
+  String get helpCatNeutral =>
+      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo.';
+
+  @override
   String get helpStrays =>
+      'Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. Tocca Stray Cam per una foto; tieni premuto per girare un video e tenere i fotogrammi migliori come foto.';
+
+  @override
+  String get helpStraysNeutral =>
       'Gatti che ora non hanno casa: trovati, scappati o presi da un volantino. Il pulsante fotocamera registra un gatto che hai davanti; il pulsante volantino trasforma un manifesto in un gatto con il contatto del proprietario; lo scanner legge un codice cat(a)log dal manifesto. Tocca Stray Cam per una foto; tieni premuto per girare un video e tenere i fotogrammi migliori come foto.';
 
   @override
@@ -919,7 +1057,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento.';
 
   @override
+  String get helpMapNeutral =>
+      'Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento.';
+
+  @override
   String get helpCard =>
+      'La scheda stampabile del gatto: scegli in alto con i chip cosa compare, poi condividila come immagine o PDF. Gli identificativi si stampano come QR o codice a barre, e una posizione diventa un QR che apre una mappa, più un breve Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
       'La scheda stampabile del gatto: scegli in alto con i chip cosa compare, poi condividila come immagine o PDF. Gli identificativi si stampano come QR o codice a barre, e una posizione diventa un QR che apre una mappa, più un breve Plus Code.';
 
   @override
@@ -931,6 +1077,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'I campi usati dal tuo catalogo. Rinominali, cambia le opzioni di un campo a scelta o creane di tuoi. Un campo identificativo può puntare a un servizio (un registro): allora il numero diventa toccabile sul gatto.';
 
   @override
+  String get helpFieldsNeutral =>
+      'I campi usati dal tuo catalogo. Rinominali, cambia le opzioni di un campo a scelta o creane di tuoi. Un campo identificativo può puntare a un servizio (un registro): allora il numero diventa toccabile sul gatto.';
+
+  @override
   String get helpTimeline =>
       'Ogni modifica mai fatta, dalla più recente: chi ha cambiato cosa, quando e con quale valore. Ogni voce può essere annullata — questo scrive una nuova voce, nulla viene mai cancellato.';
 
@@ -939,7 +1089,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Gatti o colonie che sembrano esistere due volte: identificativi uguali o nomi molto simili con dettagli concordi. Tocca una coppia per unirla; l\'unione non si può annullare, perciò viene chiesto prima.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Gatti o colonie che sembrano esistere due volte: identificativi uguali o nomi molto simili con dettagli concordi. Tocca una coppia per unirla; l\'unione non si può annullare, perciò viene chiesto prima.';
+
+  @override
   String get helpMatches =>
+      'Gatti che potrebbero essere lo stesso animale: identificativo identico, o un randagio visto nell\'area di ricerca di un gatto scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo gatto e confrontare.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Gatti che potrebbero essere lo stesso animale: identificativo identico, o un randagio visto nell\'area di ricerca di un gatto scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo gatto e confrontare.';
 
   @override
@@ -947,10 +1105,18 @@ class AppLocalizationsIt extends AppLocalizations {
       'Un volantino fotografato diventa un gatto e il suo proprietario. Passo dopo passo: dati del gatto, contatto del proprietario, ritaglio del muso per la foto profilo, numeri di registro sul volantino, poi il controllo finale. Sono tutti suggerimenti: correggi ciò che la fotocamera ha letto male.';
 
   @override
+  String get helpFlierNeutral =>
+      'Un volantino fotografato diventa un gatto e il suo proprietario. Passo dopo passo: dati del gatto, contatto del proprietario, ritaglio del muso per la foto profilo, numeri di registro sul volantino, poi il controllo finale. Sono tutti suggerimenti: correggi ciò che la fotocamera ha letto male.';
+
+  @override
   String get archiveTitle => 'Archivio';
 
   @override
   String get archiveExplainer =>
+      'I gatti deceduti e le colonie vuote che nessuno tocca da anni occupano comunque spazio, soprattutto le loro foto. Archiviare li scrive in un file che tieni tu e poi li elimina da qui.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'I gatti deceduti e le colonie vuote che nessuno tocca da anni occupano comunque spazio, soprattutto le loro foto. Archiviare li scrive in un file che tieni tu e poi li elimina da qui.';
 
   @override
@@ -1001,6 +1167,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'I dati vecchi costano spazio, soprattutto le foto che ogni dispositivo sincronizzato si porta dietro. Qui scegli gatti deceduti e colonie vuote ferme da anni, li scrivi in un file che tieni tu e li elimini. L\'eliminazione raggiunge tutti quelli con cui sincronizzi; importare il file ripristina tutto.';
+
+  @override
+  String get helpArchiveNeutral =>
       'I dati vecchi costano spazio, soprattutto le foto che ogni dispositivo sincronizzato si porta dietro. Qui scegli gatti deceduti e colonie vuote ferme da anni, li scrivi in un file che tieni tu e li elimini. L\'eliminazione raggiunge tutti quelli con cui sincronizzi; importare il file ripristina tutto.';
 
   @override
@@ -1058,6 +1228,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get markTitle => 'Contrassegna il gatto';
 
   @override
+  String get markTitleNeutral => 'Contrassegna il gatto';
+
+  @override
   String get applyCrop => 'Ritaglia';
 
   @override
@@ -1067,7 +1240,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get dragToSelect => 'Trascina un rettangolo intorno al gatto';
 
   @override
+  String get dragToSelectNeutral => 'Trascina un rettangolo intorno al gatto';
+
+  @override
   String get dragOverTheCat => 'Trascina un\'ellisse sul gatto';
+
+  @override
+  String get dragOverTheCatNeutral => 'Trascina un\'ellisse sul gatto';
 
   @override
   String get cropPhoto => 'Ritaglia…';
@@ -1151,6 +1330,15 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Unità';
+
+  @override
+  String get catalogHolds => 'Questo catalogo contiene';
+
+  @override
+  String get modeCats => 'Gatti';
+
+  @override
+  String get modePets => 'Animali';
 
   @override
   String get graphLabel => 'Grafico';
@@ -1244,6 +1432,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Coriandoli e applausi quando un gatto trasloca nella sua casa';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Coriandoli e applausi quando un gatto trasloca nella sua casa';
+
+  @override
   String get onMapLabel => 'Sulla mappa';
 
   @override
@@ -1257,6 +1449,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Cerca gatti, clowder, persone';
+
+  @override
+  String get mapSearchHintNeutral => 'Cerca gatti, clowder, persone';
 
   @override
   String get proposeAnotherName => 'Proponi un altro nome';
@@ -1337,6 +1532,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get kittensLabel => 'Gattini';
 
   @override
+  String get kittensLabelNeutral => 'Gattini';
+
+  @override
   String get toastSettingsTitle => 'Cosa annunciare';
 
   @override
@@ -1365,6 +1563,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Nuovo gattino: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Nuovo gattino: $cat ✨';
   }
 
@@ -1455,10 +1658,20 @@ class AppLocalizationsIt extends AppLocalizations {
   String get selectClowderHint => 'Scegli un clowder a sinistra';
 
   @override
+  String get selectClowderHintNeutral => 'Scegli un clowder a sinistra';
+
+  @override
   String get introTitle1 => 'I tuoi gatti, in ordine';
 
   @override
+  String get introTitle1Neutral => 'I tuoi gatti, in ordine';
+
+  @override
   String get introBody1 =>
+      'Crea una scheda per ogni gatto: foto, sesso, salute, tutto ciò che vuoi annotare. I gatti sono raggruppati per il luogo in cui vivono — l\'app chiama quel luogo colonia (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Crea una scheda per ogni gatto: foto, sesso, salute, tutto ciò che vuoi annotare. I gatti sono raggruppati per il luogo in cui vivono — l\'app chiama quel luogo colonia (clowder).';
 
   @override
@@ -1496,6 +1709,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Questa scheda raccoglie tutti i randagi — gatti senza casa. Toccala per vedere l\'elenco.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Questa scheda raccoglie tutti i randagi — gatti senza casa. Toccala per vedere l\'elenco.';
+
+  @override
   String get spotHomeMenu =>
       'In questo menu: trovare e unire i duplicati, esportare CSV e altro.';
 
@@ -1504,7 +1721,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Tocca la matita per modificare questo gatto. Suggerimento: tieni premuto un campo per modificarlo direttamente.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Tocca la matita per modificare questo gatto. Suggerimento: tieni premuto un campo per modificarlo direttamente.';
+
+  @override
   String get spotMapLayers =>
+      'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini e alla casa da cui è scappato.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Cerchi un gatto scomparso? Mostra cerchi attorno ai luoghi dei suoi volantini e alla casa da cui è scappato.';
 
   @override
@@ -1512,18 +1737,37 @@ class AppLocalizationsIt extends AppLocalizations {
       'Un volantino di gatto scomparso? Fotografalo qui — l\'app salva gatto e contatto per te.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Un volantino di gatto scomparso? Fotografalo qui — l\'app salva gatto e contatto per te.';
+
+  @override
   String get spotStraysScan =>
+      'Alcuni volantini hanno un codice QR cat(a)log. Scansionalo qui per importare il gatto senza digitare.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Alcuni volantini hanno un codice QR cat(a)log. Scansionalo qui per importare il gatto senza digitare.';
 
   @override
   String get introTitle4 => 'Ritrovare i gatti scomparsi';
 
   @override
+  String get introTitle4Neutral => 'Ritrovare i gatti scomparsi';
+
+  @override
   String get introBody4 =>
       'Vedi un volantino di gatto scomparso? Fotografalo nell\'app: salva il gatto, il contatto del proprietario e il luogo. Se più tardi compare un randagio simile, l\'app suggerisce possibili corrispondenze.';
 
   @override
+  String get introBody4Neutral =>
+      'Vedi un volantino di gatto scomparso? Fotografalo nell\'app: salva il gatto, il contatto del proprietario e il luogo. Se più tardi compare un randagio simile, l\'app suggerisce possibili corrispondenze.';
+
+  @override
   String get spotMapSearch =>
+      'Scrivi un gatto, un luogo o una persona per saltarci sulla mappa.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Scrivi un gatto, un luogo o una persona per saltarci sulla mappa.';
 
   @override
@@ -1532,6 +1776,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Qui ci sono altre azioni: nascondi il gatto, unisci i duplicati o registra un avvistamento.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Qui ci sono altre azioni: nascondi il gatto, unisci i duplicati o registra un avvistamento.';
 
   @override
@@ -1549,6 +1797,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Nessun gatto trovato con quel nome';
+
+  @override
+  String get searchNoResultsNeutral => 'Nessun gatto trovato con quel nome';
 
   @override
   String get syncUnreachable =>
@@ -1600,6 +1851,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
+
+  @override
   String get spotHomeCatalog =>
       'Questo è il catalogo in cui sei. Tocca il nome per cambiare o crearne un altro.';
 
@@ -1608,6 +1863,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Tutto ciò che è in $name sparisce: i gatti, le foto, la cronologia. Prima viene salvato un file completo dove vanno i backup automatici; importarlo riporta indietro il catalogo. Scrivi il nome per confermare.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Tutto ciò che è in $name sparisce: i gatti, le foto, la cronologia. Prima viene salvato un file completo dove vanno i backup automatici; importarlo riporta indietro il catalogo. Scrivi il nome per confermare.';
   }
 
@@ -1734,6 +1994,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Nessun appuntamento pianificato. Pianificane di nuovi qui con il più, o nella pagina di un gatto o di un clowder.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Nessun appuntamento pianificato. Pianificane di nuovi qui con il più, o nella pagina di un gatto o di un clowder.';
 
   @override
@@ -1898,7 +2162,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Pianifica un appuntamento per questo gatto. Compare nell\'agenda e lì si conferma.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Pianifica un appuntamento per questo gatto. Compare nell\'agenda e lì si conferma.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Pianifica un appuntamento per questo clowder. Compare nell\'agenda e lì si conferma.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Pianifica un appuntamento per questo clowder. Compare nell\'agenda e lì si conferma.';
 
   @override
@@ -2006,7 +2278,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get existingCat => 'Gatto esistente';
 
   @override
+  String get existingCatNeutral => 'Gatto esistente';
+
+  @override
   String get existingClowder => 'Gruppo esistente';
+
+  @override
+  String get existingClowderNeutral => 'Gruppo esistente';
 
   @override
   String get createNewInstead => 'Nessuno — crea nuovo';
@@ -2032,14 +2310,29 @@ class AppLocalizationsIt extends AppLocalizations {
   String get catsOnAppointment => 'Gatti in questo appuntamento';
 
   @override
+  String get catsOnAppointmentNeutral => 'Gatti in questo appuntamento';
+
+  @override
   String get noCatsHint =>
+      'Nessun gatto spuntato: l\'appuntamento è della colonia stessa.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Nessun gatto spuntato: l\'appuntamento è della colonia stessa.';
 
   @override
   String get pickCatsTitle => 'Quali gatti vengono?';
 
   @override
+  String get pickCatsTitleNeutral => 'Quali gatti vengono?';
+
+  @override
   String catsCount(int count) {
+    return '$count gatti';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count gatti';
   }
 
@@ -2048,7 +2341,16 @@ class AppLocalizationsIt extends AppLocalizations {
       'Togli la spunta ai gatti non trattati; restano pianificati.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Togli la spunta ai gatti non trattati; restano pianificati.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Elimina l\'appuntamento per tutti i $count gatti';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Elimina l\'appuntamento per tutti i $count gatti';
   }
 }

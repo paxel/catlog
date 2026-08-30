@@ -29,7 +29,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clowders => 'المجموعات';
 
   @override
+  String get clowdersNeutral => 'المجموعات';
+
+  @override
   String get noClowdersYet =>
+      'لا مجموعات بعد. المجموعة هي مكان تعيش فيه القطط — دار الرعاية أو شقة المتبني. أنشئ الأولى أدناه.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'لا مجموعات بعد. المجموعة هي مكان تعيش فيه القطط — دار الرعاية أو شقة المتبني. أنشئ الأولى أدناه.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get searchCats => 'البحث عن قطط';
+
+  @override
+  String get searchCatsNeutral => 'البحث عن قطط';
 
   @override
   String get map => 'الخريطة';
@@ -55,6 +65,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get newClowder => 'مجموعة جديدة';
+
+  @override
+  String get newClowderNeutral => 'مجموعة جديدة';
 
   @override
   String get name => 'الاسم';
@@ -89,6 +102,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get renameClowder => 'إعادة تسمية المجموعة';
 
   @override
+  String get renameClowderNeutral => 'إعادة تسمية المجموعة';
+
+  @override
   String get rename => 'إعادة تسمية';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteClowder => 'حذف المجموعة';
 
   @override
+  String get deleteClowderNeutral => 'حذف المجموعة';
+
+  @override
   String get cats => 'القطط';
+
+  @override
+  String get catsNeutral => 'القطط';
 
   @override
   String get addCat => 'إضافة قطة';
 
   @override
+  String get addCatNeutral => 'إضافة قطة';
+
+  @override
   String get newCat => 'قطة جديدة';
+
+  @override
+  String get newCatNeutral => 'قطة جديدة';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteClowderEmptyBody => 'ستختفي المجموعة من القائمة.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'ستختفي المجموعة من القائمة.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'قططها ($count) لن تُحذف — بل تصبح ضالة. انقلها أولًا إلى مجموعة أخرى إن لم يكن هذا ما تريد.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'قططها ($count) لن تُحذف — بل تصبح ضالة. انقلها أولًا إلى مجموعة أخرى إن لم يكن هذا ما تريد.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get renameCat => 'إعادة تسمية القطة';
 
   @override
+  String get renameCatNeutral => 'إعادة تسمية القطة';
+
+  @override
   String get seenHereNow => 'شوهدت هنا الآن';
 
   @override
   String get deleteCat => 'حذف القطة';
 
   @override
+  String get deleteCatNeutral => 'حذف القطة';
+
+  @override
   String get clowderLabel => 'المجموعة';
 
   @override
+  String get clowderLabelNeutral => 'المجموعة';
+
+  @override
   String get strayNoClowder => 'ضالة — بلا مجموعة';
+
+  @override
+  String get strayNoClowderNeutral => 'ضالة — بلا مجموعة';
 
   @override
   String get stray => 'ضالة';
@@ -181,6 +229,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'تختفي القطة من كل القوائم وتُحذف صورها — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'تختفي القطة من كل القوائم وتُحذف صورها — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.';
 
   @override
+  String get chipScanHintNeutral =>
+      'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.';
+
+  @override
   String get savingLabel => 'جارٍ الحفظ…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get catList => 'قائمة القطط';
+
+  @override
+  String get catListNeutral => 'قائمة القطط';
 
   @override
   String get matchCandidatesTitle => 'مرشّحو التطابق';
@@ -320,6 +379,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get importShareTitle => 'استيراد هذه القطة؟';
 
   @override
+  String get importShareTitleNeutral => 'استيراد هذه القطة؟';
+
+  @override
   String shareSource(String url) {
     return 'المصدر: $url';
   }
@@ -338,6 +400,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noMissingCats => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
+
+  @override
+  String get noMissingCatsNeutral => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
 
   @override
   String get noMatchCandidates => 'لا يوجد مرشّحون للتطابق حاليًا.';
@@ -416,6 +481,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
 
   @override
+  String get malePregnantNeutral =>
+      'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name مسجّلة كأنثى ولا يمكن أن تكون الأب. تحقّق من الجنس أولًا.';
   }
@@ -431,7 +500,16 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return 'وُلد $name في $date — لا يمكن أن يولد أحد الوالدين بعد صغيره.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'هذه القطة مسجّلة كأب لقطط أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'هذه القطة مسجّلة كأب لقطط أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
 
   @override
@@ -439,10 +517,17 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذه القطة مسجّلة كأم لقطط أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'هذه القطة مسجّلة كأم لقطط أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
+
+  @override
   String get moveTo => 'نقل إلى';
 
   @override
   String get noClowderStrayOption => 'بلا مجموعة — ضالة / هربت';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'بلا مجموعة — ضالة / هربت';
 
   @override
   String timelineOf(String name) {
@@ -532,7 +617,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forCats => 'القطط';
 
   @override
+  String get forCatsNeutral => 'القطط';
+
+  @override
   String get forClowders => 'المجموعات';
+
+  @override
+  String get forClowdersNeutral => 'المجموعات';
 
   @override
   String get forBoth => 'كليهما';
@@ -563,6 +654,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'ابحث عن القطط بالاسم…';
+
+  @override
+  String get searchByNameHintNeutral => 'ابحث عن القطط بالاسم…';
 
   @override
   String get host => 'استضافة';
@@ -684,7 +778,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get kindCat => 'قطة';
 
   @override
+  String get kindCatNeutral => 'قطة';
+
+  @override
   String get kindClowder => 'مجموعة';
+
+  @override
+  String get kindClowderNeutral => 'مجموعة';
 
   @override
   String get kindField => 'حقل';
@@ -700,6 +800,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'فهرس محلي لقطط الرعاية المؤقتة. بياناتك تبقى على أجهزتك — لا خادم ولا حساب.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'فهرس محلي لقطط الرعاية المؤقتة. بياناتك تبقى على أجهزتك — لا خادم ولا حساب.';
 
   @override
@@ -828,6 +932,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get stepCat => 'القطة';
 
   @override
+  String get stepCatNeutral => 'القطة';
+
+  @override
   String get stepOwner => 'المالك';
 
   @override
@@ -844,11 +951,23 @@ class AppLocalizationsAr extends AppLocalizations {
       'من يبحث عن القطة — تصبح هذه مجموعته مع بيانات التواصل من المنشور.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'من يبحث عن القطة — تصبح هذه مجموعته مع بيانات التواصل من المنشور.';
+
+  @override
   String get stepFaceHint =>
       'اقتصّ وجه القطة من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'اقتصّ وجه القطة من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
+
+  @override
   String get stepRegistryHint =>
+      'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
 
   @override
@@ -897,7 +1016,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'نظرة عامة على مستعمراتك — المستعمرة مكان تعيش فيه القطط: بيتك، بيت رعاية، ملجأ. انقر بطاقة لرؤية قططها؛ الضغط المطوّل يفتح القائمة. الزر أسفل اليمين ينشئ مستعمرة، وبطاقة القطط الضالة تجمع كل قطة بلا بيت. الاسم في الأعلى هو الكتالوج الذي أنت فيه — المسه للتبديل أو لإضافة واحد.';
 
   @override
+  String get helpHomeNeutral =>
+      'نظرة عامة على مستعمراتك — المستعمرة مكان تعيش فيه القطط: بيتك، بيت رعاية، ملجأ. انقر بطاقة لرؤية قططها؛ الضغط المطوّل يفتح القائمة. الزر أسفل اليمين ينشئ مستعمرة، وبطاقة القطط الضالة تجمع كل قطة بلا بيت. الاسم في الأعلى هو الكتالوج الذي أنت فيه — المسه للتبديل أو لإضافة واحد.';
+
+  @override
   String get helpClowder =>
+      'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها. الموعد المضاف هنا يمكن أن يأخذ عدة قطط من المستعمرة، مثل رحلة تعقيم: حدّد القطط التي ستأتي، أنهِ مرة واحدة، وألغِ تحديد التي لم تُعالج.';
+
+  @override
+  String get helpClowderNeutral =>
       'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها. الموعد المضاف هنا يمكن أن يأخذ عدة قطط من المستعمرة، مثل رحلة تعقيم: حدّد القطط التي ستأتي، أنهِ مرة واحدة، وألغِ تحديد التي لم تُعالج.';
 
   @override
@@ -905,7 +1032,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'كل شيء عن هذه القطة: الصور والحقول والعائلة والتاريخ. الصفحة للقراءة فقط حتى تنقر على القلم. اضغط مطولًا على حقل للانتقال مباشرة إلى تحريره؛ اضغط مطولًا على صورة لفتح قائمتها. القائمة في الأعلى تحوي الباقي: إخفاء، دمج، تسجيل مشاهدة، مشاركة القطة. «خاص» يُضبط أثناء تحرير الحقل.';
 
   @override
+  String get helpCatNeutral =>
+      'كل شيء عن هذه القطة: الصور والحقول والعائلة والتاريخ. الصفحة للقراءة فقط حتى تنقر على القلم. اضغط مطولًا على حقل للانتقال مباشرة إلى تحريره؛ اضغط مطولًا على صورة لفتح قائمتها. القائمة في الأعلى تحوي الباقي: إخفاء، دمج، تسجيل مشاهدة، مشاركة القطة. «خاص» يُضبط أثناء تحرير الحقل.';
+
+  @override
   String get helpStrays =>
+      'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
+
+  @override
+  String get helpStraysNeutral =>
       'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
 
   @override
@@ -913,7 +1048,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'كل القطط والأماكن ذات الموقع. البحث يجد القطط والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات قطة مفقودة وحول البيت الذي هربت منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة.';
 
   @override
+  String get helpMapNeutral =>
+      'كل القطط والأماكن ذات الموقع. البحث يجد القطط والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات قطة مفقودة وحول البيت الذي هربت منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة.';
+
+  @override
   String get helpCard =>
+      'بطاقة القطة القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.';
+
+  @override
+  String get helpCardNeutral =>
       'بطاقة القطة القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.';
 
   @override
@@ -925,6 +1068,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.';
 
   @override
+  String get helpFieldsNeutral =>
+      'الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.';
+
+  @override
   String get helpTimeline =>
       'كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.';
 
@@ -933,7 +1080,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.';
+
+  @override
   String get helpMatches =>
+      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
+
+  @override
+  String get helpMatchesNeutral =>
       'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
 
   @override
@@ -941,10 +1096,18 @@ class AppLocalizationsAr extends AppLocalizations {
       'منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
 
   @override
+  String get helpFlierNeutral =>
+      'منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
+
+  @override
   String get archiveTitle => 'الأرشيف';
 
   @override
   String get archiveExplainer =>
+      'القطط المتوفاة والمستعمرات الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'القطط المتوفاة والمستعمرات الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
 
   @override
@@ -995,6 +1158,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
+
+  @override
+  String get helpArchiveNeutral =>
       'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
 
   @override
@@ -1051,6 +1218,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get markTitle => 'تحديد القطة';
 
   @override
+  String get markTitleNeutral => 'تحديد القطة';
+
+  @override
   String get applyCrop => 'قصّ';
 
   @override
@@ -1060,7 +1230,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dragToSelect => 'ارسم مستطيلًا حول القطة';
 
   @override
+  String get dragToSelectNeutral => 'ارسم مستطيلًا حول القطة';
+
+  @override
   String get dragOverTheCat => 'ارسم شكلًا بيضاويًا فوق القطة';
+
+  @override
+  String get dragOverTheCatNeutral => 'ارسم شكلًا بيضاويًا فوق القطة';
 
   @override
   String get cropPhoto => 'قص…';
@@ -1144,6 +1320,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unitsLabel => 'الوحدات';
+
+  @override
+  String get catalogHolds => 'يحتوي هذا الكتالوج على';
+
+  @override
+  String get modeCats => 'قطط';
+
+  @override
+  String get modePets => 'حيوانات أليفة';
 
   @override
   String get graphLabel => 'رسم بياني';
@@ -1237,6 +1422,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
+
+  @override
   String get onMapLabel => 'على الخريطة';
 
   @override
@@ -1250,6 +1439,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'ابحث عن قطط ومجموعات وأشخاص';
+
+  @override
+  String get mapSearchHintNeutral => 'ابحث عن قطط ومجموعات وأشخاص';
 
   @override
   String get proposeAnotherName => 'اقترح اسمًا آخر';
@@ -1330,6 +1522,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get kittensLabel => 'الصغار';
 
   @override
+  String get kittensLabelNeutral => 'الصغار';
+
+  @override
   String get toastSettingsTitle => 'ما الذي يُعلن';
 
   @override
@@ -1357,6 +1552,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ هريرة جديدة: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ هريرة جديدة: $cat ✨';
   }
 
@@ -1444,10 +1644,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectClowderHint => 'اختر مجموعة من اليسار';
 
   @override
+  String get selectClowderHintNeutral => 'اختر مجموعة من اليسار';
+
+  @override
   String get introTitle1 => 'قططك بنظام';
 
   @override
+  String get introTitle1Neutral => 'قططك بنظام';
+
+  @override
   String get introBody1 =>
+      'أنشئ بطاقة لكل قطة ترعاها: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع القطط حسب مكان عيشها — يسمي التطبيق هذا المكان مستعمرة (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'أنشئ بطاقة لكل قطة ترعاها: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع القطط حسب مكان عيشها — يسمي التطبيق هذا المكان مستعمرة (clowder).';
 
   @override
@@ -1484,6 +1694,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذه البطاقة تجمع كل القطط الضالة — القطط بلا مأوى. انقر لعرض القائمة.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'هذه البطاقة تجمع كل القطط الضالة — القطط بلا مأوى. انقر لعرض القائمة.';
+
+  @override
   String get spotHomeMenu =>
       'في هذه القائمة: إيجاد التكرارات ودمجها، تصدير CSV والمزيد.';
 
@@ -1492,7 +1706,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'انقر على القلم لتحرير هذه القطة. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
 
   @override
+  String get spotCatEditNeutral =>
+      'انقر على القلم لتحرير هذه القطة. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
+
+  @override
   String get spotMapLayers =>
+      'تبحث عن قطة مفقودة؟ أظهر دوائر حول أماكن منشوراتها وحول البيت الذي هربت منه.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'تبحث عن قطة مفقودة؟ أظهر دوائر حول أماكن منشوراتها وحول البيت الذي هربت منه.';
 
   @override
@@ -1500,18 +1722,37 @@ class AppLocalizationsAr extends AppLocalizations {
       'وجدت منشور قطة مفقودة؟ صوّره هنا — يحفظ التطبيق القطة وبيانات التواصل عنك.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'وجدت منشور قطة مفقودة؟ صوّره هنا — يحفظ التطبيق القطة وبيانات التواصل عنك.';
+
+  @override
   String get spotStraysScan =>
+      'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد القطة دون كتابة.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد القطة دون كتابة.';
 
   @override
   String get introTitle4 => 'اعثر على القطط المفقودة';
 
   @override
+  String get introTitle4Neutral => 'اعثر على القطط المفقودة';
+
+  @override
   String get introBody4 =>
       'رأيت منشور قطة مفقودة؟ صوّره في التطبيق: يحفظ القطة وبيانات مالكها والمكان. وإذا ظهرت لاحقًا قطة ضالة مشابهة، يقترح التطبيق تطابقات محتملة.';
 
   @override
+  String get introBody4Neutral =>
+      'رأيت منشور قطة مفقودة؟ صوّره في التطبيق: يحفظ القطة وبيانات مالكها والمكان. وإذا ظهرت لاحقًا قطة ضالة مشابهة، يقترح التطبيق تطابقات محتملة.';
+
+  @override
   String get spotMapSearch =>
+      'اكتب قطة أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'اكتب قطة أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
 
   @override
@@ -1520,6 +1761,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'هنا المزيد من الإجراءات: إخفاء القطة، دمج التكرارات، أو تسجيل مشاهدة.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'هنا المزيد من الإجراءات: إخفاء القطة، دمج التكرارات، أو تسجيل مشاهدة.';
 
   @override
@@ -1536,6 +1781,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get searchNoResults => 'لم يتم العثور على قطة بهذا الاسم';
+
+  @override
+  String get searchNoResultsNeutral => 'لم يتم العثور على قطة بهذا الاسم';
 
   @override
   String get syncUnreachable =>
@@ -1587,6 +1835,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'كل كتالوج عالم قائم بذاته: قططه ومستعمراته وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'كل كتالوج عالم قائم بذاته: قططه ومستعمراته وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
+
+  @override
   String get spotHomeCatalog =>
       'هذا هو الكتالوج الذي أنت فيه. المس الاسم للتبديل أو لإنشاء كتالوج آخر.';
 
@@ -1595,6 +1847,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
   }
 
@@ -1721,6 +1978,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة قطة أو مجموعة.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة قطة أو مجموعة.';
 
   @override
@@ -1890,7 +2151,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.';
+
+  @override
   String get spotAddReminderClowder =>
+      'خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.';
 
   @override
@@ -1996,7 +2265,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get existingCat => 'قطة موجودة';
 
   @override
+  String get existingCatNeutral => 'قطة موجودة';
+
+  @override
   String get existingClowder => 'مجموعة موجودة';
+
+  @override
+  String get existingClowderNeutral => 'مجموعة موجودة';
 
   @override
   String get createNewInstead => 'لا شيء — إنشاء جديد';
@@ -2022,10 +2297,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get catsOnAppointment => 'القطط في هذا الموعد';
 
   @override
+  String get catsOnAppointmentNeutral => 'القطط في هذا الموعد';
+
+  @override
   String get noCatsHint => 'لم يتم تحديد أي قطة — الموعد يخص المستعمرة نفسها.';
 
   @override
+  String get noCatsHintNeutral =>
+      'لم يتم تحديد أي قطة — الموعد يخص المستعمرة نفسها.';
+
+  @override
   String get pickCatsTitle => 'أي القطط ستأتي؟';
+
+  @override
+  String get pickCatsTitleNeutral => 'أي القطط ستأتي؟';
 
   @override
   String catsCount(int count) {
@@ -2033,10 +2318,24 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count قطط';
+  }
+
+  @override
   String get finishUntickHint => 'ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'حذف الموعد لكل القطط الـ$count';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'حذف الموعد لكل القطط الـ$count';
   }
 }

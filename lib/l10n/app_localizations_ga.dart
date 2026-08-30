@@ -29,7 +29,14 @@ class AppLocalizationsGa extends AppLocalizations {
   String get clowders => 'Clowdair';
 
   @override
+  String get clowdersNeutral => 'Clowdair';
+
+  @override
   String get noClowdersYet =>
+      'Níl clowder ar bith fós. Áit é clowder ina gcónaíonn cait — do theach altrama, árasán uchtaitheora. Cruthaigh an chéad cheann thíos.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Níl clowder ar bith fós. Áit é clowder ina gcónaíonn cait — do theach altrama, árasán uchtaitheora. Cruthaigh an chéad cheann thíos.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get searchCats => 'Cuardaigh cait';
+
+  @override
+  String get searchCatsNeutral => 'Cuardaigh cait';
 
   @override
   String get map => 'Léarscáil';
@@ -55,6 +65,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get newClowder => 'Clowdar nua';
+
+  @override
+  String get newClowderNeutral => 'Clowdar nua';
 
   @override
   String get name => 'Ainm';
@@ -89,6 +102,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get renameClowder => 'Athainmnigh an clowdar';
 
   @override
+  String get renameClowderNeutral => 'Athainmnigh an clowdar';
+
+  @override
   String get rename => 'Athainmnigh';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsGa extends AppLocalizations {
   String get deleteClowder => 'Scrios an clowdar';
 
   @override
+  String get deleteClowderNeutral => 'Scrios an clowdar';
+
+  @override
   String get cats => 'Cait';
+
+  @override
+  String get catsNeutral => 'Cait';
 
   @override
   String get addCat => 'Cuir cat leis';
 
   @override
+  String get addCatNeutral => 'Cuir cat leis';
+
+  @override
   String get newCat => 'Cat nua';
+
+  @override
+  String get newCatNeutral => 'Cat nua';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Imíonn an clowdar den liosta.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Imíonn an clowdar den liosta.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Ní scriostar a chuid cat ($count) — déantar cait fáin díobh. Bog iad go clowdar eile ar dtús mura é sin atá uait.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Ní scriostar a chuid cat ($count) — déantar cait fáin díobh. Bog iad go clowdar eile ar dtús mura é sin atá uait.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsGa extends AppLocalizations {
   String get renameCat => 'Athainmnigh an cat';
 
   @override
+  String get renameCatNeutral => 'Athainmnigh an cat';
+
+  @override
   String get seenHereNow => 'Feicthe anseo anois';
 
   @override
   String get deleteCat => 'Scrios an cat';
 
   @override
+  String get deleteCatNeutral => 'Scrios an cat';
+
+  @override
   String get clowderLabel => 'Clowdar';
 
   @override
+  String get clowderLabelNeutral => 'Clowdar';
+
+  @override
   String get strayNoClowder => 'Cat fáin — gan chlowdar';
+
+  @override
+  String get strayNoClowderNeutral => 'Cat fáin — gan chlowdar';
 
   @override
   String get stray => 'Cat fáin';
@@ -181,6 +229,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Imíonn an cat as gach liosta agus baintear a ghrianghraif — anseo agus, tar éis an chéad sioncronaithe eile, ar na gléasanna eile freisin.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Scanann sé an cód QR/barrachód clóite ó chárta na slise nó ó pháipéir an tréidlia — ní féidir le fón an tslis sa chat a léamh.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Scanann sé an cód QR/barrachód clóite ó chárta na slise nó ó pháipéir an tréidlia — ní féidir le fón an tslis sa chat a léamh.';
+
+  @override
   String get savingLabel => 'Á shábháil…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get catList => 'Liosta cat';
+
+  @override
+  String get catListNeutral => 'Liosta cat';
 
   @override
   String get matchCandidatesTitle => 'Meaitseálacha féideartha';
@@ -320,6 +379,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get importShareTitle => 'An cat seo a iompórtáil?';
 
   @override
+  String get importShareTitleNeutral => 'An cat seo a iompórtáil?';
+
+  @override
   String shareSource(String url) {
     return 'Foinse: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Níl aon chait ar iarraidh le suíomhanna bileog fós.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Níl aon chait ar iarraidh le suíomhanna bileog fós.';
 
   @override
@@ -420,6 +486,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
 
   @override
+  String get malePregnantNeutral =>
+      'Tá an cat seo cláraithe mar fhireannach — ní féidir le cat fireann a bheith torrach. Seiceáil an gnéas ar dtús.';
+
+  @override
   String fatherNotMale(String name) {
     return 'Tá $name cláraithe mar bhaineannach agus ní féidir léi a bheith ina hathair. Seiceáil an gnéas ar dtús.';
   }
@@ -435,7 +505,16 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return 'Rugadh $name ar $date — ní féidir tuismitheoir a bhreith i ndiaidh a phiscín.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Tá an cat seo cláraithe mar athair cat eile — ní féidir leis an athair a bheith baineann. Seiceáil an teaghlach ar dtús.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Tá an cat seo cláraithe mar athair cat eile — ní féidir leis an athair a bheith baineann. Seiceáil an teaghlach ar dtús.';
 
   @override
@@ -443,10 +522,18 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tá an cat seo cláraithe mar mháthair cat eile — ní féidir leis an máthair a bheith fireann. Seiceáil an teaghlach ar dtús.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Tá an cat seo cláraithe mar mháthair cat eile — ní féidir leis an máthair a bheith fireann. Seiceáil an teaghlach ar dtús.';
+
+  @override
   String get moveTo => 'Bog go';
 
   @override
   String get noClowderStrayOption => 'Gan chlowdar — cat fáin / d\'éalaigh sé';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Gan chlowdar — cat fáin / d\'éalaigh sé';
 
   @override
   String timelineOf(String name) {
@@ -536,7 +623,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get forCats => 'cait';
 
   @override
+  String get forCatsNeutral => 'cait';
+
+  @override
   String get forClowders => 'clowdair';
+
+  @override
+  String get forClowdersNeutral => 'clowdair';
 
   @override
   String get forBoth => 'an dá cheann';
@@ -567,6 +660,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Cuardaigh cait de réir ainm…';
+
+  @override
+  String get searchByNameHintNeutral => 'Cuardaigh cait de réir ainm…';
 
   @override
   String get host => 'Óstáil';
@@ -689,7 +785,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get kindCat => 'cat';
 
   @override
+  String get kindCatNeutral => 'cat';
+
+  @override
   String get kindClowder => 'clowdar';
+
+  @override
+  String get kindClowderNeutral => 'clowdar';
 
   @override
   String get kindField => 'réimse';
@@ -705,6 +807,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Catalóg áitiúil do chait altrama. Fanann do shonraí ar do ghléasanna — gan freastalaí, gan chuntas.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Catalóg áitiúil do chait altrama. Fanann do shonraí ar do ghléasanna — gan freastalaí, gan chuntas.';
 
   @override
@@ -833,6 +939,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get stepCat => 'Cat';
 
   @override
+  String get stepCatNeutral => 'Cat';
+
+  @override
   String get stepOwner => 'Úinéir';
 
   @override
@@ -849,11 +958,23 @@ class AppLocalizationsGa extends AppLocalizations {
       'An té a chaill an cat — déantar a chlowdar as seo, leis an teagmháil ón bpóstaer.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'An té a chaill an cat — déantar a chlowdar as seo, leis an teagmháil ón bpóstaer.';
+
+  @override
   String get stepFaceHint =>
       'Gearr aghaidh an chait as an bpóstaer; is é sin an pictiúr próifíle. Is féidir é a scipeáil.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Gearr aghaidh an chait as an bpóstaer; is é sin an pictiúr próifíle. Is féidir é a scipeáil.';
+
+  @override
   String get stepRegistryHint =>
+      'Uimhreacha a fuarthas ar an bpóstaer. Sábháiltear na cinn ticeáilte leis an gcat agus osclaítear iad níos déanaí.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Uimhreacha a fuarthas ar an bpóstaer. Sábháiltear na cinn ticeáilte leis an gcat agus osclaítear iad níos déanaí.';
 
   @override
@@ -904,7 +1025,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.';
 
   @override
+  String get helpHomeNeutral =>
+      'Forbhreathnú ar do chuid coilíneachtaí — is áit í coilíneacht ina gcónaíonn cait: do theach, teach altrama, tearmann. Tapáil cárta chun a chuid cat a fheiceáil; brúigh go fada don roghchlár. Cruthaíonn an cnaipe ag bun na láimhe deise coilíneacht nua, agus bailíonn cárta na bhfán gach cat gan bhaile. Is é an t-ainm ag barr an chatalóg ina bhfuil tú — tapáil é chun malartú nó ceann a chur leis.';
+
+  @override
   String get helpClowder =>
+      'Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt cat den choilíneacht a thabhairt léi, turas coillte mar shampla: ticeáil na cait a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu.';
+
+  @override
+  String get helpClowderNeutral =>
       'Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt cat den choilíneacht a thabhairt léi, turas coillte mar shampla: ticeáil na cait a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu.';
 
   @override
@@ -912,7 +1041,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar.';
 
   @override
+  String get helpCatNeutral =>
+      'Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar.';
+
+  @override
   String get helpStrays =>
+      'Cait gan bhaile faoi láthair: cait a fuarthas, cait a d\'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Tapáil Stray Cam le haghaidh grianghraif; coinnigh brúite chun físeán a dhéanamh agus na frámaí is fearr a choinneáil mar ghrianghraif.';
+
+  @override
+  String get helpStraysNeutral =>
       'Cait gan bhaile faoi láthair: cait a fuarthas, cait a d\'éalaigh, nó cait ó phóstaer. Taifeadann cnaipe an cheamara cat atá os do chomhair; casann cnaipe an phóstaeir póstaer cat ar iarraidh ina chat le teagmháil an úinéara; léann an scanóir cód cat(a)log ón bpóstaer. Tapáil Stray Cam le haghaidh grianghraif; coinnigh brúite chun físeán a dhéanamh agus na frámaí is fearr a choinneáil mar ghrianghraif.';
 
   @override
@@ -920,7 +1057,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.';
 
   @override
+  String get helpMapNeutral =>
+      'Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.';
+
+  @override
   String get helpCard =>
+      'Cárta inphriontáilte an chait: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.';
+
+  @override
+  String get helpCardNeutral =>
       'Cárta inphriontáilte an chait: roghnaigh thuas leis na sliseanna cad a bheidh air, ansin roinn é mar íomhá nó PDF. Is féidir uimhreacha a phriontáil mar QR nó barrachód, agus déantar QR a osclaíonn léarscáil de shuíomh, chomh maith le Plus Code gearr.';
 
   @override
@@ -932,6 +1077,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Na réimsí a úsáideann do chatalóg. Athainmnigh iad, athraigh roghanna réimse rogha, nó cruthaigh do chuid féin. Is féidir le réimse aitheantais díriú ar sheirbhís (clár), agus ansin is féidir an uimhir a thapáil ag an gcat.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Na réimsí a úsáideann do chatalóg. Athainmnigh iad, athraigh roghanna réimse rogha, nó cruthaigh do chuid féin. Is féidir le réimse aitheantais díriú ar sheirbhís (clár), agus ansin is féidir an uimhir a thapáil ag an gcat.';
+
+  @override
   String get helpTimeline =>
       'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad é, cathain agus go dtí cén luach. Is féidir aon iontráil a chur ar ais — scríobhann sé sin iontráil nua, ní scriostar aon rud riamh.';
 
@@ -940,7 +1089,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Cait nó coilíneachtaí atá ann faoi dhó de réir cosúlachta — uimhreacha comhionanna nó ainmneacha an-chosúil le sonraí a mheaitseálann. Tapáil péire chun iad a chumasc; ní féidir cumasc a chur ar ceal, mar sin fiafraítear díot ar dtús.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Cait nó coilíneachtaí atá ann faoi dhó de réir cosúlachta — uimhreacha comhionanna nó ainmneacha an-chosúil le sonraí a mheaitseálann. Tapáil péire chun iad a chumasc; ní féidir cumasc a chur ar ceal, mar sin fiafraítear díot ar dtús.';
+
+  @override
   String get helpMatches =>
+      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.';
 
   @override
@@ -948,10 +1105,18 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déantar cat agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an chait, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.';
 
   @override
+  String get helpFlierNeutral =>
+      'Déantar cat agus a úinéir as póstaer a ghrianghrafáiltear. Céim ar chéim: sonraí an chait, teagmháil an úinéara, an aghaidh a ghearradh don phictiúr próifíle, uimhreacha cláir ón bpóstaer, ansin seiceáil dheiridh. Moltaí atá i ngach rud — ceartaigh cibé rud a léigh an ceamara mícheart.';
+
+  @override
   String get archiveTitle => 'Cartlann';
 
   @override
   String get archiveExplainer =>
+      'Cait a fuair bás agus coilíneachtaí folmha nár bhain aon duine leo le blianta, tógann siad spás fós — go háirithe a gcuid grianghraf. Cuireann an chartlannú isteach i gcomhad iad a choinníonn tú, agus scriosann sé as seo iad ansin.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Cait a fuair bás agus coilíneachtaí folmha nár bhain aon duine leo le blianta, tógann siad spás fós — go háirithe a gcuid grianghraf. Cuireann an chartlannú isteach i gcomhad iad a choinníonn tú, agus scriosann sé as seo iad ansin.';
 
   @override
@@ -1002,6 +1167,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Cosnaíonn sonraí sean spás, go háirithe na grianghraif a iompraíonn gach gléas sioncronaithe. Anseo roghnaíonn tú cait a fuair bás agus coilíneachtaí folmha atá ciúin le blianta, scríobhann tú i gcomhad iad a choinníonn tú, agus scriosann tú iad. Sroicheann an scriosadh gach duine a shioncronaíonn tú leis; cuireann iompórtáil an chomhaid gach rud ar ais.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Cosnaíonn sonraí sean spás, go háirithe na grianghraif a iompraíonn gach gléas sioncronaithe. Anseo roghnaíonn tú cait a fuair bás agus coilíneachtaí folmha atá ciúin le blianta, scríobhann tú i gcomhad iad a choinníonn tú, agus scriosann tú iad. Sroicheann an scriosadh gach duine a shioncronaíonn tú leis; cuireann iompórtáil an chomhaid gach rud ar ais.';
 
   @override
@@ -1059,6 +1228,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get markTitle => 'Marcáil an cat';
 
   @override
+  String get markTitleNeutral => 'Marcáil an cat';
+
+  @override
   String get applyCrop => 'Bearr';
 
   @override
@@ -1068,7 +1240,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get dragToSelect => 'Tarraing dronuilleog timpeall an chait';
 
   @override
+  String get dragToSelectNeutral => 'Tarraing dronuilleog timpeall an chait';
+
+  @override
   String get dragOverTheCat => 'Tarraing éilips os cionn an chait';
+
+  @override
+  String get dragOverTheCatNeutral => 'Tarraing éilips os cionn an chait';
 
   @override
   String get cropPhoto => 'Bearr…';
@@ -1152,6 +1330,15 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Aonaid';
+
+  @override
+  String get catalogHolds => 'Sa chatalóg seo tá';
+
+  @override
+  String get modeCats => 'Cait';
+
+  @override
+  String get modePets => 'Peataí';
 
   @override
   String get graphLabel => 'Graf';
@@ -1245,6 +1432,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
+
+  @override
   String get onMapLabel => 'Ar an léarscáil';
 
   @override
@@ -1258,6 +1449,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Cuardaigh cait, grúpaí, daoine';
+
+  @override
+  String get mapSearchHintNeutral => 'Cuardaigh cait, grúpaí, daoine';
 
   @override
   String get proposeAnotherName => 'Mol ainm eile';
@@ -1338,6 +1532,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get kittensLabel => 'Piscíní';
 
   @override
+  String get kittensLabelNeutral => 'Piscíní';
+
+  @override
   String get toastSettingsTitle => 'Cad atá le fógairt';
 
   @override
@@ -1366,6 +1563,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Piscín nua: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Piscín nua: $cat ✨';
   }
 
@@ -1455,10 +1657,20 @@ class AppLocalizationsGa extends AppLocalizations {
   String get selectClowderHint => 'Roghnaigh clowder ar chlé';
 
   @override
+  String get selectClowderHintNeutral => 'Roghnaigh clowder ar chlé';
+
+  @override
   String get introTitle1 => 'Do chait, in ord';
 
   @override
+  String get introTitle1Neutral => 'Do chait, in ord';
+
+  @override
   String get introBody1 =>
+      'Cruthaigh cárta do gach cat: grianghraf, gnéas, sláinte, rud ar bith is mian leat a nótáil. Grúpáiltear na cait de réir na háite a gcónaíonn siad — clowder a thugann an aip ar an áit sin.';
+
+  @override
+  String get introBody1Neutral =>
       'Cruthaigh cárta do gach cat: grianghraf, gnéas, sláinte, rud ar bith is mian leat a nótáil. Grúpáiltear na cait de réir na háite a gcónaíonn siad — clowder a thugann an aip ar an áit sin.';
 
   @override
@@ -1496,6 +1708,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bailíonn an cárta seo na fáin go léir — cait gan bhaile. Tapáil chun an liosta a fheiceáil.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Bailíonn an cárta seo na fáin go léir — cait gan bhaile. Tapáil chun an liosta a fheiceáil.';
+
+  @override
   String get spotHomeMenu =>
       'Sa roghchlár seo: aimsigh agus cumaisc dúblaigh, easpórtáil CSV agus tuilleadh.';
 
@@ -1504,7 +1720,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tapáil an peann luaidhe chun an cat seo a chur in eagar. Leid: brúigh réimse go fada chun é a chur in eagar go díreach.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Tapáil an peann luaidhe chun an cat seo a chur in eagar. Leid: brúigh réimse go fada chun é a chur in eagar go díreach.';
+
+  @override
   String get spotMapLayers =>
+      'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaer agus timpeall an bhaile ar theith sé uaidh.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Ag lorg cat ar iarraidh? Taispeáin ciorcail timpeall áiteanna a phóstaer agus timpeall an bhaile ar theith sé uaidh.';
 
   @override
@@ -1512,18 +1736,37 @@ class AppLocalizationsGa extends AppLocalizations {
       'Póstaer cat ar iarraidh? Glac grianghraf de anseo — sábhálann an aip an cat agus an teagmháil duit.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Póstaer cat ar iarraidh? Glac grianghraf de anseo — sábhálann an aip an cat agus an teagmháil duit.';
+
+  @override
   String get spotStraysScan =>
+      'Bíonn cód QR cat(a)log ar roinnt póstaer. Scan anseo é agus iompórtáil an cat gan clóscríobh.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Bíonn cód QR cat(a)log ar roinnt póstaer. Scan anseo é agus iompórtáil an cat gan clóscríobh.';
 
   @override
   String get introTitle4 => 'Aimsigh cait ar iarraidh';
 
   @override
+  String get introTitle4Neutral => 'Aimsigh cait ar iarraidh';
+
+  @override
   String get introBody4 =>
       'An bhfeiceann tú póstaer faoi chat ar iarraidh? Glac grianghraf de san aip: sábhálann sí an cat, teagmháil an úinéara agus an áit. Má thagann fánaí cosúil leis chun cinn níos déanaí, molann an aip meaitseálacha féideartha.';
 
   @override
+  String get introBody4Neutral =>
+      'An bhfeiceann tú póstaer faoi chat ar iarraidh? Glac grianghraf de san aip: sábhálann sí an cat, teagmháil an úinéara agus an áit. Má thagann fánaí cosúil leis chun cinn níos déanaí, molann an aip meaitseálacha féideartha.';
+
+  @override
   String get spotMapSearch =>
+      'Clóscríobh cat, áit nó duine chun léim ansin ar an léarscáil.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Clóscríobh cat, áit nó duine chun léim ansin ar an léarscáil.';
 
   @override
@@ -1532,6 +1775,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Tuilleadh gníomhartha anseo: folaigh an cat, cumaisc dúbailtí, nó taifead amharc.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Tuilleadh gníomhartha anseo: folaigh an cat, cumaisc dúbailtí, nó taifead amharc.';
 
   @override
@@ -1549,6 +1796,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Níor aimsíodh cat leis an ainm sin';
+
+  @override
+  String get searchNoResultsNeutral => 'Níor aimsíodh cat leis an ainm sin';
 
   @override
   String get syncUnreachable =>
@@ -1600,6 +1850,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
+
+  @override
   String get spotHomeCatalog =>
       'Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.';
 
@@ -1608,6 +1862,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Imíonn gach rud in $name: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Imíonn gach rud in $name: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.';
   }
 
@@ -1734,6 +1993,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach cait nó clowdair.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Níl aon choinne beartaithe. Beartaigh cinn nua anseo leis an bplus, nó ar leathanach cait nó clowdair.';
 
   @override
@@ -1904,7 +2167,15 @@ class AppLocalizationsGa extends AppLocalizations {
       'Beartaigh coinne don chat seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Beartaigh coinne don chat seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Beartaigh coinne don chlowdar seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Beartaigh coinne don chlowdar seo. Feictear í sna meabhrúcháin agus deimhnítear ansin í.';
 
   @override
@@ -2012,7 +2283,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get existingCat => 'Cat atá ann';
 
   @override
+  String get existingCatNeutral => 'Cat atá ann';
+
+  @override
   String get existingClowder => 'Grúpa atá ann';
+
+  @override
+  String get existingClowderNeutral => 'Grúpa atá ann';
 
   @override
   String get createNewInstead => 'Ceann ar bith — cruthaigh nua';
@@ -2038,14 +2315,29 @@ class AppLocalizationsGa extends AppLocalizations {
   String get catsOnAppointment => 'Cait ar an gcoinne seo';
 
   @override
+  String get catsOnAppointmentNeutral => 'Cait ar an gcoinne seo';
+
+  @override
   String get noCatsHint =>
+      'Níl aon chat ticeáilte — is leis an gcoilíneacht féin an choinne.';
+
+  @override
+  String get noCatsHintNeutral =>
       'Níl aon chat ticeáilte — is leis an gcoilíneacht féin an choinne.';
 
   @override
   String get pickCatsTitle => 'Cé na cait a thagann?';
 
   @override
+  String get pickCatsTitleNeutral => 'Cé na cait a thagann?';
+
+  @override
   String catsCount(int count) {
+    return '$count chat';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count chat';
   }
 
@@ -2054,7 +2346,16 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bain an tic de na cait nár cuireadh cóir leighis orthu; fanann siad pleanáilte.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Bain an tic de na cait nár cuireadh cóir leighis orthu; fanann siad pleanáilte.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Scrios an choinne do na $count chat ar fad';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Scrios an choinne do na $count chat ar fad';
   }
 }

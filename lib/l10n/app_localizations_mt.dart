@@ -29,7 +29,14 @@ class AppLocalizationsMt extends AppLocalizations {
   String get clowders => 'Clowders';
 
   @override
+  String get clowdersNeutral => 'Clowders';
+
+  @override
   String get noClowdersYet =>
+      'Għad m\'hemmx clowders. Clowder huwa post fejn jgħixu l-qtates — id-dar tal-fostering tiegħek, appartament ta\' min jadotta. Oħloq l-ewwel wieħed hawn taħt.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Għad m\'hemmx clowders. Clowder huwa post fejn jgħixu l-qtates — id-dar tal-fostering tiegħek, appartament ta\' min jadotta. Oħloq l-ewwel wieħed hawn taħt.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get searchCats => 'Fittex qtates';
+
+  @override
+  String get searchCatsNeutral => 'Fittex qtates';
 
   @override
   String get map => 'Mappa';
@@ -55,6 +65,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get newClowder => 'Clowder ġdid';
+
+  @override
+  String get newClowderNeutral => 'Clowder ġdid';
 
   @override
   String get name => 'Isem';
@@ -89,6 +102,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get renameClowder => 'Ibdel isem il-clowder';
 
   @override
+  String get renameClowderNeutral => 'Ibdel isem il-clowder';
+
+  @override
   String get rename => 'Ibdel l-isem';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsMt extends AppLocalizations {
   String get deleteClowder => 'Ħassar il-clowder';
 
   @override
+  String get deleteClowderNeutral => 'Ħassar il-clowder';
+
+  @override
   String get cats => 'Qtates';
+
+  @override
+  String get catsNeutral => 'Qtates';
 
   @override
   String get addCat => 'Żid qattus';
 
   @override
+  String get addCatNeutral => 'Żid qattus';
+
+  @override
   String get newCat => 'Qattus ġdid';
+
+  @override
+  String get newCatNeutral => 'Qattus ġdid';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,16 @@ class AppLocalizationsMt extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Il-clowder jisparixxi mil-lista.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'Il-clowder jisparixxi mil-lista.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Il-qtates tiegħu ($count) ma jitħassrux — isiru tat-triq. Mexxihom l-ewwel fi clowder ieħor jekk mhux dan li trid.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Il-qtates tiegħu ($count) ma jitħassrux — isiru tat-triq. Mexxihom l-ewwel fi clowder ieħor jekk mhux dan li trid.';
   }
 
@@ -143,16 +180,28 @@ class AppLocalizationsMt extends AppLocalizations {
   String get renameCat => 'Ibdel isem il-qattus';
 
   @override
+  String get renameCatNeutral => 'Ibdel isem il-qattus';
+
+  @override
   String get seenHereNow => 'Rajtu hawn issa';
 
   @override
   String get deleteCat => 'Ħassar il-qattus';
 
   @override
+  String get deleteCatNeutral => 'Ħassar il-qattus';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Clowder';
+
+  @override
   String get strayNoClowder => 'Tat-triq — bla clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Tat-triq — bla clowder';
 
   @override
   String get stray => 'Tat-triq';
@@ -181,6 +230,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Il-qattus jisparixxi mil-listi kollha u r-ritratti tiegħu jitneħħew — hawn u, wara s-sync li jmiss, fuq l-apparati l-oħra wkoll.';
 
   @override
@@ -235,6 +288,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Jiskennja l-QR/barcode stampat mill-karta taċ-ċippa jew mid-dokumenti tal-veterinarju — it-telefon ma jistax jaqra ċ-ċippa ġol-qattus.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Jiskennja l-QR/barcode stampat mill-karta taċ-ċippa jew mid-dokumenti tal-veterinarju — it-telefon ma jistax jaqra ċ-ċippa ġol-qattus.';
+
+  @override
   String get savingLabel => 'Qed jissejvja…';
 
   @override
@@ -259,6 +316,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get catList => 'Lista tal-qtates';
+
+  @override
+  String get catListNeutral => 'Lista tal-qtates';
 
   @override
   String get matchCandidatesTitle => 'Tqabbil possibbli';
@@ -321,6 +381,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get importShareTitle => 'Timporta dan il-qattus?';
 
   @override
+  String get importShareTitleNeutral => 'Timporta dan il-qattus?';
+
+  @override
   String shareSource(String url) {
     return 'Sors: $url';
   }
@@ -339,6 +402,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Għad m\'hemmx qtates mitlufa b\'pożizzjonijiet ta\' fliers.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Għad m\'hemmx qtates mitlufa b\'pożizzjonijiet ta\' fliers.';
 
   @override
@@ -419,6 +486,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
 
   @override
+  String get malePregnantNeutral =>
+      'Dan il-qattus huwa rreġistrat bħala raġel — qattus raġel ma jistax ikun tqil. L-ewwel iċċekkja s-sess.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name hija rreġistrata bħala mara u ma tistax tkun il-missier. L-ewwel iċċekkja s-sess.';
   }
@@ -434,7 +505,16 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name twieled fi $date — ġenitur ma jistax jitwieled wara l-ferħ tiegħu.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Dan il-qattus huwa rreġistrat bħala missier ta\' qtates oħra — il-missier ma jistax ikun mara. L-ewwel iċċekkja l-familja.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Dan il-qattus huwa rreġistrat bħala missier ta\' qtates oħra — il-missier ma jistax ikun mara. L-ewwel iċċekkja l-familja.';
 
   @override
@@ -442,10 +522,17 @@ class AppLocalizationsMt extends AppLocalizations {
       'Dan il-qattus huwa rreġistrat bħala omm ta\' qtates oħra — l-omm ma tistax tkun raġel. L-ewwel iċċekkja l-familja.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Dan il-qattus huwa rreġistrat bħala omm ta\' qtates oħra — l-omm ma tistax tkun raġel. L-ewwel iċċekkja l-familja.';
+
+  @override
   String get moveTo => 'Mexxi lejn';
 
   @override
   String get noClowderStrayOption => 'Bla clowder — tat-triq / ħarab';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'Bla clowder — tat-triq / ħarab';
 
   @override
   String timelineOf(String name) {
@@ -535,7 +622,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get forCats => 'qtates';
 
   @override
+  String get forCatsNeutral => 'qtates';
+
+  @override
   String get forClowders => 'clowders';
+
+  @override
+  String get forClowdersNeutral => 'clowders';
 
   @override
   String get forBoth => 'it-tnejn';
@@ -566,6 +659,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Fittex qtates bl-isem…';
+
+  @override
+  String get searchByNameHintNeutral => 'Fittex qtates bl-isem…';
 
   @override
   String get host => 'Ospita';
@@ -688,7 +784,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get kindCat => 'qattus';
 
   @override
+  String get kindCatNeutral => 'qattus';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'clowder';
 
   @override
   String get kindField => 'qasam';
@@ -704,6 +806,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Katalgu lokali għal qtates f\'fostering. Id-data tiegħek tibqa\' fuq l-apparati tiegħek — l-ebda server, l-ebda kont.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Katalgu lokali għal qtates f\'fostering. Id-data tiegħek tibqa\' fuq l-apparati tiegħek — l-ebda server, l-ebda kont.';
 
   @override
@@ -832,6 +938,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get stepCat => 'Qattus';
 
   @override
+  String get stepCatNeutral => 'Qattus';
+
+  @override
   String get stepOwner => 'Sid';
 
   @override
@@ -848,11 +957,23 @@ class AppLocalizationsMt extends AppLocalizations {
       'Min tilef il-qattus — minn dan isir il-clowder tiegħu, bil-kuntatt mill-flier.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Min tilef il-qattus — minn dan isir il-clowder tiegħu, bil-kuntatt mill-flier.';
+
+  @override
   String get stepFaceHint =>
       'Aqta\' wiċċ il-qattus mill-flier; isir ir-ritratt tal-profil. Tista\' taqbeż dan.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Aqta\' wiċċ il-qattus mill-flier; isir ir-ritratt tal-profil. Tista\' taqbeż dan.';
+
+  @override
   String get stepRegistryHint =>
+      'Numri misjuba fuq il-flier. Dawk immarkati jinżammu mal-qattus u jinfetħu wara.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Numri misjuba fuq il-flier. Dawk immarkati jinżammu mal-qattus u jinfetħu wara.';
 
   @override
@@ -902,7 +1023,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.';
 
   @override
+  String get helpHomeNeutral =>
+      'Il-ħarsa ġenerali tal-kolonji tiegħek — kolonja hija post fejn jgħixu l-qtates: darek, dar ta\' fostering, kenn. Agħfas kard biex tara l-qtates tagħha; għafsa twila tiftaħ il-menu. Il-buttuna t\'isfel lemin toħloq kolonja, u l-kard tal-qtates tat-triq tiġbor kull qattus bla dar. L-isem fuq nett huwa l-katalgu li qiegħed fih — agħfsu biex tibdel jew iżżid.';
+
+  @override
   String get helpClowder =>
+      'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi qtates tal-kolonja, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-qtates li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati.';
+
+  @override
+  String get helpClowderNeutral =>
       'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi qtates tal-kolonja, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-qtates li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati.';
 
   @override
@@ -910,7 +1039,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam.';
 
   @override
+  String get helpCatNeutral =>
+      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam.';
+
+  @override
   String get helpStrays =>
+      'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. Mess Stray Cam għal ritratt; żomm magħfus biex tiffilmja vidjo u żomm l-aħjar frames bħala ritratti.';
+
+  @override
+  String get helpStraysNeutral =>
       'Qtates li bħalissa m\'għandhomx dar: misjuba, maħruba jew minn flier. Il-buttuna tal-kamera tniżżel qattus quddiemek; il-buttuna tal-flier tibdel poster ta\' qattus mitluf f\'qattus bil-kuntatt tas-sid; l-iskaner jaqra kodiċi cat(a)log mill-poster. Mess Stray Cam għal ritratt; żomm magħfus biex tiffilmja vidjo u żomm l-aħjar frames bħala ritratti.';
 
   @override
@@ -918,7 +1055,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
 
   @override
+  String get helpMapNeutral =>
+      'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
+
+  @override
   String get helpCard =>
+      'Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x\'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma\' Plus Code qasir.';
+
+  @override
+  String get helpCardNeutral =>
       'Il-kard tal-qattus għall-istampar: fuq, bil-chips, tagħżel x\'jidher fuqha, imbagħad taqsamha bħala stampa jew PDF. In-numri jistgħu jiġu stampati bħala QR jew barcode, u pożizzjoni ssir QR li jiftaħ mappa, flimkien ma\' Plus Code qasir.';
 
   @override
@@ -930,6 +1075,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta\' qasam ta\' għażla, jew oħloq tiegħek. Qasam ta\' identifikatur jista\' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.';
 
   @override
+  String get helpFieldsNeutral =>
+      'L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta\' qasam ta\' għażla, jew oħloq tiegħek. Qasam ta\' identifikatur jista\' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.';
+
+  @override
   String get helpTimeline =>
       'Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista\' titreġġa\' lura — dan jikteb entrata ġdida, xejn ma jitħassar.';
 
@@ -938,7 +1087,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b\'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa\' lura, għalhekk tistaqsi l-ewwel.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b\'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa\' lura, għalhekk tistaqsi l-ewwel.';
+
+  @override
   String get helpMatches =>
+      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
 
   @override
@@ -946,10 +1103,18 @@ class AppLocalizationsMt extends AppLocalizations {
       'Poster mitfugħ f\'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta\' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.';
 
   @override
+  String get helpFlierNeutral =>
+      'Poster mitfugħ f\'ritratt isir qattus flimkien mas-sid tiegħu. Pass pass: id-data tal-qattus, il-kuntatt tas-sid, qtugħ tal-wiċċ għar-ritratt tal-profil, numri ta\' reġistri mill-poster, imbagħad verifika finali. Kollox suġġeriment — irranġa dak li l-kamera qrat ħażin.';
+
+  @override
   String get archiveTitle => 'Arkivju';
 
   @override
   String get archiveExplainer =>
+      'Qtates mejta u kolonji vojta li ħadd ma messhom għal snin xorta jieħdu spazju — l-aktar ir-ritratti tagħhom. L-arkivjar jiktibhom f\'fajl li żżomm int u mbagħad iħassarhom minn hawn.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Qtates mejta u kolonji vojta li ħadd ma messhom għal snin xorta jieħdu spazju — l-aktar ir-ritratti tagħhom. L-arkivjar jiktibhom f\'fajl li żżomm int u mbagħad iħassarhom minn hawn.';
 
   @override
@@ -1001,6 +1166,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Data qadima tiswa spazju, l-aktar ir-ritratti li kull apparat sinkronizzat iġorr. Hawn tagħżel qtates mejta u kolonji vojta li ilhom kwieti snin, tiktibhom f\'fajl li żżomm, u tħassarhom. It-tħassir jasal għand kull min tissinkronizza miegħu; l-importazzjoni tal-fajl treġġa\' kollox lura.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Data qadima tiswa spazju, l-aktar ir-ritratti li kull apparat sinkronizzat iġorr. Hawn tagħżel qtates mejta u kolonji vojta li ilhom kwieti snin, tiktibhom f\'fajl li żżomm, u tħassarhom. It-tħassir jasal għand kull min tissinkronizza miegħu; l-importazzjoni tal-fajl treġġa\' kollox lura.';
 
   @override
@@ -1058,6 +1227,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get markTitle => 'Immarka l-qattus';
 
   @override
+  String get markTitleNeutral => 'Immarka l-qattus';
+
+  @override
   String get applyCrop => 'Aqta';
 
   @override
@@ -1067,7 +1239,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get dragToSelect => 'Iġbed rettangolu madwar il-qattus';
 
   @override
+  String get dragToSelectNeutral => 'Iġbed rettangolu madwar il-qattus';
+
+  @override
   String get dragOverTheCat => 'Iġbed ellissi fuq il-qattus';
+
+  @override
+  String get dragOverTheCatNeutral => 'Iġbed ellissi fuq il-qattus';
 
   @override
   String get cropPhoto => 'Aqta\'…';
@@ -1151,6 +1329,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Unitajiet';
+
+  @override
+  String get catalogHolds => 'Dan il-katalgu fih';
+
+  @override
+  String get modeCats => 'Qtates';
+
+  @override
+  String get modePets => 'Annimali domestiċi';
 
   @override
   String get graphLabel => 'Graff';
@@ -1243,6 +1430,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfetti u ferħ meta qattus imur f\'daru';
+
+  @override
   String get onMapLabel => 'Fuq il-mappa';
 
   @override
@@ -1256,6 +1447,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Fittex qtates, gruppi, nies';
+
+  @override
+  String get mapSearchHintNeutral => 'Fittex qtates, gruppi, nies';
 
   @override
   String get proposeAnotherName => 'Ipproponi isem ieħor';
@@ -1336,6 +1530,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get kittensLabel => 'Frieħ';
 
   @override
+  String get kittensLabelNeutral => 'Frieħ';
+
+  @override
   String get toastSettingsTitle => 'X\'għandu jitħabbar';
 
   @override
@@ -1363,6 +1560,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Fellus ġdid: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Fellus ġdid: $cat ✨';
   }
 
@@ -1452,10 +1654,20 @@ class AppLocalizationsMt extends AppLocalizations {
   String get selectClowderHint => 'Agħżel clowder fuq ix-xellug';
 
   @override
+  String get selectClowderHintNeutral => 'Agħżel clowder fuq ix-xellug';
+
+  @override
   String get introTitle1 => 'Il-qtates tiegħek, organizzati';
 
   @override
+  String get introTitle1Neutral => 'Il-qtates tiegħek, organizzati';
+
+  @override
   String get introBody1 =>
+      'Oħloq kard għal kull qattus: ritratt, sess, saħħa, kulma trid tniżżel. Il-qtates huma miġbura skont fejn jgħixu — l-app issejjaħ dak il-post kolonja (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Oħloq kard għal kull qattus: ritratt, sess, saħħa, kulma trid tniżżel. Il-qtates huma miġbura skont fejn jgħixu — l-app issejjaħ dak il-post kolonja (clowder).';
 
   @override
@@ -1493,6 +1705,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Din il-kard tiġbor il-qtates tat-triq kollha — qtates bla dar. Għafas għal-lista.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Din il-kard tiġbor il-qtates tat-triq kollha — qtates bla dar. Għafas għal-lista.';
+
+  @override
   String get spotHomeMenu =>
       'F\'dan il-menu: sib u għaqqad id-duplikati, esporta CSV u aktar.';
 
@@ -1501,7 +1717,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Għafas fuq il-lapes biex teditja dan il-qattus. Ħjiel: għafsa twila fuq qasam teditjah direttament.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Għafas fuq il-lapes biex teditja dan il-qattus. Ħjiel: għafsa twila fuq qasam teditjah direttament.';
+
+  @override
   String get spotMapLayers =>
+      'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu u madwar id-dar li ħarab minnha.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Qed tfittex qattus mitluf? Uri ċrieki madwar il-postijiet tal-fliers tiegħu u madwar id-dar li ħarab minnha.';
 
   @override
@@ -1509,18 +1733,37 @@ class AppLocalizationsMt extends AppLocalizations {
       'Flier ta\' qattus mitluf? Ħu ritratt tiegħu hawn — l-app iżżomm il-qattus u l-kuntatt għalik.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Flier ta\' qattus mitluf? Ħu ritratt tiegħu hawn — l-app iżżomm il-qattus u l-kuntatt għalik.';
+
+  @override
   String get spotStraysScan =>
+      'Xi fliers għandhom kodiċi QR ta\' cat(a)log. Skennjah hawn u importa l-qattus mingħajr ma tikteb.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Xi fliers għandhom kodiċi QR ta\' cat(a)log. Skennjah hawn u importa l-qattus mingħajr ma tikteb.';
 
   @override
   String get introTitle4 => 'Sib il-qtates mitlufa';
 
   @override
+  String get introTitle4Neutral => 'Sib il-qtates mitlufa';
+
+  @override
   String get introBody4 =>
       'Tara flier ta\' qattus mitluf? Ħu ritratt tiegħu fl-app: iżżomm il-qattus, il-kuntatt ta\' sidu u l-post. Jekk aktar tard jitfaċċa qattus tat-triq simili, l-app tissuġġerixxi tqabbil possibbli.';
 
   @override
+  String get introBody4Neutral =>
+      'Tara flier ta\' qattus mitluf? Ħu ritratt tiegħu fl-app: iżżomm il-qattus, il-kuntatt ta\' sidu u l-post. Jekk aktar tard jitfaċċa qattus tat-triq simili, l-app tissuġġerixxi tqabbil possibbli.';
+
+  @override
   String get spotMapSearch =>
+      'Ikteb qattus, post jew persuna biex taqbeż hemm fuq il-mappa.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Ikteb qattus, post jew persuna biex taqbeż hemm fuq il-mappa.';
 
   @override
@@ -1529,6 +1772,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Hawn aktar azzjonijiet: aħbi l-qattus, għaqqad id-duplikati, jew irreġistra dehra.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Hawn aktar azzjonijiet: aħbi l-qattus, għaqqad id-duplikati, jew irreġistra dehra.';
 
   @override
@@ -1545,6 +1792,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Ma nstab l-ebda qattus b\'dak l-isem';
+
+  @override
+  String get searchNoResultsNeutral => 'Ma nstab l-ebda qattus b\'dak l-isem';
 
   @override
   String get syncUnreachable =>
@@ -1596,6 +1846,10 @@ class AppLocalizationsMt extends AppLocalizations {
       'Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
+
+  @override
   String get spotHomeCatalog =>
       'Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.';
 
@@ -1604,6 +1858,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Kollox f’$name jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Kollox f’$name jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.';
   }
 
@@ -1730,6 +1989,10 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta\' qattus jew clowder.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta\' qattus jew clowder.';
 
   @override
@@ -1898,7 +2161,15 @@ class AppLocalizationsMt extends AppLocalizations {
       'Ippjana appuntament għal dan il-qattus. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Ippjana appuntament għal dan il-qattus. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Ippjana appuntament għal dan il-clowder. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Ippjana appuntament għal dan il-clowder. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.';
 
   @override
@@ -2005,7 +2276,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get existingCat => 'Qattus eżistenti';
 
   @override
+  String get existingCatNeutral => 'Qattus eżistenti';
+
+  @override
   String get existingClowder => 'Grupp eżistenti';
+
+  @override
+  String get existingClowderNeutral => 'Grupp eżistenti';
 
   @override
   String get createNewInstead => 'Xejn — oħloq ġdid';
@@ -2031,14 +2308,29 @@ class AppLocalizationsMt extends AppLocalizations {
   String get catsOnAppointment => 'Qtates f\'dan l-appuntament';
 
   @override
+  String get catsOnAppointmentNeutral => 'Qtates f\'dan l-appuntament';
+
+  @override
   String get noCatsHint =>
+      'L-ebda qattus immarkat — l-appuntament hu tal-kolonja stess.';
+
+  @override
+  String get noCatsHintNeutral =>
       'L-ebda qattus immarkat — l-appuntament hu tal-kolonja stess.';
 
   @override
   String get pickCatsTitle => 'Liema qtates ġejjin?';
 
   @override
+  String get pickCatsTitleNeutral => 'Liema qtates ġejjin?';
+
+  @override
   String catsCount(int count) {
+    return '$count qtates';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count qtates';
   }
 
@@ -2047,7 +2339,16 @@ class AppLocalizationsMt extends AppLocalizations {
       'Neħħi l-marka mill-qtates li ma ġewx ittrattati; jibqgħu ppjanati.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Neħħi l-marka mill-qtates li ma ġewx ittrattati; jibqgħu ppjanati.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Ħassar l-appuntament għall-$count qtates kollha';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Ħassar l-appuntament għall-$count qtates kollha';
   }
 }

@@ -24,6 +24,7 @@ import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'cat_list_screen.dart';
 import '../exclusive.dart';
+import '../pet_mode.dart';
 
 /// The map: Strays at their latest position, Clowders as home pins.
 /// Long-press places a Clowder or records a Stray sighting at that spot.
@@ -433,9 +434,7 @@ class _MapScreenState extends State<MapScreen>
         backgroundImage:
             photo != null ? ResizeImage(photo, width: 96) : null,
         child: photo == null
-            ? const CustomPaint(
-                size: Size(24, 24),
-                painter: _CatSilhouettePainter(Colors.deepOrange))
+            ? _placeholder()
             : null,
       ),
     );
@@ -464,13 +463,17 @@ class _MapScreenState extends State<MapScreen>
                 image: ResizeImage(photo, width: 96), fit: BoxFit.cover)
             : null,
       ),
-      child: photo == null
-          ? const CustomPaint(
-              size: Size(24, 24),
-              painter: _CatSilhouettePainter(Colors.deepOrange))
-          : null,
+      child: photo == null ? _placeholder() : null,
     );
   }
+
+  /// The face of an animal without a photo: the cat silhouette, or a
+  /// paw in pet mode (#93).
+  Widget _placeholder() => petMode.value
+      ? const Icon(Icons.pets, size: 24, color: Colors.deepOrange)
+      : const CustomPaint(
+          size: Size(24, 24),
+          painter: _CatSilhouettePainter(Colors.deepOrange));
 
   /// A clowder's own photo in a rounded-square ring — visually distinct
   /// from the round cat faces; house silhouette only as placeholder.

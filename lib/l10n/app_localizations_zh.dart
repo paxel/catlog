@@ -28,13 +28,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clowders => '猫群';
 
   @override
+  String get clowdersNeutral => '猫群';
+
+  @override
   String get noClowdersYet => '还没有猫群。猫群是猫居住的地方——你的寄养家庭、领养人的公寓。在下方创建第一个吧。';
+
+  @override
+  String get noClowdersYetNeutral =>
+      '还没有猫群。猫群是猫居住的地方——你的寄养家庭、领养人的公寓。在下方创建第一个吧。';
 
   @override
   String get strays => '流浪猫';
 
   @override
   String get searchCats => '搜索猫';
+
+  @override
+  String get searchCatsNeutral => '搜索猫';
 
   @override
   String get map => '地图';
@@ -53,6 +63,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get newClowder => '新建猫群';
+
+  @override
+  String get newClowderNeutral => '新建猫群';
 
   @override
   String get name => '名字';
@@ -87,6 +100,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get renameClowder => '重命名猫群';
 
   @override
+  String get renameClowderNeutral => '重命名猫群';
+
+  @override
   String get rename => '重命名';
 
   @override
@@ -99,13 +115,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteClowder => '删除猫群';
 
   @override
+  String get deleteClowderNeutral => '删除猫群';
+
+  @override
   String get cats => '猫';
+
+  @override
+  String get catsNeutral => '猫';
 
   @override
   String get addCat => '添加猫';
 
   @override
+  String get addCatNeutral => '添加猫';
+
+  @override
   String get newCat => '新的猫';
+
+  @override
+  String get newCatNeutral => '新的猫';
 
   @override
   String deleteQuestion(String name) {
@@ -116,7 +144,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteClowderEmptyBody => '该猫群将从列表中消失。';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => '该猫群将从列表中消失。';
+
+  @override
   String deleteClowderBody(int count) {
+    return '它的 $count 只猫不会被删除——它们会变成流浪猫。如果这不是你想要的，请先把它们移到别的猫群。';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return '它的 $count 只猫不会被删除——它们会变成流浪猫。如果这不是你想要的，请先把它们移到别的猫群。';
   }
 
@@ -141,16 +177,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get renameCat => '重命名猫';
 
   @override
+  String get renameCatNeutral => '重命名猫';
+
+  @override
   String get seenHereNow => '刚在这里见到';
 
   @override
   String get deleteCat => '删除猫';
 
   @override
+  String get deleteCatNeutral => '删除猫';
+
+  @override
   String get clowderLabel => '猫群';
 
   @override
+  String get clowderLabelNeutral => '猫群';
+
+  @override
   String get strayNoClowder => '流浪猫 — 无猫群';
+
+  @override
+  String get strayNoClowderNeutral => '流浪猫 — 无猫群';
 
   @override
   String get stray => '流浪猫';
@@ -178,6 +226,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get deleteCatBody => '这只猫将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      '这只猫将从所有列表中消失，照片也会被删除——本机立即生效，下次同步后其他设备也一样。';
 
   @override
   String get sightingRecorded => '已在你的位置记录目击。';
@@ -224,6 +276,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get chipScanHint => '扫描芯片卡或兽医文件上印刷的二维码/条形码——手机无法读取猫体内的芯片。';
 
   @override
+  String get chipScanHintNeutral => '扫描芯片卡或兽医文件上印刷的二维码/条形码——手机无法读取猫体内的芯片。';
+
+  @override
   String get savingLabel => '正在保存…';
 
   @override
@@ -248,6 +303,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get catList => '猫列表';
+
+  @override
+  String get catListNeutral => '猫列表';
 
   @override
   String get matchCandidatesTitle => '疑似匹配';
@@ -307,6 +365,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get importShareTitle => '导入这只猫？';
 
   @override
+  String get importShareTitleNeutral => '导入这只猫？';
+
+  @override
   String shareSource(String url) {
     return '来源：$url';
   }
@@ -325,6 +386,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noMissingCats => '还没有带启事位置的走失猫。';
+
+  @override
+  String get noMissingCatsNeutral => '还没有带启事位置的走失猫。';
 
   @override
   String get noMatchCandidates => '当前没有疑似匹配。';
@@ -401,6 +465,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get malePregnant => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
 
   @override
+  String get malePregnantNeutral => '这只猫登记为公猫——公猫不可能怀孕。请先检查性别。';
+
+  @override
   String fatherNotMale(String name) {
     return '$name登记为母猫，不能作为父亲。请先检查性别。';
   }
@@ -416,16 +483,30 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name出生于$date——父母不可能晚于幼崽出生。';
+  }
+
+  @override
   String get genderFatherFemale => '这只猫登记为其他猫的父亲——父亲不能是母猫。请先检查家庭关系。';
 
   @override
+  String get genderFatherFemaleNeutral => '这只猫登记为其他猫的父亲——父亲不能是母猫。请先检查家庭关系。';
+
+  @override
   String get genderMotherMale => '这只猫登记为其他猫的母亲——母亲不能是公猫。请先检查家庭关系。';
+
+  @override
+  String get genderMotherMaleNeutral => '这只猫登记为其他猫的母亲——母亲不能是公猫。请先检查家庭关系。';
 
   @override
   String get moveTo => '移动到';
 
   @override
   String get noClowderStrayOption => '无猫群 — 流浪／跑掉了';
+
+  @override
+  String get noClowderStrayOptionNeutral => '无猫群 — 流浪／跑掉了';
 
   @override
   String timelineOf(String name) {
@@ -514,7 +595,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get forCats => '猫';
 
   @override
+  String get forCatsNeutral => '猫';
+
+  @override
   String get forClowders => '猫群';
+
+  @override
+  String get forClowdersNeutral => '猫群';
 
   @override
   String get forBoth => '两者';
@@ -545,6 +632,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get searchByNameHint => '按名字搜索猫…';
+
+  @override
+  String get searchByNameHintNeutral => '按名字搜索猫…';
 
   @override
   String get host => '主机';
@@ -664,7 +754,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get kindCat => '猫';
 
   @override
+  String get kindCatNeutral => '猫';
+
+  @override
   String get kindClowder => '猫群';
+
+  @override
+  String get kindClowderNeutral => '猫群';
 
   @override
   String get kindField => '字段';
@@ -680,6 +776,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aboutTagline => '本地优先的寄养猫目录。数据只留在你的设备上——没有服务器，没有账号。';
+
+  @override
+  String get aboutTaglineNeutral => '本地优先的寄养猫目录。数据只留在你的设备上——没有服务器，没有账号。';
 
   @override
   String versionLabel(String version, String build) {
@@ -805,6 +904,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepCat => '猫';
 
   @override
+  String get stepCatNeutral => '猫';
+
+  @override
   String get stepOwner => '主人';
 
   @override
@@ -820,10 +922,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepOwnerHint => '寻猫的人——这里会生成他的猫群，附上启事上的联系方式。';
 
   @override
+  String get stepOwnerHintNeutral => '寻猫的人——这里会生成他的猫群，附上启事上的联系方式。';
+
+  @override
   String get stepFaceHint => '从启事中裁出猫的脸，作为头像。此步可跳过。';
 
   @override
+  String get stepFaceHintNeutral => '从启事中裁出猫的脸，作为头像。此步可跳过。';
+
+  @override
   String get stepRegistryHint => '在启事上找到的号码。勾选的会保存到猫，之后可以打开。';
+
+  @override
+  String get stepRegistryHintNeutral => '在启事上找到的号码。勾选的会保存到猫，之后可以打开。';
 
   @override
   String get noRegistryLinks => '这张启事没有登记服务链接——如有遗漏，请报告 bug。';
@@ -869,7 +980,15 @@ class AppLocalizationsZh extends AppLocalizations {
       '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。 顶部的名称是你当前所在的目录，点按即可切换或新建。';
 
   @override
+  String get helpHomeNeutral =>
+      '你的猫群概览——猫群是猫生活的地方：你家、寄养家庭、收容所。点按卡片查看其中的猫；长按打开菜单。右下角按钮新建猫群，流浪猫卡片汇集所有没有家的猫。 顶部的名称是你当前所在的目录，点按即可切换或新建。';
+
+  @override
   String get helpClowder =>
+      '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。 在此添加的预约可以带上猫群中的多只猫，例如一次绝育出行：勾选同去的猫，一次完成，取消勾选未处理的猫。';
+
+  @override
+  String get helpClowderNeutral =>
       '关于这个地方的一切：它的猫、字段（地址、联系方式、类型）和历史。页面默认只读；铅笔开启编辑，在那里也能新增字段。长按字段可直接编辑，长按猫可移动、隐藏或打开它。 在此添加的预约可以带上猫群中的多只猫，例如一次绝育出行：勾选同去的猫，一次完成，取消勾选未处理的猫。';
 
   @override
@@ -877,7 +996,15 @@ class AppLocalizationsZh extends AppLocalizations {
       '关于这只猫的一切：照片、字段、家庭、历史。在点击铅笔之前页面为只读。长按字段可直接编辑；长按照片打开其菜单。右上角菜单包含其余操作：隐藏、合并、记录目击、分享这只猫。私密在编辑字段时设置。';
 
   @override
+  String get helpCatNeutral =>
+      '关于这只猫的一切：照片、字段、家庭、历史。在点击铅笔之前页面为只读。长按字段可直接编辑；长按照片打开其菜单。右上角菜单包含其余操作：隐藏、合并、记录目击、分享这只猫。私密在编辑字段时设置。';
+
+  @override
   String get helpStrays =>
+      '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。 点按 Stray Cam 拍照；长按录制视频，并把最佳画面保留为照片。';
+
+  @override
+  String get helpStraysNeutral =>
       '当前没有家的猫：捡到的、走失的，或来自启事的猫。相机按钮记录眼前的猫；启事按钮把寻猫启事变成一只带主人联系方式的猫；扫描器读取启事上的 cat(a)log 码。 点按 Stray Cam 拍照；长按录制视频，并把最佳画面保留为照片。';
 
   @override
@@ -885,7 +1012,15 @@ class AppLocalizationsZh extends AppLocalizations {
       '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
 
   @override
+  String get helpMapNeutral =>
+      '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
+
+  @override
   String get helpCard =>
+      '这只猫的可打印卡片：用顶部的标签选择卡片内容，然后以图片或 PDF 分享。编号可打印为二维码或条形码，位置会变成打开地图的二维码，外加一个简短的 Plus Code。';
+
+  @override
+  String get helpCardNeutral =>
       '这只猫的可打印卡片：用顶部的标签选择卡片内容，然后以图片或 PDF 分享。编号可打印为二维码或条形码，位置会变成打开地图的二维码，外加一个简短的 Plus Code。';
 
   @override
@@ -897,6 +1032,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在猫页面上就能点按。';
 
   @override
+  String get helpFieldsNeutral =>
+      '你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在猫页面上就能点按。';
+
+  @override
   String get helpTimeline =>
       '所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。';
 
@@ -905,7 +1044,15 @@ class AppLocalizationsZh extends AppLocalizations {
       '看起来重复出现的猫或猫群——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。';
 
   @override
+  String get helpDuplicatesNeutral =>
+      '看起来重复出现的猫或猫群——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。';
+
+  @override
   String get helpMatches =>
+      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
+
+  @override
+  String get helpMatchesNeutral =>
       '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
 
   @override
@@ -913,10 +1060,18 @@ class AppLocalizationsZh extends AppLocalizations {
       '拍下的启事会变成一只猫和它的主人。逐步进行：猫的资料、主人联系方式、裁出头像、启事上的登记编号，最后确认。所有内容都是建议——相机认错的地方请修改。';
 
   @override
+  String get helpFlierNeutral =>
+      '拍下的启事会变成一只猫和它的主人。逐步进行：猫的资料、主人联系方式、裁出头像、启事上的登记编号，最后确认。所有内容都是建议——相机认错的地方请修改。';
+
+  @override
   String get archiveTitle => '归档';
 
   @override
   String get archiveExplainer =>
+      '多年无人过问的已故猫和空猫群仍然占用空间，尤其是它们的照片。归档会把它们写入一个由你保存的文件，然后从这里删除。';
+
+  @override
+  String get archiveExplainerNeutral =>
       '多年无人过问的已故猫和空猫群仍然占用空间，尤其是它们的照片。归档会把它们写入一个由你保存的文件，然后从这里删除。';
 
   @override
@@ -967,6 +1122,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      '旧数据占用空间，尤其是每台同步设备都要携带的照片。在这里你可以挑选多年没有变化的已故猫和空猫群，写入一个自己保存的文件，然后删除它们。删除会传达给所有与你同步的人；导入该文件可全部恢复。';
+
+  @override
+  String get helpArchiveNeutral =>
       '旧数据占用空间，尤其是每台同步设备都要携带的照片。在这里你可以挑选多年没有变化的已故猫和空猫群，写入一个自己保存的文件，然后删除它们。删除会传达给所有与你同步的人；导入该文件可全部恢复。';
 
   @override
@@ -1022,6 +1181,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get markTitle => '标记这只猫';
 
   @override
+  String get markTitleNeutral => '标记这只猫';
+
+  @override
   String get applyCrop => '裁剪';
 
   @override
@@ -1031,7 +1193,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dragToSelect => '围绕猫拖出矩形';
 
   @override
+  String get dragToSelectNeutral => '围绕猫拖出矩形';
+
+  @override
   String get dragOverTheCat => '在猫上拖出椭圆';
+
+  @override
+  String get dragOverTheCatNeutral => '在猫上拖出椭圆';
 
   @override
   String get cropPhoto => '裁剪…';
@@ -1114,6 +1282,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get unitsLabel => '单位';
+
+  @override
+  String get catalogHolds => '此目录的对象';
+
+  @override
+  String get modeCats => '猫';
+
+  @override
+  String get modePets => '宠物';
 
   @override
   String get graphLabel => '图表';
@@ -1206,6 +1383,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
+  String get celebrationsSubtitleNeutral => '猫咪搬进新家时撒彩纸并欢呼';
+
+  @override
   String get onMapLabel => '在地图上';
 
   @override
@@ -1219,6 +1399,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mapSearchHint => '搜索猫、猫群、人员';
+
+  @override
+  String get mapSearchHintNeutral => '搜索猫、猫群、人员';
 
   @override
   String get proposeAnotherName => '换一个名字';
@@ -1299,6 +1482,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get kittensLabel => '小猫';
 
   @override
+  String get kittensLabelNeutral => '小猫';
+
+  @override
   String get toastSettingsTitle => '播报内容';
 
   @override
@@ -1326,6 +1512,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ 新的小猫：$cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ 新的小猫：$cat ✨';
   }
 
@@ -1411,10 +1602,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String get selectClowderHint => '从左侧选择一个猫群';
 
   @override
+  String get selectClowderHintNeutral => '从左侧选择一个猫群';
+
+  @override
   String get introTitle1 => '猫咪井井有条';
 
   @override
+  String get introTitle1Neutral => '猫咪井井有条';
+
+  @override
   String get introBody1 =>
+      '为你照顾的每只猫建一张卡片：照片、性别、健康，任何想记录的内容。猫按居住地点分组——应用把这样的地点叫做聚落（clowder）。';
+
+  @override
+  String get introBody1Neutral =>
       '为你照顾的每只猫建一张卡片：照片、性别、健康，任何想记录的内容。猫按居住地点分组——应用把这样的地点叫做聚落（clowder）。';
 
   @override
@@ -1449,35 +1650,63 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotHomeStrays => '这张卡片汇集所有流浪猫——没有家的猫。点按查看列表。';
 
   @override
+  String get spotHomeStraysNeutral => '这张卡片汇集所有流浪猫——没有家的猫。点按查看列表。';
+
+  @override
   String get spotHomeMenu => '这个菜单里有：查找并合并重复项、导出CSV等。';
 
   @override
   String get spotCatEdit => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
 
   @override
+  String get spotCatEditNeutral => '点铅笔编辑这只猫。提示：长按任意字段可直接编辑。';
+
+  @override
   String get spotMapLayers => '在找走失的猫？可在其启事出现地点和它出走的家周围显示圆圈。';
+
+  @override
+  String get spotMapLayersNeutral => '在找走失的猫？可在其启事出现地点和它出走的家周围显示圆圈。';
 
   @override
   String get spotStraysFlier => '发现寻猫启事？在这里拍下来——应用会帮你保存猫和联系方式。';
 
   @override
+  String get spotStraysFlierNeutral => '发现寻猫启事？在这里拍下来——应用会帮你保存猫和联系方式。';
+
+  @override
   String get spotStraysScan => '有些启事带有 cat(a)log 二维码。在这里扫描即可直接导入这只猫。';
 
   @override
+  String get spotStraysScanNeutral => '有些启事带有 cat(a)log 二维码。在这里扫描即可直接导入这只猫。';
+
+  @override
   String get introTitle4 => '寻找走失的猫';
+
+  @override
+  String get introTitle4Neutral => '寻找走失的猫';
 
   @override
   String get introBody4 =>
       '看到寻猫启事？在应用里拍下来：它会保存这只猫、主人的联系方式和地点。以后出现相似的流浪猫时，应用会提示可能的匹配。';
 
   @override
+  String get introBody4Neutral =>
+      '看到寻猫启事？在应用里拍下来：它会保存这只猫、主人的联系方式和地点。以后出现相似的流浪猫时，应用会提示可能的匹配。';
+
+  @override
   String get spotMapSearch => '输入猫、地点或人名，即可在地图上跳转过去。';
+
+  @override
+  String get spotMapSearchNeutral => '输入猫、地点或人名，即可在地图上跳转过去。';
 
   @override
   String get spotCardChips => '勾选要出现在分享卡片上的内容——其余不会出现。';
 
   @override
   String get spotCatMenu => '这里有更多操作：隐藏这只猫、合并重复项或记录一次目击。';
+
+  @override
+  String get spotCatMenuNeutral => '这里有更多操作：隐藏这只猫、合并重复项或记录一次目击。';
 
   @override
   String get spotDone => '知道了';
@@ -1493,6 +1722,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get searchNoResults => '没有找到这个名字的猫';
+
+  @override
+  String get searchNoResultsNeutral => '没有找到这个名字的猫';
 
   @override
   String get syncUnreachable => '无法连接另一台设备。两台设备在同一个 Wi-Fi 上吗？';
@@ -1541,6 +1773,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。';
 
   @override
+  String get helpCatalogsNeutral =>
+      '每个目录都是独立的世界：自己的猫、群落、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。';
+
+  @override
   String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';
 
   @override
@@ -1548,6 +1784,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return '$name 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return '$name 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。';
   }
 
@@ -1672,6 +1913,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get agendaEmpty => '没有已计划的安排。可以在这里用加号，或在猫或猫群的页面上计划新的安排。';
+
+  @override
+  String get agendaEmptyNeutral => '没有已计划的安排。可以在这里用加号，或在猫或猫群的页面上计划新的安排。';
 
   @override
   String get dueToday => '今天到期';
@@ -1823,7 +2067,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get spotAddReminderCat => '为这只猫计划一次安排。它会显示在日程中，并在那里确认。';
 
   @override
+  String get spotAddReminderCatNeutral => '为这只猫计划一次安排。它会显示在日程中，并在那里确认。';
+
+  @override
   String get spotAddReminderClowder => '为这个猫群计划一次安排。它会显示在日程中，并在那里确认。';
+
+  @override
+  String get spotAddReminderClowderNeutral => '为这个猫群计划一次安排。它会显示在日程中，并在那里确认。';
 
   @override
   String get readOnlyCalendar => '只读';
@@ -1926,7 +2176,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get existingCat => '现有的猫';
 
   @override
+  String get existingCatNeutral => '现有的猫';
+
+  @override
   String get existingClowder => '现有的群';
+
+  @override
+  String get existingClowderNeutral => '现有的群';
 
   @override
   String get createNewInstead => '无 — 新建';
@@ -1952,10 +2208,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get catsOnAppointment => '此预约中的猫';
 
   @override
+  String get catsOnAppointmentNeutral => '此预约中的猫';
+
+  @override
   String get noCatsHint => '未勾选任何猫 — 该预约属于猫群本身。';
 
   @override
+  String get noCatsHintNeutral => '未勾选任何猫 — 该预约属于猫群本身。';
+
+  @override
   String get pickCatsTitle => '哪些猫一起去？';
+
+  @override
+  String get pickCatsTitleNeutral => '哪些猫一起去？';
 
   @override
   String catsCount(int count) {
@@ -1963,10 +2228,23 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count 只猫';
+  }
+
+  @override
   String get finishUntickHint => '取消勾选未接受处理的猫；它们仍保持计划中。';
 
   @override
+  String get finishUntickHintNeutral => '取消勾选未接受处理的猫；它们仍保持计划中。';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return '删除全部 $count 只猫的预约';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return '删除全部 $count 只猫的预约';
   }
 }

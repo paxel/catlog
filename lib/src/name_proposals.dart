@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
+import 'pet_mode.dart';
 
 /// Offline name proposals: a big global list (classics, ancient/mythic,
 /// funny) merged with a small bonus list for the active language.
@@ -25,10 +26,13 @@ Future<List<String>> _load(String asset) async {
 }
 
 Future<String?> proposeCatName(CatalogStore store, Locale locale) async {
-  final pool = [
-    ...await _load('assets/names/global.txt'),
-    ...await _load('assets/names/${locale.languageCode}.txt'),
-  ];
+  // Pet mode draws from one neutral list: a dog is not called Miezi.
+  final pool = petMode.value
+      ? await _load('assets/names/pets.txt')
+      : [
+          ...await _load('assets/names/global.txt'),
+          ...await _load('assets/names/${locale.languageCode}.txt'),
+        ];
   final used = {
     for (final c in store.cats()) c.name.toLowerCase().trim(),
   };

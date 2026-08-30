@@ -29,7 +29,14 @@ class AppLocalizationsRo extends AppLocalizations {
   String get clowders => 'Clowdere';
 
   @override
+  String get clowdersNeutral => 'Clowdere';
+
+  @override
   String get noClowdersYet =>
+      'Încă niciun clowder. Un clowder e un loc unde trăiesc pisici — casa ta de plasament, apartamentul unui adoptator. Creează-l pe primul mai jos.';
+
+  @override
+  String get noClowdersYetNeutral =>
       'Încă niciun clowder. Un clowder e un loc unde trăiesc pisici — casa ta de plasament, apartamentul unui adoptator. Creează-l pe primul mai jos.';
 
   @override
@@ -37,6 +44,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get searchCats => 'Caută pisici';
+
+  @override
+  String get searchCatsNeutral => 'Caută pisici';
 
   @override
   String get map => 'Hartă';
@@ -55,6 +65,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get newClowder => 'Clowder nou';
+
+  @override
+  String get newClowderNeutral => 'Clowder nou';
 
   @override
   String get name => 'Nume';
@@ -89,6 +102,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get renameClowder => 'Redenumește clowderul';
 
   @override
+  String get renameClowderNeutral => 'Redenumește clowderul';
+
+  @override
   String get rename => 'Redenumește';
 
   @override
@@ -101,13 +117,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String get deleteClowder => 'Șterge clowderul';
 
   @override
+  String get deleteClowderNeutral => 'Șterge clowderul';
+
+  @override
   String get cats => 'Pisici';
+
+  @override
+  String get catsNeutral => 'Pisici';
 
   @override
   String get addCat => 'Adaugă pisică';
 
   @override
+  String get addCatNeutral => 'Adaugă pisică';
+
+  @override
   String get newCat => 'Pisică nouă';
+
+  @override
+  String get newCatNeutral => 'Pisică nouă';
 
   @override
   String deleteQuestion(String name) {
@@ -118,7 +146,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowderul dispare din listă.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Clowderul dispare din listă.';
+
+  @override
   String deleteClowderBody(int count) {
+    return 'Cele $count pisici ale lui nu se șterg — devin fără stăpân. Mută-le întâi în alt clowder dacă nu asta vrei.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
     return 'Cele $count pisici ale lui nu se șterg — devin fără stăpân. Mută-le întâi în alt clowder dacă nu asta vrei.';
   }
 
@@ -143,16 +179,28 @@ class AppLocalizationsRo extends AppLocalizations {
   String get renameCat => 'Redenumește pisica';
 
   @override
+  String get renameCatNeutral => 'Redenumește pisica';
+
+  @override
   String get seenHereNow => 'Văzută aici acum';
 
   @override
   String get deleteCat => 'Șterge pisica';
 
   @override
+  String get deleteCatNeutral => 'Șterge pisica';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Clowder';
+
+  @override
   String get strayNoClowder => 'Fără stăpân — fără clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Fără stăpân — fără clowder';
 
   @override
   String get stray => 'Fără stăpân';
@@ -181,6 +229,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get deleteCatBody =>
+      'Pisica dispare din toate listele, iar pozele ei sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
+
+  @override
+  String get deleteCatBodyNeutral =>
       'Pisica dispare din toate listele, iar pozele ei sunt șterse — aici și, după următoarea sincronizare, și pe celelalte dispozitive.';
 
   @override
@@ -234,6 +286,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Scanează codul QR/de bare tipărit de pe cardul cipului sau actele veterinare — telefonul nu poate citi cipul din pisică.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Scanează codul QR/de bare tipărit de pe cardul cipului sau actele veterinare — telefonul nu poate citi cipul din pisică.';
+
+  @override
   String get savingLabel => 'Se salvează…';
 
   @override
@@ -258,6 +314,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get catList => 'Lista pisicilor';
+
+  @override
+  String get catListNeutral => 'Lista pisicilor';
 
   @override
   String get matchCandidatesTitle => 'Potriviri posibile';
@@ -320,6 +379,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get importShareTitle => 'Importați această pisică?';
 
   @override
+  String get importShareTitleNeutral => 'Importați această pisică?';
+
+  @override
   String shareSource(String url) {
     return 'Sursă: $url';
   }
@@ -338,6 +400,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get noMissingCats =>
+      'Încă nicio pisică dispărută cu poziții de afișe.';
+
+  @override
+  String get noMissingCatsNeutral =>
       'Încă nicio pisică dispărută cu poziții de afișe.';
 
   @override
@@ -417,6 +483,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
 
   @override
+  String get malePregnantNeutral =>
+      'Această pisică este înregistrată ca mascul — un mascul nu poate fi gestant. Verificați mai întâi sexul.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name este înregistrată ca femelă și nu poate fi tatăl. Verificați mai întâi sexul.';
   }
@@ -432,7 +502,16 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name s-a născut la $date — un părinte nu se poate naște după puiul său.';
+  }
+
+  @override
   String get genderFatherFemale =>
+      'Această pisică este înregistrată ca tată al altor pisici — tatăl nu poate fi femelă. Verificați mai întâi familia.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
       'Această pisică este înregistrată ca tată al altor pisici — tatăl nu poate fi femelă. Verificați mai întâi familia.';
 
   @override
@@ -440,10 +519,18 @@ class AppLocalizationsRo extends AppLocalizations {
       'Această pisică este înregistrată ca mamă a altor pisici — mama nu poate fi mascul. Verificați mai întâi familia.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Această pisică este înregistrată ca mamă a altor pisici — mama nu poate fi mascul. Verificați mai întâi familia.';
+
+  @override
   String get moveTo => 'Mută în';
 
   @override
   String get noClowderStrayOption => 'Fără clowder — fără stăpân / a fugit';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Fără clowder — fără stăpân / a fugit';
 
   @override
   String timelineOf(String name) {
@@ -533,7 +620,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get forCats => 'pisici';
 
   @override
+  String get forCatsNeutral => 'pisici';
+
+  @override
   String get forClowders => 'clowdere';
+
+  @override
+  String get forClowdersNeutral => 'clowdere';
 
   @override
   String get forBoth => 'ambele';
@@ -564,6 +657,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Caută pisici după nume…';
+
+  @override
+  String get searchByNameHintNeutral => 'Caută pisici după nume…';
 
   @override
   String get host => 'Găzduiește';
@@ -686,7 +782,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get kindCat => 'pisică';
 
   @override
+  String get kindCatNeutral => 'pisică';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'clowder';
 
   @override
   String get kindField => 'câmp';
@@ -702,6 +804,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get aboutTagline =>
+      'Un catalog local pentru pisici în plasament. Datele tale rămân pe dispozitivele tale — fără server, fără cont.';
+
+  @override
+  String get aboutTaglineNeutral =>
       'Un catalog local pentru pisici în plasament. Datele tale rămân pe dispozitivele tale — fără server, fără cont.';
 
   @override
@@ -830,6 +936,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get stepCat => 'Pisică';
 
   @override
+  String get stepCatNeutral => 'Pisică';
+
+  @override
   String get stepOwner => 'Proprietar';
 
   @override
@@ -846,11 +955,23 @@ class AppLocalizationsRo extends AppLocalizations {
       'Cine îi duce dorul pisicii — asta devine clowderul lui, cu contactul de pe afiș.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Cine îi duce dorul pisicii — asta devine clowderul lui, cu contactul de pe afiș.';
+
+  @override
   String get stepFaceHint =>
       'Decupează fața pisicii de pe afiș; devine poza de profil. Poți sări peste.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Decupează fața pisicii de pe afiș; devine poza de profil. Poți sări peste.';
+
+  @override
   String get stepRegistryHint =>
+      'Numere găsite pe afiș. Cele bifate se salvează la pisică și se pot deschide mai târziu.';
+
+  @override
+  String get stepRegistryHintNeutral =>
       'Numere găsite pe afiș. Cele bifate se salvează la pisică și se pot deschide mai târziu.';
 
   @override
@@ -901,7 +1022,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.';
 
   @override
+  String get helpHomeNeutral =>
+      'Privirea de ansamblu asupra coloniilor tale — o colonie e un loc unde trăiesc pisici: casa ta, o casă temporară, un adăpost. Atinge un card ca să-i vezi pisicile; ține apăsat pentru meniu. Butonul din dreapta jos creează o colonie, iar cardul vagabonzilor adună toate pisicile fără casă. Numele de sus e catalogul în care ești — atinge-l ca să schimbi sau să adaugi.';
+
+  @override
   String get helpClowder =>
+      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate.';
+
+  @override
+  String get helpClowderNeutral =>
       'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate.';
 
   @override
@@ -909,7 +1038,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.';
 
   @override
+  String get helpCatNeutral =>
+      'Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.';
+
+  @override
   String get helpStrays =>
+      'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. Atinge Stray Cam pentru o fotografie; ține apăsat pentru a filma un videoclip și a păstra cele mai bune cadre ca fotografii.';
+
+  @override
+  String get helpStraysNeutral =>
       'Pisici care acum nu au casă: găsite, fugite sau luate de pe un afiș. Butonul cu camera înregistrează o pisică din fața ta; butonul cu afișul transformă un afiș de pisică dispărută într-o pisică cu contactul stăpânului; scanerul citește un cod cat(a)log de pe afiș. Atinge Stray Cam pentru o fotografie; ține apăsat pentru a filma un videoclip și a păstra cele mai bune cadre ca fotografii.';
 
   @override
@@ -917,7 +1054,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.';
 
   @override
+  String get helpMapNeutral =>
+      'Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.';
+
+  @override
   String get helpCard =>
+      'Cardul de tipărit al pisicii: alege sus, cu etichetele, ce apare pe el, apoi partajează-l ca imagine sau PDF. Numerele pot fi tipărite ca QR sau cod de bare, iar o poziție devine un QR care deschide o hartă, plus un Plus Code scurt.';
+
+  @override
+  String get helpCardNeutral =>
       'Cardul de tipărit al pisicii: alege sus, cu etichetele, ce apare pe el, apoi partajează-l ca imagine sau PDF. Numerele pot fi tipărite ca QR sau cod de bare, iar o poziție devine un QR care deschide o hartă, plus un Plus Code scurt.';
 
   @override
@@ -929,6 +1074,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Câmpurile folosite de catalogul tău. Redenumește-le, schimbă opțiunile unui câmp cu listă sau creează-ți proprii câmpuri. Un câmp de identificator poate trimite la un serviciu (un registru), iar atunci numărul devine apăsabil la pisică.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Câmpurile folosite de catalogul tău. Redenumește-le, schimbă opțiunile unui câmp cu listă sau creează-ți proprii câmpuri. Un câmp de identificator poate trimite la un serviciu (un registru), iar atunci numărul devine apăsabil la pisică.';
+
+  @override
   String get helpTimeline =>
       'Fiecare modificare făcută vreodată, cea mai nouă prima: cine ce a schimbat, când și în ce valoare. Orice intrare poate fi anulată — asta scrie o intrare nouă, nimic nu se șterge.';
 
@@ -937,7 +1086,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Pisici sau colonii care par să existe de două ori — identificatoare identice sau nume foarte asemănătoare cu detalii care se potrivesc. Atinge o pereche ca s-o unești; unirea nu se poate anula, de aceea se cere confirmare.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Pisici sau colonii care par să existe de două ori — identificatoare identice sau nume foarte asemănătoare cu detalii care se potrivesc. Atinge o pereche ca s-o unești; unirea nu se poate anula, de aceea se cere confirmare.';
+
+  @override
   String get helpMatches =>
+      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari.';
+
+  @override
+  String get helpMatchesNeutral =>
       'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari.';
 
   @override
@@ -945,10 +1102,18 @@ class AppLocalizationsRo extends AppLocalizations {
       'Un afiș fotografiat devine o pisică plus stăpânul ei. Pas cu pas: datele pisicii, contactul stăpânului, decuparea feței pentru poza de profil, numerele de registru de pe afiș, apoi o verificare finală. Totul e sugestie — corectează ce a citit greșit camera.';
 
   @override
+  String get helpFlierNeutral =>
+      'Un afiș fotografiat devine o pisică plus stăpânul ei. Pas cu pas: datele pisicii, contactul stăpânului, decuparea feței pentru poza de profil, numerele de registru de pe afiș, apoi o verificare finală. Totul e sugestie — corectează ce a citit greșit camera.';
+
+  @override
   String get archiveTitle => 'Arhivă';
 
   @override
   String get archiveExplainer =>
+      'Pisicile decedate și coloniile goale de care nu s-a atins nimeni de ani de zile tot ocupă spațiu — mai ales pozele lor. Arhivarea le scrie într-un fișier pe care îl păstrezi și apoi le șterge de aici.';
+
+  @override
+  String get archiveExplainerNeutral =>
       'Pisicile decedate și coloniile goale de care nu s-a atins nimeni de ani de zile tot ocupă spațiu — mai ales pozele lor. Arhivarea le scrie într-un fișier pe care îl păstrezi și apoi le șterge de aici.';
 
   @override
@@ -999,6 +1164,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpArchive =>
+      'Datele vechi costă spațiu, mai ales pozele pe care fiecare dispozitiv sincronizat le cară. Aici alegi pisici decedate și colonii goale liniștite de ani de zile, le scrii într-un fișier pe care îl păstrezi și le ștergi. Ștergerea ajunge la toți cei cu care sincronizezi; importul fișierului restaurează totul.';
+
+  @override
+  String get helpArchiveNeutral =>
       'Datele vechi costă spațiu, mai ales pozele pe care fiecare dispozitiv sincronizat le cară. Aici alegi pisici decedate și colonii goale liniștite de ani de zile, le scrii într-un fișier pe care îl păstrezi și le ștergi. Ștergerea ajunge la toți cei cu care sincronizezi; importul fișierului restaurează totul.';
 
   @override
@@ -1056,6 +1225,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get markTitle => 'Marchează pisica';
 
   @override
+  String get markTitleNeutral => 'Marchează pisica';
+
+  @override
   String get applyCrop => 'Decupează';
 
   @override
@@ -1065,7 +1237,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get dragToSelect => 'Trage un dreptunghi în jurul pisicii';
 
   @override
+  String get dragToSelectNeutral => 'Trage un dreptunghi în jurul pisicii';
+
+  @override
   String get dragOverTheCat => 'Trage o elipsă peste pisică';
+
+  @override
+  String get dragOverTheCatNeutral => 'Trage o elipsă peste pisică';
 
   @override
   String get cropPhoto => 'Decupează…';
@@ -1149,6 +1327,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get unitsLabel => 'Unități';
+
+  @override
+  String get catalogHolds => 'Acest catalog conține';
+
+  @override
+  String get modeCats => 'Pisici';
+
+  @override
+  String get modePets => 'Animale';
 
   @override
   String get graphLabel => 'Grafic';
@@ -1242,6 +1429,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
+  String get celebrationsSubtitleNeutral =>
+      'Confetti și urale când o pisică se mută în căminul ei';
+
+  @override
   String get onMapLabel => 'Pe hartă';
 
   @override
@@ -1255,6 +1446,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Caută pisici, grupuri, persoane';
+
+  @override
+  String get mapSearchHintNeutral => 'Caută pisici, grupuri, persoane';
 
   @override
   String get proposeAnotherName => 'Propune alt nume';
@@ -1335,6 +1529,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get kittensLabel => 'Pisoi';
 
   @override
+  String get kittensLabelNeutral => 'Pisoi';
+
+  @override
   String get toastSettingsTitle => 'Ce se anunță';
 
   @override
@@ -1362,6 +1559,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String toastBorn(Object cat) {
+    return '✨ Pisoi nou: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
     return '✨ Pisoi nou: $cat ✨';
   }
 
@@ -1450,10 +1652,20 @@ class AppLocalizationsRo extends AppLocalizations {
   String get selectClowderHint => 'Alege un clowder din stânga';
 
   @override
+  String get selectClowderHintNeutral => 'Alege un clowder din stânga';
+
+  @override
   String get introTitle1 => 'Pisicile tale, organizate';
 
   @override
+  String get introTitle1Neutral => 'Pisicile tale, organizate';
+
+  @override
   String get introBody1 =>
+      'Creează o fișă pentru fiecare pisică: poză, sex, sănătate, orice vrei să notezi. Pisicile sunt grupate după locul unde trăiesc — aplicația îl numește colonie (clowder).';
+
+  @override
+  String get introBody1Neutral =>
       'Creează o fișă pentru fiecare pisică: poză, sex, sănătate, orice vrei să notezi. Pisicile sunt grupate după locul unde trăiesc — aplicația îl numește colonie (clowder).';
 
   @override
@@ -1491,6 +1703,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Acest card adună toți vagabonzii — pisici fără casă. Atinge-l pentru listă.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Acest card adună toți vagabonzii — pisici fără casă. Atinge-l pentru listă.';
+
+  @override
   String get spotHomeMenu =>
       'În acest meniu: găsește și unește dublurile, exportă CSV și altele.';
 
@@ -1499,7 +1715,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Atinge creionul ca să editezi pisica. Sfat: ține apăsat un câmp ca să-l editezi direct.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Atinge creionul ca să editezi pisica. Sfat: ține apăsat un câmp ca să-l editezi direct.';
+
+  @override
   String get spotMapLayers =>
+      'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei și al casei din care a fugit.';
+
+  @override
+  String get spotMapLayersNeutral =>
       'Cauți o pisică dispărută? Afișează cercuri în jurul locurilor afișelor ei și al casei din care a fugit.';
 
   @override
@@ -1507,18 +1731,37 @@ class AppLocalizationsRo extends AppLocalizations {
       'Afiș cu pisică dispărută? Fotografiază-l aici — aplicația salvează pisica și contactul pentru tine.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Afiș cu pisică dispărută? Fotografiază-l aici — aplicația salvează pisica și contactul pentru tine.';
+
+  @override
   String get spotStraysScan =>
+      'Unele afișe au un cod QR cat(a)log. Scanează-l aici și importă pisica fără să tastezi.';
+
+  @override
+  String get spotStraysScanNeutral =>
       'Unele afișe au un cod QR cat(a)log. Scanează-l aici și importă pisica fără să tastezi.';
 
   @override
   String get introTitle4 => 'Găsește pisicile dispărute';
 
   @override
+  String get introTitle4Neutral => 'Găsește pisicile dispărute';
+
+  @override
   String get introBody4 =>
       'Vezi un afiș cu o pisică dispărută? Fotografiază-l în aplicație: salvează pisica, contactul stăpânului și locul. Dacă mai târziu apare un vagabond asemănător, aplicația sugerează potriviri posibile.';
 
   @override
+  String get introBody4Neutral =>
+      'Vezi un afiș cu o pisică dispărută? Fotografiază-l în aplicație: salvează pisica, contactul stăpânului și locul. Dacă mai târziu apare un vagabond asemănător, aplicația sugerează potriviri posibile.';
+
+  @override
   String get spotMapSearch =>
+      'Scrie o pisică, un loc sau o persoană ca să sari acolo pe hartă.';
+
+  @override
+  String get spotMapSearchNeutral =>
       'Scrie o pisică, un loc sau o persoană ca să sari acolo pe hartă.';
 
   @override
@@ -1527,6 +1770,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotCatMenu =>
+      'Aici sunt mai multe acțiuni: ascunde pisica, unește duplicatele sau notează o observare.';
+
+  @override
+  String get spotCatMenuNeutral =>
       'Aici sunt mai multe acțiuni: ascunde pisica, unește duplicatele sau notează o observare.';
 
   @override
@@ -1543,6 +1790,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Nicio pisică găsită cu acest nume';
+
+  @override
+  String get searchNoResultsNeutral => 'Nicio pisică găsită cu acest nume';
 
   @override
   String get syncUnreachable =>
@@ -1594,6 +1844,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
 
   @override
+  String get helpCatalogsNeutral =>
+      'Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
+
+  @override
   String get spotHomeCatalog =>
       'Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.';
 
@@ -1602,6 +1856,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
+    return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
     return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.';
   }
 
@@ -1728,6 +1987,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get agendaEmpty =>
+      'Nicio programare planificată. Planifică altele aici cu plusul sau pe pagina unei pisici sau a unui clowder.';
+
+  @override
+  String get agendaEmptyNeutral =>
       'Nicio programare planificată. Planifică altele aici cu plusul sau pe pagina unei pisici sau a unui clowder.';
 
   @override
@@ -1894,7 +2157,15 @@ class AppLocalizationsRo extends AppLocalizations {
       'Planifică o programare pentru această pisică. Apare în agendă și se confirmă acolo.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Planifică o programare pentru această pisică. Apare în agendă și se confirmă acolo.';
+
+  @override
   String get spotAddReminderClowder =>
+      'Planifică o programare pentru acest clowder. Apare în agendă și se confirmă acolo.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
       'Planifică o programare pentru acest clowder. Apare în agendă și se confirmă acolo.';
 
   @override
@@ -2002,7 +2273,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get existingCat => 'Pisică existentă';
 
   @override
+  String get existingCatNeutral => 'Pisică existentă';
+
+  @override
   String get existingClowder => 'Grup existent';
+
+  @override
+  String get existingClowderNeutral => 'Grup existent';
 
   @override
   String get createNewInstead => 'Niciunul — creează nou';
@@ -2028,13 +2305,28 @@ class AppLocalizationsRo extends AppLocalizations {
   String get catsOnAppointment => 'Pisici la această programare';
 
   @override
+  String get catsOnAppointmentNeutral => 'Pisici la această programare';
+
+  @override
   String get noCatsHint => 'Nicio pisică bifată — programarea este a coloniei.';
+
+  @override
+  String get noCatsHintNeutral =>
+      'Nicio pisică bifată — programarea este a coloniei.';
 
   @override
   String get pickCatsTitle => 'Care pisici vin?';
 
   @override
+  String get pickCatsTitleNeutral => 'Care pisici vin?';
+
+  @override
   String catsCount(int count) {
+    return '$count pisici';
+  }
+
+  @override
+  String catsCountNeutral(int count) {
     return '$count pisici';
   }
 
@@ -2043,7 +2335,16 @@ class AppLocalizationsRo extends AppLocalizations {
       'Debifează pisicile care nu au fost tratate; rămân planificate.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Debifează pisicile care nu au fost tratate; rămân planificate.';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return 'Șterge programarea pentru toate cele $count pisici';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return 'Șterge programarea pentru toate cele $count pisici';
   }
 }
