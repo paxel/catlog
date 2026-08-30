@@ -71,6 +71,22 @@ void main() {
     expect(valueTicks(5, 5), isEmpty);
   });
 
+  testWidgets('the painter receives the points in the device unit',
+      (tester) async {
+    store.append(cat, weight.key, '4000', date: DateTime(2026, 1, 1));
+    store.append(cat, weight.key, '4250', date: DateTime(2026, 3, 1));
+    unitSystem.value = UnitSystem.imperial;
+    addTearDown(() => unitSystem.value = UnitSystem.metric);
+    await pump(tester,
+        FieldGraphScreen(store: store, entityId: cat, def: weight));
+    final paint =
+        tester.widget<CustomPaint>(find.byKey(const ValueKey('field-graph')));
+    final painter = paint.painter as GraphPainter;
+    expect(painter.points.map((p) => p.value.toStringAsFixed(2)),
+        ['8.82', '9.37']);
+    expect(painter.format(9.37), '9.37 lb');
+  });
+
   testWidgets('one value shows no graph icon, two do; the page opens',
       (tester) async {
     store.append(cat, weight.key, '4000', date: DateTime(2026, 1, 1));
