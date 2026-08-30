@@ -45,6 +45,7 @@ void main() {
   formatDecimalTests();
   entryUnitDisplayTests();
   dimensionDefaultTests();
+  unknownTypeTests();
 }
 
 void formatDecimalTests() {
@@ -85,5 +86,23 @@ void entryUnitDisplayTests() {
     expect(formatBase(Dimension.volume, UnitSystem.metric, '1500'), '1500 ml');
     expect(formatBase(Dimension.weight, UnitSystem.metric, '4250'), '4.25 kg');
     expect(formatBase(Dimension.weight, UnitSystem.metric, '980'), '980 g');
+  });
+}
+
+void unknownTypeTests() {
+  test('a field type this build does not know reads as text', () {
+    // The same fallback let 1.0.x read a Unit Value definition from a
+    // 1.1.0 partner: the stored number shows as it is.
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    final weight = store.fieldDefs().firstWhere((d) => d.slug == 'weight');
+    store.append(cat, weight.key, '4250');
+    store.append(weight.id, Keys.fieldType, 'unitValueFromTheFuture');
+    final read = store.fieldDefs().firstWhere((d) => d.slug == 'weight');
+    expect(read.type, FieldType.text);
+    expect(read.dimension, Dimension.weight);
+    expect(store.current(cat, read.key), '4250');
+    expect(formatBase(Dimension.weight, UnitSystem.metric, '4250'), '4.25 kg');
   });
 }
