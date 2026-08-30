@@ -106,7 +106,7 @@ class FieldList extends StatelessWidget {
               lookupUrl(def, value) != null;
           final graph = onGraph != null &&
               !editing &&
-              graphablePoints(store, entityId, def) >= 2;
+              hasGraph(store, entityId, def);
           // Read mode marks a private value with a lock at the end of
           // the row — your own and one a partner kept back look alike.
           // Edit mode shows no lock; the field editor's checkmark is

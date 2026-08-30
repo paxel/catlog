@@ -37,11 +37,26 @@ List<GraphPoint> graphPoints(
   return points;
 }
 
+bool _graphable(FieldDef def) =>
+    def.type == FieldType.number || def.type == FieldType.unitValue;
+
 /// How many values of [def] on [entityId] a graph could draw.
 int graphablePoints(CatalogStore store, String entityId, FieldDef def) =>
-    def.type == FieldType.number || def.type == FieldType.unitValue
-        ? graphPoints(store, entityId, def).length
-        : 0;
+    _graphable(def) ? graphPoints(store, entityId, def).length : 0;
+
+/// Whether a graph has anything to draw — two numbers — decided on
+/// every field row of a page, so it stops at the second one instead
+/// of converting the whole history.
+bool hasGraph(CatalogStore store, String entityId, FieldDef def) {
+  if (!_graphable(def)) return false;
+  var numbers = 0;
+  for (final e in store.fieldHistory(entityId, def.key)) {
+    if (e.value != null && double.tryParse(e.value!) != null && ++numbers >= 2) {
+      return true;
+    }
+  }
+  return false;
+}
 
 /// The points inside [from]..[to] (both inclusive; null = open).
 List<GraphPoint> pointsBetween(

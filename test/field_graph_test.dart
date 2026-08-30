@@ -39,6 +39,11 @@ void main() {
     final points = graphPoints(store, cat, weight);
     expect(points.map((p) => p.value), [4.0, 4.25]);
     expect(graphablePoints(store, cat, weight), 2);
+    expect(hasGraph(store, cat, weight), isTrue);
+    final color = store.fieldDefs().firstWhere((d) => d.slug == 'color');
+    store.append(cat, color.key, '1');
+    store.append(cat, color.key, '2');
+    expect(hasGraph(store, cat, color), isFalse);
     expect(pointsBetween(points, DateTime(2026, 2, 15), null), hasLength(1));
     expect(pointsBetween(points, null, DateTime(2026, 2, 15)), hasLength(1));
   });
