@@ -1129,6 +1129,39 @@ class AppLocalizationsSq extends AppLocalizations {
   String get language => 'Gjuha';
 
   @override
+  String get typeUnitValue => 'Vlerë me njësi';
+
+  @override
+  String get dimension => 'Madhësi';
+
+  @override
+  String get dimensionWeight => 'Pesha';
+
+  @override
+  String get dimensionLength => 'Gjatësia';
+
+  @override
+  String get dimensionVolume => 'Vëllimi';
+
+  @override
+  String get dimensionTemperature => 'Temperatura';
+
+  @override
+  String get unitsLabel => 'Njësitë';
+
+  @override
+  String get unitsAuto => 'Si në rajonin tënd';
+
+  @override
+  String get unitsMetric => 'Metrike (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiale (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Pesha';
+
+  @override
   String get systemDefault => 'Parazgjedhja e sistemit';
 
   @override

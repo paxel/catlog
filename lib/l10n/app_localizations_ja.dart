@@ -1107,6 +1107,39 @@ class AppLocalizationsJa extends AppLocalizations {
   String get language => '言語';
 
   @override
+  String get typeUnitValue => '単位付きの値';
+
+  @override
+  String get dimension => '種類';
+
+  @override
+  String get dimensionWeight => '体重';
+
+  @override
+  String get dimensionLength => '長さ';
+
+  @override
+  String get dimensionVolume => '容量';
+
+  @override
+  String get dimensionTemperature => '体温';
+
+  @override
+  String get unitsLabel => '単位';
+
+  @override
+  String get unitsAuto => '地域に合わせる';
+
+  @override
+  String get unitsMetric => 'メートル法（kg、cm、ml、°C）';
+
+  @override
+  String get unitsImperial => 'ヤード・ポンド法（lb、in、fl oz、°F）';
+
+  @override
+  String get starterWeight => '体重';
+
+  @override
   String get systemDefault => 'システムの既定';
 
   @override

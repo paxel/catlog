@@ -57,6 +57,13 @@ _Avoid_: event, booking
 One Appointment shared by several Cats — each Cat keeps its own Appointment entry, a group id folds them into one agenda card and one calendar event, editing moves all of them, finishing asks which Cats were treated. A Cat leaves a Vet Run by deleting its own Appointment.
 _Avoid_: group appointment, batch visit, multi-cat event
 
+**Unit Value**:
+A Field value that measures something — a number kept in the app's base unit (grams, centimetres, millilitres, °C) and shown, and entered, in the unit the device prefers (metric or imperial, from the region or chosen). Weight is the starter one.
+_Avoid_: measurement, metric
+
+**Dimension**:
+What a Unit Value measures: weight, length, volume or temperature. Chosen when the Field is created; it fixes the base unit.
+
 **Possible Stray Area**:
 A toggleable map overlay for a Missing Cat: the union of 500 m circles around its Flier Positions, marking where the cat is likely to roam (three quarters of lost cats are found within 500 m).
 _Avoid_: search radius, home range

@@ -1127,6 +1127,39 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
+  String get typeUnitValue => 'Unit value';
+
+  @override
+  String get dimension => 'Dimension';
+
+  @override
+  String get dimensionWeight => 'Weight';
+
+  @override
+  String get dimensionLength => 'Length';
+
+  @override
+  String get dimensionVolume => 'Volume';
+
+  @override
+  String get dimensionTemperature => 'Temperature';
+
+  @override
+  String get unitsLabel => 'Units';
+
+  @override
+  String get unitsAuto => 'As in your region';
+
+  @override
+  String get unitsMetric => 'Metric (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperial (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Weight';
+
+  @override
   String get systemDefault => 'System default';
 
   @override

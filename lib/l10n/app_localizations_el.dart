@@ -1134,6 +1134,39 @@ class AppLocalizationsEl extends AppLocalizations {
   String get language => 'Γλώσσα';
 
   @override
+  String get typeUnitValue => 'Τιμή με μονάδα';
+
+  @override
+  String get dimension => 'Μέγεθος';
+
+  @override
+  String get dimensionWeight => 'Βάρος';
+
+  @override
+  String get dimensionLength => 'Μήκος';
+
+  @override
+  String get dimensionVolume => 'Όγκος';
+
+  @override
+  String get dimensionTemperature => 'Θερμοκρασία';
+
+  @override
+  String get unitsLabel => 'Μονάδες';
+
+  @override
+  String get unitsAuto => 'Όπως στην περιοχή σου';
+
+  @override
+  String get unitsMetric => 'Μετρικό (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Αγγλοσαξονικό (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Βάρος';
+
+  @override
   String get systemDefault => 'Προεπιλογή συστήματος';
 
   @override

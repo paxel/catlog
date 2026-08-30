@@ -1128,6 +1128,39 @@ class AppLocalizationsRu extends AppLocalizations {
   String get language => 'Язык';
 
   @override
+  String get typeUnitValue => 'Значение с единицей';
+
+  @override
+  String get dimension => 'Величина';
+
+  @override
+  String get dimensionWeight => 'Вес';
+
+  @override
+  String get dimensionLength => 'Длина';
+
+  @override
+  String get dimensionVolume => 'Объём';
+
+  @override
+  String get dimensionTemperature => 'Температура';
+
+  @override
+  String get unitsLabel => 'Единицы';
+
+  @override
+  String get unitsAuto => 'Как в вашем регионе';
+
+  @override
+  String get unitsMetric => 'Метрические (кг, см, мл, °C)';
+
+  @override
+  String get unitsImperial => 'Имперские (фунт, дюйм, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Вес';
+
+  @override
   String get systemDefault => 'Системный по умолчанию';
 
   @override

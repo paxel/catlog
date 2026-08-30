@@ -1128,6 +1128,39 @@ class AppLocalizationsHu extends AppLocalizations {
   String get language => 'Nyelv';
 
   @override
+  String get typeUnitValue => 'Mértékegységes érték';
+
+  @override
+  String get dimension => 'Mennyiség';
+
+  @override
+  String get dimensionWeight => 'Súly';
+
+  @override
+  String get dimensionLength => 'Hossz';
+
+  @override
+  String get dimensionVolume => 'Térfogat';
+
+  @override
+  String get dimensionTemperature => 'Hőmérséklet';
+
+  @override
+  String get unitsLabel => 'Mértékegységek';
+
+  @override
+  String get unitsAuto => 'Ahogy a régiódban';
+
+  @override
+  String get unitsMetric => 'Metrikus (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Angolszász (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Súly';
+
+  @override
   String get systemDefault => 'Rendszer alapértelmezés';
 
   @override

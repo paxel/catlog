@@ -1129,6 +1129,39 @@ class AppLocalizationsCs extends AppLocalizations {
   String get language => 'Jazyk';
 
   @override
+  String get typeUnitValue => 'Hodnota s jednotkou';
+
+  @override
+  String get dimension => 'Veličina';
+
+  @override
+  String get dimensionWeight => 'Hmotnost';
+
+  @override
+  String get dimensionLength => 'Délka';
+
+  @override
+  String get dimensionVolume => 'Objem';
+
+  @override
+  String get dimensionTemperature => 'Teplota';
+
+  @override
+  String get unitsLabel => 'Jednotky';
+
+  @override
+  String get unitsAuto => 'Podle tvé oblasti';
+
+  @override
+  String get unitsMetric => 'Metrické (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiální (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Hmotnost';
+
+  @override
   String get systemDefault => 'Výchozí systému';
 
   @override

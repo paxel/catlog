@@ -1132,6 +1132,39 @@ class AppLocalizationsMt extends AppLocalizations {
   String get language => 'Lingwa';
 
   @override
+  String get typeUnitValue => 'Valur b\'unità';
+
+  @override
+  String get dimension => 'Kobor';
+
+  @override
+  String get dimensionWeight => 'Piż';
+
+  @override
+  String get dimensionLength => 'Tul';
+
+  @override
+  String get dimensionVolume => 'Volum';
+
+  @override
+  String get dimensionTemperature => 'Temperatura';
+
+  @override
+  String get unitsLabel => 'Unitajiet';
+
+  @override
+  String get unitsAuto => 'Bħal fir-reġjun tiegħek';
+
+  @override
+  String get unitsMetric => 'Metriku (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperjali (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Piż';
+
+  @override
   String get systemDefault => 'Default tas-sistema';
 
   @override

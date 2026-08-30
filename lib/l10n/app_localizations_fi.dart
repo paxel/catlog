@@ -1130,6 +1130,39 @@ class AppLocalizationsFi extends AppLocalizations {
   String get language => 'Kieli';
 
   @override
+  String get typeUnitValue => 'Arvo yksiköllä';
+
+  @override
+  String get dimension => 'Suure';
+
+  @override
+  String get dimensionWeight => 'Paino';
+
+  @override
+  String get dimensionLength => 'Pituus';
+
+  @override
+  String get dimensionVolume => 'Tilavuus';
+
+  @override
+  String get dimensionTemperature => 'Lämpötila';
+
+  @override
+  String get unitsLabel => 'Yksiköt';
+
+  @override
+  String get unitsAuto => 'Kuten alueellasi';
+
+  @override
+  String get unitsMetric => 'Metrinen (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Brittiläinen (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Paino';
+
+  @override
   String get systemDefault => 'Järjestelmän oletus';
 
   @override

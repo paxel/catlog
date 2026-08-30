@@ -21,6 +21,7 @@ import 'src/screens/intro_screen.dart';
 import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 import 'src/image_provider_cache.dart';
+import 'src/units.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -79,6 +80,7 @@ Future<void> _openAndRun(
   final store = catalogs.openStore(catalogs.active);
   activeStore = store;
   catalogManager = catalogs;
+  applyUnitSystem(store, _resolvedLocale());
   // A Stray Cam capture the OS killed mid-camera completes here.
   unawaited(recoverStrayCam(store));
   initIncomingFiles(navigatorKey, () => activeStore ?? store, args,
@@ -90,12 +92,13 @@ Future<void> _openAndRun(
 
 /// The texts in the language the app will run in, before there is a
 /// widget tree to read them from.
-Future<AppLocalizations> _texts() async {
-  final locale = localeOverride.value ??
-      basicLocaleListResolution(PlatformDispatcher.instance.locales.toList(),
-          AppLocalizations.supportedLocales);
-  return AppLocalizations.delegate.load(locale);
-}
+Future<AppLocalizations> _texts() async =>
+    AppLocalizations.delegate.load(_resolvedLocale());
+
+Locale _resolvedLocale() =>
+    localeOverride.value ??
+    basicLocaleListResolution(PlatformDispatcher.instance.locales.toList(),
+        AppLocalizations.supportedLocales);
 
 bool get _isDesktop =>
     Platform.isLinux || Platform.isWindows || Platform.isMacOS;

@@ -1130,6 +1130,39 @@ class AppLocalizationsLt extends AppLocalizations {
   String get language => 'Kalba';
 
   @override
+  String get typeUnitValue => 'Reikšmė su vienetu';
+
+  @override
+  String get dimension => 'Dydis';
+
+  @override
+  String get dimensionWeight => 'Svoris';
+
+  @override
+  String get dimensionLength => 'Ilgis';
+
+  @override
+  String get dimensionVolume => 'Tūris';
+
+  @override
+  String get dimensionTemperature => 'Temperatūra';
+
+  @override
+  String get unitsLabel => 'Vienetai';
+
+  @override
+  String get unitsAuto => 'Kaip jūsų regione';
+
+  @override
+  String get unitsMetric => 'Metrinė (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperinė (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Svoris';
+
+  @override
   String get systemDefault => 'Sistemos numatytoji';
 
   @override

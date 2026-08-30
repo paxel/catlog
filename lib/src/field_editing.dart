@@ -7,6 +7,7 @@ import 'l10n.dart';
 import 'screens/position_picker_screen.dart';
 import 'screens/scan_screen.dart';
 import 'widgets/date_entry.dart';
+import 'units.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
 /// (possibly backdated) date.
@@ -40,6 +41,20 @@ Future<FieldEdit?> editFieldValue(
   );
 }
 
+/// A stored value as the editor shows it: a Unit Value in the device's
+/// entry unit, everything else as stored.
+String _entryText(FieldDef def, String? current) {
+  if (def.type != FieldType.unitValue || current == null) return current ?? '';
+  final base = double.tryParse(current);
+  if (base == null) return current;
+  final shown =
+      fromBase(def.dimension ?? Dimension.weight, unitSystem.value, base);
+  final rounded = (shown * 100).round() / 100;
+  return rounded == rounded.roundToDouble()
+      ? rounded.round().toString()
+      : rounded.toString();
+}
+
 /// The state behind a [FieldValueInput]: what the user picked or typed,
 /// resolved per field type into the value to store. Shared by the field
 /// editor and the reminder dialog, so a plan's value is as well-formed
@@ -50,7 +65,7 @@ class FieldValueController extends ChangeNotifier {
   String? _choice;
 
   FieldValueController(this.def, {String? current})
-    : text = TextEditingController(text: current ?? ''),
+    : text = TextEditingController(text: _entryText(def, current)),
       _choice = current {
     // For choice fields the text controller holds only off-list values;
     // a current value that IS an option belongs to the radios alone.
@@ -84,6 +99,12 @@ class FieldValueController extends ChangeNotifier {
       case FieldType.id:
         final v = text.text.trim();
         return v.isEmpty ? null : v;
+      case FieldType.unitValue:
+        // Typed in the device's unit, stored in the base unit (#96).
+        final entered = parseEntry(text.text);
+        if (entered == null) return null;
+        return baseString(toBase(
+            def.dimension ?? Dimension.weight, unitSystem.value, entered));
     }
   }
 
@@ -184,6 +205,17 @@ class _FieldValueInputState extends State<FieldValueInput> {
           autofocus: widget.autofocus,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           decoration: InputDecoration(labelText: context.t.value),
+        );
+      case FieldType.unitValue:
+        return TextField(
+          controller: c.text,
+          autofocus: widget.autofocus,
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+          decoration: InputDecoration(
+            labelText: context.t.value,
+            suffixText: entryUnit(
+                def.dimension ?? Dimension.weight, unitSystem.value),
+          ),
         );
       case FieldType.location:
         return ListTile(

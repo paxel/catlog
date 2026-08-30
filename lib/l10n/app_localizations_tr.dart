@@ -1128,6 +1128,39 @@ class AppLocalizationsTr extends AppLocalizations {
   String get language => 'Dil';
 
   @override
+  String get typeUnitValue => 'Birimli değer';
+
+  @override
+  String get dimension => 'Büyüklük';
+
+  @override
+  String get dimensionWeight => 'Ağırlık';
+
+  @override
+  String get dimensionLength => 'Uzunluk';
+
+  @override
+  String get dimensionVolume => 'Hacim';
+
+  @override
+  String get dimensionTemperature => 'Sıcaklık';
+
+  @override
+  String get unitsLabel => 'Birimler';
+
+  @override
+  String get unitsAuto => 'Bölgendeki gibi';
+
+  @override
+  String get unitsMetric => 'Metrik (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'İngiliz (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Ağırlık';
+
+  @override
   String get systemDefault => 'Sistem varsayılanı';
 
   @override

@@ -1128,6 +1128,39 @@ class AppLocalizationsSk extends AppLocalizations {
   String get language => 'Jazyk';
 
   @override
+  String get typeUnitValue => 'Hodnota s jednotkou';
+
+  @override
+  String get dimension => 'Veličina';
+
+  @override
+  String get dimensionWeight => 'Hmotnosť';
+
+  @override
+  String get dimensionLength => 'Dĺžka';
+
+  @override
+  String get dimensionVolume => 'Objem';
+
+  @override
+  String get dimensionTemperature => 'Teplota';
+
+  @override
+  String get unitsLabel => 'Jednotky';
+
+  @override
+  String get unitsAuto => 'Podľa tvojej oblasti';
+
+  @override
+  String get unitsMetric => 'Metrické (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiálne (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Hmotnosť';
+
+  @override
   String get systemDefault => 'Predvolený systém';
 
   @override

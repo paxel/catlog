@@ -1130,6 +1130,39 @@ class AppLocalizationsRo extends AppLocalizations {
   String get language => 'Limbă';
 
   @override
+  String get typeUnitValue => 'Valoare cu unitate';
+
+  @override
+  String get dimension => 'Mărime';
+
+  @override
+  String get dimensionWeight => 'Greutate';
+
+  @override
+  String get dimensionLength => 'Lungime';
+
+  @override
+  String get dimensionVolume => 'Volum';
+
+  @override
+  String get dimensionTemperature => 'Temperatură';
+
+  @override
+  String get unitsLabel => 'Unități';
+
+  @override
+  String get unitsAuto => 'Ca în regiunea ta';
+
+  @override
+  String get unitsMetric => 'Metric (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperial (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Greutate';
+
+  @override
   String get systemDefault => 'Implicit sistem';
 
   @override

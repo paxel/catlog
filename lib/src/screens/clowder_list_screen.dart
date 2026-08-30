@@ -31,6 +31,7 @@ import '../move_to_catalog.dart';
 import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
+import '../units_dialog.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -115,6 +116,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       mirrorAfterChange(context, widget.store);
       runSpotlights(context, widget.store, 'home');
     });
+  }
+
+  Future<void> _pickUnits() async {
+    await showUnitsDialog(context, widget.store);
+    if (mounted) setState(() {});
   }
 
   Future<void> _openAgenda() async {
@@ -288,6 +294,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               if (v == 'language') {
                 showLanguageDialog(context, widget.store);
               }
+              if (v == 'units') _pickUnits();
               if (v == 'hidden') {
                 setState(() => showHidden.value = !showHidden.value);
               }
@@ -314,6 +321,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   value: 'csv', child: Text(context.t.exportCsv)),
               PopupMenuItem(
                   value: 'language', child: Text(context.t.language)),
+              PopupMenuItem(
+                  value: 'units', child: Text(context.t.unitsLabel)),
               PopupMenuItem(
                   value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],

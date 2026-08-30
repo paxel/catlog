@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
+import 'units.dart';
 
 /// Localized display for a canonical Clowder status value, or null when
 /// the value is free text the app does not recognize.
@@ -46,6 +47,11 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   if (def?.type == FieldType.date) {
     final date = PartialDate.parse(value);
     if (date != null) return formatPartialDate(t.localeName, date);
+  }
+  // A Unit Value is stored in the base unit and read in the device's.
+  if (def?.type == FieldType.unitValue) {
+    return formatUnitValue(
+        t.localeName, def!.dimension ?? Dimension.weight, value);
   }
   if (def?.slug == 'breed') {
     return switch (value) {
@@ -108,6 +114,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
   'phone' => t.starterPhone,
   'position' => t.starterPosition,
   'remarks' => t.starterRemarks,
+  'weight' => t.starterWeight,
   _ => null,
 };
 
@@ -165,3 +172,11 @@ String valueLabel(
   }
   return fieldValueDisplay(t, def, value);
 }
+
+/// Localized name of a Unit Value's dimension.
+String dimensionName(AppLocalizations t, Dimension d) => switch (d) {
+      Dimension.weight => t.dimensionWeight,
+      Dimension.length => t.dimensionLength,
+      Dimension.volume => t.dimensionVolume,
+      Dimension.temperature => t.dimensionTemperature,
+    };

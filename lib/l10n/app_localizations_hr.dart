@@ -1129,6 +1129,39 @@ class AppLocalizationsHr extends AppLocalizations {
   String get language => 'Jezik';
 
   @override
+  String get typeUnitValue => 'Vrijednost s jedinicom';
+
+  @override
+  String get dimension => 'Veličina';
+
+  @override
+  String get dimensionWeight => 'Težina';
+
+  @override
+  String get dimensionLength => 'Duljina';
+
+  @override
+  String get dimensionVolume => 'Obujam';
+
+  @override
+  String get dimensionTemperature => 'Temperatura';
+
+  @override
+  String get unitsLabel => 'Jedinice';
+
+  @override
+  String get unitsAuto => 'Kao u tvojoj regiji';
+
+  @override
+  String get unitsMetric => 'Metrički (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperijalni (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Težina';
+
+  @override
   String get systemDefault => 'Zadano sustavom';
 
   @override

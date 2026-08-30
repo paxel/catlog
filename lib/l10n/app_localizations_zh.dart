@@ -1095,6 +1095,39 @@ class AppLocalizationsZh extends AppLocalizations {
   String get language => '语言';
 
   @override
+  String get typeUnitValue => '带单位的值';
+
+  @override
+  String get dimension => '量';
+
+  @override
+  String get dimensionWeight => '体重';
+
+  @override
+  String get dimensionLength => '长度';
+
+  @override
+  String get dimensionVolume => '容量';
+
+  @override
+  String get dimensionTemperature => '体温';
+
+  @override
+  String get unitsLabel => '单位';
+
+  @override
+  String get unitsAuto => '按你所在的地区';
+
+  @override
+  String get unitsMetric => '公制（kg、cm、ml、°C）';
+
+  @override
+  String get unitsImperial => '英制（lb、in、fl oz、°F）';
+
+  @override
+  String get starterWeight => '体重';
+
+  @override
   String get systemDefault => '跟随系统';
 
   @override

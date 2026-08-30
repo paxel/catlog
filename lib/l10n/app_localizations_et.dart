@@ -1127,6 +1127,39 @@ class AppLocalizationsEt extends AppLocalizations {
   String get language => 'Keel';
 
   @override
+  String get typeUnitValue => 'Ühikuga väärtus';
+
+  @override
+  String get dimension => 'Suurus';
+
+  @override
+  String get dimensionWeight => 'Kaal';
+
+  @override
+  String get dimensionLength => 'Pikkus';
+
+  @override
+  String get dimensionVolume => 'Maht';
+
+  @override
+  String get dimensionTemperature => 'Temperatuur';
+
+  @override
+  String get unitsLabel => 'Ühikud';
+
+  @override
+  String get unitsAuto => 'Nagu sinu piirkonnas';
+
+  @override
+  String get unitsMetric => 'Meetriline (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Inglise (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Kaal';
+
+  @override
   String get systemDefault => 'Süsteemi vaikimisi';
 
   @override

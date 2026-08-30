@@ -1122,6 +1122,39 @@ class AppLocalizationsHe extends AppLocalizations {
   String get language => 'שפה';
 
   @override
+  String get typeUnitValue => 'ערך עם יחידה';
+
+  @override
+  String get dimension => 'גודל';
+
+  @override
+  String get dimensionWeight => 'משקל';
+
+  @override
+  String get dimensionLength => 'אורך';
+
+  @override
+  String get dimensionVolume => 'נפח';
+
+  @override
+  String get dimensionTemperature => 'טמפרטורה';
+
+  @override
+  String get unitsLabel => 'יחידות';
+
+  @override
+  String get unitsAuto => 'כמו באזורך';
+
+  @override
+  String get unitsMetric => 'מטרי (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'אימפריאלי (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'משקל';
+
+  @override
   String get systemDefault => 'ברירת מחדל של המערכת';
 
   @override

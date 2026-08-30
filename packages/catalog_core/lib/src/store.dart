@@ -10,6 +10,7 @@ import 'package:sqlite3/sqlite3.dart';
 import 'entry.dart';
 import 'fields.dart';
 import 'registry.dart';
+import 'units.dart';
 
 /// Author name stamped on entries the store seeds itself (starter Fields).
 const seedAuthor = 'cat(a)log';
@@ -20,6 +21,7 @@ const seedAuthor = 'cat(a)log';
 /// language, and the tutorial tips you have already seen.
 bool isSharedSetting(String key) =>
     key == 'locale' ||
+    key == 'units' ||
     key == 'introSeen' ||
     key == 'celebrations' ||
     key == 'windowBounds' ||
@@ -1902,6 +1904,7 @@ class CatalogStore {
         idDisplay: IdDisplay.values.asNameMap()[fields[Keys.fieldIdDisplay]] ??
             IdDisplay.plain,
         lookupUrl: fields[Keys.fieldLookupUrl],
+        dimension: Dimension.values.asNameMap()[fields[Keys.fieldDimension]],
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);
@@ -1918,6 +1921,7 @@ class CatalogStore {
       List<String> options = const [],
       IdDisplay idDisplay = IdDisplay.plain,
       String? lookupUrl,
+      Dimension? dimension,
       DateTime? date}) {
     final slug = slugify(name);
     if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
@@ -1937,6 +1941,10 @@ class CatalogStore {
     }
     if (type == FieldType.id && lookupUrl != null && lookupUrl.isNotEmpty) {
       append(id, Keys.fieldLookupUrl, lookupUrl, date: date);
+    }
+    if (type == FieldType.unitValue) {
+      append(id, Keys.fieldDimension, (dimension ?? Dimension.weight).name,
+          date: date);
     }
     return id;
   }
@@ -1999,6 +2007,10 @@ class CatalogStore {
       // Chip IDs are transponder numbers — the Card shows them scannable.
       if (f.type == FieldType.id) {
         append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name,
+            as: seedAuthor);
+      }
+      if (f.type == FieldType.unitValue) {
+        append(id, Keys.fieldDimension, starterDimensions[f.slug]!.name,
             as: seedAuthor);
       }
     }

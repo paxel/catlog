@@ -2096,6 +2096,72 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
+  /// No description provided for @typeUnitValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit value'**
+  String get typeUnitValue;
+
+  /// No description provided for @dimension.
+  ///
+  /// In en, this message translates to:
+  /// **'Dimension'**
+  String get dimension;
+
+  /// No description provided for @dimensionWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get dimensionWeight;
+
+  /// No description provided for @dimensionLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get dimensionLength;
+
+  /// No description provided for @dimensionVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
+  String get dimensionVolume;
+
+  /// No description provided for @dimensionTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get dimensionTemperature;
+
+  /// No description provided for @unitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Units'**
+  String get unitsLabel;
+
+  /// No description provided for @unitsAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'As in your region'**
+  String get unitsAuto;
+
+  /// No description provided for @unitsMetric.
+  ///
+  /// In en, this message translates to:
+  /// **'Metric (kg, cm, ml, °C)'**
+  String get unitsMetric;
+
+  /// No description provided for @unitsImperial.
+  ///
+  /// In en, this message translates to:
+  /// **'Imperial (lb, in, fl oz, °F)'**
+  String get unitsImperial;
+
+  /// No description provided for @starterWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get starterWeight;
+
   /// No description provided for @systemDefault.
   ///
   /// In en, this message translates to:

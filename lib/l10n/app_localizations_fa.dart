@@ -1126,6 +1126,39 @@ class AppLocalizationsFa extends AppLocalizations {
   String get language => 'زبان';
 
   @override
+  String get typeUnitValue => 'مقدار با واحد';
+
+  @override
+  String get dimension => 'کمیت';
+
+  @override
+  String get dimensionWeight => 'وزن';
+
+  @override
+  String get dimensionLength => 'طول';
+
+  @override
+  String get dimensionVolume => 'حجم';
+
+  @override
+  String get dimensionTemperature => 'دما';
+
+  @override
+  String get unitsLabel => 'واحدها';
+
+  @override
+  String get unitsAuto => 'مطابق منطقهٔ شما';
+
+  @override
+  String get unitsMetric => 'متریک (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'امپریال (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'وزن';
+
+  @override
   String get systemDefault => 'پیش‌فرض سیستم';
 
   @override

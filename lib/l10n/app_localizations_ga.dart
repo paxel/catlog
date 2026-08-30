@@ -1133,6 +1133,39 @@ class AppLocalizationsGa extends AppLocalizations {
   String get language => 'Teanga';
 
   @override
+  String get typeUnitValue => 'Luach le haonad';
+
+  @override
+  String get dimension => 'Méid';
+
+  @override
+  String get dimensionWeight => 'Meáchan';
+
+  @override
+  String get dimensionLength => 'Fad';
+
+  @override
+  String get dimensionVolume => 'Toirt';
+
+  @override
+  String get dimensionTemperature => 'Teocht';
+
+  @override
+  String get unitsLabel => 'Aonaid';
+
+  @override
+  String get unitsAuto => 'Mar atá i do réigiún';
+
+  @override
+  String get unitsMetric => 'Méadrach (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Impiriúil (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Meáchan';
+
+  @override
   String get systemDefault => 'Réamhshocrú an chórais';
 
   @override

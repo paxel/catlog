@@ -145,10 +145,21 @@ class _CatListScreenState extends State<CatListScreen> {
       }
       result = ba.compareTo(bb);
     } else {
-      result = _value(
-        a.id,
-        key,
-      ).toLowerCase().compareTo(_value(b.id, key).toLowerCase());
+      final def = store.fieldDefs().where((d) => d.key == key).firstOrNull;
+      final numeric =
+          def?.type == FieldType.number || def?.type == FieldType.unitValue;
+      final na = numeric ? double.tryParse(_value(a.id, key)) : null;
+      final nb = numeric ? double.tryParse(_value(b.id, key)) : null;
+      if (numeric && (na != null || nb != null)) {
+        // Numbers sort as numbers; the ones without go last either way.
+        if (na == null || nb == null) return na == null ? 1 : -1;
+        result = na.compareTo(nb);
+      } else {
+        result = _value(
+          a.id,
+          key,
+        ).toLowerCase().compareTo(_value(b.id, key).toLowerCase());
+      }
     }
     return asc ? result : -result;
   }

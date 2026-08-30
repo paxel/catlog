@@ -18,6 +18,7 @@ export 'src/flier_share.dart';
 export 'src/ics.dart';
 export 'src/match.dart';
 export 'src/transfer.dart';
+export 'src/units.dart';
 export 'src/pair_code.dart';
 export 'src/partial_date.dart';
 export 'src/registry.dart';

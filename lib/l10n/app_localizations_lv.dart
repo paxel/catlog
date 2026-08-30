@@ -1128,6 +1128,39 @@ class AppLocalizationsLv extends AppLocalizations {
   String get language => 'Valoda';
 
   @override
+  String get typeUnitValue => 'Vērtība ar vienību';
+
+  @override
+  String get dimension => 'Lielums';
+
+  @override
+  String get dimensionWeight => 'Svars';
+
+  @override
+  String get dimensionLength => 'Garums';
+
+  @override
+  String get dimensionVolume => 'Tilpums';
+
+  @override
+  String get dimensionTemperature => 'Temperatūra';
+
+  @override
+  String get unitsLabel => 'Mērvienības';
+
+  @override
+  String get unitsAuto => 'Kā tavā reģionā';
+
+  @override
+  String get unitsMetric => 'Metriskā (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiālā (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Svars';
+
+  @override
   String get systemDefault => 'Sistēmas noklusējums';
 
   @override

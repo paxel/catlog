@@ -1131,6 +1131,39 @@ class AppLocalizationsNl extends AppLocalizations {
   String get language => 'Taal';
 
   @override
+  String get typeUnitValue => 'Waarde met eenheid';
+
+  @override
+  String get dimension => 'Grootheid';
+
+  @override
+  String get dimensionWeight => 'Gewicht';
+
+  @override
+  String get dimensionLength => 'Lengte';
+
+  @override
+  String get dimensionVolume => 'Volume';
+
+  @override
+  String get dimensionTemperature => 'Temperatuur';
+
+  @override
+  String get unitsLabel => 'Eenheden';
+
+  @override
+  String get unitsAuto => 'Zoals in je regio';
+
+  @override
+  String get unitsMetric => 'Metrisch (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiaal (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Gewicht';
+
+  @override
   String get systemDefault => 'Systeemstandaard';
 
   @override

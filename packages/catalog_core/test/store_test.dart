@@ -541,23 +541,23 @@ void main() {
     });
 
     test('duplicate names are rejected', () {
-      store.defineField('Weight', FieldType.number);
-      expect(() => store.defineField('Weight', FieldType.number),
+      store.defineField('Girth', FieldType.number);
+      expect(() => store.defineField('Girth', FieldType.number),
           throwsArgumentError);
     });
 
     test('renaming a field keeps its key, values, and history', () {
-      final id = store.defineField('Waight', FieldType.number);
+      final id = store.defineField('Gurth', FieldType.number);
       final cat = store.createCat('Miezi');
-      store.append(cat, 'f:waight', '4.2');
+      store.append(cat, 'f:gurth', '4.2');
 
-      store.renameField(id, 'Weight');
+      store.renameField(id, 'Girth');
       final def = store.fieldDefs().firstWhere((d) => d.id == id);
-      expect(def.name, 'Weight');
-      expect(def.slug, 'waight'); // slug is internal, stays
+      expect(def.name, 'Girth');
+      expect(def.slug, 'gurth'); // slug is internal, stays
       expect(store.current(cat, def.key), '4.2');
       expect(store.fieldHistory(id, Keys.name).map((e) => e.value),
-          containsAll(['Waight', 'Weight']));
+          containsAll(['Gurth', 'Girth']));
     });
 
     test('renameField refuses non-definitions', () {

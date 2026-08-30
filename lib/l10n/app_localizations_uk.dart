@@ -1128,6 +1128,39 @@ class AppLocalizationsUk extends AppLocalizations {
   String get language => 'Мова';
 
   @override
+  String get typeUnitValue => 'Значення з одиницею';
+
+  @override
+  String get dimension => 'Величина';
+
+  @override
+  String get dimensionWeight => 'Вага';
+
+  @override
+  String get dimensionLength => 'Довжина';
+
+  @override
+  String get dimensionVolume => 'Обʼєм';
+
+  @override
+  String get dimensionTemperature => 'Температура';
+
+  @override
+  String get unitsLabel => 'Одиниці';
+
+  @override
+  String get unitsAuto => 'Як у вашому регіоні';
+
+  @override
+  String get unitsMetric => 'Метричні (кг, см, мл, °C)';
+
+  @override
+  String get unitsImperial => 'Імперські (фунт, дюйм, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Вага';
+
+  @override
   String get systemDefault => 'Системна за замовчуванням';
 
   @override

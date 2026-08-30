@@ -1129,6 +1129,39 @@ class AppLocalizationsSl extends AppLocalizations {
   String get language => 'Jezik';
 
   @override
+  String get typeUnitValue => 'Vrednost z enoto';
+
+  @override
+  String get dimension => 'Veličina';
+
+  @override
+  String get dimensionWeight => 'Teža';
+
+  @override
+  String get dimensionLength => 'Dolžina';
+
+  @override
+  String get dimensionVolume => 'Prostornina';
+
+  @override
+  String get dimensionTemperature => 'Temperatura';
+
+  @override
+  String get unitsLabel => 'Enote';
+
+  @override
+  String get unitsAuto => 'Kot v tvoji regiji';
+
+  @override
+  String get unitsMetric => 'Metrične (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperialne (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Teža';
+
+  @override
   String get systemDefault => 'Sistemsko privzeto';
 
   @override

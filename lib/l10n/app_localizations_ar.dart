@@ -1125,6 +1125,39 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغة';
 
   @override
+  String get typeUnitValue => 'قيمة بوحدة';
+
+  @override
+  String get dimension => 'البُعد';
+
+  @override
+  String get dimensionWeight => 'الوزن';
+
+  @override
+  String get dimensionLength => 'الطول';
+
+  @override
+  String get dimensionVolume => 'الحجم';
+
+  @override
+  String get dimensionTemperature => 'درجة الحرارة';
+
+  @override
+  String get unitsLabel => 'الوحدات';
+
+  @override
+  String get unitsAuto => 'حسب منطقتك';
+
+  @override
+  String get unitsMetric => 'متري (كغ، سم، مل، °م)';
+
+  @override
+  String get unitsImperial => 'إمبراطوري (رطل، بوصة، أونصة سائلة، °ف)';
+
+  @override
+  String get starterWeight => 'الوزن';
+
+  @override
   String get systemDefault => 'افتراضي النظام';
 
   @override

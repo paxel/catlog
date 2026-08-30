@@ -1132,6 +1132,39 @@ class AppLocalizationsIs extends AppLocalizations {
   String get language => 'Tungumál';
 
   @override
+  String get typeUnitValue => 'Gildi með einingu';
+
+  @override
+  String get dimension => 'Stærð';
+
+  @override
+  String get dimensionWeight => 'Þyngd';
+
+  @override
+  String get dimensionLength => 'Lengd';
+
+  @override
+  String get dimensionVolume => 'Rúmmál';
+
+  @override
+  String get dimensionTemperature => 'Hitastig';
+
+  @override
+  String get unitsLabel => 'Einingar';
+
+  @override
+  String get unitsAuto => 'Eins og á þínu svæði';
+
+  @override
+  String get unitsMetric => 'Metrakerfi (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Breskt (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Þyngd';
+
+  @override
   String get systemDefault => 'Sjálfgefið kerfis';
 
   @override

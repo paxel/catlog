@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.0] - Unreleased
 
+### Added
+
+- A "unit value" field type: pick what it measures — weight, length,
+  volume or temperature — and enter and read it in your units (metric
+  or imperial, from your region or chosen under Units in the menu)
+  while partners see theirs. Weight is ready on every animal.
+
 ### Changed
 
 - "Possible stray area" on the map is a dialog with an OK button

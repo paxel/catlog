@@ -1128,6 +1128,39 @@ class AppLocalizationsSv extends AppLocalizations {
   String get language => 'Språk';
 
   @override
+  String get typeUnitValue => 'Värde med enhet';
+
+  @override
+  String get dimension => 'Storhet';
+
+  @override
+  String get dimensionWeight => 'Vikt';
+
+  @override
+  String get dimensionLength => 'Längd';
+
+  @override
+  String get dimensionVolume => 'Volym';
+
+  @override
+  String get dimensionTemperature => 'Temperatur';
+
+  @override
+  String get unitsLabel => 'Enheter';
+
+  @override
+  String get unitsAuto => 'Som i din region';
+
+  @override
+  String get unitsMetric => 'Metriskt (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperial (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Vikt';
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override
