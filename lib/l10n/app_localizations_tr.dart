@@ -29,7 +29,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clowders => 'Clowder\'lar';
 
   @override
-  String get clowdersNeutral => 'Clowder\'lar';
+  String get clowdersNeutral => 'Haneler';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Henüz clowder yok. Clowder, kedilerin yaşadığı yerdir — geçici yuvanız, sahiplenen kişinin evi. İlkini aşağıda oluşturun.';
+      'Henüz hane yok. Hane, evcil hayvanların yaşadığı yerdir — eviniz, bir geçici yuva, sahiplenen kişinin evi. İlkini aşağıda oluşturun.';
 
   @override
   String get strays => 'Sokak kedileri';
@@ -46,7 +46,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get searchCats => 'Kedi ara';
 
   @override
-  String get searchCatsNeutral => 'Kedi ara';
+  String get searchCatsNeutral => 'Evcil hayvan ara';
 
   @override
   String get map => 'Harita';
@@ -67,7 +67,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get newClowder => 'Yeni clowder';
 
   @override
-  String get newClowderNeutral => 'Yeni clowder';
+  String get newClowderNeutral => 'Yeni hane';
 
   @override
   String get name => 'İsim';
@@ -102,7 +102,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get renameClowder => 'Clowder\'ı yeniden adlandır';
 
   @override
-  String get renameClowderNeutral => 'Clowder\'ı yeniden adlandır';
+  String get renameClowderNeutral => 'Haneyi yeniden adlandır';
 
   @override
   String get rename => 'Yeniden adlandır';
@@ -117,25 +117,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteClowder => 'Clowder\'ı sil';
 
   @override
-  String get deleteClowderNeutral => 'Clowder\'ı sil';
+  String get deleteClowderNeutral => 'Haneyi sil';
 
   @override
   String get cats => 'Kediler';
 
   @override
-  String get catsNeutral => 'Kediler';
+  String get catsNeutral => 'Evcil hayvanlar';
 
   @override
   String get addCat => 'Kedi ekle';
 
   @override
-  String get addCatNeutral => 'Kedi ekle';
+  String get addCatNeutral => 'Evcil hayvan ekle';
 
   @override
   String get newCat => 'Yeni kedi';
 
   @override
-  String get newCatNeutral => 'Yeni kedi';
+  String get newCatNeutral => 'Yeni evcil hayvan';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowder listeden kaybolur.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'Clowder listeden kaybolur.';
+  String get deleteClowderEmptyBodyNeutral => 'Hane listeden kaybolur.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +155,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'İçindeki $count kedi silinmez — sokak kedisi olurlar. İstediğiniz bu değilse önce onları başka bir clowder\'a taşıyın.';
+    return 'İçindeki $count evcil hayvan silinmez — sokak hayvanı olurlar. İstediğiniz bu değilse önce onları başka bir haneye taşıyın.';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get renameCat => 'Kediyi yeniden adlandır';
 
   @override
-  String get renameCatNeutral => 'Kediyi yeniden adlandır';
+  String get renameCatNeutral => 'Evcil hayvanı yeniden adlandır';
 
   @override
   String get seenHereNow => 'Şimdi burada görüldü';
@@ -188,19 +188,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteCat => 'Kediyi sil';
 
   @override
-  String get deleteCatNeutral => 'Kediyi sil';
+  String get deleteCatNeutral => 'Evcil hayvanı sil';
 
   @override
   String get clowderLabel => 'Clowder';
 
   @override
-  String get clowderLabelNeutral => 'Clowder';
+  String get clowderLabelNeutral => 'Hane';
 
   @override
   String get strayNoClowder => 'Sokak kedisi — clowder yok';
 
   @override
-  String get strayNoClowderNeutral => 'Sokak kedisi — clowder yok';
+  String get strayNoClowderNeutral => 'Sokak hayvanı — hane yok';
 
   @override
   String get stray => 'Sokak kedisi';
@@ -233,7 +233,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'Kedi tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
+      'Evcil hayvan tüm listelerden kaybolur ve fotoğrafları silinir — burada ve bir sonraki eşitlemeden sonra diğer cihazlarda da.';
 
   @override
   String get sightingRecorded => 'Görülme, konumunuzda kaydedildi.';
@@ -287,7 +287,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'Çip kartındaki veya veteriner belgelerindeki basılı QR/barkodu tarar — kedinin içindeki çipi telefon okuyamaz.';
+      'Çip kartındaki veya veteriner belgelerindeki basılı QR/barkodu tarar — hayvanın içindeki çipi telefon okuyamaz.';
 
   @override
   String get savingLabel => 'Kaydediliyor…';
@@ -316,7 +316,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get catList => 'Kedi listesi';
 
   @override
-  String get catListNeutral => 'Kedi listesi';
+  String get catListNeutral => 'Evcil hayvan listesi';
 
   @override
   String get matchCandidatesTitle => 'Olası eşleşmeler';
@@ -379,7 +379,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get importShareTitle => 'Bu kedi içe aktarılsın mı?';
 
   @override
-  String get importShareTitleNeutral => 'Bu kedi içe aktarılsın mı?';
+  String get importShareTitleNeutral => 'Bu evcil hayvan içe aktarılsın mı?';
 
   @override
   String shareSource(String url) {
@@ -402,7 +402,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noMissingCats => 'Henüz ilan konumu olan kayıp kedi yok.';
 
   @override
-  String get noMissingCatsNeutral => 'Henüz ilan konumu olan kayıp kedi yok.';
+  String get noMissingCatsNeutral =>
+      'Henüz ilan konumu olan kayıp evcil hayvan yok.';
 
   @override
   String get noMatchCandidates => 'Şu anda olası eşleşme yok.';
@@ -482,7 +483,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Bu kedi erkek olarak kayıtlı — erkek kedi gebe olamaz. Önce cinsiyeti kontrol edin.';
+      'Bu evcil hayvan erkek olarak kayıtlı — erkek gebe olamaz. Önce cinsiyeti kontrol edin.';
 
   @override
   String fatherNotMale(String name) {
@@ -510,7 +511,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Bu kedi başka kedilerin babası olarak kayıtlı — baba dişi olamaz. Önce aileyi kontrol edin.';
+      'Bu evcil hayvan başka evcil hayvanların babası olarak kayıtlı — baba dişi olamaz. Önce aileyi kontrol edin.';
 
   @override
   String get genderMotherMale =>
@@ -518,7 +519,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Bu kedi başka kedilerin annesi olarak kayıtlı — anne erkek olamaz. Önce aileyi kontrol edin.';
+      'Bu evcil hayvan başka evcil hayvanların annesi olarak kayıtlı — anne erkek olamaz. Önce aileyi kontrol edin.';
 
   @override
   String get moveTo => 'Şuraya taşı';
@@ -527,8 +528,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noClowderStrayOption => 'Clowder yok — sokak kedisi / kaçtı';
 
   @override
-  String get noClowderStrayOptionNeutral =>
-      'Clowder yok — sokak kedisi / kaçtı';
+  String get noClowderStrayOptionNeutral => 'Hane yok — sokak hayvanı / kaçtı';
 
   @override
   String timelineOf(String name) {
@@ -618,13 +618,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get forCats => 'kediler';
 
   @override
-  String get forCatsNeutral => 'kediler';
+  String get forCatsNeutral => 'evcil hayvanlar';
 
   @override
   String get forClowders => 'clowder\'lar';
 
   @override
-  String get forClowdersNeutral => 'clowder\'lar';
+  String get forClowdersNeutral => 'haneler';
 
   @override
   String get forBoth => 'ikisi de';
@@ -657,7 +657,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get searchByNameHint => 'İsme göre kedi ara…';
 
   @override
-  String get searchByNameHintNeutral => 'İsme göre kedi ara…';
+  String get searchByNameHintNeutral => 'İsme göre evcil hayvan ara…';
 
   @override
   String get host => 'Sunucu ol';
@@ -779,13 +779,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get kindCat => 'kedi';
 
   @override
-  String get kindCatNeutral => 'kedi';
+  String get kindCatNeutral => 'evcil hayvan';
 
   @override
   String get kindClowder => 'clowder';
 
   @override
-  String get kindClowderNeutral => 'clowder';
+  String get kindClowderNeutral => 'hane';
 
   @override
   String get kindField => 'alan';
@@ -805,7 +805,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Bakıma alınan kediler için yerel bir katalog. Verileriniz cihazlarınızda kalır — sunucu yok, hesap yok.';
+      'Baktığınız evcil hayvanlar için yerel bir katalog. Verileriniz cihazlarınızda kalır — sunucu yok, hesap yok.';
 
   @override
   String versionLabel(String version, String build) {
@@ -933,7 +933,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stepCat => 'Kedi';
 
   @override
-  String get stepCatNeutral => 'Kedi';
+  String get stepCatNeutral => 'Evcil hayvan';
 
   @override
   String get stepOwner => 'Sahibi';
@@ -953,7 +953,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Kediyi arayan kişi — bu, ilandaki iletişim bilgisiyle onun clowder\'ı olur.';
+      'Evcil hayvanı arayan kişi — bu, ilandaki iletişim bilgisiyle onun hanesi olur.';
 
   @override
   String get stepFaceHint =>
@@ -961,7 +961,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Kedinin yüzünü ilandan kırp; profil fotoğrafı olur. Bu adımı atlayabilirsin.';
+      'Evcil hayvanın yüzünü ilandan kırp; profil fotoğrafı olur. Bu adımı atlayabilirsin.';
 
   @override
   String get stepRegistryHint =>
@@ -969,7 +969,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'İlanda bulunan numaralar. İşaretli olanlar kediyle kaydedilir ve sonra açılabilir.';
+      'İlanda bulunan numaralar. İşaretli olanlar evcil hayvanla kaydedilir ve sonra açılabilir.';
 
   @override
   String get noRegistryLinks =>
@@ -1020,7 +1020,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'Kolonilerinin genel görünümü — koloni, kedilerin yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Kedilerini görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni koloni oluşturur, sokak kedileri kartı ise evi olmayan tüm kedileri toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.';
+      'Hanelerinin genel görünümü — hane, evcil hayvanların yaşadığı bir yerdir: evin, bir geçici bakım evi, bir barınak. Evcil hayvanlarını görmek için bir karta dokun; menü için uzun bas. Sağ alttaki düğme yeni hane oluşturur, sokak hayvanları kartı ise evi olmayan tüm evcil hayvanları toplar. Üstteki ad, içinde bulunduğun katalog — değiştirmek veya yeni eklemek için dokun.';
 
   @override
   String get helpClowder =>
@@ -1028,7 +1028,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu koloninin birkaç kedisini götürebilir, örneğin kısırlaştırma seferi: gelen kedileri işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.';
+      'Bu yer hakkında her şey: evcil hayvanları, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir evcil hayvana uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu hanenin birkaç evcil hayvanını götürebilir, örneğin kısırlaştırma seferi: gelen evcil hayvanları işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.';
 
   @override
   String get helpCat =>
@@ -1036,7 +1036,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır.';
+      'Bu evcil hayvan hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, evcil hayvanı paylaş. Özel, bir alanı düzenlerken ayarlanır.';
 
   @override
   String get helpStrays =>
@@ -1044,7 +1044,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Şu anda evi olmayan kediler: bulunmuş, kaçmış ya da ilandan gelen kediler. Kamera düğmesi önündeki kediyi kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir kediye dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. Fotoğraf için Stray Cam\'e dokun; video çekmek için basılı tut ve en iyi kareleri fotoğraf olarak sakla.';
+      'Şu anda evi olmayan evcil hayvanlar: bulunmuş, kaçmış ya da ilandan gelen hayvanlar. Kamera düğmesi önündeki hayvanı kaydeder; ilan düğmesi kayıp ilanını, sahibinin iletişimiyle birlikte bir evcil hayvana dönüştürür; tarayıcı ilandaki cat(a)log kodunu okur. Fotoğraf için Stray Cam\'e dokun; video çekmek için basılı tut ve en iyi kareleri fotoğraf olarak sakla.';
 
   @override
   String get helpMap =>
@@ -1052,7 +1052,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
+      'Konumu olan tüm evcil hayvanlar ve yerler. Arama evcil hayvanları, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir evcil hayvanın ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
 
   @override
   String get helpCard =>
@@ -1060,7 +1060,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'Kedinin yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR\'a ve kısa bir Plus Code\'a dönüşür.';
+      'Evcil hayvanın yazdırılabilir kartı: üstteki çiplerle ne görüneceğini seç, sonra görsel ya da PDF olarak paylaş. Numaralar QR ya da barkod olarak basılabilir, konum ise haritayı açan bir QR\'a ve kısa bir Plus Code\'a dönüşür.';
 
   @override
   String get helpSync =>
@@ -1072,7 +1072,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara kedide tıklanabilir olur.';
+      'Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara evcil hayvanda tıklanabilir olur.';
 
   @override
   String get helpTimeline =>
@@ -1084,7 +1084,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'İki kez var gibi görünen kediler ya da koloniler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.';
+      'İki kez var gibi görünen evcil hayvanlar ya da haneler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.';
 
   @override
   String get helpMatches =>
@@ -1092,7 +1092,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.';
+      'Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç.';
 
   @override
   String get helpFlier =>
@@ -1100,7 +1100,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Fotoğraflanan bir ilan, kediye ve sahibine dönüşür. Adım adım: kedinin bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.';
+      'Fotoğraflanan bir ilan, evcil hayvana ve sahibine dönüşür. Adım adım: evcil hayvanın bilgileri, sahibinin iletişimi, profil fotoğrafı için yüz kırpma, ilandaki kayıt numaraları, sonra son kontrol. Hepsi öneridir — kameranın yanlış okuduğunu düzelt.';
 
   @override
   String get archiveTitle => 'Arşiv';
@@ -1111,7 +1111,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Yıllardır kimsenin dokunmadığı ölmüş kediler ve boş koloniler yine de yer kaplar — özellikle fotoğrafları. Arşivleme onları sakladığınız bir dosyaya yazar ve sonra buradan siler.';
+      'Yıllardır kimsenin dokunmadığı ölmüş evcil hayvanlar ve boş haneler yine de yer kaplar — özellikle fotoğrafları. Arşivleme onları sakladığınız bir dosyaya yazar ve sonra buradan siler.';
 
   @override
   String get archiveAction => 'Arşivle';
@@ -1165,7 +1165,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'Eski veriler yer kaplar, özellikle her eşitlenen cihazın taşıdığı fotoğraflar. Burada yıllardır sessiz duran ölmüş kedileri ve boş kolonileri seçer, sakladığınız bir dosyaya yazar ve silersiniz. Silme, eşitlediğiniz herkese ulaşır; dosyayı içe aktarmak her şeyi geri yükler.';
+      'Eski veriler yer kaplar, özellikle her eşitlenen cihazın taşıdığı fotoğraflar. Burada yıllardır sessiz duran ölmüş evcil hayvanları ve boş haneleri seçer, sakladığınız bir dosyaya yazar ve silersiniz. Silme, eşitlediğiniz herkese ulaşır; dosyayı içe aktarmak her şeyi geri yükler.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1222,7 +1222,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get markTitle => 'Kediyi işaretle';
 
   @override
-  String get markTitleNeutral => 'Kediyi işaretle';
+  String get markTitleNeutral => 'Evcil hayvanı işaretle';
 
   @override
   String get applyCrop => 'Kırp';
@@ -1234,13 +1234,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get dragToSelect => 'Kedinin etrafına dikdörtgen çiz';
 
   @override
-  String get dragToSelectNeutral => 'Kedinin etrafına dikdörtgen çiz';
+  String get dragToSelectNeutral => 'Evcil hayvanın etrafına dikdörtgen çiz';
 
   @override
   String get dragOverTheCat => 'Kedinin üzerine elips çiz';
 
   @override
-  String get dragOverTheCatNeutral => 'Kedinin üzerine elips çiz';
+  String get dragOverTheCatNeutral => 'Evcil hayvanın üzerine elips çiz';
 
   @override
   String get cropPhoto => 'Kırp…';
@@ -1451,7 +1451,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
+      'Bir evcil hayvan yuvasına taşındığında konfeti ve tezahürat';
 
   @override
   String get onMapLabel => 'Haritada';
@@ -1469,7 +1469,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get mapSearchHint => 'Kedi, grup, kişi ara';
 
   @override
-  String get mapSearchHintNeutral => 'Kedi, grup, kişi ara';
+  String get mapSearchHintNeutral => 'Evcil hayvan, hane, kişi ara';
 
   @override
   String get proposeAnotherName => 'Başka bir isim öner';
@@ -1674,13 +1674,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectClowderHint => 'Soldan bir clowder seçin';
 
   @override
-  String get selectClowderHintNeutral => 'Soldan bir clowder seçin';
+  String get selectClowderHintNeutral => 'Soldan bir hane seçin';
 
   @override
   String get introTitle1 => 'Kedileriniz düzenli';
 
   @override
-  String get introTitle1Neutral => 'Kedileriniz düzenli';
+  String get introTitle1Neutral => 'Evcil hayvanlarınız düzenli';
 
   @override
   String get introBody1 =>
@@ -1688,7 +1688,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Baktığınız her kedi için bir kart oluşturun: fotoğraf, cinsiyet, sağlık, not etmek istediğiniz her şey. Kediler yaşadıkları yere göre gruplanır — uygulama bu yere koloni (clowder) der.';
+      'Baktığınız her evcil hayvan için bir kart oluşturun: fotoğraf, cinsiyet, sağlık, not etmek istediğiniz her şey. Evcil hayvanlar yaşadıkları yere göre gruplanır — uygulama bu yere hane der.';
 
   @override
   String get introTitle2 => 'İnternetsiz çalışır';
@@ -1726,7 +1726,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Bu kart tüm sokak kedilerini toplar — evi olmayan kedileri. Listeyi görmek için dokunun.';
+      'Bu kart tüm sokak hayvanlarını toplar — evi olmayan evcil hayvanları. Listeyi görmek için dokunun.';
 
   @override
   String get spotHomeMenu =>
@@ -1738,7 +1738,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Kediyi düzenlemek için kaleme dokunun. İpucu: bir alana uzun basmak onu doğrudan düzenler.';
+      'Evcil hayvanı düzenlemek için kaleme dokunun. İpucu: bir alana uzun basmak onu doğrudan düzenler.';
 
   @override
   String get spotMapLayers =>
@@ -1746,7 +1746,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Kayıp kedi mi arıyorsunuz? İlanlarının görüldüğü yerlerin ve kaçtığı evin çevresine daireler çizin.';
+      'Kayıp evcil hayvan mı arıyorsunuz? İlanlarının görüldüğü yerlerin ve kaçtığı evin çevresine daireler çizin.';
 
   @override
   String get spotStraysFlier =>
@@ -1754,7 +1754,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Kayıp kedi ilanı mı buldunuz? Burada fotoğraflayın — uygulama kediyi ve iletişimi sizin için kaydeder.';
+      'Kayıp evcil hayvan ilanı mı buldunuz? Burada fotoğraflayın — uygulama evcil hayvanı ve iletişimi sizin için kaydeder.';
 
   @override
   String get spotStraysScan =>
@@ -1762,13 +1762,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Bazı ilanlarda cat(a)log QR kodu bulunur. Burada tarayın, kediyi yazmadan içe aktarın.';
+      'Bazı ilanlarda cat(a)log QR kodu bulunur. Burada tarayın, evcil hayvanı yazmadan içe aktarın.';
 
   @override
   String get introTitle4 => 'Kayıp kedileri bulun';
 
   @override
-  String get introTitle4Neutral => 'Kayıp kedileri bulun';
+  String get introTitle4Neutral => 'Kayıp evcil hayvanları bulun';
 
   @override
   String get introBody4 =>
@@ -1776,7 +1776,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Kayıp kedi ilanı mı gördünüz? Uygulamada fotoğraflayın: kediyi, sahibinin iletişimini ve yeri kaydeder. Daha sonra benzer bir sokak kedisi görülürse uygulama olası eşleşmeler önerir.';
+      'Kayıp evcil hayvan ilanı mı gördünüz? Uygulamada fotoğraflayın: evcil hayvanı, sahibinin iletişimini ve yeri kaydeder. Daha sonra benzer bir sokak hayvanı görülürse uygulama olası eşleşmeler önerir.';
 
   @override
   String get spotMapSearch =>
@@ -1784,7 +1784,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Haritada oraya atlamak için bir kedi, yer veya kişi yazın.';
+      'Haritada oraya atlamak için bir evcil hayvan, yer veya kişi yazın.';
 
   @override
   String get spotCardChips =>
@@ -1796,7 +1796,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Burada daha çok işlem var: kediyi gizle, kopyaları birleştir veya bir görülme kaydet.';
+      'Burada daha çok işlem var: evcil hayvanı gizle, kopyaları birleştir veya bir görülme kaydet.';
 
   @override
   String get spotDone => 'Anladım';
@@ -1814,7 +1814,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get searchNoResults => 'Bu isimde kedi bulunamadı';
 
   @override
-  String get searchNoResultsNeutral => 'Bu isimde kedi bulunamadı';
+  String get searchNoResultsNeutral => 'Bu isimde evcil hayvan bulunamadı';
 
   @override
   String get syncUnreachable =>
@@ -1867,7 +1867,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
+      'Her katalog kendi dünyasıdır: kendi evcil hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
 
   @override
   String get spotHomeCatalog =>
@@ -1883,7 +1883,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return '$name içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.';
+    return '$name içindeki her şey gider: evcil hayvanlar, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.';
   }
 
   @override
@@ -2013,7 +2013,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Planlanmış randevu yok. Yenilerini burada artı ile ya da bir kedinin veya clowder\'ın sayfasında planla.';
+      'Planlanmış randevu yok. Yenilerini burada artı ile ya da bir evcil hayvanın veya hanenin sayfasında planla.';
 
   @override
   String get dueToday => 'bugün';
@@ -2178,7 +2178,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Bu kedi için bir randevu planla. Ajandada görünür ve orada onaylanır.';
+      'Bu evcil hayvan için bir randevu planla. Ajandada görünür ve orada onaylanır.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2186,7 +2186,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Bu clowder için bir randevu planla. Ajandada görünür ve orada onaylanır.';
+      'Bu hane için bir randevu planla. Ajandada görünür ve orada onaylanır.';
 
   @override
   String get readOnlyCalendar => 'salt okunur';
@@ -2293,13 +2293,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get existingCat => 'Mevcut kedi';
 
   @override
-  String get existingCatNeutral => 'Mevcut kedi';
+  String get existingCatNeutral => 'Mevcut evcil hayvan';
 
   @override
   String get existingClowder => 'Mevcut grup';
 
   @override
-  String get existingClowderNeutral => 'Mevcut grup';
+  String get existingClowderNeutral => 'Mevcut hane';
 
   @override
   String get createNewInstead => 'Yok — yeni oluştur';
@@ -2325,7 +2325,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get catsOnAppointment => 'Bu randevudaki kediler';
 
   @override
-  String get catsOnAppointmentNeutral => 'Bu randevudaki kediler';
+  String get catsOnAppointmentNeutral => 'Bu randevudaki evcil hayvanlar';
 
   @override
   String get noCatsHint =>
@@ -2333,13 +2333,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noCatsHintNeutral =>
-      'Hiçbir kedi işaretli değil — randevu koloninin kendisine ait.';
+      'Hiçbir evcil hayvan işaretli değil — randevu hanenin kendisine ait.';
 
   @override
   String get pickCatsTitle => 'Hangi kediler geliyor?';
 
   @override
-  String get pickCatsTitleNeutral => 'Hangi kediler geliyor?';
+  String get pickCatsTitleNeutral => 'Hangi evcil hayvanlar geliyor?';
 
   @override
   String catsCount(int count) {
@@ -2348,7 +2348,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count kedi';
+    return '$count evcil hayvan';
   }
 
   @override
@@ -2357,7 +2357,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Tedavi edilmeyen kedilerin işaretini kaldırın; planlı kalırlar.';
+      'Tedavi edilmeyen evcil hayvanların işaretini kaldırın; planlı kalırlar.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2366,6 +2366,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Randevuyu $count kedinin tümü için sil';
+    return 'Randevuyu $count evcil hayvanın tümü için sil';
   }
 }

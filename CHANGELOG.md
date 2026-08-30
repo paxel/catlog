@@ -19,8 +19,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   A pets catalog speaks of pets and households instead of cats and
   clowders, shows a paw for an animal without a photo, and proposes
   neutral names. The choice syncs with the catalog; nothing in the
-  data changes. The neutral wording is available in English and
-  German; other languages keep the cat wording for now.
+  data changes. The neutral wording exists in all 38 languages.
 - Species is a choice with presets — cat, dog, rabbit, guinea pig,
   hamster, bird, horse, tortoise, ferret, or your own word. In pet
   mode, adding an animal asks for it, starting from the one you picked

@@ -29,7 +29,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get clowders => 'Klauderi';
 
   @override
-  String get clowdersNeutral => 'Klauderi';
+  String get clowdersNeutral => 'Mājsaimniecības';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Vēl nav neviena clowdera. Clowder ir vieta, kur dzīvo kaķi — tavas pagaidu mājas, adoptētāja dzīvoklis. Izveido pirmo zemāk.';
+      'Vēl nav nevienas mājsaimniecības. Mājsaimniecība ir vieta, kur dzīvo mājdzīvnieki — tavas mājas, pagaidu mājas, adoptētāja dzīvoklis. Izveido pirmo zemāk.';
 
   @override
   String get strays => 'Klaiņojošie kaķi';
@@ -46,7 +46,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get searchCats => 'Meklēt kaķus';
 
   @override
-  String get searchCatsNeutral => 'Meklēt kaķus';
+  String get searchCatsNeutral => 'Meklēt mājdzīvniekus';
 
   @override
   String get map => 'Karte';
@@ -67,7 +67,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get newClowder => 'Jauns klauderis';
 
   @override
-  String get newClowderNeutral => 'Jauns klauderis';
+  String get newClowderNeutral => 'Jauna mājsaimniecība';
 
   @override
   String get name => 'Vārds';
@@ -102,7 +102,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get renameClowder => 'Pārdēvēt klauderi';
 
   @override
-  String get renameClowderNeutral => 'Pārdēvēt klauderi';
+  String get renameClowderNeutral => 'Pārdēvēt mājsaimniecību';
 
   @override
   String get rename => 'Pārdēvēt';
@@ -117,25 +117,25 @@ class AppLocalizationsLv extends AppLocalizations {
   String get deleteClowder => 'Dzēst klauderi';
 
   @override
-  String get deleteClowderNeutral => 'Dzēst klauderi';
+  String get deleteClowderNeutral => 'Dzēst mājsaimniecību';
 
   @override
   String get cats => 'Kaķi';
 
   @override
-  String get catsNeutral => 'Kaķi';
+  String get catsNeutral => 'Mājdzīvnieki';
 
   @override
   String get addCat => 'Pievienot kaķi';
 
   @override
-  String get addCatNeutral => 'Pievienot kaķi';
+  String get addCatNeutral => 'Pievienot mājdzīvnieku';
 
   @override
   String get newCat => 'Jauns kaķis';
 
   @override
-  String get newCatNeutral => 'Jauns kaķis';
+  String get newCatNeutral => 'Jauns mājdzīvnieks';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,8 @@ class AppLocalizationsLv extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Klauderis pazūd no saraksta.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'Klauderis pazūd no saraksta.';
+  String get deleteClowderEmptyBodyNeutral =>
+      'Mājsaimniecība pazūd no saraksta.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +156,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'Tā kaķi ($count) netiek dzēsti — tie kļūst klaiņojoši. Ja to nevēlaties, vispirms pārvietojiet tos uz citu klauderi.';
+    return 'Tās mājdzīvnieki ($count) netiek dzēsti — tie kļūst klaiņojoši. Ja to nevēlaties, vispirms pārvietojiet tos uz citu mājsaimniecību.';
   }
 
   @override
@@ -179,7 +180,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get renameCat => 'Pārdēvēt kaķi';
 
   @override
-  String get renameCatNeutral => 'Pārdēvēt kaķi';
+  String get renameCatNeutral => 'Pārdēvēt mājdzīvnieku';
 
   @override
   String get seenHereNow => 'Tikko redzēts šeit';
@@ -188,19 +189,19 @@ class AppLocalizationsLv extends AppLocalizations {
   String get deleteCat => 'Dzēst kaķi';
 
   @override
-  String get deleteCatNeutral => 'Dzēst kaķi';
+  String get deleteCatNeutral => 'Dzēst mājdzīvnieku';
 
   @override
   String get clowderLabel => 'Klauderis';
 
   @override
-  String get clowderLabelNeutral => 'Klauderis';
+  String get clowderLabelNeutral => 'Mājsaimniecība';
 
   @override
   String get strayNoClowder => 'Klaiņojošs — bez klaudera';
 
   @override
-  String get strayNoClowderNeutral => 'Klaiņojošs — bez klaudera';
+  String get strayNoClowderNeutral => 'Klaiņojošs — bez mājsaimniecības';
 
   @override
   String get stray => 'Klaiņojošs';
@@ -233,7 +234,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'Kaķis pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī citās ierīcēs.';
+      'Mājdzīvnieks pazūd no visiem sarakstiem, un tā fotoattēli tiek noņemti — šeit un pēc nākamās sinhronizācijas arī citās ierīcēs.';
 
   @override
   String get sightingRecorded => 'Novērojums ierakstīts jūsu pozīcijā.';
@@ -287,7 +288,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'Skenē drukāto QR/svītrkodu no mikroshēmas kartes vai veterinārārsta dokumentiem — kaķī esošo mikroshēmu tālrunis nolasīt nevar.';
+      'Skenē drukāto QR/svītrkodu no mikroshēmas kartes vai veterinārārsta dokumentiem — dzīvniekā esošo mikroshēmu tālrunis nolasīt nevar.';
 
   @override
   String get savingLabel => 'Saglabā…';
@@ -316,7 +317,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get catList => 'Kaķu saraksts';
 
   @override
-  String get catListNeutral => 'Kaķu saraksts';
+  String get catListNeutral => 'Mājdzīvnieku saraksts';
 
   @override
   String get matchCandidatesTitle => 'Iespējamās sakritības';
@@ -379,7 +380,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get importShareTitle => 'Importēt šo kaķi?';
 
   @override
-  String get importShareTitleNeutral => 'Importēt šo kaķi?';
+  String get importShareTitleNeutral => 'Importēt šo mājdzīvnieku?';
 
   @override
   String shareSource(String url) {
@@ -403,7 +404,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noMissingCatsNeutral =>
-      'Vēl nav pazudušu kaķu ar sludinājumu pozīcijām.';
+      'Vēl nav pazudušu mājdzīvnieku ar sludinājumu pozīcijām.';
 
   @override
   String get noMatchCandidates => 'Šobrīd nav iespējamu sakritību.';
@@ -483,7 +484,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Šis kaķis ir reģistrēts kā runcis — runcis nevar būt grūsns. Vispirms pārbaudiet dzimumu.';
+      'Šis mājdzīvnieks ir reģistrēts kā tēviņš — tēviņš nevar būt grūsns. Vispirms pārbaudiet dzimumu.';
 
   @override
   String fatherNotMale(String name) {
@@ -502,7 +503,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String parentBornAfterKittenNeutral(String name, String date) {
-    return '$name dzimis $date — vecāks nevar piedzimt pēc sava kaķēna.';
+    return '$name dzimis $date — vecāks nevar piedzimt pēc sava mazuļa.';
   }
 
   @override
@@ -511,7 +512,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Šis kaķis ir reģistrēts kā citu kaķu tēvs — tēvs nevar būt kaķene. Vispirms pārbaudiet ģimeni.';
+      'Šis mājdzīvnieks ir reģistrēts kā citu mājdzīvnieku tēvs — tēvs nevar būt mātīte. Vispirms pārbaudiet ģimeni.';
 
   @override
   String get genderMotherMale =>
@@ -519,7 +520,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Šis kaķis ir reģistrēts kā citu kaķu māte — māte nevar būt runcis. Vispirms pārbaudiet ģimeni.';
+      'Šis mājdzīvnieks ir reģistrēts kā citu mājdzīvnieku māte — māte nevar būt tēviņš. Vispirms pārbaudiet ģimeni.';
 
   @override
   String get moveTo => 'Pārvietot uz';
@@ -529,7 +530,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noClowderStrayOptionNeutral =>
-      'Bez klaudera — klaiņojošs / aizbēga';
+      'Bez mājsaimniecības — klaiņojošs / aizbēga';
 
   @override
   String timelineOf(String name) {
@@ -619,13 +620,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get forCats => 'kaķiem';
 
   @override
-  String get forCatsNeutral => 'kaķiem';
+  String get forCatsNeutral => 'mājdzīvniekiem';
 
   @override
   String get forClowders => 'klauderiem';
 
   @override
-  String get forClowdersNeutral => 'klauderiem';
+  String get forClowdersNeutral => 'mājsaimniecībām';
 
   @override
   String get forBoth => 'abiem';
@@ -658,7 +659,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get searchByNameHint => 'Meklēt kaķus pēc vārda…';
 
   @override
-  String get searchByNameHintNeutral => 'Meklēt kaķus pēc vārda…';
+  String get searchByNameHintNeutral => 'Meklēt mājdzīvniekus pēc vārda…';
 
   @override
   String get host => 'Uzņemt';
@@ -780,13 +781,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get kindCat => 'kaķis';
 
   @override
-  String get kindCatNeutral => 'kaķis';
+  String get kindCatNeutral => 'mājdzīvnieks';
 
   @override
   String get kindClowder => 'klauderis';
 
   @override
-  String get kindClowderNeutral => 'klauderis';
+  String get kindClowderNeutral => 'mājsaimniecība';
 
   @override
   String get kindField => 'lauks';
@@ -806,7 +807,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Vietējs katalogs aprūpes kaķiem. Jūsu dati paliek jūsu ierīcēs — bez servera, bez konta.';
+      'Vietējs katalogs mājdzīvniekiem, par kuriem rūpējies. Jūsu dati paliek jūsu ierīcēs — bez servera, bez konta.';
 
   @override
   String versionLabel(String version, String build) {
@@ -934,7 +935,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get stepCat => 'Kaķis';
 
   @override
-  String get stepCatNeutral => 'Kaķis';
+  String get stepCatNeutral => 'Mājdzīvnieks';
 
   @override
   String get stepOwner => 'Īpašnieks';
@@ -954,7 +955,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Tas, kam kaķis pazudis — no tā top viņa klauderis ar kontaktu no sludinājuma.';
+      'Tas, kam mājdzīvnieks pazudis — no tā top viņa mājsaimniecība ar kontaktu no sludinājuma.';
 
   @override
   String get stepFaceHint =>
@@ -962,7 +963,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Izgriez kaķa seju no sludinājuma; tā kļūs par profila attēlu. Vari arī izlaist.';
+      'Izgriez mājdzīvnieka seju no sludinājuma; tā kļūs par profila attēlu. Vari arī izlaist.';
 
   @override
   String get stepRegistryHint =>
@@ -970,7 +971,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'Sludinājumā atrastie numuri. Atzīmētie tiks saglabāti pie kaķa un vēlāk atverami.';
+      'Sludinājumā atrastie numuri. Atzīmētie tiks saglabāti pie mājdzīvnieka un vēlāk atverami.';
 
   @override
   String get noRegistryLinks =>
@@ -1021,7 +1022,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'Tavu koloniju pārskats — kolonija ir vieta, kur dzīvo kaķi: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās kaķus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido koloniju, un klaiņotāju kartīte apkopo visus kaķus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.';
+      'Tavu mājsaimniecību pārskats — mājsaimniecība ir vieta, kur dzīvo mājdzīvnieki: tavas mājas, pagaidu mājas, patversme. Pieskaries kartītei, lai redzētu tās mājdzīvniekus; ilga piespiešana atver izvēlni. Poga apakšā pa labi izveido mājsaimniecību, un klaiņotāju kartīte apkopo visus mājdzīvniekus bez mājām. Nosaukums augšā ir katalogs, kurā esi — pieskaries, lai pārslēgtu vai pievienotu.';
 
   @override
   String get helpClowder =>
@@ -1029,7 +1030,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus kolonijas kaķus, piemēram, uz sterilizāciju: atzīmē kaķus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem.';
+      'Viss par šo vietu: tās mājdzīvnieki, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, mājdzīvnieku — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus mājsaimniecības mājdzīvniekus, piemēram, uz sterilizāciju: atzīmē mājdzīvniekus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem.';
 
   @override
   String get helpCat =>
@@ -1037,7 +1038,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku.';
+      'Viss par šo mājdzīvnieku: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot mājdzīvnieku. „Privāts“ tiek iestatīts, rediģējot lauku.';
 
   @override
   String get helpStrays =>
@@ -1045,7 +1046,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Kaķi, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta kaķi tavā priekšā; sludinājuma poga pārvērš pazuduša kaķa plakātu par kaķi ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. Pieskaries Stray Cam, lai uzņemtu foto; turi nospiestu, lai filmētu video un labākos kadrus paturētu kā foto.';
+      'Mājdzīvnieki, kuriem šobrīd nav māju: atrasti, aizbēguši vai no sludinājuma. Kameras poga pieraksta dzīvnieku tavā priekšā; sludinājuma poga pārvērš pazuduša mājdzīvnieka plakātu par mājdzīvnieku ar īpašnieka kontaktu; skeneris nolasa cat(a)log kodu no plakāta. Pieskaries Stray Cam, lai uzņemtu foto; turi nospiestu, lai filmētu video un labākos kadrus paturētu kā foto.';
 
   @override
   String get helpMap =>
@@ -1053,7 +1054,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.';
+      'Visi mājdzīvnieki un vietas ar atrašanās vietu. Meklēšana atrod mājdzīvniekus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša mājdzīvnieka sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.';
 
   @override
   String get helpCard =>
@@ -1061,7 +1062,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'Kaķa izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.';
+      'Mājdzīvnieka izdrukājamā kartīte: augšā ar žetoniem izvēlies, kas uz tās būs, tad kopīgo to kā attēlu vai PDF. Numurus var drukāt kā QR vai svītrkodu, un atrašanās vieta kļūst par QR, kas atver karti, plus īss Plus Code.';
 
   @override
   String get helpSync =>
@@ -1073,7 +1074,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie kaķa kļūst piespiežams.';
+      'Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie mājdzīvnieka kļūst piespiežams.';
 
   @override
   String get helpTimeline =>
@@ -1085,7 +1086,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'Kaķi vai kolonijas, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.';
+      'Mājdzīvnieki vai mājsaimniecības, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.';
 
   @override
   String get helpMatches =>
@@ -1093,7 +1094,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai.';
+      'Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai.';
 
   @override
   String get helpFlier =>
@@ -1101,7 +1102,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Nofotografēts sludinājums kļūst par kaķi un tā īpašnieku. Soli pa solim: kaķa dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.';
+      'Nofotografēts sludinājums kļūst par mājdzīvnieku un tā īpašnieku. Soli pa solim: mājdzīvnieka dati, īpašnieka kontakts, sejas izgriešana profila attēlam, reģistru numuri no sludinājuma un beigās pārbaude. Viss ir tikai ieteikumi — izlabo to, ko kamera nolasīja nepareizi.';
 
   @override
   String get archiveTitle => 'Arhīvs';
@@ -1112,7 +1113,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Mirušie kaķi un tukšās kolonijas, kurām gadiem neviens nav pieskāries, joprojām aizņem vietu — jo īpaši to fotoattēli. Arhivēšana ieraksta tos failā, ko paturat, un tad izdzēš no šejienes.';
+      'Mirušie mājdzīvnieki un tukšās mājsaimniecības, kurām gadiem neviens nav pieskāries, joprojām aizņem vietu — jo īpaši to fotoattēli. Arhivēšana ieraksta tos failā, ko paturat, un tad izdzēš no šejienes.';
 
   @override
   String get archiveAction => 'Arhivēt';
@@ -1166,7 +1167,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'Vecie dati maksā vietu, jo īpaši fotoattēli, ko nes līdzi katra sinhronizētā ierīce. Šeit izvēlaties mirušos kaķus un tukšās kolonijas, kas gadiem nav mainījušās, ierakstāt tos failā, ko paturat, un izdzēšat. Dzēšana sasniedz visus, ar kuriem sinhronizējat; faila imports visu atjauno.';
+      'Vecie dati maksā vietu, jo īpaši fotoattēli, ko nes līdzi katra sinhronizētā ierīce. Šeit izvēlaties mirušos mājdzīvniekus un tukšās mājsaimniecības, kas gadiem nav mainījušās, ierakstāt tos failā, ko paturat, un izdzēšat. Dzēšana sasniedz visus, ar kuriem sinhronizējat; faila imports visu atjauno.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1223,7 +1224,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get markTitle => 'Atzīmēt kaķi';
 
   @override
-  String get markTitleNeutral => 'Atzīmēt kaķi';
+  String get markTitleNeutral => 'Atzīmēt mājdzīvnieku';
 
   @override
   String get applyCrop => 'Apgriezt';
@@ -1235,13 +1236,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get dragToSelect => 'Velciet taisnstūri ap kaķi';
 
   @override
-  String get dragToSelectNeutral => 'Velciet taisnstūri ap kaķi';
+  String get dragToSelectNeutral => 'Velciet taisnstūri ap mājdzīvnieku';
 
   @override
   String get dragOverTheCat => 'Velciet elipsi pār kaķi';
 
   @override
-  String get dragOverTheCatNeutral => 'Velciet elipsi pār kaķi';
+  String get dragOverTheCatNeutral => 'Velciet elipsi pār mājdzīvnieku';
 
   @override
   String get cropPhoto => 'Apgriezt…';
@@ -1452,7 +1453,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Konfeti un gaviles, kad kaķis pārceļas uz mājām';
+      'Konfeti un gaviles, kad mājdzīvnieks pārceļas uz mājām';
 
   @override
   String get onMapLabel => 'Kartē';
@@ -1470,7 +1471,8 @@ class AppLocalizationsLv extends AppLocalizations {
   String get mapSearchHint => 'Meklēt kaķus, grupas, cilvēkus';
 
   @override
-  String get mapSearchHintNeutral => 'Meklēt kaķus, grupas, cilvēkus';
+  String get mapSearchHintNeutral =>
+      'Meklēt mājdzīvniekus, mājsaimniecības, cilvēkus';
 
   @override
   String get proposeAnotherName => 'Ieteikt citu vārdu';
@@ -1551,7 +1553,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get kittensLabel => 'Kaķēni';
 
   @override
-  String get kittensLabelNeutral => 'Kaķēni';
+  String get kittensLabelNeutral => 'Mazuļi';
 
   @override
   String get toastSettingsTitle => 'Ko paziņot';
@@ -1586,7 +1588,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String toastBornNeutral(Object cat) {
-    return '✨ Jauns kaķēns: $cat ✨';
+    return '✨ Jaundzimušais: $cat ✨';
   }
 
   @override
@@ -1675,13 +1677,14 @@ class AppLocalizationsLv extends AppLocalizations {
   String get selectClowderHint => 'Izvēlies clowder kreisajā pusē';
 
   @override
-  String get selectClowderHintNeutral => 'Izvēlies clowder kreisajā pusē';
+  String get selectClowderHintNeutral =>
+      'Izvēlies mājsaimniecību kreisajā pusē';
 
   @override
   String get introTitle1 => 'Jūsu kaķi kārtībā';
 
   @override
-  String get introTitle1Neutral => 'Jūsu kaķi kārtībā';
+  String get introTitle1Neutral => 'Jūsu mājdzīvnieki kārtībā';
 
   @override
   String get introBody1 =>
@@ -1689,7 +1692,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Izveidojiet katram kaķim kartīti: foto, dzimums, veselība — viss, ko vēlaties pierakstīt. Kaķi ir grupēti pēc dzīvesvietas — lietotne to sauc par koloniju (clowder).';
+      'Izveidojiet katram mājdzīvniekam, par kuru rūpējaties, kartīti: foto, dzimums, veselība — viss, ko vēlaties pierakstīt. Mājdzīvnieki ir grupēti pēc dzīvesvietas — lietotne to sauc par mājsaimniecību.';
 
   @override
   String get introTitle2 => 'Darbojas bez interneta';
@@ -1727,7 +1730,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Šī kartīte apkopo visus klaiņotājus — kaķus bez mājām. Pieskarieties sarakstam.';
+      'Šī kartīte apkopo visus klaiņotājus — mājdzīvniekus bez mājām. Pieskarieties sarakstam.';
 
   @override
   String get spotHomeMenu =>
@@ -1739,7 +1742,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Pieskarieties zīmulim, lai rediģētu kaķi. Padoms: ilgi turot lauku, rediģēsiet to uzreiz.';
+      'Pieskarieties zīmulim, lai rediģētu mājdzīvnieku. Padoms: ilgi turot lauku, rediģēsiet to uzreiz.';
 
   @override
   String get spotMapLayers =>
@@ -1747,7 +1750,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Meklējat pazudušu kaķi? Parādiet apļus ap tā sludinājumu vietām un ap māju, no kuras tas aizbēga.';
+      'Meklējat pazudušu mājdzīvnieku? Parādiet apļus ap tā sludinājumu vietām un ap māju, no kuras tas aizbēga.';
 
   @override
   String get spotStraysFlier =>
@@ -1755,7 +1758,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Sludinājums par pazudušu kaķi? Nofotografējiet to šeit — lietotne saglabā kaķi un kontaktu jūsu vietā.';
+      'Sludinājums par pazudušu mājdzīvnieku? Nofotografējiet to šeit — lietotne saglabā mājdzīvnieku un kontaktu jūsu vietā.';
 
   @override
   String get spotStraysScan =>
@@ -1763,13 +1766,13 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Dažiem sludinājumiem ir cat(a)log QR kods. Noskenējiet to šeit un importējiet kaķi bez rakstīšanas.';
+      'Dažiem sludinājumiem ir cat(a)log QR kods. Noskenējiet to šeit un importējiet mājdzīvnieku bez rakstīšanas.';
 
   @override
   String get introTitle4 => 'Atrodiet pazudušos kaķus';
 
   @override
-  String get introTitle4Neutral => 'Atrodiet pazudušos kaķus';
+  String get introTitle4Neutral => 'Atrodiet pazudušos mājdzīvniekus';
 
   @override
   String get introBody4 =>
@@ -1777,7 +1780,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Redzat sludinājumu par pazudušu kaķi? Nofotografējiet to lietotnē: tā saglabā kaķi, saimnieka kontaktu un vietu. Ja vēlāk parādīsies līdzīgs klaiņotājs, lietotne ieteiks iespējamās sakritības.';
+      'Redzat sludinājumu par pazudušu mājdzīvnieku? Nofotografējiet to lietotnē: tā saglabā mājdzīvnieku, saimnieka kontaktu un vietu. Ja vēlāk parādīsies līdzīgs klaiņotājs, lietotne ieteiks iespējamās sakritības.';
 
   @override
   String get spotMapSearch =>
@@ -1785,7 +1788,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Ierakstiet kaķi, vietu vai cilvēku, lai kartē pārlektu turp.';
+      'Ierakstiet mājdzīvnieku, vietu vai cilvēku, lai kartē pārlektu turp.';
 
   @override
   String get spotCardChips =>
@@ -1797,7 +1800,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Šeit ir vēl darbības: paslēpt kaķi, apvienot dublikātus vai pierakstīt novērojumu.';
+      'Šeit ir vēl darbības: paslēpt mājdzīvnieku, apvienot dublikātus vai pierakstīt novērojumu.';
 
   @override
   String get spotDone => 'Skaidrs';
@@ -1815,7 +1818,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get searchNoResults => 'Kaķis ar šādu vārdu nav atrasts';
 
   @override
-  String get searchNoResultsNeutral => 'Kaķis ar šādu vārdu nav atrasts';
+  String get searchNoResultsNeutral => 'Mājdzīvnieks ar šādu vārdu nav atrasts';
 
   @override
   String get syncUnreachable =>
@@ -1868,7 +1871,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Katrs katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
+      'Katrs katalogs ir pasaule pati par sevi: savi mājdzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
 
   @override
   String get spotHomeCatalog =>
@@ -1884,7 +1887,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'Viss katalogā $name pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.';
+    return 'Viss katalogā $name pazūd: mājdzīvnieki, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.';
   }
 
   @override
@@ -2014,7 +2017,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai kaķa vai klaudera lapā.';
+      'Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai mājdzīvnieka vai mājsaimniecības lapā.';
 
   @override
   String get dueToday => 'šodien';
@@ -2181,7 +2184,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Ieplāno vizīti šim kaķim. Tā rādās atgādinājumos un tur tiek apstiprināta.';
+      'Ieplāno vizīti šim mājdzīvniekam. Tā rādās atgādinājumos un tur tiek apstiprināta.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2189,7 +2192,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Ieplāno vizīti šim klauderim. Tā rādās atgādinājumos un tur tiek apstiprināta.';
+      'Ieplāno vizīti šai mājsaimniecībai. Tā rādās atgādinājumos un tur tiek apstiprināta.';
 
   @override
   String get readOnlyCalendar => 'tikai lasāms';
@@ -2296,13 +2299,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get existingCat => 'Esošs kaķis';
 
   @override
-  String get existingCatNeutral => 'Esošs kaķis';
+  String get existingCatNeutral => 'Esošs mājdzīvnieks';
 
   @override
   String get existingClowder => 'Esoša grupa';
 
   @override
-  String get existingClowderNeutral => 'Esoša grupa';
+  String get existingClowderNeutral => 'Esoša mājsaimniecība';
 
   @override
   String get createNewInstead => 'Nav — izveidot jaunu';
@@ -2328,7 +2331,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get catsOnAppointment => 'Kaķi šajā pierakstā';
 
   @override
-  String get catsOnAppointmentNeutral => 'Kaķi šajā pierakstā';
+  String get catsOnAppointmentNeutral => 'Mājdzīvnieki šajā pierakstā';
 
   @override
   String get noCatsHint =>
@@ -2336,13 +2339,13 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get noCatsHintNeutral =>
-      'Neviens kaķis nav atzīmēts — pieraksts pieder pašai kolonijai.';
+      'Neviens mājdzīvnieks nav atzīmēts — pieraksts pieder pašai mājsaimniecībai.';
 
   @override
   String get pickCatsTitle => 'Kuri kaķi brauc līdzi?';
 
   @override
-  String get pickCatsTitleNeutral => 'Kuri kaķi brauc līdzi?';
+  String get pickCatsTitleNeutral => 'Kuri mājdzīvnieki brauc līdzi?';
 
   @override
   String catsCount(int count) {
@@ -2351,7 +2354,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count kaķi';
+    return '$count mājdzīvnieki';
   }
 
   @override
@@ -2360,7 +2363,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Noņem atzīmi kaķiem, kuri netika ārstēti; tie paliek plānoti.';
+      'Noņem atzīmi mājdzīvniekiem, kuri netika ārstēti; tie paliek plānoti.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2369,6 +2372,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Dzēst pierakstu visiem $count kaķiem';
+    return 'Dzēst pierakstu visiem $count mājdzīvniekiem';
   }
 }

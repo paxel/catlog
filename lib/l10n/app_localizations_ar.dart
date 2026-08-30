@@ -29,7 +29,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clowders => 'المجموعات';
 
   @override
-  String get clowdersNeutral => 'المجموعات';
+  String get clowdersNeutral => 'المنازل';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'لا مجموعات بعد. المجموعة هي مكان تعيش فيه القطط — دار الرعاية أو شقة المتبني. أنشئ الأولى أدناه.';
+      'لا منازل بعد. المنزل هو مكان تعيش فيه الحيوانات الأليفة — بيتك، دار رعاية، أو شقة المتبني. أنشئ الأول أدناه.';
 
   @override
   String get strays => 'القطط الضالة';
@@ -46,7 +46,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get searchCats => 'البحث عن قطط';
 
   @override
-  String get searchCatsNeutral => 'البحث عن قطط';
+  String get searchCatsNeutral => 'البحث عن حيوانات أليفة';
 
   @override
   String get map => 'الخريطة';
@@ -67,7 +67,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newClowder => 'مجموعة جديدة';
 
   @override
-  String get newClowderNeutral => 'مجموعة جديدة';
+  String get newClowderNeutral => 'منزل جديد';
 
   @override
   String get name => 'الاسم';
@@ -102,7 +102,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get renameClowder => 'إعادة تسمية المجموعة';
 
   @override
-  String get renameClowderNeutral => 'إعادة تسمية المجموعة';
+  String get renameClowderNeutral => 'إعادة تسمية المنزل';
 
   @override
   String get rename => 'إعادة تسمية';
@@ -117,25 +117,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteClowder => 'حذف المجموعة';
 
   @override
-  String get deleteClowderNeutral => 'حذف المجموعة';
+  String get deleteClowderNeutral => 'حذف المنزل';
 
   @override
   String get cats => 'القطط';
 
   @override
-  String get catsNeutral => 'القطط';
+  String get catsNeutral => 'الحيوانات الأليفة';
 
   @override
   String get addCat => 'إضافة قطة';
 
   @override
-  String get addCatNeutral => 'إضافة قطة';
+  String get addCatNeutral => 'إضافة حيوان أليف';
 
   @override
   String get newCat => 'قطة جديدة';
 
   @override
-  String get newCatNeutral => 'قطة جديدة';
+  String get newCatNeutral => 'حيوان أليف جديد';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteClowderEmptyBody => 'ستختفي المجموعة من القائمة.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'ستختفي المجموعة من القائمة.';
+  String get deleteClowderEmptyBodyNeutral => 'سيختفي المنزل من القائمة.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +155,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'قططها ($count) لن تُحذف — بل تصبح ضالة. انقلها أولًا إلى مجموعة أخرى إن لم يكن هذا ما تريد.';
+    return 'حيواناته ($count) لن تُحذف — بل تصبح ضالة. انقلها أولًا إلى منزل آخر إن لم يكن هذا ما تريد.';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get renameCat => 'إعادة تسمية القطة';
 
   @override
-  String get renameCatNeutral => 'إعادة تسمية القطة';
+  String get renameCatNeutral => 'إعادة تسمية الحيوان الأليف';
 
   @override
   String get seenHereNow => 'شوهدت هنا الآن';
@@ -188,19 +188,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteCat => 'حذف القطة';
 
   @override
-  String get deleteCatNeutral => 'حذف القطة';
+  String get deleteCatNeutral => 'حذف الحيوان الأليف';
 
   @override
   String get clowderLabel => 'المجموعة';
 
   @override
-  String get clowderLabelNeutral => 'المجموعة';
+  String get clowderLabelNeutral => 'المنزل';
 
   @override
   String get strayNoClowder => 'ضالة — بلا مجموعة';
 
   @override
-  String get strayNoClowderNeutral => 'ضالة — بلا مجموعة';
+  String get strayNoClowderNeutral => 'ضال — بلا منزل';
 
   @override
   String get stray => 'ضالة';
@@ -233,7 +233,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'تختفي القطة من كل القوائم وتُحذف صورها — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
+      'يختفي الحيوان الأليف من كل القوائم وتُحذف صوره — هنا، وبعد المزامنة التالية، على الأجهزة الأخرى أيضًا.';
 
   @override
   String get sightingRecorded => 'سُجِّلت المشاهدة في موقعك.';
@@ -287,7 +287,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل القطة.';
+      'يمسح رمز QR/الباركود المطبوع من بطاقة الشريحة أو أوراق الطبيب البيطري — الهاتف لا يستطيع قراءة الشريحة داخل الحيوان.';
 
   @override
   String get savingLabel => 'جارٍ الحفظ…';
@@ -316,7 +316,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get catList => 'قائمة القطط';
 
   @override
-  String get catListNeutral => 'قائمة القطط';
+  String get catListNeutral => 'قائمة الحيوانات الأليفة';
 
   @override
   String get matchCandidatesTitle => 'مرشّحو التطابق';
@@ -379,7 +379,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get importShareTitle => 'استيراد هذه القطة؟';
 
   @override
-  String get importShareTitleNeutral => 'استيراد هذه القطة؟';
+  String get importShareTitleNeutral => 'استيراد هذا الحيوان الأليف؟';
 
   @override
   String shareSource(String url) {
@@ -402,7 +402,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noMissingCats => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
 
   @override
-  String get noMissingCatsNeutral => 'لا توجد قطط مفقودة بمواقع منشورات بعد.';
+  String get noMissingCatsNeutral =>
+      'لا توجد حيوانات أليفة مفقودة بمواقع منشورات بعد.';
 
   @override
   String get noMatchCandidates => 'لا يوجد مرشّحون للتطابق حاليًا.';
@@ -482,7 +483,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'هذه القطة مسجّلة كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
+      'هذا الحيوان الأليف مسجّل كذكر — لا يمكن لذكر أن يكون حاملًا. تحقّق من الجنس أولًا.';
 
   @override
   String fatherNotMale(String name) {
@@ -510,7 +511,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'هذه القطة مسجّلة كأب لقطط أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
+      'هذا الحيوان الأليف مسجّل كأب لحيوانات أليفة أخرى — لا يمكن للأب أن يكون أنثى. تحقّق من العائلة أولًا.';
 
   @override
   String get genderMotherMale =>
@@ -518,7 +519,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'هذه القطة مسجّلة كأم لقطط أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
+      'هذا الحيوان الأليف مسجّل كأم لحيوانات أليفة أخرى — لا يمكن للأم أن تكون ذكرًا. تحقّق من العائلة أولًا.';
 
   @override
   String get moveTo => 'نقل إلى';
@@ -527,7 +528,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noClowderStrayOption => 'بلا مجموعة — ضالة / هربت';
 
   @override
-  String get noClowderStrayOptionNeutral => 'بلا مجموعة — ضالة / هربت';
+  String get noClowderStrayOptionNeutral => 'بلا منزل — ضال / هرب';
 
   @override
   String timelineOf(String name) {
@@ -617,13 +618,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forCats => 'القطط';
 
   @override
-  String get forCatsNeutral => 'القطط';
+  String get forCatsNeutral => 'الحيوانات الأليفة';
 
   @override
   String get forClowders => 'المجموعات';
 
   @override
-  String get forClowdersNeutral => 'المجموعات';
+  String get forClowdersNeutral => 'المنازل';
 
   @override
   String get forBoth => 'كليهما';
@@ -656,7 +657,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get searchByNameHint => 'ابحث عن القطط بالاسم…';
 
   @override
-  String get searchByNameHintNeutral => 'ابحث عن القطط بالاسم…';
+  String get searchByNameHintNeutral => 'ابحث عن الحيوانات الأليفة بالاسم…';
 
   @override
   String get host => 'استضافة';
@@ -778,13 +779,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get kindCat => 'قطة';
 
   @override
-  String get kindCatNeutral => 'قطة';
+  String get kindCatNeutral => 'حيوان أليف';
 
   @override
   String get kindClowder => 'مجموعة';
 
   @override
-  String get kindClowderNeutral => 'مجموعة';
+  String get kindClowderNeutral => 'منزل';
 
   @override
   String get kindField => 'حقل';
@@ -804,7 +805,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'فهرس محلي لقطط الرعاية المؤقتة. بياناتك تبقى على أجهزتك — لا خادم ولا حساب.';
+      'فهرس محلي للحيوانات الأليفة التي ترعاها. بياناتك تبقى على أجهزتك — لا خادم ولا حساب.';
 
   @override
   String versionLabel(String version, String build) {
@@ -932,7 +933,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get stepCat => 'القطة';
 
   @override
-  String get stepCatNeutral => 'القطة';
+  String get stepCatNeutral => 'الحيوان الأليف';
 
   @override
   String get stepOwner => 'المالك';
@@ -952,7 +953,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'من يبحث عن القطة — تصبح هذه مجموعته مع بيانات التواصل من المنشور.';
+      'من يبحث عن الحيوان الأليف — يصبح هذا منزله مع بيانات التواصل من المنشور.';
 
   @override
   String get stepFaceHint =>
@@ -960,7 +961,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'اقتصّ وجه القطة من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
+      'اقتصّ وجه الحيوان الأليف من المنشور؛ سيصبح صورة الملف. يمكنك تخطي هذه الخطوة.';
 
   @override
   String get stepRegistryHint =>
@@ -968,7 +969,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'أرقام وُجدت على المنشور. المحددة تُحفظ مع القطة ويمكن فتحها لاحقًا.';
+      'أرقام وُجدت على المنشور. المحددة تُحفظ مع الحيوان الأليف ويمكن فتحها لاحقًا.';
 
   @override
   String get noRegistryLinks =>
@@ -1017,7 +1018,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'نظرة عامة على مستعمراتك — المستعمرة مكان تعيش فيه القطط: بيتك، بيت رعاية، ملجأ. انقر بطاقة لرؤية قططها؛ الضغط المطوّل يفتح القائمة. الزر أسفل اليمين ينشئ مستعمرة، وبطاقة القطط الضالة تجمع كل قطة بلا بيت. الاسم في الأعلى هو الكتالوج الذي أنت فيه — المسه للتبديل أو لإضافة واحد.';
+      'نظرة عامة على منازلك — المنزل مكان تعيش فيه الحيوانات الأليفة: بيتك، بيت رعاية، ملجأ. انقر بطاقة لرؤية حيواناتها؛ الضغط المطوّل يفتح القائمة. الزر أسفل اليمين ينشئ منزلًا، وبطاقة الحيوانات الضالة تجمع كل حيوان أليف بلا بيت. الاسم في الأعلى هو الكتالوج الذي أنت فيه — المسه للتبديل أو لإضافة واحد.';
 
   @override
   String get helpClowder =>
@@ -1025,7 +1026,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'كل شيء عن هذا المكان: قططه وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى قطة ينقلها أو يخفيها أو يفتحها. الموعد المضاف هنا يمكن أن يأخذ عدة قطط من المستعمرة، مثل رحلة تعقيم: حدّد القطط التي ستأتي، أنهِ مرة واحدة، وألغِ تحديد التي لم تُعالج.';
+      'كل شيء عن هذا المكان: حيواناته الأليفة وحقوله (العنوان، التواصل، النوع) وسجله. تفتح الصفحة للقراءة فقط؛ القلم يفعّل التحرير، وهناك يمكنك إضافة حقل. الضغط المطوّل على حقل يحرره مباشرة، وعلى حيوان أليف ينقله أو يخفيه أو يفتحه. الموعد المضاف هنا يمكن أن يأخذ عدة حيوانات أليفة من المنزل، مثل رحلة تعقيم: حدّد الحيوانات التي ستأتي، أنهِ مرة واحدة، وألغِ تحديد التي لم تُعالج.';
 
   @override
   String get helpCat =>
@@ -1033,7 +1034,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'كل شيء عن هذه القطة: الصور والحقول والعائلة والتاريخ. الصفحة للقراءة فقط حتى تنقر على القلم. اضغط مطولًا على حقل للانتقال مباشرة إلى تحريره؛ اضغط مطولًا على صورة لفتح قائمتها. القائمة في الأعلى تحوي الباقي: إخفاء، دمج، تسجيل مشاهدة، مشاركة القطة. «خاص» يُضبط أثناء تحرير الحقل.';
+      'كل شيء عن هذا الحيوان الأليف: الصور والحقول والعائلة والتاريخ. الصفحة للقراءة فقط حتى تنقر على القلم. اضغط مطولًا على حقل للانتقال مباشرة إلى تحريره؛ اضغط مطولًا على صورة لفتح قائمتها. القائمة في الأعلى تحوي الباقي: إخفاء، دمج، تسجيل مشاهدة، مشاركة الحيوان الأليف. «خاص» يُضبط أثناء تحرير الحقل.';
 
   @override
   String get helpStrays =>
@@ -1041,7 +1042,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'قطط بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل قطة أمامك؛ زر المنشور يحوّل منشور فقدان إلى قطة مع بيانات صاحبها؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
+      'حيوانات أليفة بلا بيت الآن: موجودة أو هاربة أو مأخوذة من منشور. زر الكاميرا يسجل حيوانًا أمامك؛ زر المنشور يحوّل منشور فقدان إلى حيوان أليف مع بيانات صاحبه؛ الماسح يقرأ رمز cat(a)log من المنشور. انقر على كاميرا الضالة لالتقاط صورة؛ اضغط مطولاً لتصوير فيديو والاحتفاظ بأفضل اللقطات كصور.';
 
   @override
   String get helpMap =>
@@ -1049,7 +1050,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'كل القطط والأماكن ذات الموقع. البحث يجد القطط والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات قطة مفقودة وحول البيت الذي هربت منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة.';
+      'كل الحيوانات الأليفة والأماكن ذات الموقع. البحث يجد الحيوانات الأليفة والأشخاص والأماكن — والاسم غير المعروف يُبحث عنه عالميًا. زر الطبقات يرسم دوائر 500 م حول أماكن منشورات حيوان أليف مفقود وحول البيت الذي هرب منه. الأسهم تنتقل من دبوس إلى دبوس، والضغط المطوّل على الخريطة يسجل مشاهدة.';
 
   @override
   String get helpCard =>
@@ -1057,7 +1058,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'بطاقة القطة القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.';
+      'بطاقة الحيوان الأليف القابلة للطباعة: اختر بالأعلى بالرقائق ما يظهر عليها، ثم شاركها كصورة أو PDF. يمكن طباعة الأرقام كرمز QR أو باركود، ويصبح الموقع رمز QR يفتح خريطة مع Plus Code قصير.';
 
   @override
   String get helpSync =>
@@ -1069,7 +1070,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.';
+      'الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند الحيوان الأليف.';
 
   @override
   String get helpTimeline =>
@@ -1081,7 +1082,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.';
+      'حيوانات أليفة أو منازل تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.';
 
   @override
   String get helpMatches =>
@@ -1089,7 +1090,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
+      'حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة.';
 
   @override
   String get helpFlier =>
@@ -1097,7 +1098,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'منشور مصوَّر يتحول إلى قطة مع صاحبها. خطوة بخطوة: بيانات القطة، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
+      'منشور مصوَّر يتحول إلى حيوان أليف مع صاحبه. خطوة بخطوة: بيانات الحيوان الأليف، تواصل الصاحب، قص الوجه لصورة الملف، أرقام السجلات من المنشور، ثم مراجعة أخيرة. كل ذلك اقتراحات — صحّح ما قرأته الكاميرا خطأ.';
 
   @override
   String get archiveTitle => 'الأرشيف';
@@ -1108,7 +1109,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'القطط المتوفاة والمستعمرات الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
+      'الحيوانات الأليفة المتوفاة والمنازل الفارغة التي لم يمسّها أحد منذ سنوات ما زالت تشغل مساحة — وخاصة صورها. الأرشفة تكتبها في ملف تحتفظ به ثم تحذفها من هنا.';
 
   @override
   String get archiveAction => 'أرشفة';
@@ -1162,7 +1163,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار القطط المتوفاة والمستعمرات الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
+      'البيانات القديمة تكلّف مساحة، وخاصة الصور التي يحملها كل جهاز مزامَن. هنا تختار الحيوانات الأليفة المتوفاة والمنازل الفارغة الساكنة منذ سنوات، وتكتبها في ملف تحتفظ به، ثم تحذفها. الحذف يصل إلى كل من تزامن معه؛ واستيراد الملف يعيد كل شيء.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1218,7 +1219,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get markTitle => 'تحديد القطة';
 
   @override
-  String get markTitleNeutral => 'تحديد القطة';
+  String get markTitleNeutral => 'تحديد الحيوان الأليف';
 
   @override
   String get applyCrop => 'قصّ';
@@ -1230,13 +1231,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dragToSelect => 'ارسم مستطيلًا حول القطة';
 
   @override
-  String get dragToSelectNeutral => 'ارسم مستطيلًا حول القطة';
+  String get dragToSelectNeutral => 'ارسم مستطيلًا حول الحيوان الأليف';
 
   @override
   String get dragOverTheCat => 'ارسم شكلًا بيضاويًا فوق القطة';
 
   @override
-  String get dragOverTheCatNeutral => 'ارسم شكلًا بيضاويًا فوق القطة';
+  String get dragOverTheCatNeutral => 'ارسم شكلًا بيضاويًا فوق الحيوان الأليف';
 
   @override
   String get cropPhoto => 'قص…';
@@ -1447,7 +1448,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
+      'قصاصات ملونة وهتاف عندما ينتقل حيوان أليف إلى منزله';
 
   @override
   String get onMapLabel => 'على الخريطة';
@@ -1465,7 +1466,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mapSearchHint => 'ابحث عن قطط ومجموعات وأشخاص';
 
   @override
-  String get mapSearchHintNeutral => 'ابحث عن قطط ومجموعات وأشخاص';
+  String get mapSearchHintNeutral => 'ابحث عن حيوانات أليفة ومنازل وأشخاص';
 
   @override
   String get proposeAnotherName => 'اقترح اسمًا آخر';
@@ -1581,7 +1582,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String toastBornNeutral(Object cat) {
-    return '✨ هريرة جديدة: $cat ✨';
+    return '✨ مولود جديد: $cat ✨';
   }
 
   @override
@@ -1668,13 +1669,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectClowderHint => 'اختر مجموعة من اليسار';
 
   @override
-  String get selectClowderHintNeutral => 'اختر مجموعة من اليسار';
+  String get selectClowderHintNeutral => 'اختر منزلًا من اليسار';
 
   @override
   String get introTitle1 => 'قططك بنظام';
 
   @override
-  String get introTitle1Neutral => 'قططك بنظام';
+  String get introTitle1Neutral => 'حيواناتك الأليفة بنظام';
 
   @override
   String get introBody1 =>
@@ -1682,7 +1683,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'أنشئ بطاقة لكل قطة ترعاها: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع القطط حسب مكان عيشها — يسمي التطبيق هذا المكان مستعمرة (clowder).';
+      'أنشئ بطاقة لكل حيوان أليف ترعاه: صورة، الجنس، الصحة، وكل ما تريد تدوينه. تُجمَّع الحيوانات الأليفة حسب مكان عيشها — يسمي التطبيق هذا المكان منزلًا.';
 
   @override
   String get introTitle2 => 'يعمل بلا إنترنت';
@@ -1719,7 +1720,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'هذه البطاقة تجمع كل القطط الضالة — القطط بلا مأوى. انقر لعرض القائمة.';
+      'هذه البطاقة تجمع كل الحيوانات الضالة — الحيوانات الأليفة بلا مأوى. انقر لعرض القائمة.';
 
   @override
   String get spotHomeMenu =>
@@ -1731,7 +1732,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'انقر على القلم لتحرير هذه القطة. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
+      'انقر على القلم لتحرير هذا الحيوان الأليف. نصيحة: الضغط المطوّل على أي حقل يحرره مباشرة.';
 
   @override
   String get spotMapLayers =>
@@ -1739,7 +1740,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'تبحث عن قطة مفقودة؟ أظهر دوائر حول أماكن منشوراتها وحول البيت الذي هربت منه.';
+      'تبحث عن حيوان أليف مفقود؟ أظهر دوائر حول أماكن منشوراته وحول البيت الذي هرب منه.';
 
   @override
   String get spotStraysFlier =>
@@ -1747,7 +1748,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'وجدت منشور قطة مفقودة؟ صوّره هنا — يحفظ التطبيق القطة وبيانات التواصل عنك.';
+      'وجدت منشور حيوان أليف مفقود؟ صوّره هنا — يحفظ التطبيق الحيوان الأليف وبيانات التواصل عنك.';
 
   @override
   String get spotStraysScan =>
@@ -1755,13 +1756,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد القطة دون كتابة.';
+      'بعض المنشورات تحمل رمز QR الخاص بـ cat(a)log. امسحه هنا واستورد الحيوان الأليف دون كتابة.';
 
   @override
   String get introTitle4 => 'اعثر على القطط المفقودة';
 
   @override
-  String get introTitle4Neutral => 'اعثر على القطط المفقودة';
+  String get introTitle4Neutral => 'اعثر على الحيوانات الأليفة المفقودة';
 
   @override
   String get introBody4 =>
@@ -1769,7 +1770,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'رأيت منشور قطة مفقودة؟ صوّره في التطبيق: يحفظ القطة وبيانات مالكها والمكان. وإذا ظهرت لاحقًا قطة ضالة مشابهة، يقترح التطبيق تطابقات محتملة.';
+      'رأيت منشور حيوان أليف مفقود؟ صوّره في التطبيق: يحفظ الحيوان الأليف وبيانات مالكه والمكان. وإذا ظهر لاحقًا حيوان ضال مشابه، يقترح التطبيق تطابقات محتملة.';
 
   @override
   String get spotMapSearch =>
@@ -1777,7 +1778,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'اكتب قطة أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
+      'اكتب حيوانًا أليفًا أو مكانًا أو شخصًا للانتقال إليه على الخريطة.';
 
   @override
   String get spotCardChips =>
@@ -1789,7 +1790,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'هنا المزيد من الإجراءات: إخفاء القطة، دمج التكرارات، أو تسجيل مشاهدة.';
+      'هنا المزيد من الإجراءات: إخفاء الحيوان الأليف، دمج التكرارات، أو تسجيل مشاهدة.';
 
   @override
   String get spotDone => 'فهمت';
@@ -1807,7 +1808,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get searchNoResults => 'لم يتم العثور على قطة بهذا الاسم';
 
   @override
-  String get searchNoResultsNeutral => 'لم يتم العثور على قطة بهذا الاسم';
+  String get searchNoResultsNeutral =>
+      'لم يتم العثور على حيوان أليف بهذا الاسم';
 
   @override
   String get syncUnreachable =>
@@ -1860,7 +1862,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'كل كتالوج عالم قائم بذاته: قططه ومستعمراته وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
+      'كل كتالوج عالم قائم بذاته: حيواناته الأليفة ومنازله وحقوله وصوره وشركاء المزامنة الخاصون به. برلين وباريس لا يختلطان أبداً. المس الاسم في أعلى الشاشة الرئيسية للتبديل أو الإضافة أو إعادة التسمية. اسمك ولغتك والتلميحات التي رأيتها مشتركة بينها جميعاً.';
 
   @override
   String get spotHomeCatalog =>
@@ -1876,7 +1878,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
+    return 'كل ما في $name سيختفي: الحيوانات الأليفة والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
   }
 
   @override
@@ -2006,7 +2008,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة قطة أو مجموعة.';
+      'لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة حيوان أليف أو منزل.';
 
   @override
   String get dueToday => 'اليوم';
@@ -2176,7 +2178,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.';
+      'خطّط موعدًا لهذا الحيوان الأليف. يظهر في المواعيد ويُؤكَّد هناك.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2184,7 +2186,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.';
+      'خطّط موعدًا لهذا المنزل. يظهر في المواعيد ويُؤكَّد هناك.';
 
   @override
   String get readOnlyCalendar => 'للقراءة فقط';
@@ -2289,13 +2291,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get existingCat => 'قطة موجودة';
 
   @override
-  String get existingCatNeutral => 'قطة موجودة';
+  String get existingCatNeutral => 'حيوان أليف موجود';
 
   @override
   String get existingClowder => 'مجموعة موجودة';
 
   @override
-  String get existingClowderNeutral => 'مجموعة موجودة';
+  String get existingClowderNeutral => 'منزل موجود';
 
   @override
   String get createNewInstead => 'لا شيء — إنشاء جديد';
@@ -2321,20 +2323,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get catsOnAppointment => 'القطط في هذا الموعد';
 
   @override
-  String get catsOnAppointmentNeutral => 'القطط في هذا الموعد';
+  String get catsOnAppointmentNeutral => 'الحيوانات الأليفة في هذا الموعد';
 
   @override
   String get noCatsHint => 'لم يتم تحديد أي قطة — الموعد يخص المستعمرة نفسها.';
 
   @override
   String get noCatsHintNeutral =>
-      'لم يتم تحديد أي قطة — الموعد يخص المستعمرة نفسها.';
+      'لم يتم تحديد أي حيوان أليف — الموعد يخص المنزل نفسه.';
 
   @override
   String get pickCatsTitle => 'أي القطط ستأتي؟';
 
   @override
-  String get pickCatsTitleNeutral => 'أي القطط ستأتي؟';
+  String get pickCatsTitleNeutral => 'أي الحيوانات الأليفة ستأتي؟';
 
   @override
   String catsCount(int count) {
@@ -2343,7 +2345,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count قطط';
+    return '$count حيوانات أليفة';
   }
 
   @override
@@ -2351,7 +2353,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.';
+      'ألغِ تحديد الحيوانات الأليفة التي لم تُعالج؛ تبقى مخططة.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2360,6 +2362,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'حذف الموعد لكل القطط الـ$count';
+    return 'حذف الموعد لكل الحيوانات الأليفة الـ$count';
   }
 }

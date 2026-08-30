@@ -29,7 +29,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get clowders => 'Clowderek';
 
   @override
-  String get clowdersNeutral => 'Clowderek';
+  String get clowdersNeutral => 'Háztartások';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Még nincs clowder. A clowder egy hely, ahol macskák élnek — az ideiglenes befogadód, egy örökbefogadó lakása. Hozd létre az elsőt lent.';
+      'Még nincs háztartás. A háztartás egy hely, ahol kisállatok élnek — az otthonod, egy ideiglenes befogadó, egy örökbefogadó lakása. Hozd létre az elsőt lent.';
 
   @override
   String get strays => 'Kóbor macskák';
@@ -46,7 +46,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get searchCats => 'Macskák keresése';
 
   @override
-  String get searchCatsNeutral => 'Macskák keresése';
+  String get searchCatsNeutral => 'Kisállatok keresése';
 
   @override
   String get map => 'Térkép';
@@ -67,7 +67,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get newClowder => 'Új clowder';
 
   @override
-  String get newClowderNeutral => 'Új clowder';
+  String get newClowderNeutral => 'Új háztartás';
 
   @override
   String get name => 'Név';
@@ -102,7 +102,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get renameClowder => 'Clowder átnevezése';
 
   @override
-  String get renameClowderNeutral => 'Clowder átnevezése';
+  String get renameClowderNeutral => 'Háztartás átnevezése';
 
   @override
   String get rename => 'Átnevezés';
@@ -117,25 +117,25 @@ class AppLocalizationsHu extends AppLocalizations {
   String get deleteClowder => 'Clowder törlése';
 
   @override
-  String get deleteClowderNeutral => 'Clowder törlése';
+  String get deleteClowderNeutral => 'Háztartás törlése';
 
   @override
   String get cats => 'Macskák';
 
   @override
-  String get catsNeutral => 'Macskák';
+  String get catsNeutral => 'Kisállatok';
 
   @override
   String get addCat => 'Macska hozzáadása';
 
   @override
-  String get addCatNeutral => 'Macska hozzáadása';
+  String get addCatNeutral => 'Kisállat hozzáadása';
 
   @override
   String get newCat => 'Új macska';
 
   @override
-  String get newCatNeutral => 'Új macska';
+  String get newCatNeutral => 'Új kisállat';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get deleteClowderEmptyBody => 'A clowder eltűnik a listáról.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'A clowder eltűnik a listáról.';
+  String get deleteClowderEmptyBodyNeutral => 'A háztartás eltűnik a listáról.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +155,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'A benne lévő $count macska nem törlődik — kóborrá válnak. Előbb helyezd át őket másik clowderbe, ha nem ezt szeretnéd.';
+    return 'A benne lévő $count kisállat nem törlődik — kóborrá válnak. Előbb helyezd át őket másik háztartásba, ha nem ezt szeretnéd.';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get renameCat => 'Macska átnevezése';
 
   @override
-  String get renameCatNeutral => 'Macska átnevezése';
+  String get renameCatNeutral => 'Kisállat átnevezése';
 
   @override
   String get seenHereNow => 'Most itt látták';
@@ -188,19 +188,19 @@ class AppLocalizationsHu extends AppLocalizations {
   String get deleteCat => 'Macska törlése';
 
   @override
-  String get deleteCatNeutral => 'Macska törlése';
+  String get deleteCatNeutral => 'Kisállat törlése';
 
   @override
   String get clowderLabel => 'Clowder';
 
   @override
-  String get clowderLabelNeutral => 'Clowder';
+  String get clowderLabelNeutral => 'Háztartás';
 
   @override
   String get strayNoClowder => 'Kóbor — nincs clowder';
 
   @override
-  String get strayNoClowderNeutral => 'Kóbor — nincs clowder';
+  String get strayNoClowderNeutral => 'Kóbor — nincs háztartás';
 
   @override
   String get stray => 'Kóbor';
@@ -233,7 +233,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'A macska eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
+      'A kisállat eltűnik minden listáról, fotói törlődnek — itt és a következő szinkron után a többi eszközön is.';
 
   @override
   String get sightingRecorded => 'Észlelés rögzítve a pozíciódnál.';
@@ -287,7 +287,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'A chipkártyán vagy állatorvosi papírokon lévő nyomtatott QR-/vonalkódot olvassa be — a macskában lévő chipet a telefon nem tudja leolvasni.';
+      'A chipkártyán vagy állatorvosi papírokon lévő nyomtatott QR-/vonalkódot olvassa be — az állatban lévő chipet a telefon nem tudja leolvasni.';
 
   @override
   String get savingLabel => 'Mentés…';
@@ -316,7 +316,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get catList => 'Macskalista';
 
   @override
-  String get catListNeutral => 'Macskalista';
+  String get catListNeutral => 'Kisállatlista';
 
   @override
   String get matchCandidatesTitle => 'Lehetséges egyezések';
@@ -379,7 +379,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get importShareTitle => 'Importálja ezt a macskát?';
 
   @override
-  String get importShareTitleNeutral => 'Importálja ezt a macskát?';
+  String get importShareTitleNeutral => 'Importálja ezt a kisállatot?';
 
   @override
   String shareSource(String url) {
@@ -403,7 +403,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noMissingCatsNeutral =>
-      'Még nincs eltűnt macska plakátpozícióval.';
+      'Még nincs eltűnt kisállat plakátpozícióval.';
 
   @override
   String get noMatchCandidates => 'Jelenleg nincs lehetséges egyezés.';
@@ -483,7 +483,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Ez a macska kandúrként van nyilvántartva — kandúr nem lehet vemhes. Először ellenőrizze az ivart.';
+      'Ez a kisállat hímként van nyilvántartva — hím nem lehet vemhes. Először ellenőrizze az ivart.';
 
   @override
   String fatherNotMale(String name) {
@@ -511,7 +511,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Ez a macska más macskák apjaként szerepel — az apa nem lehet nőstény. Először ellenőrizze a családot.';
+      'Ez a kisállat más kisállatok apjaként szerepel — az apa nem lehet nőstény. Először ellenőrizze a családot.';
 
   @override
   String get genderMotherMale =>
@@ -519,7 +519,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Ez a macska más macskák anyjaként szerepel — az anya nem lehet kandúr. Először ellenőrizze a családot.';
+      'Ez a kisállat más kisállatok anyjaként szerepel — az anya nem lehet hím. Először ellenőrizze a családot.';
 
   @override
   String get moveTo => 'Áthelyezés ide';
@@ -528,7 +528,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get noClowderStrayOption => 'Nincs clowder — kóbor / elszökött';
 
   @override
-  String get noClowderStrayOptionNeutral => 'Nincs clowder — kóbor / elszökött';
+  String get noClowderStrayOptionNeutral =>
+      'Nincs háztartás — kóbor / elszökött';
 
   @override
   String timelineOf(String name) {
@@ -618,13 +619,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get forCats => 'macskákhoz';
 
   @override
-  String get forCatsNeutral => 'macskákhoz';
+  String get forCatsNeutral => 'kisállatokhoz';
 
   @override
   String get forClowders => 'clowderekhez';
 
   @override
-  String get forClowdersNeutral => 'clowderekhez';
+  String get forClowdersNeutral => 'háztartásokhoz';
 
   @override
   String get forBoth => 'mindkettőhöz';
@@ -657,7 +658,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get searchByNameHint => 'Macskák keresése név szerint…';
 
   @override
-  String get searchByNameHintNeutral => 'Macskák keresése név szerint…';
+  String get searchByNameHintNeutral => 'Kisállatok keresése név szerint…';
 
   @override
   String get host => 'Kiszolgáló';
@@ -780,13 +781,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get kindCat => 'macska';
 
   @override
-  String get kindCatNeutral => 'macska';
+  String get kindCatNeutral => 'kisállat';
 
   @override
   String get kindClowder => 'clowder';
 
   @override
-  String get kindClowderNeutral => 'clowder';
+  String get kindClowderNeutral => 'háztartás';
 
   @override
   String get kindField => 'mező';
@@ -806,7 +807,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Helyi katalógus ideiglenesen befogadott macskákhoz. Adataid az eszközeiden maradnak — se szerver, se fiók.';
+      'Helyi katalógus a gondozott kisállataidhoz. Adataid az eszközeiden maradnak — se szerver, se fiók.';
 
   @override
   String versionLabel(String version, String build) {
@@ -934,7 +935,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get stepCat => 'Macska';
 
   @override
-  String get stepCatNeutral => 'Macska';
+  String get stepCatNeutral => 'Kisállat';
 
   @override
   String get stepOwner => 'Gazdi';
@@ -954,7 +955,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Aki keresi a macskát — ebből lesz az ő clowdere, a plakáton szereplő elérhetőséggel.';
+      'Aki keresi a kisállatot — ebből lesz az ő háztartása, a plakáton szereplő elérhetőséggel.';
 
   @override
   String get stepFaceHint =>
@@ -962,7 +963,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Vágd ki a macska arcát a plakátból; ez lesz a profilkép. Ki is hagyhatod.';
+      'Vágd ki a kisállat arcát a plakátból; ez lesz a profilkép. Ki is hagyhatod.';
 
   @override
   String get stepRegistryHint =>
@@ -970,7 +971,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'A plakáton talált számok. A bejelöltek a macskához mentődnek, és később megnyithatók.';
+      'A plakáton talált számok. A bejelöltek a kisállathoz mentődnek, és később megnyithatók.';
 
   @override
   String get noRegistryLinks =>
@@ -1020,7 +1021,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'A kolóniáid áttekintése — a kolónia egy hely, ahol macskák élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a macskáiért; hosszan nyomva jön a menü. A jobb alsó gomb új kolóniát hoz létre, a kóborlók kártyája pedig minden otthontalan macskát összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.';
+      'A háztartásaid áttekintése — a háztartás egy hely, ahol kisállatok élnek: az otthonod, egy ideiglenes befogadó, egy menhely. Koppints egy kártyára a kisállataiért; hosszan nyomva jön a menü. A jobb alsó gomb új háztartást hoz létre, a kóborlók kártyája pedig minden otthontalan kisállatot összegyűjt. A fenti név a katalógus, amelyben vagy — koppints rá a váltáshoz vagy új létrehozásához.';
 
   @override
   String get helpClowder =>
@@ -1028,7 +1029,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a kolónia több macskáját is viheti, például egy ivartalanítási útra: jelöld be a macskákat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél.';
+      'Minden erről a helyről: kisállatai, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy kisállatot hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a háztartás több kisállatát is viheti, például egy ivartalanítási útra: jelöld be a kisállatokat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél.';
 
   @override
   String get helpCat =>
@@ -1036,7 +1037,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a macska megosztása. A Privát a mező szerkesztésekor állítható.';
+      'Minden erről a kisállatról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a kisállat megosztása. A Privát a mező szerkesztésekor állítható.';
 
   @override
   String get helpStrays =>
@@ -1044,7 +1045,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Macskák, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted ülő macskát; a plakát gomb egy eltűnt-plakátból macskát csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
+      'Kisállatok, akiknek most nincs otthonuk: talált, megszökött vagy plakátról származó állatok. A kamera gomb rögzíti az előtted lévő állatot; a plakát gomb egy eltűnt-plakátból kisállatot csinál a gazdi elérhetőségével; az olvasó beolvassa a plakáton lévő cat(a)log kódot. Koppints a Stray Camre egy fotóhoz; tartsd lenyomva videóhoz, és a legjobb képkockákat fotóként megtarthatod.';
 
   @override
   String get helpMap =>
@@ -1052,7 +1053,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Minden macska és hely, aminek van pozíciója. A keresés macskát, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt macska plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz.';
+      'Minden kisállat és hely, aminek van pozíciója. A keresés kisállatot, embert és helyet talál — az ismeretlen nevet az egész világon keresi. A rétegek gomb megrajzolja az 500 m-es köröket egy eltűnt kisállat plakáthelyei és a régi otthona köré. A nyilak tűről tűre lépnek, hosszan nyomva a térképet észlelést rögzítesz.';
 
   @override
   String get helpCard =>
@@ -1060,7 +1061,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'A macska nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.';
+      'A kisállat nyomtatható kártyája: fent a chipekkel választod ki, mi kerüljön rá, aztán képként vagy PDF-ként osztod meg. A számok QR-ként vagy vonalkódként nyomtathatók, a pozícióból pedig térképet nyitó QR lesz, plusz egy rövid Plus Code.';
 
   @override
   String get helpSync =>
@@ -1072,7 +1073,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a macskánál koppintható lesz.';
+      'A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a kisállatnál koppintható lesz.';
 
   @override
   String get helpTimeline =>
@@ -1084,7 +1085,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'Macskák vagy kolóniák, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.';
+      'Kisállatok vagy háztartások, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.';
 
   @override
   String get helpMatches =>
@@ -1092,7 +1093,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.';
+      'Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz.';
 
   @override
   String get helpFlier =>
@@ -1100,7 +1101,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Egy lefotózott plakátból macska lesz a gazdájával együtt. Lépésről lépésre: a macska adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.';
+      'Egy lefotózott plakátból kisállat lesz a gazdájával együtt. Lépésről lépésre: a kisállat adatai, a gazdi elérhetősége, arc kivágása a profilképhez, nyilvántartási számok a plakátról, végül egy ellenőrzés. Minden csak javaslat — javítsd ki, amit a kamera félreolvasott.';
 
   @override
   String get archiveTitle => 'Archívum';
@@ -1111,7 +1112,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Az elhunyt macskák és üres kolóniák, amikhez évek óta senki nem nyúlt, továbbra is helyet foglalnak — főleg a fotóik. Az archiválás fájlba írja őket, amit megtartasz, majd innen törli őket.';
+      'Az elhunyt kisállatok és üres háztartások, amikhez évek óta senki nem nyúlt, továbbra is helyet foglalnak — főleg a fotóik. Az archiválás fájlba írja őket, amit megtartasz, majd innen törli őket.';
 
   @override
   String get archiveAction => 'Archiválás';
@@ -1165,7 +1166,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'A régi adat helyet foglal, főleg a fotók, amiket minden szinkronizált eszköz cipel. Itt kiválasztod az évek óta változatlan elhunyt macskákat és üres kolóniákat, fájlba írod őket, amit megtartasz, és törlöd őket. A törlés mindenkihez eljut, akivel szinkronizálsz; a fájl importálása mindent visszaállít.';
+      'A régi adat helyet foglal, főleg a fotók, amiket minden szinkronizált eszköz cipel. Itt kiválasztod az évek óta változatlan elhunyt kisállatokat és üres háztartásokat, fájlba írod őket, amit megtartasz, és törlöd őket. A törlés mindenkihez eljut, akivel szinkronizálsz; a fájl importálása mindent visszaállít.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1222,7 +1223,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get markTitle => 'Macska megjelölése';
 
   @override
-  String get markTitleNeutral => 'Macska megjelölése';
+  String get markTitleNeutral => 'Kisállat megjelölése';
 
   @override
   String get applyCrop => 'Kivágás';
@@ -1234,13 +1235,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get dragToSelect => 'Húzz téglalapot a macska köré';
 
   @override
-  String get dragToSelectNeutral => 'Húzz téglalapot a macska köré';
+  String get dragToSelectNeutral => 'Húzz téglalapot a kisállat köré';
 
   @override
   String get dragOverTheCat => 'Húzz ellipszist a macskára';
 
   @override
-  String get dragOverTheCatNeutral => 'Húzz ellipszist a macskára';
+  String get dragOverTheCatNeutral => 'Húzz ellipszist a kisállatra';
 
   @override
   String get cropPhoto => 'Körbevágás…';
@@ -1451,7 +1452,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
+      'Konfetti és éljenzés, amikor egy kisállat az otthonába költözik';
 
   @override
   String get onMapLabel => 'A térképen';
@@ -1469,7 +1470,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get mapSearchHint => 'Macskák, csoportok, személyek keresése';
 
   @override
-  String get mapSearchHintNeutral => 'Macskák, csoportok, személyek keresése';
+  String get mapSearchHintNeutral =>
+      'Kisállatok, háztartások, személyek keresése';
 
   @override
   String get proposeAnotherName => 'Másik név javaslata';
@@ -1551,7 +1553,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get kittensLabel => 'Kiscicák';
 
   @override
-  String get kittensLabelNeutral => 'Kiscicák';
+  String get kittensLabelNeutral => 'Kölykök';
 
   @override
   String get toastSettingsTitle => 'Mit jelentsen be';
@@ -1586,7 +1588,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String toastBornNeutral(Object cat) {
-    return '✨ Új kiscica: $cat ✨';
+    return '✨ Újszülött: $cat ✨';
   }
 
   @override
@@ -1674,13 +1676,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get selectClowderHint => 'Válassz egy clowdert balra';
 
   @override
-  String get selectClowderHintNeutral => 'Válassz egy clowdert balra';
+  String get selectClowderHintNeutral => 'Válassz egy háztartást balra';
 
   @override
   String get introTitle1 => 'Macskáid, rendben';
 
   @override
-  String get introTitle1Neutral => 'Macskáid, rendben';
+  String get introTitle1Neutral => 'Kisállataid, rendben';
 
   @override
   String get introBody1 =>
@@ -1688,7 +1690,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Készíts kartont minden macskának: fotó, ivar, egészség, bármi, amit fel akarsz jegyezni. A macskák aszerint csoportosulnak, hol élnek — az app ezt a helyet kolóniának (clowder) hívja.';
+      'Készíts kartont minden gondozott kisállatnak: fotó, ivar, egészség, bármi, amit fel akarsz jegyezni. A kisállatok aszerint csoportosulnak, hol élnek — az app ezt a helyet háztartásnak hívja.';
 
   @override
   String get introTitle2 => 'Internet nélkül működik';
@@ -1726,7 +1728,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Ez a kártya gyűjti az összes kóborlót — az otthontalan macskákat. Koppints a listához.';
+      'Ez a kártya gyűjti az összes kóborlót — az otthontalan kisállatokat. Koppints a listához.';
 
   @override
   String get spotHomeMenu =>
@@ -1738,7 +1740,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Koppints a ceruzára a macska szerkesztéséhez. Tipp: egy mező hosszú nyomása rögtön szerkeszti azt.';
+      'Koppints a ceruzára a kisállat szerkesztéséhez. Tipp: egy mező hosszú nyomása rögtön szerkeszti azt.';
 
   @override
   String get spotMapLayers =>
@@ -1746,7 +1748,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Eltűnt macskát keresel? Jeleníts meg köröket a plakátjai helyei és a régi otthona körül.';
+      'Eltűnt kisállatot keresel? Jeleníts meg köröket a plakátjai helyei és a régi otthona körül.';
 
   @override
   String get spotStraysFlier =>
@@ -1754,7 +1756,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Eltűnt macskás plakát? Fotózd le itt — az app elmenti a macskát és az elérhetőséget helyetted.';
+      'Eltűnt kisállatos plakát? Fotózd le itt — az app elmenti a kisállatot és az elérhetőséget helyetted.';
 
   @override
   String get spotStraysScan =>
@@ -1762,13 +1764,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Némelyik plakáton cat(a)log QR-kód van. Olvasd be itt, és importáld a macskát gépelés nélkül.';
+      'Némelyik plakáton cat(a)log QR-kód van. Olvasd be itt, és importáld a kisállatot gépelés nélkül.';
 
   @override
   String get introTitle4 => 'Eltűnt macskák megtalálása';
 
   @override
-  String get introTitle4Neutral => 'Eltűnt macskák megtalálása';
+  String get introTitle4Neutral => 'Eltűnt kisállatok megtalálása';
 
   @override
   String get introBody4 =>
@@ -1776,7 +1778,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Eltűnt macskát kereső plakátot látsz? Fotózd le az appban: elmenti a macskát, a gazda elérhetőségét és a helyet. Ha később hasonló kóbor bukkan fel, az app lehetséges egyezéseket javasol.';
+      'Eltűnt kisállatot kereső plakátot látsz? Fotózd le az appban: elmenti a kisállatot, a gazda elérhetőségét és a helyet. Ha később hasonló kóbor bukkan fel, az app lehetséges egyezéseket javasol.';
 
   @override
   String get spotMapSearch =>
@@ -1784,7 +1786,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Írj be egy macskát, helyet vagy személyt, és a térkép odaugrik.';
+      'Írj be egy kisállatot, helyet vagy személyt, és a térkép odaugrik.';
 
   @override
   String get spotCardChips =>
@@ -1796,7 +1798,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Itt több művelet van: a macska elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
+      'Itt több művelet van: a kisállat elrejtése, duplikátumok összevonása vagy észlelés rögzítése.';
 
   @override
   String get spotDone => 'Értem';
@@ -1814,7 +1816,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get searchNoResults => 'Nincs ilyen nevű macska';
 
   @override
-  String get searchNoResultsNeutral => 'Nincs ilyen nevű macska';
+  String get searchNoResultsNeutral => 'Nincs ilyen nevű kisállat';
 
   @override
   String get syncUnreachable =>
@@ -1867,7 +1869,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
+      'Minden katalógus külön világ: saját kisállatok, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
 
   @override
   String get spotHomeCatalog =>
@@ -1883,7 +1885,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
+    return 'Minden eltűnik a(z) $name katalógusból: a kisállatok, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
   }
 
   @override
@@ -2013,7 +2015,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Nincs tervezett időpont. Újat itt a plusszal, vagy egy macska vagy clowder oldalán tervezhetsz.';
+      'Nincs tervezett időpont. Újat itt a plusszal, vagy egy kisállat vagy háztartás oldalán tervezhetsz.';
 
   @override
   String get dueToday => 'ma esedékes';
@@ -2178,7 +2180,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Tervezz időpontot ennek a macskának. A teendők között jelenik meg, és ott hagyható jóvá.';
+      'Tervezz időpontot ennek a kisállatnak. A teendők között jelenik meg, és ott hagyható jóvá.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2186,7 +2188,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Tervezz időpontot ennek a clowdernek. A teendők között jelenik meg, és ott hagyható jóvá.';
+      'Tervezz időpontot ennek a háztartásnak. A teendők között jelenik meg, és ott hagyható jóvá.';
 
   @override
   String get readOnlyCalendar => 'csak olvasható';
@@ -2293,13 +2295,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get existingCat => 'Meglévő macska';
 
   @override
-  String get existingCatNeutral => 'Meglévő macska';
+  String get existingCatNeutral => 'Meglévő kisállat';
 
   @override
   String get existingClowder => 'Meglévő csoport';
 
   @override
-  String get existingClowderNeutral => 'Meglévő csoport';
+  String get existingClowderNeutral => 'Meglévő háztartás';
 
   @override
   String get createNewInstead => 'Nincs — új létrehozása';
@@ -2325,7 +2327,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get catsOnAppointment => 'Macskák ezen az időponton';
 
   @override
-  String get catsOnAppointmentNeutral => 'Macskák ezen az időponton';
+  String get catsOnAppointmentNeutral => 'Kisállatok ezen az időponton';
 
   @override
   String get noCatsHint =>
@@ -2333,13 +2335,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noCatsHintNeutral =>
-      'Nincs macska bejelölve — az időpont magáé a kolóniáé.';
+      'Nincs kisállat bejelölve — az időpont magáé a háztartásé.';
 
   @override
   String get pickCatsTitle => 'Melyik macskák jönnek?';
 
   @override
-  String get pickCatsTitleNeutral => 'Melyik macskák jönnek?';
+  String get pickCatsTitleNeutral => 'Melyik kisállatok jönnek?';
 
   @override
   String catsCount(int count) {
@@ -2348,7 +2350,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count macska';
+    return '$count kisállat';
   }
 
   @override
@@ -2357,7 +2359,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Vedd ki a jelölést azoknál a macskáknál, amelyeket nem kezeltek; tervezve maradnak.';
+      'Vedd ki a jelölést azoknál a kisállatoknál, amelyeket nem kezeltek; tervezve maradnak.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2366,6 +2368,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Időpont törlése mind a $count macskánál';
+    return 'Időpont törlése mind a $count kisállatnál';
   }
 }

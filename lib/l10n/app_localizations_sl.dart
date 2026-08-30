@@ -29,7 +29,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get clowders => 'Clowdri';
 
   @override
-  String get clowdersNeutral => 'Clowdri';
+  String get clowdersNeutral => 'Gospodinjstva';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Še ni clowderjev. Clowder je kraj, kjer živijo mačke — tvoj začasni dom, stanovanje posvojitelja. Ustvari prvega spodaj.';
+      'Še ni gospodinjstev. Gospodinjstvo je kraj, kjer živijo ljubljenčki — tvoj dom, začasni dom, stanovanje posvojitelja. Ustvari prvega spodaj.';
 
   @override
   String get strays => 'Potepuške mačke';
@@ -46,7 +46,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get searchCats => 'Išči mačke';
 
   @override
-  String get searchCatsNeutral => 'Išči mačke';
+  String get searchCatsNeutral => 'Išči ljubljenčke';
 
   @override
   String get map => 'Zemljevid';
@@ -67,7 +67,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get newClowder => 'Nov clowder';
 
   @override
-  String get newClowderNeutral => 'Nov clowder';
+  String get newClowderNeutral => 'Novo gospodinjstvo';
 
   @override
   String get name => 'Ime';
@@ -102,7 +102,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get renameClowder => 'Preimenuj clowder';
 
   @override
-  String get renameClowderNeutral => 'Preimenuj clowder';
+  String get renameClowderNeutral => 'Preimenuj gospodinjstvo';
 
   @override
   String get rename => 'Preimenuj';
@@ -117,25 +117,25 @@ class AppLocalizationsSl extends AppLocalizations {
   String get deleteClowder => 'Izbriši clowder';
 
   @override
-  String get deleteClowderNeutral => 'Izbriši clowder';
+  String get deleteClowderNeutral => 'Izbriši gospodinjstvo';
 
   @override
   String get cats => 'Mačke';
 
   @override
-  String get catsNeutral => 'Mačke';
+  String get catsNeutral => 'Ljubljenčki';
 
   @override
   String get addCat => 'Dodaj mačko';
 
   @override
-  String get addCatNeutral => 'Dodaj mačko';
+  String get addCatNeutral => 'Dodaj ljubljenčka';
 
   @override
   String get newCat => 'Nova mačka';
 
   @override
-  String get newCatNeutral => 'Nova mačka';
+  String get newCatNeutral => 'Nov ljubljenček';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowder izgine s seznama.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'Clowder izgine s seznama.';
+  String get deleteClowderEmptyBodyNeutral => 'Gospodinjstvo izgine s seznama.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +155,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'Njegove mačke ($count) se ne izbrišejo — postanejo potepuške. Najprej jih premaknite v drug clowder, če tega ne želite.';
+    return 'Njegovi ljubljenčki ($count) se ne izbrišejo — postanejo potepuški. Najprej jih premaknite v drugo gospodinjstvo, če tega ne želite.';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get renameCat => 'Preimenuj mačko';
 
   @override
-  String get renameCatNeutral => 'Preimenuj mačko';
+  String get renameCatNeutral => 'Preimenuj ljubljenčka';
 
   @override
   String get seenHereNow => 'Videna tukaj zdaj';
@@ -188,19 +188,19 @@ class AppLocalizationsSl extends AppLocalizations {
   String get deleteCat => 'Izbriši mačko';
 
   @override
-  String get deleteCatNeutral => 'Izbriši mačko';
+  String get deleteCatNeutral => 'Izbriši ljubljenčka';
 
   @override
   String get clowderLabel => 'Clowder';
 
   @override
-  String get clowderLabelNeutral => 'Clowder';
+  String get clowderLabelNeutral => 'Gospodinjstvo';
 
   @override
   String get strayNoClowder => 'Potepuška — brez clowdra';
 
   @override
-  String get strayNoClowderNeutral => 'Potepuška — brez clowdra';
+  String get strayNoClowderNeutral => 'Potepuh — brez gospodinjstva';
 
   @override
   String get stray => 'Potepuška';
@@ -233,7 +233,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'Mačka izgine z vseh seznamov in njene fotografije se odstranijo — tu in, po naslednji sinhronizaciji, tudi na drugih napravah.';
+      'Ljubljenček izgine z vseh seznamov in njegove fotografije se odstranijo — tu in, po naslednji sinhronizaciji, tudi na drugih napravah.';
 
   @override
   String get sightingRecorded => 'Opažanje zabeleženo na vaši poziciji.';
@@ -287,7 +287,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'Skenira natisnjeno kodo QR/črtno kodo s kartice čipa ali veterinarskih papirjev — čipa v mački telefon ne more prebrati.';
+      'Skenira natisnjeno kodo QR/črtno kodo s kartice čipa ali veterinarskih papirjev — čipa v živali telefon ne more prebrati.';
 
   @override
   String get savingLabel => 'Shranjevanje…';
@@ -316,7 +316,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get catList => 'Seznam mačk';
 
   @override
-  String get catListNeutral => 'Seznam mačk';
+  String get catListNeutral => 'Seznam ljubljenčkov';
 
   @override
   String get matchCandidatesTitle => 'Možna ujemanja';
@@ -379,7 +379,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get importShareTitle => 'Uvozim to mačko?';
 
   @override
-  String get importShareTitleNeutral => 'Uvozim to mačko?';
+  String get importShareTitleNeutral => 'Uvozim tega ljubljenčka?';
 
   @override
   String shareSource(String url) {
@@ -403,7 +403,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get noMissingCatsNeutral =>
-      'Še ni pogrešanih mačk s položaji letakov.';
+      'Še ni pogrešanih ljubljenčkov s položaji letakov.';
 
   @override
   String get noMatchCandidates => 'Trenutno ni možnih ujemanj.';
@@ -483,7 +483,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Ta mačka je zavedena kot samec — samec ne more biti breja. Najprej preverite spol.';
+      'Ta ljubljenček je zaveden kot samec — samec ne more biti brej. Najprej preverite spol.';
 
   @override
   String fatherNotMale(String name) {
@@ -511,7 +511,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Ta mačka je zavedena kot oče drugih mačk — oče ne more biti samica. Najprej preverite družino.';
+      'Ta ljubljenček je zaveden kot oče drugih ljubljenčkov — oče ne more biti samica. Najprej preverite družino.';
 
   @override
   String get genderMotherMale =>
@@ -519,7 +519,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Ta mačka je zavedena kot mati drugih mačk — mati ne more biti samec. Najprej preverite družino.';
+      'Ta ljubljenček je zaveden kot mati drugih ljubljenčkov — mati ne more biti samec. Najprej preverite družino.';
 
   @override
   String get moveTo => 'Premakni v';
@@ -529,7 +529,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get noClowderStrayOptionNeutral =>
-      'Brez clowdra — potepuška / pobegnila';
+      'Brez gospodinjstva — potepuh / pobegnil';
 
   @override
   String timelineOf(String name) {
@@ -619,13 +619,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get forCats => 'mačke';
 
   @override
-  String get forCatsNeutral => 'mačke';
+  String get forCatsNeutral => 'ljubljenčke';
 
   @override
   String get forClowders => 'clowdre';
 
   @override
-  String get forClowdersNeutral => 'clowdre';
+  String get forClowdersNeutral => 'gospodinjstva';
 
   @override
   String get forBoth => 'oboje';
@@ -658,7 +658,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get searchByNameHint => 'Išči mačke po imenu…';
 
   @override
-  String get searchByNameHintNeutral => 'Išči mačke po imenu…';
+  String get searchByNameHintNeutral => 'Išči ljubljenčke po imenu…';
 
   @override
   String get host => 'Gostitelj';
@@ -781,13 +781,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get kindCat => 'mačka';
 
   @override
-  String get kindCatNeutral => 'mačka';
+  String get kindCatNeutral => 'ljubljenček';
 
   @override
   String get kindClowder => 'clowder';
 
   @override
-  String get kindClowderNeutral => 'clowder';
+  String get kindClowderNeutral => 'gospodinjstvo';
 
   @override
   String get kindField => 'polje';
@@ -807,7 +807,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Lokalni katalog za mačke v oskrbi. Vaši podatki ostanejo na vaših napravah — brez strežnika, brez računa.';
+      'Lokalni katalog za ljubljenčke, za katere skrbite. Vaši podatki ostanejo na vaših napravah — brez strežnika, brez računa.';
 
   @override
   String versionLabel(String version, String build) {
@@ -935,7 +935,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get stepCat => 'Mačka';
 
   @override
-  String get stepCatNeutral => 'Mačka';
+  String get stepCatNeutral => 'Ljubljenček';
 
   @override
   String get stepOwner => 'Lastnik';
@@ -955,7 +955,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Kdor pogreša mačko — iz tega nastane njegov clowder s kontaktom z letaka.';
+      'Kdor pogreša ljubljenčka — iz tega nastane njegovo gospodinjstvo s kontaktom z letaka.';
 
   @override
   String get stepFaceHint =>
@@ -963,7 +963,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Izreži mačkin obraz z letaka; postane profilna slika. Lahko tudi preskočiš.';
+      'Izreži obraz ljubljenčka z letaka; postane profilna slika. Lahko tudi preskočiš.';
 
   @override
   String get stepRegistryHint =>
@@ -971,7 +971,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'Številke, najdene na letaku. Odkljukane se shranijo pri mački in jih lahko pozneje odpreš.';
+      'Številke, najdene na letaku. Odkljukane se shranijo pri ljubljenčku in jih lahko pozneje odpreš.';
 
   @override
   String get noRegistryLinks =>
@@ -1022,7 +1022,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'Pregled tvojih kolonij — kolonija je kraj, kjer živijo mačke: tvoj dom, začasni dom, zavetišče. Tapni kartico za njene mačke; dolg pritisk odpre meni. Gumb spodaj desno ustvari kolonijo, kartica potepuhov pa zbira vse mačke brez doma. Ime na vrhu je katalog, v katerem si — tapni ga za preklop ali dodajanje.';
+      'Pregled tvojih gospodinjstev — gospodinjstvo je kraj, kjer živijo ljubljenčki: tvoj dom, začasni dom, zavetišče. Tapni kartico za njegove ljubljenčke; dolg pritisk odpre meni. Gumb spodaj desno ustvari gospodinjstvo, kartica potepuhov pa zbira vse ljubljenčke brez doma. Ime na vrhu je katalog, v katerem si — tapni ga za preklop ali dodajanje.';
 
   @override
   String get helpClowder =>
@@ -1030,7 +1030,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Vse o tem kraju: njegove mačke, polja (naslov, stik, vrsta) in zgodovina. Stran se odpre samo za branje; svinčnik vklopi urejanje, kjer lahko dodaš tudi novo polje. Dolg pritisk na polje ga uredi takoj, na mačko jo premakne, skrije ali odpre. Termin, dodan tukaj, lahko vzame več mačk kolonije, na primer na sterilizacijo: označi mačke, ki gredo zraven, zaključi enkrat, odznači neobravnavane.';
+      'Vse o tem kraju: njegovi ljubljenčki, polja (naslov, stik, vrsta) in zgodovina. Stran se odpre samo za branje; svinčnik vklopi urejanje, kjer lahko dodaš tudi novo polje. Dolg pritisk na polje ga uredi takoj, na ljubljenčka ga premakne, skrije ali odpre. Termin, dodan tukaj, lahko vzame več ljubljenčkov gospodinjstva, na primer na sterilizacijo: označi ljubljenčke, ki gredo zraven, zaključi enkrat, odznači neobravnavane.';
 
   @override
   String get helpCat =>
@@ -1038,7 +1038,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Vse o tej mački: fotografije, polja, družina, zgodovina. Stran je samo za branje, dokler se ne dotakneš svinčnika. Dolgo pridrži polje, da ga takoj urediš; dolgo pridrži fotografijo za njen meni. Meni zgoraj desno drži ostalo: skrij, združi, zabeleži opažanje, deli mačko. „Zasebno“ se nastavi ob urejanju polja.';
+      'Vse o tem ljubljenčku: fotografije, polja, družina, zgodovina. Stran je samo za branje, dokler se ne dotakneš svinčnika. Dolgo pridrži polje, da ga takoj urediš; dolgo pridrži fotografijo za njen meni. Meni zgoraj desno drži ostalo: skrij, združi, zabeleži opažanje, deli ljubljenčka. „Zasebno“ se nastavi ob urejanju polja.';
 
   @override
   String get helpStrays =>
@@ -1046,7 +1046,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Mačke, ki zdaj nimajo doma: najdene, pobegle ali z letaka. Gumb s kamero zabeleži mačko pred tabo; gumb z letakom spremeni plakat v mačko s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. Tapni Stray Cam za fotografijo; pridrži za snemanje videa in obdrži najboljše sličice kot fotografije.';
+      'Ljubljenčki, ki zdaj nimajo doma: najdeni, pobegli ali z letaka. Gumb s kamero zabeleži žival pred tabo; gumb z letakom spremeni plakat v ljubljenčka s stikom lastnika; bralnik prebere kodo cat(a)log z letaka. Tapni Stray Cam za fotografijo; pridrži za snemanje videa in obdrži najboljše sličice kot fotografije.';
 
   @override
   String get helpMap =>
@@ -1054,7 +1054,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Vse mačke in kraji s položajem. Iskanje najde mačke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešane mačke in okoli doma, iz katerega je pobegnila. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje.';
+      'Vsi ljubljenčki in kraji s položajem. Iskanje najde ljubljenčke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešanega ljubljenčka in okoli doma, iz katerega je pobegnil. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje.';
 
   @override
   String get helpCard =>
@@ -1062,7 +1062,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'Kartica mačke za tisk: zgoraj s čipi izbereš, kaj bo na njej, nato jo deliš kot sliko ali PDF. Številke se lahko natisnejo kot QR ali črtna koda, položaj pa postane QR, ki odpre zemljevid, plus kratek Plus Code.';
+      'Kartica ljubljenčka za tisk: zgoraj s čipi izbereš, kaj bo na njej, nato jo deliš kot sliko ali PDF. Številke se lahko natisnejo kot QR ali črtna koda, položaj pa postane QR, ki odpre zemljevid, plus kratek Plus Code.';
 
   @override
   String get helpSync =>
@@ -1074,7 +1074,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri mački tapljiva.';
+      'Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri ljubljenčku tapljiva.';
 
   @override
   String get helpTimeline =>
@@ -1086,7 +1086,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'Mačke ali kolonije, ki se zdijo podvojene — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.';
+      'Ljubljenčki ali gospodinjstva, ki se zdijo podvojeni — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.';
 
   @override
   String get helpMatches =>
@@ -1094,7 +1094,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo.';
+      'Ljubljenčki, ki bi lahko bili ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešanega ljubljenčka. Tapni par za združitev, z dolgim pritiskom odpreš prvega ljubljenčka za primerjavo.';
 
   @override
   String get helpFlier =>
@@ -1102,7 +1102,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Fotografiran letak postane mačka in njen lastnik. Korak za korakom: podatki mačke, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.';
+      'Fotografiran letak postane ljubljenček in njegov lastnik. Korak za korakom: podatki ljubljenčka, stik lastnika, izrez obraza za profilno sliko, številke registrov z letaka, nato končno preverjanje. Vse je predlog — popravi, kar je kamera napačno prebrala.';
 
   @override
   String get archiveTitle => 'Arhiv';
@@ -1113,7 +1113,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Poginule mačke in prazne kolonije, ki se jih leta nihče ni dotaknil, še vedno zavzemajo prostor — predvsem njihove fotografije. Arhiviranje jih zapiše v datoteko, ki jo obdržiš, in jih nato izbriše od tod.';
+      'Poginuli ljubljenčki in prazna gospodinjstva, ki se jih leta nihče ni dotaknil, še vedno zavzemajo prostor — predvsem njihove fotografije. Arhiviranje jih zapiše v datoteko, ki jo obdržiš, in jih nato izbriše od tod.';
 
   @override
   String get archiveAction => 'Arhiviraj';
@@ -1167,7 +1167,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'Stari podatki stanejo prostor, predvsem fotografije, ki jih nosi vsaka sinhronizirana naprava. Tu izbereš poginule mačke in prazne kolonije, ki leta mirujejo, jih zapišeš v datoteko, ki jo obdržiš, in jih izbrišeš. Izbris doseže vse, s katerimi sinhroniziraš; uvoz datoteke vse obnovi.';
+      'Stari podatki stanejo prostor, predvsem fotografije, ki jih nosi vsaka sinhronizirana naprava. Tu izbereš poginule ljubljenčke in prazna gospodinjstva, ki leta mirujejo, jih zapišeš v datoteko, ki jo obdržiš, in jih izbrišeš. Izbris doseže vse, s katerimi sinhroniziraš; uvoz datoteke vse obnovi.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1224,7 +1224,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get markTitle => 'Označi mačko';
 
   @override
-  String get markTitleNeutral => 'Označi mačko';
+  String get markTitleNeutral => 'Označi ljubljenčka';
 
   @override
   String get applyCrop => 'Obreži';
@@ -1236,13 +1236,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get dragToSelect => 'Povleci pravokotnik okoli mačke';
 
   @override
-  String get dragToSelectNeutral => 'Povleci pravokotnik okoli mačke';
+  String get dragToSelectNeutral => 'Povleci pravokotnik okoli ljubljenčka';
 
   @override
   String get dragOverTheCat => 'Povleci elipso čez mačko';
 
   @override
-  String get dragOverTheCatNeutral => 'Povleci elipso čez mačko';
+  String get dragOverTheCatNeutral => 'Povleci elipso čez ljubljenčka';
 
   @override
   String get cropPhoto => 'Obreži…';
@@ -1453,7 +1453,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Konfeti in vzkliki, ko se mačka preseli v svoj dom';
+      'Konfeti in vzkliki, ko se ljubljenček preseli v svoj dom';
 
   @override
   String get onMapLabel => 'Na zemljevidu';
@@ -1471,7 +1471,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get mapSearchHint => 'Išči mačke, skupine, osebe';
 
   @override
-  String get mapSearchHintNeutral => 'Išči mačke, skupine, osebe';
+  String get mapSearchHintNeutral => 'Išči ljubljenčke, gospodinjstva, osebe';
 
   @override
   String get proposeAnotherName => 'Predlagaj drugo ime';
@@ -1674,13 +1674,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get selectClowderHint => 'Izberi clowder na levi';
 
   @override
-  String get selectClowderHintNeutral => 'Izberi clowder na levi';
+  String get selectClowderHintNeutral => 'Izberi gospodinjstvo na levi';
 
   @override
   String get introTitle1 => 'Vaše mačke, urejeno';
 
   @override
-  String get introTitle1Neutral => 'Vaše mačke, urejeno';
+  String get introTitle1Neutral => 'Vaši ljubljenčki, urejeno';
 
   @override
   String get introBody1 =>
@@ -1688,7 +1688,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Za vsako mačko ustvarite kartico: fotografija, spol, zdravje, kar koli želite zabeležiti. Mačke so razvrščene po kraju, kjer živijo — aplikacija mu pravi kolonija (clowder).';
+      'Za vsakega ljubljenčka, za katerega skrbite, ustvarite kartico: fotografija, spol, zdravje, kar koli želite zabeležiti. Ljubljenčki so razvrščeni po kraju, kjer živijo — aplikacija mu pravi gospodinjstvo.';
 
   @override
   String get introTitle2 => 'Deluje brez interneta';
@@ -1726,7 +1726,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Ta kartica zbira vse potepuhe — mačke brez doma. Tapnite za seznam.';
+      'Ta kartica zbira vse potepuhe — ljubljenčke brez doma. Tapnite za seznam.';
 
   @override
   String get spotHomeMenu =>
@@ -1738,7 +1738,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Tapnite svinčnik za urejanje mačke. Nasvet: dolg pritisk na polje ga uredi neposredno.';
+      'Tapnite svinčnik za urejanje ljubljenčka. Nasvet: dolg pritisk na polje ga uredi neposredno.';
 
   @override
   String get spotMapLayers =>
@@ -1746,7 +1746,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Iščete pogrešano mačko? Prikažite kroge okoli krajev njenih letakov in okoli doma, iz katerega je pobegnila.';
+      'Iščete pogrešanega ljubljenčka? Prikažite kroge okoli krajev njegovih letakov in okoli doma, iz katerega je pobegnil.';
 
   @override
   String get spotStraysFlier =>
@@ -1754,7 +1754,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Letak o pogrešani mački? Fotografirajte ga tukaj — aplikacija shrani mačko in kontakt namesto vas.';
+      'Letak o pogrešanem ljubljenčku? Fotografirajte ga tukaj — aplikacija shrani ljubljenčka in kontakt namesto vas.';
 
   @override
   String get spotStraysScan =>
@@ -1762,13 +1762,13 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Nekateri letaki nosijo cat(a)log kodo QR. Skenirajte jo tukaj in mačko uvozite brez tipkanja.';
+      'Nekateri letaki nosijo cat(a)log kodo QR. Skenirajte jo tukaj in ljubljenčka uvozite brez tipkanja.';
 
   @override
   String get introTitle4 => 'Poiščite pogrešane mačke';
 
   @override
-  String get introTitle4Neutral => 'Poiščite pogrešane mačke';
+  String get introTitle4Neutral => 'Poiščite pogrešane ljubljenčke';
 
   @override
   String get introBody4 =>
@@ -1776,7 +1776,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Vidite letak o pogrešani mački? Fotografirajte ga v aplikaciji: shrani mačko, lastnikov kontakt in kraj. Če se pozneje pojavi podoben potepuh, aplikacija predlaga možna ujemanja.';
+      'Vidite letak o pogrešanem ljubljenčku? Fotografirajte ga v aplikaciji: shrani ljubljenčka, lastnikov kontakt in kraj. Če se pozneje pojavi podoben potepuh, aplikacija predlaga možna ujemanja.';
 
   @override
   String get spotMapSearch =>
@@ -1784,7 +1784,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Vpišite mačko, kraj ali osebo, da skočite tja na zemljevidu.';
+      'Vpišite ljubljenčka, kraj ali osebo, da skočite tja na zemljevidu.';
 
   @override
   String get spotCardChips =>
@@ -1796,7 +1796,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Tu je več dejanj: skrij mačko, združi dvojnike ali zabeleži opažanje.';
+      'Tu je več dejanj: skrij ljubljenčka, združi dvojnike ali zabeleži opažanje.';
 
   @override
   String get spotDone => 'Razumem';
@@ -1814,7 +1814,8 @@ class AppLocalizationsSl extends AppLocalizations {
   String get searchNoResults => 'Mačke s tem imenom ni mogoče najti';
 
   @override
-  String get searchNoResultsNeutral => 'Mačke s tem imenom ni mogoče najti';
+  String get searchNoResultsNeutral =>
+      'Ljubljenčka s tem imenom ni mogoče najti';
 
   @override
   String get syncUnreachable =>
@@ -1867,7 +1868,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
+      'Vsak katalog je svet zase: svoji ljubljenčki, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
 
   @override
   String get spotHomeCatalog =>
@@ -1883,7 +1884,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'Vse v katalogu $name izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.';
+    return 'Vse v katalogu $name izgine: ljubljenčki, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.';
   }
 
   @override
@@ -2013,7 +2014,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Ni načrtovanih terminov. Nove načrtuješ tukaj s plusom ali na strani mačke ali clowderja.';
+      'Ni načrtovanih terminov. Nove načrtuješ tukaj s plusom ali na strani ljubljenčka ali gospodinjstva.';
 
   @override
   String get dueToday => 'danes';
@@ -2181,7 +2182,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Načrtuj termin za to mačko. Prikaže se med opomniki in se tam potrdi.';
+      'Načrtuj termin za tega ljubljenčka. Prikaže se med opomniki in se tam potrdi.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2189,7 +2190,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Načrtuj termin za ta clowder. Prikaže se med opomniki in se tam potrdi.';
+      'Načrtuj termin za to gospodinjstvo. Prikaže se med opomniki in se tam potrdi.';
 
   @override
   String get readOnlyCalendar => 'samo za branje';
@@ -2296,13 +2297,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get existingCat => 'Obstoječa mačka';
 
   @override
-  String get existingCatNeutral => 'Obstoječa mačka';
+  String get existingCatNeutral => 'Obstoječi ljubljenček';
 
   @override
   String get existingClowder => 'Obstoječa skupina';
 
   @override
-  String get existingClowderNeutral => 'Obstoječa skupina';
+  String get existingClowderNeutral => 'Obstoječe gospodinjstvo';
 
   @override
   String get createNewInstead => 'Brez — ustvari novo';
@@ -2328,7 +2329,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get catsOnAppointment => 'Mačke na tem terminu';
 
   @override
-  String get catsOnAppointmentNeutral => 'Mačke na tem terminu';
+  String get catsOnAppointmentNeutral => 'Ljubljenčki na tem terminu';
 
   @override
   String get noCatsHint =>
@@ -2336,13 +2337,13 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get noCatsHintNeutral =>
-      'Nobena mačka ni označena — termin pripada koloniji sami.';
+      'Noben ljubljenček ni označen — termin pripada gospodinjstvu samemu.';
 
   @override
   String get pickCatsTitle => 'Katere mačke gredo zraven?';
 
   @override
-  String get pickCatsTitleNeutral => 'Katere mačke gredo zraven?';
+  String get pickCatsTitleNeutral => 'Kateri ljubljenčki gredo zraven?';
 
   @override
   String catsCount(int count) {
@@ -2351,7 +2352,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count mačk';
+    return '$count ljubljenčkov';
   }
 
   @override
@@ -2360,7 +2361,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Odznači mačke, ki niso bile obravnavane; ostanejo načrtovane.';
+      'Odznači ljubljenčke, ki niso bili obravnavani; ostanejo načrtovani.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2369,6 +2370,6 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Izbriši termin za vseh $count mačk';
+    return 'Izbriši termin za vseh $count ljubljenčkov';
   }
 }

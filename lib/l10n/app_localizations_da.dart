@@ -29,7 +29,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get clowders => 'Clowdere';
 
   @override
-  String get clowdersNeutral => 'Clowdere';
+  String get clowdersNeutral => 'Husstande';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Ingen clowdere endnu. En clowder er et sted, hvor katte bor — dit plejehjem, en adoptants lejlighed. Opret den første nedenfor.';
+      'Ingen husstande endnu. En husstand er et sted, hvor kæledyr bor — dit hjem, et plejehjem, en adoptants lejlighed. Opret den første nedenfor.';
 
   @override
   String get strays => 'Herreløse katte';
@@ -46,7 +46,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get searchCats => 'Søg katte';
 
   @override
-  String get searchCatsNeutral => 'Søg katte';
+  String get searchCatsNeutral => 'Søg kæledyr';
 
   @override
   String get map => 'Kort';
@@ -67,7 +67,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get newClowder => 'Ny clowder';
 
   @override
-  String get newClowderNeutral => 'Ny clowder';
+  String get newClowderNeutral => 'Ny husstand';
 
   @override
   String get name => 'Navn';
@@ -102,7 +102,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get renameClowder => 'Omdøb clowder';
 
   @override
-  String get renameClowderNeutral => 'Omdøb clowder';
+  String get renameClowderNeutral => 'Omdøb husstand';
 
   @override
   String get rename => 'Omdøb';
@@ -117,25 +117,25 @@ class AppLocalizationsDa extends AppLocalizations {
   String get deleteClowder => 'Slet clowder';
 
   @override
-  String get deleteClowderNeutral => 'Slet clowder';
+  String get deleteClowderNeutral => 'Slet husstand';
 
   @override
   String get cats => 'Katte';
 
   @override
-  String get catsNeutral => 'Katte';
+  String get catsNeutral => 'Kæledyr';
 
   @override
   String get addCat => 'Tilføj kat';
 
   @override
-  String get addCatNeutral => 'Tilføj kat';
+  String get addCatNeutral => 'Tilføj kæledyr';
 
   @override
   String get newCat => 'Ny kat';
 
   @override
-  String get newCatNeutral => 'Ny kat';
+  String get newCatNeutral => 'Nyt kæledyr';
 
   @override
   String deleteQuestion(String name) {
@@ -147,7 +147,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get deleteClowderEmptyBodyNeutral =>
-      'Clowderen forsvinder fra listen.';
+      'Husstanden forsvinder fra listen.';
 
   @override
   String deleteClowderBody(int count) {
@@ -156,7 +156,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'Dens $count kat(te) slettes ikke — de bliver herreløse. Flyt dem først til en anden clowder, hvis det ikke er meningen.';
+    return 'Dens $count kæledyr slettes ikke — de bliver herreløse. Flyt dem først til en anden husstand, hvis det ikke er meningen.';
   }
 
   @override
@@ -180,7 +180,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get renameCat => 'Omdøb kat';
 
   @override
-  String get renameCatNeutral => 'Omdøb kat';
+  String get renameCatNeutral => 'Omdøb kæledyr';
 
   @override
   String get seenHereNow => 'Set her nu';
@@ -189,19 +189,19 @@ class AppLocalizationsDa extends AppLocalizations {
   String get deleteCat => 'Slet kat';
 
   @override
-  String get deleteCatNeutral => 'Slet kat';
+  String get deleteCatNeutral => 'Slet kæledyr';
 
   @override
   String get clowderLabel => 'Clowder';
 
   @override
-  String get clowderLabelNeutral => 'Clowder';
+  String get clowderLabelNeutral => 'Husstand';
 
   @override
   String get strayNoClowder => 'Herreløs — ingen clowder';
 
   @override
-  String get strayNoClowderNeutral => 'Herreløs — ingen clowder';
+  String get strayNoClowderNeutral => 'Herreløs — ingen husstand';
 
   @override
   String get stray => 'Herreløs';
@@ -234,7 +234,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'Katten forsvinder fra alle lister, og dens fotos fjernes — her og, efter næste synkronisering, også på de andre enheder.';
+      'Kæledyret forsvinder fra alle lister, og dets fotos fjernes — her og, efter næste synkronisering, også på de andre enheder.';
 
   @override
   String get sightingRecorded => 'Observation registreret på din position.';
@@ -288,7 +288,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'Scanner den trykte QR/stregkode fra chipkortet eller dyrlægepapirer — telefonen kan ikke læse chippen i katten.';
+      'Scanner den trykte QR/stregkode fra chipkortet eller dyrlægepapirer — telefonen kan ikke læse chippen i dyret.';
 
   @override
   String get savingLabel => 'Gemmer…';
@@ -317,7 +317,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get catList => 'Katteliste';
 
   @override
-  String get catListNeutral => 'Katteliste';
+  String get catListNeutral => 'Kæledyrsliste';
 
   @override
   String get matchCandidatesTitle => 'Mulige match';
@@ -380,7 +380,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get importShareTitle => 'Importér denne kat?';
 
   @override
-  String get importShareTitleNeutral => 'Importér denne kat?';
+  String get importShareTitleNeutral => 'Importér dette kæledyr?';
 
   @override
   String shareSource(String url) {
@@ -405,7 +405,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noMissingCatsNeutral =>
-      'Ingen savnede katte med opslagspositioner endnu.';
+      'Ingen savnede kæledyr med opslagspositioner endnu.';
 
   @override
   String get noMatchCandidates => 'Ingen mulige match lige nu.';
@@ -485,7 +485,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Denne kat er registreret som han — en hankat kan ikke være drægtig. Tjek kønnet først.';
+      'Dette kæledyr er registreret som han — en han kan ikke være drægtig. Tjek kønnet først.';
 
   @override
   String fatherNotMale(String name) {
@@ -504,7 +504,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String parentBornAfterKittenNeutral(String name, String date) {
-    return '$name er født $date — en forælder kan ikke være født efter sin killing.';
+    return '$name er født $date — en forælder kan ikke være født efter sin unge.';
   }
 
   @override
@@ -513,7 +513,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Denne kat er registreret som far til andre katte — faren kan ikke være hun. Tjek familien først.';
+      'Dette kæledyr er registreret som far til andre kæledyr — faren kan ikke være hun. Tjek familien først.';
 
   @override
   String get genderMotherMale =>
@@ -521,7 +521,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Denne kat er registreret som mor til andre katte — moren kan ikke være han. Tjek familien først.';
+      'Dette kæledyr er registreret som mor til andre kæledyr — moren kan ikke være han. Tjek familien først.';
 
   @override
   String get moveTo => 'Flyt til';
@@ -531,7 +531,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noClowderStrayOptionNeutral =>
-      'Ingen clowder — herreløs / løbet væk';
+      'Ingen husstand — herreløs / løbet væk';
 
   @override
   String timelineOf(String name) {
@@ -621,13 +621,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get forCats => 'katte';
 
   @override
-  String get forCatsNeutral => 'katte';
+  String get forCatsNeutral => 'kæledyr';
 
   @override
   String get forClowders => 'clowdere';
 
   @override
-  String get forClowdersNeutral => 'clowdere';
+  String get forClowdersNeutral => 'husstande';
 
   @override
   String get forBoth => 'begge';
@@ -660,7 +660,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get searchByNameHint => 'Søg katte efter navn…';
 
   @override
-  String get searchByNameHintNeutral => 'Søg katte efter navn…';
+  String get searchByNameHintNeutral => 'Søg kæledyr efter navn…';
 
   @override
   String get host => 'Vært';
@@ -782,13 +782,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get kindCat => 'kat';
 
   @override
-  String get kindCatNeutral => 'kat';
+  String get kindCatNeutral => 'kæledyr';
 
   @override
   String get kindClowder => 'clowder';
 
   @override
-  String get kindClowderNeutral => 'clowder';
+  String get kindClowderNeutral => 'husstand';
 
   @override
   String get kindField => 'felt';
@@ -808,7 +808,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Et lokalt katalog over plejekatte. Dine data bliver på dine enheder — ingen server, ingen konto.';
+      'Et lokalt katalog over de kæledyr, du passer. Dine data bliver på dine enheder — ingen server, ingen konto.';
 
   @override
   String versionLabel(String version, String build) {
@@ -936,7 +936,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get stepCat => 'Kat';
 
   @override
-  String get stepCatNeutral => 'Kat';
+  String get stepCatNeutral => 'Kæledyr';
 
   @override
   String get stepOwner => 'Ejer';
@@ -956,7 +956,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Den, der savner katten — det bliver deres clowder, med kontakten fra opslaget.';
+      'Den, der savner kæledyret — det bliver deres husstand, med kontakten fra opslaget.';
 
   @override
   String get stepFaceHint =>
@@ -964,7 +964,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Klip kattens ansigt ud af opslaget; det bliver profilbilledet. Du kan springe over.';
+      'Klip kæledyrets ansigt ud af opslaget; det bliver profilbilledet. Du kan springe over.';
 
   @override
   String get stepRegistryHint =>
@@ -972,7 +972,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'Numre fundet på opslaget. De markerede gemmes ved katten og kan åbnes senere.';
+      'Numre fundet på opslaget. De markerede gemmes ved kæledyret og kan åbnes senere.';
 
   @override
   String get noRegistryLinks =>
@@ -1022,7 +1022,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'Oversigten over dine kolonier — en koloni er et sted, hvor katte bor: dit hjem, en plejefamilie, et internat. Tryk på et kort for at se dets katte; hold nede for menuen. Knappen nederst til højre laver en ny koloni, og strejferkortet samler alle katte uden hjem. Navnet øverst er kataloget, du er i — tryk for at skifte eller oprette et.';
+      'Oversigten over dine husstande — en husstand er et sted, hvor kæledyr bor: dit hjem, en plejefamilie, et internat. Tryk på et kort for at se dets kæledyr; hold nede for menuen. Knappen nederst til højre laver en ny husstand, og strejferkortet samler alle kæledyr uden hjem. Navnet øverst er kataloget, du er i — tryk for at skifte eller oprette et.';
 
   @override
   String get helpClowder =>
@@ -1030,7 +1030,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Alt om dette sted: dets katte, dets felter (adresse, kontakt, type) og dets historik. Siden åbner skrivebeskyttet; blyanten slår redigering til, hvor du også kan tilføje et felt. Hold et felt nede for at redigere det direkte, en kat for at flytte, skjule eller åbne den. En aftale tilføjet her kan tage flere af koloniens katte med, fx en neutraliseringstur: kryds kattene af, afslut én gang, fjern krydset ved dem, der ikke blev behandlet.';
+      'Alt om dette sted: dets kæledyr, dets felter (adresse, kontakt, type) og dets historik. Siden åbner skrivebeskyttet; blyanten slår redigering til, hvor du også kan tilføje et felt. Hold et felt nede for at redigere det direkte, et kæledyr for at flytte, skjule eller åbne det. En aftale tilføjet her kan tage flere af husstandens kæledyr med, fx en neutraliseringstur: kryds kæledyrene af, afslut én gang, fjern krydset ved dem, der ikke blev behandlet.';
 
   @override
   String get helpCat =>
@@ -1038,7 +1038,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Alt om denne kat: fotos, felter, familie, historik. Siden er skrivebeskyttet, indtil du trykker på blyanten. Langt tryk på et felt går direkte til redigering; langt tryk på et foto åbner dets menu. Menuen øverst til højre har resten: skjul, flet, notér en observation, del katten. „Privat“ sættes, mens du redigerer et felt.';
+      'Alt om dette kæledyr: fotos, felter, familie, historik. Siden er skrivebeskyttet, indtil du trykker på blyanten. Langt tryk på et felt går direkte til redigering; langt tryk på et foto åbner dets menu. Menuen øverst til højre har resten: skjul, flet, notér en observation, del kæledyret. „Privat“ sættes, mens du redigerer et felt.';
 
   @override
   String get helpStrays =>
@@ -1046,7 +1046,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Katte uden hjem lige nu: fundne, undslupne eller fra et opslag. Kameraknappen registrerer en kat foran dig; opslagsknappen laver et savnet-opslag om til en kat med ejerens kontakt; scanneren læser en cat(a)log-kode fra opslaget. Tryk på Stray Cam for et foto; hold nede for at filme en video og gemme de bedste billeder som fotos.';
+      'Kæledyr uden hjem lige nu: fundne, undslupne eller fra et opslag. Kameraknappen registrerer et dyr foran dig; opslagsknappen laver et savnet-opslag om til et kæledyr med ejerens kontakt; scanneren læser en cat(a)log-kode fra opslaget. Tryk på Stray Cam for et foto; hold nede for at filme en video og gemme de bedste billeder som fotos.';
 
   @override
   String get helpMap =>
@@ -1054,7 +1054,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Alle katte og steder med en position. Søgningen finder katte, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring en savnet kats opslagssteder og omkring dens tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation.';
+      'Alle kæledyr og steder med en position. Søgningen finder kæledyr, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring et savnet kæledyrs opslagssteder og omkring dets tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation.';
 
   @override
   String get helpCard =>
@@ -1062,7 +1062,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'Kattens kort til print: vælg øverst med chipsene, hvad der står på det, og del det som billede eller PDF. Numre kan printes som QR eller stregkode, og en position bliver til en QR, der åbner et kort, plus en kort Plus Code.';
+      'Kæledyrets kort til print: vælg øverst med chipsene, hvad der står på det, og del det som billede eller PDF. Numre kan printes som QR eller stregkode, og en position bliver til en QR, der åbner et kort, plus en kort Plus Code.';
 
   @override
   String get helpSync =>
@@ -1074,7 +1074,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'De felter, dit katalog bruger. Omdøb dem, ændr valgmulighederne i et valgfelt, eller lav dine egne. Et id-felt kan pege på en tjeneste (et register), så bliver nummeret trykbart ved katten.';
+      'De felter, dit katalog bruger. Omdøb dem, ændr valgmulighederne i et valgfelt, eller lav dine egne. Et id-felt kan pege på en tjeneste (et register), så bliver nummeret trykbart ved kæledyret.';
 
   @override
   String get helpTimeline =>
@@ -1086,7 +1086,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'Katte eller kolonier, der ser ud til at findes to gange — ens numre eller meget lignende navne med matchende detaljer. Tryk på et par for at flette; fletning kan ikke fortrydes, derfor spørges der først.';
+      'Kæledyr eller husstande, der ser ud til at findes to gange — ens numre eller meget lignende navne med matchende detaljer. Tryk på et par for at flette; fletning kan ikke fortrydes, derfor spørges der først.';
 
   @override
   String get helpMatches =>
@@ -1094,7 +1094,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne.';
+      'Kæledyr, der kan være samme dyr: samme nummer, eller en strejfer set inde i et savnet kæledyrs søgeområde. Tryk på et par for at flette, hold nede for at åbne det første kæledyr og sammenligne.';
 
   @override
   String get helpFlier =>
@@ -1102,7 +1102,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Et fotograferet opslag bliver til en kat plus ejer. Trin for trin: kattens data, ejerens kontakt, beskæring af ansigtet til profilbilledet, registernumre fra opslaget og til sidst et tjek. Alt er forslag — ret det, kameraet læste forkert.';
+      'Et fotograferet opslag bliver til et kæledyr plus ejer. Trin for trin: kæledyrets data, ejerens kontakt, beskæring af ansigtet til profilbilledet, registernumre fra opslaget og til sidst et tjek. Alt er forslag — ret det, kameraet læste forkert.';
 
   @override
   String get archiveTitle => 'Arkiv';
@@ -1113,7 +1113,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Afdøde katte og tomme kolonier, som ingen har rørt i årevis, fylder stadig — især deres fotos. Arkivering skriver dem til en fil, du gemmer, og sletter dem derefter her.';
+      'Afdøde kæledyr og tomme husstande, som ingen har rørt i årevis, fylder stadig — især deres fotos. Arkivering skriver dem til en fil, du gemmer, og sletter dem derefter her.';
 
   @override
   String get archiveAction => 'Arkivér';
@@ -1167,7 +1167,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'Gamle data fylder, især billederne, som hver synkroniseret enhed slæber rundt på. Her vælger du afdøde katte og tomme kolonier, der har ligget stille i årevis, skriver dem til en fil, du gemmer, og sletter dem. Sletningen når alle, du synkroniserer med; import af filen gendanner alt.';
+      'Gamle data fylder, især billederne, som hver synkroniseret enhed slæber rundt på. Her vælger du afdøde kæledyr og tomme husstande, der har ligget stille i årevis, skriver dem til en fil, du gemmer, og sletter dem. Sletningen når alle, du synkroniserer med; import af filen gendanner alt.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1224,7 +1224,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get markTitle => 'Markér katten';
 
   @override
-  String get markTitleNeutral => 'Markér katten';
+  String get markTitleNeutral => 'Markér kæledyret';
 
   @override
   String get applyCrop => 'Beskær';
@@ -1236,13 +1236,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get dragToSelect => 'Træk et rektangel rundt om katten';
 
   @override
-  String get dragToSelectNeutral => 'Træk et rektangel rundt om katten';
+  String get dragToSelectNeutral => 'Træk et rektangel rundt om kæledyret';
 
   @override
   String get dragOverTheCat => 'Træk en ellipse over katten';
 
   @override
-  String get dragOverTheCatNeutral => 'Træk en ellipse over katten';
+  String get dragOverTheCatNeutral => 'Træk en ellipse over kæledyret';
 
   @override
   String get cropPhoto => 'Beskær…';
@@ -1453,7 +1453,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Konfetti og jubel, når en kat flytter til sit hjem';
+      'Konfetti og jubel, når et kæledyr flytter til sit hjem';
 
   @override
   String get onMapLabel => 'På kortet';
@@ -1471,7 +1471,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get mapSearchHint => 'Søg katte, grupper, personer';
 
   @override
-  String get mapSearchHintNeutral => 'Søg katte, grupper, personer';
+  String get mapSearchHintNeutral => 'Søg kæledyr, husstande, personer';
 
   @override
   String get proposeAnotherName => 'Foreslå et andet navn';
@@ -1552,7 +1552,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get kittensLabel => 'Killinger';
 
   @override
-  String get kittensLabelNeutral => 'Killinger';
+  String get kittensLabelNeutral => 'Unger';
 
   @override
   String get toastSettingsTitle => 'Hvad der meldes';
@@ -1587,7 +1587,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String toastBornNeutral(Object cat) {
-    return '✨ Ny killing: $cat ✨';
+    return '✨ Nyfødt: $cat ✨';
   }
 
   @override
@@ -1675,13 +1675,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get selectClowderHint => 'Vælg en clowder til venstre';
 
   @override
-  String get selectClowderHintNeutral => 'Vælg en clowder til venstre';
+  String get selectClowderHintNeutral => 'Vælg en husstand til venstre';
 
   @override
   String get introTitle1 => 'Dine katte, organiseret';
 
   @override
-  String get introTitle1Neutral => 'Dine katte, organiseret';
+  String get introTitle1Neutral => 'Dine kæledyr, organiseret';
 
   @override
   String get introBody1 =>
@@ -1689,7 +1689,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Opret et kort for hver kat: foto, køn, helbred, alt du vil notere. Kattene grupperes efter hvor de bor — appen kalder sådan et sted en clowder.';
+      'Opret et kort for hvert kæledyr, du passer: foto, køn, helbred, alt du vil notere. Kæledyrene grupperes efter hvor de bor — appen kalder sådan et sted en husstand.';
 
   @override
   String get introTitle2 => 'Virker uden internet';
@@ -1727,7 +1727,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Dette kort samler alle strejfere — katte uden hjem. Tryk for at se listen.';
+      'Dette kort samler alle strejfere — kæledyr uden hjem. Tryk for at se listen.';
 
   @override
   String get spotHomeMenu =>
@@ -1739,7 +1739,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Tryk på blyanten for at redigere katten. Tip: hold et felt nede for at redigere det direkte.';
+      'Tryk på blyanten for at redigere kæledyret. Tip: hold et felt nede for at redigere det direkte.';
 
   @override
   String get spotMapLayers =>
@@ -1747,7 +1747,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Leder du efter en savnet kat? Vis cirkler omkring stederne for dens opslag og omkring dens tidligere hjem.';
+      'Leder du efter et savnet kæledyr? Vis cirkler omkring stederne for dets opslag og omkring dets tidligere hjem.';
 
   @override
   String get spotStraysFlier =>
@@ -1755,7 +1755,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Fundet et opslag om en savnet kat? Fotografér det her — appen gemmer kat og kontakt for dig.';
+      'Fundet et opslag om et savnet kæledyr? Fotografér det her — appen gemmer kæledyr og kontakt for dig.';
 
   @override
   String get spotStraysScan =>
@@ -1763,13 +1763,13 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Nogle opslag har en cat(a)log-QR-kode. Scan den her og importér katten uden at taste.';
+      'Nogle opslag har en cat(a)log-QR-kode. Scan den her og importér kæledyret uden at taste.';
 
   @override
   String get introTitle4 => 'Find savnede katte';
 
   @override
-  String get introTitle4Neutral => 'Find savnede katte';
+  String get introTitle4Neutral => 'Find savnede kæledyr';
 
   @override
   String get introBody4 =>
@@ -1777,7 +1777,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Ser du et opslag om en savnet kat? Fotografér det i appen: den gemmer katten, ejerens kontakt og stedet. Dukker en lignende strejfer op senere, foreslår appen mulige match.';
+      'Ser du et opslag om et savnet kæledyr? Fotografér det i appen: den gemmer kæledyret, ejerens kontakt og stedet. Dukker en lignende strejfer op senere, foreslår appen mulige match.';
 
   @override
   String get spotMapSearch =>
@@ -1785,7 +1785,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Skriv en kat, et sted eller en person for at hoppe derhen på kortet.';
+      'Skriv et kæledyr, et sted eller en person for at hoppe derhen på kortet.';
 
   @override
   String get spotCardChips =>
@@ -1797,7 +1797,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Her er flere handlinger: skjul katten, flet dubletter eller notér en observation.';
+      'Her er flere handlinger: skjul kæledyret, flet dubletter eller notér en observation.';
 
   @override
   String get spotDone => 'Forstået';
@@ -1815,7 +1815,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get searchNoResults => 'Ingen kat fundet med det navn';
 
   @override
-  String get searchNoResultsNeutral => 'Ingen kat fundet med det navn';
+  String get searchNoResultsNeutral => 'Intet kæledyr fundet med det navn';
 
   @override
   String get syncUnreachable =>
@@ -1868,7 +1868,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Hvert katalog er sin egen verden: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.';
+      'Hvert katalog er sin egen verden: egne kæledyr, husstande, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.';
 
   @override
   String get spotHomeCatalog =>
@@ -1884,7 +1884,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'Alt i $name forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.';
+    return 'Alt i $name forsvinder: kæledyr, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.';
   }
 
   @override
@@ -2014,7 +2014,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Ingen aftaler planlagt. Planlæg nye her med plusset eller på en kats eller clowders side.';
+      'Ingen aftaler planlagt. Planlæg nye her med plusset eller på et kæledyrs eller en husstands side.';
 
   @override
   String get dueToday => 'i dag';
@@ -2179,7 +2179,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Planlæg en aftale for denne kat. Den vises i påmindelserne og bekræftes dér.';
+      'Planlæg en aftale for dette kæledyr. Den vises i påmindelserne og bekræftes dér.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2187,7 +2187,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Planlæg en aftale for denne clowder. Den vises i påmindelserne og bekræftes dér.';
+      'Planlæg en aftale for denne husstand. Den vises i påmindelserne og bekræftes dér.';
 
   @override
   String get readOnlyCalendar => 'skrivebeskyttet';
@@ -2294,13 +2294,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get existingCat => 'Eksisterende kat';
 
   @override
-  String get existingCatNeutral => 'Eksisterende kat';
+  String get existingCatNeutral => 'Eksisterende kæledyr';
 
   @override
   String get existingClowder => 'Eksisterende gruppe';
 
   @override
-  String get existingClowderNeutral => 'Eksisterende gruppe';
+  String get existingClowderNeutral => 'Eksisterende husstand';
 
   @override
   String get createNewInstead => 'Ingen — opret ny';
@@ -2326,20 +2326,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get catsOnAppointment => 'Katte til denne aftale';
 
   @override
-  String get catsOnAppointmentNeutral => 'Katte til denne aftale';
+  String get catsOnAppointmentNeutral => 'Kæledyr til denne aftale';
 
   @override
   String get noCatsHint => 'Ingen kat afkrydset — aftalen er koloniens egen.';
 
   @override
   String get noCatsHintNeutral =>
-      'Ingen kat afkrydset — aftalen er koloniens egen.';
+      'Intet kæledyr afkrydset — aftalen er husstandens egen.';
 
   @override
   String get pickCatsTitle => 'Hvilke katte kommer med?';
 
   @override
-  String get pickCatsTitleNeutral => 'Hvilke katte kommer med?';
+  String get pickCatsTitleNeutral => 'Hvilke kæledyr kommer med?';
 
   @override
   String catsCount(int count) {
@@ -2348,7 +2348,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count katte';
+    return '$count kæledyr';
   }
 
   @override
@@ -2357,7 +2357,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Fjern krydset ved katte, der ikke blev behandlet; de forbliver planlagt.';
+      'Fjern krydset ved kæledyr, der ikke blev behandlet; de forbliver planlagt.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2366,6 +2366,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Slet aftalen for alle $count katte';
+    return 'Slet aftalen for alle $count kæledyr';
   }
 }

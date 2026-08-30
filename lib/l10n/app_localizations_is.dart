@@ -29,7 +29,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get clowders => 'Clowder-hópar';
 
   @override
-  String get clowdersNeutral => 'Clowder-hópar';
+  String get clowdersNeutral => 'Heimili';
 
   @override
   String get noClowdersYet =>
@@ -37,7 +37,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noClowdersYetNeutral =>
-      'Engir clowderar enn. Clowder er staður þar sem kettir búa — fósturheimilið þitt, íbúð ættleiðanda. Búðu til þann fyrsta hér fyrir neðan.';
+      'Engin heimili enn. Heimili er staður þar sem gæludýr búa — heimilið þitt, fósturheimili, íbúð ættleiðanda. Búðu til það fyrsta hér fyrir neðan.';
 
   @override
   String get strays => 'Flækingskettir';
@@ -46,7 +46,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get searchCats => 'Leita að köttum';
 
   @override
-  String get searchCatsNeutral => 'Leita að köttum';
+  String get searchCatsNeutral => 'Leita að gæludýrum';
 
   @override
   String get map => 'Kort';
@@ -67,7 +67,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get newClowder => 'Nýr hópur';
 
   @override
-  String get newClowderNeutral => 'Nýr hópur';
+  String get newClowderNeutral => 'Nýtt heimili';
 
   @override
   String get name => 'Nafn';
@@ -102,7 +102,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get renameClowder => 'Endurnefna hóp';
 
   @override
-  String get renameClowderNeutral => 'Endurnefna hóp';
+  String get renameClowderNeutral => 'Endurnefna heimili';
 
   @override
   String get rename => 'Endurnefna';
@@ -117,25 +117,25 @@ class AppLocalizationsIs extends AppLocalizations {
   String get deleteClowder => 'Eyða hópi';
 
   @override
-  String get deleteClowderNeutral => 'Eyða hópi';
+  String get deleteClowderNeutral => 'Eyða heimili';
 
   @override
   String get cats => 'Kettir';
 
   @override
-  String get catsNeutral => 'Kettir';
+  String get catsNeutral => 'Gæludýr';
 
   @override
   String get addCat => 'Bæta við ketti';
 
   @override
-  String get addCatNeutral => 'Bæta við ketti';
+  String get addCatNeutral => 'Bæta við gæludýri';
 
   @override
   String get newCat => 'Nýr köttur';
 
   @override
-  String get newCatNeutral => 'Nýr köttur';
+  String get newCatNeutral => 'Nýtt gæludýr';
 
   @override
   String deleteQuestion(String name) {
@@ -146,7 +146,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Hópurinn hverfur af listanum.';
 
   @override
-  String get deleteClowderEmptyBodyNeutral => 'Hópurinn hverfur af listanum.';
+  String get deleteClowderEmptyBodyNeutral => 'Heimilið hverfur af listanum.';
 
   @override
   String deleteClowderBody(int count) {
@@ -155,7 +155,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String deleteClowderBodyNeutral(int count) {
-    return 'Kettir hans ($count) eyðast ekki — þeir verða flækingar. Færðu þá fyrst í annan hóp ef það er ekki ætlunin.';
+    return 'Gæludýr þess ($count) eyðast ekki — þau verða flækingar. Færðu þau fyrst á annað heimili ef það er ekki ætlunin.';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get renameCat => 'Endurnefna kött';
 
   @override
-  String get renameCatNeutral => 'Endurnefna kött';
+  String get renameCatNeutral => 'Endurnefna gæludýr';
 
   @override
   String get seenHereNow => 'Sást hér núna';
@@ -188,19 +188,19 @@ class AppLocalizationsIs extends AppLocalizations {
   String get deleteCat => 'Eyða ketti';
 
   @override
-  String get deleteCatNeutral => 'Eyða ketti';
+  String get deleteCatNeutral => 'Eyða gæludýri';
 
   @override
   String get clowderLabel => 'Hópur';
 
   @override
-  String get clowderLabelNeutral => 'Hópur';
+  String get clowderLabelNeutral => 'Heimili';
 
   @override
   String get strayNoClowder => 'Flækingur — enginn hópur';
 
   @override
-  String get strayNoClowderNeutral => 'Flækingur — enginn hópur';
+  String get strayNoClowderNeutral => 'Flækingur — ekkert heimili';
 
   @override
   String get stray => 'Flækingur';
@@ -233,7 +233,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get deleteCatBodyNeutral =>
-      'Kötturinn hverfur af öllum listum og myndir hans eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
+      'Gæludýrið hverfur af öllum listum og myndir þess eru fjarlægðar — hér og, eftir næstu samstillingu, einnig á hinum tækjunum.';
 
   @override
   String get sightingRecorded =>
@@ -288,7 +288,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get chipScanHintNeutral =>
-      'Skannar prentaða QR-/strikamerkið af örflögukortinu eða dýralæknisskjölum — sími getur ekki lesið flöguna í kettinum.';
+      'Skannar prentaða QR-/strikamerkið af örflögukortinu eða dýralæknisskjölum — sími getur ekki lesið flöguna í dýrinu.';
 
   @override
   String get savingLabel => 'Vista…';
@@ -317,7 +317,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get catList => 'Kattalisti';
 
   @override
-  String get catListNeutral => 'Kattalisti';
+  String get catListNeutral => 'Gæludýralisti';
 
   @override
   String get matchCandidatesTitle => 'Mögulegar samsvaranir';
@@ -380,7 +380,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get importShareTitle => 'Flytja inn þennan kött?';
 
   @override
-  String get importShareTitleNeutral => 'Flytja inn þennan kött?';
+  String get importShareTitleNeutral => 'Flytja inn þetta gæludýr?';
 
   @override
   String shareSource(String url) {
@@ -405,7 +405,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noMissingCatsNeutral =>
-      'Engir týndir kettir með auglýsingastaðsetningar enn.';
+      'Engin týnd gæludýr með auglýsingastaðsetningar enn.';
 
   @override
   String get noMatchCandidates => 'Engar mögulegar samsvaranir núna.';
@@ -486,7 +486,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get malePregnantNeutral =>
-      'Þessi köttur er skráður sem fress — fress getur ekki verið kettlingafullt. Athugaðu fyrst kynið.';
+      'Þetta gæludýr er skráð sem karldýr — karldýr getur ekki verið með fangi. Athugaðu fyrst kynið.';
 
   @override
   String fatherNotMale(String name) {
@@ -505,7 +505,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String parentBornAfterKittenNeutral(String name, String date) {
-    return '$name fæddist $date — foreldri getur ekki fæðst á eftir kettlingnum sínum.';
+    return '$name fæddist $date — foreldri getur ekki fæðst á eftir unganum sínum.';
   }
 
   @override
@@ -514,7 +514,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get genderFatherFemaleNeutral =>
-      'Þessi köttur er skráður faðir annarra katta — faðirinn getur ekki verið læða. Athugaðu fyrst fjölskylduna.';
+      'Þetta gæludýr er skráð faðir annarra gæludýra — faðirinn getur ekki verið kvendýr. Athugaðu fyrst fjölskylduna.';
 
   @override
   String get genderMotherMale =>
@@ -522,7 +522,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get genderMotherMaleNeutral =>
-      'Þessi köttur er skráður móðir annarra katta — móðirin getur ekki verið fress. Athugaðu fyrst fjölskylduna.';
+      'Þetta gæludýr er skráð móðir annarra gæludýra — móðirin getur ekki verið karldýr. Athugaðu fyrst fjölskylduna.';
 
   @override
   String get moveTo => 'Færa í';
@@ -531,7 +531,8 @@ class AppLocalizationsIs extends AppLocalizations {
   String get noClowderStrayOption => 'Enginn hópur — flækingur / strauk';
 
   @override
-  String get noClowderStrayOptionNeutral => 'Enginn hópur — flækingur / strauk';
+  String get noClowderStrayOptionNeutral =>
+      'Ekkert heimili — flækingur / strauk';
 
   @override
   String timelineOf(String name) {
@@ -621,13 +622,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get forCats => 'ketti';
 
   @override
-  String get forCatsNeutral => 'ketti';
+  String get forCatsNeutral => 'gæludýr';
 
   @override
   String get forClowders => 'hópa';
 
   @override
-  String get forClowdersNeutral => 'hópa';
+  String get forClowdersNeutral => 'heimili';
 
   @override
   String get forBoth => 'bæði';
@@ -660,7 +661,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get searchByNameHint => 'Leita að köttum eftir nafni…';
 
   @override
-  String get searchByNameHintNeutral => 'Leita að köttum eftir nafni…';
+  String get searchByNameHintNeutral => 'Leita að gæludýrum eftir nafni…';
 
   @override
   String get host => 'Hýsa';
@@ -783,13 +784,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get kindCat => 'köttur';
 
   @override
-  String get kindCatNeutral => 'köttur';
+  String get kindCatNeutral => 'gæludýr';
 
   @override
   String get kindClowder => 'hópur';
 
   @override
-  String get kindClowderNeutral => 'hópur';
+  String get kindClowderNeutral => 'heimili';
 
   @override
   String get kindField => 'svæði';
@@ -809,7 +810,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get aboutTaglineNeutral =>
-      'Staðbundin skrá yfir fósturketti. Gögnin þín verða áfram á tækjunum þínum — enginn þjónn, enginn aðgangur.';
+      'Staðbundin skrá yfir gæludýrin sem þú annast. Gögnin þín verða áfram á tækjunum þínum — enginn þjónn, enginn aðgangur.';
 
   @override
   String versionLabel(String version, String build) {
@@ -937,7 +938,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get stepCat => 'Köttur';
 
   @override
-  String get stepCatNeutral => 'Köttur';
+  String get stepCatNeutral => 'Gæludýr';
 
   @override
   String get stepOwner => 'Eigandi';
@@ -957,7 +958,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get stepOwnerHintNeutral =>
-      'Sá sem saknar kattarins — úr þessu verður hópurinn hans með tengilið af auglýsingunni.';
+      'Sá sem saknar gæludýrsins — úr þessu verður heimilið hans með tengilið af auglýsingunni.';
 
   @override
   String get stepFaceHint =>
@@ -965,7 +966,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get stepFaceHintNeutral =>
-      'Klipptu andlit kattarins út úr auglýsingunni; það verður prófílmyndin. Þú mátt sleppa þessu.';
+      'Klipptu andlit gæludýrsins út úr auglýsingunni; það verður prófílmyndin. Þú mátt sleppa þessu.';
 
   @override
   String get stepRegistryHint =>
@@ -973,7 +974,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get stepRegistryHintNeutral =>
-      'Númer sem fundust á auglýsingunni. Þau sem eru merkt vistast hjá kettinum og opnast síðar.';
+      'Númer sem fundust á auglýsingunni. Þau sem eru merkt vistast hjá gæludýrinu og opnast síðar.';
 
   @override
   String get noRegistryLinks =>
@@ -1024,7 +1025,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpHomeNeutral =>
-      'Yfirlit yfir nýlendurnar þínar — nýlenda er staður þar sem kettir búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá kettina; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til nýlendu og flækingsspjaldið safnar öllum köttum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.';
+      'Yfirlit yfir heimilin þín — heimili er staður þar sem gæludýr búa: heimilið þitt, fósturheimili, athvarf. Ýttu á spjald til að sjá gæludýrin; haltu inni fyrir valmynd. Hnappurinn neðst til hægri býr til heimili og flækingsspjaldið safnar öllum gæludýrum án heimilis. Heitið efst er skráin sem þú ert í — ýttu á það til að skipta eða bæta við.';
 
   @override
   String get helpClowder =>
@@ -1032,7 +1033,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpClowderNeutral =>
-      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann. Tími sem bætt er við hér getur tekið nokkra ketti nýlendunnar með, t.d. geldingarferð: merktu kettina sem koma með, ljúktu einu sinni, afmerktu þá sem ekki voru meðhöndlaðir.';
+      'Allt um þennan stað: gæludýrin, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, gæludýri til að færa, fela eða opna það. Tími sem bætt er við hér getur tekið nokkur gæludýr heimilisins með, t.d. geldingarferð: merktu gæludýrin sem koma með, ljúktu einu sinni, afmerktu þau sem ekki voru meðhöndluð.';
 
   @override
   String get helpCat =>
@@ -1040,7 +1041,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCatNeutral =>
-      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt.';
+      'Allt um þetta gæludýr: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að gæludýrið sást, deila gæludýrinu. „Einkamál“ er stillt þegar reit er breytt.';
 
   @override
   String get helpStrays =>
@@ -1048,7 +1049,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpStraysNeutral =>
-      'Kettir sem eiga ekkert heimili núna: fundnir, strokuköttur eða af auglýsingu. Myndavélarhnappurinn skráir kött fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í kött með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. Ýttu á Stray Cam fyrir mynd; haltu inni til að taka myndband og geyma bestu rammana sem myndir.';
+      'Gæludýr sem eiga ekkert heimili núna: fundin, strokudýr eða af auglýsingu. Myndavélarhnappurinn skráir dýr fyrir framan þig; auglýsingahnappurinn breytir týndauglýsingu í gæludýr með tengilið eigandans; skanninn les cat(a)log kóða af auglýsingunni. Ýttu á Stray Cam fyrir mynd; haltu inni til að taka myndband og geyma bestu rammana sem myndir.';
 
   @override
   String get helpMap =>
@@ -1056,7 +1057,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpMapNeutral =>
-      'Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
+      'Öll gæludýr og staðir með staðsetningu. Leitin finnur gæludýr, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds gæludýrs og um fyrra heimili þess. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
 
   @override
   String get helpCard =>
@@ -1064,7 +1065,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCardNeutral =>
-      'Prentanlegt spjald kattarins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.';
+      'Prentanlegt spjald gæludýrsins: veldu efst með merkjunum hvað birtist á því og deildu því svo sem mynd eða PDF. Númer má prenta sem QR eða strikamerki og staðsetning verður QR sem opnar kort, ásamt stuttum Plus Code.';
 
   @override
   String get helpSync =>
@@ -1076,7 +1077,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpFieldsNeutral =>
-      'Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá kettinum.';
+      'Reitirnir sem skráin þín notar. Endurnefndu þá, breyttu valkostum valreits eða búðu til þína eigin. Auðkennisreitur getur bent á þjónustu (skrá), þá verður hægt að ýta á númerið hjá gæludýrinu.';
 
   @override
   String get helpTimeline =>
@@ -1088,7 +1089,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpDuplicatesNeutral =>
-      'Kettir eða nýlendur sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.';
+      'Gæludýr eða heimili sem virðast vera til tvisvar — sömu númer eða mjög lík nöfn með samsvarandi smáatriðum. Ýttu á par til að sameina; sameiningu er ekki hægt að afturkalla, því er spurt fyrst.';
 
   @override
   String get helpMatches =>
@@ -1096,7 +1097,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpMatchesNeutral =>
-      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.';
+      'Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar.';
 
   @override
   String get helpFlier =>
@@ -1104,7 +1105,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpFlierNeutral =>
-      'Ljósmynduð auglýsing verður að ketti ásamt eiganda. Skref fyrir skref: gögn kattarins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.';
+      'Ljósmynduð auglýsing verður að gæludýri ásamt eiganda. Skref fyrir skref: gögn gæludýrsins, tengiliður eigandans, andlit klippt fyrir prófílmynd, skráningarnúmer af auglýsingunni og loks yfirferð. Allt eru tillögur — leiðréttu það sem myndavélin las vitlaust.';
 
   @override
   String get archiveTitle => 'Safn';
@@ -1115,7 +1116,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get archiveExplainerNeutral =>
-      'Kettir sem eru dánir og tómar nýlendur sem enginn hefur snert árum saman taka samt pláss — einkum myndirnar þeirra. Söfnun skrifar þau í skrá sem þú geymir og eyðir þeim svo héðan.';
+      'Gæludýr sem eru dáin og tóm heimili sem enginn hefur snert árum saman taka samt pláss — einkum myndirnar þeirra. Söfnun skrifar þau í skrá sem þú geymir og eyðir þeim svo héðan.';
 
   @override
   String get archiveAction => 'Setja í safn';
@@ -1169,7 +1170,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpArchiveNeutral =>
-      'Gömul gögn kosta pláss, einkum myndirnar sem hvert samstillt tæki ber með sér. Hér velur þú dána ketti og tómar nýlendur sem hafa legið kyrrar árum saman, skrifar þau í skrá sem þú geymir og eyðir þeim. Eyðingin nær til allra sem þú samstillir við; innflutningur skrárinnar endurheimtir allt.';
+      'Gömul gögn kosta pláss, einkum myndirnar sem hvert samstillt tæki ber með sér. Hér velur þú dáin gæludýr og tóm heimili sem hafa legið kyrr árum saman, skrifar þau í skrá sem þú geymir og eyðir þeim. Eyðingin nær til allra sem þú samstillir við; innflutningur skrárinnar endurheimtir allt.';
 
   @override
   String restoreDeletedTitle(int count) {
@@ -1226,7 +1227,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get markTitle => 'Merkja köttinn';
 
   @override
-  String get markTitleNeutral => 'Merkja köttinn';
+  String get markTitleNeutral => 'Merkja gæludýrið';
 
   @override
   String get applyCrop => 'Skera';
@@ -1238,13 +1239,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get dragToSelect => 'Dragðu rétthyrning utan um köttinn';
 
   @override
-  String get dragToSelectNeutral => 'Dragðu rétthyrning utan um köttinn';
+  String get dragToSelectNeutral => 'Dragðu rétthyrning utan um gæludýrið';
 
   @override
   String get dragOverTheCat => 'Dragðu sporöskju yfir köttinn';
 
   @override
-  String get dragOverTheCatNeutral => 'Dragðu sporöskju yfir köttinn';
+  String get dragOverTheCatNeutral => 'Dragðu sporöskju yfir gæludýrið';
 
   @override
   String get cropPhoto => 'Skera…';
@@ -1455,7 +1456,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get celebrationsSubtitleNeutral =>
-      'Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt';
+      'Skrautborðar og fagnaðarlæti þegar gæludýr flytur á heimili sitt';
 
   @override
   String get onMapLabel => 'Á kortinu';
@@ -1473,7 +1474,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get mapSearchHint => 'Leita að köttum, hópum, fólki';
 
   @override
-  String get mapSearchHintNeutral => 'Leita að köttum, hópum, fólki';
+  String get mapSearchHintNeutral => 'Leita að gæludýrum, heimilum, fólki';
 
   @override
   String get proposeAnotherName => 'Stinga upp á öðru nafni';
@@ -1554,7 +1555,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get kittensLabel => 'Kettlingar';
 
   @override
-  String get kittensLabelNeutral => 'Kettlingar';
+  String get kittensLabelNeutral => 'Ungar';
 
   @override
   String get toastSettingsTitle => 'Hverju á að tilkynna';
@@ -1589,7 +1590,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String toastBornNeutral(Object cat) {
-    return '✨ Nýr kettlingur: $cat ✨';
+    return '✨ Nýfætt: $cat ✨';
   }
 
   @override
@@ -1678,13 +1679,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get selectClowderHint => 'Veldu clowder til vinstri';
 
   @override
-  String get selectClowderHintNeutral => 'Veldu clowder til vinstri';
+  String get selectClowderHintNeutral => 'Veldu heimili til vinstri';
 
   @override
   String get introTitle1 => 'Kettirnir þínir, skipulagðir';
 
   @override
-  String get introTitle1Neutral => 'Kettirnir þínir, skipulagðir';
+  String get introTitle1Neutral => 'Gæludýrin þín, skipulögð';
 
   @override
   String get introBody1 =>
@@ -1692,7 +1693,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get introBody1Neutral =>
-      'Búðu til spjald fyrir hvern kött: mynd, kyn, heilsa, allt sem þú vilt skrá. Kettir flokkast eftir því hvar þeir búa — appið kallar slíkan stað clowder.';
+      'Búðu til spjald fyrir hvert gæludýr sem þú annast: mynd, kyn, heilsa, allt sem þú vilt skrá. Gæludýr flokkast eftir því hvar þau búa — appið kallar slíkan stað heimili.';
 
   @override
   String get introTitle2 => 'Virkar án nettengingar';
@@ -1730,7 +1731,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeStraysNeutral =>
-      'Þetta spjald safnar öllum flækingum — köttum án heimilis. Ýttu til að sjá listann.';
+      'Þetta spjald safnar öllum flækingum — gæludýrum án heimilis. Ýttu til að sjá listann.';
 
   @override
   String get spotHomeMenu =>
@@ -1742,7 +1743,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotCatEditNeutral =>
-      'Ýttu á blýantinn til að breyta kettinum. Ábending: haltu reit inni til að breyta honum beint.';
+      'Ýttu á blýantinn til að breyta gæludýrinu. Ábending: haltu reit inni til að breyta honum beint.';
 
   @override
   String get spotMapLayers =>
@@ -1750,7 +1751,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotMapLayersNeutral =>
-      'Leitarðu að týndum ketti? Sýndu hringi um staði auglýsinga hans og um heimilið sem hann strauk frá.';
+      'Leitarðu að týndu gæludýri? Sýndu hringi um staði auglýsinga þess og um heimilið sem það strauk frá.';
 
   @override
   String get spotStraysFlier =>
@@ -1758,7 +1759,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotStraysFlierNeutral =>
-      'Fannstu auglýsingu um týndan kött? Myndaðu hana hér — appið vistar kött og tengilið fyrir þig.';
+      'Fannstu auglýsingu um týnt gæludýr? Myndaðu hana hér — appið vistar gæludýr og tengilið fyrir þig.';
 
   @override
   String get spotStraysScan =>
@@ -1766,13 +1767,13 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotStraysScanNeutral =>
-      'Sumar auglýsingar bera cat(a)log QR-kóða. Skannaðu hann hér og flyttu köttinn inn án innsláttar.';
+      'Sumar auglýsingar bera cat(a)log QR-kóða. Skannaðu hann hér og flyttu gæludýrið inn án innsláttar.';
 
   @override
   String get introTitle4 => 'Finndu týnda ketti';
 
   @override
-  String get introTitle4Neutral => 'Finndu týnda ketti';
+  String get introTitle4Neutral => 'Finndu týnd gæludýr';
 
   @override
   String get introBody4 =>
@@ -1780,7 +1781,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get introBody4Neutral =>
-      'Sérðu auglýsingu um týndan kött? Myndaðu hana í appinu: það vistar köttinn, tengilið eigandans og staðinn. Ef svipaður flækingur birtist síðar stingur appið upp á mögulegum samsvörunum.';
+      'Sérðu auglýsingu um týnt gæludýr? Myndaðu hana í appinu: það vistar gæludýrið, tengilið eigandans og staðinn. Ef svipaður flækingur birtist síðar stingur appið upp á mögulegum samsvörunum.';
 
   @override
   String get spotMapSearch =>
@@ -1788,7 +1789,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotMapSearchNeutral =>
-      'Sláðu inn kött, stað eða manneskju til að hoppa þangað á kortinu.';
+      'Sláðu inn gæludýr, stað eða manneskju til að hoppa þangað á kortinu.';
 
   @override
   String get spotCardChips =>
@@ -1800,7 +1801,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotCatMenuNeutral =>
-      'Hér eru fleiri aðgerðir: fela köttinn, sameina tvítök eða skrá að kötturinn sást.';
+      'Hér eru fleiri aðgerðir: fela gæludýrið, sameina tvítök eða skrá að gæludýrið sást.';
 
   @override
   String get spotDone => 'Skilið';
@@ -1818,7 +1819,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get searchNoResults => 'Enginn köttur fannst með þessu nafni';
 
   @override
-  String get searchNoResultsNeutral => 'Enginn köttur fannst með þessu nafni';
+  String get searchNoResultsNeutral => 'Ekkert gæludýr fannst með þessu nafni';
 
   @override
   String get syncUnreachable =>
@@ -1871,7 +1872,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCatalogsNeutral =>
-      'Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
+      'Hver skrá er sinn eigin heimur: eigin gæludýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
 
   @override
   String get spotHomeCatalog =>
@@ -1887,7 +1888,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String deleteCatalogBodyNeutral(String name) {
-    return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
+    return 'Allt í $name hverfur: gæludýrin, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
   }
 
   @override
@@ -2017,7 +2018,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get agendaEmptyNeutral =>
-      'Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu kattar eða clowders.';
+      'Engir tímar áætlaðir. Áætlaðu nýja hér með plúsnum eða á síðu gæludýrs eða heimilis.';
 
   @override
   String get dueToday => 'í dag';
@@ -2182,7 +2183,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotAddReminderCatNeutral =>
-      'Áætlaðu tíma fyrir þennan kött. Hann birtist í áminningum og er staðfestur þar.';
+      'Áætlaðu tíma fyrir þetta gæludýr. Hann birtist í áminningum og er staðfestur þar.';
 
   @override
   String get spotAddReminderClowder =>
@@ -2190,7 +2191,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotAddReminderClowderNeutral =>
-      'Áætlaðu tíma fyrir þennan clowder. Hann birtist í áminningum og er staðfestur þar.';
+      'Áætlaðu tíma fyrir þetta heimili. Hann birtist í áminningum og er staðfestur þar.';
 
   @override
   String get readOnlyCalendar => 'aðeins lestur';
@@ -2297,13 +2298,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get existingCat => 'Núverandi köttur';
 
   @override
-  String get existingCatNeutral => 'Núverandi köttur';
+  String get existingCatNeutral => 'Núverandi gæludýr';
 
   @override
   String get existingClowder => 'Núverandi hópur';
 
   @override
-  String get existingClowderNeutral => 'Núverandi hópur';
+  String get existingClowderNeutral => 'Núverandi heimili';
 
   @override
   String get createNewInstead => 'Enginn — búa til nýtt';
@@ -2329,7 +2330,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get catsOnAppointment => 'Kettir í þessum tíma';
 
   @override
-  String get catsOnAppointmentNeutral => 'Kettir í þessum tíma';
+  String get catsOnAppointmentNeutral => 'Gæludýr í þessum tíma';
 
   @override
   String get noCatsHint =>
@@ -2337,13 +2338,13 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get noCatsHintNeutral =>
-      'Enginn köttur merktur — tíminn tilheyrir nýlendunni sjálfri.';
+      'Ekkert gæludýr merkt — tíminn tilheyrir heimilinu sjálfu.';
 
   @override
   String get pickCatsTitle => 'Hvaða kettir koma með?';
 
   @override
-  String get pickCatsTitleNeutral => 'Hvaða kettir koma með?';
+  String get pickCatsTitleNeutral => 'Hvaða gæludýr koma með?';
 
   @override
   String catsCount(int count) {
@@ -2352,7 +2353,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String catsCountNeutral(int count) {
-    return '$count kettir';
+    return '$count gæludýr';
   }
 
   @override
@@ -2361,7 +2362,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get finishUntickHintNeutral =>
-      'Afmerktu ketti sem ekki voru meðhöndlaðir; þeir haldast áætlaðir.';
+      'Afmerktu gæludýr sem ekki voru meðhöndluð; þau haldast áætluð.';
 
   @override
   String deleteAppointmentGroup(int count) {
@@ -2370,6 +2371,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String deleteAppointmentGroupNeutral(int count) {
-    return 'Eyða tíma fyrir alla $count kettina';
+    return 'Eyða tíma fyrir öll $count gæludýrin';
   }
 }
