@@ -1413,6 +1413,30 @@ class AppLocalizationsFa extends AppLocalizations {
   String get valueCat => 'گربه';
 
   @override
+  String get valueDog => 'سگ';
+
+  @override
+  String get valueRabbit => 'خرگوش';
+
+  @override
+  String get valueGuineaPig => 'خوکچه هندی';
+
+  @override
+  String get valueHamster => 'همستر';
+
+  @override
+  String get valueBird => 'پرنده';
+
+  @override
+  String get valueHorse => 'اسب';
+
+  @override
+  String get valueTortoise => 'لاک‌پشت';
+
+  @override
+  String get valueFerret => 'راسو';
+
+  @override
   String get otherOption => 'دیگر…';
 
   @override

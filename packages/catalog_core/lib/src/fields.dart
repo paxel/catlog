@@ -171,7 +171,7 @@ const starterFields = [
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
-  (slug: 'species', name: 'Species', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'species', name: 'Species', type: FieldType.choice, scope: FieldScope.cat, options: speciesPresets),
   (slug: 'weight', name: 'Weight', type: FieldType.unitValue, scope: FieldScope.cat, options: <String>[]),
   (slug: 'mother', name: 'Mother', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'father', name: 'Father', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),

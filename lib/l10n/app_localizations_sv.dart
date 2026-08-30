@@ -1417,6 +1417,30 @@ class AppLocalizationsSv extends AppLocalizations {
   String get valueCat => 'Katt';
 
   @override
+  String get valueDog => 'Hund';
+
+  @override
+  String get valueRabbit => 'Kanin';
+
+  @override
+  String get valueGuineaPig => 'Marsvin';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Fågel';
+
+  @override
+  String get valueHorse => 'Häst';
+
+  @override
+  String get valueTortoise => 'Sköldpadda';
+
+  @override
+  String get valueFerret => 'Iller';
+
+  @override
   String get otherOption => 'Annat…';
 
   @override

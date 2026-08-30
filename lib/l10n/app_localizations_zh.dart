@@ -1374,6 +1374,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get valueCat => '猫';
 
   @override
+  String get valueDog => '狗';
+
+  @override
+  String get valueRabbit => '兔子';
+
+  @override
+  String get valueGuineaPig => '豚鼠';
+
+  @override
+  String get valueHamster => '仓鼠';
+
+  @override
+  String get valueBird => '鸟';
+
+  @override
+  String get valueHorse => '马';
+
+  @override
+  String get valueTortoise => '陆龟';
+
+  @override
+  String get valueFerret => '雪貂';
+
+  @override
   String get otherOption => '其他…';
 
   @override

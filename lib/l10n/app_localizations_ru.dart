@@ -1417,6 +1417,30 @@ class AppLocalizationsRu extends AppLocalizations {
   String get valueCat => 'Кошка';
 
   @override
+  String get valueDog => 'Собака';
+
+  @override
+  String get valueRabbit => 'Кролик';
+
+  @override
+  String get valueGuineaPig => 'Морская свинка';
+
+  @override
+  String get valueHamster => 'Хомяк';
+
+  @override
+  String get valueBird => 'Птица';
+
+  @override
+  String get valueHorse => 'Лошадь';
+
+  @override
+  String get valueTortoise => 'Черепаха';
+
+  @override
+  String get valueFerret => 'Хорёк';
+
+  @override
   String get otherOption => 'Другое…';
 
   @override

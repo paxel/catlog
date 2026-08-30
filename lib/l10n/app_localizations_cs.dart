@@ -1417,6 +1417,30 @@ class AppLocalizationsCs extends AppLocalizations {
   String get valueCat => 'Kočka';
 
   @override
+  String get valueDog => 'Pes';
+
+  @override
+  String get valueRabbit => 'Králík';
+
+  @override
+  String get valueGuineaPig => 'Morče';
+
+  @override
+  String get valueHamster => 'Křeček';
+
+  @override
+  String get valueBird => 'Pták';
+
+  @override
+  String get valueHorse => 'Kůň';
+
+  @override
+  String get valueTortoise => 'Želva';
+
+  @override
+  String get valueFerret => 'Fretka';
+
+  @override
   String get otherOption => 'Jiné…';
 
   @override

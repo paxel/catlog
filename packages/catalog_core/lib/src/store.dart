@@ -849,11 +849,12 @@ class CatalogStore {
   // ------------------------------------------------------------------ cats
 
   /// Creates a Cat inside a Clowder and returns its entity id.
-  String createCat(String name, {String? clowderId, DateTime? date}) {
+  String createCat(String name,
+      {String? clowderId, DateTime? date, String species = 'cat'}) {
     final id = 'cat:${_uuid()}';
     append(id, Keys.type, Kinds.cat, date: date);
     append(id, Keys.name, name, date: date);
-    append(id, 'f:species', 'cat', date: date);
+    append(id, 'f:species', species, date: date);
     if (clowderId != null) append(id, Keys.clowder, clowderId, date: date);
     return id;
   }
@@ -1965,6 +1966,18 @@ class CatalogStore {
         date: date);
   }
 
+  /// Adds [option] to a choice Field's list for one [species] (#95) —
+  /// a breed typed for a dog is offered for the next dog, not for a cat.
+  void addFieldOption(String fieldDefId, String species, String option) {
+    final key = Keys.fieldOptionsFor(species);
+    final existing = (current(fieldDefId, key) ?? '')
+        .split('\n')
+        .where((o) => o.isNotEmpty)
+        .toList();
+    if (existing.contains(option)) return;
+    append(fieldDefId, key, [...existing, option].join('\n'));
+  }
+
   /// Replaces a choice Field's option list. Values already stored that
   /// fall outside the new list keep displaying as text (same rule as
   /// merge); the change is recorded history like any other.
@@ -1996,7 +2009,16 @@ class CatalogStore {
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';
-      if (current(id, Keys.type) != null) continue;
+      if (current(id, Keys.type) != null) {
+        // Species grew from free text to a choice with presets (#94);
+        // a catalog seeded before that gets the list once.
+        if (f.slug == 'species' &&
+            current(id, Keys.fieldType) == FieldType.text.name) {
+          append(id, Keys.fieldType, FieldType.choice.name, as: seedAuthor);
+          append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+        }
+        continue;
+      }
       append(id, Keys.type, Kinds.fieldDef, as: seedAuthor);
       append(id, Keys.name, f.name, as: seedAuthor);
       append(id, Keys.fieldType, f.type.name, as: seedAuthor);

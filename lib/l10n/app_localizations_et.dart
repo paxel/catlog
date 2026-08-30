@@ -1415,6 +1415,30 @@ class AppLocalizationsEt extends AppLocalizations {
   String get valueCat => 'Kass';
 
   @override
+  String get valueDog => 'Koer';
+
+  @override
+  String get valueRabbit => 'Küülik';
+
+  @override
+  String get valueGuineaPig => 'Merisiga';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Lind';
+
+  @override
+  String get valueHorse => 'Hobune';
+
+  @override
+  String get valueTortoise => 'Kilpkonn';
+
+  @override
+  String get valueFerret => 'Tuhkur';
+
+  @override
   String get otherOption => 'Muu…';
 
   @override

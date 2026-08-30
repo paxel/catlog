@@ -1412,6 +1412,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get valueCat => 'قطة';
 
   @override
+  String get valueDog => 'كلب';
+
+  @override
+  String get valueRabbit => 'أرنب';
+
+  @override
+  String get valueGuineaPig => 'خنزير غينيا';
+
+  @override
+  String get valueHamster => 'هامستر';
+
+  @override
+  String get valueBird => 'طائر';
+
+  @override
+  String get valueHorse => 'حصان';
+
+  @override
+  String get valueTortoise => 'سلحفاة';
+
+  @override
+  String get valueFerret => 'نمس';
+
+  @override
   String get otherOption => 'أخرى…';
 
   @override

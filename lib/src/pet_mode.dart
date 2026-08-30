@@ -23,3 +23,7 @@ void setPetMode(CatalogStore store, bool pets) {
 /// whenever the home screen shows (a sync may have brought it).
 void refreshPetMode(CatalogStore store) =>
     petMode.value = store.isOpen && isPetMode(store);
+
+/// The species picked last when adding an animal — the next dialog
+/// starts there (#94). Device-local.
+const lastSpeciesKey = 'lastSpecies';

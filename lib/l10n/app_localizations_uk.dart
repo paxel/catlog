@@ -1417,6 +1417,30 @@ class AppLocalizationsUk extends AppLocalizations {
   String get valueCat => 'Кіт';
 
   @override
+  String get valueDog => 'Собака';
+
+  @override
+  String get valueRabbit => 'Кріль';
+
+  @override
+  String get valueGuineaPig => 'Морська свинка';
+
+  @override
+  String get valueHamster => 'Хом\'як';
+
+  @override
+  String get valueBird => 'Птах';
+
+  @override
+  String get valueHorse => 'Кінь';
+
+  @override
+  String get valueTortoise => 'Черепаха';
+
+  @override
+  String get valueFerret => 'Тхір';
+
+  @override
   String get otherOption => 'Інше…';
 
   @override

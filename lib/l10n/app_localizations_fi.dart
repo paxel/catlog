@@ -1419,6 +1419,30 @@ class AppLocalizationsFi extends AppLocalizations {
   String get valueCat => 'Kissa';
 
   @override
+  String get valueDog => 'Koira';
+
+  @override
+  String get valueRabbit => 'Kani';
+
+  @override
+  String get valueGuineaPig => 'Marsu';
+
+  @override
+  String get valueHamster => 'Hamsteri';
+
+  @override
+  String get valueBird => 'Lintu';
+
+  @override
+  String get valueHorse => 'Hevonen';
+
+  @override
+  String get valueTortoise => 'Kilpikonna';
+
+  @override
+  String get valueFerret => 'Fretti';
+
+  @override
   String get otherOption => 'Muu…';
 
   @override

@@ -1416,6 +1416,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get valueCat => 'Kedi';
 
   @override
+  String get valueDog => 'Köpek';
+
+  @override
+  String get valueRabbit => 'Tavşan';
+
+  @override
+  String get valueGuineaPig => 'Kobay';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Kuş';
+
+  @override
+  String get valueHorse => 'At';
+
+  @override
+  String get valueTortoise => 'Kaplumbağa';
+
+  @override
+  String get valueFerret => 'Gelincik';
+
+  @override
   String get otherOption => 'Diğer…';
 
   @override

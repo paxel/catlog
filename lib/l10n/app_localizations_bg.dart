@@ -1417,6 +1417,30 @@ class AppLocalizationsBg extends AppLocalizations {
   String get valueCat => 'Котка';
 
   @override
+  String get valueDog => 'Куче';
+
+  @override
+  String get valueRabbit => 'Заек';
+
+  @override
+  String get valueGuineaPig => 'Морско свинче';
+
+  @override
+  String get valueHamster => 'Хамстер';
+
+  @override
+  String get valueBird => 'Птица';
+
+  @override
+  String get valueHorse => 'Кон';
+
+  @override
+  String get valueTortoise => 'Костенурка';
+
+  @override
+  String get valueFerret => 'Пор';
+
+  @override
   String get otherOption => 'Друго…';
 
   @override

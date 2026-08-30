@@ -1417,6 +1417,30 @@ class AppLocalizationsSq extends AppLocalizations {
   String get valueCat => 'Mace';
 
   @override
+  String get valueDog => 'Qen';
+
+  @override
+  String get valueRabbit => 'Lepur';
+
+  @override
+  String get valueGuineaPig => 'Derr guinea';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Zog';
+
+  @override
+  String get valueHorse => 'Kalë';
+
+  @override
+  String get valueTortoise => 'Breshkë';
+
+  @override
+  String get valueFerret => 'Qelbës';
+
+  @override
   String get otherOption => 'Tjetër…';
 
   @override

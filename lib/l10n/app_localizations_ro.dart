@@ -1419,6 +1419,30 @@ class AppLocalizationsRo extends AppLocalizations {
   String get valueCat => 'Pisică';
 
   @override
+  String get valueDog => 'Câine';
+
+  @override
+  String get valueRabbit => 'Iepure';
+
+  @override
+  String get valueGuineaPig => 'Porcușor de Guineea';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Pasăre';
+
+  @override
+  String get valueHorse => 'Cal';
+
+  @override
+  String get valueTortoise => 'Țestoasă';
+
+  @override
+  String get valueFerret => 'Dihor';
+
+  @override
   String get otherOption => 'Altele…';
 
   @override

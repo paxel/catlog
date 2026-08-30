@@ -1421,6 +1421,30 @@ class AppLocalizationsMk extends AppLocalizations {
   String get valueCat => 'Мачка';
 
   @override
+  String get valueDog => 'Куче';
+
+  @override
+  String get valueRabbit => 'Зајак';
+
+  @override
+  String get valueGuineaPig => 'Морско прасе';
+
+  @override
+  String get valueHamster => 'Хрчак';
+
+  @override
+  String get valueBird => 'Птица';
+
+  @override
+  String get valueHorse => 'Коњ';
+
+  @override
+  String get valueTortoise => 'Желка';
+
+  @override
+  String get valueFerret => 'Ласица';
+
+  @override
   String get otherOption => 'Друго…';
 
   @override

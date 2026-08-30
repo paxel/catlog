@@ -82,6 +82,7 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
     case 'cat':
       return def?.slug == 'species' ? t.valueCat : value;
   }
+  if (def?.slug == 'species') return speciesDisplay(t, value);
   if (def?.slug == 'status') {
     return statusDisplay(t, value) ?? value;
   }
@@ -179,4 +180,18 @@ String dimensionName(AppLocalizations t, Dimension d) => switch (d) {
       Dimension.length => t.dimensionLength,
       Dimension.volume => t.dimensionVolume,
       Dimension.temperature => t.dimensionTemperature,
+    };
+
+/// Localized display of a species preset; anything else as typed.
+String speciesDisplay(AppLocalizations t, String value) => switch (value) {
+      'cat' => t.valueCat,
+      'dog' => t.valueDog,
+      'rabbit' => t.valueRabbit,
+      'guinea pig' => t.valueGuineaPig,
+      'hamster' => t.valueHamster,
+      'bird' => t.valueBird,
+      'horse' => t.valueHorse,
+      'tortoise' => t.valueTortoise,
+      'ferret' => t.valueFerret,
+      _ => value,
     };

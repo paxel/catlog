@@ -1418,6 +1418,30 @@ class AppLocalizationsLt extends AppLocalizations {
   String get valueCat => 'Katė';
 
   @override
+  String get valueDog => 'Šuo';
+
+  @override
+  String get valueRabbit => 'Triušis';
+
+  @override
+  String get valueGuineaPig => 'Jūrų kiaulytė';
+
+  @override
+  String get valueHamster => 'Žiurkėnas';
+
+  @override
+  String get valueBird => 'Paukštis';
+
+  @override
+  String get valueHorse => 'Arklys';
+
+  @override
+  String get valueTortoise => 'Vėžlys';
+
+  @override
+  String get valueFerret => 'Šeškas';
+
+  @override
   String get otherOption => 'Kita…';
 
   @override

@@ -1421,6 +1421,30 @@ class AppLocalizationsNl extends AppLocalizations {
   String get valueCat => 'Kat';
 
   @override
+  String get valueDog => 'Hond';
+
+  @override
+  String get valueRabbit => 'Konijn';
+
+  @override
+  String get valueGuineaPig => 'Cavia';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Vogel';
+
+  @override
+  String get valueHorse => 'Paard';
+
+  @override
+  String get valueTortoise => 'Schildpad';
+
+  @override
+  String get valueFerret => 'Fret';
+
+  @override
   String get otherOption => 'Anders…';
 
   @override

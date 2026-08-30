@@ -1960,10 +1960,28 @@ class ModeLocalizations implements AppLocalizations {
   String get value => base.value;
 
   @override
+  String get valueBird => base.valueBird;
+
+  @override
   String get valueCat => base.valueCat;
 
   @override
+  String get valueDog => base.valueDog;
+
+  @override
   String get valueFemale => base.valueFemale;
+
+  @override
+  String get valueFerret => base.valueFerret;
+
+  @override
+  String get valueGuineaPig => base.valueGuineaPig;
+
+  @override
+  String get valueHamster => base.valueHamster;
+
+  @override
+  String get valueHorse => base.valueHorse;
 
   @override
   String get valueMale => base.valueMale;
@@ -1973,6 +1991,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get valueNo => base.valueNo;
+
+  @override
+  String get valueRabbit => base.valueRabbit;
+
+  @override
+  String get valueTortoise => base.valueTortoise;
 
   @override
   String get valueUnknown => base.valueUnknown;

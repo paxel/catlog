@@ -1410,6 +1410,30 @@ class AppLocalizationsHe extends AppLocalizations {
   String get valueCat => 'חתול';
 
   @override
+  String get valueDog => 'כלב';
+
+  @override
+  String get valueRabbit => 'ארנב';
+
+  @override
+  String get valueGuineaPig => 'שרקן';
+
+  @override
+  String get valueHamster => 'אוגר';
+
+  @override
+  String get valueBird => 'ציפור';
+
+  @override
+  String get valueHorse => 'סוס';
+
+  @override
+  String get valueTortoise => 'צב';
+
+  @override
+  String get valueFerret => 'חמוס';
+
+  @override
   String get otherOption => 'אחר…';
 
   @override

@@ -1423,6 +1423,30 @@ class AppLocalizationsEs extends AppLocalizations {
   String get valueCat => 'Gato';
 
   @override
+  String get valueDog => 'Perro';
+
+  @override
+  String get valueRabbit => 'Conejo';
+
+  @override
+  String get valueGuineaPig => 'Cobaya';
+
+  @override
+  String get valueHamster => 'Hámster';
+
+  @override
+  String get valueBird => 'Pájaro';
+
+  @override
+  String get valueHorse => 'Caballo';
+
+  @override
+  String get valueTortoise => 'Tortuga';
+
+  @override
+  String get valueFerret => 'Hurón';
+
+  @override
   String get otherOption => 'Otro…';
 
   @override

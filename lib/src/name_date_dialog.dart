@@ -3,21 +3,27 @@ import 'package:intl/intl.dart';
 
 import 'l10n.dart';
 import 'widgets/date_entry.dart';
+import 'package:catalog_core/catalog_core.dart';
+import 'field_labels.dart';
 
 class NameAndDate {
   final String name;
   final DateTime date;
-  const NameAndDate(this.name, this.date);
+
+  /// The species chosen in pet mode; null when the dialog did not ask.
+  final String? species;
+  const NameAndDate(this.name, this.date, {this.species});
 }
 
 /// Name plus an "as of" date — so a clowder that has existed for ten
 /// years, or a cat that moved in long ago, carries its real date from
 /// the start instead of today's.
 Future<NameAndDate?> askNameAndDate(BuildContext context, String title,
-    {Future<String?> Function()? propose}) {
+    {Future<String?> Function()? propose, String? species}) {
   return showDialog<NameAndDate>(
     context: context,
-    builder: (context) => _NameDateDialog(title: title, propose: propose),
+    builder: (context) =>
+        _NameDateDialog(title: title, propose: propose, species: species),
   );
 }
 
@@ -27,7 +33,10 @@ class _NameDateDialog extends StatefulWidget {
   /// When set, prefills the name with a proposal; the dice rerolls.
   final Future<String?> Function()? propose;
 
-  const _NameDateDialog({required this.title, this.propose});
+  /// Preselected species; non-null makes the dialog ask for one (#94).
+  final String? species;
+
+  const _NameDateDialog({required this.title, this.propose, this.species});
 
   @override
   State<_NameDateDialog> createState() => _NameDateDialogState();
@@ -35,7 +44,28 @@ class _NameDateDialog extends StatefulWidget {
 
 class _NameDateDialogState extends State<_NameDateDialog> {
   final _name = TextEditingController();
+  late final _ownSpecies = TextEditingController(
+      text: widget.species != null && !speciesPresets.contains(widget.species)
+          ? widget.species
+          : '');
   DateTime _asOf = DateTime.now();
+
+  /// A preset, or '' for "own" (typed below).
+  late String? _species = widget.species == null
+      ? null
+      : speciesPresets.contains(widget.species)
+          ? widget.species
+          : '';
+
+  /// The species to store: the preset, or what was typed for "own".
+  String? get _chosenSpecies {
+    if (widget.species == null) return null;
+    if (_species == '') {
+      final own = _ownSpecies.text.trim();
+      return own.isEmpty ? 'cat' : own;
+    }
+    return _species;
+  }
 
   @override
   void initState() {
@@ -55,13 +85,15 @@ class _NameDateDialogState extends State<_NameDateDialog> {
   @override
   void dispose() {
     _name.dispose();
+    _ownSpecies.dispose();
     super.dispose();
   }
 
   void _submit() {
     final name = _name.text.trim();
     if (name.isEmpty) return;
-    Navigator.of(context).pop(NameAndDate(name, _asOf));
+    Navigator.of(context)
+        .pop(NameAndDate(name, _asOf, species: _chosenSpecies));
   }
 
   @override
@@ -85,6 +117,25 @@ class _NameDateDialogState extends State<_NameDateDialog> {
           ),
           onSubmitted: (_) => _submit(),
         ),
+        if (widget.species != null) ...[
+          const SizedBox(height: 8),
+          DropdownButtonFormField<String>(
+            initialValue: _species,
+            decoration: InputDecoration(labelText: context.t.starterSpecies),
+            items: [
+              for (final s in speciesPresets)
+                DropdownMenuItem(
+                    value: s, child: Text(speciesDisplay(context.t, s))),
+              DropdownMenuItem(value: '', child: Text(context.t.ownValue)),
+            ],
+            onChanged: (v) => setState(() => _species = v),
+          ),
+          if (_species == '')
+            TextField(
+              controller: _ownSpecies,
+              decoration: InputDecoration(labelText: context.t.ownValue),
+            ),
+        ],
         const SizedBox(height: 8),
         ListTile(
           contentPadding: EdgeInsets.zero,

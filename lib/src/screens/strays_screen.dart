@@ -16,6 +16,7 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'cat_list_screen.dart';
 import '../exclusive.dart';
+import '../pet_mode.dart';
 
 /// Cats currently in no Clowder: the shared cat list (#87) with the
 /// strays' own tools — flier capture, stray cam, match candidates,
@@ -42,9 +43,18 @@ class StraysScreen extends StatelessWidget {
       context,
       context.t.newStray,
       propose: () => proposeCatName(store, locale),
+      species: petMode.value
+          ? (store.localSetting(lastSpeciesKey) ?? 'cat')
+          : null,
     );
     if (result == null || !context.mounted) return;
-    final catId = store.createCat(result.name, date: result.date);
+    final species = result.species ?? 'cat';
+    if (result.species != null) store.setLocalSetting(lastSpeciesKey, species);
+    final catId = store.createCat(
+      result.name,
+      date: result.date,
+      species: species,
+    );
     refresh();
     await Navigator.of(context).push(
       MaterialPageRoute(

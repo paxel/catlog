@@ -1418,6 +1418,30 @@ class AppLocalizationsDa extends AppLocalizations {
   String get valueCat => 'Kat';
 
   @override
+  String get valueDog => 'Hund';
+
+  @override
+  String get valueRabbit => 'Kanin';
+
+  @override
+  String get valueGuineaPig => 'Marsvin';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Fugl';
+
+  @override
+  String get valueHorse => 'Hest';
+
+  @override
+  String get valueTortoise => 'Skildpadde';
+
+  @override
+  String get valueFerret => 'Fritte';
+
+  @override
   String get otherOption => 'Andet…';
 
   @override

@@ -31,6 +31,7 @@ import 'timeline_screen.dart';
 import '../geocode.dart';
 import 'cat_list_screen.dart';
 import 'field_graph_screen.dart';
+import '../pet_mode.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -131,12 +132,17 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       context,
       context.t.newCat,
       propose: () => proposeCatName(store, locale),
+      species:
+          petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : null,
     );
     if (result == null || !mounted) return;
+    final species = result.species ?? 'cat';
+    if (result.species != null) store.setLocalSetting(lastSpeciesKey, species);
     final catId = store.createCat(
       result.name,
       clowderId: id,
       date: result.date,
+      species: species,
     );
     setState(() {});
     await Navigator.of(context).push(

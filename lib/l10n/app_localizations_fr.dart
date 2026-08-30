@@ -1422,6 +1422,30 @@ class AppLocalizationsFr extends AppLocalizations {
   String get valueCat => 'Chat';
 
   @override
+  String get valueDog => 'Chien';
+
+  @override
+  String get valueRabbit => 'Lapin';
+
+  @override
+  String get valueGuineaPig => 'Cochon d\'Inde';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Oiseau';
+
+  @override
+  String get valueHorse => 'Cheval';
+
+  @override
+  String get valueTortoise => 'Tortue';
+
+  @override
+  String get valueFerret => 'Furet';
+
+  @override
   String get otherOption => 'Autre…';
 
   @override

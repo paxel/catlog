@@ -2612,6 +2612,54 @@ abstract class AppLocalizations {
   /// **'Cat'**
   String get valueCat;
 
+  /// No description provided for @valueDog.
+  ///
+  /// In en, this message translates to:
+  /// **'Dog'**
+  String get valueDog;
+
+  /// No description provided for @valueRabbit.
+  ///
+  /// In en, this message translates to:
+  /// **'Rabbit'**
+  String get valueRabbit;
+
+  /// No description provided for @valueGuineaPig.
+  ///
+  /// In en, this message translates to:
+  /// **'Guinea pig'**
+  String get valueGuineaPig;
+
+  /// No description provided for @valueHamster.
+  ///
+  /// In en, this message translates to:
+  /// **'Hamster'**
+  String get valueHamster;
+
+  /// No description provided for @valueBird.
+  ///
+  /// In en, this message translates to:
+  /// **'Bird'**
+  String get valueBird;
+
+  /// No description provided for @valueHorse.
+  ///
+  /// In en, this message translates to:
+  /// **'Horse'**
+  String get valueHorse;
+
+  /// No description provided for @valueTortoise.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoise'**
+  String get valueTortoise;
+
+  /// No description provided for @valueFerret.
+  ///
+  /// In en, this message translates to:
+  /// **'Ferret'**
+  String get valueFerret;
+
   /// No description provided for @otherOption.
   ///
   /// In en, this message translates to:

@@ -1416,6 +1416,30 @@ class AppLocalizationsHu extends AppLocalizations {
   String get valueCat => 'Macska';
 
   @override
+  String get valueDog => 'Kutya';
+
+  @override
+  String get valueRabbit => 'Nyúl';
+
+  @override
+  String get valueGuineaPig => 'Tengerimalac';
+
+  @override
+  String get valueHamster => 'Hörcsög';
+
+  @override
+  String get valueBird => 'Madár';
+
+  @override
+  String get valueHorse => 'Ló';
+
+  @override
+  String get valueTortoise => 'Teknős';
+
+  @override
+  String get valueFerret => 'Vadászgörény';
+
+  @override
   String get otherOption => 'Egyéb…';
 
   @override

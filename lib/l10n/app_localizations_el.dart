@@ -1424,6 +1424,30 @@ class AppLocalizationsEl extends AppLocalizations {
   String get valueCat => 'Γάτα';
 
   @override
+  String get valueDog => 'Σκύλος';
+
+  @override
+  String get valueRabbit => 'Κουνέλι';
+
+  @override
+  String get valueGuineaPig => 'Ινδικό χοιρίδιο';
+
+  @override
+  String get valueHamster => 'Χάμστερ';
+
+  @override
+  String get valueBird => 'Πουλί';
+
+  @override
+  String get valueHorse => 'Άλογο';
+
+  @override
+  String get valueTortoise => 'Χελώνα';
+
+  @override
+  String get valueFerret => 'Κουνάβι';
+
+  @override
   String get otherOption => 'Άλλο…';
 
   @override

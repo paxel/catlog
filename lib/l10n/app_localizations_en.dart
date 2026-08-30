@@ -1416,6 +1416,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get valueCat => 'Cat';
 
   @override
+  String get valueDog => 'Dog';
+
+  @override
+  String get valueRabbit => 'Rabbit';
+
+  @override
+  String get valueGuineaPig => 'Guinea pig';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Bird';
+
+  @override
+  String get valueHorse => 'Horse';
+
+  @override
+  String get valueTortoise => 'Tortoise';
+
+  @override
+  String get valueFerret => 'Ferret';
+
+  @override
   String get otherOption => 'Other…';
 
   @override

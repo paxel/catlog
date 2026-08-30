@@ -1422,6 +1422,30 @@ class AppLocalizationsGa extends AppLocalizations {
   String get valueCat => 'Cat';
 
   @override
+  String get valueDog => 'Madra';
+
+  @override
+  String get valueRabbit => 'Coinín';
+
+  @override
+  String get valueGuineaPig => 'Muc ghuine';
+
+  @override
+  String get valueHamster => 'Hamstar';
+
+  @override
+  String get valueBird => 'Éan';
+
+  @override
+  String get valueHorse => 'Capall';
+
+  @override
+  String get valueTortoise => 'Toirtís';
+
+  @override
+  String get valueFerret => 'Firéad';
+
+  @override
   String get otherOption => 'Eile…';
 
   @override

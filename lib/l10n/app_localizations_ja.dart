@@ -1391,6 +1391,30 @@ class AppLocalizationsJa extends AppLocalizations {
   String get valueCat => '猫';
 
   @override
+  String get valueDog => '犬';
+
+  @override
+  String get valueRabbit => 'ウサギ';
+
+  @override
+  String get valueGuineaPig => 'モルモット';
+
+  @override
+  String get valueHamster => 'ハムスター';
+
+  @override
+  String get valueBird => '鳥';
+
+  @override
+  String get valueHorse => '馬';
+
+  @override
+  String get valueTortoise => 'カメ';
+
+  @override
+  String get valueFerret => 'フェレット';
+
+  @override
   String get otherOption => 'その他…';
 
   @override

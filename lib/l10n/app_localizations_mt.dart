@@ -1421,6 +1421,30 @@ class AppLocalizationsMt extends AppLocalizations {
   String get valueCat => 'Qattus';
 
   @override
+  String get valueDog => 'Kelb';
+
+  @override
+  String get valueRabbit => 'Fenek';
+
+  @override
+  String get valueGuineaPig => 'Ħanżir tal-Indja';
+
+  @override
+  String get valueHamster => 'Ħamster';
+
+  @override
+  String get valueBird => 'Għasfur';
+
+  @override
+  String get valueHorse => 'Żiemel';
+
+  @override
+  String get valueTortoise => 'Fekruna';
+
+  @override
+  String get valueFerret => 'Nemes';
+
+  @override
   String get otherOption => 'Ieħor…';
 
   @override
