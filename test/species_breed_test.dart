@@ -80,6 +80,44 @@ void main() {
     expect(result?.species, isNull);
   });
 
+  testWidgets('a new animal starts from the species picked last',
+      (tester) async {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    setPetMode(store, true);
+    store.setLocalSetting(lastSpeciesKey, 'rabbit');
+    final context = await pump(tester, const SizedBox());
+    String? created;
+    createAnimal(context, store, title: 'New').then((id) => created = id);
+    await tester.pumpAndSettle();
+    expect(find.text('Rabbit'), findsOneWidget);
+    await tester.tap(find.text('Rabbit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Dog').last);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).first, 'Rex');
+    await tester.tap(find.text('Create'));
+    await tester.pumpAndSettle();
+    expect(store.current(created!, 'f:species'), 'dog');
+    expect(store.localSetting(lastSpeciesKey), 'dog');
+  });
+
+  testWidgets('in cat mode a new animal is a cat and nothing is asked',
+      (tester) async {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    final context = await pump(tester, const SizedBox());
+    String? created;
+    createAnimal(context, store, title: 'New').then((id) => created = id);
+    await tester.pumpAndSettle();
+    expect(find.byType(DropdownButtonFormField<String>), findsNothing);
+    await tester.enterText(find.byType(TextField).first, 'Miezi');
+    await tester.tap(find.text('Create'));
+    await tester.pumpAndSettle();
+    expect(store.current(created!, 'f:species'), 'cat');
+    expect(store.localSetting(lastSpeciesKey), isNull);
+  });
+
   testWidgets("a dog's breed editor offers dog breeds", (tester) async {
     final store = CatalogStore.inMemory()..author = 'test';
     addTearDown(store.close);

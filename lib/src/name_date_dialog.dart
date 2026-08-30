@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'l10n.dart';
+import 'name_proposals.dart';
+import 'pet_mode.dart';
 import 'widgets/date_entry.dart';
 import 'package:catalog_core/catalog_core.dart';
 import 'field_labels.dart';
@@ -25,6 +27,26 @@ Future<NameAndDate?> askNameAndDate(BuildContext context, String title,
     builder: (context) =>
         _NameDateDialog(title: title, propose: propose, species: species),
   );
+}
+
+/// Asks for a new animal and creates it: name, "as of" date and — in
+/// pet mode — the species, offered from the one picked last on this
+/// device and remembered for the next time (#94). Returns the new id,
+/// or null when the keeper backed out.
+Future<String?> createAnimal(BuildContext context, CatalogStore store,
+    {required String title, String? clowderId}) async {
+  final locale = Localizations.localeOf(context);
+  final result = await askNameAndDate(
+    context,
+    title,
+    propose: () => proposeCatName(store, locale),
+    species: petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : null,
+  );
+  if (result == null) return null;
+  final species = result.species ?? 'cat';
+  if (result.species != null) store.setLocalSetting(lastSpeciesKey, species);
+  return store.createCat(result.name,
+      clowderId: clowderId, date: result.date, species: species);
 }
 
 class _NameDateDialog extends StatefulWidget {

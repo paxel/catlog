@@ -5,7 +5,6 @@ import '../move_to_catalog.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
-import '../name_proposals.dart';
 import '../flier_capture.dart';
 import '../share_import.dart';
 import '../spotlight.dart';
@@ -16,7 +15,6 @@ import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 import 'cat_list_screen.dart';
 import '../exclusive.dart';
-import '../pet_mode.dart';
 
 /// Cats currently in no Clowder: the shared cat list (#87) with the
 /// strays' own tools — flier capture, stray cam, match candidates,
@@ -38,23 +36,8 @@ class StraysScreen extends StatelessWidget {
   }
 
   Future<void> _addStray(BuildContext context, VoidCallback refresh) async {
-    final locale = Localizations.localeOf(context);
-    final result = await askNameAndDate(
-      context,
-      context.t.newStray,
-      propose: () => proposeCatName(store, locale),
-      species: petMode.value
-          ? (store.localSetting(lastSpeciesKey) ?? 'cat')
-          : null,
-    );
-    if (result == null || !context.mounted) return;
-    final species = result.species ?? 'cat';
-    if (result.species != null) store.setLocalSetting(lastSpeciesKey, species);
-    final catId = store.createCat(
-      result.name,
-      date: result.date,
-      species: species,
-    );
+    final catId = await createAnimal(context, store, title: context.t.newStray);
+    if (catId == null || !context.mounted) return;
     refresh();
     await Navigator.of(context).push(
       MaterialPageRoute(
