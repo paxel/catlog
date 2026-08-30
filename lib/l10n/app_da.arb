@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Aftalerne vises som heldagsaftaler i kalenderen. cat(a)log opdaterer dem dér ved hver start og efter hver ændring. Påmindelser om aftalerne styrer du i kalenderen.",
   "syncPeerOlder": "Den anden enhed kører et ældre cat(a)log uden påmindelser. Opdater cat(a)log dér, og synkronisér igen.",
   "syncPeerNewer": "Den anden enhed kører et nyere cat(a)log. Opdater cat(a)log på denne enhed, og synkronisér igen.",
+  "syncPeerNoTls": "Den anden enhed har et cat(a)log før 1.1.0, uden krypteret synkronisering. Opdatér cat(a)log dér, og synkronisér igen.",
+  "syncWrongHost": "Certifikatet passer ikke til parringskoden — det er ikke den enhed, koden kom fra. Scan eller tast koden igen.",
   "bundleNewerError": "Denne fil kommer fra et nyere cat(a)log. Opdater cat(a)log på denne enhed for at importere den.",
   "spotEar": "Et lille katteøre i et hjørne betyder: hold nede for mere.",
   "addReminder": "Tilføj påmindelse",

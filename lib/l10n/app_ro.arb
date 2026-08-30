@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Programările apar ca evenimente de o zi întreagă în calendar. cat(a)log le actualizează acolo la fiecare pornire și după fiecare modificare. Alertele pentru programări le gestionezi în calendar.",
   "syncPeerOlder": "Celălalt dispozitiv rulează un cat(a)log mai vechi, fără mementouri. Actualizează cat(a)log acolo și sincronizează din nou.",
   "syncPeerNewer": "Celălalt dispozitiv rulează un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv și sincronizează din nou.",
+  "syncPeerNoTls": "Celălalt dispozitiv rulează un cat(a)log dinainte de 1.1.0, fără sincronizare criptată. Actualizează cat(a)log acolo, apoi sincronizează din nou.",
+  "syncWrongHost": "Certificatul nu se potrivește cu codul de asociere — nu este dispozitivul de la care vine codul. Scanează sau tastează codul din nou.",
   "bundleNewerError": "Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.",
   "spotEar": "O ureche mică de pisică într-un colț înseamnă: ține apăsat pentru mai mult.",
   "addReminder": "Adaugă memento",

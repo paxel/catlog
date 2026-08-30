@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "De afspraken verschijnen als hele-dag-afspraken in de agenda. cat(a)log werkt ze daar bij bij elke start en na elke wijziging. Herinneringen aan de afspraken beheer je in de agenda.",
   "syncPeerOlder": "Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.",
   "syncPeerNewer": "Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.",
+  "syncPeerNoTls": "Het andere apparaat heeft een cat(a)log van vóór 1.1.0, zonder versleutelde synchronisatie. Werk cat(a)log daar bij en synchroniseer opnieuw.",
+  "syncWrongHost": "Het certificaat past niet bij de koppelcode — dit is niet het apparaat waar de code vandaan komt. Scan of typ de code opnieuw.",
   "bundleNewerError": "Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.",
   "spotEar": "Een klein kattenoor in een hoek betekent: ingedrukt houden voor meer.",
   "addReminder": "Herinnering toevoegen",

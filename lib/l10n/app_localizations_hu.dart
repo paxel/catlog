@@ -2106,6 +2106,14 @@ class AppLocalizationsHu extends AppLocalizations {
       'A másik eszközön újabb cat(a)log fut. Frissítsd a cat(a)logot ezen az eszközön, és szinkronizálj újra.';
 
   @override
+  String get syncPeerNoTls =>
+      'A másik eszközön 1.1.0 előtti cat(a)log fut, titkosított szinkron nélkül. Frissítsd ott a cat(a)logot, majd szinkronizálj újra.';
+
+  @override
+  String get syncWrongHost =>
+      'A tanúsítvány nem illik a párosító kódhoz — ez nem az az eszköz, ahonnan a kód származik. Olvasd be vagy írd be újra a kódot.';
+
+  @override
   String get bundleNewerError =>
       'Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.';
 

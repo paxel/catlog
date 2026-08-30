@@ -2105,6 +2105,14 @@ class AppLocalizationsSq extends AppLocalizations {
       'Pajisja tjetër ka një cat(a)log më të ri. Përditëso cat(a)log në këtë pajisje dhe sinkronizo sërish.';
 
   @override
+  String get syncPeerNoTls =>
+      'Pajisja tjetër ka një cat(a)log para 1.1.0, pa sinkronizim të enkriptuar. Përditëso cat(a)log atje, pastaj sinkronizo sërish.';
+
+  @override
+  String get syncWrongHost =>
+      'Certifikata nuk përputhet me kodin e çiftimit — kjo nuk është pajisja nga erdhi kodi. Skano ose shkruaj kodin sërish.';
+
+  @override
   String get bundleNewerError =>
       'Ky skedar vjen nga një cat(a)log më i ri. Përditëso cat(a)log në këtë pajisje për ta importuar.';
 

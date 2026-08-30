@@ -2053,6 +2053,14 @@ class AppLocalizationsJa extends AppLocalizations {
       '相手の端末は新しい cat(a)log です。この端末で cat(a)log を更新して、もう一度同期してください。';
 
   @override
+  String get syncPeerNoTls =>
+      '相手の端末は 1.1.0 より前の cat(a)log で、暗号化同期がありません。そちらで cat(a)log を更新して、もう一度同期してください。';
+
+  @override
+  String get syncWrongHost =>
+      '証明書がペアコードと一致しません — コードの出どころの端末ではありません。コードをもう一度読み取るか入力してください。';
+
+  @override
   String get bundleNewerError =>
       'このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。';
 

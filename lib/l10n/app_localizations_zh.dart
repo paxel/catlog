@@ -2029,6 +2029,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '对方设备运行的 cat(a)log 版本较新。请在本设备上更新 cat(a)log 后重新同步。';
 
   @override
+  String get syncPeerNoTls =>
+      '对方设备运行的是 1.1.0 之前的 cat(a)log，没有加密同步。请在那里更新 cat(a)log，然后重新同步。';
+
+  @override
+  String get syncWrongHost => '证书与配对码不匹配——这不是配对码来源的设备。请重新扫描或输入配对码。';
+
+  @override
   String get bundleNewerError => '此文件来自较新的 cat(a)log。请在本设备上更新 cat(a)log 后再导入。';
 
   @override

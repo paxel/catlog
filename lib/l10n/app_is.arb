@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Tímarnir birtast sem heilsdagsviðburðir í dagatalinu. cat(a)log uppfærir þá þar við hverja ræsingu og eftir hverja breytingu. Áminningar um tímana stýrir þú í dagatalinu.",
   "syncPeerOlder": "Hitt tækið keyrir eldra cat(a)log án áminninga. Uppfærðu cat(a)log þar og samstilltu aftur.",
   "syncPeerNewer": "Hitt tækið keyrir nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki og samstilltu aftur.",
+  "syncPeerNoTls": "Hitt tækið keyrir cat(a)log eldra en 1.1.0, án dulkóðaðrar samstillingar. Uppfærðu cat(a)log þar og samstilltu aftur.",
+  "syncWrongHost": "Vottorðið passar ekki við pörunarkóðann — þetta er ekki tækið sem kóðinn kom frá. Skannaðu eða sláðu kóðann inn aftur.",
   "bundleNewerError": "Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.",
   "spotEar": "Lítið kattareyra í horni þýðir: haltu inni fyrir meira.",
   "addReminder": "Bæta við áminningu",

@@ -2109,6 +2109,14 @@ class AppLocalizationsIs extends AppLocalizations {
       'Hitt tækið keyrir nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki og samstilltu aftur.';
 
   @override
+  String get syncPeerNoTls =>
+      'Hitt tækið keyrir cat(a)log eldra en 1.1.0, án dulkóðaðrar samstillingar. Uppfærðu cat(a)log þar og samstilltu aftur.';
+
+  @override
+  String get syncWrongHost =>
+      'Vottorðið passar ekki við pörunarkóðann — þetta er ekki tækið sem kóðinn kom frá. Skannaðu eða sláðu kóðann inn aftur.';
+
+  @override
   String get bundleNewerError =>
       'Þessi skrá kemur úr nýrra cat(a)log. Uppfærðu cat(a)log á þessu tæki til að flytja hana inn.';
 

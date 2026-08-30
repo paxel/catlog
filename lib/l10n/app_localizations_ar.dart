@@ -2105,6 +2105,14 @@ class AppLocalizationsAr extends AppLocalizations {
       'الجهاز الآخر يشغّل نسخة أحدث من cat(a)log. حدّث cat(a)log على هذا الجهاز ثم زامن مجددًا.';
 
   @override
+  String get syncPeerNoTls =>
+      'الجهاز الآخر يشغّل cat(a)log قبل الإصدار 1.1.0 دون مزامنة مشفّرة. حدّث cat(a)log هناك ثم زامن مجددًا.';
+
+  @override
+  String get syncWrongHost =>
+      'الشهادة لا تطابق رمز الاقتران — هذا ليس الجهاز الذي جاء منه الرمز. امسح الرمز أو اكتبه مجددًا.';
+
+  @override
   String get bundleNewerError =>
       'هذا الملف من نسخة أحدث من cat(a)log. حدّث cat(a)log على هذا الجهاز لاستيراده.';
 

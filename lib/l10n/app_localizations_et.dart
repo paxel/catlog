@@ -2103,6 +2103,14 @@ class AppLocalizationsEt extends AppLocalizations {
       'Teises seadmes on uuem cat(a)log. Uuenda cat(a)log selles seadmes ja sünkrooni uuesti.';
 
   @override
+  String get syncPeerNoTls =>
+      'Teises seadmes on cat(a)log enne 1.1.0, ilma krüptitud sünkroonimiseta. Uuenda seal cat(a)log ja sünkrooni uuesti.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifikaat ei vasta paariskoodile — see pole seade, kust kood tuli. Skanni või sisesta kood uuesti.';
+
+  @override
   String get bundleNewerError =>
       'See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.';
 

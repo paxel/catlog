@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Termíny se v kalendáři objeví jako celodenní události. cat(a)log je tam aktualizuje při každém spuštění a po každé změně. Upozornění na termíny spravuješ v kalendáři.",
   "syncPeerOlder": "Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.",
   "syncPeerNewer": "Druhé zařízení má novější cat(a)log. Aktualizuj cat(a)log na tomto zařízení a synchronizuj znovu.",
+  "syncPeerNoTls": "Druhé zařízení má cat(a)log před 1.1.0, bez šifrované synchronizace. Aktualizuj tam cat(a)log a synchronizuj znovu.",
+  "syncWrongHost": "Certifikát neodpovídá párovacímu kódu — tohle není zařízení, ze kterého kód pochází. Naskenuj nebo zadej kód znovu.",
   "bundleNewerError": "Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.",
   "spotEar": "Malé kočičí ucho v rohu znamená: podrž pro víc.",
   "addReminder": "Přidat připomínku",

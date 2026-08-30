@@ -2110,6 +2110,14 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.';
 
   @override
+  String get syncPeerNoTls =>
+      'Het andere apparaat heeft een cat(a)log van vóór 1.1.0, zonder versleutelde synchronisatie. Werk cat(a)log daar bij en synchroniseer opnieuw.';
+
+  @override
+  String get syncWrongHost =>
+      'Het certificaat past niet bij de koppelcode — dit is niet het apparaat waar de code vandaan komt. Scan of typ de code opnieuw.';
+
+  @override
   String get bundleNewerError =>
       'Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.';
 

@@ -2113,6 +2113,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Das andere Gerät hat ein neueres cat(a)log. Auf diesem Gerät cat(a)log aktualisieren und erneut synchronisieren.';
 
   @override
+  String get syncPeerNoTls =>
+      'Das andere Gerät hat ein cat(a)log vor 1.1.0, ohne verschlüsselten Sync. Dort cat(a)log aktualisieren und erneut synchronisieren.';
+
+  @override
+  String get syncWrongHost =>
+      'Das Zertifikat passt nicht zum Pair-Code — das ist nicht das Gerät, von dem der Code stammt. Code erneut scannen oder eintippen.';
+
+  @override
   String get bundleNewerError =>
       'Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren.';
 

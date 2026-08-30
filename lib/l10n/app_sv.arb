@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Mötena visas som heldagshändelser i kalendern. cat(a)log uppdaterar dem där vid varje start och efter varje ändring. Påminnelser om mötena hanterar du i kalendern.",
   "syncPeerOlder": "Den andra enheten kör ett äldre cat(a)log utan påminnelser. Uppdatera cat(a)log där och synkronisera igen.",
   "syncPeerNewer": "Den andra enheten kör ett nyare cat(a)log. Uppdatera cat(a)log på den här enheten och synkronisera igen.",
+  "syncPeerNoTls": "Den andra enheten har ett cat(a)log före 1.1.0, utan krypterad synk. Uppdatera cat(a)log där och synka igen.",
+  "syncWrongHost": "Certifikatet stämmer inte med parkoden — det är inte enheten som koden kom från. Skanna eller skriv koden igen.",
   "bundleNewerError": "Den här filen kommer från ett nyare cat(a)log. Uppdatera cat(a)log på den här enheten för att importera den.",
   "spotEar": "Ett litet kattöra i ett hörn betyder: håll intryckt för mer.",
   "addReminder": "Lägg till påminnelse",

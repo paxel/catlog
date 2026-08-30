@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Termini se u kalendaru pojavljuju kao cjelodnevni događaji. cat(a)log ih tamo ažurira pri svakom pokretanju i nakon svake promjene. Podsjetnike na termine upravljaš u kalendaru.",
   "syncPeerOlder": "Drugi uređaj ima stariji cat(a)log bez podsjetnika. Ažuriraj cat(a)log tamo i sinkroniziraj ponovno.",
   "syncPeerNewer": "Drugi uređaj ima noviji cat(a)log. Ažuriraj cat(a)log na ovom uređaju i sinkroniziraj ponovno.",
+  "syncPeerNoTls": "Drugi uređaj ima cat(a)log stariji od 1.1.0, bez šifrirane sinkronizacije. Ažuriraj cat(a)log ondje, pa sinkroniziraj ponovno.",
+  "syncWrongHost": "Certifikat ne odgovara kodu za uparivanje — ovo nije uređaj s kojeg je kod došao. Skeniraj ili upiši kod ponovno.",
   "bundleNewerError": "Ova datoteka dolazi iz novijeg cat(a)loga. Ažuriraj cat(a)log na ovom uređaju da je uvezeš.",
   "spotEar": "Malo mačje uho u kutu znači: drži pritisnuto za više.",
   "addReminder": "Dodaj podsjetnik",

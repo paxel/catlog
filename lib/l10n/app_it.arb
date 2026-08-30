@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Gli appuntamenti compaiono come eventi di un giorno intero nel calendario. cat(a)log li aggiorna lì a ogni avvio e dopo ogni modifica. Gli avvisi per gli appuntamenti li gestisci nel calendario.",
   "syncPeerOlder": "L'altro dispositivo usa un cat(a)log più vecchio senza promemoria. Aggiorna cat(a)log lì e sincronizza di nuovo.",
   "syncPeerNewer": "L'altro dispositivo usa un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo e sincronizza di nuovo.",
+  "syncPeerNoTls": "L'altro dispositivo usa un cat(a)log precedente alla 1.1.0, senza sincronizzazione cifrata. Aggiorna cat(a)log lì, poi sincronizza di nuovo.",
+  "syncWrongHost": "Il certificato non corrisponde al codice di abbinamento: non è il dispositivo da cui viene il codice. Scansiona o digita di nuovo il codice.",
   "bundleNewerError": "Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo.",
   "spotEar": "Un orecchio di gatto in un angolo significa: tieni premuto per altro.",
   "addReminder": "Aggiungi promemoria",

@@ -2109,6 +2109,14 @@ class AppLocalizationsSl extends AppLocalizations {
       'Druga naprava ima novejši cat(a)log. Posodobi cat(a)log na tej napravi in znova sinhroniziraj.';
 
   @override
+  String get syncPeerNoTls =>
+      'Druga naprava ima cat(a)log pred 1.1.0, brez šifrirane sinhronizacije. Posodobi cat(a)log tam in sinhroniziraj znova.';
+
+  @override
+  String get syncWrongHost =>
+      'Potrdilo se ne ujema s kodo za združitev — to ni naprava, s katere je koda prišla. Skeniraj ali vpiši kodo znova.';
+
+  @override
   String get bundleNewerError =>
       'Ta datoteka prihaja iz novejšega cat(a)loga. Posodobi cat(a)log na tej napravi, da jo uvoziš.';
 

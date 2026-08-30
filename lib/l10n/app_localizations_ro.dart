@@ -2108,6 +2108,14 @@ class AppLocalizationsRo extends AppLocalizations {
       'Celălalt dispozitiv rulează un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv și sincronizează din nou.';
 
   @override
+  String get syncPeerNoTls =>
+      'Celălalt dispozitiv rulează un cat(a)log dinainte de 1.1.0, fără sincronizare criptată. Actualizează cat(a)log acolo, apoi sincronizează din nou.';
+
+  @override
+  String get syncWrongHost =>
+      'Certificatul nu se potrivește cu codul de asociere — nu este dispozitivul de la care vine codul. Scanează sau tastează codul din nou.';
+
+  @override
   String get bundleNewerError =>
       'Acest fișier vine dintr-un cat(a)log mai nou. Actualizează cat(a)log pe acest dispozitiv ca să îl imporți.';
 

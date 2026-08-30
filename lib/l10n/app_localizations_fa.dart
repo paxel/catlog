@@ -2101,6 +2101,14 @@ class AppLocalizationsFa extends AppLocalizations {
       'دستگاه دیگر cat(a)log جدیدتری دارد. روی این دستگاه cat(a)log را به‌روز کن و دوباره همگام‌سازی کن.';
 
   @override
+  String get syncPeerNoTls =>
+      'دستگاه دیگر cat(a)log پیش از ۱.۱.۰ دارد، بدون همگام‌سازی رمزگذاری‌شده. آنجا cat(a)log را به‌روز کنید و دوباره همگام کنید.';
+
+  @override
+  String get syncWrongHost =>
+      'گواهی با کد جفت‌سازی مطابقت ندارد — این آن دستگاهی نیست که کد از آن آمده. کد را دوباره اسکن یا وارد کنید.';
+
+  @override
   String get bundleNewerError =>
       'این پرونده از cat(a)log جدیدتری می‌آید. برای درون‌ریزی، cat(a)log را روی این دستگاه به‌روز کن.';
 

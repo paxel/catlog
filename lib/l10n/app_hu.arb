@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Az időpontok egész napos eseményként jelennek meg a naptárban. A cat(a)log minden indításkor és minden változás után frissíti őket ott. Az időpontok emlékeztetőit a naptárban kezelheted.",
   "syncPeerOlder": "A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.",
   "syncPeerNewer": "A másik eszközön újabb cat(a)log fut. Frissítsd a cat(a)logot ezen az eszközön, és szinkronizálj újra.",
+  "syncPeerNoTls": "A másik eszközön 1.1.0 előtti cat(a)log fut, titkosított szinkron nélkül. Frissítsd ott a cat(a)logot, majd szinkronizálj újra.",
+  "syncWrongHost": "A tanúsítvány nem illik a párosító kódhoz — ez nem az az eszköz, ahonnan a kód származik. Olvasd be vagy írd be újra a kódot.",
   "bundleNewerError": "Ez a fájl újabb cat(a)logból származik. Az importáláshoz frissítsd a cat(a)logot ezen az eszközön.",
   "spotEar": "Egy kis macskafül a sarokban azt jelenti: tartsd nyomva a többiért.",
   "addReminder": "Emlékeztető hozzáadása",

@@ -2095,6 +2095,14 @@ class AppLocalizationsHe extends AppLocalizations {
       'במכשיר השני פועל cat(a)log חדש יותר. עדכנו את cat(a)log במכשיר הזה וסנכרנו שוב.';
 
   @override
+  String get syncPeerNoTls =>
+      'המכשיר השני מריץ cat(a)log לפני 1.1.0, בלי סנכרון מוצפן. עדכנו שם את cat(a)log וסנכרנו שוב.';
+
+  @override
+  String get syncWrongHost =>
+      'האישור לא תואם לקוד הצימוד — זה לא המכשיר שממנו הגיע הקוד. סרקו או הקלידו את הקוד שוב.';
+
+  @override
   String get bundleNewerError =>
       'הקובץ הזה מגיע מ-cat(a)log חדש יותר. עדכנו את cat(a)log במכשיר הזה כדי לייבא אותו.';
 

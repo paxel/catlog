@@ -2102,6 +2102,14 @@ class AppLocalizationsNo extends AppLocalizations {
       'Den andre enheten kjører et nyere cat(a)log. Oppdater cat(a)log på denne enheten, og synkroniser igjen.';
 
   @override
+  String get syncPeerNoTls =>
+      'Den andre enheten har et cat(a)log før 1.1.0, uten kryptert synkronisering. Oppdater cat(a)log der, og synkroniser igjen.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifikatet passer ikke til parkoden — dette er ikke enheten koden kom fra. Skann eller tast koden på nytt.';
+
+  @override
   String get bundleNewerError =>
       'Denne filen kommer fra et nyere cat(a)log. Oppdater cat(a)log på denne enheten for å importere den.';
 

@@ -186,5 +186,56 @@ void main() {
     expect(b.activeReminders(), hasLength(1));
     expect(b.current(cat, 'f:vaccine'), isNull);
   });
-}
 
+  test('a certificate the pair code did not name is refused by name',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    a.createCat('Miezi');
+    final host = await testHost(a, '123456');
+    final wrong = List<int>.filled(fullFingerprintBytes, 0x42);
+    await expectLater(
+        lanSync(b, '127.0.0.1', host.port, '123456', fingerprint: wrong),
+        throwsA(isA<SyncException>()
+            .having((e) => e.message, 'message', 'wrong-host')));
+    expect(b.cats(), isEmpty);
+  });
+
+  test('a host without TLS is named as a version before 1.1.0', () async {
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(b.close);
+    // Plain HTTP where the joiner expects TLS — a 1.0.x host.
+    final plain = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+    addTearDown(() => plain.close(force: true));
+    plain.listen((req) => req.response.close());
+    await expectLater(
+        lanSync(b, '127.0.0.1', plain.port, '123456',
+            fingerprint: List<int>.filled(fullFingerprintBytes, 1)),
+        throwsA(isA<SyncException>()
+            .having((e) => e.message, 'message', 'peer-no-tls')));
+  });
+
+  test('the typed code carries enough of the fingerprint to pin the host',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    a.createCat('Miezi');
+    final host = await testHost(a, '123456');
+    final typed = decodePairCode(encodePairCode(
+        '127.0.0.1', host.port, '123456',
+        fingerprint: host.fingerprint, typed: true))!;
+    expect(typed.fingerprint, hasLength(typedFingerprintBytes));
+    final result = await lanSync(b, '127.0.0.1', host.port, '123456',
+        fingerprint: typed.fingerprint!);
+    expect(result.entriesReceived, greaterThan(0));
+    // Fewer bytes than a typed code carries pin nothing.
+    await expectLater(
+        lanSync(b, '127.0.0.1', host.port, '123456',
+            fingerprint: host.fingerprint.take(4).toList()),
+        throwsA(isA<SyncException>()));
+  });
+}

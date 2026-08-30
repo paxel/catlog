@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Les rendez-vous apparaissent comme des événements d'une journée dans le calendrier. cat(a)log les y met à jour à chaque démarrage et après chaque modification. Tu peux gérer les alertes de ces rendez-vous dans le calendrier.",
   "syncPeerOlder": "L'autre appareil utilise un cat(a)log plus ancien sans rappels. Mets-y cat(a)log à jour, puis resynchronise.",
   "syncPeerNewer": "L'autre appareil utilise un cat(a)log plus récent. Mets cat(a)log à jour sur cet appareil, puis resynchronise.",
+  "syncPeerNoTls": "L'autre appareil utilise un cat(a)log antérieur à 1.1.0, sans synchronisation chiffrée. Mets cat(a)log à jour là-bas, puis resynchronise.",
+  "syncWrongHost": "Le certificat ne correspond pas au code d'appairage — ce n'est pas l'appareil d'où vient le code. Scanne ou saisis le code à nouveau.",
   "bundleNewerError": "Ce fichier vient d'un cat(a)log plus récent. Mets cat(a)log à jour sur cet appareil pour l'importer.",
   "spotEar": "Une petite oreille de chat dans un coin signifie : rester appuyé pour plus.",
   "addReminder": "Ajouter un rappel",

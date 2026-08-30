@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Visiidid ilmuvad kalendrisse kogu päeva sündmustena. cat(a)log uuendab neid seal igal käivitusel ja pärast iga muudatust. Visiitide meeldetuletusi haldad kalendris.",
   "syncPeerOlder": "Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.",
   "syncPeerNewer": "Teises seadmes on uuem cat(a)log. Uuenda cat(a)log selles seadmes ja sünkrooni uuesti.",
+  "syncPeerNoTls": "Teises seadmes on cat(a)log enne 1.1.0, ilma krüptitud sünkroonimiseta. Uuenda seal cat(a)log ja sünkrooni uuesti.",
+  "syncWrongHost": "Sertifikaat ei vasta paariskoodile — see pole seade, kust kood tuli. Skanni või sisesta kood uuesti.",
   "bundleNewerError": "See fail on uuemast cat(a)logist. Uuenda cat(a)log selles seadmes, et seda importida.",
   "spotEar": "Väike kassikõrv nurgas tähendab: hoia all, et näha rohkem.",
   "addReminder": "Lisa meeldetuletus",

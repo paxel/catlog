@@ -2104,6 +2104,14 @@ class AppLocalizationsTr extends AppLocalizations {
       'Diğer cihazda daha yeni bir cat(a)log var. Bu cihazda cat(a)log uygulamasını güncelle ve yeniden eşitle.';
 
   @override
+  String get syncPeerNoTls =>
+      'Diğer cihazda 1.1.0 öncesi, şifreli eşitlemesi olmayan bir cat(a)log var. Orada cat(a)log\'u güncelleyin, sonra yeniden eşitleyin.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifika eşleştirme koduyla uyuşmuyor — bu, kodun geldiği cihaz değil. Kodu yeniden tarayın veya yazın.';
+
+  @override
   String get bundleNewerError =>
       'Bu dosya daha yeni bir cat(a)log sürümünden geliyor. İçe aktarmak için bu cihazda cat(a)log uygulamasını güncelle.';
 

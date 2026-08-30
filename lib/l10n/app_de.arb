@@ -618,6 +618,8 @@
   "calendarMirrorSubtitle": "Die Termine erscheinen als ganztägige Termine im Kalender. cat(a)log aktualisiert sie dort bei jedem Start und nach jeder Änderung. Erinnerungen an die Termine kannst du im Kalender verwalten.",
   "syncPeerOlder": "Das andere Gerät hat ein älteres cat(a)log ohne Erinnerungen. Dort cat(a)log aktualisieren und erneut synchronisieren.",
   "syncPeerNewer": "Das andere Gerät hat ein neueres cat(a)log. Auf diesem Gerät cat(a)log aktualisieren und erneut synchronisieren.",
+  "syncPeerNoTls": "Das andere Gerät hat ein cat(a)log vor 1.1.0, ohne verschlüsselten Sync. Dort cat(a)log aktualisieren und erneut synchronisieren.",
+  "syncWrongHost": "Das Zertifikat passt nicht zum Pair-Code — das ist nicht das Gerät, von dem der Code stammt. Code erneut scannen oder eintippen.",
   "bundleNewerError": "Diese Datei stammt aus einem neueren cat(a)log. Auf diesem Gerät cat(a)log aktualisieren, um sie zu importieren.",
   "spotEar": "Ein kleines Katzenohr in einer Ecke heißt: gedrückt halten für mehr.",
   "addReminder": "Erinnerung hinzufügen",

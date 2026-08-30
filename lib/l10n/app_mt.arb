@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "L-appuntamenti jidhru bħala avvenimenti ta' ġurnata sħiħa fil-kalendarju. cat(a)log jaġġornahom hemm ma' kull startjar u wara kull bidla. It-twissijiet għall-appuntamenti tista' timmaniġġjahom fil-kalendarju.",
   "syncPeerOlder": "L-apparat l-ieħor għandu cat(a)log eqdem mingħajr tfakkiriet. Aġġorna cat(a)log hemmhekk u ssinkronizza mill-ġdid.",
   "syncPeerNewer": "L-apparat l-ieħor għandu cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat u ssinkronizza mill-ġdid.",
+  "syncPeerNoTls": "L-apparat l-ieħor għandu cat(a)log qabel 1.1.0, mingħajr sync kriptat. Aġġorna cat(a)log hemm, imbagħad erġa' ssinkronizza.",
+  "syncWrongHost": "Iċ-ċertifikat ma jaqbilx mal-kodiċi tat-tqabbil — dan mhux l-apparat li ġie minnu l-kodiċi. Skennja jew ikteb il-kodiċi mill-ġdid.",
   "bundleNewerError": "Dan il-fajl ġej minn cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat biex timportah.",
   "spotEar": "Widna żgħira ta' qattus f'rokna tfisser: żomm magħfus għal aktar.",
   "addReminder": "Żid tfakkira",

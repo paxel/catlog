@@ -2111,6 +2111,14 @@ class AppLocalizationsLt extends AppLocalizations {
       'Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.';
 
   @override
+  String get syncPeerNoTls =>
+      'Kitame įrenginyje yra cat(a)log iki 1.1.0, be šifruoto sinchronizavimo. Ten atnaujink cat(a)log ir sinchronizuok iš naujo.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifikatas neatitinka susiejimo kodo — tai ne tas įrenginys, iš kurio kodas atėjo. Nuskaityk arba įvesk kodą iš naujo.';
+
+  @override
   String get bundleNewerError =>
       'Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.';
 

@@ -2110,6 +2110,14 @@ class AppLocalizationsLv extends AppLocalizations {
       'Otrā ierīcē ir jaunāks cat(a)log. Atjaunini cat(a)log šajā ierīcē un sinhronizē vēlreiz.';
 
   @override
+  String get syncPeerNoTls =>
+      'Otrā ierīcē ir cat(a)log pirms 1.1.0, bez šifrētas sinhronizācijas. Atjaunini tur cat(a)log un sinhronizē vēlreiz.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifikāts neatbilst pārī savienošanas kodam — šī nav ierīce, no kuras kods nāca. Noskenē vai ievadi kodu vēlreiz.';
+
+  @override
   String get bundleNewerError =>
       'Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.';
 

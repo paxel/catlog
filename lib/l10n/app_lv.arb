@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Vizītes kalendārā parādās kā visas dienas notikumi. cat(a)log tās tur atjaunina katrā palaišanā un pēc katras izmaiņas. Vizīšu atgādinājumus pārvaldi kalendārā.",
   "syncPeerOlder": "Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.",
   "syncPeerNewer": "Otrā ierīcē ir jaunāks cat(a)log. Atjaunini cat(a)log šajā ierīcē un sinhronizē vēlreiz.",
+  "syncPeerNoTls": "Otrā ierīcē ir cat(a)log pirms 1.1.0, bez šifrētas sinhronizācijas. Atjaunini tur cat(a)log un sinhronizē vēlreiz.",
+  "syncWrongHost": "Sertifikāts neatbilst pārī savienošanas kodam — šī nav ierīce, no kuras kods nāca. Noskenē vai ievadi kodu vēlreiz.",
   "bundleNewerError": "Šis fails ir no jaunāka cat(a)log. Atjaunini cat(a)log šajā ierīcē, lai to importētu.",
   "spotEar": "Maza kaķa auss stūrī nozīmē: turi nospiestu, lai redzētu vairāk.",
   "addReminder": "Pievienot atgādinājumu",

@@ -316,10 +316,14 @@ Future<SyncResult> lanSync(
   // the Local Network permission prompt until the user answers it.
   // The host's self-signed certificate is accepted only when it is the
   // one the pair code named (#92).
+  var wrongCertificate = false;
   final client = HttpClient()
     ..connectionTimeout = const Duration(seconds: 25)
-    ..badCertificateCallback =
-        (cert, _, _) => certificateMatches(cert, fingerprint);
+    ..badCertificateCallback = (cert, _, _) {
+      final ok = certificateMatches(cert, fingerprint);
+      if (!ok) wrongCertificate = true;
+      return ok;
+    };
   try {
     var hostFormat = 1;
     Future<dynamic> call(String method, String path,
@@ -329,9 +333,9 @@ Future<SyncResult> lanSync(
         req = await client.openUrl(
             method, Uri.parse('https://$host:$port$path'));
       } on HandshakeException {
-        // No TLS on the other side: a version before 1.1.0, or not the
-        // host the code named.
-        throw const SyncException('peer-older');
+        // Either the certificate is not the one the code named, or the
+        // other side speaks no TLS at all: a version before 1.1.0.
+        throw SyncException(wrongCertificate ? 'wrong-host' : 'peer-no-tls');
       }
       req.headers.set(_pinHeader, pin);
       if (body is Map) {

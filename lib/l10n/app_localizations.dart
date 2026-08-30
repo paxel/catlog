@@ -3758,6 +3758,18 @@ abstract class AppLocalizations {
   /// **'The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.'**
   String get syncPeerNewer;
 
+  /// No description provided for @syncPeerNoTls.
+  ///
+  /// In en, this message translates to:
+  /// **'The other device runs a cat(a)log before 1.1.0, without encrypted sync. Update cat(a)log there, then sync again.'**
+  String get syncPeerNoTls;
+
+  /// No description provided for @syncWrongHost.
+  ///
+  /// In en, this message translates to:
+  /// **'The certificate does not match the pair code — this is not the device the code came from. Scan or type the code again.'**
+  String get syncWrongHost;
+
   /// No description provided for @bundleNewerError.
   ///
   /// In en, this message translates to:

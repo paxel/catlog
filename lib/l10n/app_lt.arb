@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Vizitai kalendoriuje rodomi kaip visos dienos įvykiai. cat(a)log juos ten atnaujina kiekvieną kartą paleidus ir po kiekvieno pakeitimo. Vizitų priminimus tvarkai kalendoriuje.",
   "syncPeerOlder": "Kitame įrenginyje senesnis cat(a)log be priminimų. Atnaujink cat(a)log ten ir sinchronizuok iš naujo.",
   "syncPeerNewer": "Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.",
+  "syncPeerNoTls": "Kitame įrenginyje yra cat(a)log iki 1.1.0, be šifruoto sinchronizavimo. Ten atnaujink cat(a)log ir sinchronizuok iš naujo.",
+  "syncWrongHost": "Sertifikatas neatitinka susiejimo kodo — tai ne tas įrenginys, iš kurio kodas atėjo. Nuskaityk arba įvesk kodą iš naujo.",
   "bundleNewerError": "Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.",
   "spotEar": "Maža katės ausis kampe reiškia: palaikyk nuspaudę, kad pamatytum daugiau.",
   "addReminder": "Pridėti priminimą",

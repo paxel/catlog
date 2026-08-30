@@ -2109,6 +2109,14 @@ class AppLocalizationsRu extends AppLocalizations {
       'На другом устройстве более новый cat(a)log. Обновите cat(a)log на этом устройстве и синхронизируйте снова.';
 
   @override
+  String get syncPeerNoTls =>
+      'На другом устройстве cat(a)log старше 1.1.0, без шифрованной синхронизации. Обновите cat(a)log там и синхронизируйте снова.';
+
+  @override
+  String get syncWrongHost =>
+      'Сертификат не соответствует коду сопряжения — это не то устройство, с которого пришёл код. Отсканируйте или введите код заново.';
+
+  @override
   String get bundleNewerError =>
       'Этот файл из более нового cat(a)log. Обновите cat(a)log на этом устройстве, чтобы импортировать его.';
 

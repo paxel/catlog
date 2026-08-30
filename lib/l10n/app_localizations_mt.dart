@@ -2113,6 +2113,14 @@ class AppLocalizationsMt extends AppLocalizations {
       'L-apparat l-ieħor għandu cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat u ssinkronizza mill-ġdid.';
 
   @override
+  String get syncPeerNoTls =>
+      'L-apparat l-ieħor għandu cat(a)log qabel 1.1.0, mingħajr sync kriptat. Aġġorna cat(a)log hemm, imbagħad erġa\' ssinkronizza.';
+
+  @override
+  String get syncWrongHost =>
+      'Iċ-ċertifikat ma jaqbilx mal-kodiċi tat-tqabbil — dan mhux l-apparat li ġie minnu l-kodiċi. Skennja jew ikteb il-kodiċi mill-ġdid.';
+
+  @override
   String get bundleNewerError =>
       'Dan il-fajl ġej minn cat(a)log aktar ġdid. Aġġorna cat(a)log fuq dan l-apparat biex timportah.';
 

@@ -2118,6 +2118,14 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tá cat(a)log níos nuaí ar an ngléas eile. Nuashonraigh cat(a)log ar an ngléas seo agus sioncronaigh arís.';
 
   @override
+  String get syncPeerNoTls =>
+      'Tá cat(a)log roimh 1.1.0 ar an ngléas eile, gan sioncronú criptithe. Nuashonraigh cat(a)log ansin, ansin sioncronaigh arís.';
+
+  @override
+  String get syncWrongHost =>
+      'Ní réitíonn an teastas leis an gcód péireála — ní hé seo an gléas ar tháinig an cód uaidh. Scan nó clóscríobh an cód arís.';
+
+  @override
   String get bundleNewerError =>
       'Tagann an comhad seo ó cat(a)log níos nuaí. Nuashonraigh cat(a)log ar an ngléas seo chun é a iompórtáil.';
 

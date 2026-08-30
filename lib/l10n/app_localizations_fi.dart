@@ -2107,6 +2107,14 @@ class AppLocalizationsFi extends AppLocalizations {
       'Toisella laitteella on uudempi cat(a)log. Päivitä cat(a)log tällä laitteella ja synkronoi uudelleen.';
 
   @override
+  String get syncPeerNoTls =>
+      'Toisella laitteella on cat(a)log ennen versiota 1.1.0, ilman salattua synkronointia. Päivitä cat(a)log siellä ja synkronoi uudelleen.';
+
+  @override
+  String get syncWrongHost =>
+      'Varmenne ei vastaa parikoodia — tämä ei ole laite, josta koodi tuli. Skannaa tai kirjoita koodi uudelleen.';
+
+  @override
   String get bundleNewerError =>
       'Tämä tiedosto on uudemmasta cat(a)logista. Päivitä cat(a)log tällä laitteella, jotta voit tuoda sen.';
 

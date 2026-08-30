@@ -2113,6 +2113,14 @@ class AppLocalizationsIt extends AppLocalizations {
       'L\'altro dispositivo usa un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo e sincronizza di nuovo.';
 
   @override
+  String get syncPeerNoTls =>
+      'L\'altro dispositivo usa un cat(a)log precedente alla 1.1.0, senza sincronizzazione cifrata. Aggiorna cat(a)log lì, poi sincronizza di nuovo.';
+
+  @override
+  String get syncWrongHost =>
+      'Il certificato non corrisponde al codice di abbinamento: non è il dispositivo da cui viene il codice. Scansiona o digita di nuovo il codice.';
+
+  @override
   String get bundleNewerError =>
       'Questo file viene da un cat(a)log più nuovo. Aggiorna cat(a)log su questo dispositivo per importarlo.';
 

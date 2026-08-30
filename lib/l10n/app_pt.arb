@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Os compromissos aparecem como eventos de dia inteiro no calendário. O cat(a)log atualiza-os lá em cada arranque e depois de cada alteração. Os alertas dos compromissos geres no calendário.",
   "syncPeerOlder": "O outro dispositivo usa um cat(a)log mais antigo sem lembretes. Atualiza o cat(a)log lá e sincroniza de novo.",
   "syncPeerNewer": "O outro dispositivo usa um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo e sincroniza de novo.",
+  "syncPeerNoTls": "O outro dispositivo usa um cat(a)log anterior a 1.1.0, sem sincronização cifrada. Atualiza o cat(a)log lá e sincroniza de novo.",
+  "syncWrongHost": "O certificado não corresponde ao código de emparelhamento — não é o dispositivo de onde veio o código. Lê ou escreve o código de novo.",
   "bundleNewerError": "Este ficheiro vem de um cat(a)log mais recente. Atualiza o cat(a)log neste dispositivo para o importar.",
   "spotEar": "Uma orelhinha de gato num canto significa: mantém premido para mais.",
   "addReminder": "Adicionar lembrete",

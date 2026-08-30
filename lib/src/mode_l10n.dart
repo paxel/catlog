@@ -1798,6 +1798,9 @@ class ModeLocalizations implements AppLocalizations {
   String get syncPeerNewer => base.syncPeerNewer;
 
   @override
+  String get syncPeerNoTls => base.syncPeerNoTls;
+
+  @override
   String get syncPeerOlder => base.syncPeerOlder;
 
   @override
@@ -1805,6 +1808,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get syncUnreachable => base.syncUnreachable;
+
+  @override
+  String get syncWrongHost => base.syncWrongHost;
 
   @override
   String syncedResult(String result) => base.syncedResult(result);

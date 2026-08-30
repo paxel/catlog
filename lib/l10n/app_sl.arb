@@ -696,6 +696,8 @@
   "calendarMirrorSubtitle": "Termini se v koledarju prikažejo kot celodnevni dogodki. cat(a)log jih tam posodobi ob vsakem zagonu in po vsaki spremembi. Opomnike na termine upravljaš v koledarju.",
   "syncPeerOlder": "Druga naprava ima starejši cat(a)log brez opomnikov. Posodobi cat(a)log tam in znova sinhroniziraj.",
   "syncPeerNewer": "Druga naprava ima novejši cat(a)log. Posodobi cat(a)log na tej napravi in znova sinhroniziraj.",
+  "syncPeerNoTls": "Druga naprava ima cat(a)log pred 1.1.0, brez šifrirane sinhronizacije. Posodobi cat(a)log tam in sinhroniziraj znova.",
+  "syncWrongHost": "Potrdilo se ne ujema s kodo za združitev — to ni naprava, s katere je koda prišla. Skeniraj ali vpiši kodo znova.",
   "bundleNewerError": "Ta datoteka prihaja iz novejšega cat(a)loga. Posodobi cat(a)log na tej napravi, da jo uvoziš.",
   "spotEar": "Majhno mačje uho v kotu pomeni: pridrži za več.",
   "addReminder": "Dodaj opomnik",

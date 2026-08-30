@@ -279,7 +279,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
     }
     // A code without a fingerprint comes from a version before TLS.
     if (info.fingerprint == null) {
-      setState(() => _lastResult = context.t.syncPeerOlder);
+      setState(() => _lastResult = context.t.syncPeerNoTls);
       return;
     }
     setState(() {
@@ -303,6 +303,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
               'declined' => context.t.syncDeclined,
               'peer-older' => context.t.syncPeerOlder,
               'peer-newer' => context.t.syncPeerNewer,
+              'peer-no-tls' => context.t.syncPeerNoTls,
+              'wrong-host' => context.t.syncWrongHost,
               _ => context.t.syncFailed(e.message),
             });
       }

@@ -2106,6 +2106,14 @@ class AppLocalizationsCs extends AppLocalizations {
       'Druhé zařízení má novější cat(a)log. Aktualizuj cat(a)log na tomto zařízení a synchronizuj znovu.';
 
   @override
+  String get syncPeerNoTls =>
+      'Druhé zařízení má cat(a)log před 1.1.0, bez šifrované synchronizace. Aktualizuj tam cat(a)log a synchronizuj znovu.';
+
+  @override
+  String get syncWrongHost =>
+      'Certifikát neodpovídá párovacímu kódu — tohle není zařízení, ze kterého kód pochází. Naskenuj nebo zadej kód znovu.';
+
+  @override
   String get bundleNewerError =>
       'Tento soubor pochází z novějšího cat(a)logu. Aktualizuj cat(a)log na tomto zařízení, aby šel importovat.';
 
