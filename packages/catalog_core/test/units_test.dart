@@ -21,7 +21,7 @@ void main() {
     expect(formatBase(Dimension.weight, UnitSystem.metric, '980'), '980 g');
     expect(formatBase(Dimension.weight, UnitSystem.metric, '4000'), '4 kg');
     expect(formatBase(Dimension.weight, UnitSystem.imperial, '4250'), '9.4 lb');
-    expect(formatBase(Dimension.length, UnitSystem.metric, '120'), '1.2 m');
+    expect(formatBase(Dimension.length, UnitSystem.metric, '120'), '120 cm');
     expect(formatBase(Dimension.volume, UnitSystem.metric, '250'), '250 ml');
     expect(formatBase(Dimension.temperature, UnitSystem.imperial, '38.5'),
         '101.3 °F');
@@ -43,6 +43,7 @@ void main() {
     expect(temp.dimension, Dimension.temperature);
   });
   formatDecimalTests();
+  entryUnitDisplayTests();
   dimensionDefaultTests();
 }
 
@@ -75,5 +76,14 @@ void dimensionDefaultTests() {
         scope: FieldScope.cat,
         dimension: Dimension.length);
     expect(len.unitDimension, Dimension.length);
+  });
+}
+
+void entryUnitDisplayTests() {
+  test('length and volume read in the entry unit, never scaled up', () {
+    expect(formatBase(Dimension.length, UnitSystem.metric, '250'), '250 cm');
+    expect(formatBase(Dimension.volume, UnitSystem.metric, '1500'), '1500 ml');
+    expect(formatBase(Dimension.weight, UnitSystem.metric, '4250'), '4.25 kg');
+    expect(formatBase(Dimension.weight, UnitSystem.metric, '980'), '980 g');
   });
 }

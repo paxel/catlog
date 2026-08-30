@@ -70,7 +70,9 @@ double? parseEntry(String text) =>
     double.tryParse(text.trim().replaceAll(',', '.'));
 
 /// How to show a stored amount: the number, its unit, and how many
-/// decimals read well — "4.25 kg", "980 g", "9.4 lb", "1.2 m".
+/// decimals read well — "4.25 kg", "980 g", "9.4 lb", "120 cm". Only
+/// weight steps up a unit (g to kg); length and volume stay in the
+/// entry unit, so what you read is what you would type (#96).
 ({double amount, String unit, int decimals}) displayParts(
     Dimension d, UnitSystem s, double base) {
   switch ((d, s)) {
@@ -81,15 +83,11 @@ double? parseEntry(String text) =>
     case (Dimension.weight, UnitSystem.imperial):
       return (amount: base / _gPerLb, unit: 'lb', decimals: 1);
     case (Dimension.length, UnitSystem.metric):
-      return base >= 100
-          ? (amount: base / 100, unit: 'm', decimals: 2)
-          : (amount: base, unit: 'cm', decimals: 1);
+      return (amount: base, unit: 'cm', decimals: 1);
     case (Dimension.length, UnitSystem.imperial):
       return (amount: base / _cmPerIn, unit: 'in', decimals: 1);
     case (Dimension.volume, UnitSystem.metric):
-      return base >= 1000
-          ? (amount: base / 1000, unit: 'l', decimals: 2)
-          : (amount: base, unit: 'ml', decimals: 0);
+      return (amount: base, unit: 'ml', decimals: 0);
     case (Dimension.volume, UnitSystem.imperial):
       return (amount: base / _mlPerFlOz, unit: 'fl oz', decimals: 1);
     case (Dimension.temperature, UnitSystem.metric):
