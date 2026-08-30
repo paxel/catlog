@@ -48,7 +48,7 @@ String _entryText(FieldDef def, String? current) {
   final base = double.tryParse(current);
   if (base == null) return current;
   return formatDecimal(
-      fromBase(def.dimension ?? Dimension.weight, unitSystem.value, base), 2);
+      fromBase(def.unitDimension, unitSystem.value, base), 2);
 }
 
 /// The state behind a [FieldValueInput]: what the user picked or typed,
@@ -100,7 +100,7 @@ class FieldValueController extends ChangeNotifier {
         final entered = parseEntry(text.text);
         if (entered == null) return null;
         return baseString(toBase(
-            def.dimension ?? Dimension.weight, unitSystem.value, entered));
+            def.unitDimension, unitSystem.value, entered));
     }
   }
 
@@ -217,7 +217,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
           decoration: InputDecoration(
             labelText: context.t.value,
             suffixText: entryUnit(
-                def.dimension ?? Dimension.weight, unitSystem.value),
+                def.unitDimension, unitSystem.value),
           ),
         );
       case FieldType.location:

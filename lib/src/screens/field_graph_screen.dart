@@ -30,7 +30,7 @@ List<GraphPoint> graphPoints(
     final raw = e.value == null ? null : double.tryParse(e.value!);
     if (raw == null) continue;
     final value = def.type == FieldType.unitValue
-        ? fromBase(def.dimension ?? Dimension.weight, unitSystem.value, raw)
+        ? fromBase(def.unitDimension, unitSystem.value, raw)
         : raw;
     points.add((at: e.date, value: value));
   }
@@ -112,7 +112,7 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
   }
 
   String _unit() => widget.def.type == FieldType.unitValue
-      ? entryUnit(widget.def.dimension ?? Dimension.weight, unitSystem.value)
+      ? entryUnit(widget.def.unitDimension, unitSystem.value)
       : '';
 
   String _number(double v) {

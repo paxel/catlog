@@ -43,6 +43,7 @@ void main() {
     expect(temp.dimension, Dimension.temperature);
   });
   formatDecimalTests();
+  dimensionDefaultTests();
 }
 
 void formatDecimalTests() {
@@ -54,5 +55,25 @@ void formatDecimalTests() {
     expect(formatDecimal(4.256, 2), '4.26');
     expect(formatDecimal(-0.004, 2), '0');
     expect(formatDecimal(980, 0), '980');
+  });
+}
+
+void dimensionDefaultTests() {
+  test('a unit value without a stored dimension counts as weight', () {
+    const bare = FieldDef(
+        id: 'fielddef:x',
+        slug: 'x',
+        name: 'X',
+        type: FieldType.unitValue,
+        scope: FieldScope.cat);
+    expect(bare.unitDimension, Dimension.weight);
+    const len = FieldDef(
+        id: 'fielddef:y',
+        slug: 'y',
+        name: 'Y',
+        type: FieldType.unitValue,
+        scope: FieldScope.cat,
+        dimension: Dimension.length);
+    expect(len.unitDimension, Dimension.length);
   });
 }

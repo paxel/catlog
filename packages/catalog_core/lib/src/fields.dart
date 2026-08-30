@@ -157,6 +157,10 @@ class FieldDef {
 
   /// The key under which values of this Field live on Cats/Clowders.
   String get key => Keys.userField(slug);
+
+  /// The dimension a Unit Value is read in — weight when none was ever
+  /// stored, so a definition from a partner without one still displays.
+  Dimension get unitDimension => dimension ?? Dimension.weight;
 }
 
 /// Canonical Clowder status values the app recognizes (chips, adoption

@@ -51,7 +51,7 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
   // A Unit Value is stored in the base unit and read in the device's.
   if (def?.type == FieldType.unitValue) {
     return formatUnitValue(
-        t.localeName, def!.dimension ?? Dimension.weight, value);
+        t.localeName, def!.unitDimension, value);
   }
   if (def?.slug == 'breed') {
     return switch (value) {
