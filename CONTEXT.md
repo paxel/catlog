@@ -129,7 +129,7 @@ _Avoid_: blocked, private (that's wire-level)
 A Cat whose deceased date Field is set. Rendered subdued (dimmed photo, localized "Deceased" chip — no religious symbols) and listed in the import summary.
 
 **Species**:
-A starter Field on Cats, default "cat", free values (dog, rabbit, …). The only concession to other animals — entities, Clowders, and the app's cat-themed language stay unchanged.
+A starter Field on Cats, default "cat": a choice with presets (cat, dog, rabbit, guinea pig, hamster, bird, horse, tortoise, ferret) plus a word of your own. Stored canonical, displayed translated (ADR-0005). Breed options follow the species; the entity stays a Cat in the data whatever the species. The wording the app uses for it is decided by Pet Mode, not by the species.
 
 **Ban**:
 A local, per-device list of Authors/devices and blob hashes whose material is dropped on receive (received and discarded — sync bookkeeping still advances). Never propagates to other devices. Reversible per entry.
