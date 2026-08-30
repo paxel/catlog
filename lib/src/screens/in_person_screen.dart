@@ -145,36 +145,12 @@ class _InPersonScreenState extends State<InPersonScreen> {
       });
       return;
     }
-    final pin = (Random.secure().nextInt(900000) + 100000).toString();
     _starting = true;
     try {
-      final identity = await tlsIdentity(widget.store);
-      if (!mounted) return;
-      final host = LanSyncHost(widget.store, pin,
-          identity: identity,
-          onJoinRequest: _onJoinRequest, onSession: (applied) {
-        if (!mounted) return;
-        setState(() => _sessions++);
-        if (applied.isNotEmpty) {
-          showImportSummary(context, widget.store, applied);
-        }
-      });
-      final address = await host.start();
-      if (!mounted) {
-        // Backed out while binding: nothing may keep serving.
-        await host.stop();
-        return;
-      }
-      setState(() {
-        _host = host;
-        // The QR carries the whole fingerprint, the typed code its
-        // first bytes (#92).
-        _pairCodeQr = encodePairCode(address, host.port, pin,
-            fingerprint: host.fingerprint);
-        _pairCode = encodePairCode(address, host.port, pin,
-            fingerprint: host.fingerprint, typed: true);
-        _sessions = 0;
-      });
+      final started = await _startHost();
+      if (started == null) return;
+      final (host, pin, address) = started;
+      _showCodes(host, pin, address);
     } finally {
       _starting = false;
     }
@@ -190,37 +166,13 @@ class _InPersonScreenState extends State<InPersonScreen> {
         await stopHotspot();
         return;
       }
-      final pin = (Random.secure().nextInt(900000) + 100000).toString();
-      final identity = await tlsIdentity(widget.store);
-      if (!mounted) {
+      final started = await _startHost();
+      if (started == null) {
         await stopHotspot();
         return;
       }
-      final host = LanSyncHost(widget.store, pin,
-          identity: identity,
-          onJoinRequest: _onJoinRequest, onSession: (applied) {
-        if (!mounted) return;
-        setState(() => _sessions++);
-        if (applied.isNotEmpty) {
-          showImportSummary(context, widget.store, applied);
-        }
-      });
-      await host.start();
-      if (!mounted) {
-        await host.stop();
-        await stopHotspot();
-        return;
-      }
-      final pairCode = encodePairCode(info.ip, host.port, pin,
-          fingerprint: host.fingerprint);
-      setState(() {
-        _host = host;
-        _pairCodeQr = pairCode;
-        _pairCode = encodePairCode(info.ip, host.port, pin,
-            fingerprint: host.fingerprint, typed: true);
-        _hotspotQr = hotspotQrPayload(info, pairCode);
-        _sessions = 0;
-      });
+      final (host, pin, _) = started;
+      _showCodes(host, pin, info.ip, hotspot: info);
     } catch (e) {
       if (mounted) {
         setState(
@@ -229,6 +181,49 @@ class _InPersonScreenState extends State<InPersonScreen> {
     } finally {
       _starting = false;
     }
+  }
+
+  /// A fresh PIN, this device's certificate, the host bound and serving.
+  /// Null when the page went away meanwhile — the host is stopped then,
+  /// so nothing keeps serving.
+  Future<(LanSyncHost, String, String)?> _startHost() async {
+    final pin = (Random.secure().nextInt(900000) + 100000).toString();
+    final identity = await tlsIdentity(widget.store);
+    if (!mounted) return null;
+    final host = LanSyncHost(widget.store, pin,
+        identity: identity,
+        onJoinRequest: _onJoinRequest,
+        onSession: _onSession);
+    final address = await host.start();
+    if (!mounted) {
+      // Backed out while binding: nothing may keep serving.
+      await host.stop();
+      return null;
+    }
+    return (host, pin, address);
+  }
+
+  void _onSession(List<Entry> applied) {
+    if (!mounted) return;
+    setState(() => _sessions++);
+    if (applied.isNotEmpty) {
+      showImportSummary(context, widget.store, applied);
+    }
+  }
+
+  /// The pair codes for [ip]: the QR carries the whole fingerprint, the
+  /// typed code its first bytes (#92); a hotspot adds its own QR.
+  void _showCodes(LanSyncHost host, String pin, String ip,
+      {HotspotInfo? hotspot}) {
+    final qr = encodePairCode(ip, host.port, pin, fingerprint: host.fingerprint);
+    setState(() {
+      _host = host;
+      _pairCodeQr = qr;
+      _pairCode = encodePairCode(ip, host.port, pin,
+          fingerprint: host.fingerprint, typed: true);
+      _hotspotQr = hotspot == null ? null : hotspotQrPayload(hotspot, qr);
+      _sessions = 0;
+    });
   }
 
   /// One scan on the joiner: low-key consent, app-scoped join, sync,
