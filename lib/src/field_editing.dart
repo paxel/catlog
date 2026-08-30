@@ -47,12 +47,8 @@ String _entryText(FieldDef def, String? current) {
   if (def.type != FieldType.unitValue || current == null) return current ?? '';
   final base = double.tryParse(current);
   if (base == null) return current;
-  final shown =
-      fromBase(def.dimension ?? Dimension.weight, unitSystem.value, base);
-  final rounded = (shown * 100).round() / 100;
-  return rounded == rounded.roundToDouble()
-      ? rounded.round().toString()
-      : rounded.toString();
+  return formatDecimal(
+      fromBase(def.dimension ?? Dimension.weight, unitSystem.value, base), 2);
 }
 
 /// The state behind a [FieldValueInput]: what the user picked or typed,

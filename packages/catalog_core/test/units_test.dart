@@ -42,4 +42,17 @@ void main() {
     final temp = store.fieldDefs().firstWhere((d) => d.slug == 'body-temperature');
     expect(temp.dimension, Dimension.temperature);
   });
+  formatDecimalTests();
+}
+
+void formatDecimalTests() {
+  test('formatDecimal keeps at most the asked decimals, no trailing zeros',
+      () {
+    expect(formatDecimal(4.25, 2), '4.25');
+    expect(formatDecimal(4.0, 2), '4');
+    expect(formatDecimal(4.10, 2), '4.1');
+    expect(formatDecimal(4.256, 2), '4.26');
+    expect(formatDecimal(-0.004, 2), '0');
+    expect(formatDecimal(980, 0), '980');
+  });
 }

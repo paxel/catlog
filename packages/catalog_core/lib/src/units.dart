@@ -99,15 +99,19 @@ double? parseEntry(String text) =>
   }
 }
 
+/// A number with at most [decimals] decimals and no trailing zeros,
+/// point as separator: 4.25, 4.1, 4, 980. "-0" never shows.
+String formatDecimal(double value, int decimals) {
+  var text = value.toStringAsFixed(decimals);
+  if (decimals > 0) text = text.replaceFirst(RegExp(r'\.?0+$'), '');
+  return text == '-0' ? '0' : text;
+}
+
 /// Plain display with a point as decimal separator; the app formats
 /// per locale on top of [displayParts].
 String formatBase(Dimension d, UnitSystem s, String? stored) {
   final base = stored == null ? null : double.tryParse(stored);
   if (base == null) return stored ?? '';
   final p = displayParts(d, s, base);
-  var text = p.amount.toStringAsFixed(p.decimals);
-  if (p.decimals > 0) {
-    text = text.replaceFirst(RegExp(r'\.?0+$'), '');
-  }
-  return '$text ${p.unit}';
+  return '${formatDecimal(p.amount, p.decimals)} ${p.unit}';
 }

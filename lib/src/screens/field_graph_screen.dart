@@ -116,7 +116,7 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
       : '';
 
   String _number(double v) {
-    final text = v.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '');
+    final text = formatDecimal(v, 2);
     final unit = _unit();
     return unit.isEmpty ? text : '$text $unit';
   }
