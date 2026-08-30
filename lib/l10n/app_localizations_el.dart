@@ -1155,6 +1155,29 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unitsLabel => 'Μονάδες';
 
   @override
+  String get graphLabel => 'Γράφημα';
+
+  @override
+  String get rangeWeek => 'Εβδομάδα';
+
+  @override
+  String get rangeMonth => 'Μήνας';
+
+  @override
+  String get rangeYear => 'Έτος';
+
+  @override
+  String get rangeAll => 'Όλα';
+
+  @override
+  String get rangeCustom => 'Προσαρμογή…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta από $date';
+  }
+
+  @override
   String get unitsAuto => 'Όπως στην περιοχή σου';
 
   @override

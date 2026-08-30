@@ -11,6 +11,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   volume or temperature — and enter and read it in your units (metric
   or imperial, from your region or chosen under Units in the menu)
   while partners see theirs. Weight is ready on every animal.
+- A graph for any number or unit-value field with two or more values:
+  the icon on the field's row opens it — week, month, year, all or a
+  range of your own, the change since the previous value, lowest,
+  highest and latest marked, the animal's appointments as ticks.
 
 ### Changed
 

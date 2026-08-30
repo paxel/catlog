@@ -35,6 +35,7 @@ import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
+import 'field_graph_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
@@ -599,6 +600,10 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               onHistory: (def) => _openTimeline(field: def.key),
               onShowMap: _showOnMap,
               onLookup: (def, value) => openLookup(context, def, value),
+      onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldGraphScreen(store: store, entityId: id, def: def),
+      )),
               // Long-press in read mode: jump into edit mode with the
               // field's editor open — fix what you just spotted (#46).
               onReadLongPress: (def) {

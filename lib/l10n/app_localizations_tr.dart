@@ -1149,6 +1149,29 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unitsLabel => 'Birimler';
 
   @override
+  String get graphLabel => 'Grafik';
+
+  @override
+  String get rangeWeek => 'Hafta';
+
+  @override
+  String get rangeMonth => 'Ay';
+
+  @override
+  String get rangeYear => 'Yıl';
+
+  @override
+  String get rangeAll => 'Tümü';
+
+  @override
+  String get rangeCustom => 'Özel…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$date tarihinden beri $delta';
+  }
+
+  @override
   String get unitsAuto => 'Bölgendeki gibi';
 
   @override

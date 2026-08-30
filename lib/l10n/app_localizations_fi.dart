@@ -1151,6 +1151,29 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unitsLabel => 'Yksiköt';
 
   @override
+  String get graphLabel => 'Kaavio';
+
+  @override
+  String get rangeWeek => 'Viikko';
+
+  @override
+  String get rangeMonth => 'Kuukausi';
+
+  @override
+  String get rangeYear => 'Vuosi';
+
+  @override
+  String get rangeAll => 'Kaikki';
+
+  @override
+  String get rangeCustom => 'Mukautettu…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta alkaen $date';
+  }
+
+  @override
   String get unitsAuto => 'Kuten alueellasi';
 
   @override

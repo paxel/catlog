@@ -1150,6 +1150,29 @@ class AppLocalizationsSr extends AppLocalizations {
   String get unitsLabel => 'Јединице';
 
   @override
+  String get graphLabel => 'График';
+
+  @override
+  String get rangeWeek => 'Недеља';
+
+  @override
+  String get rangeMonth => 'Месец';
+
+  @override
+  String get rangeYear => 'Година';
+
+  @override
+  String get rangeAll => 'Све';
+
+  @override
+  String get rangeCustom => 'Прилагођено…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta од $date';
+  }
+
+  @override
   String get unitsAuto => 'Као у твом региону';
 
   @override

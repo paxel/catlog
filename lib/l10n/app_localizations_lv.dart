@@ -1149,6 +1149,29 @@ class AppLocalizationsLv extends AppLocalizations {
   String get unitsLabel => 'Mērvienības';
 
   @override
+  String get graphLabel => 'Grafiks';
+
+  @override
+  String get rangeWeek => 'Nedēļa';
+
+  @override
+  String get rangeMonth => 'Mēnesis';
+
+  @override
+  String get rangeYear => 'Gads';
+
+  @override
+  String get rangeAll => 'Viss';
+
+  @override
+  String get rangeCustom => 'Pielāgots…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta kopš $date';
+  }
+
+  @override
   String get unitsAuto => 'Kā tavā reģionā';
 
   @override

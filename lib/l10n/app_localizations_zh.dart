@@ -1116,6 +1116,29 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unitsLabel => '单位';
 
   @override
+  String get graphLabel => '图表';
+
+  @override
+  String get rangeWeek => '周';
+
+  @override
+  String get rangeMonth => '月';
+
+  @override
+  String get rangeYear => '年';
+
+  @override
+  String get rangeAll => '全部';
+
+  @override
+  String get rangeCustom => '自定义…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '自 $date 起 $delta';
+  }
+
+  @override
   String get unitsAuto => '按你所在的地区';
 
   @override

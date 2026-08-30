@@ -1150,6 +1150,29 @@ class AppLocalizationsSl extends AppLocalizations {
   String get unitsLabel => 'Enote';
 
   @override
+  String get graphLabel => 'Graf';
+
+  @override
+  String get rangeWeek => 'Teden';
+
+  @override
+  String get rangeMonth => 'Mesec';
+
+  @override
+  String get rangeYear => 'Leto';
+
+  @override
+  String get rangeAll => 'Vse';
+
+  @override
+  String get rangeCustom => 'Po meri…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta od $date';
+  }
+
+  @override
   String get unitsAuto => 'Kot v tvoji regiji';
 
   @override

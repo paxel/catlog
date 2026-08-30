@@ -1153,6 +1153,29 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unitsLabel => 'Unitajiet';
 
   @override
+  String get graphLabel => 'Graff';
+
+  @override
+  String get rangeWeek => 'Ġimgħa';
+
+  @override
+  String get rangeMonth => 'Xahar';
+
+  @override
+  String get rangeYear => 'Sena';
+
+  @override
+  String get rangeAll => 'Kollox';
+
+  @override
+  String get rangeCustom => 'Personalizzat…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta minn $date';
+  }
+
+  @override
   String get unitsAuto => 'Bħal fir-reġjun tiegħek';
 
   @override

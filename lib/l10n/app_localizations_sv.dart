@@ -1149,6 +1149,29 @@ class AppLocalizationsSv extends AppLocalizations {
   String get unitsLabel => 'Enheter';
 
   @override
+  String get graphLabel => 'Graf';
+
+  @override
+  String get rangeWeek => 'Vecka';
+
+  @override
+  String get rangeMonth => 'Månad';
+
+  @override
+  String get rangeYear => 'År';
+
+  @override
+  String get rangeAll => 'Allt';
+
+  @override
+  String get rangeCustom => 'Anpassad…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta sedan $date';
+  }
+
+  @override
   String get unitsAuto => 'Som i din region';
 
   @override

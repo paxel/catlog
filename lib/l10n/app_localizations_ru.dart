@@ -1149,6 +1149,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unitsLabel => 'Единицы';
 
   @override
+  String get graphLabel => 'График';
+
+  @override
+  String get rangeWeek => 'Неделя';
+
+  @override
+  String get rangeMonth => 'Месяц';
+
+  @override
+  String get rangeYear => 'Год';
+
+  @override
+  String get rangeAll => 'Всё';
+
+  @override
+  String get rangeCustom => 'Свой…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta с $date';
+  }
+
+  @override
   String get unitsAuto => 'Как в вашем регионе';
 
   @override

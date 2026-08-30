@@ -1151,6 +1151,29 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unitsLabel => 'Unități';
 
   @override
+  String get graphLabel => 'Grafic';
+
+  @override
+  String get rangeWeek => 'Săptămână';
+
+  @override
+  String get rangeMonth => 'Lună';
+
+  @override
+  String get rangeYear => 'An';
+
+  @override
+  String get rangeAll => 'Tot';
+
+  @override
+  String get rangeCustom => 'Personalizat…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta din $date';
+  }
+
+  @override
   String get unitsAuto => 'Ca în regiunea ta';
 
   @override

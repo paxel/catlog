@@ -1148,6 +1148,29 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unitsLabel => 'Ühikud';
 
   @override
+  String get graphLabel => 'Graafik';
+
+  @override
+  String get rangeWeek => 'Nädal';
+
+  @override
+  String get rangeMonth => 'Kuu';
+
+  @override
+  String get rangeYear => 'Aasta';
+
+  @override
+  String get rangeAll => 'Kõik';
+
+  @override
+  String get rangeCustom => 'Kohandatud…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta alates $date';
+  }
+
+  @override
   String get unitsAuto => 'Nagu sinu piirkonnas';
 
   @override

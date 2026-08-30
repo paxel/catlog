@@ -1149,6 +1149,29 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unitsLabel => 'Одиниці';
 
   @override
+  String get graphLabel => 'Графік';
+
+  @override
+  String get rangeWeek => 'Тиждень';
+
+  @override
+  String get rangeMonth => 'Місяць';
+
+  @override
+  String get rangeYear => 'Рік';
+
+  @override
+  String get rangeAll => 'Усе';
+
+  @override
+  String get rangeCustom => 'Власний…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta з $date';
+  }
+
+  @override
   String get unitsAuto => 'Як у вашому регіоні';
 
   @override

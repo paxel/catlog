@@ -1150,6 +1150,29 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unitsLabel => 'Jednotky';
 
   @override
+  String get graphLabel => 'Graf';
+
+  @override
+  String get rangeWeek => 'Týden';
+
+  @override
+  String get rangeMonth => 'Měsíc';
+
+  @override
+  String get rangeYear => 'Rok';
+
+  @override
+  String get rangeAll => 'Vše';
+
+  @override
+  String get rangeCustom => 'Vlastní…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta od $date';
+  }
+
+  @override
   String get unitsAuto => 'Podle tvé oblasti';
 
   @override

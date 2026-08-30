@@ -1149,6 +1149,29 @@ class AppLocalizationsDa extends AppLocalizations {
   String get unitsLabel => 'Enheder';
 
   @override
+  String get graphLabel => 'Graf';
+
+  @override
+  String get rangeWeek => 'Uge';
+
+  @override
+  String get rangeMonth => 'Måned';
+
+  @override
+  String get rangeYear => 'År';
+
+  @override
+  String get rangeAll => 'Alt';
+
+  @override
+  String get rangeCustom => 'Tilpasset…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta siden $date';
+  }
+
+  @override
   String get unitsAuto => 'Som i din region';
 
   @override

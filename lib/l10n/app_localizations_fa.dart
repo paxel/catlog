@@ -1147,6 +1147,29 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unitsLabel => 'واحدها';
 
   @override
+  String get graphLabel => 'نمودار';
+
+  @override
+  String get rangeWeek => 'هفته';
+
+  @override
+  String get rangeMonth => 'ماه';
+
+  @override
+  String get rangeYear => 'سال';
+
+  @override
+  String get rangeAll => 'همه';
+
+  @override
+  String get rangeCustom => 'دلخواه…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta از $date';
+  }
+
+  @override
   String get unitsAuto => 'مطابق منطقهٔ شما';
 
   @override

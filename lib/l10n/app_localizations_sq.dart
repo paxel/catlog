@@ -1150,6 +1150,29 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unitsLabel => 'Njësitë';
 
   @override
+  String get graphLabel => 'Grafik';
+
+  @override
+  String get rangeWeek => 'Javë';
+
+  @override
+  String get rangeMonth => 'Muaj';
+
+  @override
+  String get rangeYear => 'Vit';
+
+  @override
+  String get rangeAll => 'Të gjitha';
+
+  @override
+  String get rangeCustom => 'I personalizuar…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta që nga $date';
+  }
+
+  @override
   String get unitsAuto => 'Si në rajonin tënd';
 
   @override

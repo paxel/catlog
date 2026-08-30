@@ -2138,6 +2138,48 @@ abstract class AppLocalizations {
   /// **'Units'**
   String get unitsLabel;
 
+  /// No description provided for @graphLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Graph'**
+  String get graphLabel;
+
+  /// No description provided for @rangeWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get rangeWeek;
+
+  /// No description provided for @rangeMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get rangeMonth;
+
+  /// No description provided for @rangeYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get rangeYear;
+
+  /// No description provided for @rangeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get rangeAll;
+
+  /// No description provided for @rangeCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom…'**
+  String get rangeCustom;
+
+  /// No description provided for @changeSince.
+  ///
+  /// In en, this message translates to:
+  /// **'{delta} since {date}'**
+  String changeSince(String delta, String date);
+
   /// No description provided for @unitsAuto.
   ///
   /// In en, this message translates to:

@@ -1128,6 +1128,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unitsLabel => '単位';
 
   @override
+  String get graphLabel => 'グラフ';
+
+  @override
+  String get rangeWeek => '週';
+
+  @override
+  String get rangeMonth => '月';
+
+  @override
+  String get rangeYear => '年';
+
+  @override
+  String get rangeAll => 'すべて';
+
+  @override
+  String get rangeCustom => 'カスタム…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$date から $delta';
+  }
+
+  @override
   String get unitsAuto => '地域に合わせる';
 
   @override

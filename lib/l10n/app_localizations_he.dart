@@ -1143,6 +1143,29 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unitsLabel => 'יחידות';
 
   @override
+  String get graphLabel => 'גרף';
+
+  @override
+  String get rangeWeek => 'שבוע';
+
+  @override
+  String get rangeMonth => 'חודש';
+
+  @override
+  String get rangeYear => 'שנה';
+
+  @override
+  String get rangeAll => 'הכל';
+
+  @override
+  String get rangeCustom => 'מותאם…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta מאז $date';
+  }
+
+  @override
   String get unitsAuto => 'כמו באזורך';
 
   @override

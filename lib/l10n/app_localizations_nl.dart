@@ -1152,6 +1152,29 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unitsLabel => 'Eenheden';
 
   @override
+  String get graphLabel => 'Grafiek';
+
+  @override
+  String get rangeWeek => 'Week';
+
+  @override
+  String get rangeMonth => 'Maand';
+
+  @override
+  String get rangeYear => 'Jaar';
+
+  @override
+  String get rangeAll => 'Alles';
+
+  @override
+  String get rangeCustom => 'Aangepast…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta sinds $date';
+  }
+
+  @override
   String get unitsAuto => 'Zoals in je regio';
 
   @override

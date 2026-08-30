@@ -1149,6 +1149,29 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unitsLabel => 'Mértékegységek';
 
   @override
+  String get graphLabel => 'Grafikon';
+
+  @override
+  String get rangeWeek => 'Hét';
+
+  @override
+  String get rangeMonth => 'Hónap';
+
+  @override
+  String get rangeYear => 'Év';
+
+  @override
+  String get rangeAll => 'Mind';
+
+  @override
+  String get rangeCustom => 'Egyéni…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta $date óta';
+  }
+
+  @override
   String get unitsAuto => 'Ahogy a régiódban';
 
   @override

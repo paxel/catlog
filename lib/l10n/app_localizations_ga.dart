@@ -1154,6 +1154,29 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unitsLabel => 'Aonaid';
 
   @override
+  String get graphLabel => 'Graf';
+
+  @override
+  String get rangeWeek => 'Seachtain';
+
+  @override
+  String get rangeMonth => 'Mí';
+
+  @override
+  String get rangeYear => 'Bliain';
+
+  @override
+  String get rangeAll => 'Uile';
+
+  @override
+  String get rangeCustom => 'Saincheaptha…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta ó $date';
+  }
+
+  @override
   String get unitsAuto => 'Mar atá i do réigiún';
 
   @override

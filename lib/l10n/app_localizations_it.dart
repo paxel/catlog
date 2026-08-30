@@ -1153,6 +1153,29 @@ class AppLocalizationsIt extends AppLocalizations {
   String get unitsLabel => 'Unità';
 
   @override
+  String get graphLabel => 'Grafico';
+
+  @override
+  String get rangeWeek => 'Settimana';
+
+  @override
+  String get rangeMonth => 'Mese';
+
+  @override
+  String get rangeYear => 'Anno';
+
+  @override
+  String get rangeAll => 'Tutto';
+
+  @override
+  String get rangeCustom => 'Personalizzato…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta dal $date';
+  }
+
+  @override
   String get unitsAuto => 'Come nella tua regione';
 
   @override

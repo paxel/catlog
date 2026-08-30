@@ -1153,6 +1153,29 @@ class AppLocalizationsIs extends AppLocalizations {
   String get unitsLabel => 'Einingar';
 
   @override
+  String get graphLabel => 'Línurit';
+
+  @override
+  String get rangeWeek => 'Vika';
+
+  @override
+  String get rangeMonth => 'Mánuður';
+
+  @override
+  String get rangeYear => 'Ár';
+
+  @override
+  String get rangeAll => 'Allt';
+
+  @override
+  String get rangeCustom => 'Sérsniðið…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta síðan $date';
+  }
+
+  @override
   String get unitsAuto => 'Eins og á þínu svæði';
 
   @override
