@@ -29,7 +29,6 @@ import 'map_screen.dart';
 import 'timeline_screen.dart';
 import '../geocode.dart';
 import 'cat_list_screen.dart';
-import 'field_graph_screen.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -297,10 +296,6 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       locateNote: _locateNote,
       locating: _locating,
       onLookup: (def, value) => openLookup(context, def, value),
-      onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) =>
-            FieldGraphScreen(store: store, entityId: id, def: def),
-      )),
       // Long-press in read mode: jump into edit mode with the field's
       // editor open — fix what you just spotted (#46).
       onReadLongPress: (def) {

@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
+import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/field_graph_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -71,5 +72,18 @@ void main() {
     await tester.tap(find.text('Week'));
     await tester.pumpAndSettle();
     expect(store.localSetting(graphRangeKey), 'week');
+  });
+
+  testWidgets('a clowder page offers no graph — the curve is the animal\'s',
+      (tester) async {
+    final home = store.createClowder('Home');
+    final id = store.defineField('Headcount', FieldType.number,
+        scope: FieldScope.clowder);
+    final headcount = store.fieldDefs().firstWhere((d) => d.id == id);
+    store.append(home, headcount.key, '3', date: DateTime(2026, 1, 1));
+    store.append(home, headcount.key, '4', date: DateTime(2026, 2, 1));
+    await pump(tester, ClowderDetailScreen(store: store, clowderId: home));
+    expect(find.text('4'), findsOneWidget);
+    expect(find.byIcon(Icons.show_chart), findsNothing);
   });
 }
