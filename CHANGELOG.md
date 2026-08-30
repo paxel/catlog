@@ -5,14 +5,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.0] - Unreleased
 
-### Security
-
-- In-person sync runs over TLS: the host uses a certificate made once
-  on the device, the pair code carries its fingerprint (all of it in
-  the QR, the first part in the typed code), and the joiner accepts no
-  other. Nobody on the same Wi-Fi reads what passes any more. Both
-  devices need 1.1.0; an older partner is named as such.
-
 ### Added
 
 - Pet mode: on the catalogs page, "This catalog holds: Cats / Pets".
@@ -27,7 +19,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Breed follows the species: a dog is offered dog breeds, a rabbit
   rabbit breeds, and a breed you type for one species is offered again
   for that species only. Cats keep the breed list as it is.
-
 - A "unit value" field type: pick what it measures — weight, length,
   volume or temperature — and enter and read it in your units (metric
   or imperial, from your region or chosen under Units in the menu)
@@ -41,6 +32,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 - "Possible stray area" on the map is a dialog with an OK button
   instead of a sheet that could only be closed by tapping beside it.
+
+### Security
+
+- In-person sync runs over TLS: the host uses a certificate made once
+  on the device, the pair code carries its fingerprint (all of it in
+  the QR, the first part in the typed code), and the joiner accepts no
+  other. Nobody on the same Wi-Fi reads what passes any more. Both
+  devices need 1.1.0; an older partner is named as such.
 
 ---
 
