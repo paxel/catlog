@@ -23,6 +23,22 @@ class PairInfo {
 /// sniffer on the same network, short enough to type.
 const typedFingerprintBytes = 8;
 
+/// A whole SHA-256 fingerprint, as the QR carries it.
+const fullFingerprintBytes = 32;
+
+/// How many base32 characters a code of [addressBytes] + port + PIN +
+/// [fingerprintBytes] takes — five bits per character, rounded up.
+int pairCodeLength(int addressBytes, int fingerprintBytes) =>
+    ((addressBytes + 5 + fingerprintBytes) * 8 + 4) ~/ 5;
+
+/// Character count → (address bytes, fingerprint bytes) for every
+/// shape a code can have; decoding tells them apart by length alone.
+final Map<int, (int, int)> _shapes = {
+  for (final address in const [4, 16])
+    for (final fp in const [0, typedFingerprintBytes, fullFingerprintBytes])
+      pairCodeLength(address, fp): (address, fp),
+};
+
 /// Whether [host] is an address on a local network — the only place
 /// an in-person sync partner can be. A typed code carrying a public
 /// address would send every public entry to a stranger on the internet
@@ -74,22 +90,12 @@ PairInfo? decodePairCode(String input) {
       .replaceAll('u', 'v');
   final bytes = _fromBase32(cleaned);
   if (bytes == null) return null;
-  // 4 or 16 address bytes, port, PIN, then no / 8 / 32 fingerprint
-  // bytes — base32 pads to a byte boundary, so lengths are matched by
-  // their character counts.
-  const v4 = {15: 0, 28: 8, 66: 32};
-  const v6 = {34: 0, 47: 8, 85: 32};
-  final int addressLength;
-  final int fpLength;
-  if (v4.containsKey(cleaned.length)) {
-    addressLength = 4;
-    fpLength = v4[cleaned.length]!;
-  } else if (v6.containsKey(cleaned.length)) {
-    addressLength = 16;
-    fpLength = v6[cleaned.length]!;
-  } else {
-    return null;
-  }
+  // 4 or 16 address bytes, port, PIN, then no / typed / full
+  // fingerprint bytes — base32 pads to a byte boundary, so the shape
+  // is matched by the character count.
+  final shape = _shapes[cleaned.length];
+  if (shape == null) return null;
+  final (addressLength, fpLength) = shape;
   if (bytes.length < addressLength + 5 + fpLength) return null;
   final address = InternetAddress.fromRawAddress(
       Uint8List.fromList(bytes.sublist(0, addressLength)));

@@ -30,4 +30,20 @@ void main() {
     expect(info.fingerprint, isNull);
     expect(decodePairCode('nonsense'), isNull);
   });
+  codeLengthTests();
+}
+
+void codeLengthTests() {
+  test('the code length follows the address and fingerprint sizes', () {
+    // 9 bytes → 15 chars, 17 → 28, 41 → 66; IPv6 21 → 34, 29 → 47, 53 → 85.
+    expect(pairCodeLength(4, 0), 15);
+    expect(pairCodeLength(4, typedFingerprintBytes), 28);
+    expect(pairCodeLength(4, fullFingerprintBytes), 66);
+    expect(pairCodeLength(16, 0), 34);
+    expect(pairCodeLength(16, typedFingerprintBytes), 47);
+    expect(pairCodeLength(16, fullFingerprintBytes), 85);
+    final fp = List<int>.generate(fullFingerprintBytes, (i) => i);
+    expect(encodePairCode('192.168.1.2', 8080, '123456', fingerprint: fp, typed: true)
+        .replaceAll('_', '').length, pairCodeLength(4, typedFingerprintBytes));
+  });
 }
