@@ -2167,6 +2167,10 @@ class AppLocalizationsBs extends AppLocalizations {
       'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara mačku ili clowder. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više mačaka je jedan termin: označi mačke, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koje su mačke tretirane — odznači ostale, ostaju planirane.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Podsjetnici prikazuju planirane termine po datumu. Postoje dvije vrste: termini s vremenom i podsjetnici koji važe za dan. Propušteni ostaju na vrhu. Dodir otvara ljubimca ili domaćinstvo. Kvačica potvrđuje termin: vrijednost se upisuje u polje i odmah možeš planirati sljedeći, na primjer za tri mjeseca. Držanje mijenja datum ili briše termin. Prekidač na vrhu zrcali termine u kalendar tvog telefona. Meni ih izvozi kao kalendarski fajl. Odlazak veterinaru s više ljubimaca je jedan termin: označi ljubimce, Agenda prikazuje jednu karticu s njihovim imenima, a pri završetku pita koji su ljubimci tretirani — odznači ostale, ostaju planirani.';
+
+  @override
   String get calendarRowOff => 'Kalendar: isključen';
 
   @override

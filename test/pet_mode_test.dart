@@ -27,6 +27,9 @@ void main() {
     expect(pets.kittensLabel, 'Young');
     // No twin: forwarded untouched.
     expect(pets.cancel, cats.cancel);
+    // Every help and spotlight text speaks of pets too.
+    expect(pets.helpAgenda, isNot(contains(' cat')));
+    expect(pets.helpAgenda, contains('pet'));
     final de = ModeLocalizations(AppLocalizationsDe(), true);
     expect(de.clowderLabel, 'Haushalt');
     expect(de.cats, 'Tiere');

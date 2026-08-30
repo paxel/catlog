@@ -2166,6 +2166,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře kočku nebo clowder. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více kočkami je jedna schůzka: zaškrtněte kočky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, které kočky byly ošetřeny — ostatní odškrtněte, zůstanou naplánované.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře mazlíčka nebo domácnost. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více mazlíčky je jedna schůzka: zaškrtněte mazlíčky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, kteří mazlíčci byli ošetřeni — ostatní odškrtněte, zůstanou naplánovaní.';
+
+  @override
   String get calendarRowOff => 'Kalendář: vypnuto';
 
   @override
