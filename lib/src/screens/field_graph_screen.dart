@@ -70,6 +70,56 @@ List<GraphPoint> pointsBetween(
         if (inRange(p.at, from, to)) p
     ];
 
+/// Where the time axis gets a tick between [from] and [to]: days over a
+/// week or two, weeks over a season, months over a year or two, years
+/// beyond — never more than eight, so the labels keep their room.
+List<DateTime> timeTicks(DateTime from, DateTime to) {
+  final days = to.difference(from).inDays;
+  final ticks = <DateTime>[];
+  DateTime next(DateTime d) {
+    if (days <= 14) return DateTime(d.year, d.month, d.day + 1);
+    if (days <= 120) return DateTime(d.year, d.month, d.day + 7);
+    if (days <= 730) return DateTime(d.year, d.month + 1, 1);
+    return DateTime(d.year + 1, 1, 1);
+  }
+
+  DateTime first() {
+    if (days <= 14) return DateTime(from.year, from.month, from.day + 1);
+    if (days <= 120) {
+      // The next Monday.
+      final day = DateTime(from.year, from.month, from.day + 1);
+      return DateTime(day.year, day.month, day.day + (8 - day.weekday) % 7);
+    }
+    if (days <= 730) return DateTime(from.year, from.month + 1, 1);
+    return DateTime(from.year + 1, 1, 1);
+  }
+
+  for (var d = first(); !d.isAfter(to); d = next(d)) {
+    if (d.isAfter(from)) ticks.add(d);
+  }
+  if (ticks.length <= 8) return ticks;
+  final stride = (ticks.length / 8).ceil();
+  return [for (var i = 0; i < ticks.length; i += stride) ticks[i]];
+}
+
+/// Round values between [lo] and [hi] for the value axis: a step of
+/// 1, 2 or 5 times a power of ten, about four steps across.
+List<double> valueTicks(double lo, double hi) {
+  if (hi <= lo) return const [];
+  final raw = (hi - lo) / 4;
+  final magnitude = math.pow(10, (math.log(raw) / math.ln10).floor());
+  // The round step whose count comes closest to four.
+  final step = [1, 2, 5, 10]
+      .map((m) => m * magnitude)
+      .reduce((a, b) =>
+          ((hi - lo) / a - 4).abs() <= ((hi - lo) / b - 4).abs() ? a : b);
+  final ticks = <double>[];
+  for (var v = (lo / step).ceil() * step; v <= hi + step * 1e-9; v += step) {
+    ticks.add(double.parse(v.toStringAsFixed(6)));
+  }
+  return ticks;
+}
+
 /// A field's history as a curve (#97): range chips, the change since
 /// the previous value, min, max and latest marked, the animal's
 /// appointments as ticks under the time axis.
@@ -215,8 +265,9 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
   }
 }
 
-/// The curve: time left to right, value bottom to top, min, max and the
-/// latest point labelled, appointment ticks along the bottom.
+/// The curve: time left to right with adaptive date ticks, value bottom
+/// to top with round numbers and faint lines, min, max and the latest
+/// point labelled, appointment ticks along the bottom.
 class GraphPainter extends CustomPainter {
   final List<GraphPoint> points;
   final DateTime? from;
@@ -240,16 +291,23 @@ class GraphPainter extends CustomPainter {
     required this.dateFormat,
   });
 
+  TextPainter _text(String s, double size) => TextPainter(
+        text: TextSpan(text: s, style: labelStyle.copyWith(fontSize: size)),
+        textDirection: TextDirection.ltr,
+      )..layout();
+
   @override
   void paint(Canvas canvas, Size size) {
-    const left = 8.0, right = 8.0, top = 20.0, bottom = 28.0;
-    final plot = Rect.fromLTRB(left, top, size.width - right, size.height - bottom);
+    const right = 8.0, top = 20.0, bottom = 28.0;
     final textColor = labelStyle.color ?? Colors.black;
     final axis = Paint()
       ..color = textColor.withValues(alpha: 0.3)
       ..strokeWidth = 1;
-    canvas.drawLine(plot.bottomLeft, plot.bottomRight, axis);
-    if (points.isEmpty || from == null) return;
+    if (points.isEmpty || from == null) {
+      canvas.drawLine(Offset(8, size.height - bottom),
+          Offset(size.width - right, size.height - bottom), axis);
+      return;
+    }
     final start = from!;
     final spanMs = math.max(1, to.difference(start).inMilliseconds);
     var lo = points.map((p) => p.value).reduce(math.min);
@@ -261,9 +319,41 @@ class GraphPainter extends CustomPainter {
     final pad = (hi - lo) * 0.1;
     lo -= pad;
     hi += pad;
+    // The value axis: round numbers in the display unit down the left,
+    // faint lines across; the axis takes the room its widest label
+    // needs.
+    final values = valueTicks(lo, hi);
+    final valueLabels = [for (final v in values) _text(format(v), 10)];
+    final left = valueLabels.isEmpty
+        ? 8.0
+        : valueLabels.map((t) => t.width).reduce(math.max) + 12;
+    final plot = Rect.fromLTRB(left, top, size.width - right, size.height - bottom);
+    canvas.drawLine(plot.bottomLeft, plot.bottomRight, axis);
     double x(DateTime d) =>
         plot.left + plot.width * d.difference(start).inMilliseconds / spanMs;
     double y(double v) => plot.bottom - plot.height * (v - lo) / (hi - lo);
+    final grid = Paint()
+      ..color = textColor.withValues(alpha: 0.12)
+      ..strokeWidth = 1;
+    for (var i = 0; i < values.length; i++) {
+      final gy = y(values[i]);
+      canvas.drawLine(Offset(plot.left, gy), Offset(plot.right, gy), grid);
+      valueLabels[i].paint(
+          canvas, Offset(plot.left - valueLabels[i].width - 6, gy - valueLabels[i].height / 2));
+    }
+    // The time axis: adaptive ticks with their dates.
+    final dates = timeTicks(start, to);
+    var lastLabelRight = plot.left - 1;
+    for (final d in dates) {
+      final tx = x(d);
+      canvas.drawLine(Offset(tx, plot.bottom), Offset(tx, plot.bottom + 4), axis);
+      final label = _text(dateFormat(d), 10);
+      final dx = (tx - label.width / 2).clamp(plot.left, plot.right - label.width);
+      if (dx > lastLabelRight + 6) {
+        label.paint(canvas, Offset(dx, plot.bottom + 10));
+        lastLabelRight = dx + label.width;
+      }
+    }
 
     final tick = Paint()
       ..color = tickColor
@@ -291,11 +381,7 @@ class GraphPainter extends CustomPainter {
     void label(GraphPoint p, {required bool above}) {
       final o = Offset(x(p.at), y(p.value));
       canvas.drawCircle(o, 4, dot);
-      final painter = TextPainter(
-        text: TextSpan(
-            text: format(p.value), style: labelStyle.copyWith(fontSize: 11)),
-        textDirection: TextDirection.ltr,
-      )..layout();
+      final painter = _text(format(p.value), 11);
       final dx = (o.dx - painter.width / 2).clamp(plot.left, plot.right - painter.width);
       final dy = above ? o.dy - painter.height - 6 : o.dy + 6;
       painter.paint(canvas, Offset(dx, dy));
@@ -309,17 +395,13 @@ class GraphPainter extends CustomPainter {
     if (!identical(last, minP) && !identical(last, maxP)) {
       label(last, above: last.value < (lo + hi) / 2);
     }
-    // First and last date under the axis.
-    for (final (d, alignRight) in [(start, false), (to, true)]) {
-      final painter = TextPainter(
-        text: TextSpan(
-            text: dateFormat(d), style: labelStyle.copyWith(fontSize: 10)),
-        textDirection: TextDirection.ltr,
-      )..layout();
-      painter.paint(
-          canvas,
-          Offset(alignRight ? plot.right - painter.width : plot.left,
-              plot.bottom + 10));
+    // The window's edges, when no tick label sits there already.
+    if (dates.isEmpty || x(dates.first) - plot.left > 60) {
+      _text(dateFormat(start), 10).paint(canvas, Offset(plot.left, plot.bottom + 10));
+    }
+    if (dates.isEmpty || plot.right - x(dates.last) > 60) {
+      final painter = _text(dateFormat(to), 10);
+      painter.paint(canvas, Offset(plot.right - painter.width, plot.bottom + 10));
     }
   }
 

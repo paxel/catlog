@@ -3,6 +3,7 @@ import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/field_graph_screen.dart';
+import 'package:catlog/src/units.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -51,6 +52,23 @@ void main() {
     expect(inRange(DateTime(2026, 2, 16), null, null), isTrue);
     expect(pointsBetween(points, DateTime(2026, 2, 15), null), hasLength(1));
     expect(pointsBetween(points, null, DateTime(2026, 2, 15)), hasLength(1));
+  });
+
+  test('time ticks adapt to the span, value ticks land on round numbers',
+      () {
+    // A week: one tick per day, inside the window.
+    final week = timeTicks(DateTime(2026, 3, 1), DateTime(2026, 3, 8));
+    expect(week, hasLength(7));
+    expect(week.first, DateTime(2026, 3, 2));
+    // A quarter: weeks. A decade: years — never more than eight.
+    expect(timeTicks(DateTime(2026, 1, 1), DateTime(2026, 4, 1)).length,
+        inInclusiveRange(4, 8));
+    final years = timeTicks(DateTime(2016, 6, 1), DateTime(2026, 6, 1));
+    expect(years.length, inInclusiveRange(4, 8));
+    expect(years.every((d) => d.month == 1 && d.day == 1), isTrue);
+    expect(valueTicks(3.9, 4.6), [4.0, 4.2, 4.4, 4.6]);
+    expect(valueTicks(0, 1000), [0, 200, 400, 600, 800, 1000]);
+    expect(valueTicks(5, 5), isEmpty);
   });
 
   testWidgets('one value shows no graph icon, two do; the page opens',
