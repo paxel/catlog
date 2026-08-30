@@ -1,5 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/src/import_summary.dart';
+import 'package:catlog/src/pet_mode.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -74,6 +75,23 @@ void main() {
     expect(applied, isNotEmpty);
 
     final summary = classifyImport(b, applied);
+    expect(summary.other, 0);
+    expect(summary.isEmpty, isTrue);
+  });
+
+  test('the pet-mode switch is configuration, not a change to report', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    addTearDown(() => petMode.value = false);
+    b.applyEntries(a.entriesSince(const {}),
+        senderVector: a.versionVector());
+    setPetMode(b, true);
+    final applied = a.applyEntries(b.entriesSince(a.versionVector()),
+        senderVector: b.versionVector());
+    expect(applied, isNotEmpty);
+    final summary = classifyImport(a, applied);
     expect(summary.other, 0);
     expect(summary.isEmpty, isTrue);
   });

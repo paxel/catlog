@@ -9,6 +9,10 @@ import 'package:flutter/foundation.dart';
 final ValueNotifier<bool> petMode = ValueNotifier(false);
 
 const catalogModeEntity = 'catalog:mode';
+
+/// Whether [entity] is a catalog-wide setting like the mode — synced
+/// like everything else, but configuration, not news about an animal.
+bool isCatalogSetting(String entity) => entity.startsWith('catalog:');
 const catalogModeField = 'mode';
 
 bool isPetMode(CatalogStore store) =>

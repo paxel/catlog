@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
+import 'pet_mode.dart';
 import 'undo_import.dart';
 import 'widgets/cat_avatar.dart';
 
@@ -52,7 +53,8 @@ ImportSummary classifyImport(CatalogStore store, List<Entry> applied) {
     // seeded with the same starter Fields, so an empty catalog arriving
     // used to report "58 other changes" — the definitions, not one cat.
     if (entity.startsWith('${Kinds.fieldDef}:') ||
-        store.current(entity, Keys.type) == Kinds.fieldDef) {
+        store.current(entity, Keys.type) == Kinds.fieldDef ||
+        isCatalogSetting(entity)) {
       continue;
     }
     if (e.field == Keys.type) {
@@ -275,7 +277,9 @@ class _SyncChangesScreen extends StatelessWidget {
       appBar: AppBar(title: Text(t.syncSummaryTitle)),
       body: ListView(children: [
         for (final e in applied.reversed)
-          if (e.field != Keys.type && e.field != Keys.private)
+          if (e.field != Keys.type &&
+              e.field != Keys.private &&
+              !isCatalogSetting(e.entity))
             ListTile(
               dense: true,
               title: Text(
