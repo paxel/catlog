@@ -1,5 +1,8 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/l10n/app_localizations_de.dart';
+import 'package:catlog/l10n/app_localizations_en.dart';
+import 'package:catlog/src/field_labels.dart';
 import 'package:catlog/src/name_date_dialog.dart';
 import 'package:catlog/src/pet_mode.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
@@ -20,6 +23,18 @@ void main() {
     expect(store.current(store.createCat('Miezi'), 'f:species'), 'cat');
     expect(store.current(store.createCat('Rex', species: 'dog'), 'f:species'),
         'dog');
+  });
+
+  test('a species value displays translated; the word cat elsewhere as is',
+      () {
+    final store = CatalogStore.inMemory()..author = 'test';
+    addTearDown(store.close);
+    final species = store.fieldDefs().firstWhere((d) => d.slug == 'species');
+    final color = store.fieldDefs().firstWhere((d) => d.slug == 'color');
+    expect(fieldValueDisplay(AppLocalizationsEn(), species, 'cat'), 'Cat');
+    expect(fieldValueDisplay(AppLocalizationsEn(), species, 'dog'), 'Dog');
+    expect(fieldValueDisplay(AppLocalizationsDe(), species, 'cat'), 'Katze');
+    expect(fieldValueDisplay(AppLocalizationsEn(), color, 'cat'), 'cat');
   });
 
   test('a dog gets dog breeds, an added one only for dogs', () {

@@ -79,8 +79,6 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
       return def?.slug == 'gender' ? t.valueMale : value;
     case 'unknown':
       return def?.slug == 'gender' ? t.valueUnknown : value;
-    case 'cat':
-      return def?.slug == 'species' ? t.valueCat : value;
   }
   if (def?.slug == 'species') return speciesDisplay(t, value);
   if (def?.slug == 'status') {
