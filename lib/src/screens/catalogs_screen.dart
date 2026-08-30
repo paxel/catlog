@@ -200,7 +200,7 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
                 ButtonSegment(value: false, label: Text(t.modeCats)),
                 ButtonSegment(value: true, label: Text(t.modePets)),
               ],
-              selected: {isPetMode(store)},
+              selected: {store.isOpen && isPetMode(store)},
               onSelectionChanged: (s) {
                 setPetMode(store, s.first);
                 _changed();
