@@ -33,6 +33,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - "Possible stray area" on the map is a dialog with an OK button
   instead of a sheet that could only be closed by tapping beside it.
 
+### Fixed
+
+- Joining in-person sync without Wi-Fi says "Connect to a Wi-Fi first"
+  right away, instead of a silent 25-second wait with the answer
+  hidden below the fold.
+
 ### Security
 
 - In-person sync runs over TLS: the host uses a certificate made once
