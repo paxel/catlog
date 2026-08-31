@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/in_person_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:catlog/src/sync/tls.dart';
@@ -90,5 +91,23 @@ void main() {
     expect(find.byType(QrImageView).evaluate().length, lessThanOrEqualTo(1));
     expect(find.text('Start hosting').evaluate().length +
         find.byType(QrImageView).evaluate().length, 1);
+  });
+
+  testWidgets('a pair code without Wi-Fi says join the Wi-Fi first',
+      (tester) async {
+    InPersonScreen.checkConnectivity =
+        () async => [ConnectivityResult.mobile];
+    addTearDown(InPersonScreen.resetConnectivityCheck);
+    await pump(tester);
+    final code = encodePairCode('192.168.1.23', 4040, '123456',
+        fingerprint: List<int>.generate(fullFingerprintBytes, (i) => i),
+        typed: true);
+    await tester.enterText(find.byType(TextField).last, code);
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(ListView), const Offset(0, -800));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Connect to a Wi-Fi first'), findsOneWidget);
+    // Nothing was attempted: no spinner, no 25-second wait.
+    expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 }

@@ -23,6 +23,31 @@ class InPersonScreen extends StatefulWidget {
 
   const InPersonScreen({super.key, required this.store});
 
+  /// How connectivity is read — tests swap it; the plugin answers
+  /// everywhere else.
+  static Future<List<ConnectivityResult>> Function() checkConnectivity =
+      _pluginConnectivity;
+
+  static Future<List<ConnectivityResult>> _pluginConnectivity() =>
+      Connectivity().checkConnectivity();
+
+  @visibleForTesting
+  static void resetConnectivityCheck() =>
+      checkConnectivity = _pluginConnectivity;
+
+  /// Whether this device sits on a local network at all. Unknown —
+  /// the plugin missing, say — counts as yes: the attempt itself will
+  /// tell, and a wrong "no" would block a working setup.
+  static Future<bool> _onWifi() async {
+    try {
+      final types = await checkConnectivity();
+      return types.contains(ConnectivityResult.wifi) ||
+          types.contains(ConnectivityResult.ethernet);
+    } catch (_) {
+      return true;
+    }
+  }
+
   @override
   State<InPersonScreen> createState() => _InPersonScreenState();
 }
@@ -262,14 +287,14 @@ class _InPersonScreenState extends State<InPersonScreen> {
         }
         return;
       }
-      await _joinWith(info.pairCode);
+      await _joinWith(info.pairCode, viaHotspot: true);
     } finally {
       await leaveHotspot();
       if (mounted) setState(() => _joining = false);
     }
   }
 
-  Future<void> _joinWith(String raw) async {
+  Future<void> _joinWith(String raw, {bool viaHotspot = false}) async {
     final info = decodePairCode(raw);
     // A code pointing outside the local network is not a pair code —
     // nothing is sent anywhere.
@@ -277,6 +302,16 @@ class _InPersonScreenState extends State<InPersonScreen> {
       setState(() => _lastResult = context.t.invalidCode);
       return;
     }
+    // Off the Wi-Fi, the host's address can never answer: name the fix
+    // now instead of timing out in silence. A hotspot join brought its
+    // own network a moment ago — connectivity may still be catching up.
+    if (!viaHotspot && !await InPersonScreen._onWifi()) {
+      if (mounted) {
+        setState(() => _lastResult = context.t.connectToWifiFirst);
+      }
+      return;
+    }
+    if (!mounted) return;
     // A code without a fingerprint comes from a version before TLS.
     if (info.fingerprint == null) {
       setState(() => _lastResult = context.t.syncPeerNoTls);
