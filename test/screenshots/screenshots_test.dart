@@ -24,6 +24,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:catlog/src/screens/field_graph_screen.dart';
 import 'package:catlog/src/screens/agenda_screen.dart';
+import 'package:catlog/src/fur_background.dart';
 import 'package:catlog/src/pet_mode.dart';
 
 Future<void> _loadRealFonts() async {
@@ -137,11 +138,25 @@ void main() {
     await _loadRealFonts();
   });
 
+  // The coat under each page — pinned, so the shots are reproducible.
+  const coats = {
+    '01-home': FurPattern.tabby,
+    '02-clowder': FurPattern.cheetah,
+    '03-cat': FurPattern.rosettes,
+    '04-card': FurPattern.paws,
+    '05-timeline': FurPattern.tiger,
+    '06-map': FurPattern.tabby,
+    '07-graph': FurPattern.cheetah,
+    '08-agenda': FurPattern.zebra,
+    '09-pets': FurPattern.paws,
+  };
+
   Future<void> shoot(WidgetTester tester, Widget home, String name,
       {Size physical = const Size(820, 1660), double dpr = 2}) async {
     tester.view.physicalSize = physical;
     tester.view.devicePixelRatio = dpr;
     addTearDown(tester.view.reset);
+    activeFur = coats[name.substring(name.indexOf('-0') + 1)]!;
     final key = GlobalKey();
     await tester.pumpWidget(RepaintBoundary(
       key: key,
@@ -151,8 +166,9 @@ void main() {
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          scaffoldBackgroundColor: Colors.transparent,
         ),
-        home: home,
+        home: FurBackground(child: home),
       ),
     ));
     await tester.pump(const Duration(milliseconds: 500));
