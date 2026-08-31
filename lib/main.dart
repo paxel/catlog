@@ -13,6 +13,7 @@ import 'src/crash_guard.dart';
 import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
+import 'src/fur_background.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -276,10 +277,10 @@ class _CatlogAppState extends State<CatlogApp>
         // Edge-to-edge (Android 15 enforces it): the 3-button nav bar
         // floats over the app and swallowed bottom buttons. Inset the
         // whole app above it; AppBars keep handling the top themselves.
-        builder: (context, child) => ColoredBox(
-          // Paint the strip behind the system nav bar in app surface
-          // color instead of raw black.
-          color: Theme.of(context).colorScheme.surface,
+        // The fur ground (#99): scaffolds are transparent, this layer
+        // carries the coat — and paints the strip behind the system
+        // nav bar instead of raw black.
+        builder: (context, child) => FurBackground(
           child: SafeArea(
           top: false,
           child: CallbackShortcuts(
@@ -310,6 +311,8 @@ class _CatlogAppState extends State<CatlogApp>
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          // The pages sit on the fur ground the builder paints.
+          scaffoldBackgroundColor: Colors.transparent,
           // Desktop gets desktop density and hover manners for free.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

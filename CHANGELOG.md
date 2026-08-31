@@ -30,6 +30,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Changed
 
+- The pages sit on a quiet fur coat instead of a plain surface: beige
+  on beige (dark on dark at night), one of six patterns — cheetah,
+  tiger, tabby, paw prints, leopard rosettes, zebra — picked anew each
+  time the app opens.
+
 - "Possible stray area" on the map is a dialog with an OK button
   instead of a sheet that could only be closed by tapping beside it.
 
