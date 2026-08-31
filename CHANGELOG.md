@@ -35,6 +35,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- On iPhone and iPad, holding Stray Cam to film no longer closes the
+  app: filming needs a microphone entry iOS insists on. The sound is
+  thrown away; only the frames you pick are kept.
 - Joining in-person sync without Wi-Fi says "Connect to a Wi-Fi first"
   right away, instead of a silent 25-second wait with the answer
   hidden below the fold.
