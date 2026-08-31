@@ -535,8 +535,11 @@ class PairCodeFormatter extends TextInputFormatter {
         .toLowerCase()
         .replaceAll(RegExp('[^0-9a-z]'), '');
     final buffer = StringBuffer();
-    for (var i = 0; i < raw.length && i < 15; i++) {
-      if (i == 5 || i == 10) buffer.write('_');
+    // The longest code there is: IPv6 carrying the whole fingerprint,
+    // as a QR payload pasted into the field.
+    final max = pairCodeLength(16, fullFingerprintBytes);
+    for (var i = 0; i < raw.length && i < max; i++) {
+      if (i > 0 && i % 5 == 0) buffer.write('_');
       buffer.write(raw[i]);
     }
     final text = buffer.toString();
