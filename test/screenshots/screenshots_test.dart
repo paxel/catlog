@@ -247,7 +247,11 @@ void main() {
     // Google Play set (9:16), into docs/screenshots/play/ — copied to
     // catlog-ops/play/shots by hand.
     Directory('docs/screenshots/play').createSync(recursive: true);
+    // Play's 10-inch tablet set: 9:16, logical 720x1280 — a tablet's
+    // worth of content, into docs/screenshots/tablet/.
+    Directory('docs/screenshots/tablet').createSync(recursive: true);
     const play = Size(1080, 1920);
+    const tablet = Size(1440, 2560);
     for (final entry in shots.entries) {
       petMode.value = entry.key == '09-pets';
       await shoot(tester, entry.value(), 'appstore/iphone-${entry.key}',
@@ -256,6 +260,8 @@ void main() {
           physical: pad, dpr: 2);
       await shoot(tester, entry.value(), 'play/play-${entry.key}',
           physical: play, dpr: 3);
+      await shoot(tester, entry.value(), 'tablet/tablet10-${entry.key}',
+          physical: tablet, dpr: 2);
     }
     petMode.value = false;
   });
