@@ -1990,7 +1990,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním zobrazeného slova.';
+    return 'Všetko v katalógu $name zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti.';
   }
 
   @override

@@ -1991,7 +1991,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Tudo em $name desaparece: os gatos, as fotos, o histórico. Primeiro é guardado um ficheiro completo onde vão as cópias automáticas; importá-lo traz o catálogo de volta. Escreve a palavra mostrada para confirmar.';
+    return 'Tudo em $name desaparece: os gatos, as fotos, o histórico. Primeiro é guardado um ficheiro completo onde vão as cópias automáticas; importá-lo traz o catálogo de volta.';
   }
 
   @override

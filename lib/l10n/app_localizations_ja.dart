@@ -1929,7 +1929,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため表示された言葉を入力してください。';
+    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。';
   }
 
   @override

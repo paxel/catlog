@@ -271,56 +271,29 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
   }
 }
 
-/// Deleting asks for the word shown to be typed: the export makes the
-/// deletion recoverable, not painless, and every catalog is one tap
-/// away from every other in the switcher. The word, not the name — a
-/// long name may not even fit on the screen.
-class _DeleteCatalogDialog extends StatefulWidget {
+/// Deleting asks once, plainly: the export makes the deletion
+/// recoverable, and a typed word is no safety — the keyboard completes
+/// it — only an annoyance.
+class _DeleteCatalogDialog extends StatelessWidget {
   final CatalogInfo catalog;
 
   const _DeleteCatalogDialog({required this.catalog});
 
   @override
-  State<_DeleteCatalogDialog> createState() => _DeleteCatalogDialogState();
-}
-
-class _DeleteCatalogDialogState extends State<_DeleteCatalogDialog> {
-  final _typed = TextEditingController();
-
-  @override
-  void dispose() {
-    _typed.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final matches = confirmsDelete(_typed.text, t);
     return AlertDialog(
       title: Text(t.deleteCatalog),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(t.deleteCatalogBody(widget.catalog.name)),
-          const SizedBox(height: 12),
-          TextField(
-            controller: _typed,
-            autofocus: true,
-            decoration: InputDecoration(
-              labelText: t.typeTheName(deleteWord(t)),
-            ),
-            onChanged: (_) => setState(() {}),
-          ),
-        ],
-      ),
+      content: Text(t.deleteCatalogBody(catalog.name)),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
           child: Text(t.cancel),
         ),
         FilledButton(
-          onPressed: matches ? () => Navigator.of(context).pop(true) : null,
+          style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.error),
+          onPressed: () => Navigator.of(context).pop(true),
           child: Text(t.delete),
         ),
       ],

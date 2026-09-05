@@ -578,7 +578,7 @@
   "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.",
   "deleteCatalog": "Kataloğu sil",
   "catalogSettings": "Katalog ayarları",
-  "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için gösterilen sözcüğü yaz.",
+  "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir.",
   "deleteCatalogBodyNeutral": "{name} içindeki her şey gider: evcil hayvanlar, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

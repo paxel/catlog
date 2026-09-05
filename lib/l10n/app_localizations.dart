@@ -3575,7 +3575,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteCatalogBody.
   ///
   /// In en, this message translates to:
-  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the word shown to confirm.'**
+  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back.'**
   String deleteCatalogBody(String name);
 
   /// No description provided for @deleteCatalogBodyNeutral.

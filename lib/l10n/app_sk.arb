@@ -578,7 +578,7 @@
   "spotHomeCatalog": "Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.",
   "deleteCatalog": "Zmazať katalóg",
   "catalogSettings": "Nastavenia katalógu",
-  "deleteCatalogBody": "Všetko v katalógu {name} zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním zobrazeného slova.",
+  "deleteCatalogBody": "Všetko v katalógu {name} zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti.",
   "deleteCatalogBodyNeutral": "Všetko v katalógu {name} zmizne: miláčikovia, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

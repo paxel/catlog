@@ -578,7 +578,7 @@
   "spotHomeCatalog": "Tai katalogas, kuriame esi. Bakstelėk pavadinimą, kad perjungtum ar sukurtum naują.",
   "deleteCatalog": "Ištrinti katalogą",
   "catalogSettings": "Katalogo nustatymai",
-  "deleteCatalogBody": "Viskas kataloge {name} dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas parodytą žodį.",
+  "deleteCatalogBody": "Viskas kataloge {name} dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta.",
   "deleteCatalogBodyNeutral": "Viskas kataloge {name} dingsta: augintiniai, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

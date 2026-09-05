@@ -233,17 +233,16 @@ void main() {
       expect(catalogs.catalogs(), hasLength(2));
     });
 
-    testWidgets('a mistyped name deletes nothing', (tester) async {
+    testWidgets('Cancel deletes nothing', (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'DELET');
+      // One plain question, no word to type.
+      expect(find.byType(TextField), findsNothing);
+      await tester.tap(find.text('Cancel'));
       await tester.pumpAndSettle();
-      final button = tester.widget<FilledButton>(
-          find.widgetWithText(FilledButton, 'Delete'));
-      expect(button.onPressed, isNull);
       expect(catalogs.catalogs(), hasLength(2));
     });
 
@@ -257,8 +256,6 @@ void main() {
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'delete');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
@@ -285,8 +282,6 @@ void main() {
       await pumpManage(tester);
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'delete');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
@@ -320,8 +315,6 @@ void main() {
           of: find.text('Kathrin'), matching: find.byType(ListTile));
       await tester.tap(find.descendant(
           of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'DELETE');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();

@@ -1988,7 +1988,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Allt i $name försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen. Skriv det visade ordet för att bekräfta.';
+    return 'Allt i $name försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen.';
   }
 
   @override

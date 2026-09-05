@@ -14,6 +14,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ### Fixed
 
+- Deleting a catalog or a person's data asks one plain question
+  instead of demanding a typed word, which the keyboard completed
+  anyway.
+
 - Photos picked from a video appear one by one as they are added,
   with a progress line, instead of all at once after a silent wait.
 

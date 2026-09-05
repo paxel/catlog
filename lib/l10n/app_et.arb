@@ -578,7 +578,7 @@
   "spotHomeCatalog": "See on kataloog, milles oled. Puuduta nime, et vahetada või uus luua.",
   "deleteCatalog": "Kustuta kataloog",
   "catalogSettings": "Kataloogi seaded",
-  "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta näidatud sõna.",
+  "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi.",
   "deleteCatalogBodyNeutral": "Kõik kataloogis {name} kaob: lemmikloomad, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

@@ -578,7 +578,7 @@
   "spotHomeCatalog": "To katalog, w którym jesteś. Dotknij nazwy, aby przełączyć lub utworzyć nowy.",
   "deleteCatalog": "Usuń katalog",
   "catalogSettings": "Ustawienia katalogu",
-  "deleteCatalogBody": "Wszystko w katalogu {name} znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz pokazane słowo, aby potwierdzić.",
+  "deleteCatalogBody": "Wszystko w katalogu {name} znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog.",
   "deleteCatalogBodyNeutral": "Wszystko w katalogu {name} znika: zwierzęta, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz nazwę, aby potwierdzić.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

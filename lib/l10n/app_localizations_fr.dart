@@ -1997,7 +1997,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Tout ce qui est dans $name disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le mot affiché pour confirmer.';
+    return 'Tout ce qui est dans $name disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue.';
   }
 
   @override

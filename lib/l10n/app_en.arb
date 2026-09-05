@@ -902,7 +902,7 @@
   "spotHomeCatalog": "This is the catalog you are in. Tap the name to switch, or to make another one.",
   "deleteCatalog": "Delete catalog",
   "catalogSettings": "Catalog settings",
-  "deleteCatalogBody": "Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the word shown to confirm.",
+  "deleteCatalogBody": "Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back.",
   "deleteCatalogBodyNeutral": "Everything in {name} goes: its pets, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},

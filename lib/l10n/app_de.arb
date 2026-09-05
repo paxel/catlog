@@ -569,7 +569,7 @@
   "spotHomeCatalog": "Das ist der Katalog, in dem du bist. Tippe auf den Namen, um zu wechseln oder einen weiteren anzulegen.",
   "deleteCatalog": "Katalog löschen",
   "catalogSettings": "Katalog-Einstellungen",
-  "deleteCatalogBody": "Alles in {name} verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe das angezeigte Wort ein, um zu bestätigen.",
+  "deleteCatalogBody": "Alles in {name} verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück.",
   "deleteCatalogBodyNeutral": "Alles in {name} verschwindet: Tiere, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe den Namen ein, um zu bestätigen.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},

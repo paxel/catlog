@@ -578,7 +578,7 @@
   "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega.",
   "deleteCatalog": "Izbriši katalog",
   "catalogSettings": "Nastavitve kataloga",
-  "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši prikazano besedo.",
+  "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne.",
   "deleteCatalogBodyNeutral": "Vse v katalogu {name} izgine: ljubljenčki, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

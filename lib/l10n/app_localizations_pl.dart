@@ -1992,7 +1992,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Wszystko w katalogu $name znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz pokazane słowo, aby potwierdzić.';
+    return 'Wszystko w katalogu $name znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog.';
   }
 
   @override

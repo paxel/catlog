@@ -1990,7 +1990,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj fjalën e shfaqur për të konfirmuar.';
+    return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht.';
   }
 
   @override

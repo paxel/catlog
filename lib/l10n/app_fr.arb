@@ -578,7 +578,7 @@
   "spotHomeCatalog": "Voici le catalogue dans lequel tu es. Touche le nom pour changer ou en créer un autre.",
   "deleteCatalog": "Supprimer le catalogue",
   "catalogSettings": "Réglages du catalogue",
-  "deleteCatalogBody": "Tout ce qui est dans {name} disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le mot affiché pour confirmer.",
+  "deleteCatalogBody": "Tout ce qui est dans {name} disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue.",
   "deleteCatalogBodyNeutral": "Tout ce qui est dans {name} disparaît : ses animaux, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le nom pour confirmer.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {
