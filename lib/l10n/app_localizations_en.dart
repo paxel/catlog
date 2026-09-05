@@ -1191,6 +1191,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locateAddress => 'Find address on the map';
 
   @override
+  String get addressFoundTitle => 'Address found';
+
+  @override
+  String get replaceAddressOption => 'Replace the address with this';
+
+  @override
+  String get addPositionOption => 'Save the location';
+
+  @override
   String get addressLocated => 'Address found';
 
   @override

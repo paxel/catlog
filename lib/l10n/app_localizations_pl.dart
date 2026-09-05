@@ -1192,6 +1192,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get locateAddress => 'Znajdź adres na mapie';
 
   @override
+  String get addressFoundTitle => 'Znaleziono adres';
+
+  @override
+  String get replaceAddressOption => 'Zastąp adres znalezionym';
+
+  @override
+  String get addPositionOption => 'Zapisz lokalizację';
+
+  @override
   String get addressLocated => 'Adres znaleziony';
 
   @override

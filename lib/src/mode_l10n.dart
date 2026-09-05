@@ -52,6 +52,9 @@ class ModeLocalizations implements AppLocalizations {
   String get addPhotosTo => base.addPhotosTo;
 
   @override
+  String get addPositionOption => base.addPositionOption;
+
+  @override
   String get addReminder => base.addReminder;
 
   @override
@@ -59,6 +62,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get addressFormatHint => base.addressFormatHint;
+
+  @override
+  String get addressFoundTitle => base.addressFoundTitle;
 
   @override
   String get addressFromHost => base.addressFromHost;
@@ -1361,6 +1367,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get repeatTitle => base.repeatTitle;
+
+  @override
+  String get replaceAddressOption => base.replaceAddressOption;
 
   @override
   String get reportProblemOrIdea => base.reportProblemOrIdea;

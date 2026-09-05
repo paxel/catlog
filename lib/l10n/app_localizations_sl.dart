@@ -1193,6 +1193,15 @@ class AppLocalizationsSl extends AppLocalizations {
   String get locateAddress => 'Poišči naslov na zemljevidu';
 
   @override
+  String get addressFoundTitle => 'Naslov najden';
+
+  @override
+  String get replaceAddressOption => 'Zamenjaj naslov s tem';
+
+  @override
+  String get addPositionOption => 'Shrani lokacijo';
+
+  @override
   String get addressLocated => 'Naslov najden';
 
   @override

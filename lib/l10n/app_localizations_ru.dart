@@ -1193,6 +1193,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get locateAddress => 'Найти адрес на карте';
 
   @override
+  String get addressFoundTitle => 'Адрес найден';
+
+  @override
+  String get replaceAddressOption => 'Заменить адрес найденным';
+
+  @override
+  String get addPositionOption => 'Сохранить местоположение';
+
+  @override
   String get addressLocated => 'Адрес найден';
 
   @override

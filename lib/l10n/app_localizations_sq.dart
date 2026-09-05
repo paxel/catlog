@@ -1192,6 +1192,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get locateAddress => 'Gjej adresën në hartë';
 
   @override
+  String get addressFoundTitle => 'Adresa u gjet';
+
+  @override
+  String get replaceAddressOption => 'Zëvendëso adresën me këtë';
+
+  @override
+  String get addPositionOption => 'Ruaj vendndodhjen';
+
+  @override
   String get addressLocated => 'Adresa u gjet';
 
   @override

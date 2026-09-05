@@ -1197,6 +1197,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get locateAddress => 'Aimsigh an seoladh ar an léarscáil';
 
   @override
+  String get addressFoundTitle => 'Aimsíodh an seoladh';
+
+  @override
+  String get replaceAddressOption => 'An seoladh a athrú go dtí é seo';
+
+  @override
+  String get addPositionOption => 'An suíomh a shábháil';
+
+  @override
   String get addressLocated => 'Seoladh aimsithe';
 
   @override

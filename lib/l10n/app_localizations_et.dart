@@ -1191,6 +1191,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get locateAddress => 'Otsi aadress kaardilt';
 
   @override
+  String get addressFoundTitle => 'Aadress leitud';
+
+  @override
+  String get replaceAddressOption => 'Asenda aadress sellega';
+
+  @override
+  String get addPositionOption => 'Salvesta asukoht';
+
+  @override
   String get addressLocated => 'Aadress leitud';
 
   @override

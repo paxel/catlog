@@ -1193,6 +1193,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get locateAddress => 'Procurar a morada no mapa';
 
   @override
+  String get addressFoundTitle => 'Endereço encontrado';
+
+  @override
+  String get replaceAddressOption => 'Substituir a morada por esta';
+
+  @override
+  String get addPositionOption => 'Guardar a localização';
+
+  @override
   String get addressLocated => 'Morada encontrada';
 
   @override

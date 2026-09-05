@@ -1190,6 +1190,15 @@ class AppLocalizationsNo extends AppLocalizations {
   String get locateAddress => 'Finn adressen på kartet';
 
   @override
+  String get addressFoundTitle => 'Adresse funnet';
+
+  @override
+  String get replaceAddressOption => 'Erstatt adressen med denne';
+
+  @override
+  String get addPositionOption => 'Lagre plasseringen';
+
+  @override
   String get addressLocated => 'Adresse funnet';
 
   @override

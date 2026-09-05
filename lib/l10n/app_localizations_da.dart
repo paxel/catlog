@@ -1193,6 +1193,15 @@ class AppLocalizationsDa extends AppLocalizations {
   String get locateAddress => 'Find adressen på kortet';
 
   @override
+  String get addressFoundTitle => 'Adresse fundet';
+
+  @override
+  String get replaceAddressOption => 'Erstat adressen med denne';
+
+  @override
+  String get addPositionOption => 'Gem placeringen';
+
+  @override
   String get addressLocated => 'Adresse fundet';
 
   @override

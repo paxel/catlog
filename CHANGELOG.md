@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.1] - Unreleased
 
+### Changed
+
+- "Find address on the map" no longer writes silently: a dialog shows
+  the place it found and asks whether to save the location and whether
+  to replace the typed address with the found wording.
+
 ### Fixed
 
 - Panning the map away from a still-loading tile no longer records a

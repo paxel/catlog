@@ -1191,6 +1191,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get locateAddress => 'Nájsť adresu na mape';
 
   @override
+  String get addressFoundTitle => 'Adresa nájdená';
+
+  @override
+  String get replaceAddressOption => 'Nahradiť adresu touto';
+
+  @override
+  String get addPositionOption => 'Uložiť polohu';
+
+  @override
   String get addressLocated => 'Adresa nájdená';
 
   @override

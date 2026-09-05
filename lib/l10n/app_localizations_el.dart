@@ -1199,6 +1199,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
 
   @override
+  String get addressFoundTitle => 'Η διεύθυνση βρέθηκε';
+
+  @override
+  String get replaceAddressOption => 'Αντικατάσταση της διεύθυνσης με αυτήν';
+
+  @override
+  String get addPositionOption => 'Αποθήκευση της τοποθεσίας';
+
+  @override
   String get addressLocated => 'Η διεύθυνση βρέθηκε';
 
   @override

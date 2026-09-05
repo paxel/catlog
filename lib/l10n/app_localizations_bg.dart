@@ -1194,6 +1194,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get locateAddress => 'Намери адреса на картата';
 
   @override
+  String get addressFoundTitle => 'Адресът е намерен';
+
+  @override
+  String get replaceAddressOption => 'Замени адреса с този';
+
+  @override
+  String get addPositionOption => 'Запази местоположението';
+
+  @override
   String get addressLocated => 'Адресът е намерен';
 
   @override

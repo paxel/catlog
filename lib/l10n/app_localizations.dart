@@ -2186,6 +2186,24 @@ abstract class AppLocalizations {
   /// **'Find address on the map'**
   String get locateAddress;
 
+  /// No description provided for @addressFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address found'**
+  String get addressFoundTitle;
+
+  /// No description provided for @replaceAddressOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace the address with this'**
+  String get replaceAddressOption;
+
+  /// No description provided for @addPositionOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Save the location'**
+  String get addPositionOption;
+
   /// No description provided for @addressLocated.
   ///
   /// In en, this message translates to:

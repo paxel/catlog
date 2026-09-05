@@ -1193,6 +1193,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get locateAddress => 'Знайти адресу на карті';
 
   @override
+  String get addressFoundTitle => 'Адресу знайдено';
+
+  @override
+  String get replaceAddressOption => 'Замінити адресу знайденою';
+
+  @override
+  String get addPositionOption => 'Зберегти місцезнаходження';
+
+  @override
   String get addressLocated => 'Адресу знайдено';
 
   @override

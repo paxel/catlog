@@ -1188,6 +1188,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get locateAddress => 'ابحث عن العنوان على الخريطة';
 
   @override
+  String get addressFoundTitle => 'تم العثور على العنوان';
+
+  @override
+  String get replaceAddressOption => 'استبدال العنوان بهذا';
+
+  @override
+  String get addPositionOption => 'حفظ الموقع';
+
+  @override
   String get addressLocated => 'تم العثور على العنوان';
 
   @override

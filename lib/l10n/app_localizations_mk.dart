@@ -1197,6 +1197,15 @@ class AppLocalizationsMk extends AppLocalizations {
   String get locateAddress => 'Најди ја адресата на картата';
 
   @override
+  String get addressFoundTitle => 'Адресата е најдена';
+
+  @override
+  String get replaceAddressOption => 'Замени ја адресата со оваа';
+
+  @override
+  String get addPositionOption => 'Зачувај ја локацијата';
+
+  @override
   String get addressLocated => 'Адресата е најдена';
 
   @override

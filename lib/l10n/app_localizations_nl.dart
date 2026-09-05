@@ -1196,6 +1196,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get locateAddress => 'Adres op de kaart zoeken';
 
   @override
+  String get addressFoundTitle => 'Adres gevonden';
+
+  @override
+  String get replaceAddressOption => 'Adres vervangen door dit';
+
+  @override
+  String get addPositionOption => 'Locatie opslaan';
+
+  @override
   String get addressLocated => 'Adres gevonden';
 
   @override

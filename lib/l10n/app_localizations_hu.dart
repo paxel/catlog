@@ -1192,6 +1192,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get locateAddress => 'Cím keresése a térképen';
 
   @override
+  String get addressFoundTitle => 'Cím megtalálva';
+
+  @override
+  String get replaceAddressOption => 'A cím cseréje erre';
+
+  @override
+  String get addPositionOption => 'Hely mentése';
+
+  @override
   String get addressLocated => 'Cím megtalálva';
 
   @override

@@ -1185,6 +1185,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get locateAddress => 'מצא את הכתובת במפה';
 
   @override
+  String get addressFoundTitle => 'הכתובת נמצאה';
+
+  @override
+  String get replaceAddressOption => 'החלפת הכתובת בזו';
+
+  @override
+  String get addPositionOption => 'שמירת המיקום';
+
+  @override
   String get addressLocated => 'הכתובת נמצאה';
 
   @override

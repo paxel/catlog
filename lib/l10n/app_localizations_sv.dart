@@ -1192,6 +1192,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get locateAddress => 'Hitta adressen på kartan';
 
   @override
+  String get addressFoundTitle => 'Adress hittad';
+
+  @override
+  String get replaceAddressOption => 'Ersätt adressen med denna';
+
+  @override
+  String get addPositionOption => 'Spara platsen';
+
+  @override
   String get addressLocated => 'Adress hittad';
 
   @override

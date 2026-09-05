@@ -79,15 +79,67 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       hits = const [];
     }
     if (!mounted) return;
-    setState(() {
-      _locating = false;
-      if (hits.isEmpty) {
-        _locateNote = context.t.addressNotFound;
-      } else {
-        store.recordPosition(id, hits.first.lat, hits.first.lon);
-        _locateNote = hits.first.name;
-      }
-    });
+    setState(() => _locating = false);
+    if (hits.isEmpty) {
+      setState(() => _locateNote = context.t.addressNotFound);
+      return;
+    }
+    final hit = hits.first;
+    final choice = await _offerFoundAddress(hit.name);
+    if (choice == null || !mounted) return;
+    if (choice.addPosition) store.recordPosition(id, hit.lat, hit.lon);
+    if (choice.replaceAddress) {
+      store.append(id, Keys.userField('address'), hit.name);
+    }
+    setState(() {});
+  }
+
+  /// The found place, offered instead of silently written (#101): take
+  /// the position, and on request the found wording as the address.
+  Future<({bool replaceAddress, bool addPosition})?> _offerFoundAddress(
+      String name) {
+    var replaceAddress = false;
+    var addPosition = true;
+    return showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(context.t.addressFoundTitle),
+          content: Column(mainAxisSize: MainAxisSize.min, children: [
+            Align(alignment: AlignmentDirectional.centerStart,
+                child: Text(name)),
+            const SizedBox(height: 8),
+            CheckboxListTile(
+              value: addPosition,
+              contentPadding: EdgeInsets.zero,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: Text(context.t.addPositionOption),
+              onChanged: (v) =>
+                  setDialogState(() => addPosition = v ?? false),
+            ),
+            CheckboxListTile(
+              value: replaceAddress,
+              contentPadding: EdgeInsets.zero,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: Text(context.t.replaceAddressOption),
+              onChanged: (v) =>
+                  setDialogState(() => replaceAddress = v ?? false),
+            ),
+          ]),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(context.t.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(context).pop(
+                  (replaceAddress: replaceAddress, addPosition: addPosition)),
+              child: Text(context.t.ok),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override

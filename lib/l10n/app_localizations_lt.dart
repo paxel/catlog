@@ -1193,6 +1193,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get locateAddress => 'Rasti adresą žemėlapyje';
 
   @override
+  String get addressFoundTitle => 'Adresas rastas';
+
+  @override
+  String get replaceAddressOption => 'Pakeisti adresą šiuo';
+
+  @override
+  String get addPositionOption => 'Išsaugoti vietą';
+
+  @override
   String get addressLocated => 'Adresas rastas';
 
   @override

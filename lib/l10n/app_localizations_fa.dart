@@ -1189,6 +1189,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get locateAddress => 'یافتن نشانی روی نقشه';
 
   @override
+  String get addressFoundTitle => 'نشانی پیدا شد';
+
+  @override
+  String get replaceAddressOption => 'جایگزینی نشانی با این';
+
+  @override
+  String get addPositionOption => 'ذخیرهٔ موقعیت';
+
+  @override
   String get addressLocated => 'نشانی پیدا شد';
 
   @override

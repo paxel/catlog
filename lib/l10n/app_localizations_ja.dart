@@ -1168,6 +1168,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get locateAddress => '住所を地図で探す';
 
   @override
+  String get addressFoundTitle => '住所が見つかりました';
+
+  @override
+  String get replaceAddressOption => '住所をこれに置き換える';
+
+  @override
+  String get addPositionOption => '位置を保存する';
+
+  @override
   String get addressLocated => '住所が見つかりました';
 
   @override

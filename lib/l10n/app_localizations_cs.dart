@@ -1192,6 +1192,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get locateAddress => 'Najít adresu na mapě';
 
   @override
+  String get addressFoundTitle => 'Adresa nalezena';
+
+  @override
+  String get replaceAddressOption => 'Nahradit adresu touto';
+
+  @override
+  String get addPositionOption => 'Uložit polohu';
+
+  @override
   String get addressLocated => 'Adresa nalezena';
 
   @override

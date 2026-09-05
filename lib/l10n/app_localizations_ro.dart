@@ -1194,6 +1194,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get locateAddress => 'Caută adresa pe hartă';
 
   @override
+  String get addressFoundTitle => 'Adresă găsită';
+
+  @override
+  String get replaceAddressOption => 'Înlocuiește adresa cu aceasta';
+
+  @override
+  String get addPositionOption => 'Salvează locația';
+
+  @override
   String get addressLocated => 'Adresă găsită';
 
   @override

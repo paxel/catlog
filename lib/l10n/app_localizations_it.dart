@@ -1196,6 +1196,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get locateAddress => 'Trova l\'indirizzo sulla mappa';
 
   @override
+  String get addressFoundTitle => 'Indirizzo trovato';
+
+  @override
+  String get replaceAddressOption => 'Sostituisci l\'indirizzo con questo';
+
+  @override
+  String get addPositionOption => 'Salva la posizione geografica';
+
+  @override
   String get addressLocated => 'Indirizzo trovato';
 
   @override

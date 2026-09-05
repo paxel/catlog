@@ -1195,6 +1195,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get locateAddress => 'Sib l-indirizz fuq il-mappa';
 
   @override
+  String get addressFoundTitle => 'Indirizz misjub';
+
+  @override
+  String get replaceAddressOption => 'Ibdel l-indirizz b\'dan';
+
+  @override
+  String get addPositionOption => 'Aħżen il-post';
+
+  @override
   String get addressLocated => 'L-indirizz instab';
 
   @override

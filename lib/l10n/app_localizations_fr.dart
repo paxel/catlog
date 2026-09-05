@@ -1196,6 +1196,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get locateAddress => 'Trouver l\'adresse sur la carte';
 
   @override
+  String get addressFoundTitle => 'Adresse trouvée';
+
+  @override
+  String get replaceAddressOption => 'Remplacer l\'adresse par celle-ci';
+
+  @override
+  String get addPositionOption => 'Enregistrer l\'emplacement';
+
+  @override
   String get addressLocated => 'Adresse trouvée';
 
   @override

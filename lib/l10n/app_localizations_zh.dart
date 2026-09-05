@@ -1152,6 +1152,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get locateAddress => '在地图上查找地址';
 
   @override
+  String get addressFoundTitle => '找到地址';
+
+  @override
+  String get replaceAddressOption => '用它替换地址';
+
+  @override
+  String get addPositionOption => '保存位置';
+
+  @override
   String get addressLocated => '已找到地址';
 
   @override

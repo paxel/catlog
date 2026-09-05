@@ -1194,6 +1194,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get locateAddress => 'Etsi osoite kartalta';
 
   @override
+  String get addressFoundTitle => 'Osoite löytyi';
+
+  @override
+  String get replaceAddressOption => 'Korvaa osoite tällä';
+
+  @override
+  String get addPositionOption => 'Tallenna sijainti';
+
+  @override
   String get addressLocated => 'Osoite löytyi';
 
   @override

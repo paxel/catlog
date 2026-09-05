@@ -1198,6 +1198,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get locateAddress => 'Adresse auf der Karte suchen';
 
   @override
+  String get addressFoundTitle => 'Adresse gefunden';
+
+  @override
+  String get replaceAddressOption => 'Adresse durch diese ersetzen';
+
+  @override
+  String get addPositionOption => 'Standort übernehmen';
+
+  @override
   String get addressLocated => 'Adresse gefunden';
 
   @override

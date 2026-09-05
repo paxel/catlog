@@ -1196,6 +1196,15 @@ class AppLocalizationsIs extends AppLocalizations {
   String get locateAddress => 'Finna heimilisfang á korti';
 
   @override
+  String get addressFoundTitle => 'Heimilisfang fannst';
+
+  @override
+  String get replaceAddressOption => 'Skipta heimilisfanginu út fyrir þetta';
+
+  @override
+  String get addPositionOption => 'Vista staðsetninguna';
+
+  @override
   String get addressLocated => 'Heimilisfang fannst';
 
   @override

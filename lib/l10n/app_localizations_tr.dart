@@ -1191,6 +1191,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get locateAddress => 'Adresi haritada bul';
 
   @override
+  String get addressFoundTitle => 'Adres bulundu';
+
+  @override
+  String get replaceAddressOption => 'Adresi bununla değiştir';
+
+  @override
+  String get addPositionOption => 'Konumu kaydet';
+
+  @override
   String get addressLocated => 'Adres bulundu';
 
   @override
