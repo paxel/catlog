@@ -1520,6 +1520,11 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'هر مدخل و عکسی را که $name روی دستگاه $device نوشته از این کاتالوگ حذف می‌کند. دستگاه‌های دیگر نسخه خود را نگه می‌دارند. قابل بازگشت نیست.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'برای تأیید $name را بنویسید';
   }

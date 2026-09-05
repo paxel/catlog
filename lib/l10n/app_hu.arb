@@ -443,6 +443,7 @@
   "authorsSection": "Ki írt ebbe a katalógusba",
   "hardDeleteAction": "Minden törlése ettől a szerzőtől",
   "hardDeleteWarning": "Eltávolítja {name} minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.",
+  "hardDeleteWarningDevice": "Eltávolítja ebből a katalógusból minden bejegyzést és fotót, amelyet {name} a(z) {device} eszközön írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.",
   "typeToConfirm": "Megerősítéshez írd be: {name}",
   "alsoBan": "Tiltás is — soha többé ne fogadj tőle adatot",
   "bansSection": "Tiltások",

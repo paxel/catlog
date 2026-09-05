@@ -443,6 +443,7 @@
   "authorsSection": "Vem som skrivit i katalogen",
   "hardDeleteAction": "Radera allt från denna författare",
   "hardDeleteWarning": "Tar bort alla poster och foton från {name} på den här enheten. Andra enheter behåller sina. Kan inte ångras.",
+  "hardDeleteWarningDevice": "Tar bort varje post och foto som {name} skrev på enheten {device} ur den här katalogen. Andra enheter behåller sina. Kan inte ångras.",
   "typeToConfirm": "Skriv {name} för att bekräfta",
   "alsoBan": "Spärra också — ta aldrig emot data igen",
   "bansSection": "Spärrar",

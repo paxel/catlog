@@ -1524,6 +1524,11 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Uklanja iz ovog kataloga svaki unos i fotografiju koje je $name napisao/la na uređaju $device. Drugi uređaji zadržavaju svoje. Ne može se poništiti.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Upiši $name za potvrdu';
   }

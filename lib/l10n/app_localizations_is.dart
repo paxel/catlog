@@ -1527,6 +1527,11 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Fjarlægir úr þessari skrá hverja færslu og mynd sem $name skrifaði á tækinu $device. Önnur tæki halda sínu. Ekki hægt að afturkalla.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Sláðu inn $name til að staðfesta';
   }

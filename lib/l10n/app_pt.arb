@@ -443,6 +443,7 @@
   "authorsSection": "Quem escreveu neste catálogo",
   "hardDeleteAction": "Apagar tudo deste autor",
   "hardDeleteWarning": "Remove cada entrada e foto de {name} deste dispositivo. Os outros dispositivos mantêm as suas. Não pode ser desfeito.",
+  "hardDeleteWarningDevice": "Remove deste catálogo cada entrada e foto escrita por {name} no dispositivo {device}. Os outros dispositivos mantêm a sua cópia. Não pode ser desfeito.",
   "typeToConfirm": "Escreva {name} para confirmar",
   "alsoBan": "Bloquear também — nunca mais aceitar os seus dados",
   "bansSection": "Bloqueios",

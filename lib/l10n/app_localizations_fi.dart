@@ -1526,6 +1526,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka $name kirjoitti laitteella $device. Muut laitteet pitävät omansa. Ei voi kumota.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Vahvista kirjoittamalla $name';
   }

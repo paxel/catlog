@@ -1528,6 +1528,11 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Baineann sé den chatalóg seo gach iontráil agus grianghraf a scríobh $name ar an ngléas $device. Coinníonn gléasanna eile a gcóip. Ní féidir é a chealú.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Clóscríobh $name le deimhniú';
   }

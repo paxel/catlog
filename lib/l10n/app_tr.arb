@@ -443,6 +443,7 @@
   "authorsSection": "Bu kataloğa kim yazdı",
   "hardDeleteAction": "Bu yazarın her şeyini sil",
   "hardDeleteWarning": "{name} tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
+  "hardDeleteWarningDevice": "{name} adlı kişinin {device} cihazında yazdığı her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
   "typeToConfirm": "Onaylamak için {name} yazın",
   "alsoBan": "Ayrıca yasakla — bir daha asla veri kabul etme",
   "bansSection": "Yasaklar",

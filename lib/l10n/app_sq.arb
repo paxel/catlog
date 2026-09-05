@@ -443,6 +443,7 @@
   "authorsSection": "Kush ka shkruar në këtë katalog",
   "hardDeleteAction": "Fshi gjithçka nga ky autor",
   "hardDeleteWarning": "Heq çdo hyrje dhe foto të {name} nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.",
+  "hardDeleteWarningDevice": "Heq nga ky katalog çdo shënim dhe foto që {name} shkroi në pajisjen {device}. Pajisjet e tjera mbajnë kopjet e tyre. Nuk mund të zhbëhet.",
   "typeToConfirm": "Shkruaj {name} për konfirmim",
   "alsoBan": "Ndalo gjithashtu — mos prano më kurrë të dhëna",
   "bansSection": "Ndalimet",

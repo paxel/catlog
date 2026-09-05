@@ -28,7 +28,11 @@ class _ModerationScreenState extends State<ModerationScreen> {
         builder: (context, setDialogState) => AlertDialog(
           title: Text(t.hardDeleteAction),
           content: Column(mainAxisSize: MainAxisSize.min, children: [
-            Text(t.hardDeleteWarning(row.author)),
+            // The row is one name on one device. A name is free text —
+            // anyone can wear it — so the deletion and the ban stick to
+            // the device, and the dialog says which one goes.
+            Text(t.hardDeleteWarningDevice(
+                row.author, row.device.substring(0, 8))),
             const SizedBox(height: 12),
             CheckboxListTile(
               value: alsoBan,
@@ -58,9 +62,13 @@ class _ModerationScreenState extends State<ModerationScreen> {
     // entries instead of adding any (ADR-0006), so there would be
     // nothing above the mark to put back. The ban list is what keeps
     // the material from coming home.
-    final removedBlobs = store.hardDeleteAuthor(row.author);
+    final removedBlobs =
+        store.hardDeleteAuthor(row.author, device: row.device);
     if (alsoBan) {
-      store.ban(author: row.author);
+      store.ban(device: row.device);
+      // The entries are gone, so the bans list could not name the device
+      // any more: remember whose it was.
+      store.setLocalSetting('bannedAs:${row.device}', row.author);
       for (final hash in removedBlobs) {
         store.ban(blobHash: hash);
       }
@@ -137,10 +145,19 @@ class _ModerationScreenState extends State<ModerationScreen> {
                 'device' => Icons.phonelink_erase_outlined,
                 _ => Icons.image_not_supported_outlined,
               }),
+              // A banned device wears the names it wrote under, so the
+              // list reads as people, not hex.
               title: Text(
-                kind == 'blob'
-                    ? '${value.substring(0, 12)}…'
-                    : value,
+                switch (kind) {
+                  'blob' => '${value.substring(0, 12)}…',
+                  'device' => {
+                      ?store.localSetting('bannedAs:$value'),
+                      for (final r in rows)
+                        if (r.device == value) r.author,
+                      value.substring(0, 8),
+                    }.join(' · '),
+                  _ => value,
+                },
                 overflow: TextOverflow.ellipsis,
               ),
               trailing: TextButton(

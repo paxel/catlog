@@ -443,6 +443,7 @@
   "authorsSection": "Wie in deze catalogus schreef",
   "hardDeleteAction": "Alles van deze auteur verwijderen",
   "hardDeleteWarning": "Verwijdert elke invoer en foto van {name} van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.",
+  "hardDeleteWarningDevice": "Verwijdert elke invoer en foto die {name} op apparaat {device} schreef uit deze catalogus. Andere apparaten houden hun kopie. Dit kan niet ongedaan worden gemaakt.",
   "typeToConfirm": "Typ {name} om te bevestigen",
   "alsoBan": "Ook blokkeren — nooit meer gegevens accepteren",
   "bansSection": "Blokkades",

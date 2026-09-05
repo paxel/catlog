@@ -443,6 +443,7 @@
   "authorsSection": "Kas rašė į šį katalogą",
   "hardDeleteAction": "Ištrinti viską iš šio autoriaus",
   "hardDeleteWarning": "Pašalina visus {name} įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.",
+  "hardDeleteWarningDevice": "Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos {name} įrašė įrenginyje {device}. Kiti įrenginiai pasilieka savo kopijas. Atšaukti negalima.",
   "typeToConfirm": "Patvirtinimui įveskite {name}",
   "alsoBan": "Taip pat uždrausti — daugiau niekada nepriimti duomenų",
   "bansSection": "Draudimai",

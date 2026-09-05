@@ -1524,6 +1524,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Удаляет из этого каталога каждую запись и фото, написанные $name на устройстве $device. Другие устройства сохраняют свои копии. Отменить нельзя.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Введите $name для подтверждения';
   }

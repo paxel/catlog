@@ -443,6 +443,7 @@
   "authorsSection": "このカタログに書き込んだ人",
   "hardDeleteAction": "この作成者のすべてを削除",
   "hardDeleteWarning": "{name} のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。",
+  "hardDeleteWarningDevice": "{name} が端末 {device} で書いたすべての記録と写真をこのカタログから削除します。他の端末のデータは残ります。取り消せません。",
   "typeToConfirm": "確認のため {name} と入力",
   "alsoBan": "ブロックもする — 今後データを受け取らない",
   "bansSection": "ブロック",

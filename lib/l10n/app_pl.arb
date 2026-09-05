@@ -443,6 +443,7 @@
   "authorsSection": "Kto pisał w tym katalogu",
   "hardDeleteAction": "Usuń wszystko od tego autora",
   "hardDeleteWarning": "Usuwa każdy wpis i zdjęcie od {name} z tego urządzenia. Inne urządzenia zachowują swoje. Nie można cofnąć.",
+  "hardDeleteWarningDevice": "Usuwa z tego katalogu każdy wpis i zdjęcie zapisane przez {name} na urządzeniu {device}. Inne urządzenia zachowują swoje kopie. Nie można tego cofnąć.",
   "typeToConfirm": "Wpisz {name}, aby potwierdzić",
   "alsoBan": "Także zablokuj — nigdy więcej nie przyjmuj danych",
   "bansSection": "Blokady",

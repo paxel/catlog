@@ -1523,6 +1523,11 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Heq nga ky katalog çdo shënim dhe foto që $name shkroi në pajisjen $device. Pajisjet e tjera mbajnë kopjet e tyre. Nuk mund të zhbëhet.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Shkruaj $name për konfirmim';
   }

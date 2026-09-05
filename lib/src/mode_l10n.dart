@@ -703,6 +703,9 @@ class ModeLocalizations implements AppLocalizations {
   String hardDeleteWarning(Object name) => base.hardDeleteWarning(name);
 
   @override
+  String hardDeleteWarningDevice(String name, String device) => base.hardDeleteWarningDevice(name, device);
+
+  @override
   String get helpAgenda => pets ? base.helpAgendaNeutral : base.helpAgenda;
 
   @override

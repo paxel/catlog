@@ -102,27 +102,46 @@ void main() {
   });
 
   group('moderation', () {
-    testWidgets('lists who wrote what, and deletes one author',
+    testWidgets('deletes one author on one device; a namesake elsewhere stays',
         (tester) async {
       store.author = 'Kathrin';
       store.createCat('Fremdling');
       store.author = 'Patrick';
+      // Somebody else wearing the same name on another device.
+      final impostor = CatalogStore.inMemory()..author = 'Kathrin';
+      addTearDown(impostor.close);
+      impostor.createCat('Impostor');
+      store.applyEntries(impostor.entriesSince(const {}),
+          senderVector: impostor.versionVector());
 
       await pump(tester, ModerationScreen(store: store));
-      expect(find.text('Kathrin'), findsOneWidget);
+      expect(find.text('Kathrin'), findsNWidgets(2));
       expect(find.text('Patrick'), findsOneWidget);
 
-      final kathrin = find.ancestor(
-          of: find.text('Kathrin'), matching: find.byType(ListTile));
+      // The row of Kathrin on the impostor's device.
+      final prefix = impostor.deviceId.substring(0, 8);
+      final row = find.byWidgetPredicate((w) =>
+          w is ListTile &&
+          (w.title as Text).data == 'Kathrin' &&
+          ((w.subtitle as Text).data ?? '').contains(prefix));
       await tester.tap(find.descendant(
-          of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
+          of: row, matching: find.byIcon(Icons.delete_forever_outlined)));
       await tester.pumpAndSettle();
-      // Deleting somebody's data asks once, plainly.
+      // Deleting somebody's data asks once, plainly, and names the device.
       expect(find.byType(TextField), findsNothing);
+      expect(find.textContaining(impostor.deviceId.substring(0, 8)),
+          findsWidgets);
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
 
-      expect(store.cats().map((c) => c.name), isNot(contains('Fremdling')));
+      // Only that device's data went; the real Kathrin's cat is still here.
+      expect(store.cats().map((c) => c.name), contains('Fremdling'));
+      expect(store.cats().map((c) => c.name), isNot(contains('Impostor')));
+      // The ban is on the device, never on the name.
+      expect(store.bans(), contains(('device', impostor.deviceId)));
+      expect(store.bans().where((b) => b.$1 == 'author'), isEmpty);
+      // The bans list names the person behind the device.
+      expect(find.textContaining('Kathrin · '), findsOneWidget);
     });
 
     testWidgets('your own name has no delete button', (tester) async {

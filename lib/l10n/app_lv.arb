@@ -443,6 +443,7 @@
   "authorsSection": "Kurš rakstīja šajā katalogā",
   "hardDeleteAction": "Dzēst visu no šī autora",
   "hardDeleteWarning": "Noņem visus {name} ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.",
+  "hardDeleteWarningDevice": "Izņem no šī kataloga katru ierakstu un fotoattēlu, ko {name} rakstīja ierīcē {device}. Citas ierīces patur savas kopijas. Nevar atsaukt.",
   "typeToConfirm": "Apstiprināšanai ierakstiet {name}",
   "alsoBan": "Arī aizliegt — nekad vairs nepieņemt datus",
   "bansSection": "Aizliegumi",

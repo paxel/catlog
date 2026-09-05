@@ -717,6 +717,8 @@
   "authorsSection": "Who wrote into this catalog",
   "hardDeleteAction": "Delete everything by this author",
   "hardDeleteWarning": "Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.",
+  "hardDeleteWarningDevice": "Removes every entry and photo written by {name} on device {device} from this catalog. Other devices keep theirs. This cannot be undone.",
+  "@hardDeleteWarningDevice": {"placeholders": {"name": {"type": "String"}, "device": {"type": "String"}}},
   "typeToConfirm": "Type {name} to confirm",
   "alsoBan": "Also ban — never accept their data again",
   "bansSection": "Bans",

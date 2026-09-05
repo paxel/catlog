@@ -1522,6 +1522,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Removes every entry and photo written by $name on device $device from this catalog. Other devices keep theirs. This cannot be undone.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Type $name to confirm';
   }

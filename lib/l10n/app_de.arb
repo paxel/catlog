@@ -440,6 +440,7 @@
   "authorsSection": "Wer in diesen Katalog geschrieben hat",
   "hardDeleteAction": "Alles von dieser Person löschen",
   "hardDeleteWarning": "Entfernt jeden Eintrag und jedes Foto von {name} von diesem Gerät. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.",
+  "hardDeleteWarningDevice": "Entfernt jeden Eintrag und jedes Foto, das {name} auf dem Gerät {device} geschrieben hat, aus diesem Katalog. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.",
   "typeToConfirm": "Zum Bestätigen {name} eintippen",
   "alsoBan": "Auch sperren — nie wieder Daten annehmen",
   "bansSection": "Sperren",

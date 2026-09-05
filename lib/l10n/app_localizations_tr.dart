@@ -1523,6 +1523,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return '$name adlı kişinin $device cihazında yazdığı her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Onaylamak için $name yazın';
   }

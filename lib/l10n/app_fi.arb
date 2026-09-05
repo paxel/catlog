@@ -443,6 +443,7 @@
   "authorsSection": "Kuka on kirjoittanut luetteloon",
   "hardDeleteAction": "Poista kaikki tältä tekijältä",
   "hardDeleteWarning": "Poistaa kaikki {name} merkinnät ja kuvat tältä laitteelta. Muut laitteet pitävät omansa. Ei voi perua.",
+  "hardDeleteWarningDevice": "Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka {name} kirjoitti laitteella {device}. Muut laitteet pitävät omansa. Ei voi kumota.",
   "typeToConfirm": "Vahvista kirjoittamalla {name}",
   "alsoBan": "Estä myös — älä koskaan enää vastaanota tietoja",
   "bansSection": "Estot",

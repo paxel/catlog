@@ -1528,6 +1528,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Verwijdert elke invoer en foto die $name op apparaat $device schreef uit deze catalogus. Andere apparaten houden hun kopie. Dit kan niet ongedaan worden gemaakt.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Typ $name om te bevestigen';
   }

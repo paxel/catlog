@@ -1523,6 +1523,11 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Tar bort varje post och foto som $name skrev på enheten $device ur den här katalogen. Andra enheter behåller sina. Kan inte ångras.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Skriv $name för att bekräfta';
   }

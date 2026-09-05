@@ -443,6 +443,7 @@
   "authorsSection": "Ko je pisao u ovaj katalog",
   "hardDeleteAction": "Obriši sve od ovog autora",
   "hardDeleteWarning": "Uklanja svaki unos i fotografiju od {name} s ovog uređaja. Drugi uređaji zadržavaju svoje. Ne može se poništiti.",
+  "hardDeleteWarningDevice": "Uklanja iz ovog kataloga svaki unos i fotografiju koje je {name} napisao/la na uređaju {device}. Drugi uređaji zadržavaju svoje. Ne može se poništiti.",
   "typeToConfirm": "Upiši {name} za potvrdu",
   "alsoBan": "Također zabrani — nikad više ne prihvataj podatke",
   "bansSection": "Zabrane",

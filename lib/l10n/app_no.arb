@@ -443,6 +443,7 @@
   "authorsSection": "Hvem har skrevet i katalogen",
   "hardDeleteAction": "Slett alt fra denne forfatteren",
   "hardDeleteWarning": "Fjerner alle oppføringer og bilder fra {name} på denne enheten. Andre enheter beholder sine. Kan ikke angres.",
+  "hardDeleteWarningDevice": "Fjerner hver oppføring og hvert bilde skrevet av {name} på enheten {device} fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.",
   "typeToConfirm": "Skriv {name} for å bekrefte",
   "alsoBan": "Utesteng også — aldri motta data igjen",
   "bansSection": "Utestengelser",

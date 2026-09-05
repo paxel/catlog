@@ -1479,6 +1479,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return '从此目录中移除 $name 在设备 $device 上写入的所有条目和照片。其他设备保留各自的数据。无法撤销。';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return '输入 $name 以确认';
   }

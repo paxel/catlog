@@ -1524,6 +1524,11 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String hardDeleteWarningDevice(String name, String device) {
+    return 'Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos $name įrašė įrenginyje $device. Kiti įrenginiai pasilieka savo kopijas. Atšaukti negalima.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Patvirtinimui įveskite $name';
   }

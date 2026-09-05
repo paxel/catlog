@@ -443,6 +443,7 @@
   "authorsSection": "Hvem har skrevet i kataloget",
   "hardDeleteAction": "Slet alt fra denne forfatter",
   "hardDeleteWarning": "Fjerner alle poster og fotos fra {name} på denne enhed. Andre enheder beholder deres. Kan ikke fortrydes.",
+  "hardDeleteWarningDevice": "Fjerner hver post og hvert foto skrevet af {name} på enheden {device} fra dette katalog. Andre enheder beholder deres. Kan ikke fortrydes.",
   "typeToConfirm": "Skriv {name} for at bekræfte",
   "alsoBan": "Udeluk også — modtag aldrig data igen",
   "bansSection": "Udelukkelser",

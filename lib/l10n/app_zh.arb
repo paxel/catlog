@@ -443,6 +443,7 @@
   "authorsSection": "谁写入过此目录",
   "hardDeleteAction": "删除该作者的全部内容",
   "hardDeleteWarning": "从此设备移除 {name} 的所有记录和照片。其他设备保留其副本。无法撤销。",
+  "hardDeleteWarningDevice": "从此目录中移除 {name} 在设备 {device} 上写入的所有条目和照片。其他设备保留各自的数据。无法撤销。",
   "typeToConfirm": "输入 {name} 以确认",
   "alsoBan": "同时封禁——不再接收其数据",
   "bansSection": "封禁",

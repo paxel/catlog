@@ -443,6 +443,7 @@
   "authorsSection": "Cé a scríobh sa chatalóg",
   "hardDeleteAction": "Scrios gach rud ón údar seo",
   "hardDeleteWarning": "Baineann sé gach iontráil agus grianghraf le {name} den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.",
+  "hardDeleteWarningDevice": "Baineann sé den chatalóg seo gach iontráil agus grianghraf a scríobh {name} ar an ngléas {device}. Coinníonn gléasanna eile a gcóip. Ní féidir é a chealú.",
   "typeToConfirm": "Clóscríobh {name} le deimhniú",
   "alsoBan": "Cosc freisin — ná glac sonraí uaidh arís",
   "bansSection": "Coisc",

@@ -2804,6 +2804,12 @@ abstract class AppLocalizations {
   /// **'Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.'**
   String hardDeleteWarning(Object name);
 
+  /// No description provided for @hardDeleteWarningDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Removes every entry and photo written by {name} on device {device} from this catalog. Other devices keep theirs. This cannot be undone.'**
+  String hardDeleteWarningDevice(String name, String device);
+
   /// No description provided for @typeToConfirm.
   ///
   /// In en, this message translates to:

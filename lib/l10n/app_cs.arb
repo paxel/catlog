@@ -443,6 +443,7 @@
   "authorsSection": "Kdo do katalogu psal",
   "hardDeleteAction": "Smazat vše od tohoto autora",
   "hardDeleteWarning": "Odstraní každý záznam a fotku od {name} z tohoto zařízení. Ostatní zařízení si své ponechají. Nelze vrátit zpět.",
+  "hardDeleteWarningDevice": "Odstraní z tohoto katalogu každý záznam a fotku, které {name} zapsal(a) na zařízení {device}. Ostatní zařízení si své kopie nechají. Nelze vrátit.",
   "typeToConfirm": "Pro potvrzení napište {name}",
   "alsoBan": "Také zakázat — už nikdy nepřijímat data",
   "bansSection": "Zákazy",
