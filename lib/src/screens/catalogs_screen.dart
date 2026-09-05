@@ -220,9 +220,9 @@ Future<void> showCatalogSwitcher(
         ListTile(
           leading: const Icon(Icons.settings_outlined),
           title: Text(t.manageCatalogs),
-          onTap: () {
+          onTap: () async {
             Navigator.of(sheet).pop();
-            Navigator.of(context).push(MaterialPageRoute(
+            await Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => CatalogsScreen(
                 catalogs: catalogs,
                 storeOf: storeOf,
@@ -230,6 +230,10 @@ Future<void> showCatalogSwitcher(
                 onChanged: onChanged,
               ),
             ));
+            // Going back in time, deleting, renaming — the pages behind
+            // the manage screen change the world; the home must redraw
+            // it when the keeper returns, not keep the old picture.
+            onChanged?.call();
           },
         ),
       ]),

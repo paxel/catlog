@@ -252,7 +252,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
           ListTile(
             leading: const Icon(Icons.history),
             title: Text(t.goBackTitle),
-            onTap: () => _push(GoBackScreen(store: _store)),
+            onTap: () =>
+                _push(GoBackScreen(store: _store, saveTo: widget.saveTo)),
           ),
           // The last catalog has nowhere to leave you; the one you are in
           // has its database open. Only the first hides the row — a
