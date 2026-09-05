@@ -719,9 +719,11 @@ class _MapScreenState extends State<MapScreen>
               for (final pos in store.flierPositions(catId).skip(1))
                 Marker(
                   point: LatLng(pos.$1, pos.$2),
-                  width: 48,
-                  height: 48,
-                  child: GestureDetector(
+                  width: _MapPin.width,
+                  height: _MapPin.height,
+                  alignment: Alignment.bottomCenter,
+                  child: _MapPin(
+                    label: null,
                     onTap: () async {
                       await Navigator.of(context).push(MaterialPageRoute(
                         builder: (_) =>
@@ -736,11 +738,12 @@ class _MapScreenState extends State<MapScreen>
             for (final (clowder, point) in clowders)
               Marker(
                 point: point,
-                width: 110,
-                height: 72,
-                alignment: Alignment.topCenter,
+                width: _MapPin.width,
+                height: _MapPin.height,
+                alignment: Alignment.bottomCenter,
                 child: _MapPin(
                   label: clowder.name,
+                  color: Theme.of(context).colorScheme.primary,
                   child: _clowderFace(clowder.id),
                   onTap: () =>
                       Navigator.of(context).push(MaterialPageRoute(
@@ -753,9 +756,9 @@ class _MapScreenState extends State<MapScreen>
               if (group.cats case [final cat])
                 Marker(
                   point: group.point,
-                  width: 110,
-                  height: 72,
-                  alignment: Alignment.topCenter,
+                  width: _MapPin.width,
+                  height: _MapPin.height,
+                  alignment: Alignment.bottomCenter,
                   child: _MapPin(
                     label: cat.name,
                     highlighted: _trailCat == cat.id,
@@ -769,9 +772,9 @@ class _MapScreenState extends State<MapScreen>
                 // the count — the list behind it tells them apart (#88).
                 Marker(
                   point: group.point,
-                  width: 110,
-                  height: 72,
-                  alignment: Alignment.topCenter,
+                  width: _MapPin.width,
+                  height: _MapPin.height,
+                  alignment: Alignment.bottomCenter,
                   child: _MapPin(
                     label: '${group.cats.first.name} +${group.cats.length - 1}',
                     child: _catFace(group.cats.first.id, false),
@@ -781,9 +784,9 @@ class _MapScreenState extends State<MapScreen>
             if (widget.focus case (final id, final point))
               Marker(
                 point: point,
-                width: 110,
-                height: 72,
-                alignment: Alignment.topCenter,
+                width: _MapPin.width,
+                height: _MapPin.height,
+                alignment: Alignment.bottomCenter,
                 child: _MapPin(
                   label: store.current(id, Keys.name) ?? context.t.unnamed,
                   highlighted: true,
@@ -796,9 +799,9 @@ class _MapScreenState extends State<MapScreen>
             for (final (cat, point) in fliers)
               Marker(
                 point: point,
-                width: 110,
-                height: 72,
-                alignment: Alignment.topCenter,
+                width: _MapPin.width,
+                height: _MapPin.height,
+                alignment: Alignment.bottomCenter,
                 child: _MapPin(
                   label: cat.name,
                   highlighted: _trailCat == cat.id,
@@ -933,50 +936,97 @@ class _PinGroup {
   _PinGroup(this.cats, this.point);
 }
 
+/// A pin on the map: the name above, the face, and a tip whose point
+/// sits on the exact coordinate — the marker is anchored at its bottom
+/// centre, so what the pin marks is never in doubt.
 class _MapPin extends StatelessWidget {
-  final String label;
+  /// Null draws no label: a face and its tip alone.
+  final String? label;
   final Widget child;
   final VoidCallback onTap;
   final bool highlighted;
+
+  /// The tip's colour; the face's ring colour, so they read as one.
+  final Color color;
 
   const _MapPin(
       {required this.label,
       required this.child,
       required this.onTap,
-      this.highlighted = false});
+      this.highlighted = false,
+      this.color = Colors.deepOrange});
+
+  /// The marker box every pin is laid out in, anchored at the bottom.
+  static const width = 110.0;
+  static const height = 84.0;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        child,
-        const SizedBox(height: 2),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-          decoration: BoxDecoration(
-            color: highlighted ? Colors.red : Colors.white,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: const [
-              BoxShadow(blurRadius: 2, color: Colors.black26),
-            ],
-          ),
-          child: Text(
-            label,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: highlighted ? Colors.white : Colors.black87,
+        if (label case final label?)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+            decoration: BoxDecoration(
+              color: highlighted ? Colors.red : Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: const [
+                BoxShadow(blurRadius: 2, color: Colors.black26),
+              ],
+            ),
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: highlighted ? Colors.white : Colors.black87,
+              ),
             ),
           ),
-        ),
+        if (label != null) const SizedBox(height: 2),
+        child,
+        PinTip(color: highlighted ? Colors.red : color),
       ]),
     );
   }
 }
 
+/// The point of a pin: a small triangle under the face, its apex on the
+/// coordinate.
+class PinTip extends StatelessWidget {
+  final Color color;
+
+  const PinTip({super.key, required this.color});
+
+  @override
+  Widget build(BuildContext context) => CustomPaint(
+        size: const Size(14, 9),
+        painter: _PinTipPainter(color),
+      );
+}
+
+class _PinTipPainter extends CustomPainter {
+  final Color color;
+
+  const _PinTipPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final path = ui.Path()
+      ..moveTo(0, 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width / 2, size.height)
+      ..close();
+    canvas.drawShadow(path, Colors.black, 1.5, false);
+    canvas.drawPath(path, Paint()..color = color);
+  }
+
+  @override
+  bool shouldRepaint(_PinTipPainter old) => old.color != color;
+}
 
 /// Minimal cat-head silhouette (round head, two ears) — the placeholder
 /// for photoless cats; deliberately not a symbol from any icon font.

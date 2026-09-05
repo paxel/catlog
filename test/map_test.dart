@@ -59,6 +59,16 @@ void main() {
 
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Roamer'), findsOneWidget);
+    // Every pin points at its spot: anchored at the bottom, tip on the
+    // coordinate.
+    final markers = tester
+        .widgetList<MarkerLayer>(find.byType(MarkerLayer))
+        .expand((l) => l.markers)
+        .toList();
+    expect(markers, hasLength(2));
+    expect(markers.map((m) => m.alignment),
+        everyElement(Alignment.bottomCenter));
+    expect(find.byType(PinTip), findsNWidgets(2));
     // The clowder's photo is decoded at pin size, like the cat faces.
     expect(
         find.byWidgetPredicate((w) =>
