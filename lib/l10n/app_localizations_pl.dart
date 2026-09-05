@@ -1742,7 +1742,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'W tym menu: znajdowanie i scalanie duplikatów, eksport CSV i więcej.';
+      'W tym menu: ustawienia, znajdowanie i scalanie duplikatów, eksport CSV i więcej.';
 
   @override
   String get spotCatEdit =>
@@ -1876,11 +1876,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
+      'Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij katalogu, aby się na niego przełączyć. Koło zębate przy katalogu otwiera jego ustawienia: nazwa, koty lub zwierzęta, pola, autorzy i blokady, archiwum, cofanie, usuwanie. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Każdy katalog to osobny świat: własne zwierzęta, domostwa, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
+      'Każdy katalog to osobny świat: własne zwierzęta, domostwa, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij katalogu, aby się na niego przełączyć. Koło zębate przy katalogu otwiera jego ustawienia: nazwa, koty lub zwierzęta, pola, autorzy i blokady, archiwum, cofanie, usuwanie. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Wszystko, co należy tylko do tego katalogu: nazwa, czy zawiera koty czy zwierzęta, pola, autorzy i blokady, archiwum oraz cofanie w czasie. Zmiany tutaj dotyczą tylko tego katalogu — także takiego, w którym teraz nie jesteś. Usunięcie najpierw zapisuje katalog do pliku.';
 
   @override
   String get spotHomeCatalog =>

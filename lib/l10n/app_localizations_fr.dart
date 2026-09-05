@@ -1750,7 +1750,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Dans ce menu : trouver et fusionner les doublons, exporter en CSV, et plus.';
+      'Dans ce menu : réglages, trouver et fusionner les doublons, exporter en CSV, et plus.';
 
   @override
   String get spotCatEdit =>
@@ -1883,11 +1883,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Un catalogue est un monde à part : ses chats, ses colonies, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche le nom en haut de l’accueil pour changer, en ajouter un ou le renommer. Ton nom, ta langue et les astuces déjà vues sont communs à tous.';
+      'Un catalogue est un monde à part : ses chats, ses colonies, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Un catalogue est un monde à part : ses animaux, ses foyers, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche le nom en haut de l’accueil pour changer, en ajouter un ou le renommer. Ton nom, ta langue et les astuces déjà vues sont communs à tous.';
+      'Un catalogue est un monde à part : ses animaux, ses foyers, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier.';
 
   @override
   String get spotHomeCatalog =>

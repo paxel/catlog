@@ -1746,7 +1746,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Šajā izvēlnē: atrast un apvienot dublikātus, eksportēt CSV un vēl.';
+      'Šajā izvēlnē: iestatījumi, dublikātu meklēšana un apvienošana, CSV eksports un vairāk.';
 
   @override
   String get spotCatEdit =>
@@ -1879,11 +1879,15 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Katrs katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
+      'Katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Katrs katalogs ir pasaule pati par sevi: savi mājdzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
+      'Katalogs ir pasaule pati par sevi: savi dzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā.';
 
   @override
   String get spotHomeCatalog =>

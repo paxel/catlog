@@ -1742,7 +1742,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'V tem meniju: poiščite in združite dvojnike, izvozite CSV in več.';
+      'V tem meniju: nastavitve, iskanje in združevanje dvojnikov, izvoz CSV in več.';
 
   @override
   String get spotCatEdit =>
@@ -1876,11 +1876,15 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Vsak katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
+      'Katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Vsak katalog je svet zase: svoji ljubljenčki, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.';
+      'Katalog je svet zase: svoje živali, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko.';
 
   @override
   String get spotHomeCatalog =>

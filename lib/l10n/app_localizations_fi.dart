@@ -1745,7 +1745,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Tässä valikossa: etsi ja yhdistä kaksoiskappaleet, vie CSV ja muuta.';
+      'Tässä valikossa: asetukset, kaksoiskappaleiden etsintä ja yhdistäminen, CSV-vienti ja muuta.';
 
   @override
   String get spotCatEdit =>
@@ -1878,11 +1878,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+      'Luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Jokainen luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+      'Luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.';
 
   @override
   String get spotHomeCatalog =>

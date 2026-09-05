@@ -1741,7 +1741,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I den här menyn: hitta och slå ihop dubbletter, exportera CSV med mera.';
+      'I den här menyn: inställningar, hitta och slå ihop dubbletter, exportera CSV och mer.';
 
   @override
   String get spotCatEdit =>
@@ -1874,11 +1874,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Varje katalog är en egen värld: egna katter, kolonier, fält, foton och synkroniseringspartner. Berlin och Paris blandas aldrig. Tryck på namnet högst upp på startskärmen för att byta, lägga till eller byta namn. Ditt namn, ditt språk och tipsen du sett delas av alla.';
+      'En katalog är en egen värld: egna katter, kolonier, fält, foton och synkpartner. Berlin och Paris blandas aldrig. Tryck på en katalog för att byta till den. Kugghjulet vid en katalog öppnar dess inställningar: namn, katter eller djur, fält, författare och blockeringar, arkiv, gå tillbaka, radera. Ditt namn, ditt språk och tipsen du redan sett delas av alla.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Varje katalog är en egen värld: egna husdjur, hushåll, fält, foton och synkroniseringspartner. Berlin och Paris blandas aldrig. Tryck på namnet högst upp på startskärmen för att byta, lägga till eller byta namn. Ditt namn, ditt språk och tipsen du sett delas av alla.';
+      'En katalog är en egen värld: egna djur, hushåll, fält, foton och synkpartner. Berlin och Paris blandas aldrig. Tryck på en katalog för att byta till den. Kugghjulet vid en katalog öppnar dess inställningar: namn, katter eller djur, fält, författare och blockeringar, arkiv, gå tillbaka, radera. Ditt namn, ditt språk och tipsen du redan sett delas av alla.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Allt som bara hör till den här katalogen: namnet, om den rymmer katter eller djur, fälten, författare och blockeringar, arkivet och att gå tillbaka i tiden. Ändringar här rör bara den här katalogen — även en du inte är i. Radering skriver först katalogen till en fil.';
 
   @override
   String get spotHomeCatalog =>

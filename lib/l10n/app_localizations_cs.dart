@@ -1742,7 +1742,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'V tomto menu: hledání a slučování duplicit, export CSV a další.';
+      'V této nabídce: nastavení, hledání a sloučení duplicit, export CSV a další.';
 
   @override
   String get spotCatEdit =>
@@ -1875,11 +1875,15 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Každý katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.';
+      'Katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky a partneři synchronizace. Berlín a Paříž se nikdy nemíchají. Klepnutím na katalog do něj přepnete. Ozubené kolo u katalogu otevře jeho nastavení: název, kočky nebo zvířata, pole, autoři a blokace, archiv, návrat zpět, smazání. Vaše jméno, jazyk a už zobrazené tipy platí pro všechny.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Každý katalog je svět sám pro sebe: vlastní mazlíčci, domácnosti, pole, fotky i partneři synchronizace. Berlín a Paříž se nikdy nesmíchají. Klepni na název nahoře na domovské obrazovce a přepni, přidej nebo přejmenuj. Tvoje jméno, jazyk a už viděné tipy jsou společné všem.';
+      'Katalog je svět sám pro sebe: vlastní zvířata, domácnosti, pole, fotky a partneři synchronizace. Berlín a Paříž se nikdy nemíchají. Klepnutím na katalog do něj přepnete. Ozubené kolo u katalogu otevře jeho nastavení: název, kočky nebo zvířata, pole, autoři a blokace, archiv, návrat zpět, smazání. Vaše jméno, jazyk a už zobrazené tipy platí pro všechny.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Vše, co patří jen tomuto katalogu: název, zda obsahuje kočky nebo zvířata, pole, autoři a blokace, archiv a návrat zpět v čase. Změny zde se týkají jen tohoto katalogu — i toho, ve kterém právě nejste. Smazání nejdřív zapíše katalog do souboru.';
 
   @override
   String get spotHomeCatalog =>

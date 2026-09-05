@@ -1743,7 +1743,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I denne menu: find og flet dubletter, eksportér CSV med mere.';
+      'I denne menu: indstillinger, find og flet dubletter, eksportér CSV og mere.';
 
   @override
   String get spotCatEdit =>
@@ -1876,11 +1876,15 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Hvert katalog er sin egen verden: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.';
+      'Et katalog er en verden for sig: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på et katalog for at skifte til det. Tandhjulet ved et katalog åbner dets indstillinger: navn, katte eller dyr, felter, forfattere og blokeringer, arkiv, gå tilbage, slet. Dit navn, dit sprog og de tips du allerede har set, er fælles for dem alle.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Hvert katalog er sin egen verden: egne kæledyr, husstande, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på navnet øverst på hjemmeskærmen for at skifte, tilføje eller omdøbe. Dit navn, dit sprog og de tips, du har set, deles af alle.';
+      'Et katalog er en verden for sig: egne dyr, husstande, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på et katalog for at skifte til det. Tandhjulet ved et katalog åbner dets indstillinger: navn, katte eller dyr, felter, forfattere og blokeringer, arkiv, gå tilbage, slet. Dit navn, dit sprog og de tips du allerede har set, er fælles for dem alle.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Alt, der kun hører til dette katalog: navnet, om det rummer katte eller dyr, felterne, forfattere og blokeringer, arkivet og at gå tilbage i tiden. Ændringer her rører kun dette katalog — også et, du ikke er i. Sletning skriver først kataloget til en fil.';
 
   @override
   String get spotHomeCatalog =>

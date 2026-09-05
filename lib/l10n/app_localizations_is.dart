@@ -1747,7 +1747,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Í þessari valmynd: finna og sameina tvítök, flytja út CSV og fleira.';
+      'Í þessari valmynd: stillingar, finna og sameina tvítök, flytja út CSV og fleira.';
 
   @override
   String get spotCatEdit =>
@@ -1880,11 +1880,15 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Hver skrá er sinn eigin heimur: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
+      'Skrá er heimur út af fyrir sig: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Hver skrá er sinn eigin heimur: eigin gæludýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.';
+      'Skrá er heimur út af fyrir sig: eigin dýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal.';
 
   @override
   String get spotHomeCatalog =>

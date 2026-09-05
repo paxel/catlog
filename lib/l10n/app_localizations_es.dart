@@ -1751,7 +1751,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'En este menú: encontrar y fusionar duplicados, exportar CSV y más.';
+      'En este menú: ajustes, encontrar y fusionar duplicados, exportar CSV y más.';
 
   @override
   String get spotCatEdit =>
@@ -1885,11 +1885,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca el nombre en la parte superior para cambiar, añadir o renombrar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.';
+      'Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca un catálogo para cambiar a él. El engranaje de un catálogo abre sus ajustes: nombre, gatos o mascotas, campos, autores y bloqueos, archivo, volver atrás, eliminar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Cada catálogo es un mundo propio: sus mascotas, sus hogares, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca el nombre en la parte superior para cambiar, añadir o renombrar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.';
+      'Cada catálogo es un mundo propio: sus mascotas, sus hogares, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca un catálogo para cambiar a él. El engranaje de un catálogo abre sus ajustes: nombre, gatos o mascotas, campos, autores y bloqueos, archivo, volver atrás, eliminar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Todo lo que pertenece solo a este catálogo: su nombre, si contiene gatos o mascotas, sus campos, sus autores y bloqueos, el archivo y volver atrás en el tiempo. Los cambios aquí afectan solo a este catálogo, también a uno en el que no estás. Eliminar escribe primero el catálogo en un archivo.';
 
   @override
   String get spotHomeCatalog =>

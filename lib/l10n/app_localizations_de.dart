@@ -1751,7 +1751,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'In diesem Menü: doppelte Einträge finden und zusammenführen, CSV exportieren und mehr.';
+      'In diesem Menü: Einstellungen, doppelte Einträge finden und zusammenführen, CSV exportieren und mehr.';
 
   @override
   String get spotCatEdit =>
@@ -1884,11 +1884,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Ein Katalog ist eine Welt für sich: eigene Katzen, Kolonien, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe oben auf den Namen, um zu wechseln, einen anzulegen oder ihn umzubenennen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
+      'Ein Katalog ist eine Welt für sich: eigene Katzen, Kolonien, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe auf einen Katalog, um zu ihm zu wechseln. Das Zahnrad an einem Katalog öffnet seine Einstellungen: Name, Katzen oder Tiere, Felder, Autoren und Sperren, Archiv, Zurückgehen, Löschen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Ein Katalog ist eine Welt für sich: eigene Tiere, Haushalte, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe oben auf den Namen, um zu wechseln, einen anzulegen oder ihn umzubenennen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
+      'Ein Katalog ist eine Welt für sich: eigene Tiere, Haushalte, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe auf einen Katalog, um zu ihm zu wechseln. Das Zahnrad an einem Katalog öffnet seine Einstellungen: Name, Katzen oder Tiere, Felder, Autoren und Sperren, Archiv, Zurückgehen, Löschen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Alles, was nur zu diesem Katalog gehört: sein Name, ob er Katzen oder Tiere enthält, seine Felder, seine Autoren und Sperren, das Archiv und das Zurückgehen in der Zeit. Änderungen hier betreffen nur diesen Katalog — auch einen, in dem du gerade nicht bist. Löschen schreibt den Katalog zuerst in eine Datei.';
 
   @override
   String get spotHomeCatalog =>

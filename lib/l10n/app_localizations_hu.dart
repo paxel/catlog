@@ -1744,7 +1744,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Ebben a menüben: duplikátumok keresése és összevonása, CSV-export és több.';
+      'Ebben a menüben: beállítások, ismétlődések keresése és összevonása, CSV-exportálás és több.';
 
   @override
   String get spotCatEdit =>
@@ -1877,11 +1877,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Minden katalógus külön világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
+      'Egy katalógus önálló világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Minden katalógus külön világ: saját kisállatok, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.';
+      'Egy katalógus önálló világ: saját kedvencek, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust.';
 
   @override
   String get spotHomeCatalog =>

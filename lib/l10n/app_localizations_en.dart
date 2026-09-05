@@ -1742,7 +1742,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'In this menu: find and merge duplicate entries, export CSV, and more.';
+      'In this menu: settings, find and merge duplicate entries, export CSV, and more.';
 
   @override
   String get spotCatEdit =>
@@ -1875,11 +1875,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.';
+      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.';
 
   @override
   String get helpCatalogsNeutral =>
-      'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.';
+      'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.';
 
   @override
   String get spotHomeCatalog =>

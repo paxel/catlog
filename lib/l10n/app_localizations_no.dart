@@ -1740,7 +1740,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'I denne menyen: finn og slå sammen duplikater, eksporter CSV med mer.';
+      'I denne menyen: innstillinger, finn og slå sammen duplikater, eksporter CSV og mer.';
 
   @override
   String get spotCatEdit =>
@@ -1873,11 +1873,15 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Hver katalog er sin egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.';
+      'En katalog er en egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Hver katalog er sin egen verden: egne kjæledyr, husstander, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.';
+      'En katalog er en egen verden: egne dyr, husholdninger, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil.';
 
   @override
   String get spotHomeCatalog =>

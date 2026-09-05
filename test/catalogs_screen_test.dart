@@ -169,6 +169,20 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('A catalog is a world of its own'),
         findsOneWidget);
+    expect(find.textContaining('The gear on a catalog'), findsOneWidget);
+  });
+
+  testWidgets('the settings page explains itself', (tester) async {
+    await pumpHome(tester);
+    await tester.tap(find.text('Berlin'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Manage catalogs'));
+    await tester.pumpAndSettle();
+    await openSettings(tester, 'Berlin');
+    await tester.tap(find.byIcon(Icons.help_outline));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('belongs to this catalog alone'),
+        findsOneWidget);
   });
 
   group('deleting a catalog', () {

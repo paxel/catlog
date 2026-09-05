@@ -1742,7 +1742,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Bu menüde: kopyaları bulup birleştirme, CSV dışa aktarma ve daha fazlası.';
+      'Bu menüde: ayarlar, yinelenen kayıtları bul ve birleştir, CSV dışa aktar ve daha fazlası.';
 
   @override
   String get spotCatEdit =>
@@ -1875,11 +1875,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Her katalog kendi dünyasıdır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
+      'Bir katalog kendi başına bir dünyadır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Her katalog kendi dünyasıdır: kendi evcil hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.';
+      'Bir katalog kendi başına bir dünyadır: kendi hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar.';
 
   @override
   String get spotHomeCatalog =>

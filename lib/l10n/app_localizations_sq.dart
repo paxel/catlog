@@ -1743,7 +1743,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Në këtë meny: gjej dhe bashko dublikatat, eksporto CSV e më shumë.';
+      'Në këtë meny: cilësimet, gjej dhe bashko dublikatat, eksporto CSV dhe më shumë.';
 
   @override
   String get spotCatEdit =>
@@ -1876,11 +1876,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Çdo katalog është një botë më vete: macet, kolonitë, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
+      'Një katalog është një botë më vete: macet e veta, kolonitë, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Çdo katalog është një botë më vete: kafshët, familjet, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.';
+      'Një katalog është një botë më vete: kafshët e veta, familjet, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar.';
 
   @override
   String get spotHomeCatalog =>

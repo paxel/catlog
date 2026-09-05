@@ -1746,7 +1746,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'F\'dan il-menu: sib u għaqqad id-duplikati, esporta CSV u aktar.';
+      'F’din il-menu: settings, sib u għaqqad id-duplikati, esporta CSV, u iktar.';
 
   @override
   String get spotCatEdit =>
@@ -1880,11 +1880,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Kull katalgu huwa dinja għalih: qtates, kolonji, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
+      'Katalgu huwa dinja għalih: il-qtates tiegħu, kolonji, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Kull katalgu huwa dinja għalih: annimali domestiċi, djar, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.';
+      'Katalgu huwa dinja għalih: il-annimali tiegħu, djar, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel.';
 
   @override
   String get spotHomeCatalog =>

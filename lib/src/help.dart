@@ -26,6 +26,7 @@ final Map<String, HelpText> helpTexts = {
   'flier': (t) => t.helpFlier,
   'archive': (t) => t.helpArchive,
   'catalogs': (t) => t.helpCatalogs,
+  'catalogSettings': (t) => t.helpCatalogSettings,
   'agenda': (t) => t.helpAgenda,
   'goBack': (t) => t.helpGoBack,
 };

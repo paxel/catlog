@@ -1744,7 +1744,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Neste menu: encontrar e fundir duplicados, exportar CSV e mais.';
+      'Neste menu: definições, encontrar e fundir duplicados, exportar CSV e mais.';
 
   @override
   String get spotCatEdit =>
@@ -1877,11 +1877,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Cada catálogo é um mundo próprio: os seus gatos, colónias, campos, fotos e parceiros de sincronização. Berlim e Paris nunca se misturam. Toca no nome no topo do ecrã inicial para trocar, criar outro ou mudar o nome. O teu nome, o idioma e as dicas já vistas são comuns a todos.';
+      'Cada catálogo é um mundo próprio: os seus gatos, colónias, campos, fotos e parceiros de sincronização. Berlim e Paris nunca se misturam. Toca num catálogo para mudar para ele. A roda dentada de um catálogo abre as suas definições: nome, gatos ou animais, campos, autores e bloqueios, arquivo, voltar atrás, eliminar. O teu nome, o idioma e as dicas já vistas são comuns a todos.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Cada catálogo é um mundo próprio: os seus animais, lares, campos, fotos e parceiros de sincronização. Berlim e Paris nunca se misturam. Toca no nome no topo do ecrã inicial para trocar, criar outro ou mudar o nome. O teu nome, o idioma e as dicas já vistas são comuns a todos.';
+      'Cada catálogo é um mundo próprio: os seus animais, lares, campos, fotos e parceiros de sincronização. Berlim e Paris nunca se misturam. Toca num catálogo para mudar para ele. A roda dentada de um catálogo abre as suas definições: nome, gatos ou animais, campos, autores e bloqueios, arquivo, voltar atrás, eliminar. O teu nome, o idioma e as dicas já vistas são comuns a todos.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Tudo o que pertence só a este catálogo: o nome, se contém gatos ou animais, os campos, os autores e bloqueios, o arquivo e voltar atrás no tempo. As alterações aqui afetam só este catálogo, mesmo um em que não estás. Eliminar escreve primeiro o catálogo num ficheiro.';
 
   @override
   String get spotHomeCatalog =>

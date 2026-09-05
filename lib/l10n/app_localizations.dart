@@ -3197,7 +3197,7 @@ abstract class AppLocalizations {
   /// No description provided for @spotHomeMenu.
   ///
   /// In en, this message translates to:
-  /// **'In this menu: find and merge duplicate entries, export CSV, and more.'**
+  /// **'In this menu: settings, find and merge duplicate entries, export CSV, and more.'**
   String get spotHomeMenu;
 
   /// No description provided for @spotCatEdit.
@@ -3419,14 +3419,20 @@ abstract class AppLocalizations {
   /// No description provided for @helpCatalogs.
   ///
   /// In en, this message translates to:
-  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.'**
+  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.'**
   String get helpCatalogs;
 
   /// No description provided for @helpCatalogsNeutral.
   ///
   /// In en, this message translates to:
-  /// **'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.'**
+  /// **'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.'**
   String get helpCatalogsNeutral;
+
+  /// No description provided for @helpCatalogSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.'**
+  String get helpCatalogSettings;
 
   /// No description provided for @spotHomeCatalog.
   ///

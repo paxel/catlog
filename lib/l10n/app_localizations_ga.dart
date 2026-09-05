@@ -1749,7 +1749,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Sa roghchlár seo: aimsigh agus cumaisc dúblaigh, easpórtáil CSV agus tuilleadh.';
+      'Sa roghchlár seo: socruithe, dúbailtí a aimsiú agus a chumasc, CSV a easpórtáil, agus tuilleadh.';
 
   @override
   String get spotCatEdit =>
@@ -1883,11 +1883,15 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Is saol ann féin gach catalóg: a chuid cat, a chuid coilíneachtaí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
+      'Is domhan ann féin gach catalóg: a cait féin, coilíneachtaí, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Is saol ann féin gach catalóg: a chuid peataí, a chuid líonta tí, a chuid réimsí, a chuid grianghraf agus a chuid comhpháirtithe sioncronaithe. Ní mheasctar Beirlín agus Páras riamh. Tapáil an t-ainm ag barr an scáileáin baile chun malartú, ceann a chur leis nó é a athainmniú. Roinntear d’ainm, do theanga agus na leideanna a chonaic tú.';
+      'Is domhan ann féin gach catalóg: a peataí féin, teaghlaigh, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús.';
 
   @override
   String get spotHomeCatalog =>

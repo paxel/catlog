@@ -1745,7 +1745,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Šiame meniu: rasti ir sujungti dublikatus, eksportuoti CSV ir kt.';
+      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas, CSV eksportas ir daugiau.';
 
   @override
   String get spotCatEdit =>
@@ -1878,11 +1878,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Kiekvienas katalogas – atskiras pasaulis: savos katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.';
+      'Katalogas yra atskiras pasaulis: savi katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Kiekvienas katalogas – atskiras pasaulis: savi augintiniai, namų ūkiai, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.';
+      'Katalogas yra atskiras pasaulis: savi gyvūnai, namų ūkiai, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.';
 
   @override
   String get spotHomeCatalog =>

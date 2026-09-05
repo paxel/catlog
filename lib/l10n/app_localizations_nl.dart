@@ -1748,7 +1748,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'In dit menu: dubbele items vinden en samenvoegen, CSV exporteren en meer.';
+      'In dit menu: instellingen, dubbele items vinden en samenvoegen, CSV exporteren en meer.';
 
   @override
   String get spotCatEdit =>
@@ -1881,11 +1881,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Elke catalogus is een eigen wereld: eigen huisdieren, huishoudens, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+      'Elke catalogus is een eigen wereld: eigen huisdieren, huishoudens, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand.';
 
   @override
   String get spotHomeCatalog =>

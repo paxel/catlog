@@ -709,6 +709,9 @@ class ModeLocalizations implements AppLocalizations {
   String get helpCatNeutral => base.helpCatNeutral;
 
   @override
+  String get helpCatalogSettings => base.helpCatalogSettings;
+
+  @override
   String get helpCatalogs => pets ? base.helpCatalogsNeutral : base.helpCatalogs;
 
   @override

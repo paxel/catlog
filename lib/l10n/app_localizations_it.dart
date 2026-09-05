@@ -1750,7 +1750,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'In questo menu: trovare e unire i duplicati, esportare CSV e altro.';
+      'In questo menu: impostazioni, trovare e unire i duplicati, esportare CSV e altro.';
 
   @override
   String get spotCatEdit =>
@@ -1884,11 +1884,15 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
+      'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca un catalogo per passare a esso. L’ingranaggio di un catalogo apre le sue impostazioni: nome, gatti o animali, campi, autori e blocchi, archivio, tornare indietro, eliminare. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Ogni catalogo è un mondo a sé: i suoi animali, le sue case, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca il nome in alto per cambiare, aggiungerne uno o rinominarlo. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
+      'Ogni catalogo è un mondo a sé: i suoi animali, le sue case, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca un catalogo per passare a esso. L’ingranaggio di un catalogo apre le sue impostazioni: nome, gatti o animali, campi, autori e blocchi, archivio, tornare indietro, eliminare. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Tutto ciò che appartiene solo a questo catalogo: il nome, se contiene gatti o animali, i campi, gli autori e i blocchi, l’archivio e il tornare indietro nel tempo. Le modifiche qui riguardano solo questo catalogo, anche uno in cui non ti trovi. Eliminare scrive prima il catalogo in un file.';
 
   @override
   String get spotHomeCatalog =>

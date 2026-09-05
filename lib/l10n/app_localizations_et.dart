@@ -1741,7 +1741,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'Selles menüüs: leia ja liida duplikaadid, ekspordi CSV ja muud.';
+      'Selles menüüs: seaded, duplikaatide leidmine ja ühendamine, CSV eksport ja muud.';
 
   @override
   String get spotCatEdit =>
@@ -1874,11 +1874,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Iga kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
+      'Kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Iga kataloog on omaette maailm: omad lemmikloomad, leibkonnad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta avakuval ülal olevat nime, et vahetada, lisada või ümber nimetada. Sinu nimi, keel ja juba nähtud vihjed on kõigil ühised.';
+      'Kataloog on omaette maailm: omad lemmikloomad, majapidamised, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili.';
 
   @override
   String get spotHomeCatalog =>

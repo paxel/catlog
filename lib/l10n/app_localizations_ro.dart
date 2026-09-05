@@ -1744,7 +1744,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'În acest meniu: găsește și unește dublurile, exportă CSV și altele.';
+      'În acest meniu: setări, găsirea și unirea duplicatelor, export CSV și altele.';
 
   @override
   String get spotCatEdit =>
@@ -1877,11 +1877,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Fiecare catalog e o lume aparte: pisicile, coloniile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
+      'Un catalog este o lume în sine: propriile pisici, colonii, câmpuri, fotografii și parteneri de sincronizare. Berlin și Paris nu se amestecă niciodată. Atinge un catalog pentru a trece la el. Rotița unui catalog deschide setările lui: nume, pisici sau animale, câmpuri, autori și blocări, arhivă, întoarcere, ștergere. Numele tău, limba ta și sfaturile deja văzute sunt comune tuturor.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Fiecare catalog e o lume aparte: animalele, gospodăriile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.';
+      'Un catalog este o lume în sine: propriile animale, gospodării, câmpuri, fotografii și parteneri de sincronizare. Berlin și Paris nu se amestecă niciodată. Atinge un catalog pentru a trece la el. Rotița unui catalog deschide setările lui: nume, pisici sau animale, câmpuri, autori și blocări, arhivă, întoarcere, ștergere. Numele tău, limba ta și sfaturile deja văzute sunt comune tuturor.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier.';
 
   @override
   String get spotHomeCatalog =>

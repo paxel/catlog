@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../auto_backup.dart';
+import '../help.dart';
 import '../l10n.dart';
 import '../pet_mode.dart';
 import 'archive_screen.dart';
@@ -188,7 +189,9 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
     final usage = _store.storageUsage();
     final danger = Theme.of(context).colorScheme.error;
     return Scaffold(
-      appBar: AppBar(title: Text(catalog.name)),
+      appBar: AppBar(title: Text(catalog.name), actions: [
+        HelpButton(store: _store, screenId: 'catalogSettings'),
+      ]),
       body: ListView(
         children: [
           ListTile(

@@ -1742,7 +1742,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'U ovom izborniku: pronađite i spojite duplikate, izvezite CSV i više.';
+      'U ovom izborniku: postavke, pronalaženje i spajanje duplikata, izvoz CSV i više.';
 
   @override
   String get spotCatEdit =>
@@ -1875,11 +1875,15 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Svaki katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz se nikada ne miješaju. Dodirni ime na vrhu početnog zaslona da prebaciš, dodaš ili preimenuješ. Tvoje ime, jezik i već viđeni savjeti zajednički su svima.';
+      'Katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz nikad se ne miješaju. Dodirnite katalog da prijeđete na njega. Zupčanik na katalogu otvara njegove postavke: ime, mačke ili životinje, polja, autori i blokade, arhiva, povratak natrag, brisanje. Vaše ime, jezik i već viđeni savjeti zajednički su svima.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Svaki katalog je svijet za sebe: vlastiti ljubimci, kućanstva, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz se nikada ne miješaju. Dodirni ime na vrhu početnog zaslona da prebaciš, dodaš ili preimenuješ. Tvoje ime, jezik i već viđeni savjeti zajednički su svima.';
+      'Katalog je svijet za sebe: vlastite životinje, kućanstva, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz nikad se ne miješaju. Dodirnite katalog da prijeđete na njega. Zupčanik na katalogu otvara njegove postavke: ime, mačke ili životinje, polja, autori i blokade, arhiva, povratak natrag, brisanje. Vaše ime, jezik i već viđeni savjeti zajednički su svima.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Sve što pripada samo ovom katalogu: ime, sadrži li mačke ili životinje, polja, autori i blokade, arhiva i povratak natrag u vremenu. Promjene ovdje tiču se samo ovog kataloga — i onoga u kojem sada niste. Brisanje prvo zapisuje katalog u datoteku.';
 
   @override
   String get spotHomeCatalog =>

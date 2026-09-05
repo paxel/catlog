@@ -1741,7 +1741,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get spotHomeMenu =>
-      'V tomto menu: hľadanie a zlučovanie duplicít, export CSV a ďalšie.';
+      'V tejto ponuke: nastavenia, hľadanie a zlúčenie duplicít, export CSV a ďalšie.';
 
   @override
   String get spotCatEdit =>
@@ -1874,11 +1874,15 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Každý katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
+      'Katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky a partneri synchronizácie. Berlín a Paríž sa nikdy nemiešajú. Ťuknutím na katalóg doň prepnete. Ozubené koliesko pri katalógu otvorí jeho nastavenia: názov, mačky alebo zvieratá, polia, autori a blokovania, archív, návrat späť, vymazanie. Vaše meno, jazyk a už zobrazené tipy platia pre všetky.';
 
   @override
   String get helpCatalogsNeutral =>
-      'Každý katalóg je svet sám pre seba: vlastní miláčikovia, domácnosti, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.';
+      'Katalóg je svet sám pre seba: vlastné zvieratá, domácnosti, polia, fotky a partneri synchronizácie. Berlín a Paríž sa nikdy nemiešajú. Ťuknutím na katalóg doň prepnete. Ozubené koliesko pri katalógu otvorí jeho nastavenia: názov, mačky alebo zvieratá, polia, autori a blokovania, archív, návrat späť, vymazanie. Vaše meno, jazyk a už zobrazené tipy platia pre všetky.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru.';
 
   @override
   String get spotHomeCatalog =>
