@@ -32,6 +32,9 @@ Future<List<GeoHit>> nominatimSearch(String query) async {
       'q': query,
       'format': 'jsonv2',
       'limit': '8',
+      // The address in parts, so it can be written the way the place
+      // itself writes addresses — not in Nominatim's one order for all.
+      'addressdetails': '1',
     });
     final req = await client.getUrl(uri);
     final res = await req.close();
@@ -40,7 +43,8 @@ Future<List<GeoHit>> nominatimSearch(String query) async {
     return [
       for (final hit in jsonDecode(body) as List)
         GeoHit(
-          (hit as Map)['display_name'] as String,
+          formatAddress((hit as Map)['address'],
+              fallback: hit['display_name'] as String),
           double.parse(hit['lat'] as String),
           double.parse(hit['lon'] as String),
           bounds: _bounds(hit['boundingbox']),
@@ -49,6 +53,49 @@ Future<List<GeoHit>> nominatimSearch(String query) async {
   } finally {
     client.close(force: true);
   }
+}
+
+/// Countries that write the house number before the street and the
+/// postcode after the town ("12 Main Street, Springfield 62704").
+/// Everywhere else the street comes first and the postcode before the
+/// town ("Grimmaische Straße 12, 04109 Leipzig").
+const _numberFirst = {
+  'us', 'ca', 'gb', 'ie', 'fr', 'au', 'nz', 'za', 'in', 'sg', 'hk', 'my',
+  'ph', 'lu',
+};
+
+/// A street address from Nominatim's `address` parts, in the order the
+/// hit's own country uses. Hits without a street — a town, a region, a
+/// country — keep [fallback], Nominatim's full name, which reads fine
+/// for those. The country itself is left off: an address is looked up
+/// where the cats live.
+String formatAddress(Object? address, {required String fallback}) {
+  if (address is! Map) return fallback;
+  String? part(List<String> keys) {
+    for (final k in keys) {
+      final v = address[k];
+      if (v is String && v.trim().isNotEmpty) return v.trim();
+    }
+    return null;
+  }
+
+  final street = part(['road', 'pedestrian', 'footway', 'path', 'square']);
+  if (street == null) return fallback;
+  final number = part(['house_number']);
+  final place =
+      part(['city', 'town', 'village', 'municipality', 'hamlet', 'suburb']);
+  final postcode = part(['postcode']);
+  final numberFirst =
+      _numberFirst.contains(part(['country_code'])?.toLowerCase());
+  final streetLine = number == null
+      ? street
+      : numberFirst
+          ? '$number $street'
+          : '$street $number';
+  final placeLine = [
+    if (numberFirst) ...[?place, ?postcode] else ...[?postcode, ?place],
+  ].join(' ');
+  return placeLine.isEmpty ? streetLine : '$streetLine, $placeLine';
 }
 
 /// Nominatim's `boundingbox`: four strings, ordered
