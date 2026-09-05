@@ -839,7 +839,7 @@ class _MapScreenState extends State<MapScreen>
                   point: LatLng(pos.$1, pos.$2),
                   width: _MapPin.width,
                   height: _MapPin.height,
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment.topCenter,
                   child: _MapPin(
                     label: null,
                     onTap: () async {
@@ -858,7 +858,7 @@ class _MapScreenState extends State<MapScreen>
                 point: point,
                 width: _MapPin.width,
                 height: _MapPin.height,
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.topCenter,
                 child: _MapPin(
                   label: clowder.name,
                   color: Theme.of(context).colorScheme.primary,
@@ -873,7 +873,7 @@ class _MapScreenState extends State<MapScreen>
                   point: group.point,
                   width: _MapPin.width,
                   height: _MapPin.height,
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment.topCenter,
                   child: _MapPin(
                     label: cat.name,
                     highlighted: _onTrail(cat.id),
@@ -888,7 +888,7 @@ class _MapScreenState extends State<MapScreen>
                   point: group.point,
                   width: _MapPin.width,
                   height: _MapPin.height,
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment.topCenter,
                   child: _MapPin(
                     label: '${group.cats.first.name} +${group.cats.length - 1}',
                     child: _catFace(group.cats.first.id, false),
@@ -900,7 +900,7 @@ class _MapScreenState extends State<MapScreen>
                 point: point,
                 width: _MapPin.width,
                 height: _MapPin.height,
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.topCenter,
                 child: _MapPin(
                   label: store.current(id, Keys.name) ?? context.t.unnamed,
                   highlighted: true,
@@ -915,7 +915,7 @@ class _MapScreenState extends State<MapScreen>
                 point: point,
                 width: _MapPin.width,
                 height: _MapPin.height,
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.topCenter,
                 child: _MapPin(
                   label: cat.name,
                   highlighted: _onTrail(cat.id),
@@ -930,7 +930,7 @@ class _MapScreenState extends State<MapScreen>
                 point: point,
                 width: _MapPin.width,
                 height: _MapPin.height,
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.topCenter,
                 child: _MapPin(
                   label: '${entity.name} · ${fieldDefName(context.t, def)}',
                   color: Colors.blueGrey,
@@ -1036,8 +1036,9 @@ class _PinGroup {
 }
 
 /// A pin on the map: the name above, the face, and a tip whose point
-/// sits on the exact coordinate — the marker is anchored at its bottom
-/// centre, so what the pin marks is never in doubt.
+/// sits on the exact coordinate. flutter_map's `Alignment.topCenter`
+/// puts the whole marker box above the point, so the box's bottom edge
+/// — the tip's apex — is the coordinate at every zoom.
 class _MapPin extends StatelessWidget {
   /// Null draws no label: a face and its tip alone.
   final String? label;
@@ -1055,7 +1056,7 @@ class _MapPin extends StatelessWidget {
       this.highlighted = false,
       this.color = Colors.deepOrange});
 
-  /// The marker box every pin is laid out in, anchored at the bottom.
+  /// The marker box every pin is laid out in; it sits above the point.
   static const width = 110.0;
   static const height = 84.0;
 

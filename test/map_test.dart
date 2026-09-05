@@ -66,17 +66,22 @@ void main() {
         .expand((l) => l.markers)
         .toList();
     expect(markers, hasLength(2));
-    expect(markers.map((m) => m.alignment),
-        everyElement(Alignment.bottomCenter));
     expect(find.byType(PinTip), findsNWidgets(2));
-    // Measured, not trusted: each tip's apex sits on the bottom edge of
-    // its marker box, and the box's bottom centre is the coordinate.
-    for (final tip in find.byType(PinTip).evaluate()) {
-      final tipRect = tester.getRect(find.byWidget(tip.widget));
-      final box = tester.getRect(find.ancestor(
-          of: find.byWidget(tip.widget),
-          matching: find.byType(GestureDetector)).first);
-      expect(tipRect.bottom, moreOrLessEquals(box.bottom, epsilon: 0.5));
+    // Measured against the map itself: each tip's apex sits on the
+    // screen point of its marker's coordinate — not a box edge somewhere
+    // near it, which would drift over the map with every zoom.
+    final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+    final camera = map.mapController!.camera;
+    final mapRect = tester.getRect(find.byType(FlutterMap));
+    for (final marker in markers) {
+      final tip = find.descendant(
+          of: find.byWidget(marker.child), matching: find.byType(PinTip));
+      final tipRect = tester.getRect(tip);
+      final spot = camera.latLngToScreenOffset(marker.point);
+      expect(tipRect.bottom,
+          moreOrLessEquals(mapRect.top + spot.dy, epsilon: 1));
+      expect(tipRect.center.dx,
+          moreOrLessEquals(mapRect.left + spot.dx, epsilon: 1));
     }
     // The clowder's photo is decoded at pin size, like the cat faces.
     expect(
