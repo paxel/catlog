@@ -2,6 +2,24 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.1.2] - 2026-09-05
+
+### Changed
+
+- A found address reads the way its country writes addresses: street
+  and number, then postcode and town ("Grimmaische Straße 12, 04109
+  Leipzig"), number first where that is the custom. Towns and regions
+  keep their full name.
+
+### Fixed
+
+- Deleting a catalog or a person's data asks one plain question
+  instead of demanding a typed word, which the keyboard completed
+  anyway.
+
+- Photos picked from a video appear one by one as they are added,
+  with a progress line, instead of all at once after a silent wait.
+
 ## [1.1.1] - 2026-09-05
 
 ### Added
