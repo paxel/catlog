@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Albo umieść tu clowder:",
   "trailOf": "Trasa: {name} ({count} obserwacji)",
   "trailOfField": "Ślad: {name} — {field} ({count} wartości)",
+  "trailOfPlace": "Ślad: {name} ({count} pozycji)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Zmienione w dwóch miejscach naraz. Wybierz, co jest prawdą:",
   "mergeThisInto": "Scal ten {kind} z…",

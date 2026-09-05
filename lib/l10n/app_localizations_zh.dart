@@ -731,6 +731,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return '轨迹：$name（$count 个位置）';
+  }
+
+  @override
   String conflictOn(String field) {
     return '冲突 — $field';
   }

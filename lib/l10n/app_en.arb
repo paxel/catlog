@@ -402,6 +402,8 @@
   "recordSightingHere": "Record a sighting here:",
   "trailOf": "Trail: {name} ({count} sightings)",
   "trailOfField": "Trail: {name} — {field} ({count} values)",
+  "trailOfPlace": "Trail: {name} ({count} positions)",
+  "@trailOfPlace": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}},
   "@trailOfField": {"placeholders": {"name": {"type": "String"}, "field": {"type": "String"}, "count": {"type": "int"}}},
   "@trailOf": {
     "placeholders": {

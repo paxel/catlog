@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Tai sijoita clowder tähän:",
   "trailOf": "Reitti: {name} ({count} havaintoa)",
   "trailOfField": "Reitti: {name} — {field} ({count} arvoa)",
+  "trailOfPlace": "Reitti: {name} ({count} sijaintia)",
   "conflictOn": "Ristiriita — {field}",
   "conflictBody": "Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:",
   "mergeThisInto": "Yhdistä tämä {kind} kohteeseen…",

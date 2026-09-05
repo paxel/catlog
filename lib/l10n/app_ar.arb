@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "أو ضع مجموعة هنا:",
   "trailOf": "المسار: {name} (المشاهدات: {count})",
   "trailOfField": "المسار: {name} — {field} ({count} قيمة)",
+  "trailOfPlace": "المسار: {name} ({count} مواقع)",
   "conflictOn": "تعارض — {field}",
   "conflictBody": "تغيّر في مكانين في آن واحد. اختر الصحيح:",
   "mergeThisInto": "دمج هذا ({kind}) مع…",

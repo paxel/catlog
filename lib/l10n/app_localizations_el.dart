@@ -762,6 +762,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Διαδρομή: $name ($count θέσεις)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Σύγκρουση — $field';
   }

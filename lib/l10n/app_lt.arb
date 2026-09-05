@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Arba čia padėti klauderį:",
   "trailOf": "Maršrutas: {name} ({count} pastebėjimai)",
   "trailOfField": "Kelias: {name} — {field} ({count} reikšm.)",
+  "trailOfPlace": "Kelias: {name} ({count} pozic.)",
   "conflictOn": "Konfliktas — {field}",
   "conflictBody": "Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:",
   "mergeThisInto": "Sujungti šį įrašą ({kind}) su…",

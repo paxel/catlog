@@ -757,6 +757,11 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Sled: $name ($count položajev)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Spor — $field';
   }

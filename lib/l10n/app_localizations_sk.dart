@@ -756,6 +756,11 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Stopa: $name ($count pozícií)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }

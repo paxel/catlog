@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Или постави клаудер тук:",
   "trailOf": "Маршрут: {name} ({count} забелязвания)",
   "trailOfField": "Следа: {name} — {field} ({count} стойности)",
+  "trailOfPlace": "Следа: {name} ({count} позиции)",
   "conflictOn": "Конфликт — {field}",
   "conflictBody": "Променено на две места едновременно. Изберете кое е вярно:",
   "mergeThisInto": "Обедини този запис ({kind}) с…",

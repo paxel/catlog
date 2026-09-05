@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Nebo sem umístit clowder:",
   "trailOf": "Trasa: {name} (pozorování: {count})",
   "trailOfField": "Stopa: {name} — {field} ({count} hodnot)",
+  "trailOfPlace": "Stopa: {name} ({count} pozic)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Změněno na dvou místech zároveň. Vyberte, co platí:",
   "mergeThisInto": "Sloučit tento záznam ({kind}) s…",

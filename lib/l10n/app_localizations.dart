@@ -1466,6 +1466,12 @@ abstract class AppLocalizations {
   /// **'Trail: {name} — {field} ({count} values)'**
   String trailOfField(String name, String field, int count);
 
+  /// No description provided for @trailOfPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Trail: {name} ({count} positions)'**
+  String trailOfPlace(String name, int count);
+
   /// No description provided for @conflictOn.
   ///
   /// In en, this message translates to:

@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Eller placera en clowder här:",
   "trailOf": "Rutt: {name} ({count} observationer)",
   "trailOfField": "Spår: {name} — {field} ({count} värden)",
+  "trailOfPlace": "Spår: {name} ({count} positioner)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Ändrat på två ställen samtidigt. Välj vad som stämmer:",
   "mergeThisInto": "Slå ihop denna {kind} med…",

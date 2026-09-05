@@ -756,6 +756,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'المسار: $name ($count مواقع)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'تعارض — $field';
   }

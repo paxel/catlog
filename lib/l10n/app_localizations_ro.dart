@@ -758,6 +758,11 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Traseu: $name ($count poziții)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }

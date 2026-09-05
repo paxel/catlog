@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ou colocar um clowder aqui:",
   "trailOf": "Percurso: {name} ({count} avistamentos)",
   "trailOfField": "Percurso: {name} — {field} ({count} valores)",
+  "trailOfPlace": "Percurso: {name} ({count} posições)",
   "conflictOn": "Conflito — {field}",
   "conflictBody": "Alterado em dois sítios ao mesmo tempo. Escolhe o que é verdade:",
   "mergeThisInto": "Unir este {kind} com…",

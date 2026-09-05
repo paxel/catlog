@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Eller placér en clowder her:",
   "trailOf": "Rute: {name} ({count} observationer)",
   "trailOfField": "Spor: {name} — {field} ({count} værdier)",
+  "trailOfPlace": "Spor: {name} ({count} positioner)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Ændret to steder på én gang. Vælg, hvad der er sandt:",
   "mergeThisInto": "Flet denne {kind} med…",

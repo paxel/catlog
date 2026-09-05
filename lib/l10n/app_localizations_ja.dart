@@ -745,6 +745,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return '経路: $name（位置 $count 件）';
+  }
+
+  @override
   String conflictOn(String field) {
     return '競合 — $field';
   }

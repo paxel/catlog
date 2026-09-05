@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ή τοποθέτηση ομάδας εδώ:",
   "trailOf": "Διαδρομή: {name} ({count} παρατηρήσεις)",
   "trailOfField": "Διαδρομή: {name} — {field} ({count} τιμές)",
+  "trailOfPlace": "Διαδρομή: {name} ({count} θέσεις)",
   "conflictOn": "Σύγκρουση — {field}",
   "conflictBody": "Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:",
   "mergeThisInto": "Συγχώνευση αυτού ({kind}) με…",

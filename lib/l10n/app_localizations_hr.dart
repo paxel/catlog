@@ -757,6 +757,11 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Trag: $name ($count položaja)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Sukob — $field';
   }

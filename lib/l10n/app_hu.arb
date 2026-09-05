@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Vagy clowder elhelyezése itt:",
   "trailOf": "Útvonal: {name} ({count} észlelés)",
   "trailOfField": "Nyom: {name} — {field} ({count} érték)",
+  "trailOfPlace": "Nyom: {name} ({count} pozíció)",
   "conflictOn": "Ütközés — {field}",
   "conflictBody": "Két helyen módosították egyszerre. Válaszd ki, mi igaz:",
   "mergeThisInto": "E(z) {kind} egyesítése ezzel…",

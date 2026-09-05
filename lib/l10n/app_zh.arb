@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "或在这里放置猫群：",
   "trailOf": "路线：{name}（目击 {count} 次）",
   "trailOfField": "轨迹：{name} — {field}（{count} 个值）",
+  "trailOfPlace": "轨迹：{name}（{count} 个位置）",
   "conflictOn": "冲突 — {field}",
   "conflictBody": "同时在两处被修改。选出正确的：",
   "mergeThisInto": "把这个{kind}合并到…",

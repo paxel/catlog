@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Или разместить клаудер здесь:",
   "trailOf": "Маршрут: {name} (встреч: {count})",
   "trailOfField": "Маршрут: {name} — {field} ({count} значений)",
+  "trailOfPlace": "Маршрут: {name} ({count} позиций)",
   "conflictOn": "Конфликт — {field}",
   "conflictBody": "Изменено в двух местах одновременно. Выберите, что верно:",
   "mergeThisInto": "Объединить эту запись ({kind}) с…",

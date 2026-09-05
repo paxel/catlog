@@ -760,6 +760,11 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Percorso: $name ($count posizioni)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflitto — $field';
   }

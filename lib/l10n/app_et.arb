@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Või aseta klauder siia:",
   "trailOf": "Rada: {name} ({count} vaatlust)",
   "trailOfField": "Rada: {name} — {field} ({count} väärtust)",
+  "trailOfPlace": "Rada: {name} ({count} asukohta)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Muudetud kahes kohas korraga. Vali, mis on õige:",
   "mergeThisInto": "Ühenda see {kind}…",

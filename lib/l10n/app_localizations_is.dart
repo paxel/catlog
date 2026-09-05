@@ -760,6 +760,11 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Slóð: $name ($count staðsetningar)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Árekstur — $field';
   }

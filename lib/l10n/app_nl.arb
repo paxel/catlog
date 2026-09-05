@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Of hier een clowder plaatsen:",
   "trailOf": "Route: {name} ({count} waarnemingen)",
   "trailOfField": "Spoor: {name} — {field} ({count} waarden)",
+  "trailOfPlace": "Spoor: {name} ({count} posities)",
   "conflictOn": "Conflict — {field}",
   "conflictBody": "Op twee plekken tegelijk gewijzigd. Kies wat waar is:",
   "mergeThisInto": "Deze {kind} samenvoegen met…",

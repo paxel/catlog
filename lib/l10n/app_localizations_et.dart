@@ -757,6 +757,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Rada: $name ($count asukohta)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }

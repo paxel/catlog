@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Vai novietot klauderi šeit:",
   "trailOf": "Maršruts: {name} ({count} novērojumi)",
   "trailOfField": "Ceļš: {name} — {field} ({count} vērtības)",
+  "trailOfPlace": "Ceļš: {name} ({count} pozīcijas)",
   "conflictOn": "Konflikts — {field}",
   "conflictBody": "Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:",
   "mergeThisInto": "Apvienot šo ierakstu ({kind}) ar…",

@@ -758,6 +758,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Spor: $name ($count positioner)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }

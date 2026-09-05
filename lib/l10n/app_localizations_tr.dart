@@ -755,6 +755,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'İz: $name ($count konum)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Çakışma — $field';
   }

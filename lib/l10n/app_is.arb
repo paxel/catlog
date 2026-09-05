@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Eða setja hóp hér:",
   "trailOf": "Slóð: {name} ({count} skráningar)",
   "trailOfField": "Slóð: {name} — {field} ({count} gildi)",
+  "trailOfPlace": "Slóð: {name} ({count} staðsetningar)",
   "conflictOn": "Árekstur — {field}",
   "conflictBody": "Breytt á tveimur stöðum í einu. Veldu hvað er rétt:",
   "mergeThisInto": "Sameina þennan/þetta {kind} við…",

@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ili ovdje postavi clowder:",
   "trailOf": "Ruta: {name} ({count} viđenja)",
   "trailOfField": "Trag: {name} — {field} ({count} vrijednosti)",
+  "trailOfPlace": "Trag: {name} ({count} položaja)",
   "conflictOn": "Sukob — {field}",
   "conflictBody": "Promijenjeno na dva mjesta istodobno. Odaberite što je točno:",
   "mergeThisInto": "Spoji ovaj zapis ({kind}) s…",

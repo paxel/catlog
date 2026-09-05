@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Sau plasează un clowder aici:",
   "trailOf": "Traseu: {name} ({count} observații)",
   "trailOfField": "Traseu: {name} — {field} ({count} valori)",
+  "trailOfPlace": "Traseu: {name} ({count} poziții)",
   "conflictOn": "Conflict — {field}",
   "conflictBody": "Modificat în două locuri deodată. Alege ce e adevărat:",
   "mergeThisInto": "Îmbină acest {kind} cu…",

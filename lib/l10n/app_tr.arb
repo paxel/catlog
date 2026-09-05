@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ya da buraya bir clowder yerleştir:",
   "trailOf": "Rota: {name} ({count} görülme)",
   "trailOfField": "İz: {name} — {field} ({count} değer)",
+  "trailOfPlace": "İz: {name} ({count} konum)",
   "conflictOn": "Çakışma — {field}",
   "conflictBody": "Aynı anda iki yerde değiştirildi. Doğru olanı seçin:",
   "mergeThisInto": "Bu {kind} kaydını şununla birleştir…",

@@ -757,6 +757,11 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Kelias: $name ($count pozic.)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konfliktas — $field';
   }

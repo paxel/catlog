@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "یا اینجا یک گروه بگذار:",
   "trailOf": "مسیر: {name} (مشاهده‌ها: {count})",
   "trailOfField": "مسیر: {name} — {field} ({count} مقدار)",
+  "trailOfPlace": "مسیر: {name} ({count} موقعیت)",
   "conflictOn": "تعارض — {field}",
   "conflictBody": "هم‌زمان در دو جا تغییر کرده است. درست را انتخاب کنید:",
   "mergeThisInto": "ادغام این ({kind}) با…",

@@ -761,6 +761,11 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Rian: $name ($count suíomh)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Coinbhleacht — $field';
   }

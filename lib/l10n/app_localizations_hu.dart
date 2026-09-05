@@ -757,6 +757,11 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Nyom: $name ($count pozíció)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Ütközés — $field';
   }

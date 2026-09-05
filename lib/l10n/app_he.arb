@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "או הצבת קבוצה כאן:",
   "trailOf": "מסלול: {name} (תצפיות: {count})",
   "trailOfField": "מסלול: {name} — {field} ({count} ערכים)",
+  "trailOfPlace": "מסלול: {name} ({count} מיקומים)",
   "conflictOn": "התנגשות — {field}",
   "conflictBody": "שונה בשני מקומות בו-זמנית. בחרו מה נכון:",
   "mergeThisInto": "מיזוג {kind} זה עם…",

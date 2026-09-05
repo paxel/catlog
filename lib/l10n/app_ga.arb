@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Nó cuir clowdar anseo:",
   "trailOf": "Rian: {name} ({count} feiceáil)",
   "trailOfField": "Rian: {name} — {field} ({count} luach)",
+  "trailOfPlace": "Rian: {name} ({count} suíomh)",
   "conflictOn": "Coinbhleacht — {field}",
   "conflictBody": "Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:",
   "mergeThisInto": "Cumaisc an {kind} seo le…",

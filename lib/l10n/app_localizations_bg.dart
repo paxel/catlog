@@ -758,6 +758,11 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Следа: $name ($count позиции)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Конфликт — $field';
   }

@@ -759,6 +759,11 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Traċċa: $name ($count pożizzjonijiet)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Kunflitt — $field';
   }

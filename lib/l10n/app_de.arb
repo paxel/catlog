@@ -216,6 +216,7 @@
   "recordSightingHere": "Hier eine Sichtung eintragen:",
   "trailOf": "Route: {name} ({count} Sichtungen)",
   "trailOfField": "Route: {name} — {field} ({count} Werte)",
+  "trailOfPlace": "Route: {name} ({count} Positionen)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "An zwei Orten gleichzeitig geändert. Wähle, was stimmt:",
   "mergeThisInto": "Diese(n) {kind} zusammenführen mit…",

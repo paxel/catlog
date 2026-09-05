@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ose vendos një clowder këtu:",
   "trailOf": "Gjurma: {name} ({count} vëzhgime)",
   "trailOfField": "Gjurmë: {name} — {field} ({count} vlera)",
+  "trailOfPlace": "Gjurmë: {name} ({count} pozicione)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:",
   "mergeThisInto": "Bashko këtë {kind} me…",

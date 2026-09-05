@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Ali sem postavi clowder:",
   "trailOf": "Pot: {name} ({count} opažanj)",
   "trailOfField": "Sled: {name} — {field} ({count} vrednosti)",
+  "trailOfPlace": "Sled: {name} ({count} položajev)",
   "conflictOn": "Spor — {field}",
   "conflictBody": "Spremenjeno na dveh mestih hkrati. Izberite, kaj drži:",
   "mergeThisInto": "Združi ta zapis ({kind}) z…",

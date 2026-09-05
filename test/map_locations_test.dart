@@ -114,7 +114,7 @@ void main() {
     await tester.tap(find.text('Home'));
     await tester.pump();
     expect(find.byType(PolylineLayer), findsOneWidget);
-    expect(find.text('Trail: Home (2 sightings)'), findsOneWidget);
+    expect(find.text('Trail: Home (2 positions)'), findsOneWidget);
 
     await tester.tap(find.text('Open'));
     await tester.pumpAndSettle();

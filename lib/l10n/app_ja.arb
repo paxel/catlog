@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "またはここにクラウダーを配置:",
   "trailOf": "経路: {name}（目撃 {count} 件）",
   "trailOfField": "経路: {name} — {field}（{count} 件）",
+  "trailOfPlace": "経路: {name}（位置 {count} 件）",
   "conflictOn": "競合 — {field}",
   "conflictBody": "2 か所で同時に変更されました。正しい方を選んでください:",
   "mergeThisInto": "この{kind}の統合先…",

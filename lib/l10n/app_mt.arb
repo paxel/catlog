@@ -136,6 +136,7 @@
   "orPlaceClowderHere": "Jew poġġi clowder hawn:",
   "trailOf": "Rotta: {name} ({count} dehriet)",
   "trailOfField": "Traċċa: {name} — {field} ({count} valuri)",
+  "trailOfPlace": "Traċċa: {name} ({count} pożizzjonijiet)",
   "conflictOn": "Kunflitt — {field}",
   "conflictBody": "Inbidel f'żewġ postijiet fl-istess ħin. Agħżel x'inhu veru:",
   "mergeThisInto": "Għaqqad dan il-{kind} ma'…",

@@ -758,6 +758,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Reitti: $name ($count sijaintia)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Ristiriita — $field';
   }

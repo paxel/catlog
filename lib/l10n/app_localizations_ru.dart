@@ -759,6 +759,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String trailOfPlace(String name, int count) {
+    return 'Маршрут: $name ($count позиций)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Конфликт — $field';
   }

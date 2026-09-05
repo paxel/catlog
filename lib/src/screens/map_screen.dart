@@ -679,9 +679,12 @@ class _MapScreenState extends State<MapScreen>
         ? null
         : store.fieldDefs().where((d) => d.key == field).firstOrNull;
     final count = _trailPoints(_trailOf!).length;
-    var label = def == null
-        ? t.trailOf(name, count)
-        : t.trailOfField(name, fieldDefName(t, def), count);
+    // A cat is sighted; a home simply moves, like its people.
+    var label = def != null
+        ? t.trailOfField(name, fieldDefName(t, def), count)
+        : id.startsWith('clowder:')
+            ? t.trailOfPlace(name, count)
+            : t.trailOf(name, count);
     if (_dot case final dot?) {
       final date = dot.date.toLocal().toIso8601String().substring(0, 10);
       label = '$label · $date · ${dot.author}';
