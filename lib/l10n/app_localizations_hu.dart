@@ -1028,19 +1028,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a kolónia több macskáját is viheti, például egy ivartalanítási útra: jelöld be a macskákat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél.';
+      'Minden erről a helyről: macskái, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy macskát hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a kolónia több macskáját is viheti, például egy ivartalanítási útra: jelöld be a macskákat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél. A mező melletti óra megnyitja az előzményeit.';
 
   @override
   String get helpClowderNeutral =>
-      'Minden erről a helyről: kisállatai, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy kisállatot hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a háztartás több kisállatát is viheti, például egy ivartalanítási útra: jelöld be a kisállatokat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél.';
+      'Minden erről a helyről: kisállatai, mezői (cím, elérhetőség, típus) és előzményei. Az oldal csak olvasható; a ceruza kapcsolja be a szerkesztést, ott új mezőt is felvehetsz. Egy mezőt hosszan nyomva rögtön szerkeszted, egy kisállatot hosszan nyomva átviszed, elrejted vagy megnyitod. Az itt hozzáadott időpont a háztartás több kisállatát is viheti, például egy ivartalanítási útra: jelöld be a kisállatokat, amelyek jönnek, fejezd be egyszer, vedd ki a jelölést a nem kezelteknél. A mező melletti óra megnyitja az előzményeit.';
 
   @override
   String get helpCat =>
-      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a macska megosztása. A Privát a mező szerkesztésekor állítható.';
+      'Minden erről a macskáról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a macska megosztása. A Privát a mező szerkesztésekor állítható. A mező melletti óra megnyitja az előzményeit.';
 
   @override
   String get helpCatNeutral =>
-      'Minden erről a kisállatról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a kisállat megosztása. A Privát a mező szerkesztésekor állítható.';
+      'Minden erről a kisállatról: fotók, mezők, család, előzmények. Az oldal csak olvasható, amíg a ceruzára nem koppintasz. Egy mező hosszú nyomása rögtön a szerkesztésébe visz; egy fotó hosszú nyomása a menüjét nyitja. A jobb felső menüben van a többi: elrejtés, összevonás, észlelés rögzítése, a kisállat megosztása. A Privát a mező szerkesztésekor állítható. A mező melletti óra megnyitja az előzményeit.';
 
   @override
   String get helpStrays =>
@@ -1349,6 +1349,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafikon';
+
+  @override
+  String get fieldHistoryTooltip => 'Előzmények';
 
   @override
   String get rangeWeek => 'Hét';

@@ -1027,19 +1027,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu koloninin birkaç kedisini götürebilir, örneğin kısırlaştırma seferi: gelen kedileri işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.';
+      'Bu yer hakkında her şey: kedileri, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir kediye uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu koloninin birkaç kedisini götürebilir, örneğin kısırlaştırma seferi: gelen kedileri işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın. Bir alandaki saat, geçmişini açar.';
 
   @override
   String get helpClowderNeutral =>
-      'Bu yer hakkında her şey: evcil hayvanları, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir evcil hayvana uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu hanenin birkaç evcil hayvanını götürebilir, örneğin kısırlaştırma seferi: gelen evcil hayvanları işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın.';
+      'Bu yer hakkında her şey: evcil hayvanları, alanları (adres, iletişim, tür) ve geçmişi. Sayfa salt okunur açılır; kalem düzenlemeyi açar, orada yeni alan da ekleyebilirsin. Bir alana uzun basmak onu doğrudan düzenler, bir evcil hayvana uzun basmak taşır, gizler veya açar. Buradan eklenen bir randevu hanenin birkaç evcil hayvanını götürebilir, örneğin kısırlaştırma seferi: gelen evcil hayvanları işaretleyin, bir kez bitirin, tedavi edilmeyenlerin işaretini kaldırın. Bir alandaki saat, geçmişini açar.';
 
   @override
   String get helpCat =>
-      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır.';
+      'Bu kedi hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, kediyi paylaş. Özel, bir alanı düzenlerken ayarlanır. Bir alandaki saat, geçmişini açar.';
 
   @override
   String get helpCatNeutral =>
-      'Bu evcil hayvan hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, evcil hayvanı paylaş. Özel, bir alanı düzenlerken ayarlanır.';
+      'Bu evcil hayvan hakkında her şey: fotoğraflar, alanlar, aile, geçmiş. Kaleme dokunana kadar sayfa salt okunur. Bir alana uzun bas, doğrudan düzenlemeye geçersin; bir fotoğrafa uzun bas, menüsü açılır. Sağ üstteki menüde gerisi var: gizle, birleştir, görülme kaydet, evcil hayvanı paylaş. Özel, bir alanı düzenlerken ayarlanır. Bir alandaki saat, geçmişini açar.';
 
   @override
   String get helpStrays =>
@@ -1348,6 +1348,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafik';
+
+  @override
+  String get fieldHistoryTooltip => 'Geçmiş';
 
   @override
   String get rangeWeek => 'Hafta';

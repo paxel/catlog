@@ -1029,19 +1029,19 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta.';
+      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta. Kentän kello avaa sen historian.';
 
   @override
   String get helpClowderNeutral =>
-      'Kaikki tästä paikasta: sen lemmikit, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, lemmikkiä siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kotitalouden lemmikkejä, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat lemmikit, päätä kerran, poista valinta hoitamattomilta.';
+      'Kaikki tästä paikasta: sen lemmikit, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, lemmikkiä siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kotitalouden lemmikkejä, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat lemmikit, päätä kerran, poista valinta hoitamattomilta. Kentän kello avaa sen historian.';
 
   @override
   String get helpCat =>
-      'Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa.';
+      'Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa. Kentän kello avaa sen historian.';
 
   @override
   String get helpCatNeutral =>
-      'Kaikki tästä lemmikistä: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa lemmikki. „Yksityinen“ asetetaan kenttää muokattaessa.';
+      'Kaikki tästä lemmikistä: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa lemmikki. „Yksityinen“ asetetaan kenttää muokattaessa. Kentän kello avaa sen historian.';
 
   @override
   String get helpStrays =>
@@ -1351,6 +1351,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get graphLabel => 'Kaavio';
+
+  @override
+  String get fieldHistoryTooltip => 'Historia';
 
   @override
   String get rangeWeek => 'Viikko';

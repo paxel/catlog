@@ -1028,19 +1028,19 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac mačiek kolónie, napríklad kastračný výjazd: zaškrtnite mačky, ktoré idú, dokončite raz, odškrtnite tie, ktoré neboli ošetrené.';
+      'Všetko o tomto mieste: jeho mačky, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie mačky ju presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac mačiek kolónie, napríklad kastračný výjazd: zaškrtnite mačky, ktoré idú, dokončite raz, odškrtnite tie, ktoré neboli ošetrené. Hodiny pri poli otvoria jeho históriu.';
 
   @override
   String get helpClowderNeutral =>
-      'Všetko o tomto mieste: jeho miláčikovia, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie miláčika ho presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac miláčikov domácnosti, napríklad kastračný výjazd: zaškrtnite miláčikov, ktorí idú, dokončite raz, odškrtnite tých, ktorí neboli ošetrení.';
+      'Všetko o tomto mieste: jeho miláčikovia, polia (adresa, kontakt, typ) a história. Stránka sa otvorí len na čítanie; ceruzka zapne úpravy, kde môžeš pridať aj nové pole. Podržanie poľa ho upraví hneď, podržanie miláčika ho presunie, skryje alebo otvorí. Stretnutie pridané tu môže vziať viac miláčikov domácnosti, napríklad kastračný výjazd: zaškrtnite miláčikov, ktorí idú, dokončite raz, odškrtnite tých, ktorí neboli ošetrení. Hodiny pri poli otvoria jeho históriu.';
 
   @override
   String get helpCat =>
-      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať mačku. „Súkromné“ sa nastavuje pri úprave poľa.';
+      'Všetko o tejto mačke: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať mačku. „Súkromné“ sa nastavuje pri úprave poľa. Hodiny pri poli otvoria jeho históriu.';
 
   @override
   String get helpCatNeutral =>
-      'Všetko o tomto miláčikovi: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať miláčika. „Súkromné“ sa nastavuje pri úprave poľa.';
+      'Všetko o tomto miláčikovi: fotky, polia, rodina, história. Stránka je len na čítanie, kým neklepneš na ceruzku. Dlho podrž pole a hneď ho upravíš; dlho podrž fotku pre jej menu. Menu vpravo hore drží zvyšok: skryť, zlúčiť, zaznamenať spozorovanie, zdieľať miláčika. „Súkromné“ sa nastavuje pri úprave poľa. Hodiny pri poli otvoria jeho históriu.';
 
   @override
   String get helpStrays =>
@@ -1348,6 +1348,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graf';
+
+  @override
+  String get fieldHistoryTooltip => 'História';
 
   @override
   String get rangeWeek => 'Týždeň';

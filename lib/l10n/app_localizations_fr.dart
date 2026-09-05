@@ -1032,19 +1032,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l\'ouvre. Un rendez-vous ajouté ici peut emmener plusieurs chats de la colonie, par exemple une tournée de stérilisation : cochez les chats qui viennent, terminez une fois, décochez ceux qui n\'ont pas été traités.';
+      'Tout sur ce lieu : ses chats, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un chat le déplace, le masque ou l\'ouvre. Un rendez-vous ajouté ici peut emmener plusieurs chats de la colonie, par exemple une tournée de stérilisation : cochez les chats qui viennent, terminez une fois, décochez ceux qui n\'ont pas été traités. L’horloge sur un champ ouvre son historique.';
 
   @override
   String get helpClowderNeutral =>
-      'Tout sur ce lieu : ses animaux, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un animal le déplace, le masque ou l\'ouvre. Un rendez-vous ajouté ici peut emmener plusieurs animaux du foyer, par exemple une tournée de stérilisation : cochez les animaux qui viennent, terminez une fois, décochez ceux qui n\'ont pas été traités.';
+      'Tout sur ce lieu : ses animaux, ses champs (adresse, contact, type) et son historique. La page s\'ouvre en lecture seule ; le crayon active la modification, où vous pouvez aussi ajouter un champ. Un appui long sur un champ le modifie directement, sur un animal le déplace, le masque ou l\'ouvre. Un rendez-vous ajouté ici peut emmener plusieurs animaux du foyer, par exemple une tournée de stérilisation : cochez les animaux qui viennent, terminez une fois, décochez ceux qui n\'ont pas été traités. L’horloge sur un champ ouvre son historique.';
 
   @override
   String get helpCat =>
-      'Tout sur ce chat : photos, champs, famille, historique. La page est en lecture seule jusqu\'à ce que tu touches le crayon. Un appui long sur un champ ouvre directement sa modification ; un appui long sur une photo ouvre son menu. Le menu en haut à droite contient le reste : masquer, fusionner, noter une observation, partager le chat. « Privé » se règle en modifiant un champ.';
+      'Tout sur ce chat : photos, champs, famille, historique. La page est en lecture seule jusqu\'à ce que tu touches le crayon. Un appui long sur un champ ouvre directement sa modification ; un appui long sur une photo ouvre son menu. Le menu en haut à droite contient le reste : masquer, fusionner, noter une observation, partager le chat. « Privé » se règle en modifiant un champ. L’horloge sur un champ ouvre son historique.';
 
   @override
   String get helpCatNeutral =>
-      'Tout sur cet animal : photos, champs, famille, historique. La page est en lecture seule jusqu\'à ce que tu touches le crayon. Un appui long sur un champ ouvre directement sa modification ; un appui long sur une photo ouvre son menu. Le menu en haut à droite contient le reste : masquer, fusionner, noter une observation, partager l\'animal. « Privé » se règle en modifiant un champ.';
+      'Tout sur cet animal : photos, champs, famille, historique. La page est en lecture seule jusqu\'à ce que tu touches le crayon. Un appui long sur un champ ouvre directement sa modification ; un appui long sur une photo ouvre son menu. Le menu en haut à droite contient le reste : masquer, fusionner, noter une observation, partager l\'animal. « Privé » se règle en modifiant un champ. L’horloge sur un champ ouvre son historique.';
 
   @override
   String get helpStrays =>
@@ -1353,6 +1353,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graphique';
+
+  @override
+  String get fieldHistoryTooltip => 'Historique';
 
   @override
   String get rangeWeek => 'Semaine';

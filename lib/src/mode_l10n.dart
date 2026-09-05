@@ -607,6 +607,9 @@ class ModeLocalizations implements AppLocalizations {
   String fieldHistoryOf(String field, String name) => base.fieldHistoryOf(field, name);
 
   @override
+  String get fieldHistoryTooltip => base.fieldHistoryTooltip;
+
+  @override
   String get fieldType => base.fieldType;
 
   @override

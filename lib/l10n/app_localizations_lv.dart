@@ -1029,19 +1029,19 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus kolonijas kaķus, piemēram, uz sterilizāciju: atzīmē kaķus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem.';
+      'Viss par šo vietu: tās kaķi, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, kaķi — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus kolonijas kaķus, piemēram, uz sterilizāciju: atzīmē kaķus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem. Pulkstenis pie lauka atver tā vēsturi.';
 
   @override
   String get helpClowderNeutral =>
-      'Viss par šo vietu: tās mājdzīvnieki, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, mājdzīvnieku — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus mājsaimniecības mājdzīvniekus, piemēram, uz sterilizāciju: atzīmē mājdzīvniekus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem.';
+      'Viss par šo vietu: tās mājdzīvnieki, lauki (adrese, kontakts, veids) un vēsture. Lapa atveras tikai lasīšanai; zīmulis ieslēdz rediģēšanu, kur var pievienot arī jaunu lauku. Ilgi turot lauku, to rediģē uzreiz, mājdzīvnieku — pārvieto, paslēpj vai atver. Šeit pievienots pieraksts var ņemt līdzi vairākus mājsaimniecības mājdzīvniekus, piemēram, uz sterilizāciju: atzīmē mājdzīvniekus, kas brauc, pabeidz vienreiz, noņem atzīmi neārstētajiem. Pulkstenis pie lauka atver tā vēsturi.';
 
   @override
   String get helpCat =>
-      'Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku.';
+      'Viss par šo kaķi: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot kaķi. „Privāts“ tiek iestatīts, rediģējot lauku. Pulkstenis pie lauka atver tā vēsturi.';
 
   @override
   String get helpCatNeutral =>
-      'Viss par šo mājdzīvnieku: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot mājdzīvnieku. „Privāts“ tiek iestatīts, rediģējot lauku.';
+      'Viss par šo mājdzīvnieku: fotogrāfijas, lauki, ģimene, vēsture. Lapa ir tikai lasāma, līdz pieskaries zīmulim. Ilgi turi lauku, lai to uzreiz rediģētu; ilgi turi fotogrāfiju tās izvēlnei. Izvēlne augšā pa labi tur pārējo: paslēpt, apvienot, pierakstīt novērojumu, kopīgot mājdzīvnieku. „Privāts“ tiek iestatīts, rediģējot lauku. Pulkstenis pie lauka atver tā vēsturi.';
 
   @override
   String get helpStrays =>
@@ -1350,6 +1350,9 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafiks';
+
+  @override
+  String get fieldHistoryTooltip => 'Vēsture';
 
   @override
   String get rangeWeek => 'Nedēļa';

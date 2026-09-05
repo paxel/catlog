@@ -1032,19 +1032,19 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più gatti della colonia, per esempio un giro di sterilizzazioni: spunta i gatti che vengono, concludi una volta, togli la spunta a quelli non trattati.';
+      'Tutto su questo luogo: i suoi gatti, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un gatto per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più gatti della colonia, per esempio un giro di sterilizzazioni: spunta i gatti che vengono, concludi una volta, togli la spunta a quelli non trattati. L’orologio su un campo apre la sua cronologia.';
 
   @override
   String get helpClowderNeutral =>
-      'Tutto su questo luogo: i suoi animali, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un animale per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più animali della casa, per esempio un giro di sterilizzazioni: spunta gli animali che vengono, concludi una volta, togli la spunta a quelli non trattati.';
+      'Tutto su questo luogo: i suoi animali, i suoi campi (indirizzo, contatto, tipo) e la sua cronologia. La pagina si apre in sola lettura; la matita attiva la modifica, dove puoi anche aggiungere un campo. Tieni premuto un campo per modificarlo subito, un animale per spostarlo, nasconderlo o aprirlo. Un appuntamento aggiunto qui può portare più animali della casa, per esempio un giro di sterilizzazioni: spunta gli animali che vengono, concludi una volta, togli la spunta a quelli non trattati. L’orologio su un campo apre la sua cronologia.';
 
   @override
   String get helpCat =>
-      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo.';
+      'Tutto su questo gatto: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi il gatto. «Privato» si imposta modificando un campo. L’orologio su un campo apre la sua cronologia.';
 
   @override
   String get helpCatNeutral =>
-      'Tutto su questo animale: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi l\'animale. «Privato» si imposta modificando un campo.';
+      'Tutto su questo animale: foto, campi, famiglia, cronologia. La pagina è in sola lettura finché non tocchi la matita. Tieni premuto un campo per modificarlo subito; tieni premuta una foto per il suo menu. Il menu in alto a destra contiene il resto: nascondi, unisci, registra un avvistamento, condividi l\'animale. «Privato» si imposta modificando un campo. L’orologio su un campo apre la sua cronologia.';
 
   @override
   String get helpStrays =>
@@ -1354,6 +1354,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafico';
+
+  @override
+  String get fieldHistoryTooltip => 'Cronologia';
 
   @override
   String get rangeWeek => 'Settimana';

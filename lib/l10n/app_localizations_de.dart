@@ -1034,19 +1034,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie. Ein hier angelegter Termin kann mehrere Katzen der Kolonie mitnehmen — etwa eine Kastrationsfahrt: mitkommende Katzen anhaken, einmal abschließen, nicht behandelte abhaken.';
+      'Alles zu diesem Ort: seine Katzen, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, eine Katze lange drücken verschiebt, versteckt oder öffnet sie. Ein hier angelegter Termin kann mehrere Katzen der Kolonie mitnehmen — etwa eine Kastrationsfahrt: mitkommende Katzen anhaken, einmal abschließen, nicht behandelte abhaken. Die Uhr an einem Feld öffnet seinen Verlauf.';
 
   @override
   String get helpClowderNeutral =>
-      'Alles zu diesem Ort: seine Tiere, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, ein Tier lange drücken verschiebt, versteckt oder öffnet es. Ein hier angelegter Termin kann mehrere Tiere des Haushalts mitnehmen — etwa eine Kastrationsfahrt: mitkommende Tiere anhaken, einmal abschließen, nicht behandelte abhaken.';
+      'Alles zu diesem Ort: seine Tiere, seine Felder (Adresse, Kontakt, Art) und seine Historie. Die Seite ist erst nur zum Lesen; der Stift schaltet das Bearbeiten ein, dort kannst du auch ein neues Feld anlegen. Ein Feld lange drücken bearbeitet es direkt, ein Tier lange drücken verschiebt, versteckt oder öffnet es. Ein hier angelegter Termin kann mehrere Tiere des Haushalts mitnehmen — etwa eine Kastrationsfahrt: mitkommende Tiere anhaken, einmal abschließen, nicht behandelte abhaken. Die Uhr an einem Feld öffnet seinen Verlauf.';
 
   @override
   String get helpCat =>
-      'Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Katze teilen. Privat setzt du beim Bearbeiten eines Feldes.';
+      'Alles zu dieser Katze: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Katze teilen. Privat setzt du beim Bearbeiten eines Feldes. Die Uhr an einem Feld öffnet seinen Verlauf.';
 
   @override
   String get helpCatNeutral =>
-      'Alles zu diesem Tier: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Tier teilen. Privat setzt du beim Bearbeiten eines Feldes.';
+      'Alles zu diesem Tier: Fotos, Felder, Familie, Historie. Die Seite ist nur zum Lesen, bis du den Stift antippst. Ein Feld lange drücken springt direkt in dessen Bearbeitung; ein Foto lange drücken öffnet sein Menü. Im Menü oben rechts steckt der Rest: ausblenden, zusammenführen, Sichtung eintragen, Tier teilen. Privat setzt du beim Bearbeiten eines Feldes. Die Uhr an einem Feld öffnet seinen Verlauf.';
 
   @override
   String get helpStrays =>
@@ -1355,6 +1355,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get graphLabel => 'Verlauf';
+
+  @override
+  String get fieldHistoryTooltip => 'Verlauf';
 
   @override
   String get rangeWeek => 'Woche';

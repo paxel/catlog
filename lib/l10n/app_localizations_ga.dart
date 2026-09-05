@@ -1033,19 +1033,19 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt cat den choilíneacht a thabhairt léi, turas coillte mar shampla: ticeáil na cait a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu.';
+      'Gach rud faoin áit seo: a cuid cat, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó cat chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt cat den choilíneacht a thabhairt léi, turas coillte mar shampla: ticeáil na cait a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu. Osclaíonn an clog ar réimse a stair.';
 
   @override
   String get helpClowderNeutral =>
-      'Gach rud faoin áit seo: a cuid peataí, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó peata chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt peataí den líon tí a thabhairt léi, turas coillte mar shampla: ticeáil na peataí a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu.';
+      'Gach rud faoin áit seo: a cuid peataí, a réimsí (seoladh, teagmháil, cineál) agus a stair. Osclaíonn an leathanach inléite amháin; cuireann an peann luaidhe an eagarthóireacht ar siúl, áit ar féidir réimse nua a chur leis freisin. Brúigh réimse go fada chun é a chur in eagar láithreach, nó peata chun é a bhogadh, a fholú nó a oscailt. Is féidir le coinne a chuirtear leis anseo roinnt peataí den líon tí a thabhairt léi, turas coillte mar shampla: ticeáil na peataí a thagann, críochnaigh uair amháin, bain an tic díobh siúd nár cuireadh cóir orthu. Osclaíonn an clog ar réimse a stair.';
 
   @override
   String get helpCat =>
-      'Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar.';
+      'Gach rud faoin gcat seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an cat. Socraítear „Príobháideach“ agus réimse á chur in eagar. Osclaíonn an clog ar réimse a stair.';
 
   @override
   String get helpCatNeutral =>
-      'Gach rud faoin bpeata seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an peata. Socraítear „Príobháideach“ agus réimse á chur in eagar.';
+      'Gach rud faoin bpeata seo: grianghraif, réimsí, teaghlach, stair. Tá an leathanach inléite amháin go dtí go dteagmhaíonn tú leis an bpeann luaidhe. Brúigh réimse go fada chun é a chur in eagar go díreach; brúigh grianghraf go fada dá roghchlár. Tá an chuid eile sa roghchlár ar barr ar dheis: folaigh, cumaisc, taifead amharc, comhroinn an peata. Socraítear „Príobháideach“ agus réimse á chur in eagar. Osclaíonn an clog ar réimse a stair.';
 
   @override
   String get helpStrays =>
@@ -1354,6 +1354,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graf';
+
+  @override
+  String get fieldHistoryTooltip => 'Stair';
 
   @override
   String get rangeWeek => 'Seachtain';

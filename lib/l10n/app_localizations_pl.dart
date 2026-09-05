@@ -1027,19 +1027,19 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Wszystko o tym miejscu: jego koty, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie kota przenosi, ukrywa lub otwiera go. Wizyta dodana tutaj może zabrać kilka kotów kolonii, na przykład wyjazd na kastrację: zaznacz koty, które jadą, zakończ raz, odznacz te, które nie zostały zaopatrzone.';
+      'Wszystko o tym miejscu: jego koty, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie kota przenosi, ukrywa lub otwiera go. Wizyta dodana tutaj może zabrać kilka kotów kolonii, na przykład wyjazd na kastrację: zaznacz koty, które jadą, zakończ raz, odznacz te, które nie zostały zaopatrzone. Zegar przy polu otwiera jego historię.';
 
   @override
   String get helpClowderNeutral =>
-      'Wszystko o tym miejscu: jego zwierzęta, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie zwierzęcia przenosi, ukrywa lub otwiera je. Wizyta dodana tutaj może zabrać kilka zwierząt domostwa, na przykład wyjazd na kastrację: zaznacz zwierzęta, które jadą, zakończ raz, odznacz te, które nie zostały zaopatrzone.';
+      'Wszystko o tym miejscu: jego zwierzęta, pola (adres, kontakt, rodzaj) i historia. Strona otwiera się tylko do odczytu; ołówek włącza edycję, tam też dodasz nowe pole. Przytrzymanie pola edytuje je od razu, przytrzymanie zwierzęcia przenosi, ukrywa lub otwiera je. Wizyta dodana tutaj może zabrać kilka zwierząt domostwa, na przykład wyjazd na kastrację: zaznacz zwierzęta, które jadą, zakończ raz, odznacz te, które nie zostały zaopatrzone. Zegar przy polu otwiera jego historię.';
 
   @override
   String get helpCat =>
-      'Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by od razu je edytować; przytrzymaj zdjęcie, by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: ukryj, scal, zapisz zaobserwowanie, udostępnij kota. „Prywatne“ ustawia się przy edycji pola.';
+      'Wszystko o tym kocie: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by od razu je edytować; przytrzymaj zdjęcie, by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: ukryj, scal, zapisz zaobserwowanie, udostępnij kota. „Prywatne“ ustawia się przy edycji pola. Zegar przy polu otwiera jego historię.';
 
   @override
   String get helpCatNeutral =>
-      'Wszystko o tym zwierzęciu: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by od razu je edytować; przytrzymaj zdjęcie, by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: ukryj, scal, zapisz zaobserwowanie, udostępnij zwierzę. „Prywatne“ ustawia się przy edycji pola.';
+      'Wszystko o tym zwierzęciu: zdjęcia, pola, rodzina, historia. Strona jest tylko do odczytu, dopóki nie dotkniesz ołówka. Przytrzymaj pole, by od razu je edytować; przytrzymaj zdjęcie, by otworzyć jego menu. Menu w prawym górnym rogu ma resztę: ukryj, scal, zapisz zaobserwowanie, udostępnij zwierzę. „Prywatne“ ustawia się przy edycji pola. Zegar przy polu otwiera jego historię.';
 
   @override
   String get helpStrays =>
@@ -1349,6 +1349,9 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get graphLabel => 'Wykres';
+
+  @override
+  String get fieldHistoryTooltip => 'Historia';
 
   @override
   String get rangeWeek => 'Tydzień';

@@ -1030,19 +1030,19 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate.';
+      'Tot despre acest loc: pisicile, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, o pisică pentru a o muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe pisici ale coloniei, de exemplu un drum de sterilizare: bifează pisicile care vin, încheie o dată, debifează-le pe cele netratate. Ceasul de pe un câmp deschide istoricul lui.';
 
   @override
   String get helpClowderNeutral =>
-      'Tot despre acest loc: animalele, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, un animal pentru a-l muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe animale ale gospodăriei, de exemplu un drum de sterilizare: bifează animalele care vin, încheie o dată, debifează-le pe cele netratate.';
+      'Tot despre acest loc: animalele, câmpurile (adresă, contact, tip) și istoricul. Pagina se deschide doar pentru citire; creionul pornește editarea, unde poți adăuga și un câmp. Ține apăsat un câmp ca să-l editezi direct, un animal pentru a-l muta, ascunde sau deschide. O programare adăugată aici poate lua mai multe animale ale gospodăriei, de exemplu un drum de sterilizare: bifează animalele care vin, încheie o dată, debifează-le pe cele netratate. Ceasul de pe un câmp deschide istoricul lui.';
 
   @override
   String get helpCat =>
-      'Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp.';
+      'Totul despre această pisică: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează pisica. „Privat“ se setează la editarea unui câmp. Ceasul de pe un câmp deschide istoricul lui.';
 
   @override
   String get helpCatNeutral =>
-      'Totul despre acest animal: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează animalul. „Privat“ se setează la editarea unui câmp.';
+      'Totul despre acest animal: fotografii, câmpuri, familie, istoric. Pagina este doar pentru citire până atingi creionul. Ține apăsat un câmp ca să-l editezi direct; ține apăsată o fotografie pentru meniul ei. Meniul din dreapta sus ține restul: ascunde, unește, notează o observare, partajează animalul. „Privat“ se setează la editarea unui câmp. Ceasul de pe un câmp deschide istoricul lui.';
 
   @override
   String get helpStrays =>
@@ -1351,6 +1351,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafic';
+
+  @override
+  String get fieldHistoryTooltip => 'Istoric';
 
   @override
   String get rangeWeek => 'Săptămână';

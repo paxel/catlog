@@ -1028,19 +1028,19 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete. Schůzka přidaná zde může vzít více koček kolonie, například kastrační výjezd: zaškrtněte kočky, které jedou, dokončete jednou, odškrtněte ty, které nebyly ošetřeny.';
+      'Vše o tomto místě: jeho kočky, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením kočky ji přesunete, skryjete nebo otevřete. Schůzka přidaná zde může vzít více koček kolonie, například kastrační výjezd: zaškrtněte kočky, které jedou, dokončete jednou, odškrtněte ty, které nebyly ošetřeny. Hodiny u pole otevřou jeho historii.';
 
   @override
   String get helpClowderNeutral =>
-      'Vše o tomto místě: jeho mazlíčci, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením mazlíčka ho přesunete, skryjete nebo otevřete. Schůzka přidaná zde může vzít více mazlíčků domácnosti, například kastrační výjezd: zaškrtněte mazlíčky, kteří jedou, dokončete jednou, odškrtněte ty, kteří nebyli ošetřeni.';
+      'Vše o tomto místě: jeho mazlíčci, pole (adresa, kontakt, typ) a historie. Stránka se otevře jen ke čtení; tužka zapne úpravy, kde můžete přidat i nové pole. Podržením pole ho upravíte rovnou, podržením mazlíčka ho přesunete, skryjete nebo otevřete. Schůzka přidaná zde může vzít více mazlíčků domácnosti, například kastrační výjezd: zaškrtněte mazlíčky, kteří jedou, dokončete jednou, odškrtněte ty, kteří nebyli ošetřeni. Hodiny u pole otevřou jeho historii.';
 
   @override
   String get helpCat =>
-      'Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen pro čtení, dokud neklepneš na tužku. Dlouze podrž pole a rovnou ho upravíš; dlouze podrž fotku pro její menu. Menu vpravo nahoře drží zbytek: skrýt, sloučit, zaznamenat spatření, sdílet kočku. „Soukromé“ se nastavuje při úpravě pole.';
+      'Vše o této kočce: fotky, pole, rodina, historie. Stránka je jen pro čtení, dokud neklepneš na tužku. Dlouze podrž pole a rovnou ho upravíš; dlouze podrž fotku pro její menu. Menu vpravo nahoře drží zbytek: skrýt, sloučit, zaznamenat spatření, sdílet kočku. „Soukromé“ se nastavuje při úpravě pole. Hodiny u pole otevřou jeho historii.';
 
   @override
   String get helpCatNeutral =>
-      'Vše o tomto mazlíčkovi: fotky, pole, rodina, historie. Stránka je jen pro čtení, dokud neklepneš na tužku. Dlouze podrž pole a rovnou ho upravíš; dlouze podrž fotku pro její menu. Menu vpravo nahoře drží zbytek: skrýt, sloučit, zaznamenat spatření, sdílet mazlíčka. „Soukromé“ se nastavuje při úpravě pole.';
+      'Vše o tomto mazlíčkovi: fotky, pole, rodina, historie. Stránka je jen pro čtení, dokud neklepneš na tužku. Dlouze podrž pole a rovnou ho upravíš; dlouze podrž fotku pro její menu. Menu vpravo nahoře drží zbytek: skrýt, sloučit, zaznamenat spatření, sdílet mazlíčka. „Soukromé“ se nastavuje při úpravě pole. Hodiny u pole otevřou jeho historii.';
 
   @override
   String get helpStrays =>
@@ -1350,6 +1350,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graf';
+
+  @override
+  String get fieldHistoryTooltip => 'Historie';
 
   @override
   String get rangeWeek => 'Týden';

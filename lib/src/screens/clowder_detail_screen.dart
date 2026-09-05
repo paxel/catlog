@@ -26,6 +26,7 @@ import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
+import 'field_history_screen.dart';
 import 'timeline_screen.dart';
 import '../geocode.dart';
 import 'cat_list_screen.dart';
@@ -343,6 +344,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         // Reverts happen on the timeline — the page must show them.
         if (mounted) setState(() {});
       },
+      onValueHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldHistoryScreen(store: store, entityId: id, def: def),
+      )),
       onShowMap: _showOnMap,
       onLocate: _locateAddress,
       locateNote: _locateNote,

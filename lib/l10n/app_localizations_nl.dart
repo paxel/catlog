@@ -1032,19 +1032,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere katten van de kolonie meenemen, bijvoorbeeld een castratierit: vink de katten aan die meegaan, rond één keer af, vink de niet-behandelde uit.';
+      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere katten van de kolonie meenemen, bijvoorbeeld een castratierit: vink de katten aan die meegaan, rond één keer af, vink de niet-behandelde uit. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpClowderNeutral =>
-      'Alles over deze plek: zijn huisdieren, zijn velden (adres, contact, type) en zijn geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een huisdier om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere huisdieren van het huishouden meenemen, bijvoorbeeld een castratierit: vink de huisdieren aan die meegaan, rond één keer af, vink de niet-behandelde uit.';
+      'Alles over deze plek: zijn huisdieren, zijn velden (adres, contact, type) en zijn geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een huisdier om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere huisdieren van het huishouden meenemen, bijvoorbeeld een castratierit: vink de huisdieren aan die meegaan, rond één keer af, vink de niet-behandelde uit. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpCat =>
-      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld.';
+      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpCatNeutral =>
-      'Alles over dit huisdier: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, huisdier delen. Privé stel je in bij het bewerken van een veld.';
+      'Alles over dit huisdier: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, huisdier delen. Privé stel je in bij het bewerken van een veld. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpStrays =>
@@ -1353,6 +1353,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafiek';
+
+  @override
+  String get fieldHistoryTooltip => 'Geschiedenis';
 
   @override
   String get rangeWeek => 'Week';

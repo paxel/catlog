@@ -1027,19 +1027,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated.';
+      'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.';
 
   @override
   String get helpClowderNeutral =>
-      'Everything about this place: its pets, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a pet to move, hide, or open it. An appointment added here can carry several pets of the household — a vet run for neutering, for example: tick the pets that come along, finish once, untick the ones that were not treated.';
+      'Everything about this place: its pets, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a pet to move, hide, or open it. An appointment added here can carry several pets of the household — a vet run for neutering, for example: tick the pets that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.';
 
   @override
   String get helpCat =>
-      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field.';
+      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field. The clock on a field opens its history.';
 
   @override
   String get helpCatNeutral =>
-      'Everything about this pet: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the pet. Private is set while editing a field.';
+      'Everything about this pet: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the pet. Private is set while editing a field. The clock on a field opens its history.';
 
   @override
   String get helpStrays =>
@@ -1348,6 +1348,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graph';
+
+  @override
+  String get fieldHistoryTooltip => 'History';
 
   @override
   String get rangeWeek => 'Week';

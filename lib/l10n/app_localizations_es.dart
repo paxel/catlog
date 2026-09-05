@@ -1032,19 +1032,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Todo sobre este lugar: sus gatos, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o un gato para moverlo, ocultarlo o abrirlo. Una cita añadida aquí puede llevar varios gatos de la colonia, por ejemplo una ronda de esterilización: marca los gatos que van, termina una vez y desmarca los que no fueron tratados.';
+      'Todo sobre este lugar: sus gatos, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o un gato para moverlo, ocultarlo o abrirlo. Una cita añadida aquí puede llevar varios gatos de la colonia, por ejemplo una ronda de esterilización: marca los gatos que van, termina una vez y desmarca los que no fueron tratados. El reloj en un campo abre su historial.';
 
   @override
   String get helpClowderNeutral =>
-      'Todo sobre este lugar: sus mascotas, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o una mascota para moverla, ocultarla o abrirla. Una cita añadida aquí puede llevar varias mascotas del hogar, por ejemplo una ronda de esterilización: marca las mascotas que van, termina una vez y desmarca las que no fueron tratadas.';
+      'Todo sobre este lugar: sus mascotas, sus campos (dirección, contacto, tipo) y su historial. La página se abre en solo lectura; el lápiz activa la edición, donde también puedes añadir un campo. Mantén pulsado un campo para editarlo directamente, o una mascota para moverla, ocultarla o abrirla. Una cita añadida aquí puede llevar varias mascotas del hogar, por ejemplo una ronda de esterilización: marca las mascotas que van, termina una vez y desmarca las que no fueron tratadas. El reloj en un campo abre su historial.';
 
   @override
   String get helpCat =>
-      'Todo sobre este gato: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; mantén pulsada una foto para su menú. El menú de arriba a la derecha tiene el resto: ocultar, fusionar, registrar un avistamiento, compartir el gato. «Privado» se marca al editar un campo.';
+      'Todo sobre este gato: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; mantén pulsada una foto para su menú. El menú de arriba a la derecha tiene el resto: ocultar, fusionar, registrar un avistamiento, compartir el gato. «Privado» se marca al editar un campo. El reloj en un campo abre su historial.';
 
   @override
   String get helpCatNeutral =>
-      'Todo sobre esta mascota: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; mantén pulsada una foto para su menú. El menú de arriba a la derecha tiene el resto: ocultar, fusionar, registrar un avistamiento, compartir la mascota. «Privado» se marca al editar un campo.';
+      'Todo sobre esta mascota: fotos, campos, familia, historial. La página es de solo lectura hasta que tocas el lápiz. Mantén pulsado un campo para editarlo directamente; mantén pulsada una foto para su menú. El menú de arriba a la derecha tiene el resto: ocultar, fusionar, registrar un avistamiento, compartir la mascota. «Privado» se marca al editar un campo. El reloj en un campo abre su historial.';
 
   @override
   String get helpStrays =>
@@ -1355,6 +1355,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get graphLabel => 'Gráfico';
+
+  @override
+  String get fieldHistoryTooltip => 'Historial';
 
   @override
   String get rangeWeek => 'Semana';

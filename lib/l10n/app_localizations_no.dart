@@ -1026,19 +1026,19 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Alt om dette stedet: kattene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, en katt for å flytte, skjule eller åpne den. En avtale lagt til her kan ta med flere av koloniens katter, for eksempel en kastreringstur: kryss av kattene som blir med, avslutt én gang, fjern krysset for dem som ikke ble behandlet.';
+      'Alt om dette stedet: kattene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, en katt for å flytte, skjule eller åpne den. En avtale lagt til her kan ta med flere av koloniens katter, for eksempel en kastreringstur: kryss av kattene som blir med, avslutt én gang, fjern krysset for dem som ikke ble behandlet. Klokken ved et felt åpner historikken.';
 
   @override
   String get helpClowderNeutral =>
-      'Alt om dette stedet: kjæledyrene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, et kjæledyr for å flytte, skjule eller åpne det. En avtale lagt til her kan ta med flere av husstandens kjæledyr, for eksempel en kastreringstur: kryss av kjæledyrene som blir med, avslutt én gang, fjern krysset for dem som ikke ble behandlet.';
+      'Alt om dette stedet: kjæledyrene, feltene (adresse, kontakt, type) og historikken. Siden åpnes skrivebeskyttet; blyanten slår på redigering, der du også kan legge til et felt. Hold inne et felt for å redigere det direkte, et kjæledyr for å flytte, skjule eller åpne det. En avtale lagt til her kan ta med flere av husstandens kjæledyr, for eksempel en kastreringstur: kryss av kjæledyrene som blir med, avslutt én gang, fjern krysset for dem som ikke ble behandlet. Klokken ved et felt åpner historikken.';
 
   @override
   String get helpCat =>
-      'Alt om denne katten: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del katten. Privat settes når du redigerer et felt.';
+      'Alt om denne katten: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del katten. Privat settes når du redigerer et felt. Klokken ved et felt åpner historikken.';
 
   @override
   String get helpCatNeutral =>
-      'Alt om dette kjæledyret: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del kjæledyret. Privat settes når du redigerer et felt.';
+      'Alt om dette kjæledyret: bilder, felter, familie, historikk. Siden er skrivebeskyttet til du trykker på blyanten. Langt trykk på et felt går rett til redigering; langt trykk på et bilde åpner menyen. Menyen øverst til høyre har resten: skjul, slå sammen, noter en observasjon, del kjæledyret. Privat settes når du redigerer et felt. Klokken ved et felt åpner historikken.';
 
   @override
   String get helpStrays =>
@@ -1347,6 +1347,9 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graf';
+
+  @override
+  String get fieldHistoryTooltip => 'Historikk';
 
   @override
   String get rangeWeek => 'Uke';

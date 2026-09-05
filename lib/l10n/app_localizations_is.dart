@@ -1032,19 +1032,19 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann. Tími sem bætt er við hér getur tekið nokkra ketti nýlendunnar með, t.d. geldingarferð: merktu kettina sem koma með, ljúktu einu sinni, afmerktu þá sem ekki voru meðhöndlaðir.';
+      'Allt um þennan stað: kettirnir, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, ketti til að færa, fela eða opna hann. Tími sem bætt er við hér getur tekið nokkra ketti nýlendunnar með, t.d. geldingarferð: merktu kettina sem koma með, ljúktu einu sinni, afmerktu þá sem ekki voru meðhöndlaðir. Klukkan við reit opnar sögu hans.';
 
   @override
   String get helpClowderNeutral =>
-      'Allt um þennan stað: gæludýrin, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, gæludýri til að færa, fela eða opna það. Tími sem bætt er við hér getur tekið nokkur gæludýr heimilisins með, t.d. geldingarferð: merktu gæludýrin sem koma með, ljúktu einu sinni, afmerktu þau sem ekki voru meðhöndluð.';
+      'Allt um þennan stað: gæludýrin, reitirnir (heimilisfang, tengiliður, tegund) og sagan. Síðan opnast aðeins til lestrar; blýanturinn kveikir á breytingum, þar má líka bæta við reit. Haltu reit inni til að breyta honum strax, gæludýri til að færa, fela eða opna það. Tími sem bætt er við hér getur tekið nokkur gæludýr heimilisins með, t.d. geldingarferð: merktu gæludýrin sem koma með, ljúktu einu sinni, afmerktu þau sem ekki voru meðhöndluð. Klukkan við reit opnar sögu hans.';
 
   @override
   String get helpCat =>
-      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt.';
+      'Allt um þennan kött: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að kötturinn sást, deila kettinum. „Einkamál“ er stillt þegar reit er breytt. Klukkan við reit opnar sögu hans.';
 
   @override
   String get helpCatNeutral =>
-      'Allt um þetta gæludýr: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að gæludýrið sást, deila gæludýrinu. „Einkamál“ er stillt þegar reit er breytt.';
+      'Allt um þetta gæludýr: myndir, reitir, fjölskylda, saga. Síðan er aðeins til lesturs þar til þú snertir blýantinn. Haltu reit inni til að breyta honum beint; haltu mynd inni fyrir valmynd hennar. Valmyndin efst til hægri geymir afganginn: fela, sameina, skrá að gæludýrið sást, deila gæludýrinu. „Einkamál“ er stillt þegar reit er breytt. Klukkan við reit opnar sögu hans.';
 
   @override
   String get helpStrays =>
@@ -1353,6 +1353,9 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get graphLabel => 'Línurit';
+
+  @override
+  String get fieldHistoryTooltip => 'Saga';
 
   @override
   String get rangeWeek => 'Vika';

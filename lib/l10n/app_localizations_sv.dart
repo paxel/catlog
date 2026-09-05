@@ -1028,19 +1028,19 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den. En bokning som läggs till här kan ta med flera av kolonins katter, till exempel en kastreringsresa: markera katterna som följer med, avsluta en gång, avmarkera de som inte behandlades.';
+      'Allt om den här platsen: dess katter, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, en katt för att flytta, dölja eller öppna den. En bokning som läggs till här kan ta med flera av kolonins katter, till exempel en kastreringsresa: markera katterna som följer med, avsluta en gång, avmarkera de som inte behandlades. Klockan vid ett fält öppnar dess historik.';
 
   @override
   String get helpClowderNeutral =>
-      'Allt om den här platsen: dess husdjur, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, ett husdjur för att flytta, dölja eller öppna det. En bokning som läggs till här kan ta med flera av hushållets husdjur, till exempel en kastreringsresa: markera husdjuren som följer med, avsluta en gång, avmarkera de som inte behandlades.';
+      'Allt om den här platsen: dess husdjur, dess fält (adress, kontakt, typ) och dess historik. Sidan öppnas skrivskyddad; pennan slår på redigering, där du också kan lägga till ett fält. Håll in ett fält för att redigera det direkt, ett husdjur för att flytta, dölja eller öppna det. En bokning som läggs till här kan ta med flera av hushållets husdjur, till exempel en kastreringsresa: markera husdjuren som följer med, avsluta en gång, avmarkera de som inte behandlades. Klockan vid ett fält öppnar dess historik.';
 
   @override
   String get helpCat =>
-      'Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela katten. Privat ställs in när du redigerar ett fält.';
+      'Allt om den här katten: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela katten. Privat ställs in när du redigerar ett fält. Klockan vid ett fält öppnar dess historik.';
 
   @override
   String get helpCatNeutral =>
-      'Allt om det här husdjuret: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela husdjuret. Privat ställs in när du redigerar ett fält.';
+      'Allt om det här husdjuret: foton, fält, familj, historik. Sidan är skrivskyddad tills du trycker på pennan. Långtryck på ett fält för att redigera det direkt; långtryck på ett foto för dess meny. Menyn uppe till höger har resten: dölj, slå ihop, notera en observation, dela husdjuret. Privat ställs in när du redigerar ett fält. Klockan vid ett fält öppnar dess historik.';
 
   @override
   String get helpStrays =>
@@ -1349,6 +1349,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graf';
+
+  @override
+  String get fieldHistoryTooltip => 'Historik';
 
   @override
   String get rangeWeek => 'Vecka';

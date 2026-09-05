@@ -1029,19 +1029,19 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa mace të kolonisë, për shembull për sterilizim: shëno macet që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan.';
+      'Gjithçka për këtë vend: macet, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një mace e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa mace të kolonisë, për shembull për sterilizim: shëno macet që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan. Ora te një fushë hap historikun e saj.';
 
   @override
   String get helpClowderNeutral =>
-      'Gjithçka për këtë vend: kafshët, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një kafshë e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa kafshë të familjes, për shembull për sterilizim: shëno kafshët që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan.';
+      'Gjithçka për këtë vend: kafshët, fushat (adresa, kontakti, lloji) dhe historiku. Faqja hapet vetëm për lexim; lapsi ndez redaktimin, ku mund të shtosh edhe një fushë. Shtypja e gjatë mbi një fushë e redakton menjëherë, mbi një kafshë e zhvendos, e fsheh ose e hap. Një takim i shtuar këtu mund të marrë disa kafshë të familjes, për shembull për sterilizim: shëno kafshët që vijnë, përfundo një herë, hiq shenjën nga ato që nuk u trajtuan. Ora te një fushë hap historikun e saj.';
 
   @override
   String get helpCat =>
-      'Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe.';
+      'Gjithçka për këtë mace: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj macen. „Private“ caktohet gjatë ndryshimit të një fushe. Ora te një fushë hap historikun e saj.';
 
   @override
   String get helpCatNeutral =>
-      'Gjithçka për këtë kafshë: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj kafshën. „Private“ caktohet gjatë ndryshimit të një fushe.';
+      'Gjithçka për këtë kafshë: foto, fusha, familja, historiku. Faqja është vetëm për lexim derisa të prekësh lapsin. Mbaje shtypur një fushë për ta ndryshuar direkt; mbaje shtypur një foto për menunë e saj. Menyja lart djathtas mban pjesën tjetër: fshih, bashko, shëno një vëzhgim, ndaj kafshën. „Private“ caktohet gjatë ndryshimit të një fushe. Ora te një fushë hap historikun e saj.';
 
   @override
   String get helpStrays =>
@@ -1349,6 +1349,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafik';
+
+  @override
+  String get fieldHistoryTooltip => 'Historiku';
 
   @override
   String get rangeWeek => 'Javë';

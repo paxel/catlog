@@ -1029,19 +1029,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários gatos da colónia, por exemplo uma ronda de esterilização: marque os gatos que vão, conclua uma vez, desmarque os que não foram tratados.';
+      'Tudo sobre este sítio: os gatos, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um gato move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários gatos da colónia, por exemplo uma ronda de esterilização: marque os gatos que vão, conclua uma vez, desmarque os que não foram tratados. O relógio num campo abre o seu histórico.';
 
   @override
   String get helpClowderNeutral =>
-      'Tudo sobre este sítio: os animais, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um animal move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários animais do lar, por exemplo uma ronda de esterilização: marque os animais que vão, conclua uma vez, desmarque os que não foram tratados.';
+      'Tudo sobre este sítio: os animais, os campos (morada, contacto, tipo) e o histórico. A página abre só para leitura; o lápis liga a edição, onde também podes juntar um campo. Manter premido um campo edita-o logo; um animal move-o, esconde-o ou abre-o. Uma consulta adicionada aqui pode levar vários animais do lar, por exemplo uma ronda de esterilização: marque os animais que vão, conclua uma vez, desmarque os que não foram tratados. O relógio num campo abre o seu histórico.';
 
   @override
   String get helpCat =>
-      'Tudo sobre este gato: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o gato. «Privado» define-se ao editar um campo.';
+      'Tudo sobre este gato: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o gato. «Privado» define-se ao editar um campo. O relógio num campo abre o seu histórico.';
 
   @override
   String get helpCatNeutral =>
-      'Tudo sobre este animal: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o animal. «Privado» define-se ao editar um campo.';
+      'Tudo sobre este animal: fotos, campos, família, histórico. A página é só de leitura até tocares no lápis. Mantém premido um campo para o editar diretamente; mantém premida uma foto para o seu menu. O menu no canto superior direito tem o resto: ocultar, fundir, registar um avistamento, partilhar o animal. «Privado» define-se ao editar um campo. O relógio num campo abre o seu histórico.';
 
   @override
   String get helpStrays =>
@@ -1350,6 +1350,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get graphLabel => 'Gráfico';
+
+  @override
+  String get fieldHistoryTooltip => 'Histórico';
 
   @override
   String get rangeWeek => 'Semana';

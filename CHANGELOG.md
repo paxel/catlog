@@ -10,6 +10,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A "Conflicts (N)" entry in the main menu while fields changed in two
   places at once are still unsettled; it lists them and each one is
   resolved on the spot.
+- A history button on a cat's or home's field once it has held two or
+  more values (and has no graph): the values as a diary, newest first,
+  with date and author. Reverting stays on the edit-mode timeline.
 
 ### Changed
 

@@ -1027,19 +1027,19 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu koloonia kassi, näiteks steriliseerimisele: märgi kaasa tulevad kassid, lõpeta üks kord, eemalda märge ravimata jäänutelt.';
+      'Kõik selle koha kohta: kassid, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, kassi oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu koloonia kassi, näiteks steriliseerimisele: märgi kaasa tulevad kassid, lõpeta üks kord, eemalda märge ravimata jäänutelt. Kell välja juures avab selle ajaloo.';
 
   @override
   String get helpClowderNeutral =>
-      'Kõik selle koha kohta: lemmikloomad, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, lemmiklooma oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu leibkonna lemmiklooma, näiteks steriliseerimisele: märgi kaasa tulevad lemmikloomad, lõpeta üks kord, eemalda märge ravimata jäänutelt.';
+      'Kõik selle koha kohta: lemmikloomad, väljad (aadress, kontakt, tüüp) ja ajalugu. Leht avaneb ainult lugemiseks; pliiats lülitab muutmise sisse, kus saab ka uue välja lisada. Välja pikk vajutus muudab seda kohe, lemmiklooma oma liigutab, peidab või avab. Siia lisatud kohtumine võib kaasa võtta mitu leibkonna lemmiklooma, näiteks steriliseerimisele: märgi kaasa tulevad lemmikloomad, lõpeta üks kord, eemalda märge ravimata jäänutelt. Kell välja juures avab selle ajaloo.';
 
   @override
   String get helpCat =>
-      'Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel.';
+      'Kõik selle kassi kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga kassi. „Privaatne“ määratakse välja muutmisel. Kell välja juures avab selle ajaloo.';
 
   @override
   String get helpCatNeutral =>
-      'Kõik selle lemmiklooma kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga lemmiklooma. „Privaatne“ määratakse välja muutmisel.';
+      'Kõik selle lemmiklooma kohta: fotod, väljad, perekond, ajalugu. Leht on kirjutuskaitstud, kuni puudutad pliiatsit. Hoia välja all, et seda kohe muuta; hoia fotot all selle menüü jaoks. Menüü üleval paremal hoiab ülejäänut: peida, liida, märgi nägemine, jaga lemmiklooma. „Privaatne“ määratakse välja muutmisel. Kell välja juures avab selle ajaloo.';
 
   @override
   String get helpStrays =>
@@ -1348,6 +1348,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graafik';
+
+  @override
+  String get fieldHistoryTooltip => 'Ajalugu';
 
   @override
   String get rangeWeek => 'Nädal';

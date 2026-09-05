@@ -1029,19 +1029,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama. Čia pridėtas vizitas gali pasiimti kelias kolonijos kates, pavyzdžiui, sterilizacijai: pažymėkite vykstančias kates, užbaikite vieną kartą, nuimkite žymą nuo negydytų.';
+      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama. Čia pridėtas vizitas gali pasiimti kelias kolonijos kates, pavyzdžiui, sterilizacijai: pažymėkite vykstančias kates, užbaikite vieną kartą, nuimkite žymą nuo negydytų. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpClowderNeutral =>
-      'Viskas apie šią vietą: jos augintiniai, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, augintinį — perkeliamas, paslepiamas arba atveriamas. Čia pridėtas vizitas gali pasiimti kelis namų ūkio augintinius, pavyzdžiui, sterilizacijai: pažymėkite vykstančius augintinius, užbaikite vieną kartą, nuimkite žymą nuo negydytų.';
+      'Viskas apie šią vietą: jos augintiniai, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, augintinį — perkeliamas, paslepiamas arba atveriamas. Čia pridėtas vizitas gali pasiimti kelis namų ūkio augintinius, pavyzdžiui, sterilizacijai: pažymėkite vykstančius augintinius, užbaikite vieną kartą, nuimkite žymą nuo negydytų. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpCat =>
-      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti katę. „Privatu“ nustatoma redaguojant lauką.';
+      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti katę. „Privatu“ nustatoma redaguojant lauką. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpCatNeutral =>
-      'Viskas apie šį augintinį: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti augintinį. „Privatu“ nustatoma redaguojant lauką.';
+      'Viskas apie šį augintinį: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti augintinį. „Privatu“ nustatoma redaguojant lauką. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpStrays =>
@@ -1350,6 +1350,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafikas';
+
+  @override
+  String get fieldHistoryTooltip => 'Istorija';
 
   @override
   String get rangeWeek => 'Savaitė';

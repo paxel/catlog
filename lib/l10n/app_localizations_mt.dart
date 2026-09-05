@@ -1030,19 +1030,19 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi qtates tal-kolonja, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-qtates li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati.';
+      'Kollox dwar dan il-post: il-qtates, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq qattus tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi qtates tal-kolonja, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-qtates li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati. L-arloġġ fuq kamp jiftaħ l-istorja tiegħu.';
 
   @override
   String get helpClowderNeutral =>
-      'Kollox dwar dan il-post: l-annimali domestiċi, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq annimal domestiku tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi annimali domestiċi tad-dar, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-annimali li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati.';
+      'Kollox dwar dan il-post: l-annimali domestiċi, l-oqsma (indirizz, kuntatt, tip) u l-istorja. Il-paġna tinfetaħ read-only; il-lapes jixgħel l-editjar, fejn tista\' żżid ukoll qasam ġdid. Għafsa twila fuq qasam teditjah mill-ewwel, fuq annimal domestiku tmexxih, taħbih jew tiftħu. Appuntament miżjud hawn jista\' jieħu diversi annimali domestiċi tad-dar, pereżempju ġurnata ta\' sterilizzazzjoni: immarka l-annimali li ġejjin, temm darba, neħħi l-marka minn dawk li ma ġewx ittrattati. L-arloġġ fuq kamp jiftaħ l-istorja tiegħu.';
 
   @override
   String get helpCat =>
-      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam.';
+      'Kollox dwar dan il-qattus: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam il-qattus. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam. L-arloġġ fuq kamp jiftaħ l-istorja tiegħu.';
 
   @override
   String get helpCatNeutral =>
-      'Kollox dwar dan l-annimal domestiku: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam l-annimal domestiku. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam.';
+      'Kollox dwar dan l-annimal domestiku: ritratti, oqsma, familja, storja. Il-paġna hija għall-qari biss sakemm tmiss il-lapes. Agħfas fit-tul fuq qasam biex teditjah mill-ewwel; agħfas fit-tul fuq ritratt għall-menu tiegħu. Il-menu fuq il-lemin għandu l-bqija: aħbi, għaqqad, irreġistra dehra, aqsam l-annimal domestiku. „Privat“ jiġi ssettjat waqt l-editjar ta\' qasam. L-arloġġ fuq kamp jiftaħ l-istorja tiegħu.';
 
   @override
   String get helpStrays =>
@@ -1353,6 +1353,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get graphLabel => 'Graff';
+
+  @override
+  String get fieldHistoryTooltip => 'Storja';
 
   @override
   String get rangeWeek => 'Ġimgħa';

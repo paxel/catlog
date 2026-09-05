@@ -1029,19 +1029,19 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpClowder =>
-      'Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i povijest. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara. Termin dodan ovdje može povesti više mačaka kolonije, na primjer na kastraciju: označi mačke koje idu, završi jednom, odznači one koje nisu obrađene.';
+      'Sve o ovom mjestu: njegove mačke, polja (adresa, kontakt, vrsta) i povijest. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na mačku je premješta, skriva ili otvara. Termin dodan ovdje može povesti više mačaka kolonije, na primjer na kastraciju: označi mačke koje idu, završi jednom, odznači one koje nisu obrađene. Sat uz polje otvara njegovu povijest.';
 
   @override
   String get helpClowderNeutral =>
-      'Sve o ovom mjestu: njegovi ljubimci, polja (adresa, kontakt, vrsta) i povijest. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na ljubimca ga premješta, skriva ili otvara. Termin dodan ovdje može povesti više ljubimaca kućanstva, na primjer na kastraciju: označi ljubimce koji idu, završi jednom, odznači one koji nisu obrađeni.';
+      'Sve o ovom mjestu: njegovi ljubimci, polja (adresa, kontakt, vrsta) i povijest. Stranica se otvara samo za čitanje; olovka uključuje uređivanje, gdje možeš dodati i novo polje. Dugi pritisak na polje uređuje ga odmah, na ljubimca ga premješta, skriva ili otvara. Termin dodan ovdje može povesti više ljubimaca kućanstva, na primjer na kastraciju: označi ljubimce koji idu, završi jednom, odznači one koji nisu obrađeni. Sat uz polje otvara njegovu povijest.';
 
   @override
   String get helpCat =>
-      'Sve o ovoj mački: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njezin izbornik. Izbornik gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli mačku. „Privatno“ se postavlja pri uređivanju polja.';
+      'Sve o ovoj mački: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njezin izbornik. Izbornik gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli mačku. „Privatno“ se postavlja pri uređivanju polja. Sat uz polje otvara njegovu povijest.';
 
   @override
   String get helpCatNeutral =>
-      'Sve o ovom ljubimcu: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njezin izbornik. Izbornik gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli ljubimca. „Privatno“ se postavlja pri uređivanju polja.';
+      'Sve o ovom ljubimcu: fotografije, polja, obitelj, povijest. Stranica je samo za čitanje dok ne dodirneš olovku. Dugo pritisni polje da ga odmah urediš; dugo pritisni fotografiju za njezin izbornik. Izbornik gore desno drži ostalo: sakrij, spoji, zabilježi viđenje, podijeli ljubimca. „Privatno“ se postavlja pri uređivanju polja. Sat uz polje otvara njegovu povijest.';
 
   @override
   String get helpStrays =>
@@ -1350,6 +1350,9 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get graphLabel => 'Grafikon';
+
+  @override
+  String get fieldHistoryTooltip => 'Povijest';
 
   @override
   String get rangeWeek => 'Tjedan';
