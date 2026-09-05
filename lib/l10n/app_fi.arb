@@ -212,6 +212,7 @@
   "scrubFrames": "Kelaa videota",
   "keepThisFrame": "Pidä tämä ruutu",
   "fromVideo": "Videosta…",
+  "addingPhotos": "Lisätään kuvaa {done}/{total}…",
   "videoMobileOnly": "Ruutujen poiminta videosta toimii puhelinsovelluksessa (Android ja iPhone) — ei vielä tällä laitteella.",
   "shareWhitelistExplainer": "Valitse, mitä tiedostoon tulee. Vain valitut kentät otetaan mukaan.",
   "exportShareFile": "Vie jakotiedosto…",

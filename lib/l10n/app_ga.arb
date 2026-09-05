@@ -212,6 +212,7 @@
   "scrubFrames": "Scrollaigh tríd an bhfíseán",
   "keepThisFrame": "Coinnigh an fráma seo",
   "fromVideo": "Ó fhíseán…",
+  "addingPhotos": "Grianghraf {done} de {total} á chur leis…",
   "videoMobileOnly": "Oibríonn frámaí a phiocadh as físeán san aip fóin (Android agus iPhone) — ní ar an ngléas seo go fóill.",
   "shareWhitelistExplainer": "Roghnaigh a dtéann isteach sa chomhad. Ní chuirtear san áireamh ach réimsí ticeáilte.",
   "exportShareFile": "Easpórtáil comhad comhroinnte…",

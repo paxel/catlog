@@ -352,6 +352,11 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fromVideo => 'Videóból…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return '$done. fotó hozzáadása ($total-ból)…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'A videóból való képkocka-kiemelés a telefonos alkalmazásban működik (Android és iPhone) — ezen az eszközön még nem.';
 

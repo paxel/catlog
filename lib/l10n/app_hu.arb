@@ -212,6 +212,7 @@
   "scrubFrames": "Videó léptetése",
   "keepThisFrame": "Képkocka megtartása",
   "fromVideo": "Videóból…",
+  "addingPhotos": "{done}. fotó hozzáadása ({total}-ból)…",
   "videoMobileOnly": "A videóból való képkocka-kiemelés a telefonos alkalmazásban működik (Android és iPhone) — ezen az eszközön még nem.",
   "shareWhitelistExplainer": "Válaszd ki, mi kerüljön a fájlba. Csak a bejelölt mezők kerülnek bele.",
   "exportShareFile": "Megosztási fájl exportálása…",

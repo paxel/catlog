@@ -352,6 +352,11 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fromVideo => 'Ó fhíseán…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Grianghraf $done de $total á chur leis…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Oibríonn frámaí a phiocadh as físeán san aip fóin (Android agus iPhone) — ní ar an ngléas seo go fóill.';
 

@@ -353,6 +353,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get fromVideo => 'Από βίντεο…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Προσθήκη φωτογραφίας $done από $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Η επιλογή καρέ από βίντεο λειτουργεί στην εφαρμογή τηλεφώνου (Android και iPhone) — όχι ακόμη σε αυτήν τη συσκευή.';
 

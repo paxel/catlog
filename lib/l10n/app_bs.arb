@@ -212,6 +212,7 @@
   "scrubFrames": "Premotavanje videa",
   "keepThisFrame": "Zadrži ovaj kadar",
   "fromVideo": "Iz videa…",
+  "addingPhotos": "Dodavanje fotografije {done} od {total}…",
   "videoMobileOnly": "Odabir kadrova iz videa radi u aplikaciji za telefon (Android i iPhone) — na ovom uređaju još ne.",
   "shareWhitelistExplainer": "Odaberite šta ide u fajl. Uključena su samo označena polja.",
   "exportShareFile": "Izvezi datoteku za dijeljenje…",

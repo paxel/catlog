@@ -212,6 +212,7 @@
   "scrubFrames": "Scorri il video",
   "keepThisFrame": "Tieni questo fotogramma",
   "fromVideo": "Da video…",
+  "addingPhotos": "Aggiunta foto {done} di {total}…",
   "videoMobileOnly": "Scegliere fotogrammi da un video funziona nell'app per telefono (Android e iPhone) — non ancora su questo dispositivo.",
   "shareWhitelistExplainer": "Scegli cosa entra nel file. Sono inclusi solo i campi spuntati.",
   "exportShareFile": "Esporta file di condivisione…",

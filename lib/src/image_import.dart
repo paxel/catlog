@@ -33,10 +33,26 @@ Future<String?> addCompressedImage(
   return store.addImage(catId, jpeg);
 }
 
+/// Stores [frames] on the cat one after the other and reports after
+/// each — the page shows them as they land instead of all at once after
+/// a silent wait. Returns how many landed.
+Future<int> addFrames(CatalogStore store, String catId, List<Uint8List> frames,
+    {void Function(int done, int total)? onProgress}) async {
+  var done = 0;
+  for (final frame in frames) {
+    if (await addCompressedImage(store, catId, frame) == null) break;
+    done++;
+    onProgress?.call(done, frames.length);
+  }
+  return done;
+}
+
 /// Photo-add sheet with the video path (#41): camera, gallery, or
 /// frames picked from a video. Returns true when photos landed.
+/// [onProgress] hears about every frame stored on the way.
 Future<bool> addPhotosViaSheet(
-    BuildContext context, CatalogStore store, String catId) async {
+    BuildContext context, CatalogStore store, String catId,
+    {void Function(int done, int total)? onProgress}) async {
   if (!Platform.isAndroid && !Platform.isIOS) {
     // Desktop keeps the plain picker; video frames are mobile-first.
     return await pickAndAddImage(context, store, catId) != null;
@@ -67,10 +83,7 @@ Future<bool> addPhotosViaSheet(
   if (choice == 'video') {
     final frames = await pickVideoFrames(context);
     if (frames == null || frames.isEmpty) return false;
-    for (final frame in frames) {
-      await addCompressedImage(store, catId, frame);
-    }
-    return true;
+    return await addFrames(store, catId, frames, onProgress: onProgress) > 0;
   }
   final raw = await pickImageBytes(context,
       source:

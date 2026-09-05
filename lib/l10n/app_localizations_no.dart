@@ -353,6 +353,11 @@ class AppLocalizationsNo extends AppLocalizations {
   String get fromVideo => 'Fra video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Legger til bilde $done av $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Å velge bilder fra video fungerer i telefonappen (Android og iPhone) — ikke på denne enheten ennå.';
 

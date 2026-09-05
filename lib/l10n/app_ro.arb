@@ -212,6 +212,7 @@
   "scrubFrames": "Derulează videoclipul",
   "keepThisFrame": "Păstrează acest cadru",
   "fromVideo": "Din video…",
+  "addingPhotos": "Se adaugă fotografia {done} din {total}…",
   "videoMobileOnly": "Alegerea cadrelor dintr-un video funcționează în aplicația de telefon (Android și iPhone) — încă nu pe acest dispozitiv.",
   "shareWhitelistExplainer": "Alege ce intră în fișier. Se includ doar câmpurile bifate.",
   "exportShareFile": "Exportă fișierul de distribuire…",

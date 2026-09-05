@@ -352,6 +352,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get fromVideo => 'Iš vaizdo įrašo…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Pridedama nuotrauka $done iš $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Kadrų rinkimas iš vaizdo įrašo veikia telefono programėlėje (Android ir iPhone) — šiame įrenginyje dar ne.';
 

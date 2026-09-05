@@ -212,6 +212,7 @@
   "scrubFrames": "Перемотка видео",
   "keepThisFrame": "Оставить этот кадр",
   "fromVideo": "Из видео…",
+  "addingPhotos": "Добавление фото {done} из {total}…",
   "videoMobileOnly": "Выбор кадров из видео работает в телефонном приложении (Android и iPhone) — на этом устройстве пока нет.",
   "shareWhitelistExplainer": "Выберите, что попадёт в файл. Включаются только отмеченные поля.",
   "exportShareFile": "Экспортировать файл обмена…",

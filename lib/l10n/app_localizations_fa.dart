@@ -352,6 +352,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get fromVideo => 'از ویدیو…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'افزودن عکس $done از $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'انتخاب فریم از ویدیو در برنامهٔ تلفن (اندروید و آیفون) کار می‌کند — هنوز در این دستگاه نه.';
 

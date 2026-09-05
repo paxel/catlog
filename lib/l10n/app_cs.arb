@@ -212,6 +212,7 @@
   "scrubFrames": "Posouvání videa",
   "keepThisFrame": "Ponechat tento snímek",
   "fromVideo": "Z videa…",
+  "addingPhotos": "Přidávání fotky {done} z {total}…",
   "videoMobileOnly": "Výběr snímků z videa funguje v mobilní aplikaci (Android a iPhone) — na tomto zařízení zatím ne.",
   "shareWhitelistExplainer": "Vyberte, co půjde do souboru. Zahrnou se jen zaškrtnutá pole.",
   "exportShareFile": "Exportovat soubor sdílení…",

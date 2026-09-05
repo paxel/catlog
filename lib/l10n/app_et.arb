@@ -212,6 +212,7 @@
   "scrubFrames": "Keri videot",
   "keepThisFrame": "Jäta see kaader alles",
   "fromVideo": "Videost…",
+  "addingPhotos": "Foto {done}/{total} lisamine…",
   "videoMobileOnly": "Videost kaadrite valimine töötab telefonirakenduses (Android ja iPhone) — selles seadmes veel mitte.",
   "shareWhitelistExplainer": "Vali, mis faili läheb. Kaasatakse ainult märgitud väljad.",
   "exportShareFile": "Ekspordi jagamisfail…",

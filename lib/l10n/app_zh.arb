@@ -212,6 +212,7 @@
   "scrubFrames": "拖动视频",
   "keepThisFrame": "保留此画面",
   "fromVideo": "来自视频…",
+  "addingPhotos": "正在添加照片 {done}/{total}…",
   "videoMobileOnly": "从视频挑选画面需要手机应用（Android 和 iPhone）——此设备暂不支持。",
   "shareWhitelistExplainer": "选择放进文件的内容。只包含勾选的字段。",
   "exportShareFile": "导出分享文件…",

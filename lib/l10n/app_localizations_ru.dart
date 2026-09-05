@@ -353,6 +353,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fromVideo => 'Из видео…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Добавление фото $done из $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Выбор кадров из видео работает в телефонном приложении (Android и iPhone) — на этом устройстве пока нет.';
 

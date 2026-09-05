@@ -212,6 +212,7 @@
   "scrubFrames": "動画をスクラブ",
   "keepThisFrame": "このフレームを残す",
   "fromVideo": "動画から…",
+  "addingPhotos": "写真を追加中 {done}/{total}…",
   "videoMobileOnly": "動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。",
   "shareWhitelistExplainer": "ファイルに入れる内容を選びます。チェックした項目だけが含まれます。",
   "exportShareFile": "共有ファイルを書き出す…",

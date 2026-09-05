@@ -212,6 +212,7 @@
   "scrubFrames": "Pārtīt video",
   "keepThisFrame": "Paturēt šo kadru",
   "fromVideo": "No video…",
+  "addingPhotos": "Pievieno fotoattēlu {done} no {total}…",
   "videoMobileOnly": "Kadru izvēle no video darbojas tālruņa lietotnē (Android un iPhone) — šajā ierīcē vēl ne.",
   "shareWhitelistExplainer": "Izvēlieties, kas nonāk failā. Iekļauti tiek tikai atzīmētie lauki.",
   "exportShareFile": "Eksportēt kopīgošanas failu…",

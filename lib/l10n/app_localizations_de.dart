@@ -354,6 +354,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fromVideo => 'Aus Video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Foto $done von $total wird hinzugefügt…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Bilder aus einem Video gehen in der Telefon-App (Android und iPhone) — auf diesem Gerät noch nicht.';
 

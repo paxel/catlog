@@ -97,11 +97,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
+  /// Frames from a video landing one by one: (done, total) while it
+  /// runs, null otherwise.
+  (int, int)? _adding;
+
   Future<void> _addPhoto() async {
     // Refresh unconditionally: even a canceled or half-failed add must
     // leave the grid showing exactly what the store holds.
-    await addPhotosViaSheet(context, store, id);
-    if (mounted) setState(() {});
+    await addPhotosViaSheet(context, store, id, onProgress: (done, total) {
+      if (!mounted) return;
+      setState(() => _adding = done < total ? (done, total) : null);
+    });
+    if (mounted) setState(() => _adding = null);
   }
 
   Future<void> _move() async {
@@ -707,6 +714,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 );
               },
             ),
+            if (_adding case (final done, final total))
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: Column(children: [
+                  Text(context.t.addingPhotos(done + 1, total)),
+                  const SizedBox(height: 6),
+                  LinearProgressIndicator(value: done / total),
+                ]),
+              ),
             const SizedBox(height: 80),
           ],
         ),

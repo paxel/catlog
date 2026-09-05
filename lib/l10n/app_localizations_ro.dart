@@ -352,6 +352,11 @@ class AppLocalizationsRo extends AppLocalizations {
   String get fromVideo => 'Din video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Se adaugă fotografia $done din $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Alegerea cadrelor dintr-un video funcționează în aplicația de telefon (Android și iPhone) — încă nu pe acest dispozitiv.';
 

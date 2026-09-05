@@ -353,6 +353,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fromVideo => 'Uit video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Foto $done van $total wordt toegevoegd…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Frames uit een video kiezen werkt in de telefoon-app (Android en iPhone) — nog niet op dit apparaat.';
 

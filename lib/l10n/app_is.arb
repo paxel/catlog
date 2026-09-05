@@ -212,6 +212,7 @@
   "scrubFrames": "Spóla í myndbandinu",
   "keepThisFrame": "Halda þessum ramma",
   "fromVideo": "Úr myndbandi…",
+  "addingPhotos": "Bæti við mynd {done} af {total}…",
   "videoMobileOnly": "Að velja ramma úr myndbandi virkar í símaforritinu (Android og iPhone) — ekki enn á þessu tæki.",
   "shareWhitelistExplainer": "Veldu hvað fer í skrána. Aðeins merktir reitir fylgja með.",
   "exportShareFile": "Flytja út deiliskrá…",

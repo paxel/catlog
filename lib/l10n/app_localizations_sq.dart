@@ -352,6 +352,11 @@ class AppLocalizationsSq extends AppLocalizations {
   String get fromVideo => 'Nga video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Shtohet fotoja $done nga $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Zgjedhja e kuadrove nga videoja funksionon në aplikacionin e telefonit (Android dhe iPhone) — ende jo në këtë pajisje.';
 

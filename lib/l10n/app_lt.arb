@@ -212,6 +212,7 @@
   "scrubFrames": "Persukti vaizdo įrašą",
   "keepThisFrame": "Palikti šį kadrą",
   "fromVideo": "Iš vaizdo įrašo…",
+  "addingPhotos": "Pridedama nuotrauka {done} iš {total}…",
   "videoMobileOnly": "Kadrų rinkimas iš vaizdo įrašo veikia telefono programėlėje (Android ir iPhone) — šiame įrenginyje dar ne.",
   "shareWhitelistExplainer": "Pasirinkite, kas pateks į failą. Įtraukiami tik pažymėti laukai.",
   "exportShareFile": "Eksportuoti bendrinimo failą…",

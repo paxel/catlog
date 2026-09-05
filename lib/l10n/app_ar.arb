@@ -212,6 +212,7 @@
   "scrubFrames": "تحريك شريط الفيديو",
   "keepThisFrame": "احتفظ بهذه اللقطة",
   "fromVideo": "من فيديو…",
+  "addingPhotos": "إضافة الصورة {done} من {total}…",
   "videoMobileOnly": "اختيار اللقطات من فيديو يعمل في تطبيق الهاتف (أندرويد وآيفون) — ليس على هذا الجهاز بعد.",
   "shareWhitelistExplainer": "اختر ما يدخل الملف. تُضمَّن الحقول المحددة فقط.",
   "exportShareFile": "تصدير ملف المشاركة…",

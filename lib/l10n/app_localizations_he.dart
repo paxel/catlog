@@ -351,6 +351,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fromVideo => 'מסרטון…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'מוסיף תמונה $done מתוך $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'בחירת פריימים מסרטון עובדת באפליקציית הטלפון (אנדרואיד ואייפון) — עדיין לא במכשיר הזה.';
 

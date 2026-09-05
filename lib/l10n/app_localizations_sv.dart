@@ -353,6 +353,11 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fromVideo => 'Från video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Lägger till foto $done av $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Att välja bildrutor ur video fungerar i telefonappen (Android och iPhone) — inte på den här enheten ännu.';
 

@@ -212,6 +212,7 @@
   "scrubFrames": "Parcourir la vidéo",
   "keepThisFrame": "Garder cette image",
   "fromVideo": "Depuis une vidéo…",
+  "addingPhotos": "Ajout de la photo {done} sur {total}…",
   "videoMobileOnly": "Extraire des images d'une vidéo fonctionne dans l'appli téléphone (Android et iPhone) — pas encore sur cet appareil.",
   "shareWhitelistExplainer": "Choisissez ce qui entre dans le fichier. Seuls les champs cochés sont inclus.",
   "exportShareFile": "Exporter le fichier de partage…",

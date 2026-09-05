@@ -353,6 +353,11 @@ class AppLocalizationsIs extends AppLocalizations {
   String get fromVideo => 'Úr myndbandi…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Bæti við mynd $done af $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Að velja ramma úr myndbandi virkar í símaforritinu (Android og iPhone) — ekki enn á þessu tæki.';
 

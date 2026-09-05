@@ -349,6 +349,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fromVideo => '動画から…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return '写真を追加中 $done/$total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       '動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。';
 

@@ -352,6 +352,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fromVideo => 'Videosta…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Lisätään kuvaa $done/$total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Ruutujen poiminta videosta toimii puhelinsovelluksessa (Android ja iPhone) — ei vielä tällä laitteella.';
 

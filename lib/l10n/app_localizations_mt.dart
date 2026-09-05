@@ -353,6 +353,11 @@ class AppLocalizationsMt extends AppLocalizations {
   String get fromVideo => 'Minn video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Qed jiżdied ritratt $done minn $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'L-għażla ta\' frejms minn video taħdem fl-app tat-telefon (Android u iPhone) — għadha mhux fuq dan l-apparat.';
 

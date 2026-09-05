@@ -12,6 +12,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   Leipzig"), number first where that is the custom. Towns and regions
   keep their full name.
 
+### Fixed
+
+- Photos picked from a video appear one by one as they are added,
+  with a progress line, instead of all at once after a silent wait.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).

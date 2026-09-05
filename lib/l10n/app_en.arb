@@ -136,6 +136,8 @@
   "scrubFrames": "Scrub the video",
   "keepThisFrame": "Keep this frame",
   "fromVideo": "From video…",
+  "addingPhotos": "Adding photo {done} of {total}…",
+  "@addingPhotos": {"placeholders": {"done": {"type": "int"}, "total": {"type": "int"}}},
   "videoMobileOnly": "Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.",
   "shareWhitelistExplainer": "Choose what goes into the file. Only ticked fields are included.",
   "exportShareFile": "Export share file…",

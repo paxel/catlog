@@ -353,6 +353,11 @@ class AppLocalizationsLv extends AppLocalizations {
   String get fromVideo => 'No video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Pievieno fotoattēlu $done no $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Kadru izvēle no video darbojas tālruņa lietotnē (Android un iPhone) — šajā ierīcē vēl ne.';
 

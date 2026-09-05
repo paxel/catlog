@@ -105,6 +105,7 @@
   "scrubFrames": "Durchs Video spulen",
   "keepThisFrame": "Dieses Bild behalten",
   "fromVideo": "Aus Video…",
+  "addingPhotos": "Foto {done} von {total} wird hinzugefügt…",
   "videoMobileOnly": "Bilder aus einem Video gehen in der Telefon-App (Android und iPhone) — auf diesem Gerät noch nicht.",
   "shareWhitelistExplainer": "Wähle aus, was in die Datei kommt. Nur angehakte Felder sind enthalten.",
   "exportShareFile": "Teil-Datei exportieren…",

@@ -352,6 +352,11 @@ class AppLocalizationsSk extends AppLocalizations {
   String get fromVideo => 'Z videa…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Pridávanie fotky $done z $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Výber snímok z videa funguje v mobilnej aplikácii (Android a iPhone) — na tomto zariadení zatiaľ nie.';
 

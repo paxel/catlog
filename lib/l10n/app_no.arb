@@ -212,6 +212,7 @@
   "scrubFrames": "Spol i videoen",
   "keepThisFrame": "Behold dette bildet",
   "fromVideo": "Fra video…",
+  "addingPhotos": "Legger til bilde {done} av {total}…",
   "videoMobileOnly": "Å velge bilder fra video fungerer i telefonappen (Android og iPhone) — ikke på denne enheten ennå.",
   "shareWhitelistExplainer": "Velg hva som skal med i filen. Bare avmerkede felter tas med.",
   "exportShareFile": "Eksporter delingsfil…",

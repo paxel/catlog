@@ -212,6 +212,7 @@
   "scrubFrames": "Videoda gezin",
   "keepThisFrame": "Bu kareyi tut",
   "fromVideo": "Videodan…",
+  "addingPhotos": "Fotoğraf {done}/{total} ekleniyor…",
   "videoMobileOnly": "Videodan kare seçme telefon uygulamasında çalışır (Android ve iPhone) — bu cihazda henüz yok.",
   "shareWhitelistExplainer": "Dosyaya ne gireceğini seçin. Yalnızca işaretli alanlar eklenir.",
   "exportShareFile": "Paylaşım dosyasını dışa aktar…",

@@ -212,6 +212,7 @@
   "scrubFrames": "Spola i videon",
   "keepThisFrame": "Behåll den här bildrutan",
   "fromVideo": "Från video…",
+  "addingPhotos": "Lägger till foto {done} av {total}…",
   "videoMobileOnly": "Att välja bildrutor ur video fungerar i telefonappen (Android och iPhone) — inte på den här enheten ännu.",
   "shareWhitelistExplainer": "Välj vad som hamnar i filen. Bara ikryssade fält tas med.",
   "exportShareFile": "Exportera delningsfil…",

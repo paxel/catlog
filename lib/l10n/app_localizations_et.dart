@@ -352,6 +352,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fromVideo => 'Videost…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Foto $done/$total lisamine…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Videost kaadrite valimine töötab telefonirakenduses (Android ja iPhone) — selles seadmes veel mitte.';
 

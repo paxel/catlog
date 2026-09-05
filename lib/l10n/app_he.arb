@@ -212,6 +212,7 @@
   "scrubFrames": "גלילה בסרטון",
   "keepThisFrame": "שמור פריים זה",
   "fromVideo": "מסרטון…",
+  "addingPhotos": "מוסיף תמונה {done} מתוך {total}…",
   "videoMobileOnly": "בחירת פריימים מסרטון עובדת באפליקציית הטלפון (אנדרואיד ואייפון) — עדיין לא במכשיר הזה.",
   "shareWhitelistExplainer": "בחרו מה ייכנס לקובץ. רק שדות מסומנים נכללים.",
   "exportShareFile": "ייצוא קובץ שיתוף…",

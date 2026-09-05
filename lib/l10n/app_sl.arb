@@ -212,6 +212,7 @@
   "scrubFrames": "Premikanje po videu",
   "keepThisFrame": "Obdrži to sličico",
   "fromVideo": "Iz videa…",
+  "addingPhotos": "Dodajanje fotografije {done} od {total}…",
   "videoMobileOnly": "Izbiranje sličic iz videa deluje v telefonski aplikaciji (Android in iPhone) — na tej napravi še ne.",
   "shareWhitelistExplainer": "Izberite, kaj gre v datoteko. Vključena so samo odkljukana polja.",
   "exportShareFile": "Izvozi datoteko za deljenje…",

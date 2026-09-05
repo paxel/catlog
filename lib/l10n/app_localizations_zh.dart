@@ -341,6 +341,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get fromVideo => '来自视频…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return '正在添加照片 $done/$total…';
+  }
+
+  @override
   String get videoMobileOnly => '从视频挑选画面需要手机应用（Android 和 iPhone）——此设备暂不支持。';
 
   @override

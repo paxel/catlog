@@ -800,6 +800,12 @@ abstract class AppLocalizations {
   /// **'From video…'**
   String get fromVideo;
 
+  /// No description provided for @addingPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Adding photo {done} of {total}…'**
+  String addingPhotos(int done, int total);
+
   /// No description provided for @videoMobileOnly.
   ///
   /// In en, this message translates to:

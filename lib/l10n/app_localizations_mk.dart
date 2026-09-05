@@ -353,6 +353,11 @@ class AppLocalizationsMk extends AppLocalizations {
   String get fromVideo => 'Од видео…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Додавање фотографија $done од $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Изборот на кадри од видео работи во телефонската апликација (Android и iPhone) — на овој уред сè уште не.';
 

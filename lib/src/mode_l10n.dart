@@ -64,6 +64,9 @@ class ModeLocalizations implements AppLocalizations {
   String get addStray => base.addStray;
 
   @override
+  String addingPhotos(int done, int total) => base.addingPhotos(done, total);
+
+  @override
   String get addressFormatHint => base.addressFormatHint;
 
   @override

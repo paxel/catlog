@@ -212,6 +212,7 @@
   "scrubFrames": "Przewijanie wideo",
   "keepThisFrame": "Zachowaj tę klatkę",
   "fromVideo": "Z wideo…",
+  "addingPhotos": "Dodawanie zdjęcia {done} z {total}…",
   "videoMobileOnly": "Wybieranie klatek z wideo działa w aplikacji na telefon (Android i iPhone) — na tym urządzeniu jeszcze nie.",
   "shareWhitelistExplainer": "Wybierz, co trafi do pliku. Dołączone są tylko zaznaczone pola.",
   "exportShareFile": "Eksportuj plik udostępniania…",

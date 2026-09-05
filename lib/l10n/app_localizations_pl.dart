@@ -352,6 +352,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fromVideo => 'Z wideo…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Dodawanie zdjęcia $done z $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Wybieranie klatek z wideo działa w aplikacji na telefon (Android i iPhone) — na tym urządzeniu jeszcze nie.';
 

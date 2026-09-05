@@ -212,6 +212,7 @@
   "scrubFrames": "Премотавање видеа",
   "keepThisFrame": "Задржи овај кадар",
   "fromVideo": "Из видеа…",
+  "addingPhotos": "Додавање фотографије {done} од {total}…",
   "videoMobileOnly": "Избор кадрова из видеа ради у апликацији за телефон (Android и iPhone) — на овом уређају још не.",
   "shareWhitelistExplainer": "Одаберите шта иде у датотеку. Укључена су само означена поља.",
   "exportShareFile": "Извези датотеку за дељење…",

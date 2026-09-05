@@ -212,6 +212,7 @@
   "scrubFrames": "Door de video spoelen",
   "keepThisFrame": "Dit frame bewaren",
   "fromVideo": "Uit video…",
+  "addingPhotos": "Foto {done} van {total} wordt toegevoegd…",
   "videoMobileOnly": "Frames uit een video kiezen werkt in de telefoon-app (Android en iPhone) — nog niet op dit apparaat.",
   "shareWhitelistExplainer": "Kies wat er in het bestand komt. Alleen aangevinkte velden gaan mee.",
   "exportShareFile": "Deelbestand exporteren…",

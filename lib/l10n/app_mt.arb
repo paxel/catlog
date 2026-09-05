@@ -212,6 +212,7 @@
   "scrubFrames": "Skrolja l-video",
   "keepThisFrame": "Żomm dan il-frejm",
   "fromVideo": "Minn video…",
+  "addingPhotos": "Qed jiżdied ritratt {done} minn {total}…",
   "videoMobileOnly": "L-għażla ta' frejms minn video taħdem fl-app tat-telefon (Android u iPhone) — għadha mhux fuq dan l-apparat.",
   "shareWhitelistExplainer": "Agħżel x'jidħol fil-fajl. Jiġu inklużi biss l-oqsma mmarkati.",
   "exportShareFile": "Esporta l-fajl tal-qsim…",

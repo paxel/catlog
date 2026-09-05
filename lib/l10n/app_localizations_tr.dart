@@ -352,6 +352,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fromVideo => 'Videodan…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Fotoğraf $done/$total ekleniyor…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Videodan kare seçme telefon uygulamasında çalışır (Android ve iPhone) — bu cihazda henüz yok.';
 
