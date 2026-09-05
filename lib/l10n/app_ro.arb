@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Fiecare catalog e o lume aparte: animalele, gospodăriile, câmpurile, pozele și partenerii de sincronizare proprii. Berlinul și Parisul nu se amestecă niciodată. Atinge numele din capul ecranului principal ca să schimbi, să adaugi sau să redenumești. Numele tău, limba și sfaturile deja văzute sunt comune tuturor.",
   "spotHomeCatalog": "Acesta e catalogul în care ești. Atinge numele ca să schimbi sau să creezi altul.",
   "deleteCatalog": "Șterge catalogul",
+  "catalogSettings": "Setările catalogului",
   "deleteCatalogBody": "Tot ce e în {name} dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.",
   "deleteCatalogBodyNeutral": "Tot ce e în {name} dispare: animalele, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

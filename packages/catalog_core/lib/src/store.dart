@@ -2118,6 +2118,8 @@ class _FileBlobStore implements _BlobStore {
   @override
   (int, int) usage() {
     var bytes = 0, count = 0;
+    // A catalog without a photo yet has no folder either: nothing there.
+    if (!_dir.existsSync()) return (bytes, count);
     for (final f in _dir.listSync()) {
       if (f is File && f.path.endsWith('.jpg')) {
         bytes += f.lengthSync();

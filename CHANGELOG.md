@@ -13,6 +13,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Language, units, celebrations, notifications and the tutorial
   replays moved from the menu and the About page into a Settings page
   in the main menu.
+- Each catalog has its own settings page, opened from its row in the
+  catalog switcher: name, cats or pets, fields, authors and bans,
+  archive, go back, delete. It works on that catalog whether or not you
+  are in it. Those items left the menu, the About page and the top of
+  the switcher.
 
 ### Fixed
 

@@ -51,12 +51,13 @@ void main() {
   }
 
   group('about', () {
-    testWidgets('says what the app is and offers the archive',
-        (tester) async {
+    testWidgets('says what the app is', (tester) async {
       await pump(tester, AboutScreen(store: store),
           size: const Size(500, 2000));
       expect(find.textContaining('cat(a)log'), findsWidgets);
-      expect(find.text('Archive'), findsOneWidget);
+      // Catalog matters live with the catalog, not here.
+      expect(find.text('Archive'), findsNothing);
+      expect(find.text('Authors & bans'), findsNothing);
     });
 
     testWidgets('the red button thanks you, and says so nowhere else',

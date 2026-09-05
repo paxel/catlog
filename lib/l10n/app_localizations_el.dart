@@ -1900,6 +1900,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteCatalog => 'Διαγραφή καταλόγου';
 
   @override
+  String get catalogSettings => 'Ρυθμίσεις καταλόγου';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Όλα στο $name χάνονται: γάτες, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο. Γράψε το όνομα για επιβεβαίωση.';
   }

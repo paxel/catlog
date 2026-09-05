@@ -1898,6 +1898,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteCatalog => 'Katalog löschen';
 
   @override
+  String get catalogSettings => 'Katalog-Einstellungen';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Alles in $name verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe den Namen ein, um zu bestätigen.';
   }

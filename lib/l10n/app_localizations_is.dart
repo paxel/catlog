@@ -1894,6 +1894,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get deleteCatalog => 'Eyða skrá';
 
   @override
+  String get catalogSettings => 'Stillingar skrár';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
   }

@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Çdo katalog është një botë më vete: kafshët, familjet, fushat, fotot dhe partnerët e sinkronizimit e vet. Berlini dhe Parisi nuk përzihen kurrë. Prek emrin lart në ekranin kryesor për të ndërruar, shtuar ose riemërtuar. Emri yt, gjuha dhe këshillat e para tashmë janë të përbashkëta.",
   "spotHomeCatalog": "Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.",
   "deleteCatalog": "Fshi katalogun",
+  "catalogSettings": "Cilësimet e katalogut",
   "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
   "deleteCatalogBodyNeutral": "Gjithçka në {name} zhduket: kafshët, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

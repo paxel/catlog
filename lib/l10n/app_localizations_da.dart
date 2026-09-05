@@ -1890,6 +1890,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get deleteCatalog => 'Slet katalog';
 
   @override
+  String get catalogSettings => 'Katalogindstillinger';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Alt i $name forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.';
   }

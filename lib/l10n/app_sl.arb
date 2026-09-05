@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Vsak katalog je svet zase: svoji ljubljenčki, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne pomešata. Tapni ime na vrhu domačega zaslona za preklop, dodajanje ali preimenovanje. Tvoje ime, jezik in že videni namigi so skupni vsem.",
   "spotHomeCatalog": "To je katalog, v katerem si. Tapni ime za preklop ali za novega.",
   "deleteCatalog": "Izbriši katalog",
+  "catalogSettings": "Nastavitve kataloga",
   "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
   "deleteCatalogBodyNeutral": "Vse v katalogu {name} izgine: ljubljenčki, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

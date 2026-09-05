@@ -23,7 +23,6 @@ import 'settings_screen.dart';
 import 'agenda_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
-import 'fields_screen.dart';
 import 'map_screen.dart';
 import 'cat_list_screen.dart';
 import 'strays_screen.dart';
@@ -285,11 +284,6 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             id: 'home-menu',
             child: PopupMenuButton<String>(
             onSelected: (v) {
-              if (v == 'fields') {
-                _open(PanePage(
-                    id: 'fields',
-                    build: (_) => FieldsScreen(store: widget.store)));
-              }
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
                 _open(PanePage(
@@ -307,10 +301,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
             },
             itemBuilder: (context) => [
-              // Fields moved here from the bar to make room for the
-              // agenda; Add field on the detail pages covers daily use.
-              PopupMenuItem(
-                  value: 'fields', child: Text(context.t.fields)),
+              // Fields belong to the catalog: they live in its settings;
+              // Add field on the detail pages covers daily use.
               PopupMenuItem(
                   value: 'hidden',
                   child: Text(showHidden.value

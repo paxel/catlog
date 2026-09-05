@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Hver katalog er sin egen verden: egne kjæledyr, husstander, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på navnet øverst på hjemskjermen for å bytte, legge til eller gi nytt navn. Navnet ditt, språket og tipsene du har sett, deles av alle.",
   "spotHomeCatalog": "Dette er katalogen du er i. Trykk på navnet for å bytte eller lage en ny.",
   "deleteCatalog": "Slett katalog",
+  "catalogSettings": "Kataloginnstillinger",
   "deleteCatalogBody": "Alt i {name} forsvinner: kattene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
   "deleteCatalogBodyNeutral": "Alt i {name} forsvinner: kjæledyrene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

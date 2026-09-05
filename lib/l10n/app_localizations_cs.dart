@@ -1889,6 +1889,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get deleteCatalog => 'Smazat katalog';
 
   @override
+  String get catalogSettings => 'Nastavení katalogu';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Všechno v $name zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.';
   }

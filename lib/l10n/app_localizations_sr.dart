@@ -1889,6 +1889,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get deleteCatalog => 'Обриши каталог';
 
   @override
+  String get catalogSettings => 'Подешавања каталога';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Све у каталогу $name нестаје: мачке, фотографије, историја. Прво се чува потпуна датотека тамо где иду аутоматске резервне копије — њен увоз враћа каталог. Упиши име да потврдиш.';
   }

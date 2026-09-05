@@ -1890,6 +1890,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get deleteCatalog => 'Obriši katalog';
 
   @override
+  String get catalogSettings => 'Postavke kataloga';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Sve u $name nestaje: mačke, fotografije, historija. Prvo se snima potpuna datoteka tamo gdje idu automatske sigurnosne kopije — njen uvoz vraća katalog. Upiši ime za potvrdu.';
   }

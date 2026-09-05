@@ -1889,6 +1889,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteCatalog => 'Delete catalog';
 
   @override
+  String get catalogSettings => 'Catalog settings';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Everything in $name goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.';
   }

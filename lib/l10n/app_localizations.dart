@@ -3440,6 +3440,12 @@ abstract class AppLocalizations {
   /// **'Delete catalog'**
   String get deleteCatalog;
 
+  /// No description provided for @catalogSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog settings'**
+  String get catalogSettings;
+
   /// No description provided for @deleteCatalogBody.
   ///
   /// In en, this message translates to:

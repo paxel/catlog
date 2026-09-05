@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Každý katalóg je svet sám pre seba: vlastní miláčikovia, domácnosti, polia, fotky aj partneri synchronizácie. Berlín a Paríž sa nikdy nezmiešajú. Klepni na názov hore na domovskej obrazovke a prepni, pridaj alebo premenuj. Tvoje meno, jazyk a už videné tipy sú spoločné pre všetky.",
   "spotHomeCatalog": "Toto je katalóg, v ktorom si. Klepni na názov pre prepnutie alebo vytvorenie ďalšieho.",
   "deleteCatalog": "Zmazať katalóg",
+  "catalogSettings": "Nastavenia katalógu",
   "deleteCatalogBody": "Všetko v katalógu {name} zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.",
   "deleteCatalogBodyNeutral": "Všetko v katalógu {name} zmizne: miláčikovia, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

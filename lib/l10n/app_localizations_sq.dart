@@ -1890,6 +1890,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get deleteCatalog => 'Fshi katalogun';
 
   @override
+  String get catalogSettings => 'Cilësimet e katalogut';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Gjithçka në $name zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.';
   }

@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "每个目录都是独立的世界：自己的宠物、家庭、字段、照片和同步伙伴，柏林和巴黎永远不会混在一起。点按主界面顶部的名称即可切换、新建或改名。你的名字、语言和看过的提示由所有目录共用。",
   "spotHomeCatalog": "这是你当前所在的目录。点按名称即可切换或新建。",
   "deleteCatalog": "删除目录",
+  "catalogSettings": "目录设置",
   "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
   "deleteCatalogBodyNeutral": "{name} 里的一切都会消失：宠物、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

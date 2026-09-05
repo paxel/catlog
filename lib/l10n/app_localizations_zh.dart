@@ -1820,6 +1820,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteCatalog => '删除目录';
 
   @override
+  String get catalogSettings => '目录设置';
+
+  @override
   String deleteCatalogBody(String name) {
     return '$name 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。';
   }

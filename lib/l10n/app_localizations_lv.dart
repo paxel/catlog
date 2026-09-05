@@ -1893,6 +1893,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get deleteCatalog => 'Dzēst katalogu';
 
   @override
+  String get catalogSettings => 'Kataloga iestatījumi';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Viss katalogā $name pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.';
   }

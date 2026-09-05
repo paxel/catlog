@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Minden katalógus külön világ: saját kisállatok, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs sosem keveredik. Koppints a főképernyő tetején a névre a váltáshoz, új létrehozásához vagy átnevezéshez. A neved, a nyelved és a már látott tippek mindegyikre érvényesek.",
   "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.",
   "deleteCatalog": "Katalógus törlése",
+  "catalogSettings": "Katalógus beállításai",
   "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
   "deleteCatalogBodyNeutral": "Minden eltűnik a(z) {name} katalógusból: a kisállatok, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

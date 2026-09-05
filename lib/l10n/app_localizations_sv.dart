@@ -1888,6 +1888,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get deleteCatalog => 'Ta bort katalog';
 
   @override
+  String get catalogSettings => 'Kataloginställningar';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Allt i $name försvinner: katterna, fotona, historiken. Först sparas en komplett fil där de automatiska säkerhetskopiorna hamnar — att importera den hämtar tillbaka katalogen. Skriv namnet för att bekräfta.';
   }

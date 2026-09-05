@@ -1894,6 +1894,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get deleteCatalog => 'Ħassar il-katalgu';
 
   @override
+  String get catalogSettings => 'Settings tal-katalgu';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Kollox f’$name jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.';
   }

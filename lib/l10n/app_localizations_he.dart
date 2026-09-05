@@ -1878,6 +1878,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get deleteCatalog => 'מחיקת קטלוג';
 
   @override
+  String get catalogSettings => 'הגדרות קטלוג';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'כל מה שיש ב-$name נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.';
   }

@@ -1890,6 +1890,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deleteCatalog => 'Удалить каталог';
 
   @override
+  String get catalogSettings => 'Настройки каталога';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Всё в каталоге $name исчезнет: кошки, фотографии, история. Сначала полный файл сохраняется туда же, куда идут автоматические резервные копии, — его импорт вернёт каталог. Введите имя для подтверждения.';
   }

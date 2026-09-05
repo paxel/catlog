@@ -1892,6 +1892,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get deleteCatalog => 'Ištrinti katalogą';
 
   @override
+  String get catalogSettings => 'Katalogo nustatymai';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Viskas kataloge $name dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.';
   }

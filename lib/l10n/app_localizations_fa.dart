@@ -1886,6 +1886,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deleteCatalog => 'حذف کاتالوگ';
 
   @override
+  String get catalogSettings => 'تنظیمات کاتالوگ';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'همه‌چیز در $name از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.';
   }

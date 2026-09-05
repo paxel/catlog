@@ -1897,6 +1897,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get deleteCatalog => 'Scrios an chatalóg';
 
   @override
+  String get catalogSettings => 'Socruithe an chatalóg';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Imíonn gach rud in $name: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.';
   }

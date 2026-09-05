@@ -1895,6 +1895,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deleteCatalog => 'Catalogus verwijderen';
 
   @override
+  String get catalogSettings => 'Catalogusinstellingen';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Alles in $name verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.';
   }

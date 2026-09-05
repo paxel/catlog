@@ -18,10 +18,16 @@ const catalogModeField = 'mode';
 bool isPetMode(CatalogStore store) =>
     store.current(catalogModeEntity, catalogModeField) == 'pets';
 
+/// Sets the open catalog's choice and lets the app's words follow.
 void setPetMode(CatalogStore store, bool pets) {
-  store.append(catalogModeEntity, catalogModeField, pets ? 'pets' : 'cats');
+  writePetMode(store, pets);
   petMode.value = pets;
 }
+
+/// Records the choice in [store] alone — for a catalog that is not the
+/// open one, whose words must not change under you.
+void writePetMode(CatalogStore store, bool pets) =>
+    store.append(catalogModeEntity, catalogModeField, pets ? 'pets' : 'cats');
 
 /// Reads the open catalog's choice — at start, after a switch, and
 /// whenever the home screen shows (a sync may have brought it).

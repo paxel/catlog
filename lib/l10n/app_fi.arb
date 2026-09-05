@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Jokainen luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
   "spotHomeCatalog": "Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.",
   "deleteCatalog": "Poista luettelo",
+  "catalogSettings": "Luettelon asetukset",
   "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
   "deleteCatalogBodyNeutral": "Kaikki luettelossa {name} katoaa: lemmikit, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

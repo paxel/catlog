@@ -1884,6 +1884,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteCatalog => 'حذف الكتالوج';
 
   @override
+  String get catalogSettings => 'إعدادات الكتالوج';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'كل ما في $name سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.';
   }

@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Her katalog kendi dünyasıdır: kendi evcil hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris asla karışmaz. Değiştirmek, yeni eklemek veya adını değiştirmek için ana ekranın üstündeki ada dokun. Adın, dilin ve gördüğün ipuçları hepsinde ortaktır.",
   "spotHomeCatalog": "Bu, içinde bulunduğun katalog. Değiştirmek ya da yenisini oluşturmak için ada dokun.",
   "deleteCatalog": "Kataloğu sil",
+  "catalogSettings": "Katalog ayarları",
   "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
   "deleteCatalogBodyNeutral": "{name} içindeki her şey gider: evcil hayvanlar, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

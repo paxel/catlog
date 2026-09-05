@@ -6,6 +6,7 @@ import 'package:catlog/src/auto_backup.dart' show backupFileName;
 import 'package:catlog/src/screens/catalogs_screen.dart';
 import 'package:catlog/main.dart' show CatlogApp;
 import 'package:catlog/src/move_to_catalog.dart' show CatalogSwitching;
+import 'package:catlog/src/pet_mode.dart';
 import 'package:catlog/src/screens/home_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -51,6 +52,15 @@ void main() {
         );
       }),
     ));
+    await tester.pumpAndSettle();
+  }
+
+  /// The gear on the row of the catalog called [name].
+  Future<void> openSettings(WidgetTester tester, String name) async {
+    final row = find.ancestor(
+        of: find.text(name), matching: find.byType(ListTile));
+    await tester.tap(find.descendant(
+        of: row, matching: find.byIcon(Icons.settings_outlined)));
     await tester.pumpAndSettle();
   }
 
@@ -104,6 +114,10 @@ void main() {
     final paris = catalogs.openStore(catalogs.active);
     expect(paris.clowders(), isEmpty);
     paris.close();
+    // ...and lands on its settings page, ready to be set up.
+    expect(find.widgetWithText(AppBar, 'Paris'), findsOneWidget);
+    expect(find.text('Name'), findsOneWidget);
+    expect(find.text('Fields'), findsOneWidget);
   });
 
   testWidgets('renaming shows the new name', (tester) async {
@@ -113,7 +127,8 @@ void main() {
     await tester.tap(find.text('Manage catalogs'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byIcon(Icons.drive_file_rename_outline));
+    await openSettings(tester, 'Berlin');
+    await tester.tap(find.text('Name'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Berlin Nord');
     await tester.tap(find.text('Save'));
@@ -185,21 +200,20 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('the last catalog has no delete button', (tester) async {
+    testWidgets('the last catalog has no delete row', (tester) async {
       await pumpManage(tester);
-      expect(find.byIcon(Icons.delete_outline), findsNothing);
+      await openSettings(tester, 'Berlin');
+      expect(find.text('Delete catalog'), findsNothing);
     });
 
     testWidgets('deleting the catalog you are in says why it cannot',
         (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);
-      // The button is there — a feature that vanishes teaches nothing —
+      await openSettings(tester, 'Berlin');
+      // The row is there — a feature that vanishes teaches nothing —
       // and says what to do instead.
-      final berlin = find.ancestor(
-          of: find.text('Berlin'), matching: find.byType(ListTile));
-      await tester.tap(find.descendant(
-          of: berlin, matching: find.byIcon(Icons.delete_outline)));
+      await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       expect(find.textContaining('Switch to another one'), findsOneWidget);
       expect(catalogs.catalogs(), hasLength(2));
@@ -208,7 +222,8 @@ void main() {
     testWidgets('a mistyped name deletes nothing', (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);
-      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await openSettings(tester, 'Paris');
+      await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'paris');
       await tester.pumpAndSettle();
@@ -226,13 +241,16 @@ void main() {
       parisStore.close();
 
       await pumpManage(tester);
-      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await openSettings(tester, 'Paris');
+      await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Paris');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
 
+      // The page of the deleted catalog is gone; the list is back.
+      expect(find.text('Catalogs'), findsOneWidget);
       expect(catalogs.catalogs().map((c) => c.name), ['Berlin']);
       expect(paris.dir.existsSync(), isFalse);
       final file = File('${saved.path}/catlog-paris.catsync');
@@ -249,13 +267,59 @@ void main() {
     testWidgets('the keeper is told where the file went', (tester) async {
       catalogs.create('Paris');
       await pumpManage(tester);
-      await tester.tap(find.byIcon(Icons.delete_outline).last);
+      await openSettings(tester, 'Paris');
+      await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Paris');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
       expect(find.textContaining('catlog-paris.catsync'), findsOneWidget);
+    });
+
+    testWidgets('the settings of a catalog you are not in act on it alone',
+        (tester) async {
+      final paris = catalogs.create('Paris');
+      final parisStore = catalogs.openStore(paris)..author = 'Kathrin';
+      parisStore.createCat('Minou');
+      parisStore.close();
+      store.author = 'Kathrin';
+      store.createCat('Mimi');
+      store.author = 'test';
+
+      await pumpManage(tester);
+      await openSettings(tester, 'Paris');
+      expect(find.widgetWithText(AppBar, 'Paris'), findsOneWidget);
+
+      // Pets there, cats here: the app's words follow Berlin, not Paris.
+      await tester.tap(find.text('Pets'));
+      await tester.pumpAndSettle();
+      expect(petMode.value, isFalse);
+      expect(isPetMode(store), isFalse);
+
+      // Banning Kathrin in Paris leaves her Berlin cat alone.
+      await tester.tap(find.text('Authors & bans'));
+      await tester.pumpAndSettle();
+      final kathrin = find.ancestor(
+          of: find.text('Kathrin'), matching: find.byType(ListTile));
+      await tester.tap(find.descendant(
+          of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Kathrin');
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+      expect(store.cats().map((c) => c.name), ['Mimi']);
+
+      // Back out of the page closes Paris; what it wrote is there.
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      final reopened = catalogs.openStore(paris);
+      expect(isPetMode(reopened), isTrue);
+      expect(reopened.cats(), isEmpty);
+      reopened.close();
     });
   });
 
@@ -272,7 +336,8 @@ void main() {
       ),
     ));
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.drive_file_rename_outline));
+    await openSettings(tester, 'Berlin');
+    await tester.tap(find.text('Name'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Berlin Nord');
     await tester.tap(find.text('Save'));

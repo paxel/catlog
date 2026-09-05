@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Cada catálogo es un mundo propio: sus mascotas, sus hogares, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca el nombre en la parte superior para cambiar, añadir o renombrar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.",
   "spotHomeCatalog": "Este es el catálogo en el que estás. Toca el nombre para cambiar o crear otro.",
   "deleteCatalog": "Eliminar catálogo",
+  "catalogSettings": "Ajustes del catálogo",
   "deleteCatalogBody": "Todo lo de {name} desaparece: sus gatos, sus fotos, su historial. Antes se guarda un archivo completo donde van las copias automáticas; importarlo devuelve el catálogo. Escribe el nombre para confirmar.",
   "deleteCatalogBodyNeutral": "Todo lo de {name} desaparece: sus mascotas, sus fotos, su historial. Antes se guarda un archivo completo donde van las copias automáticas; importarlo devuelve el catálogo. Escribe el nombre para confirmar.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

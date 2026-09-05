@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Hver skrá er sinn eigin heimur: eigin gæludýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á heitið efst á heimaskjánum til að skipta, bæta við eða endurnefna. Nafnið þitt, tungumálið og ábendingar sem þú hefur séð eru sameiginleg.",
   "spotHomeCatalog": "Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.",
   "deleteCatalog": "Eyða skrá",
+  "catalogSettings": "Stillingar skrár",
   "deleteCatalogBody": "Allt í {name} hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
   "deleteCatalogBodyNeutral": "Allt í {name} hverfur: gæludýrin, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

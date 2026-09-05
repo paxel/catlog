@@ -1890,6 +1890,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get deleteCatalog => 'Izbriši katalog';
 
   @override
+  String get catalogSettings => 'Nastavitve kataloga';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Vse v katalogu $name izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.';
   }

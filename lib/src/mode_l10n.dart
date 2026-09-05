@@ -289,6 +289,9 @@ class ModeLocalizations implements AppLocalizations {
   String catalogNameTaken(String name) => base.catalogNameTaken(name);
 
   @override
+  String get catalogSettings => base.catalogSettings;
+
+  @override
   String get catalogsTitle => base.catalogsTitle;
 
   @override

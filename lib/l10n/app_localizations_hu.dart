@@ -1891,6 +1891,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get deleteCatalog => 'Katalógus törlése';
 
   @override
+  String get catalogSettings => 'Katalógus beállításai';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
   }

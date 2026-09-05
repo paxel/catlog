@@ -1890,6 +1890,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get deleteCatalog => 'Usuń katalog';
 
   @override
+  String get catalogSettings => 'Ustawienia katalogu';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Wszystko w katalogu $name znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz nazwę, aby potwierdzić.';
   }

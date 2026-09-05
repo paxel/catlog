@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Katrs katalogs ir pasaule pati par sevi: savi mājdzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskaries nosaukumam sākuma ekrāna augšā, lai pārslēgtu, pievienotu vai pārdēvētu. Tavs vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
   "spotHomeCatalog": "Šis ir katalogs, kurā esi. Pieskaries nosaukumam, lai pārslēgtu vai izveidotu jaunu.",
   "deleteCatalog": "Dzēst katalogu",
+  "catalogSettings": "Kataloga iestatījumi",
   "deleteCatalogBody": "Viss katalogā {name} pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.",
   "deleteCatalogBodyNeutral": "Viss katalogā {name} pazūd: mājdzīvnieki, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

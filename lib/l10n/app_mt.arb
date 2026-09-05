@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Kull katalgu huwa dinja għalih: annimali domestiċi, djar, oqsma, ritratti u sħab tas-sinkronizzazzjoni tiegħu. Berlin u Pariġi qatt ma jitħalltu. Agħfas l-isem fuq nett tal-iskrin prinċipali biex tibdel, iżżid jew tbiddel l-isem. Ismek, il-lingwa u l-pariri li rajt huma komuni għal kulħadd.",
   "spotHomeCatalog": "Dan huwa l-katalgu li qiegħed fih. Agħfas l-isem biex tibdel jew toħloq ieħor.",
   "deleteCatalog": "Ħassar il-katalgu",
+  "catalogSettings": "Settings tal-katalgu",
   "deleteCatalogBody": "Kollox f’{name} jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.",
   "deleteCatalogBodyNeutral": "Kollox f’{name} jisparixxi: l-annimali domestiċi, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Każdy katalog to osobny świat: własne zwierzęta, domostwa, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij nazwy u góry ekranu głównego, aby przełączyć, dodać lub zmienić nazwę. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.",
   "spotHomeCatalog": "To katalog, w którym jesteś. Dotknij nazwy, aby przełączyć lub utworzyć nowy.",
   "deleteCatalog": "Usuń katalog",
+  "catalogSettings": "Ustawienia katalogu",
   "deleteCatalogBody": "Wszystko w katalogu {name} znika: koty, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz nazwę, aby potwierdzić.",
   "deleteCatalogBodyNeutral": "Wszystko w katalogu {name} znika: zwierzęta, zdjęcia, historia. Najpierw zapisywany jest pełny plik tam, gdzie trafiają kopie automatyczne — jego import przywraca katalog. Wpisz nazwę, aby potwierdzić.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

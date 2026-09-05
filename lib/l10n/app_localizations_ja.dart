@@ -1843,6 +1843,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteCatalog => 'カタログを削除';
 
   @override
+  String get catalogSettings => 'カタログの設定';
+
+  @override
   String deleteCatalogBody(String name) {
     return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。';
   }

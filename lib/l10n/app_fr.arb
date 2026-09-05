@@ -556,6 +556,7 @@
   "helpCatalogsNeutral": "Un catalogue est un monde à part : ses animaux, ses foyers, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche le nom en haut de l’accueil pour changer, en ajouter un ou le renommer. Ton nom, ta langue et les astuces déjà vues sont communs à tous.",
   "spotHomeCatalog": "Voici le catalogue dans lequel tu es. Touche le nom pour changer ou en créer un autre.",
   "deleteCatalog": "Supprimer le catalogue",
+  "catalogSettings": "Réglages du catalogue",
   "deleteCatalogBody": "Tout ce qui est dans {name} disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le nom pour confirmer.",
   "deleteCatalogBodyNeutral": "Tout ce qui est dans {name} disparaît : ses animaux, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le nom pour confirmer.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},

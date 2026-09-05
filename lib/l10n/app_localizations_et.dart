@@ -1888,6 +1888,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deleteCatalog => 'Kustuta kataloog';
 
   @override
+  String get catalogSettings => 'Kataloogi seaded';
+
+  @override
   String deleteCatalogBody(String name) {
     return 'Kõik kataloogis $name kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.';
   }
