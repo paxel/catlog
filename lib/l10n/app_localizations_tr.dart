@@ -750,6 +750,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'İz: $name — $field ($count değer)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Çakışma — $field';
   }
@@ -1051,11 +1056,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
+      'Konumu olan tüm kediler ve yerler. Arama kedileri, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir kedinin ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder. Her konum alanı haritada bir iğnedir; izini görmek için bir iğneye dokun.';
 
   @override
   String get helpMapNeutral =>
-      'Konumu olan tüm evcil hayvanlar ve yerler. Arama evcil hayvanları, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir evcil hayvanın ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder.';
+      'Konumu olan tüm evcil hayvanlar ve yerler. Arama evcil hayvanları, kişileri ve yerleri bulur — bilinmeyen bir adı tüm dünyada arar. Katman düğmesi, kayıp bir evcil hayvanın ilan yerlerinin ve kaçtığı evin çevresine 500 m\'lik daireleri çizer. Oklar iğneden iğneye gider, haritaya uzun basmak görülme kaydeder. Her konum alanı haritada bir iğnedir; izini görmek için bir iğneye dokun.';
 
   @override
   String get helpCard =>

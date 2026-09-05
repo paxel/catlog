@@ -753,6 +753,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Reitti: $name — $field ($count arvoa)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Ristiriita — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.';
+      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon. Jokainen sijaintikenttä on neula kartalla; napauta neulaa nähdäksesi sen reitin.';
 
   @override
   String get helpMapNeutral =>
-      'Kaikki lemmikit ja paikat, joilla on sijainti. Haku löytää lemmikit, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen lemmikin ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.';
+      'Kaikki lemmikit ja paikat, joilla on sijainti. Haku löytää lemmikit, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen lemmikin ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon. Jokainen sijaintikenttä on neula kartalla; napauta neulaa nähdäksesi sen reitin.';
 
   @override
   String get helpCard =>

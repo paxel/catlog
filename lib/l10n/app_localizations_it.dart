@@ -755,6 +755,11 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Percorso: $name — $field ($count valori)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflitto — $field';
   }
@@ -1056,11 +1061,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento.';
+      'Tutti i gatti e i luoghi con una posizione. La ricerca trova gatti, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un gatto scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento. Ogni campo di posizione appare come pin sulla mappa; tocca un pin per il suo percorso.';
 
   @override
   String get helpMapNeutral =>
-      'Tutti gli animali e i luoghi con una posizione. La ricerca trova animali, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un animale scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento.';
+      'Tutti gli animali e i luoghi con una posizione. La ricerca trova animali, persone e luoghi: un nome sconosciuto viene cercato nel mondo. Il pulsante livelli disegna i cerchi da 500 m attorno ai volantini di un animale scomparso e alla casa da cui è fuggito. Le frecce passano da un pin all\'altro, un tocco prolungato registra un avvistamento. Ogni campo di posizione appare come pin sulla mappa; tocca un pin per il suo percorso.';
 
   @override
   String get helpCard =>

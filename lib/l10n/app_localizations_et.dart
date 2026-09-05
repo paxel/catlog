@@ -752,6 +752,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Rada: $name — $field ($count väärtust)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1051,11 +1056,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
+      'Kõik kassid ja kohad, millel on asukoht. Otsing leiab kassid, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud kassi kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise. Iga asukohaväli on kaardil nõel; puuduta nõela, et näha selle rada.';
 
   @override
   String get helpMapNeutral =>
-      'Kõik lemmikloomad ja kohad, millel on asukoht. Otsing leiab lemmikloomad, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud lemmiklooma kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise.';
+      'Kõik lemmikloomad ja kohad, millel on asukoht. Otsing leiab lemmikloomad, inimesed ja kohad — tundmatut nime otsitakse kogu maailmast. Kihtide nupp joonistab 500 m ringid kadunud lemmiklooma kuulutuste kohtade ja tema endise kodu ümber. Nooled liiguvad nõelalt nõelale, kaardi pikk vajutus kirjutab nägemise. Iga asukohaväli on kaardil nõel; puuduta nõela, et näha selle rada.';
 
   @override
   String get helpCard =>

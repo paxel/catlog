@@ -755,6 +755,11 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Recorrido: $name — $field ($count valores)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflicto — $field';
   }
@@ -1056,11 +1061,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Todos los gatos y lugares con posición. La búsqueda encuentra gatos, personas y lugares; un nombre desconocido se busca en todo el mundo. El botón de capas dibuja los círculos de 500 m alrededor de los carteles de un gato desaparecido y de la casa de la que se fue. Las flechas van de pin en pin; mantén pulsado el mapa para anotar un avistamiento.';
+      'Todos los gatos y lugares con posición. La búsqueda encuentra gatos, personas y lugares; un nombre desconocido se busca en todo el mundo. El botón de capas dibuja los círculos de 500 m alrededor de los carteles de un gato desaparecido y de la casa de la que se fue. Las flechas van de pin en pin; mantén pulsado el mapa para anotar un avistamiento. Cada campo de ubicación aparece como pin en el mapa; toca un pin para ver su recorrido.';
 
   @override
   String get helpMapNeutral =>
-      'Todas las mascotas y lugares con posición. La búsqueda encuentra mascotas, personas y lugares; un nombre desconocido se busca en todo el mundo. El botón de capas dibuja los círculos de 500 m alrededor de los carteles de una mascota desaparecida y de la casa de la que se fue. Las flechas van de pin en pin; mantén pulsado el mapa para anotar un avistamiento.';
+      'Todas las mascotas y lugares con posición. La búsqueda encuentra mascotas, personas y lugares; un nombre desconocido se busca en todo el mundo. El botón de capas dibuja los círculos de 500 m alrededor de los carteles de una mascota desaparecida y de la casa de la que se fue. Las flechas van de pin en pin; mantén pulsado el mapa para anotar un avistamiento. Cada campo de ubicación aparece como pin en el mapa; toca un pin para ver su recorrido.';
 
   @override
   String get helpCard =>

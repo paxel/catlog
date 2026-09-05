@@ -754,6 +754,11 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Traċċa: $name — $field ($count valuri)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Kunflitt — $field';
   }
@@ -1054,11 +1059,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
+      'Il-qtates u l-postijiet kollha bi pożizzjoni. It-tiftix isib qtates, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' qattus mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni. Kull kamp ta’ post huwa labra fuq il-mappa; tektek labra għat-traċċa tagħha.';
 
   @override
   String get helpMapNeutral =>
-      'L-annimali domestiċi u l-postijiet kollha bi pożizzjoni. It-tiftix isib annimali domestiċi, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' annimal mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni.';
+      'L-annimali domestiċi u l-postijiet kollha bi pożizzjoni. It-tiftix isib annimali domestiċi, nies u postijiet — isem mhux magħruf jitfittex mad-dinja kollha. Il-buttuna tas-saffi tpinġi ċrieki ta\' 500 m madwar il-postijiet tal-fliers ta\' annimal mitluf u madwar id-dar li ħarab minnha. Il-vleġġeġ jimxu minn pin għal ieħor, għafsa twila fuq il-mappa tniżżel osservazzjoni. Kull kamp ta’ post huwa labra fuq il-mappa; tektek labra għat-traċċa tagħha.';
 
   @override
   String get helpCard =>

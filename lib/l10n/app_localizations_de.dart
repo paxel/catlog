@@ -757,6 +757,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Route: $name — $field ($count Werte)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1058,11 +1063,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Alle Katzen und Orte mit Position. Die Suche findet Katzen, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte einer vermissten Katze und um ihr altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein.';
+      'Alle Katzen und Orte mit Position. Die Suche findet Katzen, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte einer vermissten Katze und um ihr altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein. Jedes Ortsfeld erscheint als Pin auf der Karte; tippe auf einen Pin für seine Route.';
 
   @override
   String get helpMapNeutral =>
-      'Alle Tiere und Orte mit Position. Die Suche findet Tiere, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte eines vermissten Tieres und um sein altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein.';
+      'Alle Tiere und Orte mit Position. Die Suche findet Tiere, Personen und Orte — einen unbekannten Namen sucht sie weltweit. Der Ebenen-Knopf zeichnet die 500-m-Kreise um die Aushang-Orte eines vermissten Tieres und um sein altes Zuhause. Die Pfeile laufen von Pin zu Pin, langes Drücken auf die Karte trägt eine Sichtung ein. Jedes Ortsfeld erscheint als Pin auf der Karte; tippe auf einen Pin für seine Route.';
 
   @override
   String get helpCard =>

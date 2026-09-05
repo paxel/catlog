@@ -1460,6 +1460,12 @@ abstract class AppLocalizations {
   /// **'Trail: {name} ({count} sightings)'**
   String trailOf(String name, int count);
 
+  /// No description provided for @trailOfField.
+  ///
+  /// In en, this message translates to:
+  /// **'Trail: {name} — {field} ({count} values)'**
+  String trailOfField(String name, String field, int count);
+
   /// No description provided for @conflictOn.
   ///
   /// In en, this message translates to:
@@ -1985,13 +1991,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpMap.
   ///
   /// In en, this message translates to:
-  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.'**
+  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.'**
   String get helpMap;
 
   /// No description provided for @helpMapNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.'**
+  /// **'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.'**
   String get helpMapNeutral;
 
   /// No description provided for @helpCard.

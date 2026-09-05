@@ -750,6 +750,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Ślad: $name — $field ($count wartości)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1051,11 +1056,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Wszystkie koty i miejsca z pozycją. Wyszukiwanie znajduje koty, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego kota i wokół domu, z którego uciekł. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację.';
+      'Wszystkie koty i miejsca z pozycją. Wyszukiwanie znajduje koty, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego kota i wokół domu, z którego uciekł. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację. Każde pole lokalizacji jest pinezką na mapie; dotknij pinezki, by zobaczyć jej ślad.';
 
   @override
   String get helpMapNeutral =>
-      'Wszystkie zwierzęta i miejsca z pozycją. Wyszukiwanie znajduje zwierzęta, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego zwierzęcia i wokół domu, z którego uciekło. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację.';
+      'Wszystkie zwierzęta i miejsca z pozycją. Wyszukiwanie znajduje zwierzęta, osoby i miejsca — nieznaną nazwę szuka na całym świecie. Przycisk warstw rysuje okręgi 500 m wokół miejsc ogłoszeń zaginionego zwierzęcia i wokół domu, z którego uciekło. Strzałki prowadzą od pinezki do pinezki, przytrzymanie mapy zapisuje obserwację. Każde pole lokalizacji jest pinezką na mapie; dotknij pinezki, by zobaczyć jej ślad.';
 
   @override
   String get helpCard =>

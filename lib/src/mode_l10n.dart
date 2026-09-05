@@ -1957,6 +1957,9 @@ class ModeLocalizations implements AppLocalizations {
   String trailOf(String name, int count) => base.trailOf(name, count);
 
   @override
+  String trailOfField(String name, String field, int count) => base.trailOfField(name, field, count);
+
+  @override
   String get trustBothWaysNote => base.trustBothWaysNote;
 
   @override

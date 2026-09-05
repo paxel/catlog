@@ -752,6 +752,11 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Trag: $name — $field ($count vrijednosti)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Sukob — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Sve mačke i mjesta s pozicijom. Pretraga nalazi mačke, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestale mačke i oko doma iz kojeg je pobjegla. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje.';
+      'Sve mačke i mjesta s pozicijom. Pretraga nalazi mačke, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestale mačke i oko doma iz kojeg je pobjegla. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje. Svako polje s mjestom je pribadača na karti; dodirnite pribadaču za njen trag.';
 
   @override
   String get helpMapNeutral =>
-      'Svi ljubimci i mjesta s pozicijom. Pretraga nalazi ljubimce, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestalog ljubimca i oko doma iz kojeg je pobjegao. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje.';
+      'Svi ljubimci i mjesta s pozicijom. Pretraga nalazi ljubimce, osobe i mjesta — nepoznato ime traži se u cijelom svijetu. Gumb slojeva crta krugove od 500 m oko mjesta letaka nestalog ljubimca i oko doma iz kojeg je pobjegao. Strelice idu od igle do igle, dugi pritisak na mapu bilježi viđenje. Svako polje s mjestom je pribadača na karti; dodirnite pribadaču za njen trag.';
 
   @override
   String get helpCard =>

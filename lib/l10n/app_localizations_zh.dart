@@ -726,6 +726,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return '轨迹：$name — $field（$count 个值）';
+  }
+
+  @override
   String conflictOn(String field) {
     return '冲突 — $field';
   }
@@ -1013,11 +1018,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpMap =>
-      '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
+      '所有带位置的猫和地点。搜索可找猫、人和地点——不认识的名字会在全球查找。图层按钮会在走失猫的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。每个位置字段都会在地图上显示为图钉；点按图钉查看其轨迹。';
 
   @override
   String get helpMapNeutral =>
-      '所有带位置的宠物和地点。搜索可找宠物、人和地点——不认识的名字会在全球查找。图层按钮会在走失宠物的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。';
+      '所有带位置的宠物和地点。搜索可找宠物、人和地点——不认识的名字会在全球查找。图层按钮会在走失宠物的启事地点和它出走的家周围画出 500 米圆圈。箭头在图钉间移动，长按地图可记录目击。每个位置字段都会在地图上显示为图钉；点按图钉查看其轨迹。';
 
   @override
   String get helpCard =>

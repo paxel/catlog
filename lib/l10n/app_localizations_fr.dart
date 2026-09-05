@@ -755,6 +755,11 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Trajet : $name — $field ($count valeurs)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflit — $field';
   }
@@ -1056,11 +1061,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Tous les chats et lieux ayant une position. La recherche trouve chats, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d\'un chat disparu et de son ancien foyer. Les flèches vont d\'un point à l\'autre, un appui long note une observation.';
+      'Tous les chats et lieux ayant une position. La recherche trouve chats, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d\'un chat disparu et de son ancien foyer. Les flèches vont d\'un point à l\'autre, un appui long note une observation. Chaque champ de lieu apparaît comme épingle sur la carte ; touche une épingle pour son trajet.';
 
   @override
   String get helpMapNeutral =>
-      'Tous les animaux et lieux ayant une position. La recherche trouve animaux, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d\'un animal disparu et de son ancien foyer. Les flèches vont d\'un point à l\'autre, un appui long note une observation.';
+      'Tous les animaux et lieux ayant une position. La recherche trouve animaux, personnes et lieux — un nom inconnu est cherché dans le monde entier. Le bouton calques trace les cercles de 500 m autour des affiches d\'un animal disparu et de son ancien foyer. Les flèches vont d\'un point à l\'autre, un appui long note une observation. Chaque champ de lieu apparaît comme épingle sur la carte ; touche une épingle pour son trajet.';
 
   @override
   String get helpCard =>

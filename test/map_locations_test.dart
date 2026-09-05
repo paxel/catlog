@@ -94,7 +94,7 @@ void main() {
     await pump(tester, trailOf: (cat, vet.key));
     expect(find.byType(PolylineLayer), findsOneWidget);
     expect(dots(tester), 2);
-    expect(find.text('Trail: Miezi — Vet (2 sightings)'), findsOneWidget);
+    expect(find.text('Trail: Miezi — Vet (2 values)'), findsOneWidget);
 
     // A dot names its date and author in the label.
     await tester.tap(find.byTooltip('2026-03-09'));

@@ -752,6 +752,11 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Kelias: $name — $field ($count reikšm.)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konfliktas — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą.';
+      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą. Kiekvienas vietos laukas žemėlapyje yra smeigtukas; bakstelėkite smeigtuką, kad matytumėte jo kelią.';
 
   @override
   String get helpMapNeutral =>
-      'Visi augintiniai ir vietos, turinčios poziciją. Paieška randa augintinius, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusio augintinio skelbimų vietas ir aplink namus, iš kurių jis pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą.';
+      'Visi augintiniai ir vietos, turinčios poziciją. Paieška randa augintinius, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusio augintinio skelbimų vietas ir aplink namus, iš kurių jis pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą. Kiekvienas vietos laukas žemėlapyje yra smeigtukas; bakstelėkite smeigtuką, kad matytumėte jo kelią.';
 
   @override
   String get helpCard =>

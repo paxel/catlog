@@ -752,6 +752,11 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Ceļš: $name — $field ($count vērtības)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikts — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.';
+      'Visi kaķi un vietas ar atrašanās vietu. Meklēšana atrod kaķus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša kaķa sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu. Katrs vietas lauks kartē ir spraudīte; pieskarieties spraudītei, lai redzētu tās ceļu.';
 
   @override
   String get helpMapNeutral =>
-      'Visi mājdzīvnieki un vietas ar atrašanās vietu. Meklēšana atrod mājdzīvniekus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša mājdzīvnieka sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu.';
+      'Visi mājdzīvnieki un vietas ar atrašanās vietu. Meklēšana atrod mājdzīvniekus, cilvēkus un vietas — nezināmu nosaukumu meklē visā pasaulē. Slāņu poga uzzīmē 500 m apļus ap pazuduša mājdzīvnieka sludinājumu vietām un ap māju, no kuras tas aizbēga. Bultas iet no adatas uz adatu, ilga piespiešana kartē pieraksta novērojumu. Katrs vietas lauks kartē ir spraudīte; pieskarieties spraudītei, lai redzētu tās ceļu.';
 
   @override
   String get helpCard =>

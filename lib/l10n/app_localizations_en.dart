@@ -751,6 +751,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Trail: $name — $field ($count values)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }
@@ -1051,11 +1056,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.';
+      'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.';
 
   @override
   String get helpMapNeutral =>
-      'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.';
+      'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.';
 
   @override
   String get helpCard =>

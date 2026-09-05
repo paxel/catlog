@@ -753,6 +753,11 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Percurso: $name — $field ($count valores)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflito — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Todos os gatos e sítios com posição. A pesquisa encontra gatos, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um gato desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento.';
+      'Todos os gatos e sítios com posição. A pesquisa encontra gatos, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um gato desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento. Cada campo de localização aparece como pino no mapa; toca num pino para ver o seu percurso.';
 
   @override
   String get helpMapNeutral =>
-      'Todos os animais e sítios com posição. A pesquisa encontra animais, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um animal desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento.';
+      'Todos os animais e sítios com posição. A pesquisa encontra animais, pessoas e lugares — um nome desconhecido é procurado no mundo inteiro. O botão de camadas desenha os círculos de 500 m à volta dos cartazes de um animal desaparecido e da casa de onde fugiu. As setas saltam de pino em pino, manter premido regista um avistamento. Cada campo de localização aparece como pino no mapa; toca num pino para ver o seu percurso.';
 
   @override
   String get helpCard =>

@@ -755,6 +755,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Spoor: $name — $field ($count waarden)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }
@@ -1056,11 +1061,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.';
+      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast. Elk locatieveld staat als pin op de kaart; tik op een pin voor zijn spoor.';
 
   @override
   String get helpMapNeutral =>
-      'Alle huisdieren en plekken met een positie. Zoeken vindt huisdieren, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermist huisdier en rond zijn vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.';
+      'Alle huisdieren en plekken met een positie. Zoeken vindt huisdieren, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermist huisdier en rond zijn vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast. Elk locatieveld staat als pin op de kaart; tik op een pin voor zijn spoor.';
 
   @override
   String get helpCard =>

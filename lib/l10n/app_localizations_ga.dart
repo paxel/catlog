@@ -756,6 +756,11 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Rian: $name — $field ($count luach)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Coinbhleacht — $field';
   }
@@ -1057,11 +1062,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.';
+      'Gach cat agus áit a bhfuil suíomh acu. Aimsíonn an cuardach cait, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer cat ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc. Is biorán ar an léarscáil gach réimse suímh; tapáil biorán dá rian.';
 
   @override
   String get helpMapNeutral =>
-      'Gach peata agus áit a bhfuil suíomh acu. Aimsíonn an cuardach peataí, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer peata ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc.';
+      'Gach peata agus áit a bhfuil suíomh acu. Aimsíonn an cuardach peataí, daoine agus áiteanna — cuardaítear ainm anaithnid ar fud an domhain. Tarraingíonn cnaipe na sraitheanna na ciorcail 500 m timpeall áiteanna póstaer peata ar iarraidh agus timpeall an bhaile ar theith sé uaidh. Téann na saigheada ó bhiorán go biorán, agus taifeadann brú fada ar an léarscáil amharc. Is biorán ar an léarscáil gach réimse suímh; tapáil biorán dá rian.';
 
   @override
   String get helpCard =>

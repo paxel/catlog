@@ -753,6 +753,11 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Traseu: $name — $field ($count valori)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }
@@ -1054,11 +1059,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.';
+      'Toate pisicile și locurile cu poziție. Căutarea găsește pisici, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unei pisici dispărute și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare. Fiecare câmp de loc apare ca ac pe hartă; atinge un ac pentru traseul lui.';
 
   @override
   String get helpMapNeutral =>
-      'Toate animalele și locurile cu poziție. Căutarea găsește animale, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unui animal dispărut și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare.';
+      'Toate animalele și locurile cu poziție. Căutarea găsește animale, persoane și locuri — un nume necunoscut e căutat în toată lumea. Butonul de straturi desenează cercurile de 500 m în jurul locurilor afișelor unui animal dispărut și în jurul casei din care a fugit. Săgețile merg din pin în pin, apăsarea lungă notează o observare. Fiecare câmp de loc apare ca ac pe hartă; atinge un ac pentru traseul lui.';
 
   @override
   String get helpCard =>

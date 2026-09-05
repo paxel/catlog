@@ -751,6 +751,11 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Stopa: $name — $field ($count hodnôt)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1052,11 +1057,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
+      'Všetky mačky a miesta s pozíciou. Hľadanie nájde mačky, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestnej mačky a okolo domova, z ktorého ušla. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie. Každé pole s miestom je špendlík na mape; ťuknutím na špendlík zobrazíš jeho stopu.';
 
   @override
   String get helpMapNeutral =>
-      'Všetci miláčikovia a miesta s pozíciou. Hľadanie nájde miláčikov, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestného miláčika a okolo domova, z ktorého ušiel. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie.';
+      'Všetci miláčikovia a miesta s pozíciou. Hľadanie nájde miláčikov, ľudí aj miesta — neznáme meno hľadá po celom svete. Tlačidlo vrstiev nakreslí kruhy 500 m okolo miest letákov nezvestného miláčika a okolo domova, z ktorého ušiel. Šípky idú od špendlíka k špendlíku, podržanie mapy zapíše pozorovanie. Každé pole s miestom je špendlík na mape; ťuknutím na špendlík zobrazíš jeho stopu.';
 
   @override
   String get helpCard =>

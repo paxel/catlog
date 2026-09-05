@@ -401,6 +401,8 @@
   },
   "recordSightingHere": "Record a sighting here:",
   "trailOf": "Trail: {name} ({count} sightings)",
+  "trailOfField": "Trail: {name} — {field} ({count} values)",
+  "@trailOfField": {"placeholders": {"name": {"type": "String"}, "field": {"type": "String"}, "count": {"type": "int"}}},
   "@trailOf": {
     "placeholders": {
       "name": {
@@ -545,8 +547,8 @@
   "helpCatNeutral": "Everything about this pet: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the pet. Private is set while editing a field. The clock on a field opens its history.",
   "helpStrays": "Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner's contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.",
   "helpStraysNeutral": "Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner's contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.",
-  "helpMap": "Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat's poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.",
-  "helpMapNeutral": "Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet's poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.",
+  "helpMap": "Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat's poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.",
+  "helpMapNeutral": "Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet's poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.",
   "helpCard": "The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.",
   "helpCardNeutral": "The printable card of this pet: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.",
   "helpSync": "Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.",

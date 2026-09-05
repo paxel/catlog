@@ -740,6 +740,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return '経路: $name — $field（$count 件）';
+  }
+
+  @override
   String conflictOn(String field) {
     return '競合 — $field';
   }
@@ -1029,11 +1034,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpMap =>
-      '位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。';
+      '位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。すべての場所項目は地図上にピンで表示されます。ピンをタップすると経路が見られます。';
 
   @override
   String get helpMapNeutral =>
-      '位置があるペットと場所すべて。検索はペット・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子ペットのチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。';
+      '位置があるペットと場所すべて。検索はペット・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子ペットのチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。すべての場所項目は地図上にピンで表示されます。ピンをタップすると経路が見られます。';
 
   @override
   String get helpCard =>

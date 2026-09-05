@@ -752,6 +752,11 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Sled: $name — $field ($count vrednosti)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Spor — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Vse mačke in kraji s položajem. Iskanje najde mačke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešane mačke in okoli doma, iz katerega je pobegnila. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje.';
+      'Vse mačke in kraji s položajem. Iskanje najde mačke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešane mačke in okoli doma, iz katerega je pobegnila. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje. Vsako polje z lokacijo je bucika na zemljevidu; tapnite buciko za njeno sled.';
 
   @override
   String get helpMapNeutral =>
-      'Vsi ljubljenčki in kraji s položajem. Iskanje najde ljubljenčke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešanega ljubljenčka in okoli doma, iz katerega je pobegnil. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje.';
+      'Vsi ljubljenčki in kraji s položajem. Iskanje najde ljubljenčke, ljudi in kraje — neznano ime poišče po vsem svetu. Gumb za sloje nariše kroge 500 m okoli krajev letakov pogrešanega ljubljenčka in okoli doma, iz katerega je pobegnil. Puščici hodita od bucike do bucike, dolg pritisk na zemljevid zabeleži opažanje. Vsako polje z lokacijo je bucika na zemljevidu; tapnite buciko za njeno sled.';
 
   @override
   String get helpCard =>

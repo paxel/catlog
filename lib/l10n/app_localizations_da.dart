@@ -753,6 +753,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Spor: $name — $field ($count værdier)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Alle katte og steder med en position. Søgningen finder katte, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring en savnet kats opslagssteder og omkring dens tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation.';
+      'Alle katte og steder med en position. Søgningen finder katte, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring en savnet kats opslagssteder og omkring dens tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation. Hvert stedfelt er en nål på kortet; tryk på en nål for dets spor.';
 
   @override
   String get helpMapNeutral =>
-      'Alle kæledyr og steder med en position. Søgningen finder kæledyr, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring et savnet kæledyrs opslagssteder og omkring dets tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation.';
+      'Alle kæledyr og steder med en position. Søgningen finder kæledyr, personer og steder — et ukendt navn slås op i hele verden. Lagknappen tegner 500 m-cirklerne omkring et savnet kæledyrs opslagssteder og omkring dets tidligere hjem. Pilene går fra nål til nål, langt tryk noterer en observation. Hvert stedfelt er en nål på kortet; tryk på en nål for dets spor.';
 
   @override
   String get helpCard =>

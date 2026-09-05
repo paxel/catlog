@@ -676,8 +676,10 @@ class _MapScreenState extends State<MapScreen>
     final def = field == CatalogStore.positionKey
         ? null
         : store.fieldDefs().where((d) => d.key == field).firstOrNull;
-    final who = def == null ? name : '$name — ${fieldDefName(t, def)}';
-    var label = t.trailOf(who, _trailPoints(_trailOf!).length);
+    final count = _trailPoints(_trailOf!).length;
+    var label = def == null
+        ? t.trailOf(name, count)
+        : t.trailOfField(name, fieldDefName(t, def), count);
     if (_dot case final dot?) {
       final date = dot.date.toLocal().toIso8601String().substring(0, 10);
       label = '$label · $date · ${dot.author}';

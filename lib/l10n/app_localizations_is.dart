@@ -755,6 +755,11 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Slóð: $name — $field ($count gildi)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Árekstur — $field';
   }
@@ -1056,11 +1061,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
+      'Allir kettir og staðir með staðsetningu. Leitin finnur ketti, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds kattar og um fyrra heimili hans. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun. Hver staðsetningarreitur er nál á kortinu; ýttu á nál til að sjá slóð hennar.';
 
   @override
   String get helpMapNeutral =>
-      'Öll gæludýr og staðir með staðsetningu. Leitin finnur gæludýr, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds gæludýrs og um fyrra heimili þess. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun.';
+      'Öll gæludýr og staðir með staðsetningu. Leitin finnur gæludýr, fólk og staði — óþekkt nafn er slegið upp um allan heim. Lagahnappurinn teiknar 500 m hringi um auglýsingastaði týnds gæludýrs og um fyrra heimili þess. Örvarnar fara frá nælu til nælu, langt hald á kortinu skráir athugun. Hver staðsetningarreitur er nál á kortinu; ýttu á nál til að sjá slóð hennar.';
 
   @override
   String get helpCard =>

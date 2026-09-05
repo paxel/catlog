@@ -752,6 +752,11 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Spår: $name — $field ($count värden)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1052,11 +1057,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Alla katter och platser med position. Sökningen hittar katter, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt en försvunnen katts anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation.';
+      'Alla katter och platser med position. Sökningen hittar katter, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt en försvunnen katts anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation. Varje platsfält är en nål på kartan; tryck på en nål för dess spår.';
 
   @override
   String get helpMapNeutral =>
-      'Alla husdjur och platser med position. Sökningen hittar husdjur, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt ett försvunnet husdjurs anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation.';
+      'Alla husdjur och platser med position. Sökningen hittar husdjur, personer och platser — ett okänt namn slås upp i hela världen. Lagerknappen ritar 500 m-cirklarna runt ett försvunnet husdjurs anslagsplatser och runt dess förra hem. Pilarna går från nål till nål, långtryck noterar en observation. Varje platsfält är en nål på kartan; tryck på en nål för dess spår.';
 
   @override
   String get helpCard =>

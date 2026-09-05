@@ -753,6 +753,11 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Gjurmë: $name — $field ($count vlera)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konflikt — $field';
   }
@@ -1053,11 +1058,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpMap =>
-      'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
+      'Të gjitha macet dhe vendet me pozicion. Kërkimi gjen mace, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një maceje të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim. Çdo fushë vendndodhjeje shfaqet si gjilpërë në hartë; prek një gjilpërë për gjurmën e saj.';
 
   @override
   String get helpMapNeutral =>
-      'Të gjitha kafshët dhe vendet me pozicion. Kërkimi gjen kafshë, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një kafshe të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim.';
+      'Të gjitha kafshët dhe vendet me pozicion. Kërkimi gjen kafshë, persona dhe vende — një emër i panjohur kërkohet në gjithë botën. Butoni i shtresave vizaton rrathët 500 m rreth vendeve të fletushkave të një kafshe të humbur dhe rreth shtëpisë nga iku. Shigjetat shkojnë nga një gozhdë te tjetra, shtypja e gjatë mbi hartë shënon një vëzhgim. Çdo fushë vendndodhjeje shfaqet si gjilpërë në hartë; prek një gjilpërë për gjurmën e saj.';
 
   @override
   String get helpCard =>
