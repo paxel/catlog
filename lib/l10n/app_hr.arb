@@ -451,7 +451,7 @@
   "summaryNew": "Novo",
   "summaryConflicts": "Konflikti za rješavanje",
   "conflictsMenu": "Konflikti ({n})",
-  "summaryOther": "…i još {n} promjena",
+  "rejectAfterResolve": "Ovdje ste riješili konflikt, zato Odbaci nije dostupno: poništilo bi i to.",
   "arrivalIntro": "Ove promjene već su u vašem katalogu. Odbaci ga vraća kako je bio.",
   "summaryUpdated": "Izmijenjeni",
   "summaryMeta": "Također stiglo",

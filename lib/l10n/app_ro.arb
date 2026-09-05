@@ -451,7 +451,7 @@
   "summaryNew": "Noi",
   "summaryConflicts": "Conflicte de rezolvat",
   "conflictsMenu": "Conflicte ({n})",
-  "summaryOther": "…și încă {n} modificări",
+  "rejectAfterResolve": "Ai rezolvat un conflict aici, așa că Respinge nu mai e disponibil: l-ar anula și pe el.",
   "arrivalIntro": "Aceste schimbări sunt deja în catalogul tău. Respinge îl readuce cum era.",
   "summaryUpdated": "Actualizate",
   "summaryMeta": "A mai sosit",

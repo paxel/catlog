@@ -451,7 +451,7 @@
   "summaryNew": "Nové",
   "summaryConflicts": "Konflikty k vyřešení",
   "conflictsMenu": "Konflikty ({n})",
-  "summaryOther": "…a {n} dalších změn",
+  "rejectAfterResolve": "Vyřešil(a) jsi tu konflikt, proto Odmítnout není k dispozici: vrátilo by i to.",
   "arrivalIntro": "Tyto změny už jsou v katalogu. Odmítnout ho vrátí do původního stavu.",
   "summaryUpdated": "Změněno",
   "summaryMeta": "Také dorazilo",

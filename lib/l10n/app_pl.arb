@@ -451,7 +451,7 @@
   "summaryNew": "Nowe",
   "summaryConflicts": "Konflikty do rozwiązania",
   "conflictsMenu": "Konflikty ({n})",
-  "summaryOther": "…i {n} innych zmian",
+  "rejectAfterResolve": "Rozstrzygnięto tu konflikt, więc Odrzuć jest niedostępne: cofnęłoby też to.",
   "arrivalIntro": "Te zmiany są już w twoim katalogu. Odrzuć przywraca go do poprzedniego stanu.",
   "summaryUpdated": "Zmienione",
   "summaryMeta": "Ponadto przyszło",

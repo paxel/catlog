@@ -451,7 +451,7 @@
   "summaryNew": "Yeni",
   "summaryConflicts": "Çözülecek çakışmalar",
   "conflictsMenu": "Çakışmalar ({n})",
-  "summaryOther": "…ve {n} değişiklik daha",
+  "rejectAfterResolve": "Burada bir çakışmayı çözdün, bu yüzden Reddet kapalı: onu da geri alırdı.",
   "arrivalIntro": "Bu değişiklikler kataloğunda zaten var. Reddet, onu eski hâline getirir.",
   "summaryUpdated": "Güncellenen",
   "summaryMeta": "Ayrıca gelenler",

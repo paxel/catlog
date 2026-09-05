@@ -451,7 +451,7 @@
   "summaryNew": "Nauji",
   "summaryConflicts": "Spręstini konfliktai",
   "conflictsMenu": "Konfliktai ({n})",
-  "summaryOther": "…ir dar {n} pakeitimų",
+  "rejectAfterResolve": "Čia išsprendėte konfliktą, todėl „Atmesti“ nebegalima: tai atšauktų ir jį.",
   "arrivalIntro": "Šie pakeitimai jau jūsų kataloge. „Atmesti“ grąžina jį į buvusią būseną.",
   "summaryUpdated": "Atnaujinta",
   "summaryMeta": "Taip pat atkeliavo",

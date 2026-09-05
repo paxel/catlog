@@ -1545,9 +1545,8 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…ve $n değişiklik daha';
-  }
+  String get rejectAfterResolve =>
+      'Burada bir çakışmayı çözdün, bu yüzden Reddet kapalı: onu da geri alırdı.';
 
   @override
   String get arrivalIntro =>

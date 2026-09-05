@@ -451,7 +451,7 @@
   "summaryNew": "Uudet",
   "summaryConflicts": "Ratkaistavat ristiriidat",
   "conflictsMenu": "Ristiriidat ({n})",
-  "summaryOther": "…ja {n} muuta muutosta",
+  "rejectAfterResolve": "Ratkaisit ristiriidan tässä, joten Hylkää ei ole käytössä: se kumoaisi myös sen.",
   "arrivalIntro": "Nämä muutokset ovat jo luettelossasi. Hylkää palauttaa sen entiselleen.",
   "summaryUpdated": "Päivitetyt",
   "summaryMeta": "Saapui myös",

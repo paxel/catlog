@@ -451,7 +451,7 @@
   "summaryNew": "Nouveaux",
   "summaryConflicts": "Conflits à résoudre",
   "conflictsMenu": "Conflits ({n})",
-  "summaryOther": "…et {n} autres changements",
+  "rejectAfterResolve": "Tu as réglé un conflit ici, donc Refuser n’est plus possible : cela l’annulerait aussi.",
   "arrivalIntro": "Ces changements sont déjà dans ton catalogue. Refuser le remet comme il était.",
   "summaryUpdated": "Modifiés",
   "summaryMeta": "Également arrivé",

@@ -1542,9 +1542,8 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…و $n تغییر دیگر';
-  }
+  String get rejectAfterResolve =>
+      'اینجا یک تعارض را حل کردید، پس «رد» غیرفعال است: آن را هم برمی‌گرداند.';
 
   @override
   String get arrivalIntro =>

@@ -1501,9 +1501,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…及其他 $n 项变更';
-  }
+  String get rejectAfterResolve => '你在这里解决了一个冲突，因此拒绝已关闭：它也会撤销该解决。';
 
   @override
   String get arrivalIntro => '这些更改已在你的目录中。拒绝会把它恢复原样。';

@@ -1546,9 +1546,8 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…и ещё $n изменений';
-  }
+  String get rejectAfterResolve =>
+      'Вы разрешили здесь конфликт, поэтому «Отклонить» недоступно: это отменило бы и его.';
 
   @override
   String get arrivalIntro =>

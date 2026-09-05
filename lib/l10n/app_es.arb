@@ -451,7 +451,7 @@
   "summaryNew": "Nuevos",
   "summaryConflicts": "Conflictos por resolver",
   "conflictsMenu": "Conflictos ({n})",
-  "summaryOther": "…y {n} cambios más",
+  "rejectAfterResolve": "Has resuelto un conflicto aquí, así que Rechazar ya no está: lo desharía también.",
   "arrivalIntro": "Estos cambios ya están en tu catálogo. Rechazar lo deja como estaba.",
   "summaryUpdated": "Actualizados",
   "summaryMeta": "También llegó",

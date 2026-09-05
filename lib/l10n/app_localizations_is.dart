@@ -1549,9 +1549,8 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…og $n aðrar breytingar';
-  }
+  String get rejectAfterResolve =>
+      'Þú leystir árekstur hér, svo Hafna er ekki í boði: það myndi líka afturkalla það.';
 
   @override
   String get arrivalIntro =>

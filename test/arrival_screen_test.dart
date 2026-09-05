@@ -153,5 +153,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(a.hasConflict(cat, 'f:color'), isFalse);
     expect(find.text('Conflicts to resolve'), findsNothing);
+    // Rejecting now would undo the resolution too: the button is gone
+    // and the page says why.
+    expect(find.text('Reject'), findsNothing);
+    expect(find.textContaining('settled a conflict'), findsOneWidget);
   });
 }

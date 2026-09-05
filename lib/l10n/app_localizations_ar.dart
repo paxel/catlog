@@ -1541,9 +1541,8 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…و$n تغييرات أخرى';
-  }
+  String get rejectAfterResolve =>
+      'لقد حللت تعارضًا هنا، لذا «رفض» غير متاح: كان سيلغي ذلك أيضًا.';
 
   @override
   String get arrivalIntro =>

@@ -1551,9 +1551,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…und $n weitere Änderungen';
-  }
+  String get rejectAfterResolve =>
+      'Du hast hier einen Konflikt gelöst, darum gibt es kein Ablehnen mehr: es würde auch das rückgängig machen.';
 
   @override
   String get arrivalIntro =>

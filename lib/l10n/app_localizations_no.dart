@@ -1543,9 +1543,8 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…og $n andre endringer';
-  }
+  String get rejectAfterResolve =>
+      'Du løste en konflikt her, så Avvis er borte: det ville angre det også.';
 
   @override
   String get arrivalIntro =>

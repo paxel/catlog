@@ -1537,9 +1537,8 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…ועוד $n שינויים';
-  }
+  String get rejectAfterResolve =>
+      'פתרת כאן התנגשות, לכן דחייה כבויה: היא הייתה מבטלת גם את זה.';
 
   @override
   String get arrivalIntro =>

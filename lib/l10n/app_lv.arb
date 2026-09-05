@@ -451,7 +451,7 @@
   "summaryNew": "Jauni",
   "summaryConflicts": "Risināmi konflikti",
   "conflictsMenu": "Konflikti ({n})",
-  "summaryOther": "…un vēl {n} izmaiņas",
+  "rejectAfterResolve": "Jūs šeit atrisinājāt konfliktu, tāpēc „Noraidīt“ nav pieejams: tas atceltu arī to.",
   "arrivalIntro": "Šīs izmaiņas jau ir jūsu katalogā. „Noraidīt” atgriež to iepriekšējā stāvoklī.",
   "summaryUpdated": "Atjaunināti",
   "summaryMeta": "Arī pienāca",

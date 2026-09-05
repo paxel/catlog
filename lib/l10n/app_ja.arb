@@ -451,7 +451,7 @@
   "summaryNew": "新規",
   "summaryConflicts": "要解決の競合",
   "conflictsMenu": "競合 ({n})",
-  "summaryOther": "…他 {n} 件の変更",
+  "rejectAfterResolve": "ここで競合を解決したため「拒否」は使えません。解決も取り消されてしまうからです。",
   "arrivalIntro": "これらの変更はすでにカタログに入っています。「拒否」で元の状態に戻します。",
   "summaryUpdated": "更新",
   "summaryMeta": "その他の到着",

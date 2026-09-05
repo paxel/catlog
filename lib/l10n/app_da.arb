@@ -451,7 +451,7 @@
   "summaryNew": "Nye",
   "summaryConflicts": "Konflikter at løse",
   "conflictsMenu": "Konflikter ({n})",
-  "summaryOther": "…og {n} andre ændringer",
+  "rejectAfterResolve": "Du løste en konflikt her, så Afvis er væk: det ville også fortryde det.",
   "arrivalIntro": "Disse ændringer er allerede i dit katalog. Afvis sætter det tilbage, som det var.",
   "summaryUpdated": "Opdateret",
   "summaryMeta": "Også ankommet",

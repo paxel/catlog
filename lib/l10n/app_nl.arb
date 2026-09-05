@@ -451,7 +451,7 @@
   "summaryNew": "Nieuw",
   "summaryConflicts": "Op te lossen conflicten",
   "conflictsMenu": "Conflicten ({n})",
-  "summaryOther": "…en {n} andere wijzigingen",
+  "rejectAfterResolve": "Je hebt hier een conflict opgelost, dus Afwijzen kan niet meer: dat zou ook ongedaan worden gemaakt.",
   "arrivalIntro": "Deze wijzigingen staan al in je catalogus. Afwijzen zet hem terug zoals hij was.",
   "summaryUpdated": "Gewijzigd",
   "summaryMeta": "Ook aangekomen",

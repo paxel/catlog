@@ -287,6 +287,10 @@ class ArrivalScreen extends StatefulWidget {
 class _ArrivalScreenState extends State<ArrivalScreen> {
   CatalogStore get store => widget.store;
 
+  /// A conflict was settled from this page. Rejecting now would undo
+  /// that too, so Reject goes and says why.
+  bool _resolved = false;
+
   String _name(String id) => store.current(id, Keys.name) ?? context.t.unnamed;
 
   Widget _header(String title) => Padding(
@@ -320,16 +324,18 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
       leading: _leading(a.id),
       title: Text(_name(a.id)),
       subtitle: subtitle.isEmpty ? null : Text(subtitle),
-      trailing: a.isNew
-          ? IconButton(
-              icon: Icon(store.isHidden(a.id)
-                  ? Icons.visibility_off
-                  : Icons.visibility_outlined),
-              tooltip: store.isHidden(a.id) ? t.unhideLabel : t.hideLabel,
-              onPressed: () =>
-                  setState(() => store.setHidden(a.id, !store.isHidden(a.id))),
-            )
-          : const Icon(Icons.chevron_right),
+      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+        if (a.isNew)
+          IconButton(
+            icon: Icon(store.isHidden(a.id)
+                ? Icons.visibility_off
+                : Icons.visibility_outlined),
+            tooltip: store.isHidden(a.id) ? t.unhideLabel : t.hideLabel,
+            onPressed: () =>
+                setState(() => store.setHidden(a.id, !store.isHidden(a.id))),
+          ),
+        const Icon(Icons.chevron_right),
+      ]),
       onTap: () => _openChanges(a),
     );
   }
@@ -346,8 +352,9 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
           '${valueLabel(t, store, field, e.value)} (${e.author})'
       ].join(' · ')),
       onTap: () async {
-        await showConflictDialog(context, store, entity, field);
-        if (mounted) setState(() {});
+        final changed = await showConflictDialog(context, store, entity, field);
+        if (!mounted) return;
+        setState(() => _resolved = _resolved || changed);
       },
     );
   }
@@ -417,7 +424,7 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(children: [
-            if (widget.undo != null)
+            if (widget.undo != null && !_resolved) ...[
               Expanded(
                 child: OutlinedButton.icon(
                   icon: const Icon(Icons.undo),
@@ -427,7 +434,14 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
                   onPressed: _reject,
                 ),
               ),
-            if (widget.undo != null) const SizedBox(width: 12),
+              const SizedBox(width: 12),
+            ] else if (_resolved) ...[
+              Expanded(
+                child: Text(t.rejectAfterResolve,
+                    style: Theme.of(context).textTheme.bodySmall),
+              ),
+              const SizedBox(width: 12),
+            ],
             Expanded(
               child: FilledButton.icon(
                 icon: const Icon(Icons.check),

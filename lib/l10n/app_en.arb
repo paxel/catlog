@@ -733,7 +733,7 @@
   "summaryConflicts": "Conflicts to resolve",
   "conflictsMenu": "Conflicts ({n})",
   "@conflictsMenu": {"placeholders": {"n": {"type": "int"}}},
-  "summaryOther": "…and {n} other changes",
+  "rejectAfterResolve": "You settled a conflict here, so Reject is off: it would undo that too.",
   "arrivalIntro": "These changes are already in your catalog. Reject puts it back as it was.",
   "summaryUpdated": "Updated",
   "summaryMeta": "Also arrived",

@@ -1554,9 +1554,8 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…και $n άλλες αλλαγές';
-  }
+  String get rejectAfterResolve =>
+      'Έλυσες μια σύγκρουση εδώ, οπότε η Απόρριψη δεν είναι διαθέσιμη: θα αναιρούσε κι αυτό.';
 
   @override
   String get arrivalIntro =>

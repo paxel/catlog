@@ -1547,9 +1547,8 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…és még $n változás';
-  }
+  String get rejectAfterResolve =>
+      'Itt feloldottál egy ütközést, ezért az Elutasítás nem elérhető: azt is visszavonná.';
 
   @override
   String get arrivalIntro =>

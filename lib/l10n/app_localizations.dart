@@ -2852,11 +2852,11 @@ abstract class AppLocalizations {
   /// **'Conflicts ({n})'**
   String conflictsMenu(int n);
 
-  /// No description provided for @summaryOther.
+  /// No description provided for @rejectAfterResolve.
   ///
   /// In en, this message translates to:
-  /// **'…and {n} other changes'**
-  String summaryOther(Object n);
+  /// **'You settled a conflict here, so Reject is off: it would undo that too.'**
+  String get rejectAfterResolve;
 
   /// No description provided for @arrivalIntro.
   ///

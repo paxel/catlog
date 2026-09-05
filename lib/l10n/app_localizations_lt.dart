@@ -1547,9 +1547,8 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…ir dar $n pakeitimų';
-  }
+  String get rejectAfterResolve =>
+      'Čia išsprendėte konfliktą, todėl „Atmesti“ nebegalima: tai atšauktų ir jį.';
 
   @override
   String get arrivalIntro =>

@@ -448,7 +448,7 @@
   "summaryNew": "Neu",
   "summaryConflicts": "Zu klärende Konflikte",
   "conflictsMenu": "Konflikte ({n})",
-  "summaryOther": "…und {n} weitere Änderungen",
+  "rejectAfterResolve": "Du hast hier einen Konflikt gelöst, darum gibt es kein Ablehnen mehr: es würde auch das rückgängig machen.",
   "arrivalIntro": "Diese Änderungen sind bereits in deinem Katalog. Ablehnen stellt ihn wieder so her, wie er war.",
   "summaryUpdated": "Geändert",
   "summaryMeta": "Außerdem angekommen",

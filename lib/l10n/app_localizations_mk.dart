@@ -1550,9 +1550,8 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…и уште $n промени';
-  }
+  String get rejectAfterResolve =>
+      'Тука решивте конфликт, затоа „Одбиј“ не е достапно: би го поништило и тоа.';
 
   @override
   String get arrivalIntro =>

@@ -1545,9 +1545,8 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…dhe $n ndryshime të tjera';
-  }
+  String get rejectAfterResolve =>
+      'Ke zgjidhur një konflikt këtu, prandaj Refuzo nuk është më: do ta zhbënte edhe atë.';
 
   @override
   String get arrivalIntro =>

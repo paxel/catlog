@@ -93,13 +93,19 @@ void main() {
   test('field definitions and the mode are meta, not news', () {
     share(a, b);
     b.defineField('Chip colour', FieldType.text);
+    // Both catalogs carry the same starter fields under their own
+    // device: only the one Bob renamed is a change, not all of them.
+    final color = b.fieldDefs().firstWhere((d) => d.slug == 'color').id;
+    b.renameField(color, 'Coat');
     setPetMode(b, true);
 
     final review = reviewImport(a, receive(b, a));
     expect(review.newOnes, isEmpty);
     expect(review.updated, isEmpty);
-    expect(review.meta.map((m) => m.kind),
-        containsAll([MetaKind.fieldAdded, MetaKind.mode]));
+    final kinds = review.meta.map((m) => m.kind).toList();
+    expect(kinds.where((k) => k == MetaKind.fieldAdded), hasLength(1));
+    expect(kinds.where((k) => k == MetaKind.fieldChanged), hasLength(1));
+    expect(kinds, contains(MetaKind.mode));
   });
 
   test('a concurrent edit is listed as a conflict', () {

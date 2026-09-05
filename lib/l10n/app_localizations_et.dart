@@ -1543,9 +1543,8 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…ja veel $n muudatust';
-  }
+  String get rejectAfterResolve =>
+      'Lahendasid siin konflikti, seega Lükka tagasi ei ole saadaval: see võtaks ka selle tagasi.';
 
   @override
   String get arrivalIntro =>

@@ -1550,9 +1550,8 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…agus $n athrú eile';
-  }
+  String get rejectAfterResolve =>
+      'Réitigh tú coinbhleacht anseo, mar sin níl Diúltaigh ar fáil: chealódh sé sin freisin.';
 
   @override
   String get arrivalIntro =>

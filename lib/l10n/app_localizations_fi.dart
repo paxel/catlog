@@ -1548,9 +1548,8 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…ja $n muuta muutosta';
-  }
+  String get rejectAfterResolve =>
+      'Ratkaisit ristiriidan tässä, joten Hylkää ei ole käytössä: se kumoaisi myös sen.';
 
   @override
   String get arrivalIntro =>

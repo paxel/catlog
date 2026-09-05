@@ -1550,9 +1550,8 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…et $n autres changements';
-  }
+  String get rejectAfterResolve =>
+      'Tu as réglé un conflit ici, donc Refuser n’est plus possible : cela l’annulerait aussi.';
 
   @override
   String get arrivalIntro =>

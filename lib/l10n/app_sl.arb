@@ -451,7 +451,7 @@
   "summaryNew": "Novo",
   "summaryConflicts": "Konflikti za rešitev",
   "conflictsMenu": "Konflikti ({n})",
-  "summaryOther": "…in še {n} sprememb",
+  "rejectAfterResolve": "Tukaj ste razrešili konflikt, zato Zavrni ni na voljo: razveljavilo bi tudi to.",
   "arrivalIntro": "Te spremembe so že v vašem katalogu. Zavrni ga vrne v prejšnje stanje.",
   "summaryUpdated": "Spremenjeni",
   "summaryMeta": "Prispelo tudi",

@@ -1544,9 +1544,8 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…a $n ďalších zmien';
-  }
+  String get rejectAfterResolve =>
+      'Vyriešil(a) si tu konflikt, preto Odmietnuť nie je k dispozícii: vrátilo by aj to.';
 
   @override
   String get arrivalIntro =>

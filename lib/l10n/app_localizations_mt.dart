@@ -1548,9 +1548,8 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…u $n bidliet oħra';
-  }
+  String get rejectAfterResolve =>
+      'Irranġajt kunflitt hawn, għalhekk Irrifjuta m’għadux hemm: kien iħassar dak ukoll.';
 
   @override
   String get arrivalIntro =>

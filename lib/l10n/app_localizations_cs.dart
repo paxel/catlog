@@ -1546,9 +1546,8 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…a $n dalších změn';
-  }
+  String get rejectAfterResolve =>
+      'Vyřešil(a) jsi tu konflikt, proto Odmítnout není k dispozici: vrátilo by i to.';
 
   @override
   String get arrivalIntro =>

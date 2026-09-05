@@ -1545,9 +1545,8 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…och $n andra ändringar';
-  }
+  String get rejectAfterResolve =>
+      'Du löste en konflikt här, så Avvisa är borta: det skulle ångra även det.';
 
   @override
   String get arrivalIntro =>

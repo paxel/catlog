@@ -451,7 +451,7 @@
   "summaryNew": "Nuovi",
   "summaryConflicts": "Conflitti da risolvere",
   "conflictsMenu": "Conflitti ({n})",
-  "summaryOther": "…e altre {n} modifiche",
+  "rejectAfterResolve": "Hai risolto un conflitto qui, quindi Rifiuta non c’è più: annullerebbe anche quello.",
   "arrivalIntro": "Queste modifiche sono già nel tuo catalogo. Rifiuta lo riporta com’era.",
   "summaryUpdated": "Aggiornati",
   "summaryMeta": "Arrivato anche",

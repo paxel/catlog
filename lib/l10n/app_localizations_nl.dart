@@ -1550,9 +1550,8 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…en $n andere wijzigingen';
-  }
+  String get rejectAfterResolve =>
+      'Je hebt hier een conflict opgelost, dus Afwijzen kan niet meer: dat zou ook ongedaan worden gemaakt.';
 
   @override
   String get arrivalIntro =>

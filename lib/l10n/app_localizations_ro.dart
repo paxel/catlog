@@ -1547,9 +1547,8 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…și încă $n modificări';
-  }
+  String get rejectAfterResolve =>
+      'Ai rezolvat un conflict aici, așa că Respinge nu mai e disponibil: l-ar anula și pe el.';
 
   @override
   String get arrivalIntro =>

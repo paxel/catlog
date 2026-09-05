@@ -451,7 +451,7 @@
   "summaryNew": "Të reja",
   "summaryConflicts": "Konflikte për zgjidhje",
   "conflictsMenu": "Konflikte ({n})",
-  "summaryOther": "…dhe {n} ndryshime të tjera",
+  "rejectAfterResolve": "Ke zgjidhur një konflikt këtu, prandaj Refuzo nuk është më: do ta zhbënte edhe atë.",
   "arrivalIntro": "Këto ndryshime janë tashmë në katalogun tënd. Refuzo e kthen siç ishte.",
   "summaryUpdated": "Të përditësuar",
   "summaryMeta": "Erdhi edhe",

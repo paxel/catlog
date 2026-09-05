@@ -1360,6 +1360,9 @@ class ModeLocalizations implements AppLocalizations {
   String get recordSightingHere => base.recordSightingHere;
 
   @override
+  String get rejectAfterResolve => base.rejectAfterResolve;
+
+  @override
   String get rejectArrival => base.rejectArrival;
 
   @override
@@ -1808,9 +1811,6 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get summaryNew => base.summaryNew;
-
-  @override
-  String summaryOther(Object n) => base.summaryOther(n);
 
   @override
   String get summaryUpdated => base.summaryUpdated;

@@ -1518,9 +1518,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…他 $n 件の変更';
-  }
+  String get rejectAfterResolve => 'ここで競合を解決したため「拒否」は使えません。解決も取り消されてしまうからです。';
 
   @override
   String get arrivalIntro => 'これらの変更はすでにカタログに入っています。「拒否」で元の状態に戻します。';

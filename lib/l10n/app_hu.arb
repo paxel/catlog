@@ -451,7 +451,7 @@
   "summaryNew": "Új",
   "summaryConflicts": "Feloldandó ütközések",
   "conflictsMenu": "Ütközések ({n})",
-  "summaryOther": "…és még {n} változás",
+  "rejectAfterResolve": "Itt feloldottál egy ütközést, ezért az Elutasítás nem elérhető: azt is visszavonná.",
   "arrivalIntro": "Ezek a változások már a katalógusodban vannak. Az Elutasítás visszaállítja a korábbi állapotot.",
   "summaryUpdated": "Módosítva",
   "summaryMeta": "Érkezett még",

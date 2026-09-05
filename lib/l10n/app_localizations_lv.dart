@@ -1547,9 +1547,8 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String summaryOther(Object n) {
-    return '…un vēl $n izmaiņas';
-  }
+  String get rejectAfterResolve =>
+      'Jūs šeit atrisinājāt konfliktu, tāpēc „Noraidīt“ nav pieejams: tas atceltu arī to.';
 
   @override
   String get arrivalIntro =>
