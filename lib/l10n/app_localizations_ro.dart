@@ -1558,6 +1558,17 @@ class AppLocalizationsRo extends AppLocalizations {
   String get summaryUpdated => 'Actualizate';
 
   @override
+  String get summaryDeleted => 'Șterse';
+
+  @override
+  String get keepMine => 'Păstrează al meu';
+
+  @override
+  String keptMine(String name) {
+    return 'Versiunea ta pentru $name rămâne pe acest dispozitiv.';
+  }
+
+  @override
   String get summaryMeta => 'A mai sosit';
 
   @override

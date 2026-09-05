@@ -1552,6 +1552,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get summaryUpdated => 'محدَّثة';
 
   @override
+  String get summaryDeleted => 'محذوفة';
+
+  @override
+  String get keepMine => 'احتفظ بنسختي';
+
+  @override
+  String keptMine(String name) {
+    return 'بقيت نسختك من $name على هذا الجهاز.';
+  }
+
+  @override
   String get summaryMeta => 'وصل أيضًا';
 
   @override

@@ -1557,6 +1557,17 @@ class AppLocalizationsSl extends AppLocalizations {
   String get summaryUpdated => 'Spremenjeni';
 
   @override
+  String get summaryDeleted => 'Izbrisani';
+
+  @override
+  String get keepMine => 'Obdrži moje';
+
+  @override
+  String keptMine(String name) {
+    return 'Vaša različica za $name ostane na tej napravi.';
+  }
+
+  @override
   String get summaryMeta => 'Prispelo tudi';
 
   @override

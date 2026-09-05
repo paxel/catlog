@@ -1554,6 +1554,17 @@ class AppLocalizationsEt extends AppLocalizations {
   String get summaryUpdated => 'Muudetud';
 
   @override
+  String get summaryDeleted => 'Kustutatud';
+
+  @override
+  String get keepMine => 'Jäta minu oma';
+
+  @override
+  String keptMine(String name) {
+    return 'Sinu versioon kirjest $name jääb sellesse seadmesse.';
+  }
+
+  @override
   String get summaryMeta => 'Saabus ka';
 
   @override

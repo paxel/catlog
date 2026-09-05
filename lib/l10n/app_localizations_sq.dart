@@ -1556,6 +1556,17 @@ class AppLocalizationsSq extends AppLocalizations {
   String get summaryUpdated => 'Të përditësuar';
 
   @override
+  String get summaryDeleted => 'Të fshira';
+
+  @override
+  String get keepMine => 'Mbaj timen';
+
+  @override
+  String keptMine(String name) {
+    return 'Versioni yt për $name mbetet në këtë pajisje.';
+  }
+
+  @override
   String get summaryMeta => 'Erdhi edhe';
 
   @override

@@ -1560,6 +1560,17 @@ class AppLocalizationsIs extends AppLocalizations {
   String get summaryUpdated => 'Uppfært';
 
   @override
+  String get summaryDeleted => 'Eytt';
+
+  @override
+  String get keepMine => 'Halda mínu';
+
+  @override
+  String keptMine(String name) {
+    return 'Þín útgáfa af $name helst á þessu tæki.';
+  }
+
+  @override
   String get summaryMeta => 'Kom líka';
 
   @override

@@ -1510,6 +1510,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get summaryUpdated => '已更新';
 
   @override
+  String get summaryDeleted => '已删除';
+
+  @override
+  String get keepMine => '保留我的';
+
+  @override
+  String keptMine(String name) {
+    return '已在此设备上保留你的 $name 版本。';
+  }
+
+  @override
   String get summaryMeta => '同时到达';
 
   @override

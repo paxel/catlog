@@ -1559,6 +1559,17 @@ class AppLocalizationsMt extends AppLocalizations {
   String get summaryUpdated => 'Aġġornati';
 
   @override
+  String get summaryDeleted => 'Imħassra';
+
+  @override
+  String get keepMine => 'Żomm tiegħi';
+
+  @override
+  String keptMine(String name) {
+    return 'Il-verżjoni tiegħek ta’ $name tibqa’ f’dan l-apparat.';
+  }
+
+  @override
   String get summaryMeta => 'Wasal ukoll';
 
   @override

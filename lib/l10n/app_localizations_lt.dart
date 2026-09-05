@@ -1558,6 +1558,17 @@ class AppLocalizationsLt extends AppLocalizations {
   String get summaryUpdated => 'Atnaujinta';
 
   @override
+  String get summaryDeleted => 'Ištrinta';
+
+  @override
+  String get keepMine => 'Palikti mano';
+
+  @override
+  String keptMine(String name) {
+    return 'Jūsų „$name“ versija liko šiame įrenginyje.';
+  }
+
+  @override
   String get summaryMeta => 'Taip pat atkeliavo';
 
   @override

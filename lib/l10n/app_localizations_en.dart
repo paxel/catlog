@@ -1555,6 +1555,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get summaryUpdated => 'Updated';
 
   @override
+  String get summaryDeleted => 'Deleted';
+
+  @override
+  String get keepMine => 'Keep mine';
+
+  @override
+  String keptMine(String name) {
+    return 'Kept your version of $name on this device.';
+  }
+
+  @override
   String get summaryMeta => 'Also arrived';
 
   @override

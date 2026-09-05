@@ -1565,6 +1565,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String get summaryUpdated => 'Ενημερώθηκαν';
 
   @override
+  String get summaryDeleted => 'Διαγράφηκαν';
+
+  @override
+  String get keepMine => 'Κράτα το δικό μου';
+
+  @override
+  String keptMine(String name) {
+    return 'Η δική σου εκδοχή για $name μένει σε αυτή τη συσκευή.';
+  }
+
+  @override
   String get summaryMeta => 'Έφτασαν επίσης';
 
   @override

@@ -31,8 +31,14 @@ class EntityArrival {
   final List<FieldChange> changes;
   final Set<String> tags;
 
+  /// The arrived entries about this entity — what "Keep mine" discards.
+  final List<Entry> entries;
+
   const EntityArrival(this.id,
-      {required this.isNew, required this.changes, required this.tags});
+      {required this.isNew,
+      required this.changes,
+      required this.tags,
+      required this.entries});
 
   bool get isCat => id.startsWith('cat:');
 }
@@ -56,17 +62,25 @@ class MetaChange {
 class ImportReview {
   final List<EntityArrival> newOnes;
   final List<EntityArrival> updated;
+
+  /// Cats and homes you have that a partner deleted.
+  final List<EntityArrival> deleted;
   final List<(String entity, String field)> conflicts;
   final List<MetaChange> meta;
 
   const ImportReview(
       {required this.newOnes,
       required this.updated,
+      required this.deleted,
       required this.conflicts,
       required this.meta});
 
   bool get isEmpty =>
-      newOnes.isEmpty && updated.isEmpty && conflicts.isEmpty && meta.isEmpty;
+      newOnes.isEmpty &&
+      updated.isEmpty &&
+      deleted.isEmpty &&
+      conflicts.isEmpty &&
+      meta.isEmpty;
 
   List<String> get newCats => [for (final a in newOnes) if (a.isCat) a.id];
   List<String> get newClowders =>
@@ -98,6 +112,7 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
   }
   final newOnes = <EntityArrival>[];
   final updated = <EntityArrival>[];
+  final deleted = <EntityArrival>[];
   final conflicts = <(String, String)>[];
   final meta = <MetaChange>[];
   var photos = 0;
@@ -165,8 +180,21 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
       continue;
     }
     if (kind != Kinds.cat && kind != Kinds.clowder) continue;
+    // Hidden is this device's business: what arrives for a hidden cat
+    // syncs on unchanged and is not announced.
+    if (store.isHidden(entity)) continue;
     if (mergedInto != null) {
       meta.add(MetaChange(MetaKind.merged, entity: entity, target: mergedInto));
+    }
+    // A partner deleted something you have: its own section, so the
+    // keeper can keep it instead.
+    if (!isNew &&
+        entries.any((e) => e.field == Keys.deleted) &&
+        store.current(entity, Keys.deleted) == 'true' &&
+        before(entity, Keys.deleted) != 'true') {
+      deleted.add(EntityArrival(entity,
+          isNew: false, changes: const [], tags: const {}, entries: entries));
+      continue;
     }
 
     final changes = effective(entity, entries, isNew: isNew);
@@ -198,10 +226,10 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
     }
     if (isNew) {
       newOnes.add(EntityArrival(entity,
-          isNew: true, changes: changes, tags: const {}));
+          isNew: true, changes: changes, tags: const {}, entries: entries));
     } else if (changes.isNotEmpty) {
       updated.add(EntityArrival(entity,
-          isNew: false, changes: changes, tags: tags));
+          isNew: false, changes: changes, tags: tags, entries: entries));
     }
   }
   if (photos > 0) meta.add(MetaChange(MetaKind.photos, count: photos));
@@ -211,8 +239,13 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
       name(a).toLowerCase().compareTo(name(b).toLowerCase());
   newOnes.sort(byName);
   updated.sort(byName);
+  deleted.sort(byName);
   return ImportReview(
-      newOnes: newOnes, updated: updated, conflicts: conflicts, meta: meta);
+      newOnes: newOnes,
+      updated: updated,
+      deleted: deleted,
+      conflicts: conflicts,
+      meta: meta);
 }
 
 /// Shows what arrived, when anything did: a full page with Accept and
@@ -291,6 +324,19 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   /// that too, so Reject goes and says why.
   bool _resolved = false;
 
+  /// Cats and homes whose arrival was discarded with "Keep mine": their
+  /// rows leave the page.
+  final _kept = <String>{};
+
+  /// Drops what arrived about [a], for good and locally, and says so.
+  void _keepMine(EntityArrival a) {
+    final name = _name(a.id);
+    store.discardEntries(a.entries);
+    setState(() => _kept.add(a.id));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(context.t.keptMine(name))));
+  }
+
   String _name(String id) => store.current(id, Keys.name) ?? context.t.unnamed;
 
   Widget _header(String title) => Padding(
@@ -333,12 +379,22 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
             tooltip: store.isHidden(a.id) ? t.unhideLabel : t.hideLabel,
             onPressed: () =>
                 setState(() => store.setHidden(a.id, !store.isHidden(a.id))),
-          ),
+          )
+        else
+          TextButton(
+              onPressed: () => _keepMine(a), child: Text(t.keepMine)),
         const Icon(Icons.chevron_right),
       ]),
       onTap: () => _openChanges(a),
     );
   }
+
+  Widget _deletedRow(EntityArrival a) => ListTile(
+        leading: _leading(a.id),
+        title: Text(_name(a.id)),
+        trailing: TextButton(
+            onPressed: () => _keepMine(a), child: Text(context.t.keepMine)),
+      );
 
   Widget _conflictRow((String, String) c) {
     final t = context.t;
@@ -389,6 +445,10 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
     final conflicts = [
       for (final c in r.conflicts) if (store.hasConflict(c.$1, c.$2)) c
     ];
+    List<EntityArrival> shown(List<EntityArrival> list) =>
+        [for (final a in list) if (!_kept.contains(a.id)) a];
+    final updated = shown(r.updated);
+    final deleted = shown(r.deleted);
     return Scaffold(
       appBar: AppBar(title: Text(t.syncSummaryTitle)),
       body: ListView(children: [
@@ -401,9 +461,13 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
           _header(t.summaryNew),
           for (final a in r.newOnes) _entityRow(a),
         ],
-        if (r.updated.isNotEmpty) ...[
+        if (updated.isNotEmpty) ...[
           _header(t.summaryUpdated),
-          for (final a in r.updated) _entityRow(a),
+          for (final a in updated) _entityRow(a),
+        ],
+        if (deleted.isNotEmpty) ...[
+          _header(t.summaryDeleted),
+          for (final a in deleted) _deletedRow(a),
         ],
         if (conflicts.isNotEmpty) ...[
           _header(t.summaryConflicts),

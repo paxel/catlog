@@ -1558,6 +1558,17 @@ class AppLocalizationsLv extends AppLocalizations {
   String get summaryUpdated => 'Atjaunināti';
 
   @override
+  String get summaryDeleted => 'Dzēsti';
+
+  @override
+  String get keepMine => 'Paturēt manējo';
+
+  @override
+  String keptMine(String name) {
+    return 'Jūsu „$name“ versija paliek šajā ierīcē.';
+  }
+
+  @override
   String get summaryMeta => 'Arī pienāca';
 
   @override

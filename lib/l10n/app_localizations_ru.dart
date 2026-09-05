@@ -1557,6 +1557,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get summaryUpdated => 'Изменены';
 
   @override
+  String get summaryDeleted => 'Удалены';
+
+  @override
+  String get keepMine => 'Оставить моё';
+
+  @override
+  String keptMine(String name) {
+    return 'Ваша версия «$name» сохранена на этом устройстве.';
+  }
+
+  @override
   String get summaryMeta => 'Также пришло';
 
   @override

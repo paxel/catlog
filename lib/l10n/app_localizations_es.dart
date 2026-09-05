@@ -1563,6 +1563,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String get summaryUpdated => 'Actualizados';
 
   @override
+  String get summaryDeleted => 'Eliminados';
+
+  @override
+  String get keepMine => 'Conservar el mío';
+
+  @override
+  String keptMine(String name) {
+    return 'Se conservó tu versión de $name en este dispositivo.';
+  }
+
+  @override
   String get summaryMeta => 'También llegó';
 
   @override

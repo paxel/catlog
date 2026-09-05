@@ -1561,6 +1561,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get summaryUpdated => 'Gewijzigd';
 
   @override
+  String get summaryDeleted => 'Verwijderd';
+
+  @override
+  String get keepMine => 'Mijn versie houden';
+
+  @override
+  String keptMine(String name) {
+    return 'Jouw versie van $name blijft op dit apparaat.';
+  }
+
+  @override
   String get summaryMeta => 'Ook aangekomen';
 
   @override

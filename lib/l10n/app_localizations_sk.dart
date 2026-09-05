@@ -1555,6 +1555,17 @@ class AppLocalizationsSk extends AppLocalizations {
   String get summaryUpdated => 'Zmenené';
 
   @override
+  String get summaryDeleted => 'Vymazané';
+
+  @override
+  String get keepMine => 'Nechať moje';
+
+  @override
+  String keptMine(String name) {
+    return 'Tvoja verzia $name zostáva na tomto zariadení.';
+  }
+
+  @override
   String get summaryMeta => 'Tiež prišlo';
 
   @override

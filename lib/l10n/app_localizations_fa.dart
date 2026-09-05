@@ -1553,6 +1553,17 @@ class AppLocalizationsFa extends AppLocalizations {
   String get summaryUpdated => 'به‌روز شده';
 
   @override
+  String get summaryDeleted => 'حذف‌شده';
+
+  @override
+  String get keepMine => 'مال من بماند';
+
+  @override
+  String keptMine(String name) {
+    return 'نسخه شما از $name در این دستگاه نگه داشته شد.';
+  }
+
+  @override
   String get summaryMeta => 'همچنین رسید';
 
   @override

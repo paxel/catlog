@@ -1548,6 +1548,17 @@ class AppLocalizationsHe extends AppLocalizations {
   String get summaryUpdated => 'עודכנו';
 
   @override
+  String get summaryDeleted => 'נמחקו';
+
+  @override
+  String get keepMine => 'להשאיר את שלי';
+
+  @override
+  String keptMine(String name) {
+    return 'הגרסה שלך של $name נשמרה במכשיר הזה.';
+  }
+
+  @override
   String get summaryMeta => 'הגיע גם';
 
   @override

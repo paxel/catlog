@@ -31,7 +31,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   their effective changes (value before, value now), conflicts to
   resolve on the spot, and what else came along (fields, merges,
   photos). Accept keeps it; Reject puts the catalog back as it was.
-  In-person sync can be rejected too.
+  In-person sync can be rejected too. A partner's deletion of a cat
+  or home you have is listed under Deleted; "Keep mine" on a deleted
+  or updated row keeps your version on this device without touching
+  the partner's catalog, and it stays kept over later syncs. Cats and
+  homes hidden on this device are not announced.
 
 ### Fixed
 

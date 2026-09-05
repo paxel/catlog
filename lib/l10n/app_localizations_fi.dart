@@ -1559,6 +1559,17 @@ class AppLocalizationsFi extends AppLocalizations {
   String get summaryUpdated => 'Päivitetyt';
 
   @override
+  String get summaryDeleted => 'Poistetut';
+
+  @override
+  String get keepMine => 'Pidä omani';
+
+  @override
+  String keptMine(String name) {
+    return 'Oma versiosi kohteesta $name säilyy tällä laitteella.';
+  }
+
+  @override
   String get summaryMeta => 'Saapui myös';
 
   @override

@@ -2870,6 +2870,24 @@ abstract class AppLocalizations {
   /// **'Updated'**
   String get summaryUpdated;
 
+  /// No description provided for @summaryDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted'**
+  String get summaryDeleted;
+
+  /// No description provided for @keepMine.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep mine'**
+  String get keepMine;
+
+  /// No description provided for @keptMine.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept your version of {name} on this device.'**
+  String keptMine(String name);
+
   /// No description provided for @summaryMeta.
   ///
   /// In en, this message translates to:

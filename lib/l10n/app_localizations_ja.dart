@@ -1527,6 +1527,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get summaryUpdated => '更新';
 
   @override
+  String get summaryDeleted => '削除';
+
+  @override
+  String get keepMine => '自分のを保持';
+
+  @override
+  String keptMine(String name) {
+    return '$name はこの端末ではあなたの版を保持しました。';
+  }
+
+  @override
   String get summaryMeta => 'その他の到着';
 
   @override

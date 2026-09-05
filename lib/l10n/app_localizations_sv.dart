@@ -1556,6 +1556,17 @@ class AppLocalizationsSv extends AppLocalizations {
   String get summaryUpdated => 'Uppdaterade';
 
   @override
+  String get summaryDeleted => 'Raderade';
+
+  @override
+  String get keepMine => 'Behåll mitt';
+
+  @override
+  String keptMine(String name) {
+    return 'Din version av $name behålls på den här enheten.';
+  }
+
+  @override
   String get summaryMeta => 'Kom också';
 
   @override

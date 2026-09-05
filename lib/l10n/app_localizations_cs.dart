@@ -1557,6 +1557,17 @@ class AppLocalizationsCs extends AppLocalizations {
   String get summaryUpdated => 'Změněno';
 
   @override
+  String get summaryDeleted => 'Smazáno';
+
+  @override
+  String get keepMine => 'Nechat moje';
+
+  @override
+  String keptMine(String name) {
+    return 'Tvoje verze $name zůstává na tomto zařízení.';
+  }
+
+  @override
   String get summaryMeta => 'Také dorazilo';
 
   @override

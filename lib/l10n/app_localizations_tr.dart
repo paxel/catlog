@@ -1556,6 +1556,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get summaryUpdated => 'Güncellenen';
 
   @override
+  String get summaryDeleted => 'Silinen';
+
+  @override
+  String get keepMine => 'Benimkini koru';
+
+  @override
+  String keptMine(String name) {
+    return '$name için senin sürümün bu cihazda kaldı.';
+  }
+
+  @override
   String get summaryMeta => 'Ayrıca gelenler';
 
   @override

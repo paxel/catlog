@@ -1557,6 +1557,17 @@ class AppLocalizationsDa extends AppLocalizations {
   String get summaryUpdated => 'Opdateret';
 
   @override
+  String get summaryDeleted => 'Slettet';
+
+  @override
+  String get keepMine => 'Behold mit';
+
+  @override
+  String keptMine(String name) {
+    return 'Din version af $name beholdes på denne enhed.';
+  }
+
+  @override
   String get summaryMeta => 'Også ankommet';
 
   @override

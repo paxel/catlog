@@ -1561,6 +1561,17 @@ class AppLocalizationsMk extends AppLocalizations {
   String get summaryUpdated => 'Изменети';
 
   @override
+  String get summaryDeleted => 'Избришани';
+
+  @override
+  String get keepMine => 'Задржи моето';
+
+  @override
+  String keptMine(String name) {
+    return 'Вашата верзија на $name остана на овој уред.';
+  }
+
+  @override
   String get summaryMeta => 'Исто така пристигна';
 
   @override

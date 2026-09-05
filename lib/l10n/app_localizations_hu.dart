@@ -1558,6 +1558,17 @@ class AppLocalizationsHu extends AppLocalizations {
   String get summaryUpdated => 'Módosítva';
 
   @override
+  String get summaryDeleted => 'Törölve';
+
+  @override
+  String get keepMine => 'Az enyém marad';
+
+  @override
+  String keptMine(String name) {
+    return 'A te $name-változatod marad ezen az eszközön.';
+  }
+
+  @override
   String get summaryMeta => 'Érkezett még';
 
   @override

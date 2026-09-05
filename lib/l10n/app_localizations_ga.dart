@@ -1561,6 +1561,17 @@ class AppLocalizationsGa extends AppLocalizations {
   String get summaryUpdated => 'Nuashonraithe';
 
   @override
+  String get summaryDeleted => 'Scriosta';
+
+  @override
+  String get keepMine => 'Coinnigh mo cheann';
+
+  @override
+  String keptMine(String name) {
+    return 'Coinníodh do leagan de $name ar an ngléas seo.';
+  }
+
+  @override
   String get summaryMeta => 'Tháinig freisin';
 
   @override

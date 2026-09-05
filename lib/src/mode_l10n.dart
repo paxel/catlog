@@ -901,10 +901,16 @@ class ModeLocalizations implements AppLocalizations {
   String get keepDeleted => base.keepDeleted;
 
   @override
+  String get keepMine => base.keepMine;
+
+  @override
   String get keepScanning => base.keepScanning;
 
   @override
   String get keepThisFrame => base.keepThisFrame;
+
+  @override
+  String keptMine(String name) => base.keptMine(name);
 
   @override
   String get kindCat => pets ? base.kindCatNeutral : base.kindCat;
@@ -1802,6 +1808,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get summaryDeceased => base.summaryDeceased;
+
+  @override
+  String get summaryDeleted => base.summaryDeleted;
 
   @override
   String get summaryEscaped => base.summaryEscaped;

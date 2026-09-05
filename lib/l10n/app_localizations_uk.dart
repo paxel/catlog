@@ -1558,6 +1558,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get summaryUpdated => 'Змінені';
 
   @override
+  String get summaryDeleted => 'Видалені';
+
+  @override
+  String get keepMine => 'Залишити моє';
+
+  @override
+  String keptMine(String name) {
+    return 'Вашу версію «$name» збережено на цьому пристрої.';
+  }
+
+  @override
   String get summaryMeta => 'Також надійшло';
 
   @override

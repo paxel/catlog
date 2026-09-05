@@ -1558,6 +1558,17 @@ class AppLocalizationsBg extends AppLocalizations {
   String get summaryUpdated => 'Променени';
 
   @override
+  String get summaryDeleted => 'Изтрити';
+
+  @override
+  String get keepMine => 'Запази моето';
+
+  @override
+  String keptMine(String name) {
+    return 'Вашата версия на $name остава на това устройство.';
+  }
+
+  @override
   String get summaryMeta => 'Също пристигна';
 
   @override

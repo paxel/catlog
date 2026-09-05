@@ -1554,6 +1554,17 @@ class AppLocalizationsNo extends AppLocalizations {
   String get summaryUpdated => 'Oppdatert';
 
   @override
+  String get summaryDeleted => 'Slettet';
+
+  @override
+  String get keepMine => 'Behold mitt';
+
+  @override
+  String keptMine(String name) {
+    return 'Din versjon av $name beholdes på denne enheten.';
+  }
+
+  @override
   String get summaryMeta => 'Kom også';
 
   @override

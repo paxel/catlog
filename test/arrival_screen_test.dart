@@ -133,6 +133,43 @@ void main() {
     expect(find.text('What arrived'), findsNothing);
   });
 
+  testWidgets('Keep mine keeps a deleted cat and your own value', (
+    tester,
+  ) async {
+    final gone = a.createCat('Gone');
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:color', 'white', date: DateTime.utc(2025, 1, 1));
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    b.deleteCat(gone);
+    b.append(cat, 'f:color', 'grey');
+    final (applied, moment) = receive();
+    expect(a.cats().map((c) => c.name), ['Miezi']);
+
+    await pump(tester, applied, undo: moment);
+    expect(find.text('Deleted'), findsOneWidget);
+    expect(find.text('Gone'), findsOneWidget);
+    final goneRow = find.ancestor(
+        of: find.text('Gone'), matching: find.byType(ListTile));
+    await tester.tap(find.descendant(
+        of: goneRow, matching: find.text('Keep mine')));
+    await tester.pumpAndSettle();
+    expect(a.cats().map((c) => c.name), containsAll(['Gone', 'Miezi']));
+    expect(find.text('Deleted'), findsNothing);
+
+    final mieziRow = find.ancestor(
+        of: find.text('Miezi'), matching: find.byType(ListTile));
+    await tester.tap(find.descendant(
+        of: mieziRow, matching: find.text('Keep mine')));
+    await tester.pumpAndSettle();
+    expect(a.current(cat, 'f:color'), 'white');
+    expect(find.text('Updated'), findsNothing);
+
+    // Nothing comes back on the next exchange.
+    final again = a.applyEntries(b.entriesSince(a.versionVector()),
+        senderVector: b.versionVector());
+    expect(again, isEmpty);
+  });
+
   testWidgets('a conflict is listed and resolved from the page', (
     tester,
   ) async {

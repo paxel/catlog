@@ -85,6 +85,23 @@ void main() {
     expect(review.meta.map((m) => m.kind), contains(MetaKind.photos));
   });
 
+  test('a partner\'s deletion is listed; a hidden cat is not announced',
+      () {
+    final gone = a.createCat('Gone');
+    final hidden = a.createCat('Shy');
+    a.setHidden(hidden, true);
+    share(a, b);
+    b.deleteCat(gone);
+    b.append(hidden, 'f:color', 'grey');
+
+    final review = reviewImport(a, receive(b, a));
+    expect(review.deleted.map((d) => d.id), [gone]);
+    expect(review.deleted.single.entries, isNotEmpty);
+    expect(review.updated, isEmpty, reason: 'hidden stays unmentioned');
+    expect(a.current(hidden, 'f:color'), 'grey',
+        reason: 'the data still arrives');
+  });
+
   test('an empty catalog arrives as nothing at all', () {
     final review = reviewImport(a, receive(b, a));
     expect(review.isEmpty, isTrue);
