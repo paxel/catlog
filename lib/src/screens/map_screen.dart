@@ -219,6 +219,7 @@ class _MapScreenState extends State<MapScreen>
       ..._positioned(store.visibleClowders(), sightingsOnly: false),
       for (final g in _grouped(_catPins())) (g.cats.first, g.point),
       ..._flierPinned(store.visibleStrays()),
+      for (final (e, _, p) in _userPins()) (e, p),
     ];
     if (pins.isEmpty) return;
     if (_navChain == null || _navChain!.length != pins.length) {
@@ -576,6 +577,7 @@ class _MapScreenState extends State<MapScreen>
       for (final entry in [
         ..._positioned(store.visibleCats(), sightingsOnly: true),
         ..._positioned(store.visibleClowders(), sightingsOnly: false),
+        for (final (e, _, p) in _userPins()) (e, p),
       ])
         if (matches(entry.$1)) entry
     ];
@@ -1058,7 +1060,12 @@ class _MapPin extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
+      // The marker box is laid out tight; packing to the end keeps the
+      // tip's apex on the bottom edge, which is the coordinate.
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
         if (label case final label?)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),

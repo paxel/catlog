@@ -35,6 +35,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   shown (DELETE, in your language) instead of the full name.
 - Map pins point at their spot: a tip under the face sits on the exact
   coordinate, for cats, posters, homes and grouped pins alike.
+- Tapping a home's pin on the map shows its trail, like a cat's; the
+  home's page opens from the trail bar's Open button.
 - After a sync or import, a full page shows what arrived instead of a
   sheet with "N other changes": new cats and homes, updated ones with
   their effective changes (value before, value now), conflicts to
