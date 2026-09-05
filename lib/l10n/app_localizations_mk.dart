@@ -64,6 +64,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get aboutAndFeedback => 'За апликацијата и повратни информации';
 
   @override
+  String get settings => 'Поставки';
+
+  @override
   String get newClowder => 'Нов клаудер';
 
   @override

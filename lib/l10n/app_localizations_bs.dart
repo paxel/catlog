@@ -64,6 +64,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get aboutAndFeedback => 'O aplikaciji i utisci';
 
   @override
+  String get settings => 'Postavke';
+
+  @override
   String get newClowder => 'Novi clowder';
 
   @override

@@ -64,6 +64,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get aboutAndFeedback => 'Om & tilbakemelding';
 
   @override
+  String get settings => 'Innstillinger';
+
+  @override
   String get newClowder => 'Ny clowder';
 
   @override

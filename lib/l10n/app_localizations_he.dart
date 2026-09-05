@@ -64,6 +64,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get aboutAndFeedback => 'אודות ומשוב';
 
   @override
+  String get settings => 'הגדרות';
+
+  @override
   String get newClowder => 'קבוצה חדשה';
 
   @override

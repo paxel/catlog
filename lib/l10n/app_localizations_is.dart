@@ -64,6 +64,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get aboutAndFeedback => 'Um & ábendingar';
 
   @override
+  String get settings => 'Stillingar';
+
+  @override
   String get newClowder => 'Nýr hópur';
 
   @override

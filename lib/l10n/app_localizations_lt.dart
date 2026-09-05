@@ -64,6 +64,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get aboutAndFeedback => 'Apie ir atsiliepimai';
 
   @override
+  String get settings => 'Nustatymai';
+
+  @override
   String get newClowder => 'Naujas klauderis';
 
   @override

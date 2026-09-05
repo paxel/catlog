@@ -64,6 +64,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get aboutAndFeedback => 'Hakkında ve geri bildirim';
 
   @override
+  String get settings => 'Ayarlar';
+
+  @override
   String get newClowder => 'Yeni clowder';
 
   @override

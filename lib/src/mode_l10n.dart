@@ -1453,6 +1453,9 @@ class ModeLocalizations implements AppLocalizations {
   String get setAsProfileImage => base.setAsProfileImage;
 
   @override
+  String get settings => base.settings;
+
+  @override
   String get shareAsImage => base.shareAsImage;
 
   @override

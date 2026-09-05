@@ -64,6 +64,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get aboutAndFeedback => 'Rreth & komente';
 
   @override
+  String get settings => 'Cilësimet';
+
+  @override
   String get newClowder => 'Clowder i ri';
 
   @override

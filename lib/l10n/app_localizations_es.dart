@@ -64,6 +64,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get aboutAndFeedback => 'Acerca de y comentarios';
 
   @override
+  String get settings => 'Ajustes';
+
+  @override
   String get newClowder => 'Nuevo clowder';
 
   @override

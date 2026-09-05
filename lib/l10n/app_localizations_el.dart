@@ -64,6 +64,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get aboutAndFeedback => 'Σχετικά & σχόλια';
 
   @override
+  String get settings => 'Ρυθμίσεις';
+
+  @override
   String get newClowder => 'Νέα ομάδα';
 
   @override

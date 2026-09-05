@@ -64,6 +64,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get aboutAndFeedback => 'درباره و بازخورد';
 
   @override
+  String get settings => 'تنظیمات';
+
+  @override
   String get newClowder => 'گروه جدید';
 
   @override

@@ -64,6 +64,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get aboutAndFeedback => 'O aplikaci a zpětná vazba';
 
   @override
+  String get settings => 'Nastavení';
+
+  @override
   String get newClowder => 'Nový clowder';
 
   @override

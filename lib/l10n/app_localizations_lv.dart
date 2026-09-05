@@ -64,6 +64,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get aboutAndFeedback => 'Par lietotni un atsauksmes';
 
   @override
+  String get settings => 'Iestatījumi';
+
+  @override
   String get newClowder => 'Jauns klauderis';
 
   @override

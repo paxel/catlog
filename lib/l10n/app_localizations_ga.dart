@@ -64,6 +64,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get aboutAndFeedback => 'Maidir leis & aiseolas';
 
   @override
+  String get settings => 'Socruithe';
+
+  @override
   String get newClowder => 'Clowdar nua';
 
   @override

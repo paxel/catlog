@@ -64,6 +64,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get aboutAndFeedback => 'Despre & feedback';
 
   @override
+  String get settings => 'Setări';
+
+  @override
   String get newClowder => 'Clowder nou';
 
   @override

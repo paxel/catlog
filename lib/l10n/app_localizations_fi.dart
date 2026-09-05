@@ -64,6 +64,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get aboutAndFeedback => 'Tietoja & palaute';
 
   @override
+  String get settings => 'Asetukset';
+
+  @override
   String get newClowder => 'Uusi clowder';
 
   @override

@@ -64,6 +64,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get aboutAndFeedback => 'O aplikácii a spätná väzba';
 
   @override
+  String get settings => 'Nastavenia';
+
+  @override
   String get newClowder => 'Nový clowder';
 
   @override

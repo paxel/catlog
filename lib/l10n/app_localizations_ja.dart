@@ -63,6 +63,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aboutAndFeedback => '情報とフィードバック';
 
   @override
+  String get settings => '設定';
+
+  @override
   String get newClowder => '新しいクラウダー';
 
   @override

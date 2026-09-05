@@ -64,6 +64,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get aboutAndFeedback => 'О приложении и отзывы';
 
   @override
+  String get settings => 'Настройки';
+
+  @override
   String get newClowder => 'Новый клаудер';
 
   @override

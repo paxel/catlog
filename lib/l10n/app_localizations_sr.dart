@@ -64,6 +64,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get aboutAndFeedback => 'О апликацији и утисци';
 
   @override
+  String get settings => 'Подешавања';
+
+  @override
   String get newClowder => 'Нови клаудер';
 
   @override

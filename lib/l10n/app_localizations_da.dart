@@ -64,6 +64,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get aboutAndFeedback => 'Om & feedback';
 
   @override
+  String get settings => 'Indstillinger';
+
+  @override
   String get newClowder => 'Ny clowder';
 
   @override

@@ -64,6 +64,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutAndFeedback => 'حول التطبيق والملاحظات';
 
   @override
+  String get settings => 'الإعدادات';
+
+  @override
   String get newClowder => 'مجموعة جديدة';
 
   @override

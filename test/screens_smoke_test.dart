@@ -9,6 +9,7 @@ import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/fields_screen.dart';
 import 'package:catlog/src/screens/moderation_screen.dart';
+import 'package:catlog/src/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -68,10 +69,31 @@ void main() {
       expect(find.textContaining('🤗'), findsOneWidget);
     });
 
+  });
+
+  group('settings', () {
+    testWidgets('lists the app settings and keeps a switched setting',
+        (tester) async {
+      await pump(tester, SettingsScreen(store: store));
+      for (final row in [
+        'Language',
+        'Units',
+        'Celebrate adoptions',
+        'What to announce',
+        "What's new tour",
+        'Quick intro',
+      ]) {
+        expect(find.text(row), findsOneWidget, reason: row);
+      }
+      expect(celebrationsEnabled(store), isTrue);
+      await tester.tap(find.byType(Switch));
+      await tester.pumpAndSettle();
+      expect(celebrationsEnabled(store), isFalse);
+    });
+
     testWidgets('tips can be replayed from here', (tester) async {
       store.setLocalSetting('spot2:home', 'home-strays');
-      await pump(tester, AboutScreen(store: store),
-          size: const Size(500, 2000));
+      await pump(tester, SettingsScreen(store: store));
       await tester.tap(find.text("What's new tour"));
       await tester.pumpAndSettle();
       expect(store.localSetting('spot2:home'), isNull);

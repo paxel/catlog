@@ -64,6 +64,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get aboutAndFeedback => 'Sobre e feedback';
 
   @override
+  String get settings => 'Definições';
+
+  @override
   String get newClowder => 'Novo clowder';
 
   @override

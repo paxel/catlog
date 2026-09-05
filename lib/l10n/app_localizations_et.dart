@@ -64,6 +64,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get aboutAndFeedback => 'Teave ja tagasiside';
 
   @override
+  String get settings => 'Seaded';
+
+  @override
   String get newClowder => 'Uus klauder';
 
   @override

@@ -10,6 +10,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - "Find address on the map" no longer writes silently: a dialog shows
   the place it found and asks whether to save the location and whether
   to replace the typed address with the found wording.
+- Language, units, celebrations, notifications and the tutorial
+  replays moved from the menu and the About page into a Settings page
+  in the main menu.
 
 ### Fixed
 

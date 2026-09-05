@@ -272,6 +272,12 @@ abstract class AppLocalizations {
   /// **'About & feedback'**
   String get aboutAndFeedback;
 
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
   /// No description provided for @newClowder.
   ///
   /// In en, this message translates to:

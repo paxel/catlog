@@ -64,6 +64,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get aboutAndFeedback => 'Névjegy és visszajelzés';
 
   @override
+  String get settings => 'Beállítások';
+
+  @override
   String get newClowder => 'Új clowder';
 
   @override

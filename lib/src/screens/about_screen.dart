@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../celebration.dart';
 import '../l10n.dart';
-import '../event_toasts.dart';
-import '../spotlight.dart';
-import 'intro_screen.dart';
 import 'archive_screen.dart';
 import 'moderation_screen.dart';
 import '../exclusive.dart';
@@ -74,14 +70,6 @@ class _AboutScreenState extends State<AboutScreen> {
           ),
         ),
         const SizedBox(height: 16),
-        SwitchListTile(
-          secondary: const Icon(Icons.celebration_outlined),
-          title: Text(t.celebrationsToggle),
-          subtitle: Text(t.celebrationsSubtitle),
-          value: celebrationsEnabled(widget.store),
-          onChanged: (v) =>
-              setState(() => setCelebrationsEnabled(widget.store, v)),
-        ),
         ListTile(
           leading: const Icon(Icons.code),
           title: Text(t.sourceCode),
@@ -108,34 +96,6 @@ class _AboutScreenState extends State<AboutScreen> {
             subtitle: Text(t.coffeeSubtitle),
             onTap: () => _open(_donateUrl),
           ),
-        ListTile(
-          leading: const Icon(Icons.new_releases_outlined),
-          title: Text(t.spotReplayTitle),
-          subtitle: Text(t.spotReplaySubtitle),
-          onTap: () {
-            resetSpotlights(widget.store);
-            ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(t.spotReplayDone)));
-          },
-        ),
-        ListTile(
-          leading: const Icon(Icons.slideshow_outlined),
-          title: Text(t.introReplayTitle),
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => IntroScreen(
-              store: widget.store,
-              onDone: () => Navigator.of(context).pop(),
-            ),
-          )),
-        ),
-        ListTile(
-          leading: const Icon(Icons.notifications_active_outlined),
-          title: Text(t.toastSettingsTitle),
-          subtitle: Text(t.toastSettingsSubtitle),
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => ToastSettingsScreen(store: widget.store),
-          )),
-        ),
         ListTile(
           leading: const Icon(Icons.inventory_2_outlined),
           title: Text(t.archiveTitle),

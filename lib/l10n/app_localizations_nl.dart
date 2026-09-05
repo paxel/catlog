@@ -64,6 +64,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get aboutAndFeedback => 'Over & feedback';
 
   @override
+  String get settings => 'Instellingen';
+
+  @override
   String get newClowder => 'Nieuwe clowder';
 
   @override

@@ -12,7 +12,6 @@ import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
-import '../language_dialog.dart';
 import '../name_date_dialog.dart';
 import '../share.dart';
 import '../spotlight.dart';
@@ -20,6 +19,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
+import 'settings_screen.dart';
 import 'agenda_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
@@ -31,7 +31,6 @@ import '../move_to_catalog.dart';
 import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
-import '../units_dialog.dart';
 import '../pet_mode.dart';
 
 /// Home screen: all Clowders.
@@ -121,8 +120,11 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     });
   }
 
-  Future<void> _pickUnits() async {
-    await showUnitsDialog(context, widget.store);
+  /// Language and units may change in there: rebuild on return.
+  Future<void> _openSettings() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => SettingsScreen(store: widget.store),
+    ));
     if (mounted) setState(() {});
   }
 
@@ -294,10 +296,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     id: 'duplicates',
                     build: (_) => DuplicatesScreen(store: widget.store)));
               }
-              if (v == 'language') {
-                showLanguageDialog(context, widget.store);
-              }
-              if (v == 'units') _pickUnits();
+              if (v == 'settings') _openSettings();
               if (v == 'hidden') {
                 setState(() => showHidden.value = !showHidden.value);
               }
@@ -323,9 +322,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
               PopupMenuItem(
-                  value: 'language', child: Text(context.t.language)),
-              PopupMenuItem(
-                  value: 'units', child: Text(context.t.unitsLabel)),
+                  value: 'settings', child: Text(context.t.settings)),
               PopupMenuItem(
                   value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],

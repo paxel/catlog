@@ -64,6 +64,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get aboutAndFeedback => 'Относно и обратна връзка';
 
   @override
+  String get settings => 'Настройки';
+
+  @override
   String get newClowder => 'Нов клаудер';
 
   @override

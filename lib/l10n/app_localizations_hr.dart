@@ -64,6 +64,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get aboutAndFeedback => 'O aplikaciji i povratne informacije';
 
   @override
+  String get settings => 'Postavke';
+
+  @override
   String get newClowder => 'Novi clowder';
 
   @override

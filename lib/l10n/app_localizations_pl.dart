@@ -64,6 +64,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get aboutAndFeedback => 'O aplikacji i opinie';
 
   @override
+  String get settings => 'Ustawienia';
+
+  @override
   String get newClowder => 'Nowy clowder';
 
   @override

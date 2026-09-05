@@ -62,6 +62,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aboutAndFeedback => '关于与反馈';
 
   @override
+  String get settings => '设置';
+
+  @override
   String get newClowder => '新建猫群';
 
   @override

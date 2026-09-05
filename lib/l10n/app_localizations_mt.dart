@@ -64,6 +64,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get aboutAndFeedback => 'Dwar & feedback';
 
   @override
+  String get settings => 'Settings';
+
+  @override
   String get newClowder => 'Clowder ġdid';
 
   @override
