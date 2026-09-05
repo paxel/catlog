@@ -9,6 +9,7 @@ import 'package:catlog/src/screens/card_screen.dart';
 import 'package:catlog/src/screens/clowder_detail_screen.dart';
 import 'package:catlog/src/screens/fields_screen.dart';
 import 'package:catlog/src/screens/moderation_screen.dart';
+import 'package:catlog/src/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -50,12 +51,13 @@ void main() {
   }
 
   group('about', () {
-    testWidgets('says what the app is and offers the archive',
-        (tester) async {
+    testWidgets('says what the app is', (tester) async {
       await pump(tester, AboutScreen(store: store),
           size: const Size(500, 2000));
       expect(find.textContaining('cat(a)log'), findsWidgets);
-      expect(find.text('Archive'), findsOneWidget);
+      // Catalog matters live with the catalog, not here.
+      expect(find.text('Archive'), findsNothing);
+      expect(find.text('Authors & bans'), findsNothing);
     });
 
     testWidgets('the red button thanks you, and says so nowhere else',
@@ -68,10 +70,31 @@ void main() {
       expect(find.textContaining('🤗'), findsOneWidget);
     });
 
+  });
+
+  group('settings', () {
+    testWidgets('lists the app settings and keeps a switched setting',
+        (tester) async {
+      await pump(tester, SettingsScreen(store: store));
+      for (final row in [
+        'Language',
+        'Units',
+        'Celebrate adoptions',
+        'What to announce',
+        "What's new tour",
+        'Quick intro',
+      ]) {
+        expect(find.text(row), findsOneWidget, reason: row);
+      }
+      expect(celebrationsEnabled(store), isTrue);
+      await tester.tap(find.byType(Switch));
+      await tester.pumpAndSettle();
+      expect(celebrationsEnabled(store), isFalse);
+    });
+
     testWidgets('tips can be replayed from here', (tester) async {
       store.setLocalSetting('spot2:home', 'home-strays');
-      await pump(tester, AboutScreen(store: store),
-          size: const Size(500, 2000));
+      await pump(tester, SettingsScreen(store: store));
       await tester.tap(find.text("What's new tour"));
       await tester.pumpAndSettle();
       expect(store.localSetting('spot2:home'), isNull);
@@ -94,9 +117,8 @@ void main() {
       await tester.tap(find.descendant(
           of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
       await tester.pumpAndSettle();
-      // Deleting somebody's data asks for their name in full.
-      await tester.enterText(find.byType(TextField), 'Kathrin');
-      await tester.pumpAndSettle();
+      // Deleting somebody's data asks once, plainly.
+      expect(find.byType(TextField), findsNothing);
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
 

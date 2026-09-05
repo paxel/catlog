@@ -28,14 +28,24 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clowders => 'クラウダー';
 
   @override
+  String get clowdersNeutral => '世帯';
+
+  @override
   String get noClowdersYet =>
       'まだグループがありません。グループとは猫が暮らす場所 — 預かり宅や里親の部屋。下から最初のグループを作りましょう。';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'まだ世帯がありません。世帯とはペットが暮らす場所 — 自宅、預かり宅、里親の部屋。下から最初の世帯を作りましょう。';
 
   @override
   String get strays => '野良猫';
 
   @override
   String get searchCats => '猫を検索';
+
+  @override
+  String get searchCatsNeutral => 'ペットを検索';
 
   @override
   String get map => '地図';
@@ -53,7 +63,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aboutAndFeedback => '情報とフィードバック';
 
   @override
+  String get settings => '設定';
+
+  @override
   String get newClowder => '新しいクラウダー';
+
+  @override
+  String get newClowderNeutral => '新しい世帯';
 
   @override
   String get name => '名前';
@@ -88,6 +104,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get renameClowder => 'クラウダー名を変更';
 
   @override
+  String get renameClowderNeutral => '世帯名を変更';
+
+  @override
   String get rename => '名前を変更';
 
   @override
@@ -100,13 +119,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteClowder => 'クラウダーを削除';
 
   @override
+  String get deleteClowderNeutral => '世帯を削除';
+
+  @override
   String get cats => '猫';
+
+  @override
+  String get catsNeutral => 'ペット';
 
   @override
   String get addCat => '猫を追加';
 
   @override
+  String get addCatNeutral => 'ペットを追加';
+
+  @override
   String get newCat => '新しい猫';
+
+  @override
+  String get newCatNeutral => '新しいペット';
 
   @override
   String deleteQuestion(String name) {
@@ -117,8 +148,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteClowderEmptyBody => 'クラウダーは一覧から消えます。';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => '世帯は一覧から消えます。';
+
+  @override
   String deleteClowderBody(int count) {
     return '所属する $count 匹の猫は削除されず、野良猫になります。望まない場合は先に別のクラウダーへ移してください。';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return '所属する $count 匹のペットは削除されず、野良になります。望まない場合は先に別の世帯へ移してください。';
   }
 
   @override
@@ -142,16 +181,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get renameCat => '猫の名前を変更';
 
   @override
+  String get renameCatNeutral => 'ペットの名前を変更';
+
+  @override
   String get seenHereNow => '今ここで目撃';
 
   @override
   String get deleteCat => '猫を削除';
 
   @override
+  String get deleteCatNeutral => 'ペットを削除';
+
+  @override
   String get clowderLabel => 'クラウダー';
 
   @override
+  String get clowderLabelNeutral => '世帯';
+
+  @override
   String get strayNoClowder => '野良猫 — クラウダーなし';
+
+  @override
+  String get strayNoClowderNeutral => '野良 — 世帯なし';
 
   @override
   String get stray => '野良猫';
@@ -180,6 +231,10 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'この猫はすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'このペットはすべての一覧から消え、写真も削除されます。この端末だけでなく、次回の同期後には他の端末からも消えます。';
 
   @override
   String get sightingRecorded => '現在地で目撃を記録しました。';
@@ -231,6 +286,10 @@ class AppLocalizationsJa extends AppLocalizations {
       'チップカードや獣医の書類に印刷されたQR/バーコードを読み取ります。猫の体内のチップは電話では読めません。';
 
   @override
+  String get chipScanHintNeutral =>
+      'チップカードや獣医の書類に印刷されたQR/バーコードを読み取ります。動物の体内のチップは電話では読めません。';
+
+  @override
   String get savingLabel => '保存中…';
 
   @override
@@ -255,6 +314,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get catList => '猫リスト';
+
+  @override
+  String get catListNeutral => 'ペットリスト';
 
   @override
   String get matchCandidatesTitle => '一致候補';
@@ -287,6 +349,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fromVideo => '動画から…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return '写真を追加中 $done/$total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       '動画からのフレーム抽出はスマホアプリ（Android・iPhone）で使えます。この端末ではまだ使えません。';
 
@@ -315,6 +382,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get importShareTitle => 'この猫を取り込みますか？';
 
   @override
+  String get importShareTitleNeutral => 'このペットを取り込みますか？';
+
+  @override
   String shareSource(String url) {
     return '提供元: $url';
   }
@@ -333,6 +403,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noMissingCats => 'チラシの位置が登録された迷子猫はまだいません。';
+
+  @override
+  String get noMissingCatsNeutral => 'チラシの位置が登録された迷子ペットはまだいません。';
 
   @override
   String get noMatchCandidates => '現在、一致候補はありません。';
@@ -409,6 +482,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get malePregnant => 'この猫はオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
 
   @override
+  String get malePregnantNeutral =>
+      'このペットはオスとして登録されています。オスは妊娠できません。まず性別を確認してください。';
+
+  @override
   String fatherNotMale(String name) {
     return '$nameはメスとして登録されているため父親にはなれません。まず性別を確認してください。';
   }
@@ -424,18 +501,34 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$nameの誕生日は$dateです。親が子より後に生まれることはできません。';
+  }
+
+  @override
   String get genderFatherFemale =>
       'この猫は他の猫の父親として登録されています。父親はメスにできません。まず家族を確認してください。';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'このペットは他のペットの父親として登録されています。父親はメスにできません。まず家族を確認してください。';
 
   @override
   String get genderMotherMale =>
       'この猫は他の猫の母親として登録されています。母親はオスにできません。まず家族を確認してください。';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'このペットは他のペットの母親として登録されています。母親はオスにできません。まず家族を確認してください。';
+
+  @override
   String get moveTo => '移動先';
 
   @override
   String get noClowderStrayOption => 'クラウダーなし — 野良猫／逃走';
+
+  @override
+  String get noClowderStrayOptionNeutral => '世帯なし — 野良／逃走';
 
   @override
   String timelineOf(String name) {
@@ -524,7 +617,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get forCats => '猫';
 
   @override
+  String get forCatsNeutral => 'ペット';
+
+  @override
   String get forClowders => 'クラウダー';
+
+  @override
+  String get forClowdersNeutral => '世帯';
 
   @override
   String get forBoth => '両方';
@@ -555,6 +654,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get searchByNameHint => '名前で猫を検索…';
+
+  @override
+  String get searchByNameHintNeutral => '名前でペットを検索…';
 
   @override
   String get host => 'ホスト';
@@ -643,6 +745,16 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return '経路: $name — $field（$count 件）';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return '経路: $name（位置 $count 件）';
+  }
+
+  @override
   String conflictOn(String field) {
     return '競合 — $field';
   }
@@ -674,7 +786,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get kindCat => '猫';
 
   @override
+  String get kindCatNeutral => 'ペット';
+
+  @override
   String get kindClowder => 'クラウダー';
+
+  @override
+  String get kindClowderNeutral => '世帯';
 
   @override
   String get kindField => '項目';
@@ -690,6 +808,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aboutTagline => '保護猫のためのローカルカタログ。データは端末に留まります — サーバーもアカウントも不要。';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'お世話しているペットのためのローカルカタログ。データは端末に留まります — サーバーもアカウントも不要。';
 
   @override
   String versionLabel(String version, String build) {
@@ -815,6 +937,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stepCat => '猫';
 
   @override
+  String get stepCatNeutral => 'ペット';
+
+  @override
   String get stepOwner => '飼い主';
 
   @override
@@ -830,10 +955,20 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stepOwnerHint => '猫を探している人。ここからその人のクラウダーができます（チラシの連絡先つき）。';
 
   @override
+  String get stepOwnerHintNeutral => 'ペットを探している人。ここからその人の世帯ができます（チラシの連絡先つき）。';
+
+  @override
   String get stepFaceHint => 'チラシから猫の顔を切り抜くとプロフィール写真になります。省略もできます。';
 
   @override
+  String get stepFaceHintNeutral => 'チラシからペットの顔を切り抜くとプロフィール写真になります。省略もできます。';
+
+  @override
   String get stepRegistryHint => 'チラシで見つかった番号。チェックしたものは猫に保存され、あとで開けます。';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'チラシで見つかった番号。チェックしたものはペットに保存され、あとで開けます。';
 
   @override
   String get noRegistryLinks => 'このチラシに登録サービスのリンクはありません。見落としがあればバグとして報告してください。';
@@ -880,24 +1015,48 @@ class AppLocalizationsJa extends AppLocalizations {
       'コロニーの一覧です。コロニーとは猫が暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとその猫が見えます。長押しでメニュー。右下のボタンで新しいコロニーを作成、野良カードには家のない猫がすべて集まります。 上の名前はいま開いているカタログです。タップすると切り替えや追加ができます。';
 
   @override
+  String get helpHomeNeutral =>
+      '世帯の一覧です。世帯とはペットが暮らす場所のこと（自宅、預かり先、保護施設など）。カードをタップするとそのペットが見えます。長押しでメニュー。右下のボタンで新しい世帯を作成、野良カードには家のないペットがすべて集まります。 上の名前はいま開いているカタログです。タップすると切り替えや追加ができます。';
+
+  @override
   String get helpClowder =>
-      'この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。 ここで追加する予定にはコロニーの複数の猫を含められます（例：去勢・避妊の通院）。一緒に行く猫にチェックを入れ、一度で完了し、処置されなかった猫のチェックを外します。';
+      'この場所のすべて：猫、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、猫を長押しすると移動・非表示・表示ができます。 ここで追加する予定にはコロニーの複数の猫を含められます（例：去勢・避妊の通院）。一緒に行く猫にチェックを入れ、一度で完了し、処置されなかった猫のチェックを外します。項目の時計アイコンで履歴が開きます。';
+
+  @override
+  String get helpClowderNeutral =>
+      'この場所のすべて：ペット、項目（住所・連絡先・種別）、履歴。最初は閲覧のみで、鉛筆で編集に切り替わり、そこで項目の追加もできます。項目を長押しすると直接編集、ペットを長押しすると移動・非表示・表示ができます。 ここで追加する予定には世帯の複数のペットを含められます（例：去勢・避妊の通院）。一緒に行くペットにチェックを入れ、一度で完了し、処置されなかったペットのチェックを外します。項目の時計アイコンで履歴が開きます。';
 
   @override
   String get helpCat =>
-      'この猫のすべて: 写真、フィールド、家族、履歴。鉛筆をタップするまでページは読み取り専用です。フィールドを長押しするとすぐ編集できます。写真を長押しするとそのメニューが開きます。右上のメニューに残りがあります: 非表示、統合、目撃の記録、猫の共有。「プライベート」はフィールド編集時に設定します。';
+      'この猫のすべて: 写真、フィールド、家族、履歴。鉛筆をタップするまでページは読み取り専用です。フィールドを長押しするとすぐ編集できます。写真を長押しするとそのメニューが開きます。右上のメニューに残りがあります: 非表示、統合、目撃の記録、猫の共有。「プライベート」はフィールド編集時に設定します。項目の時計アイコンで履歴が開きます。';
+
+  @override
+  String get helpCatNeutral =>
+      'このペットのすべて: 写真、フィールド、家族、履歴。鉛筆をタップするまでページは読み取り専用です。フィールドを長押しするとすぐ編集できます。写真を長押しするとそのメニューが開きます。右上のメニューに残りがあります: 非表示、統合、目撃の記録、ペットの共有。「プライベート」はフィールド編集時に設定します。項目の時計アイコンで履歴が開きます。';
 
   @override
   String get helpStrays =>
       'いま家のない猫：保護した猫、脱走した猫、チラシから登録した猫。カメラボタンは目の前の猫を記録、チラシボタンは迷子チラシを飼い主の連絡先つきの猫に変換、スキャナーはチラシの cat(a)log コードを読み取ります。 Stray Cam をタップすると写真、長押しすると動画を撮影し、良いフレームを写真として残せます。';
 
   @override
+  String get helpStraysNeutral =>
+      'いま家のないペット：保護した動物、脱走した動物、チラシから登録した動物。カメラボタンは目の前の動物を記録、チラシボタンは迷子チラシを飼い主の連絡先つきのペットに変換、スキャナーはチラシの cat(a)log コードを読み取ります。 Stray Cam をタップすると写真、長押しすると動画を撮影し、良いフレームを写真として残せます。';
+
+  @override
   String get helpMap =>
-      '位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。';
+      '位置がある猫と場所すべて。検索は猫・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子猫のチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。すべての場所項目は地図上にピンで表示されます。ピンをタップすると経路が見られます。';
+
+  @override
+  String get helpMapNeutral =>
+      '位置があるペットと場所すべて。検索はペット・人・地名に対応し、知らない名前は世界中から探します。レイヤーボタンは迷子ペットのチラシ地点と元いた家の周囲に500mの円を描きます。矢印はピンからピンへ移動、地図の長押しで目撃を記録します。すべての場所項目は地図上にピンで表示されます。ピンをタップすると経路が見られます。';
 
   @override
   String get helpCard =>
       'この猫の印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。';
+
+  @override
+  String get helpCardNeutral =>
+      'このペットの印刷用カード：上部のチップで載せる内容を選び、画像か PDF で共有します。番号は QR かバーコードで印刷でき、位置は地図を開く QR と短い Plus Code になります。';
 
   @override
   String get helpSync =>
@@ -908,6 +1067,10 @@ class AppLocalizationsJa extends AppLocalizations {
       'カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号は猫のページでタップできるようになります。';
 
   @override
+  String get helpFieldsNeutral =>
+      'カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号はペットのページでタップできるようになります。';
+
+  @override
   String get helpTimeline =>
       'これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。';
 
@@ -916,12 +1079,24 @@ class AppLocalizationsJa extends AppLocalizations {
       '同じものが二重に見える猫やコロニー：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。';
 
   @override
+  String get helpDuplicatesNeutral =>
+      '同じものが二重に見えるペットや世帯：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。';
+
+  @override
   String get helpMatches =>
       '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。';
 
   @override
+  String get helpMatchesNeutral =>
+      '同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。';
+
+  @override
   String get helpFlier =>
       '撮影したチラシから猫と飼い主ができます。手順：猫のデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。';
+
+  @override
+  String get helpFlierNeutral =>
+      '撮影したチラシからペットと飼い主ができます。手順：ペットのデータ、飼い主の連絡先、プロフィール写真用の顔の切り抜き、チラシの登録番号、最後に確認。すべて提案なので、カメラの読み違いは直してください。';
 
   @override
   String get archiveTitle => 'アーカイブ';
@@ -929,6 +1104,10 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get archiveExplainer =>
       '何年も触れられていない亡くなった猫や空のコロニーも容量を使います。とくに写真です。アーカイブは、それらを手元に残すファイルへ書き出してから、ここから削除します。';
+
+  @override
+  String get archiveExplainerNeutral =>
+      '何年も触れられていない亡くなったペットや空の世帯も容量を使います。とくに写真です。アーカイブは、それらを手元に残すファイルへ書き出してから、ここから削除します。';
 
   @override
   String get archiveAction => 'アーカイブ';
@@ -981,6 +1160,10 @@ class AppLocalizationsJa extends AppLocalizations {
       '古いデータは容量を使います。とくに、同期する端末すべてが持ち歩く写真です。ここでは何年も動きのない亡くなった猫や空のコロニーを選び、手元に残すファイルへ書き出してから削除します。削除は同期相手全員に伝わります。ファイルを取り込めばすべて復元できます。';
 
   @override
+  String get helpArchiveNeutral =>
+      '古いデータは容量を使います。とくに、同期する端末すべてが持ち歩く写真です。ここでは何年も動きのない亡くなったペットや空の世帯を選び、手元に残すファイルへ書き出してから削除します。削除は同期相手全員に伝わります。ファイルを取り込めばすべて復元できます。';
+
+  @override
   String restoreDeletedTitle(int count) {
     return '削除済みの $count 件を復元しますか？';
   }
@@ -1001,6 +1184,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get locateAddress => '住所を地図で探す';
+
+  @override
+  String get addressFoundTitle => '住所が見つかりました';
+
+  @override
+  String get replaceAddressOption => '住所をこれに置き換える';
+
+  @override
+  String get addPositionOption => '位置を保存する';
 
   @override
   String get addressLocated => '住所が見つかりました';
@@ -1033,6 +1225,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get markTitle => '猫に印を付ける';
 
   @override
+  String get markTitleNeutral => 'ペットに印を付ける';
+
+  @override
   String get applyCrop => '切り抜く';
 
   @override
@@ -1042,7 +1237,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dragToSelect => '猫の周りに四角形をドラッグ';
 
   @override
+  String get dragToSelectNeutral => 'ペットの周りに四角形をドラッグ';
+
+  @override
   String get dragOverTheCat => '猫の上に楕円をドラッグ';
+
+  @override
+  String get dragOverTheCatNeutral => 'ペットの上に楕円をドラッグ';
 
   @override
   String get cropPhoto => 'トリミング…';
@@ -1107,6 +1308,74 @@ class AppLocalizationsJa extends AppLocalizations {
   String get language => '言語';
 
   @override
+  String get typeUnitValue => '単位付きの値';
+
+  @override
+  String get dimension => '種類';
+
+  @override
+  String get dimensionWeight => '体重';
+
+  @override
+  String get dimensionLength => '長さ';
+
+  @override
+  String get dimensionVolume => '容量';
+
+  @override
+  String get dimensionTemperature => '体温';
+
+  @override
+  String get unitsLabel => '単位';
+
+  @override
+  String get catalogHolds => 'このカタログの対象';
+
+  @override
+  String get modeCats => '猫';
+
+  @override
+  String get modePets => 'ペット';
+
+  @override
+  String get graphLabel => 'グラフ';
+
+  @override
+  String get fieldHistoryTooltip => '履歴';
+
+  @override
+  String get rangeWeek => '週';
+
+  @override
+  String get rangeMonth => '月';
+
+  @override
+  String get rangeYear => '年';
+
+  @override
+  String get rangeAll => 'すべて';
+
+  @override
+  String get rangeCustom => 'カスタム…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$date から $delta';
+  }
+
+  @override
+  String get unitsAuto => '地域に合わせる';
+
+  @override
+  String get unitsMetric => 'メートル法（kg、cm、ml、°C）';
+
+  @override
+  String get unitsImperial => 'ヤード・ポンド法（lb、in、fl oz、°F）';
+
+  @override
+  String get starterWeight => '体重';
+
+  @override
   String get systemDefault => 'システムの既定';
 
   @override
@@ -1153,6 +1422,30 @@ class AppLocalizationsJa extends AppLocalizations {
   String get valueCat => '猫';
 
   @override
+  String get valueDog => '犬';
+
+  @override
+  String get valueRabbit => 'ウサギ';
+
+  @override
+  String get valueGuineaPig => 'モルモット';
+
+  @override
+  String get valueHamster => 'ハムスター';
+
+  @override
+  String get valueBird => '鳥';
+
+  @override
+  String get valueHorse => '馬';
+
+  @override
+  String get valueTortoise => 'カメ';
+
+  @override
+  String get valueFerret => 'フェレット';
+
+  @override
   String get otherOption => 'その他…';
 
   @override
@@ -1160,6 +1453,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get celebrationsSubtitle => '猫がおうちに移るときに紙吹雪と歓声';
+
+  @override
+  String get celebrationsSubtitleNeutral => 'ペットがおうちに移るときに紙吹雪と歓声';
 
   @override
   String get onMapLabel => '地図上';
@@ -1175,6 +1471,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mapSearchHint => '猫・グループ・人を検索';
+
+  @override
+  String get mapSearchHintNeutral => 'ペット・世帯・人を検索';
 
   @override
   String get proposeAnotherName => '別の名前を提案';
@@ -1232,8 +1531,68 @@ class AppLocalizationsJa extends AppLocalizations {
   String get summaryConflicts => '要解決の競合';
 
   @override
-  String summaryOther(Object n) {
-    return '…他 $n 件の変更';
+  String conflictsMenu(int n) {
+    return '競合 ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve => 'ここで競合を解決したため「拒否」は使えません。解決も取り消されてしまうからです。';
+
+  @override
+  String get arrivalIntro => 'これらの変更はすでにカタログに入っています。「拒否」で元の状態に戻します。';
+
+  @override
+  String get summaryUpdated => '更新';
+
+  @override
+  String get summaryDeleted => '削除';
+
+  @override
+  String get keepMine => '自分のを保持';
+
+  @override
+  String keptMine(String name) {
+    return '$name はこの端末ではあなたの版を保持しました。';
+  }
+
+  @override
+  String get summaryMeta => 'その他の到着';
+
+  @override
+  String changesCount(int n) {
+    return '$n件の変更';
+  }
+
+  @override
+  String get acceptArrival => '受け入れる';
+
+  @override
+  String get rejectArrival => '拒否';
+
+  @override
+  String get photoAdded => '写真が追加されました';
+
+  @override
+  String get photoRemoved => '写真が削除されました';
+
+  @override
+  String metaFieldAdded(String name) {
+    return '新しい項目: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return '項目が変更されました: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser を $survivor に統合';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    return '$n枚の写真';
   }
 
   @override
@@ -1253,6 +1612,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get kittensLabel => '子猫';
+
+  @override
+  String get kittensLabelNeutral => '子ども';
 
   @override
   String get toastSettingsTitle => 'お知らせする内容';
@@ -1283,6 +1645,11 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ 新しい子猫: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ 新しい子ども: $cat ✨';
   }
 
   @override
@@ -1368,11 +1735,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectClowderHint => '左からグループを選択してください';
 
   @override
+  String get selectClowderHintNeutral => '左から世帯を選択してください';
+
+  @override
   String get introTitle1 => '猫たちを整理整頓';
+
+  @override
+  String get introTitle1Neutral => 'ペットたちを整理整頓';
 
   @override
   String get introBody1 =>
       '世話している猫ごとにカードを作りましょう：写真、性別、健康状態など、記録したいことは何でも。猫は住んでいる場所ごとにまとまります。アプリではその場所をクラウダー（clowder）と呼びます。';
+
+  @override
+  String get introBody1Neutral =>
+      'お世話しているペットごとにカードを作りましょう：写真、性別、健康状態など、記録したいことは何でも。ペットは住んでいる場所ごとにまとまります。アプリではその場所を世帯と呼びます。';
 
   @override
   String get introTitle2 => 'ネットなしで動く';
@@ -1407,35 +1784,66 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotHomeStrays => 'このカードには野良猫（家のない猫）が集まります。タップで一覧を表示。';
 
   @override
-  String get spotHomeMenu => 'このメニューでは：重複の検索と統合、CSVエクスポートなど。';
+  String get spotHomeStraysNeutral => 'このカードには野良（家のないペット）が集まります。タップで一覧を表示。';
+
+  @override
+  String get spotHomeMenu => 'このメニューには設定、重複の検出と統合、CSV書き出しなどがあります。';
 
   @override
   String get spotCatEdit => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
 
   @override
+  String get spotCatEditNeutral => '鉛筆をタップして編集。ヒント：項目を長押しすると直接編集できます。';
+
+  @override
   String get spotMapLayers => '迷子猫を探していますか？チラシがあった場所と、元いた家の周りに円を表示できます。';
+
+  @override
+  String get spotMapLayersNeutral =>
+      '迷子ペットを探していますか？チラシがあった場所と、元いた家の周りに円を表示できます。';
 
   @override
   String get spotStraysFlier => '迷子猫のチラシを見つけたら、ここで撮影。猫と連絡先をアプリが保存します。';
 
   @override
+  String get spotStraysFlierNeutral =>
+      '迷子ペットのチラシを見つけたら、ここで撮影。ペットと連絡先をアプリが保存します。';
+
+  @override
   String get spotStraysScan => 'cat(a)log のQRコード付きチラシは、ここでスキャンすれば入力なしで取り込めます。';
 
   @override
+  String get spotStraysScanNeutral =>
+      'cat(a)log のQRコード付きチラシは、ここでスキャンすれば入力なしでペットを取り込めます。';
+
+  @override
   String get introTitle4 => '迷子猫を探す';
+
+  @override
+  String get introTitle4Neutral => '迷子ペットを探す';
 
   @override
   String get introBody4 =>
       '迷子猫のチラシを見つけたら、アプリで撮影を。猫、飼い主の連絡先、場所が保存されます。後で似た野良猫が現れたら、アプリが候補を提案します。';
 
   @override
+  String get introBody4Neutral =>
+      '迷子ペットのチラシを見つけたら、アプリで撮影を。ペット、飼い主の連絡先、場所が保存されます。後で似た野良が現れたら、アプリが候補を提案します。';
+
+  @override
   String get spotMapSearch => '猫・場所・人を入力すると、地図上のその場所へジャンプします。';
+
+  @override
+  String get spotMapSearchNeutral => 'ペット・場所・人を入力すると、地図上のその場所へジャンプします。';
 
   @override
   String get spotCardChips => '共有カードに載せる項目にチェックを。それ以外は載りません。';
 
   @override
   String get spotCatMenu => 'ここには他の操作があります: 猫を非表示、重複を統合、目撃を記録。';
+
+  @override
+  String get spotCatMenuNeutral => 'ここには他の操作があります: ペットを非表示、重複を統合、目撃を記録。';
 
   @override
   String get spotDone => 'OK';
@@ -1451,6 +1859,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get searchNoResults => 'その名前の猫は見つかりません';
+
+  @override
+  String get searchNoResultsNeutral => 'その名前のペットは見つかりません';
 
   @override
   String get syncUnreachable => '相手の端末に接続できません。両方とも同じ Wi-Fi ですか？';
@@ -1497,7 +1908,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'カタログはそれぞれ独立した世界です。猫もコロニーも項目も写真も同期相手も別々で、ベルリンとパリが混ざることはありません。ホーム画面上部の名前をタップすると、切り替え・追加・名前の変更ができます。あなたの名前、言語、見終わったヒントはすべてのカタログで共通です。';
+      'カタログはそれぞれ独立した世界です。猫、コロニー、項目、写真、同期相手はすべて固有のもので、ベルリンとパリが混ざることはありません。カタログをタップすると切り替わります。カタログの歯車を押すとその設定が開きます：名前、猫かペットか、項目、作成者とブロック、アーカイブ、戻る、削除。あなたの名前、言語、すでに見たヒントはすべてのカタログで共通です。';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'カタログはそれぞれ独立した世界です。ペット、世帯、項目、写真、同期相手はすべて固有のもので、ベルリンとパリが混ざることはありません。カタログをタップすると切り替わります。カタログの歯車を押すとその設定が開きます：名前、猫かペットか、項目、作成者とブロック、アーカイブ、戻る、削除。あなたの名前、言語、すでに見たヒントはすべてのカタログで共通です。';
+
+  @override
+  String get helpCatalogSettings =>
+      'このカタログだけに属するもの：名前、猫かペットか、項目、作成者とブロック、アーカイブ、時間を戻す。ここでの変更はこのカタログだけに及びます。今開いていないカタログでも同じです。削除の前にカタログはファイルに書き出されます。';
 
   @override
   String get spotHomeCatalog => 'いま開いているカタログです。名前をタップすると切り替えや新規作成ができます。';
@@ -1506,8 +1925,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteCatalog => 'カタログを削除';
 
   @override
+  String get catalogSettings => 'カタログの設定';
+
+  @override
   String deleteCatalogBody(String name) {
-    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。';
+    return '$name の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return '$name の中身はすべて消えます。ペットも写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。';
   }
 
   @override
@@ -1633,6 +2060,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get agendaEmpty => '計画した予定はありません。ここのプラス、または猫やクラウダーのページで新しい予定を計画できます。';
 
   @override
+  String get agendaEmptyNeutral =>
+      '計画した予定はありません。ここのプラス、またはペットや世帯のページで新しい予定を計画できます。';
+
+  @override
   String get dueToday => '今日';
 
   @override
@@ -1719,6 +2150,14 @@ class AppLocalizationsJa extends AppLocalizations {
       '相手の端末は新しい cat(a)log です。この端末で cat(a)log を更新して、もう一度同期してください。';
 
   @override
+  String get syncPeerNoTls =>
+      '相手の端末は 1.1.0 より前の cat(a)log で、暗号化同期がありません。そちらで cat(a)log を更新して、もう一度同期してください。';
+
+  @override
+  String get syncWrongHost =>
+      '証明書がペアコードと一致しません — コードの出どころの端末ではありません。コードをもう一度読み取るか入力してください。';
+
+  @override
   String get bundleNewerError =>
       'このファイルは新しい cat(a)log のものです。読み込むには、この端末の cat(a)log を更新してください。';
 
@@ -1777,6 +2216,10 @@ class AppLocalizationsJa extends AppLocalizations {
       '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップで猫やクラウダーを開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数の猫での通院は1つの予定です。猫にチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどの猫が処置されたか尋ねられます。処置されなかった猫はチェックを外すと予定のまま残ります。';
 
   @override
+  String get helpAgendaNeutral =>
+      '予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。';
+
+  @override
   String get calendarRowOff => 'カレンダー：オフ';
 
   @override
@@ -1788,7 +2231,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spotAddReminderCat => 'この猫の予定を計画します。予定表に表示され、そこで確定します。';
 
   @override
+  String get spotAddReminderCatNeutral => 'このペットの予定を計画します。予定表に表示され、そこで確定します。';
+
+  @override
   String get spotAddReminderClowder => 'このクラウダーの予定を計画します。予定表に表示され、そこで確定します。';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'この世帯の予定を計画します。予定表に表示され、そこで確定します。';
 
   @override
   String get readOnlyCalendar => '読み取り専用';
@@ -1891,7 +2341,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get existingCat => '既存の猫';
 
   @override
+  String get existingCatNeutral => '既存のペット';
+
+  @override
   String get existingClowder => '既存のグループ';
+
+  @override
+  String get existingClowderNeutral => '既存の世帯';
 
   @override
   String get createNewInstead => 'なし — 新規作成';
@@ -1917,10 +2373,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get catsOnAppointment => 'この予定の猫';
 
   @override
+  String get catsOnAppointmentNeutral => 'この予定のペット';
+
+  @override
   String get noCatsHint => '猫が選ばれていません — この予定はコロニー自体のものです。';
 
   @override
+  String get noCatsHintNeutral => 'ペットが選ばれていません — この予定は世帯自体のものです。';
+
+  @override
   String get pickCatsTitle => 'どの猫が一緒に行きますか？';
+
+  @override
+  String get pickCatsTitleNeutral => 'どのペットが一緒に行きますか？';
 
   @override
   String catsCount(int count) {
@@ -1928,10 +2393,23 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count匹のペット';
+  }
+
+  @override
   String get finishUntickHint => '処置されなかった猫のチェックを外してください。予定のまま残ります。';
 
   @override
+  String get finishUntickHintNeutral => '処置されなかったペットのチェックを外してください。予定のまま残ります。';
+
+  @override
   String deleteAppointmentGroup(int count) {
+    return '$count匹すべての予定を削除';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
     return '$count匹すべての予定を削除';
   }
 }

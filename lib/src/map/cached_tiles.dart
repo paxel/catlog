@@ -90,8 +90,17 @@ class _CachedTileImage extends ImageProvider<_CachedTileImage> {
 
   @override
   ImageStreamCompleter loadImage(
-          _CachedTileImage key, ImageDecoderCallback decode) =>
-      OneFrameImageStreamCompleter(_load(decode));
+      _CachedTileImage key, ImageDecoderCallback decode) {
+    final future = _load(decode);
+    final completer = OneFrameImageStreamCompleter(future);
+    // A pan drops the tile before its download lands; without a handle
+    // the stream disposes itself and the arriving image throws "Stream
+    // has been disposed". The handle lives exactly as long as the load;
+    // the completer's own then() runs first, so the image still lands.
+    final handle = completer.keepAlive();
+    future.whenComplete(handle.dispose);
+    return completer;
+  }
 
   Future<ImageInfo> _load(ImageDecoderCallback decode) async {
     Uint8List bytes;

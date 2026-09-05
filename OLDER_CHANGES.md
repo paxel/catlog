@@ -2,6 +2,220 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.1.1] - 2026-09-05
+
+### Added
+
+- A "Conflicts (N)" entry in the main menu while fields changed in two
+  places at once are still unsettled; it lists them and each one is
+  resolved on the spot.
+- A history button on a cat's or home's field once it has held two or
+  more values (and has no graph): the values as a diary, newest first,
+  with date and author. Reverting stays on the edit-mode timeline.
+- Location fields you add yourself pin on the map, as a neutral pin
+  with the field's name. Every location has a trail: tap a pin, or
+  open the map from the field's row; the dots along the trail show
+  date and author when tapped. Homes have trails too.
+
+### Changed
+
+- "Find address on the map" no longer writes silently: a dialog shows
+  the place it found and asks whether to save the location and whether
+  to replace the typed address with the found wording.
+- Language, units, celebrations, notifications and the tutorial
+  replays moved from the menu and the About page into a Settings page
+  in the main menu.
+- Each catalog has its own settings page, opened from its row in the
+  catalog switcher: name, cats or pets, fields, authors and bans,
+  archive, go back, delete. It works on that catalog whether or not you
+  are in it. Those items left the menu, the About page and the top of
+  the switcher.
+- Deleting a catalog or a person's data asks you to type the word
+  shown (DELETE, in your language) instead of the full name.
+- Map pins point at their spot: a tip under the face sits on the exact
+  coordinate, for cats, posters, homes and grouped pins alike.
+- Tapping a home's pin on the map shows its trail, like a cat's; the
+  home's page opens from the trail bar's Open button.
+- After a sync or import, a full page shows what arrived instead of a
+  sheet with "N other changes": new cats and homes, updated ones with
+  their effective changes (value before, value now), conflicts to
+  resolve on the spot, and what else came along (fields, merges,
+  photos). Accept keeps it; Reject puts the catalog back as it was.
+  In-person sync can be rejected too. A partner's deletion of a cat
+  or home you have is listed under Deleted; "Keep mine" on a deleted
+  or updated row keeps your version on this device without touching
+  the partner's catalog, and it stays kept over later syncs. Cats and
+  homes hidden on this device are not announced.
+
+### Fixed
+
+- Panning the map away from a still-loading tile no longer records a
+  crash when the tile arrives.
+- The pair code shown for an in-person sync wraps into short lines,
+  each in its own colour, instead of running off the screen.
+- The fur coat behind a page scrolls with the page instead of staying
+  put under the moving content, and each page keeps its own position
+  when you come back to it.
+
+## [1.1.0] - 2026-08-31
+
+### Added
+
+- Pet mode: on the catalogs page, "This catalog holds: Cats / Pets".
+  A pets catalog speaks of pets and households instead of cats and
+  clowders, shows a paw for an animal without a photo, and proposes
+  neutral names. The choice syncs with the catalog; nothing in the
+  data changes. The neutral wording exists in all 38 languages.
+- Species is a choice with presets — cat, dog, rabbit, guinea pig,
+  hamster, bird, horse, tortoise, ferret, or your own word. In pet
+  mode, adding an animal asks for it, starting from the one you picked
+  last.
+- Breed follows the species: a dog is offered dog breeds, a rabbit
+  rabbit breeds, and a breed you type for one species is offered again
+  for that species only. Cats keep the breed list as it is.
+- A "unit value" field type: pick what it measures — weight, length,
+  volume or temperature — and enter and read it in your units (metric
+  or imperial, from your region or chosen under Units in the menu)
+  while partners see theirs. Weight is ready on every animal.
+- A graph for any number or unit-value field with two or more values:
+  the icon on the field's row opens it — week, month, year, all or a
+  range of your own, the change since the previous value, lowest,
+  highest and latest marked, the animal's appointments as ticks.
+
+### Changed
+
+- The pages sit on a quiet fur coat instead of a plain surface: beige
+  on beige (dark on dark at night), one of six patterns — cheetah,
+  tiger, tabby, paw prints, leopard rosettes, zebra — picked anew each
+  time the app opens.
+
+- "Possible stray area" on the map is a dialog with an OK button
+  instead of a sheet that could only be closed by tapping beside it.
+
+### Fixed
+
+- On iPhone and iPad, holding Stray Cam to film no longer closes the
+  app: filming needs a microphone entry iOS insists on. The sound is
+  thrown away; only the frames you pick are kept.
+- Joining in-person sync without Wi-Fi says "Connect to a Wi-Fi first"
+  right away, instead of a silent 25-second wait with the answer
+  hidden below the fold.
+
+### Security
+
+- In-person sync runs over TLS: the host uses a certificate made once
+  on the device, the pair code carries its fingerprint (all of it in
+  the QR, the first part in the typed code), and the joiner accepts no
+  other. Nobody on the same Wi-Fi reads what passes any more. Both
+  devices need 1.1.0; an older partner is named as such.
+
+## [1.0.7] - 2026-08-30
+
+### Changed
+
+- Stray Cam, the camera and gallery picker, the code scanner, "my
+  location", printing, sharing and links run one at a time: a second
+  press while one is still working does nothing, and the Stray Cam
+  button shows a spinner meanwhile. A plugin error shows its message
+  instead of a crash. The Strays help explains tap versus press-and-hold
+  on Stray Cam.
+
+### Security
+
+- A shared file or a sync partner can no longer plant entries under
+  this device's own id, which would have made partners skip its real
+  changes.
+- Registry lookup links open only web addresses; a template pointing at
+  `sms:`, `tel:` or an app scheme is ignored.
+- Imports, syncs and share downloads refuse files and photos far above
+  the sizes the app writes, instead of unpacking them into memory.
+- In-person sync listens on the Wi-Fi connection only, and an address
+  that sends five wrong PINs is locked out for that session.
+- "Always allow this device" now rests on a secret the host hands the
+  device, not on the device's own name for itself; devices remembered
+  by older versions are asked once more.
+- Files on their way to a share sheet or the backup folder are written
+  to a private, short-lived directory and deleted afterwards.
+- The catalogs are excluded from Android and iCloud device backups, as
+  the privacy text promises.
+- A photo name inside a shared file or from a sync partner can no
+  longer point outside the catalog's image folder — reading or
+  deleting a photo needs a real hash.
+
+### Fixed
+
+- Backups, shared files and archives with many photos no longer need
+  twice the photos' size in memory while being written — the automatic
+  backup on leaving the app could kill it on a phone with a big catalog.
+- Restoring or importing a file with many photos reads it photo by
+  photo instead of unpacking everything into memory first.
+- A sync partner that dropped the connection mid-transfer could crash
+  the hosting device.
+- A photo mentioned in the log that nobody holds any more no longer
+  makes every sync between the devices fail; a problem while fetching
+  photos no longer hides that the entries arrived.
+- "Resync calendar" waits for a running mirror pass, and a pass cut
+  off by a catalog switch removes the events it had just created —
+  two more ways duplicates could appear.
+- Going back to an earlier moment refuses if the catalog changed while
+  its file was being saved, so nothing that arrived meanwhile is lost.
+- Moving a cat or clowder to another catalog writes all of it or
+  nothing on the receiving side.
+- Folder sync skips a partner file a cloud client is still writing
+  instead of stopping at it.
+- A photo taken or shared while the catalog was switched away is
+  dropped instead of crashing on the closed catalog; archiving checks
+  the same before deleting.
+- Two files opened in quick succession are imported one after the
+  other instead of stacking two catalog dialogs.
+- On the in-person sync page, a second tap on Host during startup does
+  nothing, and backing out mid-start stops the server and hotspot.
+- The card decodes its photo at card size; the image behind "share as
+  picture" is released after use; the clowder card's PDF carries 240 px
+  roster thumbnails instead of full photos.
+- The flier wizard's thumbnails and the share preview are decoded at
+  their display size.
+- The map's tile folder is trimmed to 200 MB, oldest tiles first.
+- A typed pair code pointing outside the local network is refused
+  before anything is sent; a sync partner can only send photos the
+  catalog mentions; an image whose header claims more than 40 million
+  pixels is refused before decoding; map tiles are capped and cached
+  only once they decoded.
+- Files shared into the app get unique names and are deleted after the
+  import.
+- Photos of a switched-away catalog leave memory at once; a calendar
+  that never answers releases the mirror after two minutes; the map
+  and the celebration sound release what they hold.
+- Two joiners at once are served one after the other; the automatic
+  backup runs once per pause; imports, merges, the flier wizard's save
+  and appointment groups land as one transaction; a photo file is
+  written completely or not at all; the catalog list waits while a
+  catalog is being written out for deletion.
+- A location fix that never arrives gives up after 20 seconds with "no
+  fix" instead of waiting for the rest of the session.
+- An error from the phone's calendar during the mirror switched the app
+  to the crash screen on every start; the mirror now turns itself off
+  and shows the calendar's message.
+- The crop screen after taking a photo decoded the full camera file
+  twice; it now reads the size from the header and shows a screen-size
+  preview.
+- Clowder pins on the map decoded their photo at full size on every
+  redraw.
+- Photos shared into the app are read one at a time instead of all at
+  once.
+- "Stream has been disposed" while many photos were on screen (an iPad
+  with a wide layout): a photo keeps the same image identity even after
+  the small cache let it go.
+
+- Pressing Stray Cam again while the GPS fix was still pending crashed
+  the app on return from the camera ("Image picker is already active").
+- Scrubbing through a filmed video on an iPad could end in "Stream has
+  been disposed": the frame picker now keeps one image per frame and
+  decodes a preview before showing it.
+- Filming with Stray Cam (press and hold) killed the app on iPhones:
+  the frame picker held a dozen full-size frames at once. It now works
+  at preview size and fetches only the kept frames at photo size.
+
 ## [1.0.6] - 2026-08-29
 
 ### Added

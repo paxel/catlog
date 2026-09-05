@@ -35,6 +35,8 @@ import 'photo_edit_screen.dart';
 import 'map_screen.dart';
 import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
+import 'field_graph_screen.dart';
+import 'field_history_screen.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
@@ -95,11 +97,18 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
+  /// Frames from a video landing one by one: (done, total) while it
+  /// runs, null otherwise.
+  (int, int)? _adding;
+
   Future<void> _addPhoto() async {
     // Refresh unconditionally: even a canceled or half-failed add must
     // leave the grid showing exactly what the store holds.
-    await addPhotosViaSheet(context, store, id);
-    if (mounted) setState(() {});
+    await addPhotosViaSheet(context, store, id, onProgress: (done, total) {
+      if (!mounted) return;
+      setState(() => _adding = done < total ? (done, total) : null);
+    });
+    if (mounted) setState(() => _adding = null);
   }
 
   Future<void> _move() async {
@@ -165,6 +174,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
       return;
     }
     store.append(id, def.key, edit.value, date: edit.date);
+    if (def.slug == 'breed') store.learnBreed(id, edit.value);
     if (edit.private != store.isFieldPrivate(id, def.key)) {
       store.setFieldPrivate(id, def.key, edit.private);
     }
@@ -172,7 +182,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
-  void _showOnMap(String value) {
+  void _showOnMap(FieldDef def, String value) {
     final pos = CatalogStore.parsePosition(value);
     if (pos == null) return;
     Navigator.of(context).push(
@@ -181,8 +191,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           store: store,
           initialCenter: LatLng(pos.$1, pos.$2),
           // The spot the page asked for gets a pin, whatever the map's
-          // own rules say (#88).
+          // own rules say (#88) — and its trail, once there is one.
           focus: (id, LatLng(pos.$1, pos.$2)),
+          trailOf: hasValueHistory(store, id, def.key) ? (id, def.key) : null,
         ),
       ),
     );
@@ -599,6 +610,14 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
               onHistory: (def) => _openTimeline(field: def.key),
               onShowMap: _showOnMap,
               onLookup: (def, value) => openLookup(context, def, value),
+      onGraph: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldGraphScreen(store: store, entityId: id, def: def),
+      )),
+      onValueHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldHistoryScreen(store: store, entityId: id, def: def),
+      )),
               // Long-press in read mode: jump into edit mode with the
               // field's editor open — fix what you just spotted (#46).
               onReadLongPress: (def) {
@@ -695,6 +714,15 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                 );
               },
             ),
+            if (_adding case (final done, final total))
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: Column(children: [
+                  Text(context.t.addingPhotos(done + 1, total)),
+                  const SizedBox(height: 6),
+                  LinearProgressIndicator(value: done / total),
+                ]),
+              ),
             const SizedBox(height: 80),
           ],
         ),

@@ -12,8 +12,32 @@ class PairInfo {
   final String host;
   final int port;
   final String pin;
-  const PairInfo(this.host, this.port, this.pin);
+
+  /// The host certificate's SHA-256 fingerprint, or its first bytes in
+  /// a typed code (#92); null in a code from a version before TLS.
+  final List<int>? fingerprint;
+  const PairInfo(this.host, this.port, this.pin, {this.fingerprint});
 }
+
+/// How much of the fingerprint a typed code carries: enough against a
+/// sniffer on the same network, short enough to type.
+const typedFingerprintBytes = 8;
+
+/// A whole SHA-256 fingerprint, as the QR carries it.
+const fullFingerprintBytes = 32;
+
+/// How many base32 characters a code of [addressBytes] + port + PIN +
+/// [fingerprintBytes] takes — five bits per character, rounded up.
+int pairCodeLength(int addressBytes, int fingerprintBytes) =>
+    ((addressBytes + 5 + fingerprintBytes) * 8 + 4) ~/ 5;
+
+/// Character count → (address bytes, fingerprint bytes) for every
+/// shape a code can have; decoding tells them apart by length alone.
+final Map<int, (int, int)> _shapes = {
+  for (final address in const [4, 16])
+    for (final fp in const [0, typedFingerprintBytes, fullFingerprintBytes])
+      pairCodeLength(address, fp): (address, fp),
+};
 
 /// Whether [host] is an address on a local network — the only place
 /// an in-person sync partner can be. A typed code carrying a public
@@ -32,17 +56,24 @@ bool isPrivateHost(String host) {
       a == 127;
 }
 
-String encodePairCode(String host, int port, String pin) {
+String encodePairCode(String host, int port, String pin,
+    {List<int>? fingerprint, bool typed = false}) {
   final address = InternetAddress(host);
   final pinNumber = int.parse(pin);
   final raw = address.rawAddress;
-  final bytes = Uint8List(raw.length + 5)
+  final fp = fingerprint == null
+      ? const <int>[]
+      : typed
+          ? fingerprint.take(typedFingerprintBytes).toList()
+          : fingerprint;
+  final bytes = Uint8List(raw.length + 5 + fp.length)
     ..setAll(0, raw)
     ..[raw.length] = port >> 8
     ..[raw.length + 1] = port & 0xff
     ..[raw.length + 2] = pinNumber >> 16
     ..[raw.length + 3] = (pinNumber >> 8) & 0xff
-    ..[raw.length + 4] = pinNumber & 0xff;
+    ..[raw.length + 4] = pinNumber & 0xff
+    ..setAll(raw.length + 5, fp);
   return _group(_toBase32(bytes));
 }
 
@@ -57,11 +88,15 @@ PairInfo? decodePairCode(String input) {
       .replaceAll('l', '1')
       .replaceAll('o', '0')
       .replaceAll('u', 'v');
-  if (cleaned.length != 15 && cleaned.length != 34) return null;
   final bytes = _fromBase32(cleaned);
   if (bytes == null) return null;
-  final addressLength = cleaned.length == 15 ? 4 : 16;
-  if (bytes.length < addressLength + 5) return null;
+  // 4 or 16 address bytes, port, PIN, then no / typed / full
+  // fingerprint bytes — base32 pads to a byte boundary, so the shape
+  // is matched by the character count.
+  final shape = _shapes[cleaned.length];
+  if (shape == null) return null;
+  final (addressLength, fpLength) = shape;
+  if (bytes.length < addressLength + 5 + fpLength) return null;
   final address = InternetAddress.fromRawAddress(
       Uint8List.fromList(bytes.sublist(0, addressLength)));
   final port = (bytes[addressLength] << 8) | bytes[addressLength + 1];
@@ -69,8 +104,11 @@ PairInfo? decodePairCode(String input) {
       (bytes[addressLength + 3] << 8) |
       bytes[addressLength + 4];
   if (port == 0 || pin > 999999) return null;
-  return PairInfo(
-      address.address, port, pin.toString().padLeft(6, '0'));
+  final fp = fpLength == 0
+      ? null
+      : bytes.sublist(addressLength + 5, addressLength + 5 + fpLength);
+  return PairInfo(address.address, port, pin.toString().padLeft(6, '0'),
+      fingerprint: fp);
 }
 
 /// xxxxx_xxxxx_xxxxx grouping for readability.

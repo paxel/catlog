@@ -7,6 +7,7 @@ import 'package:catalog_core/catalog_core.dart';
 
 import 'package:flutter/foundation.dart';
 import 'dart:async';
+import 'tls.dart';
 
 /// Outcome of one sync session, for the summary line.
 class SyncResult {
@@ -18,9 +19,12 @@ class SyncResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
+  /// The moment before [applied] went in — what Reject returns to.
+  final Moment? moment;
+
   const SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
       this.blobsReceived,
-      {this.applied = const []});
+      {this.applied = const [], this.moment});
 
   @override
   String toString() =>
@@ -41,8 +45,10 @@ const _formatHeader = 'x-catlog-format';
 /// entries carry the reminder flag. A pre-1.0.0 peer would silently
 /// strip the flag and record plans as facts, so both sides refuse a
 /// format-1 peer instead of corrupting it — with a message naming the
-/// fix (update the other device).
-const syncFormat = 2;
+/// fix (update the other device). Format 3 (1.1.0, #92): the session
+/// runs over TLS; the payload is format 2's, so a format-2 joiner is
+/// served while no reminder exists and refused as older once one does.
+const syncFormat = 3;
 
 /// Hosts a sync session on the LAN: a small HTTP server the joiner
 /// drives. The PIN gates every request — it prevents accidents in a
@@ -83,7 +89,8 @@ class LanSyncHost {
 
   /// Called after a joiner completed a session; receives what actually
   /// landed, so the host can show the import summary too.
-  final void Function(List<Entry> applied)? onSession;
+  /// A joiner has synced: what arrived here, and the moment before it.
+  final void Function(List<Entry> applied, Moment? moment)? onSession;
 
   HttpServer? _server;
   final _failures = <String, int>{};
@@ -93,7 +100,14 @@ class LanSyncHost {
   /// would stack two trust dialogs and interleave their imports.
   Future<void> _syncTurn = Future.value();
 
-  LanSyncHost(this.store, this.pin, {this.onJoinRequest, this.onSession});
+  /// The certificate the host serves with; its fingerprint goes into
+  /// the pair code (#92).
+  final TlsIdentity identity;
+
+  LanSyncHost(this.store, this.pin,
+      {required this.identity, this.onJoinRequest, this.onSession});
+
+  Uint8List get fingerprint => identity.fingerprint;
 
   int get port => _server!.port;
 
@@ -116,7 +130,7 @@ class LanSyncHost {
       }
     }
     address ??= InternetAddress.loopbackIPv4;
-    _server = await HttpServer.bind(address, 0);
+    _server = await HttpServer.bindSecure(address, 0, identity.context);
     _server!.listen(_handle, onError: (_) {});
     return address.address;
   }
@@ -235,7 +249,7 @@ class LanSyncHost {
         final before = store.currentSeq();
         final applied =
             store.applyEntries(incoming, senderVector: joinerVector);
-        momentFor(store,
+        final moment = momentFor(store,
             before: before,
             changed: applied.isNotEmpty,
             cause: MomentCause.sync,
@@ -250,7 +264,7 @@ class LanSyncHost {
           'wantBlobs': store.missingBlobs(),
           'trust': ?issued,
         }));
-        onSession?.call(applied);
+        onSession?.call(applied, moment);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
         final bytes = store.imageBytes(path.substring('/blob/'.length));
         if (bytes == null) {
@@ -303,15 +317,32 @@ Future<Uint8List?> _readBody(HttpRequest req, int limit) async {
 /// directions, then photos both directions.
 Future<SyncResult> lanSync(
     CatalogStore store, String host, int port, String pin,
-    {bool includePrivate = false}) async {
+    {required List<int> fingerprint, bool includePrivate = false}) async {
   // Generous timeout: on iOS the first-ever local connection blocks on
   // the Local Network permission prompt until the user answers it.
-  final client = HttpClient()..connectionTimeout = const Duration(seconds: 25);
+  // The host's self-signed certificate is accepted only when it is the
+  // one the pair code named (#92).
+  var wrongCertificate = false;
+  final client = HttpClient()
+    ..connectionTimeout = const Duration(seconds: 25)
+    ..badCertificateCallback = (cert, _, _) {
+      final ok = certificateMatches(cert, fingerprint);
+      if (!ok) wrongCertificate = true;
+      return ok;
+    };
   try {
     var hostFormat = 1;
     Future<dynamic> call(String method, String path,
         {Object? body, void Function(HttpHeaders)? onHeaders}) async {
-      final req = await client.openUrl(method, Uri.parse('http://$host:$port$path'));
+      final HttpClientRequest req;
+      try {
+        req = await client.openUrl(
+            method, Uri.parse('https://$host:$port$path'));
+      } on HandshakeException {
+        // Either the certificate is not the one the code named, or the
+        // other side speaks no TLS at all: a version before 1.1.0.
+        throw SyncException(wrongCertificate ? 'wrong-host' : 'peer-no-tls');
+      }
       req.headers.set(_pinHeader, pin);
       if (body is Map) {
         req.headers.contentType = ContentType.json;
@@ -404,7 +435,7 @@ Future<SyncResult> lanSync(
     final beforeApply = store.currentSeq();
     final applied =
         store.applyEntries(received, senderVector: hostVector);
-    momentFor(store,
+    final moment = momentFor(store,
         before: beforeApply,
         changed: applied.isNotEmpty,
         cause: MomentCause.sync,
@@ -433,7 +464,7 @@ Future<SyncResult> lanSync(
       // Counted what landed; the rest waits for the next sync.
     }
     return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
-        applied: applied);
+        applied: applied, moment: moment);
   } finally {
     client.close(force: true);
   }

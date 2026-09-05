@@ -29,14 +29,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clowders => 'Clowders';
 
   @override
+  String get clowdersNeutral => 'Households';
+
+  @override
   String get noClowdersYet =>
       'No clowders yet. A clowder is a place where cats live — your foster home, an adopter\'s flat. Create the first one below.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'No households yet. A household is a place where pets live — your home, a foster home, an adopter\'s flat. Create the first one below.';
 
   @override
   String get strays => 'Strays';
 
   @override
   String get searchCats => 'Search cats';
+
+  @override
+  String get searchCatsNeutral => 'Search pets';
 
   @override
   String get map => 'Map';
@@ -54,7 +64,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutAndFeedback => 'About & feedback';
 
   @override
+  String get settings => 'Settings';
+
+  @override
   String get newClowder => 'New clowder';
+
+  @override
+  String get newClowderNeutral => 'New household';
 
   @override
   String get name => 'Name';
@@ -89,6 +105,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get renameClowder => 'Rename clowder';
 
   @override
+  String get renameClowderNeutral => 'Rename household';
+
+  @override
   String get rename => 'Rename';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteClowder => 'Delete clowder';
 
   @override
+  String get deleteClowderNeutral => 'Delete household';
+
+  @override
   String get cats => 'Cats';
+
+  @override
+  String get catsNeutral => 'Pets';
 
   @override
   String get addCat => 'Add cat';
 
   @override
+  String get addCatNeutral => 'Add pet';
+
+  @override
   String get newCat => 'New cat';
+
+  @override
+  String get newCatNeutral => 'New pet';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteClowderEmptyBody => 'The clowder disappears from the list.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'The household disappears from the list.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Its $count cat(s) are not deleted — they become strays. Move them to another clowder first if that is not what you want.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Its $count pet(s) are not deleted — they become strays. Move them to another household first if that is not what you want.';
   }
 
   @override
@@ -143,16 +183,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get renameCat => 'Rename cat';
 
   @override
+  String get renameCatNeutral => 'Rename pet';
+
+  @override
   String get seenHereNow => 'Seen here now';
 
   @override
   String get deleteCat => 'Delete cat';
 
   @override
+  String get deleteCatNeutral => 'Delete pet';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Household';
+
+  @override
   String get strayNoClowder => 'Stray — no clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Stray — no household';
 
   @override
   String get stray => 'Stray';
@@ -182,6 +234,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.';
 
   @override
   String get sightingRecorded => 'Sighting recorded at your position.';
@@ -234,6 +290,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the animal can\'t be read by a phone.';
+
+  @override
   String get savingLabel => 'Saving…';
 
   @override
@@ -258,6 +318,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get catList => 'Cat list';
+
+  @override
+  String get catListNeutral => 'Pet list';
 
   @override
   String get matchCandidatesTitle => 'Match candidates';
@@ -290,6 +353,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fromVideo => 'From video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Adding photo $done of $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Picking frames from a video works in the phone app (Android and iPhone) — not on this device yet.';
 
@@ -320,6 +388,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importShareTitle => 'Import this cat?';
 
   @override
+  String get importShareTitleNeutral => 'Import this pet?';
+
+  @override
   String shareSource(String url) {
     return 'Source: $url';
   }
@@ -338,6 +409,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noMissingCats => 'No missing cats with flier positions yet.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'No missing pets with flier positions yet.';
 
   @override
   String get noMatchCandidates => 'No match candidates right now.';
@@ -416,6 +491,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.';
 
   @override
+  String get malePregnantNeutral =>
+      'This pet is recorded as male — a male can\'t be pregnant. Check the gender first.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name is recorded as female and can\'t be the father. Check the gender first.';
   }
@@ -431,18 +510,34 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name was born $date — a parent can\'t be born after its young.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'This pet is recorded as the father of other pets — the father can\'t be female. Check the family first.';
 
   @override
   String get genderMotherMale =>
       'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'This pet is recorded as the mother of other pets — the mother can\'t be male. Check the family first.';
+
+  @override
   String get moveTo => 'Move to';
 
   @override
   String get noClowderStrayOption => 'No clowder — stray / ran away';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'No household — stray / ran away';
 
   @override
   String timelineOf(String name) {
@@ -532,7 +627,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forCats => 'cats';
 
   @override
+  String get forCatsNeutral => 'pets';
+
+  @override
   String get forClowders => 'clowders';
+
+  @override
+  String get forClowdersNeutral => 'households';
 
   @override
   String get forBoth => 'both';
@@ -563,6 +664,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Search cats by name…';
+
+  @override
+  String get searchByNameHintNeutral => 'Search pets by name…';
 
   @override
   String get host => 'Host';
@@ -652,6 +756,16 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Trail: $name — $field ($count values)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Trail: $name ($count positions)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }
@@ -684,7 +798,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get kindCat => 'cat';
 
   @override
+  String get kindCatNeutral => 'pet';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'household';
 
   @override
   String get kindField => 'field';
@@ -701,6 +821,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get aboutTagline =>
       'A local-first catalog for foster cats. Your data lives on your devices — no server, no account.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'A local-first catalog for the pets you care for. Your data lives on your devices — no server, no account.';
 
   @override
   String versionLabel(String version, String build) {
@@ -828,6 +952,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stepCat => 'Cat';
 
   @override
+  String get stepCatNeutral => 'Pet';
+
+  @override
   String get stepOwner => 'Owner';
 
   @override
@@ -844,12 +971,24 @@ class AppLocalizationsEn extends AppLocalizations {
       'Whoever is missing the cat — this becomes their clowder, with the contact from the poster.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Whoever is missing the pet — this becomes their household, with the contact from the poster.';
+
+  @override
   String get stepFaceHint =>
       'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Cut the pet\'s face out of the poster; it becomes the profile picture. You can skip this.';
+
+  @override
   String get stepRegistryHint =>
       'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Numbers found on the poster. Ticked ones are saved with the pet and can be opened later.';
 
   @override
   String get noRegistryLinks =>
@@ -898,24 +1037,48 @@ class AppLocalizationsEn extends AppLocalizations {
       'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.';
 
   @override
+  String get helpHomeNeutral =>
+      'This is the overview of your households — a household is a place where pets live: your home, a foster home, a shelter. Tap a card to see its pets; long-press for its menu. The button at the bottom right creates a new household, and the strays card collects every pet that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.';
+
+  @override
   String get helpClowder =>
-      'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated.';
+      'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Everything about this place: its pets, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a pet to move, hide, or open it. An appointment added here can carry several pets of the household — a vet run for neutering, for example: tick the pets that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.';
 
   @override
   String get helpCat =>
-      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field.';
+      'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field. The clock on a field opens its history.';
+
+  @override
+  String get helpCatNeutral =>
+      'Everything about this pet: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the pet. Private is set while editing a field. The clock on a field opens its history.';
 
   @override
   String get helpStrays =>
       'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.';
 
   @override
+  String get helpStraysNeutral =>
+      'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.';
+
+  @override
   String get helpMap =>
-      'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.';
+      'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.';
+
+  @override
+  String get helpMapNeutral =>
+      'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.';
 
   @override
   String get helpCard =>
       'The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'The printable card of this pet: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.';
 
   @override
   String get helpSync =>
@@ -926,6 +1089,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.';
 
   @override
+  String get helpFieldsNeutral =>
+      'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the pet.';
+
+  @override
   String get helpTimeline =>
       'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.';
 
@@ -934,12 +1101,24 @@ class AppLocalizationsEn extends AppLocalizations {
       'Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Pets or households that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.';
+
+  @override
   String get helpMatches =>
       'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.';
+
+  @override
   String get helpFlier =>
       'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.';
+
+  @override
+  String get helpFlierNeutral =>
+      'A photographed missing-pet poster becomes a pet plus its owner. Step by step: the pet\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.';
 
   @override
   String get archiveTitle => 'Archive';
@@ -947,6 +1126,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Deceased pets and empty households that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.';
 
   @override
   String get archiveAction => 'Archive';
@@ -999,6 +1182,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased pets and empty households that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return 'Restore $count deleted entries?';
   }
@@ -1020,6 +1207,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get locateAddress => 'Find address on the map';
+
+  @override
+  String get addressFoundTitle => 'Address found';
+
+  @override
+  String get replaceAddressOption => 'Replace the address with this';
+
+  @override
+  String get addPositionOption => 'Save the location';
 
   @override
   String get addressLocated => 'Address found';
@@ -1053,6 +1249,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get markTitle => 'Mark the cat';
 
   @override
+  String get markTitleNeutral => 'Mark the pet';
+
+  @override
   String get applyCrop => 'Crop';
 
   @override
@@ -1062,7 +1261,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dragToSelect => 'Drag a rectangle around the cat';
 
   @override
+  String get dragToSelectNeutral => 'Drag a rectangle around the pet';
+
+  @override
   String get dragOverTheCat => 'Drag an ellipse over the cat';
+
+  @override
+  String get dragOverTheCatNeutral => 'Drag an ellipse over the pet';
 
   @override
   String get cropPhoto => 'Crop…';
@@ -1127,6 +1332,74 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
+  String get typeUnitValue => 'Unit value';
+
+  @override
+  String get dimension => 'Dimension';
+
+  @override
+  String get dimensionWeight => 'Weight';
+
+  @override
+  String get dimensionLength => 'Length';
+
+  @override
+  String get dimensionVolume => 'Volume';
+
+  @override
+  String get dimensionTemperature => 'Temperature';
+
+  @override
+  String get unitsLabel => 'Units';
+
+  @override
+  String get catalogHolds => 'This catalog holds';
+
+  @override
+  String get modeCats => 'Cats';
+
+  @override
+  String get modePets => 'Pets';
+
+  @override
+  String get graphLabel => 'Graph';
+
+  @override
+  String get fieldHistoryTooltip => 'History';
+
+  @override
+  String get rangeWeek => 'Week';
+
+  @override
+  String get rangeMonth => 'Month';
+
+  @override
+  String get rangeYear => 'Year';
+
+  @override
+  String get rangeAll => 'All';
+
+  @override
+  String get rangeCustom => 'Custom…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta since $date';
+  }
+
+  @override
+  String get unitsAuto => 'As in your region';
+
+  @override
+  String get unitsMetric => 'Metric (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperial (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Weight';
+
+  @override
   String get systemDefault => 'System default';
 
   @override
@@ -1173,6 +1446,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get valueCat => 'Cat';
 
   @override
+  String get valueDog => 'Dog';
+
+  @override
+  String get valueRabbit => 'Rabbit';
+
+  @override
+  String get valueGuineaPig => 'Guinea pig';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Bird';
+
+  @override
+  String get valueHorse => 'Horse';
+
+  @override
+  String get valueTortoise => 'Tortoise';
+
+  @override
+  String get valueFerret => 'Ferret';
+
+  @override
   String get otherOption => 'Other…';
 
   @override
@@ -1181,6 +1478,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetti and a cheer when a cat moves into a forever home';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Confetti and a cheer when a pet moves into a forever home';
 
   @override
   String get onMapLabel => 'On the map';
@@ -1196,6 +1497,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Search cats, clowders, people';
+
+  @override
+  String get mapSearchHintNeutral => 'Search pets, households, people';
 
   @override
   String get proposeAnotherName => 'Propose another name';
@@ -1253,8 +1557,82 @@ class AppLocalizationsEn extends AppLocalizations {
   String get summaryConflicts => 'Conflicts to resolve';
 
   @override
-  String summaryOther(Object n) {
-    return '…and $n other changes';
+  String conflictsMenu(int n) {
+    return 'Conflicts ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'You settled a conflict here, so Reject is off: it would undo that too.';
+
+  @override
+  String get arrivalIntro =>
+      'These changes are already in your catalog. Reject puts it back as it was.';
+
+  @override
+  String get summaryUpdated => 'Updated';
+
+  @override
+  String get summaryDeleted => 'Deleted';
+
+  @override
+  String get keepMine => 'Keep mine';
+
+  @override
+  String keptMine(String name) {
+    return 'Kept your version of $name on this device.';
+  }
+
+  @override
+  String get summaryMeta => 'Also arrived';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n changes',
+      one: '1 change',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Accept';
+
+  @override
+  String get rejectArrival => 'Reject';
+
+  @override
+  String get photoAdded => 'Photo added';
+
+  @override
+  String get photoRemoved => 'Photo removed';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'New field: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Field changed: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser merged into $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n photos',
+      one: '1 photo',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1274,6 +1652,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kittens';
+
+  @override
+  String get kittensLabelNeutral => 'Young';
 
   @override
   String get toastSettingsTitle => 'What to announce';
@@ -1304,6 +1685,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ New kitten: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Newborn: $cat ✨';
   }
 
   @override
@@ -1392,11 +1778,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectClowderHint => 'Pick a clowder on the left';
 
   @override
+  String get selectClowderHintNeutral => 'Pick a household on the left';
+
+  @override
   String get introTitle1 => 'Your cats, organized';
+
+  @override
+  String get introTitle1Neutral => 'Your pets, organized';
 
   @override
   String get introBody1 =>
       'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.';
+
+  @override
+  String get introBody1Neutral =>
+      'Create a card for every pet you care for: photo, gender, health, anything worth noting. Pets are grouped by where they live — the app calls such a place a household.';
 
   @override
   String get introTitle2 => 'Works without internet';
@@ -1433,35 +1829,66 @@ class AppLocalizationsEn extends AppLocalizations {
       'This card collects all strays — cats without a home. Tap it to see the list.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'This card collects all strays — pets without a home. Tap it to see the list.';
+
+  @override
   String get spotHomeMenu =>
-      'In this menu: find and merge duplicate entries, export CSV, and more.';
+      'In this menu: settings, find and merge duplicate entries, export CSV, and more.';
 
   @override
   String get spotCatEdit =>
       'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Tap the pencil to edit this pet. Tip: long-press any field to edit it directly.';
+
+  @override
   String get spotMapLayers =>
       'Searching for a missing cat? Show circles around its poster spots and the home it ran from.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Searching for a missing pet? Show circles around its poster spots and the home it ran from.';
 
   @override
   String get spotStraysFlier =>
       'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Found a missing-pet poster? Photograph it here — the app saves pet and contact for you.';
+
+  @override
   String get spotStraysScan =>
       'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Some posters carry a cat(a)log QR code. Scan it here to import the pet without typing.';
+
+  @override
   String get introTitle4 => 'Find missing cats';
+
+  @override
+  String get introTitle4Neutral => 'Find missing pets';
 
   @override
   String get introBody4 =>
       'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.';
 
   @override
+  String get introBody4Neutral =>
+      'See a missing-pet poster? Photograph it in the app: it saves the pet, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.';
+
+  @override
   String get spotMapSearch =>
       'Type a cat, place, or person here to jump to it on the map.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Type a pet, place, or person here to jump to it on the map.';
 
   @override
   String get spotCardChips =>
@@ -1470,6 +1897,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'More actions live here: hide the cat, merge duplicates, or record a sighting.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'More actions live here: hide the pet, merge duplicates, or record a sighting.';
 
   @override
   String get spotDone => 'Got it';
@@ -1485,6 +1916,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchNoResults => 'No cat found with that name';
+
+  @override
+  String get searchNoResultsNeutral => 'No pet found with that name';
 
   @override
   String get syncUnreachable =>
@@ -1533,7 +1967,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.';
+      'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.';
 
   @override
   String get spotHomeCatalog =>
@@ -1543,8 +1985,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteCatalog => 'Delete catalog';
 
   @override
+  String get catalogSettings => 'Catalog settings';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Everything in $name goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.';
+    return 'Everything in $name goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Everything in $name goes: its pets, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.';
   }
 
   @override
@@ -1673,6 +2123,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'No appointments planned. Plan new ones here with the plus, or on a cat\'s or clowder\'s page.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'No appointments planned. Plan new ones here with the plus, or on a pet\'s or household\'s page.';
+
+  @override
   String get dueToday => 'due today';
 
   @override
@@ -1761,6 +2215,14 @@ class AppLocalizationsEn extends AppLocalizations {
       'The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.';
 
   @override
+  String get syncPeerNoTls =>
+      'The other device runs a cat(a)log before 1.1.0, without encrypted sync. Update cat(a)log there, then sync again.';
+
+  @override
+  String get syncWrongHost =>
+      'The certificate does not match the pair code — this is not the device the code came from. Scan or type the code again.';
+
+  @override
   String get bundleNewerError =>
       'This file comes from a newer cat(a)log. Update cat(a)log on this device to import it.';
 
@@ -1822,6 +2284,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.';
 
   @override
+  String get helpAgendaNeutral =>
+      'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned.';
+
+  @override
   String get calendarRowOff => 'Calendar: off';
 
   @override
@@ -1834,8 +2300,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Plan an appointment for this cat. It shows in the Agenda and is confirmed there.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Plan an appointment for this pet. It shows in the Agenda and is confirmed there.';
+
+  @override
   String get spotAddReminderClowder =>
       'Plan an appointment for this clowder. It shows in the Agenda and is confirmed there.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Plan an appointment for this household. It shows in the Agenda and is confirmed there.';
 
   @override
   String get readOnlyCalendar => 'read only';
@@ -1942,7 +2416,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get existingCat => 'Existing cat';
 
   @override
+  String get existingCatNeutral => 'Existing pet';
+
+  @override
   String get existingClowder => 'Existing clowder';
+
+  @override
+  String get existingClowderNeutral => 'Existing household';
 
   @override
   String get createNewInstead => 'None — create new';
@@ -1968,11 +2448,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get catsOnAppointment => 'Cats on this appointment';
 
   @override
+  String get catsOnAppointmentNeutral => 'Pets on this appointment';
+
+  @override
   String get noCatsHint =>
       'No cat ticked — the appointment is the clowder\'s own.';
 
   @override
+  String get noCatsHintNeutral =>
+      'No pet ticked — the appointment is the household\'s own.';
+
+  @override
   String get pickCatsTitle => 'Which cats come along?';
+
+  @override
+  String get pickCatsTitleNeutral => 'Which pets come along?';
 
   @override
   String catsCount(int count) {
@@ -1980,11 +2470,25 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count pets';
+  }
+
+  @override
   String get finishUntickHint =>
       'Untick the cats that were not treated; they stay planned.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Untick the pets that were not treated; they stay planned.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Delete appointment for all $count cats';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Delete appointment for all $count pets';
   }
 }

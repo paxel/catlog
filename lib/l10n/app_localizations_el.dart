@@ -29,14 +29,24 @@ class AppLocalizationsEl extends AppLocalizations {
   String get clowders => 'Ομάδες';
 
   @override
+  String get clowdersNeutral => 'Νοικοκυριά';
+
+  @override
   String get noClowdersYet =>
       'Κανένα clowder ακόμη. Το clowder είναι ένα μέρος όπου ζουν γάτες — το ανάδοχο σπίτι σου, το διαμέρισμα ενός υιοθέτη. Φτιάξε το πρώτο παρακάτω.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'Κανένα νοικοκυριό ακόμη. Το νοικοκυριό είναι ένα μέρος όπου ζουν κατοικίδια — το σπίτι σου, ένα ανάδοχο σπίτι, το διαμέρισμα ενός υιοθέτη. Φτιάξε το πρώτο παρακάτω.';
 
   @override
   String get strays => 'Αδέσποτα';
 
   @override
   String get searchCats => 'Αναζήτηση γατών';
+
+  @override
+  String get searchCatsNeutral => 'Αναζήτηση κατοικιδίων';
 
   @override
   String get map => 'Χάρτης';
@@ -54,7 +64,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get aboutAndFeedback => 'Σχετικά & σχόλια';
 
   @override
+  String get settings => 'Ρυθμίσεις';
+
+  @override
   String get newClowder => 'Νέα ομάδα';
+
+  @override
+  String get newClowderNeutral => 'Νέο νοικοκυριό';
 
   @override
   String get name => 'Όνομα';
@@ -89,6 +105,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get renameClowder => 'Μετονομασία ομάδας';
 
   @override
+  String get renameClowderNeutral => 'Μετονομασία νοικοκυριού';
+
+  @override
   String get rename => 'Μετονομασία';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteClowder => 'Διαγραφή ομάδας';
 
   @override
+  String get deleteClowderNeutral => 'Διαγραφή νοικοκυριού';
+
+  @override
   String get cats => 'Γάτες';
+
+  @override
+  String get catsNeutral => 'Κατοικίδια';
 
   @override
   String get addCat => 'Προσθήκη γάτας';
 
   @override
+  String get addCatNeutral => 'Προσθήκη κατοικιδίου';
+
+  @override
   String get newCat => 'Νέα γάτα';
+
+  @override
+  String get newCatNeutral => 'Νέο κατοικίδιο';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Η ομάδα εξαφανίζεται από τη λίστα.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'Το νοικοκυριό εξαφανίζεται από τη λίστα.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Οι $count γάτες της δεν διαγράφονται — γίνονται αδέσποτες. Μετακινήστε τις πρώτα σε άλλη ομάδα αν δεν το θέλετε αυτό.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Τα $count κατοικίδιά του δεν διαγράφονται — γίνονται αδέσποτα. Μετακινήστε τα πρώτα σε άλλο νοικοκυριό αν δεν το θέλετε αυτό.';
   }
 
   @override
@@ -143,16 +183,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String get renameCat => 'Μετονομασία γάτας';
 
   @override
+  String get renameCatNeutral => 'Μετονομασία κατοικιδίου';
+
+  @override
   String get seenHereNow => 'Εθεάθη εδώ τώρα';
 
   @override
   String get deleteCat => 'Διαγραφή γάτας';
 
   @override
+  String get deleteCatNeutral => 'Διαγραφή κατοικιδίου';
+
+  @override
   String get clowderLabel => 'Ομάδα';
 
   @override
+  String get clowderLabelNeutral => 'Νοικοκυριό';
+
+  @override
   String get strayNoClowder => 'Αδέσποτη — χωρίς ομάδα';
+
+  @override
+  String get strayNoClowderNeutral => 'Αδέσποτο — χωρίς νοικοκυριό';
 
   @override
   String get stray => 'Αδέσποτη';
@@ -182,6 +234,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'Η γάτα εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες της αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στις άλλες συσκευές.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'Το κατοικίδιο εξαφανίζεται από όλες τις λίστες και οι φωτογραφίες του αφαιρούνται — εδώ και, μετά τον επόμενο συγχρονισμό, και στις άλλες συσκευές.';
 
   @override
   String get sightingRecorded => 'Η παρατήρηση καταγράφηκε στη θέση σας.';
@@ -234,6 +290,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Σαρώνει τον τυπωμένο κωδικό QR/γραμμωτό από την κάρτα τσιπ ή τα κτηνιατρικά έγγραφα — το τηλέφωνο δεν μπορεί να διαβάσει το τσιπ μέσα στη γάτα.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Σαρώνει τον τυπωμένο κωδικό QR/γραμμωτό από την κάρτα τσιπ ή τα κτηνιατρικά έγγραφα — το τηλέφωνο δεν μπορεί να διαβάσει το τσιπ μέσα στο ζώο.';
+
+  @override
   String get savingLabel => 'Αποθήκευση…';
 
   @override
@@ -258,6 +318,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get catList => 'Λίστα γατών';
+
+  @override
+  String get catListNeutral => 'Λίστα κατοικιδίων';
 
   @override
   String get matchCandidatesTitle => 'Πιθανές αντιστοιχίες';
@@ -288,6 +351,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get fromVideo => 'Από βίντεο…';
+
+  @override
+  String addingPhotos(int done, int total) {
+    return 'Προσθήκη φωτογραφίας $done από $total…';
+  }
 
   @override
   String get videoMobileOnly =>
@@ -321,6 +389,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get importShareTitle => 'Εισαγωγή αυτής της γάτας;';
 
   @override
+  String get importShareTitleNeutral => 'Εισαγωγή αυτού του κατοικιδίου;';
+
+  @override
   String shareSource(String url) {
     return 'Πηγή: $url';
   }
@@ -339,6 +410,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get noMissingCats => 'Καμία εξαφανισμένη γάτα με θέσεις αφισών ακόμη.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Κανένα εξαφανισμένο κατοικίδιο με θέσεις αφισών ακόμη.';
 
   @override
   String get noMatchCandidates => 'Καμία πιθανή αντιστοιχία αυτήν τη στιγμή.';
@@ -419,6 +494,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αυτή η γάτα είναι καταχωρισμένη ως αρσενική — ένας αρσενικός γάτος δεν μπορεί να είναι έγκυος. Ελέγξτε πρώτα το φύλο.';
 
   @override
+  String get malePregnantNeutral =>
+      'Αυτό το κατοικίδιο είναι καταχωρισμένο ως αρσενικό — ένα αρσενικό δεν μπορεί να είναι έγκυο. Ελέγξτε πρώτα το φύλο.';
+
+  @override
   String fatherNotMale(String name) {
     return 'Η $name είναι καταχωρισμένη ως θηλυκή και δεν μπορεί να είναι ο πατέρας. Ελέγξτε πρώτα το φύλο.';
   }
@@ -434,18 +513,35 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return 'Ο/Η $name γεννήθηκε στις $date — ένας γονιός δεν μπορεί να γεννηθεί μετά το μικρό του.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'Αυτή η γάτα είναι καταχωρισμένη ως πατέρας άλλων γατών — ο πατέρας δεν μπορεί να είναι θηλυκός. Ελέγξτε πρώτα την οικογένεια.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'Αυτό το κατοικίδιο είναι καταχωρισμένο ως πατέρας άλλων κατοικιδίων — ο πατέρας δεν μπορεί να είναι θηλυκός. Ελέγξτε πρώτα την οικογένεια.';
 
   @override
   String get genderMotherMale =>
       'Αυτή η γάτα είναι καταχωρισμένη ως μητέρα άλλων γατών — η μητέρα δεν μπορεί να είναι αρσενική. Ελέγξτε πρώτα την οικογένεια.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Αυτό το κατοικίδιο είναι καταχωρισμένο ως μητέρα άλλων κατοικιδίων — η μητέρα δεν μπορεί να είναι αρσενική. Ελέγξτε πρώτα την οικογένεια.';
+
+  @override
   String get moveTo => 'Μετακίνηση σε';
 
   @override
   String get noClowderStrayOption => 'Χωρίς ομάδα — αδέσποτη / το έσκασε';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Χωρίς νοικοκυριό — αδέσποτο / το έσκασε';
 
   @override
   String timelineOf(String name) {
@@ -536,7 +632,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get forCats => 'γάτες';
 
   @override
+  String get forCatsNeutral => 'κατοικίδια';
+
+  @override
   String get forClowders => 'ομάδες';
+
+  @override
+  String get forClowdersNeutral => 'νοικοκυριά';
 
   @override
   String get forBoth => 'και τα δύο';
@@ -567,6 +669,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Αναζήτηση γατών με όνομα…';
+
+  @override
+  String get searchByNameHintNeutral => 'Αναζήτηση κατοικιδίων με όνομα…';
 
   @override
   String get host => 'Φιλοξενία';
@@ -657,6 +762,16 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Διαδρομή: $name — $field ($count τιμές)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Διαδρομή: $name ($count θέσεις)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Σύγκρουση — $field';
   }
@@ -689,7 +804,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get kindCat => 'γάτα';
 
   @override
+  String get kindCatNeutral => 'κατοικίδιο';
+
+  @override
   String get kindClowder => 'ομάδα';
+
+  @override
+  String get kindClowderNeutral => 'νοικοκυριό';
 
   @override
   String get kindField => 'πεδίο';
@@ -706,6 +827,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get aboutTagline =>
       'Τοπικός κατάλογος για γάτες σε ανάδοχες οικογένειες. Τα δεδομένα σας μένουν στις συσκευές σας — χωρίς διακομιστή, χωρίς λογαριασμό.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'Τοπικός κατάλογος για τα κατοικίδια που φροντίζεις. Τα δεδομένα σας μένουν στις συσκευές σας — χωρίς διακομιστή, χωρίς λογαριασμό.';
 
   @override
   String versionLabel(String version, String build) {
@@ -833,6 +958,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get stepCat => 'Γάτα';
 
   @override
+  String get stepCatNeutral => 'Κατοικίδιο';
+
+  @override
   String get stepOwner => 'Ιδιοκτήτης';
 
   @override
@@ -849,12 +977,24 @@ class AppLocalizationsEl extends AppLocalizations {
       'Όποιος ψάχνει τη γάτα — αυτό γίνεται η ομάδα του, με την επαφή από την αφίσα.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Όποιος ψάχνει το κατοικίδιο — αυτό γίνεται το νοικοκυριό του, με την επαφή από την αφίσα.';
+
+  @override
   String get stepFaceHint =>
       'Κόψε το πρόσωπο της γάτας από την αφίσα· γίνεται η φωτογραφία προφίλ. Μπορείς να το παραλείψεις.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Κόψε το πρόσωπο του κατοικιδίου από την αφίσα· γίνεται η φωτογραφία προφίλ. Μπορείς να το παραλείψεις.';
+
+  @override
   String get stepRegistryHint =>
       'Αριθμοί που βρέθηκαν στην αφίσα. Οι τσεκαρισμένοι αποθηκεύονται στη γάτα και ανοίγουν αργότερα.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Αριθμοί που βρέθηκαν στην αφίσα. Οι τσεκαρισμένοι αποθηκεύονται στο κατοικίδιο και ανοίγουν αργότερα.';
 
   @override
   String get noRegistryLinks =>
@@ -904,24 +1044,48 @@ class AppLocalizationsEl extends AppLocalizations {
       'Η επισκόπηση των αποικιών σου — αποικία είναι ένας τόπος όπου ζουν γάτες: το σπίτι σου, ένα ανάδοχο σπίτι, ένα καταφύγιο. Πάτησε μια κάρτα για τις γάτες της· παρατεταμένο πάτημα ανοίγει το μενού. Το κουμπί κάτω δεξιά φτιάχνει αποικία, και η κάρτα των αδέσποτων μαζεύει όλες τις γάτες χωρίς σπίτι. Το όνομα επάνω είναι ο κατάλογος στον οποίο βρίσκεσαι — πάτησέ το για αλλαγή ή προσθήκη.';
 
   @override
+  String get helpHomeNeutral =>
+      'Η επισκόπηση των νοικοκυριών σου — νοικοκυριό είναι ένας τόπος όπου ζουν κατοικίδια: το σπίτι σου, ένα ανάδοχο σπίτι, ένα καταφύγιο. Πάτησε μια κάρτα για τα κατοικίδιά της· παρατεταμένο πάτημα ανοίγει το μενού. Το κουμπί κάτω δεξιά φτιάχνει νοικοκυριό, και η κάρτα των αδέσποτων μαζεύει όλα τα κατοικίδια χωρίς σπίτι. Το όνομα επάνω είναι ο κατάλογος στον οποίο βρίσκεσαι — πάτησέ το για αλλαγή ή προσθήκη.';
+
+  @override
   String get helpClowder =>
-      'Όλα για αυτόν τον τόπο: οι γάτες του, τα πεδία του (διεύθυνση, επαφή, είδος) και το ιστορικό του. Η σελίδα ανοίγει μόνο για ανάγνωση· το μολύβι ενεργοποιεί την επεξεργασία, όπου μπορείς να προσθέσεις και πεδίο. Παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται αμέσως, σε γάτα τη μετακινεί, κρύβει ή ανοίγει. Ένα ραντεβού που προστίθεται εδώ μπορεί να πάρει πολλές γάτες της αποικίας, π.χ. για στείρωση: επιλέξτε τις γάτες που έρχονται, ολοκληρώστε μία φορά, αποεπιλέξτε όσες δεν εξετάστηκαν.';
+      'Όλα για αυτόν τον τόπο: οι γάτες του, τα πεδία του (διεύθυνση, επαφή, είδος) και το ιστορικό του. Η σελίδα ανοίγει μόνο για ανάγνωση· το μολύβι ενεργοποιεί την επεξεργασία, όπου μπορείς να προσθέσεις και πεδίο. Παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται αμέσως, σε γάτα τη μετακινεί, κρύβει ή ανοίγει. Ένα ραντεβού που προστίθεται εδώ μπορεί να πάρει πολλές γάτες της αποικίας, π.χ. για στείρωση: επιλέξτε τις γάτες που έρχονται, ολοκληρώστε μία φορά, αποεπιλέξτε όσες δεν εξετάστηκαν. Το ρολόι σε ένα πεδίο ανοίγει το ιστορικό του.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Όλα για αυτόν τον τόπο: τα κατοικίδιά του, τα πεδία του (διεύθυνση, επαφή, είδος) και το ιστορικό του. Η σελίδα ανοίγει μόνο για ανάγνωση· το μολύβι ενεργοποιεί την επεξεργασία, όπου μπορείς να προσθέσεις και πεδίο. Παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται αμέσως, σε κατοικίδιο το μετακινεί, κρύβει ή ανοίγει. Ένα ραντεβού που προστίθεται εδώ μπορεί να πάρει πολλά κατοικίδια του νοικοκυριού, π.χ. για στείρωση: επιλέξτε τα κατοικίδια που έρχονται, ολοκληρώστε μία φορά, αποεπιλέξτε όσα δεν εξετάστηκαν. Το ρολόι σε ένα πεδίο ανοίγει το ιστορικό του.';
 
   @override
   String get helpCat =>
-      'Τα πάντα για αυτή τη γάτα: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Κράτησε πατημένο ένα πεδίο για να το επεξεργαστείς αμέσως· κράτησε πατημένη μια φωτογραφία για το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: απόκρυψη, συγχώνευση, καταγραφή θέασης, κοινοποίηση της γάτας. Το «Ιδιωτικό» ορίζεται κατά την επεξεργασία πεδίου.';
+      'Τα πάντα για αυτή τη γάτα: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Κράτησε πατημένο ένα πεδίο για να το επεξεργαστείς αμέσως· κράτησε πατημένη μια φωτογραφία για το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: απόκρυψη, συγχώνευση, καταγραφή θέασης, κοινοποίηση της γάτας. Το «Ιδιωτικό» ορίζεται κατά την επεξεργασία πεδίου. Το ρολόι σε ένα πεδίο ανοίγει το ιστορικό του.';
+
+  @override
+  String get helpCatNeutral =>
+      'Τα πάντα για αυτό το κατοικίδιο: φωτογραφίες, πεδία, οικογένεια, ιστορικό. Η σελίδα είναι μόνο για ανάγνωση μέχρι να πατήσεις το μολύβι. Κράτησε πατημένο ένα πεδίο για να το επεξεργαστείς αμέσως· κράτησε πατημένη μια φωτογραφία για το μενού της. Το μενού πάνω δεξιά έχει τα υπόλοιπα: απόκρυψη, συγχώνευση, καταγραφή θέασης, κοινοποίηση του κατοικιδίου. Το «Ιδιωτικό» ορίζεται κατά την επεξεργασία πεδίου. Το ρολόι σε ένα πεδίο ανοίγει το ιστορικό του.';
 
   @override
   String get helpStrays =>
       'Γάτες χωρίς σπίτι αυτή τη στιγμή: βρεθείσες, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει μια γάτα μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε γάτα με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Πάτησε το Stray Cam για φωτογραφία· κράτησέ το πατημένο για βίντεο και κράτα τα καλύτερα καρέ ως φωτογραφίες.';
 
   @override
+  String get helpStraysNeutral =>
+      'Κατοικίδια χωρίς σπίτι αυτή τη στιγμή: βρεθέντα, δραπέτες ή από αφίσα. Το κουμπί της κάμερας καταγράφει ένα ζώο μπροστά σου· το κουμπί της αφίσας μετατρέπει μια αφίσα σε κατοικίδιο με την επαφή του ιδιοκτήτη· ο σαρωτής διαβάζει κωδικό cat(a)log από την αφίσα. Πάτησε το Stray Cam για φωτογραφία· κράτησέ το πατημένο για βίντεο και κράτα τα καλύτερα καρέ ως φωτογραφίες.';
+
+  @override
   String get helpMap =>
-      'Όλες οι γάτες και οι τόποι με θέση. Η αναζήτηση βρίσκει γάτες, ανθρώπους και τόπους — ένα άγνωστο όνομα αναζητείται σε όλο τον κόσμο. Το κουμπί επιπέδων σχεδιάζει τους κύκλους των 500 μ. γύρω από τα σημεία των αφισών μιας χαμένης γάτας και γύρω από το παλιό της σπίτι. Τα βέλη πηγαίνουν από καρφίτσα σε καρφίτσα, παρατεταμένο πάτημα καταγράφει παρατήρηση.';
+      'Όλες οι γάτες και οι τόποι με θέση. Η αναζήτηση βρίσκει γάτες, ανθρώπους και τόπους — ένα άγνωστο όνομα αναζητείται σε όλο τον κόσμο. Το κουμπί επιπέδων σχεδιάζει τους κύκλους των 500 μ. γύρω από τα σημεία των αφισών μιας χαμένης γάτας και γύρω από το παλιό της σπίτι. Τα βέλη πηγαίνουν από καρφίτσα σε καρφίτσα, παρατεταμένο πάτημα καταγράφει παρατήρηση. Κάθε πεδίο τοποθεσίας είναι καρφίτσα στον χάρτη· πάτησε μια καρφίτσα για τη διαδρομή της.';
+
+  @override
+  String get helpMapNeutral =>
+      'Όλα τα κατοικίδια και οι τόποι με θέση. Η αναζήτηση βρίσκει κατοικίδια, ανθρώπους και τόπους — ένα άγνωστο όνομα αναζητείται σε όλο τον κόσμο. Το κουμπί επιπέδων σχεδιάζει τους κύκλους των 500 μ. γύρω από τα σημεία των αφισών ενός χαμένου κατοικιδίου και γύρω από το παλιό του σπίτι. Τα βέλη πηγαίνουν από καρφίτσα σε καρφίτσα, παρατεταμένο πάτημα καταγράφει παρατήρηση. Κάθε πεδίο τοποθεσίας είναι καρφίτσα στον χάρτη· πάτησε μια καρφίτσα για τη διαδρομή της.';
 
   @override
   String get helpCard =>
       'Η εκτυπώσιμη κάρτα της γάτας: επίλεξε πάνω με τα τσιπάκια τι θα εμφανίζεται και μοιράσου την ως εικόνα ή PDF. Οι αριθμοί τυπώνονται ως QR ή barcode, και μια θέση γίνεται QR που ανοίγει χάρτη, συν έναν σύντομο Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'Η εκτυπώσιμη κάρτα του κατοικιδίου: επίλεξε πάνω με τα τσιπάκια τι θα εμφανίζεται και μοιράσου την ως εικόνα ή PDF. Οι αριθμοί τυπώνονται ως QR ή barcode, και μια θέση γίνεται QR που ανοίγει χάρτη, συν έναν σύντομο Plus Code.';
 
   @override
   String get helpSync =>
@@ -932,6 +1096,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Τα πεδία που χρησιμοποιεί ο κατάλογός σου. Μετονόμασέ τα, άλλαξε τις επιλογές ενός πεδίου επιλογής ή φτιάξε δικά σου. Ένα πεδίο ταυτότητας μπορεί να δείχνει σε μια υπηρεσία (μητρώο), οπότε ο αριθμός γίνεται πατήσιμος στη γάτα.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Τα πεδία που χρησιμοποιεί ο κατάλογός σου. Μετονόμασέ τα, άλλαξε τις επιλογές ενός πεδίου επιλογής ή φτιάξε δικά σου. Ένα πεδίο ταυτότητας μπορεί να δείχνει σε μια υπηρεσία (μητρώο), οπότε ο αριθμός γίνεται πατήσιμος στο κατοικίδιο.';
+
+  @override
   String get helpTimeline =>
       'Κάθε αλλαγή που έγινε ποτέ, με τη νεότερη πρώτη: ποιος άλλαξε τι, πότε και σε ποια τιμή. Κάθε καταχώριση αναιρείται — αυτό γράφει νέα καταχώριση, τίποτα δεν σβήνεται.';
 
@@ -940,12 +1108,24 @@ class AppLocalizationsEl extends AppLocalizations {
       'Γάτες ή αποικίες που μοιάζουν να υπάρχουν δύο φορές — ίδιοι αριθμοί ή πολύ παρόμοια ονόματα με ταιριαστές λεπτομέρειες. Πάτησε ένα ζευγάρι για συγχώνευση· δεν αναιρείται, γι\' αυτό ρωτά πρώτα.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Κατοικίδια ή νοικοκυριά που μοιάζουν να υπάρχουν δύο φορές — ίδιοι αριθμοί ή πολύ παρόμοια ονόματα με ταιριαστές λεπτομέρειες. Πάτησε ένα ζευγάρι για συγχώνευση· δεν αναιρείται, γι\' αυτό ρωτά πρώτα.';
+
+  @override
   String get helpMatches =>
       'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Κατοικίδια που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτο που εθεάθη μέσα στην περιοχή αναζήτησης ενός χαμένου κατοικιδίου. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει το πρώτο κατοικίδιο για σύγκριση.';
+
+  @override
   String get helpFlier =>
       'Μια φωτογραφημένη αφίσα γίνεται γάτα μαζί με τον ιδιοκτήτη της. Βήμα βήμα: στοιχεία της γάτας, επαφή του ιδιοκτήτη, περικοπή προσώπου για τη φωτογραφία προφίλ, αριθμοί μητρώων από την αφίσα, και τέλος έλεγχος. Όλα είναι προτάσεις — διόρθωσε ό,τι διάβασε λάθος η κάμερα.';
+
+  @override
+  String get helpFlierNeutral =>
+      'Μια φωτογραφημένη αφίσα γίνεται κατοικίδιο μαζί με τον ιδιοκτήτη του. Βήμα βήμα: στοιχεία του κατοικιδίου, επαφή του ιδιοκτήτη, περικοπή προσώπου για τη φωτογραφία προφίλ, αριθμοί μητρώων από την αφίσα, και τέλος έλεγχος. Όλα είναι προτάσεις — διόρθωσε ό,τι διάβασε λάθος η κάμερα.';
 
   @override
   String get archiveTitle => 'Αρχείο';
@@ -953,6 +1133,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Οι γάτες που πέθαναν και οι άδειες αποικίες που κανείς δεν άγγιξε εδώ και χρόνια πιάνουν και πάλι χώρο — κυρίως οι φωτογραφίες τους. Η αρχειοθέτηση τις γράφει σε ένα αρχείο που κρατάς και μετά τις σβήνει από εδώ.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Τα κατοικίδια που πέθαναν και τα άδεια νοικοκυριά που κανείς δεν άγγιξε εδώ και χρόνια πιάνουν και πάλι χώρο — κυρίως οι φωτογραφίες τους. Η αρχειοθέτηση τα γράφει σε ένα αρχείο που κρατάς και μετά τα σβήνει από εδώ.';
 
   @override
   String get archiveAction => 'Αρχειοθέτηση';
@@ -1006,6 +1190,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Τα παλιά δεδομένα κοστίζουν χώρο, κυρίως οι φωτογραφίες που κουβαλά κάθε συγχρονισμένη συσκευή. Εδώ διαλέγεις γάτες που πέθαναν και άδειες αποικίες που μένουν ήσυχες χρόνια, τις γράφεις σε ένα αρχείο που κρατάς και τις σβήνεις. Η διαγραφή φτάνει σε όλους όσους συγχρονίζεις· η εισαγωγή του αρχείου τα επαναφέρει όλα.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Τα παλιά δεδομένα κοστίζουν χώρο, κυρίως οι φωτογραφίες που κουβαλά κάθε συγχρονισμένη συσκευή. Εδώ διαλέγεις κατοικίδια που πέθαναν και άδεια νοικοκυριά που μένουν ήσυχα χρόνια, τα γράφεις σε ένα αρχείο που κρατάς και τα σβήνεις. Η διαγραφή φτάνει σε όλους όσους συγχρονίζεις· η εισαγωγή του αρχείου τα επαναφέρει όλα.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return 'Επαναφορά $count διαγραμμένων εγγραφών;';
   }
@@ -1027,6 +1215,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get locateAddress => 'Εύρεση διεύθυνσης στον χάρτη';
+
+  @override
+  String get addressFoundTitle => 'Η διεύθυνση βρέθηκε';
+
+  @override
+  String get replaceAddressOption => 'Αντικατάσταση της διεύθυνσης με αυτήν';
+
+  @override
+  String get addPositionOption => 'Αποθήκευση της τοποθεσίας';
 
   @override
   String get addressLocated => 'Η διεύθυνση βρέθηκε';
@@ -1060,6 +1257,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get markTitle => 'Σήμανση της γάτας';
 
   @override
+  String get markTitleNeutral => 'Σήμανση του κατοικιδίου';
+
+  @override
   String get applyCrop => 'Περικοπή';
 
   @override
@@ -1069,7 +1269,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get dragToSelect => 'Σύρετε ένα ορθογώνιο γύρω από τη γάτα';
 
   @override
+  String get dragToSelectNeutral =>
+      'Σύρετε ένα ορθογώνιο γύρω από το κατοικίδιο';
+
+  @override
   String get dragOverTheCat => 'Σύρετε μια έλλειψη πάνω στη γάτα';
+
+  @override
+  String get dragOverTheCatNeutral => 'Σύρετε μια έλλειψη πάνω στο κατοικίδιο';
 
   @override
   String get cropPhoto => 'Περικοπή…';
@@ -1134,6 +1341,74 @@ class AppLocalizationsEl extends AppLocalizations {
   String get language => 'Γλώσσα';
 
   @override
+  String get typeUnitValue => 'Τιμή με μονάδα';
+
+  @override
+  String get dimension => 'Μέγεθος';
+
+  @override
+  String get dimensionWeight => 'Βάρος';
+
+  @override
+  String get dimensionLength => 'Μήκος';
+
+  @override
+  String get dimensionVolume => 'Όγκος';
+
+  @override
+  String get dimensionTemperature => 'Θερμοκρασία';
+
+  @override
+  String get unitsLabel => 'Μονάδες';
+
+  @override
+  String get catalogHolds => 'Αυτός ο κατάλογος περιέχει';
+
+  @override
+  String get modeCats => 'Γάτες';
+
+  @override
+  String get modePets => 'Κατοικίδια';
+
+  @override
+  String get graphLabel => 'Γράφημα';
+
+  @override
+  String get fieldHistoryTooltip => 'Ιστορικό';
+
+  @override
+  String get rangeWeek => 'Εβδομάδα';
+
+  @override
+  String get rangeMonth => 'Μήνας';
+
+  @override
+  String get rangeYear => 'Έτος';
+
+  @override
+  String get rangeAll => 'Όλα';
+
+  @override
+  String get rangeCustom => 'Προσαρμογή…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta από $date';
+  }
+
+  @override
+  String get unitsAuto => 'Όπως στην περιοχή σου';
+
+  @override
+  String get unitsMetric => 'Μετρικό (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Αγγλοσαξονικό (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Βάρος';
+
+  @override
   String get systemDefault => 'Προεπιλογή συστήματος';
 
   @override
@@ -1180,6 +1455,30 @@ class AppLocalizationsEl extends AppLocalizations {
   String get valueCat => 'Γάτα';
 
   @override
+  String get valueDog => 'Σκύλος';
+
+  @override
+  String get valueRabbit => 'Κουνέλι';
+
+  @override
+  String get valueGuineaPig => 'Ινδικό χοιρίδιο';
+
+  @override
+  String get valueHamster => 'Χάμστερ';
+
+  @override
+  String get valueBird => 'Πουλί';
+
+  @override
+  String get valueHorse => 'Άλογο';
+
+  @override
+  String get valueTortoise => 'Χελώνα';
+
+  @override
+  String get valueFerret => 'Κουνάβι';
+
+  @override
   String get otherOption => 'Άλλο…';
 
   @override
@@ -1188,6 +1487,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Κομφετί και ζητωκραυγές όταν ένα κατοικίδιο μετακομίζει στο σπίτι του';
 
   @override
   String get onMapLabel => 'Στον χάρτη';
@@ -1203,6 +1506,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Αναζήτηση γατών, ομάδων, ατόμων';
+
+  @override
+  String get mapSearchHintNeutral =>
+      'Αναζήτηση κατοικιδίων, νοικοκυριών, ατόμων';
 
   @override
   String get proposeAnotherName => 'Πρότεινε άλλο όνομα';
@@ -1260,8 +1567,82 @@ class AppLocalizationsEl extends AppLocalizations {
   String get summaryConflicts => 'Συγκρούσεις προς επίλυση';
 
   @override
-  String summaryOther(Object n) {
-    return '…και $n άλλες αλλαγές';
+  String conflictsMenu(int n) {
+    return 'Συγκρούσεις ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'Έλυσες μια σύγκρουση εδώ, οπότε η Απόρριψη δεν είναι διαθέσιμη: θα αναιρούσε κι αυτό.';
+
+  @override
+  String get arrivalIntro =>
+      'Αυτές οι αλλαγές είναι ήδη στον κατάλογό σου. Η Απόρριψη τον επαναφέρει όπως ήταν.';
+
+  @override
+  String get summaryUpdated => 'Ενημερώθηκαν';
+
+  @override
+  String get summaryDeleted => 'Διαγράφηκαν';
+
+  @override
+  String get keepMine => 'Κράτα το δικό μου';
+
+  @override
+  String keptMine(String name) {
+    return 'Η δική σου εκδοχή για $name μένει σε αυτή τη συσκευή.';
+  }
+
+  @override
+  String get summaryMeta => 'Έφτασαν επίσης';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n αλλαγές',
+      one: '1 αλλαγή',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Αποδοχή';
+
+  @override
+  String get rejectArrival => 'Απόρριψη';
+
+  @override
+  String get photoAdded => 'Προστέθηκε φωτογραφία';
+
+  @override
+  String get photoRemoved => 'Αφαιρέθηκε φωτογραφία';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Νέο πεδίο: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Πεδίο άλλαξε: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser συγχωνεύθηκε στο $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n φωτογραφίες',
+      one: '1 φωτογραφία',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1281,6 +1662,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Γατάκια';
+
+  @override
+  String get kittensLabelNeutral => 'Μικρά';
 
   @override
   String get toastSettingsTitle => 'Τι ανακοινώνεται';
@@ -1311,6 +1695,11 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ Νέο γατάκι: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Νεογέννητο: $cat ✨';
   }
 
   @override
@@ -1399,11 +1788,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get selectClowderHint => 'Διάλεξε ένα clowder αριστερά';
 
   @override
+  String get selectClowderHintNeutral => 'Διάλεξε ένα νοικοκυριό αριστερά';
+
+  @override
   String get introTitle1 => 'Οι γάτες σου, οργανωμένες';
+
+  @override
+  String get introTitle1Neutral => 'Τα κατοικίδιά σου, οργανωμένα';
 
   @override
   String get introBody1 =>
       'Φτιάξε καρτέλα για κάθε γάτα: φωτογραφία, φύλο, υγεία, ό,τι θες να σημειώσεις. Οι γάτες ομαδοποιούνται κατά τον τόπο που ζουν — η εφαρμογή τον λέει αποικία (clowder).';
+
+  @override
+  String get introBody1Neutral =>
+      'Φτιάξε καρτέλα για κάθε κατοικίδιο που φροντίζεις: φωτογραφία, φύλο, υγεία, ό,τι θες να σημειώσεις. Τα κατοικίδια ομαδοποιούνται κατά τον τόπο που ζουν — η εφαρμογή τον λέει νοικοκυριό.';
 
   @override
   String get introTitle2 => 'Λειτουργεί χωρίς ίντερνετ';
@@ -1440,35 +1839,66 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αυτή η κάρτα μαζεύει όλες τις αδέσποτες — γάτες χωρίς σπίτι. Πάτησε για τη λίστα.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Αυτή η κάρτα μαζεύει όλα τα αδέσποτα — κατοικίδια χωρίς σπίτι. Πάτησε για τη λίστα.';
+
+  @override
   String get spotHomeMenu =>
-      'Σε αυτό το μενού: εύρεση και συγχώνευση διπλότυπων, εξαγωγή CSV και άλλα.';
+      'Σε αυτό το μενού: ρυθμίσεις, εύρεση και συγχώνευση διπλότυπων, εξαγωγή CSV και άλλα.';
 
   @override
   String get spotCatEdit =>
       'Πάτησε το μολύβι για να επεξεργαστείς τη γάτα. Συμβουλή: παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται άμεσα.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Πάτησε το μολύβι για να επεξεργαστείς το κατοικίδιο. Συμβουλή: παρατεταμένο πάτημα σε πεδίο το επεξεργάζεται άμεσα.';
+
+  @override
   String get spotMapLayers =>
       'Ψάχνεις χαμένη γάτα; Εμφάνισε κύκλους γύρω από τα σημεία των αφισών της και το σπίτι από όπου έφυγε.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Ψάχνεις χαμένο κατοικίδιο; Εμφάνισε κύκλους γύρω από τα σημεία των αφισών του και το σπίτι από όπου έφυγε.';
 
   @override
   String get spotStraysFlier =>
       'Αφίσα χαμένης γάτας; Φωτογράφισέ την εδώ — η εφαρμογή αποθηκεύει γάτα και επαφή για σένα.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Αφίσα χαμένου κατοικιδίου; Φωτογράφισέ την εδώ — η εφαρμογή αποθηκεύει κατοικίδιο και επαφή για σένα.';
+
+  @override
   String get spotStraysScan =>
       'Κάποιες αφίσες έχουν κωδικό QR cat(a)log. Σάρωσέ τον εδώ και εισήγαγε τη γάτα χωρίς πληκτρολόγηση.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Κάποιες αφίσες έχουν κωδικό QR cat(a)log. Σάρωσέ τον εδώ και εισήγαγε το κατοικίδιο χωρίς πληκτρολόγηση.';
+
+  @override
   String get introTitle4 => 'Βρες τις χαμένες γάτες';
+
+  @override
+  String get introTitle4Neutral => 'Βρες τα χαμένα κατοικίδια';
 
   @override
   String get introBody4 =>
       'Βλέπεις αφίσα για χαμένη γάτα; Φωτογράφισέ την στην εφαρμογή: αποθηκεύει τη γάτα, την επαφή του ιδιοκτήτη και το μέρος. Αν αργότερα εμφανιστεί παρόμοια αδέσποτη, η εφαρμογή προτείνει πιθανές αντιστοιχίες.';
 
   @override
+  String get introBody4Neutral =>
+      'Βλέπεις αφίσα για χαμένο κατοικίδιο; Φωτογράφισέ την στην εφαρμογή: αποθηκεύει το κατοικίδιο, την επαφή του ιδιοκτήτη και το μέρος. Αν αργότερα εμφανιστεί παρόμοιο αδέσποτο, η εφαρμογή προτείνει πιθανές αντιστοιχίες.';
+
+  @override
   String get spotMapSearch =>
       'Γράψε γάτα, μέρος ή άνθρωπο για να πας εκεί στον χάρτη.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Γράψε κατοικίδιο, μέρος ή άνθρωπο για να πας εκεί στον χάρτη.';
 
   @override
   String get spotCardChips =>
@@ -1477,6 +1907,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'Εδώ υπάρχουν κι άλλες ενέργειες: απόκρυψη της γάτας, συγχώνευση διπλότυπων ή καταγραφή θέασης.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'Εδώ υπάρχουν κι άλλες ενέργειες: απόκρυψη του κατοικιδίου, συγχώνευση διπλότυπων ή καταγραφή θέασης.';
 
   @override
   String get spotDone => 'Κατάλαβα';
@@ -1492,6 +1926,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Δεν βρέθηκε γάτα με αυτό το όνομα';
+
+  @override
+  String get searchNoResultsNeutral =>
+      'Δεν βρέθηκε κατοικίδιο με αυτό το όνομα';
 
   @override
   String get syncUnreachable =>
@@ -1540,7 +1978,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Κάθε κατάλογος είναι δικός του κόσμος: δικές του γάτες, αποικίες, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Το Βερολίνο και το Παρίσι δεν ανακατεύονται ποτέ. Πάτησε το όνομα στην κορυφή για αλλαγή, προσθήκη ή μετονομασία. Το όνομά σου, η γλώσσα και οι συμβουλές που είδες είναι κοινές.';
+      'Ένας κατάλογος είναι ένας κόσμος από μόνος του: δικές του γάτες, αποικίες, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Βερολίνο και Παρίσι δεν ανακατεύονται ποτέ. Πάτησε έναν κατάλογο για να μεταβείς σε αυτόν. Το γρανάζι σε έναν κατάλογο ανοίγει τις ρυθμίσεις του: όνομα, γάτες ή κατοικίδια, πεδία, συντάκτες και αποκλεισμοί, αρχείο, επιστροφή, διαγραφή. Το όνομά σου, η γλώσσα σου και οι συμβουλές που έχεις ήδη δει είναι κοινές για όλους.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'Ένας κατάλογος είναι ένας κόσμος από μόνος του: δικές του κατοικίδια, νοικοκυριά, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Βερολίνο και Παρίσι δεν ανακατεύονται ποτέ. Πάτησε έναν κατάλογο για να μεταβείς σε αυτόν. Το γρανάζι σε έναν κατάλογο ανοίγει τις ρυθμίσεις του: όνομα, γάτες ή κατοικίδια, πεδία, συντάκτες και αποκλεισμοί, αρχείο, επιστροφή, διαγραφή. Το όνομά σου, η γλώσσα σου και οι συμβουλές που έχεις ήδη δει είναι κοινές για όλους.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Όλα όσα ανήκουν μόνο σε αυτόν τον κατάλογο: το όνομά του, αν έχει γάτες ή κατοικίδια, τα πεδία του, οι συντάκτες και οι αποκλεισμοί, το αρχείο και η επιστροφή στον χρόνο. Οι αλλαγές εδώ αφορούν μόνο αυτόν τον κατάλογο — και έναν στον οποίο δεν βρίσκεσαι τώρα. Η διαγραφή γράφει πρώτα τον κατάλογο σε αρχείο.';
 
   @override
   String get spotHomeCatalog =>
@@ -1550,8 +1996,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteCatalog => 'Διαγραφή καταλόγου';
 
   @override
+  String get catalogSettings => 'Ρυθμίσεις καταλόγου';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Όλα στο $name χάνονται: γάτες, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο. Γράψε το όνομα για επιβεβαίωση.';
+    return 'Όλα στο $name χάνονται: γάτες, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Όλα στο $name χάνονται: κατοικίδια, φωτογραφίες, ιστορικό. Πρώτα αποθηκεύεται ένα πλήρες αρχείο εκεί όπου πηγαίνουν τα αυτόματα αντίγραφα — η εισαγωγή του επαναφέρει τον κατάλογο. Γράψε το όνομα για επιβεβαίωση.';
   }
 
   @override
@@ -1680,6 +2134,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν υπάρχουν προγραμματισμένα ραντεβού. Προγραμμάτισε νέα εδώ με το συν ή στη σελίδα μιας γάτας ή ομάδας.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'Δεν υπάρχουν προγραμματισμένα ραντεβού. Προγραμμάτισε νέα εδώ με το συν ή στη σελίδα ενός κατοικιδίου ή νοικοκυριού.';
+
+  @override
   String get dueToday => 'σήμερα';
 
   @override
@@ -1769,6 +2227,14 @@ class AppLocalizationsEl extends AppLocalizations {
       'Η άλλη συσκευή έχει νεότερο cat(a)log. Ενημέρωσε το cat(a)log σε αυτήν τη συσκευή και συγχρόνισε ξανά.';
 
   @override
+  String get syncPeerNoTls =>
+      'Η άλλη συσκευή τρέχει cat(a)log πριν από την 1.1.0, χωρίς κρυπτογραφημένο συγχρονισμό. Ενημέρωσε το cat(a)log εκεί και συγχρόνισε ξανά.';
+
+  @override
+  String get syncWrongHost =>
+      'Το πιστοποιητικό δεν ταιριάζει με τον κωδικό σύζευξης — δεν είναι η συσκευή από την οποία ήρθε ο κωδικός. Σάρωσε ή πληκτρολόγησε τον κωδικό ξανά.';
+
+  @override
   String get bundleNewerError =>
       'Αυτό το αρχείο προέρχεται από νεότερο cat(a)log. Ενημέρωσε το cat(a)log σε αυτήν τη συσκευή για να το εισαγάγεις.';
 
@@ -1830,6 +2296,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει τη γάτα ή την ομάδα. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλές γάτες είναι ένα ραντεβού: επιλέξτε τις γάτες, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποιες γάτες εξετάστηκαν — αποεπιλέξτε τις υπόλοιπες, παραμένουν προγραμματισμένες.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Οι υπενθυμίσεις δείχνουν τα προγραμματισμένα ραντεβού κατά ημερομηνία. Υπάρχουν δύο είδη: ραντεβού με ώρα και υπενθυμίσεις που ισχύουν για μια μέρα. Όσα χάθηκαν μένουν πάνω. Το πάτημα ανοίγει το κατοικίδιο ή το νοικοκυριό. Το τικ επιβεβαιώνει ένα ραντεβού: η τιμή γράφεται στο πεδίο και μπορείς αμέσως να προγραμματίσεις το επόμενο, για παράδειγμα σε τρεις μήνες. Το παρατεταμένο πάτημα αλλάζει την ημερομηνία ή διαγράφει το ραντεβού. Ο διακόπτης επάνω αντικατοπτρίζει τα ραντεβού σε ένα ημερολόγιο του τηλεφώνου σου. Το μενού τα εξάγει ως αρχείο ημερολογίου. Μια επίσκεψη στον κτηνίατρο με πολλά κατοικίδια είναι ένα ραντεβού: επιλέξτε τα κατοικίδια, η Ατζέντα δείχνει μία κάρτα με τα ονόματά τους, και στην ολοκλήρωση ρωτά ποια κατοικίδια εξετάστηκαν — αποεπιλέξτε τα υπόλοιπα, παραμένουν προγραμματισμένα.';
+
+  @override
   String get calendarRowOff => 'Ημερολόγιο: ανενεργό';
 
   @override
@@ -1842,8 +2312,16 @@ class AppLocalizationsEl extends AppLocalizations {
       'Προγραμμάτισε ένα ραντεβού για αυτήν τη γάτα. Εμφανίζεται στις υπενθυμίσεις και επιβεβαιώνεται εκεί.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Προγραμμάτισε ένα ραντεβού για αυτό το κατοικίδιο. Εμφανίζεται στις υπενθυμίσεις και επιβεβαιώνεται εκεί.';
+
+  @override
   String get spotAddReminderClowder =>
       'Προγραμμάτισε ένα ραντεβού για αυτήν την ομάδα. Εμφανίζεται στις υπενθυμίσεις και επιβεβαιώνεται εκεί.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Προγραμμάτισε ένα ραντεβού για αυτό το νοικοκυριό. Εμφανίζεται στις υπενθυμίσεις και επιβεβαιώνεται εκεί.';
 
   @override
   String get readOnlyCalendar => 'μόνο ανάγνωση';
@@ -1949,7 +2427,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get existingCat => 'Υπάρχουσα γάτα';
 
   @override
+  String get existingCatNeutral => 'Υπάρχον κατοικίδιο';
+
+  @override
   String get existingClowder => 'Υπάρχουσα ομάδα';
+
+  @override
+  String get existingClowderNeutral => 'Υπάρχον νοικοκυριό';
 
   @override
   String get createNewInstead => 'Καμία — δημιουργία νέας';
@@ -1975,11 +2459,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get catsOnAppointment => 'Γάτες σε αυτό το ραντεβού';
 
   @override
+  String get catsOnAppointmentNeutral => 'Κατοικίδια σε αυτό το ραντεβού';
+
+  @override
   String get noCatsHint =>
       'Καμία γάτα επιλεγμένη — το ραντεβού ανήκει στην ίδια την αποικία.';
 
   @override
+  String get noCatsHintNeutral =>
+      'Κανένα κατοικίδιο επιλεγμένο — το ραντεβού ανήκει στο ίδιο το νοικοκυριό.';
+
+  @override
   String get pickCatsTitle => 'Ποιες γάτες έρχονται;';
+
+  @override
+  String get pickCatsTitleNeutral => 'Ποια κατοικίδια έρχονται;';
 
   @override
   String catsCount(int count) {
@@ -1987,11 +2481,25 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count κατοικίδια';
+  }
+
+  @override
   String get finishUntickHint =>
       'Αποεπιλέξτε τις γάτες που δεν εξετάστηκαν· παραμένουν προγραμματισμένες.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Αποεπιλέξτε τα κατοικίδια που δεν εξετάστηκαν· παραμένουν προγραμματισμένα.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Διαγραφή ραντεβού για όλες τις $count γάτες';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Διαγραφή ραντεβού για όλα τα $count κατοικίδια';
   }
 }

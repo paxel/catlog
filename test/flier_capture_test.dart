@@ -448,6 +448,8 @@ void main() {
       find.byType(Scrollable).last,
       const Offset(0, -100),
     );
+    await tester.ensureVisible(find.text('Phone (Owner)').last);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Phone (Owner)').last);
     await tester.pumpAndSettle();
     await next(tester);

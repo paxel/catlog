@@ -29,14 +29,24 @@ class AppLocalizationsNl extends AppLocalizations {
   String get clowders => 'Clowders';
 
   @override
+  String get clowdersNeutral => 'Huishoudens';
+
+  @override
   String get noClowdersYet =>
       'Nog geen clowders. Een clowder is een plek waar katten wonen — jouw opvang, de flat van een adoptant. Maak de eerste hieronder.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'Nog geen huishoudens. Een huishouden is een plek waar huisdieren wonen — jouw huis, een opvang, de flat van een adoptant. Maak het eerste hieronder.';
 
   @override
   String get strays => 'Zwerfkatten';
 
   @override
   String get searchCats => 'Katten zoeken';
+
+  @override
+  String get searchCatsNeutral => 'Huisdieren zoeken';
 
   @override
   String get map => 'Kaart';
@@ -54,7 +64,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get aboutAndFeedback => 'Over & feedback';
 
   @override
+  String get settings => 'Instellingen';
+
+  @override
   String get newClowder => 'Nieuwe clowder';
+
+  @override
+  String get newClowderNeutral => 'Nieuw huishouden';
 
   @override
   String get name => 'Naam';
@@ -89,6 +105,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get renameClowder => 'Clowder hernoemen';
 
   @override
+  String get renameClowderNeutral => 'Huishouden hernoemen';
+
+  @override
   String get rename => 'Hernoemen';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deleteClowder => 'Clowder verwijderen';
 
   @override
+  String get deleteClowderNeutral => 'Huishouden verwijderen';
+
+  @override
   String get cats => 'Katten';
+
+  @override
+  String get catsNeutral => 'Huisdieren';
 
   @override
   String get addCat => 'Kat toevoegen';
 
   @override
+  String get addCatNeutral => 'Huisdier toevoegen';
+
+  @override
   String get newCat => 'Nieuwe kat';
+
+  @override
+  String get newCatNeutral => 'Nieuw huisdier';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deleteClowderEmptyBody => 'De clowder verdwijnt uit de lijst.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'Het huishouden verdwijnt uit de lijst.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Zijn $count kat(ten) worden niet verwijderd — ze worden zwerfkatten. Verplaats ze eerst naar een andere clowder als dat niet de bedoeling is.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Zijn $count huisdier(en) worden niet verwijderd — ze worden zwerfdieren. Verplaats ze eerst naar een ander huishouden als dat niet de bedoeling is.';
   }
 
   @override
@@ -143,16 +183,28 @@ class AppLocalizationsNl extends AppLocalizations {
   String get renameCat => 'Kat hernoemen';
 
   @override
+  String get renameCatNeutral => 'Huisdier hernoemen';
+
+  @override
   String get seenHereNow => 'Hier gezien';
 
   @override
   String get deleteCat => 'Kat verwijderen';
 
   @override
+  String get deleteCatNeutral => 'Huisdier verwijderen';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Huishouden';
+
+  @override
   String get strayNoClowder => 'Zwerfkat — geen clowder';
+
+  @override
+  String get strayNoClowderNeutral => 'Zwerfdier — geen huishouden';
 
   @override
   String get stray => 'Zwerfkat';
@@ -182,6 +234,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'De kat verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'Het huisdier verdwijnt uit alle lijsten en de foto\'s worden verwijderd — hier en, na de volgende synchronisatie, ook op de andere apparaten.';
 
   @override
   String get sightingRecorded => 'Waarneming vastgelegd op je positie.';
@@ -234,6 +290,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in de kat kan een telefoon niet lezen.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Scant de gedrukte QR/streepjescode van de chipkaart of dierenartspapieren — de chip in het dier kan een telefoon niet lezen.';
+
+  @override
   String get savingLabel => 'Opslaan…';
 
   @override
@@ -258,6 +318,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get catList => 'Kattenlijst';
+
+  @override
+  String get catListNeutral => 'Huisdierenlijst';
 
   @override
   String get matchCandidatesTitle => 'Mogelijke matches';
@@ -290,6 +353,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fromVideo => 'Uit video…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Foto $done van $total wordt toegevoegd…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Frames uit een video kiezen werkt in de telefoon-app (Android en iPhone) — nog niet op dit apparaat.';
 
@@ -320,6 +388,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get importShareTitle => 'Deze kat importeren?';
 
   @override
+  String get importShareTitleNeutral => 'Dit huisdier importeren?';
+
+  @override
   String shareSource(String url) {
     return 'Bron: $url';
   }
@@ -338,6 +409,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noMissingCats => 'Nog geen vermiste katten met posterposities.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Nog geen vermiste huisdieren met posterposities.';
 
   @override
   String get noMatchCandidates => 'Momenteel geen mogelijke matches.';
@@ -418,6 +493,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze kat staat geregistreerd als mannetje — een kater kan niet drachtig zijn. Controleer eerst het geslacht.';
 
   @override
+  String get malePregnantNeutral =>
+      'Dit huisdier staat geregistreerd als mannetje — een mannetje kan niet drachtig zijn. Controleer eerst het geslacht.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name staat geregistreerd als vrouwtje en kan niet de vader zijn. Controleer eerst het geslacht.';
   }
@@ -433,18 +512,35 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name is geboren op $date — een ouder kan niet na zijn jong geboren zijn.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'Deze kat staat geregistreerd als vader van andere katten — de vader kan geen vrouwtje zijn. Controleer eerst de familie.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'Dit huisdier staat geregistreerd als vader van andere huisdieren — de vader kan geen vrouwtje zijn. Controleer eerst de familie.';
 
   @override
   String get genderMotherMale =>
       'Deze kat staat geregistreerd als moeder van andere katten — de moeder kan geen mannetje zijn. Controleer eerst de familie.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Dit huisdier staat geregistreerd als moeder van andere huisdieren — de moeder kan geen mannetje zijn. Controleer eerst de familie.';
+
+  @override
   String get moveTo => 'Verplaatsen naar';
 
   @override
   String get noClowderStrayOption => 'Geen clowder — zwerfkat / weggelopen';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Geen huishouden — zwerfdier / weggelopen';
 
   @override
   String timelineOf(String name) {
@@ -534,7 +630,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get forCats => 'katten';
 
   @override
+  String get forCatsNeutral => 'huisdieren';
+
+  @override
   String get forClowders => 'clowders';
+
+  @override
+  String get forClowdersNeutral => 'huishoudens';
 
   @override
   String get forBoth => 'beide';
@@ -565,6 +667,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Katten op naam zoeken…';
+
+  @override
+  String get searchByNameHintNeutral => 'Huisdieren op naam zoeken…';
 
   @override
   String get host => 'Hosten';
@@ -655,6 +760,16 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Spoor: $name — $field ($count waarden)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Spoor: $name ($count posities)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Conflict — $field';
   }
@@ -687,7 +802,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get kindCat => 'kat';
 
   @override
+  String get kindCatNeutral => 'huisdier';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'huishouden';
 
   @override
   String get kindField => 'veld';
@@ -704,6 +825,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get aboutTagline =>
       'Een lokale catalogus voor opvangkatten. Je gegevens blijven op je apparaten — geen server, geen account.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'Een lokale catalogus voor de huisdieren waar je voor zorgt. Je gegevens blijven op je apparaten — geen server, geen account.';
 
   @override
   String versionLabel(String version, String build) {
@@ -831,6 +956,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get stepCat => 'Kat';
 
   @override
+  String get stepCatNeutral => 'Huisdier';
+
+  @override
   String get stepOwner => 'Eigenaar';
 
   @override
@@ -847,12 +975,24 @@ class AppLocalizationsNl extends AppLocalizations {
       'Wie de kat mist — dit wordt hun clowder, met het contact van de poster.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Wie het huisdier mist — dit wordt hun huishouden, met het contact van de poster.';
+
+  @override
   String get stepFaceHint =>
       'Knip het gezicht van de kat uit de poster; het wordt de profielfoto. Overslaan mag.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Knip het gezicht van het huisdier uit de poster; het wordt de profielfoto. Overslaan mag.';
+
+  @override
   String get stepRegistryHint =>
       'Nummers van de poster. Aangevinkte worden bij de kat opgeslagen en later te openen.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Nummers van de poster. Aangevinkte worden bij het huisdier opgeslagen en later te openen.';
 
   @override
   String get noRegistryLinks =>
@@ -902,24 +1042,48 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het overzicht van je kolonies — een kolonie is een plek waar katten wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor haar katten; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuwe kolonie, en de zwerverskaart verzamelt alle katten zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.';
 
   @override
+  String get helpHomeNeutral =>
+      'Het overzicht van je huishoudens — een huishouden is een plek waar huisdieren wonen: je huis, een opvanggezin, een asiel. Tik op een kaart voor zijn huisdieren; houd ingedrukt voor het menu. De knop rechtsonder maakt een nieuw huishouden, en de zwerverskaart verzamelt alle huisdieren zonder thuis. De naam bovenaan is de catalogus waarin je zit — tik erop om te wisselen of er een toe te voegen.';
+
+  @override
   String get helpClowder =>
-      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere katten van de kolonie meenemen, bijvoorbeeld een castratierit: vink de katten aan die meegaan, rond één keer af, vink de niet-behandelde uit.';
+      'Alles over deze plek: haar katten, haar velden (adres, contact, type) en haar geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een kat om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere katten van de kolonie meenemen, bijvoorbeeld een castratierit: vink de katten aan die meegaan, rond één keer af, vink de niet-behandelde uit. Het klokje bij een veld opent zijn geschiedenis.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Alles over deze plek: zijn huisdieren, zijn velden (adres, contact, type) en zijn geschiedenis. De pagina opent alleen-lezen; het potlood zet bewerken aan, daar kun je ook een veld toevoegen. Houd een veld ingedrukt om het direct te bewerken, een huisdier om te verplaatsen, verbergen of openen. Een afspraak die hier wordt toegevoegd kan meerdere huisdieren van het huishouden meenemen, bijvoorbeeld een castratierit: vink de huisdieren aan die meegaan, rond één keer af, vink de niet-behandelde uit. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpCat =>
-      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld.';
+      'Alles over deze kat: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, kat delen. Privé stel je in bij het bewerken van een veld. Het klokje bij een veld opent zijn geschiedenis.';
+
+  @override
+  String get helpCatNeutral =>
+      'Alles over dit huisdier: foto\'s, velden, familie, geschiedenis. De pagina is alleen-lezen tot je op het potlood tikt. Houd een veld lang ingedrukt om het direct te bewerken; houd een foto lang ingedrukt voor het menu. Het menu rechtsboven bevat de rest: verbergen, samenvoegen, waarneming noteren, huisdier delen. Privé stel je in bij het bewerken van een veld. Het klokje bij een veld opent zijn geschiedenis.';
 
   @override
   String get helpStrays =>
       'Katten die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een kat vast die voor je zit; de posterknop maakt van een vermist-poster een kat met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. Tik op Stray Cam voor een foto; houd ingedrukt om een video te filmen en de beste beelden als foto\'s te bewaren.';
 
   @override
+  String get helpStraysNeutral =>
+      'Huisdieren die nu geen thuis hebben: gevonden, ontsnapt of van een poster. De cameraknop legt een dier vast dat voor je staat; de posterknop maakt van een vermist-poster een huisdier met het contact van de eigenaar; de scanner leest een cat(a)log-code van de poster. Tik op Stray Cam voor een foto; houd ingedrukt om een video te filmen en de beste beelden als foto\'s te bewaren.';
+
+  @override
   String get helpMap =>
-      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast.';
+      'Alle katten en plekken met een positie. Zoeken vindt katten, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermiste kat en rond haar vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast. Elk locatieveld staat als pin op de kaart; tik op een pin voor zijn spoor.';
+
+  @override
+  String get helpMapNeutral =>
+      'Alle huisdieren en plekken met een positie. Zoeken vindt huisdieren, personen en plaatsen — een onbekende naam wordt wereldwijd opgezocht. De lagenknop tekent de 500 m-cirkels rond de posterplekken van een vermist huisdier en rond zijn vorige thuis. De pijlen lopen van pin naar pin, lang drukken legt een waarneming vast. Elk locatieveld staat als pin op de kaart; tik op een pin voor zijn spoor.';
 
   @override
   String get helpCard =>
       'De printbare kaart van deze kat: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'De printbare kaart van dit huisdier: kies bovenaan met de chips wat erop komt, deel hem daarna als afbeelding of pdf. Nummers kunnen als QR of streepjescode gedrukt worden, en een positie wordt een QR die een kaart opent, plus een korte Plus Code.';
 
   @override
   String get helpSync =>
@@ -930,6 +1094,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij de kat aantikbaar.';
 
   @override
+  String get helpFieldsNeutral =>
+      'De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij het huisdier aantikbaar.';
+
+  @override
   String get helpTimeline =>
       'Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.';
 
@@ -938,12 +1106,24 @@ class AppLocalizationsNl extends AppLocalizations {
       'Katten of kolonies die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Huisdieren of huishoudens die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.';
+
+  @override
   String get helpMatches =>
       'Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Huisdieren die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermist huisdier. Tik op een paar om samen te voegen, houd ingedrukt om het eerste huisdier te openen en te vergelijken.';
+
+  @override
   String get helpFlier =>
       'Een gefotografeerde poster wordt een kat plus eigenaar. Stap voor stap: gegevens van de kat, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.';
+
+  @override
+  String get helpFlierNeutral =>
+      'Een gefotografeerde poster wordt een huisdier plus eigenaar. Stap voor stap: gegevens van het huisdier, contact van de eigenaar, gezicht bijsnijden voor de profielfoto, registernummers van de poster, dan een laatste controle. Alles is een suggestie — corrigeer wat de camera verkeerd las.';
 
   @override
   String get archiveTitle => 'Archief';
@@ -951,6 +1131,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Overleden katten en lege kolonies waar jaren niemand naar omkeek kosten nog steeds ruimte — vooral hun foto\'s. Archiveren schrijft ze naar een bestand dat jij bewaart en verwijdert ze daarna hier.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Overleden huisdieren en lege huishoudens waar jaren niemand naar omkeek kosten nog steeds ruimte — vooral hun foto\'s. Archiveren schrijft ze naar een bestand dat jij bewaart en verwijdert ze daarna hier.';
 
   @override
   String get archiveAction => 'Archiveren';
@@ -1003,6 +1187,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Oude gegevens kosten ruimte, vooral de foto\'s die elk gesynchroniseerd apparaat meesleept. Hier kies je overleden katten en lege kolonies die al jaren stil zijn, schrijf je ze naar een bestand dat je bewaart, en verwijder je ze. De verwijdering bereikt iedereen met wie je synchroniseert; het bestand importeren zet alles terug.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Oude gegevens kosten ruimte, vooral de foto\'s die elk gesynchroniseerd apparaat meesleept. Hier kies je overleden huisdieren en lege huishoudens die al jaren stil zijn, schrijf je ze naar een bestand dat je bewaart, en verwijder je ze. De verwijdering bereikt iedereen met wie je synchroniseert; het bestand importeren zet alles terug.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return '$count verwijderde items herstellen?';
   }
@@ -1024,6 +1212,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get locateAddress => 'Adres op de kaart zoeken';
+
+  @override
+  String get addressFoundTitle => 'Adres gevonden';
+
+  @override
+  String get replaceAddressOption => 'Adres vervangen door dit';
+
+  @override
+  String get addPositionOption => 'Locatie opslaan';
 
   @override
   String get addressLocated => 'Adres gevonden';
@@ -1057,6 +1254,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get markTitle => 'Kat markeren';
 
   @override
+  String get markTitleNeutral => 'Huisdier markeren';
+
+  @override
   String get applyCrop => 'Bijsnijden';
 
   @override
@@ -1066,7 +1266,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get dragToSelect => 'Sleep een rechthoek om de kat';
 
   @override
+  String get dragToSelectNeutral => 'Sleep een rechthoek om het huisdier';
+
+  @override
   String get dragOverTheCat => 'Sleep een ellips over de kat';
+
+  @override
+  String get dragOverTheCatNeutral => 'Sleep een ellips over het huisdier';
 
   @override
   String get cropPhoto => 'Bijsnijden…';
@@ -1131,6 +1337,74 @@ class AppLocalizationsNl extends AppLocalizations {
   String get language => 'Taal';
 
   @override
+  String get typeUnitValue => 'Waarde met eenheid';
+
+  @override
+  String get dimension => 'Grootheid';
+
+  @override
+  String get dimensionWeight => 'Gewicht';
+
+  @override
+  String get dimensionLength => 'Lengte';
+
+  @override
+  String get dimensionVolume => 'Volume';
+
+  @override
+  String get dimensionTemperature => 'Temperatuur';
+
+  @override
+  String get unitsLabel => 'Eenheden';
+
+  @override
+  String get catalogHolds => 'Deze catalogus bevat';
+
+  @override
+  String get modeCats => 'Katten';
+
+  @override
+  String get modePets => 'Huisdieren';
+
+  @override
+  String get graphLabel => 'Grafiek';
+
+  @override
+  String get fieldHistoryTooltip => 'Geschiedenis';
+
+  @override
+  String get rangeWeek => 'Week';
+
+  @override
+  String get rangeMonth => 'Maand';
+
+  @override
+  String get rangeYear => 'Jaar';
+
+  @override
+  String get rangeAll => 'Alles';
+
+  @override
+  String get rangeCustom => 'Aangepast…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta sinds $date';
+  }
+
+  @override
+  String get unitsAuto => 'Zoals in je regio';
+
+  @override
+  String get unitsMetric => 'Metrisch (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperiaal (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Gewicht';
+
+  @override
   String get systemDefault => 'Systeemstandaard';
 
   @override
@@ -1177,6 +1451,30 @@ class AppLocalizationsNl extends AppLocalizations {
   String get valueCat => 'Kat';
 
   @override
+  String get valueDog => 'Hond';
+
+  @override
+  String get valueRabbit => 'Konijn';
+
+  @override
+  String get valueGuineaPig => 'Cavia';
+
+  @override
+  String get valueHamster => 'Hamster';
+
+  @override
+  String get valueBird => 'Vogel';
+
+  @override
+  String get valueHorse => 'Paard';
+
+  @override
+  String get valueTortoise => 'Schildpad';
+
+  @override
+  String get valueFerret => 'Fret';
+
+  @override
   String get otherOption => 'Anders…';
 
   @override
@@ -1185,6 +1483,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Confetti en gejuich wanneer een kat naar zijn thuis verhuist';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Confetti en gejuich wanneer een huisdier naar zijn thuis verhuist';
 
   @override
   String get onMapLabel => 'Op de kaart';
@@ -1200,6 +1502,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Zoek katten, clowders, personen';
+
+  @override
+  String get mapSearchHintNeutral => 'Zoek huisdieren, huishoudens, personen';
 
   @override
   String get proposeAnotherName => 'Stel een andere naam voor';
@@ -1258,8 +1563,82 @@ class AppLocalizationsNl extends AppLocalizations {
   String get summaryConflicts => 'Op te lossen conflicten';
 
   @override
-  String summaryOther(Object n) {
-    return '…en $n andere wijzigingen';
+  String conflictsMenu(int n) {
+    return 'Conflicten ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'Je hebt hier een conflict opgelost, dus Afwijzen kan niet meer: dat zou ook ongedaan worden gemaakt.';
+
+  @override
+  String get arrivalIntro =>
+      'Deze wijzigingen staan al in je catalogus. Afwijzen zet hem terug zoals hij was.';
+
+  @override
+  String get summaryUpdated => 'Gewijzigd';
+
+  @override
+  String get summaryDeleted => 'Verwijderd';
+
+  @override
+  String get keepMine => 'Mijn versie houden';
+
+  @override
+  String keptMine(String name) {
+    return 'Jouw versie van $name blijft op dit apparaat.';
+  }
+
+  @override
+  String get summaryMeta => 'Ook aangekomen';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n wijzigingen',
+      one: '1 wijziging',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Accepteren';
+
+  @override
+  String get rejectArrival => 'Afwijzen';
+
+  @override
+  String get photoAdded => 'Foto toegevoegd';
+
+  @override
+  String get photoRemoved => 'Foto verwijderd';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nieuw veld: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Veld gewijzigd: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser samengevoegd met $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n foto’s',
+      one: '1 foto',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1279,6 +1658,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kittens';
+
+  @override
+  String get kittensLabelNeutral => 'Jongen';
 
   @override
   String get toastSettingsTitle => 'Wat te melden';
@@ -1309,6 +1691,11 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ Nieuwe kitten: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Pasgeboren: $cat ✨';
   }
 
   @override
@@ -1397,11 +1784,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectClowderHint => 'Kies links een clowder';
 
   @override
+  String get selectClowderHintNeutral => 'Kies links een huishouden';
+
+  @override
   String get introTitle1 => 'Je katten, overzichtelijk';
+
+  @override
+  String get introTitle1Neutral => 'Je huisdieren, overzichtelijk';
 
   @override
   String get introBody1 =>
       'Maak voor elke kat een kaart: foto, geslacht, gezondheid, alles wat je wilt vastleggen. Katten zijn gegroepeerd naar waar ze wonen — de app noemt zo\'n plek een clowder.';
+
+  @override
+  String get introBody1Neutral =>
+      'Maak voor elk huisdier waar je voor zorgt een kaart: foto, geslacht, gezondheid, alles wat je wilt vastleggen. Huisdieren zijn gegroepeerd naar waar ze wonen — de app noemt zo\'n plek een huishouden.';
 
   @override
   String get introTitle2 => 'Werkt zonder internet';
@@ -1438,35 +1835,66 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze kaart verzamelt alle zwervers — katten zonder thuis. Tik erop voor de lijst.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Deze kaart verzamelt alle zwervers — huisdieren zonder thuis. Tik erop voor de lijst.';
+
+  @override
   String get spotHomeMenu =>
-      'In dit menu: dubbele items vinden en samenvoegen, CSV exporteren en meer.';
+      'In dit menu: instellingen, dubbele items vinden en samenvoegen, CSV exporteren en meer.';
 
   @override
   String get spotCatEdit =>
       'Tik op het potlood om deze kat te bewerken. Tip: houd een veld lang ingedrukt om het direct te bewerken.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Tik op het potlood om dit huisdier te bewerken. Tip: houd een veld lang ingedrukt om het direct te bewerken.';
+
+  @override
   String get spotMapLayers =>
       'Zoek je een vermiste kat? Toon cirkels rond de plekken van haar posters en rond haar vorige thuis.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Zoek je een vermist huisdier? Toon cirkels rond de plekken van zijn posters en rond zijn vorige thuis.';
 
   @override
   String get spotStraysFlier =>
       'Poster van een vermiste kat gevonden? Fotografeer hem hier — de app bewaart kat en contact voor je.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Poster van een vermist huisdier gevonden? Fotografeer hem hier — de app bewaart huisdier en contact voor je.';
+
+  @override
   String get spotStraysScan =>
       'Sommige posters hebben een cat(a)log-QR-code. Scan hem hier en importeer de kat zonder typen.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Sommige posters hebben een cat(a)log-QR-code. Scan hem hier en importeer het huisdier zonder typen.';
+
+  @override
   String get introTitle4 => 'Vermiste katten vinden';
+
+  @override
+  String get introTitle4Neutral => 'Vermiste huisdieren vinden';
 
   @override
   String get introBody4 =>
       'Zie je een poster van een vermiste kat? Fotografeer hem in de app: die bewaart de kat, het contact van de eigenaar en de plek. Duikt later een vergelijkbare zwerver op, dan stelt de app mogelijke matches voor.';
 
   @override
+  String get introBody4Neutral =>
+      'Zie je een poster van een vermist huisdier? Fotografeer hem in de app: die bewaart het huisdier, het contact van de eigenaar en de plek. Duikt later een vergelijkbare zwerver op, dan stelt de app mogelijke matches voor.';
+
+  @override
   String get spotMapSearch =>
       'Typ een kat, plaats of persoon om er op de kaart naartoe te springen.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Typ een huisdier, plaats of persoon om er op de kaart naartoe te springen.';
 
   @override
   String get spotCardChips =>
@@ -1475,6 +1903,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'Hier staan meer acties: verberg de kat, voeg duplicaten samen of noteer een waarneming.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'Hier staan meer acties: verberg het huisdier, voeg duplicaten samen of noteer een waarneming.';
 
   @override
   String get spotDone => 'Begrepen';
@@ -1490,6 +1922,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Geen kat gevonden met die naam';
+
+  @override
+  String get searchNoResultsNeutral => 'Geen huisdier gevonden met die naam';
 
   @override
   String get syncUnreachable =>
@@ -1538,7 +1973,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op de naam bovenaan het startscherm om te wisselen, er een toe te voegen of te hernoemen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+      'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'Elke catalogus is een eigen wereld: eigen huisdieren, huishoudens, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand.';
 
   @override
   String get spotHomeCatalog =>
@@ -1548,8 +1991,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deleteCatalog => 'Catalogus verwijderen';
 
   @override
+  String get catalogSettings => 'Catalogusinstellingen';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Alles in $name verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.';
+    return 'Alles in $name verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Alles in $name verdwijnt: de huisdieren, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.';
   }
 
   @override
@@ -1678,6 +2129,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een kat of clowder.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een huisdier of huishouden.';
+
+  @override
   String get dueToday => 'vandaag';
 
   @override
@@ -1766,6 +2221,14 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het andere apparaat draait een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij en synchroniseer opnieuw.';
 
   @override
+  String get syncPeerNoTls =>
+      'Het andere apparaat heeft een cat(a)log van vóór 1.1.0, zonder versleutelde synchronisatie. Werk cat(a)log daar bij en synchroniseer opnieuw.';
+
+  @override
+  String get syncWrongHost =>
+      'Het certificaat past niet bij de koppelcode — dit is niet het apparaat waar de code vandaan komt. Scan of typ de code opnieuw.';
+
+  @override
   String get bundleNewerError =>
       'Dit bestand komt uit een nieuwer cat(a)log. Werk cat(a)log op dit apparaat bij om het te importeren.';
 
@@ -1827,6 +2290,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent de kat of clowder. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere katten is één afspraak: vink de katten aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke katten behandeld zijn — vink de andere uit, die blijven gepland.';
 
   @override
+  String get helpAgendaNeutral =>
+      'De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland.';
+
+  @override
   String get calendarRowOff => 'Agenda: uit';
 
   @override
@@ -1839,8 +2306,16 @@ class AppLocalizationsNl extends AppLocalizations {
       'Plan een afspraak voor deze kat. Die staat in de agenda en wordt daar bevestigd.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Plan een afspraak voor dit huisdier. Die staat in de agenda en wordt daar bevestigd.';
+
+  @override
   String get spotAddReminderClowder =>
       'Plan een afspraak voor deze clowder. Die staat in de agenda en wordt daar bevestigd.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Plan een afspraak voor dit huishouden. Die staat in de agenda en wordt daar bevestigd.';
 
   @override
   String get readOnlyCalendar => 'alleen lezen';
@@ -1947,7 +2422,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get existingCat => 'Bestaande kat';
 
   @override
+  String get existingCatNeutral => 'Bestaand huisdier';
+
+  @override
   String get existingClowder => 'Bestaande groep';
+
+  @override
+  String get existingClowderNeutral => 'Bestaand huishouden';
 
   @override
   String get createNewInstead => 'Geen — nieuw aanmaken';
@@ -1973,11 +2454,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get catsOnAppointment => 'Katten bij deze afspraak';
 
   @override
+  String get catsOnAppointmentNeutral => 'Huisdieren bij deze afspraak';
+
+  @override
   String get noCatsHint =>
       'Geen kat aangevinkt — de afspraak is van de kolonie zelf.';
 
   @override
+  String get noCatsHintNeutral =>
+      'Geen huisdier aangevinkt — de afspraak is van het huishouden zelf.';
+
+  @override
   String get pickCatsTitle => 'Welke katten gaan mee?';
+
+  @override
+  String get pickCatsTitleNeutral => 'Welke huisdieren gaan mee?';
 
   @override
   String catsCount(int count) {
@@ -1985,11 +2476,25 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count huisdieren';
+  }
+
+  @override
   String get finishUntickHint =>
       'Vink de katten uit die niet behandeld zijn; ze blijven gepland.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Vink de huisdieren uit die niet behandeld zijn; ze blijven gepland.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Afspraak voor alle $count katten verwijderen';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Afspraak voor alle $count huisdieren verwijderen';
   }
 }

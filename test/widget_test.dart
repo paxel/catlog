@@ -4,6 +4,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/main.dart';
 import 'package:catlog/src/screens/clowder_list_screen.dart';
+import 'package:catlog/src/screens/fields_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
@@ -246,11 +247,13 @@ void main() {
     addTearDown(store.close);
     store.author = 'axel';
 
-    await tester.pumpWidget(CatlogApp(store: store));
-    // Fields lives in the home menu since 1.0.1.
-    await tester.tap(find.byType(PopupMenuButton<String>));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Fields'));
+    // Fields belong to the catalog: the page is reached from the
+    // catalog's settings, which the catalogs tests cover.
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: FieldsScreen(store: store),
+    ));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Color'));
     await tester.pumpAndSettle();

@@ -12,7 +12,6 @@ import '../l10n.dart';
 import '../merge_dialogs.dart';
 import '../name_date_dialog.dart';
 import '../new_field_dialog.dart';
-import '../name_proposals.dart';
 import '../widgets/cat_avatar.dart';
 import '../reminders/mirror_hook.dart';
 import '../reminders/plan_chooser.dart';
@@ -27,6 +26,7 @@ import 'card_screen.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_card_screen.dart';
 import 'map_screen.dart';
+import 'field_history_screen.dart';
 import 'timeline_screen.dart';
 import '../geocode.dart';
 import 'cat_list_screen.dart';
@@ -80,15 +80,67 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
       hits = const [];
     }
     if (!mounted) return;
-    setState(() {
-      _locating = false;
-      if (hits.isEmpty) {
-        _locateNote = context.t.addressNotFound;
-      } else {
-        store.recordPosition(id, hits.first.lat, hits.first.lon);
-        _locateNote = hits.first.name;
-      }
-    });
+    setState(() => _locating = false);
+    if (hits.isEmpty) {
+      setState(() => _locateNote = context.t.addressNotFound);
+      return;
+    }
+    final hit = hits.first;
+    final choice = await _offerFoundAddress(hit.name);
+    if (choice == null || !mounted) return;
+    if (choice.addPosition) store.recordPosition(id, hit.lat, hit.lon);
+    if (choice.replaceAddress) {
+      store.append(id, Keys.userField('address'), hit.name);
+    }
+    setState(() {});
+  }
+
+  /// The found place, offered instead of silently written (#101): take
+  /// the position, and on request the found wording as the address.
+  Future<({bool replaceAddress, bool addPosition})?> _offerFoundAddress(
+      String name) {
+    var replaceAddress = false;
+    var addPosition = true;
+    return showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(context.t.addressFoundTitle),
+          content: Column(mainAxisSize: MainAxisSize.min, children: [
+            Align(alignment: AlignmentDirectional.centerStart,
+                child: Text(name)),
+            const SizedBox(height: 8),
+            CheckboxListTile(
+              value: addPosition,
+              contentPadding: EdgeInsets.zero,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: Text(context.t.addPositionOption),
+              onChanged: (v) =>
+                  setDialogState(() => addPosition = v ?? false),
+            ),
+            CheckboxListTile(
+              value: replaceAddress,
+              contentPadding: EdgeInsets.zero,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: Text(context.t.replaceAddressOption),
+              onChanged: (v) =>
+                  setDialogState(() => replaceAddress = v ?? false),
+            ),
+          ]),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(context.t.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(context).pop(
+                  (replaceAddress: replaceAddress, addPosition: addPosition)),
+              child: Text(context.t.ok),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -125,18 +177,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   }
 
   Future<void> _addCat() async {
-    final locale = Localizations.localeOf(context);
-    final result = await askNameAndDate(
-      context,
-      context.t.newCat,
-      propose: () => proposeCatName(store, locale),
-    );
-    if (result == null || !mounted) return;
-    final catId = store.createCat(
-      result.name,
-      clowderId: id,
-      date: result.date,
-    );
+    final catId =
+        await createAnimal(context, store, title: context.t.newCat, clowderId: id);
+    if (catId == null || !mounted) return;
     setState(() {});
     await Navigator.of(context).push(
       MaterialPageRoute(
@@ -200,7 +243,7 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
     Navigator.of(context).pop();
   }
 
-  void _showOnMap(String value) {
+  void _showOnMap(FieldDef def, String value) {
     final pos = CatalogStore.parsePosition(value);
     if (pos == null) return;
     Navigator.of(context).push(
@@ -209,8 +252,9 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
           store: store,
           initialCenter: LatLng(pos.$1, pos.$2),
           // The spot the page asked for gets a pin, whatever the map's
-          // own rules say (#88).
+          // own rules say (#88) — and its trail, once there is one.
           focus: (id, LatLng(pos.$1, pos.$2)),
+          trailOf: hasValueHistory(store, id, def.key) ? (id, def.key) : null,
         ),
       ),
     );
@@ -301,6 +345,10 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
         // Reverts happen on the timeline — the page must show them.
         if (mounted) setState(() {});
       },
+      onValueHistory: (def) => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) =>
+            FieldHistoryScreen(store: store, entityId: id, def: def),
+      )),
       onShowMap: _showOnMap,
       onLocate: _locateAddress,
       locateNote: _locateNote,

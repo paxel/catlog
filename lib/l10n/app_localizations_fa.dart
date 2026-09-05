@@ -29,14 +29,24 @@ class AppLocalizationsFa extends AppLocalizations {
   String get clowders => 'گروه‌ها';
 
   @override
+  String get clowdersNeutral => 'خانوارها';
+
+  @override
   String get noClowdersYet =>
       'هنوز گروهی نیست. گروه جایی است که گربه‌ها زندگی می‌کنند — خانه موقت شما، آپارتمان سرپرست. اولی را در پایین بسازید.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'هنوز خانواری نیست. خانوار جایی است که حیوانات خانگی زندگی می‌کنند — خانهٔ شما، خانه موقت، آپارتمان سرپرست. اولی را در پایین بسازید.';
 
   @override
   String get strays => 'گربه‌های ولگرد';
 
   @override
   String get searchCats => 'جستجوی گربه‌ها';
+
+  @override
+  String get searchCatsNeutral => 'جستجوی حیوانات خانگی';
 
   @override
   String get map => 'نقشه';
@@ -54,7 +64,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get aboutAndFeedback => 'درباره و بازخورد';
 
   @override
+  String get settings => 'تنظیمات';
+
+  @override
   String get newClowder => 'گروه جدید';
+
+  @override
+  String get newClowderNeutral => 'خانوار جدید';
 
   @override
   String get name => 'نام';
@@ -89,6 +105,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get renameClowder => 'تغییر نام گروه';
 
   @override
+  String get renameClowderNeutral => 'تغییر نام خانوار';
+
+  @override
   String get rename => 'تغییر نام';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deleteClowder => 'حذف گروه';
 
   @override
+  String get deleteClowderNeutral => 'حذف خانوار';
+
+  @override
   String get cats => 'گربه‌ها';
+
+  @override
+  String get catsNeutral => 'حیوانات خانگی';
 
   @override
   String get addCat => 'افزودن گربه';
 
   @override
+  String get addCatNeutral => 'افزودن حیوان خانگی';
+
+  @override
   String get newCat => 'گربهٔ جدید';
+
+  @override
+  String get newCatNeutral => 'حیوان خانگی جدید';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deleteClowderEmptyBody => 'گروه از فهرست ناپدید می‌شود.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'خانوار از فهرست ناپدید می‌شود.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'گربه‌هایش ($count) حذف نمی‌شوند — ولگرد می‌شوند. اگر این را نمی‌خواهید، ابتدا آن‌ها را به گروه دیگری منتقل کنید.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'حیوانات خانگی‌اش ($count) حذف نمی‌شوند — ولگرد می‌شوند. اگر این را نمی‌خواهید، ابتدا آن‌ها را به خانوار دیگری منتقل کنید.';
   }
 
   @override
@@ -143,16 +182,28 @@ class AppLocalizationsFa extends AppLocalizations {
   String get renameCat => 'تغییر نام گربه';
 
   @override
+  String get renameCatNeutral => 'تغییر نام حیوان خانگی';
+
+  @override
   String get seenHereNow => 'همین حالا اینجا دیده شد';
 
   @override
   String get deleteCat => 'حذف گربه';
 
   @override
+  String get deleteCatNeutral => 'حذف حیوان خانگی';
+
+  @override
   String get clowderLabel => 'گروه';
 
   @override
+  String get clowderLabelNeutral => 'خانوار';
+
+  @override
   String get strayNoClowder => 'ولگرد — بدون گروه';
+
+  @override
+  String get strayNoClowderNeutral => 'ولگرد — بدون خانوار';
 
   @override
   String get stray => 'ولگرد';
@@ -182,6 +233,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'گربه از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'حیوان خانگی از همهٔ فهرست‌ها حذف می‌شود و عکس‌هایش پاک می‌شوند — اینجا و پس از همگام‌سازی بعدی روی دستگاه‌های دیگر نیز.';
 
   @override
   String get sightingRecorded => 'مشاهده در موقعیت شما ثبت شد.';
@@ -234,6 +289,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'کد QR/بارکد چاپی روی کارت تراشه یا مدارک دامپزشکی را می‌خواند — تلفن نمی‌تواند تراشهٔ داخل گربه را بخواند.';
 
   @override
+  String get chipScanHintNeutral =>
+      'کد QR/بارکد چاپی روی کارت تراشه یا مدارک دامپزشکی را می‌خواند — تلفن نمی‌تواند تراشهٔ داخل حیوان را بخواند.';
+
+  @override
   String get savingLabel => 'در حال ذخیره…';
 
   @override
@@ -258,6 +317,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get catList => 'فهرست گربه‌ها';
+
+  @override
+  String get catListNeutral => 'فهرست حیوانات خانگی';
 
   @override
   String get matchCandidatesTitle => 'موارد تطبیق احتمالی';
@@ -290,6 +352,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get fromVideo => 'از ویدیو…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'افزودن عکس $done از $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'انتخاب فریم از ویدیو در برنامهٔ تلفن (اندروید و آیفون) کار می‌کند — هنوز در این دستگاه نه.';
 
@@ -320,6 +387,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get importShareTitle => 'این گربه وارد شود؟';
 
   @override
+  String get importShareTitleNeutral => 'این حیوان خانگی وارد شود؟';
+
+  @override
   String shareSource(String url) {
     return 'منبع: $url';
   }
@@ -338,6 +408,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get noMissingCats => 'هنوز گربهٔ گمشده‌ای با موقعیت آگهی نیست.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'هنوز حیوان خانگی گمشده‌ای با موقعیت آگهی نیست.';
 
   @override
   String get noMatchCandidates => 'در حال حاضر موردی برای تطبیق نیست.';
@@ -416,6 +490,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'این گربه به‌عنوان نر ثبت شده است — گربهٔ نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
 
   @override
+  String get malePregnantNeutral =>
+      'این حیوان خانگی به‌عنوان نر ثبت شده است — نر نمی‌تواند باردار باشد. ابتدا جنسیت را بررسی کنید.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name به‌عنوان ماده ثبت شده و نمی‌تواند پدر باشد. ابتدا جنسیت را بررسی کنید.';
   }
@@ -431,18 +509,34 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name در $date به دنیا آمده — والد نمی‌تواند بعد از بچه‌اش متولد شود.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'این گربه به‌عنوان پدر گربه‌های دیگر ثبت شده — پدر نمی‌تواند ماده باشد. ابتدا خانواده را بررسی کنید.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'این حیوان خانگی به‌عنوان پدر حیوانات خانگی دیگر ثبت شده — پدر نمی‌تواند ماده باشد. ابتدا خانواده را بررسی کنید.';
 
   @override
   String get genderMotherMale =>
       'این گربه به‌عنوان مادر گربه‌های دیگر ثبت شده — مادر نمی‌تواند نر باشد. ابتدا خانواده را بررسی کنید.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'این حیوان خانگی به‌عنوان مادر حیوانات خانگی دیگر ثبت شده — مادر نمی‌تواند نر باشد. ابتدا خانواده را بررسی کنید.';
+
+  @override
   String get moveTo => 'انتقال به';
 
   @override
   String get noClowderStrayOption => 'بدون گروه — ولگرد / فرار کرد';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'بدون خانوار — ولگرد / فرار کرد';
 
   @override
   String timelineOf(String name) {
@@ -532,7 +626,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get forCats => 'گربه‌ها';
 
   @override
+  String get forCatsNeutral => 'حیوانات خانگی';
+
+  @override
   String get forClowders => 'گروه‌ها';
+
+  @override
+  String get forClowdersNeutral => 'خانوارها';
 
   @override
   String get forBoth => 'هر دو';
@@ -563,6 +663,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'جستجوی گربه با نام…';
+
+  @override
+  String get searchByNameHintNeutral => 'جستجوی حیوان خانگی با نام…';
 
   @override
   String get host => 'میزبانی';
@@ -652,6 +755,16 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'مسیر: $name — $field ($count مقدار)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'مسیر: $name ($count موقعیت)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'تعارض — $field';
   }
@@ -684,7 +797,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get kindCat => 'گربه';
 
   @override
+  String get kindCatNeutral => 'حیوان خانگی';
+
+  @override
   String get kindClowder => 'گروه';
+
+  @override
+  String get kindClowderNeutral => 'خانوار';
 
   @override
   String get kindField => 'فیلد';
@@ -701,6 +820,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get aboutTagline =>
       'فهرستی محلی برای گربه‌های تحت سرپرستی موقت. داده‌هایتان روی دستگاه‌های خودتان می‌ماند — بدون سرور، بدون حساب.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'فهرستی محلی برای حیوانات خانگی‌ای که از آن‌ها مراقبت می‌کنید. داده‌هایتان روی دستگاه‌های خودتان می‌ماند — بدون سرور، بدون حساب.';
 
   @override
   String versionLabel(String version, String build) {
@@ -828,6 +951,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get stepCat => 'گربه';
 
   @override
+  String get stepCatNeutral => 'حیوان خانگی';
+
+  @override
   String get stepOwner => 'صاحب';
 
   @override
@@ -844,12 +970,24 @@ class AppLocalizationsFa extends AppLocalizations {
       'کسی که گربه‌اش گم شده — این گروه او می‌شود، با تماس روی آگهی.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'کسی که حیوان خانگی‌اش گم شده — این خانوار او می‌شود، با تماس روی آگهی.';
+
+  @override
   String get stepFaceHint =>
       'صورت گربه را از آگهی ببرید؛ عکس نمایه می‌شود. می‌توانید رد شوید.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'صورت حیوان خانگی را از آگهی ببرید؛ عکس نمایه می‌شود. می‌توانید رد شوید.';
+
+  @override
   String get stepRegistryHint =>
       'شماره‌های پیداشده روی آگهی. تیک‌خورده‌ها با گربه ذخیره می‌شوند و بعداً باز می‌شوند.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'شماره‌های پیداشده روی آگهی. تیک‌خورده‌ها با حیوان خانگی ذخیره می‌شوند و بعداً باز می‌شوند.';
 
   @override
   String get noRegistryLinks =>
@@ -898,24 +1036,48 @@ class AppLocalizationsFa extends AppLocalizations {
       'نمای کلی کلونی‌های شما — کلونی جایی است که گربه‌ها در آن زندگی می‌کنند: خانهٔ شما، خانهٔ نگهداری موقت، پناهگاه. روی کارت بزنید تا گربه‌هایش را ببینید؛ فشار طولانی منو را باز می‌کند. دکمهٔ پایین راست کلونی می‌سازد و کارت ولگردها همهٔ گربه‌های بی‌خانه را جمع می‌کند. نام بالا کاتالوگی است که در آن هستید — برای تغییر یا افزودن روی آن بزنید.';
 
   @override
+  String get helpHomeNeutral =>
+      'نمای کلی خانوارهای شما — خانوار جایی است که حیوانات خانگی در آن زندگی می‌کنند: خانهٔ شما، خانهٔ نگهداری موقت، پناهگاه. روی کارت بزنید تا حیوانات خانگی‌اش را ببینید؛ فشار طولانی منو را باز می‌کند. دکمهٔ پایین راست خانوار می‌سازد و کارت ولگردها همهٔ حیوانات خانگی بی‌خانه را جمع می‌کند. نام بالا کاتالوگی است که در آن هستید — برای تغییر یا افزودن روی آن بزنید.';
+
+  @override
   String get helpClowder =>
-      'همه‌چیز دربارهٔ این مکان: گربه‌ها، فیلدها (نشانی، تماس، نوع) و تاریخچه. صفحه فقط خواندنی باز می‌شود؛ مداد ویرایش را روشن می‌کند و همان‌جا می‌توانید فیلد جدید بسازید. فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند و روی گربه آن را جابه‌جا، پنهان یا باز می‌کند. نوبتی که اینجا اضافه می‌شود می‌تواند چند گربه از کلونی را با خود ببرد، مثلاً برای عقیم‌سازی: گربه‌هایی را که می‌آیند علامت بزنید، یک بار پایان دهید، علامت درمان‌نشده‌ها را بردارید.';
+      'همه‌چیز دربارهٔ این مکان: گربه‌ها، فیلدها (نشانی، تماس، نوع) و تاریخچه. صفحه فقط خواندنی باز می‌شود؛ مداد ویرایش را روشن می‌کند و همان‌جا می‌توانید فیلد جدید بسازید. فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند و روی گربه آن را جابه‌جا، پنهان یا باز می‌کند. نوبتی که اینجا اضافه می‌شود می‌تواند چند گربه از کلونی را با خود ببرد، مثلاً برای عقیم‌سازی: گربه‌هایی را که می‌آیند علامت بزنید، یک بار پایان دهید، علامت درمان‌نشده‌ها را بردارید. ساعت کنار فیلد تاریخچه‌اش را باز می‌کند.';
+
+  @override
+  String get helpClowderNeutral =>
+      'همه‌چیز دربارهٔ این مکان: حیوانات خانگی، فیلدها (نشانی، تماس، نوع) و تاریخچه. صفحه فقط خواندنی باز می‌شود؛ مداد ویرایش را روشن می‌کند و همان‌جا می‌توانید فیلد جدید بسازید. فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند و روی حیوان خانگی آن را جابه‌جا، پنهان یا باز می‌کند. نوبتی که اینجا اضافه می‌شود می‌تواند چند حیوان خانگی از خانوار را با خود ببرد، مثلاً برای عقیم‌سازی: حیواناتی را که می‌آیند علامت بزنید، یک بار پایان دهید، علامت درمان‌نشده‌ها را بردارید. ساعت کنار فیلد تاریخچه‌اش را باز می‌کند.';
 
   @override
   String get helpCat =>
-      'همه چیز درباره این گربه: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه فقط‌خواندنی است تا روی مداد بزنی. نگه‌داشتن یک فیلد مستقیم به ویرایش آن می‌رود؛ نگه‌داشتن یک عکس منوی آن را باز می‌کند. منوی بالا بقیه را دارد: پنهان کردن، ادغام، ثبت مشاهده، اشتراک گربه. «خصوصی» هنگام ویرایش فیلد تنظیم می‌شود.';
+      'همه چیز درباره این گربه: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه فقط‌خواندنی است تا روی مداد بزنی. نگه‌داشتن یک فیلد مستقیم به ویرایش آن می‌رود؛ نگه‌داشتن یک عکس منوی آن را باز می‌کند. منوی بالا بقیه را دارد: پنهان کردن، ادغام، ثبت مشاهده، اشتراک گربه. «خصوصی» هنگام ویرایش فیلد تنظیم می‌شود. ساعت کنار فیلد تاریخچه‌اش را باز می‌کند.';
+
+  @override
+  String get helpCatNeutral =>
+      'همه چیز درباره این حیوان خانگی: عکس‌ها، فیلدها، خانواده، تاریخچه. صفحه فقط‌خواندنی است تا روی مداد بزنی. نگه‌داشتن یک فیلد مستقیم به ویرایش آن می‌رود؛ نگه‌داشتن یک عکس منوی آن را باز می‌کند. منوی بالا بقیه را دارد: پنهان کردن، ادغام، ثبت مشاهده، اشتراک حیوان خانگی. «خصوصی» هنگام ویرایش فیلد تنظیم می‌شود. ساعت کنار فیلد تاریخچه‌اش را باز می‌کند.';
 
   @override
   String get helpStrays =>
       'گربه‌هایی که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین گربه‌ای را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به گربه‌ای همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. برای عکس روی Stray Cam ضربه بزنید؛ برای فیلم‌برداری نگه دارید و بهترین فریم‌ها را به‌عنوان عکس نگه دارید.';
 
   @override
+  String get helpStraysNeutral =>
+      'حیوانات خانگی‌ای که اکنون خانه ندارند: پیداشده، فراری یا برگرفته از آگهی. دکمهٔ دوربین حیوانی را که جلوی شماست ثبت می‌کند؛ دکمهٔ آگهی یک پوستر گمشده را به حیوان خانگی همراه با تماس صاحبش تبدیل می‌کند؛ اسکنر کد cat(a)log را از پوستر می‌خواند. برای عکس روی Stray Cam ضربه بزنید؛ برای فیلم‌برداری نگه دارید و بهترین فریم‌ها را به‌عنوان عکس نگه دارید.';
+
+  @override
   String get helpMap =>
-      'همهٔ گربه‌ها و مکان‌هایی که موقعیت دارند. جست‌وجو گربه، شخص و مکان را پیدا می‌کند — نام ناشناس در سراسر جهان جست‌وجو می‌شود. دکمهٔ لایه‌ها دایره‌های ۵۰۰ متری را دور محل آگهی‌های گربهٔ گمشده و دور خانهٔ قبلی‌اش می‌کشد. پیکان‌ها از نشان به نشان می‌روند و فشار طولانی روی نقشه مشاهده ثبت می‌کند.';
+      'همهٔ گربه‌ها و مکان‌هایی که موقعیت دارند. جست‌وجو گربه، شخص و مکان را پیدا می‌کند — نام ناشناس در سراسر جهان جست‌وجو می‌شود. دکمهٔ لایه‌ها دایره‌های ۵۰۰ متری را دور محل آگهی‌های گربهٔ گمشده و دور خانهٔ قبلی‌اش می‌کشد. پیکان‌ها از نشان به نشان می‌روند و فشار طولانی روی نقشه مشاهده ثبت می‌کند. هر فیلد مکان به‌صورت سنجاق روی نقشه نمایش می‌شود؛ روی سنجاق بزنید تا مسیرش را ببینید.';
+
+  @override
+  String get helpMapNeutral =>
+      'همهٔ حیوانات خانگی و مکان‌هایی که موقعیت دارند. جست‌وجو حیوان خانگی، شخص و مکان را پیدا می‌کند — نام ناشناس در سراسر جهان جست‌وجو می‌شود. دکمهٔ لایه‌ها دایره‌های ۵۰۰ متری را دور محل آگهی‌های حیوان خانگی گمشده و دور خانهٔ قبلی‌اش می‌کشد. پیکان‌ها از نشان به نشان می‌روند و فشار طولانی روی نقشه مشاهده ثبت می‌کند. هر فیلد مکان به‌صورت سنجاق روی نقشه نمایش می‌شود؛ روی سنجاق بزنید تا مسیرش را ببینید.';
 
   @override
   String get helpCard =>
       'کارت قابل چاپ گربه: بالا با تراشه‌ها انتخاب کنید چه چیزی روی آن بیاید، سپس آن را به‌صورت تصویر یا PDF به اشتراک بگذارید. شماره‌ها می‌توانند به شکل QR یا بارکد چاپ شوند و موقعیت به QR بازکنندهٔ نقشه به‌همراه یک Plus Code کوتاه تبدیل می‌شود.';
+
+  @override
+  String get helpCardNeutral =>
+      'کارت قابل چاپ حیوان خانگی: بالا با تراشه‌ها انتخاب کنید چه چیزی روی آن بیاید، سپس آن را به‌صورت تصویر یا PDF به اشتراک بگذارید. شماره‌ها می‌توانند به شکل QR یا بارکد چاپ شوند و موقعیت به QR بازکنندهٔ نقشه به‌همراه یک Plus Code کوتاه تبدیل می‌شود.';
 
   @override
   String get helpSync =>
@@ -926,6 +1088,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'فیلدهایی که فهرست شما به کار می‌برد. نامشان را عوض کنید، گزینه‌های یک فیلد انتخابی را تغییر دهید یا فیلد خودتان را بسازید. فیلد شناسه می‌تواند به یک سرویس (سامانهٔ ثبت) اشاره کند تا شماره نزد گربه قابل لمس شود.';
 
   @override
+  String get helpFieldsNeutral =>
+      'فیلدهایی که فهرست شما به کار می‌برد. نامشان را عوض کنید، گزینه‌های یک فیلد انتخابی را تغییر دهید یا فیلد خودتان را بسازید. فیلد شناسه می‌تواند به یک سرویس (سامانهٔ ثبت) اشاره کند تا شماره نزد حیوان خانگی قابل لمس شود.';
+
+  @override
   String get helpTimeline =>
       'هر تغییری که تا کنون انجام شده، تازه‌ترین در بالا: چه کسی چه چیزی را کی و به چه مقداری تغییر داده. هر مدخل قابل بازگرداندن است — این کار مدخل تازه می‌نویسد و چیزی پاک نمی‌شود.';
 
@@ -934,12 +1100,24 @@ class AppLocalizationsFa extends AppLocalizations {
       'گربه‌ها یا کلونی‌هایی که انگار دو بار وجود دارند — شناسه‌های یکسان یا نام‌های بسیار نزدیک با جزئیات همخوان. روی یک جفت بزنید تا ادغام شود؛ ادغام بازگشت‌ناپذیر است، برای همین اول می‌پرسد.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'حیوانات خانگی یا خانوارهایی که انگار دو بار وجود دارند — شناسه‌های یکسان یا نام‌های بسیار نزدیک با جزئیات همخوان. روی یک جفت بزنید تا ادغام شود؛ ادغام بازگشت‌ناپذیر است، برای همین اول می‌پرسد.';
+
+  @override
   String get helpMatches =>
       'گربه‌هایی که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی گربهٔ گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی گربهٔ اول را برای مقایسه باز می‌کند.';
 
   @override
+  String get helpMatchesNeutral =>
+      'حیوانات خانگی‌ای که ممکن است یک حیوان باشند: شناسهٔ یکسان یا ولگردی که در محدودهٔ جست‌وجوی حیوان خانگی گمشده دیده شده. روی جفت بزنید تا ادغام شود، فشار طولانی حیوان خانگی اول را برای مقایسه باز می‌کند.';
+
+  @override
   String get helpFlier =>
       'از یک پوستر عکس‌گرفته‌شده، گربه و صاحبش ساخته می‌شود. گام‌به‌گام: داده‌های گربه، تماس صاحب، برش صورت برای عکس نمایه، شماره‌های سامانه روی پوستر و در پایان یک بازبینی. همه پیشنهاد است — آنچه را دوربین اشتباه خوانده اصلاح کنید.';
+
+  @override
+  String get helpFlierNeutral =>
+      'از یک پوستر عکس‌گرفته‌شده، حیوان خانگی و صاحبش ساخته می‌شود. گام‌به‌گام: داده‌های حیوان خانگی، تماس صاحب، برش صورت برای عکس نمایه، شماره‌های سامانه روی پوستر و در پایان یک بازبینی. همه پیشنهاد است — آنچه را دوربین اشتباه خوانده اصلاح کنید.';
 
   @override
   String get archiveTitle => 'بایگانی';
@@ -947,6 +1125,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'گربه‌های درگذشته و کلونی‌های خالی که سال‌هاست کسی سراغشان نرفته باز هم جا می‌گیرند — به‌ویژه عکس‌هایشان. بایگانی آن‌ها را در فایلی که نگه می‌دارید می‌نویسد و سپس از اینجا حذف می‌کند.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'حیوانات خانگی درگذشته و خانوارهای خالی که سال‌هاست کسی سراغشان نرفته باز هم جا می‌گیرند — به‌ویژه عکس‌هایشان. بایگانی آن‌ها را در فایلی که نگه می‌دارید می‌نویسد و سپس از اینجا حذف می‌کند.';
 
   @override
   String get archiveAction => 'بایگانی';
@@ -999,6 +1181,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'داده‌های قدیمی جا می‌گیرند، به‌ویژه عکس‌هایی که هر دستگاه همگام‌شده با خود می‌برد. اینجا گربه‌های درگذشته و کلونی‌های خالیِ سال‌ها ساکن را انتخاب می‌کنید، در فایلی که نگه می‌دارید می‌نویسید و حذفشان می‌کنید. حذف به همهٔ کسانی که با آن‌ها همگام می‌شوید می‌رسد؛ وارد کردن فایل همه‌چیز را بازمی‌گرداند.';
 
   @override
+  String get helpArchiveNeutral =>
+      'داده‌های قدیمی جا می‌گیرند، به‌ویژه عکس‌هایی که هر دستگاه همگام‌شده با خود می‌برد. اینجا حیوانات خانگی درگذشته و خانوارهای خالیِ سال‌ها ساکن را انتخاب می‌کنید، در فایلی که نگه می‌دارید می‌نویسید و حذفشان می‌کنید. حذف به همهٔ کسانی که با آن‌ها همگام می‌شوید می‌رسد؛ وارد کردن فایل همه‌چیز را بازمی‌گرداند.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return '$count مورد حذف‌شده بازیابی شود؟';
   }
@@ -1019,6 +1205,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get locateAddress => 'یافتن نشانی روی نقشه';
+
+  @override
+  String get addressFoundTitle => 'نشانی پیدا شد';
+
+  @override
+  String get replaceAddressOption => 'جایگزینی نشانی با این';
+
+  @override
+  String get addPositionOption => 'ذخیرهٔ موقعیت';
 
   @override
   String get addressLocated => 'نشانی پیدا شد';
@@ -1052,6 +1247,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get markTitle => 'نشانه‌گذاری گربه';
 
   @override
+  String get markTitleNeutral => 'نشانه‌گذاری حیوان خانگی';
+
+  @override
   String get applyCrop => 'برش';
 
   @override
@@ -1061,7 +1259,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get dragToSelect => 'دور گربه یک مستطیل بکشید';
 
   @override
+  String get dragToSelectNeutral => 'دور حیوان خانگی یک مستطیل بکشید';
+
+  @override
   String get dragOverTheCat => 'روی گربه یک بیضی بکشید';
+
+  @override
+  String get dragOverTheCatNeutral => 'روی حیوان خانگی یک بیضی بکشید';
 
   @override
   String get cropPhoto => 'برش…';
@@ -1126,6 +1330,74 @@ class AppLocalizationsFa extends AppLocalizations {
   String get language => 'زبان';
 
   @override
+  String get typeUnitValue => 'مقدار با واحد';
+
+  @override
+  String get dimension => 'کمیت';
+
+  @override
+  String get dimensionWeight => 'وزن';
+
+  @override
+  String get dimensionLength => 'طول';
+
+  @override
+  String get dimensionVolume => 'حجم';
+
+  @override
+  String get dimensionTemperature => 'دما';
+
+  @override
+  String get unitsLabel => 'واحدها';
+
+  @override
+  String get catalogHolds => 'این کاتالوگ شامل';
+
+  @override
+  String get modeCats => 'گربه‌ها';
+
+  @override
+  String get modePets => 'حیوانات خانگی';
+
+  @override
+  String get graphLabel => 'نمودار';
+
+  @override
+  String get fieldHistoryTooltip => 'تاریخچه';
+
+  @override
+  String get rangeWeek => 'هفته';
+
+  @override
+  String get rangeMonth => 'ماه';
+
+  @override
+  String get rangeYear => 'سال';
+
+  @override
+  String get rangeAll => 'همه';
+
+  @override
+  String get rangeCustom => 'دلخواه…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta از $date';
+  }
+
+  @override
+  String get unitsAuto => 'مطابق منطقهٔ شما';
+
+  @override
+  String get unitsMetric => 'متریک (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'امپریال (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'وزن';
+
+  @override
   String get systemDefault => 'پیش‌فرض سیستم';
 
   @override
@@ -1172,6 +1444,30 @@ class AppLocalizationsFa extends AppLocalizations {
   String get valueCat => 'گربه';
 
   @override
+  String get valueDog => 'سگ';
+
+  @override
+  String get valueRabbit => 'خرگوش';
+
+  @override
+  String get valueGuineaPig => 'خوکچه هندی';
+
+  @override
+  String get valueHamster => 'همستر';
+
+  @override
+  String get valueBird => 'پرنده';
+
+  @override
+  String get valueHorse => 'اسب';
+
+  @override
+  String get valueTortoise => 'لاک‌پشت';
+
+  @override
+  String get valueFerret => 'راسو';
+
+  @override
   String get otherOption => 'دیگر…';
 
   @override
@@ -1180,6 +1476,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'کاغذرنگی و هلهله وقتی حیوان خانگی‌ای به خانه‌اش می‌رود';
 
   @override
   String get onMapLabel => 'روی نقشه';
@@ -1195,6 +1495,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'جستجوی گربه‌ها، گروه‌ها، افراد';
+
+  @override
+  String get mapSearchHintNeutral => 'جستجوی حیوانات خانگی، خانوارها، افراد';
 
   @override
   String get proposeAnotherName => 'پیشنهاد نام دیگر';
@@ -1252,8 +1555,70 @@ class AppLocalizationsFa extends AppLocalizations {
   String get summaryConflicts => 'تعارض‌های حل‌نشده';
 
   @override
-  String summaryOther(Object n) {
-    return '…و $n تغییر دیگر';
+  String conflictsMenu(int n) {
+    return 'تعارض‌ها ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'اینجا یک تعارض را حل کردید، پس «رد» غیرفعال است: آن را هم برمی‌گرداند.';
+
+  @override
+  String get arrivalIntro =>
+      'این تغییرات از قبل در کاتالوگ شما هستند. «رد» آن را به حالت قبل برمی‌گرداند.';
+
+  @override
+  String get summaryUpdated => 'به‌روز شده';
+
+  @override
+  String get summaryDeleted => 'حذف‌شده';
+
+  @override
+  String get keepMine => 'مال من بماند';
+
+  @override
+  String keptMine(String name) {
+    return 'نسخه شما از $name در این دستگاه نگه داشته شد.';
+  }
+
+  @override
+  String get summaryMeta => 'همچنین رسید';
+
+  @override
+  String changesCount(int n) {
+    return '$n تغییر';
+  }
+
+  @override
+  String get acceptArrival => 'پذیرش';
+
+  @override
+  String get rejectArrival => 'رد';
+
+  @override
+  String get photoAdded => 'عکس افزوده شد';
+
+  @override
+  String get photoRemoved => 'عکس حذف شد';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'فیلد جدید: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'فیلد تغییر کرد: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser در $survivor ادغام شد';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    return '$n عکس';
   }
 
   @override
@@ -1273,6 +1638,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get kittensLabel => 'بچه‌گربه‌ها';
+
+  @override
+  String get kittensLabelNeutral => 'بچه‌ها';
 
   @override
   String get toastSettingsTitle => 'چه چیزی اعلام شود';
@@ -1303,6 +1671,11 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ بچه‌گربه جدید: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ تازه‌متولد: $cat ✨';
   }
 
   @override
@@ -1390,11 +1763,21 @@ class AppLocalizationsFa extends AppLocalizations {
   String get selectClowderHint => 'از سمت چپ یک گروه انتخاب کنید';
 
   @override
+  String get selectClowderHintNeutral => 'از سمت چپ یک خانوار انتخاب کنید';
+
+  @override
   String get introTitle1 => 'گربه‌هایتان، منظم';
+
+  @override
+  String get introTitle1Neutral => 'حیوانات خانگی‌تان، منظم';
 
   @override
   String get introBody1 =>
       'برای هر گربه یک کارت بسازید: عکس، جنسیت، سلامت و هرچه می‌خواهید یادداشت کنید. گربه‌ها بر اساس محل زندگی گروه‌بندی می‌شوند — برنامه به این مکان کلنی (clowder) می‌گوید.';
+
+  @override
+  String get introBody1Neutral =>
+      'برای هر حیوان خانگی‌ای که از آن مراقبت می‌کنید یک کارت بسازید: عکس، جنسیت، سلامت و هرچه می‌خواهید یادداشت کنید. حیوانات خانگی بر اساس محل زندگی گروه‌بندی می‌شوند — برنامه به این مکان خانوار می‌گوید.';
 
   @override
   String get introTitle2 => 'بدون اینترنت کار می‌کند';
@@ -1431,35 +1814,66 @@ class AppLocalizationsFa extends AppLocalizations {
       'این کارت همهٔ ولگردها را جمع می‌کند — گربه‌های بی‌خانه. برای دیدن فهرست لمس کنید.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'این کارت همهٔ ولگردها را جمع می‌کند — حیوانات خانگی بی‌خانه. برای دیدن فهرست لمس کنید.';
+
+  @override
   String get spotHomeMenu =>
-      'در این منو: یافتن و ادغام موارد تکراری، خروجی CSV و بیشتر.';
+      'در این منو: تنظیمات، یافتن و ادغام موارد تکراری، خروجی CSV و بیشتر.';
 
   @override
   String get spotCatEdit =>
       'برای ویرایش گربه روی مداد بزنید. نکته: فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند.';
 
   @override
+  String get spotCatEditNeutral =>
+      'برای ویرایش حیوان خانگی روی مداد بزنید. نکته: فشار طولانی روی فیلد آن را مستقیم ویرایش می‌کند.';
+
+  @override
   String get spotMapLayers =>
       'دنبال گربهٔ گمشده‌اید؟ دور محل آگهی‌هایش و خانه‌ای که از آن فرار کرده دایره نشان دهید.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'دنبال حیوان خانگی گمشده‌اید؟ دور محل آگهی‌هایش و خانه‌ای که از آن فرار کرده دایره نشان دهید.';
 
   @override
   String get spotStraysFlier =>
       'آگهی گربهٔ گمشده دیدید؟ اینجا عکس بگیرید — برنامه گربه و تماس را برایتان ذخیره می‌کند.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'آگهی حیوان خانگی گمشده دیدید؟ اینجا عکس بگیرید — برنامه حیوان خانگی و تماس را برایتان ذخیره می‌کند.';
+
+  @override
   String get spotStraysScan =>
       'بعضی آگهی‌ها کد QR مخصوص cat(a)log دارند. اینجا اسکن کنید و گربه را بدون تایپ وارد کنید.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'بعضی آگهی‌ها کد QR مخصوص cat(a)log دارند. اینجا اسکن کنید و حیوان خانگی را بدون تایپ وارد کنید.';
+
+  @override
   String get introTitle4 => 'گربه‌های گمشده را بیابید';
+
+  @override
+  String get introTitle4Neutral => 'حیوانات خانگی گمشده را بیابید';
 
   @override
   String get introBody4 =>
       'آگهی گربهٔ گمشده دیده‌اید؟ در برنامه از آن عکس بگیرید: گربه، تماس صاحبش و مکان را ذخیره می‌کند. اگر بعداً گربهٔ ولگرد مشابهی دیده شود، برنامه تطبیق‌های احتمالی را پیشنهاد می‌دهد.';
 
   @override
+  String get introBody4Neutral =>
+      'آگهی حیوان خانگی گمشده دیده‌اید؟ در برنامه از آن عکس بگیرید: حیوان خانگی، تماس صاحبش و مکان را ذخیره می‌کند. اگر بعداً حیوان ولگرد مشابهی دیده شود، برنامه تطبیق‌های احتمالی را پیشنهاد می‌دهد.';
+
+  @override
   String get spotMapSearch =>
       'گربه، مکان یا شخصی را بنویسید تا روی نقشه به آنجا بروید.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'حیوان خانگی، مکان یا شخصی را بنویسید تا روی نقشه به آنجا بروید.';
 
   @override
   String get spotCardChips =>
@@ -1468,6 +1882,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'اینجا کارهای بیشتری هست: پنهان کردن گربه، ادغام موارد تکراری یا ثبت مشاهده.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'اینجا کارهای بیشتری هست: پنهان کردن حیوان خانگی، ادغام موارد تکراری یا ثبت مشاهده.';
 
   @override
   String get spotDone => 'متوجه شدم';
@@ -1483,6 +1901,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get searchNoResults => 'گربه‌ای با این نام یافت نشد';
+
+  @override
+  String get searchNoResultsNeutral => 'حیوان خانگی‌ای با این نام یافت نشد';
 
   @override
   String get syncUnreachable =>
@@ -1531,7 +1952,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'هر کاتالوگ دنیای خودش است: گربه‌ها، کلونی‌ها، فیلدها، عکس‌ها و همگام‌سازهای خودش. برلین و پاریس هرگز مخلوط نمی‌شوند. برای تغییر، افزودن یا تغییر نام، بالای صفحهٔ خانه روی نام بزنید. نام شما، زبان و راهنماهایی که دیده‌اید بین همه مشترک است.';
+      'هر کاتالوگ دنیایی برای خودش است: گربه‌ها، کلنی‌ها، فیلدها، عکس‌ها و شریک‌های همگام‌سازی خودش. برلین و پاریس هرگز قاطی نمی‌شوند. روی یک کاتالوگ بزنید تا به آن بروید. چرخ‌دنده کنار کاتالوگ تنظیماتش را باز می‌کند: نام، گربه یا حیوان، فیلدها، نویسندگان و مسدودی‌ها، آرشیو، بازگشت، حذف. نام، زبان و نکته‌هایی که دیده‌اید در همه مشترک است.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'هر کاتالوگ دنیایی برای خودش است: حیوانات، خانوارها، فیلدها، عکس‌ها و شریک‌های همگام‌سازی خودش. برلین و پاریس هرگز قاطی نمی‌شوند. روی یک کاتالوگ بزنید تا به آن بروید. چرخ‌دنده کنار کاتالوگ تنظیماتش را باز می‌کند: نام، گربه یا حیوان، فیلدها، نویسندگان و مسدودی‌ها، آرشیو، بازگشت، حذف. نام، زبان و نکته‌هایی که دیده‌اید در همه مشترک است.';
+
+  @override
+  String get helpCatalogSettings =>
+      'هر چیزی که فقط به این کاتالوگ تعلق دارد: نامش، اینکه گربه دارد یا حیوان، فیلدهایش، نویسندگان و مسدودی‌ها، آرشیو و بازگشت در زمان. تغییرات اینجا فقط به این کاتالوگ می‌رسد — حتی کاتالوگی که اکنون در آن نیستید. حذف ابتدا کاتالوگ را در فایلی می‌نویسد.';
 
   @override
   String get spotHomeCatalog =>
@@ -1541,8 +1970,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deleteCatalog => 'حذف کاتالوگ';
 
   @override
+  String get catalogSettings => 'تنظیمات کاتالوگ';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'همه‌چیز در $name از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.';
+    return 'همه‌چیز در $name از بین می‌رود: گربه‌ها، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'همه‌چیز در $name از بین می‌رود: حیوانات خانگی، عکس‌ها و تاریخچه. ابتدا یک فایل کامل همان‌جا که پشتیبان‌های خودکار ذخیره می‌شوند نوشته می‌شود؛ وارد کردن آن کاتالوگ را برمی‌گرداند. برای تأیید نام را بنویسید.';
   }
 
   @override
@@ -1671,6 +2108,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'قراری برنامه‌ریزی نشده. قرارهای جدید را اینجا با علامت مثبت یا در صفحهٔ گربه یا گروه برنامه‌ریزی کن.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'قراری برنامه‌ریزی نشده. قرارهای جدید را اینجا با علامت مثبت یا در صفحهٔ حیوان خانگی یا خانوار برنامه‌ریزی کن.';
+
+  @override
   String get dueToday => 'امروز';
 
   @override
@@ -1759,6 +2200,14 @@ class AppLocalizationsFa extends AppLocalizations {
       'دستگاه دیگر cat(a)log جدیدتری دارد. روی این دستگاه cat(a)log را به‌روز کن و دوباره همگام‌سازی کن.';
 
   @override
+  String get syncPeerNoTls =>
+      'دستگاه دیگر cat(a)log پیش از ۱.۱.۰ دارد، بدون همگام‌سازی رمزگذاری‌شده. آنجا cat(a)log را به‌روز کنید و دوباره همگام کنید.';
+
+  @override
+  String get syncWrongHost =>
+      'گواهی با کد جفت‌سازی مطابقت ندارد — این آن دستگاهی نیست که کد از آن آمده. کد را دوباره اسکن یا وارد کنید.';
+
+  @override
   String get bundleNewerError =>
       'این پرونده از cat(a)log جدیدتری می‌آید. برای درون‌ریزی، cat(a)log را روی این دستگاه به‌روز کن.';
 
@@ -1819,6 +2268,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، گربه یا گروه را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند گربه یک نوبت است: گربه‌ها را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام گربه‌ها درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند.';
 
   @override
+  String get helpAgendaNeutral =>
+      'یادآورها قرارهای برنامه‌ریزی‌شده را به ترتیب تاریخ نشان می‌دهند. دو نوع وجود دارد: قرارها با ساعت مشخص و یادآورهایی که برای یک روز هستند. قرارهای ازدست‌رفته بالا می‌مانند. ضربه، حیوان خانگی یا خانوار را باز می‌کند. تیک قرار را تأیید می‌کند: مقدار در فیلد نوشته می‌شود و می‌توانی بلافاصله قرار بعدی را برنامه‌ریزی کنی، مثلاً سه ماه بعد. نگه‌داشتن تاریخ را تغییر می‌دهد یا قرار را حذف می‌کند. کلید بالا قرارها را در تقویم گوشی‌ات بازتاب می‌دهد. منو آن‌ها را به‌صورت پروندهٔ تقویم برون‌بری می‌کند. مراجعه به دامپزشک با چند حیوان خانگی یک نوبت است: حیوانات را علامت بزنید، برنامه یک کارت با نام آن‌ها نشان می‌دهد و هنگام پایان می‌پرسد کدام حیوانات درمان شدند — علامت بقیه را بردارید، برنامه‌ریزی‌شده می‌مانند.';
+
+  @override
   String get calendarRowOff => 'تقویم: خاموش';
 
   @override
@@ -1831,8 +2284,16 @@ class AppLocalizationsFa extends AppLocalizations {
       'برای این گربه قراری برنامه‌ریزی کن. در یادآورها نمایان می‌شود و همان‌جا تأیید می‌شود.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'برای این حیوان خانگی قراری برنامه‌ریزی کن. در یادآورها نمایان می‌شود و همان‌جا تأیید می‌شود.';
+
+  @override
   String get spotAddReminderClowder =>
       'برای این گروه قراری برنامه‌ریزی کن. در یادآورها نمایان می‌شود و همان‌جا تأیید می‌شود.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'برای این خانوار قراری برنامه‌ریزی کن. در یادآورها نمایان می‌شود و همان‌جا تأیید می‌شود.';
 
   @override
   String get readOnlyCalendar => 'فقط خواندنی';
@@ -1938,7 +2399,13 @@ class AppLocalizationsFa extends AppLocalizations {
   String get existingCat => 'گربه موجود';
 
   @override
+  String get existingCatNeutral => 'حیوان خانگی موجود';
+
+  @override
   String get existingClowder => 'گروه موجود';
+
+  @override
+  String get existingClowderNeutral => 'خانوار موجود';
 
   @override
   String get createNewInstead => 'هیچ — ایجاد جدید';
@@ -1964,11 +2431,21 @@ class AppLocalizationsFa extends AppLocalizations {
   String get catsOnAppointment => 'گربه‌های این نوبت';
 
   @override
+  String get catsOnAppointmentNeutral => 'حیوانات خانگی این نوبت';
+
+  @override
   String get noCatsHint =>
       'هیچ گربه‌ای علامت نخورده — نوبت متعلق به خود کلونی است.';
 
   @override
+  String get noCatsHintNeutral =>
+      'هیچ حیوان خانگی‌ای علامت نخورده — نوبت متعلق به خود خانوار است.';
+
+  @override
   String get pickCatsTitle => 'کدام گربه‌ها می‌آیند؟';
+
+  @override
+  String get pickCatsTitleNeutral => 'کدام حیوانات خانگی می‌آیند؟';
 
   @override
   String catsCount(int count) {
@@ -1976,11 +2453,25 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count حیوان خانگی';
+  }
+
+  @override
   String get finishUntickHint =>
       'علامت گربه‌هایی را که درمان نشدند بردارید؛ برنامه‌ریزی‌شده می‌مانند.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'علامت حیوانات خانگی‌ای را که درمان نشدند بردارید؛ برنامه‌ریزی‌شده می‌مانند.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'حذف نوبت برای هر $count گربه';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'حذف نوبت برای هر $count حیوان خانگی';
   }
 }

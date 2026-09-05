@@ -118,15 +118,18 @@ class _CatListScreenState extends State<CatListScreen> {
   String _value(String catId, String key) => store.current(catId, key) ?? '';
 
   /// Name, then any field value, case-insensitive.
-  bool _matches(EntityView cat, String q) {
+  bool _matches(EntityView cat, String q, List<FieldDef> defs) {
     if (cat.name.toLowerCase().contains(q)) return true;
-    for (final def in store.fieldDefs(scope: FieldScope.cat)) {
+    for (final def in defs) {
+      if (def.scope == FieldScope.clowder) continue;
       if (_value(cat.id, def.key).toLowerCase().contains(q)) return true;
     }
     return false;
   }
 
-  int _compare(EntityView a, EntityView b) {
+  /// [defs] is read once per listing: the comparator runs n·log n
+  /// times, and the definitions are a query each.
+  int _compare(EntityView a, EntityView b, List<FieldDef> defs) {
     final (key, asc) = _sort;
     int result;
     if (key == 'name') {
@@ -145,20 +148,32 @@ class _CatListScreenState extends State<CatListScreen> {
       }
       result = ba.compareTo(bb);
     } else {
-      result = _value(
-        a.id,
-        key,
-      ).toLowerCase().compareTo(_value(b.id, key).toLowerCase());
+      final def = defs.where((d) => d.key == key).firstOrNull;
+      final numeric =
+          def?.type == FieldType.number || def?.type == FieldType.unitValue;
+      final na = numeric ? double.tryParse(_value(a.id, key)) : null;
+      final nb = numeric ? double.tryParse(_value(b.id, key)) : null;
+      if (numeric && (na != null || nb != null)) {
+        // Numbers sort as numbers; the ones without go last either way.
+        if (na == null || nb == null) return na == null ? 1 : -1;
+        result = na.compareTo(nb);
+      } else {
+        result = _value(
+          a.id,
+          key,
+        ).toLowerCase().compareTo(_value(b.id, key).toLowerCase());
+      }
     }
     return asc ? result : -result;
   }
 
   List<EntityView> _cats() {
     final q = _query.trim().toLowerCase();
+    final defs = store.fieldDefs();
     return [
       for (final cat in widget.source(store))
-        if (q.isEmpty || _matches(cat, q)) cat,
-    ]..sort(_compare);
+        if (q.isEmpty || _matches(cat, q, defs)) cat,
+    ]..sort((a, b) => _compare(a, b, defs));
   }
 
   /// Where the cat lives, its age, gender and colour — what one scans

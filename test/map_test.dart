@@ -5,6 +5,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/geocode.dart';
 import 'package:catlog/src/map/place_view.dart';
+import 'package:catlog/src/pet_mode.dart';
 import 'package:catlog/src/screens/map_screen.dart';
 import 'package:catlog/src/screens/position_picker_screen.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,25 @@ void main() {
 
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Roamer'), findsOneWidget);
+    // Every pin points at its spot: anchored at the bottom, tip on the
+    // coordinate.
+    final markers = tester
+        .widgetList<MarkerLayer>(find.byType(MarkerLayer))
+        .expand((l) => l.markers)
+        .toList();
+    expect(markers, hasLength(2));
+    expect(markers.map((m) => m.alignment),
+        everyElement(Alignment.bottomCenter));
+    expect(find.byType(PinTip), findsNWidgets(2));
+    // Measured, not trusted: each tip's apex sits on the bottom edge of
+    // its marker box, and the box's bottom centre is the coordinate.
+    for (final tip in find.byType(PinTip).evaluate()) {
+      final tipRect = tester.getRect(find.byWidget(tip.widget));
+      final box = tester.getRect(find.ancestor(
+          of: find.byWidget(tip.widget),
+          matching: find.byType(GestureDetector)).first);
+      expect(tipRect.bottom, moreOrLessEquals(box.bottom, epsilon: 0.5));
+    }
     // The clowder's photo is decoded at pin size, like the cat faces.
     expect(
         find.byWidgetPredicate((w) =>
@@ -83,6 +103,39 @@ void main() {
     expect(find.textContaining('sightings'), findsOneWidget);
   });
 
+
+  testWidgets('in pet mode an animal without a photo pins as a paw',
+      (tester) async {
+    final dir = Directory.systemTemp.createTempSync('catlog_map');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final tile = File('${dir.path}/tile.png')
+      ..writeAsBytesSync(Uint8List.fromList(
+          img.encodePng(img.Image(width: 1, height: 1))));
+    final store = CatalogStore.inMemory();
+    addTearDown(store.close);
+    addTearDown(() => petMode.value = false);
+    store.author = 'axel';
+    final stray = store.createCat('Rex', species: 'dog');
+    store.recordPosition(stray, 52.53, 13.41);
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    // Cat mode: the cat placeholder, no paw.
+    expect(find.byIcon(Icons.pets), findsNothing);
+
+    setPetMode(store, true);
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MapScreen(store: store, tileProvider: _FakeTileProvider(tile)),
+    ));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.byIcon(Icons.pets), findsOneWidget);
+  });
 
   testWidgets('a flier-only stray pins where its poster says (#83)',
       (tester) async {
@@ -204,7 +257,7 @@ void main() {
     await tester.tap(find.byType(CheckboxListTile));
     await tester.pumpAndSettle();
     // Close the sheet.
-    await tester.tapAt(const Offset(10, 10));
+    await tester.tap(find.text('OK'));
     await tester.pumpAndSettle();
     final layer =
         tester.widget<CircleLayer>(find.byType(CircleLayer));

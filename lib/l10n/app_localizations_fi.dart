@@ -29,14 +29,24 @@ class AppLocalizationsFi extends AppLocalizations {
   String get clowders => 'Clowderit';
 
   @override
+  String get clowdersNeutral => 'Kotitaloudet';
+
+  @override
   String get noClowdersYet =>
       'Ei vielä clowdereita. Clowder on paikka, jossa kissat asuvat — sijaiskotisi, adoptoijan asunto. Luo ensimmäinen alta.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'Ei vielä kotitalouksia. Kotitalous on paikka, jossa lemmikit asuvat — kotisi, sijaiskoti, adoptoijan asunto. Luo ensimmäinen alta.';
 
   @override
   String get strays => 'Kulkukissat';
 
   @override
   String get searchCats => 'Etsi kissoja';
+
+  @override
+  String get searchCatsNeutral => 'Etsi lemmikkejä';
 
   @override
   String get map => 'Kartta';
@@ -54,7 +64,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get aboutAndFeedback => 'Tietoja & palaute';
 
   @override
+  String get settings => 'Asetukset';
+
+  @override
   String get newClowder => 'Uusi clowder';
+
+  @override
+  String get newClowderNeutral => 'Uusi kotitalous';
 
   @override
   String get name => 'Nimi';
@@ -89,6 +105,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get renameClowder => 'Nimeä clowder uudelleen';
 
   @override
+  String get renameClowderNeutral => 'Nimeä kotitalous uudelleen';
+
+  @override
   String get rename => 'Nimeä uudelleen';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deleteClowder => 'Poista clowder';
 
   @override
+  String get deleteClowderNeutral => 'Poista kotitalous';
+
+  @override
   String get cats => 'Kissat';
+
+  @override
+  String get catsNeutral => 'Lemmikit';
 
   @override
   String get addCat => 'Lisää kissa';
 
   @override
+  String get addCatNeutral => 'Lisää lemmikki';
+
+  @override
   String get newCat => 'Uusi kissa';
+
+  @override
+  String get newCatNeutral => 'Uusi lemmikki';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Clowder katoaa luettelosta.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Kotitalous katoaa luettelosta.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Sen $count kissaa ei poisteta — niistä tulee kulkukissoja. Siirrä ne ensin toiseen clowderiin, jos et halua sitä.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Sen $count lemmikkiä ei poisteta — niistä tulee kodittomia. Siirrä ne ensin toiseen kotitalouteen, jos et halua sitä.';
   }
 
   @override
@@ -143,16 +182,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String get renameCat => 'Nimeä kissa uudelleen';
 
   @override
+  String get renameCatNeutral => 'Nimeä lemmikki uudelleen';
+
+  @override
   String get seenHereNow => 'Nähty täällä nyt';
 
   @override
   String get deleteCat => 'Poista kissa';
 
   @override
+  String get deleteCatNeutral => 'Poista lemmikki';
+
+  @override
   String get clowderLabel => 'Clowder';
 
   @override
+  String get clowderLabelNeutral => 'Kotitalous';
+
+  @override
   String get strayNoClowder => 'Kulkukissa — ei clowderia';
+
+  @override
+  String get strayNoClowderNeutral => 'Koditon — ei kotitaloutta';
 
   @override
   String get stray => 'Kulkukissa';
@@ -182,6 +233,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'Kissa katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'Lemmikki katoaa kaikista listoista ja sen kuvat poistetaan — täältä ja seuraavan synkronoinnin jälkeen myös muilta laitteilta.';
 
   @override
   String get sightingRecorded => 'Havainto tallennettu sijaintiisi.';
@@ -234,6 +289,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea kissan sisällä olevaa sirua.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Skannaa painetun QR-/viivakoodin sirukortista tai eläinlääkärin papereista — puhelin ei voi lukea eläimen sisällä olevaa sirua.';
+
+  @override
   String get savingLabel => 'Tallennetaan…';
 
   @override
@@ -258,6 +317,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get catList => 'Kissaluettelo';
+
+  @override
+  String get catListNeutral => 'Lemmikkiluettelo';
 
   @override
   String get matchCandidatesTitle => 'Mahdolliset osumat';
@@ -290,6 +352,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fromVideo => 'Videosta…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Lisätään kuvaa $done/$total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Ruutujen poiminta videosta toimii puhelinsovelluksessa (Android ja iPhone) — ei vielä tällä laitteella.';
 
@@ -320,6 +387,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get importShareTitle => 'Tuodaanko tämä kissa?';
 
   @override
+  String get importShareTitleNeutral => 'Tuodaanko tämä lemmikki?';
+
+  @override
   String shareSource(String url) {
     return 'Lähde: $url';
   }
@@ -339,6 +409,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get noMissingCats =>
       'Ei vielä kadonneita kissoja, joilla on ilmoitussijainteja.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Ei vielä kadonneita lemmikkejä, joilla on ilmoitussijainteja.';
 
   @override
   String get noMatchCandidates => 'Ei mahdollisia osumia juuri nyt.';
@@ -417,6 +491,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tämä kissa on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
 
   @override
+  String get malePregnantNeutral =>
+      'Tämä lemmikki on merkitty urokseksi — uros ei voi olla tiineenä. Tarkista ensin sukupuoli.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name on merkitty naaraaksi eikä voi olla isä. Tarkista ensin sukupuoli.';
   }
@@ -432,18 +510,35 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name syntyi $date — vanhempi ei voi syntyä poikasensa jälkeen.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'Tämä kissa on merkitty muiden kissojen isäksi — isä ei voi olla naaras. Tarkista ensin perhe.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'Tämä lemmikki on merkitty muiden lemmikkien isäksi — isä ei voi olla naaras. Tarkista ensin perhe.';
 
   @override
   String get genderMotherMale =>
       'Tämä kissa on merkitty muiden kissojen emoksi — emo ei voi olla uros. Tarkista ensin perhe.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Tämä lemmikki on merkitty muiden lemmikkien emoksi — emo ei voi olla uros. Tarkista ensin perhe.';
+
+  @override
   String get moveTo => 'Siirrä kohteeseen';
 
   @override
   String get noClowderStrayOption => 'Ei clowderia — kulkukissa / karkasi';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Ei kotitaloutta — koditon / karkasi';
 
   @override
   String timelineOf(String name) {
@@ -533,7 +628,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get forCats => 'kissoille';
 
   @override
+  String get forCatsNeutral => 'lemmikeille';
+
+  @override
   String get forClowders => 'clowdereille';
+
+  @override
+  String get forClowdersNeutral => 'kotitalouksille';
 
   @override
   String get forBoth => 'molemmille';
@@ -564,6 +665,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Etsi kissoja nimellä…';
+
+  @override
+  String get searchByNameHintNeutral => 'Etsi lemmikkejä nimellä…';
 
   @override
   String get host => 'Isännöi';
@@ -654,6 +758,16 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Reitti: $name — $field ($count arvoa)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Reitti: $name ($count sijaintia)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Ristiriita — $field';
   }
@@ -686,7 +800,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get kindCat => 'kissa';
 
   @override
+  String get kindCatNeutral => 'lemmikki';
+
+  @override
   String get kindClowder => 'clowder';
+
+  @override
+  String get kindClowderNeutral => 'kotitalous';
 
   @override
   String get kindField => 'kenttä';
@@ -703,6 +823,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get aboutTagline =>
       'Paikallinen luettelo sijaiskissoille. Tietosi pysyvät laitteillasi — ei palvelinta, ei tiliä.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'Paikallinen luettelo lemmikeille, joista huolehdit. Tietosi pysyvät laitteillasi — ei palvelinta, ei tiliä.';
 
   @override
   String versionLabel(String version, String build) {
@@ -830,6 +954,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get stepCat => 'Kissa';
 
   @override
+  String get stepCatNeutral => 'Lemmikki';
+
+  @override
   String get stepOwner => 'Omistaja';
 
   @override
@@ -846,12 +973,24 @@ class AppLocalizationsFi extends AppLocalizations {
       'Se, jolta kissa on kadonnut — tästä tulee hänen clowderinsa ilmoituksen yhteystiedoin.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Se, jolta lemmikki on kadonnut — tästä tulee hänen kotitaloutensa ilmoituksen yhteystiedoin.';
+
+  @override
   String get stepFaceHint =>
       'Rajaa kissan kasvot ilmoituksesta; niistä tulee profiilikuva. Voit ohittaa tämän.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Rajaa lemmikin kasvot ilmoituksesta; niistä tulee profiilikuva. Voit ohittaa tämän.';
+
+  @override
   String get stepRegistryHint =>
       'Ilmoituksesta löytyneet numerot. Valitut tallennetaan kissalle ja ne voi avata myöhemmin.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Ilmoituksesta löytyneet numerot. Valitut tallennetaan lemmikille ja ne voi avata myöhemmin.';
 
   @override
   String get noRegistryLinks =>
@@ -900,24 +1039,48 @@ class AppLocalizationsFi extends AppLocalizations {
       'Yleisnäkymä kolonioihisi — kolonia on paikka, jossa kissat asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen kissat; pitkä painallus avaa valikon. Oikean alakulman painike luo kolonian, ja kulkukissakortti kokoaa kaikki kodittomat kissat. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.';
 
   @override
+  String get helpHomeNeutral =>
+      'Yleisnäkymä kotitalouksiisi — kotitalous on paikka, jossa lemmikit asuvat: kotisi, sijaiskoti, löytöeläintalo. Napauta korttia nähdäksesi sen lemmikit; pitkä painallus avaa valikon. Oikean alakulman painike luo kotitalouden, ja kodittomien kortti kokoaa kaikki kodittomat lemmikit. Ylhäällä oleva nimi on luettelo, jossa olet — napauta vaihtaaksesi tai lisätäksesi.';
+
+  @override
   String get helpClowder =>
-      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta.';
+      'Kaikki tästä paikasta: sen kissat, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, kissaa siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kolonian kissoja, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat kissat, päätä kerran, poista valinta hoitamattomilta. Kentän kello avaa sen historian.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Kaikki tästä paikasta: sen lemmikit, kentät (osoite, yhteystiedot, tyyppi) ja historia. Sivu avautuu vain luettavaksi; kynä kytkee muokkauksen, jossa voit myös lisätä kentän. Pidä kenttää painettuna muokataksesi sitä suoraan, lemmikkiä siirtääksesi, piilottaaksesi tai avataksesi sen. Tähän lisätty ajanvaraus voi viedä useita kotitalouden lemmikkejä, esimerkiksi kastraatiokierrokselle: valitse mukaan tulevat lemmikit, päätä kerran, poista valinta hoitamattomilta. Kentän kello avaa sen historian.';
 
   @override
   String get helpCat =>
-      'Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa.';
+      'Kaikki tästä kissasta: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa kissa. „Yksityinen“ asetetaan kenttää muokattaessa. Kentän kello avaa sen historian.';
+
+  @override
+  String get helpCatNeutral =>
+      'Kaikki tästä lemmikistä: kuvat, kentät, perhe, historia. Sivu on vain luku -tilassa, kunnes napautat kynää. Paina kenttää pitkään muokataksesi sitä suoraan; paina kuvaa pitkään sen valikkoa varten. Oikean yläkulman valikossa on loput: piilota, yhdistä, kirjaa havainto, jaa lemmikki. „Yksityinen“ asetetaan kenttää muokattaessa. Kentän kello avaa sen historian.';
 
   @override
   String get helpStrays =>
       'Kissat, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa kissan, joka istuu edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta kissan omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. Napauta Stray Camia ottaaksesi kuvan; pidä pohjassa kuvataksesi videon ja säilytä parhaat ruudut kuvina.';
 
   @override
+  String get helpStraysNeutral =>
+      'Lemmikit, joilla ei juuri nyt ole kotia: löydetyt, karanneet tai ilmoituksesta poimitut. Kamerapainike kirjaa eläimen, joka on edessäsi; ilmoituspainike tekee kadonnut-ilmoituksesta lemmikin omistajan yhteystietoineen; skanneri lukee cat(a)log-koodin ilmoituksesta. Napauta Stray Camia ottaaksesi kuvan; pidä pohjassa kuvataksesi videon ja säilytä parhaat ruudut kuvina.';
+
+  @override
   String get helpMap =>
-      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon.';
+      'Kaikki kissat ja paikat, joilla on sijainti. Haku löytää kissat, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen kissan ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon. Jokainen sijaintikenttä on neula kartalla; napauta neulaa nähdäksesi sen reitin.';
+
+  @override
+  String get helpMapNeutral =>
+      'Kaikki lemmikit ja paikat, joilla on sijainti. Haku löytää lemmikit, ihmiset ja paikat — tuntematon nimi haetaan koko maailmasta. Tasopainike piirtää 500 metrin ympyrät kadonneen lemmikin ilmoituspaikkojen ja sen entisen kodin ympärille. Nuolet kulkevat nastalta nastalle, pitkä painallus kartalla kirjaa havainnon. Jokainen sijaintikenttä on neula kartalla; napauta neulaa nähdäksesi sen reitin.';
 
   @override
   String get helpCard =>
       'Kissan tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'Lemmikin tulostettava kortti: valitse ylhäältä siruilla mitä siihen tulee, jaa se sitten kuvana tai PDF:nä. Numerot voi tulostaa QR- tai viivakoodina, ja sijainnista tulee QR, joka avaa kartan, sekä lyhyt Plus Code.';
 
   @override
   String get helpSync =>
@@ -928,6 +1091,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa kissan kohdalla.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa lemmikin kohdalla.';
+
+  @override
   String get helpTimeline =>
       'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.';
 
@@ -936,12 +1103,24 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kissat tai koloniat, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Lemmikit tai kotitaloudet, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.';
+
+  @override
   String get helpMatches =>
       'Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Lemmikit, jotka voivat olla sama eläin: sama tunnus tai koditon nähtynä kadonneen lemmikin hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen lemmikin vertailua varten.';
+
+  @override
   String get helpFlier =>
       'Valokuvatusta ilmoituksesta tulee kissa ja sen omistaja. Vaihe vaiheelta: kissan tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.';
+
+  @override
+  String get helpFlierNeutral =>
+      'Valokuvatusta ilmoituksesta tulee lemmikki ja sen omistaja. Vaihe vaiheelta: lemmikin tiedot, omistajan yhteystiedot, kasvojen rajaus profiilikuvaksi, ilmoituksen rekisterinumerot ja lopuksi tarkistus. Kaikki ovat ehdotuksia — korjaa se, minkä kamera luki väärin.';
 
   @override
   String get archiveTitle => 'Arkisto';
@@ -949,6 +1128,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Kuolleet kissat ja tyhjät koloniat, joihin kukaan ei ole koskenut vuosiin, vievät silti tilaa — etenkin niiden kuvat. Arkistointi kirjoittaa ne tiedostoon, jonka säilytät, ja poistaa ne sitten täältä.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Kuolleet lemmikit ja tyhjät kotitaloudet, joihin kukaan ei ole koskenut vuosiin, vievät silti tilaa — etenkin niiden kuvat. Arkistointi kirjoittaa ne tiedostoon, jonka säilytät, ja poistaa ne sitten täältä.';
 
   @override
   String get archiveAction => 'Arkistoi';
@@ -1002,6 +1185,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Vanha tieto vie tilaa, ennen kaikkea kuvat, joita jokainen synkronoitu laite raahaa mukanaan. Täällä valitset kuolleet kissat ja tyhjät koloniat, jotka ovat olleet vuosia hiljaa, kirjoitat ne tiedostoon jonka säilytät, ja poistat ne. Poisto tavoittaa kaikki, joiden kanssa synkronoit; tiedoston tuonti palauttaa kaiken.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Vanha tieto vie tilaa, ennen kaikkea kuvat, joita jokainen synkronoitu laite raahaa mukanaan. Täällä valitset kuolleet lemmikit ja tyhjät kotitaloudet, jotka ovat olleet vuosia hiljaa, kirjoitat ne tiedostoon jonka säilytät, ja poistat ne. Poisto tavoittaa kaikki, joiden kanssa synkronoit; tiedoston tuonti palauttaa kaiken.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return 'Palautetaanko $count poistettua kohdetta?';
   }
@@ -1023,6 +1210,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get locateAddress => 'Etsi osoite kartalta';
+
+  @override
+  String get addressFoundTitle => 'Osoite löytyi';
+
+  @override
+  String get replaceAddressOption => 'Korvaa osoite tällä';
+
+  @override
+  String get addPositionOption => 'Tallenna sijainti';
 
   @override
   String get addressLocated => 'Osoite löytyi';
@@ -1056,6 +1252,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get markTitle => 'Merkitse kissa';
 
   @override
+  String get markTitleNeutral => 'Merkitse lemmikki';
+
+  @override
   String get applyCrop => 'Rajaa';
 
   @override
@@ -1065,7 +1264,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get dragToSelect => 'Vedä suorakulmio kissan ympärille';
 
   @override
+  String get dragToSelectNeutral => 'Vedä suorakulmio lemmikin ympärille';
+
+  @override
   String get dragOverTheCat => 'Vedä ellipsi kissan päälle';
+
+  @override
+  String get dragOverTheCatNeutral => 'Vedä ellipsi lemmikin päälle';
 
   @override
   String get cropPhoto => 'Rajaa…';
@@ -1130,6 +1335,74 @@ class AppLocalizationsFi extends AppLocalizations {
   String get language => 'Kieli';
 
   @override
+  String get typeUnitValue => 'Arvo yksiköllä';
+
+  @override
+  String get dimension => 'Suure';
+
+  @override
+  String get dimensionWeight => 'Paino';
+
+  @override
+  String get dimensionLength => 'Pituus';
+
+  @override
+  String get dimensionVolume => 'Tilavuus';
+
+  @override
+  String get dimensionTemperature => 'Lämpötila';
+
+  @override
+  String get unitsLabel => 'Yksiköt';
+
+  @override
+  String get catalogHolds => 'Tämä luettelo sisältää';
+
+  @override
+  String get modeCats => 'Kissoja';
+
+  @override
+  String get modePets => 'Lemmikkejä';
+
+  @override
+  String get graphLabel => 'Kaavio';
+
+  @override
+  String get fieldHistoryTooltip => 'Historia';
+
+  @override
+  String get rangeWeek => 'Viikko';
+
+  @override
+  String get rangeMonth => 'Kuukausi';
+
+  @override
+  String get rangeYear => 'Vuosi';
+
+  @override
+  String get rangeAll => 'Kaikki';
+
+  @override
+  String get rangeCustom => 'Mukautettu…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta alkaen $date';
+  }
+
+  @override
+  String get unitsAuto => 'Kuten alueellasi';
+
+  @override
+  String get unitsMetric => 'Metrinen (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Brittiläinen (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Paino';
+
+  @override
   String get systemDefault => 'Järjestelmän oletus';
 
   @override
@@ -1176,6 +1449,30 @@ class AppLocalizationsFi extends AppLocalizations {
   String get valueCat => 'Kissa';
 
   @override
+  String get valueDog => 'Koira';
+
+  @override
+  String get valueRabbit => 'Kani';
+
+  @override
+  String get valueGuineaPig => 'Marsu';
+
+  @override
+  String get valueHamster => 'Hamsteri';
+
+  @override
+  String get valueBird => 'Lintu';
+
+  @override
+  String get valueHorse => 'Hevonen';
+
+  @override
+  String get valueTortoise => 'Kilpikonna';
+
+  @override
+  String get valueFerret => 'Fretti';
+
+  @override
   String get otherOption => 'Muu…';
 
   @override
@@ -1184,6 +1481,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfettia ja hurraus, kun kissa muuttaa kotiinsa';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfettia ja hurraus, kun lemmikki muuttaa kotiinsa';
 
   @override
   String get onMapLabel => 'Kartalla';
@@ -1199,6 +1500,10 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Hae kissoja, ryhmiä, henkilöitä';
+
+  @override
+  String get mapSearchHintNeutral =>
+      'Hae lemmikkejä, kotitalouksia, henkilöitä';
 
   @override
   String get proposeAnotherName => 'Ehdota toista nimeä';
@@ -1256,8 +1561,82 @@ class AppLocalizationsFi extends AppLocalizations {
   String get summaryConflicts => 'Ratkaistavat ristiriidat';
 
   @override
-  String summaryOther(Object n) {
-    return '…ja $n muuta muutosta';
+  String conflictsMenu(int n) {
+    return 'Ristiriidat ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'Ratkaisit ristiriidan tässä, joten Hylkää ei ole käytössä: se kumoaisi myös sen.';
+
+  @override
+  String get arrivalIntro =>
+      'Nämä muutokset ovat jo luettelossasi. Hylkää palauttaa sen entiselleen.';
+
+  @override
+  String get summaryUpdated => 'Päivitetyt';
+
+  @override
+  String get summaryDeleted => 'Poistetut';
+
+  @override
+  String get keepMine => 'Pidä omani';
+
+  @override
+  String keptMine(String name) {
+    return 'Oma versiosi kohteesta $name säilyy tällä laitteella.';
+  }
+
+  @override
+  String get summaryMeta => 'Saapui myös';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n muutosta',
+      one: '1 muutos',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Hyväksy';
+
+  @override
+  String get rejectArrival => 'Hylkää';
+
+  @override
+  String get photoAdded => 'Kuva lisätty';
+
+  @override
+  String get photoRemoved => 'Kuva poistettu';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Uusi kenttä: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Kenttä muuttui: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser yhdistetty kohteeseen $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n kuvaa',
+      one: '1 kuva',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1277,6 +1656,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Pennut';
+
+  @override
+  String get kittensLabelNeutral => 'Poikaset';
 
   @override
   String get toastSettingsTitle => 'Mitä ilmoitetaan';
@@ -1307,6 +1689,11 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ Uusi pentu: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Uusi poikanen: $cat ✨';
   }
 
   @override
@@ -1394,11 +1781,21 @@ class AppLocalizationsFi extends AppLocalizations {
   String get selectClowderHint => 'Valitse clowder vasemmalta';
 
   @override
+  String get selectClowderHintNeutral => 'Valitse kotitalous vasemmalta';
+
+  @override
   String get introTitle1 => 'Kissasi järjestyksessä';
+
+  @override
+  String get introTitle1Neutral => 'Lemmikkisi järjestyksessä';
 
   @override
   String get introBody1 =>
       'Luo jokaiselle kissalle kortti: kuva, sukupuoli, terveys, mitä ikinä haluat kirjata. Kissat ryhmitellään asuinpaikan mukaan — sovellus kutsuu paikkaa nimellä clowder.';
+
+  @override
+  String get introBody1Neutral =>
+      'Luo jokaiselle lemmikille, josta huolehdit, kortti: kuva, sukupuoli, terveys, mitä ikinä haluat kirjata. Lemmikit ryhmitellään asuinpaikan mukaan — sovellus kutsuu paikkaa kotitaloudeksi.';
 
   @override
   String get introTitle2 => 'Toimii ilman nettiä';
@@ -1435,35 +1832,66 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tämä kortti kokoaa kaikki kulkukissat — kodittomat kissat. Napauta nähdäksesi listan.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Tämä kortti kokoaa kaikki kodittomat — lemmikit ilman kotia. Napauta nähdäksesi listan.';
+
+  @override
   String get spotHomeMenu =>
-      'Tässä valikossa: etsi ja yhdistä kaksoiskappaleet, vie CSV ja muuta.';
+      'Tässä valikossa: asetukset, kaksoiskappaleiden etsintä ja yhdistäminen, CSV-vienti ja muuta.';
 
   @override
   String get spotCatEdit =>
       'Napauta kynää muokataksesi kissaa. Vinkki: paina kenttää pitkään muokataksesi sitä suoraan.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Napauta kynää muokataksesi lemmikkiä. Vinkki: paina kenttää pitkään muokataksesi sitä suoraan.';
+
+  @override
   String get spotMapLayers =>
       'Etsitkö kadonnutta kissaa? Näytä ympyrät sen ilmoitusten paikkojen ja sen entisen kodin ympärillä.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Etsitkö kadonnutta lemmikkiä? Näytä ympyrät sen ilmoitusten paikkojen ja sen entisen kodin ympärillä.';
 
   @override
   String get spotStraysFlier =>
       'Löysitkö ilmoituksen kadonneesta kissasta? Kuvaa se tässä — sovellus tallentaa kissan ja yhteystiedon puolestasi.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Löysitkö ilmoituksen kadonneesta lemmikistä? Kuvaa se tässä — sovellus tallentaa lemmikin ja yhteystiedon puolestasi.';
+
+  @override
   String get spotStraysScan =>
       'Joissakin ilmoituksissa on cat(a)log-QR-koodi. Skannaa se tässä ja tuo kissa kirjoittamatta.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Joissakin ilmoituksissa on cat(a)log-QR-koodi. Skannaa se tässä ja tuo lemmikki kirjoittamatta.';
+
+  @override
   String get introTitle4 => 'Löydä kadonneet kissat';
+
+  @override
+  String get introTitle4Neutral => 'Löydä kadonneet lemmikit';
 
   @override
   String get introBody4 =>
       'Näetkö ilmoituksen kadonneesta kissasta? Kuvaa se sovelluksessa: se tallentaa kissan, omistajan yhteystiedot ja paikan. Jos samankaltainen kulkukissa ilmestyy myöhemmin, sovellus ehdottaa mahdollisia osumia.';
 
   @override
+  String get introBody4Neutral =>
+      'Näetkö ilmoituksen kadonneesta lemmikistä? Kuvaa se sovelluksessa: se tallentaa lemmikin, omistajan yhteystiedot ja paikan. Jos samankaltainen koditon eläin ilmestyy myöhemmin, sovellus ehdottaa mahdollisia osumia.';
+
+  @override
   String get spotMapSearch =>
       'Kirjoita kissa, paikka tai henkilö hypätäksesi sinne kartalla.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Kirjoita lemmikki, paikka tai henkilö hypätäksesi sinne kartalla.';
 
   @override
   String get spotCardChips =>
@@ -1472,6 +1900,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'Täältä löytyy lisää toimintoja: piilota kissa, yhdistä kaksoiskappaleet tai kirjaa havainto.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'Täältä löytyy lisää toimintoja: piilota lemmikki, yhdistä kaksoiskappaleet tai kirjaa havainto.';
 
   @override
   String get spotDone => 'Selvä';
@@ -1487,6 +1919,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Sillä nimellä ei löytynyt kissaa';
+
+  @override
+  String get searchNoResultsNeutral => 'Sillä nimellä ei löytynyt lemmikkiä';
 
   @override
   String get syncUnreachable =>
@@ -1535,7 +1970,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Jokainen luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät sekoitu koskaan. Napauta nimeä aloitusnäytön yläreunassa vaihtaaksesi, lisätäksesi tai nimetäksesi uudelleen. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+      'Luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'Luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.';
 
   @override
   String get spotHomeCatalog =>
@@ -1545,8 +1988,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deleteCatalog => 'Poista luettelo';
 
   @override
+  String get catalogSettings => 'Luettelon asetukset';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.';
+    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Kaikki luettelossa $name katoaa: lemmikit, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.';
   }
 
   @override
@@ -1675,6 +2126,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai kissan tai clowderin sivulta.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai lemmikin tai kotitalouden sivulta.';
+
+  @override
   String get dueToday => 'tänään';
 
   @override
@@ -1763,6 +2218,14 @@ class AppLocalizationsFi extends AppLocalizations {
       'Toisella laitteella on uudempi cat(a)log. Päivitä cat(a)log tällä laitteella ja synkronoi uudelleen.';
 
   @override
+  String get syncPeerNoTls =>
+      'Toisella laitteella on cat(a)log ennen versiota 1.1.0, ilman salattua synkronointia. Päivitä cat(a)log siellä ja synkronoi uudelleen.';
+
+  @override
+  String get syncWrongHost =>
+      'Varmenne ei vastaa parikoodia — tämä ei ole laite, josta koodi tuli. Skannaa tai kirjoita koodi uudelleen.';
+
+  @override
   String get bundleNewerError =>
       'Tämä tiedosto on uudemmasta cat(a)logista. Päivitä cat(a)log tällä laitteella, jotta voit tuoda sen.';
 
@@ -1824,6 +2287,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa kissan tai clowderin. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla kissalla on yksi ajanvaraus: valitse kissat, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä kissat hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina.';
+
+  @override
   String get calendarRowOff => 'Kalenteri: pois';
 
   @override
@@ -1836,8 +2303,16 @@ class AppLocalizationsFi extends AppLocalizations {
       'Suunnittele tapaaminen tälle kissalle. Se näkyy muistutuksissa ja vahvistetaan siellä.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Suunnittele tapaaminen tälle lemmikille. Se näkyy muistutuksissa ja vahvistetaan siellä.';
+
+  @override
   String get spotAddReminderClowder =>
       'Suunnittele tapaaminen tälle clowderille. Se näkyy muistutuksissa ja vahvistetaan siellä.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Suunnittele tapaaminen tälle kotitaloudelle. Se näkyy muistutuksissa ja vahvistetaan siellä.';
 
   @override
   String get readOnlyCalendar => 'vain luku';
@@ -1944,7 +2419,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get existingCat => 'Olemassa oleva kissa';
 
   @override
+  String get existingCatNeutral => 'Olemassa oleva lemmikki';
+
+  @override
   String get existingClowder => 'Olemassa oleva ryhmä';
+
+  @override
+  String get existingClowderNeutral => 'Olemassa oleva kotitalous';
 
   @override
   String get createNewInstead => 'Ei mitään — luo uusi';
@@ -1970,11 +2451,21 @@ class AppLocalizationsFi extends AppLocalizations {
   String get catsOnAppointment => 'Kissat tässä ajanvarauksessa';
 
   @override
+  String get catsOnAppointmentNeutral => 'Lemmikit tässä ajanvarauksessa';
+
+  @override
   String get noCatsHint =>
       'Yhtään kissaa ei valittu — ajanvaraus on kolonian oma.';
 
   @override
+  String get noCatsHintNeutral =>
+      'Yhtään lemmikkiä ei valittu — ajanvaraus on kotitalouden oma.';
+
+  @override
   String get pickCatsTitle => 'Mitkä kissat tulevat mukaan?';
+
+  @override
+  String get pickCatsTitleNeutral => 'Mitkä lemmikit tulevat mukaan?';
 
   @override
   String catsCount(int count) {
@@ -1982,11 +2473,25 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count lemmikkiä';
+  }
+
+  @override
   String get finishUntickHint =>
       'Poista valinta kissoilta, joita ei hoidettu; ne pysyvät suunniteltuina.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Poista valinta lemmikeiltä, joita ei hoidettu; ne pysyvät suunniteltuina.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Poista ajanvaraus kaikilta $count kissalta';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Poista ajanvaraus kaikilta $count lemmikiltä';
   }
 }

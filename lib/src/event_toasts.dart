@@ -28,7 +28,7 @@ void setToastEnabled(CatalogStore store, String kind, bool on) =>
 void showEventToasts(
     BuildContext context, CatalogStore store, List<Entry> applied) {
   final t = context.t;
-  final summary = classifyImport(store, applied);
+  final summary = reviewImport(store, applied);
   String name(String id) => store.current(id, Keys.name) ?? '?';
   String home(String catId) {
     final clowder = store.current(catId, Keys.clowder);

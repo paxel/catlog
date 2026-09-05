@@ -13,6 +13,7 @@ import 'src/crash_guard.dart';
 import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
+import 'src/fur_background.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -21,6 +22,8 @@ import 'src/screens/intro_screen.dart';
 import 'src/screens/cat_list_screen.dart';
 import 'src/screens/sync_screen.dart';
 import 'src/image_provider_cache.dart';
+import 'src/units.dart';
+import 'src/pet_mode.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -79,6 +82,8 @@ Future<void> _openAndRun(
   final store = catalogs.openStore(catalogs.active);
   activeStore = store;
   catalogManager = catalogs;
+  applyUnitSystem(store, _resolvedLocale());
+  refreshPetMode(store);
   // A Stray Cam capture the OS killed mid-camera completes here.
   unawaited(recoverStrayCam(store));
   initIncomingFiles(navigatorKey, () => activeStore ?? store, args,
@@ -90,12 +95,13 @@ Future<void> _openAndRun(
 
 /// The texts in the language the app will run in, before there is a
 /// widget tree to read them from.
-Future<AppLocalizations> _texts() async {
-  final locale = localeOverride.value ??
-      basicLocaleListResolution(PlatformDispatcher.instance.locales.toList(),
-          AppLocalizations.supportedLocales);
-  return AppLocalizations.delegate.load(locale);
-}
+Future<AppLocalizations> _texts() async =>
+    AppLocalizations.delegate.load(_resolvedLocale());
+
+Locale _resolvedLocale() =>
+    localeOverride.value ??
+    basicLocaleListResolution(PlatformDispatcher.instance.locales.toList(),
+        AppLocalizations.supportedLocales);
 
 bool get _isDesktop =>
     Platform.isLinux || Platform.isWindows || Platform.isMacOS;
@@ -165,6 +171,7 @@ class _CatlogAppState extends State<CatlogApp>
     setState(() => _store = next);
     activeStore = next;
     clearImageProviders();
+    refreshPetMode(next);
     if (unwind) {
       navigatorKey.currentState?.popUntil((route) => route.isFirst);
     }
@@ -179,6 +186,8 @@ class _CatlogAppState extends State<CatlogApp>
   void initState() {
     super.initState();
     switchCatalog = (to) => _switchCatalog(to);
+    // The words change with the mode; the whole tree reads them anew.
+    petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
     if (_isDesktop) windowManager.addListener(this);
     if (widget.diedLastRun) {
@@ -217,8 +226,13 @@ class _CatlogAppState extends State<CatlogApp>
     clearLastCrash();
   }
 
+  void _rebuild() {
+    if (mounted) setState(() {});
+  }
+
   @override
   void dispose() {
+    petMode.removeListener(_rebuild);
     if (_isDesktop) windowManager.removeListener(this);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
@@ -256,6 +270,8 @@ class _CatlogAppState extends State<CatlogApp>
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
+        // The fur ground follows each page's own scroll position.
+        navigatorObservers: [furScroll],
         title: 'cat(a)log',
         // Desktop keyboard manners: Ctrl+F search, Ctrl+K sync,
         // Ctrl+B backup now, Esc back. Arrows/Enter come from Flutter's
@@ -263,10 +279,10 @@ class _CatlogAppState extends State<CatlogApp>
         // Edge-to-edge (Android 15 enforces it): the 3-button nav bar
         // floats over the app and swallowed bottom buttons. Inset the
         // whole app above it; AppBars keep handling the top themselves.
-        builder: (context, child) => ColoredBox(
-          // Paint the strip behind the system nav bar in app surface
-          // color instead of raw black.
-          color: Theme.of(context).colorScheme.surface,
+        // The fur ground (#99): scaffolds are transparent, this layer
+        // carries the coat — and paints the strip behind the system
+        // nav bar instead of raw black.
+        builder: (context, child) => FurBackground(
           child: SafeArea(
           top: false,
           child: CallbackShortcuts(
@@ -297,6 +313,8 @@ class _CatlogAppState extends State<CatlogApp>
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          // The pages sit on the fur ground the builder paints.
+          scaffoldBackgroundColor: Colors.transparent,
           // Desktop gets desktop density and hover manners for free.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

@@ -1,3 +1,6 @@
+import 'units.dart';
+import 'breeds.dart';
+
 /// Reserved field keys. User-defined fields are keyed `f:<slug>`.
 abstract final class Keys {
   /// Entity kind: `cat`, `clowder`, or `fielddef`.
@@ -80,6 +83,13 @@ abstract final class Keys {
   /// `{value}` where the identifier goes (see registry.dart).
   static const fieldLookupUrl = 'lookup';
 
+  /// What a Unit Value field measures (see units.dart, #96).
+  static const fieldDimension = 'dimension';
+
+  /// Per-species additions to a choice field's options (#95).
+  static String fieldOptionsFor(String species) => 'options:$species';
+  static const fieldOptionsPrefix = 'options:';
+
   static String image(String hash) => '$imagePrefix$hash';
   static String userField(String slug) => 'f:$slug';
 }
@@ -92,7 +102,7 @@ abstract final class Kinds {
 }
 
 /// The type of a user-defined Field (see CONTEXT.md: Field).
-enum FieldType { text, yesNo, date, number, choice, location, cat, id }
+enum FieldType { text, yesNo, date, number, choice, location, cat, id, unitValue }
 
 /// What a position entry records: a live sighting, or where a
 /// missing-cat flier hangs (#30). Flier positions never render as
@@ -125,6 +135,13 @@ class FieldDef {
   /// Null for fields that belong to no service.
   final String? lookupUrl; // for FieldType.id
 
+  /// What a Unit Value measures; null for every other type.
+  final Dimension? dimension; // for FieldType.unitValue
+
+  /// Options keepers added for one species (#95): `options:dog` and
+  /// the like on the Breed field. Older versions ignore the key.
+  final Map<String, List<String>> extraOptions;
+
   const FieldDef({
     required this.id,
     required this.slug,
@@ -134,10 +151,16 @@ class FieldDef {
     this.options = const [],
     this.idDisplay = IdDisplay.plain,
     this.lookupUrl,
+    this.dimension,
+    this.extraOptions = const {},
   });
 
   /// The key under which values of this Field live on Cats/Clowders.
   String get key => Keys.userField(slug);
+
+  /// The dimension a Unit Value is read in — weight when none was ever
+  /// stored, so a definition from a partner without one still displays.
+  Dimension get unitDimension => dimension ?? Dimension.weight;
 }
 
 /// Canonical Clowder status values the app recognizes (chips, adoption
@@ -162,7 +185,8 @@ const starterFields = [
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'birthdate', name: 'Birth date', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
-  (slug: 'species', name: 'Species', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'species', name: 'Species', type: FieldType.choice, scope: FieldScope.cat, options: speciesPresets),
+  (slug: 'weight', name: 'Weight', type: FieldType.unitValue, scope: FieldScope.cat, options: <String>[]),
   (slug: 'mother', name: 'Mother', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'father', name: 'Father', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),
@@ -173,3 +197,6 @@ const starterFields = [
   (slug: 'position', name: 'Position', type: FieldType.location, scope: FieldScope.both, options: <String>[]),
   (slug: 'remarks', name: 'Remarks', type: FieldType.text, scope: FieldScope.both, options: <String>[]),
 ];
+
+/// The dimension of each starter Unit Value field.
+const starterDimensions = {'weight': Dimension.weight};

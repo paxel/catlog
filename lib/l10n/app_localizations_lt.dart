@@ -29,14 +29,24 @@ class AppLocalizationsLt extends AppLocalizations {
   String get clowders => 'Klauderiai';
 
   @override
+  String get clowdersNeutral => 'Namų ūkiai';
+
+  @override
   String get noClowdersYet =>
       'Kol kas nėra clowderių. Clowder — tai vieta, kur gyvena katės: tavo laikinieji namai, globėjo butas. Sukurk pirmąjį žemiau.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'Kol kas nėra namų ūkių. Namų ūkis — tai vieta, kur gyvena augintiniai: tavo namai, laikinieji namai, globėjo butas. Sukurk pirmąjį žemiau.';
 
   @override
   String get strays => 'Benamės katės';
 
   @override
   String get searchCats => 'Ieškoti kačių';
+
+  @override
+  String get searchCatsNeutral => 'Ieškoti augintinių';
 
   @override
   String get map => 'Žemėlapis';
@@ -54,7 +64,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get aboutAndFeedback => 'Apie ir atsiliepimai';
 
   @override
+  String get settings => 'Nustatymai';
+
+  @override
   String get newClowder => 'Naujas klauderis';
+
+  @override
+  String get newClowderNeutral => 'Naujas namų ūkis';
 
   @override
   String get name => 'Vardas';
@@ -89,6 +105,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get renameClowder => 'Pervadinti klauderį';
 
   @override
+  String get renameClowderNeutral => 'Pervadinti namų ūkį';
+
+  @override
   String get rename => 'Pervadinti';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsLt extends AppLocalizations {
   String get deleteClowder => 'Ištrinti klauderį';
 
   @override
+  String get deleteClowderNeutral => 'Ištrinti namų ūkį';
+
+  @override
   String get cats => 'Katės';
+
+  @override
+  String get catsNeutral => 'Augintiniai';
 
   @override
   String get addCat => 'Pridėti katę';
 
   @override
+  String get addCatNeutral => 'Pridėti augintinį';
+
+  @override
   String get newCat => 'Nauja katė';
+
+  @override
+  String get newCatNeutral => 'Naujas augintinis';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,16 @@ class AppLocalizationsLt extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Klauderis dingsta iš sąrašo.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral => 'Namų ūkis dingsta iš sąrašo.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Jo katės ($count) neištrinamos — jos tampa benamėmis. Jei to nenorite, pirma perkelkite jas į kitą klauderį.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Jo augintiniai ($count) neištrinami — jie tampa benamiais. Jei to nenorite, pirma perkelkite juos į kitą namų ūkį.';
   }
 
   @override
@@ -143,16 +182,28 @@ class AppLocalizationsLt extends AppLocalizations {
   String get renameCat => 'Pervadinti katę';
 
   @override
+  String get renameCatNeutral => 'Pervadinti augintinį';
+
+  @override
   String get seenHereNow => 'Ką tik matyta čia';
 
   @override
   String get deleteCat => 'Ištrinti katę';
 
   @override
+  String get deleteCatNeutral => 'Ištrinti augintinį';
+
+  @override
   String get clowderLabel => 'Klauderis';
 
   @override
+  String get clowderLabelNeutral => 'Namų ūkis';
+
+  @override
   String get strayNoClowder => 'Benamė — be klauderio';
+
+  @override
+  String get strayNoClowderNeutral => 'Benamis — be namų ūkio';
 
   @override
   String get stray => 'Benamė';
@@ -182,6 +233,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'Katė dingsta iš visų sąrašų, jos nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'Augintinis dingsta iš visų sąrašų, jo nuotraukos pašalinamos — čia ir, po kito sinchronizavimo, kituose įrenginiuose.';
 
   @override
   String get sightingRecorded => 'Pastebėjimas įrašytas jūsų pozicijoje.';
@@ -234,6 +289,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Nuskaito atspausdintą QR/brūkšninį kodą iš lusto kortelės ar veterinaro dokumentų — katėje esančio lusto telefonas nuskaityti negali.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Nuskaito atspausdintą QR/brūkšninį kodą iš lusto kortelės ar veterinaro dokumentų — gyvūne esančio lusto telefonas nuskaityti negali.';
+
+  @override
   String get savingLabel => 'Įrašoma…';
 
   @override
@@ -258,6 +317,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get catList => 'Kačių sąrašas';
+
+  @override
+  String get catListNeutral => 'Augintinių sąrašas';
 
   @override
   String get matchCandidatesTitle => 'Galimi atitikmenys';
@@ -290,6 +352,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get fromVideo => 'Iš vaizdo įrašo…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Pridedama nuotrauka $done iš $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Kadrų rinkimas iš vaizdo įrašo veikia telefono programėlėje (Android ir iPhone) — šiame įrenginyje dar ne.';
 
@@ -320,6 +387,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get importShareTitle => 'Importuoti šią katę?';
 
   @override
+  String get importShareTitleNeutral => 'Importuoti šį augintinį?';
+
+  @override
   String shareSource(String url) {
     return 'Šaltinis: $url';
   }
@@ -339,6 +409,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get noMissingCats =>
       'Kol kas nėra dingusių kačių su skelbimų vietomis.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Kol kas nėra dingusių augintinių su skelbimų vietomis.';
 
   @override
   String get noMatchCandidates => 'Šiuo metu galimų atitikmenų nėra.';
@@ -417,6 +491,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Ši katė užregistruota kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
 
   @override
+  String get malePregnantNeutral =>
+      'Šis augintinis užregistruotas kaip patinas — patinas negali būti vaikingas. Pirmiausia patikrinkite lytį.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name užregistruota kaip patelė ir negali būti tėvas. Pirmiausia patikrinkite lytį.';
   }
@@ -432,18 +510,34 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name gimė $date — tėvai negali gimti po savo jauniklio.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'Ši katė užregistruota kaip kitų kačių tėvas — tėvas negali būti patelė. Pirmiausia patikrinkite šeimą.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'Šis augintinis užregistruotas kaip kitų augintinių tėvas — tėvas negali būti patelė. Pirmiausia patikrinkite šeimą.';
 
   @override
   String get genderMotherMale =>
       'Ši katė užregistruota kaip kitų kačių motina — motina negali būti patinas. Pirmiausia patikrinkite šeimą.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Šis augintinis užregistruotas kaip kitų augintinių motina — motina negali būti patinas. Pirmiausia patikrinkite šeimą.';
+
+  @override
   String get moveTo => 'Perkelti į';
 
   @override
   String get noClowderStrayOption => 'Be klauderio — benamė / pabėgo';
+
+  @override
+  String get noClowderStrayOptionNeutral => 'Be namų ūkio — benamis / pabėgo';
 
   @override
   String timelineOf(String name) {
@@ -533,7 +627,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get forCats => 'katėms';
 
   @override
+  String get forCatsNeutral => 'augintiniams';
+
+  @override
   String get forClowders => 'klauderiams';
+
+  @override
+  String get forClowdersNeutral => 'namų ūkiams';
 
   @override
   String get forBoth => 'abiem';
@@ -564,6 +664,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Ieškoti kačių pagal vardą…';
+
+  @override
+  String get searchByNameHintNeutral => 'Ieškoti augintinių pagal vardą…';
 
   @override
   String get host => 'Priimti';
@@ -654,6 +757,16 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Kelias: $name — $field ($count reikšm.)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Kelias: $name ($count pozic.)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Konfliktas — $field';
   }
@@ -686,7 +799,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get kindCat => 'katė';
 
   @override
+  String get kindCatNeutral => 'augintinis';
+
+  @override
   String get kindClowder => 'klauderis';
+
+  @override
+  String get kindClowderNeutral => 'namų ūkis';
 
   @override
   String get kindField => 'laukas';
@@ -703,6 +822,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get aboutTagline =>
       'Vietinis globojamų kačių katalogas. Jūsų duomenys lieka jūsų įrenginiuose — be serverio, be paskyros.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'Vietinis augintinių, kuriais rūpiniesi, katalogas. Jūsų duomenys lieka jūsų įrenginiuose — be serverio, be paskyros.';
 
   @override
   String versionLabel(String version, String build) {
@@ -830,6 +953,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get stepCat => 'Katė';
 
   @override
+  String get stepCatNeutral => 'Augintinis';
+
+  @override
   String get stepOwner => 'Savininkas';
 
   @override
@@ -846,12 +972,24 @@ class AppLocalizationsLt extends AppLocalizations {
       'Tas, kas pasigedo katės — iš to atsiras jo klauderis su kontaktu iš skelbimo.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Tas, kas pasigedo augintinio — iš to atsiras jo namų ūkis su kontaktu iš skelbimo.';
+
+  @override
   String get stepFaceHint =>
       'Iškirpk katės snukutį iš skelbimo; jis taps profilio nuotrauka. Gali ir praleisti.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Iškirpk augintinio snukutį iš skelbimo; jis taps profilio nuotrauka. Gali ir praleisti.';
+
+  @override
   String get stepRegistryHint =>
       'Skelbime rasti numeriai. Pažymėti bus išsaugoti prie katės ir vėliau atidaromi.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Skelbime rasti numeriai. Pažymėti bus išsaugoti prie augintinio ir vėliau atidaromi.';
 
   @override
   String get noRegistryLinks =>
@@ -901,24 +1039,48 @@ class AppLocalizationsLt extends AppLocalizations {
       'Tavo kolonijų apžvalga — kolonija yra vieta, kur gyvena katės: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jos kates; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria koloniją, o valkataujančių kortelė surenka visas kates be namų. Pavadinimas viršuje – katalogas, kuriame esi; bakstelėk, kad perjungtum ar pridėtum.';
 
   @override
+  String get helpHomeNeutral =>
+      'Tavo namų ūkių apžvalga — namų ūkis yra vieta, kur gyvena augintiniai: tavo namai, laikini globos namai, prieglauda. Palieskite kortelę, kad pamatytumėte jo augintinius; ilgas paspaudimas atveria meniu. Mygtukas apačioje dešinėje sukuria namų ūkį, o valkataujančių kortelė surenka visus augintinius be namų. Pavadinimas viršuje – katalogas, kuriame esi; bakstelėk, kad perjungtum ar pridėtum.';
+
+  @override
   String get helpClowder =>
-      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama. Čia pridėtas vizitas gali pasiimti kelias kolonijos kates, pavyzdžiui, sterilizacijai: pažymėkite vykstančias kates, užbaikite vieną kartą, nuimkite žymą nuo negydytų.';
+      'Viskas apie šią vietą: jos katės, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, katę — perkeliama, paslepiama arba atveriama. Čia pridėtas vizitas gali pasiimti kelias kolonijos kates, pavyzdžiui, sterilizacijai: pažymėkite vykstančias kates, užbaikite vieną kartą, nuimkite žymą nuo negydytų. Laikrodis prie lauko atveria jo istoriją.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Viskas apie šią vietą: jos augintiniai, laukai (adresas, kontaktas, tipas) ir istorija. Puslapis atsidaro tik skaitymui; pieštukas įjungia redagavimą, ten galima pridėti ir naują lauką. Ilgai palaikius lauką jis redaguojamas iškart, augintinį — perkeliamas, paslepiamas arba atveriamas. Čia pridėtas vizitas gali pasiimti kelis namų ūkio augintinius, pavyzdžiui, sterilizacijai: pažymėkite vykstančius augintinius, užbaikite vieną kartą, nuimkite žymą nuo negydytų. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpCat =>
-      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti katę. „Privatu“ nustatoma redaguojant lauką.';
+      'Viskas apie šią katę: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti katę. „Privatu“ nustatoma redaguojant lauką. Laikrodis prie lauko atveria jo istoriją.';
+
+  @override
+  String get helpCatNeutral =>
+      'Viskas apie šį augintinį: nuotraukos, laukai, šeima, istorija. Puslapis tik skaitomas, kol paliesi pieštuką. Ilgai palaikyk lauką, kad iškart jį redaguotum; ilgai palaikyk nuotrauką jos meniu. Meniu viršuje dešinėje laiko likusius: paslėpti, sujungti, užfiksuoti pastebėjimą, bendrinti augintinį. „Privatu“ nustatoma redaguojant lauką. Laikrodis prie lauko atveria jo istoriją.';
 
   @override
   String get helpStrays =>
       'Katės, kurios dabar neturi namų: rastos, pabėgusios arba iš skelbimo. Kameros mygtukas įrašo katę priešais jus; skelbimo mygtukas paverčia dingusios katės skelbimą kate su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
 
   @override
+  String get helpStraysNeutral =>
+      'Augintiniai, kurie dabar neturi namų: rasti, pabėgę arba iš skelbimo. Kameros mygtukas įrašo gyvūną priešais jus; skelbimo mygtukas paverčia dingusio augintinio skelbimą augintiniu su savininko kontaktu; skaitytuvas nuskaito cat(a)log kodą nuo skelbimo. Palieskite „Stray Cam“ nuotraukai; palaikykite, kad nufilmuotumėte vaizdo įrašą ir geriausius kadrus išsaugotumėte kaip nuotraukas.';
+
+  @override
   String get helpMap =>
-      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą.';
+      'Visos katės ir vietos, turinčios poziciją. Paieška randa kates, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusios katės skelbimų vietas ir aplink namus, iš kurių ji pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą. Kiekvienas vietos laukas žemėlapyje yra smeigtukas; bakstelėkite smeigtuką, kad matytumėte jo kelią.';
+
+  @override
+  String get helpMapNeutral =>
+      'Visi augintiniai ir vietos, turinčios poziciją. Paieška randa augintinius, žmones ir vietoves — nežinomas pavadinimas ieškomas visame pasaulyje. Sluoksnių mygtukas nubrėžia 500 m apskritimus aplink dingusio augintinio skelbimų vietas ir aplink namus, iš kurių jis pabėgo. Rodyklės eina nuo smeigtuko prie smeigtuko, ilgas paspaudimas žemėlapyje įrašo pastebėjimą. Kiekvienas vietos laukas žemėlapyje yra smeigtukas; bakstelėkite smeigtuką, kad matytumėte jo kelią.';
 
   @override
   String get helpCard =>
       'Spausdinama katės kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'Spausdinama augintinio kortelė: viršuje ženkleliais pasirenkate, kas joje bus, tada dalinatės kaip paveikslėliu ar PDF. Numeriai gali būti spausdinami kaip QR arba brūkšninis kodas, o pozicija tampa QR, atveriančiu žemėlapį, ir trumpu Plus Code.';
 
   @override
   String get helpSync =>
@@ -929,6 +1091,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie katės galima paliesti.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Laukai, kuriuos naudoja jūsų katalogas. Pervadinkite juos, pakeiskite pasirinkimo lauko parinktis arba sukurkite savo. Identifikatoriaus laukas gali nurodyti paslaugą (registrą) — tada numerį prie augintinio galima paliesti.';
+
+  @override
   String get helpTimeline =>
       'Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.';
 
@@ -937,12 +1103,24 @@ class AppLocalizationsLt extends AppLocalizations {
       'Katės ar kolonijos, kurios atrodo esančios du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Augintiniai ar namų ūkiai, kurie atrodo esantys du kartus — vienodi numeriai arba labai panašūs vardai su sutampančiomis detalėmis. Palieskite porą, kad sujungtumėte; sujungimo atšaukti negalima, todėl pirma paklausiama.';
+
+  @override
   String get helpMatches =>
       'Katės, kurios gali būti tas pats gyvūnas: tas pats numeris arba valkataujanti katė, pastebėta dingusios katės paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą katę palyginimui.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Augintiniai, kurie gali būti tas pats gyvūnas: tas pats numeris arba valkataujantis gyvūnas, pastebėtas dingusio augintinio paieškos zonoje. Palieskite porą sujungimui, ilgai palaikę atversite pirmą augintinį palyginimui.';
+
+  @override
   String get helpFlier =>
       'Nufotografuotas skelbimas virsta kate ir jos savininku. Žingsnis po žingsnio: katės duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.';
+
+  @override
+  String get helpFlierNeutral =>
+      'Nufotografuotas skelbimas virsta augintiniu ir jo savininku. Žingsnis po žingsnio: augintinio duomenys, savininko kontaktas, snukučio iškirpimas profilio nuotraukai, registrų numeriai iš skelbimo ir galiausiai patikra. Visa tai pasiūlymai — pataisykite, ką kamera perskaitė ne taip.';
 
   @override
   String get archiveTitle => 'Archyvas';
@@ -950,6 +1128,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Nugaišusios katės ir tuščios kolonijos, kurių niekas nelietė metų metus, vis tiek užima vietą — ypač jų nuotraukos. Archyvavimas įrašo jas į failą, kurį pasiliekate, ir tada ištrina iš čia.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Nugaišę augintiniai ir tušti namų ūkiai, kurių niekas nelietė metų metus, vis tiek užima vietą — ypač jų nuotraukos. Archyvavimas įrašo juos į failą, kurį pasiliekate, ir tada ištrina iš čia.';
 
   @override
   String get archiveAction => 'Archyvuoti';
@@ -1002,6 +1184,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Seni duomenys kainuoja vietos, ypač nuotraukos, kurias tempia kiekvienas sinchronizuotas įrenginys. Čia pasirenkate metų metus nejudėjusias nugaišusias kates ir tuščias kolonijas, įrašote jas į failą, kurį pasiliekate, ir ištrinate. Ištrynimas pasiekia visus, su kuriais sinchronizuojate; failo importas viską atkuria.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Seni duomenys kainuoja vietos, ypač nuotraukos, kurias tempia kiekvienas sinchronizuotas įrenginys. Čia pasirenkate metų metus nejudėjusius nugaišusius augintinius ir tuščius namų ūkius, įrašote juos į failą, kurį pasiliekate, ir ištrinate. Ištrynimas pasiekia visus, su kuriais sinchronizuojate; failo importas viską atkuria.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return 'Atkurti $count ištrintų įrašų?';
   }
@@ -1023,6 +1209,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get locateAddress => 'Rasti adresą žemėlapyje';
+
+  @override
+  String get addressFoundTitle => 'Adresas rastas';
+
+  @override
+  String get replaceAddressOption => 'Pakeisti adresą šiuo';
+
+  @override
+  String get addPositionOption => 'Išsaugoti vietą';
 
   @override
   String get addressLocated => 'Adresas rastas';
@@ -1056,6 +1251,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get markTitle => 'Pažymėti katę';
 
   @override
+  String get markTitleNeutral => 'Pažymėti augintinį';
+
+  @override
   String get applyCrop => 'Apkirpti';
 
   @override
@@ -1065,7 +1263,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get dragToSelect => 'Vilkite stačiakampį aplink katę';
 
   @override
+  String get dragToSelectNeutral => 'Vilkite stačiakampį aplink augintinį';
+
+  @override
   String get dragOverTheCat => 'Vilkite elipsę virš katės';
+
+  @override
+  String get dragOverTheCatNeutral => 'Vilkite elipsę virš augintinio';
 
   @override
   String get cropPhoto => 'Apkirpti…';
@@ -1130,6 +1334,74 @@ class AppLocalizationsLt extends AppLocalizations {
   String get language => 'Kalba';
 
   @override
+  String get typeUnitValue => 'Reikšmė su vienetu';
+
+  @override
+  String get dimension => 'Dydis';
+
+  @override
+  String get dimensionWeight => 'Svoris';
+
+  @override
+  String get dimensionLength => 'Ilgis';
+
+  @override
+  String get dimensionVolume => 'Tūris';
+
+  @override
+  String get dimensionTemperature => 'Temperatūra';
+
+  @override
+  String get unitsLabel => 'Vienetai';
+
+  @override
+  String get catalogHolds => 'Šiame kataloge';
+
+  @override
+  String get modeCats => 'Katės';
+
+  @override
+  String get modePets => 'Augintiniai';
+
+  @override
+  String get graphLabel => 'Grafikas';
+
+  @override
+  String get fieldHistoryTooltip => 'Istorija';
+
+  @override
+  String get rangeWeek => 'Savaitė';
+
+  @override
+  String get rangeMonth => 'Mėnuo';
+
+  @override
+  String get rangeYear => 'Metai';
+
+  @override
+  String get rangeAll => 'Viskas';
+
+  @override
+  String get rangeCustom => 'Pasirinktinis…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta nuo $date';
+  }
+
+  @override
+  String get unitsAuto => 'Kaip jūsų regione';
+
+  @override
+  String get unitsMetric => 'Metrinė (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Imperinė (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Svoris';
+
+  @override
   String get systemDefault => 'Sistemos numatytoji';
 
   @override
@@ -1176,6 +1448,30 @@ class AppLocalizationsLt extends AppLocalizations {
   String get valueCat => 'Katė';
 
   @override
+  String get valueDog => 'Šuo';
+
+  @override
+  String get valueRabbit => 'Triušis';
+
+  @override
+  String get valueGuineaPig => 'Jūrų kiaulytė';
+
+  @override
+  String get valueHamster => 'Žiurkėnas';
+
+  @override
+  String get valueBird => 'Paukštis';
+
+  @override
+  String get valueHorse => 'Arklys';
+
+  @override
+  String get valueTortoise => 'Vėžlys';
+
+  @override
+  String get valueFerret => 'Šeškas';
+
+  @override
   String get otherOption => 'Kita…';
 
   @override
@@ -1184,6 +1480,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Konfeti ir šūksniai, kai katė persikelia į namus';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Konfeti ir šūksniai, kai augintinis persikelia į namus';
 
   @override
   String get onMapLabel => 'Žemėlapyje';
@@ -1199,6 +1499,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Ieškoti kačių, grupių, žmonių';
+
+  @override
+  String get mapSearchHintNeutral => 'Ieškoti augintinių, namų ūkių, žmonių';
 
   @override
   String get proposeAnotherName => 'Pasiūlyti kitą vardą';
@@ -1257,8 +1560,84 @@ class AppLocalizationsLt extends AppLocalizations {
   String get summaryConflicts => 'Spręstini konfliktai';
 
   @override
-  String summaryOther(Object n) {
-    return '…ir dar $n pakeitimų';
+  String conflictsMenu(int n) {
+    return 'Konfliktai ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'Čia išsprendėte konfliktą, todėl „Atmesti“ nebegalima: tai atšauktų ir jį.';
+
+  @override
+  String get arrivalIntro =>
+      'Šie pakeitimai jau jūsų kataloge. „Atmesti“ grąžina jį į buvusią būseną.';
+
+  @override
+  String get summaryUpdated => 'Atnaujinta';
+
+  @override
+  String get summaryDeleted => 'Ištrinta';
+
+  @override
+  String get keepMine => 'Palikti mano';
+
+  @override
+  String keptMine(String name) {
+    return 'Jūsų „$name“ versija liko šiame įrenginyje.';
+  }
+
+  @override
+  String get summaryMeta => 'Taip pat atkeliavo';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n pakeitimų',
+      few: '$n pakeitimai',
+      one: '$n pakeitimas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Priimti';
+
+  @override
+  String get rejectArrival => 'Atmesti';
+
+  @override
+  String get photoAdded => 'Pridėta nuotrauka';
+
+  @override
+  String get photoRemoved => 'Nuotrauka pašalinta';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Naujas laukas: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Laukas pakeistas: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser sujungta su $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n nuotraukų',
+      few: '$n nuotraukos',
+      one: '$n nuotrauka',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1278,6 +1657,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Kačiukai';
+
+  @override
+  String get kittensLabelNeutral => 'Jaunikliai';
 
   @override
   String get toastSettingsTitle => 'Ką pranešti';
@@ -1308,6 +1690,11 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ Naujas kačiukas: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Naujagimis: $cat ✨';
   }
 
   @override
@@ -1396,11 +1783,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get selectClowderHint => 'Kairėje pasirinkite clowder';
 
   @override
+  String get selectClowderHintNeutral => 'Kairėje pasirinkite namų ūkį';
+
+  @override
   String get introTitle1 => 'Jūsų katės tvarkingai';
+
+  @override
+  String get introTitle1Neutral => 'Jūsų augintiniai tvarkingai';
 
   @override
   String get introBody1 =>
       'Kiekvienai katei sukurkite kortelę: nuotrauka, lytis, sveikata — viskas, ką norite užsirašyti. Katės grupuojamos pagal gyvenamą vietą — programėlė ją vadina kolonija (clowder).';
+
+  @override
+  String get introBody1Neutral =>
+      'Kiekvienam augintiniui, kuriuo rūpinatės, sukurkite kortelę: nuotrauka, lytis, sveikata — viskas, ką norite užsirašyti. Augintiniai grupuojami pagal gyvenamą vietą — programėlė ją vadina namų ūkiu.';
 
   @override
   String get introTitle2 => 'Veikia be interneto';
@@ -1437,35 +1834,66 @@ class AppLocalizationsLt extends AppLocalizations {
       'Ši kortelė surenka visas valkataujančias kates — kates be namų. Palieskite sąrašui.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Ši kortelė surenka visus valkataujančius — augintinius be namų. Palieskite sąrašui.';
+
+  @override
   String get spotHomeMenu =>
-      'Šiame meniu: rasti ir sujungti dublikatus, eksportuoti CSV ir kt.';
+      'Šiame meniu: nustatymai, dublikatų paieška ir sujungimas, CSV eksportas ir daugiau.';
 
   @override
   String get spotCatEdit =>
       'Palieskite pieštuką ir redaguokite katę. Patarimas: ilgai palaikę lauką, redaguosite jį iškart.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Palieskite pieštuką ir redaguokite augintinį. Patarimas: ilgai palaikę lauką, redaguosite jį iškart.';
+
+  @override
   String get spotMapLayers =>
       'Ieškote dingusios katės? Rodykite apskritimus aplink jos skelbimų vietas ir aplink namus, iš kurių pabėgo.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Ieškote dingusio augintinio? Rodykite apskritimus aplink jo skelbimų vietas ir aplink namus, iš kurių pabėgo.';
 
   @override
   String get spotStraysFlier =>
       'Radote dingusios katės skelbimą? Nufotografuokite jį čia — programėlė išsaugos katę ir kontaktą už jus.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Radote dingusio augintinio skelbimą? Nufotografuokite jį čia — programėlė išsaugos augintinį ir kontaktą už jus.';
+
+  @override
   String get spotStraysScan =>
       'Kai kurie skelbimai turi cat(a)log QR kodą. Nuskaitykite jį čia ir importuokite katę nerašydami.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Kai kurie skelbimai turi cat(a)log QR kodą. Nuskaitykite jį čia ir importuokite augintinį nerašydami.';
+
+  @override
   String get introTitle4 => 'Raskite dingusias kates';
+
+  @override
+  String get introTitle4Neutral => 'Raskite dingusius augintinius';
 
   @override
   String get introBody4 =>
       'Matote skelbimą apie dingusią katę? Nufotografuokite jį programėlėje: ji išsaugo katę, šeimininko kontaktą ir vietą. Jei vėliau pasirodys panaši valkataujanti katė, programėlė pasiūlys galimus atitikmenis.';
 
   @override
+  String get introBody4Neutral =>
+      'Matote skelbimą apie dingusį augintinį? Nufotografuokite jį programėlėje: ji išsaugo augintinį, šeimininko kontaktą ir vietą. Jei vėliau pasirodys panašus valkataujantis gyvūnas, programėlė pasiūlys galimus atitikmenis.';
+
+  @override
   String get spotMapSearch =>
       'Įveskite katę, vietą ar žmogų ir peršokite ten žemėlapyje.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Įveskite augintinį, vietą ar žmogų ir peršokite ten žemėlapyje.';
 
   @override
   String get spotCardChips =>
@@ -1474,6 +1902,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'Čia daugiau veiksmų: paslėpti katę, sujungti dublikatus ar užfiksuoti pastebėjimą.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'Čia daugiau veiksmų: paslėpti augintinį, sujungti dublikatus ar užfiksuoti pastebėjimą.';
 
   @override
   String get spotDone => 'Supratau';
@@ -1489,6 +1921,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Katės tokiu vardu nerasta';
+
+  @override
+  String get searchNoResultsNeutral => 'Augintinio tokiu vardu nerasta';
 
   @override
   String get syncUnreachable =>
@@ -1537,7 +1972,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Kiekvienas katalogas – atskiras pasaulis: savos katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesusimaišo. Bakstelėk pavadinimą pradžios ekrano viršuje, kad perjungtum, pridėtum ar pervadintum. Tavo vardas, kalba ir jau matyti patarimai bendri visiems.';
+      'Katalogas yra atskiras pasaulis: savi katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'Katalogas yra atskiras pasaulis: savi gyvūnai, namų ūkiai, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.';
 
   @override
   String get spotHomeCatalog =>
@@ -1547,8 +1990,16 @@ class AppLocalizationsLt extends AppLocalizations {
   String get deleteCatalog => 'Ištrinti katalogą';
 
   @override
+  String get catalogSettings => 'Katalogo nustatymai';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Viskas kataloge $name dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.';
+    return 'Viskas kataloge $name dingsta: katės, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Viskas kataloge $name dingsta: augintiniai, nuotraukos, istorija. Pirma ten, kur keliauja automatinės atsargines kopijos, įrašomas pilnas failas — jį importavus katalogas grįžta. Patvirtink įrašydamas pavadinimą.';
   }
 
   @override
@@ -1677,6 +2128,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba katės ar klauderio puslapyje.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'Suplanuotų vizitų nėra. Naujus planuok čia pliusu arba augintinio ar namų ūkio puslapyje.';
+
+  @override
   String get dueToday => 'šiandien';
 
   @override
@@ -1769,6 +2224,14 @@ class AppLocalizationsLt extends AppLocalizations {
       'Kitame įrenginyje naujesnis cat(a)log. Atnaujink cat(a)log šiame įrenginyje ir sinchronizuok iš naujo.';
 
   @override
+  String get syncPeerNoTls =>
+      'Kitame įrenginyje yra cat(a)log iki 1.1.0, be šifruoto sinchronizavimo. Ten atnaujink cat(a)log ir sinchronizuok iš naujo.';
+
+  @override
+  String get syncWrongHost =>
+      'Sertifikatas neatitinka susiejimo kodo — tai ne tas įrenginys, iš kurio kodas atėjo. Nuskaityk arba įvesk kodą iš naujo.';
+
+  @override
   String get bundleNewerError =>
       'Šis failas iš naujesnio cat(a)log. Atnaujink cat(a)log šiame įrenginyje, kad jį importuotum.';
 
@@ -1830,6 +2293,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria katę ar klauderį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliomis katėmis yra vienas vizitas: pažymėkite kates, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurios katės buvo gydytos — nuimkite žymą nuo kitų, jos lieka suplanuotos.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Priminimai rodo suplanuotus vizitus pagal datą. Yra dvi rūšys: vizitai su valanda ir priminimai, galiojantys dienai. Praleisti lieka viršuje. Bakstelėjimas atveria augintinį ar namų ūkį. Varnelė patvirtina vizitą: reikšmė įrašoma į lauką ir iškart gali suplanuoti kitą, pavyzdžiui, po trijų mėnesių. Palaikymas keičia datą arba ištrina vizitą. Jungiklis viršuje atspindi vizitus tavo telefono kalendoriuje. Meniu juos eksportuoja kalendoriaus failu. Vizitas pas veterinarą su keliais augintiniais yra vienas vizitas: pažymėkite augintinius, Darbotvarkė rodo vieną kortelę su jų vardais, o baigiant klausia, kurie augintiniai buvo gydyti — nuimkite žymą nuo kitų, jie lieka suplanuoti.';
+
+  @override
   String get calendarRowOff => 'Kalendorius: išjungta';
 
   @override
@@ -1842,8 +2309,16 @@ class AppLocalizationsLt extends AppLocalizations {
       'Suplanuok vizitą šiai katei. Jis rodomas priminimuose ir ten patvirtinamas.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Suplanuok vizitą šiam augintiniui. Jis rodomas priminimuose ir ten patvirtinamas.';
+
+  @override
   String get spotAddReminderClowder =>
       'Suplanuok vizitą šiam klauderiui. Jis rodomas priminimuose ir ten patvirtinamas.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Suplanuok vizitą šiam namų ūkiui. Jis rodomas priminimuose ir ten patvirtinamas.';
 
   @override
   String get readOnlyCalendar => 'tik skaityti';
@@ -1950,7 +2425,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get existingCat => 'Esama katė';
 
   @override
+  String get existingCatNeutral => 'Esamas augintinis';
+
+  @override
   String get existingClowder => 'Esama grupė';
+
+  @override
+  String get existingClowderNeutral => 'Esamas namų ūkis';
 
   @override
   String get createNewInstead => 'Nėra — sukurti naują';
@@ -1976,11 +2457,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get catsOnAppointment => 'Katės šiame vizite';
 
   @override
+  String get catsOnAppointmentNeutral => 'Augintiniai šiame vizite';
+
+  @override
   String get noCatsHint =>
       'Nė viena katė nepažymėta — vizitas priklauso pačiai kolonijai.';
 
   @override
+  String get noCatsHintNeutral =>
+      'Nė vienas augintinis nepažymėtas — vizitas priklauso pačiam namų ūkiui.';
+
+  @override
   String get pickCatsTitle => 'Kurios katės vyksta?';
+
+  @override
+  String get pickCatsTitleNeutral => 'Kurie augintiniai vyksta?';
 
   @override
   String catsCount(int count) {
@@ -1988,11 +2479,25 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count augintiniai';
+  }
+
+  @override
   String get finishUntickHint =>
       'Nuimkite žymą nuo kačių, kurios nebuvo gydytos; jos lieka suplanuotos.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Nuimkite žymą nuo augintinių, kurie nebuvo gydyti; jie lieka suplanuoti.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Ištrinti vizitą visoms $count katėms';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Ištrinti vizitą visiems $count augintiniams';
   }
 }

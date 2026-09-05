@@ -5,8 +5,8 @@ A local-first, multi-device catalog for people fostering cats. Small mutually-tr
 ## Language
 
 **Clowder**:
-A group of cats living at one place, with an address and a responsible person. Foster homes and adopters' homes are both Clowders.
-_Avoid_: litter, home, placement, household, group
+A group of cats living at one place, with an address and a responsible person. Foster homes and adopters' homes are both Clowders. In Pet Mode the word on screen is Household; the thing is the same.
+_Avoid_: litter, home, placement, group
 
 **Cat**:
 An individual animal being tracked, with a name, images, and field values that change over time.
@@ -56,6 +56,17 @@ _Avoid_: event, booking
 **Vet Run**:
 One Appointment shared by several Cats — each Cat keeps its own Appointment entry, a group id folds them into one agenda card and one calendar event, editing moves all of them, finishing asks which Cats were treated. A Cat leaves a Vet Run by deleting its own Appointment.
 _Avoid_: group appointment, batch visit, multi-cat event
+
+**Pet Mode**:
+A Catalog's choice to hold pets rather than cats (#93): an ordinary synced entry, so every device shows it the same way. It changes words (pet, household), the placeholder picture (a paw) and the proposed names — never the data. Older versions ignore it.
+_Avoid_: neutral mode, animal mode
+
+**Unit Value**:
+A Field value that measures something — a number kept in the app's base unit (grams, centimetres, millilitres, °C) and shown, and entered, in the unit the device prefers (metric or imperial, from the region or chosen). Weight is the starter one.
+_Avoid_: measurement, metric
+
+**Dimension**:
+What a Unit Value measures: weight, length, volume or temperature. Chosen when the Field is created; it fixes the base unit.
 
 **Possible Stray Area**:
 A toggleable map overlay for a Missing Cat: the union of 500 m circles around its Flier Positions, marking where the cat is likely to roam (three quarters of lost cats are found within 500 m).
@@ -118,7 +129,7 @@ _Avoid_: blocked, private (that's wire-level)
 A Cat whose deceased date Field is set. Rendered subdued (dimmed photo, localized "Deceased" chip — no religious symbols) and listed in the import summary.
 
 **Species**:
-A starter Field on Cats, default "cat", free values (dog, rabbit, …). The only concession to other animals — entities, Clowders, and the app's cat-themed language stay unchanged.
+A starter Field on Cats, default "cat": a choice with presets (cat, dog, rabbit, guinea pig, hamster, bird, horse, tortoise, ferret) plus a word of your own. Stored canonical, displayed translated (ADR-0005). Breed options follow the species; the entity stays a Cat in the data whatever the species. The wording the app uses for it is decided by Pet Mode, not by the species.
 
 **Ban**:
 A local, per-device list of Authors/devices and blob hashes whose material is dropped on receive (received and discarded — sync bookkeeping still advances). Never propagates to other devices. Reversible per entry.

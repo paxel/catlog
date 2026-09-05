@@ -45,6 +45,12 @@ const _endonyms = {
   'zh': '中文',
 };
 
+/// The chosen language by its native name, or "System default".
+String languageLabel(BuildContext context, CatalogStore store) {
+  final code = store.localSetting('locale');
+  return _endonyms[code] ?? context.t.systemDefault;
+}
+
 /// Language picker: system default plus every supported language, by
 /// native name. The choice is device-local and applies immediately.
 Future<void> showLanguageDialog(

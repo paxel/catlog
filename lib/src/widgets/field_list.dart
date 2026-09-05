@@ -5,6 +5,8 @@ import '../field_labels.dart';
 import '../l10n.dart';
 import 'cat_ear.dart';
 import '../age.dart';
+import '../screens/field_graph_screen.dart';
+import '../screens/field_history_screen.dart';
 
 /// The Field rows of a detail page, in both of its moods (#46):
 /// read mode shows only filled fields, nicely formatted and inert;
@@ -18,13 +20,21 @@ class FieldList extends StatelessWidget {
   final void Function(FieldDef def) onEdit;
   final Future<void> Function(FieldDef def) onConflict;
   final void Function(FieldDef def) onHistory;
-  final void Function(String value) onShowMap;
+  final void Function(FieldDef def, String value) onShowMap;
 
   /// Opens the registry page of an ID field that has a lookup URL.
   final void Function(FieldDef def, String value)? onLookup;
 
   /// Read-mode long-press on a row; null until a screen wires it (#49).
   final void Function(FieldDef def)? onReadLongPress;
+
+  /// Opens the graph of a number or Unit Value field (#97); shown only
+  /// once the history holds two values — one number is not a curve.
+  final void Function(FieldDef def)? onGraph;
+
+  /// Opens the value history of a field in read mode: a diary of what
+  /// it held, for fields with two values or more and no graph.
+  final void Function(FieldDef def)? onValueHistory;
 
   /// Shown as an "Add field" row at the end of the edit-mode list (#50).
   final VoidCallback? onAddField;
@@ -49,6 +59,8 @@ class FieldList extends StatelessWidget {
       required this.onShowMap,
       this.onLookup,
       this.onReadLongPress,
+      this.onGraph,
+      this.onValueHistory,
       this.onAddField,
       this.onLocate,
       this.locateNote,
@@ -98,6 +110,13 @@ class FieldList extends StatelessWidget {
           final lookup = onLookup != null &&
               value != null &&
               lookupUrl(def, value) != null;
+          final graph = onGraph != null &&
+              !editing &&
+              hasGraph(store, entityId, def);
+          final history = onValueHistory != null &&
+              !editing &&
+              !graph &&
+              hasValueHistory(store, entityId, def.key);
           // Read mode marks a private value with a lock at the end of
           // the row — your own and one a partner kept back look alike.
           // Edit mode shows no lock; the field editor's checkmark is
@@ -111,13 +130,25 @@ class FieldList extends StatelessWidget {
                   ? IconButton(
                       icon: const Icon(Icons.map_outlined),
                       tooltip: context.t.showOnMap,
-                      onPressed: () => onShowMap(value),
+                      onPressed: () => onShowMap(def, value),
                     )
                   : lookup
                       ? IconButton(
                           icon: const Icon(Icons.open_in_new),
                           tooltip: context.t.lookUpId,
                           onPressed: () => onLookup!(def, value),
+                        )
+                  : graph
+                      ? IconButton(
+                          icon: const Icon(Icons.show_chart),
+                          tooltip: context.t.graphLabel,
+                          onPressed: () => onGraph!(def),
+                        )
+                  : history
+                      ? IconButton(
+                          icon: const Icon(Icons.history),
+                          tooltip: context.t.fieldHistoryTooltip,
+                          onPressed: () => onValueHistory!(def),
                         )
                   : editing
                       ? const Icon(Icons.edit_outlined)

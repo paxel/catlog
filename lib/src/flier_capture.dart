@@ -715,6 +715,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
     for (final input in _fieldInputs.values) {
       if (input.value case final value?) {
         store.append(catId, input.def.key, value);
+        if (input.def.slug == 'breed') store.learnBreed(catId, value);
       }
     }
     for (final hit in _registryHits) {

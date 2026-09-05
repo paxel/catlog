@@ -5,7 +5,6 @@ import '../move_to_catalog.dart';
 import '../hidden.dart';
 import '../l10n.dart';
 import '../name_date_dialog.dart';
-import '../name_proposals.dart';
 import '../flier_capture.dart';
 import '../share_import.dart';
 import '../spotlight.dart';
@@ -37,14 +36,8 @@ class StraysScreen extends StatelessWidget {
   }
 
   Future<void> _addStray(BuildContext context, VoidCallback refresh) async {
-    final locale = Localizations.localeOf(context);
-    final result = await askNameAndDate(
-      context,
-      context.t.newStray,
-      propose: () => proposeCatName(store, locale),
-    );
-    if (result == null || !context.mounted) return;
-    final catId = store.createCat(result.name, date: result.date);
+    final catId = await createAnimal(context, store, title: context.t.newStray);
+    if (catId == null || !context.mounted) return;
     refresh();
     await Navigator.of(context).push(
       MaterialPageRoute(

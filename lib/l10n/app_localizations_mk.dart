@@ -29,14 +29,24 @@ class AppLocalizationsMk extends AppLocalizations {
   String get clowders => 'Клаудери';
 
   @override
+  String get clowdersNeutral => 'Домаќинства';
+
+  @override
   String get noClowdersYet =>
       'Сè уште нема клаудери. Клаудер е место каде живеат мачки — твојот згрижувачки дом, станот на посвоител. Направи го првиот подолу.';
+
+  @override
+  String get noClowdersYetNeutral =>
+      'Сè уште нема домаќинства. Домаќинство е место каде живеат миленици — твојот дом, згрижувачки дом, станот на посвоител. Направи го првото подолу.';
 
   @override
   String get strays => 'Скитници';
 
   @override
   String get searchCats => 'Барај мачки';
+
+  @override
+  String get searchCatsNeutral => 'Барај миленици';
 
   @override
   String get map => 'Мапа';
@@ -54,7 +64,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get aboutAndFeedback => 'За апликацијата и повратни информации';
 
   @override
+  String get settings => 'Поставки';
+
+  @override
   String get newClowder => 'Нов клаудер';
+
+  @override
+  String get newClowderNeutral => 'Ново домаќинство';
 
   @override
   String get name => 'Име';
@@ -89,6 +105,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get renameClowder => 'Преименувај клаудер';
 
   @override
+  String get renameClowderNeutral => 'Преименувај домаќинство';
+
+  @override
   String get rename => 'Преименувај';
 
   @override
@@ -101,13 +120,25 @@ class AppLocalizationsMk extends AppLocalizations {
   String get deleteClowder => 'Избриши клаудер';
 
   @override
+  String get deleteClowderNeutral => 'Избриши домаќинство';
+
+  @override
   String get cats => 'Мачки';
+
+  @override
+  String get catsNeutral => 'Миленици';
 
   @override
   String get addCat => 'Додај мачка';
 
   @override
+  String get addCatNeutral => 'Додај миленик';
+
+  @override
   String get newCat => 'Нова мачка';
+
+  @override
+  String get newCatNeutral => 'Нов миленик';
 
   @override
   String deleteQuestion(String name) {
@@ -118,8 +149,17 @@ class AppLocalizationsMk extends AppLocalizations {
   String get deleteClowderEmptyBody => 'Клаудерот исчезнува од списокот.';
 
   @override
+  String get deleteClowderEmptyBodyNeutral =>
+      'Домаќинството исчезнува од списокот.';
+
+  @override
   String deleteClowderBody(int count) {
     return 'Неговите мачки ($count) не се бришат — стануваат скитници. Прво преместете ги во друг клаудер ако не го сакате тоа.';
+  }
+
+  @override
+  String deleteClowderBodyNeutral(int count) {
+    return 'Неговите миленици ($count) не се бришат — стануваат скитници. Прво преместете ги во друго домаќинство ако не го сакате тоа.';
   }
 
   @override
@@ -143,16 +183,28 @@ class AppLocalizationsMk extends AppLocalizations {
   String get renameCat => 'Преименувај мачка';
 
   @override
+  String get renameCatNeutral => 'Преименувај миленик';
+
+  @override
   String get seenHereNow => 'Видена тука сега';
 
   @override
   String get deleteCat => 'Избриши мачка';
 
   @override
+  String get deleteCatNeutral => 'Избриши миленик';
+
+  @override
   String get clowderLabel => 'Клаудер';
 
   @override
+  String get clowderLabelNeutral => 'Домаќинство';
+
+  @override
   String get strayNoClowder => 'Скитница — без клаудер';
+
+  @override
+  String get strayNoClowderNeutral => 'Скитник — без домаќинство';
 
   @override
   String get stray => 'Скитница';
@@ -182,6 +234,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get deleteCatBody =>
       'Мачката исчезнува од сите списоци и нејзините фотографии се отстрануваат — тука и, по следната синхронизација, и на другите уреди.';
+
+  @override
+  String get deleteCatBodyNeutral =>
+      'Миленикот исчезнува од сите списоци и неговите фотографии се отстрануваат — тука и, по следната синхронизација, и на другите уреди.';
 
   @override
   String get sightingRecorded => 'Видувањето е запишано на вашата позиција.';
@@ -234,6 +290,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Го скенира печатениот QR/баркод од картичката на чипот или ветеринарните документи — телефонот не може да го прочита чипот во мачката.';
 
   @override
+  String get chipScanHintNeutral =>
+      'Го скенира печатениот QR/баркод од картичката на чипот или ветеринарните документи — телефонот не може да го прочита чипот во животното.';
+
+  @override
   String get savingLabel => 'Зачувување…';
 
   @override
@@ -258,6 +318,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get catList => 'Листа на мачки';
+
+  @override
+  String get catListNeutral => 'Листа на миленици';
 
   @override
   String get matchCandidatesTitle => 'Можни совпаѓања';
@@ -290,6 +353,11 @@ class AppLocalizationsMk extends AppLocalizations {
   String get fromVideo => 'Од видео…';
 
   @override
+  String addingPhotos(int done, int total) {
+    return 'Додавање фотографија $done од $total…';
+  }
+
+  @override
   String get videoMobileOnly =>
       'Изборот на кадри од видео работи во телефонската апликација (Android и iPhone) — на овој уред сè уште не.';
 
@@ -320,6 +388,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get importShareTitle => 'Да се увезе оваа мачка?';
 
   @override
+  String get importShareTitleNeutral => 'Да се увезе овој миленик?';
+
+  @override
   String shareSource(String url) {
     return 'Извор: $url';
   }
@@ -339,6 +410,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get noMissingCats =>
       'Сè уште нема исчезнати мачки со позиции на огласи.';
+
+  @override
+  String get noMissingCatsNeutral =>
+      'Сè уште нема исчезнати миленици со позиции на огласи.';
 
   @override
   String get noMatchCandidates => 'Моментално нема можни совпаѓања.';
@@ -419,6 +494,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Оваа мачка е запишана како машка — машка мачка не може да биде бремена. Прво проверете го полот.';
 
   @override
+  String get malePregnantNeutral =>
+      'Овој миленик е запишан како машки — машко не може да биде бремено. Прво проверете го полот.';
+
+  @override
   String fatherNotMale(String name) {
     return '$name е запишана како женка и не може да биде таткото. Прво проверете го полот.';
   }
@@ -434,18 +513,35 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String parentBornAfterKittenNeutral(String name, String date) {
+    return '$name е роден на $date — родител не може да се роди по своето младенче.';
+  }
+
+  @override
   String get genderFatherFemale =>
       'Оваа мачка е запишана како татко на други мачки — таткото не може да биде женка. Прво проверете го семејството.';
+
+  @override
+  String get genderFatherFemaleNeutral =>
+      'Овој миленик е запишан како татко на други миленици — таткото не може да биде женка. Прво проверете го семејството.';
 
   @override
   String get genderMotherMale =>
       'Оваа мачка е запишана како мајка на други мачки — мајката не може да биде мажјак. Прво проверете го семејството.';
 
   @override
+  String get genderMotherMaleNeutral =>
+      'Овој миленик е запишан како мајка на други миленици — мајката не може да биде мажјак. Прво проверете го семејството.';
+
+  @override
   String get moveTo => 'Премести во';
 
   @override
   String get noClowderStrayOption => 'Без клаудер — скитница / избега';
+
+  @override
+  String get noClowderStrayOptionNeutral =>
+      'Без домаќинство — скитник / избега';
 
   @override
   String timelineOf(String name) {
@@ -535,7 +631,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get forCats => 'мачки';
 
   @override
+  String get forCatsNeutral => 'миленици';
+
+  @override
   String get forClowders => 'клаудери';
+
+  @override
+  String get forClowdersNeutral => 'домаќинства';
 
   @override
   String get forBoth => 'двете';
@@ -566,6 +668,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get searchByNameHint => 'Барај мачки по име…';
+
+  @override
+  String get searchByNameHintNeutral => 'Барај миленици по име…';
 
   @override
   String get host => 'Домаќин';
@@ -656,6 +761,16 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String trailOfField(String name, String field, int count) {
+    return 'Трага: $name — $field ($count вредности)';
+  }
+
+  @override
+  String trailOfPlace(String name, int count) {
+    return 'Трага: $name ($count позиции)';
+  }
+
+  @override
   String conflictOn(String field) {
     return 'Конфликт — $field';
   }
@@ -688,7 +803,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get kindCat => 'мачка';
 
   @override
+  String get kindCatNeutral => 'миленик';
+
+  @override
   String get kindClowder => 'клаудер';
+
+  @override
+  String get kindClowderNeutral => 'домаќинство';
 
   @override
   String get kindField => 'поле';
@@ -705,6 +826,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get aboutTagline =>
       'Локален каталог за мачки на грижа. Вашите податоци остануваат на вашите уреди — без сервер, без сметка.';
+
+  @override
+  String get aboutTaglineNeutral =>
+      'Локален каталог за милениците за кои се грижите. Вашите податоци остануваат на вашите уреди — без сервер, без сметка.';
 
   @override
   String versionLabel(String version, String build) {
@@ -832,6 +957,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get stepCat => 'Мачка';
 
   @override
+  String get stepCatNeutral => 'Миленик';
+
+  @override
   String get stepOwner => 'Сопственик';
 
   @override
@@ -848,12 +976,24 @@ class AppLocalizationsMk extends AppLocalizations {
       'Оној што ја бара мачката — од тоа настанува неговиот клаудер со контактот од огласот.';
 
   @override
+  String get stepOwnerHintNeutral =>
+      'Оној што го бара миленикот — од тоа настанува неговото домаќинство со контактот од огласот.';
+
+  @override
   String get stepFaceHint =>
       'Исечи ја муцката на мачката од огласот; станува профилна слика. Може и да прескокнеш.';
 
   @override
+  String get stepFaceHintNeutral =>
+      'Исечи ја муцката на миленикот од огласот; станува профилна слика. Може и да прескокнеш.';
+
+  @override
   String get stepRegistryHint =>
       'Броеви најдени на огласот. Штиклираните се зачувуваат кај мачката и може подоцна да се отворат.';
+
+  @override
+  String get stepRegistryHintNeutral =>
+      'Броеви најдени на огласот. Штиклираните се зачувуваат кај миленикот и може подоцна да се отворат.';
 
   @override
   String get noRegistryLinks =>
@@ -903,24 +1043,48 @@ class AppLocalizationsMk extends AppLocalizations {
       'Преглед на твоите колонии — колонија е место каде живеат мачки: твојот дом, привремено сместување, засолниште. Допри картичка за нејзините мачки; долг притисок отвора мени. Копчето долу десно создава колонија, а картичката на скитниците ги собира сите мачки без дом. Името горе е каталогот во кој си — допри го за да смениш или додадеш.';
 
   @override
+  String get helpHomeNeutral =>
+      'Преглед на твоите домаќинства — домаќинство е место каде живеат миленици: твојот дом, привремено сместување, засолниште. Допри картичка за нејзините миленици; долг притисок отвора мени. Копчето долу десно создава домаќинство, а картичката на скитниците ги собира сите миленици без дом. Името горе е каталогот во кој си — допри го за да смениш или додадеш.';
+
+  @override
   String get helpClowder =>
-      'Сè за ова место: неговите мачки, полиња (адреса, контакт, вид) и историја. Страницата се отвора само за читање; моливот вклучува уредување, каде може да додадеш и ново поле. Долг притисок на поле го уредува веднаш, на мачка ја преместува, крие или отвора. Термин додаден овде може да поведе повеќе мачки од колонијата, на пример на стерилизација: означи ги мачките што доаѓаат, заврши еднаш, одзначи ги нетретираните.';
+      'Сè за ова место: неговите мачки, полиња (адреса, контакт, вид) и историја. Страницата се отвора само за читање; моливот вклучува уредување, каде може да додадеш и ново поле. Долг притисок на поле го уредува веднаш, на мачка ја преместува, крие или отвора. Термин додаден овде може да поведе повеќе мачки од колонијата, на пример на стерилизација: означи ги мачките што доаѓаат, заврши еднаш, одзначи ги нетретираните. Часовникот кај полето ја отвора неговата историја.';
+
+  @override
+  String get helpClowderNeutral =>
+      'Сè за ова место: неговите миленици, полиња (адреса, контакт, вид) и историја. Страницата се отвора само за читање; моливот вклучува уредување, каде може да додадеш и ново поле. Долг притисок на поле го уредува веднаш, на миленик го преместува, крие или отвора. Термин додаден овде може да поведе повеќе миленици од домаќинството, на пример на стерилизација: означи ги милениците што доаѓаат, заврши еднаш, одзначи ги нетретираните. Часовникот кај полето ја отвора неговата историја.';
 
   @override
   String get helpCat =>
-      'Сè за оваа мачка: фотографии, полиња, семејство, историја. Страницата е само за читање додека не го допреш моливот. Долг притисок на поле оди директно на уредување; долг притисок на фотографија го отвора нејзиното мени. Менито горе десно го држи остатокот: сокривање, спојување, запишување видување, споделување на мачката. „Приватно“ се поставува при уредување на поле.';
+      'Сè за оваа мачка: фотографии, полиња, семејство, историја. Страницата е само за читање додека не го допреш моливот. Долг притисок на поле оди директно на уредување; долг притисок на фотографија го отвора нејзиното мени. Менито горе десно го држи остатокот: сокривање, спојување, запишување видување, споделување на мачката. „Приватно“ се поставува при уредување на поле. Часовникот кај полето ја отвора неговата историја.';
+
+  @override
+  String get helpCatNeutral =>
+      'Сè за овој миленик: фотографии, полиња, семејство, историја. Страницата е само за читање додека не го допреш моливот. Долг притисок на поле оди директно на уредување; долг притисок на фотографија го отвора нејзиното мени. Менито горе десно го држи остатокот: сокривање, спојување, запишување видување, споделување на миленикот. „Приватно“ се поставува при уредување на поле. Часовникот кај полето ја отвора неговата историја.';
 
   @override
   String get helpStrays =>
       'Мачки што сега немаат дом: најдени, избегани или од оглас. Копчето со камера запишува мачка пред тебе; копчето со оглас претвора плакат во мачка со контакт на сопственикот; скенерот чита cat(a)log код од плакатот. Допри Stray Cam за фотографија; задржи за да снимиш видео и да ги задржиш најдобрите кадри како фотографии.';
 
   @override
+  String get helpStraysNeutral =>
+      'Миленици што сега немаат дом: најдени, избегани или од оглас. Копчето со камера запишува животно пред тебе; копчето со оглас претвора плакат во миленик со контакт на сопственикот; скенерот чита cat(a)log код од плакатот. Допри Stray Cam за фотографија; задржи за да снимиш видео и да ги задржиш најдобрите кадри како фотографии.';
+
+  @override
   String get helpMap =>
-      'Сите мачки и места со позиција. Пребарувањето наоѓа мачки, луѓе и места — непознато име се бара низ целиот свет. Копчето за слоеви црта кругови од 500 м околу местата на огласите на исчезната мачка и околу домот од кој избегала. Стрелките одат од игла до игла, долг притисок на картата запишува видување.';
+      'Сите мачки и места со позиција. Пребарувањето наоѓа мачки, луѓе и места — непознато име се бара низ целиот свет. Копчето за слоеви црта кругови од 500 м околу местата на огласите на исчезната мачка и околу домот од кој избегала. Стрелките одат од игла до игла, долг притисок на картата запишува видување. Секое поле за место е игла на мапата; допрете игла за нејзината трага.';
+
+  @override
+  String get helpMapNeutral =>
+      'Сите миленици и места со позиција. Пребарувањето наоѓа миленици, луѓе и места — непознато име се бара низ целиот свет. Копчето за слоеви црта кругови од 500 м околу местата на огласите на исчезнат миленик и околу домот од кој избегал. Стрелките одат од игла до игла, долг притисок на картата запишува видување. Секое поле за место е игла на мапата; допрете игла за нејзината трага.';
 
   @override
   String get helpCard =>
       'Печатлива картичка на мачката: горе со чипови избираш што ќе биде на неа, потоа ја споделуваш како слика или PDF. Броевите може да се печатат како QR или баркод, а позицијата станува QR што отвора карта, плус краток Plus Code.';
+
+  @override
+  String get helpCardNeutral =>
+      'Печатлива картичка на миленикот: горе со чипови избираш што ќе биде на неа, потоа ја споделуваш како слика или PDF. Броевите може да се печатат како QR или баркод, а позицијата станува QR што отвора карта, плус краток Plus Code.';
 
   @override
   String get helpSync =>
@@ -931,6 +1095,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Полињата што ги користи твојот каталог. Преименувај ги, промени ги опциите на поле со избор или додади свои. Поле со идентификатор може да покажува кон услуга (регистар), па бројот кај мачката станува допирлив.';
 
   @override
+  String get helpFieldsNeutral =>
+      'Полињата што ги користи твојот каталог. Преименувај ги, промени ги опциите на поле со избор или додади свои. Поле со идентификатор може да покажува кон услуга (регистар), па бројот кај миленикот станува допирлив.';
+
+  @override
   String get helpTimeline =>
       'Секоја некогаш направена промена, најновата прва: кој што, кога и во која вредност променил. Секој запис може да се врати — тоа запишува нов запис, ништо не се брише.';
 
@@ -939,12 +1107,24 @@ class AppLocalizationsMk extends AppLocalizations {
       'Мачки или колонии што изгледаат како ист запис двапати — исти броеви или многу слични имиња со совпаѓачки детали. Допри пар за спојување; спојувањето не може да се врати, затоа прво прашува.';
 
   @override
+  String get helpDuplicatesNeutral =>
+      'Миленици или домаќинства што изгледаат како ист запис двапати — исти броеви или многу слични имиња со совпаѓачки детали. Допри пар за спојување; спојувањето не може да се врати, затоа прво прашува.';
+
+  @override
   String get helpMatches =>
       'Мачки што можеби се исто животно: ист број или скитник виден во подрачјето на барање на исчезната мачка. Допри пар за спојување, долг притисок ја отвора првата мачка за споредба.';
 
   @override
+  String get helpMatchesNeutral =>
+      'Миленици што можеби се исто животно: ист број или скитник виден во подрачјето на барање на исчезнат миленик. Допри пар за спојување, долг притисок го отвора првиот миленик за споредба.';
+
+  @override
   String get helpFlier =>
       'Фотографиран оглас станува мачка заедно со сопственикот. Чекор по чекор: податоци за мачката, контакт на сопственикот, исечок на муцката за профилна слика, броеви од регистри на огласот, па конечна проверка. Сè е предлог — поправи го она што камерата го прочитала погрешно.';
+
+  @override
+  String get helpFlierNeutral =>
+      'Фотографиран оглас станува миленик заедно со сопственикот. Чекор по чекор: податоци за миленикот, контакт на сопственикот, исечок на муцката за профилна слика, броеви од регистри на огласот, па конечна проверка. Сè е предлог — поправи го она што камерата го прочитала погрешно.';
 
   @override
   String get archiveTitle => 'Архива';
@@ -952,6 +1132,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get archiveExplainer =>
       'Умрените мачки и празните колонии што со години никој не ги допрел сепак заземаат простор — најмногу нивните фотографии. Архивирањето ги запишува во датотека што ја чувате и потоа ги брише оттука.';
+
+  @override
+  String get archiveExplainerNeutral =>
+      'Умрените миленици и празните домаќинства што со години никој не ги допрел сепак заземаат простор — најмногу нивните фотографии. Архивирањето ги запишува во датотека што ја чувате и потоа ги брише оттука.';
 
   @override
   String get archiveAction => 'Архивирај';
@@ -1004,6 +1188,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Старите податоци чинат простор, најмногу фотографиите што ги носи секој синхронизиран уред. Тука избирате умрени мачки и празни колонии што со години мируваат, ги запишувате во датотека што ја чувате и ги бришете. Бришењето стигнува до сите со кои синхронизирате; увозот на датотеката враќа сè.';
 
   @override
+  String get helpArchiveNeutral =>
+      'Старите податоци чинат простор, најмногу фотографиите што ги носи секој синхронизиран уред. Тука избирате умрени миленици и празни домаќинства што со години мируваат, ги запишувате во датотека што ја чувате и ги бришете. Бришењето стигнува до сите со кои синхронизирате; увозот на датотеката враќа сè.';
+
+  @override
   String restoreDeletedTitle(int count) {
     return 'Да се вратат $count избришани записи?';
   }
@@ -1025,6 +1213,15 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get locateAddress => 'Најди ја адресата на картата';
+
+  @override
+  String get addressFoundTitle => 'Адресата е најдена';
+
+  @override
+  String get replaceAddressOption => 'Замени ја адресата со оваа';
+
+  @override
+  String get addPositionOption => 'Зачувај ја локацијата';
 
   @override
   String get addressLocated => 'Адресата е најдена';
@@ -1058,6 +1255,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get markTitle => 'Означи ја мачката';
 
   @override
+  String get markTitleNeutral => 'Означи го миленикот';
+
+  @override
   String get applyCrop => 'Исечи';
 
   @override
@@ -1067,7 +1267,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get dragToSelect => 'Повлечи правоаголник околу мачката';
 
   @override
+  String get dragToSelectNeutral => 'Повлечи правоаголник околу миленикот';
+
+  @override
   String get dragOverTheCat => 'Повлечи елипса врз мачката';
+
+  @override
+  String get dragOverTheCatNeutral => 'Повлечи елипса врз миленикот';
 
   @override
   String get cropPhoto => 'Исечи…';
@@ -1132,6 +1338,74 @@ class AppLocalizationsMk extends AppLocalizations {
   String get language => 'Јазик';
 
   @override
+  String get typeUnitValue => 'Вредност со единица';
+
+  @override
+  String get dimension => 'Големина';
+
+  @override
+  String get dimensionWeight => 'Тежина';
+
+  @override
+  String get dimensionLength => 'Должина';
+
+  @override
+  String get dimensionVolume => 'Волумен';
+
+  @override
+  String get dimensionTemperature => 'Температура';
+
+  @override
+  String get unitsLabel => 'Единици';
+
+  @override
+  String get catalogHolds => 'Овој каталог содржи';
+
+  @override
+  String get modeCats => 'Мачки';
+
+  @override
+  String get modePets => 'Миленици';
+
+  @override
+  String get graphLabel => 'График';
+
+  @override
+  String get fieldHistoryTooltip => 'Историја';
+
+  @override
+  String get rangeWeek => 'Недела';
+
+  @override
+  String get rangeMonth => 'Месец';
+
+  @override
+  String get rangeYear => 'Година';
+
+  @override
+  String get rangeAll => 'Сè';
+
+  @override
+  String get rangeCustom => 'Прилагодено…';
+
+  @override
+  String changeSince(String delta, String date) {
+    return '$delta од $date';
+  }
+
+  @override
+  String get unitsAuto => 'Како во твојот регион';
+
+  @override
+  String get unitsMetric => 'Метрички (kg, cm, ml, °C)';
+
+  @override
+  String get unitsImperial => 'Империјални (lb, in, fl oz, °F)';
+
+  @override
+  String get starterWeight => 'Тежина';
+
+  @override
   String get systemDefault => 'Системски стандард';
 
   @override
@@ -1178,6 +1452,30 @@ class AppLocalizationsMk extends AppLocalizations {
   String get valueCat => 'Мачка';
 
   @override
+  String get valueDog => 'Куче';
+
+  @override
+  String get valueRabbit => 'Зајак';
+
+  @override
+  String get valueGuineaPig => 'Морско прасе';
+
+  @override
+  String get valueHamster => 'Хрчак';
+
+  @override
+  String get valueBird => 'Птица';
+
+  @override
+  String get valueHorse => 'Коњ';
+
+  @override
+  String get valueTortoise => 'Желка';
+
+  @override
+  String get valueFerret => 'Ласица';
+
+  @override
   String get otherOption => 'Друго…';
 
   @override
@@ -1186,6 +1484,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get celebrationsSubtitle =>
       'Конфети и радост кога мачка се сели во својот дом';
+
+  @override
+  String get celebrationsSubtitleNeutral =>
+      'Конфети и радост кога миленик се сели во својот дом';
 
   @override
   String get onMapLabel => 'На картата';
@@ -1201,6 +1503,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get mapSearchHint => 'Барај мачки, групи, луѓе';
+
+  @override
+  String get mapSearchHintNeutral => 'Барај миленици, домаќинства, луѓе';
 
   @override
   String get proposeAnotherName => 'Предложи друго име';
@@ -1258,8 +1563,82 @@ class AppLocalizationsMk extends AppLocalizations {
   String get summaryConflicts => 'Конфликти за решавање';
 
   @override
-  String summaryOther(Object n) {
-    return '…и уште $n промени';
+  String conflictsMenu(int n) {
+    return 'Конфликти ($n)';
+  }
+
+  @override
+  String get rejectAfterResolve =>
+      'Тука решивте конфликт, затоа „Одбиј“ не е достапно: би го поништило и тоа.';
+
+  @override
+  String get arrivalIntro =>
+      'Овие промени веќе се во вашиот каталог. „Одбиј“ го враќа како што беше.';
+
+  @override
+  String get summaryUpdated => 'Изменети';
+
+  @override
+  String get summaryDeleted => 'Избришани';
+
+  @override
+  String get keepMine => 'Задржи моето';
+
+  @override
+  String keptMine(String name) {
+    return 'Вашата верзија на $name остана на овој уред.';
+  }
+
+  @override
+  String get summaryMeta => 'Исто така пристигна';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n промени',
+      one: '$n промена',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Прифати';
+
+  @override
+  String get rejectArrival => 'Одбиј';
+
+  @override
+  String get photoAdded => 'Додадена фотографија';
+
+  @override
+  String get photoRemoved => 'Отстранета фотографија';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Ново поле: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Изменето поле: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser споено во $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n фотографии',
+      one: '$n фотографија',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1279,6 +1658,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get kittensLabel => 'Мачиња';
+
+  @override
+  String get kittensLabelNeutral => 'Младенчиња';
 
   @override
   String get toastSettingsTitle => 'Што да се објавува';
@@ -1309,6 +1691,11 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String toastBorn(Object cat) {
     return '✨ Ново маче: $cat ✨';
+  }
+
+  @override
+  String toastBornNeutral(Object cat) {
+    return '✨ Ново младенче: $cat ✨';
   }
 
   @override
@@ -1395,11 +1782,21 @@ class AppLocalizationsMk extends AppLocalizations {
   String get selectClowderHint => 'Избери клаудер лево';
 
   @override
+  String get selectClowderHintNeutral => 'Избери домаќинство лево';
+
+  @override
   String get introTitle1 => 'Вашите мачки, уредно';
+
+  @override
+  String get introTitle1Neutral => 'Вашите миленици, уредно';
 
   @override
   String get introBody1 =>
       'Направете картичка за секоја мачка: фотографија, пол, здравје, сè што сакате да забележите. Мачките се групирани според местото каде живеат — апликацијата го вика колонија (clowder).';
+
+  @override
+  String get introBody1Neutral =>
+      'Направете картичка за секој миленик за кој се грижите: фотографија, пол, здравје, сè што сакате да забележите. Милениците се групирани според местото каде живеат — апликацијата го вика домаќинство.';
 
   @override
   String get introTitle2 => 'Работи без интернет';
@@ -1436,35 +1833,66 @@ class AppLocalizationsMk extends AppLocalizations {
       'Оваа картичка ги собира сите скитници — мачки без дом. Допрете за листата.';
 
   @override
+  String get spotHomeStraysNeutral =>
+      'Оваа картичка ги собира сите скитници — миленици без дом. Допрете за листата.';
+
+  @override
   String get spotHomeMenu =>
-      'Во ова мени: најдете и споите дупликати, извезете CSV и повеќе.';
+      'Во ова мени: поставки, наоѓање и спојување дупликати, извоз CSV и повеќе.';
 
   @override
   String get spotCatEdit =>
       'Допрете го моливот за да ја уредите мачката. Совет: долг притисок на поле го уредува директно.';
 
   @override
+  String get spotCatEditNeutral =>
+      'Допрете го моливот за да го уредите миленикот. Совет: долг притисок на поле го уредува директно.';
+
+  @override
   String get spotMapLayers =>
       'Барате исчезната мачка? Прикажете кругови околу местата на нејзините огласи и околу домот од кој избегала.';
+
+  @override
+  String get spotMapLayersNeutral =>
+      'Барате исчезнат миленик? Прикажете кругови околу местата на неговите огласи и околу домот од кој избегал.';
 
   @override
   String get spotStraysFlier =>
       'Оглас за исчезната мачка? Фотографирајте го тука — апликацијата ги чува мачката и контактот за вас.';
 
   @override
+  String get spotStraysFlierNeutral =>
+      'Оглас за исчезнат миленик? Фотографирајте го тука — апликацијата ги чува миленикот и контактот за вас.';
+
+  @override
   String get spotStraysScan =>
       'Некои огласи имаат cat(a)log QR-код. Скенирајте го тука и увезете ја мачката без пишување.';
 
   @override
+  String get spotStraysScanNeutral =>
+      'Некои огласи имаат cat(a)log QR-код. Скенирајте го тука и увезете го миленикот без пишување.';
+
+  @override
   String get introTitle4 => 'Најдете исчезнати мачки';
+
+  @override
+  String get introTitle4Neutral => 'Најдете исчезнати миленици';
 
   @override
   String get introBody4 =>
       'Гледате оглас за исчезната мачка? Фотографирајте го во апликацијата: таа ги чува мачката, контактот на сопственикот и местото. Ако подоцна се појави слична скитница, апликацијата предлага можни совпаѓања.';
 
   @override
+  String get introBody4Neutral =>
+      'Гледате оглас за исчезнат миленик? Фотографирајте го во апликацијата: таа ги чува миленикот, контактот на сопственикот и местото. Ако подоцна се појави сличен скитник, апликацијата предлага можни совпаѓања.';
+
+  @override
   String get spotMapSearch =>
       'Внесете мачка, место или личност за да скокнете таму на картата.';
+
+  @override
+  String get spotMapSearchNeutral =>
+      'Внесете миленик, место или личност за да скокнете таму на картата.';
 
   @override
   String get spotCardChips =>
@@ -1473,6 +1901,10 @@ class AppLocalizationsMk extends AppLocalizations {
   @override
   String get spotCatMenu =>
       'Тука има уште дејства: сокриј ја мачката, спои дупликати или запиши видување.';
+
+  @override
+  String get spotCatMenuNeutral =>
+      'Тука има уште дејства: сокриј го миленикот, спои дупликати или запиши видување.';
 
   @override
   String get spotDone => 'Јасно';
@@ -1489,6 +1921,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get searchNoResults => 'Не е најдена мачка со тоа име';
+
+  @override
+  String get searchNoResultsNeutral => 'Не е најден миленик со тоа име';
 
   @override
   String get syncUnreachable =>
@@ -1537,7 +1972,15 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get helpCatalogs =>
-      'Секој каталог е свет за себе: свои мачки, колонии, полиња, фотографии и партнери за синхронизација. Берлин и Париз никогаш не се мешаат. Допри го името горе на почетниот екран за да смениш, додадеш или преименуваш. Твоето име, јазикот и веќе видените совети се заеднички.';
+      'Каталогот е свет сам за себе: свои мачки, колонии, полиња, фотографии и партнери за синхронизација. Берлин и Париз никогаш не се мешаат. Допрете каталог за да се префрлите на него. Запчаникот на каталогот ги отвора неговите поставки: име, мачки или животни, полиња, автори и блокади, архива, враќање назад, бришење. Вашето име, јазикот и веќе видените совети се заеднички за сите.';
+
+  @override
+  String get helpCatalogsNeutral =>
+      'Каталогот е свет сам за себе: свои животни, домаќинства, полиња, фотографии и партнери за синхронизација. Берлин и Париз никогаш не се мешаат. Допрете каталог за да се префрлите на него. Запчаникот на каталогот ги отвора неговите поставки: име, мачки или животни, полиња, автори и блокади, архива, враќање назад, бришење. Вашето име, јазикот и веќе видените совети се заеднички за сите.';
+
+  @override
+  String get helpCatalogSettings =>
+      'Сè што му припаѓа само на овој каталог: името, дали содржи мачки или животни, полињата, авторите и блокадите, архивата и враќањето назад во времето. Промените тука го засегаат само овој каталог — и оној во кој сега не сте. Бришењето прво го запишува каталогот во датотека.';
 
   @override
   String get spotHomeCatalog =>
@@ -1547,8 +1990,16 @@ class AppLocalizationsMk extends AppLocalizations {
   String get deleteCatalog => 'Избриши каталог';
 
   @override
+  String get catalogSettings => 'Поставки на каталогот';
+
+  @override
   String deleteCatalogBody(String name) {
-    return 'Сè во $name исчезнува: мачките, фотографиите, историјата. Прво се зачувува целосна датотека таму каде одат автоматските резервни копии — нејзиниот увоз го враќа каталогот. Впиши го името за потврда.';
+    return 'Сè во $name исчезнува: мачките, фотографиите, историјата. Прво се зачувува целосна датотека таму каде одат автоматските резервни копии — нејзиниот увоз го враќа каталогот.';
+  }
+
+  @override
+  String deleteCatalogBodyNeutral(String name) {
+    return 'Сè во $name исчезнува: милениците, фотографиите, историјата. Прво се зачувува целосна датотека таму каде одат автоматските резервни копии — нејзиниот увоз го враќа каталогот. Впиши го името за потврда.';
   }
 
   @override
@@ -1677,6 +2128,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Нема планирани термини. Нови планираш тука со плусот или на страницата на мачка или клаудер.';
 
   @override
+  String get agendaEmptyNeutral =>
+      'Нема планирани термини. Нови планираш тука со плусот или на страницата на миленик или домаќинство.';
+
+  @override
   String get dueToday => 'денес';
 
   @override
@@ -1765,6 +2220,14 @@ class AppLocalizationsMk extends AppLocalizations {
       'Другиот уред има понов cat(a)log. Ажурирај го cat(a)log на овој уред и синхронизирај повторно.';
 
   @override
+  String get syncPeerNoTls =>
+      'Другиот уред има cat(a)log пред 1.1.0, без шифрирана синхронизација. Ажурирај го cat(a)log таму, па синхронизирај повторно.';
+
+  @override
+  String get syncWrongHost =>
+      'Сертификатот не одговара на кодот за спарување — ова не е уредот од кој дојде кодот. Скенирај го или внеси го кодот повторно.';
+
+  @override
   String get bundleNewerError =>
       'Оваа датотека доаѓа од понов cat(a)log. Ажурирај го cat(a)log на овој уред за да ја увезеш.';
 
@@ -1825,6 +2288,10 @@ class AppLocalizationsMk extends AppLocalizations {
       'Потсетниците ги прикажуваат планираните термини по датум. Постојат два вида: термини со време и потсетници што важат за ден. Пропуштените остануваат најгоре. Допир ја отвора мачката или клаудерот. Штиклата потврдува термин: вредноста се запишува во полето и веднаш можеш да го планираш следниот, на пример за три месеци. Задржување го менува датумот или го брише терминот. Прекинувачот горе ги пресликува термините во календар на твојот телефон. Менито ги извезува како календарска датотека. Посета кај ветеринар со повеќе мачки е еден термин: означи ги мачките, Агендата покажува една картичка со нивните имиња, а при завршување прашува кои мачки беа третирани — одзначи ги другите, остануваат планирани.';
 
   @override
+  String get helpAgendaNeutral =>
+      'Потсетниците ги прикажуваат планираните термини по датум. Постојат два вида: термини со време и потсетници што важат за ден. Пропуштените остануваат најгоре. Допир го отвора миленикот или домаќинството. Штиклата потврдува термин: вредноста се запишува во полето и веднаш можеш да го планираш следниот, на пример за три месеци. Задржување го менува датумот или го брише терминот. Прекинувачот горе ги пресликува термините во календар на твојот телефон. Менито ги извезува како календарска датотека. Посета кај ветеринар со повеќе миленици е еден термин: означи ги милениците, Агендата покажува една картичка со нивните имиња, а при завршување прашува кои миленици беа третирани — одзначи ги другите, остануваат планирани.';
+
+  @override
   String get calendarRowOff => 'Календар: исклучен';
 
   @override
@@ -1837,8 +2304,16 @@ class AppLocalizationsMk extends AppLocalizations {
       'Планирај термин за оваа мачка. Се прикажува во потсетниците и таму се потврдува.';
 
   @override
+  String get spotAddReminderCatNeutral =>
+      'Планирај термин за овој миленик. Се прикажува во потсетниците и таму се потврдува.';
+
+  @override
   String get spotAddReminderClowder =>
       'Планирај термин за овој клаудер. Се прикажува во потсетниците и таму се потврдува.';
+
+  @override
+  String get spotAddReminderClowderNeutral =>
+      'Планирај термин за ова домаќинство. Се прикажува во потсетниците и таму се потврдува.';
 
   @override
   String get readOnlyCalendar => 'само за читање';
@@ -1945,7 +2420,13 @@ class AppLocalizationsMk extends AppLocalizations {
   String get existingCat => 'Постоечка мачка';
 
   @override
+  String get existingCatNeutral => 'Постоечки миленик';
+
+  @override
   String get existingClowder => 'Постоечка група';
+
+  @override
+  String get existingClowderNeutral => 'Постоечко домаќинство';
 
   @override
   String get createNewInstead => 'Нема — создај нова';
@@ -1971,11 +2452,21 @@ class AppLocalizationsMk extends AppLocalizations {
   String get catsOnAppointment => 'Мачки на овој термин';
 
   @override
+  String get catsOnAppointmentNeutral => 'Миленици на овој термин';
+
+  @override
   String get noCatsHint =>
       'Ниедна мачка не е означена — терминот е на самата колонија.';
 
   @override
+  String get noCatsHintNeutral =>
+      'Ниеден миленик не е означен — терминот е на самото домаќинство.';
+
+  @override
   String get pickCatsTitle => 'Кои мачки доаѓаат?';
+
+  @override
+  String get pickCatsTitleNeutral => 'Кои миленици доаѓаат?';
 
   @override
   String catsCount(int count) {
@@ -1983,11 +2474,25 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String catsCountNeutral(int count) {
+    return '$count миленици';
+  }
+
+  @override
   String get finishUntickHint =>
       'Одзначи ги мачките што не беа третирани; остануваат планирани.';
 
   @override
+  String get finishUntickHintNeutral =>
+      'Одзначи ги милениците што не беа третирани; остануваат планирани.';
+
+  @override
   String deleteAppointmentGroup(int count) {
     return 'Избриши го терминот за сите $count мачки';
+  }
+
+  @override
+  String deleteAppointmentGroupNeutral(int count) {
+    return 'Избриши го терминот за сите $count миленици';
   }
 }

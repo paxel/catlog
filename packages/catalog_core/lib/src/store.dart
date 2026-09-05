@@ -7,9 +7,11 @@ import 'package:crypto/crypto.dart';
 import 'package:image/image.dart' as img;
 import 'package:sqlite3/sqlite3.dart';
 
+import 'breeds.dart';
 import 'entry.dart';
 import 'fields.dart';
 import 'registry.dart';
+import 'units.dart';
 
 /// Author name stamped on entries the store seeds itself (starter Fields).
 const seedAuthor = 'cat(a)log';
@@ -20,6 +22,8 @@ const seedAuthor = 'cat(a)log';
 /// language, and the tutorial tips you have already seen.
 bool isSharedSetting(String key) =>
     key == 'locale' ||
+    key == 'units' ||
+    key.startsWith('tls:') ||
     key == 'introSeen' ||
     key == 'celebrations' ||
     key == 'windowBounds' ||
@@ -847,11 +851,12 @@ class CatalogStore {
   // ------------------------------------------------------------------ cats
 
   /// Creates a Cat inside a Clowder and returns its entity id.
-  String createCat(String name, {String? clowderId, DateTime? date}) {
+  String createCat(String name,
+      {String? clowderId, DateTime? date, String species = 'cat'}) {
     final id = 'cat:${_uuid()}';
     append(id, Keys.type, Kinds.cat, date: date);
     append(id, Keys.name, name, date: date);
-    append(id, 'f:species', 'cat', date: date);
+    append(id, 'f:species', species, date: date);
     if (clowderId != null) append(id, Keys.clowder, clowderId, date: date);
     return id;
   }
@@ -1708,6 +1713,40 @@ class CatalogStore {
     });
   }
 
+  // -------------------------------------------------------------- discard
+
+  /// Drops [entries] that arrived from elsewhere — a partner's change the
+  /// keeper does not want here — and keeps their numbers claimed, so
+  /// they are never offered again. Local only: nothing is written to
+  /// the log about the data, nothing travels, the partner's catalog
+  /// stays as it is. Only a conflict flag they raised is cleared, which
+  /// syncs like every resolution. Photos they brought go when nothing
+  /// else shows them.
+  void discardEntries(Iterable<Entry> entries) {
+    final rows = entries.toList();
+    if (rows.isEmpty) return;
+    final hashes = {
+      for (final e in rows)
+        if (e.field.startsWith(Keys.imagePrefix))
+          e.field.substring(Keys.imagePrefix.length)
+    };
+    // SQLite caps bound variables; two per entry, in slices.
+    for (var i = 0; i < rows.length; i += 400) {
+      final slice = rows.sublist(i, i + 400 > rows.length ? rows.length : i + 400);
+      _removeEntries(
+          List.filled(slice.length, '(device = ? AND dseq = ?)').join(' OR '),
+          [for (final e in slice) ...[e.device, e.dseq]]);
+    }
+    for (final e in rows) {
+      if (isRevertable(e.field) && hasConflict(e.entity, e.field)) {
+        resolveConflict(e.entity, e.field);
+      }
+    }
+    for (final hash in hashes) {
+      if (!_imageReferenced(hash)) _blobs.remove(hash);
+    }
+  }
+
   // ------------------------------------------------------------- conflicts
 
   /// Fields with unresolved concurrent edits, as (entity, field) pairs.
@@ -1902,6 +1941,13 @@ class CatalogStore {
         idDisplay: IdDisplay.values.asNameMap()[fields[Keys.fieldIdDisplay]] ??
             IdDisplay.plain,
         lookupUrl: fields[Keys.fieldLookupUrl],
+        dimension: Dimension.values.asNameMap()[fields[Keys.fieldDimension]],
+        extraOptions: {
+          for (final MapEntry(:key, :value) in fields.entries)
+            if (key.startsWith(Keys.fieldOptionsPrefix) && value != null)
+              key.substring(Keys.fieldOptionsPrefix.length):
+                  value.split('\n').where((o) => o.isNotEmpty).toList(),
+        },
       );
       if (scope == null || def.scope == scope || def.scope == FieldScope.both) {
         defs.add(def);
@@ -1918,6 +1964,7 @@ class CatalogStore {
       List<String> options = const [],
       IdDisplay idDisplay = IdDisplay.plain,
       String? lookupUrl,
+      Dimension? dimension,
       DateTime? date}) {
     final slug = slugify(name);
     if (slug.isEmpty) throw ArgumentError('Field name must not be empty');
@@ -1938,6 +1985,10 @@ class CatalogStore {
     if (type == FieldType.id && lookupUrl != null && lookupUrl.isNotEmpty) {
       append(id, Keys.fieldLookupUrl, lookupUrl, date: date);
     }
+    if (type == FieldType.unitValue) {
+      append(id, Keys.fieldDimension, (dimension ?? Dimension.weight).name,
+          date: date);
+    }
     return id;
   }
 
@@ -1955,6 +2006,30 @@ class CatalogStore {
     append(fieldDefId, Keys.fieldLookupUrl,
         (template == null || template.isEmpty) ? null : template,
         date: date);
+  }
+
+  /// A breed typed for an animal that is not a cat is offered again for
+  /// that species (#95): the Breed field's list for the species learns
+  /// [value]. Cats keep the field's own list; a known breed is a no-op.
+  void learnBreed(String catId, String? value) {
+    if (value == null || value.isEmpty) return;
+    final species = current(catId, Keys.userField('species'));
+    if (species == null || species.isEmpty || species == 'cat') return;
+    final breed = fieldDefs().where((d) => d.slug == 'breed').firstOrNull;
+    if (breed == null || breedOptions(breed, species).contains(value)) return;
+    addFieldOption(breed.id, species, value);
+  }
+
+  /// Adds [option] to a choice Field's list for one [species] (#95) —
+  /// a breed typed for a dog is offered for the next dog, not for a cat.
+  void addFieldOption(String fieldDefId, String species, String option) {
+    final key = Keys.fieldOptionsFor(species);
+    final existing = (current(fieldDefId, key) ?? '')
+        .split('\n')
+        .where((o) => o.isNotEmpty)
+        .toList();
+    if (existing.contains(option)) return;
+    append(fieldDefId, key, [...existing, option].join('\n'));
   }
 
   /// Replaces a choice Field's option list. Values already stored that
@@ -1988,7 +2063,16 @@ class CatalogStore {
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';
-      if (current(id, Keys.type) != null) continue;
+      if (current(id, Keys.type) != null) {
+        // Species grew from free text to a choice with presets (#94);
+        // a catalog seeded before that gets the list once.
+        if (f.slug == 'species' &&
+            current(id, Keys.fieldType) == FieldType.text.name) {
+          append(id, Keys.fieldType, FieldType.choice.name, as: seedAuthor);
+          append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+        }
+        continue;
+      }
       append(id, Keys.type, Kinds.fieldDef, as: seedAuthor);
       append(id, Keys.name, f.name, as: seedAuthor);
       append(id, Keys.fieldType, f.type.name, as: seedAuthor);
@@ -1999,6 +2083,10 @@ class CatalogStore {
       // Chip IDs are transponder numbers — the Card shows them scannable.
       if (f.type == FieldType.id) {
         append(id, Keys.fieldIdDisplay, IdDisplay.barcode.name,
+            as: seedAuthor);
+      }
+      if (f.type == FieldType.unitValue) {
+        append(id, Keys.fieldDimension, starterDimensions[f.slug]!.name,
             as: seedAuthor);
       }
     }

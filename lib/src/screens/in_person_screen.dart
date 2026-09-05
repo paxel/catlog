@@ -12,6 +12,8 @@ import '../sync/hotspot.dart';
 import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
+import '../sync/tls.dart';
+import '../widgets/pair_code_text.dart';
 
 /// "In person": two devices in the same room sync over the local
 /// network. Host shows a QR, joiner scans (or types the short code).
@@ -22,6 +24,31 @@ class InPersonScreen extends StatefulWidget {
 
   const InPersonScreen({super.key, required this.store});
 
+  /// How connectivity is read — tests swap it; the plugin answers
+  /// everywhere else.
+  static Future<List<ConnectivityResult>> Function() checkConnectivity =
+      _pluginConnectivity;
+
+  static Future<List<ConnectivityResult>> _pluginConnectivity() =>
+      Connectivity().checkConnectivity();
+
+  @visibleForTesting
+  static void resetConnectivityCheck() =>
+      checkConnectivity = _pluginConnectivity;
+
+  /// Whether this device sits on a local network at all. Unknown —
+  /// the plugin missing, say — counts as yes: the attempt itself will
+  /// tell, and a wrong "no" would block a working setup.
+  static Future<bool> _onWifi() async {
+    try {
+      final types = await checkConnectivity();
+      return types.contains(ConnectivityResult.wifi) ||
+          types.contains(ConnectivityResult.ethernet);
+    } catch (_) {
+      return true;
+    }
+  }
+
   @override
   State<InPersonScreen> createState() => _InPersonScreenState();
 }
@@ -29,6 +56,9 @@ class InPersonScreen extends StatefulWidget {
 class _InPersonScreenState extends State<InPersonScreen> {
   LanSyncHost? _host;
   String? _pairCode;
+
+  /// The full-fingerprint code for the QR; [_pairCode] is the typed one.
+  String? _pairCodeQr;
 
   /// Set while hosting over our own LocalOnlyHotspot: the QR then
   /// carries the hotspot credentials too (Android-to-Android only).
@@ -136,32 +166,17 @@ class _InPersonScreenState extends State<InPersonScreen> {
       setState(() {
         _host = null;
         _pairCode = null;
+        _pairCodeQr = null;
         _hotspotQr = null;
       });
       return;
     }
-    final pin = (Random.secure().nextInt(900000) + 100000).toString();
-    final host = LanSyncHost(widget.store, pin,
-        onJoinRequest: _onJoinRequest, onSession: (applied) {
-      if (!mounted) return;
-      setState(() => _sessions++);
-      if (applied.isNotEmpty) {
-        showImportSummary(context, widget.store, applied);
-      }
-    });
     _starting = true;
     try {
-      final address = await host.start();
-      if (!mounted) {
-        // Backed out while binding: nothing may keep serving.
-        await host.stop();
-        return;
-      }
-      setState(() {
-        _host = host;
-        _pairCode = encodePairCode(address, host.port, pin);
-        _sessions = 0;
-      });
+      final started = await _startHost();
+      if (started == null) return;
+      final (host, pin, address) = started;
+      _showCodes(host, pin, address);
     } finally {
       _starting = false;
     }
@@ -177,28 +192,13 @@ class _InPersonScreenState extends State<InPersonScreen> {
         await stopHotspot();
         return;
       }
-      final pin = (Random.secure().nextInt(900000) + 100000).toString();
-      final host = LanSyncHost(widget.store, pin,
-          onJoinRequest: _onJoinRequest, onSession: (applied) {
-        if (!mounted) return;
-        setState(() => _sessions++);
-        if (applied.isNotEmpty) {
-          showImportSummary(context, widget.store, applied);
-        }
-      });
-      await host.start();
-      if (!mounted) {
-        await host.stop();
+      final started = await _startHost();
+      if (started == null) {
         await stopHotspot();
         return;
       }
-      final pairCode = encodePairCode(info.ip, host.port, pin);
-      setState(() {
-        _host = host;
-        _pairCode = pairCode;
-        _hotspotQr = hotspotQrPayload(info, pairCode);
-        _sessions = 0;
-      });
+      final (host, pin, _) = started;
+      _showCodes(host, pin, info.ip, hotspot: info);
     } catch (e) {
       if (mounted) {
         setState(
@@ -207,6 +207,49 @@ class _InPersonScreenState extends State<InPersonScreen> {
     } finally {
       _starting = false;
     }
+  }
+
+  /// A fresh PIN, this device's certificate, the host bound and serving.
+  /// Null when the page went away meanwhile — the host is stopped then,
+  /// so nothing keeps serving.
+  Future<(LanSyncHost, String, String)?> _startHost() async {
+    final pin = (Random.secure().nextInt(900000) + 100000).toString();
+    final identity = await tlsIdentity(widget.store);
+    if (!mounted) return null;
+    final host = LanSyncHost(widget.store, pin,
+        identity: identity,
+        onJoinRequest: _onJoinRequest,
+        onSession: _onSession);
+    final address = await host.start();
+    if (!mounted) {
+      // Backed out while binding: nothing may keep serving.
+      await host.stop();
+      return null;
+    }
+    return (host, pin, address);
+  }
+
+  void _onSession(List<Entry> applied, Moment? moment) {
+    if (!mounted) return;
+    setState(() => _sessions++);
+    if (applied.isNotEmpty) {
+      showImportSummary(context, widget.store, applied, undo: moment);
+    }
+  }
+
+  /// The pair codes for [ip]: the QR carries the whole fingerprint, the
+  /// typed code its first bytes (#92); a hotspot adds its own QR.
+  void _showCodes(LanSyncHost host, String pin, String ip,
+      {HotspotInfo? hotspot}) {
+    final qr = encodePairCode(ip, host.port, pin, fingerprint: host.fingerprint);
+    setState(() {
+      _host = host;
+      _pairCodeQr = qr;
+      _pairCode = encodePairCode(ip, host.port, pin,
+          fingerprint: host.fingerprint, typed: true);
+      _hotspotQr = hotspot == null ? null : hotspotQrPayload(hotspot, qr);
+      _sessions = 0;
+    });
   }
 
   /// One scan on the joiner: low-key consent, app-scoped join, sync,
@@ -245,19 +288,34 @@ class _InPersonScreenState extends State<InPersonScreen> {
         }
         return;
       }
-      await _joinWith(info.pairCode);
+      await _joinWith(info.pairCode, viaHotspot: true);
     } finally {
       await leaveHotspot();
       if (mounted) setState(() => _joining = false);
     }
   }
 
-  Future<void> _joinWith(String raw) async {
+  Future<void> _joinWith(String raw, {bool viaHotspot = false}) async {
     final info = decodePairCode(raw);
     // A code pointing outside the local network is not a pair code —
     // nothing is sent anywhere.
     if (info == null || !isPrivateHost(info.host)) {
       setState(() => _lastResult = context.t.invalidCode);
+      return;
+    }
+    // Off the Wi-Fi, the host's address can never answer: name the fix
+    // now instead of timing out in silence. A hotspot join brought its
+    // own network a moment ago — connectivity may still be catching up.
+    if (!viaHotspot && !await InPersonScreen._onWifi()) {
+      if (mounted) {
+        setState(() => _lastResult = context.t.connectToWifiFirst);
+      }
+      return;
+    }
+    if (!mounted) return;
+    // A code without a fingerprint comes from a version before TLS.
+    if (info.fingerprint == null) {
+      setState(() => _lastResult = context.t.syncPeerNoTls);
       return;
     }
     setState(() {
@@ -267,13 +325,14 @@ class _InPersonScreenState extends State<InPersonScreen> {
     try {
       final result = await lanSync(
           widget.store, info.host, info.port, info.pin,
-          includePrivate: _includePrivate);
+          fingerprint: info.fingerprint!, includePrivate: _includePrivate);
       if (!mounted || !widget.store.isOpen) return;
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
       if (mounted && result.applied.isNotEmpty) {
-        await showImportSummary(context, widget.store, result.applied);
+        await showImportSummary(context, widget.store, result.applied,
+            undo: result.moment);
       }
     } on SyncException catch (e) {
       if (mounted) {
@@ -281,6 +340,8 @@ class _InPersonScreenState extends State<InPersonScreen> {
               'declined' => context.t.syncDeclined,
               'peer-older' => context.t.syncPeerOlder,
               'peer-newer' => context.t.syncPeerNewer,
+              'peer-no-tls' => context.t.syncPeerNoTls,
+              'wrong-host' => context.t.syncWrongHost,
               _ => context.t.syncFailed(e.message),
             });
       }
@@ -381,7 +442,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Column(children: [
                     QrImageView(
-                      data: _hotspotQr ?? _pairCode!,
+                      data: _hotspotQr ?? _pairCodeQr ?? _pairCode!,
                       size: 220,
                       backgroundColor: Colors.white,
                     ),
@@ -389,13 +450,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SelectableText(
-                            _pairCode!,
-                            style: const TextStyle(
-                                fontFamily: 'monospace',
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          Flexible(child: PairCodeText(_pairCode!)),
                           IconButton(
                             icon: const Icon(Icons.copy),
                             tooltip: t.copyCode,
@@ -476,8 +531,11 @@ class PairCodeFormatter extends TextInputFormatter {
         .toLowerCase()
         .replaceAll(RegExp('[^0-9a-z]'), '');
     final buffer = StringBuffer();
-    for (var i = 0; i < raw.length && i < 15; i++) {
-      if (i == 5 || i == 10) buffer.write('_');
+    // The longest code there is: IPv6 carrying the whole fingerprint,
+    // as a QR payload pasted into the field.
+    final max = pairCodeLength(16, fullFingerprintBytes);
+    for (var i = 0; i < raw.length && i < max; i++) {
+      if (i > 0 && i % 5 == 0) buffer.write('_');
       buffer.write(raw[i]);
     }
     final text = buffer.toString();

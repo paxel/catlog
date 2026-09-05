@@ -68,6 +68,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Take photos of cats for their cards.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>iOS requires microphone access while filming a stray; cat(a)log discards the sound and keeps only the frames you pick.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Pick existing photos of cats for their cards.</string>
 	<key>NSLocalNetworkUsageDescription</key>

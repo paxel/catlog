@@ -12,7 +12,6 @@ import '../help.dart';
 import '../hidden.dart';
 import '../image_provider_cache.dart';
 import '../l10n.dart';
-import '../language_dialog.dart';
 import '../name_date_dialog.dart';
 import '../share.dart';
 import '../spotlight.dart';
@@ -20,10 +19,11 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
+import 'conflicts_screen.dart';
+import 'settings_screen.dart';
 import 'agenda_screen.dart';
 import 'clowder_detail_screen.dart';
 import 'duplicates_screen.dart';
-import 'fields_screen.dart';
 import 'map_screen.dart';
 import 'cat_list_screen.dart';
 import 'strays_screen.dart';
@@ -31,6 +31,7 @@ import '../move_to_catalog.dart';
 import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
+import '../pet_mode.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -110,11 +111,28 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
         ));
       }
       if (!mounted) return;
+      // A sync may have switched the catalog to pets meanwhile.
+      refreshPetMode(widget.store);
       // Reminders set in editors or arrived by sync reach the device
       // calendar without a visit to the agenda.
       mirrorAfterChange(context, widget.store);
       runSpotlights(context, widget.store, 'home');
     });
+  }
+
+  Future<void> _openConflicts() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ConflictsScreen(store: widget.store),
+    ));
+    if (mounted) setState(() {});
+  }
+
+  /// Language and units may change in there: rebuild on return.
+  Future<void> _openSettings() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => SettingsScreen(store: widget.store),
+    ));
+    if (mounted) setState(() {});
   }
 
   Future<void> _openAgenda() async {
@@ -274,20 +292,14 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
             id: 'home-menu',
             child: PopupMenuButton<String>(
             onSelected: (v) {
-              if (v == 'fields') {
-                _open(PanePage(
-                    id: 'fields',
-                    build: (_) => FieldsScreen(store: widget.store)));
-              }
               if (v == 'csv') _exportCsv();
               if (v == 'duplicates') {
                 _open(PanePage(
                     id: 'duplicates',
                     build: (_) => DuplicatesScreen(store: widget.store)));
               }
-              if (v == 'language') {
-                showLanguageDialog(context, widget.store);
-              }
+              if (v == 'settings') _openSettings();
+              if (v == 'conflicts') _openConflicts();
               if (v == 'hidden') {
                 setState(() => showHidden.value = !showHidden.value);
               }
@@ -298,10 +310,8 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
               }
             },
             itemBuilder: (context) => [
-              // Fields moved here from the bar to make room for the
-              // agenda; Add field on the detail pages covers daily use.
-              PopupMenuItem(
-                  value: 'fields', child: Text(context.t.fields)),
+              // Fields belong to the catalog: they live in its settings;
+              // Add field on the detail pages covers daily use.
               PopupMenuItem(
                   value: 'hidden',
                   child: Text(showHidden.value
@@ -312,8 +322,16 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   child: Text(context.t.findDuplicates)),
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
+              // Only while there is something to settle: a sync raised a
+              // conflict, the arrival page was closed, and the badges
+              // on the cat pages would otherwise be the only trace.
+              if (widget.store.conflicts().isNotEmpty)
+                PopupMenuItem(
+                    value: 'conflicts',
+                    child: Text(context.t
+                        .conflictsMenu(widget.store.conflicts().length))),
               PopupMenuItem(
-                  value: 'language', child: Text(context.t.language)),
+                  value: 'settings', child: Text(context.t.settings)),
               PopupMenuItem(
                   value: 'about', child: Text(context.t.aboutAndFeedback)),
             ],

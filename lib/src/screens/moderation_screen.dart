@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../l10n.dart';
 
-/// Moderation (ADR-0006): per-author hard delete with typed confirmation
-/// and the local ban list. Everything here acts on THIS device only —
+/// Moderation (ADR-0006): per-author hard delete behind one plain
+/// confirmation, and the local ban list. Everything here acts on THIS device only —
 /// bans never propagate; the group coordinates by talking.
 class ModerationScreen extends StatefulWidget {
   final CatalogStore store;
@@ -21,7 +21,6 @@ class _ModerationScreenState extends State<ModerationScreen> {
   Future<void> _hardDelete(
       ({String author, String device, int count}) row) async {
     final t = context.t;
-    final controller = TextEditingController();
     var alsoBan = true;
     final confirmed = await showDialog<bool>(
       context: context,
@@ -31,15 +30,6 @@ class _ModerationScreenState extends State<ModerationScreen> {
           content: Column(mainAxisSize: MainAxisSize.min, children: [
             Text(t.hardDeleteWarning(row.author)),
             const SizedBox(height: 12),
-            TextField(
-              controller: controller,
-              autofocus: true,
-              decoration: InputDecoration(
-                labelText: t.typeToConfirm(row.author),
-                border: const OutlineInputBorder(),
-              ),
-              onChanged: (_) => setDialogState(() {}),
-            ),
             CheckboxListTile(
               value: alsoBan,
               onChanged: (v) =>
@@ -54,9 +44,9 @@ class _ModerationScreenState extends State<ModerationScreen> {
               child: Text(t.cancel),
             ),
             FilledButton(
-              onPressed: controller.text.trim() == row.author
-                  ? () => Navigator.of(context).pop(true)
-                  : null,
+              style: FilledButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.error),
+              onPressed: () => Navigator.of(context).pop(true),
               child: Text(t.delete),
             ),
           ],

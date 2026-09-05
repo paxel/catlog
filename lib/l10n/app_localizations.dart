@@ -206,11 +206,23 @@ abstract class AppLocalizations {
   /// **'Clowders'**
   String get clowders;
 
+  /// No description provided for @clowdersNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Households'**
+  String get clowdersNeutral;
+
   /// No description provided for @noClowdersYet.
   ///
   /// In en, this message translates to:
   /// **'No clowders yet. A clowder is a place where cats live — your foster home, an adopter\'s flat. Create the first one below.'**
   String get noClowdersYet;
+
+  /// No description provided for @noClowdersYetNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No households yet. A household is a place where pets live — your home, a foster home, an adopter\'s flat. Create the first one below.'**
+  String get noClowdersYetNeutral;
 
   /// No description provided for @strays.
   ///
@@ -223,6 +235,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search cats'**
   String get searchCats;
+
+  /// No description provided for @searchCatsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Search pets'**
+  String get searchCatsNeutral;
 
   /// No description provided for @map.
   ///
@@ -254,11 +272,23 @@ abstract class AppLocalizations {
   /// **'About & feedback'**
   String get aboutAndFeedback;
 
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
   /// No description provided for @newClowder.
   ///
   /// In en, this message translates to:
   /// **'New clowder'**
   String get newClowder;
+
+  /// No description provided for @newClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New household'**
+  String get newClowderNeutral;
 
   /// No description provided for @name.
   ///
@@ -320,6 +350,12 @@ abstract class AppLocalizations {
   /// **'Rename clowder'**
   String get renameClowder;
 
+  /// No description provided for @renameClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename household'**
+  String get renameClowderNeutral;
+
   /// No description provided for @rename.
   ///
   /// In en, this message translates to:
@@ -344,11 +380,23 @@ abstract class AppLocalizations {
   /// **'Delete clowder'**
   String get deleteClowder;
 
+  /// No description provided for @deleteClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete household'**
+  String get deleteClowderNeutral;
+
   /// No description provided for @cats.
   ///
   /// In en, this message translates to:
   /// **'Cats'**
   String get cats;
+
+  /// No description provided for @catsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets'**
+  String get catsNeutral;
 
   /// No description provided for @addCat.
   ///
@@ -356,11 +404,23 @@ abstract class AppLocalizations {
   /// **'Add cat'**
   String get addCat;
 
+  /// No description provided for @addCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Add pet'**
+  String get addCatNeutral;
+
   /// No description provided for @newCat.
   ///
   /// In en, this message translates to:
   /// **'New cat'**
   String get newCat;
+
+  /// No description provided for @newCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'New pet'**
+  String get newCatNeutral;
 
   /// No description provided for @deleteQuestion.
   ///
@@ -374,11 +434,23 @@ abstract class AppLocalizations {
   /// **'The clowder disappears from the list.'**
   String get deleteClowderEmptyBody;
 
+  /// No description provided for @deleteClowderEmptyBodyNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'The household disappears from the list.'**
+  String get deleteClowderEmptyBodyNeutral;
+
   /// No description provided for @deleteClowderBody.
   ///
   /// In en, this message translates to:
   /// **'Its {count} cat(s) are not deleted — they become strays. Move them to another clowder first if that is not what you want.'**
   String deleteClowderBody(int count);
+
+  /// No description provided for @deleteClowderBodyNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Its {count} pet(s) are not deleted — they become strays. Move them to another household first if that is not what you want.'**
+  String deleteClowderBodyNeutral(int count);
 
   /// No description provided for @card.
   ///
@@ -416,6 +488,12 @@ abstract class AppLocalizations {
   /// **'Rename cat'**
   String get renameCat;
 
+  /// No description provided for @renameCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename pet'**
+  String get renameCatNeutral;
+
   /// No description provided for @seenHereNow.
   ///
   /// In en, this message translates to:
@@ -428,17 +506,35 @@ abstract class AppLocalizations {
   /// **'Delete cat'**
   String get deleteCat;
 
+  /// No description provided for @deleteCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete pet'**
+  String get deleteCatNeutral;
+
   /// No description provided for @clowderLabel.
   ///
   /// In en, this message translates to:
   /// **'Clowder'**
   String get clowderLabel;
 
+  /// No description provided for @clowderLabelNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Household'**
+  String get clowderLabelNeutral;
+
   /// No description provided for @strayNoClowder.
   ///
   /// In en, this message translates to:
   /// **'Stray — no clowder'**
   String get strayNoClowder;
+
+  /// No description provided for @strayNoClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Stray — no household'**
+  String get strayNoClowderNeutral;
 
   /// No description provided for @stray.
   ///
@@ -493,6 +589,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The cat disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
   String get deleteCatBody;
+
+  /// No description provided for @deleteCatBodyNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'The pet disappears from all lists and its photos are removed — here and, after the next sync, on the other synced devices too.'**
+  String get deleteCatBodyNeutral;
 
   /// No description provided for @sightingRecorded.
   ///
@@ -578,6 +680,12 @@ abstract class AppLocalizations {
   /// **'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the cat can\'t be read by a phone.'**
   String get chipScanHint;
 
+  /// No description provided for @chipScanHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Scans the printed QR/barcode from chip cards or vet papers — the chip inside the animal can\'t be read by a phone.'**
+  String get chipScanHintNeutral;
+
   /// No description provided for @savingLabel.
   ///
   /// In en, this message translates to:
@@ -625,6 +733,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cat list'**
   String get catList;
+
+  /// No description provided for @catListNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pet list'**
+  String get catListNeutral;
 
   /// No description provided for @matchCandidatesTitle.
   ///
@@ -686,6 +800,12 @@ abstract class AppLocalizations {
   /// **'From video…'**
   String get fromVideo;
 
+  /// No description provided for @addingPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Adding photo {done} of {total}…'**
+  String addingPhotos(int done, int total);
+
   /// No description provided for @videoMobileOnly.
   ///
   /// In en, this message translates to:
@@ -740,6 +860,12 @@ abstract class AppLocalizations {
   /// **'Import this cat?'**
   String get importShareTitle;
 
+  /// No description provided for @importShareTitleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Import this pet?'**
+  String get importShareTitleNeutral;
+
   /// No description provided for @shareSource.
   ///
   /// In en, this message translates to:
@@ -775,6 +901,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No missing cats with flier positions yet.'**
   String get noMissingCats;
+
+  /// No description provided for @noMissingCatsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No missing pets with flier positions yet.'**
+  String get noMissingCatsNeutral;
 
   /// No description provided for @noMatchCandidates.
   ///
@@ -908,6 +1040,12 @@ abstract class AppLocalizations {
   /// **'This cat is recorded as male — a male cat can\'t be pregnant. Check the gender first.'**
   String get malePregnant;
 
+  /// No description provided for @malePregnantNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'This pet is recorded as male — a male can\'t be pregnant. Check the gender first.'**
+  String get malePregnantNeutral;
+
   /// No description provided for @fatherNotMale.
   ///
   /// In en, this message translates to:
@@ -926,17 +1064,35 @@ abstract class AppLocalizations {
   /// **'{name} was born {date} — a parent can\'t be born after its kitten.'**
   String parentBornAfterKitten(String name, String date);
 
+  /// No description provided for @parentBornAfterKittenNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} was born {date} — a parent can\'t be born after its young.'**
+  String parentBornAfterKittenNeutral(String name, String date);
+
   /// No description provided for @genderFatherFemale.
   ///
   /// In en, this message translates to:
   /// **'This cat is recorded as the father of other cats — the father can\'t be female. Check the family first.'**
   String get genderFatherFemale;
 
+  /// No description provided for @genderFatherFemaleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'This pet is recorded as the father of other pets — the father can\'t be female. Check the family first.'**
+  String get genderFatherFemaleNeutral;
+
   /// No description provided for @genderMotherMale.
   ///
   /// In en, this message translates to:
   /// **'This cat is recorded as the mother of other cats — the mother can\'t be male. Check the family first.'**
   String get genderMotherMale;
+
+  /// No description provided for @genderMotherMaleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'This pet is recorded as the mother of other pets — the mother can\'t be male. Check the family first.'**
+  String get genderMotherMaleNeutral;
 
   /// No description provided for @moveTo.
   ///
@@ -949,6 +1105,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No clowder — stray / ran away'**
   String get noClowderStrayOption;
+
+  /// No description provided for @noClowderStrayOptionNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No household — stray / ran away'**
+  String get noClowderStrayOptionNeutral;
 
   /// No description provided for @timelineOf.
   ///
@@ -1082,11 +1244,23 @@ abstract class AppLocalizations {
   /// **'cats'**
   String get forCats;
 
+  /// No description provided for @forCatsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'pets'**
+  String get forCatsNeutral;
+
   /// No description provided for @forClowders.
   ///
   /// In en, this message translates to:
   /// **'clowders'**
   String get forClowders;
+
+  /// No description provided for @forClowdersNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'households'**
+  String get forClowdersNeutral;
 
   /// No description provided for @forBoth.
   ///
@@ -1147,6 +1321,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search cats by name…'**
   String get searchByNameHint;
+
+  /// No description provided for @searchByNameHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Search pets by name…'**
+  String get searchByNameHintNeutral;
 
   /// No description provided for @host.
   ///
@@ -1286,6 +1466,18 @@ abstract class AppLocalizations {
   /// **'Trail: {name} ({count} sightings)'**
   String trailOf(String name, int count);
 
+  /// No description provided for @trailOfField.
+  ///
+  /// In en, this message translates to:
+  /// **'Trail: {name} — {field} ({count} values)'**
+  String trailOfField(String name, String field, int count);
+
+  /// No description provided for @trailOfPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Trail: {name} ({count} positions)'**
+  String trailOfPlace(String name, int count);
+
   /// No description provided for @conflictOn.
   ///
   /// In en, this message translates to:
@@ -1328,11 +1520,23 @@ abstract class AppLocalizations {
   /// **'cat'**
   String get kindCat;
 
+  /// No description provided for @kindCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'pet'**
+  String get kindCatNeutral;
+
   /// No description provided for @kindClowder.
   ///
   /// In en, this message translates to:
   /// **'clowder'**
   String get kindClowder;
+
+  /// No description provided for @kindClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'household'**
+  String get kindClowderNeutral;
 
   /// No description provided for @kindField.
   ///
@@ -1363,6 +1567,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A local-first catalog for foster cats. Your data lives on your devices — no server, no account.'**
   String get aboutTagline;
+
+  /// No description provided for @aboutTaglineNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A local-first catalog for the pets you care for. Your data lives on your devices — no server, no account.'**
+  String get aboutTaglineNeutral;
 
   /// No description provided for @versionLabel.
   ///
@@ -1598,6 +1808,12 @@ abstract class AppLocalizations {
   /// **'Cat'**
   String get stepCat;
 
+  /// No description provided for @stepCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pet'**
+  String get stepCatNeutral;
+
   /// No description provided for @stepOwner.
   ///
   /// In en, this message translates to:
@@ -1628,17 +1844,35 @@ abstract class AppLocalizations {
   /// **'Whoever is missing the cat — this becomes their clowder, with the contact from the poster.'**
   String get stepOwnerHint;
 
+  /// No description provided for @stepOwnerHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Whoever is missing the pet — this becomes their household, with the contact from the poster.'**
+  String get stepOwnerHintNeutral;
+
   /// No description provided for @stepFaceHint.
   ///
   /// In en, this message translates to:
   /// **'Cut the cat\'s face out of the poster; it becomes the profile picture. You can skip this.'**
   String get stepFaceHint;
 
+  /// No description provided for @stepFaceHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Cut the pet\'s face out of the poster; it becomes the profile picture. You can skip this.'**
+  String get stepFaceHintNeutral;
+
   /// No description provided for @stepRegistryHint.
   ///
   /// In en, this message translates to:
   /// **'Numbers found on the poster. Ticked ones are saved with the cat and can be opened later.'**
   String get stepRegistryHint;
+
+  /// No description provided for @stepRegistryHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Numbers found on the poster. Ticked ones are saved with the pet and can be opened later.'**
+  String get stepRegistryHintNeutral;
 
   /// No description provided for @noRegistryLinks.
   ///
@@ -1724,17 +1958,35 @@ abstract class AppLocalizations {
   /// **'This is the overview of your clowders — a clowder is a place where cats live: your home, a foster home, a shelter. Tap a card to see its cats; long-press for its menu. The button at the bottom right creates a new clowder, and the strays card collects every cat that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.'**
   String get helpHome;
 
+  /// No description provided for @helpHomeNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the overview of your households — a household is a place where pets live: your home, a foster home, a shelter. Tap a card to see its pets; long-press for its menu. The button at the bottom right creates a new household, and the strays card collects every pet that currently has no home. The name at the top is the catalog you are in — tap it to switch or add one.'**
+  String get helpHomeNeutral;
+
   /// No description provided for @helpClowder.
   ///
   /// In en, this message translates to:
-  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated.'**
+  /// **'Everything about this place: its cats, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a cat to move, hide, or open it. An appointment added here can carry several cats of the clowder — a vet run for neutering, for example: tick the cats that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.'**
   String get helpClowder;
+
+  /// No description provided for @helpClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this place: its pets, its fields (address, contact, type) and its history. The page opens read-only; the pencil turns on editing, where you can also add a new field. Long-press a field to edit it directly, and long-press a pet to move, hide, or open it. An appointment added here can carry several pets of the household — a vet run for neutering, for example: tick the pets that come along, finish once, untick the ones that were not treated. The clock on a field opens its history.'**
+  String get helpClowderNeutral;
 
   /// No description provided for @helpCat.
   ///
   /// In en, this message translates to:
-  /// **'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field.'**
+  /// **'Everything about this cat: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the cat. Private is set while editing a field. The clock on a field opens its history.'**
   String get helpCat;
+
+  /// No description provided for @helpCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything about this pet: photos, fields, family, history. The page is read-only until you tap the pencil. Long-press a field to jump straight into editing it; long-press a photo for its menu. The menu in the top right holds the rest: hide, merge, record a sighting, share the pet. Private is set while editing a field. The clock on a field opens its history.'**
+  String get helpCatNeutral;
 
   /// No description provided for @helpStrays.
   ///
@@ -1742,17 +1994,35 @@ abstract class AppLocalizations {
   /// **'Cats with no home right now: found cats, escaped cats, cats from a poster. The camera button records a cat you see in front of you; the poster button turns a missing-cat flier into a cat with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
   String get helpStrays;
 
+  /// No description provided for @helpStraysNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets with no home right now: found animals, escaped animals, animals from a poster. The camera button records an animal you see in front of you; the poster button turns a missing-pet flier into a pet with its owner\'s contact; the scanner reads a cat(a)log code from a poster. Tap Stray Cam for a photo; press and hold to film a video and keep the best frames as photos.'**
+  String get helpStraysNeutral;
+
   /// No description provided for @helpMap.
   ///
   /// In en, this message translates to:
-  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting.'**
+  /// **'Every cat and place with a position. Search finds cats, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing cat\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.'**
   String get helpMap;
+
+  /// No description provided for @helpMapNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Every pet and place with a position. Search finds pets, people, and places — an unknown name is looked up worldwide. The layers button draws the 500 m circles around a missing pet\'s poster spots and the home it ran from. The arrows walk from pin to pin, long-press the map to record a sighting. Every location field pins on the map; tap a pin for its trail.'**
+  String get helpMapNeutral;
 
   /// No description provided for @helpCard.
   ///
   /// In en, this message translates to:
   /// **'The printable card of this cat: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.'**
   String get helpCard;
+
+  /// No description provided for @helpCardNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'The printable card of this pet: pick what appears on it with the chips at the top, then share it as an image or a PDF. IDs can print as a QR or a barcode, and a position becomes a QR that opens a map plus a short Plus Code.'**
+  String get helpCardNeutral;
 
   /// No description provided for @helpSync.
   ///
@@ -1766,6 +2036,12 @@ abstract class AppLocalizations {
   /// **'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the cat.'**
   String get helpFields;
 
+  /// No description provided for @helpFieldsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'The fields your catalog uses. Rename them, change the options of a choice field, or add your own. ID fields can point at a service (a registry), so the number becomes tappable on the pet.'**
+  String get helpFieldsNeutral;
+
   /// No description provided for @helpTimeline.
   ///
   /// In en, this message translates to:
@@ -1778,17 +2054,35 @@ abstract class AppLocalizations {
   /// **'Cats or clowders that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.'**
   String get helpDuplicates;
 
+  /// No description provided for @helpDuplicatesNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets or households that look like the same one twice — identical IDs, or very similar names with matching details. Tap a pair to merge it; merging cannot be undone, so it asks first.'**
+  String get helpDuplicatesNeutral;
+
   /// No description provided for @helpMatches.
   ///
   /// In en, this message translates to:
   /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.'**
   String get helpMatches;
 
+  /// No description provided for @helpMatchesNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.'**
+  String get helpMatchesNeutral;
+
   /// No description provided for @helpFlier.
   ///
   /// In en, this message translates to:
   /// **'A photographed missing-cat poster becomes a cat plus its owner. Step by step: the cat\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.'**
   String get helpFlier;
+
+  /// No description provided for @helpFlierNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A photographed missing-pet poster becomes a pet plus its owner. Step by step: the pet\'s data, the owner\'s contact, a face crop for the profile picture, any registry numbers on the poster, then a final check. Everything is a suggestion — correct whatever the camera got wrong.'**
+  String get helpFlierNeutral;
 
   /// No description provided for @archiveTitle.
   ///
@@ -1801,6 +2095,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deceased cats and empty clowders that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.'**
   String get archiveExplainer;
+
+  /// No description provided for @archiveExplainerNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Deceased pets and empty households that nobody has touched in years still cost space — their photos most of all. Archiving writes them into a file you keep and then deletes them here.'**
+  String get archiveExplainerNeutral;
 
   /// No description provided for @archiveAction.
   ///
@@ -1868,6 +2168,12 @@ abstract class AppLocalizations {
   /// **'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased cats and empty clowders that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.'**
   String get helpArchive;
 
+  /// No description provided for @helpArchiveNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Old data costs space, above all the photos, which every synced device carries. Here you pick deceased pets and empty households that have been quiet for years, write them into a file you keep, and delete them. The deletion reaches everyone you sync with; importing the file restores everything.'**
+  String get helpArchiveNeutral;
+
   /// No description provided for @restoreDeletedTitle.
   ///
   /// In en, this message translates to:
@@ -1903,6 +2209,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Find address on the map'**
   String get locateAddress;
+
+  /// No description provided for @addressFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address found'**
+  String get addressFoundTitle;
+
+  /// No description provided for @replaceAddressOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace the address with this'**
+  String get replaceAddressOption;
+
+  /// No description provided for @addPositionOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Save the location'**
+  String get addPositionOption;
 
   /// No description provided for @addressLocated.
   ///
@@ -1964,6 +2288,12 @@ abstract class AppLocalizations {
   /// **'Mark the cat'**
   String get markTitle;
 
+  /// No description provided for @markTitleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark the pet'**
+  String get markTitleNeutral;
+
   /// No description provided for @applyCrop.
   ///
   /// In en, this message translates to:
@@ -1982,11 +2312,23 @@ abstract class AppLocalizations {
   /// **'Drag a rectangle around the cat'**
   String get dragToSelect;
 
+  /// No description provided for @dragToSelectNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag a rectangle around the pet'**
+  String get dragToSelectNeutral;
+
   /// No description provided for @dragOverTheCat.
   ///
   /// In en, this message translates to:
   /// **'Drag an ellipse over the cat'**
   String get dragOverTheCat;
+
+  /// No description provided for @dragOverTheCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag an ellipse over the pet'**
+  String get dragOverTheCatNeutral;
 
   /// No description provided for @cropPhoto.
   ///
@@ -2096,6 +2438,138 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
+  /// No description provided for @typeUnitValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit value'**
+  String get typeUnitValue;
+
+  /// No description provided for @dimension.
+  ///
+  /// In en, this message translates to:
+  /// **'Dimension'**
+  String get dimension;
+
+  /// No description provided for @dimensionWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get dimensionWeight;
+
+  /// No description provided for @dimensionLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get dimensionLength;
+
+  /// No description provided for @dimensionVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
+  String get dimensionVolume;
+
+  /// No description provided for @dimensionTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get dimensionTemperature;
+
+  /// No description provided for @unitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Units'**
+  String get unitsLabel;
+
+  /// No description provided for @catalogHolds.
+  ///
+  /// In en, this message translates to:
+  /// **'This catalog holds'**
+  String get catalogHolds;
+
+  /// No description provided for @modeCats.
+  ///
+  /// In en, this message translates to:
+  /// **'Cats'**
+  String get modeCats;
+
+  /// No description provided for @modePets.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets'**
+  String get modePets;
+
+  /// No description provided for @graphLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Graph'**
+  String get graphLabel;
+
+  /// No description provided for @fieldHistoryTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get fieldHistoryTooltip;
+
+  /// No description provided for @rangeWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get rangeWeek;
+
+  /// No description provided for @rangeMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get rangeMonth;
+
+  /// No description provided for @rangeYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get rangeYear;
+
+  /// No description provided for @rangeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get rangeAll;
+
+  /// No description provided for @rangeCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom…'**
+  String get rangeCustom;
+
+  /// No description provided for @changeSince.
+  ///
+  /// In en, this message translates to:
+  /// **'{delta} since {date}'**
+  String changeSince(String delta, String date);
+
+  /// No description provided for @unitsAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'As in your region'**
+  String get unitsAuto;
+
+  /// No description provided for @unitsMetric.
+  ///
+  /// In en, this message translates to:
+  /// **'Metric (kg, cm, ml, °C)'**
+  String get unitsMetric;
+
+  /// No description provided for @unitsImperial.
+  ///
+  /// In en, this message translates to:
+  /// **'Imperial (lb, in, fl oz, °F)'**
+  String get unitsImperial;
+
+  /// No description provided for @starterWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get starterWeight;
+
   /// No description provided for @systemDefault.
   ///
   /// In en, this message translates to:
@@ -2186,6 +2660,54 @@ abstract class AppLocalizations {
   /// **'Cat'**
   String get valueCat;
 
+  /// No description provided for @valueDog.
+  ///
+  /// In en, this message translates to:
+  /// **'Dog'**
+  String get valueDog;
+
+  /// No description provided for @valueRabbit.
+  ///
+  /// In en, this message translates to:
+  /// **'Rabbit'**
+  String get valueRabbit;
+
+  /// No description provided for @valueGuineaPig.
+  ///
+  /// In en, this message translates to:
+  /// **'Guinea pig'**
+  String get valueGuineaPig;
+
+  /// No description provided for @valueHamster.
+  ///
+  /// In en, this message translates to:
+  /// **'Hamster'**
+  String get valueHamster;
+
+  /// No description provided for @valueBird.
+  ///
+  /// In en, this message translates to:
+  /// **'Bird'**
+  String get valueBird;
+
+  /// No description provided for @valueHorse.
+  ///
+  /// In en, this message translates to:
+  /// **'Horse'**
+  String get valueHorse;
+
+  /// No description provided for @valueTortoise.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoise'**
+  String get valueTortoise;
+
+  /// No description provided for @valueFerret.
+  ///
+  /// In en, this message translates to:
+  /// **'Ferret'**
+  String get valueFerret;
+
   /// No description provided for @otherOption.
   ///
   /// In en, this message translates to:
@@ -2203,6 +2725,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
+
+  /// No description provided for @celebrationsSubtitleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Confetti and a cheer when a pet moves into a forever home'**
+  String get celebrationsSubtitleNeutral;
 
   /// No description provided for @onMapLabel.
   ///
@@ -2233,6 +2761,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search cats, clowders, people'**
   String get mapSearchHint;
+
+  /// No description provided for @mapSearchHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Search pets, households, people'**
+  String get mapSearchHintNeutral;
 
   /// No description provided for @proposeAnotherName.
   ///
@@ -2336,11 +2870,107 @@ abstract class AppLocalizations {
   /// **'Conflicts to resolve'**
   String get summaryConflicts;
 
-  /// No description provided for @summaryOther.
+  /// No description provided for @conflictsMenu.
   ///
   /// In en, this message translates to:
-  /// **'…and {n} other changes'**
-  String summaryOther(Object n);
+  /// **'Conflicts ({n})'**
+  String conflictsMenu(int n);
+
+  /// No description provided for @rejectAfterResolve.
+  ///
+  /// In en, this message translates to:
+  /// **'You settled a conflict here, so Reject is off: it would undo that too.'**
+  String get rejectAfterResolve;
+
+  /// No description provided for @arrivalIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'These changes are already in your catalog. Reject puts it back as it was.'**
+  String get arrivalIntro;
+
+  /// No description provided for @summaryUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated'**
+  String get summaryUpdated;
+
+  /// No description provided for @summaryDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted'**
+  String get summaryDeleted;
+
+  /// No description provided for @keepMine.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep mine'**
+  String get keepMine;
+
+  /// No description provided for @keptMine.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept your version of {name} on this device.'**
+  String keptMine(String name);
+
+  /// No description provided for @summaryMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'Also arrived'**
+  String get summaryMeta;
+
+  /// No description provided for @changesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 change} other{{n} changes}}'**
+  String changesCount(int n);
+
+  /// No description provided for @acceptArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get acceptArrival;
+
+  /// No description provided for @rejectArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get rejectArrival;
+
+  /// No description provided for @photoAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo added'**
+  String get photoAdded;
+
+  /// No description provided for @photoRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo removed'**
+  String get photoRemoved;
+
+  /// No description provided for @metaFieldAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'New field: {name}'**
+  String metaFieldAdded(String name);
+
+  /// No description provided for @metaFieldChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Field changed: {name}'**
+  String metaFieldChanged(String name);
+
+  /// No description provided for @metaMerged.
+  ///
+  /// In en, this message translates to:
+  /// **'{loser} merged into {survivor}'**
+  String metaMerged(String loser, String survivor);
+
+  /// No description provided for @metaPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 photo} other{{n} photos}}'**
+  String metaPhotos(int n);
 
   /// No description provided for @starterMother.
   ///
@@ -2377,6 +3007,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Kittens'**
   String get kittensLabel;
+
+  /// No description provided for @kittensLabelNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Young'**
+  String get kittensLabelNeutral;
 
   /// No description provided for @toastSettingsTitle.
   ///
@@ -2431,6 +3067,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'✨ New kitten: {cat} ✨'**
   String toastBorn(Object cat);
+
+  /// No description provided for @toastBornNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'✨ Newborn: {cat} ✨'**
+  String toastBornNeutral(Object cat);
 
   /// No description provided for @toastDeceased.
   ///
@@ -2576,17 +3218,35 @@ abstract class AppLocalizations {
   /// **'Pick a clowder on the left'**
   String get selectClowderHint;
 
+  /// No description provided for @selectClowderHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a household on the left'**
+  String get selectClowderHintNeutral;
+
   /// No description provided for @introTitle1.
   ///
   /// In en, this message translates to:
   /// **'Your cats, organized'**
   String get introTitle1;
 
+  /// No description provided for @introTitle1Neutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pets, organized'**
+  String get introTitle1Neutral;
+
   /// No description provided for @introBody1.
   ///
   /// In en, this message translates to:
   /// **'Create a card for every cat you care for: photo, gender, health, anything worth noting. Cats are grouped by where they live — the app calls such a place a clowder.'**
   String get introBody1;
+
+  /// No description provided for @introBody1Neutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a card for every pet you care for: photo, gender, health, anything worth noting. Pets are grouped by where they live — the app calls such a place a household.'**
+  String get introBody1Neutral;
 
   /// No description provided for @introTitle2.
   ///
@@ -2648,10 +3308,16 @@ abstract class AppLocalizations {
   /// **'This card collects all strays — cats without a home. Tap it to see the list.'**
   String get spotHomeStrays;
 
+  /// No description provided for @spotHomeStraysNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'This card collects all strays — pets without a home. Tap it to see the list.'**
+  String get spotHomeStraysNeutral;
+
   /// No description provided for @spotHomeMenu.
   ///
   /// In en, this message translates to:
-  /// **'In this menu: find and merge duplicate entries, export CSV, and more.'**
+  /// **'In this menu: settings, find and merge duplicate entries, export CSV, and more.'**
   String get spotHomeMenu;
 
   /// No description provided for @spotCatEdit.
@@ -2660,11 +3326,23 @@ abstract class AppLocalizations {
   /// **'Tap the pencil to edit this cat. Tip: long-press any field to edit it directly.'**
   String get spotCatEdit;
 
+  /// No description provided for @spotCatEditNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the pencil to edit this pet. Tip: long-press any field to edit it directly.'**
+  String get spotCatEditNeutral;
+
   /// No description provided for @spotMapLayers.
   ///
   /// In en, this message translates to:
   /// **'Searching for a missing cat? Show circles around its poster spots and the home it ran from.'**
   String get spotMapLayers;
+
+  /// No description provided for @spotMapLayersNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching for a missing pet? Show circles around its poster spots and the home it ran from.'**
+  String get spotMapLayersNeutral;
 
   /// No description provided for @spotStraysFlier.
   ///
@@ -2672,11 +3350,23 @@ abstract class AppLocalizations {
   /// **'Found a missing-cat poster? Photograph it here — the app saves cat and contact for you.'**
   String get spotStraysFlier;
 
+  /// No description provided for @spotStraysFlierNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Found a missing-pet poster? Photograph it here — the app saves pet and contact for you.'**
+  String get spotStraysFlierNeutral;
+
   /// No description provided for @spotStraysScan.
   ///
   /// In en, this message translates to:
   /// **'Some posters carry a cat(a)log QR code. Scan it here to import the cat without typing.'**
   String get spotStraysScan;
+
+  /// No description provided for @spotStraysScanNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Some posters carry a cat(a)log QR code. Scan it here to import the pet without typing.'**
+  String get spotStraysScanNeutral;
 
   /// No description provided for @introTitle4.
   ///
@@ -2684,17 +3374,35 @@ abstract class AppLocalizations {
   /// **'Find missing cats'**
   String get introTitle4;
 
+  /// No description provided for @introTitle4Neutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Find missing pets'**
+  String get introTitle4Neutral;
+
   /// No description provided for @introBody4.
   ///
   /// In en, this message translates to:
   /// **'See a missing-cat poster? Photograph it in the app: it saves the cat, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.'**
   String get introBody4;
 
+  /// No description provided for @introBody4Neutral.
+  ///
+  /// In en, this message translates to:
+  /// **'See a missing-pet poster? Photograph it in the app: it saves the pet, the owner\'s contact, and the place. When a similar stray turns up later, the app suggests possible matches.'**
+  String get introBody4Neutral;
+
   /// No description provided for @spotMapSearch.
   ///
   /// In en, this message translates to:
   /// **'Type a cat, place, or person here to jump to it on the map.'**
   String get spotMapSearch;
+
+  /// No description provided for @spotMapSearchNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Type a pet, place, or person here to jump to it on the map.'**
+  String get spotMapSearchNeutral;
 
   /// No description provided for @spotCardChips.
   ///
@@ -2707,6 +3415,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More actions live here: hide the cat, merge duplicates, or record a sighting.'**
   String get spotCatMenu;
+
+  /// No description provided for @spotCatMenuNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'More actions live here: hide the pet, merge duplicates, or record a sighting.'**
+  String get spotCatMenuNeutral;
 
   /// No description provided for @spotDone.
   ///
@@ -2737,6 +3451,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No cat found with that name'**
   String get searchNoResults;
+
+  /// No description provided for @searchNoResultsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No pet found with that name'**
+  String get searchNoResultsNeutral;
 
   /// No description provided for @syncUnreachable.
   ///
@@ -2819,8 +3539,20 @@ abstract class AppLocalizations {
   /// No description provided for @helpCatalogs.
   ///
   /// In en, this message translates to:
-  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap the name at the top of the home screen to switch, add one, or rename it. Your name, your language and the tips you have already seen are shared by all of them.'**
+  /// **'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.'**
   String get helpCatalogs;
+
+  /// No description provided for @helpCatalogsNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'A catalog is a world of its own: its own pets, households, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.'**
+  String get helpCatalogsNeutral;
+
+  /// No description provided for @helpCatalogSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.'**
+  String get helpCatalogSettings;
 
   /// No description provided for @spotHomeCatalog.
   ///
@@ -2834,11 +3566,23 @@ abstract class AppLocalizations {
   /// **'Delete catalog'**
   String get deleteCatalog;
 
+  /// No description provided for @catalogSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog settings'**
+  String get catalogSettings;
+
   /// No description provided for @deleteCatalogBody.
   ///
   /// In en, this message translates to:
-  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.'**
+  /// **'Everything in {name} goes: its cats, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back.'**
   String deleteCatalogBody(String name);
+
+  /// No description provided for @deleteCatalogBodyNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in {name} goes: its pets, its photos, its history. A complete file is saved first, where the automatic backups go, so importing that file brings the catalog back. Type the name to confirm.'**
+  String deleteCatalogBodyNeutral(String name);
 
   /// No description provided for @catalogDeleted.
   ///
@@ -3038,6 +3782,12 @@ abstract class AppLocalizations {
   /// **'No appointments planned. Plan new ones here with the plus, or on a cat\'s or clowder\'s page.'**
   String get agendaEmpty;
 
+  /// No description provided for @agendaEmptyNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No appointments planned. Plan new ones here with the plus, or on a pet\'s or household\'s page.'**
+  String get agendaEmptyNeutral;
+
   /// No description provided for @dueToday.
   ///
   /// In en, this message translates to:
@@ -3164,6 +3914,18 @@ abstract class AppLocalizations {
   /// **'The other device runs a newer cat(a)log. Update cat(a)log on this device, then sync again.'**
   String get syncPeerNewer;
 
+  /// No description provided for @syncPeerNoTls.
+  ///
+  /// In en, this message translates to:
+  /// **'The other device runs a cat(a)log before 1.1.0, without encrypted sync. Update cat(a)log there, then sync again.'**
+  String get syncPeerNoTls;
+
+  /// No description provided for @syncWrongHost.
+  ///
+  /// In en, this message translates to:
+  /// **'The certificate does not match the pair code — this is not the device the code came from. Scan or type the code again.'**
+  String get syncWrongHost;
+
   /// No description provided for @bundleNewerError.
   ///
   /// In en, this message translates to:
@@ -3266,6 +4028,12 @@ abstract class AppLocalizations {
   /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the cat or clowder. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several cats is one appointment: tick the cats in it, the Agenda shows one card with their names, and finishing asks which cats were treated — untick the ones that were not, they stay planned.'**
   String get helpAgenda;
 
+  /// No description provided for @helpAgendaNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'The Agenda lists the planned appointments by date. There are two kinds: appointments with a time of day, and reminders that apply to a day. Missed ones stay at the top. Tap opens the pet or household. The check confirms an appointment: the value is written into the field, and you can plan the next one right away, for example in three months. Press and hold changes the date or deletes the appointment. The switch at the top mirrors the appointments into a calendar of your phone. The menu exports them as a calendar file. A vet run with several pets is one appointment: tick the pets in it, the Agenda shows one card with their names, and finishing asks which pets were treated — untick the ones that were not, they stay planned.'**
+  String get helpAgendaNeutral;
+
   /// No description provided for @calendarRowOff.
   ///
   /// In en, this message translates to:
@@ -3284,11 +4052,23 @@ abstract class AppLocalizations {
   /// **'Plan an appointment for this cat. It shows in the Agenda and is confirmed there.'**
   String get spotAddReminderCat;
 
+  /// No description provided for @spotAddReminderCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan an appointment for this pet. It shows in the Agenda and is confirmed there.'**
+  String get spotAddReminderCatNeutral;
+
   /// No description provided for @spotAddReminderClowder.
   ///
   /// In en, this message translates to:
   /// **'Plan an appointment for this clowder. It shows in the Agenda and is confirmed there.'**
   String get spotAddReminderClowder;
+
+  /// No description provided for @spotAddReminderClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan an appointment for this household. It shows in the Agenda and is confirmed there.'**
+  String get spotAddReminderClowderNeutral;
 
   /// No description provided for @readOnlyCalendar.
   ///
@@ -3482,11 +4262,23 @@ abstract class AppLocalizations {
   /// **'Existing cat'**
   String get existingCat;
 
+  /// No description provided for @existingCatNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Existing pet'**
+  String get existingCatNeutral;
+
   /// No description provided for @existingClowder.
   ///
   /// In en, this message translates to:
   /// **'Existing clowder'**
   String get existingClowder;
+
+  /// No description provided for @existingClowderNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Existing household'**
+  String get existingClowderNeutral;
 
   /// No description provided for @createNewInstead.
   ///
@@ -3530,11 +4322,23 @@ abstract class AppLocalizations {
   /// **'Cats on this appointment'**
   String get catsOnAppointment;
 
+  /// No description provided for @catsOnAppointmentNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Pets on this appointment'**
+  String get catsOnAppointmentNeutral;
+
   /// No description provided for @noCatsHint.
   ///
   /// In en, this message translates to:
   /// **'No cat ticked — the appointment is the clowder\'s own.'**
   String get noCatsHint;
+
+  /// No description provided for @noCatsHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'No pet ticked — the appointment is the household\'s own.'**
+  String get noCatsHintNeutral;
 
   /// No description provided for @pickCatsTitle.
   ///
@@ -3542,11 +4346,23 @@ abstract class AppLocalizations {
   /// **'Which cats come along?'**
   String get pickCatsTitle;
 
+  /// No description provided for @pickCatsTitleNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Which pets come along?'**
+  String get pickCatsTitleNeutral;
+
   /// No description provided for @catsCount.
   ///
   /// In en, this message translates to:
   /// **'{count} cats'**
   String catsCount(int count);
+
+  /// No description provided for @catsCountNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} pets'**
+  String catsCountNeutral(int count);
 
   /// No description provided for @finishUntickHint.
   ///
@@ -3554,11 +4370,23 @@ abstract class AppLocalizations {
   /// **'Untick the cats that were not treated; they stay planned.'**
   String get finishUntickHint;
 
+  /// No description provided for @finishUntickHintNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Untick the pets that were not treated; they stay planned.'**
+  String get finishUntickHintNeutral;
+
   /// No description provided for @deleteAppointmentGroup.
   ///
   /// In en, this message translates to:
   /// **'Delete appointment for all {count} cats'**
   String deleteAppointmentGroup(int count);
+
+  /// No description provided for @deleteAppointmentGroupNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete appointment for all {count} pets'**
+  String deleteAppointmentGroupNeutral(int count);
 }
 
 class _AppLocalizationsDelegate

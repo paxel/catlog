@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
+import 'field_labels.dart';
 
 /// The one field-creation dialog: used by the Fields screen and by the
 /// detail pages' edit mode (#46). Returns true when a field was created.
@@ -30,6 +31,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
   final _options = TextEditingController();
   final _lookup = TextEditingController();
   FieldType _type = FieldType.text;
+  Dimension _dimension = Dimension.weight;
   late FieldScope _scope = widget.initialScope;
   IdDisplay _idDisplay = IdDisplay.plain;
   String? _error;
@@ -50,6 +52,7 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
         scope: _scope,
         idDisplay: _idDisplay,
         lookupUrl: _lookup.text.trim(),
+        dimension: _dimension,
         options: _options.text
             .split('\n')
             .map((o) => o.trim())
@@ -80,10 +83,27 @@ class _NewFieldDialogState extends State<_NewFieldDialog> {
             decoration: InputDecoration(labelText: context.t.fieldType),
             items: [
               for (final t in FieldType.values)
-                DropdownMenuItem(value: t, child: Text(t.name)),
+                DropdownMenuItem(
+                    value: t,
+                    child: Text(t == FieldType.unitValue
+                        ? context.t.typeUnitValue
+                        : t.name)),
             ],
             onChanged: (t) => setState(() => _type = t ?? _type),
           ),
+          if (_type == FieldType.unitValue) ...[
+            const SizedBox(height: 12),
+            DropdownButtonFormField<Dimension>(
+              initialValue: _dimension,
+              decoration: InputDecoration(labelText: context.t.dimension),
+              items: [
+                for (final d in Dimension.values)
+                  DropdownMenuItem(
+                      value: d, child: Text(dimensionName(context.t, d))),
+              ],
+              onChanged: (d) => setState(() => _dimension = d ?? _dimension),
+            ),
+          ],
           const SizedBox(height: 12),
           DropdownButtonFormField<FieldScope>(
             initialValue: _scope,
