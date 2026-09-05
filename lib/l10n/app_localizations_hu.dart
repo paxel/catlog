@@ -1542,6 +1542,11 @@ class AppLocalizationsHu extends AppLocalizations {
   String get summaryConflicts => 'Feloldandó ütközések';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Ütközések ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…és még $n változás';
   }

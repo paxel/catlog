@@ -450,6 +450,7 @@
   "summaryEscaped": "Aizbēguši",
   "summaryNew": "Jauni",
   "summaryConflicts": "Risināmi konflikti",
+  "conflictsMenu": "Konflikti ({n})",
   "summaryOther": "…un vēl {n} izmaiņas",
   "arrivalIntro": "Šīs izmaiņas jau ir jūsu katalogā. „Noraidīt” atgriež to iepriekšējā stāvoklī.",
   "summaryUpdated": "Atjaunināti",

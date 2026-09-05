@@ -447,6 +447,7 @@
   "summaryEscaped": "Entlaufen",
   "summaryNew": "Neu",
   "summaryConflicts": "Zu klärende Konflikte",
+  "conflictsMenu": "Konflikte ({n})",
   "summaryOther": "…und {n} weitere Änderungen",
   "arrivalIntro": "Diese Änderungen sind bereits in deinem Katalog. Ablehnen stellt ihn wieder so her, wie er war.",
   "summaryUpdated": "Geändert",

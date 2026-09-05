@@ -450,6 +450,7 @@
   "summaryEscaped": "Põgenenud",
   "summaryNew": "Uued",
   "summaryConflicts": "Lahendamist vajavad konfliktid",
+  "conflictsMenu": "Konfliktid ({n})",
   "summaryOther": "…ja veel {n} muudatust",
   "arrivalIntro": "Need muudatused on juba su kataloogis. Lükka tagasi taastab selle endisel kujul.",
   "summaryUpdated": "Muudetud",

@@ -450,6 +450,7 @@
   "summaryEscaped": "走失",
   "summaryNew": "新增",
   "summaryConflicts": "待解决的冲突",
+  "conflictsMenu": "冲突 ({n})",
   "summaryOther": "…及其他 {n} 项变更",
   "arrivalIntro": "这些更改已在你的目录中。拒绝会把它恢复原样。",
   "summaryUpdated": "已更新",

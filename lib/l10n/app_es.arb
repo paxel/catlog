@@ -450,6 +450,7 @@
   "summaryEscaped": "Escapados",
   "summaryNew": "Nuevos",
   "summaryConflicts": "Conflictos por resolver",
+  "conflictsMenu": "Conflictos ({n})",
   "summaryOther": "…y {n} cambios más",
   "arrivalIntro": "Estos cambios ya están en tu catálogo. Rechazar lo deja como estaba.",
   "summaryUpdated": "Actualizados",

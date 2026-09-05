@@ -373,6 +373,9 @@ class ModeLocalizations implements AppLocalizations {
   String conflictOn(String field) => base.conflictOn(field);
 
   @override
+  String conflictsMenu(int n) => base.conflictsMenu(n);
+
+  @override
   String get connectToWifiFirst => base.connectToWifiFirst;
 
   @override

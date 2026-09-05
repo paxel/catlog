@@ -1532,6 +1532,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get summaryConflicts => 'קונפליקטים לפתרון';
 
   @override
+  String conflictsMenu(int n) {
+    return 'התנגשויות ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…ועוד $n שינויים';
   }

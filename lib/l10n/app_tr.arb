@@ -450,6 +450,7 @@
   "summaryEscaped": "Kaçtı",
   "summaryNew": "Yeni",
   "summaryConflicts": "Çözülecek çakışmalar",
+  "conflictsMenu": "Çakışmalar ({n})",
   "summaryOther": "…ve {n} değişiklik daha",
   "arrivalIntro": "Bu değişiklikler kataloğunda zaten var. Reddet, onu eski hâline getirir.",
   "summaryUpdated": "Güncellenen",

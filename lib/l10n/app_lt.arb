@@ -450,6 +450,7 @@
   "summaryEscaped": "Pabėgę",
   "summaryNew": "Nauji",
   "summaryConflicts": "Spręstini konfliktai",
+  "conflictsMenu": "Konfliktai ({n})",
   "summaryOther": "…ir dar {n} pakeitimų",
   "arrivalIntro": "Šie pakeitimai jau jūsų kataloge. „Atmesti“ grąžina jį į buvusią būseną.",
   "summaryUpdated": "Atnaujinta",

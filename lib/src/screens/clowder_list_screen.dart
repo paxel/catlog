@@ -19,6 +19,7 @@ import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import '../field_labels.dart';
 import 'about_screen.dart';
+import 'conflicts_screen.dart';
 import 'settings_screen.dart';
 import 'agenda_screen.dart';
 import 'clowder_detail_screen.dart';
@@ -117,6 +118,13 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
       mirrorAfterChange(context, widget.store);
       runSpotlights(context, widget.store, 'home');
     });
+  }
+
+  Future<void> _openConflicts() async {
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ConflictsScreen(store: widget.store),
+    ));
+    if (mounted) setState(() {});
   }
 
   /// Language and units may change in there: rebuild on return.
@@ -291,6 +299,7 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                     build: (_) => DuplicatesScreen(store: widget.store)));
               }
               if (v == 'settings') _openSettings();
+              if (v == 'conflicts') _openConflicts();
               if (v == 'hidden') {
                 setState(() => showHidden.value = !showHidden.value);
               }
@@ -313,6 +322,14 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
                   child: Text(context.t.findDuplicates)),
               PopupMenuItem(
                   value: 'csv', child: Text(context.t.exportCsv)),
+              // Only while there is something to settle: a sync raised a
+              // conflict, the arrival page was closed, and the badges
+              // on the cat pages would otherwise be the only trace.
+              if (widget.store.conflicts().isNotEmpty)
+                PopupMenuItem(
+                    value: 'conflicts',
+                    child: Text(context.t
+                        .conflictsMenu(widget.store.conflicts().length))),
               PopupMenuItem(
                   value: 'settings', child: Text(context.t.settings)),
               PopupMenuItem(

@@ -1537,6 +1537,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get summaryConflicts => 'تعارض‌های حل‌نشده';
 
   @override
+  String conflictsMenu(int n) {
+    return 'تعارض‌ها ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…و $n تغییر دیگر';
   }

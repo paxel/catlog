@@ -450,6 +450,7 @@
   "summaryEscaped": "Të arratisura",
   "summaryNew": "Të reja",
   "summaryConflicts": "Konflikte për zgjidhje",
+  "conflictsMenu": "Konflikte ({n})",
   "summaryOther": "…dhe {n} ndryshime të tjera",
   "arrivalIntro": "Këto ndryshime janë tashmë në katalogun tënd. Refuzo e kthen siç ishte.",
   "summaryUpdated": "Të përditësuar",

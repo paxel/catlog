@@ -450,6 +450,7 @@
   "summaryEscaped": "Zbiegłe",
   "summaryNew": "Nowe",
   "summaryConflicts": "Konflikty do rozwiązania",
+  "conflictsMenu": "Konflikty ({n})",
   "summaryOther": "…i {n} innych zmian",
   "arrivalIntro": "Te zmiany są już w twoim katalogu. Odrzuć przywraca go do poprzedniego stanu.",
   "summaryUpdated": "Zmienione",

@@ -1545,6 +1545,11 @@ class AppLocalizationsGa extends AppLocalizations {
   String get summaryConflicts => 'Coinbhleachtaí le réiteach';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Coinbhleachtaí ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…agus $n athrú eile';
   }

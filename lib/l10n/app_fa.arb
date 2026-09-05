@@ -450,6 +450,7 @@
   "summaryEscaped": "فراری",
   "summaryNew": "جدید",
   "summaryConflicts": "تعارض‌های حل‌نشده",
+  "conflictsMenu": "تعارض‌ها ({n})",
   "summaryOther": "…و {n} تغییر دیگر",
   "arrivalIntro": "این تغییرات از قبل در کاتالوگ شما هستند. «رد» آن را به حالت قبل برمی‌گرداند.",
   "summaryUpdated": "به‌روز شده",

@@ -450,6 +450,7 @@
   "summaryEscaped": "Rymda",
   "summaryNew": "Nya",
   "summaryConflicts": "Konflikter att lösa",
+  "conflictsMenu": "Konflikter ({n})",
   "summaryOther": "…och {n} andra ändringar",
   "arrivalIntro": "De här ändringarna finns redan i din katalog. Avvisa återställer den som den var.",
   "summaryUpdated": "Uppdaterade",

@@ -450,6 +450,7 @@
   "summaryEscaped": "Ontsnapt",
   "summaryNew": "Nieuw",
   "summaryConflicts": "Op te lossen conflicten",
+  "conflictsMenu": "Conflicten ({n})",
   "summaryOther": "…en {n} andere wijzigingen",
   "arrivalIntro": "Deze wijzigingen staan al in je catalogus. Afwijzen zet hem terug zoals hij was.",
   "summaryUpdated": "Gewijzigd",

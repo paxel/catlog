@@ -1542,6 +1542,11 @@ class AppLocalizationsLv extends AppLocalizations {
   String get summaryConflicts => 'Risināmi konflikti';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Konflikti ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…un vēl $n izmaiņas';
   }

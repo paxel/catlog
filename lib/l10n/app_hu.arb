@@ -450,6 +450,7 @@
   "summaryEscaped": "Megszökött",
   "summaryNew": "Új",
   "summaryConflicts": "Feloldandó ütközések",
+  "conflictsMenu": "Ütközések ({n})",
   "summaryOther": "…és még {n} változás",
   "arrivalIntro": "Ezek a változások már a katalógusodban vannak. Az Elutasítás visszaállítja a korábbi állapotot.",
   "summaryUpdated": "Módosítva",

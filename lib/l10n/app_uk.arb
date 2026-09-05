@@ -450,6 +450,7 @@
   "summaryEscaped": "Втекли",
   "summaryNew": "Нові",
   "summaryConflicts": "Конфлікти для вирішення",
+  "conflictsMenu": "Конфлікти ({n})",
   "summaryOther": "…і ще {n} змін",
   "arrivalIntro": "Ці зміни вже у вашому каталозі. «Відхилити» повертає його до попереднього стану.",
   "summaryUpdated": "Змінені",

@@ -450,6 +450,7 @@
   "summaryEscaped": "Bortløbne",
   "summaryNew": "Nye",
   "summaryConflicts": "Konflikter at løse",
+  "conflictsMenu": "Konflikter ({n})",
   "summaryOther": "…og {n} andre ændringer",
   "arrivalIntro": "Disse ændringer er allerede i dit katalog. Afvis sætter det tilbage, som det var.",
   "summaryUpdated": "Opdateret",

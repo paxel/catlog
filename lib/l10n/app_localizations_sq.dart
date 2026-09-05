@@ -1540,6 +1540,11 @@ class AppLocalizationsSq extends AppLocalizations {
   String get summaryConflicts => 'Konflikte për zgjidhje';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Konflikte ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…dhe $n ndryshime të tjera';
   }

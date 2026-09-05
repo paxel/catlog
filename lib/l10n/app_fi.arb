@@ -450,6 +450,7 @@
   "summaryEscaped": "Karanneet",
   "summaryNew": "Uudet",
   "summaryConflicts": "Ratkaistavat ristiriidat",
+  "conflictsMenu": "Ristiriidat ({n})",
   "summaryOther": "…ja {n} muuta muutosta",
   "arrivalIntro": "Nämä muutokset ovat jo luettelossasi. Hylkää palauttaa sen entiselleen.",
   "summaryUpdated": "Päivitetyt",

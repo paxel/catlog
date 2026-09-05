@@ -1541,6 +1541,11 @@ class AppLocalizationsSr extends AppLocalizations {
   String get summaryConflicts => 'Конфликти за решавање';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Конфликти ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…и још $n промена';
   }

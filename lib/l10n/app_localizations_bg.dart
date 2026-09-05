@@ -1542,6 +1542,11 @@ class AppLocalizationsBg extends AppLocalizations {
   String get summaryConflicts => 'Конфликти за решаване';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Конфликти ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…и още $n промени';
   }

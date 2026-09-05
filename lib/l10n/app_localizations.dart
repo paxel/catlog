@@ -2846,6 +2846,12 @@ abstract class AppLocalizations {
   /// **'Conflicts to resolve'**
   String get summaryConflicts;
 
+  /// No description provided for @conflictsMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflicts ({n})'**
+  String conflictsMenu(int n);
+
   /// No description provided for @summaryOther.
   ///
   /// In en, this message translates to:

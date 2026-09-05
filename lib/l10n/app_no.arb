@@ -450,6 +450,7 @@
   "summaryEscaped": "Rømte",
   "summaryNew": "Nye",
   "summaryConflicts": "Konflikter å løse",
+  "conflictsMenu": "Konflikter ({n})",
   "summaryOther": "…og {n} andre endringer",
   "arrivalIntro": "Disse endringene er allerede i katalogen din. Avvis setter den tilbake slik den var.",
   "summaryUpdated": "Oppdatert",

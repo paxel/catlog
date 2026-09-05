@@ -1543,6 +1543,11 @@ class AppLocalizationsMt extends AppLocalizations {
   String get summaryConflicts => 'Kunflitti x\'jissolvew';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Kunflitti ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…u $n bidliet oħra';
   }

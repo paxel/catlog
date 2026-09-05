@@ -1543,6 +1543,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get summaryConflicts => 'Ratkaistavat ristiriidat';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Ristiriidat ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…ja $n muuta muutosta';
   }

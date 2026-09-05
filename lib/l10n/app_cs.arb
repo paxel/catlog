@@ -450,6 +450,7 @@
   "summaryEscaped": "Utečené",
   "summaryNew": "Nové",
   "summaryConflicts": "Konflikty k vyřešení",
+  "conflictsMenu": "Konflikty ({n})",
   "summaryOther": "…a {n} dalších změn",
   "arrivalIntro": "Tyto změny už jsou v katalogu. Odmítnout ho vrátí do původního stavu.",
   "summaryUpdated": "Změněno",

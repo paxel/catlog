@@ -450,6 +450,7 @@
   "summaryEscaped": "Ħarbu",
   "summaryNew": "Ġodda",
   "summaryConflicts": "Kunflitti x'jissolvew",
+  "conflictsMenu": "Kunflitti ({n})",
   "summaryOther": "…u {n} bidliet oħra",
   "arrivalIntro": "Dawn il-bidliet diġà qegħdin fil-katalgu tiegħek. Irrifjuta jerġa’ jpoġġih kif kien.",
   "summaryUpdated": "Aġġornati",

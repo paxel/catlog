@@ -450,6 +450,7 @@
   "summaryEscaped": "ברחו",
   "summaryNew": "חדשים",
   "summaryConflicts": "קונפליקטים לפתרון",
+  "conflictsMenu": "התנגשויות ({n})",
   "summaryOther": "…ועוד {n} שינויים",
   "arrivalIntro": "השינויים האלה כבר בקטלוג שלך. דחייה מחזירה אותו למה שהיה.",
   "summaryUpdated": "עודכנו",

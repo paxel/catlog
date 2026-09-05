@@ -450,6 +450,7 @@
   "summaryEscaped": "Evadate",
   "summaryNew": "Noi",
   "summaryConflicts": "Conflicte de rezolvat",
+  "conflictsMenu": "Conflicte ({n})",
   "summaryOther": "…și încă {n} modificări",
   "arrivalIntro": "Aceste schimbări sunt deja în catalogul tău. Respinge îl readuce cum era.",
   "summaryUpdated": "Actualizate",

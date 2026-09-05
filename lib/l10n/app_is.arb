@@ -450,6 +450,7 @@
   "summaryEscaped": "Strokin",
   "summaryNew": "Ný",
   "summaryConflicts": "Árekstrar til að leysa",
+  "conflictsMenu": "Árekstrar ({n})",
   "summaryOther": "…og {n} aðrar breytingar",
   "arrivalIntro": "Þessar breytingar eru þegar í skránni þinni. Hafna setur hana aftur eins og hún var.",
   "summaryUpdated": "Uppfært",

@@ -450,6 +450,7 @@
   "summaryEscaped": "脱走",
   "summaryNew": "新規",
   "summaryConflicts": "要解決の競合",
+  "conflictsMenu": "競合 ({n})",
   "summaryOther": "…他 {n} 件の変更",
   "arrivalIntro": "これらの変更はすでにカタログに入っています。「拒否」で元の状態に戻します。",
   "summaryUpdated": "更新",

@@ -450,6 +450,7 @@
   "summaryEscaped": "Сбежали",
   "summaryNew": "Новые",
   "summaryConflicts": "Конфликты для решения",
+  "conflictsMenu": "Конфликты ({n})",
   "summaryOther": "…и ещё {n} изменений",
   "arrivalIntro": "Эти изменения уже в вашем каталоге. «Отклонить» вернёт его в прежнее состояние.",
   "summaryUpdated": "Изменены",

@@ -450,6 +450,7 @@
   "summaryEscaped": "Pobegle",
   "summaryNew": "Novo",
   "summaryConflicts": "Konflikti za rešitev",
+  "conflictsMenu": "Konflikti ({n})",
   "summaryOther": "…in še {n} sprememb",
   "arrivalIntro": "Te spremembe so že v vašem katalogu. Zavrni ga vrne v prejšnje stanje.",
   "summaryUpdated": "Spremenjeni",

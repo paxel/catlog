@@ -1496,6 +1496,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get summaryConflicts => '待解决的冲突';
 
   @override
+  String conflictsMenu(int n) {
+    return '冲突 ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…及其他 $n 项变更';
   }

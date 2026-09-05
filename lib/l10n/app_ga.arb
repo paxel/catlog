@@ -450,6 +450,7 @@
   "summaryEscaped": "Éalaithe",
   "summaryNew": "Nua",
   "summaryConflicts": "Coinbhleachtaí le réiteach",
+  "conflictsMenu": "Coinbhleachtaí ({n})",
   "summaryOther": "…agus {n} athrú eile",
   "arrivalIntro": "Tá na hathruithe seo sa chatalóg agat cheana. Cuireann Diúltaigh ar ais mar a bhí é.",
   "summaryUpdated": "Nuashonraithe",

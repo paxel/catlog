@@ -1538,6 +1538,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get summaryConflicts => 'Lahendamist vajavad konfliktid';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Konfliktid ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…ja veel $n muudatust';
   }

@@ -450,6 +450,7 @@
   "summaryEscaped": "Избягали",
   "summaryNew": "Нови",
   "summaryConflicts": "Конфликти за решаване",
+  "conflictsMenu": "Конфликти ({n})",
   "summaryOther": "…и още {n} промени",
   "arrivalIntro": "Тези промени вече са в каталога ви. „Отхвърли“ го връща както беше.",
   "summaryUpdated": "Променени",

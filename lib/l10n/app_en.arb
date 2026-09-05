@@ -731,6 +731,8 @@
   "summaryEscaped": "Escaped",
   "summaryNew": "New",
   "summaryConflicts": "Conflicts to resolve",
+  "conflictsMenu": "Conflicts ({n})",
+  "@conflictsMenu": {"placeholders": {"n": {"type": "int"}}},
   "summaryOther": "…and {n} other changes",
   "arrivalIntro": "These changes are already in your catalog. Reject puts it back as it was.",
   "summaryUpdated": "Updated",

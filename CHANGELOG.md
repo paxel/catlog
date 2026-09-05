@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.1] - Unreleased
 
+### Added
+
+- A "Conflicts (N)" entry in the main menu while fields changed in two
+  places at once are still unsettled; it lists them and each one is
+  resolved on the spot.
+
 ### Changed
 
 - "Find address on the map" no longer writes silently: a dialog shows

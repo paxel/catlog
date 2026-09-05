@@ -450,6 +450,7 @@
   "summaryEscaped": "هاربة",
   "summaryNew": "جديد",
   "summaryConflicts": "تعارضات للحل",
+  "conflictsMenu": "تعارضات ({n})",
   "summaryOther": "…و{n} تغييرات أخرى",
   "arrivalIntro": "هذه التغييرات موجودة بالفعل في الكتالوج. «رفض» يعيده كما كان.",
   "summaryUpdated": "محدَّثة",

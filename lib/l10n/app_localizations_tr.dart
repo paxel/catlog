@@ -1540,6 +1540,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get summaryConflicts => 'Çözülecek çakışmalar';
 
   @override
+  String conflictsMenu(int n) {
+    return 'Çakışmalar ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…ve $n değişiklik daha';
   }

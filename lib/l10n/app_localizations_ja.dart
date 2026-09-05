@@ -1513,6 +1513,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get summaryConflicts => '要解決の競合';
 
   @override
+  String conflictsMenu(int n) {
+    return '競合 ($n)';
+  }
+
+  @override
   String summaryOther(Object n) {
     return '…他 $n 件の変更';
   }
