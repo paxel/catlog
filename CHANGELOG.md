@@ -5,6 +5,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 
 ## [1.1.1] - Unreleased
 
+### Fixed
+
+- Panning the map away from a still-loading tile no longer records a
+  crash when the tile arrives.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).
