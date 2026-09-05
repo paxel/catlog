@@ -1902,7 +1902,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.';
+    return 'Allt í $name hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn orðið sem birtist til að staðfesta.';
   }
 
   @override

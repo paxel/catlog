@@ -1900,7 +1900,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.';
+    return 'Kaikki luettelossa $name katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla näytetty sana.';
   }
 
   @override

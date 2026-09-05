@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Seo an chatalóg ina bhfuil tú. Tapáil an t-ainm chun malartú nó ceann eile a chruthú.",
   "deleteCatalog": "Scrios an chatalóg",
   "catalogSettings": "Socruithe an chatalóg",
-  "deleteCatalogBody": "Imíonn gach rud in {name}: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.",
+  "deleteCatalogBody": "Imíonn gach rud in {name}: na cait, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an focal a thaispeántar le deimhniú.",
   "deleteCatalogBodyNeutral": "Imíonn gach rud in {name}: na peataí, na grianghraif, an stair. Sábháiltear comhad iomlán ar dtús san áit a dtéann na cúltacaí uathoibríocha — tugann a iompórtáil an chatalóg ar ais. Clóscríobh an t-ainm le deimhniú.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

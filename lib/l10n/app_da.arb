@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Det er kataloget, du er i. Tryk på navnet for at skifte eller oprette et nyt.",
   "deleteCatalog": "Slet katalog",
   "catalogSettings": "Katalogindstillinger",
-  "deleteCatalogBody": "Alt i {name} forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.",
+  "deleteCatalogBody": "Alt i {name} forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv det viste ord for at bekræfte.",
   "deleteCatalogBodyNeutral": "Alt i {name} forsvinder: kæledyr, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

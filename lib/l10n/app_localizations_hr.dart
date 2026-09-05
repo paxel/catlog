@@ -1897,7 +1897,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Sve u $name nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši ime za potvrdu.';
+    return 'Sve u $name nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši prikazanu riječ za potvrdu.';
   }
 
   @override

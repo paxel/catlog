@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Þetta er skráin sem þú ert í. Ýttu á heitið til að skipta eða búa til aðra.",
   "deleteCatalog": "Eyða skrá",
   "catalogSettings": "Stillingar skrár",
-  "deleteCatalogBody": "Allt í {name} hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
+  "deleteCatalogBody": "Allt í {name} hverfur: kettirnir, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn orðið sem birtist til að staðfesta.",
   "deleteCatalogBodyNeutral": "Allt í {name} hverfur: gæludýrin, myndirnar, sagan. Fyrst er heil skrá vistuð þar sem sjálfvirk afrit lenda — að flytja hana inn skilar skránni aftur. Sláðu inn heitið til að staðfesta.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

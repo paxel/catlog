@@ -1897,7 +1897,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return '$name içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.';
+    return '$name içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için gösterilen sözcüğü yaz.';
   }
 
   @override

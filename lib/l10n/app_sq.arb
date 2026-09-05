@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Ky është katalogu ku ndodhesh. Prek emrin për të ndërruar ose për të krijuar një tjetër.",
   "deleteCatalog": "Fshi katalogun",
   "catalogSettings": "Cilësimet e katalogut",
-  "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
+  "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj fjalën e shfaqur për të konfirmuar.",
   "deleteCatalogBodyNeutral": "Gjithçka në {name} zhduket: kafshët, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

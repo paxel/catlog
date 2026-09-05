@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Ez az a katalógus, amelyben vagy. Koppints a névre a váltáshoz vagy új létrehozásához.",
   "deleteCatalog": "Katalógus törlése",
   "catalogSettings": "Katalógus beállításai",
-  "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
+  "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a megjelenített szót a megerősítéshez.",
   "deleteCatalogBodyNeutral": "Minden eltűnik a(z) {name} katalógusból: a kisállatok, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

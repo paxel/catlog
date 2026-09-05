@@ -239,7 +239,7 @@ void main() {
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'paris');
+      await tester.enterText(find.byType(TextField), 'DELET');
       await tester.pumpAndSettle();
       final button = tester.widget<FilledButton>(
           find.widgetWithText(FilledButton, 'Delete'));
@@ -258,7 +258,7 @@ void main() {
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Paris');
+      await tester.enterText(find.byType(TextField), 'delete');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
@@ -286,7 +286,7 @@ void main() {
       await openSettings(tester, 'Paris');
       await tester.tap(find.text('Delete catalog'));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Paris');
+      await tester.enterText(find.byType(TextField), 'delete');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
@@ -321,7 +321,7 @@ void main() {
       await tester.tap(find.descendant(
           of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Kathrin');
+      await tester.enterText(find.byType(TextField), 'DELETE');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();

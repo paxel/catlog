@@ -133,8 +133,8 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
   }
 
   /// Deleting a catalog is the only action in the app that destroys a
-  /// photo library, so it writes the catalog out first and asks for the
-  /// name in full.
+  /// photo library, so it writes the catalog out first and asks for a
+  /// typed word.
   Future<void> _delete() async {
     final t = context.t;
     final catalog = _catalog;
@@ -270,9 +270,10 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
   }
 }
 
-/// Deleting asks for the catalog's name in full: the export makes the
+/// Deleting asks for the word shown to be typed: the export makes the
 /// deletion recoverable, not painless, and every catalog is one tap
-/// away from every other in the switcher.
+/// away from every other in the switcher. The word, not the name — a
+/// long name may not even fit on the screen.
 class _DeleteCatalogDialog extends StatefulWidget {
   final CatalogInfo catalog;
 
@@ -294,7 +295,7 @@ class _DeleteCatalogDialogState extends State<_DeleteCatalogDialog> {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final matches = _typed.text.trim() == widget.catalog.name;
+    final matches = confirmsDelete(_typed.text, t);
     return AlertDialog(
       title: Text(t.deleteCatalog),
       content: Column(
@@ -306,7 +307,7 @@ class _DeleteCatalogDialogState extends State<_DeleteCatalogDialog> {
             controller: _typed,
             autofocus: true,
             decoration: InputDecoration(
-              labelText: t.typeTheName(widget.catalog.name),
+              labelText: t.typeTheName(deleteWord(t)),
             ),
             onChanged: (_) => setState(() {}),
           ),

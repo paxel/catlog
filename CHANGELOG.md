@@ -18,6 +18,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   archive, go back, delete. It works on that catalog whether or not you
   are in it. Those items left the menu, the About page and the top of
   the switcher.
+- Deleting a catalog or a person's data asks you to type the word
+  shown (DELETE, in your language) instead of the full name.
 
 ### Fixed
 

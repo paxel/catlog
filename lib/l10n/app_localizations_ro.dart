@@ -1899,7 +1899,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie numele ca să confirmi.';
+    return 'Tot ce e în $name dispare: pisicile, pozele, istoricul. Mai întâi se salvează un fișier complet acolo unde ajung copiile automate — importul lui aduce catalogul înapoi. Scrie cuvântul afișat ca să confirmi.';
   }
 
   @override

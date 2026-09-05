@@ -35,7 +35,7 @@ class _ModerationScreenState extends State<ModerationScreen> {
               controller: controller,
               autofocus: true,
               decoration: InputDecoration(
-                labelText: t.typeToConfirm(row.author),
+                labelText: t.typeToConfirm(deleteWord(t)),
                 border: const OutlineInputBorder(),
               ),
               onChanged: (_) => setDialogState(() {}),
@@ -54,7 +54,7 @@ class _ModerationScreenState extends State<ModerationScreen> {
               child: Text(t.cancel),
             ),
             FilledButton(
-              onPressed: controller.text.trim() == row.author
+              onPressed: confirmsDelete(controller.text, t)
                   ? () => Navigator.of(context).pop(true)
                   : null,
               child: Text(t.delete),

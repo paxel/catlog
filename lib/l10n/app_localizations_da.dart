@@ -1898,7 +1898,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Alt i $name forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv navnet for at bekræfte.';
+    return 'Alt i $name forsvinder: katte, fotos, historik. Først gemmes en komplet fil dér, hvor de automatiske sikkerhedskopier ligger — import af den henter kataloget tilbage. Skriv det viste ord for at bekræfte.';
   }
 
   @override

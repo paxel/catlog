@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Ovo je katalog u kojem si. Dodirni ime da prebaciš ili napraviš novi.",
   "deleteCatalog": "Obriši katalog",
   "catalogSettings": "Postavke kataloga",
-  "deleteCatalogBody": "Sve u {name} nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši ime za potvrdu.",
+  "deleteCatalogBody": "Sve u {name} nestaje: mačke, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši prikazanu riječ za potvrdu.",
   "deleteCatalogBodyNeutral": "Sve u {name} nestaje: ljubimci, fotografije, povijest. Prvo se sprema potpuna datoteka ondje gdje idu automatske sigurnosne kopije — njezin uvoz vraća katalog. Upiši ime za potvrdu.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

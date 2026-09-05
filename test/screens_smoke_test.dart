@@ -117,8 +117,9 @@ void main() {
       await tester.tap(find.descendant(
           of: kathrin, matching: find.byIcon(Icons.delete_forever_outlined)));
       await tester.pumpAndSettle();
-      // Deleting somebody's data asks for their name in full.
-      await tester.enterText(find.byType(TextField), 'Kathrin');
+      // Deleting somebody's data asks for the word shown, any casing.
+      expect(find.text('Type DELETE to confirm'), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'delete');
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();

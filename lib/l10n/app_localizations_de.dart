@@ -1906,7 +1906,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Alles in $name verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe den Namen ein, um zu bestätigen.';
+    return 'Alles in $name verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe das angezeigte Wort ein, um zu bestätigen.';
   }
 
   @override

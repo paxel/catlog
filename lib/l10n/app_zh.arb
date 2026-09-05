@@ -558,7 +558,7 @@
   "spotHomeCatalog": "这是你当前所在的目录。点按名称即可切换或新建。",
   "deleteCatalog": "删除目录",
   "catalogSettings": "目录设置",
-  "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
+  "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入显示的词语以确认。",
   "deleteCatalogBodyNeutral": "{name} 里的一切都会消失：宠物、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

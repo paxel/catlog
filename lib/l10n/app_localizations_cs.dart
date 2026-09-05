@@ -1897,7 +1897,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Všechno v $name zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.';
+    return 'Všechno v $name zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním zobrazeného slova.';
   }
 
   @override

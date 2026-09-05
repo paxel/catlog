@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Tämä on luettelo, jossa olet. Napauta nimeä vaihtaaksesi tai luodaksesi uuden.",
   "deleteCatalog": "Poista luettelo",
   "catalogSettings": "Luettelon asetukset",
-  "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
+  "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla näytetty sana.",
   "deleteCatalogBodyNeutral": "Kaikki luettelossa {name} katoaa: lemmikit, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {

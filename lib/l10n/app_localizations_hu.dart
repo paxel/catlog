@@ -1899,7 +1899,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String deleteCatalogBody(String name) {
-    return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.';
+    return 'Minden eltűnik a(z) $name katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a megjelenített szót a megerősítéshez.';
   }
 
   @override

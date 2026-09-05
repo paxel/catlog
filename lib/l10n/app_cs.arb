@@ -558,7 +558,7 @@
   "spotHomeCatalog": "Tohle je katalog, ve kterém jsi. Klepni na název pro přepnutí nebo vytvoření dalšího.",
   "deleteCatalog": "Smazat katalog",
   "catalogSettings": "Nastavení katalogu",
-  "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
+  "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním zobrazeného slova.",
   "deleteCatalogBodyNeutral": "Všechno v {name} zmizí: mazlíčci, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
   "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
   "@deleteCatalogBody": {
