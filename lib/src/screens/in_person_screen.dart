@@ -13,6 +13,7 @@ import '../l10n.dart';
 import '../sync/lan.dart';
 import 'scan_screen.dart';
 import '../sync/tls.dart';
+import '../widgets/pair_code_text.dart';
 
 /// "In person": two devices in the same room sync over the local
 /// network. Host shows a QR, joiner scans (or types the short code).
@@ -448,13 +449,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SelectableText(
-                            _pairCode!,
-                            style: const TextStyle(
-                                fontFamily: 'monospace',
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          Flexible(child: PairCodeText(_pairCode!)),
                           IconButton(
                             icon: const Icon(Icons.copy),
                             tooltip: t.copyCode,
