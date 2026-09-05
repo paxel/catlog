@@ -1713,6 +1713,40 @@ class CatalogStore {
     });
   }
 
+  // -------------------------------------------------------------- discard
+
+  /// Drops [entries] that arrived from elsewhere — a partner's change the
+  /// keeper does not want here — and keeps their numbers claimed, so
+  /// they are never offered again. Local only: nothing is written to
+  /// the log about the data, nothing travels, the partner's catalog
+  /// stays as it is. Only a conflict flag they raised is cleared, which
+  /// syncs like every resolution. Photos they brought go when nothing
+  /// else shows them.
+  void discardEntries(Iterable<Entry> entries) {
+    final rows = entries.toList();
+    if (rows.isEmpty) return;
+    final hashes = {
+      for (final e in rows)
+        if (e.field.startsWith(Keys.imagePrefix))
+          e.field.substring(Keys.imagePrefix.length)
+    };
+    // SQLite caps bound variables; two per entry, in slices.
+    for (var i = 0; i < rows.length; i += 400) {
+      final slice = rows.sublist(i, i + 400 > rows.length ? rows.length : i + 400);
+      _removeEntries(
+          List.filled(slice.length, '(device = ? AND dseq = ?)').join(' OR '),
+          [for (final e in slice) ...[e.device, e.dseq]]);
+    }
+    for (final e in rows) {
+      if (isRevertable(e.field) && hasConflict(e.entity, e.field)) {
+        resolveConflict(e.entity, e.field);
+      }
+    }
+    for (final hash in hashes) {
+      if (!_imageReferenced(hash)) _blobs.remove(hash);
+    }
+  }
+
   // ------------------------------------------------------------- conflicts
 
   /// Fields with unresolved concurrent edits, as (entity, field) pairs.
