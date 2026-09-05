@@ -1550,6 +1550,65 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Ces changements sont déjà dans ton catalogue. Refuser le remet comme il était.';
+
+  @override
+  String get summaryUpdated => 'Modifiés';
+
+  @override
+  String get summaryMeta => 'Également arrivé';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n changements',
+      one: '1 changement',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Accepter';
+
+  @override
+  String get rejectArrival => 'Refuser';
+
+  @override
+  String get photoAdded => 'Photo ajoutée';
+
+  @override
+  String get photoRemoved => 'Photo retirée';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nouveau champ : $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Champ modifié : $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser fusionné dans $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n photos',
+      one: '1 photo',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Mère';
 
   @override

@@ -1547,6 +1547,67 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Šīs izmaiņas jau ir jūsu katalogā. „Noraidīt” atgriež to iepriekšējā stāvoklī.';
+
+  @override
+  String get summaryUpdated => 'Atjaunināti';
+
+  @override
+  String get summaryMeta => 'Arī pienāca';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n izmaiņas',
+      one: '$n izmaiņa',
+      zero: '$n izmaiņu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Pieņemt';
+
+  @override
+  String get rejectArrival => 'Noraidīt';
+
+  @override
+  String get photoAdded => 'Pievienots fotoattēls';
+
+  @override
+  String get photoRemoved => 'Fotoattēls noņemts';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Jauns lauks: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Lauks mainīts: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser apvienots ar $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotoattēli',
+      one: '$n fotoattēls',
+      zero: '$n fotoattēlu',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Māte';
 
   @override

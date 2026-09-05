@@ -19,9 +19,12 @@ class SyncResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
+  /// The moment before [applied] went in — what Reject returns to.
+  final Moment? moment;
+
   const SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
       this.blobsReceived,
-      {this.applied = const []});
+      {this.applied = const [], this.moment});
 
   @override
   String toString() =>
@@ -86,7 +89,8 @@ class LanSyncHost {
 
   /// Called after a joiner completed a session; receives what actually
   /// landed, so the host can show the import summary too.
-  final void Function(List<Entry> applied)? onSession;
+  /// A joiner has synced: what arrived here, and the moment before it.
+  final void Function(List<Entry> applied, Moment? moment)? onSession;
 
   HttpServer? _server;
   final _failures = <String, int>{};
@@ -245,7 +249,7 @@ class LanSyncHost {
         final before = store.currentSeq();
         final applied =
             store.applyEntries(incoming, senderVector: joinerVector);
-        momentFor(store,
+        final moment = momentFor(store,
             before: before,
             changed: applied.isNotEmpty,
             cause: MomentCause.sync,
@@ -260,7 +264,7 @@ class LanSyncHost {
           'wantBlobs': store.missingBlobs(),
           'trust': ?issued,
         }));
-        onSession?.call(applied);
+        onSession?.call(applied, moment);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
         final bytes = store.imageBytes(path.substring('/blob/'.length));
         if (bytes == null) {
@@ -431,7 +435,7 @@ Future<SyncResult> lanSync(
     final beforeApply = store.currentSeq();
     final applied =
         store.applyEntries(received, senderVector: hostVector);
-    momentFor(store,
+    final moment = momentFor(store,
         before: beforeApply,
         changed: applied.isNotEmpty,
         cause: MomentCause.sync,
@@ -460,7 +464,7 @@ Future<SyncResult> lanSync(
       // Counted what landed; the rest waits for the next sync.
     }
     return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
-        applied: applied);
+        applied: applied, moment: moment);
   } finally {
     client.close(force: true);
   }

@@ -1545,6 +1545,65 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'De här ändringarna finns redan i din katalog. Avvisa återställer den som den var.';
+
+  @override
+  String get summaryUpdated => 'Uppdaterade';
+
+  @override
+  String get summaryMeta => 'Kom också';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ändringar',
+      one: '1 ändring',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Godkänn';
+
+  @override
+  String get rejectArrival => 'Avvisa';
+
+  @override
+  String get photoAdded => 'Foto tillagt';
+
+  @override
+  String get photoRemoved => 'Foto borttaget';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nytt fält: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Fält ändrat: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser sammanfogad med $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n foton',
+      one: '1 foto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Mamma';
 
   @override

@@ -1554,6 +1554,65 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Αυτές οι αλλαγές είναι ήδη στον κατάλογό σου. Η Απόρριψη τον επαναφέρει όπως ήταν.';
+
+  @override
+  String get summaryUpdated => 'Ενημερώθηκαν';
+
+  @override
+  String get summaryMeta => 'Έφτασαν επίσης';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n αλλαγές',
+      one: '1 αλλαγή',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Αποδοχή';
+
+  @override
+  String get rejectArrival => 'Απόρριψη';
+
+  @override
+  String get photoAdded => 'Προστέθηκε φωτογραφία';
+
+  @override
+  String get photoRemoved => 'Αφαιρέθηκε φωτογραφία';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Νέο πεδίο: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Πεδίο άλλαξε: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser συγχωνεύθηκε στο $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n φωτογραφίες',
+      one: '1 φωτογραφία',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Μητέρα';
 
   @override

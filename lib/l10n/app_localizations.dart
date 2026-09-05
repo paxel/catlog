@@ -2852,6 +2852,78 @@ abstract class AppLocalizations {
   /// **'…and {n} other changes'**
   String summaryOther(Object n);
 
+  /// No description provided for @arrivalIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'These changes are already in your catalog. Reject puts it back as it was.'**
+  String get arrivalIntro;
+
+  /// No description provided for @summaryUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated'**
+  String get summaryUpdated;
+
+  /// No description provided for @summaryMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'Also arrived'**
+  String get summaryMeta;
+
+  /// No description provided for @changesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 change} other{{n} changes}}'**
+  String changesCount(int n);
+
+  /// No description provided for @acceptArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get acceptArrival;
+
+  /// No description provided for @rejectArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get rejectArrival;
+
+  /// No description provided for @photoAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo added'**
+  String get photoAdded;
+
+  /// No description provided for @photoRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo removed'**
+  String get photoRemoved;
+
+  /// No description provided for @metaFieldAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'New field: {name}'**
+  String metaFieldAdded(String name);
+
+  /// No description provided for @metaFieldChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Field changed: {name}'**
+  String metaFieldChanged(String name);
+
+  /// No description provided for @metaMerged.
+  ///
+  /// In en, this message translates to:
+  /// **'{loser} merged into {survivor}'**
+  String metaMerged(String loser, String survivor);
+
+  /// No description provided for @metaPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 photo} other{{n} photos}}'**
+  String metaPhotos(int n);
+
   /// No description provided for @starterMother.
   ///
   /// In en, this message translates to:

@@ -1546,6 +1546,67 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Tyto změny už jsou v katalogu. Odmítnout ho vrátí do původního stavu.';
+
+  @override
+  String get summaryUpdated => 'Změněno';
+
+  @override
+  String get summaryMeta => 'Také dorazilo';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n změn',
+      few: '$n změny',
+      one: '1 změna',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Přijmout';
+
+  @override
+  String get rejectArrival => 'Odmítnout';
+
+  @override
+  String get photoAdded => 'Přidána fotka';
+
+  @override
+  String get photoRemoved => 'Fotka odebrána';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nové pole: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Pole změněno: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser sloučeno do $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotek',
+      few: '$n fotky',
+      one: '1 fotka',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Matka';
 
   @override

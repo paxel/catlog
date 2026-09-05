@@ -1547,6 +1547,67 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Ці зміни вже у вашому каталозі. «Відхилити» повертає його до попереднього стану.';
+
+  @override
+  String get summaryUpdated => 'Змінені';
+
+  @override
+  String get summaryMeta => 'Також надійшло';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n змін',
+      few: '$n зміни',
+      one: '$n зміна',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Прийняти';
+
+  @override
+  String get rejectArrival => 'Відхилити';
+
+  @override
+  String get photoAdded => 'Додано світлину';
+
+  @override
+  String get photoRemoved => 'Світлину вилучено';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Нове поле: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Поле змінено: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser об’єднано з $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n світлин',
+      few: '$n світлини',
+      one: '$n світлина',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Мати';
 
   @override

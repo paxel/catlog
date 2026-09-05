@@ -732,6 +732,23 @@
   "summaryNew": "New",
   "summaryConflicts": "Conflicts to resolve",
   "summaryOther": "…and {n} other changes",
+  "arrivalIntro": "These changes are already in your catalog. Reject puts it back as it was.",
+  "summaryUpdated": "Updated",
+  "summaryMeta": "Also arrived",
+  "changesCount": "{n, plural, one{1 change} other{{n} changes}}",
+  "@changesCount": {"placeholders": {"n": {"type": "int"}}},
+  "acceptArrival": "Accept",
+  "rejectArrival": "Reject",
+  "photoAdded": "Photo added",
+  "photoRemoved": "Photo removed",
+  "metaFieldAdded": "New field: {name}",
+  "@metaFieldAdded": {"placeholders": {"name": {"type": "String"}}},
+  "metaFieldChanged": "Field changed: {name}",
+  "@metaFieldChanged": {"placeholders": {"name": {"type": "String"}}},
+  "metaMerged": "{loser} merged into {survivor}",
+  "@metaMerged": {"placeholders": {"loser": {"type": "String"}, "survivor": {"type": "String"}}},
+  "metaPhotos": "{n, plural, one{1 photo} other{{n} photos}}",
+  "@metaPhotos": {"placeholders": {"n": {"type": "int"}}},
   "@summaryOther": {
     "placeholders": {
       "n": {}

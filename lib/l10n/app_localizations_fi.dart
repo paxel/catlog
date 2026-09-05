@@ -1548,6 +1548,65 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Nämä muutokset ovat jo luettelossasi. Hylkää palauttaa sen entiselleen.';
+
+  @override
+  String get summaryUpdated => 'Päivitetyt';
+
+  @override
+  String get summaryMeta => 'Saapui myös';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n muutosta',
+      one: '1 muutos',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Hyväksy';
+
+  @override
+  String get rejectArrival => 'Hylkää';
+
+  @override
+  String get photoAdded => 'Kuva lisätty';
+
+  @override
+  String get photoRemoved => 'Kuva poistettu';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Uusi kenttä: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Kenttä muuttui: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser yhdistetty kohteeseen $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n kuvaa',
+      one: '1 kuva',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Emo';
 
   @override

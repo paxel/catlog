@@ -1543,6 +1543,65 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Need muudatused on juba su kataloogis. Lükka tagasi taastab selle endisel kujul.';
+
+  @override
+  String get summaryUpdated => 'Muudetud';
+
+  @override
+  String get summaryMeta => 'Saabus ka';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n muudatust',
+      one: '1 muudatus',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Nõustu';
+
+  @override
+  String get rejectArrival => 'Lükka tagasi';
+
+  @override
+  String get photoAdded => 'Foto lisatud';
+
+  @override
+  String get photoRemoved => 'Foto eemaldatud';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Uus väli: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Väli muudetud: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser ühendatud kirjega $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotot',
+      one: '1 foto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Ema';
 
   @override

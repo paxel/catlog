@@ -1548,6 +1548,65 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Dawn il-bidliet diġà qegħdin fil-katalgu tiegħek. Irrifjuta jerġa’ jpoġġih kif kien.';
+
+  @override
+  String get summaryUpdated => 'Aġġornati';
+
+  @override
+  String get summaryMeta => 'Wasal ukoll';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n bidliet',
+      one: 'bidla waħda',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Aċċetta';
+
+  @override
+  String get rejectArrival => 'Irrifjuta';
+
+  @override
+  String get photoAdded => 'Ritratt miżjud';
+
+  @override
+  String get photoRemoved => 'Ritratt imneħħi';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Kamp ġdid: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Kamp mibdul: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser magħqud ma’ $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ritratti',
+      one: 'ritratt wieħed',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Omm';
 
   @override

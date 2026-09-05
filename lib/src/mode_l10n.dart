@@ -34,6 +34,9 @@ class ModeLocalizations implements AppLocalizations {
   String get aboutTaglineNeutral => base.aboutTaglineNeutral;
 
   @override
+  String get acceptArrival => base.acceptArrival;
+
+  @override
   String get addAppointment => base.addAppointment;
 
   @override
@@ -161,6 +164,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get archiveTitle => base.archiveTitle;
+
+  @override
+  String get arrivalIntro => base.arrivalIntro;
 
   @override
   String arrivedFrom(String cat, String place) => base.arrivedFrom(cat, place);
@@ -326,6 +332,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String changeSince(String delta, String date) => base.changeSince(delta, date);
+
+  @override
+  String changesCount(int n) => base.changesCount(n);
 
   @override
   String get chipScanHint => pets ? base.chipScanHintNeutral : base.chipScanHint;
@@ -1030,6 +1039,18 @@ class ModeLocalizations implements AppLocalizations {
   String mergeThisInto(String kind) => base.mergeThisInto(kind);
 
   @override
+  String metaFieldAdded(String name) => base.metaFieldAdded(name);
+
+  @override
+  String metaFieldChanged(String name) => base.metaFieldChanged(name);
+
+  @override
+  String metaMerged(String loser, String survivor) => base.metaMerged(loser, survivor);
+
+  @override
+  String metaPhotos(int n) => base.metaPhotos(n);
+
+  @override
   String metersApart(String distance) => base.metersApart(distance);
 
   @override
@@ -1246,6 +1267,12 @@ class ModeLocalizations implements AppLocalizations {
   String get phoneLabel => base.phoneLabel;
 
   @override
+  String get photoAdded => base.photoAdded;
+
+  @override
+  String get photoRemoved => base.photoRemoved;
+
+  @override
   String get photos => base.photos;
 
   @override
@@ -1328,6 +1355,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get recordSightingHere => base.recordSightingHere;
+
+  @override
+  String get rejectArrival => base.rejectArrival;
 
   @override
   String get rememberService => base.rememberService;
@@ -1771,10 +1801,16 @@ class ModeLocalizations implements AppLocalizations {
   String get summaryEscaped => base.summaryEscaped;
 
   @override
+  String get summaryMeta => base.summaryMeta;
+
+  @override
   String get summaryNew => base.summaryNew;
 
   @override
   String summaryOther(Object n) => base.summaryOther(n);
+
+  @override
+  String get summaryUpdated => base.summaryUpdated;
 
   @override
   String get switchBeforeDeleting => base.switchBeforeDeleting;

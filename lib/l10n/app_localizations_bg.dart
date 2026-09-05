@@ -1547,6 +1547,65 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Тези промени вече са в каталога ви. „Отхвърли“ го връща както беше.';
+
+  @override
+  String get summaryUpdated => 'Променени';
+
+  @override
+  String get summaryMeta => 'Също пристигна';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n промени',
+      one: '1 промяна',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Приеми';
+
+  @override
+  String get rejectArrival => 'Отхвърли';
+
+  @override
+  String get photoAdded => 'Добавена снимка';
+
+  @override
+  String get photoRemoved => 'Премахната снимка';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Ново поле: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Променено поле: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser обединено в $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n снимки',
+      one: '1 снимка',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Майка';
 
   @override

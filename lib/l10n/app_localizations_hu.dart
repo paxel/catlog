@@ -1547,6 +1547,65 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Ezek a változások már a katalógusodban vannak. Az Elutasítás visszaállítja a korábbi állapotot.';
+
+  @override
+  String get summaryUpdated => 'Módosítva';
+
+  @override
+  String get summaryMeta => 'Érkezett még';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n változás',
+      one: '1 változás',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Elfogadás';
+
+  @override
+  String get rejectArrival => 'Elutasítás';
+
+  @override
+  String get photoAdded => 'Fotó hozzáadva';
+
+  @override
+  String get photoRemoved => 'Fotó eltávolítva';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Új mező: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Mező módosítva: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser összevonva ezzel: $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotó',
+      one: '1 fotó',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Anya';
 
   @override

@@ -1542,6 +1542,53 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'این تغییرات از قبل در کاتالوگ شما هستند. «رد» آن را به حالت قبل برمی‌گرداند.';
+
+  @override
+  String get summaryUpdated => 'به‌روز شده';
+
+  @override
+  String get summaryMeta => 'همچنین رسید';
+
+  @override
+  String changesCount(int n) {
+    return '$n تغییر';
+  }
+
+  @override
+  String get acceptArrival => 'پذیرش';
+
+  @override
+  String get rejectArrival => 'رد';
+
+  @override
+  String get photoAdded => 'عکس افزوده شد';
+
+  @override
+  String get photoRemoved => 'عکس حذف شد';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'فیلد جدید: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'فیلد تغییر کرد: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser در $survivor ادغام شد';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    return '$n عکس';
+  }
+
+  @override
   String get starterMother => 'مادر';
 
   @override

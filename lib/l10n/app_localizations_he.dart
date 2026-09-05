@@ -1537,6 +1537,67 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'השינויים האלה כבר בקטלוג שלך. דחייה מחזירה אותו למה שהיה.';
+
+  @override
+  String get summaryUpdated => 'עודכנו';
+
+  @override
+  String get summaryMeta => 'הגיע גם';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n שינויים',
+      two: '$n שינויים',
+      one: 'שינוי אחד',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'אישור';
+
+  @override
+  String get rejectArrival => 'דחייה';
+
+  @override
+  String get photoAdded => 'תמונה נוספה';
+
+  @override
+  String get photoRemoved => 'תמונה הוסרה';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'שדה חדש: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'שדה שונה: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser מוזג לתוך $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n תמונות',
+      two: '$n תמונות',
+      one: 'תמונה אחת',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'אם';
 
   @override

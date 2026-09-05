@@ -1546,6 +1546,65 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Disse ændringer er allerede i dit katalog. Afvis sætter det tilbage, som det var.';
+
+  @override
+  String get summaryUpdated => 'Opdateret';
+
+  @override
+  String get summaryMeta => 'Også ankommet';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ændringer',
+      one: '1 ændring',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Acceptér';
+
+  @override
+  String get rejectArrival => 'Afvis';
+
+  @override
+  String get photoAdded => 'Foto tilføjet';
+
+  @override
+  String get photoRemoved => 'Foto fjernet';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nyt felt: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Felt ændret: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser flettet ind i $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotos',
+      one: '1 foto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Mor';
 
   @override

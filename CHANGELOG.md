@@ -20,6 +20,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   the switcher.
 - Deleting a catalog or a person's data asks you to type the word
   shown (DELETE, in your language) instead of the full name.
+- After a sync or import, a full page shows what arrived instead of a
+  sheet with "N other changes": new cats and homes, updated ones with
+  their effective changes (value before, value now), conflicts to
+  resolve on the spot, and what else came along (fields, merges,
+  photos). Accept keeps it; Reject puts the catalog back as it was.
+  In-person sync can be rejected too.
 
 ### Fixed
 

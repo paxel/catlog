@@ -1550,6 +1550,65 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Deze wijzigingen staan al in je catalogus. Afwijzen zet hem terug zoals hij was.';
+
+  @override
+  String get summaryUpdated => 'Gewijzigd';
+
+  @override
+  String get summaryMeta => 'Ook aangekomen';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n wijzigingen',
+      one: '1 wijziging',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Accepteren';
+
+  @override
+  String get rejectArrival => 'Afwijzen';
+
+  @override
+  String get photoAdded => 'Foto toegevoegd';
+
+  @override
+  String get photoRemoved => 'Foto verwijderd';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nieuw veld: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Veld gewijzigd: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser samengevoegd met $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n foto’s',
+      one: '1 foto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Moeder';
 
   @override

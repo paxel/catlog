@@ -1518,6 +1518,52 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro => 'これらの変更はすでにカタログに入っています。「拒否」で元の状態に戻します。';
+
+  @override
+  String get summaryUpdated => '更新';
+
+  @override
+  String get summaryMeta => 'その他の到着';
+
+  @override
+  String changesCount(int n) {
+    return '$n件の変更';
+  }
+
+  @override
+  String get acceptArrival => '受け入れる';
+
+  @override
+  String get rejectArrival => '拒否';
+
+  @override
+  String get photoAdded => '写真が追加されました';
+
+  @override
+  String get photoRemoved => '写真が削除されました';
+
+  @override
+  String metaFieldAdded(String name) {
+    return '新しい項目: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return '項目が変更されました: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser を $survivor に統合';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    return '$n枚の写真';
+  }
+
+  @override
   String get starterMother => '母';
 
   @override

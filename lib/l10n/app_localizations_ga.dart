@@ -1550,6 +1550,71 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Tá na hathruithe seo sa chatalóg agat cheana. Cuireann Diúltaigh ar ais mar a bhí é.';
+
+  @override
+  String get summaryUpdated => 'Nuashonraithe';
+
+  @override
+  String get summaryMeta => 'Tháinig freisin';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n athrú',
+      many: '$n n-athrú',
+      few: '$n athrú',
+      two: '$n athrú',
+      one: '1 athrú',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Glac';
+
+  @override
+  String get rejectArrival => 'Diúltaigh';
+
+  @override
+  String get photoAdded => 'Grianghraf curtha leis';
+
+  @override
+  String get photoRemoved => 'Grianghraf bainte';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Réimse nua: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Réimse athraithe: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser cumaiscthe isteach i $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n grianghraf',
+      many: '$n ngrianghraf',
+      few: '$n ghrianghraf',
+      two: '$n ghrianghraf',
+      one: '1 ghrianghraf',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Máthair';
 
   @override

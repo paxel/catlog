@@ -1546,6 +1546,69 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Te spremembe so že v vašem katalogu. Zavrni ga vrne v prejšnje stanje.';
+
+  @override
+  String get summaryUpdated => 'Spremenjeni';
+
+  @override
+  String get summaryMeta => 'Prispelo tudi';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n sprememb',
+      few: '$n spremembe',
+      two: '$n spremembi',
+      one: '$n sprememba',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Sprejmi';
+
+  @override
+  String get rejectArrival => 'Zavrni';
+
+  @override
+  String get photoAdded => 'Dodana fotografija';
+
+  @override
+  String get photoRemoved => 'Odstranjena fotografija';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Novo polje: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Spremenjeno polje: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser združeno v $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotografij',
+      few: '$n fotografije',
+      two: '$n fotografiji',
+      one: '$n fotografija',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Mati';
 
   @override

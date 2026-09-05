@@ -1501,6 +1501,52 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro => '这些更改已在你的目录中。拒绝会把它恢复原样。';
+
+  @override
+  String get summaryUpdated => '已更新';
+
+  @override
+  String get summaryMeta => '同时到达';
+
+  @override
+  String changesCount(int n) {
+    return '$n 项更改';
+  }
+
+  @override
+  String get acceptArrival => '接受';
+
+  @override
+  String get rejectArrival => '拒绝';
+
+  @override
+  String get photoAdded => '已添加照片';
+
+  @override
+  String get photoRemoved => '已移除照片';
+
+  @override
+  String metaFieldAdded(String name) {
+    return '新字段：$name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return '字段已更改：$name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser 已合并到 $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    return '$n 张照片';
+  }
+
+  @override
   String get starterMother => '母亲';
 
   @override

@@ -1545,6 +1545,65 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Bu değişiklikler kataloğunda zaten var. Reddet, onu eski hâline getirir.';
+
+  @override
+  String get summaryUpdated => 'Güncellenen';
+
+  @override
+  String get summaryMeta => 'Ayrıca gelenler';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n değişiklik',
+      one: '1 değişiklik',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Kabul et';
+
+  @override
+  String get rejectArrival => 'Reddet';
+
+  @override
+  String get photoAdded => 'Fotoğraf eklendi';
+
+  @override
+  String get photoRemoved => 'Fotoğraf kaldırıldı';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Yeni alan: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Alan değişti: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser, $survivor ile birleştirildi';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotoğraf',
+      one: '1 fotoğraf',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Anne';
 
   @override

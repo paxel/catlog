@@ -1549,6 +1549,65 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Þessar breytingar eru þegar í skránni þinni. Hafna setur hana aftur eins og hún var.';
+
+  @override
+  String get summaryUpdated => 'Uppfært';
+
+  @override
+  String get summaryMeta => 'Kom líka';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n breytingar',
+      one: '1 breyting',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Samþykkja';
+
+  @override
+  String get rejectArrival => 'Hafna';
+
+  @override
+  String get photoAdded => 'Mynd bætt við';
+
+  @override
+  String get photoRemoved => 'Mynd fjarlægð';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nýr reitur: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Reitur breyttur: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser sameinað við $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n myndir',
+      one: '1 mynd',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Móðir';
 
   @override

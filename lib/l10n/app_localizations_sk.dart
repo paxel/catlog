@@ -1544,6 +1544,67 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Tieto zmeny už sú v katalógu. Odmietnuť ho vráti do pôvodného stavu.';
+
+  @override
+  String get summaryUpdated => 'Zmenené';
+
+  @override
+  String get summaryMeta => 'Tiež prišlo';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n zmien',
+      few: '$n zmeny',
+      one: '1 zmena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Prijať';
+
+  @override
+  String get rejectArrival => 'Odmietnuť';
+
+  @override
+  String get photoAdded => 'Pridaná fotka';
+
+  @override
+  String get photoRemoved => 'Fotka odstránená';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Nové pole: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Pole zmenené: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser zlúčené do $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n fotiek',
+      few: '$n fotky',
+      one: '1 fotka',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Matka';
 
   @override

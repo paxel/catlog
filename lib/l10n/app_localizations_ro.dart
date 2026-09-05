@@ -1547,6 +1547,67 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Aceste schimbări sunt deja în catalogul tău. Respinge îl readuce cum era.';
+
+  @override
+  String get summaryUpdated => 'Actualizate';
+
+  @override
+  String get summaryMeta => 'A mai sosit';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n de schimbări',
+      few: '$n schimbări',
+      one: '1 schimbare',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Acceptă';
+
+  @override
+  String get rejectArrival => 'Respinge';
+
+  @override
+  String get photoAdded => 'Fotografie adăugată';
+
+  @override
+  String get photoRemoved => 'Fotografie eliminată';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Câmp nou: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Câmp modificat: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser unit cu $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n de fotografii',
+      few: '$n fotografii',
+      one: '1 fotografie',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Mamă';
 
   @override

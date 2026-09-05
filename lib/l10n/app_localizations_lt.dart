@@ -1547,6 +1547,67 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Šie pakeitimai jau jūsų kataloge. „Atmesti“ grąžina jį į buvusią būseną.';
+
+  @override
+  String get summaryUpdated => 'Atnaujinta';
+
+  @override
+  String get summaryMeta => 'Taip pat atkeliavo';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n pakeitimų',
+      few: '$n pakeitimai',
+      one: '$n pakeitimas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Priimti';
+
+  @override
+  String get rejectArrival => 'Atmesti';
+
+  @override
+  String get photoAdded => 'Pridėta nuotrauka';
+
+  @override
+  String get photoRemoved => 'Nuotrauka pašalinta';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Naujas laukas: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Laukas pakeistas: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser sujungta su $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n nuotraukų',
+      few: '$n nuotraukos',
+      one: '$n nuotrauka',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Motina';
 
   @override

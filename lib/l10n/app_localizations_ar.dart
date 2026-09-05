@@ -1541,6 +1541,71 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'هذه التغييرات موجودة بالفعل في الكتالوج. «رفض» يعيده كما كان.';
+
+  @override
+  String get summaryUpdated => 'محدَّثة';
+
+  @override
+  String get summaryMeta => 'وصل أيضًا';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n تغيير',
+      many: '$n تغييرًا',
+      few: '$n تغييرات',
+      two: 'تغييران',
+      one: 'تغيير واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'قبول';
+
+  @override
+  String get rejectArrival => 'رفض';
+
+  @override
+  String get photoAdded => 'أُضيفت صورة';
+
+  @override
+  String get photoRemoved => 'أُزيلت صورة';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'حقل جديد: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'تغيّر الحقل: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return 'دُمج $loser في $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n صورة',
+      many: '$n صورة',
+      few: '$n صور',
+      two: 'صورتان',
+      one: 'صورة واحدة',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'الأم';
 
   @override

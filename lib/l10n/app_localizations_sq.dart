@@ -1545,6 +1545,65 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Këto ndryshime janë tashmë në katalogun tënd. Refuzo e kthen siç ishte.';
+
+  @override
+  String get summaryUpdated => 'Të përditësuar';
+
+  @override
+  String get summaryMeta => 'Erdhi edhe';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ndryshime',
+      one: '1 ndryshim',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Prano';
+
+  @override
+  String get rejectArrival => 'Refuzo';
+
+  @override
+  String get photoAdded => 'Foto e shtuar';
+
+  @override
+  String get photoRemoved => 'Foto e hequr';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Fushë e re: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Fushë e ndryshuar: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser u bashkua me $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n foto',
+      one: '1 foto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Nëna';
 
   @override

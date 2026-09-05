@@ -1546,6 +1546,67 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get arrivalIntro =>
+      'Эти изменения уже в вашем каталоге. «Отклонить» вернёт его в прежнее состояние.';
+
+  @override
+  String get summaryUpdated => 'Изменены';
+
+  @override
+  String get summaryMeta => 'Также пришло';
+
+  @override
+  String changesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n изменений',
+      few: '$n изменения',
+      one: '$n изменение',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get acceptArrival => 'Принять';
+
+  @override
+  String get rejectArrival => 'Отклонить';
+
+  @override
+  String get photoAdded => 'Добавлена фотография';
+
+  @override
+  String get photoRemoved => 'Фотография удалена';
+
+  @override
+  String metaFieldAdded(String name) {
+    return 'Новое поле: $name';
+  }
+
+  @override
+  String metaFieldChanged(String name) {
+    return 'Поле изменено: $name';
+  }
+
+  @override
+  String metaMerged(String loser, String survivor) {
+    return '$loser объединено с $survivor';
+  }
+
+  @override
+  String metaPhotos(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n фотографий',
+      few: '$n фотографии',
+      one: '$n фотография',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get starterMother => 'Мать';
 
   @override
