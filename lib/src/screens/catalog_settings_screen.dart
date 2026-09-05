@@ -64,6 +64,10 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
   /// The catalog is being written out before deletion; taps wait.
   bool _deleting = false;
 
+  /// The catalog is gone and its store closed: nothing here may touch
+  /// the database again while the page slides away.
+  bool _closed = false;
+
   bool get _isActive => widget.catalog.id == widget.catalogs.active.id;
 
   CatalogInfo get _catalog =>
@@ -80,7 +84,7 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
 
   @override
   void dispose() {
-    if (_ownStore) _store.close();
+    if (_ownStore && !_closed) _store.close();
     super.dispose();
   }
 
@@ -156,6 +160,11 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       final save = widget.saveTo ?? saveBesideBackups;
       final where = await save(file, name);
       tmp.deleteSync(recursive: true);
+      // The database closes before its folder goes: an open file keeps
+      // the folder alive on some systems, and nothing on this page reads
+      // the store from here on.
+      if (_ownStore) _store.close();
+      _closed = true;
       widget.catalogs.delete(catalog.id);
       widget.onChanged?.call();
       if (!mounted) return;
@@ -173,7 +182,7 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(t.catalogExportFailed('$e'))));
     } finally {
-      if (mounted) setState(() => _deleting = false);
+      if (mounted && !_closed) setState(() => _deleting = false);
     }
   }
 
@@ -186,6 +195,7 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
   Widget build(BuildContext context) {
     final t = context.t;
     final catalog = _catalog;
+    if (_closed) return Scaffold(appBar: AppBar(title: Text(catalog.name)));
     final usage = _store.storageUsage();
     final danger = Theme.of(context).colorScheme.error;
     return Scaffold(

@@ -263,7 +263,9 @@ void main() {
       await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
 
-      // The page of the deleted catalog is gone; the list is back.
+      // The page of the deleted catalog is gone without touching the
+      // deleted database again; the list is back.
+      expect(tester.takeException(), isNull);
       expect(find.text('Catalogs'), findsOneWidget);
       expect(catalogs.catalogs().map((c) => c.name), ['Berlin']);
       expect(paris.dir.existsSync(), isFalse);
