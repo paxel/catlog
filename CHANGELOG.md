@@ -13,6 +13,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A history button on a cat's or home's field once it has held two or
   more values (and has no graph): the values as a diary, newest first,
   with date and author. Reverting stays on the edit-mode timeline.
+- Location fields you add yourself pin on the map, as a neutral pin
+  with the field's name. Every location has a trail: tap a pin, or
+  open the map from the field's row; the dots along the trail show
+  date and author when tapped. Homes have trails too.
 
 ### Changed
 
@@ -29,6 +33,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   the switcher.
 - Deleting a catalog or a person's data asks you to type the word
   shown (DELETE, in your language) instead of the full name.
+- Map pins point at their spot: a tip under the face sits on the exact
+  coordinate, for cats, posters, homes and grouped pins alike.
 - After a sync or import, a full page shows what arrived instead of a
   sheet with "N other changes": new cats and homes, updated ones with
   their effective changes (value before, value now), conflicts to

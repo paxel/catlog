@@ -175,7 +175,7 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
     setState(() {});
   }
 
-  void _showOnMap(String value) {
+  void _showOnMap(FieldDef def, String value) {
     final pos = CatalogStore.parsePosition(value);
     if (pos == null) return;
     Navigator.of(context).push(
@@ -184,8 +184,9 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           store: store,
           initialCenter: LatLng(pos.$1, pos.$2),
           // The spot the page asked for gets a pin, whatever the map's
-          // own rules say (#88).
+          // own rules say (#88) — and its trail, once there is one.
           focus: (id, LatLng(pos.$1, pos.$2)),
+          trailOf: hasValueHistory(store, id, def.key) ? (id, def.key) : null,
         ),
       ),
     );

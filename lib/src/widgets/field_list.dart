@@ -20,7 +20,7 @@ class FieldList extends StatelessWidget {
   final void Function(FieldDef def) onEdit;
   final Future<void> Function(FieldDef def) onConflict;
   final void Function(FieldDef def) onHistory;
-  final void Function(String value) onShowMap;
+  final void Function(FieldDef def, String value) onShowMap;
 
   /// Opens the registry page of an ID field that has a lookup URL.
   final void Function(FieldDef def, String value)? onLookup;
@@ -130,7 +130,7 @@ class FieldList extends StatelessWidget {
                   ? IconButton(
                       icon: const Icon(Icons.map_outlined),
                       tooltip: context.t.showOnMap,
-                      onPressed: () => onShowMap(value),
+                      onPressed: () => onShowMap(def, value),
                     )
                   : lookup
                       ? IconButton(
