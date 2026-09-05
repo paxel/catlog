@@ -270,6 +270,8 @@ class _CatlogAppState extends State<CatlogApp>
       valueListenable: localeOverride,
       builder: (context, locale, _) => MaterialApp(
         navigatorKey: navigatorKey,
+        // The fur ground follows each page's own scroll position.
+        navigatorObservers: [furScroll],
         title: 'cat(a)log',
         // Desktop keyboard manners: Ctrl+F search, Ctrl+K sync,
         // Ctrl+B backup now, Esc back. Arrows/Enter come from Flutter's
