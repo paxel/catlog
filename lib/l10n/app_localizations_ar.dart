@@ -2396,6 +2396,81 @@ class AppLocalizationsAr extends AppLocalizations {
   String get planChooserReminder => 'تذكير — قيمة تستحق في يوم ما';
 
   @override
+  String get planChooserChore => 'مهمة — شيء يتكرر: إطعام، قطرات، رمل';
+
+  @override
+  String get newChore => 'مهمة جديدة';
+
+  @override
+  String get choreEdit => 'تعديل المهمة';
+
+  @override
+  String get choreTitleLabel => 'ماذا';
+
+  @override
+  String get choreRepeatDaily => 'يوميًا';
+
+  @override
+  String get choreRepeatEvery => 'كل…';
+
+  @override
+  String get choreRepeatWeekdays => 'أيام';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n يوم',
+      many: 'كل $n يومًا',
+      few: 'كل $n أيام',
+      two: 'كل يومين',
+      one: 'كل يوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'في أي وقت من اليوم';
+
+  @override
+  String get chorePause => 'إيقاف مؤقت';
+
+  @override
+  String get choreResume => 'استئناف';
+
+  @override
+  String get choreEnd => 'إنهاء المهمة';
+
+  @override
+  String get todaySection => 'اليوم';
+
+  @override
+  String get upcomingSection => 'قريبًا';
+
+  @override
+  String get allDoneToday => 'اليوم: كل شيء تم';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n يوم متتالٍ',
+      many: '$n يومًا متتاليًا',
+      few: '$n أيام متتالية',
+      two: 'يومان متتاليان',
+      one: 'يوم واحد متتالٍ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'موعده $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'ماذا';
 
   @override

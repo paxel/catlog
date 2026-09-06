@@ -2389,6 +2389,76 @@ class AppLocalizationsFi extends AppLocalizations {
       'Muistutus — arvo, joka erääntyy tiettynä päivänä';
 
   @override
+  String get planChooserChore =>
+      'Askare — jokin, joka toistuu: ruokinta, tipat, hiekkalaatikko';
+
+  @override
+  String get newChore => 'Uusi askare';
+
+  @override
+  String get choreEdit => 'Muokkaa askaretta';
+
+  @override
+  String get choreTitleLabel => 'Mitä';
+
+  @override
+  String get choreRepeatDaily => 'Päivittäin';
+
+  @override
+  String get choreRepeatEvery => 'Joka…';
+
+  @override
+  String get choreRepeatWeekdays => 'Viikonpäivät';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. päivä',
+      one: 'joka päivä',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Mihin aikaan vain';
+
+  @override
+  String get chorePause => 'Keskeytä';
+
+  @override
+  String get choreResume => 'Jatka';
+
+  @override
+  String get choreEnd => 'Lopeta askare';
+
+  @override
+  String get todaySection => 'Tänään';
+
+  @override
+  String get upcomingSection => 'Tulossa';
+
+  @override
+  String get allDoneToday => 'Tänään: kaikki tehty';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n päivää putkeen',
+      one: '1 päivä putkeen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Vuorossa $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mitä';
 
   @override

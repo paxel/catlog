@@ -2387,6 +2387,76 @@ class AppLocalizationsSq extends AppLocalizations {
       'Përkujtues — një vlerë që bëhet e detyrueshme një ditë';
 
   @override
+  String get planChooserChore =>
+      'Detyrë — diçka që përsëritet: ushqim, pika, kuti';
+
+  @override
+  String get newChore => 'Detyrë e re';
+
+  @override
+  String get choreEdit => 'Ndrysho detyrën';
+
+  @override
+  String get choreTitleLabel => 'Çfarë';
+
+  @override
+  String get choreRepeatDaily => 'Çdo ditë';
+
+  @override
+  String get choreRepeatEvery => 'Çdo…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ditë';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n ditë',
+      one: 'çdo ditë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Në çdo orë të ditës';
+
+  @override
+  String get chorePause => 'Pusho';
+
+  @override
+  String get choreResume => 'Vazhdo';
+
+  @override
+  String get choreEnd => 'Përfundo detyrën';
+
+  @override
+  String get todaySection => 'Sot';
+
+  @override
+  String get upcomingSection => 'Së shpejti';
+
+  @override
+  String get allDoneToday => 'Sot: gjithçka u bë';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ditë radhazi',
+      one: '1 ditë radhazi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Afati $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Çfarë';
 
   @override

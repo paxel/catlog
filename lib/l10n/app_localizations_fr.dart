@@ -2395,6 +2395,76 @@ class AppLocalizationsFr extends AppLocalizations {
       'Rappel — une valeur qui arrive à échéance un jour';
 
   @override
+  String get planChooserChore =>
+      'Tâche — quelque chose qui revient : nourrir, gouttes, litière';
+
+  @override
+  String get newChore => 'Nouvelle tâche';
+
+  @override
+  String get choreEdit => 'Modifier la tâche';
+
+  @override
+  String get choreTitleLabel => 'Quoi';
+
+  @override
+  String get choreRepeatDaily => 'Chaque jour';
+
+  @override
+  String get choreRepeatEvery => 'Tous les…';
+
+  @override
+  String get choreRepeatWeekdays => 'Jours';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'tous les $n jours',
+      one: 'chaque jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'À n’importe quelle heure';
+
+  @override
+  String get chorePause => 'Suspendre';
+
+  @override
+  String get choreResume => 'Reprendre';
+
+  @override
+  String get choreEnd => 'Terminer la tâche';
+
+  @override
+  String get todaySection => 'Aujourd’hui';
+
+  @override
+  String get upcomingSection => 'À venir';
+
+  @override
+  String get allDoneToday => 'Aujourd’hui : tout est fait';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n jours d’affilée',
+      one: '1 jour d’affilée',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Prévu $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Quoi';
 
   @override

@@ -2388,6 +2388,76 @@ class AppLocalizationsHu extends AppLocalizations {
       'Emlékeztető — egy érték, amely egy napon esedékes lesz';
 
   @override
+  String get planChooserChore =>
+      'Teendő — ami visszatér: etetés, cseppek, alom';
+
+  @override
+  String get newChore => 'Új teendő';
+
+  @override
+  String get choreEdit => 'Teendő szerkesztése';
+
+  @override
+  String get choreTitleLabel => 'Mit';
+
+  @override
+  String get choreRepeatDaily => 'Naponta';
+
+  @override
+  String get choreRepeatEvery => 'Minden…';
+
+  @override
+  String get choreRepeatWeekdays => 'Napok';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n naponta',
+      one: 'minden nap',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Bármikor napközben';
+
+  @override
+  String get chorePause => 'Szünet';
+
+  @override
+  String get choreResume => 'Folytatás';
+
+  @override
+  String get choreEnd => 'Teendő lezárása';
+
+  @override
+  String get todaySection => 'Ma';
+
+  @override
+  String get upcomingSection => 'Hamarosan';
+
+  @override
+  String get allDoneToday => 'Ma: minden kész';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n nap egymás után',
+      one: '1 nap egymás után',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Esedékes: $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mi';
 
   @override

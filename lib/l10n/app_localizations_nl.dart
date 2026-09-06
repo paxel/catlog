@@ -2392,6 +2392,76 @@ class AppLocalizationsNl extends AppLocalizations {
       'Herinnering — een waarde die op een dag verschuldigd wordt';
 
   @override
+  String get planChooserChore =>
+      'Taak — iets dat terugkomt: voeren, druppels, kattenbak';
+
+  @override
+  String get newChore => 'Nieuwe taak';
+
+  @override
+  String get choreEdit => 'Taak bewerken';
+
+  @override
+  String get choreTitleLabel => 'Wat';
+
+  @override
+  String get choreRepeatDaily => 'Dagelijks';
+
+  @override
+  String get choreRepeatEvery => 'Elke…';
+
+  @override
+  String get choreRepeatWeekdays => 'Weekdagen';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'elke $n dagen',
+      one: 'elke dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Op elk moment van de dag';
+
+  @override
+  String get chorePause => 'Pauzeren';
+
+  @override
+  String get choreResume => 'Hervatten';
+
+  @override
+  String get choreEnd => 'Taak beëindigen';
+
+  @override
+  String get todaySection => 'Vandaag';
+
+  @override
+  String get upcomingSection => 'Binnenkort';
+
+  @override
+  String get allDoneToday => 'Vandaag: alles gedaan';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dagen op rij',
+      one: '1 dag op rij',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Gepland $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Wat';
 
   @override

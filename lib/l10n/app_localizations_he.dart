@@ -2378,6 +2378,77 @@ class AppLocalizationsHe extends AppLocalizations {
   String get planChooserReminder => 'תזכורת — ערך שמגיע מועדו ביום מסוים';
 
   @override
+  String get planChooserChore => 'מטלה — משהו שחוזר: האכלה, טיפות, ארגז חול';
+
+  @override
+  String get newChore => 'מטלה חדשה';
+
+  @override
+  String get choreEdit => 'עריכת מטלה';
+
+  @override
+  String get choreTitleLabel => 'מה';
+
+  @override
+  String get choreRepeatDaily => 'יומי';
+
+  @override
+  String get choreRepeatEvery => 'כל…';
+
+  @override
+  String get choreRepeatWeekdays => 'ימים';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'כל $n ימים',
+      two: 'כל יומיים',
+      one: 'כל יום',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'בכל שעה ביום';
+
+  @override
+  String get chorePause => 'השהיה';
+
+  @override
+  String get choreResume => 'המשך';
+
+  @override
+  String get choreEnd => 'סיום מטלה';
+
+  @override
+  String get todaySection => 'היום';
+
+  @override
+  String get upcomingSection => 'בקרוב';
+
+  @override
+  String get allDoneToday => 'היום: הכול בוצע';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ימים ברצף',
+      two: 'יומיים ברצף',
+      one: 'יום אחד ברצף',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'מועד $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'מה';
 
   @override

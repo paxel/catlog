@@ -2272,6 +2272,63 @@ class AppLocalizationsZh extends AppLocalizations {
   String get planChooserReminder => '提醒——在某一天到期的值';
 
   @override
+  String get planChooserChore => '日常任务 — 会重复的事：喂食、滴药、猫砂';
+
+  @override
+  String get newChore => '新任务';
+
+  @override
+  String get choreEdit => '编辑任务';
+
+  @override
+  String get choreTitleLabel => '内容';
+
+  @override
+  String get choreRepeatDaily => '每天';
+
+  @override
+  String get choreRepeatEvery => '每隔…';
+
+  @override
+  String get choreRepeatWeekdays => '星期';
+
+  @override
+  String choreEveryDays(int n) {
+    return '每 $n 天';
+  }
+
+  @override
+  String get choreNoTime => '一天中任何时间';
+
+  @override
+  String get chorePause => '暂停';
+
+  @override
+  String get choreResume => '继续';
+
+  @override
+  String get choreEnd => '结束任务';
+
+  @override
+  String get todaySection => '今天';
+
+  @override
+  String get upcomingSection => '即将到来';
+
+  @override
+  String get allDoneToday => '今天：全部完成';
+
+  @override
+  String streakDays(int n) {
+    return '连续 $n 天';
+  }
+
+  @override
+  String choreDue(String date) {
+    return '到期 $date';
+  }
+
+  @override
   String get appointmentTitleLabel => '事项';
 
   @override

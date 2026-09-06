@@ -2391,6 +2391,78 @@ class AppLocalizationsSr extends AppLocalizations {
       'Подсетник — вредност која доспева одређеног дана';
 
   @override
+  String get planChooserChore =>
+      'Задатак — нешто што се понавља: храњење, капи, песак';
+
+  @override
+  String get newChore => 'Нови задатак';
+
+  @override
+  String get choreEdit => 'Уреди задатак';
+
+  @override
+  String get choreTitleLabel => 'Шта';
+
+  @override
+  String get choreRepeatDaily => 'Свакодневно';
+
+  @override
+  String get choreRepeatEvery => 'Сваких…';
+
+  @override
+  String get choreRepeatWeekdays => 'Дани';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'сваких $n дана',
+      few: 'свака $n дана',
+      one: 'сваки дан',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Било када у току дана';
+
+  @override
+  String get chorePause => 'Пауза';
+
+  @override
+  String get choreResume => 'Настави';
+
+  @override
+  String get choreEnd => 'Заврши задатак';
+
+  @override
+  String get todaySection => 'Данас';
+
+  @override
+  String get upcomingSection => 'Ускоро';
+
+  @override
+  String get allDoneToday => 'Данас: све урађено';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n дана заредом',
+      few: '$n дана заредом',
+      one: '$n дан заредом',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Рок $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Шта';
 
   @override

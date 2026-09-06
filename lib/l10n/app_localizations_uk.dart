@@ -2396,6 +2396,78 @@ class AppLocalizationsUk extends AppLocalizations {
       'Нагадування — значення, що настає певного дня';
 
   @override
+  String get planChooserChore =>
+      'Справа — те, що повторюється: годування, краплі, лоток';
+
+  @override
+  String get newChore => 'Нова справа';
+
+  @override
+  String get choreEdit => 'Змінити справу';
+
+  @override
+  String get choreTitleLabel => 'Що';
+
+  @override
+  String get choreRepeatDaily => 'Щодня';
+
+  @override
+  String get choreRepeatEvery => 'Кожні…';
+
+  @override
+  String get choreRepeatWeekdays => 'Дні тижня';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n днів',
+      few: 'кожні $n дні',
+      one: 'щодня',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Будь-коли протягом дня';
+
+  @override
+  String get chorePause => 'Призупинити';
+
+  @override
+  String get choreResume => 'Відновити';
+
+  @override
+  String get choreEnd => 'Завершити справу';
+
+  @override
+  String get todaySection => 'Сьогодні';
+
+  @override
+  String get upcomingSection => 'Незабаром';
+
+  @override
+  String get allDoneToday => 'Сьогодні: усе зроблено';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n днів поспіль',
+      few: '$n дні поспіль',
+      one: '$n день поспіль',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Термін $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Що';
 
   @override

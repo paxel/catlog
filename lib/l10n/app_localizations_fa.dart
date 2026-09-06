@@ -2362,6 +2362,64 @@ class AppLocalizationsFa extends AppLocalizations {
   String get planChooserReminder => 'یادآور — مقداری که در روزی سررسید می‌شود';
 
   @override
+  String get planChooserChore =>
+      'کار روزمره — چیزی که تکرار می‌شود: غذا، قطره، خاک';
+
+  @override
+  String get newChore => 'کار جدید';
+
+  @override
+  String get choreEdit => 'ویرایش کار';
+
+  @override
+  String get choreTitleLabel => 'چه';
+
+  @override
+  String get choreRepeatDaily => 'هر روز';
+
+  @override
+  String get choreRepeatEvery => 'هر…';
+
+  @override
+  String get choreRepeatWeekdays => 'روزها';
+
+  @override
+  String choreEveryDays(int n) {
+    return 'هر $n روز';
+  }
+
+  @override
+  String get choreNoTime => 'هر ساعتی از روز';
+
+  @override
+  String get chorePause => 'توقف موقت';
+
+  @override
+  String get choreResume => 'ادامه';
+
+  @override
+  String get choreEnd => 'پایان کار';
+
+  @override
+  String get todaySection => 'امروز';
+
+  @override
+  String get upcomingSection => 'به‌زودی';
+
+  @override
+  String get allDoneToday => 'امروز: همه انجام شد';
+
+  @override
+  String streakDays(int n) {
+    return '$n روز پیاپی';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'موعد $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'چه';
 
   @override

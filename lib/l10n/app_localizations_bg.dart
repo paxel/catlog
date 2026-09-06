@@ -2387,6 +2387,76 @@ class AppLocalizationsBg extends AppLocalizations {
       'Напомняне — стойност, която става дължима в определен ден';
 
   @override
+  String get planChooserChore =>
+      'Задача — нещо, което се повтаря: хранене, капки, тоалетна';
+
+  @override
+  String get newChore => 'Нова задача';
+
+  @override
+  String get choreEdit => 'Промяна на задачата';
+
+  @override
+  String get choreTitleLabel => 'Какво';
+
+  @override
+  String get choreRepeatDaily => 'Всеки ден';
+
+  @override
+  String get choreRepeatEvery => 'На всеки…';
+
+  @override
+  String get choreRepeatWeekdays => 'Дни';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'на всеки $n дни',
+      one: 'всеки ден',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'По всяко време на деня';
+
+  @override
+  String get chorePause => 'Пауза';
+
+  @override
+  String get choreResume => 'Продължи';
+
+  @override
+  String get choreEnd => 'Край на задачата';
+
+  @override
+  String get todaySection => 'Днес';
+
+  @override
+  String get upcomingSection => 'Скоро';
+
+  @override
+  String get allDoneToday => 'Днес: всичко е готово';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n дни поред',
+      one: '1 ден поред',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Срок $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Какво';
 
   @override

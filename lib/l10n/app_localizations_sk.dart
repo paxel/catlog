@@ -2390,6 +2390,78 @@ class AppLocalizationsSk extends AppLocalizations {
       'Pripomienka — hodnota, ktorá je v určitý deň na rade';
 
   @override
+  String get planChooserChore =>
+      'Úloha — niečo, čo sa vracia: kŕmenie, kvapky, záchod';
+
+  @override
+  String get newChore => 'Nová úloha';
+
+  @override
+  String get choreEdit => 'Upraviť úlohu';
+
+  @override
+  String get choreTitleLabel => 'Čo';
+
+  @override
+  String get choreRepeatDaily => 'Denne';
+
+  @override
+  String get choreRepeatEvery => 'Každých…';
+
+  @override
+  String get choreRepeatWeekdays => 'Dni v týždni';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'každých $n dní',
+      few: 'každé $n dni',
+      one: 'každý deň',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Kedykoľvek počas dňa';
+
+  @override
+  String get chorePause => 'Pozastaviť';
+
+  @override
+  String get choreResume => 'Pokračovať';
+
+  @override
+  String get choreEnd => 'Ukončiť úlohu';
+
+  @override
+  String get todaySection => 'Dnes';
+
+  @override
+  String get upcomingSection => 'Čoskoro';
+
+  @override
+  String get allDoneToday => 'Dnes: všetko hotové';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dní v rade',
+      few: '$n dni v rade',
+      one: '1 deň v rade',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termín $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Čo';
 
   @override

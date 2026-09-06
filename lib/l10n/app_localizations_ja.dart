@@ -2304,6 +2304,63 @@ class AppLocalizationsJa extends AppLocalizations {
   String get planChooserReminder => 'リマインダー — ある日に期日となる値';
 
   @override
+  String get planChooserChore => '日課 — 繰り返す作業: 給餌、点眼、トイレ';
+
+  @override
+  String get newChore => '新しい日課';
+
+  @override
+  String get choreEdit => '日課を編集';
+
+  @override
+  String get choreTitleLabel => '内容';
+
+  @override
+  String get choreRepeatDaily => '毎日';
+
+  @override
+  String get choreRepeatEvery => 'n日ごと';
+
+  @override
+  String get choreRepeatWeekdays => '曜日';
+
+  @override
+  String choreEveryDays(int n) {
+    return '$n日ごと';
+  }
+
+  @override
+  String get choreNoTime => '時刻は問わない';
+
+  @override
+  String get chorePause => '一時停止';
+
+  @override
+  String get choreResume => '再開';
+
+  @override
+  String get choreEnd => '日課を終了';
+
+  @override
+  String get todaySection => '今日';
+
+  @override
+  String get upcomingSection => '近日';
+
+  @override
+  String get allDoneToday => '今日: すべて完了';
+
+  @override
+  String streakDays(int n) {
+    return '$n日連続';
+  }
+
+  @override
+  String choreDue(String date) {
+    return '予定 $date';
+  }
+
+  @override
   String get appointmentTitleLabel => '内容';
 
   @override

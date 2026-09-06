@@ -2394,6 +2394,76 @@ class AppLocalizationsMt extends AppLocalizations {
   String get planChooserReminder => 'Tfakkira — valur li jsir dovut f\'ġurnata';
 
   @override
+  String get planChooserChore =>
+      'Xogħol — xi ħaġa li terġa’ tiġi: ikel, qtar, ramel';
+
+  @override
+  String get newChore => 'Xogħol ġdid';
+
+  @override
+  String get choreEdit => 'Editja x-xogħol';
+
+  @override
+  String get choreTitleLabel => 'X’hiex';
+
+  @override
+  String get choreRepeatDaily => 'Kuljum';
+
+  @override
+  String get choreRepeatEvery => 'Kull…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ġranet';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n ijiem',
+      one: 'kuljum',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Fi kwalunkwe ħin tal-ġurnata';
+
+  @override
+  String get chorePause => 'Waqqaf';
+
+  @override
+  String get choreResume => 'Kompli';
+
+  @override
+  String get choreEnd => 'Temm ix-xogħol';
+
+  @override
+  String get todaySection => 'Illum';
+
+  @override
+  String get upcomingSection => 'Dalwaqt';
+
+  @override
+  String get allDoneToday => 'Illum: kollox lest';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n ijiem wara xulxin',
+      one: 'ġurnata waħda wara l-oħra',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Sad-data $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'X\'inhu';
 
   @override

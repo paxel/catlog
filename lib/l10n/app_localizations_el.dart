@@ -2397,6 +2397,76 @@ class AppLocalizationsEl extends AppLocalizations {
   String get planChooserReminder => 'Υπενθύμιση — μια τιμή που λήγει μια μέρα';
 
   @override
+  String get planChooserChore =>
+      'Δουλειά — κάτι που επαναλαμβάνεται: τάισμα, σταγόνες, άμμος';
+
+  @override
+  String get newChore => 'Νέα δουλειά';
+
+  @override
+  String get choreEdit => 'Επεξεργασία δουλειάς';
+
+  @override
+  String get choreTitleLabel => 'Τι';
+
+  @override
+  String get choreRepeatDaily => 'Καθημερινά';
+
+  @override
+  String get choreRepeatEvery => 'Κάθε…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ημέρες';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'κάθε $n μέρες',
+      one: 'κάθε μέρα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Οποιαδήποτε ώρα';
+
+  @override
+  String get chorePause => 'Παύση';
+
+  @override
+  String get choreResume => 'Συνέχεια';
+
+  @override
+  String get choreEnd => 'Τέλος δουλειάς';
+
+  @override
+  String get todaySection => 'Σήμερα';
+
+  @override
+  String get upcomingSection => 'Προσεχώς';
+
+  @override
+  String get allDoneToday => 'Σήμερα: όλα έγιναν';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n μέρες συνεχόμενα',
+      one: '1 μέρα συνεχόμενα',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Έως $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Τι';
 
   @override

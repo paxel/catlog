@@ -22,6 +22,8 @@ import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
+import '../celebration.dart';
+import '../widgets/chore_row.dart';
 
 /// The agenda auto-opens once per app run when something is due within
 /// [agendaAutoOpenWindow]; this remembers that it already did.
@@ -252,10 +254,57 @@ class _AgendaScreenState extends State<AgendaScreen> {
     mirrorAfterChange(context, store, port: widget.calendarPort);
   }
 
+  /// The chores due today and the ones due in the coming week, from the
+  /// active chores of every cat and home.
+  ({List<Chore> today, List<(Chore, DateTime)> upcoming}) _chores(
+      DateTime today) {
+    final active = [for (final c in store.allChores()) if (c.active) c];
+    int byTime(Chore a, Chore b) {
+      final ta = a.time == null ? 1441 : a.time!.hour * 60 + a.time!.minute;
+      final tb = b.time == null ? 1441 : b.time!.hour * 60 + b.time!.minute;
+      final t = ta.compareTo(tb);
+      return t != 0 ? t : a.title.toLowerCase().compareTo(b.title.toLowerCase());
+    }
+
+    final due = [
+      for (final c in active)
+        if (isDueOn(c, store.choreTicks(c), today)) c
+    ]..sort(byTime);
+    final soon = <(Chore, DateTime)>[
+      for (final c in active)
+        for (final day in upcoming(c, store.choreTicks(c), today).take(1))
+          (c, day)
+    ]..sort((a, b) => a.$2.compareTo(b.$2));
+    return (today: due, upcoming: soon);
+  }
+
+  /// After a tick: the day's chores all done, once per day, is worth a
+  /// cheer.
+  void _choreChanged() {
+    final today = DateUtils.dateOnly(DateTime.now());
+    final due = _chores(today).today;
+    final allDone = due.isNotEmpty &&
+        due.every((c) => store.choreTicks(c).containsKey(today));
+    if (allDone && store.localSetting('choresCelebrated') != dayKey(today)) {
+      store.setLocalSetting('choresCelebrated', dayKey(today));
+      celebrate(context, store);
+    }
+    setState(() {});
+  }
+
+  Widget _header(String text) => Padding(
+        padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
+        child: Text(text, style: Theme.of(context).textTheme.titleSmall),
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
     final items = agendaItems(store);
+    final today = DateUtils.dateOnly(DateTime.now());
+    final chores = _chores(today);
+    final allDone = chores.today.isNotEmpty &&
+        chores.today.every((c) => store.choreTicks(c).containsKey(today));
     return Scaffold(
       appBar: roomyAppBar(
         context,
@@ -300,7 +349,34 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 onChanged: (_) => _toggleMirror(),
               ),
             ),
-          if (items.isEmpty)
+          if (chores.today.isNotEmpty) ...[
+            _header(allDone ? t.allDoneToday : t.todaySection),
+            for (final c in chores.today)
+              ChoreRow(
+                store: store,
+                chore: c,
+                due: today,
+                today: today,
+                onChanged: _choreChanged,
+                onOpen: () => _openEntity(c.entity),
+              ),
+          ],
+          if (chores.upcoming.isNotEmpty) ...[
+            _header(t.upcomingSection),
+            for (final (c, day) in chores.upcoming)
+              ChoreRow(
+                store: store,
+                chore: c,
+                due: day,
+                today: today,
+                onChanged: _choreChanged,
+                onOpen: () => _openEntity(c.entity),
+              ),
+          ],
+          if (items.isNotEmpty &&
+              (chores.today.isNotEmpty || chores.upcoming.isNotEmpty))
+            _header(t.plannedSection),
+          if (items.isEmpty && chores.today.isEmpty && chores.upcoming.isEmpty)
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(t.agendaEmpty),

@@ -2385,6 +2385,76 @@ class AppLocalizationsEt extends AppLocalizations {
       'Meeldetuletus — väärtus, mille tähtaeg saabub mingil päeval';
 
   @override
+  String get planChooserChore =>
+      'Toimetus — midagi, mis kordub: söötmine, tilgad, liivakast';
+
+  @override
+  String get newChore => 'Uus toimetus';
+
+  @override
+  String get choreEdit => 'Muuda toimetust';
+
+  @override
+  String get choreTitleLabel => 'Mida';
+
+  @override
+  String get choreRepeatDaily => 'Iga päev';
+
+  @override
+  String get choreRepeatEvery => 'Iga…';
+
+  @override
+  String get choreRepeatWeekdays => 'Nädalapäevad';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'iga $n päeva järel',
+      one: 'iga päev',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Mis tahes kellaajal';
+
+  @override
+  String get chorePause => 'Peata';
+
+  @override
+  String get choreResume => 'Jätka';
+
+  @override
+  String get choreEnd => 'Lõpeta toimetus';
+
+  @override
+  String get todaySection => 'Täna';
+
+  @override
+  String get upcomingSection => 'Peagi';
+
+  @override
+  String get allDoneToday => 'Täna: kõik tehtud';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n päeva järjest',
+      one: '1 päev järjest',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Tähtaeg $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mis';
 
   @override

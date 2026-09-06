@@ -2395,6 +2395,76 @@ class AppLocalizationsIt extends AppLocalizations {
       'Promemoria — un valore che scade in un giorno';
 
   @override
+  String get planChooserChore =>
+      'Faccenda — qualcosa che torna: pappa, gocce, lettiera';
+
+  @override
+  String get newChore => 'Nuova faccenda';
+
+  @override
+  String get choreEdit => 'Modifica faccenda';
+
+  @override
+  String get choreTitleLabel => 'Cosa';
+
+  @override
+  String get choreRepeatDaily => 'Ogni giorno';
+
+  @override
+  String get choreRepeatEvery => 'Ogni…';
+
+  @override
+  String get choreRepeatWeekdays => 'Giorni';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ogni $n giorni',
+      one: 'ogni giorno',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'A qualsiasi ora';
+
+  @override
+  String get chorePause => 'Sospendi';
+
+  @override
+  String get choreResume => 'Riprendi';
+
+  @override
+  String get choreEnd => 'Chiudi faccenda';
+
+  @override
+  String get todaySection => 'Oggi';
+
+  @override
+  String get upcomingSection => 'In arrivo';
+
+  @override
+  String get allDoneToday => 'Oggi: tutto fatto';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n giorni di fila',
+      one: '1 giorno di fila',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Entro $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Cosa';
 
   @override

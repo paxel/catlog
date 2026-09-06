@@ -38,6 +38,7 @@ import 'photo_viewer_screen.dart';
 import 'timeline_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
+import '../widgets/chore_row.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
@@ -229,7 +230,11 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
         if (r.entity == store.resolveEntity(id)) r,
     ];
     final appointments = store.appointmentsOf(id);
-    if (plans.isEmpty && appointments.isEmpty) return const [];
+    final chores = store.choresOf(id);
+    if (plans.isEmpty && appointments.isEmpty && chores.isEmpty) {
+      return const [];
+    }
+    final today = DateUtils.dateOnly(DateTime.now());
     return [
       const Divider(),
       Padding(
@@ -239,6 +244,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
+      // Its chores: today's occurrence, or the next due day.
+      for (final c in chores)
+        ChoreRow(
+          store: store,
+          chore: c,
+          due: nextDue(c, store.choreTicks(c), today) ?? today,
+          today: today,
+          showEntity: false,
+          onChanged: _plansChanged,
+        ),
       // A vet run shows its other cats as chips; delete here takes only
       // this entity out of it.
       for (final a in appointments)

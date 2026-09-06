@@ -20,6 +20,12 @@ void maybeCelebrateAdoption(
     BuildContext context, CatalogStore store, String? destinationClowder) {
   if (destinationClowder == null) return;
   if (store.current(destinationClowder, 'f:status') != 'forever-home') return;
+  celebrate(context, store);
+}
+
+/// Confetti and a cheer, when celebrations are on: an adoption, a day
+/// of chores all done, an achievement.
+void celebrate(BuildContext context, CatalogStore store) {
   if (!celebrationsEnabled(store)) return;
   _playCheer();
   _showConfetti(context);

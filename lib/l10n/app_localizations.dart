@@ -4172,6 +4172,108 @@ abstract class AppLocalizations {
   /// **'Reminder — a value that becomes due on a day'**
   String get planChooserReminder;
 
+  /// No description provided for @planChooserChore.
+  ///
+  /// In en, this message translates to:
+  /// **'Chore — a task that comes around: feeding, drops, litter'**
+  String get planChooserChore;
+
+  /// No description provided for @newChore.
+  ///
+  /// In en, this message translates to:
+  /// **'New chore'**
+  String get newChore;
+
+  /// No description provided for @choreEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit chore'**
+  String get choreEdit;
+
+  /// No description provided for @choreTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What'**
+  String get choreTitleLabel;
+
+  /// No description provided for @choreRepeatDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get choreRepeatDaily;
+
+  /// No description provided for @choreRepeatEvery.
+  ///
+  /// In en, this message translates to:
+  /// **'Every…'**
+  String get choreRepeatEvery;
+
+  /// No description provided for @choreRepeatWeekdays.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekdays'**
+  String get choreRepeatWeekdays;
+
+  /// No description provided for @choreEveryDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every day} other{every {n} days}}'**
+  String choreEveryDays(int n);
+
+  /// No description provided for @choreNoTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Any time of day'**
+  String get choreNoTime;
+
+  /// No description provided for @chorePause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get chorePause;
+
+  /// No description provided for @choreResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get choreResume;
+
+  /// No description provided for @choreEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End chore'**
+  String get choreEnd;
+
+  /// No description provided for @todaySection.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get todaySection;
+
+  /// No description provided for @upcomingSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming up'**
+  String get upcomingSection;
+
+  /// No description provided for @allDoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: all done'**
+  String get allDoneToday;
+
+  /// No description provided for @streakDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{1 day in a row} other{{n} days in a row}}'**
+  String streakDays(int n);
+
+  /// No description provided for @choreDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due {date}'**
+  String choreDue(String date);
+
   /// No description provided for @appointmentTitleLabel.
   ///
   /// In en, this message translates to:

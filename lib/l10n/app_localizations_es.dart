@@ -2395,6 +2395,76 @@ class AppLocalizationsEs extends AppLocalizations {
   String get planChooserReminder => 'Recordatorio — un valor que vence un día';
 
   @override
+  String get planChooserChore =>
+      'Tarea — algo que se repite: comida, gotas, arenero';
+
+  @override
+  String get newChore => 'Nueva tarea';
+
+  @override
+  String get choreEdit => 'Editar tarea';
+
+  @override
+  String get choreTitleLabel => 'Qué';
+
+  @override
+  String get choreRepeatDaily => 'Diario';
+
+  @override
+  String get choreRepeatEvery => 'Cada…';
+
+  @override
+  String get choreRepeatWeekdays => 'Días';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'cada $n días',
+      one: 'cada día',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'A cualquier hora';
+
+  @override
+  String get chorePause => 'Pausar';
+
+  @override
+  String get choreResume => 'Reanudar';
+
+  @override
+  String get choreEnd => 'Terminar tarea';
+
+  @override
+  String get todaySection => 'Hoy';
+
+  @override
+  String get upcomingSection => 'Próximamente';
+
+  @override
+  String get allDoneToday => 'Hoy: todo hecho';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n días seguidos',
+      one: '1 día seguido',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Para el $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Qué';
 
   @override

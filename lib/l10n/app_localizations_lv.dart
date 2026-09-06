@@ -2395,6 +2395,78 @@ class AppLocalizationsLv extends AppLocalizations {
       'Atgādinājums — vērtība, kurai kādā dienā pienāk termiņš';
 
   @override
+  String get planChooserChore =>
+      'Pienākums — kas atkārtojas: barošana, pilieni, smilšu kaste';
+
+  @override
+  String get newChore => 'Jauns pienākums';
+
+  @override
+  String get choreEdit => 'Rediģēt pienākumu';
+
+  @override
+  String get choreTitleLabel => 'Ko';
+
+  @override
+  String get choreRepeatDaily => 'Katru dienu';
+
+  @override
+  String get choreRepeatEvery => 'Ik pēc…';
+
+  @override
+  String get choreRepeatWeekdays => 'Nedēļas dienas';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n dienām',
+      one: 'katru dienu',
+      zero: 'ik pēc $n dienām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Jebkurā dienas laikā';
+
+  @override
+  String get chorePause => 'Apturēt';
+
+  @override
+  String get choreResume => 'Atsākt';
+
+  @override
+  String get choreEnd => 'Beigt pienākumu';
+
+  @override
+  String get todaySection => 'Šodien';
+
+  @override
+  String get upcomingSection => 'Drīzumā';
+
+  @override
+  String get allDoneToday => 'Šodien: viss padarīts';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dienas pēc kārtas',
+      one: '$n diena pēc kārtas',
+      zero: '$n dienu pēc kārtas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termiņš $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Kas';
 
   @override

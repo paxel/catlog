@@ -2412,6 +2412,82 @@ class AppLocalizationsGa extends AppLocalizations {
       'Meabhrúchán — luach a bhíonn dlite lá éigin';
 
   @override
+  String get planChooserChore =>
+      'Cúram — rud a thagann ar ais: beathú, braonta, bruscar';
+
+  @override
+  String get newChore => 'Cúram nua';
+
+  @override
+  String get choreEdit => 'Cuir cúram in eagar';
+
+  @override
+  String get choreTitleLabel => 'Cad';
+
+  @override
+  String get choreRepeatDaily => 'Gach lá';
+
+  @override
+  String get choreRepeatEvery => 'Gach…';
+
+  @override
+  String get choreRepeatWeekdays => 'Laethanta';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n lá',
+      many: 'gach $n lá',
+      few: 'gach $n lá',
+      two: 'gach $n lá',
+      one: 'gach lá',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Am ar bith den lá';
+
+  @override
+  String get chorePause => 'Cuir ar sos';
+
+  @override
+  String get choreResume => 'Atosaigh';
+
+  @override
+  String get choreEnd => 'Cuir deireadh leis an gcúram';
+
+  @override
+  String get todaySection => 'Inniu';
+
+  @override
+  String get upcomingSection => 'Ag teacht';
+
+  @override
+  String get allDoneToday => 'Inniu: gach rud déanta';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n lá as a chéile',
+      many: '$n lá as a chéile',
+      few: '$n lá as a chéile',
+      two: '$n lá as a chéile',
+      one: '1 lá as a chéile',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Dlite $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Cad';
 
   @override

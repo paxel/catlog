@@ -2387,6 +2387,76 @@ class AppLocalizationsDa extends AppLocalizations {
       'Påmindelse — en værdi, der forfalder en dag';
 
   @override
+  String get planChooserChore =>
+      'Pligt — noget der kommer igen: fodring, dråber, kattebakke';
+
+  @override
+  String get newChore => 'Ny pligt';
+
+  @override
+  String get choreEdit => 'Rediger pligt';
+
+  @override
+  String get choreTitleLabel => 'Hvad';
+
+  @override
+  String get choreRepeatDaily => 'Dagligt';
+
+  @override
+  String get choreRepeatEvery => 'Hver…';
+
+  @override
+  String get choreRepeatWeekdays => 'Ugedage';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. dag',
+      one: 'hver dag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Når som helst på dagen';
+
+  @override
+  String get chorePause => 'Sæt på pause';
+
+  @override
+  String get choreResume => 'Genoptag';
+
+  @override
+  String get choreEnd => 'Afslut pligt';
+
+  @override
+  String get todaySection => 'I dag';
+
+  @override
+  String get upcomingSection => 'Snart';
+
+  @override
+  String get allDoneToday => 'I dag: alt gjort';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dage i træk',
+      one: '1 dag i træk',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Forfalder $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Hvad';
 
   @override

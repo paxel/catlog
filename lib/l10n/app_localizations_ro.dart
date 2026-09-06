@@ -2394,6 +2394,78 @@ class AppLocalizationsRo extends AppLocalizations {
       'Memento — o valoare care devine scadentă într-o zi';
 
   @override
+  String get planChooserChore =>
+      'Treabă — ceva ce revine: hrănire, picături, litieră';
+
+  @override
+  String get newChore => 'Treabă nouă';
+
+  @override
+  String get choreEdit => 'Editează treaba';
+
+  @override
+  String get choreTitleLabel => 'Ce';
+
+  @override
+  String get choreRepeatDaily => 'Zilnic';
+
+  @override
+  String get choreRepeatEvery => 'La fiecare…';
+
+  @override
+  String get choreRepeatWeekdays => 'Zile';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de zile',
+      few: 'la fiecare $n zile',
+      one: 'în fiecare zi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Oricând în timpul zilei';
+
+  @override
+  String get chorePause => 'Suspendă';
+
+  @override
+  String get choreResume => 'Reia';
+
+  @override
+  String get choreEnd => 'Încheie treaba';
+
+  @override
+  String get todaySection => 'Azi';
+
+  @override
+  String get upcomingSection => 'În curând';
+
+  @override
+  String get allDoneToday => 'Azi: totul făcut';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n de zile la rând',
+      few: '$n zile la rând',
+      one: '1 zi la rând',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Scadent $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Ce';
 
   @override

@@ -2386,6 +2386,75 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hatırlatma — bir gün vadesi gelen bir değer';
 
   @override
+  String get planChooserChore => 'Görev — tekrar eden bir iş: mama, damla, kum';
+
+  @override
+  String get newChore => 'Yeni görev';
+
+  @override
+  String get choreEdit => 'Görevi düzenle';
+
+  @override
+  String get choreTitleLabel => 'Ne';
+
+  @override
+  String get choreRepeatDaily => 'Her gün';
+
+  @override
+  String get choreRepeatEvery => 'Her…';
+
+  @override
+  String get choreRepeatWeekdays => 'Günler';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'her $n günde bir',
+      one: 'her gün',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'Günün herhangi bir saati';
+
+  @override
+  String get chorePause => 'Duraklat';
+
+  @override
+  String get choreResume => 'Sürdür';
+
+  @override
+  String get choreEnd => 'Görevi bitir';
+
+  @override
+  String get todaySection => 'Bugün';
+
+  @override
+  String get upcomingSection => 'Yakında';
+
+  @override
+  String get allDoneToday => 'Bugün: hepsi tamam';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n gün üst üste',
+      one: '1 gün üst üste',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Son gün $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Ne';
 
   @override

@@ -2395,6 +2395,78 @@ class AppLocalizationsPl extends AppLocalizations {
       'Przypomnienie — wartość, która staje się należna danego dnia';
 
   @override
+  String get planChooserChore =>
+      'Obowiązek — coś, co wraca: karmienie, krople, kuweta';
+
+  @override
+  String get newChore => 'Nowy obowiązek';
+
+  @override
+  String get choreEdit => 'Edytuj obowiązek';
+
+  @override
+  String get choreTitleLabel => 'Co';
+
+  @override
+  String get choreRepeatDaily => 'Codziennie';
+
+  @override
+  String get choreRepeatEvery => 'Co…';
+
+  @override
+  String get choreRepeatWeekdays => 'Dni tygodnia';
+
+  @override
+  String choreEveryDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n dni',
+      few: 'co $n dni',
+      one: 'codziennie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get choreNoTime => 'O dowolnej porze';
+
+  @override
+  String get chorePause => 'Wstrzymaj';
+
+  @override
+  String get choreResume => 'Wznów';
+
+  @override
+  String get choreEnd => 'Zakończ obowiązek';
+
+  @override
+  String get todaySection => 'Dziś';
+
+  @override
+  String get upcomingSection => 'Wkrótce';
+
+  @override
+  String get allDoneToday => 'Dziś: wszystko zrobione';
+
+  @override
+  String streakDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n dni z rzędu',
+      few: '$n dni z rzędu',
+      one: '1 dzień z rzędu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreDue(String date) {
+    return 'Termin $date';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Co';
 
   @override

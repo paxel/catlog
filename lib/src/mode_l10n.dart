@@ -115,6 +115,9 @@ class ModeLocalizations implements AppLocalizations {
   String get allDayLabel => base.allDayLabel;
 
   @override
+  String get allDoneToday => base.allDoneToday;
+
+  @override
   String get allowAlways => base.allowAlways;
 
   @override
@@ -353,6 +356,39 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get chooseWhatToMove => base.chooseWhatToMove;
+
+  @override
+  String choreDue(String date) => base.choreDue(date);
+
+  @override
+  String get choreEdit => base.choreEdit;
+
+  @override
+  String get choreEnd => base.choreEnd;
+
+  @override
+  String choreEveryDays(int n) => base.choreEveryDays(n);
+
+  @override
+  String get choreNoTime => base.choreNoTime;
+
+  @override
+  String get chorePause => base.chorePause;
+
+  @override
+  String get choreRepeatDaily => base.choreRepeatDaily;
+
+  @override
+  String get choreRepeatEvery => base.choreRepeatEvery;
+
+  @override
+  String get choreRepeatWeekdays => base.choreRepeatWeekdays;
+
+  @override
+  String get choreResume => base.choreResume;
+
+  @override
+  String get choreTitleLabel => base.choreTitleLabel;
 
   @override
   String get clowderLabel => pets ? base.clowderLabelNeutral : base.clowderLabel;
@@ -1138,6 +1174,9 @@ class ModeLocalizations implements AppLocalizations {
   String get newCatalog => base.newCatalog;
 
   @override
+  String get newChore => base.newChore;
+
+  @override
   String get newClowder => pets ? base.newClowderNeutral : base.newClowder;
 
   @override
@@ -1328,6 +1367,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get planChooserAppointment => base.planChooserAppointment;
+
+  @override
+  String get planChooserChore => base.planChooserChore;
 
   @override
   String get planChooserReminder => base.planChooserReminder;
@@ -1837,6 +1879,9 @@ class ModeLocalizations implements AppLocalizations {
   String get strays => base.strays;
 
   @override
+  String streakDays(int n) => base.streakDays(n);
+
+  @override
   String get suggestedFrames => base.suggestedFrames;
 
   @override
@@ -1990,6 +2035,9 @@ class ModeLocalizations implements AppLocalizations {
   String get toastSettingsTitle => base.toastSettingsTitle;
 
   @override
+  String get todaySection => base.todaySection;
+
+  @override
   String trailOf(String name, int count) => base.trailOf(name, count);
 
   @override
@@ -2063,6 +2111,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get unnamed => base.unnamed;
+
+  @override
+  String get upcomingSection => base.upcomingSection;
 
   @override
   String get useCode => base.useCode;
