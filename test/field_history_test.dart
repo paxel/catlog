@@ -105,6 +105,9 @@ void main() {
       CatDetailScreen(store: store, catId: cat, startEditing: true),
     );
     expect(find.byTooltip('History'), findsNothing);
+    // Looks joined the starters: Remarks now sits below the fold.
+    await tester.ensureVisible(find.text('Remarks'));
+    await tester.pumpAndSettle();
     await tester.longPress(find.text('Remarks'));
     await tester.pumpAndSettle();
     expect(find.text('Remarks — Miezi'), findsOneWidget);

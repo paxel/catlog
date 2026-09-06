@@ -93,6 +93,7 @@ class FieldValueController extends ChangeNotifier {
       case FieldType.location:
       case FieldType.number:
       case FieldType.id:
+      case FieldType.tags:
         final v = text.text.trim();
         return v.isEmpty ? null : v;
       case FieldType.unitValue:
@@ -239,6 +240,7 @@ class _FieldValueInputState extends State<FieldValueInput> {
           },
         );
       case FieldType.text:
+      case FieldType.tags:
         // Remarks holds whole notes (OCR dumps included) — multiline.
         final multiline = def.slug == 'remarks';
         return TextField(

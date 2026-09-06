@@ -109,8 +109,10 @@ abstract final class Kinds {
   static const fieldDef = 'fielddef';
 }
 
-/// The type of a user-defined Field (see CONTEXT.md: Field).
-enum FieldType { text, yesNo, date, number, choice, location, cat, id, unitValue }
+/// The type of a user-defined Field (see CONTEXT.md: Field). [tags] is
+/// the Looks field (1.2.0): chips in groups, see looks.dart; older
+/// versions read it as text.
+enum FieldType { text, yesNo, date, number, choice, location, cat, id, unitValue, tags }
 
 /// What a position entry records: a live sighting, or where a
 /// missing-cat flier hangs (#30). Flier positions never render as
@@ -195,6 +197,7 @@ const starterFields = [
   (slug: 'deceased', name: 'Deceased', type: FieldType.date, scope: FieldScope.cat, options: <String>[]),
   (slug: 'species', name: 'Species', type: FieldType.choice, scope: FieldScope.cat, options: speciesPresets),
   (slug: 'weight', name: 'Weight', type: FieldType.unitValue, scope: FieldScope.cat, options: <String>[]),
+  (slug: 'looks', name: 'Looks', type: FieldType.tags, scope: FieldScope.cat, options: <String>[]),
   (slug: 'mother', name: 'Mother', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'father', name: 'Father', type: FieldType.cat, scope: FieldScope.cat, options: <String>[]),
   (slug: 'status', name: 'Status', type: FieldType.choice, scope: FieldScope.clowder, options: clowderStatusKeys),
