@@ -39,6 +39,10 @@ class Entry {
   /// missed appointment is not a treatment.
   final bool reminder;
 
+  /// The writing catalog's signature over the row (1.2.0, base64), or
+  /// null for rows from before signing.
+  final String? sig;
+
   const Entry({
     required this.seq,
     required this.device,
@@ -50,6 +54,7 @@ class Entry {
     required this.author,
     required this.recorded,
     this.reminder = false,
+    this.sig,
   });
 
   @override
@@ -68,6 +73,7 @@ class Entry {
         'author': author,
         'recorded': recorded.toIso8601String(),
         if (reminder) 'reminder': true,
+        if (sig != null) 'sig': sig,
       };
 
   factory Entry.fromJson(Map<String, dynamic> json) => Entry(
@@ -82,5 +88,6 @@ class Entry {
         recorded: DateTime.parse(json['recorded'] as String),
         // Absent in every pre-1.0.0 file and payload.
         reminder: json['reminder'] == true,
+        sig: json['sig'] as String?,
       );
 }

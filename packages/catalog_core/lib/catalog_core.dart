@@ -26,5 +26,6 @@ export 'src/pair_code.dart';
 export 'src/partial_date.dart';
 export 'src/registry.dart';
 export 'src/savepoints.dart';
+export 'src/signing.dart';
 export 'src/sqlite_compat.dart';
 export 'src/store.dart';
