@@ -6,6 +6,7 @@
 library;
 
 export 'src/appointments.dart';
+export 'src/chores.dart';
 export 'src/archive.dart';
 export 'src/breeds.dart';
 export 'src/bundle.dart';

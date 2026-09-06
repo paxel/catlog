@@ -59,6 +59,14 @@ abstract final class Keys {
   static const appointmentPrefix = r'$appt:';
   static String appointment(String id) => '$appointmentPrefix$id';
 
+  /// A chore on a cat or clowder (1.2.0): `$chore:<id>` holds one small
+  /// JSON document per chore; later entries on the same key edit, pause
+  /// or end it. A tick is `$chore:<id>@<occurrence day>` carrying the
+  /// day it was done; null unticks.
+  static const chorePrefix = r'$chore:';
+  static String chore(String id) => '$chorePrefix$id';
+  static String choreTick(String id, String day) => '$chorePrefix$id@$day';
+
   /// Fields that carry no personal detail and hold the catalog together:
   /// without them a partner receives rows pointing at entities they have
   /// never heard of. Never private, on any entity.
