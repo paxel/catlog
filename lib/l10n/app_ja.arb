@@ -512,7 +512,6 @@
   "authorsSection": "このカタログに書き込んだ人",
   "hardDeleteAction": "この作成者のすべてを削除",
   "hardDeleteWarning": "{name} のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。",
-  "hardDeleteWarningDevice": "{name} が端末 {device} で書いたすべての記録と写真をこのカタログから削除します。他の端末のデータは残ります。取り消せません。",
   "yourKey": "あなたの鍵",
   "keyLine": "鍵 {code}",
   "keyVerified": "対面で確認済み",

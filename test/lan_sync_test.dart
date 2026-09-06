@@ -55,6 +55,15 @@ void main() {
     for (final e in b.entriesSince(const {})) {
       if (e.device == a.deviceId) expect(b.verifiesEntry(e), isTrue);
     }
+    // A key the joiner merely carries for a third catalog arrives on
+    // the host on trust, not as met: only the partner in the room is.
+    final c = CatalogStore.inMemory()..author = 'carla';
+    addTearDown(c.close);
+    c.createCat('Mimi');
+    b.applyEntries(c.entriesSince(const {}), keys: c.keyRecords());
+    await syncWith(b, host);
+    expect(a.pinnedKey(c.deviceId)!.trust, KeyTrust.tofu);
+    expect(a.pinnedKey(b.deviceId)!.trust, KeyTrust.verified);
   });
 
   test('wrong PIN is refused', () async {

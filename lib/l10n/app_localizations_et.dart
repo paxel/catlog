@@ -1736,11 +1736,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Eemaldab sellest kataloogist iga kirje ja foto, mille $name seadmes $device kirjutas. Teised seadmed hoiavad oma koopia. Tagasi võtta ei saa.';
-  }
-
-  @override
   String get yourKey => 'Sinu võti';
 
   @override

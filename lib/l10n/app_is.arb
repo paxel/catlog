@@ -512,7 +512,6 @@
   "authorsSection": "Hver skrifaði í skrána",
   "hardDeleteAction": "Eyða öllu frá þessum höfundi",
   "hardDeleteWarning": "Fjarlægir allar færslur og myndir frá {name} af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.",
-  "hardDeleteWarningDevice": "Fjarlægir úr þessari skrá hverja færslu og mynd sem {name} skrifaði á tækinu {device}. Önnur tæki halda sínu. Ekki hægt að afturkalla.",
   "yourKey": "Lykillinn þinn",
   "keyLine": "lykill {code}",
   "keyVerified": "staðfest í eigin persónu",

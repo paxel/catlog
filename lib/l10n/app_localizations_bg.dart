@@ -1741,11 +1741,6 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Премахва от този каталог всеки запис и снимка, написани от $name на устройство $device. Другите устройства запазват своите. Не може да се отмени.';
-  }
-
-  @override
   String get yourKey => 'Вашият ключ';
 
   @override

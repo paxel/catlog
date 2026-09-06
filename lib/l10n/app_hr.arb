@@ -512,7 +512,6 @@
   "authorsSection": "Tko je pisao u ovaj katalog",
   "hardDeleteAction": "Obriši sve od ovog autora",
   "hardDeleteWarning": "Uklanja svaki unos i fotografiju od {name} s ovog uređaja. Drugi uređaji zadržavaju svoje. Ne može se poništiti.",
-  "hardDeleteWarningDevice": "Uklanja iz ovog kataloga svaki unos i fotografiju koje je {name} napisao/la na uređaju {device}. Drugi uređaji zadržavaju svoje. Ne može se poništiti.",
   "yourKey": "Tvoj ključ",
   "keyLine": "ključ {code}",
   "keyVerified": "potvrđen osobno",

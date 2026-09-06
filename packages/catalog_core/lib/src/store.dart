@@ -276,19 +276,22 @@ class CatalogStore {
       [ownKeyRecord, for (final k in pinnedKeys()) k.record];
 
   /// Takes in the keys a payload carried. The first key seen for a
-  /// device is pinned — on trust from a file, verified from a session
-  /// the pair code authenticated. A record that does not sign itself
-  /// is ignored; a second, different key for a pinned device is refused
+  /// device is pinned on trust; only the key of [verifiedDevice] — the
+  /// partner met in person, over the session the pair code
+  /// authenticated — is pinned as verified, never the keys that partner
+  /// merely carries for others. A record that does not sign itself is
+  /// ignored; a second, different key for a pinned device is refused
   /// and reported, the pinned one stands. [authors] are the names the
   /// same payload writes under each new device, for the impostor
   /// warning: a new key calling itself by a name known under another key.
   void learnKeys(Iterable<KeyRecord> keys,
-      {bool verified = false,
+      {String? verifiedDevice,
       ImportReport? report,
       Map<String, Set<String>> authors = const {}}) {
     final self = deviceId;
     for (final record in keys) {
       if (record.device == self || !record.selfSigned) continue;
+      final verified = record.device == verifiedDevice;
       final existing = pinnedKey(record.device);
       if (existing == null) {
         final trust = verified ? KeyTrust.verified : KeyTrust.tofu;
@@ -1700,8 +1703,9 @@ class CatalogStore {
   /// the vector absent, no conflicts are flagged.
   ///
   /// [keys] are the key records the payload carried; they are learned
-  /// first (see [learnKeys]), [verified] when the session that brought
-  /// them was authenticated by a pair code. Then every entry from a
+  /// first (see [learnKeys]), the one of [verifiedDevice] as verified
+  /// when the session that brought it was authenticated by a pair code.
+  /// Then every entry from a
   /// device whose key is pinned — this catalog's own included — must
   /// carry a valid signature, unless it is older than the key's
   /// [KeyRecord.since]. Refused rows are counted in [report] and never
@@ -1710,7 +1714,7 @@ class CatalogStore {
   List<Entry> applyEntries(List<Entry> entries,
       {Map<String, int>? senderVector,
       Iterable<KeyRecord>? keys,
-      bool verified = false,
+      String? verifiedDevice,
       ImportReport? report}) {
     return transaction(() {
     if (keys != null) {
@@ -1719,7 +1723,9 @@ class CatalogStore {
         authors.putIfAbsent(e.device, () => {}).add(e.author);
       }
       learnKeys(keys,
-          verified: verified, report: report ?? ImportReport(), authors: authors);
+          verifiedDevice: verifiedDevice,
+          report: report ?? ImportReport(),
+          authors: authors);
     }
     // Snapshot the pre-import winner of every field this batch touches.
     final touched = <(String, String)>{

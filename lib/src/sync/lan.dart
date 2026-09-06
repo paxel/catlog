@@ -252,8 +252,9 @@ class LanSyncHost {
           for (final e in body['entries'] as List)
             Entry.fromJson((e as Map).cast<String, dynamic>())
         ];
-        // Keys met over a session the pair code authenticated, in the
-        // same room: verified (1.2.0).
+        // The joiner's own key, met over a session the pair code
+        // authenticated, in the same room: verified (1.2.0). The keys
+        // it carries for others stay on trust.
         final joinerKeys = body['keys'] is List
             ? parseKeys(jsonEncode(body['keys']))
             : const <KeyRecord>[];
@@ -262,7 +263,7 @@ class LanSyncHost {
         final applied = store.applyEntries(incoming,
             senderVector: joinerVector,
             keys: joinerKeys,
-            verified: true,
+            verifiedDevice: deviceId.isEmpty ? null : deviceId,
             report: report);
         final moment = momentFor(store,
             before: before,
@@ -457,7 +458,7 @@ Future<SyncResult> lanSync(
     final applied = store.applyEntries(received,
         senderVector: hostVector,
         keys: hostKeys,
-        verified: true,
+        verifiedDevice: hostDevice,
         report: report);
     final moment = momentFor(store,
         before: beforeApply,

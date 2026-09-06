@@ -512,7 +512,6 @@
   "authorsSection": "Kurš rakstīja šajā katalogā",
   "hardDeleteAction": "Dzēst visu no šī autora",
   "hardDeleteWarning": "Noņem visus {name} ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.",
-  "hardDeleteWarningDevice": "Izņem no šī kataloga katru ierakstu un fotoattēlu, ko {name} rakstīja ierīcē {device}. Citas ierīces patur savas kopijas. Nevar atsaukt.",
   "yourKey": "Tava atslēga",
   "keyLine": "atslēga {code}",
   "keyVerified": "apstiprināta klātienē",

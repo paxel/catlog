@@ -1740,11 +1740,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Odstraní z tohoto katalogu každý záznam a fotku, které $name zapsal(a) na zařízení $device. Ostatní zařízení si své kopie nechají. Nelze vrátit.';
-  }
-
-  @override
   String get yourKey => 'Tvůj klíč';
 
   @override

@@ -512,7 +512,6 @@
   "authorsSection": "Kes on kataloogi kirjutanud",
   "hardDeleteAction": "Kustuta kõik sellelt autorilt",
   "hardDeleteWarning": "Eemaldab kõik {name} kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.",
-  "hardDeleteWarningDevice": "Eemaldab sellest kataloogist iga kirje ja foto, mille {name} seadmes {device} kirjutas. Teised seadmed hoiavad oma koopia. Tagasi võtta ei saa.",
   "yourKey": "Sinu võti",
   "keyLine": "võti {code}",
   "keyVerified": "kohtutud isiklikult",

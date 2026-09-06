@@ -1748,11 +1748,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Αφαιρεί από αυτόν τον κατάλογο κάθε καταχώριση και φωτογραφία που έγραψε ο/η $name στη συσκευή $device. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
-  }
-
-  @override
   String get yourKey => 'Το κλειδί σου';
 
   @override

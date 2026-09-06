@@ -1741,11 +1741,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Izņem no šī kataloga katru ierakstu un fotoattēlu, ko $name rakstīja ierīcē $device. Citas ierīces patur savas kopijas. Nevar atsaukt.';
-  }
-
-  @override
   String get yourKey => 'Tava atslēga';
 
   @override

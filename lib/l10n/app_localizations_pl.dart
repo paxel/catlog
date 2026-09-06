@@ -1741,11 +1741,6 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Usuwa z tego katalogu każdy wpis i zdjęcie zapisane przez $name na urządzeniu $device. Inne urządzenia zachowują swoje kopie. Nie można tego cofnąć.';
-  }
-
-  @override
   String get yourKey => 'Twój klucz';
 
   @override

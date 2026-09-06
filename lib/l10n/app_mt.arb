@@ -512,7 +512,6 @@
   "authorsSection": "Min kiteb f'dan il-katalgu",
   "hardDeleteAction": "Ħassar kollox minn dan l-awtur",
   "hardDeleteWarning": "Ineħħi kull entrata u ritratt ta' {name} minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa' lura.",
-  "hardDeleteWarningDevice": "Ineħħi minn dan il-katalgu kull entrata u ritratt li {name} kiteb fuq l-apparat {device}. L-apparati l-oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.",
   "yourKey": "Iċ-ċavetta tiegħek",
   "keyLine": "ċavetta {code}",
   "keyVerified": "ivverifikata personalment",

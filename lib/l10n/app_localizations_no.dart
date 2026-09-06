@@ -1737,11 +1737,6 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Fjerner hver oppføring og hvert bilde skrevet av $name på enheten $device fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.';
-  }
-
-  @override
   String get yourKey => 'Din nøkkel';
 
   @override

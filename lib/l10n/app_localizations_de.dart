@@ -1745,11 +1745,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Entfernt jeden Eintrag und jedes Foto, das $name auf dem Gerät $device geschrieben hat, aus diesem Katalog. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.';
-  }
-
-  @override
   String get yourKey => 'Dein Schlüssel';
 
   @override

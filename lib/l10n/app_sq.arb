@@ -512,7 +512,6 @@
   "authorsSection": "Kush ka shkruar në këtë katalog",
   "hardDeleteAction": "Fshi gjithçka nga ky autor",
   "hardDeleteWarning": "Heq çdo hyrje dhe foto të {name} nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.",
-  "hardDeleteWarningDevice": "Heq nga ky katalog çdo shënim dhe foto që {name} shkroi në pajisjen {device}. Pajisjet e tjera mbajnë kopjet e tyre. Nuk mund të zhbëhet.",
   "yourKey": "Çelësi yt",
   "keyLine": "çelësi {code}",
   "keyVerified": "i verifikuar personalisht",

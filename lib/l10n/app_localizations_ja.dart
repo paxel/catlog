@@ -1710,11 +1710,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return '$name が端末 $device で書いたすべての記録と写真をこのカタログから削除します。他の端末のデータは残ります。取り消せません。';
-  }
-
-  @override
   String get yourKey => 'あなたの鍵';
 
   @override

@@ -1740,11 +1740,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Eltávolítja ebből a katalógusból minden bejegyzést és fotót, amelyet $name a(z) $device eszközön írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.';
-  }
-
-  @override
   String get yourKey => 'A kulcsod';
 
   @override

@@ -1731,11 +1731,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'מסיר מהקטלוג הזה כל רשומה ותמונה שכתב/ה $name במכשיר $device. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
-  }
-
-  @override
   String get yourKey => 'המפתח שלך';
 
   @override

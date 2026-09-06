@@ -1743,11 +1743,6 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Ги отстранува од овој каталог сите записи и фотографии што $name ги напиша на уредот $device. Другите уреди ги задржуваат своите. Не може да се поништи.';
-  }
-
-  @override
   String get yourKey => 'Твојот клуч';
 
   @override

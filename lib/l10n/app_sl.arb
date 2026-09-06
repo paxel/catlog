@@ -512,7 +512,6 @@
   "authorsSection": "Kdo je pisal v ta katalog",
   "hardDeleteAction": "Izbriši vse od tega avtorja",
   "hardDeleteWarning": "Odstrani vsak vnos in fotografijo od {name} s te naprave. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
-  "hardDeleteWarningDevice": "Iz tega kataloga odstrani vsak vnos in fotografijo, ki jih je {name} zapisal(a) na napravi {device}. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
   "yourKey": "Tvoj ključ",
   "keyLine": "ključ {code}",
   "keyVerified": "potrjen osebno",

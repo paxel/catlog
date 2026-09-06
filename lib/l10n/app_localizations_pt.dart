@@ -1740,11 +1740,6 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Remove deste catálogo cada entrada e foto escrita por $name no dispositivo $device. Os outros dispositivos mantêm a sua cópia. Não pode ser desfeito.';
-  }
-
-  @override
   String get yourKey => 'A tua chave';
 
   @override

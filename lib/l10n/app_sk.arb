@@ -512,7 +512,6 @@
   "authorsSection": "Kto písal do katalógu",
   "hardDeleteAction": "Zmazať všetko od tohto autora",
   "hardDeleteWarning": "Odstráni každý záznam a fotku od {name} z tohto zariadenia. Ostatné zariadenia si svoje ponechajú. Nedá sa vrátiť.",
-  "hardDeleteWarningDevice": "Odstráni z tohto katalógu každý záznam a fotku, ktoré {name} zapísal(a) na zariadení {device}. Ostatné zariadenia si svoje kópie nechajú. Nedá sa vrátiť.",
   "yourKey": "Tvoj kľúč",
   "keyLine": "kľúč {code}",
   "keyVerified": "overený osobne",

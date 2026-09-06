@@ -30,7 +30,7 @@ void main() {
     to.applyEntries(tampered ?? from.entriesSince(to.versionVector()),
         senderVector: from.versionVector(),
         keys: from.keyRecords(),
-        verified: verified,
+        verifiedDevice: verified ? from.deviceId : null,
         report: report);
     return report;
   }

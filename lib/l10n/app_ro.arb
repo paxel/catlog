@@ -512,7 +512,6 @@
   "authorsSection": "Cine a scris în acest catalog",
   "hardDeleteAction": "Șterge tot de la acest autor",
   "hardDeleteWarning": "Elimină fiecare intrare și fotografie de la {name} de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.",
-  "hardDeleteWarningDevice": "Elimină din acest catalog fiecare intrare și fotografie scrisă de {name} pe dispozitivul {device}. Celelalte dispozitive își păstrează copia. Nu se poate anula.",
   "yourKey": "Cheia ta",
   "keyLine": "cheia {code}",
   "keyVerified": "întâlnită în persoană",

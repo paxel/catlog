@@ -1744,11 +1744,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Retire de ce catalogue chaque entrée et photo écrite par $name sur l’appareil $device. Les autres appareils gardent leur copie. Irréversible.';
-  }
-
-  @override
   String get yourKey => 'Ta clé';
 
   @override

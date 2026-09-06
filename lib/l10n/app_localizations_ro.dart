@@ -1742,11 +1742,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Elimină din acest catalog fiecare intrare și fotografie scrisă de $name pe dispozitivul $device. Celelalte dispozitive își păstrează copia. Nu se poate anula.';
-  }
-
-  @override
   String get yourKey => 'Cheia ta';
 
   @override

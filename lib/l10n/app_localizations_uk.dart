@@ -1742,11 +1742,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Вилучає з цього каталогу кожен запис і світлину, які $name написав(ла) на пристрої $device. Інші пристрої зберігають свої копії. Скасувати не можна.';
-  }
-
-  @override
   String get yourKey => 'Ваш ключ';
 
   @override

@@ -1744,11 +1744,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String hardDeleteWarningDevice(String name, String device) {
-    return 'Ineħħi minn dan il-katalgu kull entrata u ritratt li $name kiteb fuq l-apparat $device. L-apparati l-oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.';
-  }
-
-  @override
   String get yourKey => 'Iċ-ċavetta tiegħek';
 
   @override
