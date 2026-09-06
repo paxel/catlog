@@ -2,6 +2,18 @@
 
 Historical release notes for cat(a)log. The current version lives in [CHANGELOG.md](CHANGELOG.md).
 
+## [1.1.3] - 2026-09-05
+
+### Fixed
+
+- Map pins stay on their spot while zooming: the tip was anchored a
+  pin's height below the coordinate and slid over the map.
+- Deleting an author's data acts on that author on that one device,
+  and the ban is on the device. Before, every author with the same
+  name on any device was deleted and the name was banned, so anyone
+  could take a name and get its owner wiped. The bans list shows the
+  names a banned device wrote under.
+
 ## [1.1.2] - 2026-09-05
 
 ### Changed
