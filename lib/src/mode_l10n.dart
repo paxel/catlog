@@ -1711,6 +1711,9 @@ class ModeLocalizations implements AppLocalizations {
   String get spotAgendaCalendar => base.spotAgendaCalendar;
 
   @override
+  String get spotAgendaToday => base.spotAgendaToday;
+
+  @override
   String get spotCardChips => base.spotCardChips;
 
   @override

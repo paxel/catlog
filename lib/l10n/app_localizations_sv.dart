@@ -2340,12 +2340,16 @@ class AppLocalizationsSv extends AppLocalizations {
       'Slå på spegling av cat(a)log-mötena till en kalender du väljer här.';
 
   @override
+  String get spotAgendaToday =>
+      'Dagens sysslor: bocka av när det är gjort. Prickarna visar de senaste sju dagarna.';
+
+  @override
   String get helpAgenda =>
-      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera katter är en bokning: markera katterna, Agendan visar ett kort med deras namn, och vid avslut frågas vilka katter som behandlades — avmarkera de andra, de förblir planerade.';
+      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar katten eller clowdern. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera katter är en bokning: markera katterna, Agendan visar ett kort med deras namn, och vid avslut frågas vilka katter som behandlades — avmarkera de andra, de förblir planerade. Sysslor är de återkommande uppgifterna som matning, kattlåda eller medicin. De står under Idag med en bock, en svit och de senaste sju dagarna som prickar; Snart visar nästa vecka utan de dagliga. En syssla kan påminna med en avisering vid vald tid. Pokalen öppnar prestationerna.';
 
   @override
   String get helpAgendaNeutral =>
-      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar husdjuret eller hushållet. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera husdjur är en bokning: markera husdjuren, Agendan visar ett kort med deras namn, och vid avslut frågas vilka husdjur som behandlades — avmarkera de andra, de förblir planerade.';
+      'Påminnelserna visar de planerade mötena efter datum. Det finns två slag: möten med ett klockslag och påminnelser som gäller för en dag. Missade möten stannar överst. Tryck öppnar husdjuret eller hushållet. Bocken bekräftar ett möte: värdet skrivs i fältet och du kan genast planera nästa, till exempel om tre månader. Håll intryckt för att ändra datum eller ta bort mötet. Brytaren överst speglar mötena till en kalender i din telefon. Menyn exporterar dem som kalenderfil. Ett veterinärbesök med flera husdjur är en bokning: markera husdjuren, Agendan visar ett kort med deras namn, och vid avslut frågas vilka husdjur som behandlades — avmarkera de andra, de förblir planerade. Sysslor är de återkommande uppgifterna som matning, kattlåda eller medicin. De står under Idag med en bock, en svit och de senaste sju dagarna som prickar; Snart visar nästa vecka utan de dagliga. En syssla kan påminna med en avisering vid vald tid. Pokalen öppnar prestationerna.';
 
   @override
   String get calendarRowOff => 'Kalender: av';

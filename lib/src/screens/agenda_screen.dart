@@ -401,7 +401,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
               ),
             ),
           if (chores.today.isNotEmpty) ...[
-            _header(allDone ? t.allDoneToday : t.todaySection),
+            Spotlight(
+              id: 'agenda-today',
+              child: _header(allDone ? t.allDoneToday : t.todaySection),
+            ),
             for (final c in chores.today)
               ChoreRow(
                 store: store,

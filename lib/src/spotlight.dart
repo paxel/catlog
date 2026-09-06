@@ -38,6 +38,7 @@ final Map<String, List<SpotlightItem>> spotlightManifest = {
   'agenda': [
     SpotlightItem('agenda-add', (t) => t.spotAgendaAdd),
     SpotlightItem('agenda-calendar', (t) => t.spotAgendaCalendar),
+    SpotlightItem('agenda-today', (t) => t.spotAgendaToday),
   ],
   'clowder': [
     SpotlightItem('clowder-reminder', (t) => t.spotAddReminderClowder),
