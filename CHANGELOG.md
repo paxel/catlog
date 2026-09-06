@@ -6,43 +6,19 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.0] - Unreleased
 
 ### Added
-- Every catalog signs what it writes with its own key. Partners see
-  people as name and key code ("Kathrin · key 7f3a-c21e"); a key met
-  from a file counts as trusted, one met in person as verified. Entries
-  written in a known name without the right signature are refused and
-  listed on the arrival page, as is a new key that calls itself by a
-  name you already know. Your key sits in the catalog settings.
-- Looks: a new field describes an animal in chips, size, colours,
-  marks, and per species fur, tail, ears, pattern or plumage. The
-  Stray Cam and the poster scan ask for them right after the picture.
-  Match candidates now include pairs whose Looks agree in two traits
-  or more with nothing contradicting, ranked by how much agrees; a
-  wrong pair can be marked "Not the same".
-
-- Chores: recurring care on a cat or home — feeding, drops, litter —
-  daily, every N days or on chosen weekdays, with a time of day. The
-  agenda opens with Today, a checklist with a streak and seven week
-  dots per chore, and Coming up, the next seven days where a chore can
-  be ticked early; an every-N chore then counts from the day it was
-  done. Ticks sync, so both keepers see the same list. A day with
-  everything done gets the confetti once. Chores are made from the
-  agenda's plus and from a cat's or home's alarm button.
-- Achievements, the keeper's own on this device: a full month, year,
-  decade and century of chores all done, counted each time reached,
-  and a master ladder per chore (10, 50, 100, 1,000, 10,000, 100,000
-  times). A page from Settings and the agenda's trophy; climbing a
-  ladder gets the confetti and a line saying which.
-- A chore can remind you: "Remind me" with a time of day on the
-  chore, a phone notification on its due days, gone once the chore is
-  ticked, on this phone or a partner's. The switch asks for the
-  notification permission; a hint leads to the battery settings for
-  phones that drop reminders.
+- Every catalog signs its entries with its own key; forged entries in a known name are refused and listed on the arrival page.
+- Partners show as name and key code; your key is in the catalog settings.
+- Looks: a chip field for size, colours, marks and per-species traits, asked right after a Stray Cam or poster capture.
+- Match candidates include pairs whose Looks agree in two traits or more; a wrong pair can be marked "Not the same".
+- Chores: recurring care on a cat or home, daily, every N days or on chosen weekdays, with Today and Coming up on the agenda, streaks and week dots.
+- Achievements page: full months, years, decades and centuries of chores, and a master ladder per chore.
+- A chore can remind you with a phone notification at a chosen time.
 
 ### Changed
+- The celebration cheer is one of several clips and has its own switch in Settings.
 
-- The celebration cheer is one of several short clips, picked at
-  random each time, and has its own switch in Settings so the confetti
-  can stay while the sound is off.
+### Fixed
+- The map no longer freezes after a swipe.
 
 ---
 
