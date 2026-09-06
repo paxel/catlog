@@ -36,6 +36,27 @@ void main() {
     expect(again.entriesSent, 0);
   });
 
+  test('a session pins each other\'s key as verified', () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'friend';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    a.createCat('Miezi');
+    b.createCat('Wanderer');
+    ImportReport? hostReport;
+    final host =
+        await testHost(a, '123456', onSession: (_, _, r) => hostReport = r);
+    final result = await syncWith(b, host);
+    expect(result.report.newKeys.single.trust, KeyTrust.verified);
+    expect(b.pinnedKey(a.deviceId)!.trust, KeyTrust.verified);
+    expect(hostReport!.newKeys.single.record.device, b.deviceId);
+    expect(a.pinnedKey(b.deviceId)!.trust, KeyTrust.verified);
+    // What each side holds now verifies under the other's key.
+    for (final e in b.entriesSince(const {})) {
+      if (e.device == a.deviceId) expect(b.verifiesEntry(e), isTrue);
+    }
+  });
+
   test('wrong PIN is refused', () async {
     final a = CatalogStore.inMemory()..author = 'axel';
     final b = CatalogStore.inMemory()..author = 'friend';

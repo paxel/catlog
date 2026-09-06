@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'bundle.dart';
 import 'entry.dart';
 import 'fields.dart';
+import 'signing.dart';
 import 'store.dart';
 
 /// Outcome of one folder sync, for the summary line.
@@ -15,9 +17,13 @@ class FolderSyncResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
-  const FolderSyncResult(
+  /// Refused rows and the keys met (1.2.0).
+  final ImportReport report;
+
+  FolderSyncResult(
       this.entriesIn, this.entriesOut, this.blobsIn, this.blobsOut,
-      {this.applied = const []});
+      {this.applied = const [], ImportReport? report})
+      : report = report ?? ImportReport();
 
   @override
   String toString() =>
@@ -35,8 +41,35 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
     {bool includePrivate = false}) {
   final root = Directory('$folderPath/catlog-sync');
   final blobDir = Directory('${root.path}/blobs');
+  final keyDir = Directory('${root.path}/keys');
   root.createSync(recursive: true);
   blobDir.createSync(recursive: true);
+  keyDir.createSync(recursive: true);
+
+  // ---- keys first (1.2.0): every device publishes the keys it holds
+  // under `keys/<deviceId>.json`; what the others published is learned
+  // before their entries are judged. A reader from before looks only
+  // at the root and never sees the folder.
+  final report = ImportReport();
+  final foreignKeys = <KeyRecord>[];
+  for (final file in keyDir.listSync().whereType<File>()) {
+    final name = file.uri.pathSegments.last;
+    if (!name.endsWith('.json') || name == '${store.deviceId}.json') continue;
+    try {
+      foreignKeys.addAll(parseKeys(file.readAsStringSync()));
+    } catch (_) {
+      // Half-written by the cloud client: next round.
+    }
+  }
+  store.learnKeys(foreignKeys, report: report);
+  final ownKeys = File('${keyDir.path}/${store.deviceId}.json');
+  final ownKeysJson =
+      jsonEncode([for (final k in store.keyRecords()) k.toJson()]);
+  if (!ownKeys.existsSync() || ownKeys.readAsStringSync() != ownKeysJson) {
+    final tmp = File('${ownKeys.path}.tmp');
+    tmp.writeAsStringSync(ownKeysJson);
+    tmp.renameSync(ownKeys.path);
+  }
 
   // ---- read every foreign device's file (never write them)
   //
@@ -95,7 +128,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
           e
     ];
     final imported =
-        store.applyEntries(fresh, senderVector: writerVector);
+        store.applyEntries(fresh, senderVector: writerVector, report: report);
     applied.addAll(imported);
     entriesIn += imported.length;
   }
@@ -166,7 +199,7 @@ FolderSyncResult folderSync(CatalogStore store, String folderPath,
   }
 
   return FolderSyncResult(entriesIn, entriesOut, blobsIn, blobsOut,
-      applied: applied);
+      applied: applied, report: report);
 }
 
 /// True when this store has seen a deletion marker for [hash] and no

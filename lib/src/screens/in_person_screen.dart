@@ -229,7 +229,7 @@ class _InPersonScreenState extends State<InPersonScreen> {
     return (host, pin, address);
   }
 
-  void _onSession(List<Entry> applied, Moment? moment) {
+  void _onSession(List<Entry> applied, Moment? moment, ImportReport report) {
     if (!mounted) return;
     setState(() => _sessions++);
     if (applied.isNotEmpty) {

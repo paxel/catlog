@@ -16,7 +16,8 @@ Future<LanSyncHost> testHost(
   CatalogStore store,
   String pin, {
   Future<JoinDecision> Function(String author, String device)? onJoinRequest,
-  void Function(List<Entry> applied, Moment? moment)? onSession,
+  void Function(List<Entry> applied, Moment? moment, ImportReport report)?
+      onSession,
 }) async {
   final host = LanSyncHost(store, pin,
       identity: testIdentity(),

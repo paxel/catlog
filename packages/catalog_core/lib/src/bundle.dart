@@ -6,6 +6,7 @@ import 'package:archive/archive_io.dart';
 
 import 'entry.dart';
 import 'fields.dart';
+import 'signing.dart';
 import 'store.dart';
 
 /// Sync-by-messenger (ADR-0002 family): one file carries the sender's
@@ -40,8 +41,12 @@ class BundleResult {
   /// The entries actually new to this store — the import summary's input.
   final List<Entry> applied;
 
-  const BundleResult(this.entriesIn, this.blobsIn,
-      {this.applied = const []});
+  /// Refused rows and the keys met (1.2.0).
+  final ImportReport report;
+
+  BundleResult(this.entriesIn, this.blobsIn,
+      {this.applied = const [], ImportReport? report})
+      : report = report ?? ImportReport();
 
   @override
   String toString() => '$entriesIn entries + $blobsIn photos in';
@@ -71,7 +76,8 @@ String writeBundle(CatalogStore store, String path,
   writeZipStreaming(path, utf8.encode(jsonl),
       flagged: entries.any((e) => e.reminder),
       hashes: hashes,
-      bytesOf: store.imageBytes);
+      bytesOf: store.imageBytes,
+      keys: store.keyRecords());
   return path;
 }
 
@@ -83,7 +89,8 @@ String writeBundle(CatalogStore store, String path,
 void writeZipStreaming(String path, List<int> jsonlBytes,
     {required bool flagged,
     required Iterable<String> hashes,
-    required Uint8List? Function(String hash) bytesOf}) {
+    required Uint8List? Function(String hash) bytesOf,
+    Iterable<KeyRecord> keys = const []}) {
   // The encoder would create missing folders on its own; a bundle
   // belongs where the caller said and nowhere else, and callers rely on
   // "cannot be written" being an error (going back removes nothing).
@@ -94,6 +101,12 @@ void writeZipStreaming(String path, List<int> jsonlBytes,
   final encoder = ZipFileEncoder()..create(path);
   try {
     _addFormatAndEntries(encoder, jsonlBytes, flagged: flagged);
+    // The keys the entries were signed with (1.2.0); a reader from
+    // before ignores the file, as it ignores the signatures.
+    if (keys.isNotEmpty) {
+      final bytes = utf8.encode(jsonEncode([for (final k in keys) k.toJson()]));
+      encoder.addArchiveFile(ArchiveFile(keysFile, bytes.length, bytes));
+    }
     for (final hash in hashes) {
       final bytes = bytesOf(hash);
       if (bytes == null) continue;
@@ -127,8 +140,27 @@ String writeEntriesBundle(
   writeZipStreaming(path, utf8.encode(jsonl),
       flagged: entries.any((e) => e.reminder),
       hashes: hashes,
-      bytesOf: store.imageBytes);
+      bytesOf: store.imageBytes,
+      keys: store.keyRecords());
   return path;
+}
+
+/// The key list inside a bundle: a JSON array of [KeyRecord]s.
+const keysFile = 'keys.json';
+
+/// Parses a key list as bundles and folder files carry it; anything
+/// malformed is simply no keys.
+List<KeyRecord> parseKeys(String json) {
+  try {
+    return [
+      for (final k in jsonDecode(json) as List)
+        if (KeyRecord.fromJson((k as Map).cast<String, dynamic>())
+            case final r?)
+          r
+    ];
+  } catch (_) {
+    return const [];
+  }
 }
 
 /// A payload without a single flagged entry is byte-identical to the
@@ -176,6 +208,7 @@ const maxEntriesBytes = 64 << 20;
 BundleResult _importArchive(CatalogStore store, Archive archive) {
   final entries = <Entry>[];
   final blobFiles = <String, ArchiveFile>{};
+  var keys = const <KeyRecord>[];
   for (final file in archive.files) {
     if (!file.isFile) continue;
     if (file.name.startsWith('blobs/')) {
@@ -189,6 +222,8 @@ BundleResult _importArchive(CatalogStore store, Archive archive) {
       if (declared != null && declared > bundleFormat) {
         throw UnsupportedBundleFormat(declared);
       }
+    } else if (file.name == keysFile) {
+      keys = parseKeys(utf8.decode(file.content as List<int>));
     } else if (file.name == 'entries2.jsonl' ||
         file.name == 'entries.jsonl') {
       for (final line in utf8.decode(file.content as List<int>).split('\n')) {
@@ -208,7 +243,9 @@ BundleResult _importArchive(CatalogStore store, Archive archive) {
       writerVector[e.device] = e.dseq;
     }
   }
-  final applied = store.applyEntries(entries, senderVector: writerVector);
+  final report = ImportReport();
+  final applied = store.applyEntries(entries,
+      senderVector: writerVector, keys: keys, report: report);
   final imported = applied.length;
   var blobsIn = 0;
   for (final MapEntry(key: hash, value: file) in blobFiles.entries) {
@@ -221,5 +258,5 @@ BundleResult _importArchive(CatalogStore store, Archive archive) {
     file.clear();
     blobsIn++;
   }
-  return BundleResult(imported, blobsIn, applied: applied);
+  return BundleResult(imported, blobsIn, applied: applied, report: report);
 }

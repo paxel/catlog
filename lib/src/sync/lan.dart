@@ -22,9 +22,13 @@ class SyncResult {
   /// The moment before [applied] went in — what Reject returns to.
   final Moment? moment;
 
-  const SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
+  /// Refused rows and the keys met (1.2.0) — met in person, so verified.
+  final ImportReport report;
+
+  SyncResult(this.entriesSent, this.entriesReceived, this.blobsSent,
       this.blobsReceived,
-      {this.applied = const [], this.moment});
+      {this.applied = const [], this.moment, ImportReport? report})
+      : report = report ?? ImportReport();
 
   @override
   String toString() =>
@@ -89,8 +93,10 @@ class LanSyncHost {
 
   /// Called after a joiner completed a session; receives what actually
   /// landed, so the host can show the import summary too.
-  /// A joiner has synced: what arrived here, and the moment before it.
-  final void Function(List<Entry> applied, Moment? moment)? onSession;
+  /// A joiner has synced: what arrived here, the moment before it, and
+  /// what the signatures said.
+  final void Function(List<Entry> applied, Moment? moment, ImportReport report)?
+      onSession;
 
   HttpServer? _server;
   final _failures = <String, int>{};
@@ -246,9 +252,18 @@ class LanSyncHost {
           for (final e in body['entries'] as List)
             Entry.fromJson((e as Map).cast<String, dynamic>())
         ];
+        // Keys met over a session the pair code authenticated, in the
+        // same room: verified (1.2.0).
+        final joinerKeys = body['keys'] is List
+            ? parseKeys(jsonEncode(body['keys']))
+            : const <KeyRecord>[];
+        final report = ImportReport();
         final before = store.currentSeq();
-        final applied =
-            store.applyEntries(incoming, senderVector: joinerVector);
+        final applied = store.applyEntries(incoming,
+            senderVector: joinerVector,
+            keys: joinerKeys,
+            verified: true,
+            report: report);
         final moment = momentFor(store,
             before: before,
             changed: applied.isNotEmpty,
@@ -263,8 +278,9 @@ class LanSyncHost {
           ],
           'wantBlobs': store.missingBlobs(),
           'trust': ?issued,
+          'keys': [for (final k in store.keyRecords()) k.toJson()],
         }));
-        onSession?.call(applied, moment);
+        onSession?.call(applied, moment, report);
       } else if (req.method == 'GET' && path.startsWith('/blob/')) {
         final bytes = store.imageBytes(path.substring('/blob/'.length));
         if (bytes == null) {
@@ -418,6 +434,7 @@ Future<SyncResult> lanSync(
       'author': store.author ?? '?',
       'deviceName': Platform.localHostname,
       'deviceId': store.deviceId,
+      'keys': [for (final k in store.keyRecords()) k.toJson()],
       'trustSecret': ?(hostDevice == null
           ? null
           : store.localSetting(trustSecretKey(hostDevice!))),
@@ -432,9 +449,16 @@ Future<SyncResult> lanSync(
       for (final e in response['entries'] as List)
         Entry.fromJson((e as Map).cast<String, dynamic>())
     ];
+    final hostKeys = response['keys'] is List
+        ? parseKeys(jsonEncode(response['keys']))
+        : const <KeyRecord>[];
+    final report = ImportReport();
     final beforeApply = store.currentSeq();
-    final applied =
-        store.applyEntries(received, senderVector: hostVector);
+    final applied = store.applyEntries(received,
+        senderVector: hostVector,
+        keys: hostKeys,
+        verified: true,
+        report: report);
     final moment = momentFor(store,
         before: beforeApply,
         changed: applied.isNotEmpty,
@@ -464,7 +488,7 @@ Future<SyncResult> lanSync(
       // Counted what landed; the rest waits for the next sync.
     }
     return SyncResult(toSend.length, received.length, blobsOut, blobsIn,
-        applied: applied, moment: moment);
+        applied: applied, moment: moment, report: report);
   } finally {
     client.close(force: true);
   }
