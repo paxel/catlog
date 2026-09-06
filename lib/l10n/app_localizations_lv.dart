@@ -2467,6 +2467,54 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Sasniegumi';
+
+  @override
+  String get achievementMonth => 'Pilns mēnesis';
+
+  @override
+  String get achievementYear => 'Pilns gads';
+
+  @override
+  String get achievementDecade => 'Pilna desmitgade';
+
+  @override
+  String get achievementCentury => 'Pilns gadsimts';
+
+  @override
+  String get achievementCenturyHint => 'Mēs abi būsim ļoti lepni.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title meistars';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Sasniegts $times reizes',
+      one: 'Sasniegts $times reizi',
+      zero: 'Sasniegts $times reižu',
+    );
+    return '$_temp0, pirmoreiz $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Nākamais pie $n';
+  }
+
+  @override
+  String get achievementLocked => 'Vēl ne';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Sasniegums: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Kas';
 
   @override

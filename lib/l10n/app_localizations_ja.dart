@@ -2361,6 +2361,47 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => '実績';
+
+  @override
+  String get achievementMonth => '皆勤の1か月';
+
+  @override
+  String get achievementYear => '皆勤の1年';
+
+  @override
+  String get achievementDecade => '皆勤の10年';
+
+  @override
+  String get achievementCentury => '皆勤の100年';
+
+  @override
+  String get achievementCenturyHint => 'そのときは一緒に誇りに思いましょう。';
+
+  @override
+  String achievementMaster(String title) {
+    return '$titleマスター';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '$times回達成、初回 $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return '次は $n 回';
+  }
+
+  @override
+  String get achievementLocked => 'まだ';
+
+  @override
+  String achievementUnlocked(String name) {
+    return '実績: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => '内容';
 
   @override

@@ -2449,6 +2449,54 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'הישגים';
+
+  @override
+  String get achievementMonth => 'חודש מלא';
+
+  @override
+  String get achievementYear => 'שנה מלאה';
+
+  @override
+  String get achievementDecade => 'עשור מלא';
+
+  @override
+  String get achievementCentury => 'מאה שנה מלאות';
+
+  @override
+  String get achievementCenturyHint => 'שנינו נהיה גאים מאוד.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'אלוף $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'הושג $times פעמים',
+      two: 'הושג פעמיים',
+      one: 'הושג פעם אחת',
+    );
+    return '$_temp0, לראשונה ב-$date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'הבא ב-$n';
+  }
+
+  @override
+  String get achievementLocked => 'עדיין לא';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'הישג: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'מה';
 
   @override

@@ -2420,6 +2420,47 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'دستاوردها';
+
+  @override
+  String get achievementMonth => 'یک ماه کامل';
+
+  @override
+  String get achievementYear => 'یک سال کامل';
+
+  @override
+  String get achievementDecade => 'یک دهه کامل';
+
+  @override
+  String get achievementCentury => 'یک قرن کامل';
+
+  @override
+  String get achievementCenturyHint => 'هر دو خیلی افتخار خواهیم کرد.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'استاد $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '$times بار رسیده، اولین بار $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'بعدی در $n';
+  }
+
+  @override
+  String get achievementLocked => 'هنوز نه';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'دستاورد: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'چه';
 
   @override

@@ -2458,6 +2458,53 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Eredmények';
+
+  @override
+  String get achievementMonth => 'Egy teljes hónap';
+
+  @override
+  String get achievementYear => 'Egy teljes év';
+
+  @override
+  String get achievementDecade => 'Egy teljes évtized';
+
+  @override
+  String get achievementCentury => 'Egy teljes évszázad';
+
+  @override
+  String get achievementCenturyHint => 'Mindketten nagyon büszkék leszünk.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mester';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times-szer elérve',
+      one: 'Egyszer elérve',
+    );
+    return '$_temp0, először $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Következő: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Még nem';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Eredmény: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mi';
 
   @override

@@ -2459,6 +2459,53 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Saavutukset';
+
+  @override
+  String get achievementMonth => 'Kokonainen kuukausi';
+
+  @override
+  String get achievementYear => 'Kokonainen vuosi';
+
+  @override
+  String get achievementDecade => 'Kokonainen vuosikymmen';
+
+  @override
+  String get achievementCentury => 'Kokonainen vuosisata';
+
+  @override
+  String get achievementCenturyHint => 'Olemme molemmat hyvin ylpeitä.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mestari';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Saavutettu $times kertaa',
+      one: 'Saavutettu kerran',
+    );
+    return '$_temp0, ensi kerran $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Seuraava kohdassa $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ei vielä';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Saavutus: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mitä';
 
   @override

@@ -2455,6 +2455,53 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Başarılar';
+
+  @override
+  String get achievementMonth => 'Tam bir ay';
+
+  @override
+  String get achievementYear => 'Tam bir yıl';
+
+  @override
+  String get achievementDecade => 'Tam on yıl';
+
+  @override
+  String get achievementCentury => 'Tam bir yüzyıl';
+
+  @override
+  String get achievementCenturyHint => 'İkimiz de çok gurur duyacağız.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title ustası';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times kez ulaşıldı',
+      one: 'Bir kez ulaşıldı',
+    );
+    return '$_temp0, ilki $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Sonraki: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Henüz değil';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Başarı: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Ne';
 
   @override

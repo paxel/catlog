@@ -9,6 +9,8 @@ import '../spotlight.dart';
 import '../units.dart';
 import '../units_dialog.dart';
 import 'intro_screen.dart';
+import '../move_to_catalog.dart';
+import 'achievements_screen.dart';
 
 /// The settings that belong to the app, not to a catalog: language,
 /// units, celebrations, event toasts and the two replays. One flat
@@ -64,6 +66,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (v) =>
                 setState(() => setCelebrationsEnabled(widget.store, v)),
           ),
+          if (catalogManager != null)
+            ListTile(
+              leading: const Icon(Icons.emoji_events_outlined),
+              title: Text(t.achievementsTitle),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => AchievementsScreen(
+                    manager: catalogManager!, stores: [widget.store]),
+              )),
+            ),
           ListTile(
             leading: const Icon(Icons.notifications_active_outlined),
             title: Text(t.toastSettingsTitle),

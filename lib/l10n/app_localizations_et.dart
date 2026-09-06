@@ -2455,6 +2455,53 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Saavutused';
+
+  @override
+  String get achievementMonth => 'Terve kuu';
+
+  @override
+  String get achievementYear => 'Terve aasta';
+
+  @override
+  String get achievementDecade => 'Terve kümnend';
+
+  @override
+  String get achievementCentury => 'Terve sajand';
+
+  @override
+  String get achievementCenturyHint => 'Oleme mõlemad väga uhked.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title meister';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Saavutatud $times korda',
+      one: 'Saavutatud korra',
+    );
+    return '$_temp0, esimest korda $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Järgmine $n juures';
+  }
+
+  @override
+  String get achievementLocked => 'Veel mitte';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Saavutus: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Mis';
 
   @override

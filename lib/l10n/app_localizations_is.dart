@@ -2461,6 +2461,53 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Afrek';
+
+  @override
+  String get achievementMonth => 'Heill mánuður';
+
+  @override
+  String get achievementYear => 'Heilt ár';
+
+  @override
+  String get achievementDecade => 'Heill áratugur';
+
+  @override
+  String get achievementCentury => 'Heil öld';
+
+  @override
+  String get achievementCenturyHint => 'Við verðum bæði mjög stolt.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-meistari';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Náð $times sinnum',
+      one: 'Náð einu sinni',
+    );
+    return '$_temp0, fyrst $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Næst við $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ekki enn';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Afrek: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Hvað';
 
   @override

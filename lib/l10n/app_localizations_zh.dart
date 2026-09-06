@@ -2329,6 +2329,47 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => '成就';
+
+  @override
+  String get achievementMonth => '完整的一个月';
+
+  @override
+  String get achievementYear => '完整的一年';
+
+  @override
+  String get achievementDecade => '完整的十年';
+
+  @override
+  String get achievementCentury => '完整的一百年';
+
+  @override
+  String get achievementCenturyHint => '到那时我们都会非常自豪。';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title大师';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    return '已达成 $times 次，首次于 $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return '下一级 $n';
+  }
+
+  @override
+  String get achievementLocked => '尚未';
+
+  @override
+  String achievementUnlocked(String name) {
+    return '成就：$name';
+  }
+
+  @override
   String get appointmentTitleLabel => '事项';
 
   @override

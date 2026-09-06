@@ -2467,6 +2467,54 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Достижения';
+
+  @override
+  String get achievementMonth => 'Полный месяц';
+
+  @override
+  String get achievementYear => 'Полный год';
+
+  @override
+  String get achievementDecade => 'Полное десятилетие';
+
+  @override
+  String get achievementCentury => 'Полный век';
+
+  @override
+  String get achievementCenturyHint => 'Мы оба будем очень горды.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Мастер: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Достигнуто $times раз',
+      few: 'Достигнуто $times раза',
+      one: 'Достигнуто $times раз',
+    );
+    return '$_temp0, впервые $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Следующая ступень: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Пока нет';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Достижение: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Что';
 
   @override

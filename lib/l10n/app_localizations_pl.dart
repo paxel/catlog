@@ -2467,6 +2467,54 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Osiągnięcia';
+
+  @override
+  String get achievementMonth => 'Pełny miesiąc';
+
+  @override
+  String get achievementYear => 'Pełny rok';
+
+  @override
+  String get achievementDecade => 'Pełna dekada';
+
+  @override
+  String get achievementCentury => 'Pełny wiek';
+
+  @override
+  String get achievementCenturyHint => 'Oboje będziemy bardzo dumni.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mistrz: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Osiągnięto $times razy',
+      few: 'Osiągnięto $times razy',
+      one: 'Osiągnięto raz',
+    );
+    return '$_temp0, po raz pierwszy $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Następny przy $n';
+  }
+
+  @override
+  String get achievementLocked => 'Jeszcze nie';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Osiągnięcie: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Co';
 
   @override

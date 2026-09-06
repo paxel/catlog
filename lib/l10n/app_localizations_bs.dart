@@ -2464,6 +2464,54 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Postignuća';
+
+  @override
+  String get achievementMonth => 'Cijeli mjesec';
+
+  @override
+  String get achievementYear => 'Cijela godina';
+
+  @override
+  String get achievementDecade => 'Cijela decenija';
+
+  @override
+  String get achievementCentury => 'Cijeli vijek';
+
+  @override
+  String get achievementCenturyHint => 'Oboje ćemo biti jako ponosni.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Majstor: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Postignuto $times puta',
+      few: 'Postignuto $times puta',
+      one: 'Postignuto $times put',
+    );
+    return '$_temp0, prvi put $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Sljedeće na $n';
+  }
+
+  @override
+  String get achievementLocked => 'Još ne';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Postignuće: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Šta';
 
   @override

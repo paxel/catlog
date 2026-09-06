@@ -2466,6 +2466,54 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Realizări';
+
+  @override
+  String get achievementMonth => 'O lună întreagă';
+
+  @override
+  String get achievementYear => 'Un an întreg';
+
+  @override
+  String get achievementDecade => 'Un deceniu întreg';
+
+  @override
+  String get achievementCentury => 'Un secol întreg';
+
+  @override
+  String get achievementCenturyHint => 'Vom fi amândoi foarte mândri.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Maestru $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Atins de $times de ori',
+      few: 'Atins de $times ori',
+      one: 'Atins o dată',
+    );
+    return '$_temp0, prima dată pe $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Următorul la $n';
+  }
+
+  @override
+  String get achievementLocked => 'Încă nu';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Realizare: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Ce';
 
   @override

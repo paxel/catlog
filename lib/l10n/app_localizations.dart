@@ -4274,6 +4274,72 @@ abstract class AppLocalizations {
   /// **'Due {date}'**
   String choreDue(String date);
 
+  /// No description provided for @achievementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievementsTitle;
+
+  /// No description provided for @achievementMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'A full month'**
+  String get achievementMonth;
+
+  /// No description provided for @achievementYear.
+  ///
+  /// In en, this message translates to:
+  /// **'A full year'**
+  String get achievementYear;
+
+  /// No description provided for @achievementDecade.
+  ///
+  /// In en, this message translates to:
+  /// **'A full decade'**
+  String get achievementDecade;
+
+  /// No description provided for @achievementCentury.
+  ///
+  /// In en, this message translates to:
+  /// **'A full century'**
+  String get achievementCentury;
+
+  /// No description provided for @achievementCenturyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'We will both be very proud.'**
+  String get achievementCenturyHint;
+
+  /// No description provided for @achievementMaster.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} master'**
+  String achievementMaster(String title);
+
+  /// No description provided for @achievementReached.
+  ///
+  /// In en, this message translates to:
+  /// **'{times, plural, one{Reached once} other{Reached {times} times}}, first on {date}'**
+  String achievementReached(int times, String date);
+
+  /// No description provided for @achievementNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next at {n}'**
+  String achievementNext(int n);
+
+  /// No description provided for @achievementLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet'**
+  String get achievementLocked;
+
+  /// No description provided for @achievementUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement: {name}'**
+  String achievementUnlocked(String name);
+
   /// No description provided for @appointmentTitleLabel.
   ///
   /// In en, this message translates to:

@@ -2468,6 +2468,54 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Досягнення';
+
+  @override
+  String get achievementMonth => 'Повний місяць';
+
+  @override
+  String get achievementYear => 'Повний рік';
+
+  @override
+  String get achievementDecade => 'Повне десятиліття';
+
+  @override
+  String get achievementCentury => 'Повне століття';
+
+  @override
+  String get achievementCenturyHint => 'Ми обоє дуже пишатимемось.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Майстер: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Досягнуто $times разів',
+      few: 'Досягнуто $times рази',
+      one: 'Досягнуто $times раз',
+    );
+    return '$_temp0, уперше $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Наступна сходинка: $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ще ні';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Досягнення: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Що';
 
   @override

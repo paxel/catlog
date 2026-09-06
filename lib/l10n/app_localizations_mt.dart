@@ -2464,6 +2464,53 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Kisbiet';
+
+  @override
+  String get achievementMonth => 'Xahar sħiħ';
+
+  @override
+  String get achievementYear => 'Sena sħiħa';
+
+  @override
+  String get achievementDecade => 'Għaxar snin sħaħ';
+
+  @override
+  String get achievementCentury => 'Seklu sħiħ';
+
+  @override
+  String get achievementCenturyHint => 'It-tnejn se nkunu kburin ħafna.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mastru ta’ $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Milħuq $times darbiet',
+      one: 'Milħuq darba',
+    );
+    return '$_temp0, l-ewwel darba $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Li jmiss f’$n';
+  }
+
+  @override
+  String get achievementLocked => 'Għadu mhux';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Kisba: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'X\'inhu';
 
   @override

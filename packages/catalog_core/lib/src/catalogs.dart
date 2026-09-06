@@ -85,8 +85,7 @@ class CatalogManager implements SharedSettings {
       final db = sqlite3.open(path);
       try {
         final table = key == 'locale' ? 'settings' : 'local_settings';
-        final rows =
-            db.select('SELECT value FROM $table WHERE key = ?', [key]);
+        final rows = db.select('SELECT value FROM $table WHERE key = ?', [key]);
         if (rows.isNotEmpty) return rows.first['value'] as String;
       } catch (_) {
         // A database without the table is simply one that has no answer.
@@ -115,6 +114,13 @@ class CatalogManager implements SharedSettings {
         key   TEXT PRIMARY KEY,
         value TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS achievements (
+        id    TEXT PRIMARY KEY,
+        tier  INTEGER NOT NULL,
+        times INTEGER NOT NULL,
+        first TEXT NOT NULL,
+        last  TEXT NOT NULL
+      );
     ''');
     final manager = CatalogManager._(root, db);
     manager._adopt(defaultName);
@@ -123,14 +129,42 @@ class CatalogManager implements SharedSettings {
 
   void close() => _db.dispose();
 
+  /// The keeper's achievements (1.2.0): one row per ladder, the tier
+  /// reached, how many times, when first and last. The keeper's, not a
+  /// catalog's — kept here beside the shared settings, never synced.
+  List<Achievement> achievements() => [
+        for (final r in _db.select(
+            'SELECT id, tier, times, first, last FROM achievements ORDER BY id'))
+          Achievement(
+            id: r['id'] as String,
+            tier: r['tier'] as int,
+            times: r['times'] as int,
+            first: DateTime.parse(r['first'] as String),
+            last: DateTime.parse(r['last'] as String),
+          )
+      ];
+
+  /// Writes the state of one ladder; the first date stays the first.
+  void recordAchievement(String id,
+      {required int tier, required int times, required DateTime at}) {
+    final stamp = at.toUtc().toIso8601String();
+    _db.execute(
+      'INSERT INTO achievements (id, tier, times, first, last) '
+      'VALUES (?, ?, ?, ?, ?) '
+      'ON CONFLICT(id) DO UPDATE SET tier = excluded.tier, '
+      'times = excluded.times, last = excluded.last',
+      [id, tier, times, stamp, stamp],
+    );
+  }
+
   Directory get _catalogsDir =>
       Directory('${root.path}/catalogs')..createSync(recursive: true);
 
   // ------------------------------------------------------------- registry
 
   List<CatalogInfo> catalogs() => [
-        for (final r in _db.select(
-            'SELECT id, name FROM catalogs ORDER BY created, name'))
+        for (final r in _db
+            .select('SELECT id, name FROM catalogs ORDER BY created, name'))
           CatalogInfo(
             id: r['id'] as String,
             name: r['name'] as String,
@@ -170,7 +204,8 @@ class CatalogManager implements SharedSettings {
     final info = CatalogInfo(
         id: id,
         name: clean,
-        dir: Directory('${_catalogsDir.path}/$id')..createSync(recursive: true));
+        dir: Directory('${_catalogsDir.path}/$id')
+          ..createSync(recursive: true));
     // The name lives in the catalog too, so a copied folder is complete.
     final store = openStore(info);
     store.setLocalSetting(catalogNameKey, clean);
@@ -213,8 +248,8 @@ class CatalogManager implements SharedSettings {
   }
 
   void _requireFreeName(String name) {
-    final taken = catalogs()
-        .any((c) => c.name.toLowerCase() == name.toLowerCase());
+    final taken =
+        catalogs().any((c) => c.name.toLowerCase() == name.toLowerCase());
     if (taken) throw DuplicateCatalogName(name);
   }
 
@@ -222,8 +257,7 @@ class CatalogManager implements SharedSettings {
 
   @override
   String? get(String key) {
-    final rows =
-        _db.select('SELECT value FROM settings WHERE key = ?', [key]);
+    final rows = _db.select('SELECT value FROM settings WHERE key = ?', [key]);
     return rows.isEmpty ? null : rows.first['value'] as String;
   }
 
@@ -241,12 +275,8 @@ class CatalogManager implements SharedSettings {
   @override
   List<(String, String)> byPrefix(String prefix) => [
         for (final r in _db.select(
-            'SELECT key, value FROM settings WHERE key LIKE ?',
-            ['$prefix%']))
-          (
-            (r['key'] as String).substring(prefix.length),
-            r['value'] as String
-          )
+            'SELECT key, value FROM settings WHERE key LIKE ?', ['$prefix%']))
+          ((r['key'] as String).substring(prefix.length), r['value'] as String)
       ];
 
   // ------------------------------------------------------------ migration
@@ -351,3 +381,20 @@ class CatalogManager implements SharedSettings {
 
 /// Where a catalog keeps its own display name.
 const catalogNameKey = 'catalogName';
+
+/// One ladder's state for the keeper: the tier reached, how many times
+/// the feat was done, first and last time it was recorded.
+class Achievement {
+  final String id;
+  final int tier;
+  final int times;
+  final DateTime first;
+  final DateTime last;
+
+  const Achievement(
+      {required this.id,
+      required this.tier,
+      required this.times,
+      required this.first,
+      required this.last});
+}

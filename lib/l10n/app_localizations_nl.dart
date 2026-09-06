@@ -2462,6 +2462,53 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Prestaties';
+
+  @override
+  String get achievementMonth => 'Een volle maand';
+
+  @override
+  String get achievementYear => 'Een vol jaar';
+
+  @override
+  String get achievementDecade => 'Een vol decennium';
+
+  @override
+  String get achievementCentury => 'Een volle eeuw';
+
+  @override
+  String get achievementCenturyHint => 'We zullen allebei heel trots zijn.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-meester';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: '$times keer gehaald',
+      one: 'Eén keer gehaald',
+    );
+    return '$_temp0, de eerste op $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Volgende bij $n';
+  }
+
+  @override
+  String get achievementLocked => 'Nog niet';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Prestatie: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Wat';
 
   @override

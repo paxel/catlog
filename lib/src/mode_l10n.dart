@@ -37,6 +37,39 @@ class ModeLocalizations implements AppLocalizations {
   String get acceptArrival => base.acceptArrival;
 
   @override
+  String get achievementCentury => base.achievementCentury;
+
+  @override
+  String get achievementCenturyHint => base.achievementCenturyHint;
+
+  @override
+  String get achievementDecade => base.achievementDecade;
+
+  @override
+  String get achievementLocked => base.achievementLocked;
+
+  @override
+  String achievementMaster(String title) => base.achievementMaster(title);
+
+  @override
+  String get achievementMonth => base.achievementMonth;
+
+  @override
+  String achievementNext(int n) => base.achievementNext(n);
+
+  @override
+  String achievementReached(int times, String date) => base.achievementReached(times, date);
+
+  @override
+  String achievementUnlocked(String name) => base.achievementUnlocked(name);
+
+  @override
+  String get achievementYear => base.achievementYear;
+
+  @override
+  String get achievementsTitle => base.achievementsTitle;
+
+  @override
   String get addAppointment => base.addAppointment;
 
   @override

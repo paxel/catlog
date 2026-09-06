@@ -2488,6 +2488,56 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Éachtaí';
+
+  @override
+  String get achievementMonth => 'Mí iomlán';
+
+  @override
+  String get achievementYear => 'Bliain iomlán';
+
+  @override
+  String get achievementDecade => 'Deich mbliana iomlána';
+
+  @override
+  String get achievementCentury => 'Céad bliain iomlán';
+
+  @override
+  String get achievementCenturyHint => 'Beidh an-bhród orainn beirt.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Máistir $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Bainte amach $times uair',
+      many: 'Bainte amach $times n-uaire',
+      few: 'Bainte amach $times huaire',
+      two: 'Bainte amach $times uair',
+      one: 'Bainte amach uair amháin',
+    );
+    return '$_temp0, den chéad uair $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'An chéad cheann eile ag $n';
+  }
+
+  @override
+  String get achievementLocked => 'Níl fós';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Éacht: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Cad';
 
   @override

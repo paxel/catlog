@@ -2467,6 +2467,53 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Επιτεύγματα';
+
+  @override
+  String get achievementMonth => 'Ένας ολόκληρος μήνας';
+
+  @override
+  String get achievementYear => 'Ένας ολόκληρος χρόνος';
+
+  @override
+  String get achievementDecade => 'Μια ολόκληρη δεκαετία';
+
+  @override
+  String get achievementCentury => 'Ένας ολόκληρος αιώνας';
+
+  @override
+  String get achievementCenturyHint => 'Θα είμαστε και οι δύο πολύ περήφανοι.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Μάστορας: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Επιτεύχθηκε $times φορές',
+      one: 'Επιτεύχθηκε μία φορά',
+    );
+    return '$_temp0, πρώτη φορά στις $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Επόμενο στα $n';
+  }
+
+  @override
+  String get achievementLocked => 'Όχι ακόμη';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Επίτευγμα: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Τι';
 
   @override

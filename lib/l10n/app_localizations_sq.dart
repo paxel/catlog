@@ -2457,6 +2457,53 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Arritje';
+
+  @override
+  String get achievementMonth => 'Një muaj i plotë';
+
+  @override
+  String get achievementYear => 'Një vit i plotë';
+
+  @override
+  String get achievementDecade => 'Një dekadë e plotë';
+
+  @override
+  String get achievementCentury => 'Një shekull i plotë';
+
+  @override
+  String get achievementCenturyHint => 'Do të jemi të dy shumë krenarë.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mjeshtër i $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Arritur $times herë',
+      one: 'Arritur një herë',
+    );
+    return '$_temp0, herën e parë më $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Tjetra te $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ende jo';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Arritje: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Çfarë';
 
   @override

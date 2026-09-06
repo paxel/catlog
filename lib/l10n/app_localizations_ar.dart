@@ -2471,6 +2471,56 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'الإنجازات';
+
+  @override
+  String get achievementMonth => 'شهر كامل';
+
+  @override
+  String get achievementYear => 'سنة كاملة';
+
+  @override
+  String get achievementDecade => 'عقد كامل';
+
+  @override
+  String get achievementCentury => 'قرن كامل';
+
+  @override
+  String get achievementCenturyHint => 'سنكون كلانا فخورَين جدًا.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'خبير $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'تحقق $times مرة',
+      many: 'تحقق $times مرة',
+      few: 'تحقق $times مرات',
+      two: 'تحقق مرتين',
+      one: 'تحقق مرة',
+    );
+    return '$_temp0، أول مرة في $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'التالي عند $n';
+  }
+
+  @override
+  String get achievementLocked => 'ليس بعد';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'إنجاز: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'ماذا';
 
   @override

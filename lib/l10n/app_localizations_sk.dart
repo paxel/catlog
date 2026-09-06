@@ -2462,6 +2462,54 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Úspechy';
+
+  @override
+  String get achievementMonth => 'Celý mesiac';
+
+  @override
+  String get achievementYear => 'Celý rok';
+
+  @override
+  String get achievementDecade => 'Celé desaťročie';
+
+  @override
+  String get achievementCentury => 'Celé storočie';
+
+  @override
+  String get achievementCenturyHint => 'Obaja budeme veľmi hrdí.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Majster: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Dosiahnuté $times-krát',
+      few: 'Dosiahnuté $times-krát',
+      one: 'Dosiahnuté raz',
+    );
+    return '$_temp0, prvýkrát $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Ďalší pri $n';
+  }
+
+  @override
+  String get achievementLocked => 'Ešte nie';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Úspech: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Čo';
 
   @override

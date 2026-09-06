@@ -15,6 +15,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   done. Ticks sync, so both keepers see the same list. A day with
   everything done gets the confetti once. Chores are made from the
   agenda's plus and from a cat's or home's alarm button.
+- Achievements, the keeper's own on this device: a full month, year,
+  decade and century of chores all done, counted each time reached,
+  and a master ladder per chore (10, 50, 100, 1,000, 10,000, 100,000
+  times). A page from Settings and the agenda's trophy; climbing a
+  ladder gets the confetti and a line saying which.
 
 ---
 

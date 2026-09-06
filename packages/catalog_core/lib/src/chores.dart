@@ -189,6 +189,11 @@ String _hhmm(({int hour, int minute}) t) =>
 /// A calendar day, local, at midnight.
 DateTime dayOf(DateTime d) => DateTime(d.year, d.month, d.day);
 
+/// [n] calendar days on from [d]. Not `add(Duration)`: across a clock
+/// change that lands an hour off midnight, and a day keyed at 01:00 is
+/// not the day keyed at 00:00.
+DateTime daysFrom(DateTime d, int n) => DateTime(d.year, d.month, d.day + n);
+
 /// `YYYY-MM-DD` of a day — the tick key's suffix and the tick's value.
 String dayKey(DateTime d) => '${d.year.toString().padLeft(4, '0')}-'
     '${d.month.toString().padLeft(2, '0')}-'
@@ -240,7 +245,7 @@ List<ChoreOccurrence> occurrences(
       final days = chore.schedule.weekdays;
       for (var day = start.isAfter(from) ? start : from;
           !day.isAfter(to);
-          day = day.add(const Duration(days: 1))) {
+          day = daysFrom(day, 1)) {
         if (chore.schedule.repeat == ChoreRepeat.daily ||
             days.contains(day.weekday)) {
           add(day);
@@ -248,7 +253,6 @@ List<ChoreOccurrence> occurrences(
       }
     case ChoreRepeat.everyDays:
       final n = chore.schedule.every < 1 ? 1 : chore.schedule.every;
-      final gap = Duration(days: n);
       // Walk the ticks in order of the occurrence they settled: every
       // due day before a tick's occurrence was missed, the tick's own
       // occurrence is done, and the schedule restarts from its done day.
@@ -257,14 +261,14 @@ List<ChoreOccurrence> occurrences(
       for (final occurrence in settled) {
         while (anchor.isBefore(occurrence)) {
           add(anchor);
-          anchor = anchor.add(gap);
+          anchor = daysFrom(anchor, n);
         }
         add(occurrence);
-        anchor = dayOf(ticks[occurrence]!).add(gap);
+        anchor = daysFrom(dayOf(ticks[occurrence]!), n);
       }
       while (!anchor.isAfter(to)) {
         add(anchor);
-        anchor = anchor.add(gap);
+        anchor = daysFrom(anchor, n);
       }
   }
   return result;
@@ -291,8 +295,8 @@ bool isDueOn(Chore chore, Map<DateTime, DateTime> ticks, DateTime day) =>
 DateTime? nextDue(Chore chore, Map<DateTime, DateTime> ticks, DateTime today,
     {int horizonDays = 366}) {
   today = dayOf(today);
-  for (final o in occurrences(
-      chore, ticks, today, today.add(Duration(days: horizonDays)))) {
+  for (final o
+      in occurrences(chore, ticks, today, daysFrom(today, horizonDays))) {
     if (!o.done) return o.due;
   }
   return null;
@@ -306,8 +310,8 @@ List<DateTime> upcoming(
   if (chore.schedule.repeat == ChoreRepeat.daily) return const [];
   today = dayOf(today);
   return [
-    for (final o in occurrences(chore, ticks,
-        today.add(const Duration(days: 1)), today.add(Duration(days: days))))
+    for (final o
+        in occurrences(chore, ticks, daysFrom(today, 1), daysFrom(today, days)))
       if (!o.done) o.due
   ];
 }
@@ -351,7 +355,7 @@ List<ChoreDay> weekDots(
   today = dayOf(today);
   return [
     for (var i = 6; i >= 0; i--)
-      stateOn(chore, ticks, today.subtract(Duration(days: i)), today)
+      stateOn(chore, ticks, daysFrom(today, -i), today)
   ];
 }
 

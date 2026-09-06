@@ -2472,6 +2472,55 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Dosežki';
+
+  @override
+  String get achievementMonth => 'Cel mesec';
+
+  @override
+  String get achievementYear => 'Celo leto';
+
+  @override
+  String get achievementDecade => 'Celo desetletje';
+
+  @override
+  String get achievementCentury => 'Celo stoletje';
+
+  @override
+  String get achievementCenturyHint => 'Oba bova zelo ponosna.';
+
+  @override
+  String achievementMaster(String title) {
+    return 'Mojster: $title';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Doseženo $times-krat',
+      few: 'Doseženo $times-krat',
+      two: 'Doseženo $times-krat',
+      one: 'Doseženo $times-krat',
+    );
+    return '$_temp0, prvič $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Naslednje pri $n';
+  }
+
+  @override
+  String get achievementLocked => 'Še ne';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Dosežek: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Kaj';
 
   @override

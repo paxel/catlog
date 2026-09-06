@@ -2455,6 +2455,53 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get achievementsTitle => 'Prestationer';
+
+  @override
+  String get achievementMonth => 'En hel månad';
+
+  @override
+  String get achievementYear => 'Ett helt år';
+
+  @override
+  String get achievementDecade => 'Ett helt årtionde';
+
+  @override
+  String get achievementCentury => 'Ett helt sekel';
+
+  @override
+  String get achievementCenturyHint => 'Vi kommer båda vara mycket stolta.';
+
+  @override
+  String achievementMaster(String title) {
+    return '$title-mästare';
+  }
+
+  @override
+  String achievementReached(int times, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      times,
+      locale: localeName,
+      other: 'Nått $times gånger',
+      one: 'Nått en gång',
+    );
+    return '$_temp0, första gången $date';
+  }
+
+  @override
+  String achievementNext(int n) {
+    return 'Nästa vid $n';
+  }
+
+  @override
+  String get achievementLocked => 'Inte än';
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Prestation: $name';
+  }
+
+  @override
   String get appointmentTitleLabel => 'Vad';
 
   @override

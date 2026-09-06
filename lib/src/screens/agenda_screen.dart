@@ -24,6 +24,9 @@ import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import '../celebration.dart';
 import '../widgets/chore_row.dart';
+import '../achievements.dart';
+import '../move_to_catalog.dart';
+import 'achievements_screen.dart';
 
 /// The agenda auto-opens once per app run when something is due within
 /// [agendaAutoOpenWindow]; this remembers that it already did.
@@ -99,7 +102,11 @@ class AgendaScreen extends StatefulWidget {
   /// Test override for the device calendar; null = the real one.
   final CalendarPort? calendarPort;
 
-  const AgendaScreen({super.key, required this.store, this.calendarPort});
+  /// Where achievements are kept; the app's manager when null.
+  final CatalogManager? manager;
+
+  const AgendaScreen(
+      {super.key, required this.store, this.calendarPort, this.manager});
 
   @override
   State<AgendaScreen> createState() => _AgendaScreenState();
@@ -285,11 +292,41 @@ class _AgendaScreenState extends State<AgendaScreen> {
     final due = _chores(today).today;
     final allDone = due.isNotEmpty &&
         due.every((c) => store.choreTicks(c).containsKey(today));
+    var cheer = false;
     if (allDone && store.localSetting('choresCelebrated') != dayKey(today)) {
       store.setLocalSetting('choresCelebrated', dayKey(today));
-      celebrate(context, store);
+      cheer = true;
     }
+    // A ladder climbed is a cheer too, and says which.
+    final manager = widget.manager ?? catalogManager;
+    if (manager != null) {
+      final climbed = recordLadders(
+          manager, ladders(gatherStats([store], today)), DateTime.now());
+      if (climbed.isNotEmpty) {
+        cheer = true;
+        // One line for all of them: queued snackbars would hide the rest.
+        _say(context.t.achievementUnlocked([
+          for (final s in climbed)
+            switch (s.id) {
+              fullMonthId => context.t.achievementMonth,
+              fullYearId => context.t.achievementYear,
+              fullDecadeId => context.t.achievementDecade,
+              fullCenturyId => context.t.achievementCentury,
+              _ => context.t.achievementMaster(s.title ?? ''),
+            }
+        ].join(', ')));
+      }
+    }
+    if (cheer) celebrate(context, store);
     setState(() {});
+  }
+
+  void _openAchievements() {
+    final manager = widget.manager ?? catalogManager;
+    if (manager == null) return;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => AchievementsScreen(manager: manager, stores: [store]),
+    ));
   }
 
   Widget _header(String text) => Padding(
@@ -311,6 +348,12 @@ class _AgendaScreenState extends State<AgendaScreen> {
         title: Text(t.agenda),
         actions: [
           HelpButton(store: store, screenId: 'agenda'),
+          if ((widget.manager ?? catalogManager) != null)
+            IconButton(
+              icon: const Icon(Icons.emoji_events_outlined),
+              tooltip: t.achievementsTitle,
+              onPressed: _openAchievements,
+            ),
           PopupMenuButton<String>(
             onSelected: (v) {
               if (v == 'ics') _exportIcs();
