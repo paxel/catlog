@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui' show PlatformDispatcher;
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/foundation.dart';
