@@ -1978,6 +1978,48 @@ class AppLocalizationsRo extends AppLocalizations {
   String get manageCatalogs => 'Gestionează cataloagele';
 
   @override
+  String get restoreTitle => 'Restaurează copiile';
+
+  @override
+  String get restoreIntro =>
+      'Pe acest dispozitiv există copii de la o instalare anterioară. Fiecare redevine un catalog.';
+
+  @override
+  String get restoreNone =>
+      'Nu există copii pe acest dispozitiv. Alege fișiere pentru a restaura de altundeva.';
+
+  @override
+  String get restoreBackupsMenu => 'Restaurează copii…';
+
+  @override
+  String get restorePickFiles => 'Alege fișiere…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de fișiere',
+      few: '$count fișiere',
+      one: '1 fișier',
+    );
+    return '$_temp0, cel mai nou $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de cataloage restaurate.',
+      few: '$count cataloage restaurate.',
+      one: '1 catalog restaurat.',
+      zero: 'Nimic restaurat.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Un catalog este o lume în sine: propriile pisici, colonii, câmpuri, fotografii și parteneri de sincronizare. Berlin și Paris nu se amestecă niciodată. Atinge un catalog pentru a trece la el. Rotița unui catalog deschide setările lui: nume, pisici sau animale, câmpuri, autori și blocări, arhivă, întoarcere, ștergere. Numele tău, limba ta și sfaturile deja văzute sunt comune tuturor.';
 

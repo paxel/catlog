@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Immaniġġja l-katalgi",
+  "restoreTitle": "Irrestawra l-backups",
+  "restoreIntro": "F’dan l-apparat hemm backups minn installazzjoni preċedenti. Kull wieħed jerġa’ jsir katalgu.",
+  "restoreNone": "Ma nstabux backups f’dan l-apparat. Agħżel fajls biex tirrestawra minn x’imkien ieħor.",
+  "restoreBackupsMenu": "Irrestawra backups…",
+  "restorePickFiles": "Agħżel fajls…",
+  "restoreFileLine": "{count, plural, one{fajl wieħed} other{{count} fajls}}, l-aktar riċenti {date}",
+  "restoreDone": "{count, plural, =0{Xejn ma ġie rrestawrat.} one{Katalgu wieħed irrestawrat.} other{{count} katalgi rrestawrati.}}",
   "helpCatalogs": "Katalgu huwa dinja għalih: il-qtates tiegħu, kolonji, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.",
   "helpCatalogsNeutral": "Katalgu huwa dinja għalih: il-annimali tiegħu, djar, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.",
   "helpCatalogSettings": "Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel.",

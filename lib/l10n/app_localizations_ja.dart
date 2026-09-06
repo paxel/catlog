@@ -1915,6 +1915,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String get manageCatalogs => 'カタログの管理';
 
   @override
+  String get restoreTitle => 'バックアップを復元';
+
+  @override
+  String get restoreIntro => 'この端末に以前のインストールのバックアップがあります。それぞれが再びカタログになります。';
+
+  @override
+  String get restoreNone => 'この端末にバックアップは見つかりません。他の場所から復元するにはファイルを選んでください。';
+
+  @override
+  String get restoreBackupsMenu => 'バックアップを復元…';
+
+  @override
+  String get restorePickFiles => 'ファイルを選ぶ…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    return '$count 件のファイル、最新 $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 件のカタログを復元しました。',
+      zero: '何も復元されませんでした。',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'カタログはそれぞれ独立した世界です。猫、コロニー、項目、写真、同期相手はすべて固有のもので、ベルリンとパリが混ざることはありません。カタログをタップすると切り替わります。カタログの歯車を押すとその設定が開きます：名前、猫かペットか、項目、作成者とブロック、アーカイブ、戻る、削除。あなたの名前、言語、すでに見たヒントはすべてのカタログで共通です。';
 

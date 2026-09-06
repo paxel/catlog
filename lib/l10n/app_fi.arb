@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Hallitse luetteloita",
+  "restoreTitle": "Palauta varmuuskopiot",
+  "restoreIntro": "Tällä laitteella on aiemman asennuksen varmuuskopioita. Jokaisesta tulee taas luettelo.",
+  "restoreNone": "Tällä laitteella ei ole varmuuskopioita. Valitse tiedostoja palauttaaksesi muualta.",
+  "restoreBackupsMenu": "Palauta varmuuskopiot…",
+  "restorePickFiles": "Valitse tiedostoja…",
+  "restoreFileLine": "{count, plural, one{1 tiedosto} other{{count} tiedostoa}}, uusin {date}",
+  "restoreDone": "{count, plural, =0{Mitään ei palautettu.} one{1 luettelo palautettu.} other{{count} luetteloa palautettu.}}",
   "helpCatalogs": "Luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
   "helpCatalogsNeutral": "Luettelo on oma maailmansa: omat lemmikit, kotitaloudet, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.",
   "helpCatalogSettings": "Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.",

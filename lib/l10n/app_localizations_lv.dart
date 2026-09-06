@@ -1980,6 +1980,47 @@ class AppLocalizationsLv extends AppLocalizations {
   String get manageCatalogs => 'Pārvaldīt katalogus';
 
   @override
+  String get restoreTitle => 'Atjaunot rezerves kopijas';
+
+  @override
+  String get restoreIntro =>
+      'Šajā ierīcē ir agrākas instalācijas rezerves kopijas. Katra atkal kļūs par katalogu.';
+
+  @override
+  String get restoreNone =>
+      'Šajā ierīcē rezerves kopiju nav. Izvēlieties failus, lai atjaunotu no citurienes.';
+
+  @override
+  String get restoreBackupsMenu => 'Atjaunot rezerves kopijas…';
+
+  @override
+  String get restorePickFiles => 'Izvēlēties failus…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count faili',
+      one: '$count fails',
+      zero: '$count failu',
+    );
+    return '$_temp0, jaunākais $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Atjaunoti $count katalogi.',
+      one: 'Atjaunots $count katalogs.',
+      zero: 'Atjaunoti $count katalogi.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.';
 

@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Menaxho katalogët",
+  "restoreTitle": "Rikthe kopjet rezervë",
+  "restoreIntro": "Në këtë pajisje ka kopje rezervë nga një instalim i mëparshëm. Secila bëhet sërish katalog.",
+  "restoreNone": "Nuk u gjetën kopje rezervë në këtë pajisje. Zgjidh skedarë për të rikthyer nga diku tjetër.",
+  "restoreBackupsMenu": "Rikthe kopje rezervë…",
+  "restorePickFiles": "Zgjidh skedarë…",
+  "restoreFileLine": "{count, plural, one{1 skedar} other{{count} skedarë}}, më i riu {date}",
+  "restoreDone": "{count, plural, =0{Asgjë nuk u rikthye.} one{U rikthye 1 katalog.} other{U rikthyen {count} katalogë.}}",
   "helpCatalogs": "Një katalog është një botë më vete: macet e veta, kolonitë, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.",
   "helpCatalogsNeutral": "Një katalog është një botë më vete: kafshët e veta, familjet, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.",
   "helpCatalogSettings": "Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar.",

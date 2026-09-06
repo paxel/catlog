@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Hantera kataloger",
+  "restoreTitle": "Återställ säkerhetskopior",
+  "restoreIntro": "Det finns säkerhetskopior från en tidigare installation på den här enheten. Var och en blir en katalog igen.",
+  "restoreNone": "Inga säkerhetskopior på den här enheten. Välj filer för att återställa från annat håll.",
+  "restoreBackupsMenu": "Återställ säkerhetskopior…",
+  "restorePickFiles": "Välj filer…",
+  "restoreFileLine": "{count, plural, one{1 fil} other{{count} filer}}, senaste {date}",
+  "restoreDone": "{count, plural, =0{Inget återställt.} one{1 katalog återställd.} other{{count} kataloger återställda.}}",
   "helpCatalogs": "En katalog är en egen värld: egna katter, kolonier, fält, foton och synkpartner. Berlin och Paris blandas aldrig. Tryck på en katalog för att byta till den. Kugghjulet vid en katalog öppnar dess inställningar: namn, katter eller djur, fält, författare och blockeringar, arkiv, gå tillbaka, radera. Ditt namn, ditt språk och tipsen du redan sett delas av alla.",
   "helpCatalogsNeutral": "En katalog är en egen värld: egna djur, hushåll, fält, foton och synkpartner. Berlin och Paris blandas aldrig. Tryck på en katalog för att byta till den. Kugghjulet vid en katalog öppnar dess inställningar: namn, katter eller djur, fält, författare och blockeringar, arkiv, gå tillbaka, radera. Ditt namn, ditt språk och tipsen du redan sett delas av alla.",
   "helpCatalogSettings": "Allt som bara hör till den här katalogen: namnet, om den rymmer katter eller djur, fälten, författare och blockeringar, arkivet och att gå tillbaka i tiden. Ändringar här rör bara den här katalogen — även en du inte är i. Radering skriver först katalogen till en fil.",

@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Catalogi beheren",
+  "restoreTitle": "Back-ups terugzetten",
+  "restoreIntro": "Op dit apparaat staan back-ups van een eerdere installatie. Elke wordt weer een catalogus.",
+  "restoreNone": "Geen back-ups op dit apparaat gevonden. Kies bestanden om van elders terug te zetten.",
+  "restoreBackupsMenu": "Back-ups terugzetten…",
+  "restorePickFiles": "Bestanden kiezen…",
+  "restoreFileLine": "{count, plural, one{1 bestand} other{{count} bestanden}}, nieuwste {date}",
+  "restoreDone": "{count, plural, =0{Niets teruggezet.} one{1 catalogus teruggezet.} other{{count} catalogi teruggezet.}}",
   "helpCatalogs": "Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
   "helpCatalogsNeutral": "Elke catalogus is een eigen wereld: eigen huisdieren, huishoudens, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.",
   "helpCatalogSettings": "Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand.",

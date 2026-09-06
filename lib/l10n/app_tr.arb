@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Katalogları yönet",
+  "restoreTitle": "Yedekleri geri yükle",
+  "restoreIntro": "Bu cihazda önceki bir kurulumun yedekleri var. Her biri yeniden katalog olur.",
+  "restoreNone": "Bu cihazda yedek bulunamadı. Başka yerden geri yüklemek için dosya seç.",
+  "restoreBackupsMenu": "Yedekleri geri yükle…",
+  "restorePickFiles": "Dosya seç…",
+  "restoreFileLine": "{count, plural, one{1 dosya} other{{count} dosya}}, en yenisi {date}",
+  "restoreDone": "{count, plural, =0{Hiçbir şey geri yüklenmedi.} one{1 katalog geri yüklendi.} other{{count} katalog geri yüklendi.}}",
   "helpCatalogs": "Bir katalog kendi başına bir dünyadır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.",
   "helpCatalogsNeutral": "Bir katalog kendi başına bir dünyadır: kendi hayvanları, haneleri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.",
   "helpCatalogSettings": "Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar.",

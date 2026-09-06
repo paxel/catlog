@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Pārvaldīt katalogus",
+  "restoreTitle": "Atjaunot rezerves kopijas",
+  "restoreIntro": "Šajā ierīcē ir agrākas instalācijas rezerves kopijas. Katra atkal kļūs par katalogu.",
+  "restoreNone": "Šajā ierīcē rezerves kopiju nav. Izvēlieties failus, lai atjaunotu no citurienes.",
+  "restoreBackupsMenu": "Atjaunot rezerves kopijas…",
+  "restorePickFiles": "Izvēlēties failus…",
+  "restoreFileLine": "{count, plural, zero{{count} failu} one{{count} fails} other{{count} faili}}, jaunākais {date}",
+  "restoreDone": "{count, plural, =0{Nekas nav atjaunots.} zero{Atjaunoti {count} katalogi.} one{Atjaunots {count} katalogs.} other{Atjaunoti {count} katalogi.}}",
   "helpCatalogs": "Katalogs ir pasaule pati par sevi: savi kaķi, kolonijas, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
   "helpCatalogsNeutral": "Katalogs ir pasaule pati par sevi: savi dzīvnieki, mājsaimniecības, lauki, fotoattēli un sinhronizācijas partneri. Berlīne un Parīze nekad nesajaucas. Pieskarieties katalogam, lai uz to pārslēgtos. Zobrats pie kataloga atver tā iestatījumus: nosaukums, kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs, atgriešanās, dzēšana. Jūsu vārds, valoda un jau redzētie padomi ir kopīgi visiem.",
   "helpCatalogSettings": "Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā.",

@@ -1975,6 +1975,46 @@ class AppLocalizationsSq extends AppLocalizations {
   String get manageCatalogs => 'Menaxho katalogët';
 
   @override
+  String get restoreTitle => 'Rikthe kopjet rezervë';
+
+  @override
+  String get restoreIntro =>
+      'Në këtë pajisje ka kopje rezervë nga një instalim i mëparshëm. Secila bëhet sërish katalog.';
+
+  @override
+  String get restoreNone =>
+      'Nuk u gjetën kopje rezervë në këtë pajisje. Zgjidh skedarë për të rikthyer nga diku tjetër.';
+
+  @override
+  String get restoreBackupsMenu => 'Rikthe kopje rezervë…';
+
+  @override
+  String get restorePickFiles => 'Zgjidh skedarë…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count skedarë',
+      one: '1 skedar',
+    );
+    return '$_temp0, më i riu $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'U rikthyen $count katalogë.',
+      one: 'U rikthye 1 katalog.',
+      zero: 'Asgjë nuk u rikthye.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Një katalog është një botë më vete: macet e veta, kolonitë, fushat, fotot dhe partnerët e sinkronizimit. Berlini dhe Parisi nuk përzihen kurrë. Prek një katalog për të kaluar tek ai. Ingranazhi i një katalogu hap cilësimet e tij: emri, mace ose kafshë, fushat, autorët dhe bllokimet, arkivi, kthimi pas, fshirja. Emri yt, gjuha jote dhe këshillat që ke parë janë të përbashkëta për të gjithë.';
 

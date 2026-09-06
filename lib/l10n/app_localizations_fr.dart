@@ -1982,6 +1982,46 @@ class AppLocalizationsFr extends AppLocalizations {
   String get manageCatalogs => 'Gérer les catalogues';
 
   @override
+  String get restoreTitle => 'Restaurer les sauvegardes';
+
+  @override
+  String get restoreIntro =>
+      'Des sauvegardes d’une installation précédente se trouvent sur cet appareil. Chacune redevient un catalogue.';
+
+  @override
+  String get restoreNone =>
+      'Aucune sauvegarde trouvée sur cet appareil. Choisis des fichiers pour restaurer depuis ailleurs.';
+
+  @override
+  String get restoreBackupsMenu => 'Restaurer des sauvegardes…';
+
+  @override
+  String get restorePickFiles => 'Choisir des fichiers…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count fichiers',
+      one: '1 fichier',
+    );
+    return '$_temp0, le plus récent $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count catalogues restaurés.',
+      one: '1 catalogue restauré.',
+      zero: 'Rien restauré.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Un catalogue est un monde à part : ses chats, ses colonies, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.';
 

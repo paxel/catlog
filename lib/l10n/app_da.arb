@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Administrer kataloger",
+  "restoreTitle": "Gendan sikkerhedskopier",
+  "restoreIntro": "Der ligger sikkerhedskopier fra en tidligere installation på denne enhed. Hver bliver et katalog igen.",
+  "restoreNone": "Ingen sikkerhedskopier på denne enhed. Vælg filer for at gendanne fra et andet sted.",
+  "restoreBackupsMenu": "Gendan sikkerhedskopier…",
+  "restorePickFiles": "Vælg filer…",
+  "restoreFileLine": "{count, plural, one{1 fil} other{{count} filer}}, nyeste {date}",
+  "restoreDone": "{count, plural, =0{Intet gendannet.} one{1 katalog gendannet.} other{{count} kataloger gendannet.}}",
   "helpCatalogs": "Et katalog er en verden for sig: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på et katalog for at skifte til det. Tandhjulet ved et katalog åbner dets indstillinger: navn, katte eller dyr, felter, forfattere og blokeringer, arkiv, gå tilbage, slet. Dit navn, dit sprog og de tips du allerede har set, er fælles for dem alle.",
   "helpCatalogsNeutral": "Et katalog er en verden for sig: egne dyr, husstande, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på et katalog for at skifte til det. Tandhjulet ved et katalog åbner dets indstillinger: navn, katte eller dyr, felter, forfattere og blokeringer, arkiv, gå tilbage, slet. Dit navn, dit sprog og de tips du allerede har set, er fælles for dem alle.",
   "helpCatalogSettings": "Alt, der kun hører til dette katalog: navnet, om det rummer katte eller dyr, felterne, forfattere og blokeringer, arkivet og at gå tilbage i tiden. Ændringer her rører kun dette katalog — også et, du ikke er i. Sletning skriver først kataloget til en fil.",

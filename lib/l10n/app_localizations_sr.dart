@@ -1976,6 +1976,48 @@ class AppLocalizationsSr extends AppLocalizations {
   String get manageCatalogs => 'Управљање каталозима';
 
   @override
+  String get restoreTitle => 'Врати резервне копије';
+
+  @override
+  String get restoreIntro =>
+      'На овом уређају су резервне копије раније инсталације. Свака поново постаје каталог.';
+
+  @override
+  String get restoreNone =>
+      'На овом уређају нема резервних копија. Изаберите датотеке за враћање с другог места.';
+
+  @override
+  String get restoreBackupsMenu => 'Врати резервне копије…';
+
+  @override
+  String get restorePickFiles => 'Изабери датотеке…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count датотека',
+      few: '$count датотеке',
+      one: '$count датотека',
+    );
+    return '$_temp0, најновија $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Враћено је $count каталога.',
+      few: 'Враћена су $count каталога.',
+      one: 'Враћен је $count каталог.',
+      zero: 'Ништа није враћено.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Каталог је свет за себе: своје мачке, колоније, поља, фотографије и партнери за синхронизацију. Берлин и Париз се никад не мешају. Додирните каталог да пређете на њега. Зупчаник на каталогу отвара његова подешавања: име, мачке или животиње, поља, аутори и блокаде, архива, повратак назад, брисање. Ваше име, језик и већ виђени савети заједнички су свима.';
 

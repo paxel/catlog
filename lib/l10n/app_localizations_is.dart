@@ -1979,6 +1979,46 @@ class AppLocalizationsIs extends AppLocalizations {
   String get manageCatalogs => 'Sýsla með skrár';
 
   @override
+  String get restoreTitle => 'Endurheimta afrit';
+
+  @override
+  String get restoreIntro =>
+      'Á þessu tæki eru afrit frá fyrri uppsetningu. Hvert og eitt verður skrá aftur.';
+
+  @override
+  String get restoreNone =>
+      'Engin afrit fundust á þessu tæki. Veldu skrár til að endurheimta annars staðar frá.';
+
+  @override
+  String get restoreBackupsMenu => 'Endurheimta afrit…';
+
+  @override
+  String get restorePickFiles => 'Velja skrár…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count skrár',
+      one: '1 skrá',
+    );
+    return '$_temp0, nýjast $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count skrár endurheimtar.',
+      one: '1 skrá endurheimt.',
+      zero: 'Ekkert endurheimt.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Skrá er heimur út af fyrir sig: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.';
 

@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Administrer kataloger",
+  "restoreTitle": "Gjenopprett sikkerhetskopier",
+  "restoreIntro": "Det ligger sikkerhetskopier fra en tidligere installasjon på denne enheten. Hver blir en katalog igjen.",
+  "restoreNone": "Ingen sikkerhetskopier på denne enheten. Velg filer for å gjenopprette fra et annet sted.",
+  "restoreBackupsMenu": "Gjenopprett sikkerhetskopier…",
+  "restorePickFiles": "Velg filer…",
+  "restoreFileLine": "{count, plural, one{1 fil} other{{count} filer}}, nyeste {date}",
+  "restoreDone": "{count, plural, =0{Ingenting gjenopprettet.} one{1 katalog gjenopprettet.} other{{count} kataloger gjenopprettet.}}",
   "helpCatalogs": "En katalog er en egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.",
   "helpCatalogsNeutral": "En katalog er en egen verden: egne dyr, husholdninger, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.",
   "helpCatalogSettings": "Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil.",

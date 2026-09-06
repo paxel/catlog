@@ -7,6 +7,7 @@ import '../l10n.dart';
 import '../layout.dart';
 import 'archive_screen.dart' show formatBytes;
 import 'catalog_settings_screen.dart';
+import 'restore_screen.dart';
 
 /// Managing the catalogs on this device: which one you are in, adding
 /// one, what each costs in space, and the way into each one's settings.
@@ -148,6 +149,23 @@ class _CatalogsScreenState extends State<CatalogsScreen> {
               _changed();
             },
           ),
+        const Divider(height: 1),
+        // Backups of an earlier install, or files kept anywhere else.
+        ListTile(
+          leading: const Icon(Icons.restore),
+          title: Text(t.restoreBackupsMenu),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => RestoreScreen(
+              catalogs: widget.catalogs,
+              skipWhenEmpty: false,
+              onDone: (first) {
+                Navigator.of(context).pop();
+                if (first != null) widget.onSwitch(first, unwind: false);
+                _changed();
+              },
+            ),
+          )),
+        ),
       ]),
       floatingActionButton: FloatingActionButton(
         onPressed: _create,

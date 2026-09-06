@@ -1892,6 +1892,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String get manageCatalogs => '管理目录';
 
   @override
+  String get restoreTitle => '恢复备份';
+
+  @override
+  String get restoreIntro => '此设备上有之前安装留下的备份。每个备份都会重新成为一个目录。';
+
+  @override
+  String get restoreNone => '此设备上未找到备份。选择文件以从其他位置恢复。';
+
+  @override
+  String get restoreBackupsMenu => '恢复备份…';
+
+  @override
+  String get restorePickFiles => '选择文件…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    return '$count 个文件，最新 $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已恢复 $count 个目录。',
+      zero: '未恢复任何目录。',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       '每个目录都是一个独立的世界：自己的猫、群落、字段、照片和同步伙伴。柏林和巴黎永不混合。点按目录即可切换到它。目录旁的齿轮打开它的设置：名称、猫或宠物、字段、作者与封禁、归档、回退、删除。你的名字、语言和已看过的提示在所有目录间共用。';
 

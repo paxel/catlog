@@ -1965,6 +1965,48 @@ class AppLocalizationsHe extends AppLocalizations {
   String get manageCatalogs => 'ניהול קטלוגים';
 
   @override
+  String get restoreTitle => 'שחזור גיבויים';
+
+  @override
+  String get restoreIntro =>
+      'במכשיר הזה נמצאו גיבויים מהתקנה קודמת. כל אחד יהפוך שוב לקטלוג.';
+
+  @override
+  String get restoreNone =>
+      'לא נמצאו גיבויים במכשיר הזה. בחרו קבצים לשחזור ממקום אחר.';
+
+  @override
+  String get restoreBackupsMenu => 'שחזור גיבויים…';
+
+  @override
+  String get restorePickFiles => 'בחירת קבצים…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count קבצים',
+      two: '$count קבצים',
+      one: 'קובץ אחד',
+    );
+    return '$_temp0, החדש ביותר $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count קטלוגים שוחזרו.',
+      two: '$count קטלוגים שוחזרו.',
+      one: 'קטלוג אחד שוחזר.',
+      zero: 'לא שוחזר דבר.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'קטלוג הוא עולם בפני עצמו: חתולים, מושבות, שדות, תמונות ושותפי סנכרון משלו. ברלין ופריז לעולם לא מתערבבות. הקישו על קטלוג כדי לעבור אליו. גלגל השיניים ליד קטלוג פותח את ההגדרות שלו: שם, חתולים או חיות, שדות, מחברים וחסימות, ארכיון, חזרה אחורה, מחיקה. השם שלכם, השפה והטיפים שכבר ראיתם משותפים לכולם.';
 

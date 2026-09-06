@@ -49,8 +49,8 @@ String _fingerprint(String value) {
 }
 
 /// The folder a fresh install looks in for the backups of the install
-/// before it. Android: the app's own media folder (`Android/media/<package>/
-/// backups`), which survives an uninstall and needs no permission;
+/// before it. Android: the app's own media folder, Android/media/PACKAGE/
+/// backups, which survives an uninstall and needs no permission;
 /// desktop: the Downloads folder the backups go to; iOS: Documents. Null
 /// where the platform offers none.
 Future<Directory?> backupFolder() async {

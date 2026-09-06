@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Katalógusok kezelése",
+  "restoreTitle": "Mentések visszaállítása",
+  "restoreIntro": "Ezen az eszközön egy korábbi telepítés mentései vannak. Mindegyik újra katalógus lesz.",
+  "restoreNone": "Ezen az eszközön nincs mentés. Válassz fájlokat máshonnan való visszaállításhoz.",
+  "restoreBackupsMenu": "Mentések visszaállítása…",
+  "restorePickFiles": "Fájlok kiválasztása…",
+  "restoreFileLine": "{count, plural, one{1 fájl} other{{count} fájl}}, legújabb {date}",
+  "restoreDone": "{count, plural, =0{Semmi nem lett visszaállítva.} one{1 katalógus visszaállítva.} other{{count} katalógus visszaállítva.}}",
   "helpCatalogs": "Egy katalógus önálló világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.",
   "helpCatalogsNeutral": "Egy katalógus önálló világ: saját kedvencek, háztartások, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.",
   "helpCatalogSettings": "Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust.",

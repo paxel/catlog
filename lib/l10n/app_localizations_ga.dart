@@ -1988,6 +1988,52 @@ class AppLocalizationsGa extends AppLocalizations {
   String get manageCatalogs => 'Bainistigh catalóga';
 
   @override
+  String get restoreTitle => 'Athchóirigh cúltacaí';
+
+  @override
+  String get restoreIntro =>
+      'Tá cúltacaí ó shuiteáil roimhe seo ar an ngléas seo. Déantar catalóg arís de gach ceann.';
+
+  @override
+  String get restoreNone =>
+      'Níor aimsíodh cúltacaí ar an ngléas seo. Roghnaigh comhaid le hathchóiriú ó áit eile.';
+
+  @override
+  String get restoreBackupsMenu => 'Athchóirigh cúltacaí…';
+
+  @override
+  String get restorePickFiles => 'Roghnaigh comhaid…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comhad',
+      many: '$count gcomhad',
+      few: '$count chomhad',
+      two: '$count chomhad',
+      one: '1 chomhad',
+    );
+    return '$_temp0, is déanaí $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Athchóiríodh $count catalóg.',
+      many: 'Athchóiríodh $count gcatalóg.',
+      few: 'Athchóiríodh $count chatalóg.',
+      two: 'Athchóiríodh $count chatalóg.',
+      one: 'Athchóiríodh 1 chatalóg.',
+      zero: 'Níor athchóiríodh aon rud.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Is domhan ann féin gach catalóg: a cait féin, coilíneachtaí, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.';
 

@@ -1983,6 +1983,46 @@ class AppLocalizationsIt extends AppLocalizations {
   String get manageCatalogs => 'Gestisci cataloghi';
 
   @override
+  String get restoreTitle => 'Ripristina i backup';
+
+  @override
+  String get restoreIntro =>
+      'Su questo dispositivo ci sono backup di un’installazione precedente. Ognuno torna a essere un catalogo.';
+
+  @override
+  String get restoreNone =>
+      'Nessun backup su questo dispositivo. Scegli file per ripristinare da altrove.';
+
+  @override
+  String get restoreBackupsMenu => 'Ripristina backup…';
+
+  @override
+  String get restorePickFiles => 'Scegli file…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count file',
+      one: '1 file',
+    );
+    return '$_temp0, il più recente $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count cataloghi ripristinati.',
+      one: '1 catalogo ripristinato.',
+      zero: 'Niente ripristinato.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca un catalogo per passare a esso. L’ingranaggio di un catalogo apre le sue impostazioni: nome, gatti o animali, campi, autori e blocchi, archivio, tornare indietro, eliminare. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.';
 

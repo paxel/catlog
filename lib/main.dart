@@ -14,6 +14,7 @@ import 'src/incoming_file.dart';
 import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
+import 'src/screens/restore_screen.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -182,6 +183,10 @@ class _CatlogAppState extends State<CatlogApp>
   /// fresh installs, never sprung on upgraders with a routine.
   bool _freshSetup = false;
 
+  /// The fresh install was offered the backups of the install before it
+  /// (#102); once, right after the name.
+  bool _restoreOffered = false;
+
   @override
   void initState() {
     super.initState();
@@ -323,6 +328,14 @@ class _CatlogAppState extends State<CatlogApp>
                 store: _store,
                 onDone: () => setState(() => _freshSetup = true),
               )
+            : _freshSetup && !_restoreOffered && widget.catalogs != null
+                ? RestoreScreen(
+                    catalogs: widget.catalogs!,
+                    onDone: (first) {
+                      setState(() => _restoreOffered = true);
+                      if (first != null) _switchCatalog(first);
+                    },
+                  )
             : _freshSetup &&
                     _store.localSetting('introSeen') == null
                 ? IntroScreen(

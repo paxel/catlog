@@ -1441,10 +1441,31 @@ class ModeLocalizations implements AppLocalizations {
   String get restoreAction => base.restoreAction;
 
   @override
+  String get restoreBackupsMenu => base.restoreBackupsMenu;
+
+  @override
   String restoreDeletedBody(String names) => base.restoreDeletedBody(names);
 
   @override
   String restoreDeletedTitle(int count) => base.restoreDeletedTitle(count);
+
+  @override
+  String restoreDone(int count) => base.restoreDone(count);
+
+  @override
+  String restoreFileLine(int count, String date) => base.restoreFileLine(count, date);
+
+  @override
+  String get restoreIntro => base.restoreIntro;
+
+  @override
+  String get restoreNone => base.restoreNone;
+
+  @override
+  String get restorePickFiles => base.restorePickFiles;
+
+  @override
+  String get restoreTitle => base.restoreTitle;
 
   @override
   String get resyncCalendar => base.resyncCalendar;

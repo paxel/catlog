@@ -1979,6 +1979,46 @@ class AppLocalizationsMk extends AppLocalizations {
   String get manageCatalogs => 'Управувај со каталозите';
 
   @override
+  String get restoreTitle => 'Врати резервни копии';
+
+  @override
+  String get restoreIntro =>
+      'На овој уред има резервни копии од претходна инсталација. Секоја повторно станува каталог.';
+
+  @override
+  String get restoreNone =>
+      'На овој уред нема резервни копии. Избери датотеки за враќање од друго место.';
+
+  @override
+  String get restoreBackupsMenu => 'Врати резервни копии…';
+
+  @override
+  String get restorePickFiles => 'Избери датотеки…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count датотеки',
+      one: '$count датотека',
+    );
+    return '$_temp0, најнова $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Вратени се $count каталози.',
+      one: 'Вратен е $count каталог.',
+      zero: 'Ништо не е вратено.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Каталогот е свет сам за себе: свои мачки, колонии, полиња, фотографии и партнери за синхронизација. Берлин и Париз никогаш не се мешаат. Допрете каталог за да се префрлите на него. Запчаникот на каталогот ги отвора неговите поставки: име, мачки или животни, полиња, автори и блокади, архива, враќање назад, бришење. Вашето име, јазикот и веќе видените совети се заеднички за сите.';
 

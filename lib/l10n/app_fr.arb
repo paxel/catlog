@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Gérer les catalogues",
+  "restoreTitle": "Restaurer les sauvegardes",
+  "restoreIntro": "Des sauvegardes d’une installation précédente se trouvent sur cet appareil. Chacune redevient un catalogue.",
+  "restoreNone": "Aucune sauvegarde trouvée sur cet appareil. Choisis des fichiers pour restaurer depuis ailleurs.",
+  "restoreBackupsMenu": "Restaurer des sauvegardes…",
+  "restorePickFiles": "Choisir des fichiers…",
+  "restoreFileLine": "{count, plural, one{1 fichier} other{{count} fichiers}}, le plus récent {date}",
+  "restoreDone": "{count, plural, =0{Rien restauré.} one{1 catalogue restauré.} other{{count} catalogues restaurés.}}",
   "helpCatalogs": "Un catalogue est un monde à part : ses chats, ses colonies, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.",
   "helpCatalogsNeutral": "Un catalogue est un monde à part : ses animaux, ses foyers, ses champs, ses photos et ses partenaires de synchronisation. Berlin et Paris ne se mélangent jamais. Touche un catalogue pour y passer. La roue dentée d’un catalogue ouvre ses réglages : nom, chats ou animaux, champs, auteurs et bannissements, archive, retour en arrière, suppression. Ton nom, ta langue et les astuces déjà vues sont communs à tous.",
   "helpCatalogSettings": "Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier.",

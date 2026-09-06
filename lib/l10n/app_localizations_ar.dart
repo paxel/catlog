@@ -1975,6 +1975,52 @@ class AppLocalizationsAr extends AppLocalizations {
   String get manageCatalogs => 'إدارة الكتالوجات';
 
   @override
+  String get restoreTitle => 'استعادة النسخ الاحتياطية';
+
+  @override
+  String get restoreIntro =>
+      'توجد على هذا الجهاز نسخ احتياطية من تثبيت سابق. تعود كل واحدة كتالوجًا.';
+
+  @override
+  String get restoreNone =>
+      'لا توجد نسخ احتياطية على هذا الجهاز. اختر ملفات للاستعادة من مكان آخر.';
+
+  @override
+  String get restoreBackupsMenu => 'استعادة النسخ الاحتياطية…';
+
+  @override
+  String get restorePickFiles => 'اختيار الملفات…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ملف',
+      many: '$count ملفًا',
+      few: '$count ملفات',
+      two: 'ملفان',
+      one: 'ملف واحد',
+    );
+    return '$_temp0، الأحدث $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'استُعيد $count كتالوج.',
+      many: 'استُعيد $count كتالوجًا.',
+      few: 'استُعيدت $count كتالوجات.',
+      two: 'استُعيد كتالوجان.',
+      one: 'استُعيد كتالوج واحد.',
+      zero: 'لم يُستعاد شيء.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'كل كتالوج عالمٌ بحد ذاته: قطط ومستعمرات وحقول وصور وشركاء مزامنة خاصة به. برلين وباريس لا تختلطان أبدًا. انقر على كتالوج للانتقال إليه. الترس بجانب الكتالوج يفتح إعداداته: الاسم، قطط أو حيوانات، الحقول، المؤلفون والحظر، الأرشيف، الرجوع، الحذف. اسمك ولغتك والنصائح التي رأيتها مشتركة بينها كلها.';
 

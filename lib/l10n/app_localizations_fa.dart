@@ -1959,6 +1959,39 @@ class AppLocalizationsFa extends AppLocalizations {
   String get manageCatalogs => 'مدیریت کاتالوگ‌ها';
 
   @override
+  String get restoreTitle => 'بازیابی پشتیبان‌ها';
+
+  @override
+  String get restoreIntro =>
+      'در این دستگاه پشتیبان‌هایی از نصب قبلی هست. هر کدام دوباره یک کاتالوگ می‌شود.';
+
+  @override
+  String get restoreNone =>
+      'پشتیبانی در این دستگاه پیدا نشد. برای بازیابی از جای دیگر فایل‌ها را انتخاب کنید.';
+
+  @override
+  String get restoreBackupsMenu => 'بازیابی پشتیبان‌ها…';
+
+  @override
+  String get restorePickFiles => 'انتخاب فایل‌ها…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    return '$count فایل، جدیدترین $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count کاتالوگ بازیابی شد.',
+      zero: 'چیزی بازیابی نشد.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'هر کاتالوگ دنیایی برای خودش است: گربه‌ها، کلنی‌ها، فیلدها، عکس‌ها و شریک‌های همگام‌سازی خودش. برلین و پاریس هرگز قاطی نمی‌شوند. روی یک کاتالوگ بزنید تا به آن بروید. چرخ‌دنده کنار کاتالوگ تنظیماتش را باز می‌کند: نام، گربه یا حیوان، فیلدها، نویسندگان و مسدودی‌ها، آرشیو، بازگشت، حذف. نام، زبان و نکته‌هایی که دیده‌اید در همه مشترک است.';
 

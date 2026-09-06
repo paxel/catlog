@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Upravljanje katalozima",
+  "restoreTitle": "Vrati sigurnosne kopije",
+  "restoreIntro": "Na ovom uređaju su sigurnosne kopije ranije instalacije. Svaka opet postaje katalog.",
+  "restoreNone": "Na ovom uređaju nema sigurnosnih kopija. Odaberite datoteke za vraćanje s drugog mjesta.",
+  "restoreBackupsMenu": "Vrati sigurnosne kopije…",
+  "restorePickFiles": "Odaberi datoteke…",
+  "restoreFileLine": "{count, plural, one{{count} datoteka} few{{count} datoteke} other{{count} datoteka}}, najnovija {date}",
+  "restoreDone": "{count, plural, =0{Ništa nije vraćeno.} one{Vraćen je {count} katalog.} few{Vraćena su {count} kataloga.} other{Vraćeno je {count} kataloga.}}",
   "helpCatalogs": "Katalog je svijet za sebe: vlastite mačke, kolonije, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz nikad se ne miješaju. Dodirnite katalog da prijeđete na njega. Zupčanik na katalogu otvara njegove postavke: ime, mačke ili životinje, polja, autori i blokade, arhiva, povratak natrag, brisanje. Vaše ime, jezik i već viđeni savjeti zajednički su svima.",
   "helpCatalogsNeutral": "Katalog je svijet za sebe: vlastite životinje, kućanstva, polja, fotografije i partneri za sinkronizaciju. Berlin i Pariz nikad se ne miješaju. Dodirnite katalog da prijeđete na njega. Zupčanik na katalogu otvara njegove postavke: ime, mačke ili životinje, polja, autori i blokade, arhiva, povratak natrag, brisanje. Vaše ime, jezik i već viđeni savjeti zajednički su svima.",
   "helpCatalogSettings": "Sve što pripada samo ovom katalogu: ime, sadrži li mačke ili životinje, polja, autori i blokade, arhiva i povratak natrag u vremenu. Promjene ovdje tiču se samo ovog kataloga — i onoga u kojem sada niste. Brisanje prvo zapisuje katalog u datoteku.",

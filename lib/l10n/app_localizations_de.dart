@@ -1983,6 +1983,46 @@ class AppLocalizationsDe extends AppLocalizations {
   String get manageCatalogs => 'Kataloge verwalten';
 
   @override
+  String get restoreTitle => 'Sicherungen wiederherstellen';
+
+  @override
+  String get restoreIntro =>
+      'Auf diesem Gerät liegen Sicherungen einer früheren Installation. Jede wird wieder ein Katalog.';
+
+  @override
+  String get restoreNone =>
+      'Keine Sicherungen auf diesem Gerät gefunden. Wähle Dateien, um von anderswo wiederherzustellen.';
+
+  @override
+  String get restoreBackupsMenu => 'Sicherungen wiederherstellen…';
+
+  @override
+  String get restorePickFiles => 'Dateien wählen…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Dateien',
+      one: '1 Datei',
+    );
+    return '$_temp0, neueste $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Kataloge wiederhergestellt.',
+      one: '1 Katalog wiederhergestellt.',
+      zero: 'Nichts wiederhergestellt.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Ein Katalog ist eine Welt für sich: eigene Katzen, Kolonien, Felder, Fotos und Sync-Partner. Berlin und Paris vermischen sich nie. Tippe auf einen Katalog, um zu ihm zu wechseln. Das Zahnrad an einem Katalog öffnet seine Einstellungen: Name, Katzen oder Tiere, Felder, Autoren und Sperren, Archiv, Zurückgehen, Löschen. Dein Name, deine Sprache und die schon gesehenen Tipps gelten für alle.';
 

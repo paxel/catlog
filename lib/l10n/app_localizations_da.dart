@@ -1975,6 +1975,46 @@ class AppLocalizationsDa extends AppLocalizations {
   String get manageCatalogs => 'Administrer kataloger';
 
   @override
+  String get restoreTitle => 'Gendan sikkerhedskopier';
+
+  @override
+  String get restoreIntro =>
+      'Der ligger sikkerhedskopier fra en tidligere installation på denne enhed. Hver bliver et katalog igen.';
+
+  @override
+  String get restoreNone =>
+      'Ingen sikkerhedskopier på denne enhed. Vælg filer for at gendanne fra et andet sted.';
+
+  @override
+  String get restoreBackupsMenu => 'Gendan sikkerhedskopier…';
+
+  @override
+  String get restorePickFiles => 'Vælg filer…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count filer',
+      one: '1 fil',
+    );
+    return '$_temp0, nyeste $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kataloger gendannet.',
+      one: '1 katalog gendannet.',
+      zero: 'Intet gendannet.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Et katalog er en verden for sig: egne katte, kolonier, felter, fotos og synkroniseringspartnere. Berlin og Paris blandes aldrig. Tryk på et katalog for at skifte til det. Tandhjulet ved et katalog åbner dets indstillinger: navn, katte eller dyr, felter, forfattere og blokeringer, arkiv, gå tilbage, slet. Dit navn, dit sprog og de tips du allerede har set, er fælles for dem alle.';
 

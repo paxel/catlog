@@ -1976,6 +1976,46 @@ class AppLocalizationsBg extends AppLocalizations {
   String get manageCatalogs => 'Управление на каталозите';
 
   @override
+  String get restoreTitle => 'Възстановяване на архиви';
+
+  @override
+  String get restoreIntro =>
+      'На това устройство има архиви от предишна инсталация. Всеки отново става каталог.';
+
+  @override
+  String get restoreNone =>
+      'На това устройство няма архиви. Изберете файлове, за да възстановите от друго място.';
+
+  @override
+  String get restoreBackupsMenu => 'Възстановяване на архиви…';
+
+  @override
+  String get restorePickFiles => 'Избор на файлове…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count файла',
+      one: '1 файл',
+    );
+    return '$_temp0, най-нов $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Възстановени са $count каталога.',
+      one: 'Възстановен е 1 каталог.',
+      zero: 'Нищо не е възстановено.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Каталогът е свят сам за себе си: собствени котки, колонии, полета, снимки и партньори за синхронизация. Берлин и Париж никога не се смесват. Докоснете каталог, за да преминете към него. Зъбното колело на каталог отваря настройките му: име, котки или животни, полета, автори и блокирания, архив, връщане назад, изтриване. Вашето име, езикът и вече видените съвети са общи за всички.';
 

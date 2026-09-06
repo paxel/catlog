@@ -3548,6 +3548,48 @@ abstract class AppLocalizations {
   /// **'Manage catalogs'**
   String get manageCatalogs;
 
+  /// No description provided for @restoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backups'**
+  String get restoreTitle;
+
+  /// No description provided for @restoreIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups from an earlier installation were found on this device. Each one becomes a catalog again.'**
+  String get restoreIntro;
+
+  /// No description provided for @restoreNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No backups found on this device. Pick files to restore from elsewhere.'**
+  String get restoreNone;
+
+  /// No description provided for @restoreBackupsMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backups…'**
+  String get restoreBackupsMenu;
+
+  /// No description provided for @restorePickFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick files…'**
+  String get restorePickFiles;
+
+  /// No description provided for @restoreFileLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{1 file} other{{count} files}}, newest {date}'**
+  String restoreFileLine(int count, String date);
+
+  /// No description provided for @restoreDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing restored.} one{1 catalog restored.} other{{count} catalogs restored.}}'**
+  String restoreDone(int count);
+
   /// No description provided for @helpCatalogs.
   ///
   /// In en, this message translates to:

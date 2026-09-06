@@ -1975,6 +1975,48 @@ class AppLocalizationsSk extends AppLocalizations {
   String get manageCatalogs => 'Spravovať katalógy';
 
   @override
+  String get restoreTitle => 'Obnoviť zálohy';
+
+  @override
+  String get restoreIntro =>
+      'Na tomto zariadení sú zálohy zo skoršej inštalácie. Každá sa zase stane katalógom.';
+
+  @override
+  String get restoreNone =>
+      'Na tomto zariadení nie sú zálohy. Vyber súbory na obnovu odinakiaľ.';
+
+  @override
+  String get restoreBackupsMenu => 'Obnoviť zálohy…';
+
+  @override
+  String get restorePickFiles => 'Vybrať súbory…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count súborov',
+      few: '$count súbory',
+      one: '1 súbor',
+    );
+    return '$_temp0, najnovší $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Obnovených $count katalógov.',
+      few: 'Obnovené $count katalógy.',
+      one: 'Obnovený 1 katalóg.',
+      zero: 'Nič neobnovené.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky a partneri synchronizácie. Berlín a Paríž sa nikdy nemiešajú. Ťuknutím na katalóg doň prepnete. Ozubené koliesko pri katalógu otvorí jeho nastavenia: názov, mačky alebo zvieratá, polia, autori a blokovania, archív, návrat späť, vymazanie. Vaše meno, jazyk a už zobrazené tipy platia pre všetky.';
 

@@ -1977,6 +1977,48 @@ class AppLocalizationsPl extends AppLocalizations {
   String get manageCatalogs => 'Zarządzaj katalogami';
 
   @override
+  String get restoreTitle => 'Przywróć kopie';
+
+  @override
+  String get restoreIntro =>
+      'Na tym urządzeniu są kopie z wcześniejszej instalacji. Każda znów staje się katalogiem.';
+
+  @override
+  String get restoreNone =>
+      'Brak kopii na tym urządzeniu. Wybierz pliki, aby przywrócić z innego miejsca.';
+
+  @override
+  String get restoreBackupsMenu => 'Przywróć kopie…';
+
+  @override
+  String get restorePickFiles => 'Wybierz pliki…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count plików',
+      few: '$count pliki',
+      one: '1 plik',
+    );
+    return '$_temp0, najnowszy $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Przywrócono $count katalogów.',
+      few: 'Przywrócono $count katalogi.',
+      one: 'Przywrócono 1 katalog.',
+      zero: 'Nic nie przywrócono.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Każdy katalog to osobny świat: własne koty, kolonie, pola, zdjęcia i partnerzy synchronizacji. Berlin i Paryż nigdy się nie mieszają. Dotknij katalogu, aby się na niego przełączyć. Koło zębate przy katalogu otwiera jego ustawienia: nazwa, koty lub zwierzęta, pola, autorzy i blokady, archiwum, cofanie, usuwanie. Twoje imię, język i już obejrzane wskazówki są wspólne dla wszystkich.';
 

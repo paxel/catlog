@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Tvarkyti katalogus",
+  "restoreTitle": "Atkurti atsargines kopijas",
+  "restoreIntro": "Šiame įrenginyje rasta ankstesnio įdiegimo atsarginių kopijų. Kiekviena vėl taps katalogu.",
+  "restoreNone": "Šiame įrenginyje atsarginių kopijų nėra. Pasirinkite failus, kad atkurtumėte iš kitur.",
+  "restoreBackupsMenu": "Atkurti atsargines kopijas…",
+  "restorePickFiles": "Pasirinkti failus…",
+  "restoreFileLine": "{count, plural, one{{count} failas} few{{count} failai} other{{count} failų}}, naujausias {date}",
+  "restoreDone": "{count, plural, =0{Nieko neatkurta.} one{Atkurtas {count} katalogas.} few{Atkurti {count} katalogai.} other{Atkurta {count} katalogų.}}",
   "helpCatalogs": "Katalogas yra atskiras pasaulis: savi katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.",
   "helpCatalogsNeutral": "Katalogas yra atskiras pasaulis: savi gyvūnai, namų ūkiai, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.",
   "helpCatalogSettings": "Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.",

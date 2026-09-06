@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Gestionar catálogos",
+  "restoreTitle": "Restaurar copias",
+  "restoreIntro": "En este dispositivo hay copias de una instalación anterior. Cada una vuelve a ser un catálogo.",
+  "restoreNone": "No hay copias en este dispositivo. Elige archivos para restaurar desde otro lugar.",
+  "restoreBackupsMenu": "Restaurar copias…",
+  "restorePickFiles": "Elegir archivos…",
+  "restoreFileLine": "{count, plural, one{1 archivo} other{{count} archivos}}, el más reciente {date}",
+  "restoreDone": "{count, plural, =0{Nada restaurado.} one{1 catálogo restaurado.} other{{count} catálogos restaurados.}}",
   "helpCatalogs": "Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca un catálogo para cambiar a él. El engranaje de un catálogo abre sus ajustes: nombre, gatos o mascotas, campos, autores y bloqueos, archivo, volver atrás, eliminar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.",
   "helpCatalogsNeutral": "Cada catálogo es un mundo propio: sus mascotas, sus hogares, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca un catálogo para cambiar a él. El engranaje de un catálogo abre sus ajustes: nombre, gatos o mascotas, campos, autores y bloqueos, archivo, volver atrás, eliminar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.",
   "helpCatalogSettings": "Todo lo que pertenece solo a este catálogo: su nombre, si contiene gatos o mascotas, sus campos, sus autores y bloqueos, el archivo y volver atrás en el tiempo. Los cambios aquí afectan solo a este catálogo, también a uno en el que no estás. Eliminar escribe primero el catálogo en un archivo.",

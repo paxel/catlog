@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Gestionează cataloagele",
+  "restoreTitle": "Restaurează copiile",
+  "restoreIntro": "Pe acest dispozitiv există copii de la o instalare anterioară. Fiecare redevine un catalog.",
+  "restoreNone": "Nu există copii pe acest dispozitiv. Alege fișiere pentru a restaura de altundeva.",
+  "restoreBackupsMenu": "Restaurează copii…",
+  "restorePickFiles": "Alege fișiere…",
+  "restoreFileLine": "{count, plural, one{1 fișier} few{{count} fișiere} other{{count} de fișiere}}, cel mai nou {date}",
+  "restoreDone": "{count, plural, =0{Nimic restaurat.} one{1 catalog restaurat.} few{{count} cataloage restaurate.} other{{count} de cataloage restaurate.}}",
   "helpCatalogs": "Un catalog este o lume în sine: propriile pisici, colonii, câmpuri, fotografii și parteneri de sincronizare. Berlin și Paris nu se amestecă niciodată. Atinge un catalog pentru a trece la el. Rotița unui catalog deschide setările lui: nume, pisici sau animale, câmpuri, autori și blocări, arhivă, întoarcere, ștergere. Numele tău, limba ta și sfaturile deja văzute sunt comune tuturor.",
   "helpCatalogsNeutral": "Un catalog este o lume în sine: propriile animale, gospodării, câmpuri, fotografii și parteneri de sincronizare. Berlin și Paris nu se amestecă niciodată. Atinge un catalog pentru a trece la el. Rotița unui catalog deschide setările lui: nume, pisici sau animale, câmpuri, autori și blocări, arhivă, întoarcere, ștergere. Numele tău, limba ta și sfaturile deja văzute sunt comune tuturor.",
   "helpCatalogSettings": "Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier.",

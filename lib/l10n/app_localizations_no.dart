@@ -1972,6 +1972,46 @@ class AppLocalizationsNo extends AppLocalizations {
   String get manageCatalogs => 'Administrer kataloger';
 
   @override
+  String get restoreTitle => 'Gjenopprett sikkerhetskopier';
+
+  @override
+  String get restoreIntro =>
+      'Det ligger sikkerhetskopier fra en tidligere installasjon på denne enheten. Hver blir en katalog igjen.';
+
+  @override
+  String get restoreNone =>
+      'Ingen sikkerhetskopier på denne enheten. Velg filer for å gjenopprette fra et annet sted.';
+
+  @override
+  String get restoreBackupsMenu => 'Gjenopprett sikkerhetskopier…';
+
+  @override
+  String get restorePickFiles => 'Velg filer…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count filer',
+      one: '1 fil',
+    );
+    return '$_temp0, nyeste $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kataloger gjenopprettet.',
+      one: '1 katalog gjenopprettet.',
+      zero: 'Ingenting gjenopprettet.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'En katalog er en egen verden: egne katter, kolonier, felt, bilder og synkroniseringspartnere. Berlin og Paris blandes aldri. Trykk på en katalog for å bytte til den. Tannhjulet ved en katalog åpner innstillingene dens: navn, katter eller dyr, felt, forfattere og blokkeringer, arkiv, gå tilbake, slett. Navnet ditt, språket ditt og tipsene du alt har sett deles av alle.';
 

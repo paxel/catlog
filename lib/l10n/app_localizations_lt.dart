@@ -1979,6 +1979,48 @@ class AppLocalizationsLt extends AppLocalizations {
   String get manageCatalogs => 'Tvarkyti katalogus';
 
   @override
+  String get restoreTitle => 'Atkurti atsargines kopijas';
+
+  @override
+  String get restoreIntro =>
+      'Šiame įrenginyje rasta ankstesnio įdiegimo atsarginių kopijų. Kiekviena vėl taps katalogu.';
+
+  @override
+  String get restoreNone =>
+      'Šiame įrenginyje atsarginių kopijų nėra. Pasirinkite failus, kad atkurtumėte iš kitur.';
+
+  @override
+  String get restoreBackupsMenu => 'Atkurti atsargines kopijas…';
+
+  @override
+  String get restorePickFiles => 'Pasirinkti failus…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count failų',
+      few: '$count failai',
+      one: '$count failas',
+    );
+    return '$_temp0, naujausias $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Atkurta $count katalogų.',
+      few: 'Atkurti $count katalogai.',
+      one: 'Atkurtas $count katalogas.',
+      zero: 'Nieko neatkurta.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalogas yra atskiras pasaulis: savi katės, kolonijos, laukai, nuotraukos ir sinchronizavimo partneriai. Berlynas ir Paryžius niekada nesimaišo. Bakstelėkite katalogą, kad į jį persijungtumėte. Krumpliaratis prie katalogo atveria jo nustatymus: pavadinimas, katės ar gyvūnai, laukai, autoriai ir blokavimai, archyvas, grįžimas atgal, šalinimas. Jūsų vardas, kalba ir jau matyti patarimai bendri visiems.';
 

@@ -1976,6 +1976,48 @@ class AppLocalizationsCs extends AppLocalizations {
   String get manageCatalogs => 'Správa katalogů';
 
   @override
+  String get restoreTitle => 'Obnovit zálohy';
+
+  @override
+  String get restoreIntro =>
+      'Na tomto zařízení jsou zálohy z dřívější instalace. Každá se zase stane katalogem.';
+
+  @override
+  String get restoreNone =>
+      'Na tomto zařízení nejsou zálohy. Vyber soubory pro obnovu odjinud.';
+
+  @override
+  String get restoreBackupsMenu => 'Obnovit zálohy…';
+
+  @override
+  String get restorePickFiles => 'Vybrat soubory…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count souborů',
+      few: '$count soubory',
+      one: '1 soubor',
+    );
+    return '$_temp0, nejnovější $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Obnoveno $count katalogů.',
+      few: 'Obnoveny $count katalogy.',
+      one: 'Obnoven 1 katalog.',
+      zero: 'Nic neobnoveno.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalog je svět sám pro sebe: vlastní kočky, kolonie, pole, fotky a partneři synchronizace. Berlín a Paříž se nikdy nemíchají. Klepnutím na katalog do něj přepnete. Ozubené kolo u katalogu otevře jeho nastavení: název, kočky nebo zvířata, pole, autoři a blokace, archiv, návrat zpět, smazání. Vaše jméno, jazyk a už zobrazené tipy platí pro všechny.';
 

@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Spravovať katalógy",
+  "restoreTitle": "Obnoviť zálohy",
+  "restoreIntro": "Na tomto zariadení sú zálohy zo skoršej inštalácie. Každá sa zase stane katalógom.",
+  "restoreNone": "Na tomto zariadení nie sú zálohy. Vyber súbory na obnovu odinakiaľ.",
+  "restoreBackupsMenu": "Obnoviť zálohy…",
+  "restorePickFiles": "Vybrať súbory…",
+  "restoreFileLine": "{count, plural, one{1 súbor} few{{count} súbory} other{{count} súborov}}, najnovší {date}",
+  "restoreDone": "{count, plural, =0{Nič neobnovené.} one{Obnovený 1 katalóg.} few{Obnovené {count} katalógy.} other{Obnovených {count} katalógov.}}",
   "helpCatalogs": "Katalóg je svet sám pre seba: vlastné mačky, kolónie, polia, fotky a partneri synchronizácie. Berlín a Paríž sa nikdy nemiešajú. Ťuknutím na katalóg doň prepnete. Ozubené koliesko pri katalógu otvorí jeho nastavenia: názov, mačky alebo zvieratá, polia, autori a blokovania, archív, návrat späť, vymazanie. Vaše meno, jazyk a už zobrazené tipy platia pre všetky.",
   "helpCatalogsNeutral": "Katalóg je svet sám pre seba: vlastné zvieratá, domácnosti, polia, fotky a partneri synchronizácie. Berlín a Paríž sa nikdy nemiešajú. Ťuknutím na katalóg doň prepnete. Ozubené koliesko pri katalógu otvorí jeho nastavenia: názov, mačky alebo zvieratá, polia, autori a blokovania, archív, návrat späť, vymazanie. Vaše meno, jazyk a už zobrazené tipy platia pre všetky.",
   "helpCatalogSettings": "Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru.",

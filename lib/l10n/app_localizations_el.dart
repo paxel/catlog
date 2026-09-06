@@ -1985,6 +1985,46 @@ class AppLocalizationsEl extends AppLocalizations {
   String get manageCatalogs => 'Διαχείριση καταλόγων';
 
   @override
+  String get restoreTitle => 'Επαναφορά αντιγράφων';
+
+  @override
+  String get restoreIntro =>
+      'Σε αυτή τη συσκευή υπάρχουν αντίγραφα από προηγούμενη εγκατάσταση. Καθένα γίνεται ξανά κατάλογος.';
+
+  @override
+  String get restoreNone =>
+      'Δεν βρέθηκαν αντίγραφα σε αυτή τη συσκευή. Διάλεξε αρχεία για επαναφορά από αλλού.';
+
+  @override
+  String get restoreBackupsMenu => 'Επαναφορά αντιγράφων…';
+
+  @override
+  String get restorePickFiles => 'Επιλογή αρχείων…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count αρχεία',
+      one: '1 αρχείο',
+    );
+    return '$_temp0, νεότερο $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count κατάλογοι επανήλθαν.',
+      one: '1 κατάλογος επανήλθε.',
+      zero: 'Τίποτα δεν επανήλθε.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Ένας κατάλογος είναι ένας κόσμος από μόνος του: δικές του γάτες, αποικίες, πεδία, φωτογραφίες και συνεργάτες συγχρονισμού. Βερολίνο και Παρίσι δεν ανακατεύονται ποτέ. Πάτησε έναν κατάλογο για να μεταβείς σε αυτόν. Το γρανάζι σε έναν κατάλογο ανοίγει τις ρυθμίσεις του: όνομα, γάτες ή κατοικίδια, πεδία, συντάκτες και αποκλεισμοί, αρχείο, επιστροφή, διαγραφή. Το όνομά σου, η γλώσσα σου και οι συμβουλές που έχεις ήδη δει είναι κοινές για όλους.';
 

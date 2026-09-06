@@ -1977,6 +1977,46 @@ class AppLocalizationsFi extends AppLocalizations {
   String get manageCatalogs => 'Hallitse luetteloita';
 
   @override
+  String get restoreTitle => 'Palauta varmuuskopiot';
+
+  @override
+  String get restoreIntro =>
+      'Tällä laitteella on aiemman asennuksen varmuuskopioita. Jokaisesta tulee taas luettelo.';
+
+  @override
+  String get restoreNone =>
+      'Tällä laitteella ei ole varmuuskopioita. Valitse tiedostoja palauttaaksesi muualta.';
+
+  @override
+  String get restoreBackupsMenu => 'Palauta varmuuskopiot…';
+
+  @override
+  String get restorePickFiles => 'Valitse tiedostoja…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tiedostoa',
+      one: '1 tiedosto',
+    );
+    return '$_temp0, uusin $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count luetteloa palautettu.',
+      one: '1 luettelo palautettu.',
+      zero: 'Mitään ei palautettu.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Luettelo on oma maailmansa: omat kissat, yhdyskunnat, kentät, kuvat ja synkronointikumppanit. Berliini ja Pariisi eivät koskaan sekoitu. Napauta luetteloa vaihtaaksesi siihen. Luettelon rataskuvake avaa sen asetukset: nimi, kissat tai lemmikit, kentät, tekijät ja estot, arkisto, paluu taaksepäin, poisto. Nimesi, kielesi ja jo nähdyt vinkit ovat yhteisiä kaikille.';
 

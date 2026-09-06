@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Upravljanje katalogov",
+  "restoreTitle": "Obnovi varnostne kopije",
+  "restoreIntro": "Na tej napravi so varnostne kopije prejšnje namestitve. Vsaka spet postane katalog.",
+  "restoreNone": "Na tej napravi ni varnostnih kopij. Izberite datoteke za obnovitev od drugod.",
+  "restoreBackupsMenu": "Obnovi varnostne kopije…",
+  "restorePickFiles": "Izberi datoteke…",
+  "restoreFileLine": "{count, plural, one{{count} datoteka} two{{count} datoteki} few{{count} datoteke} other{{count} datotek}}, najnovejša {date}",
+  "restoreDone": "{count, plural, =0{Nič ni obnovljeno.} one{Obnovljen {count} katalog.} two{Obnovljena {count} kataloga.} few{Obnovljeni {count} katalogi.} other{Obnovljenih {count} katalogov.}}",
   "helpCatalogs": "Katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.",
   "helpCatalogsNeutral": "Katalog je svet zase: svoje živali, gospodinjstva, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.",
   "helpCatalogSettings": "Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko.",

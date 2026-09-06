@@ -1984,6 +1984,46 @@ class AppLocalizationsEs extends AppLocalizations {
   String get manageCatalogs => 'Gestionar catálogos';
 
   @override
+  String get restoreTitle => 'Restaurar copias';
+
+  @override
+  String get restoreIntro =>
+      'En este dispositivo hay copias de una instalación anterior. Cada una vuelve a ser un catálogo.';
+
+  @override
+  String get restoreNone =>
+      'No hay copias en este dispositivo. Elige archivos para restaurar desde otro lugar.';
+
+  @override
+  String get restoreBackupsMenu => 'Restaurar copias…';
+
+  @override
+  String get restorePickFiles => 'Elegir archivos…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count archivos',
+      one: '1 archivo',
+    );
+    return '$_temp0, el más reciente $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count catálogos restaurados.',
+      one: '1 catálogo restaurado.',
+      zero: 'Nada restaurado.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Cada catálogo es un mundo propio: sus gatos, sus colonias, sus campos, sus fotos y sus compañeros de sincronización. Berlín y París nunca se mezclan. Toca un catálogo para cambiar a él. El engranaje de un catálogo abre sus ajustes: nombre, gatos o mascotas, campos, autores y bloqueos, archivo, volver atrás, eliminar. Tu nombre, tu idioma y los consejos ya vistos son comunes a todos.';
 

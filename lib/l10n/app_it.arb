@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Gestisci cataloghi",
+  "restoreTitle": "Ripristina i backup",
+  "restoreIntro": "Su questo dispositivo ci sono backup di un’installazione precedente. Ognuno torna a essere un catalogo.",
+  "restoreNone": "Nessun backup su questo dispositivo. Scegli file per ripristinare da altrove.",
+  "restoreBackupsMenu": "Ripristina backup…",
+  "restorePickFiles": "Scegli file…",
+  "restoreFileLine": "{count, plural, one{1 file} other{{count} file}}, il più recente {date}",
+  "restoreDone": "{count, plural, =0{Niente ripristinato.} one{1 catalogo ripristinato.} other{{count} cataloghi ripristinati.}}",
   "helpCatalogs": "Ogni catalogo è un mondo a sé: i suoi gatti, le sue colonie, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca un catalogo per passare a esso. L’ingranaggio di un catalogo apre le sue impostazioni: nome, gatti o animali, campi, autori e blocchi, archivio, tornare indietro, eliminare. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.",
   "helpCatalogsNeutral": "Ogni catalogo è un mondo a sé: i suoi animali, le sue case, i suoi campi, le sue foto e i suoi partner di sincronizzazione. Berlino e Parigi non si mescolano mai. Tocca un catalogo per passare a esso. L’ingranaggio di un catalogo apre le sue impostazioni: nome, gatti o animali, campi, autori e blocchi, archivio, tornare indietro, eliminare. Il tuo nome, la lingua e i suggerimenti già visti valgono per tutti.",
   "helpCatalogSettings": "Tutto ciò che appartiene solo a questo catalogo: il nome, se contiene gatti o animali, i campi, gli autori e i blocchi, l’archivio e il tornare indietro nel tempo. Le modifiche qui riguardano solo questo catalogo, anche uno in cui non ti trovi. Eliminare scrive prima il catalogo in un file.",

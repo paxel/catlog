@@ -1980,6 +1980,46 @@ class AppLocalizationsNl extends AppLocalizations {
   String get manageCatalogs => 'Catalogi beheren';
 
   @override
+  String get restoreTitle => 'Back-ups terugzetten';
+
+  @override
+  String get restoreIntro =>
+      'Op dit apparaat staan back-ups van een eerdere installatie. Elke wordt weer een catalogus.';
+
+  @override
+  String get restoreNone =>
+      'Geen back-ups op dit apparaat gevonden. Kies bestanden om van elders terug te zetten.';
+
+  @override
+  String get restoreBackupsMenu => 'Back-ups terugzetten…';
+
+  @override
+  String get restorePickFiles => 'Bestanden kiezen…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bestanden',
+      one: '1 bestand',
+    );
+    return '$_temp0, nieuwste $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count catalogi teruggezet.',
+      one: '1 catalogus teruggezet.',
+      zero: 'Niets teruggezet.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Elke catalogus is een eigen wereld: eigen katten, kolonies, velden, foto’s en synchronisatiepartners. Berlijn en Parijs lopen nooit door elkaar. Tik op een catalogus om ernaar te wisselen. Het tandwiel bij een catalogus opent zijn instellingen: naam, katten of huisdieren, velden, auteurs en blokkades, archief, teruggaan, verwijderen. Je naam, je taal en de al geziene tips gelden voor allemaal.';
 

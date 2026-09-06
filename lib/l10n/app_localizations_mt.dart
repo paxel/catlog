@@ -1979,6 +1979,46 @@ class AppLocalizationsMt extends AppLocalizations {
   String get manageCatalogs => 'Immaniġġja l-katalgi';
 
   @override
+  String get restoreTitle => 'Irrestawra l-backups';
+
+  @override
+  String get restoreIntro =>
+      'F’dan l-apparat hemm backups minn installazzjoni preċedenti. Kull wieħed jerġa’ jsir katalgu.';
+
+  @override
+  String get restoreNone =>
+      'Ma nstabux backups f’dan l-apparat. Agħżel fajls biex tirrestawra minn x’imkien ieħor.';
+
+  @override
+  String get restoreBackupsMenu => 'Irrestawra backups…';
+
+  @override
+  String get restorePickFiles => 'Agħżel fajls…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count fajls',
+      one: 'fajl wieħed',
+    );
+    return '$_temp0, l-aktar riċenti $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count katalgi rrestawrati.',
+      one: 'Katalgu wieħed irrestawrat.',
+      zero: 'Xejn ma ġie rrestawrat.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalgu huwa dinja għalih: il-qtates tiegħu, kolonji, kampijiet, ritratti u partners tas-sinkronizzazzjoni. Berlin u Pariġi qatt ma jitħalltu. Tektek katalgu biex taqleb għalih. Il-ger fuq katalgu jiftaħ is-settings tiegħu: isem, qtates jew annimali, kampijiet, awturi u blokki, arkivju, mur lura, ħassar. Ismek, il-lingwa tiegħek u l-pariri li rajt diġà huma komuni għal kollha.';
 

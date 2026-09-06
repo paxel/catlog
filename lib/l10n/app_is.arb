@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Sýsla með skrár",
+  "restoreTitle": "Endurheimta afrit",
+  "restoreIntro": "Á þessu tæki eru afrit frá fyrri uppsetningu. Hvert og eitt verður skrá aftur.",
+  "restoreNone": "Engin afrit fundust á þessu tæki. Veldu skrár til að endurheimta annars staðar frá.",
+  "restoreBackupsMenu": "Endurheimta afrit…",
+  "restorePickFiles": "Velja skrár…",
+  "restoreFileLine": "{count, plural, one{1 skrá} other{{count} skrár}}, nýjast {date}",
+  "restoreDone": "{count, plural, =0{Ekkert endurheimt.} one{1 skrá endurheimt.} other{{count} skrár endurheimtar.}}",
   "helpCatalogs": "Skrá er heimur út af fyrir sig: eigin kettir, nýlendur, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.",
   "helpCatalogsNeutral": "Skrá er heimur út af fyrir sig: eigin dýr, heimili, reitir, myndir og samstillingarfélagar. Berlín og París blandast aldrei. Ýttu á skrá til að skipta yfir í hana. Tannhjólið við skrá opnar stillingar hennar: nafn, kettir eða dýr, reitir, höfundar og bönn, safn, fara aftur, eyða. Nafn þitt, tungumál og ábendingar sem þú hefur séð eru sameiginleg öllum.",
   "helpCatalogSettings": "Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal.",

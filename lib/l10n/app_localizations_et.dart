@@ -1973,6 +1973,46 @@ class AppLocalizationsEt extends AppLocalizations {
   String get manageCatalogs => 'Halda katalooge';
 
   @override
+  String get restoreTitle => 'Taasta varukoopiad';
+
+  @override
+  String get restoreIntro =>
+      'Selles seadmes on varasema paigalduse varukoopiad. Igaühest saab jälle kataloog.';
+
+  @override
+  String get restoreNone =>
+      'Selles seadmes varukoopiaid pole. Vali failid, et taastada mujalt.';
+
+  @override
+  String get restoreBackupsMenu => 'Taasta varukoopiad…';
+
+  @override
+  String get restorePickFiles => 'Vali failid…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count faili',
+      one: '1 fail',
+    );
+    return '$_temp0, uusim $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kataloogi taastatud.',
+      one: '1 kataloog taastatud.',
+      zero: 'Midagi ei taastatud.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.';
 

@@ -1974,6 +1974,46 @@ class AppLocalizationsTr extends AppLocalizations {
   String get manageCatalogs => 'Katalogları yönet';
 
   @override
+  String get restoreTitle => 'Yedekleri geri yükle';
+
+  @override
+  String get restoreIntro =>
+      'Bu cihazda önceki bir kurulumun yedekleri var. Her biri yeniden katalog olur.';
+
+  @override
+  String get restoreNone =>
+      'Bu cihazda yedek bulunamadı. Başka yerden geri yüklemek için dosya seç.';
+
+  @override
+  String get restoreBackupsMenu => 'Yedekleri geri yükle…';
+
+  @override
+  String get restorePickFiles => 'Dosya seç…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dosya',
+      one: '1 dosya',
+    );
+    return '$_temp0, en yenisi $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count katalog geri yüklendi.',
+      one: '1 katalog geri yüklendi.',
+      zero: 'Hiçbir şey geri yüklenmedi.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Bir katalog kendi başına bir dünyadır: kendi kedileri, kolonileri, alanları, fotoğrafları ve eşitleme ortakları. Berlin ile Paris hiç karışmaz. Bir kataloğa geçmek için ona dokun. Katalogdaki dişli, ayarlarını açar: ad, kediler veya hayvanlar, alanlar, yazarlar ve engeller, arşiv, geri dön, sil. Adın, dilin ve zaten gördüğün ipuçları hepsinde ortaktır.';
 

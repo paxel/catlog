@@ -1979,6 +1979,50 @@ class AppLocalizationsSl extends AppLocalizations {
   String get manageCatalogs => 'Upravljanje katalogov';
 
   @override
+  String get restoreTitle => 'Obnovi varnostne kopije';
+
+  @override
+  String get restoreIntro =>
+      'Na tej napravi so varnostne kopije prejšnje namestitve. Vsaka spet postane katalog.';
+
+  @override
+  String get restoreNone =>
+      'Na tej napravi ni varnostnih kopij. Izberite datoteke za obnovitev od drugod.';
+
+  @override
+  String get restoreBackupsMenu => 'Obnovi varnostne kopije…';
+
+  @override
+  String get restorePickFiles => 'Izberi datoteke…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count datotek',
+      few: '$count datoteke',
+      two: '$count datoteki',
+      one: '$count datoteka',
+    );
+    return '$_temp0, najnovejša $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Obnovljenih $count katalogov.',
+      few: 'Obnovljeni $count katalogi.',
+      two: 'Obnovljena $count kataloga.',
+      one: 'Obnovljen $count katalog.',
+      zero: 'Nič ni obnovljeno.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Katalog je svet zase: svoje mačke, kolonije, polja, fotografije in partnerji za sinhronizacijo. Berlin in Pariz se nikoli ne mešata. Tapnite katalog, da preklopite nanj. Zobnik pri katalogu odpre njegove nastavitve: ime, mačke ali živali, polja, avtorji in blokade, arhiv, vrnitev nazaj, izbris. Vaše ime, jezik in že videni namigi so skupni vsem.';
 

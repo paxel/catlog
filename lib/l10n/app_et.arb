@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Halda katalooge",
+  "restoreTitle": "Taasta varukoopiad",
+  "restoreIntro": "Selles seadmes on varasema paigalduse varukoopiad. Igaühest saab jälle kataloog.",
+  "restoreNone": "Selles seadmes varukoopiaid pole. Vali failid, et taastada mujalt.",
+  "restoreBackupsMenu": "Taasta varukoopiad…",
+  "restorePickFiles": "Vali failid…",
+  "restoreFileLine": "{count, plural, one{1 fail} other{{count} faili}}, uusim {date}",
+  "restoreDone": "{count, plural, =0{Midagi ei taastatud.} one{1 kataloog taastatud.} other{{count} kataloogi taastatud.}}",
   "helpCatalogs": "Kataloog on omaette maailm: omad kassid, kolooniad, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.",
   "helpCatalogsNeutral": "Kataloog on omaette maailm: omad lemmikloomad, majapidamised, väljad, fotod ja sünkroonimispartnerid. Berliin ja Pariis ei segune kunagi. Puuduta kataloogi, et sellele lülituda. Kataloogi hammasratas avab selle seaded: nimi, kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv, tagasiminek, kustutamine. Su nimi, keel ja juba nähtud nõuanded on kõigil ühised.",
   "helpCatalogSettings": "Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili.",

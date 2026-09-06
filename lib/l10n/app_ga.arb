@@ -574,6 +574,13 @@
     }
   },
   "manageCatalogs": "Bainistigh catalóga",
+  "restoreTitle": "Athchóirigh cúltacaí",
+  "restoreIntro": "Tá cúltacaí ó shuiteáil roimhe seo ar an ngléas seo. Déantar catalóg arís de gach ceann.",
+  "restoreNone": "Níor aimsíodh cúltacaí ar an ngléas seo. Roghnaigh comhaid le hathchóiriú ó áit eile.",
+  "restoreBackupsMenu": "Athchóirigh cúltacaí…",
+  "restorePickFiles": "Roghnaigh comhaid…",
+  "restoreFileLine": "{count, plural, one{1 chomhad} two{{count} chomhad} few{{count} chomhad} many{{count} gcomhad} other{{count} comhad}}, is déanaí {date}",
+  "restoreDone": "{count, plural, =0{Níor athchóiríodh aon rud.} one{Athchóiríodh 1 chatalóg.} two{Athchóiríodh {count} chatalóg.} few{Athchóiríodh {count} chatalóg.} many{Athchóiríodh {count} gcatalóg.} other{Athchóiríodh {count} catalóg.}}",
   "helpCatalogs": "Is domhan ann féin gach catalóg: a cait féin, coilíneachtaí, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.",
   "helpCatalogsNeutral": "Is domhan ann féin gach catalóg: a peataí féin, teaghlaigh, réimsí, grianghraif agus comhpháirtithe sioncronaithe. Ní mheascann Beirlín agus Páras riamh. Tapáil catalóg le hathrú chuici. Osclaíonn an giar ar chatalóg a socruithe: ainm, cait nó peataí, réimsí, údair agus coscanna, cartlann, dul siar, scriosadh. Tá d’ainm, do theanga agus na leideanna atá feicthe agat i bpáirt acu uile.",
   "helpCatalogSettings": "Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús.",

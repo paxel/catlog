@@ -1978,6 +1978,48 @@ class AppLocalizationsUk extends AppLocalizations {
   String get manageCatalogs => 'Керування каталогами';
 
   @override
+  String get restoreTitle => 'Відновити резервні копії';
+
+  @override
+  String get restoreIntro =>
+      'На цьому пристрої є резервні копії попередньої установки. Кожна знову стане каталогом.';
+
+  @override
+  String get restoreNone =>
+      'На цьому пристрої резервних копій немає. Виберіть файли, щоб відновити з іншого місця.';
+
+  @override
+  String get restoreBackupsMenu => 'Відновити резервні копії…';
+
+  @override
+  String get restorePickFiles => 'Вибрати файли…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count файлів',
+      few: '$count файли',
+      one: '$count файл',
+    );
+    return '$_temp0, найновіший $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Відновлено $count каталогів.',
+      few: 'Відновлено $count каталоги.',
+      one: 'Відновлено $count каталог.',
+      zero: 'Нічого не відновлено.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Кожен каталог — окремий світ: свої коти, колонії, поля, фотографії та партнери синхронізації. Берлін і Париж ніколи не змішуються. Торкніться каталогу, щоб перейти до нього. Шестірня біля каталогу відкриває його налаштування: назва, коти чи тварини, поля, автори та блокування, архів, повернення назад, видалення. Ваше ім’я, мова та вже показані підказки спільні для всіх.';
 

@@ -1974,6 +1974,46 @@ class AppLocalizationsEn extends AppLocalizations {
   String get manageCatalogs => 'Manage catalogs';
 
   @override
+  String get restoreTitle => 'Restore backups';
+
+  @override
+  String get restoreIntro =>
+      'Backups from an earlier installation were found on this device. Each one becomes a catalog again.';
+
+  @override
+  String get restoreNone =>
+      'No backups found on this device. Pick files to restore from elsewhere.';
+
+  @override
+  String get restoreBackupsMenu => 'Restore backups…';
+
+  @override
+  String get restorePickFiles => 'Pick files…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count files',
+      one: '1 file',
+    );
+    return '$_temp0, newest $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count catalogs restored.',
+      one: '1 catalog restored.',
+      zero: 'Nothing restored.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'A catalog is a world of its own: its own cats, clowders, fields, photos and sync partners. Berlin and Paris never mix. Tap a catalog to switch to it. The gear on a catalog opens its settings: name, cats or pets, fields, authors and bans, archive, go back, delete. Your name, your language and the tips you have already seen are shared by all of them.';
 

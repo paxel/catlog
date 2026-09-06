@@ -1976,6 +1976,46 @@ class AppLocalizationsHu extends AppLocalizations {
   String get manageCatalogs => 'Katalógusok kezelése';
 
   @override
+  String get restoreTitle => 'Mentések visszaállítása';
+
+  @override
+  String get restoreIntro =>
+      'Ezen az eszközön egy korábbi telepítés mentései vannak. Mindegyik újra katalógus lesz.';
+
+  @override
+  String get restoreNone =>
+      'Ezen az eszközön nincs mentés. Válassz fájlokat máshonnan való visszaállításhoz.';
+
+  @override
+  String get restoreBackupsMenu => 'Mentések visszaállítása…';
+
+  @override
+  String get restorePickFiles => 'Fájlok kiválasztása…';
+
+  @override
+  String restoreFileLine(int count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count fájl',
+      one: '1 fájl',
+    );
+    return '$_temp0, legújabb $date';
+  }
+
+  @override
+  String restoreDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count katalógus visszaállítva.',
+      one: '1 katalógus visszaállítva.',
+      zero: 'Semmi nem lett visszaállítva.',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpCatalogs =>
       'Egy katalógus önálló világ: saját macskák, kolóniák, mezők, fotók és szinkronpartnerek. Berlin és Párizs soha nem keveredik. Koppints egy katalógusra, hogy átválts rá. A katalógus fogaskereke megnyitja a beállításait: név, macskák vagy kedvencek, mezők, szerzők és tiltások, archívum, visszalépés, törlés. A neved, a nyelved és a már látott tippek mindegyikre közösek.';
 
