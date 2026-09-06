@@ -467,6 +467,7 @@
   "acceptArrival": "Accepter",
   "rejectArrival": "Refuser",
   "photoAdded": "Photo ajoutée",
+  "photoNotReceived": "Photo pas encore reçue",
   "photoRemoved": "Photo retirée",
   "metaFieldAdded": "Nouveau champ : {name}",
   "metaFieldChanged": "Champ modifié : {name}",

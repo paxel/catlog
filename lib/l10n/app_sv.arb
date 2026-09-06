@@ -467,6 +467,7 @@
   "acceptArrival": "Godkänn",
   "rejectArrival": "Avvisa",
   "photoAdded": "Foto tillagt",
+  "photoNotReceived": "Foto inte mottaget ännu",
   "photoRemoved": "Foto borttaget",
   "metaFieldAdded": "Nytt fält: {name}",
   "metaFieldChanged": "Fält ändrat: {name}",

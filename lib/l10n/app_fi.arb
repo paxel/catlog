@@ -467,6 +467,7 @@
   "acceptArrival": "Hyväksy",
   "rejectArrival": "Hylkää",
   "photoAdded": "Kuva lisätty",
+  "photoNotReceived": "Kuvaa ei ole vielä saatu",
   "photoRemoved": "Kuva poistettu",
   "metaFieldAdded": "Uusi kenttä: {name}",
   "metaFieldChanged": "Kenttä muuttui: {name}",

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../share.dart';
+import '../widgets/missing_photo.dart';
 
 /// Full-screen gallery: swipe through a cat's photos, pinch to zoom.
 /// Tap on a thumbnail lands here; the action menu stays on long-press.
@@ -75,7 +76,9 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
         onPageChanged: (i) => setState(() => _current = i),
         itemBuilder: (context, i) {
           final bytes = _bytesFor(widget.hashes[i]);
-          if (bytes == null) return const SizedBox.shrink();
+          if (bytes == null) {
+            return const Center(child: MissingPhoto(onDark: true));
+          }
           return InteractiveViewer(
             maxScale: 8,
             child: Center(

@@ -1618,6 +1618,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get photoAdded => 'Додадена фотографија';
 
   @override
+  String get photoNotReceived => 'Фотографијата уште не е примена';
+
+  @override
   String get photoRemoved => 'Отстранета фотографија';
 
   @override

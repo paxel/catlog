@@ -467,6 +467,7 @@
   "acceptArrival": "Acceptér",
   "rejectArrival": "Afvis",
   "photoAdded": "Foto tilføjet",
+  "photoNotReceived": "Foto ikke modtaget endnu",
   "photoRemoved": "Foto fjernet",
   "metaFieldAdded": "Nyt felt: {name}",
   "metaFieldChanged": "Felt ændret: {name}",

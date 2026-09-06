@@ -467,6 +467,7 @@
   "acceptArrival": "Priimti",
   "rejectArrival": "Atmesti",
   "photoAdded": "Pridėta nuotrauka",
+  "photoNotReceived": "Nuotrauka dar negauta",
   "photoRemoved": "Nuotrauka pašalinta",
   "metaFieldAdded": "Naujas laukas: {name}",
   "metaFieldChanged": "Laukas pakeistas: {name}",

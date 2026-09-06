@@ -467,6 +467,7 @@
   "acceptArrival": "Prano",
   "rejectArrival": "Refuzo",
   "photoAdded": "Foto e shtuar",
+  "photoNotReceived": "Fotoja ende nuk ka mbërritur",
   "photoRemoved": "Foto e hequr",
   "metaFieldAdded": "Fushë e re: {name}",
   "metaFieldChanged": "Fushë e ndryshuar: {name}",

@@ -467,6 +467,7 @@
   "acceptArrival": "پذیرش",
   "rejectArrival": "رد",
   "photoAdded": "عکس افزوده شد",
+  "photoNotReceived": "عکس هنوز دریافت نشده",
   "photoRemoved": "عکس حذف شد",
   "metaFieldAdded": "فیلد جدید: {name}",
   "metaFieldChanged": "فیلد تغییر کرد: {name}",

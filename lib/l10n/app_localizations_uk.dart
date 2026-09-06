@@ -1616,6 +1616,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get photoAdded => 'Додано світлину';
 
   @override
+  String get photoNotReceived => 'Світлину ще не отримано';
+
+  @override
   String get photoRemoved => 'Світлину вилучено';
 
   @override

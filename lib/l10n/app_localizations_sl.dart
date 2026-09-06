@@ -1616,6 +1616,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get photoAdded => 'Dodana fotografija';
 
   @override
+  String get photoNotReceived => 'Fotografija še ni prejeta';
+
+  @override
   String get photoRemoved => 'Odstranjena fotografija';
 
   @override

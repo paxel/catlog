@@ -467,6 +467,7 @@
   "acceptArrival": "Pieņemt",
   "rejectArrival": "Noraidīt",
   "photoAdded": "Pievienots fotoattēls",
+  "photoNotReceived": "Fotoattēls vēl nav saņemts",
   "photoRemoved": "Fotoattēls noņemts",
   "metaFieldAdded": "Jauns lauks: {name}",
   "metaFieldChanged": "Lauks mainīts: {name}",

@@ -467,6 +467,7 @@
   "acceptArrival": "Samþykkja",
   "rejectArrival": "Hafna",
   "photoAdded": "Mynd bætt við",
+  "photoNotReceived": "Mynd ekki móttekin enn",
   "photoRemoved": "Mynd fjarlægð",
   "metaFieldAdded": "Nýr reitur: {name}",
   "metaFieldChanged": "Reitur breyttur: {name}",

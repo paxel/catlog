@@ -1612,6 +1612,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get photoAdded => 'Photo added';
 
   @override
+  String get photoNotReceived => 'Photo not received yet';
+
+  @override
   String get photoRemoved => 'Photo removed';
 
   @override

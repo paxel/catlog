@@ -1616,6 +1616,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get photoAdded => 'Pievienots fotoattēls';
 
   @override
+  String get photoNotReceived => 'Fotoattēls vēl nav saņemts';
+
+  @override
   String get photoRemoved => 'Fotoattēls noņemts';
 
   @override

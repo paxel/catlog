@@ -467,6 +467,7 @@
   "acceptArrival": "Acceptă",
   "rejectArrival": "Respinge",
   "photoAdded": "Fotografie adăugată",
+  "photoNotReceived": "Fotografia nu a sosit încă",
   "photoRemoved": "Fotografie eliminată",
   "metaFieldAdded": "Câmp nou: {name}",
   "metaFieldChanged": "Câmp modificat: {name}",

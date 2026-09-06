@@ -467,6 +467,7 @@
   "acceptArrival": "接受",
   "rejectArrival": "拒绝",
   "photoAdded": "已添加照片",
+  "photoNotReceived": "照片尚未收到",
   "photoRemoved": "已移除照片",
   "metaFieldAdded": "新字段：{name}",
   "metaFieldChanged": "字段已更改：{name}",

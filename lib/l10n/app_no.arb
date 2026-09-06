@@ -467,6 +467,7 @@
   "acceptArrival": "Godta",
   "rejectArrival": "Avvis",
   "photoAdded": "Bilde lagt til",
+  "photoNotReceived": "Bilde ikke mottatt ennå",
   "photoRemoved": "Bilde fjernet",
   "metaFieldAdded": "Nytt felt: {name}",
   "metaFieldChanged": "Felt endret: {name}",

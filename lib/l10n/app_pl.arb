@@ -467,6 +467,7 @@
   "acceptArrival": "Akceptuj",
   "rejectArrival": "Odrzuć",
   "photoAdded": "Dodano zdjęcie",
+  "photoNotReceived": "Zdjęcie jeszcze nie odebrane",
   "photoRemoved": "Usunięto zdjęcie",
   "metaFieldAdded": "Nowe pole: {name}",
   "metaFieldChanged": "Zmienione pole: {name}",

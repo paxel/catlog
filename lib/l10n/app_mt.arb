@@ -467,6 +467,7 @@
   "acceptArrival": "Aċċetta",
   "rejectArrival": "Irrifjuta",
   "photoAdded": "Ritratt miżjud",
+  "photoNotReceived": "Ir-ritratt għadu ma waslitx",
   "photoRemoved": "Ritratt imneħħi",
   "metaFieldAdded": "Kamp ġdid: {name}",
   "metaFieldChanged": "Kamp mibdul: {name}",

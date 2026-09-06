@@ -467,6 +467,7 @@
   "acceptArrival": "Прифати",
   "rejectArrival": "Одбиј",
   "photoAdded": "Додадена фотографија",
+  "photoNotReceived": "Фотографијата уште не е примена",
   "photoRemoved": "Отстранета фотографија",
   "metaFieldAdded": "Ново поле: {name}",
   "metaFieldChanged": "Изменето поле: {name}",

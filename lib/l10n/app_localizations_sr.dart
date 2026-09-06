@@ -1615,6 +1615,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get photoAdded => 'Додата фотографија';
 
   @override
+  String get photoNotReceived => 'Фотографија још није примљена';
+
+  @override
   String get photoRemoved => 'Уклоњена фотографија';
 
   @override

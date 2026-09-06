@@ -1622,6 +1622,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get photoAdded => 'Προστέθηκε φωτογραφία';
 
   @override
+  String get photoNotReceived => 'Η φωτογραφία δεν έχει ληφθεί ακόμη';
+
+  @override
   String get photoRemoved => 'Αφαιρέθηκε φωτογραφία';
 
   @override

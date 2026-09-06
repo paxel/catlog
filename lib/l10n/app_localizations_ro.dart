@@ -1616,6 +1616,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get photoAdded => 'Fotografie adăugată';
 
   @override
+  String get photoNotReceived => 'Fotografia nu a sosit încă';
+
+  @override
   String get photoRemoved => 'Fotografie eliminată';
 
   @override

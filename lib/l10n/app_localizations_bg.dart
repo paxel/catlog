@@ -1615,6 +1615,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get photoAdded => 'Добавена снимка';
 
   @override
+  String get photoNotReceived => 'Снимката още не е получена';
+
+  @override
   String get photoRemoved => 'Премахната снимка';
 
   @override

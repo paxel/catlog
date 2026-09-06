@@ -1561,6 +1561,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photoAdded => '已添加照片';
 
   @override
+  String get photoNotReceived => '照片尚未收到';
+
+  @override
   String get photoRemoved => '已移除照片';
 
   @override

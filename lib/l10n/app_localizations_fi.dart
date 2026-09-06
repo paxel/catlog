@@ -1616,6 +1616,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get photoAdded => 'Kuva lisätty';
 
   @override
+  String get photoNotReceived => 'Kuvaa ei ole vielä saatu';
+
+  @override
   String get photoRemoved => 'Kuva poistettu';
 
   @override

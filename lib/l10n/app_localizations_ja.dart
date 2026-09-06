@@ -1578,6 +1578,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get photoAdded => '写真が追加されました';
 
   @override
+  String get photoNotReceived => '写真はまだ受信されていません';
+
+  @override
   String get photoRemoved => '写真が削除されました';
 
   @override

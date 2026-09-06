@@ -1288,6 +1288,9 @@ class ModeLocalizations implements AppLocalizations {
   String get photoAdded => base.photoAdded;
 
   @override
+  String get photoNotReceived => base.photoNotReceived;
+
+  @override
   String get photoRemoved => base.photoRemoved;
 
   @override

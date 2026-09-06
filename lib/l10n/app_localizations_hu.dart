@@ -1615,6 +1615,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get photoAdded => 'Fotó hozzáadva';
 
   @override
+  String get photoNotReceived => 'A fotó még nem érkezett meg';
+
+  @override
   String get photoRemoved => 'Fotó eltávolítva';
 
   @override

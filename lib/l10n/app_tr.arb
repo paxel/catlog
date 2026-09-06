@@ -467,6 +467,7 @@
   "acceptArrival": "Kabul et",
   "rejectArrival": "Reddet",
   "photoAdded": "Fotoğraf eklendi",
+  "photoNotReceived": "Fotoğraf henüz alınmadı",
   "photoRemoved": "Fotoğraf kaldırıldı",
   "metaFieldAdded": "Yeni alan: {name}",
   "metaFieldChanged": "Alan değişti: {name}",

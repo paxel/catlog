@@ -1615,6 +1615,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get photoAdded => 'Přidána fotka';
 
   @override
+  String get photoNotReceived => 'Fotka ještě nedorazila';
+
+  @override
   String get photoRemoved => 'Fotka odebrána';
 
   @override

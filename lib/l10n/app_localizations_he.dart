@@ -1606,6 +1606,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get photoAdded => 'תמונה נוספה';
 
   @override
+  String get photoNotReceived => 'התמונה עוד לא התקבלה';
+
+  @override
   String get photoRemoved => 'תמונה הוסרה';
 
   @override

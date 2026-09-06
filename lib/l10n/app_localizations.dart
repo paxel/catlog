@@ -2948,6 +2948,12 @@ abstract class AppLocalizations {
   /// **'Photo added'**
   String get photoAdded;
 
+  /// No description provided for @photoNotReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo not received yet'**
+  String get photoNotReceived;
+
   /// No description provided for @photoRemoved.
   ///
   /// In en, this message translates to:

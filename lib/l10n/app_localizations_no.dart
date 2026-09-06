@@ -1611,6 +1611,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get photoAdded => 'Bilde lagt til';
 
   @override
+  String get photoNotReceived => 'Bilde ikke mottatt ennå';
+
+  @override
   String get photoRemoved => 'Bilde fjernet';
 
   @override

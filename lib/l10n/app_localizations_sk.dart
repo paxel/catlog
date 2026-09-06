@@ -1613,6 +1613,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get photoAdded => 'Pridaná fotka';
 
   @override
+  String get photoNotReceived => 'Fotka ešte neprišla';
+
+  @override
   String get photoRemoved => 'Fotka odstránená';
 
   @override

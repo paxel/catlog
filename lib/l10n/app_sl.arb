@@ -467,6 +467,7 @@
   "acceptArrival": "Sprejmi",
   "rejectArrival": "Zavrni",
   "photoAdded": "Dodana fotografija",
+  "photoNotReceived": "Fotografija še ni prejeta",
   "photoRemoved": "Odstranjena fotografija",
   "metaFieldAdded": "Novo polje: {name}",
   "metaFieldChanged": "Spremenjeno polje: {name}",

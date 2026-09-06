@@ -1615,6 +1615,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get photoAdded => 'Добавлена фотография';
 
   @override
+  String get photoNotReceived => 'Фото ещё не получено';
+
+  @override
   String get photoRemoved => 'Фотография удалена';
 
   @override

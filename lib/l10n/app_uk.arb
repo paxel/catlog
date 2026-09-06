@@ -467,6 +467,7 @@
   "acceptArrival": "Прийняти",
   "rejectArrival": "Відхилити",
   "photoAdded": "Додано світлину",
+  "photoNotReceived": "Світлину ще не отримано",
   "photoRemoved": "Світлину вилучено",
   "metaFieldAdded": "Нове поле: {name}",
   "metaFieldChanged": "Поле змінено: {name}",

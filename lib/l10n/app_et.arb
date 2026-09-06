@@ -467,6 +467,7 @@
   "acceptArrival": "Nõustu",
   "rejectArrival": "Lükka tagasi",
   "photoAdded": "Foto lisatud",
+  "photoNotReceived": "Fotot pole veel saabunud",
   "photoRemoved": "Foto eemaldatud",
   "metaFieldAdded": "Uus väli: {name}",
   "metaFieldChanged": "Väli muudetud: {name}",

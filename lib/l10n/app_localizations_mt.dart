@@ -1616,6 +1616,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get photoAdded => 'Ritratt miżjud';
 
   @override
+  String get photoNotReceived => 'Ir-ritratt għadu ma waslitx';
+
+  @override
   String get photoRemoved => 'Ritratt imneħħi';
 
   @override

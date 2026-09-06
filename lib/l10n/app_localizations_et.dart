@@ -1611,6 +1611,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get photoAdded => 'Foto lisatud';
 
   @override
+  String get photoNotReceived => 'Fotot pole veel saabunud';
+
+  @override
   String get photoRemoved => 'Foto eemaldatud';
 
   @override

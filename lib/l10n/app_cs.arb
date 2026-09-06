@@ -467,6 +467,7 @@
   "acceptArrival": "Přijmout",
   "rejectArrival": "Odmítnout",
   "photoAdded": "Přidána fotka",
+  "photoNotReceived": "Fotka ještě nedorazila",
   "photoRemoved": "Fotka odebrána",
   "metaFieldAdded": "Nové pole: {name}",
   "metaFieldChanged": "Pole změněno: {name}",

@@ -467,6 +467,7 @@
   "acceptArrival": "אישור",
   "rejectArrival": "דחייה",
   "photoAdded": "תמונה נוספה",
+  "photoNotReceived": "התמונה עוד לא התקבלה",
   "photoRemoved": "תמונה הוסרה",
   "metaFieldAdded": "שדה חדש: {name}",
   "metaFieldChanged": "שדה שונה: {name}",

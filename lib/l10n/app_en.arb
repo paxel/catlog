@@ -755,6 +755,7 @@
   "acceptArrival": "Accept",
   "rejectArrival": "Reject",
   "photoAdded": "Photo added",
+  "photoNotReceived": "Photo not received yet",
   "photoRemoved": "Photo removed",
   "metaFieldAdded": "New field: {name}",
   "@metaFieldAdded": {"placeholders": {"name": {"type": "String"}}},

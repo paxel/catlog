@@ -467,6 +467,7 @@
   "acceptArrival": "受け入れる",
   "rejectArrival": "拒否",
   "photoAdded": "写真が追加されました",
+  "photoNotReceived": "写真はまだ受信されていません",
   "photoRemoved": "写真が削除されました",
   "metaFieldAdded": "新しい項目: {name}",
   "metaFieldChanged": "項目が変更されました: {name}",

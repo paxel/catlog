@@ -1615,6 +1615,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get photoAdded => 'Dodana fotografija';
 
   @override
+  String get photoNotReceived => 'Fotografija još nije primljena';
+
+  @override
   String get photoRemoved => 'Uklonjena fotografija';
 
   @override

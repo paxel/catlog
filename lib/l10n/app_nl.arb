@@ -467,6 +467,7 @@
   "acceptArrival": "Accepteren",
   "rejectArrival": "Afwijzen",
   "photoAdded": "Foto toegevoegd",
+  "photoNotReceived": "Foto nog niet ontvangen",
   "photoRemoved": "Foto verwijderd",
   "metaFieldAdded": "Nieuw veld: {name}",
   "metaFieldChanged": "Veld gewijzigd: {name}",

@@ -24,6 +24,7 @@ import '../new_field_dialog.dart';
 import '../spotlight.dart';
 import '../stray_cam.dart';
 import '../widgets/cat_avatar.dart';
+import '../widgets/missing_photo.dart';
 import '../reminders/mirror_hook.dart';
 import '../reminders/plan_chooser.dart';
 import '../widgets/cat_ear.dart';
@@ -694,7 +695,12 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
                             image: ResizeImage(photo, width: 480),
                             fit: BoxFit.cover,
                           ),
-                        ),
+                        )
+                      else
+                        // The entry is here, the bytes are not (a sync
+                        // that never fetched them): say so instead of
+                        // leaving a hole with a badge on it.
+                        MissingPhoto(),
                       if (hash == profile)
                         const Align(
                           alignment: Alignment.topRight,

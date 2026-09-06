@@ -1604,6 +1604,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get photoAdded => 'عکس افزوده شد';
 
   @override
+  String get photoNotReceived => 'عکس هنوز دریافت نشده';
+
+  @override
   String get photoRemoved => 'عکس حذف شد';
 
   @override

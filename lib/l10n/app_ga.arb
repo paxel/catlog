@@ -467,6 +467,7 @@
   "acceptArrival": "Glac",
   "rejectArrival": "Diúltaigh",
   "photoAdded": "Grianghraf curtha leis",
+  "photoNotReceived": "Grianghraf gan a fháil fós",
   "photoRemoved": "Grianghraf bainte",
   "metaFieldAdded": "Réimse nua: {name}",
   "metaFieldChanged": "Réimse athraithe: {name}",

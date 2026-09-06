@@ -467,6 +467,7 @@
   "acceptArrival": "Elfogadás",
   "rejectArrival": "Elutasítás",
   "photoAdded": "Fotó hozzáadva",
+  "photoNotReceived": "A fotó még nem érkezett meg",
   "photoRemoved": "Fotó eltávolítva",
   "metaFieldAdded": "Új mező: {name}",
   "metaFieldChanged": "Mező módosítva: {name}",

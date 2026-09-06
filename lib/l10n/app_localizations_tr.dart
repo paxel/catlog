@@ -1613,6 +1613,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get photoAdded => 'Fotoğraf eklendi';
 
   @override
+  String get photoNotReceived => 'Fotoğraf henüz alınmadı';
+
+  @override
   String get photoRemoved => 'Fotoğraf kaldırıldı';
 
   @override

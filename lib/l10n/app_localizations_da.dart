@@ -1614,6 +1614,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get photoAdded => 'Foto tilføjet';
 
   @override
+  String get photoNotReceived => 'Foto ikke modtaget endnu';
+
+  @override
   String get photoRemoved => 'Foto fjernet';
 
   @override

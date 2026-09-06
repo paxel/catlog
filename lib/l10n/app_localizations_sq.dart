@@ -1613,6 +1613,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get photoAdded => 'Foto e shtuar';
 
   @override
+  String get photoNotReceived => 'Fotoja ende nuk ka mbërritur';
+
+  @override
   String get photoRemoved => 'Foto e hequr';
 
   @override

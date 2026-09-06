@@ -467,6 +467,7 @@
   "acceptArrival": "قبول",
   "rejectArrival": "رفض",
   "photoAdded": "أُضيفت صورة",
+  "photoNotReceived": "لم تُستلم الصورة بعد",
   "photoRemoved": "أُزيلت صورة",
   "metaFieldAdded": "حقل جديد: {name}",
   "metaFieldChanged": "تغيّر الحقل: {name}",

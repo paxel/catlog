@@ -1612,6 +1612,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get photoAdded => 'أُضيفت صورة';
 
   @override
+  String get photoNotReceived => 'لم تُستلم الصورة بعد';
+
+  @override
   String get photoRemoved => 'أُزيلت صورة';
 
   @override

@@ -1613,6 +1613,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get photoAdded => 'Foto tillagt';
 
   @override
+  String get photoNotReceived => 'Foto inte mottaget ännu';
+
+  @override
   String get photoRemoved => 'Foto borttaget';
 
   @override

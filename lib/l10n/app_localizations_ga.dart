@@ -1621,6 +1621,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get photoAdded => 'Grianghraf curtha leis';
 
   @override
+  String get photoNotReceived => 'Grianghraf gan a fháil fós';
+
+  @override
   String get photoRemoved => 'Grianghraf bainte';
 
   @override

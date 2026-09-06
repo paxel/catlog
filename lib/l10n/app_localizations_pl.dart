@@ -1614,6 +1614,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get photoAdded => 'Dodano zdjęcie';
 
   @override
+  String get photoNotReceived => 'Zdjęcie jeszcze nie odebrane';
+
+  @override
   String get photoRemoved => 'Usunięto zdjęcie';
 
   @override

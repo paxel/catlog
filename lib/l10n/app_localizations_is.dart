@@ -1617,6 +1617,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get photoAdded => 'Mynd bætt við';
 
   @override
+  String get photoNotReceived => 'Mynd ekki móttekin enn';
+
+  @override
   String get photoRemoved => 'Mynd fjarlægð';
 
   @override

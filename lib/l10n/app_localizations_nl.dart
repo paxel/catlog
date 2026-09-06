@@ -1618,6 +1618,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get photoAdded => 'Foto toegevoegd';
 
   @override
+  String get photoNotReceived => 'Foto nog niet ontvangen';
+
+  @override
   String get photoRemoved => 'Foto verwijderd';
 
   @override

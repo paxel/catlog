@@ -467,6 +467,7 @@
   "acceptArrival": "Αποδοχή",
   "rejectArrival": "Απόρριψη",
   "photoAdded": "Προστέθηκε φωτογραφία",
+  "photoNotReceived": "Η φωτογραφία δεν έχει ληφθεί ακόμη",
   "photoRemoved": "Αφαιρέθηκε φωτογραφία",
   "metaFieldAdded": "Νέο πεδίο: {name}",
   "metaFieldChanged": "Πεδίο άλλαξε: {name}",
