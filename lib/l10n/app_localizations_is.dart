@@ -1117,11 +1117,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar.';
+      'Kettir sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds kattar. Ýttu á par til að sameina, haltu inni til að opna fyrri köttinn til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.';
 
   @override
   String get helpMatchesNeutral =>
-      'Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar.';
+      'Gæludýr sem gætu verið sama dýrið: sama númer, eða flækingur sem sást innan leitarsvæðis týnds gæludýrs. Ýttu á par til að sameina, haltu inni til að opna fyrra gæludýrið til samanburðar. Pör þar sem útlitið stemmir í tveimur einkennum eða fleiri án mótsagnar eru líka á listanum; flögurnar sýna hver. „Ekki það sama“ felur par í þessum síma þar til útlit annars dýrsins breytist.';
 
   @override
   String get helpFlier =>
@@ -1412,6 +1412,192 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get starterLooks => 'Útlit';
+
+  @override
+  String get looksGroupSize => 'Stærð';
+
+  @override
+  String get looksGroupColours => 'Litir';
+
+  @override
+  String get looksGroupPattern => 'Mynstur';
+
+  @override
+  String get looksGroupFur => 'Feldur';
+
+  @override
+  String get looksGroupTail => 'Skott';
+
+  @override
+  String get looksGroupEars => 'Eyru';
+
+  @override
+  String get looksGroupMarks => 'Einkenni';
+
+  @override
+  String get looksGroupCrest => 'Toppur';
+
+  @override
+  String get looksGroupBeak => 'Goggur';
+
+  @override
+  String get looksGroupRing => 'Fótahringur';
+
+  @override
+  String get looksValueSmall => 'Lítill';
+
+  @override
+  String get looksValueMedium => 'Miðlungs';
+
+  @override
+  String get looksValueLarge => 'Stór';
+
+  @override
+  String get looksValueBlack => 'Svartur';
+
+  @override
+  String get looksValueWhite => 'Hvítur';
+
+  @override
+  String get looksValueGrey => 'Grár';
+
+  @override
+  String get looksValueBrown => 'Brúnn';
+
+  @override
+  String get looksValueGinger => 'Rauður';
+
+  @override
+  String get looksValueCream => 'Rjómalitur';
+
+  @override
+  String get looksValueGolden => 'Gullinn';
+
+  @override
+  String get looksValueTan => 'Ljósbrúnn';
+
+  @override
+  String get looksValueGreen => 'Grænn';
+
+  @override
+  String get looksValueBlue => 'Blár';
+
+  @override
+  String get looksValueYellow => 'Gulur';
+
+  @override
+  String get looksValueRed => 'Rauður';
+
+  @override
+  String get looksValueOrange => 'Appelsínugulur';
+
+  @override
+  String get looksValuePink => 'Bleikur';
+
+  @override
+  String get looksValueWhiteBib => 'Hvít bringa';
+
+  @override
+  String get looksValueWhitePaws => 'Hvítar loppur';
+
+  @override
+  String get looksValueWhiteTailTip => 'Hvítur skottendi';
+
+  @override
+  String get looksValueBlaze => 'Blesa';
+
+  @override
+  String get looksValueMask => 'Gríma';
+
+  @override
+  String get looksValueSpots => 'Deplar';
+
+  @override
+  String get looksValuePatches => 'Flekkir';
+
+  @override
+  String get looksValueStripes => 'Rendur';
+
+  @override
+  String get looksValueScar => 'Ör';
+
+  @override
+  String get looksValueNotchedEar => 'Skarð í eyra';
+
+  @override
+  String get looksValueEarTip => 'Eyrnabroddur';
+
+  @override
+  String get looksValueCollar => 'Hálsól';
+
+  @override
+  String get looksValueShort => 'Stutt';
+
+  @override
+  String get looksValueLong => 'Sítt';
+
+  @override
+  String get looksValueHairless => 'Hárlaus';
+
+  @override
+  String get looksValueBobtail => 'Stubbur';
+
+  @override
+  String get looksValueNone => 'Ekkert';
+
+  @override
+  String get looksValueCurled => 'Hringað';
+
+  @override
+  String get looksValueUpright => 'Upprétt';
+
+  @override
+  String get looksValueFloppy => 'Lafandi';
+
+  @override
+  String get looksValueFolded => 'Brotin';
+
+  @override
+  String get looksValueRounded => 'Ávöl';
+
+  @override
+  String get looksValueSolid => 'Einlitur';
+
+  @override
+  String get looksValueTabby => 'Bröndóttur';
+
+  @override
+  String get looksValueTortoiseshell => 'Skjaldbökulitur';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Tvílitur';
+
+  @override
+  String get looksValueTuxedo => 'Smóking';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Doppóttur';
+
+  @override
+  String get looksValuePatched => 'Flekkóttur';
+
+  @override
+  String get looksValueTricolour => 'Þrílitur';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Ekki það sama';

@@ -2075,13 +2075,13 @@ abstract class AppLocalizations {
   /// No description provided for @helpMatches.
   ///
   /// In en, this message translates to:
-  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.'**
+  /// **'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.'**
   String get helpMatches;
 
   /// No description provided for @helpMatchesNeutral.
   ///
   /// In en, this message translates to:
-  /// **'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.'**
+  /// **'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.'**
   String get helpMatchesNeutral;
 
   /// No description provided for @helpFlier.
@@ -2587,6 +2587,378 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Looks'**
   String get starterLooks;
+
+  /// No description provided for @looksGroupSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Size'**
+  String get looksGroupSize;
+
+  /// No description provided for @looksGroupColours.
+  ///
+  /// In en, this message translates to:
+  /// **'Colours'**
+  String get looksGroupColours;
+
+  /// No description provided for @looksGroupPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get looksGroupPattern;
+
+  /// No description provided for @looksGroupFur.
+  ///
+  /// In en, this message translates to:
+  /// **'Fur'**
+  String get looksGroupFur;
+
+  /// No description provided for @looksGroupTail.
+  ///
+  /// In en, this message translates to:
+  /// **'Tail'**
+  String get looksGroupTail;
+
+  /// No description provided for @looksGroupEars.
+  ///
+  /// In en, this message translates to:
+  /// **'Ears'**
+  String get looksGroupEars;
+
+  /// No description provided for @looksGroupMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Marks'**
+  String get looksGroupMarks;
+
+  /// No description provided for @looksGroupCrest.
+  ///
+  /// In en, this message translates to:
+  /// **'Crest'**
+  String get looksGroupCrest;
+
+  /// No description provided for @looksGroupBeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Beak'**
+  String get looksGroupBeak;
+
+  /// No description provided for @looksGroupRing.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg ring'**
+  String get looksGroupRing;
+
+  /// No description provided for @looksValueSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get looksValueSmall;
+
+  /// No description provided for @looksValueMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get looksValueMedium;
+
+  /// No description provided for @looksValueLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get looksValueLarge;
+
+  /// No description provided for @looksValueBlack.
+  ///
+  /// In en, this message translates to:
+  /// **'Black'**
+  String get looksValueBlack;
+
+  /// No description provided for @looksValueWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'White'**
+  String get looksValueWhite;
+
+  /// No description provided for @looksValueGrey.
+  ///
+  /// In en, this message translates to:
+  /// **'Grey'**
+  String get looksValueGrey;
+
+  /// No description provided for @looksValueBrown.
+  ///
+  /// In en, this message translates to:
+  /// **'Brown'**
+  String get looksValueBrown;
+
+  /// No description provided for @looksValueGinger.
+  ///
+  /// In en, this message translates to:
+  /// **'Ginger'**
+  String get looksValueGinger;
+
+  /// No description provided for @looksValueCream.
+  ///
+  /// In en, this message translates to:
+  /// **'Cream'**
+  String get looksValueCream;
+
+  /// No description provided for @looksValueGolden.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden'**
+  String get looksValueGolden;
+
+  /// No description provided for @looksValueTan.
+  ///
+  /// In en, this message translates to:
+  /// **'Tan'**
+  String get looksValueTan;
+
+  /// No description provided for @looksValueGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Green'**
+  String get looksValueGreen;
+
+  /// No description provided for @looksValueBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get looksValueBlue;
+
+  /// No description provided for @looksValueYellow.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow'**
+  String get looksValueYellow;
+
+  /// No description provided for @looksValueRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get looksValueRed;
+
+  /// No description provided for @looksValueOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get looksValueOrange;
+
+  /// No description provided for @looksValuePink.
+  ///
+  /// In en, this message translates to:
+  /// **'Pink'**
+  String get looksValuePink;
+
+  /// No description provided for @looksValueWhiteBib.
+  ///
+  /// In en, this message translates to:
+  /// **'White bib'**
+  String get looksValueWhiteBib;
+
+  /// No description provided for @looksValueWhitePaws.
+  ///
+  /// In en, this message translates to:
+  /// **'White paws'**
+  String get looksValueWhitePaws;
+
+  /// No description provided for @looksValueWhiteTailTip.
+  ///
+  /// In en, this message translates to:
+  /// **'White tail tip'**
+  String get looksValueWhiteTailTip;
+
+  /// No description provided for @looksValueBlaze.
+  ///
+  /// In en, this message translates to:
+  /// **'Blaze'**
+  String get looksValueBlaze;
+
+  /// No description provided for @looksValueMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Mask'**
+  String get looksValueMask;
+
+  /// No description provided for @looksValueSpots.
+  ///
+  /// In en, this message translates to:
+  /// **'Spots'**
+  String get looksValueSpots;
+
+  /// No description provided for @looksValuePatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Patches'**
+  String get looksValuePatches;
+
+  /// No description provided for @looksValueStripes.
+  ///
+  /// In en, this message translates to:
+  /// **'Stripes'**
+  String get looksValueStripes;
+
+  /// No description provided for @looksValueScar.
+  ///
+  /// In en, this message translates to:
+  /// **'Scar'**
+  String get looksValueScar;
+
+  /// No description provided for @looksValueNotchedEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Notched ear'**
+  String get looksValueNotchedEar;
+
+  /// No description provided for @looksValueEarTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Ear tip'**
+  String get looksValueEarTip;
+
+  /// No description provided for @looksValueCollar.
+  ///
+  /// In en, this message translates to:
+  /// **'Collar'**
+  String get looksValueCollar;
+
+  /// No description provided for @looksValueShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Short'**
+  String get looksValueShort;
+
+  /// No description provided for @looksValueLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Long'**
+  String get looksValueLong;
+
+  /// No description provided for @looksValueHairless.
+  ///
+  /// In en, this message translates to:
+  /// **'Hairless'**
+  String get looksValueHairless;
+
+  /// No description provided for @looksValueBobtail.
+  ///
+  /// In en, this message translates to:
+  /// **'Bobtail'**
+  String get looksValueBobtail;
+
+  /// No description provided for @looksValueNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get looksValueNone;
+
+  /// No description provided for @looksValueCurled.
+  ///
+  /// In en, this message translates to:
+  /// **'Curled'**
+  String get looksValueCurled;
+
+  /// No description provided for @looksValueUpright.
+  ///
+  /// In en, this message translates to:
+  /// **'Upright'**
+  String get looksValueUpright;
+
+  /// No description provided for @looksValueFloppy.
+  ///
+  /// In en, this message translates to:
+  /// **'Floppy'**
+  String get looksValueFloppy;
+
+  /// No description provided for @looksValueFolded.
+  ///
+  /// In en, this message translates to:
+  /// **'Folded'**
+  String get looksValueFolded;
+
+  /// No description provided for @looksValueRounded.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounded'**
+  String get looksValueRounded;
+
+  /// No description provided for @looksValueSolid.
+  ///
+  /// In en, this message translates to:
+  /// **'Solid'**
+  String get looksValueSolid;
+
+  /// No description provided for @looksValueTabby.
+  ///
+  /// In en, this message translates to:
+  /// **'Tabby'**
+  String get looksValueTabby;
+
+  /// No description provided for @looksValueTortoiseshell.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoiseshell'**
+  String get looksValueTortoiseshell;
+
+  /// No description provided for @looksValueCalico.
+  ///
+  /// In en, this message translates to:
+  /// **'Calico'**
+  String get looksValueCalico;
+
+  /// No description provided for @looksValueColourpoint.
+  ///
+  /// In en, this message translates to:
+  /// **'Colourpoint'**
+  String get looksValueColourpoint;
+
+  /// No description provided for @looksValueBicolour.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicolour'**
+  String get looksValueBicolour;
+
+  /// No description provided for @looksValueTuxedo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuxedo'**
+  String get looksValueTuxedo;
+
+  /// No description provided for @looksValueBrindle.
+  ///
+  /// In en, this message translates to:
+  /// **'Brindle'**
+  String get looksValueBrindle;
+
+  /// No description provided for @looksValueMerle.
+  ///
+  /// In en, this message translates to:
+  /// **'Merle'**
+  String get looksValueMerle;
+
+  /// No description provided for @looksValueSpotted.
+  ///
+  /// In en, this message translates to:
+  /// **'Spotted'**
+  String get looksValueSpotted;
+
+  /// No description provided for @looksValuePatched.
+  ///
+  /// In en, this message translates to:
+  /// **'Patched'**
+  String get looksValuePatched;
+
+  /// No description provided for @looksValueTricolour.
+  ///
+  /// In en, this message translates to:
+  /// **'Tricolour'**
+  String get looksValueTricolour;
+
+  /// No description provided for @looksValueSable.
+  ///
+  /// In en, this message translates to:
+  /// **'Sable'**
+  String get looksValueSable;
 
   /// No description provided for @rejectMatch.
   ///

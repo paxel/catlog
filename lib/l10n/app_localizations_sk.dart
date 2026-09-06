@@ -1113,11 +1113,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie.';
+      'Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie. V zozname sú aj dvojice, ktorých vzhľad súhlasí aspoň v dvoch znakoch bez rozporu; štítky ukazujú v ktorých. „Nie je to isté“ dvojicu na tomto telefóne skryje, kým sa vzhľad jedného zo zvierat nezmení.';
 
   @override
   String get helpMatchesNeutral =>
-      'Miláčikovia, ktorí môžu byť to isté zviera: rovnaké číslo alebo túlavé zviera videné v oblasti hľadania nezvestného miláčika. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvého miláčika na porovnanie.';
+      'Miláčikovia, ktorí môžu byť to isté zviera: rovnaké číslo alebo túlavé zviera videné v oblasti hľadania nezvestného miláčika. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvého miláčika na porovnanie. V zozname sú aj dvojice, ktorých vzhľad súhlasí aspoň v dvoch znakoch bez rozporu; štítky ukazujú v ktorých. „Nie je to isté“ dvojicu na tomto telefóne skryje, kým sa vzhľad jedného zo zvierat nezmení.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1407,192 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get starterLooks => 'Vzhľad';
+
+  @override
+  String get looksGroupSize => 'Veľkosť';
+
+  @override
+  String get looksGroupColours => 'Farby';
+
+  @override
+  String get looksGroupPattern => 'Vzor';
+
+  @override
+  String get looksGroupFur => 'Srsť';
+
+  @override
+  String get looksGroupTail => 'Chvost';
+
+  @override
+  String get looksGroupEars => 'Uši';
+
+  @override
+  String get looksGroupMarks => 'Znaky';
+
+  @override
+  String get looksGroupCrest => 'Chochlík';
+
+  @override
+  String get looksGroupBeak => 'Zobák';
+
+  @override
+  String get looksGroupRing => 'Krúžok';
+
+  @override
+  String get looksValueSmall => 'Malý';
+
+  @override
+  String get looksValueMedium => 'Stredný';
+
+  @override
+  String get looksValueLarge => 'Veľký';
+
+  @override
+  String get looksValueBlack => 'Čierna';
+
+  @override
+  String get looksValueWhite => 'Biela';
+
+  @override
+  String get looksValueGrey => 'Sivá';
+
+  @override
+  String get looksValueBrown => 'Hnedá';
+
+  @override
+  String get looksValueGinger => 'Ryšavá';
+
+  @override
+  String get looksValueCream => 'Krémová';
+
+  @override
+  String get looksValueGolden => 'Zlatá';
+
+  @override
+  String get looksValueTan => 'Plavá';
+
+  @override
+  String get looksValueGreen => 'Zelená';
+
+  @override
+  String get looksValueBlue => 'Modrá';
+
+  @override
+  String get looksValueYellow => 'Žltá';
+
+  @override
+  String get looksValueRed => 'Červená';
+
+  @override
+  String get looksValueOrange => 'Oranžová';
+
+  @override
+  String get looksValuePink => 'Ružová';
+
+  @override
+  String get looksValueWhiteBib => 'Biely náprsník';
+
+  @override
+  String get looksValueWhitePaws => 'Biele labky';
+
+  @override
+  String get looksValueWhiteTailTip => 'Biela špička chvosta';
+
+  @override
+  String get looksValueBlaze => 'Lysina';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Škvrnky';
+
+  @override
+  String get looksValuePatches => 'Fľaky';
+
+  @override
+  String get looksValueStripes => 'Pruhy';
+
+  @override
+  String get looksValueScar => 'Jazva';
+
+  @override
+  String get looksValueNotchedEar => 'Narezané ucho';
+
+  @override
+  String get looksValueEarTip => 'Špička ucha';
+
+  @override
+  String get looksValueCollar => 'Obojok';
+
+  @override
+  String get looksValueShort => 'Krátka';
+
+  @override
+  String get looksValueLong => 'Dlhá';
+
+  @override
+  String get looksValueHairless => 'Bez srsti';
+
+  @override
+  String get looksValueBobtail => 'Krátky chvost';
+
+  @override
+  String get looksValueNone => 'Žiadny';
+
+  @override
+  String get looksValueCurled => 'Zatočený';
+
+  @override
+  String get looksValueUpright => 'Vzpriamené';
+
+  @override
+  String get looksValueFloppy => 'Ovisnuté';
+
+  @override
+  String get looksValueFolded => 'Zložené';
+
+  @override
+  String get looksValueRounded => 'Zaoblené';
+
+  @override
+  String get looksValueSolid => 'Jednofarebný';
+
+  @override
+  String get looksValueTabby => 'Mourovatý';
+
+  @override
+  String get looksValueTortoiseshell => 'Korytnačinový';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dvojfarebný';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Žíhaný';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Bodkovaný';
+
+  @override
+  String get looksValuePatched => 'Strakatý';
+
+  @override
+  String get looksValueTricolour => 'Trojfarebný';
+
+  @override
+  String get looksValueSable => 'Sobolí';
 
   @override
   String get rejectMatch => 'Nie je to isté';

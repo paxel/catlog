@@ -1075,6 +1075,192 @@ class ModeLocalizations implements AppLocalizations {
   String get lookUpId => base.lookUpId;
 
   @override
+  String get looksGroupBeak => base.looksGroupBeak;
+
+  @override
+  String get looksGroupColours => base.looksGroupColours;
+
+  @override
+  String get looksGroupCrest => base.looksGroupCrest;
+
+  @override
+  String get looksGroupEars => base.looksGroupEars;
+
+  @override
+  String get looksGroupFur => base.looksGroupFur;
+
+  @override
+  String get looksGroupMarks => base.looksGroupMarks;
+
+  @override
+  String get looksGroupPattern => base.looksGroupPattern;
+
+  @override
+  String get looksGroupRing => base.looksGroupRing;
+
+  @override
+  String get looksGroupSize => base.looksGroupSize;
+
+  @override
+  String get looksGroupTail => base.looksGroupTail;
+
+  @override
+  String get looksValueBicolour => base.looksValueBicolour;
+
+  @override
+  String get looksValueBlack => base.looksValueBlack;
+
+  @override
+  String get looksValueBlaze => base.looksValueBlaze;
+
+  @override
+  String get looksValueBlue => base.looksValueBlue;
+
+  @override
+  String get looksValueBobtail => base.looksValueBobtail;
+
+  @override
+  String get looksValueBrindle => base.looksValueBrindle;
+
+  @override
+  String get looksValueBrown => base.looksValueBrown;
+
+  @override
+  String get looksValueCalico => base.looksValueCalico;
+
+  @override
+  String get looksValueCollar => base.looksValueCollar;
+
+  @override
+  String get looksValueColourpoint => base.looksValueColourpoint;
+
+  @override
+  String get looksValueCream => base.looksValueCream;
+
+  @override
+  String get looksValueCurled => base.looksValueCurled;
+
+  @override
+  String get looksValueEarTip => base.looksValueEarTip;
+
+  @override
+  String get looksValueFloppy => base.looksValueFloppy;
+
+  @override
+  String get looksValueFolded => base.looksValueFolded;
+
+  @override
+  String get looksValueGinger => base.looksValueGinger;
+
+  @override
+  String get looksValueGolden => base.looksValueGolden;
+
+  @override
+  String get looksValueGreen => base.looksValueGreen;
+
+  @override
+  String get looksValueGrey => base.looksValueGrey;
+
+  @override
+  String get looksValueHairless => base.looksValueHairless;
+
+  @override
+  String get looksValueLarge => base.looksValueLarge;
+
+  @override
+  String get looksValueLong => base.looksValueLong;
+
+  @override
+  String get looksValueMask => base.looksValueMask;
+
+  @override
+  String get looksValueMedium => base.looksValueMedium;
+
+  @override
+  String get looksValueMerle => base.looksValueMerle;
+
+  @override
+  String get looksValueNone => base.looksValueNone;
+
+  @override
+  String get looksValueNotchedEar => base.looksValueNotchedEar;
+
+  @override
+  String get looksValueOrange => base.looksValueOrange;
+
+  @override
+  String get looksValuePatched => base.looksValuePatched;
+
+  @override
+  String get looksValuePatches => base.looksValuePatches;
+
+  @override
+  String get looksValuePink => base.looksValuePink;
+
+  @override
+  String get looksValueRed => base.looksValueRed;
+
+  @override
+  String get looksValueRounded => base.looksValueRounded;
+
+  @override
+  String get looksValueSable => base.looksValueSable;
+
+  @override
+  String get looksValueScar => base.looksValueScar;
+
+  @override
+  String get looksValueShort => base.looksValueShort;
+
+  @override
+  String get looksValueSmall => base.looksValueSmall;
+
+  @override
+  String get looksValueSolid => base.looksValueSolid;
+
+  @override
+  String get looksValueSpots => base.looksValueSpots;
+
+  @override
+  String get looksValueSpotted => base.looksValueSpotted;
+
+  @override
+  String get looksValueStripes => base.looksValueStripes;
+
+  @override
+  String get looksValueTabby => base.looksValueTabby;
+
+  @override
+  String get looksValueTan => base.looksValueTan;
+
+  @override
+  String get looksValueTortoiseshell => base.looksValueTortoiseshell;
+
+  @override
+  String get looksValueTricolour => base.looksValueTricolour;
+
+  @override
+  String get looksValueTuxedo => base.looksValueTuxedo;
+
+  @override
+  String get looksValueUpright => base.looksValueUpright;
+
+  @override
+  String get looksValueWhite => base.looksValueWhite;
+
+  @override
+  String get looksValueWhiteBib => base.looksValueWhiteBib;
+
+  @override
+  String get looksValueWhitePaws => base.looksValueWhitePaws;
+
+  @override
+  String get looksValueWhiteTailTip => base.looksValueWhiteTailTip;
+
+  @override
+  String get looksValueYellow => base.looksValueYellow;
+
+  @override
   String lookupFailed(String url) => base.lookupFailed(url);
 
   @override

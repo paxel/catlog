@@ -1112,11 +1112,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç.';
+      'Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.';
 
   @override
   String get helpMatchesNeutral =>
-      'Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç.';
+      'Aynı hayvan olabilecek evcil hayvanlar: aynı numara ya da kayıp bir evcil hayvanın arama alanında görülen bir sokak hayvanı. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk evcil hayvanı aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1407,192 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get starterLooks => 'Görünüş';
+
+  @override
+  String get looksGroupSize => 'Boyut';
+
+  @override
+  String get looksGroupColours => 'Renkler';
+
+  @override
+  String get looksGroupPattern => 'Desen';
+
+  @override
+  String get looksGroupFur => 'Tüy';
+
+  @override
+  String get looksGroupTail => 'Kuyruk';
+
+  @override
+  String get looksGroupEars => 'Kulaklar';
+
+  @override
+  String get looksGroupMarks => 'İşaretler';
+
+  @override
+  String get looksGroupCrest => 'Tepelik';
+
+  @override
+  String get looksGroupBeak => 'Gaga';
+
+  @override
+  String get looksGroupRing => 'Halka';
+
+  @override
+  String get looksValueSmall => 'Küçük';
+
+  @override
+  String get looksValueMedium => 'Orta';
+
+  @override
+  String get looksValueLarge => 'Büyük';
+
+  @override
+  String get looksValueBlack => 'Siyah';
+
+  @override
+  String get looksValueWhite => 'Beyaz';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Kahverengi';
+
+  @override
+  String get looksValueGinger => 'Kızıl';
+
+  @override
+  String get looksValueCream => 'Krem';
+
+  @override
+  String get looksValueGolden => 'Altın';
+
+  @override
+  String get looksValueTan => 'Açık kahve';
+
+  @override
+  String get looksValueGreen => 'Yeşil';
+
+  @override
+  String get looksValueBlue => 'Mavi';
+
+  @override
+  String get looksValueYellow => 'Sarı';
+
+  @override
+  String get looksValueRed => 'Kırmızı';
+
+  @override
+  String get looksValueOrange => 'Turuncu';
+
+  @override
+  String get looksValuePink => 'Pembe';
+
+  @override
+  String get looksValueWhiteBib => 'Beyaz göğüs';
+
+  @override
+  String get looksValueWhitePaws => 'Beyaz patiler';
+
+  @override
+  String get looksValueWhiteTailTip => 'Beyaz kuyruk ucu';
+
+  @override
+  String get looksValueBlaze => 'Akıtma';
+
+  @override
+  String get looksValueMask => 'Maske';
+
+  @override
+  String get looksValueSpots => 'Benekler';
+
+  @override
+  String get looksValuePatches => 'Yamalar';
+
+  @override
+  String get looksValueStripes => 'Çizgiler';
+
+  @override
+  String get looksValueScar => 'Yara izi';
+
+  @override
+  String get looksValueNotchedEar => 'Çentikli kulak';
+
+  @override
+  String get looksValueEarTip => 'Kulak ucu';
+
+  @override
+  String get looksValueCollar => 'Tasma';
+
+  @override
+  String get looksValueShort => 'Kısa';
+
+  @override
+  String get looksValueLong => 'Uzun';
+
+  @override
+  String get looksValueHairless => 'Tüysüz';
+
+  @override
+  String get looksValueBobtail => 'Küt kuyruk';
+
+  @override
+  String get looksValueNone => 'Yok';
+
+  @override
+  String get looksValueCurled => 'Kıvrık';
+
+  @override
+  String get looksValueUpright => 'Dik';
+
+  @override
+  String get looksValueFloppy => 'Düşük';
+
+  @override
+  String get looksValueFolded => 'Katlı';
+
+  @override
+  String get looksValueRounded => 'Yuvarlak';
+
+  @override
+  String get looksValueSolid => 'Düz';
+
+  @override
+  String get looksValueTabby => 'Tekir';
+
+  @override
+  String get looksValueTortoiseshell => 'Bağa';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'İki renkli';
+
+  @override
+  String get looksValueTuxedo => 'Smokin';
+
+  @override
+  String get looksValueBrindle => 'Çizgili';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Benekli';
+
+  @override
+  String get looksValuePatched => 'Yamalı';
+
+  @override
+  String get looksValueTricolour => 'Üç renkli';
+
+  @override
+  String get looksValueSable => 'Samur';
 
   @override
   String get rejectMatch => 'Aynı değil';

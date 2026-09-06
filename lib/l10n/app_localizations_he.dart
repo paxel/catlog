@@ -1107,11 +1107,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'חתולים שעשויים להיות אותה חיה: מזהה זהה, או חתול רחוב שנצפה בתוך אזור החיפוש של חתול נעדר. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את החתול הראשון להשוואה.';
+      'חתולים שעשויים להיות אותה חיה: מזהה זהה, או חתול רחוב שנצפה בתוך אזור החיפוש של חתול נעדר. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את החתול הראשון להשוואה. גם זוגות שהמראה שלהם תואם בשתי תכונות או יותר ללא סתירה מופיעים ברשימה; התגיות מראות אילו. \"לא אותו אחד\" מסתיר זוג בטלפון הזה עד שהמראה של אחת החיות ישתנה.';
 
   @override
   String get helpMatchesNeutral =>
-      'חיות מחמד שעשויות להיות אותה חיה: מזהה זהה, או חיית רחוב שנצפתה בתוך אזור החיפוש של חיית מחמד נעדרת. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את חיית המחמד הראשונה להשוואה.';
+      'חיות מחמד שעשויות להיות אותה חיה: מזהה זהה, או חיית רחוב שנצפתה בתוך אזור החיפוש של חיית מחמד נעדרת. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את חיית המחמד הראשונה להשוואה. גם זוגות שהמראה שלהם תואם בשתי תכונות או יותר ללא סתירה מופיעים ברשימה; התגיות מראות אילו. \"לא אותו אחד\" מסתיר זוג בטלפון הזה עד שהמראה של אחת החיות ישתנה.';
 
   @override
   String get helpFlier =>
@@ -1401,6 +1401,192 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get starterLooks => 'מראה';
+
+  @override
+  String get looksGroupSize => 'גודל';
+
+  @override
+  String get looksGroupColours => 'צבעים';
+
+  @override
+  String get looksGroupPattern => 'דוגמה';
+
+  @override
+  String get looksGroupFur => 'פרווה';
+
+  @override
+  String get looksGroupTail => 'זנב';
+
+  @override
+  String get looksGroupEars => 'אוזניים';
+
+  @override
+  String get looksGroupMarks => 'סימנים';
+
+  @override
+  String get looksGroupCrest => 'ציצה';
+
+  @override
+  String get looksGroupBeak => 'מקור';
+
+  @override
+  String get looksGroupRing => 'טבעת רגל';
+
+  @override
+  String get looksValueSmall => 'קטן';
+
+  @override
+  String get looksValueMedium => 'בינוני';
+
+  @override
+  String get looksValueLarge => 'גדול';
+
+  @override
+  String get looksValueBlack => 'שחור';
+
+  @override
+  String get looksValueWhite => 'לבן';
+
+  @override
+  String get looksValueGrey => 'אפור';
+
+  @override
+  String get looksValueBrown => 'חום';
+
+  @override
+  String get looksValueGinger => 'ג׳ינג׳י';
+
+  @override
+  String get looksValueCream => 'קרם';
+
+  @override
+  String get looksValueGolden => 'זהוב';
+
+  @override
+  String get looksValueTan => 'חום בהיר';
+
+  @override
+  String get looksValueGreen => 'ירוק';
+
+  @override
+  String get looksValueBlue => 'כחול';
+
+  @override
+  String get looksValueYellow => 'צהוב';
+
+  @override
+  String get looksValueRed => 'אדום';
+
+  @override
+  String get looksValueOrange => 'כתום';
+
+  @override
+  String get looksValuePink => 'ורוד';
+
+  @override
+  String get looksValueWhiteBib => 'חזה לבן';
+
+  @override
+  String get looksValueWhitePaws => 'כפות לבנות';
+
+  @override
+  String get looksValueWhiteTailTip => 'קצה זנב לבן';
+
+  @override
+  String get looksValueBlaze => 'פס לבן על הפנים';
+
+  @override
+  String get looksValueMask => 'מסכה';
+
+  @override
+  String get looksValueSpots => 'נקודות';
+
+  @override
+  String get looksValuePatches => 'כתמים';
+
+  @override
+  String get looksValueStripes => 'פסים';
+
+  @override
+  String get looksValueScar => 'צלקת';
+
+  @override
+  String get looksValueNotchedEar => 'אוזן חתוכה';
+
+  @override
+  String get looksValueEarTip => 'קצה אוזן';
+
+  @override
+  String get looksValueCollar => 'קולר';
+
+  @override
+  String get looksValueShort => 'קצר';
+
+  @override
+  String get looksValueLong => 'ארוך';
+
+  @override
+  String get looksValueHairless => 'ללא פרווה';
+
+  @override
+  String get looksValueBobtail => 'זנב קצר';
+
+  @override
+  String get looksValueNone => 'אין';
+
+  @override
+  String get looksValueCurled => 'מסולסל';
+
+  @override
+  String get looksValueUpright => 'זקופות';
+
+  @override
+  String get looksValueFloppy => 'נופלות';
+
+  @override
+  String get looksValueFolded => 'מקופלות';
+
+  @override
+  String get looksValueRounded => 'מעוגלות';
+
+  @override
+  String get looksValueSolid => 'אחיד';
+
+  @override
+  String get looksValueTabby => 'טאבי';
+
+  @override
+  String get looksValueTortoiseshell => 'צב';
+
+  @override
+  String get looksValueCalico => 'קליקו';
+
+  @override
+  String get looksValueColourpoint => 'קולורפוינט';
+
+  @override
+  String get looksValueBicolour => 'דו־צבעי';
+
+  @override
+  String get looksValueTuxedo => 'טוקסידו';
+
+  @override
+  String get looksValueBrindle => 'ברינדל';
+
+  @override
+  String get looksValueMerle => 'מרל';
+
+  @override
+  String get looksValueSpotted => 'מנוקד';
+
+  @override
+  String get looksValuePatched => 'מוכתם';
+
+  @override
+  String get looksValueTricolour => 'תלת־צבעי';
+
+  @override
+  String get looksValueSable => 'סייבל';
 
   @override
   String get rejectMatch => 'לא אותו אחד';

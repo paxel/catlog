@@ -1112,11 +1112,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare.';
+      'Cats that might be the same animal: an identical ID, or a stray seen inside a missing cat\'s search area. Tap a pair to merge it, long-press to open the first cat and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.';
 
   @override
   String get helpMatchesNeutral =>
-      'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare.';
+      'Pets that might be the same animal: an identical ID, or a stray seen inside a missing pet\'s search area. Tap a pair to merge it, long-press to open the first pet and compare. Pairs whose Looks agree in two traits or more, with nothing contradicting, are listed too; the chips show which traits. \"Not the same\" hides a pair on this phone until either animal\'s Looks change.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1407,192 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get starterLooks => 'Looks';
+
+  @override
+  String get looksGroupSize => 'Size';
+
+  @override
+  String get looksGroupColours => 'Colours';
+
+  @override
+  String get looksGroupPattern => 'Pattern';
+
+  @override
+  String get looksGroupFur => 'Fur';
+
+  @override
+  String get looksGroupTail => 'Tail';
+
+  @override
+  String get looksGroupEars => 'Ears';
+
+  @override
+  String get looksGroupMarks => 'Marks';
+
+  @override
+  String get looksGroupCrest => 'Crest';
+
+  @override
+  String get looksGroupBeak => 'Beak';
+
+  @override
+  String get looksGroupRing => 'Leg ring';
+
+  @override
+  String get looksValueSmall => 'Small';
+
+  @override
+  String get looksValueMedium => 'Medium';
+
+  @override
+  String get looksValueLarge => 'Large';
+
+  @override
+  String get looksValueBlack => 'Black';
+
+  @override
+  String get looksValueWhite => 'White';
+
+  @override
+  String get looksValueGrey => 'Grey';
+
+  @override
+  String get looksValueBrown => 'Brown';
+
+  @override
+  String get looksValueGinger => 'Ginger';
+
+  @override
+  String get looksValueCream => 'Cream';
+
+  @override
+  String get looksValueGolden => 'Golden';
+
+  @override
+  String get looksValueTan => 'Tan';
+
+  @override
+  String get looksValueGreen => 'Green';
+
+  @override
+  String get looksValueBlue => 'Blue';
+
+  @override
+  String get looksValueYellow => 'Yellow';
+
+  @override
+  String get looksValueRed => 'Red';
+
+  @override
+  String get looksValueOrange => 'Orange';
+
+  @override
+  String get looksValuePink => 'Pink';
+
+  @override
+  String get looksValueWhiteBib => 'White bib';
+
+  @override
+  String get looksValueWhitePaws => 'White paws';
+
+  @override
+  String get looksValueWhiteTailTip => 'White tail tip';
+
+  @override
+  String get looksValueBlaze => 'Blaze';
+
+  @override
+  String get looksValueMask => 'Mask';
+
+  @override
+  String get looksValueSpots => 'Spots';
+
+  @override
+  String get looksValuePatches => 'Patches';
+
+  @override
+  String get looksValueStripes => 'Stripes';
+
+  @override
+  String get looksValueScar => 'Scar';
+
+  @override
+  String get looksValueNotchedEar => 'Notched ear';
+
+  @override
+  String get looksValueEarTip => 'Ear tip';
+
+  @override
+  String get looksValueCollar => 'Collar';
+
+  @override
+  String get looksValueShort => 'Short';
+
+  @override
+  String get looksValueLong => 'Long';
+
+  @override
+  String get looksValueHairless => 'Hairless';
+
+  @override
+  String get looksValueBobtail => 'Bobtail';
+
+  @override
+  String get looksValueNone => 'None';
+
+  @override
+  String get looksValueCurled => 'Curled';
+
+  @override
+  String get looksValueUpright => 'Upright';
+
+  @override
+  String get looksValueFloppy => 'Floppy';
+
+  @override
+  String get looksValueFolded => 'Folded';
+
+  @override
+  String get looksValueRounded => 'Rounded';
+
+  @override
+  String get looksValueSolid => 'Solid';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Tortoiseshell';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Bicolour';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Spotted';
+
+  @override
+  String get looksValuePatched => 'Patched';
+
+  @override
+  String get looksValueTricolour => 'Tricolour';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Not the same';

@@ -1112,11 +1112,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi.';
+      'Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi. Loendis on ka paarid, kelle välimus klapib vähemalt kahes tunnuses ilma vastuoluta; kiibid näitavad, millistes. „Pole sama“ peidab paari selles telefonis, kuni ühe looma välimus muutub.';
 
   @override
   String get helpMatchesNeutral =>
-      'Lemmikloomad, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud lemmiklooma otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese lemmiklooma.';
+      'Lemmikloomad, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud lemmiklooma otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese lemmiklooma. Loendis on ka paarid, kelle välimus klapib vähemalt kahes tunnuses ilma vastuoluta; kiibid näitavad, millistes. „Pole sama“ peidab paari selles telefonis, kuni ühe looma välimus muutub.';
 
   @override
   String get helpFlier =>
@@ -1407,6 +1407,192 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get starterLooks => 'Välimus';
+
+  @override
+  String get looksGroupSize => 'Suurus';
+
+  @override
+  String get looksGroupColours => 'Värvid';
+
+  @override
+  String get looksGroupPattern => 'Muster';
+
+  @override
+  String get looksGroupFur => 'Karv';
+
+  @override
+  String get looksGroupTail => 'Saba';
+
+  @override
+  String get looksGroupEars => 'Kõrvad';
+
+  @override
+  String get looksGroupMarks => 'Tunnused';
+
+  @override
+  String get looksGroupCrest => 'Tutt';
+
+  @override
+  String get looksGroupBeak => 'Nokk';
+
+  @override
+  String get looksGroupRing => 'Jalarõngas';
+
+  @override
+  String get looksValueSmall => 'Väike';
+
+  @override
+  String get looksValueMedium => 'Keskmine';
+
+  @override
+  String get looksValueLarge => 'Suur';
+
+  @override
+  String get looksValueBlack => 'Must';
+
+  @override
+  String get looksValueWhite => 'Valge';
+
+  @override
+  String get looksValueGrey => 'Hall';
+
+  @override
+  String get looksValueBrown => 'Pruun';
+
+  @override
+  String get looksValueGinger => 'Punane';
+
+  @override
+  String get looksValueCream => 'Kreem';
+
+  @override
+  String get looksValueGolden => 'Kuldne';
+
+  @override
+  String get looksValueTan => 'Helepruun';
+
+  @override
+  String get looksValueGreen => 'Roheline';
+
+  @override
+  String get looksValueBlue => 'Sinine';
+
+  @override
+  String get looksValueYellow => 'Kollane';
+
+  @override
+  String get looksValueRed => 'Punane';
+
+  @override
+  String get looksValueOrange => 'Oranž';
+
+  @override
+  String get looksValuePink => 'Roosa';
+
+  @override
+  String get looksValueWhiteBib => 'Valge rinnaesine';
+
+  @override
+  String get looksValueWhitePaws => 'Valged käpad';
+
+  @override
+  String get looksValueWhiteTailTip => 'Valge sabaots';
+
+  @override
+  String get looksValueBlaze => 'Lauk';
+
+  @override
+  String get looksValueMask => 'Mask';
+
+  @override
+  String get looksValueSpots => 'Täpid';
+
+  @override
+  String get looksValuePatches => 'Laigud';
+
+  @override
+  String get looksValueStripes => 'Triibud';
+
+  @override
+  String get looksValueScar => 'Arm';
+
+  @override
+  String get looksValueNotchedEar => 'Sälk kõrvas';
+
+  @override
+  String get looksValueEarTip => 'Kõrvatipp';
+
+  @override
+  String get looksValueCollar => 'Kaelarihm';
+
+  @override
+  String get looksValueShort => 'Lühike';
+
+  @override
+  String get looksValueLong => 'Pikk';
+
+  @override
+  String get looksValueHairless => 'Karvutu';
+
+  @override
+  String get looksValueBobtail => 'Tömpsaba';
+
+  @override
+  String get looksValueNone => 'Puudub';
+
+  @override
+  String get looksValueCurled => 'Keerdus';
+
+  @override
+  String get looksValueUpright => 'Püsti';
+
+  @override
+  String get looksValueFloppy => 'Rippuvad';
+
+  @override
+  String get looksValueFolded => 'Kokku murtud';
+
+  @override
+  String get looksValueRounded => 'Ümarad';
+
+  @override
+  String get looksValueSolid => 'Ühevärviline';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Kilpkonnavärv';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Kahevärviline';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Täpiline';
+
+  @override
+  String get looksValuePatched => 'Laiguline';
+
+  @override
+  String get looksValueTricolour => 'Kolmevärviline';
+
+  @override
+  String get looksValueSable => 'Soobel';
 
   @override
   String get rejectMatch => 'Pole sama';

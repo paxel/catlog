@@ -1113,11 +1113,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz.';
+      'Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz.';
+      'Kisállatok, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt kisállat keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első kisállat összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1408,192 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get starterLooks => 'Külső';
+
+  @override
+  String get looksGroupSize => 'Méret';
+
+  @override
+  String get looksGroupColours => 'Színek';
+
+  @override
+  String get looksGroupPattern => 'Mintázat';
+
+  @override
+  String get looksGroupFur => 'Szőr';
+
+  @override
+  String get looksGroupTail => 'Farok';
+
+  @override
+  String get looksGroupEars => 'Fülek';
+
+  @override
+  String get looksGroupMarks => 'Ismertetőjegyek';
+
+  @override
+  String get looksGroupCrest => 'Bóbita';
+
+  @override
+  String get looksGroupBeak => 'Csőr';
+
+  @override
+  String get looksGroupRing => 'Lábgyűrű';
+
+  @override
+  String get looksValueSmall => 'Kicsi';
+
+  @override
+  String get looksValueMedium => 'Közepes';
+
+  @override
+  String get looksValueLarge => 'Nagy';
+
+  @override
+  String get looksValueBlack => 'Fekete';
+
+  @override
+  String get looksValueWhite => 'Fehér';
+
+  @override
+  String get looksValueGrey => 'Szürke';
+
+  @override
+  String get looksValueBrown => 'Barna';
+
+  @override
+  String get looksValueGinger => 'Vörös';
+
+  @override
+  String get looksValueCream => 'Krém';
+
+  @override
+  String get looksValueGolden => 'Arany';
+
+  @override
+  String get looksValueTan => 'Fakó';
+
+  @override
+  String get looksValueGreen => 'Zöld';
+
+  @override
+  String get looksValueBlue => 'Kék';
+
+  @override
+  String get looksValueYellow => 'Sárga';
+
+  @override
+  String get looksValueRed => 'Piros';
+
+  @override
+  String get looksValueOrange => 'Narancs';
+
+  @override
+  String get looksValuePink => 'Rózsaszín';
+
+  @override
+  String get looksValueWhiteBib => 'Fehér előke';
+
+  @override
+  String get looksValueWhitePaws => 'Fehér mancsok';
+
+  @override
+  String get looksValueWhiteTailTip => 'Fehér farokvég';
+
+  @override
+  String get looksValueBlaze => 'Csillag';
+
+  @override
+  String get looksValueMask => 'Maszk';
+
+  @override
+  String get looksValueSpots => 'Pettyek';
+
+  @override
+  String get looksValuePatches => 'Foltok';
+
+  @override
+  String get looksValueStripes => 'Csíkok';
+
+  @override
+  String get looksValueScar => 'Heg';
+
+  @override
+  String get looksValueNotchedEar => 'Csorba fül';
+
+  @override
+  String get looksValueEarTip => 'Fülhegy';
+
+  @override
+  String get looksValueCollar => 'Nyakörv';
+
+  @override
+  String get looksValueShort => 'Rövid';
+
+  @override
+  String get looksValueLong => 'Hosszú';
+
+  @override
+  String get looksValueHairless => 'Szőrtelen';
+
+  @override
+  String get looksValueBobtail => 'Csonka farok';
+
+  @override
+  String get looksValueNone => 'Nincs';
+
+  @override
+  String get looksValueCurled => 'Kunkori';
+
+  @override
+  String get looksValueUpright => 'Álló';
+
+  @override
+  String get looksValueFloppy => 'Lógó';
+
+  @override
+  String get looksValueFolded => 'Hajtott';
+
+  @override
+  String get looksValueRounded => 'Kerek';
+
+  @override
+  String get looksValueSolid => 'Egyszínű';
+
+  @override
+  String get looksValueTabby => 'Cirmos';
+
+  @override
+  String get looksValueTortoiseshell => 'Teknőctarka';
+
+  @override
+  String get looksValueCalico => 'Kalikó';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Kétszínű';
+
+  @override
+  String get looksValueTuxedo => 'Szmokingos';
+
+  @override
+  String get looksValueBrindle => 'Csíkos';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Pettyes';
+
+  @override
+  String get looksValuePatched => 'Foltos';
+
+  @override
+  String get looksValueTricolour => 'Háromszínű';
+
+  @override
+  String get looksValueSable => 'Coboly';
 
   @override
   String get rejectMatch => 'Nem ugyanaz';

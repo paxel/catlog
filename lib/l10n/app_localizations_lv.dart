@@ -1114,11 +1114,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai.';
+      'Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.';
 
   @override
   String get helpMatchesNeutral =>
-      'Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai.';
+      'Mājdzīvnieki, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša mājdzīvnieka meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo mājdzīvnieku salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.';
 
   @override
   String get helpFlier =>
@@ -1409,6 +1409,192 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get starterLooks => 'Izskats';
+
+  @override
+  String get looksGroupSize => 'Izmērs';
+
+  @override
+  String get looksGroupColours => 'Krāsas';
+
+  @override
+  String get looksGroupPattern => 'Raksts';
+
+  @override
+  String get looksGroupFur => 'Kažoks';
+
+  @override
+  String get looksGroupTail => 'Aste';
+
+  @override
+  String get looksGroupEars => 'Ausis';
+
+  @override
+  String get looksGroupMarks => 'Pazīmes';
+
+  @override
+  String get looksGroupCrest => 'Cekuls';
+
+  @override
+  String get looksGroupBeak => 'Knābis';
+
+  @override
+  String get looksGroupRing => 'Gredzens';
+
+  @override
+  String get looksValueSmall => 'Mazs';
+
+  @override
+  String get looksValueMedium => 'Vidējs';
+
+  @override
+  String get looksValueLarge => 'Liels';
+
+  @override
+  String get looksValueBlack => 'Melna';
+
+  @override
+  String get looksValueWhite => 'Balta';
+
+  @override
+  String get looksValueGrey => 'Pelēka';
+
+  @override
+  String get looksValueBrown => 'Brūna';
+
+  @override
+  String get looksValueGinger => 'Ruda';
+
+  @override
+  String get looksValueCream => 'Krēmkrāsa';
+
+  @override
+  String get looksValueGolden => 'Zeltaina';
+
+  @override
+  String get looksValueTan => 'Gaiši brūna';
+
+  @override
+  String get looksValueGreen => 'Zaļa';
+
+  @override
+  String get looksValueBlue => 'Zila';
+
+  @override
+  String get looksValueYellow => 'Dzeltena';
+
+  @override
+  String get looksValueRed => 'Sarkana';
+
+  @override
+  String get looksValueOrange => 'Oranža';
+
+  @override
+  String get looksValuePink => 'Rozā';
+
+  @override
+  String get looksValueWhiteBib => 'Balts krūšu laukums';
+
+  @override
+  String get looksValueWhitePaws => 'Baltas ķepas';
+
+  @override
+  String get looksValueWhiteTailTip => 'Balts astes gals';
+
+  @override
+  String get looksValueBlaze => 'Zvaigzne';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Plankumiņi';
+
+  @override
+  String get looksValuePatches => 'Lāsumi';
+
+  @override
+  String get looksValueStripes => 'Svītras';
+
+  @override
+  String get looksValueScar => 'Rēta';
+
+  @override
+  String get looksValueNotchedEar => 'Iegriezta auss';
+
+  @override
+  String get looksValueEarTip => 'Auss gals';
+
+  @override
+  String get looksValueCollar => 'Kaklasiksna';
+
+  @override
+  String get looksValueShort => 'Īss';
+
+  @override
+  String get looksValueLong => 'Garš';
+
+  @override
+  String get looksValueHairless => 'Bez spalvas';
+
+  @override
+  String get looksValueBobtail => 'Strupa aste';
+
+  @override
+  String get looksValueNone => 'Nav';
+
+  @override
+  String get looksValueCurled => 'Saritināta';
+
+  @override
+  String get looksValueUpright => 'Stāvas';
+
+  @override
+  String get looksValueFloppy => 'Nokarenas';
+
+  @override
+  String get looksValueFolded => 'Salocītas';
+
+  @override
+  String get looksValueRounded => 'Apaļas';
+
+  @override
+  String get looksValueSolid => 'Vienkrāsains';
+
+  @override
+  String get looksValueTabby => 'Svītrains';
+
+  @override
+  String get looksValueTortoiseshell => 'Bruņurupuča';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Divkrāsains';
+
+  @override
+  String get looksValueTuxedo => 'Smokings';
+
+  @override
+  String get looksValueBrindle => 'Tīģerains';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Plankumains';
+
+  @override
+  String get looksValuePatched => 'Lāsumains';
+
+  @override
+  String get looksValueTricolour => 'Trīskrāsains';
+
+  @override
+  String get looksValueSable => 'Sabuļa';
 
   @override
   String get rejectMatch => 'Nav tas pats';

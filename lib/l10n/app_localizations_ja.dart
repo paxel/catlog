@@ -1090,11 +1090,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。';
+      '同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。';
 
   @override
   String get helpMatchesNeutral =>
-      '同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。';
+      '同じ個体かもしれないペット：番号が同じ、または迷子ペットの捜索範囲内で見つかった野良。ペアをタップで統合、長押しで最初のペットを開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。';
 
   @override
   String get helpFlier =>
@@ -1383,6 +1383,192 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get starterLooks => '見た目';
+
+  @override
+  String get looksGroupSize => '大きさ';
+
+  @override
+  String get looksGroupColours => '色';
+
+  @override
+  String get looksGroupPattern => '柄';
+
+  @override
+  String get looksGroupFur => '毛';
+
+  @override
+  String get looksGroupTail => 'しっぽ';
+
+  @override
+  String get looksGroupEars => '耳';
+
+  @override
+  String get looksGroupMarks => '特徴';
+
+  @override
+  String get looksGroupCrest => '冠羽';
+
+  @override
+  String get looksGroupBeak => 'くちばし';
+
+  @override
+  String get looksGroupRing => '足環';
+
+  @override
+  String get looksValueSmall => '小さい';
+
+  @override
+  String get looksValueMedium => '中くらい';
+
+  @override
+  String get looksValueLarge => '大きい';
+
+  @override
+  String get looksValueBlack => '黒';
+
+  @override
+  String get looksValueWhite => '白';
+
+  @override
+  String get looksValueGrey => '灰色';
+
+  @override
+  String get looksValueBrown => '茶色';
+
+  @override
+  String get looksValueGinger => '茶トラ';
+
+  @override
+  String get looksValueCream => 'クリーム';
+
+  @override
+  String get looksValueGolden => '金色';
+
+  @override
+  String get looksValueTan => '薄茶';
+
+  @override
+  String get looksValueGreen => '緑';
+
+  @override
+  String get looksValueBlue => '青';
+
+  @override
+  String get looksValueYellow => '黄';
+
+  @override
+  String get looksValueRed => '赤';
+
+  @override
+  String get looksValueOrange => 'オレンジ';
+
+  @override
+  String get looksValuePink => 'ピンク';
+
+  @override
+  String get looksValueWhiteBib => '白い胸';
+
+  @override
+  String get looksValueWhitePaws => '白い足';
+
+  @override
+  String get looksValueWhiteTailTip => '白いしっぽの先';
+
+  @override
+  String get looksValueBlaze => '鼻筋の白';
+
+  @override
+  String get looksValueMask => 'マスク';
+
+  @override
+  String get looksValueSpots => '斑点';
+
+  @override
+  String get looksValuePatches => 'ぶち';
+
+  @override
+  String get looksValueStripes => 'しま';
+
+  @override
+  String get looksValueScar => '傷跡';
+
+  @override
+  String get looksValueNotchedEar => '耳の切れ込み';
+
+  @override
+  String get looksValueEarTip => '耳先';
+
+  @override
+  String get looksValueCollar => '首輪';
+
+  @override
+  String get looksValueShort => '短い';
+
+  @override
+  String get looksValueLong => '長い';
+
+  @override
+  String get looksValueHairless => '無毛';
+
+  @override
+  String get looksValueBobtail => '短いしっぽ';
+
+  @override
+  String get looksValueNone => 'なし';
+
+  @override
+  String get looksValueCurled => '巻き';
+
+  @override
+  String get looksValueUpright => '立ち耳';
+
+  @override
+  String get looksValueFloppy => '垂れ耳';
+
+  @override
+  String get looksValueFolded => '折れ耳';
+
+  @override
+  String get looksValueRounded => '丸い';
+
+  @override
+  String get looksValueSolid => '単色';
+
+  @override
+  String get looksValueTabby => 'トラ柄';
+
+  @override
+  String get looksValueTortoiseshell => 'サビ柄';
+
+  @override
+  String get looksValueCalico => '三毛';
+
+  @override
+  String get looksValueColourpoint => 'ポイント';
+
+  @override
+  String get looksValueBicolour => '二色';
+
+  @override
+  String get looksValueTuxedo => 'タキシード';
+
+  @override
+  String get looksValueBrindle => 'ブリンドル';
+
+  @override
+  String get looksValueMerle => 'マール';
+
+  @override
+  String get looksValueSpotted => '斑点';
+
+  @override
+  String get looksValuePatched => 'ぶち';
+
+  @override
+  String get looksValueTricolour => '三色';
+
+  @override
+  String get looksValueSable => 'セーブル';
 
   @override
   String get rejectMatch => '同じではない';

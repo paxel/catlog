@@ -1114,11 +1114,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne.';
+      'Katte, der kan være samme dyr: samme nummer, eller en strejfer set inde i en savnet kats søgeområde. Tryk på et par for at flette, hold nede for at åbne den første kat og sammenligne. Par, hvis udseende stemmer i to træk eller flere uden modsigelse, står også på listen; chipsene viser hvilke. „Ikke den samme“ skjuler et par på denne telefon, indtil et af dyrenes udseende ændrer sig.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kæledyr, der kan være samme dyr: samme nummer, eller en strejfer set inde i et savnet kæledyrs søgeområde. Tryk på et par for at flette, hold nede for at åbne det første kæledyr og sammenligne.';
+      'Kæledyr, der kan være samme dyr: samme nummer, eller en strejfer set inde i et savnet kæledyrs søgeområde. Tryk på et par for at flette, hold nede for at åbne det første kæledyr og sammenligne. Par, hvis udseende stemmer i to træk eller flere uden modsigelse, står også på listen; chipsene viser hvilke. „Ikke den samme“ skjuler et par på denne telefon, indtil et af dyrenes udseende ændrer sig.';
 
   @override
   String get helpFlier =>
@@ -1409,6 +1409,192 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get starterLooks => 'Udseende';
+
+  @override
+  String get looksGroupSize => 'Størrelse';
+
+  @override
+  String get looksGroupColours => 'Farver';
+
+  @override
+  String get looksGroupPattern => 'Mønster';
+
+  @override
+  String get looksGroupFur => 'Pels';
+
+  @override
+  String get looksGroupTail => 'Hale';
+
+  @override
+  String get looksGroupEars => 'Ører';
+
+  @override
+  String get looksGroupMarks => 'Kendetegn';
+
+  @override
+  String get looksGroupCrest => 'Top';
+
+  @override
+  String get looksGroupBeak => 'Næb';
+
+  @override
+  String get looksGroupRing => 'Fodring';
+
+  @override
+  String get looksValueSmall => 'Lille';
+
+  @override
+  String get looksValueMedium => 'Mellem';
+
+  @override
+  String get looksValueLarge => 'Stor';
+
+  @override
+  String get looksValueBlack => 'Sort';
+
+  @override
+  String get looksValueWhite => 'Hvid';
+
+  @override
+  String get looksValueGrey => 'Grå';
+
+  @override
+  String get looksValueBrown => 'Brun';
+
+  @override
+  String get looksValueGinger => 'Rød';
+
+  @override
+  String get looksValueCream => 'Creme';
+
+  @override
+  String get looksValueGolden => 'Gylden';
+
+  @override
+  String get looksValueTan => 'Lysebrun';
+
+  @override
+  String get looksValueGreen => 'Grøn';
+
+  @override
+  String get looksValueBlue => 'Blå';
+
+  @override
+  String get looksValueYellow => 'Gul';
+
+  @override
+  String get looksValueRed => 'Rød';
+
+  @override
+  String get looksValueOrange => 'Orange';
+
+  @override
+  String get looksValuePink => 'Lyserød';
+
+  @override
+  String get looksValueWhiteBib => 'Hvid smæk';
+
+  @override
+  String get looksValueWhitePaws => 'Hvide poter';
+
+  @override
+  String get looksValueWhiteTailTip => 'Hvid halespids';
+
+  @override
+  String get looksValueBlaze => 'Blis';
+
+  @override
+  String get looksValueMask => 'Maske';
+
+  @override
+  String get looksValueSpots => 'Pletter';
+
+  @override
+  String get looksValuePatches => 'Felter';
+
+  @override
+  String get looksValueStripes => 'Striber';
+
+  @override
+  String get looksValueScar => 'Ar';
+
+  @override
+  String get looksValueNotchedEar => 'Hak i øret';
+
+  @override
+  String get looksValueEarTip => 'Ørespids';
+
+  @override
+  String get looksValueCollar => 'Halsbånd';
+
+  @override
+  String get looksValueShort => 'Kort';
+
+  @override
+  String get looksValueLong => 'Lang';
+
+  @override
+  String get looksValueHairless => 'Hårløs';
+
+  @override
+  String get looksValueBobtail => 'Stumphale';
+
+  @override
+  String get looksValueNone => 'Ingen';
+
+  @override
+  String get looksValueCurled => 'Krøllet';
+
+  @override
+  String get looksValueUpright => 'Oprejste';
+
+  @override
+  String get looksValueFloppy => 'Hængende';
+
+  @override
+  String get looksValueFolded => 'Foldede';
+
+  @override
+  String get looksValueRounded => 'Runde';
+
+  @override
+  String get looksValueSolid => 'Ensfarvet';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Skildpadde';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Tofarvet';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Plettet';
+
+  @override
+  String get looksValuePatched => 'Broget';
+
+  @override
+  String get looksValueTricolour => 'Trefarvet';
+
+  @override
+  String get looksValueSable => 'Sabel';
 
   @override
   String get rejectMatch => 'Ikke den samme';

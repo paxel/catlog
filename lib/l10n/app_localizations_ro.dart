@@ -1115,11 +1115,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari.';
+      'Pisici care ar putea fi același animal: identificator identic sau un vagabond văzut în zona de căutare a unei pisici dispărute. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi prima pisică și să compari. Sunt listate și perechile al căror aspect se potrivește în două trăsături sau mai multe fără contradicție; cipurile arată care. „Nu e același” ascunde o pereche pe acest telefon până când aspectul unuia dintre animale se schimbă.';
 
   @override
   String get helpMatchesNeutral =>
-      'Animale care ar putea fi același: identificator identic sau un vagabond văzut în zona de căutare a unui animal dispărut. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi primul animal și să compari.';
+      'Animale care ar putea fi același: identificator identic sau un vagabond văzut în zona de căutare a unui animal dispărut. Atinge o pereche ca s-o unești, ține apăsat ca să deschizi primul animal și să compari. Sunt listate și perechile al căror aspect se potrivește în două trăsături sau mai multe fără contradicție; cipurile arată care. „Nu e același” ascunde o pereche pe acest telefon până când aspectul unuia dintre animale se schimbă.';
 
   @override
   String get helpFlier =>
@@ -1410,6 +1410,192 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get starterLooks => 'Aspect';
+
+  @override
+  String get looksGroupSize => 'Mărime';
+
+  @override
+  String get looksGroupColours => 'Culori';
+
+  @override
+  String get looksGroupPattern => 'Model';
+
+  @override
+  String get looksGroupFur => 'Blană';
+
+  @override
+  String get looksGroupTail => 'Coadă';
+
+  @override
+  String get looksGroupEars => 'Urechi';
+
+  @override
+  String get looksGroupMarks => 'Semne';
+
+  @override
+  String get looksGroupCrest => 'Creastă';
+
+  @override
+  String get looksGroupBeak => 'Cioc';
+
+  @override
+  String get looksGroupRing => 'Inel';
+
+  @override
+  String get looksValueSmall => 'Mic';
+
+  @override
+  String get looksValueMedium => 'Mediu';
+
+  @override
+  String get looksValueLarge => 'Mare';
+
+  @override
+  String get looksValueBlack => 'Negru';
+
+  @override
+  String get looksValueWhite => 'Alb';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Maro';
+
+  @override
+  String get looksValueGinger => 'Roșcat';
+
+  @override
+  String get looksValueCream => 'Crem';
+
+  @override
+  String get looksValueGolden => 'Auriu';
+
+  @override
+  String get looksValueTan => 'Bej';
+
+  @override
+  String get looksValueGreen => 'Verde';
+
+  @override
+  String get looksValueBlue => 'Albastru';
+
+  @override
+  String get looksValueYellow => 'Galben';
+
+  @override
+  String get looksValueRed => 'Roșu';
+
+  @override
+  String get looksValueOrange => 'Portocaliu';
+
+  @override
+  String get looksValuePink => 'Roz';
+
+  @override
+  String get looksValueWhiteBib => 'Bavetă albă';
+
+  @override
+  String get looksValueWhitePaws => 'Labe albe';
+
+  @override
+  String get looksValueWhiteTailTip => 'Vârf de coadă alb';
+
+  @override
+  String get looksValueBlaze => 'Stea';
+
+  @override
+  String get looksValueMask => 'Mască';
+
+  @override
+  String get looksValueSpots => 'Pete';
+
+  @override
+  String get looksValuePatches => 'Petice';
+
+  @override
+  String get looksValueStripes => 'Dungi';
+
+  @override
+  String get looksValueScar => 'Cicatrice';
+
+  @override
+  String get looksValueNotchedEar => 'Ureche crestată';
+
+  @override
+  String get looksValueEarTip => 'Vârful urechii';
+
+  @override
+  String get looksValueCollar => 'Zgardă';
+
+  @override
+  String get looksValueShort => 'Scurtă';
+
+  @override
+  String get looksValueLong => 'Lungă';
+
+  @override
+  String get looksValueHairless => 'Fără blană';
+
+  @override
+  String get looksValueBobtail => 'Coadă scurtă';
+
+  @override
+  String get looksValueNone => 'Fără';
+
+  @override
+  String get looksValueCurled => 'Răsucită';
+
+  @override
+  String get looksValueUpright => 'Drepte';
+
+  @override
+  String get looksValueFloppy => 'Lăsate';
+
+  @override
+  String get looksValueFolded => 'Pliate';
+
+  @override
+  String get looksValueRounded => 'Rotunjite';
+
+  @override
+  String get looksValueSolid => 'Uni';
+
+  @override
+  String get looksValueTabby => 'Tigrat';
+
+  @override
+  String get looksValueTortoiseshell => 'Carapace';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Bicolor';
+
+  @override
+  String get looksValueTuxedo => 'Smoching';
+
+  @override
+  String get looksValueBrindle => 'Tigrat închis';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Pătat';
+
+  @override
+  String get looksValuePatched => 'Cu petice';
+
+  @override
+  String get looksValueTricolour => 'Tricolor';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Nu e același';

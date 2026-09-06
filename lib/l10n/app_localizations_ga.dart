@@ -1118,11 +1118,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh.';
+      'Cait a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh cat ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad chat a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.';
 
   @override
   String get helpMatchesNeutral =>
-      'Peataí a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh.';
+      'Peataí a d\'fhéadfadh a bheith ar an ainmhí céanna: an uimhir chéanna, nó fánaí a chonacthas laistigh de limistéar cuardaigh peata ar iarraidh. Tapáil péire chun iad a chumasc, brúigh go fada chun an chéad pheata a oscailt le comparáid a dhéanamh. Liostáiltear freisin péirí a dtagann a gcuma le chéile in dhá thréith nó níos mó gan aon chontrárthacht; taispeánann na sliseanna cé acu. Cuireann „Ní hé an ceann céanna“ péire i bhfolach ar an nguthán seo go dtí go n-athraíonn cuma ceachtar ainmhí.';
 
   @override
   String get helpFlier =>
@@ -1413,6 +1413,192 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get starterLooks => 'Cuma';
+
+  @override
+  String get looksGroupSize => 'Méid';
+
+  @override
+  String get looksGroupColours => 'Dathanna';
+
+  @override
+  String get looksGroupPattern => 'Patrún';
+
+  @override
+  String get looksGroupFur => 'Fionnadh';
+
+  @override
+  String get looksGroupTail => 'Eireaball';
+
+  @override
+  String get looksGroupEars => 'Cluasa';
+
+  @override
+  String get looksGroupMarks => 'Marcanna';
+
+  @override
+  String get looksGroupCrest => 'Cíor';
+
+  @override
+  String get looksGroupBeak => 'Gob';
+
+  @override
+  String get looksGroupRing => 'Fáinne';
+
+  @override
+  String get looksValueSmall => 'Beag';
+
+  @override
+  String get looksValueMedium => 'Meánach';
+
+  @override
+  String get looksValueLarge => 'Mór';
+
+  @override
+  String get looksValueBlack => 'Dubh';
+
+  @override
+  String get looksValueWhite => 'Bán';
+
+  @override
+  String get looksValueGrey => 'Liath';
+
+  @override
+  String get looksValueBrown => 'Donn';
+
+  @override
+  String get looksValueGinger => 'Rua';
+
+  @override
+  String get looksValueCream => 'Uachtar';
+
+  @override
+  String get looksValueGolden => 'Órga';
+
+  @override
+  String get looksValueTan => 'Buíbhán';
+
+  @override
+  String get looksValueGreen => 'Glas';
+
+  @override
+  String get looksValueBlue => 'Gorm';
+
+  @override
+  String get looksValueYellow => 'Buí';
+
+  @override
+  String get looksValueRed => 'Dearg';
+
+  @override
+  String get looksValueOrange => 'Oráiste';
+
+  @override
+  String get looksValuePink => 'Bándearg';
+
+  @override
+  String get looksValueWhiteBib => 'Bibe bán';
+
+  @override
+  String get looksValueWhitePaws => 'Lapaí bána';
+
+  @override
+  String get looksValueWhiteTailTip => 'Barr eireabaill bán';
+
+  @override
+  String get looksValueBlaze => 'Réalta';
+
+  @override
+  String get looksValueMask => 'Masc';
+
+  @override
+  String get looksValueSpots => 'Spotaí';
+
+  @override
+  String get looksValuePatches => 'Paistí';
+
+  @override
+  String get looksValueStripes => 'Straidhpeanna';
+
+  @override
+  String get looksValueScar => 'Colm';
+
+  @override
+  String get looksValueNotchedEar => 'Cluas eangaithe';
+
+  @override
+  String get looksValueEarTip => 'Barr cluaise';
+
+  @override
+  String get looksValueCollar => 'Coiléar';
+
+  @override
+  String get looksValueShort => 'Gearr';
+
+  @override
+  String get looksValueLong => 'Fada';
+
+  @override
+  String get looksValueHairless => 'Gan fionnadh';
+
+  @override
+  String get looksValueBobtail => 'Eireaball gearr';
+
+  @override
+  String get looksValueNone => 'Gan';
+
+  @override
+  String get looksValueCurled => 'Casta';
+
+  @override
+  String get looksValueUpright => 'Ina seasamh';
+
+  @override
+  String get looksValueFloppy => 'Ar sileadh';
+
+  @override
+  String get looksValueFolded => 'Fillte';
+
+  @override
+  String get looksValueRounded => 'Cruinn';
+
+  @override
+  String get looksValueSolid => 'Aondathach';
+
+  @override
+  String get looksValueTabby => 'Tabaí';
+
+  @override
+  String get looksValueTortoiseshell => 'Toirtís';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dédhathach';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Spotach';
+
+  @override
+  String get looksValuePatched => 'Paisteach';
+
+  @override
+  String get looksValueTricolour => 'Trídhathach';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Ní hé an ceann céanna';

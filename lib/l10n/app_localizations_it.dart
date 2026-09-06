@@ -1117,11 +1117,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Gatti che potrebbero essere lo stesso animale: identificativo identico, o un randagio visto nell\'area di ricerca di un gatto scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo gatto e confrontare.';
+      'Gatti che potrebbero essere lo stesso animale: identificativo identico, o un randagio visto nell\'area di ricerca di un gatto scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo gatto e confrontare. Sono elencate anche le coppie il cui aspetto coincide in almeno due tratti senza contraddizioni; i chip mostrano quali. «Non è lo stesso» nasconde una coppia su questo telefono finché l’aspetto di uno dei due animali non cambia.';
 
   @override
   String get helpMatchesNeutral =>
-      'Animali che potrebbero essere lo stesso: identificativo identico, o un randagio visto nell\'area di ricerca di un animale scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo animale e confrontare.';
+      'Animali che potrebbero essere lo stesso: identificativo identico, o un randagio visto nell\'area di ricerca di un animale scomparso. Tocca una coppia per unirla, tieni premuto per aprire il primo animale e confrontare. Sono elencate anche le coppie il cui aspetto coincide in almeno due tratti senza contraddizioni; i chip mostrano quali. «Non è lo stesso» nasconde una coppia su questo telefono finché l’aspetto di uno dei due animali non cambia.';
 
   @override
   String get helpFlier =>
@@ -1413,6 +1413,192 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get starterLooks => 'Aspetto';
+
+  @override
+  String get looksGroupSize => 'Taglia';
+
+  @override
+  String get looksGroupColours => 'Colori';
+
+  @override
+  String get looksGroupPattern => 'Disegno';
+
+  @override
+  String get looksGroupFur => 'Pelo';
+
+  @override
+  String get looksGroupTail => 'Coda';
+
+  @override
+  String get looksGroupEars => 'Orecchie';
+
+  @override
+  String get looksGroupMarks => 'Segni';
+
+  @override
+  String get looksGroupCrest => 'Cresta';
+
+  @override
+  String get looksGroupBeak => 'Becco';
+
+  @override
+  String get looksGroupRing => 'Anello';
+
+  @override
+  String get looksValueSmall => 'Piccolo';
+
+  @override
+  String get looksValueMedium => 'Medio';
+
+  @override
+  String get looksValueLarge => 'Grande';
+
+  @override
+  String get looksValueBlack => 'Nero';
+
+  @override
+  String get looksValueWhite => 'Bianco';
+
+  @override
+  String get looksValueGrey => 'Grigio';
+
+  @override
+  String get looksValueBrown => 'Marrone';
+
+  @override
+  String get looksValueGinger => 'Rosso';
+
+  @override
+  String get looksValueCream => 'Crema';
+
+  @override
+  String get looksValueGolden => 'Dorato';
+
+  @override
+  String get looksValueTan => 'Fulvo';
+
+  @override
+  String get looksValueGreen => 'Verde';
+
+  @override
+  String get looksValueBlue => 'Blu';
+
+  @override
+  String get looksValueYellow => 'Giallo';
+
+  @override
+  String get looksValueRed => 'Rosso';
+
+  @override
+  String get looksValueOrange => 'Arancione';
+
+  @override
+  String get looksValuePink => 'Rosa';
+
+  @override
+  String get looksValueWhiteBib => 'Pettorina bianca';
+
+  @override
+  String get looksValueWhitePaws => 'Zampe bianche';
+
+  @override
+  String get looksValueWhiteTailTip => 'Punta della coda bianca';
+
+  @override
+  String get looksValueBlaze => 'Stella';
+
+  @override
+  String get looksValueMask => 'Maschera';
+
+  @override
+  String get looksValueSpots => 'Macchie';
+
+  @override
+  String get looksValuePatches => 'Chiazze';
+
+  @override
+  String get looksValueStripes => 'Strisce';
+
+  @override
+  String get looksValueScar => 'Cicatrice';
+
+  @override
+  String get looksValueNotchedEar => 'Orecchio intaccato';
+
+  @override
+  String get looksValueEarTip => 'Punta dell’orecchio';
+
+  @override
+  String get looksValueCollar => 'Collare';
+
+  @override
+  String get looksValueShort => 'Corto';
+
+  @override
+  String get looksValueLong => 'Lungo';
+
+  @override
+  String get looksValueHairless => 'Senza pelo';
+
+  @override
+  String get looksValueBobtail => 'Coda mozza';
+
+  @override
+  String get looksValueNone => 'Nessuna';
+
+  @override
+  String get looksValueCurled => 'Arricciata';
+
+  @override
+  String get looksValueUpright => 'Dritte';
+
+  @override
+  String get looksValueFloppy => 'Cadenti';
+
+  @override
+  String get looksValueFolded => 'Piegate';
+
+  @override
+  String get looksValueRounded => 'Arrotondate';
+
+  @override
+  String get looksValueSolid => 'Unito';
+
+  @override
+  String get looksValueTabby => 'Tigrato';
+
+  @override
+  String get looksValueTortoiseshell => 'Tartaruga';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Bicolore';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Tigrato scuro';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Maculato';
+
+  @override
+  String get looksValuePatched => 'A chiazze';
+
+  @override
+  String get looksValueTricolour => 'Tricolore';
+
+  @override
+  String get looksValueSable => 'Zibellino';
 
   @override
   String get rejectMatch => 'Non è lo stesso';

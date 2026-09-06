@@ -1119,11 +1119,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση.';
+      'Γάτες που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτη που εθεάθη μέσα στην περιοχή αναζήτησης μιας χαμένης γάτας. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει την πρώτη γάτα για σύγκριση. Στη λίστα είναι και ζεύγη των οποίων η εμφάνιση συμφωνεί σε δύο ή περισσότερα χαρακτηριστικά χωρίς αντίφαση· τα τσιπ δείχνουν ποια. Το «Δεν είναι το ίδιο» κρύβει ένα ζεύγος σε αυτό το τηλέφωνο μέχρι να αλλάξει η εμφάνιση ενός από τα ζώα.';
 
   @override
   String get helpMatchesNeutral =>
-      'Κατοικίδια που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτο που εθεάθη μέσα στην περιοχή αναζήτησης ενός χαμένου κατοικιδίου. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει το πρώτο κατοικίδιο για σύγκριση.';
+      'Κατοικίδια που μπορεί να είναι το ίδιο ζώο: ίδιος αριθμός, ή αδέσποτο που εθεάθη μέσα στην περιοχή αναζήτησης ενός χαμένου κατοικιδίου. Πάτησε ένα ζευγάρι για συγχώνευση, παρατεταμένο πάτημα ανοίγει το πρώτο κατοικίδιο για σύγκριση. Στη λίστα είναι και ζεύγη των οποίων η εμφάνιση συμφωνεί σε δύο ή περισσότερα χαρακτηριστικά χωρίς αντίφαση· τα τσιπ δείχνουν ποια. Το «Δεν είναι το ίδιο» κρύβει ένα ζεύγος σε αυτό το τηλέφωνο μέχρι να αλλάξει η εμφάνιση ενός από τα ζώα.';
 
   @override
   String get helpFlier =>
@@ -1416,6 +1416,192 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get starterLooks => 'Εμφάνιση';
+
+  @override
+  String get looksGroupSize => 'Μέγεθος';
+
+  @override
+  String get looksGroupColours => 'Χρώματα';
+
+  @override
+  String get looksGroupPattern => 'Μοτίβο';
+
+  @override
+  String get looksGroupFur => 'Τρίχωμα';
+
+  @override
+  String get looksGroupTail => 'Ουρά';
+
+  @override
+  String get looksGroupEars => 'Αυτιά';
+
+  @override
+  String get looksGroupMarks => 'Σημάδια';
+
+  @override
+  String get looksGroupCrest => 'Λοφίο';
+
+  @override
+  String get looksGroupBeak => 'Ράμφος';
+
+  @override
+  String get looksGroupRing => 'Δαχτυλίδι';
+
+  @override
+  String get looksValueSmall => 'Μικρό';
+
+  @override
+  String get looksValueMedium => 'Μεσαίο';
+
+  @override
+  String get looksValueLarge => 'Μεγάλο';
+
+  @override
+  String get looksValueBlack => 'Μαύρο';
+
+  @override
+  String get looksValueWhite => 'Λευκό';
+
+  @override
+  String get looksValueGrey => 'Γκρι';
+
+  @override
+  String get looksValueBrown => 'Καφέ';
+
+  @override
+  String get looksValueGinger => 'Κοκκινόξανθο';
+
+  @override
+  String get looksValueCream => 'Κρεμ';
+
+  @override
+  String get looksValueGolden => 'Χρυσό';
+
+  @override
+  String get looksValueTan => 'Ανοιχτό καφέ';
+
+  @override
+  String get looksValueGreen => 'Πράσινο';
+
+  @override
+  String get looksValueBlue => 'Μπλε';
+
+  @override
+  String get looksValueYellow => 'Κίτρινο';
+
+  @override
+  String get looksValueRed => 'Κόκκινο';
+
+  @override
+  String get looksValueOrange => 'Πορτοκαλί';
+
+  @override
+  String get looksValuePink => 'Ροζ';
+
+  @override
+  String get looksValueWhiteBib => 'Λευκό στήθος';
+
+  @override
+  String get looksValueWhitePaws => 'Λευκά πόδια';
+
+  @override
+  String get looksValueWhiteTailTip => 'Λευκή άκρη ουράς';
+
+  @override
+  String get looksValueBlaze => 'Αστέρι';
+
+  @override
+  String get looksValueMask => 'Μάσκα';
+
+  @override
+  String get looksValueSpots => 'Βούλες';
+
+  @override
+  String get looksValuePatches => 'Μπαλώματα';
+
+  @override
+  String get looksValueStripes => 'Ρίγες';
+
+  @override
+  String get looksValueScar => 'Ουλή';
+
+  @override
+  String get looksValueNotchedEar => 'Κομμένο αυτί';
+
+  @override
+  String get looksValueEarTip => 'Άκρη αυτιού';
+
+  @override
+  String get looksValueCollar => 'Κολάρο';
+
+  @override
+  String get looksValueShort => 'Κοντό';
+
+  @override
+  String get looksValueLong => 'Μακρύ';
+
+  @override
+  String get looksValueHairless => 'Άτριχο';
+
+  @override
+  String get looksValueBobtail => 'Κοντή ουρά';
+
+  @override
+  String get looksValueNone => 'Καμία';
+
+  @override
+  String get looksValueCurled => 'Κατσαρή';
+
+  @override
+  String get looksValueUpright => 'Όρθια';
+
+  @override
+  String get looksValueFloppy => 'Πεσμένα';
+
+  @override
+  String get looksValueFolded => 'Διπλωμένα';
+
+  @override
+  String get looksValueRounded => 'Στρογγυλά';
+
+  @override
+  String get looksValueSolid => 'Μονόχρωμο';
+
+  @override
+  String get looksValueTabby => 'Τιγρέ';
+
+  @override
+  String get looksValueTortoiseshell => 'Ταρταρούγα';
+
+  @override
+  String get looksValueCalico => 'Καλικό';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Δίχρωμο';
+
+  @override
+  String get looksValueTuxedo => 'Σμόκιν';
+
+  @override
+  String get looksValueBrindle => 'Ριγέ';
+
+  @override
+  String get looksValueMerle => 'Μερλ';
+
+  @override
+  String get looksValueSpotted => 'Πιτσιλωτό';
+
+  @override
+  String get looksValuePatched => 'Μπαλωματένιο';
+
+  @override
+  String get looksValueTricolour => 'Τρίχρωμο';
+
+  @override
+  String get looksValueSable => 'Σαμπλ';
 
   @override
   String get rejectMatch => 'Δεν είναι το ίδιο';

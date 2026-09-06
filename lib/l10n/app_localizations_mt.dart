@@ -1115,11 +1115,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel.';
+      'Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta\' tfittxija ta\' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.';
 
   @override
   String get helpMatchesNeutral =>
-      'Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta\' tfittxija ta\' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel.';
+      'Annimali domestiċi li jistgħu jkunu l-istess annimal: numru identiku, jew annimal tat-triq li deher fiż-żona ta\' tfittxija ta\' annimal mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel annimal biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.';
 
   @override
   String get helpFlier =>
@@ -1412,6 +1412,192 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get starterLooks => 'Dehra';
+
+  @override
+  String get looksGroupSize => 'Daqs';
+
+  @override
+  String get looksGroupColours => 'Kuluri';
+
+  @override
+  String get looksGroupPattern => 'Disinn';
+
+  @override
+  String get looksGroupFur => 'Pil';
+
+  @override
+  String get looksGroupTail => 'Denb';
+
+  @override
+  String get looksGroupEars => 'Widnejn';
+
+  @override
+  String get looksGroupMarks => 'Marki';
+
+  @override
+  String get looksGroupCrest => 'Kresta';
+
+  @override
+  String get looksGroupBeak => 'Munqar';
+
+  @override
+  String get looksGroupRing => 'Ċirku';
+
+  @override
+  String get looksValueSmall => 'Żgħir';
+
+  @override
+  String get looksValueMedium => 'Medju';
+
+  @override
+  String get looksValueLarge => 'Kbir';
+
+  @override
+  String get looksValueBlack => 'Iswed';
+
+  @override
+  String get looksValueWhite => 'Abjad';
+
+  @override
+  String get looksValueGrey => 'Griż';
+
+  @override
+  String get looksValueBrown => 'Kannella';
+
+  @override
+  String get looksValueGinger => 'Aħmar';
+
+  @override
+  String get looksValueCream => 'Krema';
+
+  @override
+  String get looksValueGolden => 'Dehbi';
+
+  @override
+  String get looksValueTan => 'Kannella ċar';
+
+  @override
+  String get looksValueGreen => 'Aħdar';
+
+  @override
+  String get looksValueBlue => 'Blu';
+
+  @override
+  String get looksValueYellow => 'Isfar';
+
+  @override
+  String get looksValueRed => 'Aħmar';
+
+  @override
+  String get looksValueOrange => 'Oranġjo';
+
+  @override
+  String get looksValuePink => 'Roża';
+
+  @override
+  String get looksValueWhiteBib => 'Sider abjad';
+
+  @override
+  String get looksValueWhitePaws => 'Saqajn bojod';
+
+  @override
+  String get looksValueWhiteTailTip => 'Tarf tad-denb abjad';
+
+  @override
+  String get looksValueBlaze => 'Stilla';
+
+  @override
+  String get looksValueMask => 'Maskra';
+
+  @override
+  String get looksValueSpots => 'Tikek';
+
+  @override
+  String get looksValuePatches => 'Rqajja’';
+
+  @override
+  String get looksValueStripes => 'Strixxi';
+
+  @override
+  String get looksValueScar => 'Ċikatriċi';
+
+  @override
+  String get looksValueNotchedEar => 'Widna maqtugħa';
+
+  @override
+  String get looksValueEarTip => 'Tarf tal-widna';
+
+  @override
+  String get looksValueCollar => 'Kullar';
+
+  @override
+  String get looksValueShort => 'Qasir';
+
+  @override
+  String get looksValueLong => 'Twil';
+
+  @override
+  String get looksValueHairless => 'Bla pil';
+
+  @override
+  String get looksValueBobtail => 'Denb qasir';
+
+  @override
+  String get looksValueNone => 'Xejn';
+
+  @override
+  String get looksValueCurled => 'Mibrum';
+
+  @override
+  String get looksValueUpright => 'Wieqfa';
+
+  @override
+  String get looksValueFloppy => 'Imdendla';
+
+  @override
+  String get looksValueFolded => 'Mitwija';
+
+  @override
+  String get looksValueRounded => 'Tondi';
+
+  @override
+  String get looksValueSolid => 'Kulur wieħed';
+
+  @override
+  String get looksValueTabby => 'Tabby';
+
+  @override
+  String get looksValueTortoiseshell => 'Fekruna';
+
+  @override
+  String get looksValueCalico => 'Calico';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Żewġ kuluri';
+
+  @override
+  String get looksValueTuxedo => 'Tuxedo';
+
+  @override
+  String get looksValueBrindle => 'Brindle';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Bit-tikek';
+
+  @override
+  String get looksValuePatched => 'Bir-rqajja’';
+
+  @override
+  String get looksValueTricolour => 'Tliet kuluri';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Mhux l-istess';

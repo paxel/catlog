@@ -1074,11 +1074,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。';
+      '可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。 外貌有两项或更多特征相符且无矛盾的配对也会列出；标签显示是哪些特征。“不是同一只”会在本手机上隐藏该配对，直到任一动物的外貌发生变化。';
 
   @override
   String get helpMatchesNeutral =>
-      '可能是同一只动物的宠物：编号相同，或在走失宠物搜索范围内出现的流浪动物。点按一对合并，长按可打开第一只宠物进行比较。';
+      '可能是同一只动物的宠物：编号相同，或在走失宠物搜索范围内出现的流浪动物。点按一对合并，长按可打开第一只宠物进行比较。 外貌有两项或更多特征相符且无矛盾的配对也会列出；标签显示是哪些特征。“不是同一只”会在本手机上隐藏该配对，直到任一动物的外貌发生变化。';
 
   @override
   String get helpFlier =>
@@ -1366,6 +1366,192 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get starterLooks => '外貌';
+
+  @override
+  String get looksGroupSize => '体型';
+
+  @override
+  String get looksGroupColours => '颜色';
+
+  @override
+  String get looksGroupPattern => '花纹';
+
+  @override
+  String get looksGroupFur => '毛';
+
+  @override
+  String get looksGroupTail => '尾巴';
+
+  @override
+  String get looksGroupEars => '耳朵';
+
+  @override
+  String get looksGroupMarks => '特征';
+
+  @override
+  String get looksGroupCrest => '羽冠';
+
+  @override
+  String get looksGroupBeak => '喙';
+
+  @override
+  String get looksGroupRing => '脚环';
+
+  @override
+  String get looksValueSmall => '小';
+
+  @override
+  String get looksValueMedium => '中';
+
+  @override
+  String get looksValueLarge => '大';
+
+  @override
+  String get looksValueBlack => '黑';
+
+  @override
+  String get looksValueWhite => '白';
+
+  @override
+  String get looksValueGrey => '灰';
+
+  @override
+  String get looksValueBrown => '棕';
+
+  @override
+  String get looksValueGinger => '橘';
+
+  @override
+  String get looksValueCream => '奶油色';
+
+  @override
+  String get looksValueGolden => '金色';
+
+  @override
+  String get looksValueTan => '浅棕';
+
+  @override
+  String get looksValueGreen => '绿';
+
+  @override
+  String get looksValueBlue => '蓝';
+
+  @override
+  String get looksValueYellow => '黄';
+
+  @override
+  String get looksValueRed => '红';
+
+  @override
+  String get looksValueOrange => '橙';
+
+  @override
+  String get looksValuePink => '粉';
+
+  @override
+  String get looksValueWhiteBib => '白色胸口';
+
+  @override
+  String get looksValueWhitePaws => '白色脚掌';
+
+  @override
+  String get looksValueWhiteTailTip => '白色尾尖';
+
+  @override
+  String get looksValueBlaze => '白色鼻梁';
+
+  @override
+  String get looksValueMask => '面罩';
+
+  @override
+  String get looksValueSpots => '斑点';
+
+  @override
+  String get looksValuePatches => '色块';
+
+  @override
+  String get looksValueStripes => '条纹';
+
+  @override
+  String get looksValueScar => '伤疤';
+
+  @override
+  String get looksValueNotchedEar => '耳缺';
+
+  @override
+  String get looksValueEarTip => '耳尖';
+
+  @override
+  String get looksValueCollar => '项圈';
+
+  @override
+  String get looksValueShort => '短';
+
+  @override
+  String get looksValueLong => '长';
+
+  @override
+  String get looksValueHairless => '无毛';
+
+  @override
+  String get looksValueBobtail => '短尾';
+
+  @override
+  String get looksValueNone => '无';
+
+  @override
+  String get looksValueCurled => '卷尾';
+
+  @override
+  String get looksValueUpright => '竖立';
+
+  @override
+  String get looksValueFloppy => '下垂';
+
+  @override
+  String get looksValueFolded => '折耳';
+
+  @override
+  String get looksValueRounded => '圆';
+
+  @override
+  String get looksValueSolid => '纯色';
+
+  @override
+  String get looksValueTabby => '虎斑';
+
+  @override
+  String get looksValueTortoiseshell => '玳瑁';
+
+  @override
+  String get looksValueCalico => '三花';
+
+  @override
+  String get looksValueColourpoint => '重点色';
+
+  @override
+  String get looksValueBicolour => '双色';
+
+  @override
+  String get looksValueTuxedo => '燕尾服';
+
+  @override
+  String get looksValueBrindle => '斑纹';
+
+  @override
+  String get looksValueMerle => '陨石色';
+
+  @override
+  String get looksValueSpotted => '点状';
+
+  @override
+  String get looksValuePatched => '块状';
+
+  @override
+  String get looksValueTricolour => '三色';
+
+  @override
+  String get looksValueSable => '貂色';
 
   @override
   String get rejectMatch => '不是同一只';

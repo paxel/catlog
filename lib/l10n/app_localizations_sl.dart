@@ -1114,11 +1114,11 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo.';
+      'Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo. Na seznamu so tudi pari, katerih videz se ujema v vsaj dveh znakih brez nasprotja; čipi kažejo v katerih. „Ni isto“ skrije par na tem telefonu, dokler se videz ene od živali ne spremeni.';
 
   @override
   String get helpMatchesNeutral =>
-      'Ljubljenčki, ki bi lahko bili ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešanega ljubljenčka. Tapni par za združitev, z dolgim pritiskom odpreš prvega ljubljenčka za primerjavo.';
+      'Ljubljenčki, ki bi lahko bili ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešanega ljubljenčka. Tapni par za združitev, z dolgim pritiskom odpreš prvega ljubljenčka za primerjavo. Na seznamu so tudi pari, katerih videz se ujema v vsaj dveh znakih brez nasprotja; čipi kažejo v katerih. „Ni isto“ skrije par na tem telefonu, dokler se videz ene od živali ne spremeni.';
 
   @override
   String get helpFlier =>
@@ -1409,6 +1409,192 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get starterLooks => 'Videz';
+
+  @override
+  String get looksGroupSize => 'Velikost';
+
+  @override
+  String get looksGroupColours => 'Barve';
+
+  @override
+  String get looksGroupPattern => 'Vzorec';
+
+  @override
+  String get looksGroupFur => 'Dlaka';
+
+  @override
+  String get looksGroupTail => 'Rep';
+
+  @override
+  String get looksGroupEars => 'Ušesa';
+
+  @override
+  String get looksGroupMarks => 'Znaki';
+
+  @override
+  String get looksGroupCrest => 'Čop';
+
+  @override
+  String get looksGroupBeak => 'Kljun';
+
+  @override
+  String get looksGroupRing => 'Obroček';
+
+  @override
+  String get looksValueSmall => 'Majhen';
+
+  @override
+  String get looksValueMedium => 'Srednji';
+
+  @override
+  String get looksValueLarge => 'Velik';
+
+  @override
+  String get looksValueBlack => 'Črna';
+
+  @override
+  String get looksValueWhite => 'Bela';
+
+  @override
+  String get looksValueGrey => 'Siva';
+
+  @override
+  String get looksValueBrown => 'Rjava';
+
+  @override
+  String get looksValueGinger => 'Rdečkasta';
+
+  @override
+  String get looksValueCream => 'Krem';
+
+  @override
+  String get looksValueGolden => 'Zlata';
+
+  @override
+  String get looksValueTan => 'Svetlo rjava';
+
+  @override
+  String get looksValueGreen => 'Zelena';
+
+  @override
+  String get looksValueBlue => 'Modra';
+
+  @override
+  String get looksValueYellow => 'Rumena';
+
+  @override
+  String get looksValueRed => 'Rdeča';
+
+  @override
+  String get looksValueOrange => 'Oranžna';
+
+  @override
+  String get looksValuePink => 'Rožnata';
+
+  @override
+  String get looksValueWhiteBib => 'Bel prsni del';
+
+  @override
+  String get looksValueWhitePaws => 'Bele tačke';
+
+  @override
+  String get looksValueWhiteTailTip => 'Bela konica repa';
+
+  @override
+  String get looksValueBlaze => 'Zvezda';
+
+  @override
+  String get looksValueMask => 'Maska';
+
+  @override
+  String get looksValueSpots => 'Pike';
+
+  @override
+  String get looksValuePatches => 'Lise';
+
+  @override
+  String get looksValueStripes => 'Proge';
+
+  @override
+  String get looksValueScar => 'Brazgotina';
+
+  @override
+  String get looksValueNotchedEar => 'Zarezano uho';
+
+  @override
+  String get looksValueEarTip => 'Konica uhlja';
+
+  @override
+  String get looksValueCollar => 'Ovratnica';
+
+  @override
+  String get looksValueShort => 'Kratka';
+
+  @override
+  String get looksValueLong => 'Dolga';
+
+  @override
+  String get looksValueHairless => 'Brez dlake';
+
+  @override
+  String get looksValueBobtail => 'Kratek rep';
+
+  @override
+  String get looksValueNone => 'Brez';
+
+  @override
+  String get looksValueCurled => 'Zavit';
+
+  @override
+  String get looksValueUpright => 'Pokončna';
+
+  @override
+  String get looksValueFloppy => 'Povešena';
+
+  @override
+  String get looksValueFolded => 'Prepognjena';
+
+  @override
+  String get looksValueRounded => 'Zaobljena';
+
+  @override
+  String get looksValueSolid => 'Enobarven';
+
+  @override
+  String get looksValueTabby => 'Tigrast';
+
+  @override
+  String get looksValueTortoiseshell => 'Želvovina';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dvobarven';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Progast';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Pikčast';
+
+  @override
+  String get looksValuePatched => 'Lisast';
+
+  @override
+  String get looksValueTricolour => 'Tribarven';
+
+  @override
+  String get looksValueSable => 'Sobolji';
 
   @override
   String get rejectMatch => 'Ni isto';

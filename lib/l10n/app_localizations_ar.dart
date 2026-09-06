@@ -1110,11 +1110,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة.';
+      'قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.';
 
   @override
   String get helpMatchesNeutral =>
-      'حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة.';
+      'حيوانات أليفة قد تكون الحيوان نفسه: رقم متطابق، أو حيوان ضال شوهد داخل منطقة البحث عن حيوان أليف مفقود. انقر زوجًا للدمج، والضغط المطوّل يفتح الحيوان الأليف الأول للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.';
 
   @override
   String get helpFlier =>
@@ -1404,6 +1404,192 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get starterLooks => 'المظهر';
+
+  @override
+  String get looksGroupSize => 'الحجم';
+
+  @override
+  String get looksGroupColours => 'الألوان';
+
+  @override
+  String get looksGroupPattern => 'النمط';
+
+  @override
+  String get looksGroupFur => 'الفراء';
+
+  @override
+  String get looksGroupTail => 'الذيل';
+
+  @override
+  String get looksGroupEars => 'الأذنان';
+
+  @override
+  String get looksGroupMarks => 'العلامات';
+
+  @override
+  String get looksGroupCrest => 'العرف';
+
+  @override
+  String get looksGroupBeak => 'المنقار';
+
+  @override
+  String get looksGroupRing => 'الحلقة';
+
+  @override
+  String get looksValueSmall => 'صغير';
+
+  @override
+  String get looksValueMedium => 'متوسط';
+
+  @override
+  String get looksValueLarge => 'كبير';
+
+  @override
+  String get looksValueBlack => 'أسود';
+
+  @override
+  String get looksValueWhite => 'أبيض';
+
+  @override
+  String get looksValueGrey => 'رمادي';
+
+  @override
+  String get looksValueBrown => 'بني';
+
+  @override
+  String get looksValueGinger => 'برتقالي محمر';
+
+  @override
+  String get looksValueCream => 'كريمي';
+
+  @override
+  String get looksValueGolden => 'ذهبي';
+
+  @override
+  String get looksValueTan => 'بني فاتح';
+
+  @override
+  String get looksValueGreen => 'أخضر';
+
+  @override
+  String get looksValueBlue => 'أزرق';
+
+  @override
+  String get looksValueYellow => 'أصفر';
+
+  @override
+  String get looksValueRed => 'أحمر';
+
+  @override
+  String get looksValueOrange => 'برتقالي';
+
+  @override
+  String get looksValuePink => 'وردي';
+
+  @override
+  String get looksValueWhiteBib => 'صدر أبيض';
+
+  @override
+  String get looksValueWhitePaws => 'أقدام بيضاء';
+
+  @override
+  String get looksValueWhiteTailTip => 'طرف ذيل أبيض';
+
+  @override
+  String get looksValueBlaze => 'غرة';
+
+  @override
+  String get looksValueMask => 'قناع';
+
+  @override
+  String get looksValueSpots => 'بقع';
+
+  @override
+  String get looksValuePatches => 'رقع';
+
+  @override
+  String get looksValueStripes => 'خطوط';
+
+  @override
+  String get looksValueScar => 'ندبة';
+
+  @override
+  String get looksValueNotchedEar => 'أذن مشقوقة';
+
+  @override
+  String get looksValueEarTip => 'طرف الأذن';
+
+  @override
+  String get looksValueCollar => 'طوق';
+
+  @override
+  String get looksValueShort => 'قصير';
+
+  @override
+  String get looksValueLong => 'طويل';
+
+  @override
+  String get looksValueHairless => 'بلا شعر';
+
+  @override
+  String get looksValueBobtail => 'ذيل قصير';
+
+  @override
+  String get looksValueNone => 'بلا ذيل';
+
+  @override
+  String get looksValueCurled => 'ملتف';
+
+  @override
+  String get looksValueUpright => 'منتصبة';
+
+  @override
+  String get looksValueFloppy => 'متدلية';
+
+  @override
+  String get looksValueFolded => 'مطوية';
+
+  @override
+  String get looksValueRounded => 'مستديرة';
+
+  @override
+  String get looksValueSolid => 'لون واحد';
+
+  @override
+  String get looksValueTabby => 'مخطط';
+
+  @override
+  String get looksValueTortoiseshell => 'صدفي';
+
+  @override
+  String get looksValueCalico => 'كاليكو';
+
+  @override
+  String get looksValueColourpoint => 'كولوربوينت';
+
+  @override
+  String get looksValueBicolour => 'لونان';
+
+  @override
+  String get looksValueTuxedo => 'بدلة';
+
+  @override
+  String get looksValueBrindle => 'مخطط داكن';
+
+  @override
+  String get looksValueMerle => 'مرل';
+
+  @override
+  String get looksValueSpotted => 'منقّط';
+
+  @override
+  String get looksValuePatched => 'مرقّع';
+
+  @override
+  String get looksValueTricolour => 'ثلاثة ألوان';
+
+  @override
+  String get looksValueSable => 'سمور';
 
   @override
   String get rejectMatch => 'ليس نفسه';

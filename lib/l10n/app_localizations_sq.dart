@@ -1114,11 +1114,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpMatches =>
-      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim.';
+      'Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.';
 
   @override
   String get helpMatchesNeutral =>
-      'Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim.';
+      'Kafshë që mund të jenë e njëjta kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një kafshe të humbur. Prek një çift për bashkim, shtypja e gjatë hap kafshën e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.';
 
   @override
   String get helpFlier =>
@@ -1408,6 +1408,192 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get starterLooks => 'Pamja';
+
+  @override
+  String get looksGroupSize => 'Madhësia';
+
+  @override
+  String get looksGroupColours => 'Ngjyrat';
+
+  @override
+  String get looksGroupPattern => 'Modeli';
+
+  @override
+  String get looksGroupFur => 'Qimja';
+
+  @override
+  String get looksGroupTail => 'Bishti';
+
+  @override
+  String get looksGroupEars => 'Veshët';
+
+  @override
+  String get looksGroupMarks => 'Shenjat';
+
+  @override
+  String get looksGroupCrest => 'Kreshta';
+
+  @override
+  String get looksGroupBeak => 'Sqepi';
+
+  @override
+  String get looksGroupRing => 'Unaza';
+
+  @override
+  String get looksValueSmall => 'I vogël';
+
+  @override
+  String get looksValueMedium => 'Mesatar';
+
+  @override
+  String get looksValueLarge => 'I madh';
+
+  @override
+  String get looksValueBlack => 'E zezë';
+
+  @override
+  String get looksValueWhite => 'E bardhë';
+
+  @override
+  String get looksValueGrey => 'Gri';
+
+  @override
+  String get looksValueBrown => 'Kafe';
+
+  @override
+  String get looksValueGinger => 'E kuqërremtë';
+
+  @override
+  String get looksValueCream => 'Krem';
+
+  @override
+  String get looksValueGolden => 'E artë';
+
+  @override
+  String get looksValueTan => 'Bezhë';
+
+  @override
+  String get looksValueGreen => 'E gjelbër';
+
+  @override
+  String get looksValueBlue => 'Blu';
+
+  @override
+  String get looksValueYellow => 'E verdhë';
+
+  @override
+  String get looksValueRed => 'E kuqe';
+
+  @override
+  String get looksValueOrange => 'Portokalli';
+
+  @override
+  String get looksValuePink => 'Rozë';
+
+  @override
+  String get looksValueWhiteBib => 'Gjoks i bardhë';
+
+  @override
+  String get looksValueWhitePaws => 'Putra të bardha';
+
+  @override
+  String get looksValueWhiteTailTip => 'Majë bishti e bardhë';
+
+  @override
+  String get looksValueBlaze => 'Yll';
+
+  @override
+  String get looksValueMask => 'Maskë';
+
+  @override
+  String get looksValueSpots => 'Pika';
+
+  @override
+  String get looksValuePatches => 'Njolla';
+
+  @override
+  String get looksValueStripes => 'Vija';
+
+  @override
+  String get looksValueScar => 'Shenjë plage';
+
+  @override
+  String get looksValueNotchedEar => 'Vesh i prerë';
+
+  @override
+  String get looksValueEarTip => 'Maja e veshit';
+
+  @override
+  String get looksValueCollar => 'Qafore';
+
+  @override
+  String get looksValueShort => 'E shkurtër';
+
+  @override
+  String get looksValueLong => 'E gjatë';
+
+  @override
+  String get looksValueHairless => 'Pa qime';
+
+  @override
+  String get looksValueBobtail => 'Bisht i shkurtër';
+
+  @override
+  String get looksValueNone => 'Asnjë';
+
+  @override
+  String get looksValueCurled => 'I përdredhur';
+
+  @override
+  String get looksValueUpright => 'Të ngritur';
+
+  @override
+  String get looksValueFloppy => 'Të varur';
+
+  @override
+  String get looksValueFolded => 'Të palosur';
+
+  @override
+  String get looksValueRounded => 'Të rrumbullakët';
+
+  @override
+  String get looksValueSolid => 'Njëngjyrësh';
+
+  @override
+  String get looksValueTabby => 'Tigër';
+
+  @override
+  String get looksValueTortoiseshell => 'Breshkë';
+
+  @override
+  String get looksValueCalico => 'Kaliko';
+
+  @override
+  String get looksValueColourpoint => 'Colourpoint';
+
+  @override
+  String get looksValueBicolour => 'Dyngjyrësh';
+
+  @override
+  String get looksValueTuxedo => 'Smoking';
+
+  @override
+  String get looksValueBrindle => 'Vijëzuar';
+
+  @override
+  String get looksValueMerle => 'Merle';
+
+  @override
+  String get looksValueSpotted => 'Me pika';
+
+  @override
+  String get looksValuePatched => 'Me njolla';
+
+  @override
+  String get looksValueTricolour => 'Trengjyrësh';
+
+  @override
+  String get looksValueSable => 'Sable';
 
   @override
   String get rejectMatch => 'Jo i njëjti';
