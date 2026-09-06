@@ -229,6 +229,12 @@ class ModeLocalizations implements AppLocalizations {
   String get bansSection => base.bansSection;
 
   @override
+  String get batteryHint => base.batteryHint;
+
+  @override
+  String get batterySettings => base.batterySettings;
+
+  @override
   String get birthdateInFuture => base.birthdateInFuture;
 
   @override
@@ -1475,6 +1481,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get rememberServiceHint => base.rememberServiceHint;
+
+  @override
+  String get remindMe => base.remindMe;
+
+  @override
+  String get remindPermissionDenied => base.remindPermissionDenied;
 
   @override
   String get reminderDialogHint => base.reminderDialogHint;

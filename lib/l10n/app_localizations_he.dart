@@ -2455,6 +2455,20 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'תזכיר לי';
+
+  @override
+  String get remindPermissionDenied =>
+      'אין הרשאה להתראות, לכן התזכורת נשארת כבויה. אפשרו אותן בהגדרות האפליקציה בטלפון ונסו שוב.';
+
+  @override
+  String get batteryHint =>
+      'אם תזכורות לא מגיעות, אפשרו ל-cat(a)log לפעול ברקע בהגדרות הסוללה של הטלפון.';
+
+  @override
+  String get batterySettings => 'הגדרות סוללה';
+
+  @override
   String get achievementsTitle => 'הישגים';
 
   @override

@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -53,6 +54,15 @@ class MainActivity : FlutterActivity() {
                     }
                 } else if (call.method == "mediaBackupDir") {
                     result.success(mediaBackupDir()?.absolutePath)
+                } else if (call.method == "openBatterySettings") {
+                    // Where the maker's battery saver can be told to leave
+                    // the app's reminders alone.
+                    try {
+                        startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+                        result.success(true)
+                    } catch (e: Exception) {
+                        result.success(false)
+                    }
                 } else {
                     result.notImplemented()
                 }

@@ -2464,6 +2464,20 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Emlékeztess';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nincs engedély az értesítésekhez, az emlékeztető kikapcsolva marad. Engedélyezd a telefon alkalmazásbeállításaiban, és próbáld újra.';
+
+  @override
+  String get batteryHint =>
+      'Ha az emlékeztetők elmaradnak, engedd a cat(a)log háttérben futását a telefon akkumulátor-beállításaiban.';
+
+  @override
+  String get batterySettings => 'Akkumulátor-beállítások';
+
+  @override
   String get achievementsTitle => 'Eredmények';
 
   @override

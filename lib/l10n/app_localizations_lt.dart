@@ -2475,6 +2475,20 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Priminti';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nėra leidimo pranešimams, priminimas lieka išjungtas. Leiskite juos telefono programos nustatymuose ir bandykite dar kartą.';
+
+  @override
+  String get batteryHint =>
+      'Jei priminimai neateina, telefono baterijos nustatymuose leiskite cat(a)log veikti fone.';
+
+  @override
+  String get batterySettings => 'Baterijos nustatymai';
+
+  @override
   String get achievementsTitle => 'Pasiekimai';
 
   @override

@@ -2472,6 +2472,20 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Erinnere mich';
+
+  @override
+  String get remindPermissionDenied =>
+      'Keine Berechtigung für Benachrichtigungen, die Erinnerung bleibt aus. Erlaube sie in den App-Einstellungen des Telefons und versuche es erneut.';
+
+  @override
+  String get batteryHint =>
+      'Bleiben Erinnerungen aus, erlaube cat(a)log in den Akku-Einstellungen des Telefons, im Hintergrund zu laufen.';
+
+  @override
+  String get batterySettings => 'Akku-Einstellungen';
+
+  @override
   String get achievementsTitle => 'Erfolge';
 
   @override

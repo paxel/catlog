@@ -2426,6 +2426,20 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'یادآوری کن';
+
+  @override
+  String get remindPermissionDenied =>
+      'اجازه اعلان وجود ندارد، پس یادآوری خاموش می‌ماند. در تنظیمات برنامه گوشی اجازه دهید و دوباره امتحان کنید.';
+
+  @override
+  String get batteryHint =>
+      'اگر یادآوری‌ها نمی‌رسند، در تنظیمات باتری گوشی به cat(a)log اجازه اجرای پس‌زمینه بدهید.';
+
+  @override
+  String get batterySettings => 'تنظیمات باتری';
+
+  @override
   String get achievementsTitle => 'دستاوردها';
 
   @override

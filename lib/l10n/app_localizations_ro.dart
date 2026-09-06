@@ -2473,6 +2473,20 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Amintește-mi';
+
+  @override
+  String get remindPermissionDenied =>
+      'Fără permisiune pentru notificări, memento-ul rămâne oprit. Permite-le în setările aplicației din telefon și încearcă din nou.';
+
+  @override
+  String get batteryHint =>
+      'Dacă memento-urile nu vin, permite cat(a)log să ruleze în fundal în setările de baterie ale telefonului.';
+
+  @override
+  String get batterySettings => 'Setări baterie';
+
+  @override
   String get achievementsTitle => 'Realizări';
 
   @override

@@ -2367,6 +2367,20 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'リマインド';
+
+  @override
+  String get remindPermissionDenied =>
+      '通知の許可がないため、リマインドはオフのままです。端末のアプリ設定で許可してからやり直してください。';
+
+  @override
+  String get batteryHint =>
+      'リマインドが届かない場合は、端末の電池設定で cat(a)log のバックグラウンド動作を許可してください。';
+
+  @override
+  String get batterySettings => '電池設定';
+
+  @override
   String get achievementsTitle => '実績';
 
   @override

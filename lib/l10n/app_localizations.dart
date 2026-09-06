@@ -4286,6 +4286,30 @@ abstract class AppLocalizations {
   /// **'Due {date}'**
   String choreDue(String date);
 
+  /// No description provided for @remindMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me'**
+  String get remindMe;
+
+  /// No description provided for @remindPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'No permission for notifications, so the reminder stays off. Allow them in the phone\'s app settings and try again.'**
+  String get remindPermissionDenied;
+
+  /// No description provided for @batteryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'If reminders stay away, allow cat(a)log to run in the background in the phone\'s battery settings.'**
+  String get batteryHint;
+
+  /// No description provided for @batterySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery settings'**
+  String get batterySettings;
+
   /// No description provided for @achievementsTitle.
   ///
   /// In en, this message translates to:

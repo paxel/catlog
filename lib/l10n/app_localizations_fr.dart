@@ -2472,6 +2472,20 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Me rappeler';
+
+  @override
+  String get remindPermissionDenied =>
+      'Pas d’autorisation pour les notifications, le rappel reste désactivé. Autorise-les dans les réglages de l’application du téléphone et réessaie.';
+
+  @override
+  String get batteryHint =>
+      'Si les rappels n’arrivent pas, autorise cat(a)log à tourner en arrière-plan dans les réglages de batterie du téléphone.';
+
+  @override
+  String get batterySettings => 'Réglages de batterie';
+
+  @override
   String get achievementsTitle => 'Succès';
 
   @override

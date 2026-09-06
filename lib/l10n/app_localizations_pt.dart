@@ -2464,6 +2464,20 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Lembrar-me';
+
+  @override
+  String get remindPermissionDenied =>
+      'Sem permissão para notificações, o lembrete fica desligado. Permite-as nas definições da app do telemóvel e tenta outra vez.';
+
+  @override
+  String get batteryHint =>
+      'Se os lembretes não chegarem, permite que o cat(a)log corra em segundo plano nas definições de bateria do telemóvel.';
+
+  @override
+  String get batterySettings => 'Definições de bateria';
+
+  @override
   String get achievementsTitle => 'Conquistas';
 
   @override

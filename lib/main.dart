@@ -15,6 +15,7 @@ import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
 import 'src/screens/restore_screen.dart';
+import 'src/chores/chore_reminders.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
 import 'src/screens/author_setup_screen.dart';
@@ -188,6 +189,14 @@ class _CatlogAppState extends State<CatlogApp>
     WidgetsBinding.instance.addPostFrameCallback((_) => previous.close());
   }
 
+  /// Chore reminders follow the catalog as it is now: rebuilt on start,
+  /// on resume and after every change.
+  void _refreshReminders() {
+    if (!_store.isOpen) return;
+    refreshChoreReminders(_store,
+        body: (c) => _store.current(c.entity, Keys.name) ?? '');
+  }
+
   /// True only when the author was created THIS run: the intro is for
   /// fresh installs, never sprung on upgraders with a routine.
   bool _freshSetup = false;
@@ -200,6 +209,7 @@ class _CatlogAppState extends State<CatlogApp>
   void initState() {
     super.initState();
     switchCatalog = (to) => _switchCatalog(to);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _refreshReminders());
     // The words change with the mode; the whole tree reads them anew.
     petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);
@@ -275,6 +285,7 @@ class _CatlogAppState extends State<CatlogApp>
     }
     if (state == AppLifecycleState.resumed) {
       markRunning();
+      _refreshReminders();
     }
   }
 

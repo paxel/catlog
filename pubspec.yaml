@@ -31,7 +31,7 @@ dependencies:
   audioplayers: ^6.1.0
   connectivity_plus: ^6.1.0
   device_calendar: ^4.3.3
-  timezone: any
+  timezone: ^0.9.4
   window_manager: ^0.4.3
   qr_flutter: ^4.1.0
   share_plus: ^10.1.0
@@ -44,6 +44,8 @@ dependencies:
   get_thumbnail_video: ^0.7.3
   basic_utils: ^5.7.0
   crypto: ^3.0.7
+  flutter_local_notifications: ^18.0.1
+  flutter_timezone: ^5.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

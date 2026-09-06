@@ -24,6 +24,7 @@ import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import '../celebration.dart';
 import '../widgets/chore_row.dart';
+import '../chores/chore_reminders.dart';
 import '../achievements.dart';
 import '../move_to_catalog.dart';
 import 'achievements_screen.dart';
@@ -132,7 +133,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
   }
 
   Future<void> _add() async {
-    if (await showPlanChooser(context, store) && mounted) _changed();
+    if (await showPlanChooser(context, store) && mounted) {
+      _changed();
+      refreshChoreReminders(store, body: _reminderBody);
+    }
   }
 
   Future<void> _openEntity(String id) async {
@@ -319,7 +323,11 @@ class _AgendaScreenState extends State<AgendaScreen> {
     }
     if (cheer) celebrate(context, store);
     setState(() {});
+    refreshChoreReminders(store, body: _reminderBody);
   }
+
+  String _reminderBody(Chore c) =>
+      store.current(c.entity, Keys.name) ?? context.t.unnamed;
 
   void _openAchievements() {
     final manager = widget.manager ?? catalogManager;

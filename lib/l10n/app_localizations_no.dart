@@ -2461,6 +2461,20 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Minn meg på';
+
+  @override
+  String get remindPermissionDenied =>
+      'Ingen tillatelse til varsler, påminnelsen forblir av. Tillat dem i telefonens appinnstillinger og prøv igjen.';
+
+  @override
+  String get batteryHint =>
+      'Uteblir påminnelsene, tillat cat(a)log å kjøre i bakgrunnen i telefonens batteriinnstillinger.';
+
+  @override
+  String get batterySettings => 'Batteriinnstillinger';
+
+  @override
   String get achievementsTitle => 'Prestasjoner';
 
   @override

@@ -20,6 +20,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   and a master ladder per chore (10, 50, 100, 1,000, 10,000, 100,000
   times). A page from Settings and the agenda's trophy; climbing a
   ladder gets the confetti and a line saying which.
+- A chore can remind you: "Remind me" with a time of day on the
+  chore, a phone notification on its due days, gone once the chore is
+  ticked, on this phone or a partner's. The switch asks for the
+  notification permission; a hint leads to the battery settings for
+  phones that drop reminders.
 
 ### Changed
 

@@ -2335,6 +2335,18 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get remindMe => '提醒我';
+
+  @override
+  String get remindPermissionDenied => '没有通知权限，提醒保持关闭。请在手机的应用设置中允许通知后重试。';
+
+  @override
+  String get batteryHint => '如果收不到提醒，请在手机的电池设置中允许 cat(a)log 在后台运行。';
+
+  @override
+  String get batterySettings => '电池设置';
+
+  @override
   String get achievementsTitle => '成就';
 
   @override

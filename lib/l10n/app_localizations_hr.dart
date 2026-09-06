@@ -2469,6 +2469,20 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Podsjeti me';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nema dopuštenja za obavijesti, podsjetnik ostaje isključen. Dopustite ih u postavkama aplikacije na telefonu i pokušajte ponovno.';
+
+  @override
+  String get batteryHint =>
+      'Ako podsjetnici ne stižu, dopustite cat(a)logu rad u pozadini u postavkama baterije telefona.';
+
+  @override
+  String get batterySettings => 'Postavke baterije';
+
+  @override
   String get achievementsTitle => 'Postignuća';
 
   @override

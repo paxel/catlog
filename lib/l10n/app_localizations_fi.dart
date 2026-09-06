@@ -2465,6 +2465,20 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Muistuta';
+
+  @override
+  String get remindPermissionDenied =>
+      'Ei lupaa ilmoituksiin, muistutus jää pois päältä. Salli ne puhelimen sovellusasetuksissa ja yritä uudelleen.';
+
+  @override
+  String get batteryHint =>
+      'Jos muistutukset jäävät tulematta, salli cat(a)login toimia taustalla puhelimen akkuasetuksissa.';
+
+  @override
+  String get batterySettings => 'Akkuasetukset';
+
+  @override
   String get achievementsTitle => 'Saavutukset';
 
   @override

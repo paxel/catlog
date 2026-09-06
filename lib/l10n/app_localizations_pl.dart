@@ -2474,6 +2474,20 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Przypomnij mi';
+
+  @override
+  String get remindPermissionDenied =>
+      'Brak uprawnienia do powiadomień, przypomnienie pozostaje wyłączone. Zezwól na nie w ustawieniach aplikacji telefonu i spróbuj ponownie.';
+
+  @override
+  String get batteryHint =>
+      'Jeśli przypomnienia nie przychodzą, zezwól cat(a)log na działanie w tle w ustawieniach baterii telefonu.';
+
+  @override
+  String get batterySettings => 'Ustawienia baterii';
+
+  @override
   String get achievementsTitle => 'Osiągnięcia';
 
   @override

@@ -2472,6 +2472,20 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Ricordamelo';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nessun permesso per le notifiche, il promemoria resta spento. Consentile nelle impostazioni dell’app del telefono e riprova.';
+
+  @override
+  String get batteryHint =>
+      'Se i promemoria non arrivano, consenti a cat(a)log di restare in background nelle impostazioni batteria del telefono.';
+
+  @override
+  String get batterySettings => 'Impostazioni batteria';
+
+  @override
   String get achievementsTitle => 'Traguardi';
 
   @override

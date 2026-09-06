@@ -2466,6 +2466,20 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Потсети ме';
+
+  @override
+  String get remindPermissionDenied =>
+      'Нема дозвола за известувања, потсетникот останува исклучен. Дозволете ги во поставките на апликацијата на телефонот и обидете се повторно.';
+
+  @override
+  String get batteryHint =>
+      'Ако потсетниците не доаѓаат, дозволете cat(a)log да работи во позадина во поставките за батерија на телефонот.';
+
+  @override
+  String get batterySettings => 'Поставки за батерија';
+
+  @override
   String get achievementsTitle => 'Достигнувања';
 
   @override

@@ -2495,6 +2495,20 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Cuir i gcuimhne dom';
+
+  @override
+  String get remindPermissionDenied =>
+      'Níl cead ann d’fhógraí, mar sin fanann an meabhrúchán múchta. Ceadaigh iad i socruithe aip an ghutháin agus bain triail eile as.';
+
+  @override
+  String get batteryHint =>
+      'Mura dtagann meabhrúcháin, lig do cat(a)log rith sa chúlra i socruithe ceallra an ghutháin.';
+
+  @override
+  String get batterySettings => 'Socruithe ceallra';
+
+  @override
   String get achievementsTitle => 'Éachtaí';
 
   @override

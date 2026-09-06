@@ -2477,6 +2477,20 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'ذكّرني';
+
+  @override
+  String get remindPermissionDenied =>
+      'لا إذن للإشعارات، فيبقى التذكير متوقفًا. اسمح بها في إعدادات التطبيق على الهاتف وحاول مرة أخرى.';
+
+  @override
+  String get batteryHint =>
+      'إذا لم تصل التذكيرات، اسمح لـ cat(a)log بالعمل في الخلفية من إعدادات البطارية في الهاتف.';
+
+  @override
+  String get batterySettings => 'إعدادات البطارية';
+
+  @override
   String get achievementsTitle => 'الإنجازات';
 
   @override

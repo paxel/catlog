@@ -2472,6 +2472,20 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Recordarme';
+
+  @override
+  String get remindPermissionDenied =>
+      'Sin permiso para notificaciones, el recordatorio queda apagado. Permítelas en los ajustes de la app del teléfono e inténtalo de nuevo.';
+
+  @override
+  String get batteryHint =>
+      'Si los recordatorios no llegan, permite que cat(a)log funcione en segundo plano en los ajustes de batería del teléfono.';
+
+  @override
+  String get batterySettings => 'Ajustes de batería';
+
+  @override
   String get achievementsTitle => 'Logros';
 
   @override

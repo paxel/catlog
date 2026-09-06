@@ -2469,6 +2469,20 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Připomenout';
+
+  @override
+  String get remindPermissionDenied =>
+      'Bez oprávnění k oznámením zůstává připomínka vypnutá. Povol je v nastavení aplikace v telefonu a zkus to znovu.';
+
+  @override
+  String get batteryHint =>
+      'Pokud připomínky nechodí, povol cat(a)log běžet na pozadí v nastavení baterie telefonu.';
+
+  @override
+  String get batterySettings => 'Nastavení baterie';
+
+  @override
   String get achievementsTitle => 'Úspěchy';
 
   @override

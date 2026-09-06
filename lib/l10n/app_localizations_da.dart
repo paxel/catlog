@@ -2463,6 +2463,20 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Mind mig om det';
+
+  @override
+  String get remindPermissionDenied =>
+      'Ingen tilladelse til meddelelser, så påmindelsen forbliver slået fra. Tillad dem i telefonens app-indstillinger og prøv igen.';
+
+  @override
+  String get batteryHint =>
+      'Udebliver påmindelser, så tillad cat(a)log at køre i baggrunden i telefonens batteriindstillinger.';
+
+  @override
+  String get batterySettings => 'Batteriindstillinger';
+
+  @override
   String get achievementsTitle => 'Præstationer';
 
   @override

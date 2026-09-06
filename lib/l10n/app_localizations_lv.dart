@@ -2473,6 +2473,20 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Atgādināt';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nav atļaujas paziņojumiem, atgādinājums paliek izslēgts. Atļaujiet tos tālruņa lietotnes iestatījumos un mēģiniet vēlreiz.';
+
+  @override
+  String get batteryHint =>
+      'Ja atgādinājumi nepienāk, tālruņa akumulatora iestatījumos atļaujiet cat(a)log darboties fonā.';
+
+  @override
+  String get batterySettings => 'Akumulatora iestatījumi';
+
+  @override
   String get achievementsTitle => 'Sasniegumi';
 
   @override

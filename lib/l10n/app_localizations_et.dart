@@ -2461,6 +2461,20 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Tuleta meelde';
+
+  @override
+  String get remindPermissionDenied =>
+      'Teavituste luba puudub, meeldetuletus jääb välja. Luba need telefoni rakenduse seadetes ja proovi uuesti.';
+
+  @override
+  String get batteryHint =>
+      'Kui meeldetuletused jäävad tulemata, luba cat(a)logil telefoni aku seadetes taustal töötada.';
+
+  @override
+  String get batterySettings => 'Aku seaded';
+
+  @override
   String get achievementsTitle => 'Saavutused';
 
   @override

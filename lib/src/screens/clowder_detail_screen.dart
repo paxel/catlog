@@ -31,6 +31,7 @@ import 'timeline_screen.dart';
 import '../geocode.dart';
 import 'cat_list_screen.dart';
 import '../widgets/chore_row.dart';
+import '../chores/chore_reminders.dart';
 
 /// One Clowder: name, its Field values (address, responsible person, …),
 /// and the Cats currently living there as a grid of faces.
@@ -270,6 +271,8 @@ class _ClowderDetailScreenState extends State<ClowderDetailScreen> {
   void _plansChanged() {
     setState(() {});
     mirrorAfterChange(context, store);
+    refreshChoreReminders(store,
+        body: (c) => store.current(c.entity, Keys.name) ?? context.t.unnamed);
   }
 
   /// The clowder's live plans, as the agenda shows them.

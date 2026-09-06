@@ -2468,6 +2468,20 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Minna mig á';
+
+  @override
+  String get remindPermissionDenied =>
+      'Engin heimild fyrir tilkynningar, áminningin helst slökkt. Leyfðu þær í forritsstillingum símans og reyndu aftur.';
+
+  @override
+  String get batteryHint =>
+      'Ef áminningar berast ekki, leyfðu cat(a)log að keyra í bakgrunni í rafhlöðustillingum símans.';
+
+  @override
+  String get batterySettings => 'Rafhlöðustillingar';
+
+  @override
   String get achievementsTitle => 'Afrek';
 
   @override

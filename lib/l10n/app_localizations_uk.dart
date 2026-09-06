@@ -2474,6 +2474,20 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Нагадувати';
+
+  @override
+  String get remindPermissionDenied =>
+      'Немає дозволу на сповіщення, нагадування залишається вимкненим. Дозвольте їх у налаштуваннях застосунку на телефоні й спробуйте ще раз.';
+
+  @override
+  String get batteryHint =>
+      'Якщо нагадування не приходять, дозвольте cat(a)log працювати у фоні в налаштуваннях батареї телефона.';
+
+  @override
+  String get batterySettings => 'Налаштування батареї';
+
+  @override
   String get achievementsTitle => 'Досягнення';
 
   @override

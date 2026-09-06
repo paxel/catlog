@@ -39,6 +39,7 @@ import 'timeline_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
 import '../widgets/chore_row.dart';
+import '../chores/chore_reminders.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
 class CatDetailScreen extends StatefulWidget {
@@ -220,6 +221,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   void _plansChanged() {
     setState(() {});
     mirrorAfterChange(context, store);
+    refreshChoreReminders(store,
+        body: (c) => store.current(c.entity, Keys.name) ?? context.t.unnamed);
   }
 
   /// The cat's live plans, as the agenda shows them — nothing vanishes

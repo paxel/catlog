@@ -2471,6 +2471,20 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Fakkarni';
+
+  @override
+  String get remindPermissionDenied =>
+      'M’hemmx permess għan-notifiki, għalhekk it-tfakkira tibqa’ mitfija. Ippermettihom fis-settings tal-app tat-telefon u erġa’ pprova.';
+
+  @override
+  String get batteryHint =>
+      'Jekk it-tfakkiriet ma jaslux, ippermetti lil cat(a)log jaħdem fl-isfond fis-settings tal-batterija tat-telefon.';
+
+  @override
+  String get batterySettings => 'Settings tal-batterija';
+
+  @override
   String get achievementsTitle => 'Kisbiet';
 
   @override

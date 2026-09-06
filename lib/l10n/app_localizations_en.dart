@@ -2463,6 +2463,20 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Remind me';
+
+  @override
+  String get remindPermissionDenied =>
+      'No permission for notifications, so the reminder stays off. Allow them in the phone\'s app settings and try again.';
+
+  @override
+  String get batteryHint =>
+      'If reminders stay away, allow cat(a)log to run in the background in the phone\'s battery settings.';
+
+  @override
+  String get batterySettings => 'Battery settings';
+
+  @override
   String get achievementsTitle => 'Achievements';
 
   @override

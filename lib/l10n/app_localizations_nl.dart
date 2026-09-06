@@ -2469,6 +2469,20 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Herinner me';
+
+  @override
+  String get remindPermissionDenied =>
+      'Geen toestemming voor meldingen, de herinnering blijft uit. Sta ze toe in de app-instellingen van de telefoon en probeer opnieuw.';
+
+  @override
+  String get batteryHint =>
+      'Blijven herinneringen uit, sta cat(a)log dan toe op de achtergrond te draaien in de batterij-instellingen van de telefoon.';
+
+  @override
+  String get batterySettings => 'Batterij-instellingen';
+
+  @override
   String get achievementsTitle => 'Prestaties';
 
   @override

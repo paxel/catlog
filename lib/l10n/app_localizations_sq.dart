@@ -2464,6 +2464,20 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Më kujto';
+
+  @override
+  String get remindPermissionDenied =>
+      'Nuk ka leje për njoftime, kujtesa mbetet e fikur. Lejoji në cilësimet e aplikacionit në telefon dhe provo sërish.';
+
+  @override
+  String get batteryHint =>
+      'Nëse kujtesat nuk vijnë, lejo cat(a)log të punojë në sfond te cilësimet e baterisë së telefonit.';
+
+  @override
+  String get batterySettings => 'Cilësimet e baterisë';
+
+  @override
   String get achievementsTitle => 'Arritje';
 
   @override

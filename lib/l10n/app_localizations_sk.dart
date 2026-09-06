@@ -2468,6 +2468,20 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Pripomenúť';
+
+  @override
+  String get remindPermissionDenied =>
+      'Bez oprávnenia na upozornenia zostáva pripomienka vypnutá. Povoľ ich v nastaveniach aplikácie v telefóne a skús znova.';
+
+  @override
+  String get batteryHint =>
+      'Ak pripomienky nechodia, povoľ cat(a)log bežať na pozadí v nastaveniach batérie telefónu.';
+
+  @override
+  String get batterySettings => 'Nastavenia batérie';
+
+  @override
   String get achievementsTitle => 'Úspechy';
 
   @override

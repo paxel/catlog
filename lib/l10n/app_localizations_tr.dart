@@ -2462,6 +2462,20 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Hatırlat';
+
+  @override
+  String get remindPermissionDenied =>
+      'Bildirim izni yok, hatırlatıcı kapalı kalır. Telefonun uygulama ayarlarından izin ver ve tekrar dene.';
+
+  @override
+  String get batteryHint =>
+      'Hatırlatıcılar gelmiyorsa telefonun pil ayarlarında cat(a)log’un arka planda çalışmasına izin ver.';
+
+  @override
+  String get batterySettings => 'Pil ayarları';
+
+  @override
   String get achievementsTitle => 'Başarılar';
 
   @override

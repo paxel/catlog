@@ -2474,6 +2474,20 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get remindMe => 'Υπενθύμιση';
+
+  @override
+  String get remindPermissionDenied =>
+      'Δεν υπάρχει άδεια για ειδοποιήσεις, η υπενθύμιση μένει ανενεργή. Επίτρεψέ τες στις ρυθμίσεις της εφαρμογής στο τηλέφωνο και δοκίμασε ξανά.';
+
+  @override
+  String get batteryHint =>
+      'Αν οι υπενθυμίσεις δεν έρχονται, επίτρεψε στο cat(a)log να τρέχει στο παρασκήνιο στις ρυθμίσεις μπαταρίας του τηλεφώνου.';
+
+  @override
+  String get batterySettings => 'Ρυθμίσεις μπαταρίας';
+
+  @override
   String get achievementsTitle => 'Επιτεύγματα';
 
   @override
