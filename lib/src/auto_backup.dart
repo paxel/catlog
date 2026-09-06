@@ -48,6 +48,49 @@ String _fingerprint(String value) {
   return hash.toRadixString(16).padLeft(8, '0');
 }
 
+/// The folder a fresh install looks in for the backups of the install
+/// before it. Android: the app's own media folder (`Android/media/<package>/
+/// backups`), which survives an uninstall and needs no permission;
+/// desktop: the Downloads folder the backups go to; iOS: Documents. Null
+/// where the platform offers none.
+Future<Directory?> backupFolder() async {
+  try {
+    if (Platform.isAndroid) {
+      final path = await const MethodChannel('catlog/backup')
+          .invokeMethod<String>('mediaBackupDir');
+      return path == null ? null : Directory(path);
+    }
+    if (Platform.isIOS) return await getApplicationDocumentsDirectory();
+    return await getDownloadsDirectory();
+  } catch (_) {
+    return null;
+  }
+}
+
+/// Puts a copy of [path] as [name] into [folder], replacing an older
+/// one. Best effort: the Downloads copy is the one the keeper sees; this
+/// one is the safety net for the next install.
+Future<void> copyToBackupFolder(String path, String name,
+    {Directory? folder}) async {
+  final dir = folder ?? await backupFolder();
+  if (dir == null) return;
+  try {
+    dir.createSync(recursive: true);
+    File(path).copySync('${dir.path}/$name');
+  } catch (_) {
+    // Nothing to do here that the Downloads copy does not already do.
+  }
+}
+
+/// Removes [name] from the fresh-install folder — the twin of
+/// [copyToBackupFolder] after a rename.
+Future<void> removeFromBackupFolder(String name, {Directory? folder}) async {
+  final dir = folder ?? await backupFolder();
+  if (dir == null) return;
+  final file = File('${dir.path}/$name');
+  if (file.existsSync()) file.deleteSync();
+}
+
 /// Removes a file from where the backups go — after a rename, the file
 /// under the old name is no longer anybody's backup.
 Future<void> removeBesideBackups(String name) async {
@@ -55,6 +98,7 @@ Future<void> removeBesideBackups(String name) async {
     if (Platform.isAndroid) {
       await const MethodChannel('catlog/backup')
           .invokeMethod('deleteFromDownloads', {'name': name});
+      await removeFromBackupFolder(name);
       return;
     }
     final dir = Platform.isIOS
@@ -78,6 +122,8 @@ Future<String> saveBesideBackups(String path, String name) async {
   if (Platform.isAndroid) {
     await const MethodChannel('catlog/backup')
         .invokeMethod('saveToDownloads', {'path': path, 'name': name});
+    // And the copy the next install finds on its own.
+    await copyToBackupFolder(path, name);
     return 'Downloads/catlog/$name';
   }
   if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {

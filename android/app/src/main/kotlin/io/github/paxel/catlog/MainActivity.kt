@@ -51,6 +51,8 @@ class MainActivity : FlutterActivity() {
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
+                } else if (call.method == "mediaBackupDir") {
+                    result.success(mediaBackupDir()?.absolutePath)
                 } else {
                     result.notImplemented()
                 }
@@ -115,6 +117,16 @@ class MainActivity : FlutterActivity() {
         if (paths.isEmpty()) return
         pendingImages = paths
         openChannel?.invokeMethod("sharedImages", paths)
+    }
+
+    /// The app's own folder on shared storage, Android/media/<package>/
+    /// backups. Unlike Android/data it is NOT removed on uninstall, and a
+    /// fresh install of the same package reads and writes it without any
+    /// permission — the WhatsApp way of surviving a reinstall. Plain
+    /// file access, so Dart lists and copies there itself.
+    private fun mediaBackupDir(): File? {
+        val root = externalMediaDirs.firstOrNull() ?: return null
+        return File(root, "backups").apply { mkdirs() }
     }
 
     /// Removes a backup file from Downloads/catlog — used when a catalog
