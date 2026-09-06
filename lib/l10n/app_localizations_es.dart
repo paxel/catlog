@@ -1413,6 +1413,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get starterWeight => 'Peso';
 
   @override
+  String get starterLooks => 'Aspecto';
+
+  @override
+  String get rejectMatch => 'No es el mismo';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rasgos coinciden',
+      one: '1 rasgo coincide',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Predeterminado del sistema';
 
   @override

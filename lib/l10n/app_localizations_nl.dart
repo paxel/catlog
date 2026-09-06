@@ -1411,6 +1411,23 @@ class AppLocalizationsNl extends AppLocalizations {
   String get starterWeight => 'Gewicht';
 
   @override
+  String get starterLooks => 'Uiterlijk';
+
+  @override
+  String get rejectMatch => 'Niet dezelfde';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kenmerken komen overeen',
+      one: '1 kenmerk komt overeen',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systeemstandaard';
 
   @override

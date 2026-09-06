@@ -1404,6 +1404,23 @@ class AppLocalizationsFa extends AppLocalizations {
   String get starterWeight => 'وزن';
 
   @override
+  String get starterLooks => 'ظاهر';
+
+  @override
+  String get rejectMatch => 'همان نیست';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ویژگی مطابقت دارند',
+      one: '$count ویژگی مطابقت دارد',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'پیش‌فرض سیستم';
 
   @override

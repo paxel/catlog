@@ -1406,6 +1406,23 @@ class AppLocalizationsTr extends AppLocalizations {
   String get starterWeight => 'Ağırlık';
 
   @override
+  String get starterLooks => 'Görünüş';
+
+  @override
+  String get rejectMatch => 'Aynı değil';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count özellik uyuşuyor',
+      one: '1 özellik uyuşuyor',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistem varsayılanı';
 
   @override

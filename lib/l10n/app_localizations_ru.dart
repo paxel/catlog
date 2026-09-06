@@ -1408,6 +1408,25 @@ class AppLocalizationsRu extends AppLocalizations {
   String get starterWeight => 'Вес';
 
   @override
+  String get starterLooks => 'Внешность';
+
+  @override
+  String get rejectMatch => 'Не тот же';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count признака совпадают',
+      many: '$count признаков совпадают',
+      few: '$count признака совпадают',
+      one: '$count признак совпадает',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Системный по умолчанию';
 
   @override

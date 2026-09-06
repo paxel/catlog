@@ -1408,6 +1408,23 @@ class AppLocalizationsDa extends AppLocalizations {
   String get starterWeight => 'Vægt';
 
   @override
+  String get starterLooks => 'Udseende';
+
+  @override
+  String get rejectMatch => 'Ikke den samme';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count træk stemmer',
+      one: '1 træk stemmer',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override

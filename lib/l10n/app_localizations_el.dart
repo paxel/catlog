@@ -1415,6 +1415,23 @@ class AppLocalizationsEl extends AppLocalizations {
   String get starterWeight => 'Βάρος';
 
   @override
+  String get starterLooks => 'Εμφάνιση';
+
+  @override
+  String get rejectMatch => 'Δεν είναι το ίδιο';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count χαρακτηριστικά συμφωνούν',
+      one: '1 χαρακτηριστικό συμφωνεί',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Προεπιλογή συστήματος';
 
   @override

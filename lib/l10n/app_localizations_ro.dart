@@ -1409,6 +1409,24 @@ class AppLocalizationsRo extends AppLocalizations {
   String get starterWeight => 'Greutate';
 
   @override
+  String get starterLooks => 'Aspect';
+
+  @override
+  String get rejectMatch => 'Nu e același';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de trăsături se potrivesc',
+      few: '$count trăsături se potrivesc',
+      one: '1 trăsătură se potrivește',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Implicit sistem';
 
   @override

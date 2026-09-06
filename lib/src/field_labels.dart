@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
 import 'units.dart';
+import 'looks_labels.dart';
 
 /// Localized display for a canonical Clowder status value, or null when
 /// the value is free text the app does not recognize.
@@ -53,6 +54,8 @@ String fieldValueDisplay(AppLocalizations t, FieldDef? def, String? value) {
     return formatUnitValue(
         t.localeName, def!.unitDimension, value);
   }
+  // Looks read as group: values, in the device language.
+  if (def?.type == FieldType.tags) return looksDisplay(t, value);
   if (def?.slug == 'breed') {
     return switch (value) {
       'European Shorthair' => t.breedEuropeanShorthair,
@@ -114,6 +117,7 @@ String? _translatedName(AppLocalizations t, String slug) => switch (slug) {
   'position' => t.starterPosition,
   'remarks' => t.starterRemarks,
   'weight' => t.starterWeight,
+  'looks' => t.starterLooks,
   _ => null,
 };
 

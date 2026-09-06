@@ -204,6 +204,20 @@ void main() {
       expect(pairs, [near, far, nowhere, weak]);
     });
 
+    test('the match list carries Looks pairs after ID and map pairs', () {
+      final a = cat('Seen', looks: 'size=medium; fur=short');
+      final b = cat('Lost', looks: 'size=medium; fur=short');
+      store.append(a, 'f:chipid', '276 1');
+      store.append(b, 'f:chipid', '2761');
+      final c = cat('Third', looks: 'size=medium; fur=short');
+      final all = matchCandidates(store);
+      expect(all.first.reason, MatchReason.idExact);
+      expect(all.where((m) => m.reason == MatchReason.looks).length, 2,
+          reason: 'the ID pair is not listed twice');
+      expect(all.last.agreeing, ['size', 'fur']);
+      expect({all.last.a, all.last.b}, anyOf({a, c}, {b, c}));
+    });
+
     test('a rejected pair stays away until a side changes', () {
       final a = cat('Seen', looks: 'size=medium; fur=short');
       final b = cat('Lost', looks: 'size=medium; fur=short');

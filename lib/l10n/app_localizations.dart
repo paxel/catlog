@@ -2582,6 +2582,24 @@ abstract class AppLocalizations {
   /// **'Weight'**
   String get starterWeight;
 
+  /// No description provided for @starterLooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks'**
+  String get starterLooks;
+
+  /// No description provided for @rejectMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Not the same'**
+  String get rejectMatch;
+
+  /// No description provided for @traitsAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 trait agrees} other{{count} traits agree}}'**
+  String traitsAgree(int count);
+
   /// No description provided for @systemDefault.
   ///
   /// In en, this message translates to:

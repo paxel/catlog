@@ -1407,6 +1407,23 @@ class AppLocalizationsHu extends AppLocalizations {
   String get starterWeight => 'Súly';
 
   @override
+  String get starterLooks => 'Külső';
+
+  @override
+  String get rejectMatch => 'Nem ugyanaz';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count jegy egyezik',
+      one: '1 jegy egyezik',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Rendszer alapértelmezés';
 
   @override

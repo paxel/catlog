@@ -1411,6 +1411,25 @@ class AppLocalizationsMt extends AppLocalizations {
   String get starterWeight => 'Piż';
 
   @override
+  String get starterLooks => 'Dehra';
+
+  @override
+  String get rejectMatch => 'Mhux l-istess';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count karatteristiċi jaqblu',
+      many: '$count karatteristiċi jaqblu',
+      few: '$count karatteristiċi jaqblu',
+      one: '$count karatteristika taqbel',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Default tas-sistema';
 
   @override

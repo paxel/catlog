@@ -1409,6 +1409,23 @@ class AppLocalizationsFi extends AppLocalizations {
   String get starterWeight => 'Paino';
 
   @override
+  String get starterLooks => 'Ulkonäkö';
+
+  @override
+  String get rejectMatch => 'Ei sama';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count piirrettä täsmää',
+      one: '1 piirre täsmää',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Järjestelmän oletus';
 
   @override

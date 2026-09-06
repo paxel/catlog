@@ -1411,6 +1411,23 @@ class AppLocalizationsIs extends AppLocalizations {
   String get starterWeight => 'Þyngd';
 
   @override
+  String get starterLooks => 'Útlit';
+
+  @override
+  String get rejectMatch => 'Ekki það sama';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count einkenni stemma',
+      one: '$count einkenni stemmir',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sjálfgefið kerfis';
 
   @override

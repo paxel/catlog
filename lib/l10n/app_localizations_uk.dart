@@ -1408,6 +1408,25 @@ class AppLocalizationsUk extends AppLocalizations {
   String get starterWeight => 'Вага';
 
   @override
+  String get starterLooks => 'Зовнішність';
+
+  @override
+  String get rejectMatch => 'Не той самий';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ознаки збігаються',
+      many: '$count ознак збігаються',
+      few: '$count ознаки збігаються',
+      one: '$count ознака збігається',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Системна за замовчуванням';
 
   @override

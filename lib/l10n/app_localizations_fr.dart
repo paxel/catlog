@@ -1411,6 +1411,23 @@ class AppLocalizationsFr extends AppLocalizations {
   String get starterWeight => 'Poids';
 
   @override
+  String get starterLooks => 'Apparence';
+
+  @override
+  String get rejectMatch => 'Pas le même';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count traits concordent',
+      one: '1 trait concorde',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Langue du système';
 
   @override

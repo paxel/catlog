@@ -1406,6 +1406,23 @@ class AppLocalizationsEt extends AppLocalizations {
   String get starterWeight => 'Kaal';
 
   @override
+  String get starterLooks => 'Välimus';
+
+  @override
+  String get rejectMatch => 'Pole sama';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tunnust klapivad',
+      one: '1 tunnus klapib',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Süsteemi vaikimisi';
 
   @override

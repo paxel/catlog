@@ -1405,6 +1405,23 @@ class AppLocalizationsNo extends AppLocalizations {
   String get starterWeight => 'Vekt';
 
   @override
+  String get starterLooks => 'Utseende';
+
+  @override
+  String get rejectMatch => 'Ikke den samme';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count trekk stemmer',
+      one: '1 trekk stemmer',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override

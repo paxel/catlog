@@ -1408,6 +1408,24 @@ class AppLocalizationsHr extends AppLocalizations {
   String get starterWeight => 'Težina';
 
   @override
+  String get starterLooks => 'Izgled';
+
+  @override
+  String get rejectMatch => 'Nije isto';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count obilježja se slaže',
+      few: '$count obilježja se slažu',
+      one: '$count obilježje se slaže',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Zadano sustavom';
 
   @override

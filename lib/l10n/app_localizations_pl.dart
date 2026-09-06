@@ -1407,6 +1407,25 @@ class AppLocalizationsPl extends AppLocalizations {
   String get starterWeight => 'Waga';
 
   @override
+  String get starterLooks => 'Wygląd';
+
+  @override
+  String get rejectMatch => 'To nie ten sam';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count cechy się zgadzają',
+      many: '$count cech się zgadza',
+      few: '$count cechy się zgadzają',
+      one: '1 cecha się zgadza',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Domyślny systemowy';
 
   @override

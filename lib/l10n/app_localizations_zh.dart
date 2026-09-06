@@ -1365,6 +1365,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get starterWeight => '体重';
 
   @override
+  String get starterLooks => '外貌';
+
+  @override
+  String get rejectMatch => '不是同一只';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 项特征相符',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => '跟随系统';
 
   @override

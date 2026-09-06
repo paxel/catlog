@@ -1477,6 +1477,9 @@ class ModeLocalizations implements AppLocalizations {
   String get rejectArrival => base.rejectArrival;
 
   @override
+  String get rejectMatch => base.rejectMatch;
+
+  @override
   String get rememberService => base.rememberService;
 
   @override
@@ -1819,6 +1822,9 @@ class ModeLocalizations implements AppLocalizations {
   String get starterGender => base.starterGender;
 
   @override
+  String get starterLooks => base.starterLooks;
+
+  @override
   String get starterMother => base.starterMother;
 
   @override
@@ -2099,6 +2105,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String trailOfPlace(String name, int count) => base.trailOfPlace(name, count);
+
+  @override
+  String traitsAgree(int count) => base.traitsAgree(count);
 
   @override
   String get trustBothWaysNote => base.trustBothWaysNote;

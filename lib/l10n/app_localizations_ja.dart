@@ -1382,6 +1382,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get starterWeight => '体重';
 
   @override
+  String get starterLooks => '見た目';
+
+  @override
+  String get rejectMatch => '同じではない';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 個の特徴が一致',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'システムの既定';
 
   @override

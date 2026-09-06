@@ -1412,6 +1412,26 @@ class AppLocalizationsGa extends AppLocalizations {
   String get starterWeight => 'Meáchan';
 
   @override
+  String get starterLooks => 'Cuma';
+
+  @override
+  String get rejectMatch => 'Ní hé an ceann céanna';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tréith ag teacht le chéile',
+      many: '$count dtréith ag teacht le chéile',
+      few: '$count thréith ag teacht le chéile',
+      two: '$count thréith ag teacht le chéile',
+      one: '$count tréith ag teacht le chéile',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Réamhshocrú an chórais';
 
   @override

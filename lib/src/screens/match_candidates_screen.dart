@@ -4,14 +4,17 @@ import 'package:flutter/material.dart';
 import '../help.dart';
 import '../field_labels.dart';
 import '../l10n.dart';
+import '../looks_labels.dart';
 import '../merge_dialogs.dart';
 import '../widgets/cat_avatar.dart';
 import '../widgets/cat_ear.dart';
 import 'cat_detail_screen.dart';
 
 /// Possible same-cat pairs (#33): exact ID matches first, then cats
-/// whose positions fall inside the 500 m stray area. Confirming a pair
-/// is the existing Merge — the survivor is normally the sighted cat.
+/// whose positions fall inside the 500 m stray area, then pairs whose
+/// Looks agree (1.2.0). Confirming a pair is the existing Merge — the
+/// survivor is normally the sighted cat. A Looks pair can be rejected;
+/// this phone forgets it until either animal's Looks change.
 class MatchCandidatesScreen extends StatefulWidget {
   final CatalogStore store;
 
@@ -46,6 +49,44 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
       merge: store.mergeCat,
     );
     if (merged && mounted) setState(() {});
+  }
+
+  void _reject(MatchCandidate candidate) {
+    rejectLooksMatch(store, candidate.a, candidate.b);
+    setState(() {});
+  }
+
+  Widget _subtitle(MatchCandidate c) {
+    final t = context.t;
+    switch (c.reason) {
+      case MatchReason.idExact:
+        return Text(t.sameIdField(fieldDefName(t, c.idField!)));
+      case MatchReason.geoDate:
+        return Text(t.metersApart(c.distanceMeters!.round().toString()));
+      case MatchReason.looks:
+        final line = t.traitsAgree(c.agreeing.length);
+        final apart = c.distanceMeters == null
+            ? line
+            : '$line · ${t.metersApart(c.distanceMeters!.round().toString())}';
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(apart),
+            Wrap(spacing: 4, children: [
+              for (final g in c.agreeing)
+                Chip(
+                  label: Text(g == 'gender'
+                      ? t.starterGender
+                      : looksGroupLabel(t, g)),
+                  visualDensity: VisualDensity.compact,
+                  backgroundColor: Colors.green.shade100,
+                  side: BorderSide.none,
+                  padding: EdgeInsets.zero,
+                ),
+            ]),
+          ],
+        );
+    }
   }
 
   @override
@@ -97,12 +138,17 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
                     ]),
                   ),
                   title: Text('${_name(c.a)} · ${_name(c.b)}'),
-                  subtitle: Text(c.reason == MatchReason.idExact
-                      ? t.sameIdField(
-                          fieldDefName(t, c.idField!))
-                      : t.metersApart(
-                          c.distanceMeters!.round().toString())),
-                  trailing: const Icon(Icons.merge_type),
+                  subtitle: _subtitle(c),
+                  trailing: c.reason == MatchReason.looks
+                      ? Row(mainAxisSize: MainAxisSize.min, children: [
+                          IconButton(
+                            icon: const Icon(Icons.close),
+                            tooltip: t.rejectMatch,
+                            onPressed: () => _reject(c),
+                          ),
+                          const Icon(Icons.merge_type),
+                        ])
+                      : const Icon(Icons.merge_type),
                   onTap: () => _confirm(c),
                   onLongPress: () =>
                       Navigator.of(context).push(MaterialPageRoute(

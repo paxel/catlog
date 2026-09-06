@@ -1407,6 +1407,23 @@ class AppLocalizationsSq extends AppLocalizations {
   String get starterWeight => 'Pesha';
 
   @override
+  String get starterLooks => 'Pamja';
+
+  @override
+  String get rejectMatch => 'Jo i njëjti';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tipare përputhen',
+      one: '1 tipar përputhet',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Parazgjedhja e sistemit';
 
   @override

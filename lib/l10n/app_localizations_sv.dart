@@ -1407,6 +1407,23 @@ class AppLocalizationsSv extends AppLocalizations {
   String get starterWeight => 'Vikt';
 
   @override
+  String get starterLooks => 'Utseende';
+
+  @override
+  String get rejectMatch => 'Inte samma';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count drag stämmer',
+      one: '1 drag stämmer',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override

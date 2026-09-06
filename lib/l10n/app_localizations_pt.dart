@@ -1408,6 +1408,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String get starterWeight => 'Peso';
 
   @override
+  String get starterLooks => 'Aparência';
+
+  @override
+  String get rejectMatch => 'Não é o mesmo';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count traços coincidem',
+      one: '1 traço coincide',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Padrão do sistema';
 
   @override

@@ -1400,6 +1400,24 @@ class AppLocalizationsHe extends AppLocalizations {
   String get starterWeight => 'משקל';
 
   @override
+  String get starterLooks => 'מראה';
+
+  @override
+  String get rejectMatch => 'לא אותו אחד';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count תכונות תואמות',
+      two: 'שתי תכונות תואמות',
+      one: 'תכונה אחת תואמת',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'ברירת מחדל של המערכת';
 
   @override

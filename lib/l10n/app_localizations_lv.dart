@@ -1408,6 +1408,24 @@ class AppLocalizationsLv extends AppLocalizations {
   String get starterWeight => 'Svars';
 
   @override
+  String get starterLooks => 'Izskats';
+
+  @override
+  String get rejectMatch => 'Nav tas pats';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pazīmes sakrīt',
+      one: '$count pazīme sakrīt',
+      zero: '$count pazīmju sakrīt',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistēmas noklusējums';
 
   @override

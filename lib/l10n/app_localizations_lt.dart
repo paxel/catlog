@@ -1408,6 +1408,25 @@ class AppLocalizationsLt extends AppLocalizations {
   String get starterWeight => 'Svoris';
 
   @override
+  String get starterLooks => 'Išvaizda';
+
+  @override
+  String get rejectMatch => 'Ne tas pats';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count požymių sutampa',
+      many: '$count požymio sutampa',
+      few: '$count požymiai sutampa',
+      one: '$count požymis sutampa',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistemos numatytoji';
 
   @override

@@ -1408,6 +1408,25 @@ class AppLocalizationsSl extends AppLocalizations {
   String get starterWeight => 'Teža';
 
   @override
+  String get starterLooks => 'Videz';
+
+  @override
+  String get rejectMatch => 'Ni isto';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count znakov se ujema',
+      few: '$count znaki se ujemajo',
+      two: '$count znaka se ujemata',
+      one: '$count znak se ujema',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Sistemsko privzeto';
 
   @override

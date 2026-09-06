@@ -6,6 +6,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.0] - Unreleased
 
 ### Added
+- Looks: a new field describes an animal in chips, size, colours,
+  marks, and per species fur, tail, ears, pattern or plumage. The
+  Stray Cam and the poster scan ask for them right after the picture.
+  Match candidates now include pairs whose Looks agree in two traits
+  or more with nothing contradicting, ranked by how much agrees; a
+  wrong pair can be marked "Not the same".
 
 - Chores: recurring care on a cat or home — feeding, drops, litter —
   daily, every N days or on chosen weekdays, with a time of day. The

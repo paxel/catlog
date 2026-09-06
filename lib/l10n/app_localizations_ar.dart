@@ -1403,6 +1403,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get starterWeight => 'الوزن';
 
   @override
+  String get starterLooks => 'المظهر';
+
+  @override
+  String get rejectMatch => 'ليس نفسه';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سمة متطابقة',
+      many: '$count سمة متطابقة',
+      few: '$count سمات متطابقة',
+      two: 'سمتان متطابقتان',
+      one: 'سمة واحدة متطابقة',
+      zero: 'لا سمات متطابقة',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'افتراضي النظام';
 
   @override

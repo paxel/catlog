@@ -1413,6 +1413,23 @@ class AppLocalizationsDe extends AppLocalizations {
   String get starterWeight => 'Gewicht';
 
   @override
+  String get starterLooks => 'Aussehen';
+
+  @override
+  String get rejectMatch => 'Nicht dieselbe';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Merkmale stimmen überein',
+      one: '1 Merkmal stimmt überein',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Systemstandard';
 
   @override

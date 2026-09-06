@@ -1408,6 +1408,24 @@ class AppLocalizationsSr extends AppLocalizations {
   String get starterWeight => 'Тежина';
 
   @override
+  String get starterLooks => 'Изглед';
+
+  @override
+  String get rejectMatch => 'Није исто';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count обележја се слаже',
+      few: '$count обележја се слажу',
+      one: '$count обележје се слаже',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Системски подразумевано';
 
   @override

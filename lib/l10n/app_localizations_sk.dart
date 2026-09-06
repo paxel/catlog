@@ -1406,6 +1406,24 @@ class AppLocalizationsSk extends AppLocalizations {
   String get starterWeight => 'Hmotnosť';
 
   @override
+  String get starterLooks => 'Vzhľad';
+
+  @override
+  String get rejectMatch => 'Nie je to isté';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count znakov súhlasí',
+      few: '$count znaky súhlasia',
+      one: '1 znak súhlasí',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Predvolený systém';
 
   @override

@@ -7,6 +7,7 @@ import 'l10n.dart';
 import 'screens/position_picker_screen.dart';
 import 'screens/scan_screen.dart';
 import 'widgets/date_entry.dart';
+import 'widgets/looks_input.dart';
 import 'units.dart';
 
 /// The outcome of editing a Field value: what to store and the effective
@@ -239,8 +240,17 @@ class _FieldValueInputState extends State<FieldValueInput> {
             if (picked != null) setState(() => c.text.text = picked);
           },
         );
-      case FieldType.text:
       case FieldType.tags:
+        // Looks: chips per group, the groups following the animal's
+        // species; the controller's text holds the encoded line.
+        return LooksInput(
+          species: widget.excludeId == null
+              ? null
+              : widget.store?.current(widget.excludeId!, 'f:species'),
+          value: c.text.text.isEmpty ? null : c.text.text,
+          onChanged: (v) => setState(() => c.text.text = v ?? ''),
+        );
+      case FieldType.text:
         // Remarks holds whole notes (OCR dumps included) — multiline.
         final multiline = def.slug == 'remarks';
         return TextField(

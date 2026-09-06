@@ -12,10 +12,13 @@ import 'geocode.dart';
 import 'hidden.dart';
 import 'image_import.dart';
 import 'l10n.dart';
+import 'looks_labels.dart';
+import 'pet_mode.dart';
 import 'screens/photo_edit_screen.dart';
 import 'screens/scan_screen.dart';
 import 'stray_cam.dart';
 import 'widgets/date_entry.dart';
+import 'widgets/looks_input.dart';
 import 'exclusive.dart';
 
 /// A transponder number on a flier: 15 digits, often printed with
@@ -183,6 +186,12 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
   /// Catalog Fields the poster filled (gender, breed, …), editable on
   /// the Cat page.
   final _fieldInputs = <String, FieldValueController>{};
+
+  /// What the poster's animal looks like (1.2.0), as the stored line;
+  /// and its species, asked in a pets catalog, a cat otherwise.
+  String? _looks;
+  late String _species =
+      petMode.value ? (store.localSetting(lastSpeciesKey) ?? 'cat') : 'cat';
 
   /// Registry numbers the poster carried.
   final _registryHits = <FlierRegistryHit>[];
@@ -695,7 +704,11 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         catName,
         clowderId: clowderId,
         date: _missingSince,
+        species: _species,
       );
+      if (_looks case final looks?) {
+        store.append(catId, Keys.userField('looks'), looks);
+      }
       store.moveCat(catId, null, date: _missingSince);
     } else {
       catId = _existingCat!;
@@ -1020,6 +1033,31 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
           Text(hint, style: Theme.of(context).textTheme.bodySmall),
         FieldValueInput(controller: input, store: store, autofocus: false),
       ],
+      if (_newCat) ...[
+        if (petMode.value) ...[
+          const SizedBox(height: 8),
+          DropdownButtonFormField<String>(
+            initialValue: speciesPresets.contains(_species) ? _species : null,
+            decoration: InputDecoration(labelText: t.starterSpecies),
+            items: [
+              for (final s in speciesPresets)
+                DropdownMenuItem(value: s, child: Text(speciesDisplay(t, s))),
+            ],
+            onChanged: (s) => setState(() {
+              if (s == null) return;
+              _species = s;
+              store.setLocalSetting(lastSpeciesKey, s);
+            }),
+          ),
+        ],
+        const SizedBox(height: 8),
+        Text(t.starterLooks, style: Theme.of(context).textTheme.titleSmall),
+        LooksInput(
+          species: _species,
+          value: _looks,
+          onChanged: (v) => setState(() => _looks = v),
+        ),
+      ],
       TextField(
         controller: _remarks,
         minLines: 3,
@@ -1162,6 +1200,7 @@ class _FlierCaptureScreenState extends State<FlierCaptureScreen> {
         ),
       if (_chip.text.trim().isNotEmpty) (t.starterChipId, _chip.text.trim()),
       if (_newCat) (t.missingSinceLabel, _missingSinceText(context)),
+      if (_newCat && _looks != null) (t.starterLooks, looksDisplay(t, _looks!)),
       for (final input in _fieldInputs.values)
         if (input.value case final value?)
           (fieldDefName(t, input.def), fieldValueDisplay(t, input.def, value)),

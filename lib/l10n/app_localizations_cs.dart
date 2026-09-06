@@ -1408,6 +1408,24 @@ class AppLocalizationsCs extends AppLocalizations {
   String get starterWeight => 'Hmotnost';
 
   @override
+  String get starterLooks => 'Vzhled';
+
+  @override
+  String get rejectMatch => 'Není totéž';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count znaků souhlasí',
+      few: '$count znaky souhlasí',
+      one: '1 znak souhlasí',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Výchozí systému';
 
   @override

@@ -1409,6 +1409,23 @@ class AppLocalizationsBg extends AppLocalizations {
   String get starterWeight => 'Тегло';
 
   @override
+  String get starterLooks => 'Външност';
+
+  @override
+  String get rejectMatch => 'Не е същото';
+
+  @override
+  String traitsAgree(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count белега съвпадат',
+      one: '1 белег съвпада',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get systemDefault => 'Системен по подразбиране';
 
   @override
