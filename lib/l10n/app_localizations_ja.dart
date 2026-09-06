@@ -57,6 +57,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fields => '項目';
 
   @override
+  String get pickerColumns => '列';
+
+  @override
+  String get pickerCardFields => 'カードに表示';
+
+  @override
   String get exportCsv => 'CSV をエクスポート';
 
   @override

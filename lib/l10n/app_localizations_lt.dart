@@ -58,6 +58,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get fields => 'Laukai';
 
   @override
+  String get pickerColumns => 'Stulpeliai';
+
+  @override
+  String get pickerCardFields => 'Kortelėje';
+
+  @override
   String get exportCsv => 'Eksportuoti CSV';
 
   @override

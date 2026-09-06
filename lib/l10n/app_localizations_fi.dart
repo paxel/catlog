@@ -58,6 +58,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fields => 'Kentät';
 
   @override
+  String get pickerColumns => 'Sarakkeet';
+
+  @override
+  String get pickerCardFields => 'Kortilla';
+
+  @override
   String get exportCsv => 'Vie CSV';
 
   @override

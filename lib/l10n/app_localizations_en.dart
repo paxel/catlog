@@ -58,6 +58,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fields => 'Fields';
 
   @override
+  String get pickerColumns => 'Columns';
+
+  @override
+  String get pickerCardFields => 'On the card';
+
+  @override
   String get exportCsv => 'Export CSV';
 
   @override

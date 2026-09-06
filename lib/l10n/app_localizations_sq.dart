@@ -58,6 +58,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get fields => 'Fushat';
 
   @override
+  String get pickerColumns => 'Kolona';
+
+  @override
+  String get pickerCardFields => 'Në kartë';
+
+  @override
   String get exportCsv => 'Eksporto CSV';
 
   @override

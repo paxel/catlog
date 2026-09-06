@@ -58,6 +58,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fields => 'Mezők';
 
   @override
+  String get pickerColumns => 'Oszlopok';
+
+  @override
+  String get pickerCardFields => 'A kártyán';
+
+  @override
   String get exportCsv => 'CSV exportálása';
 
   @override

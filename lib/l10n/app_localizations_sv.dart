@@ -58,6 +58,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fields => 'Fält';
 
   @override
+  String get pickerColumns => 'Kolumner';
+
+  @override
+  String get pickerCardFields => 'På kortet';
+
+  @override
   String get exportCsv => 'Exportera CSV';
 
   @override

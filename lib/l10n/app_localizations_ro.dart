@@ -58,6 +58,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get fields => 'Câmpuri';
 
   @override
+  String get pickerColumns => 'Coloane';
+
+  @override
+  String get pickerCardFields => 'Pe card';
+
+  @override
   String get exportCsv => 'Exportă CSV';
 
   @override

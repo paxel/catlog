@@ -58,6 +58,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get fields => 'فیلدها';
 
   @override
+  String get pickerColumns => 'ستون‌ها';
+
+  @override
+  String get pickerCardFields => 'روی کارت';
+
+  @override
   String get exportCsv => 'خروجی CSV';
 
   @override

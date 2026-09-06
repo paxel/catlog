@@ -58,6 +58,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get fields => 'Campi';
 
   @override
+  String get pickerColumns => 'Colonne';
+
+  @override
+  String get pickerCardFields => 'Sulla scheda';
+
+  @override
   String get exportCsv => 'Esporta CSV';
 
   @override

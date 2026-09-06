@@ -58,6 +58,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get fields => 'Полиња';
 
   @override
+  String get pickerColumns => 'Колони';
+
+  @override
+  String get pickerCardFields => 'На картичката';
+
+  @override
   String get exportCsv => 'Извези CSV';
 
   @override

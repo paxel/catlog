@@ -58,6 +58,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get fields => 'Svæði';
 
   @override
+  String get pickerColumns => 'Dálkar';
+
+  @override
+  String get pickerCardFields => 'Á kortinu';
+
+  @override
   String get exportCsv => 'Flytja út CSV';
 
   @override

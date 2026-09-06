@@ -32,6 +32,7 @@ import '../reminders/mirror_hook.dart';
 import 'catalogs_screen.dart';
 import 'sync_screen.dart';
 import '../pet_mode.dart';
+import '../widgets/foldable_chips.dart';
 
 /// Home screen: all Clowders.
 class ClowderListScreen extends StatefulWidget {
@@ -423,7 +424,12 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
   Widget _clowderTable(List<EntityView> clowders) {
     final t = context.t;
     final store = widget.store;
-    final defs = store.visibleFieldDefs(scope: FieldScope.clowder);
+    // Only fields some shown home has a value for are offered: a column
+    // of empty cells is nothing to choose.
+    final defs = [
+      for (final def in store.visibleFieldDefs(scope: FieldScope.clowder))
+        if (clowders.any((c) => store.current(c.id, def.key) != null)) def
+    ];
     final chosen = _columns;
     final columns = [
       for (final def in defs)
@@ -457,23 +463,20 @@ class _ClowderListScreenState extends State<ClowderListScreen> {
     void open(String clowderId) => _open(_clowderPage(clowderId));
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Wrap(spacing: 8, runSpacing: 0, children: [
-          for (final def in defs)
-            FilterChip(
-              label: Text(fieldDefName(t, def)),
-              selected: chosen.contains(def.key),
-              visualDensity: VisualDensity.compact,
-              onSelected: (_) {
-                final next = {...chosen};
-                if (!next.remove(def.key)) next.add(def.key);
-                store.setLocalSetting(
-                    clowderColumnsKey, next.join(','));
-                setState(() {});
-              },
-            ),
-        ]),
+      FoldableChips(
+        store: store,
+        id: 'clowderColumns',
+        title: t.pickerColumns,
+        options: [
+          for (final def in defs) (key: def.key, label: fieldDefName(t, def))
+        ],
+        selected: chosen,
+        onToggle: (key) {
+          final next = {...chosen};
+          if (!next.remove(key)) next.add(key);
+          store.setLocalSetting(clowderColumnsKey, next.join(','));
+          setState(() {});
+        },
       ),
       SingleChildScrollView(
         scrollDirection: Axis.horizontal,

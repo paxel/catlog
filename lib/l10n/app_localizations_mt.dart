@@ -58,6 +58,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get fields => 'Oqsma';
 
   @override
+  String get pickerColumns => 'Kolonni';
+
+  @override
+  String get pickerCardFields => 'Fuq il-karta';
+
+  @override
   String get exportCsv => 'Esporta CSV';
 
   @override

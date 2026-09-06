@@ -10,6 +10,7 @@ import '../spotlight.dart';
 import '../widgets/cat_avatar.dart';
 import 'cat_detail_screen.dart';
 import '../hidden.dart';
+import '../widgets/foldable_chips.dart';
 
 const catViewKey = 'catView';
 const catColumnsKey = 'catColumns';
@@ -297,7 +298,12 @@ class _CatListScreenState extends State<CatListScreen> {
   /// Sortable table: Name and Age fixed, chosen field columns after.
   Widget _table(List<EntityView> cats) {
     final t = context.t;
-    final defs = _columnDefs;
+    // Only fields some shown cat has a value for are offered: a column of
+    // empty cells is nothing to choose.
+    final defs = [
+      for (final def in _columnDefs)
+        if (cats.any((c) => store.current(c.id, def.key) != null)) def
+    ];
     final chosen = _columns;
     final columns = [
       for (final def in defs)
@@ -312,26 +318,20 @@ class _CatListScreenState extends State<CatListScreen> {
     return ListView(
       padding: const EdgeInsets.only(bottom: 144),
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Wrap(
-            spacing: 8,
-            runSpacing: 0,
-            children: [
-              for (final def in defs)
-                FilterChip(
-                  label: Text(fieldDefName(t, def)),
-                  selected: chosen.contains(def.key),
-                  visualDensity: VisualDensity.compact,
-                  onSelected: (_) {
-                    final next = {...chosen};
-                    if (!next.remove(def.key)) next.add(def.key);
-                    store.setLocalSetting(catColumnsKey, next.join(','));
-                    setState(() {});
-                  },
-                ),
-            ],
-          ),
+        FoldableChips(
+          store: store,
+          id: 'catColumns',
+          title: t.pickerColumns,
+          options: [
+            for (final def in defs) (key: def.key, label: fieldDefName(t, def))
+          ],
+          selected: chosen,
+          onToggle: (key) {
+            final next = {...chosen};
+            if (!next.remove(key)) next.add(key);
+            store.setLocalSetting(catColumnsKey, next.join(','));
+            setState(() {});
+          },
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,

@@ -15,6 +15,8 @@
   "map": "Carte",
   "sync": "Synchronisation",
   "fields": "Champs",
+  "pickerColumns": "Colonnes",
+  "pickerCardFields": "Sur la carte",
   "exportCsv": "Exporter en CSV",
   "aboutAndFeedback": "À propos & retours",
   "settings": "Réglages",

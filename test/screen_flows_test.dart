@@ -147,6 +147,9 @@ void main() {
   group('the card', () {
     testWidgets('chooses which fields it prints', (tester) async {
       await pump(tester, CardScreen(store: store, catId: cat));
+      // The chips start folded once the card has a choice: unfold first.
+      await tester.tap(find.text('On the card'));
+      await tester.pumpAndSettle();
       final chips = find.byType(FilterChip);
       expect(chips, findsWidgets);
       await tester.tap(chips.first);

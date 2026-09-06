@@ -22,6 +22,7 @@ import 'package:share_plus/share_plus.dart';
 import '../exclusive.dart';
 import 'dart:isolate';
 import 'package:image/image.dart' as img;
+import '../widgets/foldable_chips.dart';
 
 /// A Clowder's Card: its facts and the cats living there on one sheet,
 /// exportable as an image (share sheet), a PDF, or straight to the
@@ -159,21 +160,13 @@ class _ClowderCardScreenState extends State<ClowderCardScreen> {
         if (store.current(id, def.key) != null)
           (def.key, fieldDefName(t, def)),
     ];
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 0,
-        children: [
-          for (final (key, label) in chips)
-            FilterChip(
-              label: Text(label),
-              selected: _selected.contains(key),
-              onSelected: (_) => _toggle(key),
-              visualDensity: VisualDensity.compact,
-            ),
-        ],
-      ),
+    return FoldableChips(
+      store: store,
+      id: 'clowderCard',
+      title: t.pickerCardFields,
+      options: [for (final (key, label) in chips) (key: key, label: label)],
+      selected: _selected,
+      onToggle: _toggle,
     );
   }
 

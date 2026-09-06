@@ -15,6 +15,8 @@
   "map": "Mappa",
   "sync": "Sinkronizzazzjoni",
   "fields": "Oqsma",
+  "pickerColumns": "Kolonni",
+  "pickerCardFields": "Fuq il-karta",
   "exportCsv": "Esporta CSV",
   "aboutAndFeedback": "Dwar & feedback",
   "settings": "Settings",

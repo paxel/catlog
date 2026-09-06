@@ -67,7 +67,15 @@ void main() {
   testWidgets('column chips add and remove field columns',
       (tester) async {
     store.setLocalSetting(clowderViewKey, 'table');
+    // A field no home has a value for is not offered as a column; one
+    // with a value somewhere is.
+    store.append(store.clowders().first.id, Keys.userField('address'),
+        'Dorfstraße 1');
     await pump(tester);
+    // Folded by default (Status is chosen): unfold to see the chips.
+    await tester.tap(find.text('Columns'));
+    await tester.pumpAndSettle();
+    expect(find.widgetWithText(FilterChip, 'Contact'), findsNothing);
     // Add the Address column via its chip.
     await tester.tap(find.widgetWithText(FilterChip, 'Address'));
     await tester.pumpAndSettle();

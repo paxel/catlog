@@ -21,6 +21,7 @@ import 'package:printing/printing.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import '../exclusive.dart';
+import '../widgets/foldable_chips.dart';
 
 /// A Cat's Card: photo plus current facts on one screen, exportable as
 /// an image (share sheet), a PDF, or straight to the printer. The
@@ -180,21 +181,13 @@ class _CardScreenState extends State<CardScreen> {
     ];
     return Spotlight(
       id: 'card-chips',
-      child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 0,
-        children: [
-          for (final (key, label) in chips)
-            FilterChip(
-              label: Text(label),
-              selected: _selected.contains(key),
-              onSelected: (_) => _toggle(key),
-              visualDensity: VisualDensity.compact,
-            ),
-        ],
-      ),
+      child: FoldableChips(
+        store: store,
+        id: 'card',
+        title: t.pickerCardFields,
+        options: [for (final (key, label) in chips) (key: key, label: label)],
+        selected: _selected,
+        onToggle: _toggle,
       ),
     );
   }

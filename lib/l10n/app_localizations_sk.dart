@@ -58,6 +58,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get fields => 'Polia';
 
   @override
+  String get pickerColumns => 'Stĺpce';
+
+  @override
+  String get pickerCardFields => 'Na karte';
+
+  @override
   String get exportCsv => 'Exportovať CSV';
 
   @override

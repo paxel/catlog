@@ -56,6 +56,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get fields => '字段';
 
   @override
+  String get pickerColumns => '列';
+
+  @override
+  String get pickerCardFields => '卡片上显示';
+
+  @override
   String get exportCsv => '导出 CSV';
 
   @override

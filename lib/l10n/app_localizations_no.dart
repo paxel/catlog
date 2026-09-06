@@ -58,6 +58,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get fields => 'Felter';
 
   @override
+  String get pickerColumns => 'Kolonner';
+
+  @override
+  String get pickerCardFields => 'På kortet';
+
+  @override
   String get exportCsv => 'Eksporter CSV';
 
   @override

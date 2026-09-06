@@ -58,6 +58,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get fields => 'Πεδία';
 
   @override
+  String get pickerColumns => 'Στήλες';
+
+  @override
+  String get pickerCardFields => 'Στην κάρτα';
+
+  @override
   String get exportCsv => 'Εξαγωγή CSV';
 
   @override

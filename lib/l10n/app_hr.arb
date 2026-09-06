@@ -15,6 +15,8 @@
   "map": "Karta",
   "sync": "Sinkronizacija",
   "fields": "Polja",
+  "pickerColumns": "Stupci",
+  "pickerCardFields": "Na kartici",
   "exportCsv": "Izvezi CSV",
   "aboutAndFeedback": "O aplikaciji i povratne informacije",
   "settings": "Postavke",

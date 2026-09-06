@@ -58,6 +58,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fields => 'Väljad';
 
   @override
+  String get pickerColumns => 'Veerud';
+
+  @override
+  String get pickerCardFields => 'Kaardil';
+
+  @override
   String get exportCsv => 'Ekspordi CSV';
 
   @override

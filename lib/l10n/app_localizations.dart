@@ -260,6 +260,18 @@ abstract class AppLocalizations {
   /// **'Fields'**
   String get fields;
 
+  /// No description provided for @pickerColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'Columns'**
+  String get pickerColumns;
+
+  /// No description provided for @pickerCardFields.
+  ///
+  /// In en, this message translates to:
+  /// **'On the card'**
+  String get pickerCardFields;
+
   /// No description provided for @exportCsv.
   ///
   /// In en, this message translates to:

@@ -16,6 +16,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   page sits in Manage catalogs as "Restore backups…", with a file
   picker for backups kept elsewhere.
 
+### Changed
+
+- The field chips above a table (columns) and above a card (what is on
+  it) fold away behind a header that names the choice and counts it;
+  once something is chosen they start folded. The fold is remembered
+  per device. A column no shown row has a value for is not offered.
+
 ### Fixed
 
 - A photo whose bytes never arrived shows a grey tile saying "Photo

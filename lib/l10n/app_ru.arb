@@ -15,6 +15,8 @@
   "map": "Карта",
   "sync": "Синхронизация",
   "fields": "Поля",
+  "pickerColumns": "Столбцы",
+  "pickerCardFields": "На карточке",
   "exportCsv": "Экспорт CSV",
   "aboutAndFeedback": "О приложении и отзывы",
   "settings": "Настройки",

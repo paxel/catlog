@@ -133,6 +133,8 @@ void main() {
 
     testWidgets('takes the whole window, with no second pane',
         (tester) async {
+      // A value in the default Status column, so the table has one.
+      store.append(clowder, Keys.userField('status'), 'forever-home');
       await pump(tester);
       await toTable(tester);
       expect(find.byType(VerticalDivider), findsNothing);

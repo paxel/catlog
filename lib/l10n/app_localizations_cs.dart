@@ -58,6 +58,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fields => 'Pole';
 
   @override
+  String get pickerColumns => 'Sloupce';
+
+  @override
+  String get pickerCardFields => 'Na kartě';
+
+  @override
   String get exportCsv => 'Exportovat CSV';
 
   @override

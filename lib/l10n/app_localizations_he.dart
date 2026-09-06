@@ -58,6 +58,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fields => 'שדות';
 
   @override
+  String get pickerColumns => 'עמודות';
+
+  @override
+  String get pickerCardFields => 'על הכרטיס';
+
+  @override
   String get exportCsv => 'ייצוא CSV';
 
   @override

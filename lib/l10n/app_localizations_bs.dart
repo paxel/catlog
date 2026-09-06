@@ -58,6 +58,12 @@ class AppLocalizationsBs extends AppLocalizations {
   String get fields => 'Polja';
 
   @override
+  String get pickerColumns => 'Kolone';
+
+  @override
+  String get pickerCardFields => 'Na kartici';
+
+  @override
   String get exportCsv => 'Izvezi CSV';
 
   @override

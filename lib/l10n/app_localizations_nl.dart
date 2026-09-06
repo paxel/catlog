@@ -58,6 +58,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fields => 'Velden';
 
   @override
+  String get pickerColumns => 'Kolommen';
+
+  @override
+  String get pickerCardFields => 'Op de kaart';
+
+  @override
   String get exportCsv => 'CSV exporteren';
 
   @override

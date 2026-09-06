@@ -15,6 +15,8 @@
   "map": "Térkép",
   "sync": "Szinkronizálás",
   "fields": "Mezők",
+  "pickerColumns": "Oszlopok",
+  "pickerCardFields": "A kártyán",
   "exportCsv": "CSV exportálása",
   "aboutAndFeedback": "Névjegy és visszajelzés",
   "settings": "Beállítások",

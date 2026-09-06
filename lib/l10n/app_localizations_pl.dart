@@ -58,6 +58,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fields => 'Pola';
 
   @override
+  String get pickerColumns => 'Kolumny';
+
+  @override
+  String get pickerCardFields => 'Na karcie';
+
+  @override
   String get exportCsv => 'Eksportuj CSV';
 
   @override

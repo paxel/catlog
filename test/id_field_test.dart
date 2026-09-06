@@ -72,8 +72,8 @@ void main() {
     // Once, not thrice: no fact row and no caption — Code128 prints the
     // number itself.
     expect(find.text('Chip ID: 276098102345678'), findsNothing);
-    // The single "Chip ID" text left is the content-picker chip above
-    // the card, not a card row.
-    expect(find.text('Chip ID'), findsOneWidget);
+    // The only "Chip ID" text left is in the folded chip line above the
+    // card, not a card row.
+    expect(find.textContaining('Chip ID'), findsOneWidget);
   });
 }

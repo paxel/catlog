@@ -58,6 +58,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fields => 'Поля';
 
   @override
+  String get pickerColumns => 'Столбцы';
+
+  @override
+  String get pickerCardFields => 'На карточке';
+
+  @override
   String get exportCsv => 'Экспорт CSV';
 
   @override

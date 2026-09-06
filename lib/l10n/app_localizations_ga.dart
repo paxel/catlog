@@ -58,6 +58,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fields => 'Réimsí';
 
   @override
+  String get pickerColumns => 'Colúin';
+
+  @override
+  String get pickerCardFields => 'Ar an gcárta';
+
+  @override
   String get exportCsv => 'Easpórtáil CSV';
 
   @override

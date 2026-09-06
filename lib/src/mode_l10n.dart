@@ -1315,6 +1315,12 @@ class ModeLocalizations implements AppLocalizations {
   String get pickOnMap => base.pickOnMap;
 
   @override
+  String get pickerCardFields => base.pickerCardFields;
+
+  @override
+  String get pickerColumns => base.pickerColumns;
+
+  @override
   String get pin => base.pin;
 
   @override

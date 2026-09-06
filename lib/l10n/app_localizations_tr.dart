@@ -58,6 +58,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fields => 'Alanlar';
 
   @override
+  String get pickerColumns => 'Sütunlar';
+
+  @override
+  String get pickerCardFields => 'Kartta';
+
+  @override
   String get exportCsv => 'CSV dışa aktar';
 
   @override

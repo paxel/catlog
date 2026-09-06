@@ -445,9 +445,9 @@ void main() {
     await tester.pumpAndSettle();
 
     // No photo yet — facts still render (label appears on the card AND
-    // as a composer chip).
+    // in the folded chip line above it).
     expect(find.text('Card — Miezi'), findsOneWidget);
-    expect(find.text('Gender'), findsNWidgets(2));
+    expect(find.textContaining('Gender'), findsNWidgets(2));
     expect(find.text('female'), findsOneWidget);
     expect(find.text('Home'), findsOneWidget);
 

@@ -58,6 +58,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fields => 'الحقول';
 
   @override
+  String get pickerColumns => 'الأعمدة';
+
+  @override
+  String get pickerCardFields => 'على البطاقة';
+
+  @override
   String get exportCsv => 'تصدير CSV';
 
   @override
