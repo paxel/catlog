@@ -42,7 +42,7 @@ class RestoreScreen extends StatefulWidget {
 class _RestoreScreenState extends State<RestoreScreen> {
   List<BackupSet>? _sets;
   final _files = <File>[];
-  final _selected = <String>{};
+  final _selected = <int>{};
   bool _restoring = false;
 
   @override
@@ -69,7 +69,7 @@ class _RestoreScreenState extends State<RestoreScreen> {
       _sets = sets;
       _selected
         ..clear()
-        ..addAll(sets.map((s) => s.name));
+        ..addAll(List.generate(sets.length, (i) => i));
     });
   }
 
@@ -86,8 +86,8 @@ class _RestoreScreenState extends State<RestoreScreen> {
     setState(() => _restoring = true);
     CatalogInfo? first;
     var count = 0;
-    for (final set in _sets!) {
-      if (!_selected.contains(set.name)) continue;
+    for (final (i, set) in _sets!.indexed) {
+      if (!_selected.contains(i)) continue;
       final made = restoreBackupSet(widget.catalogs, set);
       first ??= made;
       count++;
@@ -114,15 +114,15 @@ class _RestoreScreenState extends State<RestoreScreen> {
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
                   child: Text(sets.isEmpty ? t.restoreNone : t.restoreIntro),
                 ),
-                for (final set in sets)
+                for (final (i, set) in sets.indexed)
                   CheckboxListTile(
-                    value: _selected.contains(set.name),
+                    value: _selected.contains(i),
                     onChanged: _restoring
                         ? null
                         : (v) => setState(
                             () => v == true
-                                ? _selected.add(set.name)
-                                : _selected.remove(set.name),
+                                ? _selected.add(i)
+                                : _selected.remove(i),
                           ),
                     title: Text(set.name),
                     subtitle: Text(

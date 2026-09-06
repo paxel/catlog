@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'private_temp.dart';
+import 'restore_backups.dart';
 
 /// Uninstall-proof safety net: whenever the app goes to the background
 /// and the catalog changed, a full sync bundle lands in a location the
@@ -122,8 +123,9 @@ Future<String> saveBesideBackups(String path, String name) async {
   if (Platform.isAndroid) {
     await const MethodChannel('catlog/backup')
         .invokeMethod('saveToDownloads', {'path': path, 'name': name});
-    // And the copy the next install finds on its own.
-    await copyToBackupFolder(path, name);
+    // And the copy the next install finds on its own — catalogs only,
+    // not the go-back files that also pass through here.
+    if (isRestorableBackup(name)) await copyToBackupFolder(path, name);
     return 'Downloads/catlog/$name';
   }
   if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {

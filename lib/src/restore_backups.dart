@@ -15,14 +15,23 @@ class BackupSet {
   DateTime get newest => files.first.lastModifiedSync();
 }
 
-/// The catalog name a backup file name stands for: `catlog-berlin-nord.catsync`
-/// reads "Berlin Nord". A fingerprint suffix (names the file system could
-/// not carry) is dropped; the unnamed fallback reads "Backup".
-String catalogNameFromFile(String fileName) {
+/// The part of a backup file name that identifies its catalog:
+/// `catlog-berlin-nord.catsync` → `berlin-nord`. Older releases' files
+/// came back from MediaStore as `.catsync.zip`; same stem.
+String backupStem(String fileName) {
   var stem = fileName;
+  if (stem.endsWith('.zip')) stem = stem.substring(0, stem.length - 4);
   if (stem.endsWith('.catsync')) stem = stem.substring(0, stem.length - 8);
   if (stem.startsWith('catlog-')) stem = stem.substring(7);
-  stem = stem.replaceFirst(RegExp(r'-[0-9a-f]{8}$'), '');
+  return stem;
+}
+
+/// The catalog name a backup file name stands for:
+/// `catlog-berlin-nord.catsync` reads "Berlin Nord". A fingerprint suffix
+/// (names the file system could not carry) is dropped for the label; the
+/// unnamed fallback reads "Backup".
+String catalogNameFromFile(String fileName) {
+  final stem = backupStem(fileName).replaceFirst(RegExp(r'-[0-9a-f]{8}$'), '');
   if (stem.isEmpty || stem == 'backup') return 'Backup';
   return stem
       .split('-')
@@ -31,28 +40,31 @@ String catalogNameFromFile(String fileName) {
       .join(' ');
 }
 
-/// Whether a file is a catalog backup worth offering: a `.catsync` written
-/// by the app, not a go-back file (those hold what was removed, not a
-/// catalog).
+/// Whether a file is a catalog backup worth offering: a `.catsync` (or a
+/// `.catsync.zip`, as MediaStore renamed them in earlier releases) written
+/// by the app, not a go-back file — those hold what was removed, not a
+/// catalog.
 bool isRestorableBackup(String fileName) =>
-    fileName.endsWith('.catsync') &&
+    (fileName.endsWith('.catsync') || fileName.endsWith('.catsync.zip')) &&
     fileName.startsWith('catlog-') &&
     !fileName.startsWith('catlog-undone-');
 
-/// Groups [files] into catalogs, each set newest first, the sets by their
-/// newest file. Every file of a catalog is kept: an older one may still
-/// carry photo bytes the newest lacks.
+/// Groups [files] into catalogs by their exact file stem — "Cats" and
+/// "Cats!" stay two catalogs even though their labels read alike — each
+/// set newest first, the sets by their newest file. Every file of a
+/// catalog is kept: an older one may still carry photo bytes the newest
+/// lacks.
 List<BackupSet> findBackups(Iterable<File> files) {
-  final byName = <String, List<File>>{};
+  final byStem = <String, List<File>>{};
   for (final f in files) {
     final name = f.uri.pathSegments.last;
     if (!isRestorableBackup(name)) continue;
-    byName.putIfAbsent(catalogNameFromFile(name), () => []).add(f);
+    byStem.putIfAbsent(backupStem(name), () => []).add(f);
   }
   final sets = [
-    for (final MapEntry(key: name, value: list) in byName.entries)
+    for (final MapEntry(key: stem, value: list) in byStem.entries)
       BackupSet(
-        name,
+        catalogNameFromFile('catlog-$stem.catsync'),
         list..sort(
           (a, b) => b.lastModifiedSync().compareTo(a.lastModifiedSync()),
         ),

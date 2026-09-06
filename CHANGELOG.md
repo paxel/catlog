@@ -10,8 +10,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A fresh install offers to restore the catalogs of the install
   before it: the backups now also live in a folder that survives
   uninstalling, and after the name step the app lists them, one per
-  catalog, all ticked. Every file of a catalog is imported, newest
-  first, so an older one can still supply a missing photo. The same
+  catalog, all ticked. Where several files of one catalog exist, all
+  are imported, newest first, so an older one can still supply a
+  missing photo. The same
   page sits in Manage catalogs as "Restore backups…", with a file
   picker for backups kept elsewhere.
 

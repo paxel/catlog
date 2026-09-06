@@ -47,57 +47,64 @@ void main() {
     expect(isRestorableBackup('notes.txt'), isFalse);
   });
 
-  test('files group by catalog, newest first, go-back files left out', () {
+  test('files group by stem, newest first, go-back files left out', () {
     touch('catlog-berlin.catsync', DateTime(2026, 9, 1));
+    // MediaStore renamed earlier releases' files: still Berlin's.
     touch('catlog-berlin.catsync.zip', DateTime(2026, 9, 3));
     touch('catlog-paris.catsync', DateTime(2026, 9, 2));
+    // "Cats" and "Cats!" share a label, never a catalog.
+    touch('catlog-cats.catsync', DateTime(2026, 8, 1));
+    touch('catlog-cats-1a2b3c4d.catsync', DateTime(2026, 8, 2));
     touch('catlog-undone-2026-09-05-10-00-00.catsync', DateTime(2026, 9, 6));
     final sets = backupsIn(folder);
-    expect(sets.map((s) => s.name), ['Paris', 'Berlin']);
-    expect(sets.last.files, hasLength(1));
+    expect(sets.map((s) => s.name), ['Berlin', 'Paris', 'Cats', 'Cats']);
+    expect(sets.first.files.map((f) => f.uri.pathSegments.last), [
+      'catlog-berlin.catsync.zip',
+      'catlog-berlin.catsync',
+    ]);
     expect(backupsIn(Directory('${root.path}/nowhere')), isEmpty);
   });
 
-  test('a catalog comes back from all its files, photo from the older one', () {
-    // The install before: a catalog with a cat and a photo...
-    final old = CatalogStore.inMemory()..author = 'anna';
-    final cat = old.createCat('Miezi');
-    final hash = old.addImage(
-      cat,
-      CatalogStore.compressImage(
-        Uint8List.fromList(img.encodeJpg(img.Image(width: 40, height: 40))),
-      ),
-    );
-    final older = '${folder.path}/catlog-hinterhof.catsync.1';
-    writeBundle(old, older, includePrivate: true);
-    File(older).setLastModifiedSync(DateTime(2026, 9, 1));
-    // ...and a later backup written after the photo bytes were gone.
-    old.append(cat, 'f:color', 'grey');
-    old.deleteImage(cat, hash);
-    old.append(cat, Keys.image(hash), 'added');
-    final newer = '${folder.path}/catlog-hinterhof.catsync';
-    writeBundle(old, newer, includePrivate: true);
-    File(newer).setLastModifiedSync(DateTime(2026, 9, 5));
-    File(older).renameSync('${folder.path}/catlog-hinterhof-old.catsync');
-    File('${folder.path}/catlog-hinterhof-old.catsync')
-        .setLastModifiedSync(DateTime(2026, 9, 1));
-    old.close();
+  test(
+    'a catalog comes back from all its files; the older one fills a photo',
+    () {
+      // The install before: a catalog with a cat and a photo...
+      final old = CatalogStore.inMemory()..author = 'anna';
+      final cat = old.createCat('Miezi');
+      final hash = old.addImage(
+        cat,
+        CatalogStore.compressImage(
+          Uint8List.fromList(img.encodeJpg(img.Image(width: 40, height: 40))),
+        ),
+      );
+      final older = '${folder.path}/catlog-hinterhof.catsync.zip';
+      writeBundle(old, older, includePrivate: true);
+      File(older).setLastModifiedSync(DateTime(2026, 9, 1));
+      // ...and a later backup written after the bytes were lost: the entry
+      // still says "added", the bundle has no bytes to carry.
+      old.append(cat, 'f:color', 'grey');
+      old.deleteImage(cat, hash);
+      old.append(cat, Keys.image(hash), 'added');
+      final newer = '${folder.path}/catlog-hinterhof.catsync';
+      writeBundle(old, newer, includePrivate: true);
+      File(newer).setLastModifiedSync(DateTime(2026, 9, 5));
+      old.close();
 
-    final sets = backupsIn(folder);
-    expect(
-      sets.map((s) => s.name),
-      containsAll(['Hinterhof', 'Hinterhof Old']),
-    );
-    final made = restoreBackupSet(
-      catalogs,
-      sets.firstWhere((s) => s.name == 'Hinterhof'),
-    );
-    expect(made.name, 'Hinterhof');
-    final store = catalogs.openStore(made);
-    expect(store.cats().map((c) => c.name), ['Miezi']);
-    expect(store.current(cat, 'f:color'), 'grey');
-    store.close();
-  });
+      final set = backupsIn(folder).single;
+      expect(set.files, hasLength(2));
+      final made = restoreBackupSet(catalogs, set);
+      expect(made.name, 'Hinterhof');
+      final store = catalogs.openStore(made);
+      expect(store.cats().map((c) => c.name), ['Miezi']);
+      expect(store.current(cat, 'f:color'), 'grey');
+      expect(
+        store.imageBytes(hash),
+        isNotNull,
+        reason: 'the older file carried the bytes',
+      );
+      store.close();
+    },
+  );
 
   test('a taken name gets a number', () {
     touch('catlog-berlin.catsync', DateTime(2026, 9, 1));
