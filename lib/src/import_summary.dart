@@ -68,19 +68,25 @@ class ImportReview {
   final List<(String entity, String field)> conflicts;
   final List<MetaChange> meta;
 
-  const ImportReview(
+  /// What the signatures said (1.2.0): refused rows, new keys, warnings.
+  final ImportReport report;
+
+  ImportReview(
       {required this.newOnes,
       required this.updated,
       required this.deleted,
       required this.conflicts,
-      required this.meta});
+      required this.meta,
+      ImportReport? report})
+      : report = report ?? ImportReport();
 
   bool get isEmpty =>
       newOnes.isEmpty &&
       updated.isEmpty &&
       deleted.isEmpty &&
       conflicts.isEmpty &&
-      meta.isEmpty;
+      meta.isEmpty &&
+      !needsAttention(report);
 
   List<String> get newCats => [for (final a in newOnes) if (a.isCat) a.id];
   List<String> get newClowders =>
@@ -96,6 +102,14 @@ class ImportReview {
   List<String> get escaped => _tagged(tagEscaped);
 }
 
+/// Whether an import's signature findings must be shown even when no
+/// entry landed: something was refused or a key looks wrong. New keys
+/// alone are news, not a warning.
+bool needsAttention(ImportReport report) =>
+    report.refused.isNotEmpty ||
+    report.impostors.isNotEmpty ||
+    report.changedKeys.isNotEmpty;
+
 const tagAdopted = 'adopted';
 const tagDeceased = 'deceased';
 const tagEscaped = 'escaped';
@@ -103,7 +117,8 @@ const tagEscaped = 'escaped';
 /// Reads [applied] against the store after the import. An entry that
 /// changed nothing visible — older than what was here, so it lost — is
 /// not a change; a cat with only such entries does not appear.
-ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
+ImportReview reviewImport(CatalogStore store, List<Entry> applied,
+    {ImportReport? report}) {
   final arrived = {for (final e in applied) (e.device, e.dseq)};
   bool isArrived(Entry e) => arrived.contains((e.device, e.dseq));
   final byEntity = <String, List<Entry>>{};
@@ -245,7 +260,8 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
       updated: updated,
       deleted: deleted,
       conflicts: conflicts,
-      meta: meta);
+      meta: meta,
+      report: report);
 }
 
 /// Shows what arrived, when anything did: a full page with Accept and
@@ -253,7 +269,7 @@ ImportReview reviewImport(CatalogStore store, List<Entry> applied) {
 /// moment before ([undo]), writing the removed entries to a file first.
 Future<void> showImportSummary(
     BuildContext context, CatalogStore store, List<Entry> applied,
-    {Moment? undo, SaveFile? saveTo}) async {
+    {Moment? undo, SaveFile? saveTo, ImportReport? report}) async {
   // An archive file coming home: what it carries is deleted here, and
   // deletion outranks every entry in the file. Ask before undoing it.
   final restorable = restorableEntities(store, applied);
@@ -284,7 +300,7 @@ Future<void> showImportSummary(
       }
     }
   }
-  final review = reviewImport(store, applied);
+  final review = reviewImport(store, applied, report: report);
   if (review.isEmpty || !context.mounted) return;
   await Navigator.of(context).push(MaterialPageRoute(
     fullscreenDialog: true,
@@ -338,6 +354,46 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
   }
 
   String _name(String id) => store.current(id, Keys.name) ?? context.t.unnamed;
+
+  /// The names a device wrote under here, or its banned name, or a
+  /// short form of the id — never nothing.
+  String _who(String device) {
+    final names = {
+      ?store.localSetting('bannedAs:$device'),
+      for (final r in store.authorsOverview())
+        if (r.device == device) r.author,
+    };
+    if (names.isEmpty) return device.substring(0, device.length.clamp(0, 8));
+    return names.join(' · ');
+  }
+
+  /// The rows the signatures raised: refused entries, a new key wearing
+  /// a known name, a key that does not match the pinned one.
+  List<Widget> _keyRows(ImportReport report) {
+    final t = context.t;
+    return [
+      for (final MapEntry(key: (author, device), value: count)
+          in report.refused.entries)
+        ListTile(
+          leading: const Icon(Icons.gpp_bad_outlined, color: Colors.red),
+          title: Text(t.refusedEntries(count, author)),
+          subtitle: Text(t.keyLine(
+              store.pinnedKey(device)?.record.code ?? device.substring(0, 8))),
+        ),
+      for (final (name, device) in report.impostors)
+        ListTile(
+          leading: const Icon(Icons.warning_amber, color: Colors.amber),
+          title: Text(t.newKeyCallsItself(
+              store.pinnedKey(device)?.record.code ?? device.substring(0, 8),
+              name)),
+        ),
+      for (final device in report.changedKeys)
+        ListTile(
+          leading: const Icon(Icons.warning_amber, color: Colors.amber),
+          title: Text(t.keyChangedRefused(_who(device))),
+        ),
+    ];
+  }
 
   Widget _header(String title) => Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
@@ -431,6 +487,14 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
     };
   }
 
+  /// A key met by this import: whose, its code, and how far it is trusted.
+  String _keyLine(PinnedKey k) => context.t.metaNewKey(
+      _who(k.record.device),
+      k.record.code,
+      k.trust == KeyTrust.verified
+          ? context.t.keyVerified
+          : context.t.keyFromFile);
+
   Future<void> _reject() async {
     final done = await confirmUndoImport(context, store, widget.undo!,
         saveTo: widget.saveTo);
@@ -473,13 +537,23 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
           _header(t.summaryConflicts),
           for (final c in conflicts) _conflictRow(c),
         ],
-        if (r.meta.isNotEmpty) ...[
+        if (needsAttention(r.report)) ...[
+          _header(t.summaryRefused),
+          ..._keyRows(r.report),
+        ],
+        if (r.meta.isNotEmpty || r.report.newKeys.isNotEmpty) ...[
           _header(t.summaryMeta),
           for (final m in r.meta)
             ListTile(
               dense: true,
               leading: const Icon(Icons.settings_outlined),
               title: Text(_metaLine(m)),
+            ),
+          for (final k in r.report.newKeys)
+            ListTile(
+              dense: true,
+              leading: const Icon(Icons.key_outlined),
+              title: Text(_keyLine(k)),
             ),
         ],
         const SizedBox(height: 80),

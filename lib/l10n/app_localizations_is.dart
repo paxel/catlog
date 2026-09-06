@@ -1748,6 +1748,57 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Lykillinn þinn';
+
+  @override
+  String keyLine(Object code) {
+    return 'lykill $code';
+  }
+
+  @override
+  String get keyVerified => 'staðfest í eigin persónu';
+
+  @override
+  String get keyFromFile => 'úr skrá, ekki enn staðfest';
+
+  @override
+  String get keyUnsigned => 'enginn lykill enn, færslur óundirritaðar';
+
+  @override
+  String get summaryRefused => 'Hafnað';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count færslum hafnað',
+      one: '$count færslu hafnað',
+    );
+    return '$_temp0: ekki undirritað með þekktum lykli fyrir $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nýr lykill $code kallar sig $name. Spurðu viðkomandi áður en þú treystir honum.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name bauð annan lykil en þann sem er þekktur hér. Sá þekkti helst; sá nýi var ekki tekinn.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nýr lykill: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Fjarlægir hverja færslu og mynd sem $name skrifaði með lykli $key úr þessari skrá. Önnur tæki halda sínum. Ekki hægt að afturkalla.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Sláðu inn $name til að staðfesta';
   }

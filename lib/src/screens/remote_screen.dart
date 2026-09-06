@@ -34,9 +34,10 @@ class _RemoteScreenState extends State<RemoteScreen> {
           changed: result.applied.isNotEmpty,
           cause: MomentCause.sync,
           label: folder);
-      if (mounted && result.applied.isNotEmpty) {
+      if (mounted &&
+          (result.applied.isNotEmpty || needsAttention(result.report))) {
         await showImportSummary(context, widget.store, result.applied,
-            undo: point);
+            undo: point, report: result.report);
       }
       if (!mounted) return;
       setState(() => _lastResult = t.folderSynced('$result'));

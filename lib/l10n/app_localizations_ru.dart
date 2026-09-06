@@ -1747,6 +1747,59 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Ваш ключ';
+
+  @override
+  String keyLine(Object code) {
+    return 'ключ $code';
+  }
+
+  @override
+  String get keyVerified => 'подтверждён лично';
+
+  @override
+  String get keyFromFile => 'из файла, ещё не подтверждён';
+
+  @override
+  String get keyUnsigned => 'ключа пока нет, записи без подписи';
+
+  @override
+  String get summaryRefused => 'Отклонено';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записи отклонено',
+      many: '$count записей отклонено',
+      few: '$count записи отклонены',
+      one: '$count запись отклонена',
+    );
+    return '$_temp0: не подписаны ключом, известным для $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Новый ключ $code называет себя $name. Уточните у человека, прежде чем доверять.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name предложил ключ, отличный от известного здесь. Известный остаётся, новый не принят.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Новый ключ: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Удаляет из этого каталога все записи и фото, написанные $name под ключом $key. Другие устройства сохраняют свои. Отменить нельзя.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Введите $name для подтверждения';
   }

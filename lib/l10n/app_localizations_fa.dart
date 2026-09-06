@@ -1740,6 +1740,57 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'کلید شما';
+
+  @override
+  String keyLine(Object code) {
+    return 'کلید $code';
+  }
+
+  @override
+  String get keyVerified => 'حضوری تأیید شده';
+
+  @override
+  String get keyFromFile => 'از فایل، هنوز تأیید نشده';
+
+  @override
+  String get keyUnsigned => 'هنوز کلیدی نیست، ورودی‌ها امضانشده';
+
+  @override
+  String get summaryRefused => 'رد شده';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ورودی رد شد',
+      one: '$count ورودی رد شد',
+    );
+    return '$_temp0: با کلید شناخته‌شده $name امضا نشده';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'کلید جدید $code خود را $name می‌نامد. پیش از اعتماد، از خود شخص بپرسید.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name کلیدی متفاوت از کلید شناخته‌شده اینجا ارائه داد. کلید شناخته‌شده می‌ماند؛ کلید جدید پذیرفته نشد.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'کلید جدید: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'هر ورودی و عکسی را که $name با کلید $key نوشته از این فهرست حذف می‌کند. دستگاه‌های دیگر مال خود را نگه می‌دارند. قابل بازگشت نیست.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'برای تأیید $name را بنویسید';
   }

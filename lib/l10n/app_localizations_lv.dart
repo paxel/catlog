@@ -1746,6 +1746,58 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Tava atslēga';
+
+  @override
+  String keyLine(Object code) {
+    return 'atslēga $code';
+  }
+
+  @override
+  String get keyVerified => 'apstiprināta klātienē';
+
+  @override
+  String get keyFromFile => 'no faila, vēl nav apstiprināta';
+
+  @override
+  String get keyUnsigned => 'atslēgas vēl nav, ieraksti neparakstīti';
+
+  @override
+  String get summaryRefused => 'Noraidīts';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ieraksti noraidīti',
+      one: '$count ieraksts noraidīts',
+      zero: '$count ierakstu noraidīti',
+    );
+    return '$_temp0: nav parakstīti ar $name zināmo atslēgu';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Jauna atslēga $code sauc sevi par $name. Pārjautā cilvēkam, pirms uzticies.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name piedāvāja citu atslēgu nekā šeit zināmo. Zināmā paliek; jaunā netika pieņemta.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Jauna atslēga: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Noņem no šī kataloga katru ierakstu un foto, ko $name rakstīja ar atslēgu $key. Citas ierīces savus patur. Nevar atsaukt.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Apstiprināšanai ierakstiet $name';
   }

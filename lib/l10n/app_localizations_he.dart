@@ -1736,6 +1736,58 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'המפתח שלך';
+
+  @override
+  String keyLine(Object code) {
+    return 'מפתח $code';
+  }
+
+  @override
+  String get keyVerified => 'אומת פנים אל פנים';
+
+  @override
+  String get keyFromFile => 'מקובץ, טרם אומת';
+
+  @override
+  String get keyUnsigned => 'אין מפתח עדיין, רשומות לא חתומות';
+
+  @override
+  String get summaryRefused => 'נדחה';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count רשומות נדחו',
+      two: 'שתי רשומות נדחו',
+      one: 'רשומה אחת נדחתה',
+    );
+    return '$_temp0: לא חתומות במפתח המוכר של $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'מפתח חדש $code מכנה את עצמו $name. בדקו מול האדם לפני שתסמכו עליו.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name הציע מפתח שונה מזה המוכר כאן. המוכר נשאר; החדש לא התקבל.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'מפתח חדש: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'מסיר מקטלוג זה כל רשומה ותמונה שנכתבו על ידי $name תחת המפתח $key. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'הקלד $name לאישור';
   }

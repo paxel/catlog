@@ -1746,6 +1746,57 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Вашият ключ';
+
+  @override
+  String keyLine(Object code) {
+    return 'ключ $code';
+  }
+
+  @override
+  String get keyVerified => 'потвърден лично';
+
+  @override
+  String get keyFromFile => 'от файл, още непотвърден';
+
+  @override
+  String get keyUnsigned => 'още няма ключ, записите са неподписани';
+
+  @override
+  String get summaryRefused => 'Отхвърлено';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записа отхвърлени',
+      one: '1 запис отхвърлен',
+    );
+    return '$_temp0: не са подписани с известния ключ на $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Нов ключ $code се нарича $name. Уточнете с човека, преди да му се доверите.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name предложи ключ, различен от известния тук. Известният остава; новият не бе приет.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Нов ключ: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Премахва от този каталог всеки запис и снимка, написани от $name под ключ $key. Другите устройства запазват своите. Не може да се отмени.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Въведи $name за потвърждение';
   }

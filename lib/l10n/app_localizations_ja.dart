@@ -1715,6 +1715,56 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'あなたの鍵';
+
+  @override
+  String keyLine(Object code) {
+    return '鍵 $code';
+  }
+
+  @override
+  String get keyVerified => '対面で確認済み';
+
+  @override
+  String get keyFromFile => 'ファイル経由、未確認';
+
+  @override
+  String get keyUnsigned => '鍵なし、エントリは未署名';
+
+  @override
+  String get summaryRefused => '拒否';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 件を拒否',
+    );
+    return '$_temp0：$name の既知の鍵で署名されていません';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return '新しい鍵 $code が $name を名乗っています。信頼する前に本人に確認してください。';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name が既知と異なる鍵を提示しました。既知の鍵を維持し、新しい鍵は受け入れていません。';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return '新しい鍵：$name · $code（$how）';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '$name が鍵 $key で書いたすべてのエントリと写真をこのカタログから削除します。他の端末は保持します。元に戻せません。';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return '確認のため $name と入力';
   }

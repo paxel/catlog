@@ -1750,6 +1750,57 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Dein Schlüssel';
+
+  @override
+  String keyLine(Object code) {
+    return 'Schlüssel $code';
+  }
+
+  @override
+  String get keyVerified => 'persönlich getroffen';
+
+  @override
+  String get keyFromFile => 'aus einer Datei, noch nicht getroffen';
+
+  @override
+  String get keyUnsigned => 'noch kein Schlüssel, Einträge unsigniert';
+
+  @override
+  String get summaryRefused => 'Abgewiesen';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge',
+      one: '1 Eintrag',
+    );
+    return '$_temp0 abgewiesen: nicht mit dem für $name bekannten Schlüssel signiert';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Ein neuer Schlüssel $code nennt sich $name. Frag nach, bevor du ihm vertraust.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name hat einen anderen Schlüssel angeboten als den hier bekannten. Der bekannte bleibt, der neue wurde nicht übernommen.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Neuer Schlüssel: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Entfernt jeden Eintrag und jedes Foto, das $name unter Schlüssel $key geschrieben hat, aus diesem Katalog. Andere Geräte behalten ihre. Das kann nicht rückgängig gemacht werden.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Zum Bestätigen $name eintippen';
   }

@@ -1743,6 +1743,57 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Your key';
+
+  @override
+  String keyLine(Object code) {
+    return 'key $code';
+  }
+
+  @override
+  String get keyVerified => 'met in person';
+
+  @override
+  String get keyFromFile => 'from a file, not yet met';
+
+  @override
+  String get keyUnsigned => 'no key yet, entries unsigned';
+
+  @override
+  String get summaryRefused => 'Refused';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries',
+      one: '1 entry',
+    );
+    return '$_temp0 refused: not signed with the key known for $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'A new key $code calls itself $name. Check with them before trusting it.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name offered a key other than the one known here. The known one stays; the new one was not taken.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'New key: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Removes every entry and photo written by $name under key $key from this catalog. Other devices keep theirs. This cannot be undone.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Type $name to confirm';
   }

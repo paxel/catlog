@@ -1743,6 +1743,58 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Tvoj kľúč';
+
+  @override
+  String keyLine(Object code) {
+    return 'kľúč $code';
+  }
+
+  @override
+  String get keyVerified => 'overený osobne';
+
+  @override
+  String get keyFromFile => 'zo súboru, zatiaľ neoverený';
+
+  @override
+  String get keyUnsigned => 'zatiaľ bez kľúča, záznamy nepodpísané';
+
+  @override
+  String get summaryRefused => 'Odmietnuté';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count záznamov odmietnutých',
+      few: '$count záznamy odmietnuté',
+      one: '1 záznam odmietnutý',
+    );
+    return '$_temp0: nepodpísané kľúčom známym pre $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nový kľúč $code sa volá $name. Over si to u danej osoby, kým mu uveríš.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ponúkol iný kľúč než ten tu známy. Známy zostáva, nový nebol prijatý.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nový kľúč: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Odstráni z tohto katalógu každý záznam a fotku, ktoré $name zapísal pod kľúčom $key. Ostatné zariadenia si svoje nechajú. Nedá sa vrátiť.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Na potvrdenie napíšte $name';
   }

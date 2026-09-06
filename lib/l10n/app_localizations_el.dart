@@ -1753,6 +1753,57 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Το κλειδί σου';
+
+  @override
+  String keyLine(Object code) {
+    return 'κλειδί $code';
+  }
+
+  @override
+  String get keyVerified => 'επιβεβαιωμένο από κοντά';
+
+  @override
+  String get keyFromFile => 'από αρχείο, όχι ακόμη επιβεβαιωμένο';
+
+  @override
+  String get keyUnsigned => 'χωρίς κλειδί ακόμη, καταχωρίσεις ανυπόγραφες';
+
+  @override
+  String get summaryRefused => 'Απορρίφθηκε';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count καταχωρίσεις απορρίφθηκαν',
+      one: '1 καταχώριση απορρίφθηκε',
+    );
+    return '$_temp0: χωρίς υπογραφή με το γνωστό κλειδί για $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Ένα νέο κλειδί $code αυτοαποκαλείται $name. Ρώτησε το άτομο πριν το εμπιστευτείς.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'Ο/η $name πρόσφερε διαφορετικό κλειδί από το γνωστό εδώ. Το γνωστό μένει· το νέο δεν έγινε δεκτό.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Νέο κλειδί: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Αφαιρεί από αυτόν τον κατάλογο κάθε καταχώριση και φωτογραφία που έγραψε ο/η $name με το κλειδί $key. Οι άλλες συσκευές κρατούν τις δικές τους. Δεν αναιρείται.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Πληκτρολογήστε $name για επιβεβαίωση';
   }

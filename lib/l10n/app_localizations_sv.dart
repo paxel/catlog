@@ -1744,6 +1744,57 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Din nyckel';
+
+  @override
+  String keyLine(Object code) {
+    return 'nyckel $code';
+  }
+
+  @override
+  String get keyVerified => 'träffad personligen';
+
+  @override
+  String get keyFromFile => 'från en fil, ännu inte träffad';
+
+  @override
+  String get keyUnsigned => 'ingen nyckel ännu, poster osignerade';
+
+  @override
+  String get summaryRefused => 'Avvisat';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count poster',
+      one: '1 post',
+    );
+    return '$_temp0 avvisad: inte signerad med den kända nyckeln för $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'En ny nyckel $code kallar sig $name. Kolla med personen innan du litar på den.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name erbjöd en annan nyckel än den som är känd här. Den kända står kvar; den nya togs inte.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ny nyckel: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Tar bort varje post och foto som $name skrev under nyckel $key från den här katalogen. Andra enheter behåller sina. Kan inte ångras.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Skriv $name för att bekräfta';
   }

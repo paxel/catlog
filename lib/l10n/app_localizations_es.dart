@@ -1751,6 +1751,57 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Tu clave';
+
+  @override
+  String keyLine(Object code) {
+    return 'clave $code';
+  }
+
+  @override
+  String get keyVerified => 'verificada en persona';
+
+  @override
+  String get keyFromFile => 'de un archivo, aún sin verificar';
+
+  @override
+  String get keyUnsigned => 'sin clave aún, entradas sin firmar';
+
+  @override
+  String get summaryRefused => 'Rechazado';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entradas rechazadas',
+      one: '1 entrada rechazada',
+    );
+    return '$_temp0: sin firma con la clave conocida de $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Una clave nueva $code se llama $name. Confírmalo con esa persona antes de confiar.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ofreció una clave distinta de la conocida aquí. Se mantiene la conocida; la nueva no se aceptó.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Clave nueva: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Elimina de este catálogo cada entrada y foto escrita por $name con la clave $key. Los demás dispositivos conservan las suyas. No se puede deshacer.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Escribe $name para confirmar';
   }

@@ -1744,6 +1744,57 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Din nøgle';
+
+  @override
+  String keyLine(Object code) {
+    return 'nøgle $code';
+  }
+
+  @override
+  String get keyVerified => 'mødt personligt';
+
+  @override
+  String get keyFromFile => 'fra en fil, endnu ikke mødt';
+
+  @override
+  String get keyUnsigned => 'ingen nøgle endnu, poster usignerede';
+
+  @override
+  String get summaryRefused => 'Afvist';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count poster',
+      one: '1 post',
+    );
+    return '$_temp0 afvist: ikke signeret med den kendte nøgle for $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'En ny nøgle $code kalder sig $name. Spørg personen, før du stoler på den.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name tilbød en anden nøgle end den kendte her. Den kendte bliver; den nye blev ikke taget.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ny nøgle: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Fjerner hver post og hvert foto skrevet af $name under nøgle $key fra dette katalog. Andre enheder beholder deres. Kan ikke fortrydes.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Skriv $name for at bekræfte';
   }

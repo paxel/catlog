@@ -1748,6 +1748,57 @@ class AppLocalizationsMk extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Твојот клуч';
+
+  @override
+  String keyLine(Object code) {
+    return 'клуч $code';
+  }
+
+  @override
+  String get keyVerified => 'потврден лично';
+
+  @override
+  String get keyFromFile => 'од датотека, сè уште непотврден';
+
+  @override
+  String get keyUnsigned => 'сè уште нема клуч, записите се непотпишани';
+
+  @override
+  String get summaryRefused => 'Одбиено';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записи одбиени',
+      one: '$count запис одбиен',
+    );
+    return '$_temp0: не се потпишани со познатиот клуч на $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Нов клуч $code се нарекува $name. Провери кај лицето пред да му веруваш.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name понуди клуч различен од познатиот овде. Познатиот останува; новиот не е земен.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Нов клуч: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Ги отстранува од овој каталог сите записи и фотографии што $name ги напишал под клуч $key. Другите уреди ги задржуваат своите. Не може да се врати.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Внеси $name за потврда';
   }

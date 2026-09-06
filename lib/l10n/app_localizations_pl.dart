@@ -1746,6 +1746,59 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Twój klucz';
+
+  @override
+  String keyLine(Object code) {
+    return 'klucz $code';
+  }
+
+  @override
+  String get keyVerified => 'potwierdzony osobiście';
+
+  @override
+  String get keyFromFile => 'z pliku, jeszcze niepotwierdzony';
+
+  @override
+  String get keyUnsigned => 'jeszcze bez klucza, wpisy niepodpisane';
+
+  @override
+  String get summaryRefused => 'Odrzucone';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wpisu odrzucone',
+      many: '$count wpisów odrzuconych',
+      few: '$count wpisy odrzucone',
+      one: '1 wpis odrzucony',
+    );
+    return '$_temp0: niepodpisane kluczem znanym dla $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Nowy klucz $code nazywa się $name. Zapytaj tę osobę, zanim mu zaufasz.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name zaproponował inny klucz niż znany tutaj. Znany zostaje, nowy nie został przyjęty.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nowy klucz: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Usuwa z tego katalogu każdy wpis i zdjęcie zapisane przez $name pod kluczem $key. Inne urządzenia zachowują swoje. Nie można tego cofnąć.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Wpisz $name, aby potwierdzić';
   }

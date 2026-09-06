@@ -1745,6 +1745,57 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'A tua chave';
+
+  @override
+  String keyLine(Object code) {
+    return 'chave $code';
+  }
+
+  @override
+  String get keyVerified => 'encontrada pessoalmente';
+
+  @override
+  String get keyFromFile => 'de um ficheiro, ainda não encontrada';
+
+  @override
+  String get keyUnsigned => 'ainda sem chave, entradas não assinadas';
+
+  @override
+  String get summaryRefused => 'Recusado';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entradas recusadas',
+      one: '1 entrada recusada',
+    );
+    return '$_temp0: não assinadas com a chave conhecida de $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Uma chave nova $code chama-se $name. Confirma com a pessoa antes de confiar.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ofereceu uma chave diferente da conhecida aqui. A conhecida fica; a nova não foi aceite.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Chave nova: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Remove deste catálogo todas as entradas e fotos escritas por $name sob a chave $key. Os outros dispositivos mantêm as suas. Não pode ser desfeito.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Escreva $name para confirmar';
   }

@@ -787,6 +787,9 @@ class ModeLocalizations implements AppLocalizations {
   String hardDeleteWarningDevice(String name, String device) => base.hardDeleteWarningDevice(name, device);
 
   @override
+  String hardDeleteWarningKey(Object name, Object key) => base.hardDeleteWarningKey(name, key);
+
+  @override
   String get helpAgenda => pets ? base.helpAgendaNeutral : base.helpAgenda;
 
   @override
@@ -1001,6 +1004,21 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String keptMine(String name) => base.keptMine(name);
+
+  @override
+  String keyChangedRefused(Object name) => base.keyChangedRefused(name);
+
+  @override
+  String get keyFromFile => base.keyFromFile;
+
+  @override
+  String keyLine(Object code) => base.keyLine(code);
+
+  @override
+  String get keyUnsigned => base.keyUnsigned;
+
+  @override
+  String get keyVerified => base.keyVerified;
 
   @override
   String get kindCat => pets ? base.kindCatNeutral : base.kindCat;
@@ -1333,6 +1351,9 @@ class ModeLocalizations implements AppLocalizations {
   String metaMerged(String loser, String survivor) => base.metaMerged(loser, survivor);
 
   @override
+  String metaNewKey(Object name, Object code, Object how) => base.metaNewKey(name, code, how);
+
+  @override
   String metaPhotos(int n) => base.metaPhotos(n);
 
   @override
@@ -1415,6 +1436,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get newField => base.newField;
+
+  @override
+  String newKeyCallsItself(Object code, Object name) => base.newKeyCallsItself(code, name);
 
   @override
   String get newStray => base.newStray;
@@ -1655,6 +1679,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get recordSightingHere => base.recordSightingHere;
+
+  @override
+  String refusedEntries(int count, Object name) => base.refusedEntries(count, name);
 
   @override
   String get rejectAfterResolve => base.rejectAfterResolve;
@@ -2152,6 +2179,9 @@ class ModeLocalizations implements AppLocalizations {
   String get summaryNew => base.summaryNew;
 
   @override
+  String get summaryRefused => base.summaryRefused;
+
+  @override
   String get summaryUpdated => base.summaryUpdated;
 
   @override
@@ -2450,6 +2480,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get writeTheDeveloper => base.writeTheDeveloper;
+
+  @override
+  String get yourKey => base.yourKey;
 
   @override
   String get yourName => base.yourName;

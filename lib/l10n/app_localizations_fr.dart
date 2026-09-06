@@ -1749,6 +1749,57 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Ta clé';
+
+  @override
+  String keyLine(Object code) {
+    return 'clé $code';
+  }
+
+  @override
+  String get keyVerified => 'rencontrée en personne';
+
+  @override
+  String get keyFromFile => 'd’un fichier, pas encore rencontrée';
+
+  @override
+  String get keyUnsigned => 'pas encore de clé, entrées non signées';
+
+  @override
+  String get summaryRefused => 'Refusé';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entrées refusées',
+      one: '1 entrée refusée',
+    );
+    return '$_temp0 : non signées avec la clé connue pour $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Une nouvelle clé $code se fait appeler $name. Vérifie auprès de la personne avant de lui faire confiance.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name a proposé une clé différente de celle connue ici. La clé connue reste, la nouvelle n’a pas été prise.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nouvelle clé : $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Retire de ce catalogue chaque entrée et photo écrite par $name sous la clé $key. Les autres appareils gardent les leurs. Irréversible.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Tapez $name pour confirmer';
   }

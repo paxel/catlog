@@ -1749,6 +1749,57 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'La tua chiave';
+
+  @override
+  String keyLine(Object code) {
+    return 'chiave $code';
+  }
+
+  @override
+  String get keyVerified => 'incontrata di persona';
+
+  @override
+  String get keyFromFile => 'da un file, non ancora incontrata';
+
+  @override
+  String get keyUnsigned => 'nessuna chiave ancora, voci non firmate';
+
+  @override
+  String get summaryRefused => 'Rifiutato';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count voci rifiutate',
+      one: '1 voce rifiutata',
+    );
+    return '$_temp0: non firmate con la chiave nota di $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Una nuova chiave $code si chiama $name. Verifica con la persona prima di fidarti.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ha offerto una chiave diversa da quella nota qui. Resta quella nota; la nuova non è stata presa.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nuova chiave: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Rimuove da questo catalogo ogni voce e foto scritta da $name con la chiave $key. Gli altri dispositivi tengono le loro. Non si può annullare.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Digita $name per confermare';
   }

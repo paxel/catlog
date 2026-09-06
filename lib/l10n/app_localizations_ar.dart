@@ -1743,6 +1743,61 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'مفتاحك';
+
+  @override
+  String keyLine(Object code) {
+    return 'المفتاح $code';
+  }
+
+  @override
+  String get keyVerified => 'تم التحقق شخصيًا';
+
+  @override
+  String get keyFromFile => 'من ملف، لم يُتحقق منه بعد';
+
+  @override
+  String get keyUnsigned => 'لا مفتاح بعد، الإدخالات غير موقّعة';
+
+  @override
+  String get summaryRefused => 'مرفوض';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count إدخال مرفوض',
+      many: '$count إدخالًا مرفوضًا',
+      few: '$count إدخالات مرفوضة',
+      two: 'إدخالان مرفوضان',
+      one: 'إدخال واحد مرفوض',
+      zero: 'لا إدخالات مرفوضة',
+    );
+    return '$_temp0: غير موقّعة بالمفتاح المعروف لـ $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'مفتاح جديد $code يسمّي نفسه $name. تحقق من الشخص قبل الوثوق به.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'قدّم $name مفتاحًا غير المعروف هنا. يبقى المعروف؛ لم يُقبل الجديد.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'مفتاح جديد: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'يزيل من هذا الفهرس كل إدخال وصورة كتبها $name تحت المفتاح $key. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'اكتب $name للتأكيد';
   }

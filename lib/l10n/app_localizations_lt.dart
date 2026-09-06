@@ -1746,6 +1746,59 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Jūsų raktas';
+
+  @override
+  String keyLine(Object code) {
+    return 'raktas $code';
+  }
+
+  @override
+  String get keyVerified => 'patvirtintas asmeniškai';
+
+  @override
+  String get keyFromFile => 'iš failo, dar nepatvirtintas';
+
+  @override
+  String get keyUnsigned => 'rakto dar nėra, įrašai nepasirašyti';
+
+  @override
+  String get summaryRefused => 'Atmesta';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count įrašų atmesta',
+      many: '$count įrašo atmesta',
+      few: '$count įrašai atmesti',
+      one: '$count įrašas atmestas',
+    );
+    return '$_temp0: nepasirašyta $name žinomu raktu';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Naujas raktas $code vadinasi $name. Pasitikrinkite su tuo žmogumi, prieš pasitikėdami.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name pasiūlė kitą raktą nei čia žinomas. Žinomas lieka; naujasis nepriimtas.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Naujas raktas: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Pašalina iš šio katalogo kiekvieną įrašą ir nuotrauką, kuriuos $name įrašė raktu $key. Kiti įrenginiai savus pasilieka. Atšaukti negalima.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Patvirtinimui įveskite $name';
   }

@@ -1746,6 +1746,57 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Oma avain';
+
+  @override
+  String keyLine(Object code) {
+    return 'avain $code';
+  }
+
+  @override
+  String get keyVerified => 'tavattu kasvokkain';
+
+  @override
+  String get keyFromFile => 'tiedostosta, ei vielä tavattu';
+
+  @override
+  String get keyUnsigned => 'ei vielä avainta, merkinnät allekirjoittamatta';
+
+  @override
+  String get summaryRefused => 'Hylätty';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count merkintää',
+      one: '1 merkintä',
+    );
+    return '$_temp0 hylätty: ei allekirjoitettu käyttäjän $name tunnetulla avaimella';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Uusi avain $code kutsuu itseään nimellä $name. Varmista henkilöltä ennen kuin luotat siihen.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name tarjosi eri avainta kuin täällä tunnettu. Tunnettu jää; uutta ei otettu.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Uusi avain: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Poistaa tästä luettelosta jokaisen merkinnän ja kuvan, jonka $name kirjoitti avaimella $key. Muut laitteet pitävät omansa. Ei voi kumota.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Vahvista kirjoittamalla $name';
   }

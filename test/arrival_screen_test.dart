@@ -44,10 +44,11 @@ void main() {
     return (applied, moment);
   }
 
-  Future<void> pump(
+  Future<void> pumpWith(
     WidgetTester tester,
     List<Entry> applied, {
     Moment? undo,
+    ImportReport? report,
   }) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1.0;
@@ -64,6 +65,7 @@ void main() {
                 a,
                 applied,
                 undo: undo,
+                report: report,
                 saveTo: (path, name) async {
                   final to = '${saved.path}/$name';
                   File(path).copySync(to);
@@ -79,6 +81,12 @@ void main() {
     await tester.tap(find.text('go'));
     await tester.pumpAndSettle();
   }
+
+  Future<void> pump(
+    WidgetTester tester,
+    List<Entry> applied, {
+    Moment? undo,
+  }) => pumpWith(tester, applied, undo: undo);
 
   testWidgets('new and updated are sections; a tap shows before and after', (
     tester,
@@ -101,6 +109,75 @@ void main() {
     await tester.tap(find.text('Miezi'));
     await tester.pumpAndSettle();
     expect(find.text('white → grey'), findsOneWidget);
+  });
+
+  testWidgets('refused rows and a name-wearing key get their section', (
+    tester,
+  ) async {
+    // Anna knows Bob's key; a forged file in Bob's name arrives.
+    final cat = b.createCat('Wanderer');
+    a.applyEntries(b.entriesSince(const {}), keys: b.keyRecords());
+    final real = b.entriesSince(const {}).last;
+    final forged = Entry(
+      seq: -1,
+      device: b.deviceId,
+      dseq: real.dseq + 1,
+      entity: cat,
+      field: 'name',
+      value: 'Impostor',
+      date: DateTime.now(),
+      author: 'bob',
+      recorded: DateTime.now(),
+    );
+    // And a third catalog calling itself anna.
+    final c = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(c.close);
+    c.createCat('Mimi');
+    final report = ImportReport();
+    final applied = a.applyEntries(
+      [forged, ...c.entriesSince(const {})],
+      keys: c.keyRecords(),
+      report: report,
+    );
+    expect(report.refusedCount, 1);
+    expect(report.impostors, hasLength(1));
+    await pumpWith(tester, applied, report: report);
+    expect(find.text('Refused'), findsOneWidget);
+    expect(
+      find.text(
+        '1 entry refused: not signed with the key known for bob',
+      ),
+      findsOneWidget,
+    );
+    expect(find.textContaining('calls itself anna'), findsOneWidget);
+    expect(find.textContaining('New key: anna'), findsOneWidget);
+    expect(find.textContaining('from a file'), findsOneWidget);
+  });
+
+  testWidgets('refusals alone open the page, with nothing else arrived', (
+    tester,
+  ) async {
+    final cat = b.createCat('Wanderer');
+    a.applyEntries(b.entriesSince(const {}), keys: b.keyRecords());
+    final real = b.entriesSince(const {}).last;
+    final report = ImportReport();
+    final applied = a.applyEntries([
+      Entry(
+        seq: -1,
+        device: b.deviceId,
+        dseq: real.dseq + 1,
+        entity: cat,
+        field: 'name',
+        value: 'Impostor',
+        date: DateTime.now(),
+        author: 'bob',
+        recorded: DateTime.now(),
+      ),
+    ], report: report);
+    expect(applied, isEmpty);
+    await pumpWith(tester, applied, report: report);
+    expect(find.text('Refused'), findsOneWidget);
+    expect(a.current(cat, 'name'), 'Wanderer');
   });
 
   testWidgets('Accept keeps what arrived', (tester) async {

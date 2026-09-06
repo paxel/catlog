@@ -1745,6 +1745,57 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'A kulcsod';
+
+  @override
+  String keyLine(Object code) {
+    return 'kulcs: $code';
+  }
+
+  @override
+  String get keyVerified => 'személyesen igazolva';
+
+  @override
+  String get keyFromFile => 'fájlból, még nem igazolva';
+
+  @override
+  String get keyUnsigned => 'még nincs kulcs, a bejegyzések aláíratlanok';
+
+  @override
+  String get summaryRefused => 'Elutasítva';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bejegyzés',
+      one: '1 bejegyzés',
+    );
+    return '$_temp0 elutasítva: nincs aláírva $name ismert kulcsával';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Egy új kulcs ($code) $name néven mutatkozik be. Kérdezd meg az illetőt, mielőtt megbízol benne.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name az itt ismerttől eltérő kulcsot ajánlott. Az ismert marad; az újat nem vettük át.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Új kulcs: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Eltávolít ebből a katalógusból minden bejegyzést és fotót, amelyet $name a(z) $key kulccsal írt. A többi eszköz megtartja a sajátját. Nem vonható vissza.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Megerősítéshez írd be: $name';
   }

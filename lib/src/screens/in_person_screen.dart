@@ -232,8 +232,9 @@ class _InPersonScreenState extends State<InPersonScreen> {
   void _onSession(List<Entry> applied, Moment? moment, ImportReport report) {
     if (!mounted) return;
     setState(() => _sessions++);
-    if (applied.isNotEmpty) {
-      showImportSummary(context, widget.store, applied, undo: moment);
+    if (applied.isNotEmpty || needsAttention(report)) {
+      showImportSummary(context, widget.store, applied,
+          undo: moment, report: report);
     }
   }
 
@@ -330,9 +331,10 @@ class _InPersonScreenState extends State<InPersonScreen> {
       widget.store.setLocalSetting(
           'lastSync:${info.host}', DateTime.now().toIso8601String());
       setState(() => _lastResult = context.t.syncedResult('$result'));
-      if (mounted && result.applied.isNotEmpty) {
+      if (mounted &&
+          (result.applied.isNotEmpty || needsAttention(result.report))) {
         await showImportSummary(context, widget.store, result.applied,
-            undo: result.moment);
+            undo: result.moment, report: result.report);
       }
     } on SyncException catch (e) {
       if (mounted) {

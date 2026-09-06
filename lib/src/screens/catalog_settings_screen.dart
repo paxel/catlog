@@ -237,6 +237,13 @@ class _CatalogSettingsScreenState extends State<CatalogSettingsScreen> {
             subtitle: Text(t.moderationSubtitle),
             onTap: () => _push(ModerationScreen(store: _store)),
           ),
+          // The key this catalog signs with (1.2.0): partners see this
+          // code next to your name.
+          ListTile(
+            leading: const Icon(Icons.key_outlined),
+            title: Text(t.yourKey),
+            subtitle: Text(t.keyLine(_store.keyCode)),
+          ),
           ListTile(
             leading: const Icon(Icons.inventory_2_outlined),
             title: Text(t.archiveTitle),

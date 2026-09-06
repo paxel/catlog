@@ -1745,6 +1745,58 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Tvoj ključ';
+
+  @override
+  String keyLine(Object code) {
+    return 'ključ $code';
+  }
+
+  @override
+  String get keyVerified => 'potvrđen osobno';
+
+  @override
+  String get keyFromFile => 'iz datoteke, još nepotvrđen';
+
+  @override
+  String get keyUnsigned => 'još nema ključa, unosi nepotpisani';
+
+  @override
+  String get summaryRefused => 'Odbijeno';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count unosa odbijeno',
+      few: '$count unosa odbijena',
+      one: '$count unos odbijen',
+    );
+    return '$_temp0: nisu potpisani poznatim ključem za $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Novi ključ $code zove se $name. Provjeri s tom osobom prije nego mu povjeruješ.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name je ponudio ključ različit od ovdje poznatog. Poznati ostaje; novi nije uzet.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Novi ključ: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Uklanja iz ovog kataloga svaki unos i fotografiju koje je $name napisao pod ključem $key. Drugi uređaji zadržavaju svoje. Ne može se poništiti.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Upiši $name za potvrdu';
   }

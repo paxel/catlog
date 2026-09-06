@@ -1747,6 +1747,58 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Cheia ta';
+
+  @override
+  String keyLine(Object code) {
+    return 'cheia $code';
+  }
+
+  @override
+  String get keyVerified => 'întâlnită în persoană';
+
+  @override
+  String get keyFromFile => 'dintr-un fișier, încă neîntâlnită';
+
+  @override
+  String get keyUnsigned => 'încă fără cheie, intrări nesemnate';
+
+  @override
+  String get summaryRefused => 'Respins';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de intrări respinse',
+      few: '$count intrări respinse',
+      one: '1 intrare respinsă',
+    );
+    return '$_temp0: nesemnate cu cheia cunoscută pentru $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'O cheie nouă $code se numește $name. Verifică cu persoana înainte să ai încredere.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name a oferit o cheie diferită de cea cunoscută aici. Cea cunoscută rămâne; cea nouă nu a fost luată.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Cheie nouă: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Elimină din acest catalog fiecare intrare și fotografie scrisă de $name sub cheia $key. Celelalte dispozitive le păstrează pe ale lor. Nu se poate anula.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Tastează $name pentru confirmare';
   }

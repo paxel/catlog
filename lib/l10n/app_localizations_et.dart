@@ -1741,6 +1741,57 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Sinu võti';
+
+  @override
+  String keyLine(Object code) {
+    return 'võti $code';
+  }
+
+  @override
+  String get keyVerified => 'kohtutud isiklikult';
+
+  @override
+  String get keyFromFile => 'failist, veel kohtumata';
+
+  @override
+  String get keyUnsigned => 'võtit veel pole, kirjed allkirjastamata';
+
+  @override
+  String get summaryRefused => 'Tagasi lükatud';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kirjet',
+      one: '1 kirje',
+    );
+    return '$_temp0 tagasi lükatud: pole allkirjastatud $name teadaoleva võtmega';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Uus võti $code nimetab end $name. Küsi inimeselt üle, enne kui usaldad.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name pakkus teistsugust võtit kui siin teada. Teadaolev jääb; uut ei võetud.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Uus võti: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Eemaldab sellest kataloogist iga kirje ja foto, mille $name võtme $key all kirjutas. Teised seadmed hoiavad omad. Tagasi võtta ei saa.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Kinnitamiseks kirjuta $name';
   }

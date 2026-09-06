@@ -1744,6 +1744,57 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Çelësi yt';
+
+  @override
+  String keyLine(Object code) {
+    return 'çelësi $code';
+  }
+
+  @override
+  String get keyVerified => 'i verifikuar personalisht';
+
+  @override
+  String get keyFromFile => 'nga një skedar, ende i paverifikuar';
+
+  @override
+  String get keyUnsigned => 'ende pa çelës, hyrje të panënshkruara';
+
+  @override
+  String get summaryRefused => 'Refuzuar';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hyrje të refuzuara',
+      one: '1 hyrje e refuzuar',
+    );
+    return '$_temp0: pa nënshkrim me çelësin e njohur për $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Një çelës i ri $code quhet $name. Pyete personin para se t’i besosh.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name ofroi një çelës tjetër nga ai i njohur këtu. I njohuri mbetet; i riu nuk u mor.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Çelës i ri: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Heq nga ky katalog çdo hyrje dhe foto të shkruar nga $name me çelësin $key. Pajisjet e tjera i mbajnë të tyret. Nuk mund të zhbëhet.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Shkruaj $name për konfirmim';
   }

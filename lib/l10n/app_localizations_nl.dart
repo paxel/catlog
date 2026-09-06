@@ -1749,6 +1749,57 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Jouw sleutel';
+
+  @override
+  String keyLine(Object code) {
+    return 'sleutel $code';
+  }
+
+  @override
+  String get keyVerified => 'persoonlijk ontmoet';
+
+  @override
+  String get keyFromFile => 'uit een bestand, nog niet ontmoet';
+
+  @override
+  String get keyUnsigned => 'nog geen sleutel, invoer ongesigneerd';
+
+  @override
+  String get summaryRefused => 'Geweigerd';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count invoeren',
+      one: '1 invoer',
+    );
+    return '$_temp0 geweigerd: niet gesigneerd met de bekende sleutel van $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Een nieuwe sleutel $code noemt zich $name. Vraag het na voor je hem vertrouwt.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name bood een andere sleutel aan dan de hier bekende. De bekende blijft, de nieuwe is niet overgenomen.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Nieuwe sleutel: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Verwijdert elke invoer en foto die $name onder sleutel $key schreef uit deze catalogus. Andere apparaten houden de hunne. Dit kan niet ongedaan worden gemaakt.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Typ $name om te bevestigen';
   }

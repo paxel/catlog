@@ -1742,6 +1742,57 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Din nøkkel';
+
+  @override
+  String keyLine(Object code) {
+    return 'nøkkel $code';
+  }
+
+  @override
+  String get keyVerified => 'møtt personlig';
+
+  @override
+  String get keyFromFile => 'fra en fil, ennå ikke møtt';
+
+  @override
+  String get keyUnsigned => 'ingen nøkkel ennå, oppføringer usignert';
+
+  @override
+  String get summaryRefused => 'Avvist';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count oppføringer',
+      one: '1 oppføring',
+    );
+    return '$_temp0 avvist: ikke signert med nøkkelen som er kjent for $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'En ny nøkkel $code kaller seg $name. Sjekk med personen før du stoler på den.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name tilbød en annen nøkkel enn den som er kjent her. Den kjente blir; den nye ble ikke tatt.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ny nøkkel: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Fjerner hver oppføring og hvert bilde skrevet av $name under nøkkel $key fra denne katalogen. Andre enheter beholder sine. Kan ikke angres.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Skriv $name for å bekrefte';
   }

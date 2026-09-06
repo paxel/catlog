@@ -52,9 +52,10 @@ class _MessengerScreenState extends State<MessengerScreen> {
           label: path.split(Platform.pathSeparator).last);
       final result = imported.result;
       setState(() => _lastResult = t.bundleImported('$result'));
-      if (mounted && result.applied.isNotEmpty) {
+      if (mounted &&
+          (result.applied.isNotEmpty || needsAttention(result.report))) {
         await showImportSummary(context, widget.store, result.applied,
-            undo: imported.moment);
+            undo: imported.moment, report: result.report);
       }
     } on UnsupportedBundleFormat {
       setState(() => _lastResult = t.bundleNewerError);

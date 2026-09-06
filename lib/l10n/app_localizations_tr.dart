@@ -1744,6 +1744,57 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Anahtarın';
+
+  @override
+  String keyLine(Object code) {
+    return 'anahtar $code';
+  }
+
+  @override
+  String get keyVerified => 'yüz yüze doğrulandı';
+
+  @override
+  String get keyFromFile => 'dosyadan, henüz doğrulanmadı';
+
+  @override
+  String get keyUnsigned => 'henüz anahtar yok, kayıtlar imzasız';
+
+  @override
+  String get summaryRefused => 'Reddedildi';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kayıt',
+      one: '1 kayıt',
+    );
+    return '$_temp0 reddedildi: $name için bilinen anahtarla imzalanmamış';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Yeni bir anahtar $code kendine $name diyor. Güvenmeden önce kişiye sor.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name burada bilinenden farklı bir anahtar sundu. Bilinen kalır; yenisi alınmadı.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Yeni anahtar: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '$name tarafından $key anahtarıyla yazılan her kaydı ve fotoğrafı bu katalogdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Onaylamak için $name yazın';
   }

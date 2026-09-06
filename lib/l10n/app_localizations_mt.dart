@@ -1749,6 +1749,59 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'Iċ-ċavetta tiegħek';
+
+  @override
+  String keyLine(Object code) {
+    return 'ċavetta $code';
+  }
+
+  @override
+  String get keyVerified => 'ivverifikata personalment';
+
+  @override
+  String get keyFromFile => 'minn fajl, għadha mhux ivverifikata';
+
+  @override
+  String get keyUnsigned => 'għad m’hemmx ċavetta, entrati mhux iffirmati';
+
+  @override
+  String get summaryRefused => 'Irrifjutat';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entrati rrifjutati',
+      many: '$count entrati rrifjutati',
+      few: '$count entrati rrifjutati',
+      one: '$count entrata rrifjutata',
+    );
+    return '$_temp0: mhux iffirmati biċ-ċavetta magħrufa għal $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Ċavetta ġdida $code issejjaħ lilha nnifisha $name. Iċċekkja mal-persuna qabel ma tafdaha.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name offra ċavetta differenti minn dik magħrufa hawn. Dik magħrufa tibqa’; il-ġdida ma ttiħditx.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Ċavetta ġdida: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Ineħħi minn dan il-katalgu kull entrata u ritratt miktubin minn $name taħt iċ-ċavetta $key. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa’ lura.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Ikteb $name biex tikkonferma';
   }

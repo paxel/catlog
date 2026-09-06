@@ -3224,6 +3224,72 @@ abstract class AppLocalizations {
   /// **'Removes every entry and photo written by {name} on device {device} from this catalog. Other devices keep theirs. This cannot be undone.'**
   String hardDeleteWarningDevice(String name, String device);
 
+  /// No description provided for @yourKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Your key'**
+  String get yourKey;
+
+  /// No description provided for @keyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'key {code}'**
+  String keyLine(Object code);
+
+  /// No description provided for @keyVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'met in person'**
+  String get keyVerified;
+
+  /// No description provided for @keyFromFile.
+  ///
+  /// In en, this message translates to:
+  /// **'from a file, not yet met'**
+  String get keyFromFile;
+
+  /// No description provided for @keyUnsigned.
+  ///
+  /// In en, this message translates to:
+  /// **'no key yet, entries unsigned'**
+  String get keyUnsigned;
+
+  /// No description provided for @summaryRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'Refused'**
+  String get summaryRefused;
+
+  /// No description provided for @refusedEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 entry} other{{count} entries}} refused: not signed with the key known for {name}'**
+  String refusedEntries(int count, Object name);
+
+  /// No description provided for @newKeyCallsItself.
+  ///
+  /// In en, this message translates to:
+  /// **'A new key {code} calls itself {name}. Check with them before trusting it.'**
+  String newKeyCallsItself(Object code, Object name);
+
+  /// No description provided for @keyChangedRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} offered a key other than the one known here. The known one stays; the new one was not taken.'**
+  String keyChangedRefused(Object name);
+
+  /// No description provided for @metaNewKey.
+  ///
+  /// In en, this message translates to:
+  /// **'New key: {name} · {code} ({how})'**
+  String metaNewKey(Object name, Object code, Object how);
+
+  /// No description provided for @hardDeleteWarningKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Removes every entry and photo written by {name} under key {key} from this catalog. Other devices keep theirs. This cannot be undone.'**
+  String hardDeleteWarningKey(Object name, Object key);
+
   /// No description provided for @typeToConfirm.
   ///
   /// In en, this message translates to:

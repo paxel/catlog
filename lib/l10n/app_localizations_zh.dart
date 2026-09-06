@@ -1698,6 +1698,56 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get yourKey => '你的密钥';
+
+  @override
+  String keyLine(Object code) {
+    return '密钥 $code';
+  }
+
+  @override
+  String get keyVerified => '已当面确认';
+
+  @override
+  String get keyFromFile => '来自文件，尚未确认';
+
+  @override
+  String get keyUnsigned => '尚无密钥，条目未签名';
+
+  @override
+  String get summaryRefused => '已拒绝';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已拒绝 $count 条',
+    );
+    return '$_temp0：未使用 $name 的已知密钥签名';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return '新密钥 $code 自称 $name。信任前请向本人核实。';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return '$name 提供了与此处已知不同的密钥。保留已知密钥，未接受新密钥。';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return '新密钥：$name · $code（$how）';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return '从此目录中移除 $name 使用密钥 $key 写入的所有条目和照片。其他设备保留各自的内容。无法撤销。';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return '输入 $name 以确认';
   }

@@ -1752,6 +1752,60 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get yourKey => 'D’eochair';
+
+  @override
+  String keyLine(Object code) {
+    return 'eochair $code';
+  }
+
+  @override
+  String get keyVerified => 'deimhnithe go pearsanta';
+
+  @override
+  String get keyFromFile => 'ó chomhad, gan deimhniú fós';
+
+  @override
+  String get keyUnsigned => 'gan eochair fós, iontrálacha gan síniú';
+
+  @override
+  String get summaryRefused => 'Diúltaithe';
+
+  @override
+  String refusedEntries(int count, Object name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count iontráil diúltaithe',
+      many: '$count n-iontráil diúltaithe',
+      few: '$count iontráil diúltaithe',
+      two: '$count iontráil diúltaithe',
+      one: '$count iontráil diúltaithe',
+    );
+    return '$_temp0: gan síniú leis an eochair aitheanta do $name';
+  }
+
+  @override
+  String newKeyCallsItself(Object code, Object name) {
+    return 'Tugann eochair nua $code $name uirthi féin. Fiafraigh den duine sula gcuireann tú muinín inti.';
+  }
+
+  @override
+  String keyChangedRefused(Object name) {
+    return 'Thairg $name eochair seachas an ceann atá aitheanta anseo. Fanann an ceann aitheanta; níor glacadh leis an gceann nua.';
+  }
+
+  @override
+  String metaNewKey(Object name, Object code, Object how) {
+    return 'Eochair nua: $name · $code ($how)';
+  }
+
+  @override
+  String hardDeleteWarningKey(Object name, Object key) {
+    return 'Baineann sé gach iontráil agus grianghraf a scríobh $name faoin eochair $key den chatalóg seo. Coinníonn gléasanna eile a gcuid féin. Ní féidir é a chealú.';
+  }
+
+  @override
   String typeToConfirm(Object name) {
     return 'Clóscríobh $name le deimhniú';
   }
