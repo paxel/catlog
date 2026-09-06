@@ -1488,6 +1488,12 @@ class AppLocalizationsCs extends AppLocalizations {
       'Konfety a jásot, když se kočka stěhuje do svého domova';
 
   @override
+  String get cheerToggle => 'Zvuk jásotu';
+
+  @override
+  String get cheerSubtitle => 'Krátký jásot ke konfetám, pokaždé jiný';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfety a jásot, když se mazlíček stěhuje do svého domova';
 

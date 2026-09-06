@@ -1490,6 +1490,13 @@ class AppLocalizationsMt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetti u ferħ meta qattus imur f\'daru';
 
   @override
+  String get cheerToggle => 'Ħoss ta’ ċapċip';
+
+  @override
+  String get cheerSubtitle =>
+      'Ċapċipa qasira mal-konfetti, kull darba differenti';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti u ferħ meta annimal domestiku jmur f\'daru';
 

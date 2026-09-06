@@ -432,6 +432,8 @@
   "otherOption": "Muu…",
   "celebrationsToggle": "Tähista lapsendamisi",
   "celebrationsSubtitle": "Konfetid ja hõisked, kui kass kolib koju",
+  "cheerToggle": "Juubelduse heli",
+  "cheerSubtitle": "Lühike juubeldus konfettidega, iga kord erinev",
   "celebrationsSubtitleNeutral": "Konfetid ja hõisked, kui lemmikloom kolib koju",
   "onMapLabel": "Kaardil",
   "showOnMap": "Näita kaardil",

@@ -1489,6 +1489,12 @@ class AppLocalizationsFi extends AppLocalizations {
       'Konfettia ja hurraus, kun kissa muuttaa kotiinsa';
 
   @override
+  String get cheerToggle => 'Hurraus-ääni';
+
+  @override
+  String get cheerSubtitle => 'Lyhyt hurraus konfettien kanssa, joka kerta eri';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfettia ja hurraus, kun lemmikki muuttaa kotiinsa';
 

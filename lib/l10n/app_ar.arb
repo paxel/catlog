@@ -432,6 +432,8 @@
   "otherOption": "أخرى…",
   "celebrationsToggle": "الاحتفال بالتبني",
   "celebrationsSubtitle": "قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها",
+  "cheerToggle": "صوت الهتاف",
+  "cheerSubtitle": "هتاف قصير مع القصاصات، مختلف في كل مرة",
   "celebrationsSubtitleNeutral": "قصاصات ملونة وهتاف عندما ينتقل حيوان أليف إلى منزله",
   "onMapLabel": "على الخريطة",
   "showOnMap": "إظهار على الخريطة",

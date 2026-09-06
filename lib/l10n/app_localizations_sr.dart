@@ -1488,6 +1488,12 @@ class AppLocalizationsSr extends AppLocalizations {
       'Конфете и клицање када се мачка сели у свој дом';
 
   @override
+  String get cheerToggle => 'Звук славља';
+
+  @override
+  String get cheerSubtitle => 'Кратко славље уз конфете, сваки пут другачије';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Конфете и клицање када се љубимац сели у свој дом';
 

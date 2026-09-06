@@ -1487,6 +1487,13 @@ class AppLocalizationsSv extends AppLocalizations {
       'Konfetti och jubel när en katt flyttar till sitt hem';
 
   @override
+  String get cheerToggle => 'Jubelljud';
+
+  @override
+  String get cheerSubtitle =>
+      'Ett kort jubel till konfettin, ett annat varje gång';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti och jubel när ett husdjur flyttar till sitt hem';
 

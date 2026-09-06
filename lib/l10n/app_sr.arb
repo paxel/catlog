@@ -432,6 +432,8 @@
   "otherOption": "Друго…",
   "celebrationsToggle": "Прослави усвајања",
   "celebrationsSubtitle": "Конфете и клицање када се мачка сели у свој дом",
+  "cheerToggle": "Звук славља",
+  "cheerSubtitle": "Кратко славље уз конфете, сваки пут другачије",
   "celebrationsSubtitleNeutral": "Конфете и клицање када се љубимац сели у свој дом",
   "onMapLabel": "На карти",
   "showOnMap": "Прикажи на карти",

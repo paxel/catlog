@@ -1486,6 +1486,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Confetti and a cheer when a cat moves into a forever home';
 
   @override
+  String get cheerToggle => 'Cheer sound';
+
+  @override
+  String get cheerSubtitle =>
+      'A short cheer with the confetti, a different one each time';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetti and a cheer when a pet moves into a forever home';
 

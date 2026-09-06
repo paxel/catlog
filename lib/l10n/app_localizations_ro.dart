@@ -1489,6 +1489,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'Confetti și urale când o pisică se mută în căminul ei';
 
   @override
+  String get cheerToggle => 'Sunet de urale';
+
+  @override
+  String get cheerSubtitle =>
+      'Urale scurte la confetti, de fiecare dată altele';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetti și urale când un animal se mută în căminul lui';
 

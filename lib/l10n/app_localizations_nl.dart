@@ -1491,6 +1491,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Confetti en gejuich wanneer een kat naar zijn thuis verhuist';
 
   @override
+  String get cheerToggle => 'Juichgeluid';
+
+  @override
+  String get cheerSubtitle =>
+      'Een kort gejuich bij de confetti, elke keer anders';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetti en gejuich wanneer een huisdier naar zijn thuis verhuist';
 

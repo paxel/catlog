@@ -429,6 +429,8 @@
   "otherOption": "Anderes…",
   "celebrationsToggle": "Adoptionen feiern",
   "celebrationsSubtitle": "Konfetti und Jubel, wenn eine Katze in ihr Zuhause zieht",
+  "cheerToggle": "Jubel-Ton",
+  "cheerSubtitle": "Ein kurzer Jubel zum Konfetti, jedes Mal ein anderer",
   "celebrationsSubtitleNeutral": "Konfetti und Jubel, wenn ein Tier in sein Zuhause zieht",
   "onMapLabel": "Auf der Karte",
   "showOnMap": "Auf Karte zeigen",

@@ -432,6 +432,8 @@
   "otherOption": "Annat…",
   "celebrationsToggle": "Fira adoptioner",
   "celebrationsSubtitle": "Konfetti och jubel när en katt flyttar till sitt hem",
+  "cheerToggle": "Jubelljud",
+  "cheerSubtitle": "Ett kort jubel till konfettin, ett annat varje gång",
   "celebrationsSubtitleNeutral": "Konfetti och jubel när ett husdjur flyttar till sitt hem",
   "onMapLabel": "På kartan",
   "showOnMap": "Visa på karta",

@@ -1483,6 +1483,12 @@ class AppLocalizationsAr extends AppLocalizations {
       'قصاصات ملونة وهتاف عندما تنتقل قطة إلى منزلها';
 
   @override
+  String get cheerToggle => 'صوت الهتاف';
+
+  @override
+  String get cheerSubtitle => 'هتاف قصير مع القصاصات، مختلف في كل مرة';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'قصاصات ملونة وهتاف عندما ينتقل حيوان أليف إلى منزله';
 

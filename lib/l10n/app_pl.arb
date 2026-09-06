@@ -432,6 +432,8 @@
   "otherOption": "Inne…",
   "celebrationsToggle": "Świętuj adopcje",
   "celebrationsSubtitle": "Konfetti i wiwaty, gdy kot przeprowadza się do domu",
+  "cheerToggle": "Dźwięk wiwatów",
+  "cheerSubtitle": "Krótkie wiwaty przy konfetti, za każdym razem inne",
   "celebrationsSubtitleNeutral": "Konfetti i wiwaty, gdy zwierzę przeprowadza się do domu",
   "onMapLabel": "Na mapie",
   "showOnMap": "Pokaż na mapie",

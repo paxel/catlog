@@ -1492,6 +1492,12 @@ class AppLocalizationsMk extends AppLocalizations {
       'Конфети и радост кога мачка се сели во својот дом';
 
   @override
+  String get cheerToggle => 'Звук на славење';
+
+  @override
+  String get cheerSubtitle => 'Кратко славење со конфетите, секој пат различно';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Конфети и радост кога миленик се сели во својот дом';
 

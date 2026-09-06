@@ -1486,6 +1486,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bir kedi yuvasına taşındığında konfeti ve tezahürat';
 
   @override
+  String get cheerToggle => 'Tezahürat sesi';
+
+  @override
+  String get cheerSubtitle =>
+      'Konfetiyle kısa bir tezahürat, her seferinde farklı';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Bir evcil hayvan yuvasına taşındığında konfeti ve tezahürat';
 

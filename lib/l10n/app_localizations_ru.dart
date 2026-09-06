@@ -1488,6 +1488,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'Конфетти и ликование, когда кошка переезжает в свой дом';
 
   @override
+  String get cheerToggle => 'Звук ликования';
+
+  @override
+  String get cheerSubtitle =>
+      'Короткое ликование к конфетти, каждый раз другое';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Конфетти и ликование, когда питомец переезжает в свой дом';
 

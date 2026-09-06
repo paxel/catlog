@@ -21,6 +21,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
   times). A page from Settings and the agenda's trophy; climbing a
   ladder gets the confetti and a line saying which.
 
+### Changed
+
+- The celebration cheer is one of several short clips, picked at
+  random each time, and has its own switch in Settings so the confetti
+  can stay while the sound is off.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).

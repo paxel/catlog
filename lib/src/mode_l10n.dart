@@ -376,6 +376,12 @@ class ModeLocalizations implements AppLocalizations {
   String changesCount(int n) => base.changesCount(n);
 
   @override
+  String get cheerSubtitle => base.cheerSubtitle;
+
+  @override
+  String get cheerToggle => base.cheerToggle;
+
+  @override
   String get chipScanHint => pets ? base.chipScanHintNeutral : base.chipScanHint;
 
   @override

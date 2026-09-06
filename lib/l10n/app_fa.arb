@@ -432,6 +432,8 @@
   "otherOption": "دیگر…",
   "celebrationsToggle": "جشن گرفتن واگذاری‌ها",
   "celebrationsSubtitle": "کاغذرنگی و هلهله وقتی گربه‌ای به خانه‌اش می‌رود",
+  "cheerToggle": "صدای هلهله",
+  "cheerSubtitle": "هلهله کوتاه همراه کاغذرنگی، هر بار متفاوت",
   "celebrationsSubtitleNeutral": "کاغذرنگی و هلهله وقتی حیوان خانگی‌ای به خانه‌اش می‌رود",
   "onMapLabel": "روی نقشه",
   "showOnMap": "نمایش روی نقشه",

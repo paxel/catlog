@@ -432,6 +432,8 @@
   "otherOption": "Muu…",
   "celebrationsToggle": "Juhli adoptioita",
   "celebrationsSubtitle": "Konfettia ja hurraus, kun kissa muuttaa kotiinsa",
+  "cheerToggle": "Hurraus-ääni",
+  "cheerSubtitle": "Lyhyt hurraus konfettien kanssa, joka kerta eri",
   "celebrationsSubtitleNeutral": "Konfettia ja hurraus, kun lemmikki muuttaa kotiinsa",
   "onMapLabel": "Kartalla",
   "showOnMap": "Näytä kartalla",

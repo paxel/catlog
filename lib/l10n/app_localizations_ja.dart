@@ -1461,6 +1461,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get celebrationsSubtitle => '猫がおうちに移るときに紙吹雪と歓声';
 
   @override
+  String get cheerToggle => '歓声の音';
+
+  @override
+  String get cheerSubtitle => '紙吹雪と一緒に短い歓声、毎回違うもの';
+
+  @override
   String get celebrationsSubtitleNeutral => 'ペットがおうちに移るときに紙吹雪と歓声';
 
   @override

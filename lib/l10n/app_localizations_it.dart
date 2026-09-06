@@ -1492,6 +1492,13 @@ class AppLocalizationsIt extends AppLocalizations {
       'Coriandoli e applausi quando un gatto trasloca nella sua casa';
 
   @override
+  String get cheerToggle => 'Suono di esultanza';
+
+  @override
+  String get cheerSubtitle =>
+      'Una breve esultanza con i coriandoli, ogni volta diversa';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Coriandoli e applausi quando un animale trasloca nella sua casa definitiva';
 

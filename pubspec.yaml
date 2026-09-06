@@ -54,6 +54,6 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/sounds/party.wav
+    - assets/sounds/
     - assets/names/
     - assets/fliers/templates.json

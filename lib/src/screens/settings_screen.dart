@@ -66,6 +66,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (v) =>
                 setState(() => setCelebrationsEnabled(widget.store, v)),
           ),
+          // The cheer on its own switch: confetti for the eyes, silence
+          // for the ears, when that is the mood.
+          SwitchListTile(
+            secondary: const Icon(Icons.volume_up_outlined),
+            title: Text(t.cheerToggle),
+            subtitle: Text(t.cheerSubtitle),
+            value: celebrationsEnabled(widget.store) &&
+                cheerEnabled(widget.store),
+            onChanged: celebrationsEnabled(widget.store)
+                ? (v) => setState(() => setCheerEnabled(widget.store, v))
+                : null,
+          ),
           if (catalogManager != null)
             ListTile(
               leading: const Icon(Icons.emoji_events_outlined),

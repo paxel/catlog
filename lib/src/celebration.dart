@@ -15,6 +15,36 @@ bool celebrationsEnabled(CatalogStore store) =>
 void setCelebrationsEnabled(CatalogStore store, bool enabled) =>
     store.setLocalSetting('celebrations', enabled ? 'on' : 'off');
 
+/// The cheer beside the confetti; off leaves the confetti alone.
+bool cheerEnabled(CatalogStore store) =>
+    store.localSetting('celebrationSound') != 'off';
+
+void setCheerEnabled(CatalogStore store, bool enabled) =>
+    store.setLocalSetting('celebrationSound', enabled ? 'on' : 'off');
+
+/// The cheers, one picked at random per celebration so the hundredth
+/// still surprises. cheer1–4 are CC BY 4.0 excerpts, credited on the
+/// licences page; see assets/sounds/LICENSES.md.
+const cheerAssets = [
+  'sounds/party.wav',
+  'sounds/cheer1.wav',
+  'sounds/cheer2.wav',
+  'sounds/cheer3.wav',
+  'sounds/cheer4.wav',
+];
+
+/// One of [cheerAssets], never the same as [previous] twice in a row.
+String pickCheer({String? previous, Random? random}) {
+  final r = random ?? Random();
+  final choices = [
+    for (final a in cheerAssets)
+      if (a != previous || cheerAssets.length == 1) a
+  ];
+  return choices[r.nextInt(choices.length)];
+}
+
+String? _lastCheer;
+
 /// Call after a locally performed move; fires only for forever homes.
 void maybeCelebrateAdoption(
     BuildContext context, CatalogStore store, String? destinationClowder) {
@@ -27,7 +57,7 @@ void maybeCelebrateAdoption(
 /// of chores all done, an achievement.
 void celebrate(BuildContext context, CatalogStore store) {
   if (!celebrationsEnabled(store)) return;
-  _playCheer();
+  if (cheerEnabled(store)) _playCheer();
   _showConfetti(context);
 }
 
@@ -41,7 +71,9 @@ Future<void> _playCheer() async {
         audioFocus: AndroidAudioFocus.none,
       ),
     ));
-    await player.play(AssetSource('sounds/party.wav'));
+    final cheer = pickCheer(previous: _lastCheer);
+    _lastCheer = cheer;
+    await player.play(AssetSource(cheer));
     // Released when the sound ends — or after a few seconds if the
     // platform never says so.
     player.onPlayerComplete.first

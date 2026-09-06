@@ -432,6 +432,8 @@
   "otherOption": "אחר…",
   "celebrationsToggle": "חגיגת אימוצים",
   "celebrationsSubtitle": "קונפטי ותרועות כשחתול עובר לבית",
+  "cheerToggle": "צליל תרועה",
+  "cheerSubtitle": "תרועה קצרה עם הקונפטי, שונה בכל פעם",
   "celebrationsSubtitleNeutral": "קונפטי ותרועות כשחיית מחמד עוברת לבית",
   "onMapLabel": "על המפה",
   "showOnMap": "הצג על המפה",

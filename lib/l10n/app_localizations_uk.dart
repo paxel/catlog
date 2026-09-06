@@ -1488,6 +1488,12 @@ class AppLocalizationsUk extends AppLocalizations {
       'Конфеті та радість, коли кіт переїжджає у свій дім';
 
   @override
+  String get cheerToggle => 'Звук вітання';
+
+  @override
+  String get cheerSubtitle => 'Коротке вітання до конфеті, щоразу інше';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Конфеті та радість, коли улюбленець переїжджає у свій дім';
 

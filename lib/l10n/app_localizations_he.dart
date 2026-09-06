@@ -1479,6 +1479,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get celebrationsSubtitle => 'קונפטי ותרועות כשחתול עובר לבית';
 
   @override
+  String get cheerToggle => 'צליל תרועה';
+
+  @override
+  String get cheerSubtitle => 'תרועה קצרה עם הקונפטי, שונה בכל פעם';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'קונפטי ותרועות כשחיית מחמד עוברת לבית';
 

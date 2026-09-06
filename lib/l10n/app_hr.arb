@@ -432,6 +432,8 @@
   "otherOption": "Drugo…",
   "celebrationsToggle": "Slavi udomljavanja",
   "celebrationsSubtitle": "Konfeti i klicanje kada mačka pređe u svoj dom",
+  "cheerToggle": "Zvuk slavlja",
+  "cheerSubtitle": "Kratko slavlje uz konfete, svaki put drugačije",
   "celebrationsSubtitleNeutral": "Konfeti i klicanje kada ljubimac pređe u svoj dom",
   "onMapLabel": "Na karti",
   "showOnMap": "Prikaži na karti",

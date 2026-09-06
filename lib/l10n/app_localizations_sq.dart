@@ -1487,6 +1487,13 @@ class AppLocalizationsSq extends AppLocalizations {
       'Konfeti dhe brohoritje kur një mace shpërngulet në shtëpinë e saj';
 
   @override
+  String get cheerToggle => 'Tingulli i brohoritjes';
+
+  @override
+  String get cheerSubtitle =>
+      'Një brohoritje e shkurtër me konfetat, e ndryshme çdo herë';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti dhe brohoritje kur një kafshë shpërngulet në shtëpinë e saj';
 

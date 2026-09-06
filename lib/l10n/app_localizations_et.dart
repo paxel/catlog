@@ -1485,6 +1485,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get celebrationsSubtitle => 'Konfetid ja hõisked, kui kass kolib koju';
 
   @override
+  String get cheerToggle => 'Juubelduse heli';
+
+  @override
+  String get cheerSubtitle => 'Lühike juubeldus konfettidega, iga kord erinev';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetid ja hõisked, kui lemmikloom kolib koju';
 

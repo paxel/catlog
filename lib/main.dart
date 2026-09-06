@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:ui' show PlatformDispatcher;
 
 import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -40,6 +41,15 @@ void Function(CatalogInfo)? switchCatalog;
 Future<void> main(List<String> args) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    // The cheers are somebody's work: the credit CC BY asks for, on the
+    // licences page beside the packages'.
+    LicenseRegistry.addLicense(() => Stream.value(const LicenseEntryWithLineBreaks(
+          ['Free Crowd Cheering Sounds'],
+          'cheer1.wav–cheer4.wav are excerpts of "Free Crowd Cheering Sounds" '
+          'by Gregor Quendel (https://opengameart.org/content/free-crowd-cheering-sounds), '
+          'licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). '
+          'Cut short, mixed to mono, faded out.',
+        )));
     final dir = await getApplicationSupportDirectory();
     // The language decides what the catalog carried over from an older
     // version is called, so it is read before the catalogs are opened.

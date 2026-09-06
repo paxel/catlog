@@ -432,6 +432,8 @@
   "otherOption": "Anders…",
   "celebrationsToggle": "Adopties vieren",
   "celebrationsSubtitle": "Confetti en gejuich wanneer een kat naar zijn thuis verhuist",
+  "cheerToggle": "Juichgeluid",
+  "cheerSubtitle": "Een kort gejuich bij de confetti, elke keer anders",
   "celebrationsSubtitleNeutral": "Confetti en gejuich wanneer een huisdier naar zijn thuis verhuist",
   "onMapLabel": "Op de kaart",
   "showOnMap": "Toon op kaart",

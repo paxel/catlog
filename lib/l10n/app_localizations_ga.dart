@@ -1492,6 +1492,13 @@ class AppLocalizationsGa extends AppLocalizations {
       'Coinfití agus gártha nuair a bhogann cat go dtí a bhaile';
 
   @override
+  String get cheerToggle => 'Fuaim gártha';
+
+  @override
+  String get cheerSubtitle =>
+      'Gártha gearra leis an confetti, ceann difriúil gach uair';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Coinfití agus gártha nuair a bhogann peata go dtí a bhaile';
 

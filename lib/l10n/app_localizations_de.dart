@@ -1493,6 +1493,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'Konfetti und Jubel, wenn eine Katze in ihr Zuhause zieht';
 
   @override
+  String get cheerToggle => 'Jubel-Ton';
+
+  @override
+  String get cheerSubtitle =>
+      'Ein kurzer Jubel zum Konfetti, jedes Mal ein anderer';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti und Jubel, wenn ein Tier in sein Zuhause zieht';
 

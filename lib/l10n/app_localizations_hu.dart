@@ -1487,6 +1487,12 @@ class AppLocalizationsHu extends AppLocalizations {
       'Konfetti és éljenzés, amikor egy macska az otthonába költözik';
 
   @override
+  String get cheerToggle => 'Ujjongás hangja';
+
+  @override
+  String get cheerSubtitle => 'Rövid ujjongás a konfettihez, mindig más';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfetti és éljenzés, amikor egy kisállat az otthonába költözik';
 

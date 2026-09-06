@@ -432,6 +432,8 @@
   "otherOption": "Diğer…",
   "celebrationsToggle": "Sahiplendirmeleri kutla",
   "celebrationsSubtitle": "Bir kedi yuvasına taşındığında konfeti ve tezahürat",
+  "cheerToggle": "Tezahürat sesi",
+  "cheerSubtitle": "Konfetiyle kısa bir tezahürat, her seferinde farklı",
   "celebrationsSubtitleNeutral": "Bir evcil hayvan yuvasına taşındığında konfeti ve tezahürat",
   "onMapLabel": "Haritada",
   "showOnMap": "Haritada göster",

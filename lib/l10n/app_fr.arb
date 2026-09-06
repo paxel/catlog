@@ -432,6 +432,8 @@
   "otherOption": "Autre…",
   "celebrationsToggle": "Fêter les adoptions",
   "celebrationsSubtitle": "Confettis et acclamations quand un chat rejoint son foyer",
+  "cheerToggle": "Son d’acclamation",
+  "cheerSubtitle": "Une courte acclamation avec les confettis, différente à chaque fois",
   "celebrationsSubtitleNeutral": "Confettis et acclamations quand un animal rejoint son foyer définitif",
   "onMapLabel": "Sur la carte",
   "showOnMap": "Afficher sur la carte",

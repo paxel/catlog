@@ -432,6 +432,8 @@
   "otherOption": "Інше…",
   "celebrationsToggle": "Святкувати прилаштування",
   "celebrationsSubtitle": "Конфеті та радість, коли кіт переїжджає у свій дім",
+  "cheerToggle": "Звук вітання",
+  "cheerSubtitle": "Коротке вітання до конфеті, щоразу інше",
   "celebrationsSubtitleNeutral": "Конфеті та радість, коли улюбленець переїжджає у свій дім",
   "onMapLabel": "На карті",
   "showOnMap": "Показати на карті",

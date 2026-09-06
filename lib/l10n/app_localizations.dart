@@ -2738,6 +2738,18 @@ abstract class AppLocalizations {
   /// **'Confetti and a cheer when a cat moves into a forever home'**
   String get celebrationsSubtitle;
 
+  /// No description provided for @cheerToggle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheer sound'**
+  String get cheerToggle;
+
+  /// No description provided for @cheerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A short cheer with the confetti, a different one each time'**
+  String get cheerSubtitle;
+
   /// No description provided for @celebrationsSubtitleNeutral.
   ///
   /// In en, this message translates to:

@@ -432,6 +432,8 @@
   "otherOption": "その他…",
   "celebrationsToggle": "譲渡をお祝いする",
   "celebrationsSubtitle": "猫がおうちに移るときに紙吹雪と歓声",
+  "cheerToggle": "歓声の音",
+  "cheerSubtitle": "紙吹雪と一緒に短い歓声、毎回違うもの",
   "celebrationsSubtitleNeutral": "ペットがおうちに移るときに紙吹雪と歓声",
   "onMapLabel": "地図上",
   "showOnMap": "地図で表示",

@@ -432,6 +432,8 @@
   "otherOption": "Drugo…",
   "celebrationsToggle": "Praznuj posvojitve",
   "celebrationsSubtitle": "Konfeti in vzkliki, ko se mačka preseli v svoj dom",
+  "cheerToggle": "Zvok navijanja",
+  "cheerSubtitle": "Kratko navijanje ob konfetih, vsakič drugačno",
   "celebrationsSubtitleNeutral": "Konfeti in vzkliki, ko se ljubljenček preseli v svoj dom",
   "onMapLabel": "Na zemljevidu",
   "showOnMap": "Pokaži na zemljevidu",

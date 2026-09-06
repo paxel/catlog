@@ -432,6 +432,8 @@
   "otherOption": "Otro…",
   "celebrationsToggle": "Celebrar adopciones",
   "celebrationsSubtitle": "Confeti y vítores cuando un gato se muda a su hogar",
+  "cheerToggle": "Sonido de ovación",
+  "cheerSubtitle": "Una ovación breve con el confeti, distinta cada vez",
   "celebrationsSubtitleNeutral": "Confeti y vítores cuando una mascota se muda a su hogar definitivo",
   "onMapLabel": "En el mapa",
   "showOnMap": "Mostrar en el mapa",

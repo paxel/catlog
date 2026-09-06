@@ -1488,6 +1488,12 @@ class AppLocalizationsLt extends AppLocalizations {
       'Konfeti ir šūksniai, kai katė persikelia į namus';
 
   @override
+  String get cheerToggle => 'Šūksnių garsas';
+
+  @override
+  String get cheerSubtitle => 'Trumpi šūksniai su konfeti, kaskart kiti';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti ir šūksniai, kai augintinis persikelia į namus';
 

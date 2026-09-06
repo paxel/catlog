@@ -1444,6 +1444,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get celebrationsSubtitle => '猫咪搬进新家时撒彩纸并欢呼';
 
   @override
+  String get cheerToggle => '欢呼声';
+
+  @override
+  String get cheerSubtitle => '伴随彩纸的短促欢呼，每次不同';
+
+  @override
   String get celebrationsSubtitleNeutral => '宠物搬进新家时撒彩纸并欢呼';
 
   @override

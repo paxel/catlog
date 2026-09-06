@@ -432,6 +432,8 @@
   "otherOption": "Jiné…",
   "celebrationsToggle": "Slavit adopce",
   "celebrationsSubtitle": "Konfety a jásot, když se kočka stěhuje do svého domova",
+  "cheerToggle": "Zvuk jásotu",
+  "cheerSubtitle": "Krátký jásot ke konfetám, pokaždé jiný",
   "celebrationsSubtitleNeutral": "Konfety a jásot, když se mazlíček stěhuje do svého domova",
   "onMapLabel": "Na mapě",
   "showOnMap": "Zobrazit na mapě",

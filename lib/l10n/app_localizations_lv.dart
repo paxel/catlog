@@ -1488,6 +1488,12 @@ class AppLocalizationsLv extends AppLocalizations {
       'Konfeti un gaviles, kad kaķis pārceļas uz mājām';
 
   @override
+  String get cheerToggle => 'Gaviļu skaņa';
+
+  @override
+  String get cheerSubtitle => 'Īsas gaviles ar konfetī, katru reizi citādas';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfeti un gaviles, kad mājdzīvnieks pārceļas uz mājām';
 

@@ -432,6 +432,8 @@
   "otherOption": "Другое…",
   "celebrationsToggle": "Праздновать пристройство",
   "celebrationsSubtitle": "Конфетти и ликование, когда кошка переезжает в свой дом",
+  "cheerToggle": "Звук ликования",
+  "cheerSubtitle": "Короткое ликование к конфетти, каждый раз другое",
   "celebrationsSubtitleNeutral": "Конфетти и ликование, когда питомец переезжает в свой дом",
   "onMapLabel": "На карте",
   "showOnMap": "Показать на карте",

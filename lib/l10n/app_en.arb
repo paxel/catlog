@@ -706,6 +706,8 @@
   "otherOption": "Other…",
   "celebrationsToggle": "Celebrate adoptions",
   "celebrationsSubtitle": "Confetti and a cheer when a cat moves into a forever home",
+  "cheerToggle": "Cheer sound",
+  "cheerSubtitle": "A short cheer with the confetti, a different one each time",
   "celebrationsSubtitleNeutral": "Confetti and a cheer when a pet moves into a forever home",
   "onMapLabel": "On the map",
   "showOnMap": "Show on map",

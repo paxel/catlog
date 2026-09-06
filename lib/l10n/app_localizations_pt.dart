@@ -1488,6 +1488,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Confetes e vivas quando um gato se muda para o lar';
 
   @override
+  String get cheerToggle => 'Som de festa';
+
+  @override
+  String get cheerSubtitle =>
+      'Uma festa breve com o confete, diferente de cada vez';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confetes e vivas quando um animal se muda para o lar definitivo';
 

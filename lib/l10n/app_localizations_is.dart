@@ -1491,6 +1491,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'Skrautborðar og fagnaðarlæti þegar köttur flytur á heimili sitt';
 
   @override
+  String get cheerToggle => 'Fagnaðarhljóð';
+
+  @override
+  String get cheerSubtitle =>
+      'Stutt fagnaðaróp með konfettíinu, nýtt í hvert sinn';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Skrautborðar og fagnaðarlæti þegar gæludýr flytur á heimili sitt';
 

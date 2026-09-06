@@ -432,6 +432,8 @@
   "otherOption": "Kita…",
   "celebrationsToggle": "Švęsti priglaudimus",
   "celebrationsSubtitle": "Konfeti ir šūksniai, kai katė persikelia į namus",
+  "cheerToggle": "Šūksnių garsas",
+  "cheerSubtitle": "Trumpi šūksniai su konfeti, kaskart kiti",
   "celebrationsSubtitleNeutral": "Konfeti ir šūksniai, kai augintinis persikelia į namus",
   "onMapLabel": "Žemėlapyje",
   "showOnMap": "Rodyti žemėlapyje",

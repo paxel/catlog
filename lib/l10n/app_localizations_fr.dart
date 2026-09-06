@@ -1491,6 +1491,13 @@ class AppLocalizationsFr extends AppLocalizations {
       'Confettis et acclamations quand un chat rejoint son foyer';
 
   @override
+  String get cheerToggle => 'Son d’acclamation';
+
+  @override
+  String get cheerSubtitle =>
+      'Une courte acclamation avec les confettis, différente à chaque fois';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Confettis et acclamations quand un animal rejoint son foyer définitif';
 

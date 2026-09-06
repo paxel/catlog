@@ -1486,6 +1486,12 @@ class AppLocalizationsSk extends AppLocalizations {
       'Konfety a jasot, keď sa mačka sťahuje do svojho domova';
 
   @override
+  String get cheerToggle => 'Zvuk jasotu';
+
+  @override
+  String get cheerSubtitle => 'Krátky jasot ku konfetám, zakaždým iný';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Konfety a jasot, keď sa miláčik sťahuje do svojho domova';
 

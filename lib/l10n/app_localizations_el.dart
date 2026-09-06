@@ -1495,6 +1495,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κομφετί και ζητωκραυγές όταν μια γάτα μετακομίζει στο σπίτι της';
 
   @override
+  String get cheerToggle => 'Ήχος ζητωκραυγής';
+
+  @override
+  String get cheerSubtitle =>
+      'Μια σύντομη ζητωκραυγή με το κομφετί, διαφορετική κάθε φορά';
+
+  @override
   String get celebrationsSubtitleNeutral =>
       'Κομφετί και ζητωκραυγές όταν ένα κατοικίδιο μετακομίζει στο σπίτι του';
 
