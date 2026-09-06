@@ -6,6 +6,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.0] - Unreleased
 
 ### Added
+- Every catalog signs what it writes with its own key. Partners see
+  people as name and key code ("Kathrin · key 7f3a-c21e"); a key met
+  from a file counts as trusted, one met in person as verified. Entries
+  written in a known name without the right signature are refused and
+  listed on the arrival page, as is a new key that calls itself by a
+  name you already know. Your key sits in the catalog settings.
 - Looks: a new field describes an animal in chips, size, colours,
   marks, and per species fur, tail, ears, pattern or plumage. The
   Stray Cam and the poster scan ask for them right after the picture.

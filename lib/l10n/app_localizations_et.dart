@@ -1088,7 +1088,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin.';
+      'Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin. Iga kataloog allkirjastab kirjutatu oma võtmega; partnerid näevad võtmekoodi sinu nime kõrval. Partneri esimene võti võetakse failist usalduse peale ja loeb kohtutuks, kui sünkroonite isiklikult. Tuttava nime all olevad kirjed ilma õige allkirjata lükatakse tagasi ja loetletakse saabumislehel.';
 
   @override
   String get helpFields =>
@@ -2288,7 +2288,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili.';
+      'Kõik, mis kuulub ainult sellele kataloogile: nimi, kas seal on kassid või lemmikloomad, väljad, autorid ja keelud, arhiiv ning ajas tagasiminek. Siinsed muudatused puudutavad ainult seda kataloogi — ka sellist, milles sa praegu ei ole. Kustutamine kirjutab kataloogi enne faili. Sinu võti on kood, mida partnerid näevad sinu nime kõrval; see kuulub sellele kataloogile.';
 
   @override
   String get spotHomeCatalog =>

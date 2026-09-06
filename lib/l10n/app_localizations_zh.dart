@@ -1050,7 +1050,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpSync =>
-      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。';
+      '把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。 每个目录用自己的密钥为写入内容签名；伙伴会在你的名字旁看到密钥码。伙伴的第一把密钥从文件中先行信任，当面同步后视为已确认。以已知名字写入但签名不正确的条目会被拒绝，并列在到达页面上。';
 
   @override
   String get helpFields =>
@@ -2196,7 +2196,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      '只属于此目录的一切：名称、收录的是猫还是宠物、字段、作者与封禁、归档以及回退到过去。这里的更改只影响此目录，即使你当前不在其中。删除前会先把目录写入文件。';
+      '只属于此目录的一切：名称、收录的是猫还是宠物、字段、作者与封禁、归档以及回退到过去。这里的更改只影响此目录，即使你当前不在其中。删除前会先把目录写入文件。 你的密钥是伙伴在你名字旁看到的代码；它属于此目录。';
 
   @override
   String get spotHomeCatalog => '这是你当前所在的目录。点按名称即可切换或新建。';

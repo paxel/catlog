@@ -48,6 +48,12 @@ void main() {
     expect(looksDisplay(en, 'nonsense'), 'nonsense');
   });
 
+  test('the sync and catalog-settings help explain keys', () {
+    final t = lookupAppLocalizations(const Locale('en'));
+    expect(t.helpSync, contains('signs what it writes with its own key'));
+    expect(t.helpCatalogSettings, contains('Your key is the code'));
+  });
+
   test('the matches help explains Looks pairs', () {
     final t = lookupAppLocalizations(const Locale('en'));
     expect(t.helpMatches, contains('Looks agree in two traits'));

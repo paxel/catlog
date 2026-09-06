@@ -1094,7 +1094,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin.';
+      'Conas a shroicheann sonraí daoine eile: ceangail go díreach, úsáid fillteán a fheiceann an dá ghléas, nó seol comhad trí theachtaireacht. Is tusa a shocraíonn i gcónaí cad a imíonn — agus osclaítear comhaid .catsync a fhaightear anseo freisin. Síníonn gach catalóg a scríobhann sí lena eochair féin; feiceann comhpháirtithe cód na heochrach in aice le d’ainm. Glactar le chéad eochair comhpháirtí ar iontaoibh ó chomhad agus áirítear í mar dheimhnithe nuair a shioncrónaíonn sibh go pearsanta. Diúltaítear d’iontrálacha faoi ainm aitheanta gan an síniú ceart agus liostaítear iad ar leathanach na teachta.';
 
   @override
   String get helpFields =>
@@ -2316,7 +2316,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús.';
+      'Gach rud a bhaineann leis an gcatalóg seo amháin: a hainm, cé acu cait nó peataí atá ann, a réimsí, a húdair agus coscanna, an chartlann agus dul siar in am. Ní bhaineann athruithe anseo ach leis an gcatalóg seo — fiú ceann nach bhfuil tú ann. Scríobhann scriosadh an chatalóg i gcomhad ar dtús. Is í d’eochair an cód a fheiceann comhpháirtithe in aice le d’ainm; fanann sí leis an gcatalóg seo.';
 
   @override
   String get spotHomeCatalog =>

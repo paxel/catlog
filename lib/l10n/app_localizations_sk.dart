@@ -1089,7 +1089,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu.';
+      'Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu. Každý katalóg podpisuje, čo zapíše, vlastným kľúčom; partneri vidia kód kľúča vedľa tvojho mena. Prvý kľúč partnera sa zo súboru prijme na dôveru a platí za overený, len čo synchronizujete osobne. Záznamy pod známym menom bez správneho podpisu sa odmietnu a vypíšu na stránke príchodu.';
 
   @override
   String get helpFields =>
@@ -2294,7 +2294,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru.';
+      'Všetko, čo patrí len tomuto katalógu: názov, či obsahuje mačky alebo zvieratá, polia, autori a blokovania, archív a návrat späť v čase. Zmeny tu sa týkajú len tohto katalógu — aj toho, v ktorom práve nie ste. Vymazanie najprv zapíše katalóg do súboru. Tvoj kľúč je kód, ktorý partneri vidia vedľa tvojho mena; patrí k tomuto katalógu.';
 
   @override
   String get spotHomeCatalog =>

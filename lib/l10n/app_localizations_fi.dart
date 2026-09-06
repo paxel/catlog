@@ -1090,7 +1090,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä.';
+      'Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä. Jokainen luettelo allekirjoittaa kirjoittamansa omalla avaimellaan; kumppanit näkevät avainkoodin nimesi vieressä. Kumppanin ensimmäinen avain otetaan tiedostosta luottamuksella ja lasketaan tavatuksi, kun synkronoitte kasvokkain. Merkinnät tutulla nimellä ilman oikeaa allekirjoitusta hylätään ja listataan saapumissivulla.';
 
   @override
   String get helpFields =>
@@ -2292,7 +2292,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon.';
+      'Kaikki, mikä kuuluu vain tähän luetteloon: nimi, onko siinä kissoja vai lemmikkejä, kentät, tekijät ja estot, arkisto ja paluu ajassa taaksepäin. Muutokset tässä koskevat vain tätä luetteloa — myös sellaista, jossa et nyt ole. Poisto kirjoittaa luettelon ensin tiedostoon. Oma avaimesi on koodi, jonka kumppanit näkevät nimesi vieressä; se kuuluu tähän luetteloon.';
 
   @override
   String get spotHomeCatalog =>

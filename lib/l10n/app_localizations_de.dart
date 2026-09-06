@@ -1095,7 +1095,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'So kommen Daten zu anderen Leuten: direkt verbinden, wenn ihr euch trefft, einen Ordner nutzen, den beide Geräte sehen, oder eine Datei per Messenger schicken. Du entscheidest immer, was rausgeht — und empfangene .catsync-Dateien öffnest du auch hier.';
+      'So kommen Daten zu anderen Leuten: direkt verbinden, wenn ihr euch trefft, einen Ordner nutzen, den beide Geräte sehen, oder eine Datei per Messenger schicken. Du entscheidest immer, was rausgeht — und empfangene .catsync-Dateien öffnest du auch hier. Jeder Katalog signiert, was er schreibt, mit seinem eigenen Schlüssel; Partner sehen den Schlüsselcode neben deinem Namen. Der erste Schlüssel eines Partners wird aus einer Datei auf Vertrauen übernommen und gilt als getroffen, sobald ihr persönlich synchronisiert. Einträge unter einem bekannten Namen ohne passende Signatur werden abgewiesen und auf der Ankunftsseite aufgeführt.';
 
   @override
   String get helpFields =>
@@ -2299,7 +2299,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Alles, was nur zu diesem Katalog gehört: sein Name, ob er Katzen oder Tiere enthält, seine Felder, seine Autoren und Sperren, das Archiv und das Zurückgehen in der Zeit. Änderungen hier betreffen nur diesen Katalog — auch einen, in dem du gerade nicht bist. Löschen schreibt den Katalog zuerst in eine Datei.';
+      'Alles, was nur zu diesem Katalog gehört: sein Name, ob er Katzen oder Tiere enthält, seine Felder, seine Autoren und Sperren, das Archiv und das Zurückgehen in der Zeit. Änderungen hier betreffen nur diesen Katalog — auch einen, in dem du gerade nicht bist. Löschen schreibt den Katalog zuerst in eine Datei. Dein Schlüssel ist der Code, den Partner neben deinem Namen sehen; er bleibt bei diesem Katalog.';
 
   @override
   String get spotHomeCatalog =>

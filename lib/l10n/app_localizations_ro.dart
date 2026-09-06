@@ -1091,7 +1091,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Cum ajung datele la alți oameni: conectare directă, un dosar pe care îl văd ambele dispozitive, sau un fișier trimis prin messenger. Tu decizi mereu ce pleacă — iar fișierele .catsync primite se deschid tot aici.';
+      'Cum ajung datele la alți oameni: conectare directă, un dosar pe care îl văd ambele dispozitive, sau un fișier trimis prin messenger. Tu decizi mereu ce pleacă — iar fișierele .catsync primite se deschid tot aici. Fiecare catalog semnează ce scrie cu propria cheie; partenerii văd codul cheii lângă numele tău. Prima cheie a unui partener este luată pe încredere dintr-un fișier și contează ca întâlnită când sincronizați în persoană. Intrările sub un nume cunoscut fără semnătura corectă sunt respinse și listate pe pagina de sosire.';
 
   @override
   String get helpFields =>
@@ -2298,7 +2298,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier.';
+      'Tot ce ține doar de acest catalog: numele, dacă are pisici sau animale, câmpurile, autorii și blocările, arhiva și întoarcerea în timp. Modificările de aici privesc doar acest catalog — și unul în care nu ești acum. Ștergerea scrie mai întâi catalogul într-un fișier. Cheia ta este codul pe care partenerii îl văd lângă numele tău; aparține acestui catalog.';
 
   @override
   String get spotHomeCatalog =>

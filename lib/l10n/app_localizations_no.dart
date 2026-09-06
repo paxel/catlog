@@ -1087,7 +1087,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Slik når data andre folk: koble til direkte, bruk en mappe begge enheter ser, eller send en fil via en meldingsapp. Du bestemmer alltid hva som sendes — og mottatte .catsync-filer åpnes også her.';
+      'Slik når data andre folk: koble til direkte, bruk en mappe begge enheter ser, eller send en fil via en meldingsapp. Du bestemmer alltid hva som sendes — og mottatte .catsync-filer åpnes også her. Hver katalog signerer det den skriver med sin egen nøkkel; partnere ser nøkkelkoden ved siden av navnet ditt. En partners første nøkkel tas på tillit fra en fil og regnes som møtt når dere synkroniserer personlig. Oppføringer under et kjent navn uten riktig signatur avvises og listes på ankomstsiden.';
 
   @override
   String get helpFields =>
@@ -2288,7 +2288,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil.';
+      'Alt som bare hører til denne katalogen: navnet, om den rommer katter eller dyr, feltene, forfattere og blokkeringer, arkivet og å gå tilbake i tid. Endringer her berører bare denne katalogen — også en du ikke er i. Sletting skriver først katalogen til en fil. Nøkkelen din er koden partnere ser ved siden av navnet ditt; den hører til denne katalogen.';
 
   @override
   String get spotHomeCatalog =>

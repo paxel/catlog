@@ -1088,7 +1088,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır.';
+      'Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır. Her katalog yazdıklarını kendi anahtarıyla imzalar; ortaklar adının yanında anahtar kodunu görür. Bir ortağın ilk anahtarı dosyadan güvenle alınır ve yüz yüze eşitleyince doğrulanmış sayılır. Bilinen bir ad altında doğru imzası olmayan kayıtlar reddedilir ve varış sayfasında listelenir.';
 
   @override
   String get helpFields =>
@@ -2290,7 +2290,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar.';
+      'Yalnızca bu kataloğa ait olan her şey: adı, kedi mi hayvan mı tuttuğu, alanları, yazarları ve engelleri, arşiv ve zamanda geri dönüş. Buradaki değişiklikler yalnızca bu kataloğu etkiler — içinde olmadığın bir kataloğu da. Silme, kataloğu önce bir dosyaya yazar. Anahtarın, ortakların adının yanında gördüğü koddur; bu kataloğa aittir.';
 
   @override
   String get spotHomeCatalog =>

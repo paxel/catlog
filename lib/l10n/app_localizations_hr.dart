@@ -1090,7 +1090,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kako podaci dolaze do drugih: izravno povezivanje, mapa koju vide oba uređaja, ili datoteka poslana messengerom. Uvijek ti odlučuješ što odlazi — a primljene .catsync datoteke otvaraju se također ovdje.';
+      'Kako podaci dolaze do drugih: izravno povezivanje, mapa koju vide oba uređaja, ili datoteka poslana messengerom. Uvijek ti odlučuješ što odlazi — a primljene .catsync datoteke otvaraju se također ovdje. Svaki katalog potpisuje ono što piše svojim ključem; partneri vide kod ključa uz vaše ime. Prvi ključ partnera prihvaća se na povjerenje iz datoteke i vrijedi kao potvrđen kad sinkronizirate osobno. Unosi pod poznatim imenom bez ispravnog potpisa odbijaju se i navode na stranici dolaska.';
 
   @override
   String get helpFields =>
@@ -2295,7 +2295,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Sve što pripada samo ovom katalogu: ime, sadrži li mačke ili životinje, polja, autori i blokade, arhiva i povratak natrag u vremenu. Promjene ovdje tiču se samo ovog kataloga — i onoga u kojem sada niste. Brisanje prvo zapisuje katalog u datoteku.';
+      'Sve što pripada samo ovom katalogu: ime, sadrži li mačke ili životinje, polja, autori i blokade, arhiva i povratak natrag u vremenu. Promjene ovdje tiču se samo ovog kataloga — i onoga u kojem sada niste. Brisanje prvo zapisuje katalog u datoteku. Tvoj ključ je kod koji partneri vide uz tvoje ime; pripada ovom katalogu.';
 
   @override
   String get spotHomeCatalog =>

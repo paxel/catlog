@@ -1093,7 +1093,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Cómo llegan los datos a otras personas: conectar en directo, usar una carpeta que ven los dos dispositivos, o enviar un archivo por mensajería. Siempre decides tú qué sale, y los archivos .catsync recibidos también se abren aquí.';
+      'Cómo llegan los datos a otras personas: conectar en directo, usar una carpeta que ven los dos dispositivos, o enviar un archivo por mensajería. Siempre decides tú qué sale, y los archivos .catsync recibidos también se abren aquí. Cada catálogo firma lo que escribe con su propia clave; los compañeros ven el código de clave junto a tu nombre. La primera clave de un compañero se acepta por confianza desde un archivo y cuenta como verificada cuando sincronizáis en persona. Las entradas con un nombre conocido sin la firma correcta se rechazan y se listan en la página de llegada.';
 
   @override
   String get helpFields =>
@@ -2300,7 +2300,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Todo lo que pertenece solo a este catálogo: su nombre, si contiene gatos o mascotas, sus campos, sus autores y bloqueos, el archivo y volver atrás en el tiempo. Los cambios aquí afectan solo a este catálogo, también a uno en el que no estás. Eliminar escribe primero el catálogo en un archivo.';
+      'Todo lo que pertenece solo a este catálogo: su nombre, si contiene gatos o mascotas, sus campos, sus autores y bloqueos, el archivo y volver atrás en el tiempo. Los cambios aquí afectan solo a este catálogo, también a uno en el que no estás. Eliminar escribe primero el catálogo en un archivo. Tu clave es el código que los compañeros ven junto a tu nombre; pertenece a este catálogo.';
 
   @override
   String get spotHomeCatalog =>

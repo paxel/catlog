@@ -1090,7 +1090,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit.';
+      'Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit. Katrs katalogs paraksta rakstīto ar savu atslēgu; partneri redz atslēgas kodu blakus tavam vārdam. Partnera pirmā atslēga no faila tiek pieņemta uzticoties un skaitās apstiprināta, kad sinhronizējat klātienē. Ieraksti ar zināmu vārdu bez pareiza paraksta tiek noraidīti un uzskaitīti ierašanās lapā.';
 
   @override
   String get helpFields =>
@@ -2298,7 +2298,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā.';
+      'Viss, kas pieder tikai šim katalogam: nosaukums, vai tajā ir kaķi vai dzīvnieki, lauki, autori un bloķējumi, arhīvs un atgriešanās laikā. Izmaiņas šeit skar tikai šo katalogu — arī tādu, kurā šobrīd neesat. Dzēšana vispirms ieraksta katalogu failā. Tava atslēga ir kods, ko partneri redz blakus tavam vārdam; tā pieder šim katalogam.';
 
   @override
   String get spotHomeCatalog =>

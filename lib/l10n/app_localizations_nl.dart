@@ -1093,7 +1093,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook.';
+      'Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook. Elke catalogus signeert wat hij schrijft met zijn eigen sleutel; partners zien de sleutelcode naast je naam. De eerste sleutel van een partner wordt op vertrouwen uit een bestand overgenomen en geldt als ontmoet zodra jullie persoonlijk synchroniseren. Invoer onder een bekende naam zonder de juiste handtekening wordt geweigerd en op de aankomstpagina getoond.';
 
   @override
   String get helpFields =>
@@ -2296,7 +2296,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand.';
+      'Alles wat alleen bij deze catalogus hoort: de naam, of hij katten of huisdieren bevat, de velden, de auteurs en blokkades, het archief en teruggaan in de tijd. Wijzigingen hier raken alleen deze catalogus, ook een waarin je nu niet zit. Verwijderen schrijft de catalogus eerst naar een bestand. Jouw sleutel is de code die partners naast je naam zien; hij hoort bij deze catalogus.';
 
   @override
   String get spotHomeCatalog =>

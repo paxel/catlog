@@ -1090,7 +1090,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj.';
+      'Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj. Vsak katalog podpiše, kar zapiše, s svojim ključem; partnerji vidijo kodo ključa ob tvojem imenu. Prvi ključ partnerja se iz datoteke sprejme na zaupanje in velja za potrjenega, ko sinhronizirata osebno. Vnosi pod znanim imenom brez pravega podpisa se zavrnejo in izpišejo na strani prihoda.';
 
   @override
   String get helpFields =>
@@ -2302,7 +2302,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko.';
+      'Vse, kar pripada samo temu katalogu: ime, ali vsebuje mačke ali živali, polja, avtorji in blokade, arhiv in vrnitev nazaj v času. Spremembe tukaj zadevajo samo ta katalog — tudi tistega, v katerem trenutno niste. Izbris najprej zapiše katalog v datoteko. Tvoj ključ je koda, ki jo partnerji vidijo ob tvojem imenu; pripada temu katalogu.';
 
   @override
   String get spotHomeCatalog =>

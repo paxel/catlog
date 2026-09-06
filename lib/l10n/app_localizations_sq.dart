@@ -1090,7 +1090,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu.';
+      'Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu. Çdo katalog nënshkruan atë që shkruan me çelësin e vet; partnerët shohin kodin e çelësit pranë emrit tënd. Çelësi i parë i një partneri merret me besim nga një skedar dhe vlen si i verifikuar sapo sinkronizoni personalisht. Hyrjet me një emër të njohur pa nënshkrimin e duhur refuzohen dhe listohen në faqen e mbërritjes.';
 
   @override
   String get helpFields =>
@@ -2291,7 +2291,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar.';
+      'Gjithçka që i përket vetëm këtij katalogu: emri, nëse mban mace ose kafshë, fushat, autorët dhe bllokimet, arkivi dhe kthimi pas në kohë. Ndryshimet këtu prekin vetëm këtë katalog — edhe një ku nuk je tani. Fshirja e shkruan katalogun fillimisht në një skedar. Çelësi yt është kodi që partnerët shohin pranë emrit tënd; i përket këtij katalogu.';
 
   @override
   String get spotHomeCatalog =>

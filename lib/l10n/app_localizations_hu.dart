@@ -1089,7 +1089,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg.';
+      'Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg. Minden katalógus a saját kulcsával írja alá, amit ír; a partnerek a kulcskódot látják a neved mellett. A partner első kulcsát fájlból bizalommal vesszük át, és személyes szinkronizálás után számít igazoltnak. Ismert néven, helyes aláírás nélküli bejegyzéseket elutasítunk és az érkezési oldalon felsorolunk.';
 
   @override
   String get helpFields =>
@@ -2291,7 +2291,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust.';
+      'Minden, ami csak ehhez a katalógushoz tartozik: a neve, hogy macskákat vagy kedvenceket tartalmaz, a mezői, a szerzői és tiltásai, az archívum és az időben visszalépés. Az itteni változások csak ezt a katalógust érintik — akkor is, ha épp nem ebben vagy. A törlés először fájlba írja a katalógust. A kulcsod az a kód, amit a partnerek a neved mellett látnak; ehhez a katalógushoz tartozik.';
 
   @override
   String get spotHomeCatalog =>

@@ -1088,7 +1088,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too.';
+      'Getting data to other people: meet and connect directly, use a folder both devices see, or send a file through a messenger. You always decide what to send, and receiving a .catsync file happens here too. Every catalog signs what it writes with its own key; partners see the key code next to your name. A partner\'s first key is taken on trust from a file and counts as met once you sync in person. Entries in a known name without the right signature are refused and listed on the arrival page.';
 
   @override
   String get helpFields =>
@@ -2290,7 +2290,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first.';
+      'Everything that belongs to this catalog alone: its name, whether it holds cats or pets, its fields, its authors and bans, the archive, and going back in time. Changes here touch only this catalog — also one you are not in. Deleting writes the catalog to a file first. Your key is the code partners see next to your name; it stays with this catalog.';
 
   @override
   String get spotHomeCatalog =>

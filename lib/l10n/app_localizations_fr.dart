@@ -1093,7 +1093,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Transmettre les données à d\'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C\'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s\'ouvre ici aussi.';
+      'Transmettre les données à d\'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C\'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s\'ouvre ici aussi. Chaque catalogue signe ce qu’il écrit avec sa propre clé ; les partenaires voient le code de clé à côté de ton nom. La première clé d’un partenaire est acceptée de confiance depuis un fichier et compte comme rencontrée dès que vous synchronisez en personne. Les entrées sous un nom connu sans la bonne signature sont refusées et listées sur la page d’arrivée.';
 
   @override
   String get helpFields =>
@@ -2298,7 +2298,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier.';
+      'Tout ce qui n’appartient qu’à ce catalogue : son nom, s’il contient des chats ou des animaux, ses champs, ses auteurs et bannissements, l’archive et le retour en arrière. Les changements ici ne touchent que ce catalogue — même un catalogue où tu n’es pas. La suppression écrit d’abord le catalogue dans un fichier. Ta clé est le code que les partenaires voient à côté de ton nom ; elle reste liée à ce catalogue.';
 
   @override
   String get spotHomeCatalog =>

@@ -1091,7 +1091,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll.';
+      'Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b\'messenger. Dejjem int tiddeċiedi x\'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll. Kull katalgu jiffirma dak li jikteb biċ-ċavetta tiegħu; is-sħab jaraw il-kodiċi taċ-ċavetta ħdejn ismek. L-ewwel ċavetta ta’ sieħeb tittieħed b’fiduċja minn fajl u tgħodd bħala vverifikata malli tissinkronizzaw personalment. Entrati taħt isem magħruf mingħajr il-firma t-tajba jiġu rrifjutati u elenkati fil-paġna tal-wasla.';
 
   @override
   String get helpFields =>
@@ -2299,7 +2299,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel.';
+      'Kollox li huwa ta’ dan il-katalgu biss: ismu, jekk fih qtates jew annimali, il-kampijiet, l-awturi u l-blokki, l-arkivju u l-mixi lura fiż-żmien. Il-bidliet hawn imissu dan il-katalgu biss — anki wieħed li m’intix fih. It-tħassir jikteb il-katalgu f’fajl l-ewwel. Iċ-ċavetta tiegħek hi l-kodiċi li s-sħab jaraw ħdejn ismek; tibqa’ ma’ dan il-katalgu.';
 
   @override
   String get spotHomeCatalog =>

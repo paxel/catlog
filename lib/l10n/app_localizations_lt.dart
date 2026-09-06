@@ -1090,7 +1090,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia.';
+      'Kaip duomenys pasiekia kitus: prisijunkite tiesiogiai, naudokite aplanką, kurį mato abu įrenginiai, arba siųskite failą per žinutes. Visada jūs sprendžiate, kas išeina — gauti .catsync failai taip pat atveriami čia. Kiekvienas katalogas pasirašo tai, ką rašo, savo raktu; partneriai mato rakto kodą šalia jūsų vardo. Pirmasis partnerio raktas iš failo priimamas pasitikint ir laikomas patvirtintu, kai sinchronizuojate asmeniškai. Įrašai žinomu vardu be tinkamo parašo atmetami ir išvardijami atvykimo puslapyje.';
 
   @override
   String get helpFields =>
@@ -2300,7 +2300,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą.';
+      'Viskas, kas priklauso tik šiam katalogui: pavadinimas, ar jame katės, ar gyvūnai, laukai, autoriai ir blokavimai, archyvas ir grįžimas laiku atgal. Pakeitimai čia liečia tik šį katalogą — ir tą, kuriame dabar nesate. Šalinimas pirmiausia įrašo katalogą į failą. Jūsų raktas – kodas, kurį partneriai mato šalia jūsų vardo; jis priklauso šiam katalogui.';
 
   @override
   String get spotHomeCatalog =>

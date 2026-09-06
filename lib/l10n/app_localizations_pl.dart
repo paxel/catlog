@@ -1088,7 +1088,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Jak dane trafiają do innych: połączenie na miejscu, folder widoczny dla obu urządzeń albo plik wysłany komunikatorem. Zawsze decydujesz, co wychodzi — a otrzymane pliki .catsync otwierasz również tutaj.';
+      'Jak dane trafiają do innych: połączenie na miejscu, folder widoczny dla obu urządzeń albo plik wysłany komunikatorem. Zawsze decydujesz, co wychodzi — a otrzymane pliki .catsync otwierasz również tutaj. Każdy katalog podpisuje, co zapisuje, własnym kluczem; partnerzy widzą kod klucza obok twojego imienia. Pierwszy klucz partnera jest przyjmowany na zaufanie z pliku i liczy się jako potwierdzony, gdy zsynchronizujecie osobiście. Wpisy pod znanym imieniem bez właściwego podpisu są odrzucane i wymienione na stronie przybycia.';
 
   @override
   String get helpFields =>
@@ -2299,7 +2299,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Wszystko, co należy tylko do tego katalogu: nazwa, czy zawiera koty czy zwierzęta, pola, autorzy i blokady, archiwum oraz cofanie w czasie. Zmiany tutaj dotyczą tylko tego katalogu — także takiego, w którym teraz nie jesteś. Usunięcie najpierw zapisuje katalog do pliku.';
+      'Wszystko, co należy tylko do tego katalogu: nazwa, czy zawiera koty czy zwierzęta, pola, autorzy i blokady, archiwum oraz cofanie w czasie. Zmiany tutaj dotyczą tylko tego katalogu — także takiego, w którym teraz nie jesteś. Usunięcie najpierw zapisuje katalog do pliku. Twój klucz to kod, który partnerzy widzą obok twojego imienia; należy do tego katalogu.';
 
   @override
   String get spotHomeCatalog =>

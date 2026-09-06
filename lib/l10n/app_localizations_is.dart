@@ -1093,7 +1093,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpSync =>
-      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér.';
+      'Svona berast gögnin til annarra: tengist beint, notið möppu sem bæði tækin sjá, eða sendu skrá með skilaboðaforriti. Þú ræður alltaf hvað fer — og .catsync skrár sem berast opnast líka hér. Hver skrá undirritar það sem hún skrifar með eigin lykli; samstarfsfólk sér lykilkóðann við hlið nafnsins þíns. Fyrsti lykill samstarfsaðila er tekinn í trausti úr skrá og telst staðfestur þegar þið samstillið í eigin persónu. Færslur undir þekktu nafni án réttrar undirritunar er hafnað og þær taldar upp á komusíðunni.';
 
   @override
   String get helpFields =>
@@ -2295,7 +2295,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpCatalogSettings =>
-      'Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal.';
+      'Allt sem tilheyrir aðeins þessari skrá: nafnið, hvort hún geymir ketti eða dýr, reitirnir, höfundar og bönn, safnið og að fara aftur í tíma. Breytingar hér snerta aðeins þessa skrá — einnig skrá sem þú ert ekki í. Eyðing skrifar skrána fyrst í skjal. Lykillinn þinn er kóðinn sem samstarfsfólk sér við hlið nafnsins þíns; hann tilheyrir þessari skrá.';
 
   @override
   String get spotHomeCatalog =>
