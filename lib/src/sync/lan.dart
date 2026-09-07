@@ -98,6 +98,11 @@ class LanSyncHost {
   final void Function(List<Entry> applied, Moment? moment, ImportReport report)?
       onSession;
 
+  /// Whether private values go out, read at every session: the page's
+  /// switch, the same one the joiner side uses. Null falls back to the
+  /// join decision (tests, older callers).
+  final bool Function()? includePrivate;
+
   HttpServer? _server;
   final _failures = <String, int>{};
   var _failuresTotal = 0;
@@ -111,7 +116,10 @@ class LanSyncHost {
   final TlsIdentity identity;
 
   LanSyncHost(this.store, this.pin,
-      {required this.identity, this.onJoinRequest, this.onSession});
+      {required this.identity,
+      this.onJoinRequest,
+      this.onSession,
+      this.includePrivate});
 
   Uint8List get fingerprint => identity.fingerprint;
 
@@ -243,8 +251,9 @@ class LanSyncHost {
           req.response.write('declined');
           return;
         }
+        final private = includePrivate?.call() ?? decision.includePrivate;
         final issued = decision.remember && deviceId.isNotEmpty
-            ? _remember(deviceId, author, deviceName, decision.includePrivate)
+            ? _remember(deviceId, author, deviceName, private)
             : null;
         final joinerVector = (body['vector'] as Map)
             .map((k, v) => MapEntry(k as String, v as int));
@@ -274,7 +283,7 @@ class LanSyncHost {
         req.response.write(jsonEncode({
           'entries': [
             for (final e in store.entriesSince(joinerVector,
-                includePrivate: decision.includePrivate))
+                includePrivate: private))
               e.toJson()
           ],
           'wantBlobs': store.missingBlobs(),

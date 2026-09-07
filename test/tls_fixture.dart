@@ -18,11 +18,13 @@ Future<LanSyncHost> testHost(
   Future<JoinDecision> Function(String author, String device)? onJoinRequest,
   void Function(List<Entry> applied, Moment? moment, ImportReport report)?
       onSession,
+  bool Function()? includePrivate,
 }) async {
   final host = LanSyncHost(store, pin,
       identity: testIdentity(),
       onJoinRequest: onJoinRequest,
-      onSession: onSession);
+      onSession: onSession,
+      includePrivate: includePrivate);
   await host.start(bind: InternetAddress.loopbackIPv4);
   addTearDown(host.stop);
   return host;

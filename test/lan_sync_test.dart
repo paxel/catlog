@@ -117,6 +117,31 @@ void main() {
     expect(b.cats().map((c) => c.id), contains(secret));
     expect(b.isPrivate(secret), isTrue);
   });
+  test('the host page switch decides private data at every session',
+      () async {
+    final a = CatalogStore.inMemory()..author = 'axel';
+    final b = CatalogStore.inMemory()..author = 'tablet';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final secret = a.createCat('Secret');
+    a.append(secret, 'f:remarks', 'hidden');
+    a.setPrivate(secret, true);
+    var switchOn = false;
+    // The gate says private; the switch, off, wins.
+    final host = await testHost(a, '123456',
+        onJoinRequest: (_, _) async =>
+            const JoinDecision(true, true, remember: true),
+        includePrivate: () => switchOn);
+    await syncWith(b, host);
+    // The cat's identity travels as a stub; its private value stays home.
+    expect(b.isWithheld(secret, 'f:remarks'), isTrue);
+    expect(b.current(secret, 'f:remarks'), isNull);
+    // Remembered device, switch now on: private comes without a question.
+    switchOn = true;
+    await syncWith(b, host);
+    expect(b.current(secret, 'f:remarks'), 'hidden');
+  });
+
   /// A 0.3.x joiner: no `format` in the /sync body.
   Future<(int, String)> postLegacySync(int port, String pin,
       Map<String, Object?> vector) async {
