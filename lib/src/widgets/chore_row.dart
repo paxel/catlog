@@ -65,6 +65,9 @@ class ChoreRow extends StatelessWidget {
     final title = time == null
         ? chore.title
         : '${chore.title} · ${MaterialLocalizations.of(context).formatTimeOfDay(TimeOfDay(hour: time.hour, minute: time.minute))}';
+    // A ticked row steps back: struck through and greyed, so the open
+    // ones are what the eye lands on.
+    final faded = Theme.of(context).disabledColor;
     return WithCatEar(
       child: Card(
       child: ListTile(
@@ -72,10 +75,13 @@ class ChoreRow extends StatelessWidget {
         title: Text(
           title,
           style: done
-              ? const TextStyle(decoration: TextDecoration.lineThrough)
+              ? TextStyle(decoration: TextDecoration.lineThrough, color: faded)
               : null,
         ),
-        subtitle: parts.isEmpty ? null : Text(parts.join(' · ')),
+        subtitle: parts.isEmpty
+            ? null
+            : Text(parts.join(' · '),
+                style: done ? TextStyle(color: faded) : null),
         trailing: _WeekDots(weekDots(chore, ticks, today)),
         onTap: onOpen,
         onLongPress: () => _edit(context),

@@ -270,9 +270,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
   ({List<Chore> today, List<(Chore, DateTime)> upcoming}) _chores(
       DateTime today) {
     final active = [for (final c in store.allChores()) if (c.active) c];
+    // By time of day; chores without a time first, they fit any hour.
     int byTime(Chore a, Chore b) {
-      final ta = a.time == null ? 1441 : a.time!.hour * 60 + a.time!.minute;
-      final tb = b.time == null ? 1441 : b.time!.hour * 60 + b.time!.minute;
+      final ta = a.time == null ? -1 : a.time!.hour * 60 + a.time!.minute;
+      final tb = b.time == null ? -1 : b.time!.hour * 60 + b.time!.minute;
       final t = ta.compareTo(tb);
       return t != 0 ? t : a.title.toLowerCase().compareTo(b.title.toLowerCase());
     }

@@ -74,6 +74,42 @@ void main() {
     expect(store.choreTicks(chore).containsKey(today), isFalse);
   });
 
+  testWidgets('Today sorts by time, chores without a time first', (
+    tester,
+  ) async {
+    Chore make(String title, ({int hour, int minute})? time) =>
+        store.createChore(
+          Chore(
+            id: '',
+            entity: cat,
+            title: title,
+            schedule: const ChoreSchedule.daily(),
+            time: time,
+            start: today,
+          ),
+        );
+    make('Evening', (hour: 19, minute: 0));
+    final litter = make('Litter', null);
+    make('Morning', (hour: 7, minute: 30));
+    await pump(tester, AgendaScreen(store: store));
+    final rows = tester
+        .widgetList<ListTile>(find.byType(ListTile))
+        .map((t) => (t.title as Text).data!)
+        .toList();
+    final order = [
+      for (final r in rows)
+        for (final name in ['Litter', 'Morning', 'Evening'])
+          if (r.startsWith(name)) name,
+    ];
+    expect(order, ['Litter', 'Morning', 'Evening']);
+    // A ticked row greys out.
+    store.tickChore(litter, today, doneOn: today);
+    await pump(tester, AgendaScreen(store: store));
+    final done = tester.widget<Text>(find.text('Litter'));
+    expect(done.style?.decoration, TextDecoration.lineThrough);
+    expect(done.style?.color, isNotNull);
+  });
+
   testWidgets('Coming up shows the next due day; a tick there is early', (
     tester,
   ) async {
