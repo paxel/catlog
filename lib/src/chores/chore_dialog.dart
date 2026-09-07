@@ -196,6 +196,41 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     }
   }
 
+  /// When the next reminder would fire for this chore as it is on the
+  /// page now: today at the chosen time if still due and not done,
+  /// else the next due day — a chore ticked today reminds tomorrow.
+  String _nextReminderText(AppLocalizations t) {
+    final at = _remindAt ?? _time;
+    if (at == null) return t.remindNone;
+    final draft =
+        (existing ??
+                Chore(
+                  id: 'draft',
+                  entity: widget.entityId,
+                  title: _title.text,
+                  schedule: _schedule,
+                  start: dayOf(DateTime.now()),
+                ))
+            .copyWith(schedule: _schedule, remind: true, remindAt: at);
+    final ticks = existing == null
+        ? <DateTime, DateTime>{}
+        : store.choreTicks(existing!);
+    final now = DateTime.now();
+    final today = dayOf(now);
+    DateTime moment(DateTime day) =>
+        DateTime(day.year, day.month, day.day, at.hour, at.minute);
+    var due = nextDue(draft, ticks, today);
+    if (due == null) return t.remindNone;
+    var when = moment(due);
+    if (!when.isAfter(now)) {
+      final later = nextDue(draft, ticks, daysFrom(today, 1));
+      if (later == null) return t.remindNone;
+      when = moment(later);
+    }
+    final locale = Localizations.localeOf(context).toString();
+    return t.remindNext(DateFormat.MMMEd(locale).add_Hm().format(when));
+  }
+
   /// The reminder switch asks for the permission, then for the time; a
   /// refusal is said and the switch stays off.
   Future<void> _toggleRemind(bool on) async {
@@ -344,6 +379,33 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
             value: _remind,
             onChanged: _toggleRemind,
           ),
+          if (_remind) ...[
+            // What will be scheduled once saved, and what the phone holds
+            // now — so "nothing came" has a visible reason.
+            Text(_nextReminderText(t), style: theme.textTheme.bodySmall),
+            FutureBuilder<int>(
+              future: port.pendingCount(),
+              builder: (context, snap) => snap.hasData
+                  ? Text(
+                      t.remindPending(snap.data!),
+                      style: theme.textTheme.bodySmall,
+                    )
+                  : const SizedBox.shrink(),
+            ),
+            // Reminders are inexact alarms: Android picks the moment.
+            Text(t.remindLateHint, style: theme.textTheme.bodySmall),
+            TextButton.icon(
+              icon: const Icon(Icons.notifications_active_outlined),
+              label: Text(t.remindTest),
+              onPressed: () async {
+                if (!await port.ensurePermission() || !mounted) return;
+                await port.showNow(
+                  _title.text.trim().isEmpty ? t.newChore : _title.text.trim(),
+                  store.current(widget.entityId, Keys.name) ?? '',
+                );
+              },
+            ),
+          ],
           if (_remind && Platform.isAndroid)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

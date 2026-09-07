@@ -2793,6 +2793,33 @@ class AppLocalizationsEl extends AppLocalizations {
   String get remindMe => 'Υπενθύμιση';
 
   @override
+  String remindNext(Object when) {
+    return 'Επόμενη υπενθύμιση: $when';
+  }
+
+  @override
+  String get remindNone => 'Καμία υπενθύμιση: τίποτα δεν εκκρεμεί.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count υπενθυμίσεις προγραμματισμένες σε αυτό το τηλέφωνο',
+      one: '1 υπενθύμιση προγραμματισμένη σε αυτό το τηλέφωνο',
+      zero: 'Τίποτα προγραμματισμένο σε αυτό το τηλέφωνο ακόμη',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Στείλε τώρα δοκιμαστική υπενθύμιση';
+
+  @override
+  String get remindLateHint =>
+      'Οι υπενθυμίσεις μπορεί να έρθουν λίγα λεπτά αργότερα· το τηλέφωνο διαλέγει την ακριβή στιγμή.';
+
+  @override
   String get remindPermissionDenied =>
       'Δεν υπάρχει άδεια για ειδοποιήσεις, η υπενθύμιση μένει ανενεργή. Επίτρεψέ τες στις ρυθμίσεις της εφαρμογής στο τηλέφωνο και δοκίμασε ξανά.';
 

@@ -4808,6 +4808,36 @@ abstract class AppLocalizations {
   /// **'Remind me'**
   String get remindMe;
 
+  /// No description provided for @remindNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next reminder: {when}'**
+  String remindNext(Object when);
+
+  /// No description provided for @remindNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminder planned: nothing due ahead.'**
+  String get remindNone;
+
+  /// No description provided for @remindPending.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing scheduled on this phone yet} =1{1 reminder scheduled on this phone} other{{count} reminders scheduled on this phone}}'**
+  String remindPending(int count);
+
+  /// No description provided for @remindTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a test reminder now'**
+  String get remindTest;
+
+  /// No description provided for @remindLateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders can arrive a few minutes late; the phone picks the exact moment.'**
+  String get remindLateHint;
+
   /// No description provided for @remindPermissionDenied.
   ///
   /// In en, this message translates to:

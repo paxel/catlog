@@ -1723,10 +1723,25 @@ class ModeLocalizations implements AppLocalizations {
   String get rememberServiceHint => base.rememberServiceHint;
 
   @override
+  String get remindLateHint => base.remindLateHint;
+
+  @override
   String get remindMe => base.remindMe;
 
   @override
+  String remindNext(Object when) => base.remindNext(when);
+
+  @override
+  String get remindNone => base.remindNone;
+
+  @override
+  String remindPending(int count) => base.remindPending(count);
+
+  @override
   String get remindPermissionDenied => base.remindPermissionDenied;
+
+  @override
+  String get remindTest => base.remindTest;
 
   @override
   String get reminderDialogHint => base.reminderDialogHint;

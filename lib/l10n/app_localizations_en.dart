@@ -2781,6 +2781,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remindMe => 'Remind me';
 
   @override
+  String remindNext(Object when) {
+    return 'Next reminder: $when';
+  }
+
+  @override
+  String get remindNone => 'No reminder planned: nothing due ahead.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count reminders scheduled on this phone',
+      one: '1 reminder scheduled on this phone',
+      zero: 'Nothing scheduled on this phone yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Send a test reminder now';
+
+  @override
+  String get remindLateHint =>
+      'Reminders can arrive a few minutes late; the phone picks the exact moment.';
+
+  @override
   String get remindPermissionDenied =>
       'No permission for notifications, so the reminder stays off. Allow them in the phone\'s app settings and try again.';
 

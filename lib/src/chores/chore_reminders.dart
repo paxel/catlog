@@ -7,6 +7,8 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../move_to_catalog.dart';
+
 /// Chore reminders (1.2.0): a phone notification at the chore's chosen
 /// time on the days it is due, for the chores the keeper switched it on
 /// for. Scheduled alarms handed to the system, no service of our own:
@@ -21,6 +23,14 @@ abstract class ReminderPort {
   Future<void> schedule(int id, DateTime at, String title, String body);
 
   Future<void> cancelAll();
+
+  /// Shows a notification right now — the test button: one tap proves
+  /// permission, icon and channel together.
+  Future<void> showNow(String title, String body);
+
+  /// How many reminders the phone holds for the app right now — what
+  /// the editor shows so a keeper can see the schedule is really there.
+  Future<int> pendingCount();
 
   /// Opens the phone's battery settings for this app, where a maker's
   /// saver can be told to let reminders through. False where there is
@@ -68,19 +78,32 @@ List<PlannedReminder> plannedReminders(CatalogStore store, DateTime now) {
   return result;
 }
 
-/// Replaces every scheduled reminder with the plan of this moment.
+/// Replaces every scheduled reminder with the plan of this moment —
+/// for [store] and for [others], the catalogs not open right now.
+/// Cancelling is app-wide, so a rebuild that knew only the open catalog
+/// would silently drop every other catalog's reminders.
 Future<void> rescheduleChoreReminders(
   CatalogStore store,
   ReminderPort port, {
   DateTime? now,
   required String Function(Chore chore) body,
+  List<CatalogStore> others = const [],
 }) async {
-  final planned = plannedReminders(store, now ?? DateTime.now());
+  final at = now ?? DateTime.now();
+  final planned = <(PlannedReminder, String)>[
+    for (final p in plannedReminders(store, at)) (p, body(p.chore)),
+    for (final other in others)
+      for (final p in plannedReminders(other, at))
+        (p, other.current(p.chore.entity, Keys.name) ?? ''),
+  ];
   await port.cancelAll();
-  for (final p in planned) {
-    await port.schedule(p.id, p.at, p.chore.title, body(p.chore));
+  for (final (p, text) in planned) {
+    await port.schedule(p.id, p.at, p.chore.title, text);
   }
 }
+
+/// The Android channel; `chores` was the quiet 1.2.0 one.
+const _channelId = 'chores-loud';
 
 /// The phone's own notifications, through the local notifications
 /// plugin. One instance for the app.
@@ -103,7 +126,7 @@ class LocalNotificationPort implements ReminderPort {
     }
     await _plugin.initialize(
       const InitializationSettings(
-        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+        android: AndroidInitializationSettings('@drawable/ic_stat_catlog'),
         iOS: DarwinInitializationSettings(
           requestAlertPermission: false,
           requestBadgePermission: false,
@@ -111,6 +134,17 @@ class LocalNotificationPort implements ReminderPort {
         ),
       ),
     );
+    // A channel keeps the importance it was made with; the 1.2.0 channel
+    // was made quiet, so it goes and a new one takes its place.
+    if (Platform.isAndroid) {
+      try {
+        await _plugin
+            .resolvePlatformSpecificImplementation<
+              AndroidFlutterLocalNotificationsPlugin
+            >()
+            ?.deleteNotificationChannel('chores');
+      } catch (_) {}
+    }
     _ready = true;
   }
 
@@ -150,10 +184,10 @@ class LocalNotificationPort implements ReminderPort {
         tz.TZDateTime.from(at, tz.local),
         const NotificationDetails(
           android: AndroidNotificationDetails(
-            'chores',
+            _channelId,
             'Chores',
-            importance: Importance.defaultImportance,
-            priority: Priority.defaultPriority,
+            importance: Importance.high,
+            priority: Priority.high,
           ),
           iOS: DarwinNotificationDetails(),
         ),
@@ -163,6 +197,39 @@ class LocalNotificationPort implements ReminderPort {
       );
     } catch (_) {
       // No plugin here (desktop, tests): the checklist still reminds.
+    }
+  }
+
+  @override
+  Future<void> showNow(String title, String body) async {
+    if (!Platform.isAndroid && !Platform.isIOS) return;
+    try {
+      await _init();
+      await _plugin.show(
+        0,
+        title,
+        body,
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _channelId,
+            'Chores',
+            importance: Importance.high,
+            priority: Priority.high,
+          ),
+          iOS: DarwinNotificationDetails(),
+        ),
+      );
+    } catch (_) {}
+  }
+
+  @override
+  Future<int> pendingCount() async {
+    if (!Platform.isAndroid && !Platform.isIOS) return 0;
+    try {
+      await _init();
+      return (await _plugin.pendingNotificationRequests()).length;
+    } catch (_) {
+      return 0;
     }
   }
 
@@ -188,14 +255,39 @@ class LocalNotificationPort implements ReminderPort {
   }
 }
 
-/// The reminders as the app keeps them: rebuilt from [store] through the
-/// phone's port, with the notification body in the app's words.
+/// The reminders as the app keeps them: rebuilt through the phone's
+/// port, with the notification body in the app's words. Every
+/// catalog's chores are scheduled, not only the open one's: [manager]
+/// (the app's by default) opens the others for the moment it takes.
 Future<void> refreshChoreReminders(
   CatalogStore store, {
   ReminderPort? port,
   required String Function(Chore chore) body,
-}) => rescheduleChoreReminders(
-  store,
-  port ?? LocalNotificationPort.instance,
-  body: body,
-);
+  CatalogManager? manager,
+}) async {
+  final m = manager ?? catalogManager;
+  final others = <CatalogStore>[];
+  if (m != null) {
+    final active = m.active.id;
+    for (final info in m.catalogs()) {
+      if (info.id == active) continue;
+      try {
+        others.add(m.openStore(info));
+      } catch (_) {
+        // A catalog that will not open has no reminders to give.
+      }
+    }
+  }
+  try {
+    await rescheduleChoreReminders(
+      store,
+      port ?? LocalNotificationPort.instance,
+      body: body,
+      others: others,
+    );
+  } finally {
+    for (final o in others) {
+      o.close();
+    }
+  }
+}

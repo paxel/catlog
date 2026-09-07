@@ -2779,6 +2779,33 @@ class AppLocalizationsEt extends AppLocalizations {
   String get remindMe => 'Tuleta meelde';
 
   @override
+  String remindNext(Object when) {
+    return 'Järgmine meeldetuletus: $when';
+  }
+
+  @override
+  String get remindNone => 'Meeldetuletust pole: midagi ei ole ees.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count meeldetuletust plaanitud selles telefonis',
+      one: '1 meeldetuletus plaanitud selles telefonis',
+      zero: 'Selles telefonis pole veel midagi plaanitud',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Saada kohe proovimeeldetuletus';
+
+  @override
+  String get remindLateHint =>
+      'Meeldetuletused võivad tulla paar minutit hiljem; täpse hetke valib telefon.';
+
+  @override
   String get remindPermissionDenied =>
       'Teavituste luba puudub, meeldetuletus jääb välja. Luba need telefoni rakenduse seadetes ja proovi uuesti.';
 

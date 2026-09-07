@@ -2799,6 +2799,35 @@ class AppLocalizationsPl extends AppLocalizations {
   String get remindMe => 'Przypomnij mi';
 
   @override
+  String remindNext(Object when) {
+    return 'Następne przypomnienie: $when';
+  }
+
+  @override
+  String get remindNone =>
+      'Brak zaplanowanego przypomnienia: nic nie nadchodzi.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przypomnień zaplanowanych na tym telefonie',
+      few: '$count przypomnienia zaplanowane na tym telefonie',
+      one: '1 przypomnienie zaplanowane na tym telefonie',
+      zero: 'Nic jeszcze nie zaplanowano na tym telefonie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Wyślij teraz testowe przypomnienie';
+
+  @override
+  String get remindLateHint =>
+      'Przypomnienia mogą przyjść kilka minut później; telefon wybiera dokładny moment.';
+
+  @override
   String get remindPermissionDenied =>
       'Brak uprawnienia do powiadomień, przypomnienie pozostaje wyłączone. Zezwól na nie w ustawieniach aplikacji telefonu i spróbuj ponownie.';
 

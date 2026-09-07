@@ -2782,6 +2782,33 @@ class AppLocalizationsSq extends AppLocalizations {
   String get remindMe => 'Më kujto';
 
   @override
+  String remindNext(Object when) {
+    return 'Kujtesa tjetër: $when';
+  }
+
+  @override
+  String get remindNone => 'S’ka kujtesë të planifikuar: asgjë përpara.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kujtesa të planifikuara në këtë telefon',
+      one: '1 kujtesë e planifikuar në këtë telefon',
+      zero: 'Ende asgjë e planifikuar në këtë telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Dërgo tani një kujtesë prove';
+
+  @override
+  String get remindLateHint =>
+      'Kujtesat mund të vijnë disa minuta më vonë; telefoni zgjedh çastin e saktë.';
+
+  @override
   String get remindPermissionDenied =>
       'Nuk ka leje për njoftime, kujtesa mbetet e fikur. Lejoji në cilësimet e aplikacionit në telefon dhe provo sërish.';
 

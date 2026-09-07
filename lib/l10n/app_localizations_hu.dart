@@ -2782,6 +2782,33 @@ class AppLocalizationsHu extends AppLocalizations {
   String get remindMe => 'Emlékeztess';
 
   @override
+  String remindNext(Object when) {
+    return 'Következő emlékeztető: $when';
+  }
+
+  @override
+  String get remindNone => 'Nincs emlékeztető tervben: nincs esedékes.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count emlékeztető ütemezve ezen a telefonon',
+      one: '1 emlékeztető ütemezve ezen a telefonon',
+      zero: 'Ezen a telefonon még semmi nincs ütemezve',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Próba-emlékeztető küldése most';
+
+  @override
+  String get remindLateHint =>
+      'Az emlékeztetők pár perccel később is jöhetnek; a pontos pillanatot a telefon választja.';
+
+  @override
   String get remindPermissionDenied =>
       'Nincs engedély az értesítésekhez, az emlékeztető kikapcsolva marad. Engedélyezd a telefon alkalmazásbeállításaiban, és próbáld újra.';
 

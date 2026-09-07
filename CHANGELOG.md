@@ -14,6 +14,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Today's chores are sorted by time, those without a time first; ticked ones grey out.
 
 ### Fixed
+- Chore reminders of every catalog stay scheduled; opening another catalog used to cancel them.
+- Chore reminders show with their own icon and a sound; a button sends a test reminder at once.
 - Folder sync on Android works in any folder the picker grants, cloud folders included.
 - Conflicts are raised only on fields a keeper can judge; two entries with the same value say so instead of showing two chosen boxes.
 - History, arrivals and conflicts show a position as coordinates and plus code; privacy markers read as the field's name.

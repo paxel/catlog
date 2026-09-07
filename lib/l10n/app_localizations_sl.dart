@@ -2806,6 +2806,35 @@ class AppLocalizationsSl extends AppLocalizations {
   String get remindMe => 'Opomni me';
 
   @override
+  String remindNext(Object when) {
+    return 'Naslednji opomnik: $when';
+  }
+
+  @override
+  String get remindNone => 'Ni načrtovanega opomnika: nič ni pred nami.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count opomnikov načrtovanih na tem telefonu',
+      few: '$count opomniki načrtovani na tem telefonu',
+      two: '$count opomnika načrtovana na tem telefonu',
+      one: '$count opomnik načrtovan na tem telefonu',
+      zero: 'Na tem telefonu še ni nič načrtovano',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Pošlji preizkusni opomnik zdaj';
+
+  @override
+  String get remindLateHint =>
+      'Opomniki lahko pridejo nekaj minut pozneje; natančni trenutek izbere telefon.';
+
+  @override
   String get remindPermissionDenied =>
       'Ni dovoljenja za obvestila, opomnik ostane izklopljen. Dovolite jih v nastavitvah aplikacije na telefonu in poskusite znova.';
 

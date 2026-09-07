@@ -2631,6 +2631,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remindMe => '提醒我';
 
   @override
+  String remindNext(Object when) {
+    return '下次提醒：$when';
+  }
+
+  @override
+  String get remindNone => '未安排提醒：前方没有到期事项。';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '此手机上已安排 $count 条提醒',
+      zero: '此手机上尚未安排任何提醒',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => '立即发送测试提醒';
+
+  @override
+  String get remindLateHint => '提醒可能晚几分钟到达；具体时刻由手机决定。';
+
+  @override
   String get remindPermissionDenied => '没有通知权限，提醒保持关闭。请在手机的应用设置中允许通知后重试。';
 
   @override

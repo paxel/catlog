@@ -2793,6 +2793,35 @@ class AppLocalizationsMt extends AppLocalizations {
   String get remindMe => 'Fakkarni';
 
   @override
+  String remindNext(Object when) {
+    return 'It-tfakkira li jmiss: $when';
+  }
+
+  @override
+  String get remindNone => 'Ebda tfakkira ppjanata: xejn ġej.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tfakkiriet skedati fuq dan it-telefon',
+      many: '$count tfakkiriet skedati fuq dan it-telefon',
+      few: '$count tfakkiriet skedati fuq dan it-telefon',
+      one: 'tfakkira waħda skedata fuq dan it-telefon',
+      zero: 'Xejn għadu skedat fuq dan it-telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Ibgħat tfakkira ta’ prova issa';
+
+  @override
+  String get remindLateHint =>
+      'It-tfakkiriet jistgħu jaslu xi minuti tard; it-telefon jagħżel il-mument eżatt.';
+
+  @override
   String get remindPermissionDenied =>
       'M’hemmx permess għan-notifiki, għalhekk it-tfakkira tibqa’ mitfija. Ippermettihom fis-settings tal-app tat-telefon u erġa’ pprova.';
 

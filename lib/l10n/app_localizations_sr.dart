@@ -2792,6 +2792,34 @@ class AppLocalizationsSr extends AppLocalizations {
   String get remindMe => 'Подсети ме';
 
   @override
+  String remindNext(Object when) {
+    return 'Следећи подсетник: $when';
+  }
+
+  @override
+  String get remindNone => 'Нема планираног подсетника: ништа не предстоји.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count подсетника заказано на овом телефону',
+      few: '$count подсетника заказана на овом телефону',
+      one: '$count подсетник заказан на овом телефону',
+      zero: 'Још ништа није заказано на овом телефону',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Пошаљи пробни подсетник сада';
+
+  @override
+  String get remindLateHint =>
+      'Подсетници могу стићи неколико минута касније; тачан тренутак бира телефон.';
+
+  @override
   String get remindPermissionDenied =>
       'Нема дозволе за обавештења, подсетник остаје искључен. Дозволите их у подешавањима апликације на телефону и покушајте поново.';
 

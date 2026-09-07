@@ -2812,6 +2812,36 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remindMe => 'ذكّرني';
 
   @override
+  String remindNext(Object when) {
+    return 'التذكير التالي: $when';
+  }
+
+  @override
+  String get remindNone => 'لا تذكير مخطط: لا شيء قادم.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تذكير مجدول على هذا الهاتف',
+      many: '$count تذكيرًا مجدولًا على هذا الهاتف',
+      few: '$count تذكيرات مجدولة على هذا الهاتف',
+      two: 'تذكيران مجدولان على هذا الهاتف',
+      one: 'تذكير واحد مجدول على هذا الهاتف',
+      zero: 'لا شيء مجدول على هذا الهاتف بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'أرسل تذكيرًا تجريبيًا الآن';
+
+  @override
+  String get remindLateHint =>
+      'قد تصل التذكيرات متأخرة بضع دقائق؛ الهاتف يحدد اللحظة الدقيقة.';
+
+  @override
   String get remindPermissionDenied =>
       'لا إذن للإشعارات، فيبقى التذكير متوقفًا. اسمح بها في إعدادات التطبيق على الهاتف وحاول مرة أخرى.';
 

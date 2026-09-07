@@ -2800,6 +2800,34 @@ class AppLocalizationsLt extends AppLocalizations {
   String get remindMe => 'Priminti';
 
   @override
+  String remindNext(Object when) {
+    return 'Kitas priminimas: $when';
+  }
+
+  @override
+  String get remindNone => 'Priminimas neplanuojamas: nieko nelaukia.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count priminimų suplanuota šiame telefone',
+      few: '$count priminimai suplanuoti šiame telefone',
+      one: '$count priminimas suplanuotas šiame telefone',
+      zero: 'Šiame telefone dar nieko nesuplanuota',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Išsiųsti bandomąjį priminimą dabar';
+
+  @override
+  String get remindLateHint =>
+      'Priminimai gali ateiti keliomis minutėmis vėliau; tikslų momentą parenka telefonas.';
+
+  @override
   String get remindPermissionDenied =>
       'Nėra leidimo pranešimams, priminimas lieka išjungtas. Leiskite juos telefono programos nustatymuose ir bandykite dar kartą.';
 

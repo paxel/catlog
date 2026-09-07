@@ -2780,6 +2780,33 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remindMe => 'Hatırlat';
 
   @override
+  String remindNext(Object when) {
+    return 'Sonraki hatırlatıcı: $when';
+  }
+
+  @override
+  String get remindNone => 'Planlanmış hatırlatıcı yok: yaklaşan bir şey yok.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Bu telefonda $count hatırlatıcı planlı',
+      one: 'Bu telefonda 1 hatırlatıcı planlı',
+      zero: 'Bu telefonda henüz planlanmış bir şey yok',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Şimdi bir deneme hatırlatıcısı gönder';
+
+  @override
+  String get remindLateHint =>
+      'Hatırlatıcılar birkaç dakika geç gelebilir; tam anı telefon seçer.';
+
+  @override
   String get remindPermissionDenied =>
       'Bildirim izni yok, hatırlatıcı kapalı kalır. Telefonun uygulama ayarlarından izin ver ve tekrar dene.';
 

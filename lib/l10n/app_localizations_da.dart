@@ -2781,6 +2781,33 @@ class AppLocalizationsDa extends AppLocalizations {
   String get remindMe => 'Mind mig om det';
 
   @override
+  String remindNext(Object when) {
+    return 'Næste påmindelse: $when';
+  }
+
+  @override
+  String get remindNone => 'Ingen påmindelse planlagt: intet forude.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count påmindelser planlagt på denne telefon',
+      one: '1 påmindelse planlagt på denne telefon',
+      zero: 'Intet planlagt på denne telefon endnu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Send en testpåmindelse nu';
+
+  @override
+  String get remindLateHint =>
+      'Påmindelser kan komme et par minutter for sent; telefonen vælger det præcise tidspunkt.';
+
+  @override
   String get remindPermissionDenied =>
       'Ingen tilladelse til meddelelser, så påmindelsen forbliver slået fra. Tillad dem i telefonens app-indstillinger og prøv igen.';
 

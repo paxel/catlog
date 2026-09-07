@@ -2791,6 +2791,34 @@ class AppLocalizationsSk extends AppLocalizations {
   String get remindMe => 'Pripomenúť';
 
   @override
+  String remindNext(Object when) {
+    return 'Ďalšia pripomienka: $when';
+  }
+
+  @override
+  String get remindNone => 'Žiadna pripomienka: nič nie je na rade.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pripomienok naplánovaných v tomto telefóne',
+      few: '$count pripomienky naplánované v tomto telefóne',
+      one: '1 pripomienka naplánovaná v tomto telefóne',
+      zero: 'V tomto telefóne ešte nič naplánované',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Poslať teraz skúšobnú pripomienku';
+
+  @override
+  String get remindLateHint =>
+      'Pripomienky môžu prísť o pár minút neskôr; presný okamih volí telefón.';
+
+  @override
   String get remindPermissionDenied =>
       'Bez oprávnenia na upozornenia zostáva pripomienka vypnutá. Povoľ ich v nastaveniach aplikácie v telefóne a skús znova.';
 

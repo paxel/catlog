@@ -2782,6 +2782,33 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remindMe => 'Lembrar-me';
 
   @override
+  String remindNext(Object when) {
+    return 'Próximo lembrete: $when';
+  }
+
+  @override
+  String get remindNone => 'Nenhum lembrete previsto: nada por vir.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lembretes agendados neste telemóvel',
+      one: '1 lembrete agendado neste telemóvel',
+      zero: 'Ainda nada agendado neste telemóvel',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Enviar agora um lembrete de teste';
+
+  @override
+  String get remindLateHint =>
+      'Os lembretes podem chegar uns minutos atrasados; o telemóvel escolhe o momento exato.';
+
+  @override
   String get remindPermissionDenied =>
       'Sem permissão para notificações, o lembrete fica desligado. Permite-as nas definições da app do telemóvel e tenta outra vez.';
 

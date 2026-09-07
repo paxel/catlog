@@ -2799,6 +2799,34 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remindMe => 'Напоминать';
 
   @override
+  String remindNext(Object when) {
+    return 'Следующее напоминание: $when';
+  }
+
+  @override
+  String get remindNone => 'Напоминание не запланировано: впереди ничего.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count напоминаний запланировано на этом телефоне',
+      few: '$count напоминания запланированы на этом телефоне',
+      one: '$count напоминание запланировано на этом телефоне',
+      zero: 'На этом телефоне пока ничего не запланировано',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Отправить пробное напоминание сейчас';
+
+  @override
+  String get remindLateHint =>
+      'Напоминания могут приходить на несколько минут позже; точный момент выбирает телефон.';
+
+  @override
   String get remindPermissionDenied =>
       'Нет разрешения на уведомления, напоминание остаётся выключенным. Разрешите их в настройках приложения на телефоне и попробуйте снова.';
 

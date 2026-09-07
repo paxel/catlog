@@ -2786,6 +2786,33 @@ class AppLocalizationsIs extends AppLocalizations {
   String get remindMe => 'Minna mig á';
 
   @override
+  String remindNext(Object when) {
+    return 'Næsta áminning: $when';
+  }
+
+  @override
+  String get remindNone => 'Engin áminning fyrirhuguð: ekkert framundan.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count áminningar áætlaðar á þessum síma',
+      one: '$count áminning áætluð á þessum síma',
+      zero: 'Ekkert áætlað á þessum síma enn',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Senda prufuáminningu núna';
+
+  @override
+  String get remindLateHint =>
+      'Áminningar geta borist nokkrum mínútum seinna; síminn velur nákvæma stundina.';
+
+  @override
   String get remindPermissionDenied =>
       'Engin heimild fyrir tilkynningar, áminningin helst slökkt. Leyfðu þær í forritsstillingum símans og reyndu aftur.';
 

@@ -2796,6 +2796,34 @@ class AppLocalizationsRo extends AppLocalizations {
   String get remindMe => 'Amintește-mi';
 
   @override
+  String remindNext(Object when) {
+    return 'Următorul memento: $when';
+  }
+
+  @override
+  String get remindNone => 'Niciun memento planificat: nimic în față.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count de memento-uri programate pe acest telefon',
+      few: '$count memento-uri programate pe acest telefon',
+      one: '1 memento programat pe acest telefon',
+      zero: 'Nimic programat încă pe acest telefon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Trimite acum un memento de test';
+
+  @override
+  String get remindLateHint =>
+      'Memento-urile pot veni cu câteva minute întârziere; telefonul alege momentul exact.';
+
+  @override
   String get remindPermissionDenied =>
       'Fără permisiune pentru notificări, memento-ul rămâne oprit. Permite-le în setările aplicației din telefon și încearcă din nou.';
 

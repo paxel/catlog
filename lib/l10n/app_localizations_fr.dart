@@ -2791,6 +2791,33 @@ class AppLocalizationsFr extends AppLocalizations {
   String get remindMe => 'Me rappeler';
 
   @override
+  String remindNext(Object when) {
+    return 'Prochain rappel : $when';
+  }
+
+  @override
+  String get remindNone => 'Aucun rappel prévu : rien à venir.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rappels programmés sur ce téléphone',
+      one: '1 rappel programmé sur ce téléphone',
+      zero: 'Rien de programmé sur ce téléphone pour l’instant',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Envoyer un rappel test maintenant';
+
+  @override
+  String get remindLateHint =>
+      'Les rappels peuvent arriver quelques minutes en retard ; le téléphone choisit le moment exact.';
+
+  @override
   String get remindPermissionDenied =>
       'Pas d’autorisation pour les notifications, le rappel reste désactivé. Autorise-les dans les réglages de l’application du téléphone et réessaie.';
 

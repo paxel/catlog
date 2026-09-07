@@ -2796,6 +2796,33 @@ class AppLocalizationsLv extends AppLocalizations {
   String get remindMe => 'Atgādināt';
 
   @override
+  String remindNext(Object when) {
+    return 'Nākamais atgādinājums: $when';
+  }
+
+  @override
+  String get remindNone => 'Atgādinājums nav plānots: nekas nav priekšā.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count atgādinājumi ieplānoti šajā tālrunī',
+      one: '$count atgādinājums ieplānots šajā tālrunī',
+      zero: 'Šajā tālrunī vēl nekas nav ieplānots',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Nosūtīt testa atgādinājumu tagad';
+
+  @override
+  String get remindLateHint =>
+      'Atgādinājumi var pienākt dažas minūtes vēlāk; precīzo brīdi izvēlas tālrunis.';
+
+  @override
   String get remindPermissionDenied =>
       'Nav atļaujas paziņojumiem, atgādinājums paliek izslēgts. Atļaujiet tos tālruņa lietotnes iestatījumos un mēģiniet vēlreiz.';
 

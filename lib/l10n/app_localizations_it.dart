@@ -2790,6 +2790,33 @@ class AppLocalizationsIt extends AppLocalizations {
   String get remindMe => 'Ricordamelo';
 
   @override
+  String remindNext(Object when) {
+    return 'Prossimo promemoria: $when';
+  }
+
+  @override
+  String get remindNone => 'Nessun promemoria previsto: niente in arrivo.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count promemoria programmati su questo telefono',
+      one: '1 promemoria programmato su questo telefono',
+      zero: 'Ancora niente programmato su questo telefono',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Invia ora un promemoria di prova';
+
+  @override
+  String get remindLateHint =>
+      'I promemoria possono arrivare con qualche minuto di ritardo; il telefono sceglie il momento esatto.';
+
+  @override
   String get remindPermissionDenied =>
       'Nessun permesso per le notifiche, il promemoria resta spento. Consentile nelle impostazioni dell’app del telefono e riprova.';
 

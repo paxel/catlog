@@ -2663,6 +2663,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remindMe => 'リマインド';
 
   @override
+  String remindNext(Object when) {
+    return '次のリマインド：$when';
+  }
+
+  @override
+  String get remindNone => 'リマインドの予定なし：予定された期日がありません。';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'この端末に $count 件のリマインドを予定',
+      zero: 'この端末にはまだ予定がありません',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => '今すぐテスト通知を送る';
+
+  @override
+  String get remindLateHint => 'リマインドは数分遅れて届くことがあります。正確なタイミングは端末が決めます。';
+
+  @override
   String get remindPermissionDenied =>
       '通知の許可がないため、リマインドはオフのままです。端末のアプリ設定で許可してからやり直してください。';
 

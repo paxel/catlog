@@ -2782,6 +2782,33 @@ class AppLocalizationsBg extends AppLocalizations {
   String get remindMe => 'Напомняй ми';
 
   @override
+  String remindNext(Object when) {
+    return 'Следващо напомняне: $when';
+  }
+
+  @override
+  String get remindNone => 'Няма планирано напомняне: нищо не предстои.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count напомняния планирани на този телефон',
+      one: '1 напомняне планирано на този телефон',
+      zero: 'Още нищо не е планирано на този телефон',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Изпрати пробно напомняне сега';
+
+  @override
+  String get remindLateHint =>
+      'Напомнянията може да дойдат няколко минути по-късно; точния момент избира телефонът.';
+
+  @override
   String get remindPermissionDenied =>
       'Няма разрешение за известия, напомнянето остава изключено. Разрешете ги в настройките на приложението на телефона и опитайте пак.';
 

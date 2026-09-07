@@ -2787,6 +2787,33 @@ class AppLocalizationsNl extends AppLocalizations {
   String get remindMe => 'Herinner me';
 
   @override
+  String remindNext(Object when) {
+    return 'Volgende herinnering: $when';
+  }
+
+  @override
+  String get remindNone => 'Geen herinnering gepland: niets op komst.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count herinneringen gepland op deze telefoon',
+      one: '1 herinnering gepland op deze telefoon',
+      zero: 'Nog niets gepland op deze telefoon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Nu een testherinnering sturen';
+
+  @override
+  String get remindLateHint =>
+      'Herinneringen kunnen een paar minuten later komen; de telefoon kiest het precieze moment.';
+
+  @override
   String get remindPermissionDenied =>
       'Geen toestemming voor meldingen, de herinnering blijft uit. Sta ze toe in de app-instellingen van de telefoon en probeer opnieuw.';
 

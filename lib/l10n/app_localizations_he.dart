@@ -2777,6 +2777,34 @@ class AppLocalizationsHe extends AppLocalizations {
   String get remindMe => 'תזכיר לי';
 
   @override
+  String remindNext(Object when) {
+    return 'התזכורת הבאה: $when';
+  }
+
+  @override
+  String get remindNone => 'לא מתוכננת תזכורת: אין דבר קרוב.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count תזכורות מתוזמנות בטלפון הזה',
+      two: 'שתי תזכורות מתוזמנות בטלפון הזה',
+      one: 'תזכורת אחת מתוזמנת בטלפון הזה',
+      zero: 'עדיין לא מתוזמן דבר בטלפון הזה',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'לשלוח תזכורת בדיקה עכשיו';
+
+  @override
+  String get remindLateHint =>
+      'תזכורות עשויות להגיע כמה דקות מאוחר; הטלפון קובע את הרגע המדויק.';
+
+  @override
   String get remindPermissionDenied =>
       'אין הרשאה להתראות, לכן התזכורת נשארת כבויה. אפשרו אותן בהגדרות האפליקציה בטלפון ונסו שוב.';
 

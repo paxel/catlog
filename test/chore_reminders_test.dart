@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/chores/chore_dialog.dart';
@@ -13,6 +15,15 @@ class _FakePort implements ReminderPort {
   int cancels = 0;
   int batteryOpens = 0;
   final scheduled = <(int, DateTime, String, String)>[];
+  final shown = <(String, String)>[];
+
+  @override
+  Future<void> showNow(String title, String body) async {
+    shown.add((title, body));
+  }
+
+  @override
+  Future<int> pendingCount() async => scheduled.length;
 
   @override
   Future<bool> ensurePermission() async {
@@ -154,6 +165,43 @@ void main() {
     expect(port.scheduled.single.$2, DateTime(2026, 9, 9, 18));
   });
 
+  test(
+    'every catalog\'s reminders are scheduled, not only the open one\'s',
+    () async {
+      final root = Directory.systemTemp.createTempSync('catlog-rem');
+      addTearDown(() => root.deleteSync(recursive: true));
+      final manager = CatalogManager.open(root.path, defaultName: 'Leipzig');
+      addTearDown(manager.close);
+      final leipzig = manager.openStore(manager.active)..author = 'anna';
+      addTearDown(leipzig.close);
+      final berlinInfo = manager.create('Berlin');
+      final berlin = manager.openStore(berlinInfo)..author = 'anna';
+      final other = berlin.createCat('Wanderer');
+      berlin.createChore(
+        Chore(
+          id: '',
+          entity: other,
+          title: 'Drops',
+          schedule: const ChoreSchedule.daily(),
+          start: mon,
+          remind: true,
+          remindAt: (hour: 20, minute: 0),
+        ),
+      );
+      berlin.close();
+      // Leipzig is open; a rebuild from here must keep Berlin's reminder.
+      final port = _FakePort();
+      await refreshChoreReminders(
+        leipzig,
+        port: port,
+        body: (c) => 'x',
+        manager: manager,
+      );
+      expect(port.scheduled.map((s) => s.$3), contains('Drops'));
+      expect(port.scheduled.map((s) => s.$4), contains('Wanderer'));
+    },
+  );
+
   group('the dialog switch', () {
     late _FakePort port;
     Chore? saved;
@@ -218,6 +266,10 @@ void main() {
       await tester.tap(find.text('OK'));
       await tester.pumpAndSettle();
       expect(tester.widget<Switch>(find.byType(Switch)).value, isTrue);
+      // The test button fires one at once, with the title and the cat.
+      await tester.tap(find.text('Send a test reminder now'));
+      await tester.pumpAndSettle();
+      expect(port.shown, [('Feed', 'Miezi')]);
       await tester.tap(find.text('Save'));
       await tester.pumpAndSettle();
       expect(saved!.remind, isTrue);

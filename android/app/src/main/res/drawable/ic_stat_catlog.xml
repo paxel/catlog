@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification small icon: white silhouette only, as Android tints it.
+     A cat head with two ears; the launcher icon is adaptive and does not
+     render here. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M4.5,10.5 L5.5,3 L10,7.5 Z M19.5,10.5 L18.5,3 L14,7.5 Z M12,7 a7,7 0 1,0 0.01,0 Z" />
+</vector>

@@ -2828,6 +2828,37 @@ class AppLocalizationsGa extends AppLocalizations {
   String get remindMe => 'Cuir i gcuimhne dom';
 
   @override
+  String remindNext(Object when) {
+    return 'An chéad mheabhrúchán eile: $when';
+  }
+
+  @override
+  String get remindNone =>
+      'Níl meabhrúchán ar bith beartaithe: níl aon rud le teacht.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count meabhrúchán sceidealta ar an nguthán seo',
+      many: '$count meabhrúchán sceidealta ar an nguthán seo',
+      few: '$count mheabhrúchán sceidealta ar an nguthán seo',
+      two: '$count mheabhrúchán sceidealta ar an nguthán seo',
+      one: '$count meabhrúchán sceidealta ar an nguthán seo',
+      zero: 'Níl aon rud sceidealta ar an nguthán seo fós',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Seol meabhrúchán tástála anois';
+
+  @override
+  String get remindLateHint =>
+      'D’fhéadfadh meabhrúcháin teacht cúpla nóiméad déanach; roghnaíonn an guthán an nóiméad féin.';
+
+  @override
   String get remindPermissionDenied =>
       'Níl cead ann d’fhógraí, mar sin fanann an meabhrúchán múchta. Ceadaigh iad i socruithe aip an ghutháin agus bain triail eile as.';
 

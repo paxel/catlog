@@ -2726,6 +2726,33 @@ class AppLocalizationsFa extends AppLocalizations {
   String get remindMe => 'یادآوری کن';
 
   @override
+  String remindNext(Object when) {
+    return 'یادآوری بعدی: $when';
+  }
+
+  @override
+  String get remindNone => 'یادآوری‌ای برنامه‌ریزی نشده: چیزی در پیش نیست.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count یادآوری روی این گوشی زمان‌بندی شده',
+      one: '$count یادآوری روی این گوشی زمان‌بندی شده',
+      zero: 'هنوز چیزی روی این گوشی زمان‌بندی نشده',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'اکنون یک یادآوری آزمایشی بفرست';
+
+  @override
+  String get remindLateHint =>
+      'یادآوری‌ها ممکن است چند دقیقه دیرتر برسند؛ لحظه دقیق را گوشی انتخاب می‌کند.';
+
+  @override
   String get remindPermissionDenied =>
       'اجازه اعلان وجود ندارد، پس یادآوری خاموش می‌ماند. در تنظیمات برنامه گوشی اجازه دهید و دوباره امتحان کنید.';
 

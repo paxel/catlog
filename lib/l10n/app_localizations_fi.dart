@@ -2783,6 +2783,33 @@ class AppLocalizationsFi extends AppLocalizations {
   String get remindMe => 'Muistuta';
 
   @override
+  String remindNext(Object when) {
+    return 'Seuraava muistutus: $when';
+  }
+
+  @override
+  String get remindNone => 'Ei muistutusta: ei mitään tulossa.';
+
+  @override
+  String remindPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count muistutusta ajastettu tälle puhelimelle',
+      one: '1 muistutus ajastettu tälle puhelimelle',
+      zero: 'Tälle puhelimelle ei ole vielä ajastettu mitään',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get remindTest => 'Lähetä testimuistutus nyt';
+
+  @override
+  String get remindLateHint =>
+      'Muistutukset voivat tulla muutaman minuutin myöhässä; puhelin valitsee tarkan hetken.';
+
+  @override
   String get remindPermissionDenied =>
       'Ei lupaa ilmoituksiin, muistutus jää pois päältä. Salli ne puhelimen sovellusasetuksissa ja yritä uudelleen.';
 
