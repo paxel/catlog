@@ -202,6 +202,8 @@ void main() {
     // Ticked, the row is still today's: checked, no "Due tomorrow".
     expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
     expect(find.textContaining('Due'), findsNothing);
+    // The day's last chore, ticked here: the cheer fires here too.
+    expect(store.localSetting('choresCelebrated'), dayKey(today));
   });
 
   testWidgets('a tap on the row opens the cat, only the box ticks', (

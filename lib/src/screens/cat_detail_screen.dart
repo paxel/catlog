@@ -39,6 +39,7 @@ import 'timeline_screen.dart';
 import 'field_graph_screen.dart';
 import 'field_history_screen.dart';
 import '../widgets/chore_row.dart';
+import '../chores/chore_feedback.dart';
 import '../chores/chore_reminders.dart';
 
 /// One Cat: membership, Fields, photo gallery, timeline access.
@@ -219,6 +220,8 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
   }
 
   void _plansChanged() {
+    // A tick here earns the same cheer as one on the agenda.
+    afterChoreTick(context, store, manager: catalogManager);
     setState(() {});
     mirrorAfterChange(context, store);
     refreshChoreReminders(store,

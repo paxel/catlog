@@ -22,10 +22,9 @@ import '../widgets/appointment_card.dart';
 import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
-import '../celebration.dart';
 import '../widgets/chore_row.dart';
+import '../chores/chore_feedback.dart';
 import '../chores/chore_reminders.dart';
-import '../achievements.dart';
 import '../move_to_catalog.dart';
 import 'achievements_screen.dart';
 
@@ -290,39 +289,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
     return (today: due, upcoming: soon);
   }
 
-  /// After a tick: the day's chores all done, once per day, is worth a
-  /// cheer.
+  /// After a tick: the cheer and the ladders (see afterChoreTick), then
+  /// the list and the reminders follow.
   void _choreChanged() {
-    final today = DateUtils.dateOnly(DateTime.now());
-    final due = _chores(today).today;
-    final allDone = due.isNotEmpty &&
-        due.every((c) => store.choreTicks(c).containsKey(today));
-    var cheer = false;
-    if (allDone && store.localSetting('choresCelebrated') != dayKey(today)) {
-      store.setLocalSetting('choresCelebrated', dayKey(today));
-      cheer = true;
-    }
-    // A ladder climbed is a cheer too, and says which.
-    final manager = widget.manager ?? catalogManager;
-    if (manager != null) {
-      final climbed = recordLadders(
-          manager, ladders(gatherStats([store], today)), DateTime.now());
-      if (climbed.isNotEmpty) {
-        cheer = true;
-        // One line for all of them: queued snackbars would hide the rest.
-        _say(context.t.achievementUnlocked([
-          for (final s in climbed)
-            switch (s.id) {
-              fullMonthId => context.t.achievementMonth,
-              fullYearId => context.t.achievementYear,
-              fullDecadeId => context.t.achievementDecade,
-              fullCenturyId => context.t.achievementCentury,
-              _ => context.t.achievementMaster(s.title ?? ''),
-            }
-        ].join(', ')));
-      }
-    }
-    if (cheer) celebrate(context, store);
+    afterChoreTick(context, store, manager: widget.manager ?? catalogManager);
     setState(() {});
     refreshChoreReminders(store, body: _reminderBody);
   }

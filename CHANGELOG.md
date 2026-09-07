@@ -8,6 +8,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ### Changed
 - Today's chores are sorted by time, those without a time first; ticked ones grey out.
 
+### Fixed
+- Ticking the day's last chore on a cat's or home's page celebrates too.
+- The cheer clips are loud enough to hear on a phone speaker.
+
 ---
 
 Historical changes have been moved to [OLDER_CHANGES.md](OLDER_CHANGES.md).
