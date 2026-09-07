@@ -745,6 +745,18 @@ class AppLocalizationsSr extends AppLocalizations {
   String get syncFolderNow => 'Синхронизуј фасциклу сада';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Унутра овај каталог користи фасциклу „$name“, па једна дељена фасцикла може да носи све ваше каталоге.';
+  }
+
+  @override
+  String get useSameFolder => 'Користи исту фасциклу као други каталози';
+
+  @override
+  String get folderHint =>
+      'Довољна је свака фасцикла коју два уређаја држе истом: диск у облаку или Syncthing за фасциклу која остаје на вашим телефонима. Syncthing је бесплатан: инсталирајте га на сваки телефон, поделите једну фасциклу међу њима и изаберите ту фасциклу овде на сваком уређају.';
+
+  @override
   String folderSynced(String result) {
     return 'Фасцикла синхронизована: $result';
   }

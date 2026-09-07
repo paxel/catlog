@@ -78,4 +78,47 @@ void main() {
     expect(result.entriesIn, greaterThan(0));
     expect(b.cats().single.name, 'Miezi');
   });
+
+  test('two catalogs share one folder without mixing', () async {
+    final leipzig = CatalogStore.inMemory()..author = 'anna';
+    final berlin = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(leipzig.close);
+    addTearDown(berlin.close);
+    leipzig.createCat('Miezi');
+    berlin.createCat('Wanderer');
+    await folderSyncIn(leipzig, folder, catalog: 'leipzig');
+    await folderSyncIn(berlin, folder, catalog: 'berlin');
+    expect(folder.dirs['leipzig']!.keys, contains('${leipzig.deviceId}.jsonl'));
+    expect(folder.dirs['berlin']!.keys, contains('${berlin.deviceId}.jsonl'));
+    expect(folder.dirs['leipzig/keys'], isNotNull);
+    // Bob joins Leipzig only and sees Miezi, never Wanderer.
+    final bob = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(bob.close);
+    await folderSyncIn(bob, folder, catalog: 'leipzig');
+    expect(bob.cats().map((c) => c.name), ['Miezi']);
+    // Nothing is written at the root any more.
+    expect(folder.dirs['']?.keys ?? const [], isEmpty);
+  });
+
+  test('a partner from before writes at the root and is still read', () async {
+    final old = CatalogStore.inMemory()..author = 'carla';
+    addTearDown(old.close);
+    old.createCat('Oldie');
+    await folderSyncIn(old, folder); // no subfolder: the old layout
+    final now = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(now.close);
+    await folderSyncIn(now, folder, catalog: 'leipzig');
+    expect(now.cats().single.name, 'Oldie');
+    expect(now.pinnedKey(old.deviceId), isNotNull);
+    expect(folder.dirs['leipzig']!.keys, contains('${now.deviceId}.jsonl'));
+  });
+
+  test('the subfolder name follows the catalog name', () {
+    expect(catalogFolderName('Leipzig'), 'leipzig');
+    expect(catalogFolderName('  Berlin Ost '), 'berlin-ost');
+    expect(catalogFolderName('Cats!'), startsWith('cats-'));
+    expect(catalogFolderName('北京'), startsWith('catalog-'));
+    expect(catalogFolderName(null), startsWith('catalog-'));
+    expect(catalogFolderName('Cats!'), isNot(catalogFolderName('Cats?')));
+  });
 }

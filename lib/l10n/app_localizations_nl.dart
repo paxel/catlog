@@ -748,6 +748,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get syncFolderNow => 'Map nu synchroniseren';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Daarin gebruikt deze catalogus de map „$name”, zodat één gedeelde map al je catalogi kan dragen.';
+  }
+
+  @override
+  String get useSameFolder => 'Dezelfde map als de andere catalogi gebruiken';
+
+  @override
+  String get folderHint =>
+      'Elke map die twee apparaten gelijk houden volstaat: een clouddrive, of Syncthing voor een map die op jullie telefoons blijft. Syncthing is gratis: installeer het op elke telefoon, deel één map tussen hen en kies die map hier op elk apparaat.';
+
+  @override
   String folderSynced(String result) {
     return 'Map gesynchroniseerd: $result';
   }

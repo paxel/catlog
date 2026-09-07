@@ -747,6 +747,18 @@ class AppLocalizationsMt extends AppLocalizations {
   String get syncFolderNow => 'Issinkronizza l-folder issa';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Ġo fih dan il-katalgu juża l-folder „$name“, għalhekk folder wieħed kondiviż jista’ jġorr il-katalgi kollha tiegħek.';
+  }
+
+  @override
+  String get useSameFolder => 'Uża l-istess folder bħall-katalgi l-oħra';
+
+  @override
+  String get folderHint =>
+      'Kull folder li żewġ apparati jżommu l-istess jgħodd: drive fil-cloud, jew Syncthing għal folder li jibqa’ fuq it-telefowns tagħkom. Syncthing hu b’xejn: installah fuq kull telefon, aqsam folder wieħed bejniethom u agħżel dak il-folder hawn fuq kull apparat.';
+
+  @override
   String folderSynced(String result) {
     return 'Folder sinkronizzat: $result';
   }

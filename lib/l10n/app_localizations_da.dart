@@ -746,6 +746,18 @@ class AppLocalizationsDa extends AppLocalizations {
   String get syncFolderNow => 'Synkronisér mappe nu';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Deri bruger dette katalog mappen „$name“, så én delt mappe kan bære alle dine kataloger.';
+  }
+
+  @override
+  String get useSameFolder => 'Brug samme mappe som de andre kataloger';
+
+  @override
+  String get folderHint =>
+      'Enhver mappe, som to enheder holder ens, dur: et clouddrev, eller Syncthing til en mappe, der bliver på jeres telefoner. Syncthing er gratis: installer det på hver telefon, del én mappe mellem dem, og vælg den mappe her på hver enhed.';
+
+  @override
   String folderSynced(String result) {
     return 'Mappe synkroniseret: $result';
   }

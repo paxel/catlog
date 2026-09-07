@@ -749,6 +749,18 @@ class AppLocalizationsGa extends AppLocalizations {
   String get syncFolderNow => 'Sioncrónaigh an fillteán anois';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Istigh ann úsáideann an chatalóg seo an fillteán „$name“, mar sin is féidir le fillteán comhroinnte amháin do chuid catalóg ar fad a iompar.';
+  }
+
+  @override
+  String get useSameFolder => 'Úsáid an fillteán céanna leis na catalóga eile';
+
+  @override
+  String get folderHint =>
+      'Déanfaidh fillteán ar bith a choinníonn dhá ghléas mar a chéile cúis: tiomántán néil, nó Syncthing d’fhillteán a fhanann ar bhur nguthán. Tá Syncthing saor in aisce: suiteáil ar gach guthán é, comhroinn fillteán amháin eatarthu agus roghnaigh an fillteán sin anseo ar gach gléas.';
+
+  @override
   String folderSynced(String result) {
     return 'Fillteán sioncrónaithe: $result';
   }

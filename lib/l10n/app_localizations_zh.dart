@@ -719,6 +719,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get syncFolderNow => '立即同步文件夹';
 
   @override
+  String folderCatalogHint(Object name) {
+    return '此目录在其中使用文件夹“$name”，因此一个共享文件夹即可承载你的所有目录。';
+  }
+
+  @override
+  String get useSameFolder => '使用与其他目录相同的文件夹';
+
+  @override
+  String get folderHint =>
+      '任何由两台设备保持同步的文件夹都可以：云盘，或用 Syncthing 让文件夹留在你们的手机上。Syncthing 免费：在每部手机上安装，在它们之间共享一个文件夹，然后在每台设备上于此处选择该文件夹。';
+
+  @override
   String folderSynced(String result) {
     return '文件夹已同步：$result';
   }

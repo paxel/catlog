@@ -742,6 +742,18 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncFolderNow => 'סנכרון התיקייה עכשיו';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'בתוכה הקטלוג הזה משתמש בתיקייה \"$name\", כך שתיקייה משותפת אחת יכולה לשאת את כל הקטלוגים שלך.';
+  }
+
+  @override
+  String get useSameFolder => 'להשתמש באותה תיקייה כמו הקטלוגים האחרים';
+
+  @override
+  String get folderHint =>
+      'כל תיקייה ששני מכשירים שומרים זהה מתאימה: כונן ענן, או Syncthing לתיקייה שנשארת בטלפונים שלכם. Syncthing חינמי: התקינו אותו בכל טלפון, שתפו תיקייה אחת ביניהם, ובחרו את התיקייה הזו כאן בכל מכשיר.';
+
+  @override
   String folderSynced(String result) {
     return 'התיקייה סונכרנה: $result';
   }

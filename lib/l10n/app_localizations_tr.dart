@@ -743,6 +743,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncFolderNow => 'Klasörü şimdi eşitle';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'İçinde bu katalog „$name“ klasörünü kullanır; böylece tek bir paylaşılan klasör tüm kataloglarını taşıyabilir.';
+  }
+
+  @override
+  String get useSameFolder => 'Diğer kataloglarla aynı klasörü kullan';
+
+  @override
+  String get folderHint =>
+      'İki cihazın aynı tuttuğu herhangi bir klasör yeter: bir bulut sürücüsü ya da telefonlarınızda kalan bir klasör için Syncthing. Syncthing ücretsizdir: her telefona kur, aralarında bir klasörü paylaş ve o klasörü burada her cihazda seç.';
+
+  @override
   String folderSynced(String result) {
     return 'Klasör eşitlendi: $result';
   }

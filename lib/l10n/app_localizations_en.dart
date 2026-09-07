@@ -744,6 +744,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get syncFolderNow => 'Sync folder now';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Inside it this catalog uses the folder \"$name\", so one shared folder can carry all your catalogs.';
+  }
+
+  @override
+  String get useSameFolder => 'Use the same folder as the other catalogs';
+
+  @override
+  String get folderHint =>
+      'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.';
+
+  @override
   String folderSynced(String result) {
     return 'Folder synced: $result';
   }

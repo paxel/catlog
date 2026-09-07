@@ -748,6 +748,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get syncFolderNow => 'Synchroniser le dossier';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'À l’intérieur, ce catalogue utilise le dossier « $name » ; un seul dossier partagé peut donc porter tous tes catalogues.';
+  }
+
+  @override
+  String get useSameFolder =>
+      'Utiliser le même dossier que les autres catalogues';
+
+  @override
+  String get folderHint =>
+      'N’importe quel dossier que deux appareils gardent identique convient : un disque cloud, ou Syncthing pour un dossier qui reste sur vos téléphones. Syncthing est gratuit : installe-le sur chaque téléphone, partage un dossier entre eux et choisis ce dossier ici sur chaque appareil.';
+
+  @override
   String folderSynced(String result) {
     return 'Dossier synchronisé : $result';
   }

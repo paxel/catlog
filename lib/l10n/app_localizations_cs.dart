@@ -744,6 +744,18 @@ class AppLocalizationsCs extends AppLocalizations {
   String get syncFolderNow => 'Synchronizovat složku teď';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Uvnitř tento katalog používá složku „$name“, takže jedna sdílená složka unese všechny tvé katalogy.';
+  }
+
+  @override
+  String get useSameFolder => 'Použít stejnou složku jako ostatní katalogy';
+
+  @override
+  String get folderHint =>
+      'Stačí jakákoli složka, kterou dvě zařízení drží stejnou: cloudový disk, nebo Syncthing pro složku, která zůstává ve vašich telefonech. Syncthing je zdarma: nainstaluj ho na každý telefon, sdílej mezi nimi jednu složku a tu zde vyber na každém zařízení.';
+
+  @override
   String folderSynced(String result) {
     return 'Složka synchronizována: $result';
   }

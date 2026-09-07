@@ -745,6 +745,18 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncFolderNow => 'Sünkrooni kaust kohe';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Selle sees kasutab see kataloog kausta „$name“, nii et üks jagatud kaust kannab kõiki su katalooge.';
+  }
+
+  @override
+  String get useSameFolder => 'Kasuta sama kausta mis teised kataloogid';
+
+  @override
+  String get folderHint =>
+      'Sobib iga kaust, mida kaks seadet ühesugusena hoiavad: pilveketas või Syncthing kausta jaoks, mis jääb teie telefonidesse. Syncthing on tasuta: paigalda see igasse telefoni, jaga nende vahel üht kausta ja vali see kaust siin igas seadmes.';
+
+  @override
   String folderSynced(String result) {
     return 'Kaust sünkroonitud: $result';
   }

@@ -9,6 +9,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - A chore's gap can be days, weeks, months or years: a vaccine every year, not every 365 days.
 
 ### Changed
+- One shared folder carries all catalogs: each uses a subfolder named after it, and the folder page explains Syncthing for a folder without a cloud.
 - A paused chore stays in sight everywhere, greyed and without its box, until resumed or ended.
 - Today's chores are sorted by time, those without a time first; ticked ones grey out.
 

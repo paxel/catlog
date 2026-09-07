@@ -115,7 +115,7 @@ class FolderChannel(private val activity: Activity) {
     private fun dir(call: MethodCall, create: Boolean): DocumentFile? {
         var dir = tree(call) ?: return null
         val sub = call.argument<String>("dir") ?: ""
-        val path = if (sub.isEmpty()) listOf(ROOT) else listOf(ROOT, sub)
+        val path = listOf(ROOT) + sub.split('/').filter { it.isNotEmpty() }
         for (segment in path) {
             val next = dir.findFile(segment)
             dir = when {

@@ -745,6 +745,18 @@ class AppLocalizationsHr extends AppLocalizations {
   String get syncFolderNow => 'Sinkroniziraj mapu sada';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Unutra ovaj katalog koristi mapu „$name“, pa jedna dijeljena mapa može nositi sve tvoje kataloge.';
+  }
+
+  @override
+  String get useSameFolder => 'Koristi istu mapu kao drugi katalozi';
+
+  @override
+  String get folderHint =>
+      'Dovoljna je svaka mapa koju dva uređaja drže jednakom: disk u oblaku ili Syncthing za mapu koja ostaje na vašim telefonima. Syncthing je besplatan: instalirajte ga na svaki telefon, podijelite jednu mapu među njima i odaberite tu mapu ovdje na svakom uređaju.';
+
+  @override
   String folderSynced(String result) {
     return 'Mapa sinkronizirana: $result';
   }

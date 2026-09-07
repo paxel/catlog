@@ -748,6 +748,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get syncFolderNow => 'Sincronizza cartella ora';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'All’interno questo catalogo usa la cartella «$name», così una sola cartella condivisa può portare tutti i tuoi cataloghi.';
+  }
+
+  @override
+  String get useSameFolder => 'Usa la stessa cartella degli altri cataloghi';
+
+  @override
+  String get folderHint =>
+      'Va bene qualsiasi cartella che due dispositivi tengono allineata: un drive cloud, o Syncthing per una cartella che resta sui vostri telefoni. Syncthing è gratuito: installalo su ogni telefono, condividi una cartella tra loro e scegli quella cartella qui su ogni dispositivo.';
+
+  @override
   String folderSynced(String result) {
     return 'Cartella sincronizzata: $result';
   }

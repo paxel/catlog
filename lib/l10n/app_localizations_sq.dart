@@ -746,6 +746,18 @@ class AppLocalizationsSq extends AppLocalizations {
   String get syncFolderNow => 'Sinkronizo dosjen tani';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Brenda saj ky katalog përdor dosjen „$name“, kështu një dosje e përbashkët mund të mbajë të gjithë katalogët e tu.';
+  }
+
+  @override
+  String get useSameFolder => 'Përdor të njëjtën dosje si katalogët e tjerë';
+
+  @override
+  String get folderHint =>
+      'Mjafton çdo dosje që dy pajisje e mbajnë njësoj: një disk në re, ose Syncthing për një dosje që mbetet në telefonat tuaj. Syncthing është falas: instaloje në çdo telefon, ndaj një dosje mes tyre dhe zgjidhe atë dosje këtu në çdo pajisje.';
+
+  @override
   String folderSynced(String result) {
     return 'Dosja u sinkronizua: $result';
   }

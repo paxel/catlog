@@ -746,6 +746,18 @@ class AppLocalizationsUk extends AppLocalizations {
   String get syncFolderNow => 'Синхронізувати теку зараз';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Усередині цей каталог використовує теку «$name», тож одна спільна тека може нести всі ваші каталоги.';
+  }
+
+  @override
+  String get useSameFolder => 'Використати ту саму теку, що й інші каталоги';
+
+  @override
+  String get folderHint =>
+      'Підійде будь-яка тека, яку два пристрої тримають однаковою: хмарний диск або Syncthing для теки, що залишається на ваших телефонах. Syncthing безкоштовний: встановіть його на кожному телефоні, відкрийте одну теку між ними й оберіть її тут на кожному пристрої.';
+
+  @override
   String folderSynced(String result) {
     return 'Теку синхронізовано: $result';
   }

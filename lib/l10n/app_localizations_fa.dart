@@ -743,6 +743,18 @@ class AppLocalizationsFa extends AppLocalizations {
   String get syncFolderNow => 'پوشه را اکنون همگام کن';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'در آن، این فهرست از پوشه «$name» استفاده می‌کند، پس یک پوشه مشترک می‌تواند همه فهرست‌هایتان را حمل کند.';
+  }
+
+  @override
+  String get useSameFolder => 'از همان پوشه فهرست‌های دیگر استفاده کن';
+
+  @override
+  String get folderHint =>
+      'هر پوشه‌ای که دو دستگاه یکسان نگه دارند کافی است: یک درایو ابری، یا Syncthing برای پوشه‌ای که روی گوشی‌هایتان می‌ماند. Syncthing رایگان است: روی هر گوشی نصب کنید، یک پوشه را بین آنها به اشتراک بگذارید و همان پوشه را اینجا در هر دستگاه انتخاب کنید.';
+
+  @override
   String folderSynced(String result) {
     return 'پوشه همگام شد: $result';
   }

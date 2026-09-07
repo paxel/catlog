@@ -118,23 +118,55 @@ class MemorySyncFolder implements SyncFolder {
   Future<void> ensure(String dir) async => dirs.putIfAbsent(dir, () => {});
 }
 
+/// The subfolder a catalog uses inside a shared folder, from its name:
+/// `leipzig`, so one folder can carry every catalog and partners find
+/// each other by the name they agreed on. A name the file system
+/// cannot carry, or an empty one, gets a short fingerprint instead.
+String catalogFolderName(String? catalogName) {
+  final name = (catalogName ?? '').trim();
+  final safe = name
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+  final faithful = safe == name.toLowerCase().replaceAll(RegExp(r'\s+'), '-');
+  if (safe.isEmpty) return 'catalog-${_fingerprint(name)}';
+  return faithful ? safe : '$safe-${_fingerprint(name)}';
+}
+
+String _fingerprint(String value) {
+  var hash = 0x811c9dc5;
+  for (final unit in value.runes) {
+    hash = (hash ^ unit) & 0xffffffff;
+    hash = (hash * 0x01000193) & 0xffffffff;
+  }
+  return hash.toRadixString(16).padLeft(8, '0');
+}
+
 /// Syncs through a shared folder on any file-sync service (ADR-0002):
 /// this device appends to `catlog-sync/<deviceId>.jsonl` and copies photo
 /// blobs to `catlog-sync/blobs/`; every other device's file is imported
 /// read-only through the same idempotent engine as LAN sync. Each file
 /// carries its writer's full knowledge, so any pair of devices sharing
-/// the folder converges without meeting.
+/// the folder converges without meeting. With [catalog] the files live
+/// in `catlog-sync/<catalog>/` instead, so one folder carries several
+/// catalogs (1.2.2); the root is still read, for partners from before.
 Future<FolderSyncResult> folderSync(CatalogStore store, String folderPath,
-        {bool includePrivate = false}) =>
+        {bool includePrivate = false, String? catalog}) =>
     folderSyncIn(store, LocalSyncFolder(folderPath),
-        includePrivate: includePrivate);
+        includePrivate: includePrivate, catalog: catalog);
 
 /// The same sync through any [SyncFolder].
 Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
-    {bool includePrivate = false}) async {
-  await folder.ensure('');
-  await folder.ensure('blobs');
-  await folder.ensure('keys');
+    {bool includePrivate = false, String? catalog}) async {
+  // Where this catalog's files go, and where partners' files are looked
+  // for: the catalog's own subfolder, plus the root for writers from
+  // before subfolders existed.
+  String own(String dir) =>
+      catalog == null ? dir : (dir.isEmpty ? catalog : '$catalog/$dir');
+  final readDirs = catalog == null ? [''] : [catalog, ''];
+  await folder.ensure(own(''));
+  await folder.ensure(own('blobs'));
+  await folder.ensure(own('keys'));
 
   // ---- keys first (1.2.0): every device publishes the keys it holds
   // under `keys/<deviceId>.json`; what the others published is learned
@@ -142,22 +174,27 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   // at the root and never sees the folder.
   final report = ImportReport();
   final foreignKeys = <KeyRecord>[];
-  for (final name in await folder.list('keys')) {
-    if (!name.endsWith('.json') || name == '${store.deviceId}.json') continue;
-    try {
-      final bytes = await folder.read('keys', name);
-      if (bytes != null) foreignKeys.addAll(parseKeys(utf8.decode(bytes)));
-    } catch (_) {
-      // Half-written by the cloud client: next round.
+  for (final base in readDirs) {
+    final keyDir = base.isEmpty ? 'keys' : '$base/keys';
+    for (final name in await folder.list(keyDir)) {
+      if (!name.endsWith('.json') || name == '${store.deviceId}.json') {
+        continue;
+      }
+      try {
+        final bytes = await folder.read(keyDir, name);
+        if (bytes != null) foreignKeys.addAll(parseKeys(utf8.decode(bytes)));
+      } catch (_) {
+        // Half-written by the cloud client: next round.
+      }
     }
   }
   store.learnKeys(foreignKeys, report: report);
   final ownKeysJson =
       jsonEncode([for (final k in store.keyRecords()) k.toJson()]);
   final ownKeysName = '${store.deviceId}.json';
-  final previousKeys = await folder.read('keys', ownKeysName);
+  final previousKeys = await folder.read(own('keys'), ownKeysName);
   if (previousKeys == null || utf8.decode(previousKeys) != ownKeysJson) {
-    await folder.write('keys', ownKeysName, utf8.encode(ownKeysJson));
+    await folder.write(own('keys'), ownKeysName, utf8.encode(ownKeysJson));
   }
 
   // ---- read every foreign device's file (never write them)
@@ -171,7 +208,11 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   // below so it at least does not read stale data as current.
   var entriesIn = 0;
   final applied = <Entry>[];
-  for (final name in await folder.list('')) {
+  final partnerFiles = <(String dir, String name)>[
+    for (final base in readDirs)
+      for (final name in await folder.list(base)) (base, name)
+  ];
+  for (final (dir, name) in partnerFiles) {
     if (!name.endsWith('.jsonl') && !name.endsWith('.jsonl2')) continue;
     if (name == '${store.deviceId}.jsonl' ||
         name == '${store.deviceId}.jsonl2') {
@@ -179,7 +220,7 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     }
     final foreign = <Entry>[];
     try {
-      final bytes = await folder.read('', name);
+      final bytes = await folder.read(dir, name);
       if (bytes == null) continue;
       for (final line in const LineSplitter().convert(utf8.decode(bytes))) {
         if (line.trim().isEmpty) continue;
@@ -231,23 +272,33 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
   final flagged = all.any((e) => e.reminder);
   final ownName = '${store.deviceId}.jsonl${flagged ? '2' : ''}';
   final staleName = '${store.deviceId}.jsonl${flagged ? '' : '2'}';
-  final previous = await folder.read('', ownName);
+  final previous = await folder.read(own(''), ownName);
   final previousLines = previous == null
       ? 0
       : const LineSplitter().convert(utf8.decode(previous)).length;
-  await folder.write('', ownName,
+  await folder.write(own(''), ownName,
       utf8.encode(all.map((e) => jsonEncode(e.toJson())).join('\n')));
-  await folder.delete('', staleName);
+  await folder.delete(own(''), staleName);
+  // A catalog that moved into its subfolder leaves no stale root file.
+  if (catalog != null) {
+    await folder.delete('', ownName);
+    await folder.delete('', staleName);
+  }
   final entriesOut =
       all.length > previousLines ? all.length - previousLines : 0;
 
   // ---- blobs: fetch missing, publish local ones, clean dead ones
   var blobsIn = 0, blobsOut = 0;
-  final blobNames = (await folder.list('blobs')).toSet();
+  final blobDir = own('blobs');
+  final blobNames = (await folder.list(blobDir)).toSet();
+  // Partners from before keep their photos at the root.
+  final legacyBlobs =
+      catalog == null ? const <String>{} : (await folder.list('blobs')).toSet();
   for (final hash in store.missingBlobs()) {
-    if (!blobNames.contains('$hash.jpg')) continue;
+    final here = blobNames.contains('$hash.jpg');
+    if (!here && !legacyBlobs.contains('$hash.jpg')) continue;
     try {
-      final bytes = await folder.read('blobs', '$hash.jpg');
+      final bytes = await folder.read(here ? blobDir : 'blobs', '$hash.jpg');
       if (bytes == null) continue;
       store.putBlob(hash, bytes);
       blobsIn++;
@@ -270,7 +321,7 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     if (blobNames.contains('$hash.jpg')) continue;
     final bytes = store.imageBytes(hash);
     if (bytes != null) {
-      await folder.write('blobs', '$hash.jpg', bytes);
+      await folder.write(blobDir, '$hash.jpg', bytes);
       blobsOut++;
     }
   }
@@ -280,7 +331,7 @@ Future<FolderSyncResult> folderSyncIn(CatalogStore store, SyncFolder folder,
     if (!name.endsWith('.jpg')) continue;
     final hash = name.substring(0, name.length - 4);
     if (!live.contains(hash) && _knownDeleted(store, hash)) {
-      await folder.delete('blobs', name);
+      await folder.delete(blobDir, name);
     }
   }
 

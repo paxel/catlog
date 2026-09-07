@@ -733,6 +733,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get syncFolderNow => 'フォルダーを今すぐ同期';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'その中でこのカタログはフォルダ「$name」を使うので、共有フォルダ1つで全カタログを運べます。';
+  }
+
+  @override
+  String get useSameFolder => '他のカタログと同じフォルダを使う';
+
+  @override
+  String get folderHint =>
+      '2台の端末が同じ状態に保つフォルダなら何でも使えます。クラウドドライブでも、端末内に留めたいなら Syncthing でも。Syncthing は無料です。各端末にインストールし、1つのフォルダを共有して、そのフォルダを各端末のここで選んでください。';
+
+  @override
   String folderSynced(String result) {
     return 'フォルダーを同期しました: $result';
   }

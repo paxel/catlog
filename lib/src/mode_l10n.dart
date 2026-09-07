@@ -736,6 +736,12 @@ class ModeLocalizations implements AppLocalizations {
   String flierRecognized(String name) => base.flierRecognized(name);
 
   @override
+  String folderCatalogHint(Object name) => base.folderCatalogHint(name);
+
+  @override
+  String get folderHint => base.folderHint;
+
+  @override
   String folderSyncFailed(String error) => base.folderSyncFailed(error);
 
   @override
@@ -2420,6 +2426,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get useMyLocation => base.useMyLocation;
+
+  @override
+  String get useSameFolder => base.useSameFolder;
 
   @override
   String get usedOn => base.usedOn;

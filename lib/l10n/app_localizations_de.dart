@@ -750,6 +750,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get syncFolderNow => 'Ordner jetzt synchronisieren';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Darin nutzt dieser Katalog den Ordner „$name“, sodass ein gemeinsamer Ordner alle deine Kataloge tragen kann.';
+  }
+
+  @override
+  String get useSameFolder =>
+      'Denselben Ordner wie die anderen Kataloge nutzen';
+
+  @override
+  String get folderHint =>
+      'Jeder Ordner, den zwei Geräte gleich halten, reicht: ein Cloud-Laufwerk oder Syncthing für einen Ordner, der auf euren Telefonen bleibt. Syncthing ist kostenlos: auf jedem Telefon installieren, einen Ordner untereinander teilen und diesen Ordner hier auf jedem Gerät wählen.';
+
+  @override
   String folderSynced(String result) {
     return 'Ordner synchronisiert: $result';
   }

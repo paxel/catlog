@@ -745,6 +745,18 @@ class AppLocalizationsHu extends AppLocalizations {
   String get syncFolderNow => 'Mappa szinkronizálása most';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Benne ez a katalógus a(z) „$name” mappát használja, így egy megosztott mappa az összes katalógusodat viheti.';
+  }
+
+  @override
+  String get useSameFolder => 'Ugyanaz a mappa, mint a többi katalógusnál';
+
+  @override
+  String get folderHint =>
+      'Bármelyik mappa megteszi, amit két eszköz egyformán tart: egy felhőmeghajtó, vagy a Syncthing egy olyan mappához, ami a telefonjaitokon marad. A Syncthing ingyenes: telepítsd minden telefonra, ossz meg köztük egy mappát, és válaszd ki azt a mappát itt minden eszközön.';
+
+  @override
   String folderSynced(String result) {
     return 'Mappa szinkronizálva: $result';
   }

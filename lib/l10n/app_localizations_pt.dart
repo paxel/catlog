@@ -746,6 +746,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get syncFolderNow => 'Sincronizar pasta agora';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Lá dentro este catálogo usa a pasta «$name», por isso uma só pasta partilhada pode levar todos os teus catálogos.';
+  }
+
+  @override
+  String get useSameFolder => 'Usar a mesma pasta dos outros catálogos';
+
+  @override
+  String get folderHint =>
+      'Serve qualquer pasta que dois dispositivos mantenham igual: uma nuvem, ou o Syncthing para uma pasta que fica nos vossos telemóveis. O Syncthing é gratuito: instala-o em cada telemóvel, partilha uma pasta entre eles e escolhe essa pasta aqui em cada dispositivo.';
+
+  @override
   String folderSynced(String result) {
     return 'Pasta sincronizada: $result';
   }

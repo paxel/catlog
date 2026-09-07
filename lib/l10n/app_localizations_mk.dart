@@ -749,6 +749,18 @@ class AppLocalizationsMk extends AppLocalizations {
   String get syncFolderNow => 'Синхронизирај папка сега';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Внатре овој каталог ја користи папката „$name“, па една споделена папка може да ги носи сите ваши каталози.';
+  }
+
+  @override
+  String get useSameFolder => 'Користи ја истата папка како другите каталози';
+
+  @override
+  String get folderHint =>
+      'Доволна е секоја папка што два уреди ја држат иста: облачен диск или Syncthing за папка што останува на вашите телефони. Syncthing е бесплатен: инсталирајте го на секој телефон, споделете една папка меѓу нив и изберете ја таа папка овде на секој уред.';
+
+  @override
   String folderSynced(String result) {
     return 'Папката е синхронизирана: $result';
   }

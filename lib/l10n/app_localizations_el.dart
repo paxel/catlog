@@ -750,6 +750,19 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncFolderNow => 'Συγχρονισμός φακέλου τώρα';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Μέσα του αυτός ο κατάλογος χρησιμοποιεί τον φάκελο «$name», ώστε ένας κοινός φάκελος να χωρά όλους τους καταλόγους σου.';
+  }
+
+  @override
+  String get useSameFolder =>
+      'Χρήση του ίδιου φακέλου με τους άλλους καταλόγους';
+
+  @override
+  String get folderHint =>
+      'Αρκεί όποιος φάκελος κρατούν ίδιο δύο συσκευές: ένας δίσκος στο cloud, ή το Syncthing για φάκελο που μένει στα τηλέφωνά σας. Το Syncthing είναι δωρεάν: εγκατέστησέ το σε κάθε τηλέφωνο, μοιράσου έναν φάκελο μεταξύ τους και διάλεξε αυτόν τον φάκελο εδώ σε κάθε συσκευή.';
+
+  @override
   String folderSynced(String result) {
     return 'Ο φάκελος συγχρονίστηκε: $result';
   }

@@ -744,6 +744,18 @@ class AppLocalizationsSk extends AppLocalizations {
   String get syncFolderNow => 'Synchronizovať priečinok teraz';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Vnútri tento katalóg používa priečinok „$name“, takže jeden zdieľaný priečinok unesie všetky tvoje katalógy.';
+  }
+
+  @override
+  String get useSameFolder => 'Použiť rovnaký priečinok ako ostatné katalógy';
+
+  @override
+  String get folderHint =>
+      'Stačí akýkoľvek priečinok, ktorý dve zariadenia držia rovnaký: cloudový disk alebo Syncthing pre priečinok, ktorý zostáva vo vašich telefónoch. Syncthing je zadarmo: nainštaluj ho na každý telefón, zdieľaj medzi nimi jeden priečinok a ten tu vyber na každom zariadení.';
+
+  @override
   String folderSynced(String result) {
     return 'Priečinok synchronizovaný: $result';
   }

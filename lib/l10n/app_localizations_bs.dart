@@ -745,6 +745,18 @@ class AppLocalizationsBs extends AppLocalizations {
   String get syncFolderNow => 'Sinhronizuj fasciklu sada';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Unutra ovaj katalog koristi folder „$name“, pa jedan dijeljeni folder može nositi sve tvoje kataloge.';
+  }
+
+  @override
+  String get useSameFolder => 'Koristi isti folder kao drugi katalozi';
+
+  @override
+  String get folderHint =>
+      'Dovoljan je svaki folder koji dva uređaja drže istim: disk u oblaku ili Syncthing za folder koji ostaje na vašim telefonima. Syncthing je besplatan: instalirajte ga na svaki telefon, podijelite jedan folder među njima i odaberite taj folder ovdje na svakom uređaju.';
+
+  @override
   String folderSynced(String result) {
     return 'Fascikla sinhronizovana: $result';
   }

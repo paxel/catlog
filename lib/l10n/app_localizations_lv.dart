@@ -745,6 +745,18 @@ class AppLocalizationsLv extends AppLocalizations {
   String get syncFolderNow => 'Sinhronizēt mapi tagad';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Tajā šis katalogs izmanto mapi „$name”, tāpēc viena koplietota mape var nest visus tavus katalogus.';
+  }
+
+  @override
+  String get useSameFolder => 'Izmantot to pašu mapi kā citi katalogi';
+
+  @override
+  String get folderHint =>
+      'Der jebkura mape, ko divas ierīces tur vienādu: mākoņa disks vai Syncthing mapei, kas paliek jūsu tālruņos. Syncthing ir bez maksas: instalē to katrā tālrunī, koplieto vienu mapi starp tiem un izvēlies to mapi šeit katrā ierīcē.';
+
+  @override
   String folderSynced(String result) {
     return 'Mape sinhronizēta: $result';
   }

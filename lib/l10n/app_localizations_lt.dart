@@ -745,6 +745,18 @@ class AppLocalizationsLt extends AppLocalizations {
   String get syncFolderNow => 'Sinchronizuoti aplanką dabar';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Jame šis katalogas naudoja aplanką „$name“, tad vienas bendras aplankas gali nešti visus jūsų katalogus.';
+  }
+
+  @override
+  String get useSameFolder => 'Naudoti tą patį aplanką kaip kiti katalogai';
+
+  @override
+  String get folderHint =>
+      'Tiks bet koks aplankas, kurį du įrenginiai laiko vienodą: debesies diskas arba Syncthing aplankui, kuris lieka jūsų telefonuose. Syncthing nemokamas: įdiekite jį kiekviename telefone, bendrinkite vieną aplanką tarp jų ir pasirinkite tą aplanką čia kiekviename įrenginyje.';
+
+  @override
   String folderSynced(String result) {
     return 'Aplankas sinchronizuotas: $result';
   }

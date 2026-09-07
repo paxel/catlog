@@ -748,6 +748,18 @@ class AppLocalizationsIs extends AppLocalizations {
   String get syncFolderNow => 'Samstilla möppu núna';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Þar inni notar þessi skrá möppuna „$name“, svo ein sameiginleg mappa getur borið allar skrárnar þínar.';
+  }
+
+  @override
+  String get useSameFolder => 'Nota sömu möppu og hinar skrárnar';
+
+  @override
+  String get folderHint =>
+      'Hvaða mappa sem tvö tæki halda eins dugar: skýjadrif, eða Syncthing fyrir möppu sem verður eftir í símunum ykkar. Syncthing er ókeypis: settu það upp á hverjum síma, deildu einni möppu milli þeirra og veldu þá möppu hér á hverju tæki.';
+
+  @override
   String folderSynced(String result) {
     return 'Mappa samstillt: $result';
   }

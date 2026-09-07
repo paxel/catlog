@@ -746,6 +746,18 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncFolderNow => 'Synkronoi kansio nyt';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'Sen sisällä tämä luettelo käyttää kansiota ”$name”, joten yksi jaettu kansio voi kantaa kaikki luettelosi.';
+  }
+
+  @override
+  String get useSameFolder => 'Käytä samaa kansiota kuin muut luettelot';
+
+  @override
+  String get folderHint =>
+      'Mikä tahansa kansio, jonka kaksi laitetta pitävät samana, kelpaa: pilvilevy, tai Syncthing kansiolle, joka pysyy puhelimissanne. Syncthing on ilmainen: asenna se jokaiseen puhelimeen, jaa yksi kansio niiden välillä ja valitse se kansio täällä jokaisella laitteella.';
+
+  @override
   String folderSynced(String result) {
     return 'Kansio synkronoitu: $result';
   }

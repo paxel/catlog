@@ -743,6 +743,18 @@ class AppLocalizationsPl extends AppLocalizations {
   String get syncFolderNow => 'Synchronizuj folder teraz';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'W nim ten katalog używa folderu „$name”, więc jeden wspólny folder może nieść wszystkie twoje katalogi.';
+  }
+
+  @override
+  String get useSameFolder => 'Użyj tego samego folderu co inne katalogi';
+
+  @override
+  String get folderHint =>
+      'Wystarczy dowolny folder, który dwa urządzenia trzymają w zgodzie: dysk w chmurze albo Syncthing dla folderu, który zostaje na waszych telefonach. Syncthing jest darmowy: zainstaluj go na każdym telefonie, udostępnij jeden folder między nimi i wybierz go tutaj na każdym urządzeniu.';
+
+  @override
   String folderSynced(String result) {
     return 'Folder zsynchronizowany: $result';
   }

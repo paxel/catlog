@@ -42,18 +42,29 @@ class _RemoteScreenState extends State<RemoteScreen> {
     if (mounted) setState(() => _folderLabel = label);
   }
 
+  /// This catalog's subfolder inside the shared folder: one folder
+  /// carries every catalog, each under its own name.
+  String get _catalogDir =>
+      catalogFolderName(widget.store.localSetting(catalogNameKey));
+
+  /// A folder another catalog already uses, offered with one tap.
+  String? get _lastFolder => widget.store.localSetting('syncFolderLast');
+
+  void _use(String folder) {
+    widget.store.setLocalSetting('syncFolder', folder);
+    widget.store.setLocalSetting('syncFolderLast', folder);
+    _folderLabel = null;
+    _describeFolder();
+    setState(() {});
+  }
+
   /// Android: the system picker grants a tree, kept as its URI; a path
   /// picked by older versions keeps working where Android allows it.
   Future<void> _choose() async {
     final chosen = Platform.isAndroid
         ? await SafSyncFolder.pick()
         : await FilePicker.platform.getDirectoryPath();
-    if (chosen != null && mounted && widget.store.isOpen) {
-      widget.store.setLocalSetting('syncFolder', chosen);
-      _folderLabel = null;
-      await _describeFolder();
-      if (mounted) setState(() {});
-    }
+    if (chosen != null && mounted && widget.store.isOpen) _use(chosen);
   }
 
   Future<void> _sync() async {
@@ -66,7 +77,8 @@ class _RemoteScreenState extends State<RemoteScreen> {
           SafSyncFolder.isTree(folder)
               ? SafSyncFolder(folder)
               : LocalSyncFolder(folder),
-          includePrivate: _includePrivate);
+          includePrivate: _includePrivate,
+          catalog: _catalogDir);
       final point = momentFor(widget.store,
           before: before,
           changed: result.applied.isNotEmpty,
@@ -119,6 +131,18 @@ class _RemoteScreenState extends State<RemoteScreen> {
               child: Text(t.choose),
             ),
           ]),
+          // One folder for all catalogs: each keeps its own subfolder.
+          if (widget.store.localSetting('syncFolder') != null)
+            Text(t.folderCatalogHint(_catalogDir),
+                style: Theme.of(context).textTheme.bodySmall),
+          if (widget.store.localSetting('syncFolder') == null &&
+              _lastFolder != null)
+            TextButton(
+              onPressed: () => _use(_lastFolder!),
+              child: Text(t.useSameFolder),
+            ),
+          const SizedBox(height: 8),
+          Text(t.folderHint, style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 8),
           FilledButton.icon(
             onPressed: widget.store.localSetting('syncFolder') == null

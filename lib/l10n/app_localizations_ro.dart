@@ -746,6 +746,18 @@ class AppLocalizationsRo extends AppLocalizations {
   String get syncFolderNow => 'Sincronizează dosarul acum';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'În ea acest catalog folosește dosarul „$name”, așa că un singur dosar partajat poate purta toate cataloagele tale.';
+  }
+
+  @override
+  String get useSameFolder => 'Folosește același dosar ca celelalte cataloage';
+
+  @override
+  String get folderHint =>
+      'Merge orice dosar pe care două dispozitive îl țin la fel: un drive în cloud, sau Syncthing pentru un dosar care rămâne pe telefoanele voastre. Syncthing e gratuit: instalează-l pe fiecare telefon, partajează un dosar între ele și alege acel dosar aici pe fiecare dispozitiv.';
+
+  @override
   String folderSynced(String result) {
     return 'Dosar sincronizat: $result';
   }

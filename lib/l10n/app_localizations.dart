@@ -1454,6 +1454,24 @@ abstract class AppLocalizations {
   /// **'Sync folder now'**
   String get syncFolderNow;
 
+  /// No description provided for @folderCatalogHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside it this catalog uses the folder \"{name}\", so one shared folder can carry all your catalogs.'**
+  String folderCatalogHint(Object name);
+
+  /// No description provided for @useSameFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the same folder as the other catalogs'**
+  String get useSameFolder;
+
+  /// No description provided for @folderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Any folder two devices keep in step will do: a cloud drive, or Syncthing for a folder that stays on your phones. Syncthing is free: install it on each phone, share one folder between them, and pick that folder here on every device.'**
+  String get folderHint;
+
   /// No description provided for @folderSynced.
   ///
   /// In en, this message translates to:

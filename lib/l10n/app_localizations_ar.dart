@@ -744,6 +744,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncFolderNow => 'زامن المجلد الآن';
 
   @override
+  String folderCatalogHint(Object name) {
+    return 'بداخله يستخدم هذا الفهرس المجلد «$name»، فيمكن لمجلد مشترك واحد أن يحمل كل فهارسك.';
+  }
+
+  @override
+  String get useSameFolder => 'استخدم المجلد نفسه كالفهارس الأخرى';
+
+  @override
+  String get folderHint =>
+      'يكفي أي مجلد يبقيه جهازان متطابقًا: قرص سحابي، أو Syncthing لمجلد يبقى على هواتفكم. Syncthing مجاني: ثبّته على كل هاتف، وشارك مجلدًا واحدًا بينها، واختر ذلك المجلد هنا على كل جهاز.';
+
+  @override
   String folderSynced(String result) {
     return 'تمت مزامنة المجلد: $result';
   }
