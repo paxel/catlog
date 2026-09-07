@@ -16,6 +16,7 @@ class MainActivity : FlutterActivity() {
     private var openChannel: MethodChannel? = null
     private var pendingOpen: String? = null
     private var pendingImages: List<String>? = null
+    private var folderChannel: FolderChannel? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -35,6 +36,10 @@ class MainActivity : FlutterActivity() {
         val hotspot = HotspotChannel(this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/hotspot")
             .setMethodCallHandler { call, result -> hotspot.handle(call, result) }
+        // The shared sync folder through the picker's grant (1.2.2).
+        val folder = FolderChannel(this).also { folderChannel = it }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/folder")
+            .setMethodCallHandler { call, result -> folder.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
                 if (call.method == "saveToDownloads") {
@@ -73,6 +78,13 @@ class MainActivity : FlutterActivity() {
         super.onNewIntent(intent)
         handleViewIntent(intent)
         handleShareIntent(intent)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (folderChannel?.onActivityResult(requestCode, resultCode, data) == true) return
+        @Suppress("DEPRECATION")
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     /// Copies a viewed .catsync (content: or file: URI) into the cache

@@ -84,4 +84,6 @@ dependencies {
     // (flutter/flutter#110658).
     implementation("androidx.window:window:1.3.0")
     implementation("androidx.window:window-java:1.3.0")
+    // The sync folder through the picker's grant (FolderChannel.kt).
+    implementation("androidx.documentfile:documentfile:1.0.1")
 }
