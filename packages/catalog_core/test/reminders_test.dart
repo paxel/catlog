@@ -23,7 +23,7 @@ void main() {
 
   DateTime inDays(int days) => DateTime.now().add(Duration(days: days));
 
-  test('a flagged entry never becomes the current value', () {
+  test('a flagged entry never becomes the current value', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', '2024-05-01');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(365), reminder: true);
@@ -31,14 +31,14 @@ void main() {
     expect(a.currentFields(cat)['f:vaccine'], '2024-05-01');
   });
 
-  test('a flagged entry stays a plan even after its date passes', () {
+  test('a flagged entry stays a plan even after its date passes', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:checkup', 'look after her',
         date: DateTime.now().subtract(const Duration(days: 3)), reminder: true);
     expect(a.current(cat, 'f:checkup'), isNull);
   });
 
-  test('active reminders list plans ordered by due date', () {
+  test('active reminders list plans ordered by due date', () async {
     final cat = a.createCat('Miezi');
     final home = a.createClowder('Hof');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
@@ -49,7 +49,7 @@ void main() {
     expect(active.last.entity, cat);
   });
 
-  test('a done fact recorded today retires a plan dated years ahead', () {
+  test('a done fact recorded today retires a plan dated years ahead', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'refresh',
         date: inDays(3 * 365), reminder: true);
@@ -59,7 +59,7 @@ void main() {
     expect(a.current(cat, 'f:vaccine'), 'done 2026');
   });
 
-  test('a new flagged entry reschedules; a flagged null cancels', () {
+  test('a new flagged entry reschedules; a flagged null cancels', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:meds', 'worming', date: inDays(10), reminder: true);
     a.append(cat, 'f:meds', 'worming', date: inDays(20), reminder: true);
@@ -71,7 +71,7 @@ void main() {
     expect(a.current(cat, 'f:meds'), isNull);
   });
 
-  test('a pre-1.0.0 database gains the reminder column on open', () {
+  test('a pre-1.0.0 database gains the reminder column on open', () async {
     final dir = Directory.systemTemp.createTempSync('catlog_remcol');
     addTearDown(() => dir.deleteSync(recursive: true));
     final path = '${dir.path}/old.db';
@@ -107,7 +107,7 @@ void main() {
     expect(migrated.activeReminders(), hasLength(1));
   });
 
-  test('merge keeps the survivor plan a fact re-assertion would retire', () {
+  test('merge keeps the survivor plan a fact re-assertion would retire', () async {
     final keep = a.createCat('Keep');
     final lose = a.createCat('Lose');
     // Both hold differing facts on the field, so the merge re-asserts
@@ -123,7 +123,7 @@ void main() {
     expect(active.single.entity, keep);
   });
 
-  test('retirement follows the merge survivor', () {
+  test('retirement follows the merge survivor', () async {
     final keep = a.createCat('Keep');
     final lose = a.createCat('Lose');
     a.append(lose, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
@@ -135,14 +135,14 @@ void main() {
     expect(a.activeReminders(), isEmpty);
   });
 
-  test('plans on a deleted cat drop out of the agenda', () {
+  test('plans on a deleted cat drop out of the agenda', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
     a.deleteCat(cat);
     expect(a.activeReminders(), isEmpty);
   });
 
-  test('the flag survives sync and applies on the peer', () {
+  test('the flag survives sync and applies on the peer', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
     b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
@@ -151,7 +151,7 @@ void main() {
     expect(b.activeReminders().single.value, 'refresh');
   });
 
-  test('a plan does not flag a bogus conflict against an arriving fact', () {
+  test('a plan does not flag a bogus conflict against an arriving fact', () async {
     final cat = a.createCat('Miezi');
     b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
     final vector = a.versionVector();
@@ -162,7 +162,7 @@ void main() {
     expect(a.current(cat, 'f:vaccine'), 'done');
   });
 
-  test('legacy JSON without the flag imports as a fact', () {
+  test('legacy JSON without the flag imports as a fact', () async {
     final e = Entry.fromJson({
       'device': 'dev-a',
       'dseq': 1,
@@ -176,7 +176,7 @@ void main() {
     expect(e.reminder, isFalse);
   });
 
-  test('privacy withholds a flagged value from a public sync', () {
+  test('privacy withholds a flagged value from a public sync', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:meds', 'secret plan', date: inDays(5), reminder: true);
     a.setFieldPrivate(cat, 'f:meds', true);
@@ -184,7 +184,7 @@ void main() {
     expect(b.activeReminders(), isEmpty);
   });
 
-  test('a flag-free catalog exports the pre-1.0.0 bundle layout', () {
+  test('a flag-free catalog exports the pre-1.0.0 bundle layout', () async {
     expect(a.hasReminders(), isFalse);
     a.createCat('Miezi');
     final dir = Directory.systemTemp.createTempSync('catlog-compat');
@@ -217,7 +217,7 @@ void main() {
     expect(names2, isNot(contains('entries.jsonl')));
   });
 
-  test('a bundle round-trips the flag and refuses a newer format', () {
+  test('a bundle round-trips the flag and refuses a newer format', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'refresh', date: inDays(30), reminder: true);
     final dir = Directory.systemTemp.createTempSync('catlog-reminder');
@@ -233,7 +233,7 @@ void main() {
         throwsA(isA<UnsupportedBundleFormat>()));
   });
 
-  test('folder sync moves the flag and leaves no legacy own-file', () {
+  test('folder sync moves the flag and leaves no legacy own-file', () async {
     final dir = Directory.systemTemp.createTempSync('catlog-folder');
     addTearDown(() => dir.deleteSync(recursive: true));
     final cat = a.createCat('Miezi');
@@ -242,15 +242,15 @@ void main() {
     final root = Directory('${dir.path}/catlog-sync')
       ..createSync(recursive: true);
     File('${root.path}/${a.deviceId}.jsonl').writeAsStringSync('');
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
     expect(File('${root.path}/${a.deviceId}.jsonl').existsSync(), isFalse);
     expect(File('${root.path}/${a.deviceId}.jsonl2').existsSync(), isTrue);
-    folderSync(b, dir.path);
+    await folderSync(b, dir.path);
     expect(b.activeReminders(), hasLength(1));
     expect(b.current(cat, 'f:vaccine'), isNull);
   });
 
-  test('reverting a fact restores the previous fact, never a plan', () {
+  test('reverting a fact restores the previous fact, never a plan', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'first');
     a.append(cat, 'f:vaccine', 'planned', date: inDays(30), reminder: true);
@@ -261,7 +261,7 @@ void main() {
     expect(a.current(cat, 'f:vaccine'), 'first');
   });
 
-  test('ics export writes one all-day event per plan', () {
+  test('ics export writes one all-day event per plan', () async {
     final ics = writeIcs([
       IcsEvent(
           uid: 'catlog-cat-x-f-vaccine@catlog',
@@ -281,7 +281,7 @@ void main() {
     }
   });
 
-  test('ics export writes a timed event with its alarm', () {
+  test('ics export writes a timed event with its alarm', () async {
     final ics = writeIcs([
       IcsEvent(
           uid: 'catlog-appt-1@catlog',

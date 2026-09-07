@@ -39,7 +39,7 @@ void main() {
     return momentsOf(store).firstWhere((p) => p.id == id);
   }
 
-  test('going back puts every field back as it was', () {
+  test('going back puts every field back as it was', () async {
     final cat = store.createCat('Miezi');
     store.append(cat, Keys.userField('color'), 'black');
     final point = mark();
@@ -52,7 +52,7 @@ void main() {
     expect(store.cats().map((c) => c.name), ['Miezi']);
   });
 
-  test('what it removes is written out first, photos included', () {
+  test('what it removes is written out first, photos included', () async {
     final point = mark();
     final cat = store.createCat('Miezi');
     store.addImage(cat, jpeg(20, 20));
@@ -67,7 +67,7 @@ void main() {
     expect(store.imageBytes(store.images(cat).single), isNotNull);
   });
 
-  test('photos nothing refers to any more are gone', () {
+  test('photos nothing refers to any more are gone', () async {
     final point = mark();
     final cat = store.createCat('Miezi');
     store.addImage(cat, jpeg(20, 20));
@@ -77,7 +77,7 @@ void main() {
     expect(store.imageBytes(hash), isNull);
   });
 
-  test('a photo something else still uses is kept', () {
+  test('a photo something else still uses is kept', () async {
     final one = store.createCat('Miezi');
     store.addImage(one, jpeg(20, 20));
     final hash = store.images(one).single;
@@ -89,7 +89,7 @@ void main() {
     expect(store.imageBytes(hash), isNotNull);
   });
 
-  test('moments newer than the one chosen go with it', () {
+  test('moments newer than the one chosen go with it', () async {
     final first = mark(label: 'first');
     store.createCat('Miezi');
     mark(label: 'second');
@@ -100,7 +100,7 @@ void main() {
   });
 
   test('the numbers used before going back are never handed out again',
-      () {
+      () async {
     final point = mark();
     store.createCat('Miezi');
     final high = store.versionVector()[store.deviceId]!;
@@ -117,7 +117,7 @@ void main() {
   });
 
   test('an undone import is not pushed straight back by the same peer',
-      () {
+      () async {
     Directory('${dir.path}/theirs').createSync();
     final peer = CatalogStore.open('${dir.path}/theirs/catlog.db')
       ..author = 'Kathrin';
@@ -138,7 +138,7 @@ void main() {
         reason: 'undo must not be a fight with the network');
   });
 
-  test('importing the same material on purpose brings it back', () {
+  test('importing the same material on purpose brings it back', () async {
     Directory('${dir.path}/theirs').createSync();
     final peer = CatalogStore.open('${dir.path}/theirs/catlog.db')
       ..author = 'Kathrin';
@@ -157,7 +157,7 @@ void main() {
     expect(store.current(theirs, Keys.name), 'Fremdling');
   });
 
-  test('re-importing does not double the history', () {
+  test('re-importing does not double the history', () async {
     final cat = store.createCat('Miezi');
     final point = mark();
     store.append(cat, Keys.userField('color'), 'black');
@@ -171,7 +171,7 @@ void main() {
     expect(colour, hasLength(1));
   });
 
-  test('what would be removed can be seen before it is', () {
+  test('what would be removed can be seen before it is', () async {
     final cat = store.createCat('Miezi');
     final point = mark();
     store.append(cat, Keys.userField('color'), 'black');
@@ -181,7 +181,7 @@ void main() {
     expect(store.cats(), hasLength(2), reason: 'nothing removed yet');
   });
 
-  test('a moment that cannot be written out removes nothing', () {
+  test('a moment that cannot be written out removes nothing', () async {
     final point = mark();
     store.createCat('Miezi');
     expect(
@@ -191,7 +191,7 @@ void main() {
     expect(store.cats().map((c) => c.name), ['Miezi']);
   });
 
-  test('private entries come back too', () {
+  test('private entries come back too', () async {
     final cat = store.createCat('Miezi');
     store.setPrivate(cat, true);
     final point = mark();
@@ -204,17 +204,17 @@ void main() {
   });
 
   test('an undone import is not brought back by the shared folder '
-      'either', () {
+      'either', () async {
     final folder = Directory('${dir.path}/shared')..createSync();
     Directory('${dir.path}/theirs').createSync();
     final peer = CatalogStore.open('${dir.path}/theirs/catlog.db')
       ..author = 'Kathrin';
     addTearDown(peer.close);
     final theirs = peer.createCat('Fremdling');
-    folderSync(peer, folder.path);
+    await folderSync(peer, folder.path);
 
     final before = store.currentSeq();
-    folderSync(store, folder.path);
+    await folderSync(store, folder.path);
     expect(store.current(theirs, Keys.name), 'Fremdling');
     final id = store.addMoment(cause: MomentCause.sync, seq: before);
     revertTo(store, momentsOf(store).firstWhere((m) => m.id == id),
@@ -223,7 +223,7 @@ void main() {
 
     // The peer's file still holds it, so the next folder sync is the
     // test: undo must not be a fight with the folder either.
-    folderSync(store, folder.path);
+    await folderSync(store, folder.path);
     expect(store.current(theirs, Keys.name), isNull);
   });
 }

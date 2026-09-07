@@ -27,7 +27,7 @@ class _RemoteScreenState extends State<RemoteScreen> {
     final folder = widget.store.localSetting('syncFolder')!;
     try {
       final before = widget.store.currentSeq();
-      final result = folderSync(widget.store, folder,
+      final result = await folderSync(widget.store, folder,
           includePrivate: _includePrivate);
       final point = momentFor(widget.store,
           before: before,

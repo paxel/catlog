@@ -25,7 +25,7 @@ void main() {
     dir.deleteSync(recursive: true);
   });
 
-  test('a bundle carries the keys; the reader pins them', () {
+  test('a bundle carries the keys; the reader pins them', () async {
     final cat = a.createCat('Miezi');
     final path = writeBundle(a, '${dir.path}/a.catsync.zip');
     final result = importBundle(b, path);
@@ -36,7 +36,7 @@ void main() {
     expect(importBundle(b, path).report.isEmpty, isTrue);
   });
 
-  test('a hand-edited bundle line is refused once the key is known', () {
+  test('a hand-edited bundle line is refused once the key is known', () async {
     final cat = a.createCat('Miezi');
     importBundle(b, writeBundle(a, '${dir.path}/first.zip'));
     // Anna's later change, forged: same row numbers, other value.
@@ -56,17 +56,17 @@ void main() {
     expect(b.current(cat, 'name'), 'Minka');
   });
 
-  test('the shared folder publishes keys and learns the others\' first', () {
+  test('the shared folder publishes keys and learns the others\' first', () async {
     final cat = a.createCat('Miezi');
     b.createCat('Wanderer');
-    folderSync(a, dir.path);
+    await folderSync(a, dir.path);
     final keys = File('${dir.path}/catlog-sync/keys/${a.deviceId}.json');
     expect(keys.existsSync(), isTrue);
-    final result = folderSync(b, dir.path);
+    final result = await folderSync(b, dir.path);
     expect(result.report.newKeys.single.record.device, a.deviceId);
     expect(b.current(cat, 'name'), 'Miezi');
     // Anna's second round learns Bob's key from his file.
-    expect(folderSync(a, dir.path).report.newKeys.single.record.device,
+    expect((await folderSync(a, dir.path)).report.newKeys.single.record.device,
         b.deviceId);
     // A forged line in Anna's file is refused by Bob.
     final own = File('${dir.path}/catlog-sync/${a.deviceId}.jsonl');
@@ -77,12 +77,12 @@ void main() {
         .lastWhere((r) => r['device'] == a.deviceId);
     rows.add(jsonEncode({...last, 'dseq': last['dseq'] + 1, 'value': 'x'}));
     own.writeAsStringSync(rows.join('\n'));
-    final again = folderSync(b, dir.path);
+    final again = await folderSync(b, dir.path);
     expect(again.report.refused[('anna', a.deviceId)], 1);
     expect(again.entriesIn, 0);
   });
 
-  test('a pre-1.2 folder without keys still syncs as unsigned', () {
+  test('a pre-1.2 folder without keys still syncs as unsigned', () async {
     final root = Directory('${dir.path}/catlog-sync')..createSync();
     File('${root.path}/old-phone.jsonl').writeAsStringSync([
       jsonEncode({
@@ -106,7 +106,7 @@ void main() {
         'recorded': '2026-01-01T00:00:00.000000Z',
       }),
     ].join('\n'));
-    final result = folderSync(b, dir.path);
+    final result = await folderSync(b, dir.path);
     expect(result.entriesIn, 2);
     expect(result.report.isEmpty, isTrue);
     expect(b.cats().single.name, 'Oldie');
