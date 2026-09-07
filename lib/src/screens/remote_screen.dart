@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../import_summary.dart';
 import '../l10n.dart';
+import '../sync/saf_folder.dart';
 
 /// "Remote": sync through a shared folder (Dropbox, Google Drive, a USB
 /// stick) for devices that never meet.
@@ -22,12 +23,49 @@ class _RemoteScreenState extends State<RemoteScreen> {
   String? _lastResult;
   bool _includePrivate = false;
 
+  /// What the folder row shows: a path as it is, a granted tree by
+  /// its folder name.
+  String? _folderLabel;
+
+  @override
+  void initState() {
+    super.initState();
+    _describeFolder();
+  }
+
+  Future<void> _describeFolder() async {
+    final setting = widget.store.localSetting('syncFolder');
+    if (setting == null) return;
+    final label = SafSyncFolder.isTree(setting)
+        ? await SafSyncFolder.displayName(setting)
+        : setting;
+    if (mounted) setState(() => _folderLabel = label);
+  }
+
+  /// Android: the system picker grants a tree, kept as its URI; a path
+  /// picked by older versions keeps working where Android allows it.
+  Future<void> _choose() async {
+    final chosen = Platform.isAndroid
+        ? await SafSyncFolder.pick()
+        : await FilePicker.platform.getDirectoryPath();
+    if (chosen != null && mounted && widget.store.isOpen) {
+      widget.store.setLocalSetting('syncFolder', chosen);
+      _folderLabel = null;
+      await _describeFolder();
+      if (mounted) setState(() {});
+    }
+  }
+
   Future<void> _sync() async {
     final t = context.t;
     final folder = widget.store.localSetting('syncFolder')!;
     try {
       final before = widget.store.currentSeq();
-      final result = await folderSync(widget.store, folder,
+      final result = await folderSyncIn(
+          widget.store,
+          SafSyncFolder.isTree(folder)
+              ? SafSyncFolder(folder)
+              : LocalSyncFolder(folder),
           includePrivate: _includePrivate);
       final point = momentFor(widget.store,
           before: before,
@@ -70,19 +108,14 @@ class _RemoteScreenState extends State<RemoteScreen> {
           Row(children: [
             Expanded(
               child: Text(
-                widget.store.localSetting('syncFolder') ??
+                _folderLabel ??
+                    widget.store.localSetting('syncFolder') ??
                     t.noFolderChosenYet,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
             TextButton(
-              onPressed: () async {
-                final path = await FilePicker.platform.getDirectoryPath();
-                if (path != null && mounted && widget.store.isOpen) {
-                  widget.store.setLocalSetting('syncFolder', path);
-                  setState(() {});
-                }
-              },
+              onPressed: _choose,
               child: Text(t.choose),
             ),
           ]),
