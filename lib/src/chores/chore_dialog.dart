@@ -65,9 +65,31 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     text: existing?.title ?? '',
   );
   late ChoreRepeat _repeat = existing?.schedule.repeat ?? ChoreRepeat.daily;
-  late int _every = (existing?.schedule.every ?? 2) < 2
+  // Two at least; a new chore has no existing schedule to read.
+  late int _every = existing == null || existing!.schedule.every < 2
       ? 2
       : existing!.schedule.every;
+  late ChoreUnit _unit = existing?.schedule.unit ?? ChoreUnit.days;
+
+  /// The longest gap that still means something per unit.
+  int get _maxEvery => switch (_unit) {
+    ChoreUnit.days => 365,
+    ChoreUnit.weeks => 52,
+    ChoreUnit.months => 24,
+    ChoreUnit.years => 10,
+  };
+
+  /// "every 2 weeks": the sentence for [n] in [unit].
+  String _everyText(int n, ChoreUnit unit) {
+    final t = context.t;
+    return switch (unit) {
+      ChoreUnit.days => t.choreEveryDays(n),
+      ChoreUnit.weeks => t.choreEveryWeeks(n),
+      ChoreUnit.months => t.choreEveryMonths(n),
+      ChoreUnit.years => t.choreEveryYears(n),
+    };
+  }
+
   late final Set<int> _weekdays = {...?existing?.schedule.weekdays};
   late ({int hour, int minute})? _time = existing?.time;
   late bool _remind = existing?.remind ?? false;
@@ -92,7 +114,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
 
   ChoreSchedule get _schedule => switch (_repeat) {
     ChoreRepeat.daily => const ChoreSchedule.daily(),
-    ChoreRepeat.everyDays => ChoreSchedule.everyDays(_every),
+    ChoreRepeat.everyDays => ChoreSchedule.every(_every, _unit),
     ChoreRepeat.weekdays => ChoreSchedule.weekdays(_weekdays),
   };
 
@@ -249,14 +271,30 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.remove),
-                    onPressed: _every > 2
+                    onPressed: _every > 1
                         ? () => setState(() => _every--)
                         : null,
                   ),
-                  Text(t.choreEveryDays(_every)),
+                  // The unit picker reads as the sentence it makes:
+                  // "every 2 weeks", "every 2 years".
+                  DropdownButton<ChoreUnit>(
+                    value: _unit,
+                    items: [
+                      for (final u in ChoreUnit.values)
+                        DropdownMenuItem(
+                          value: u,
+                          child: Text(_everyText(_every, u)),
+                        ),
+                    ],
+                    onChanged: (u) => setState(() {
+                      if (u == null) return;
+                      _unit = u;
+                      if (_every > _maxEvery) _every = _maxEvery;
+                    }),
+                  ),
                   IconButton(
                     icon: const Icon(Icons.add),
-                    onPressed: _every < 365
+                    onPressed: _every < _maxEvery
                         ? () => setState(() => _every++)
                         : null,
                   ),
@@ -326,7 +364,7 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
             ),
             ListTile(
               leading: Icon(
-                Icons.stop_circle_outlined,
+                Icons.delete_outline,
                 color: theme.colorScheme.error,
               ),
               title: Text(

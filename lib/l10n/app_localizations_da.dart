@@ -2679,10 +2679,46 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. uge',
+      one: 'hver uge',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hver $n. måned',
+      one: 'hver måned',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'hvert $n. år',
+      one: 'hvert år',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Når som helst på dagen';
 
   @override
   String get chorePause => 'Sæt på pause';
+
+  @override
+  String get chorePaused => 'Sat på pause';
 
   @override
   String get choreResume => 'Genoptag';

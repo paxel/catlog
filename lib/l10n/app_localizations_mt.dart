@@ -2691,10 +2691,46 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n ġimgħat',
+      one: 'kull ġimgħa',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n xhur',
+      one: 'kull xahar',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'kull $n snin',
+      one: 'kull sena',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Fi kwalunkwe ħin tal-ġurnata';
 
   @override
   String get chorePause => 'Waqqaf';
+
+  @override
+  String get chorePaused => 'Imwaqqaf';
 
   @override
   String get choreResume => 'Kompli';

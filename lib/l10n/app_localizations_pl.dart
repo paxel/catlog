@@ -2693,10 +2693,49 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n tygodni',
+      few: 'co $n tygodnie',
+      one: 'co tydzień',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n miesięcy',
+      few: 'co $n miesiące',
+      one: 'co miesiąc',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'co $n lat',
+      few: 'co $n lata',
+      one: 'co rok',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'O dowolnej porze';
 
   @override
   String get chorePause => 'Wstrzymaj';
+
+  @override
+  String get chorePaused => 'Wstrzymane';
 
   @override
   String get choreResume => 'Wznów';

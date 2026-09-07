@@ -2690,10 +2690,49 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n nedēļām',
+      one: 'katru nedēļu',
+      zero: 'ik pēc $n nedēļām',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n mēnešiem',
+      one: 'katru mēnesi',
+      zero: 'ik pēc $n mēnešiem',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'ik pēc $n gadiem',
+      one: 'katru gadu',
+      zero: 'ik pēc $n gadiem',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Jebkurā dienas laikā';
 
   @override
   String get chorePause => 'Apturēt';
+
+  @override
+  String get chorePaused => 'Apturēts';
 
   @override
   String get choreResume => 'Atsākt';

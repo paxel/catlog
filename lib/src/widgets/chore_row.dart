@@ -59,29 +59,36 @@ class ChoreRow extends StatelessWidget {
       if (showEntity) store.current(chore.entity, Keys.name) ?? t.unnamed,
       if (later) t.choreDue(DateFormat.MMMEd(locale).format(due)),
       if (run > 0) t.streakDays(run),
-      if (chore.paused) t.chorePause,
+      if (chore.paused) t.chorePaused,
     ];
     final time = chore.time;
     final title = time == null
         ? chore.title
         : '${chore.title} · ${MaterialLocalizations.of(context).formatTimeOfDay(TimeOfDay(hour: time.hour, minute: time.minute))}';
     // A ticked row steps back: struck through and greyed, so the open
-    // ones are what the eye lands on.
+    // ones are what the eye lands on. A paused one is greyed too and
+    // has no box — nothing to tick — but keeps its tap and long-press,
+    // so it can be resumed or ended from wherever it shows.
     final faded = Theme.of(context).disabledColor;
+    final paused = chore.paused;
     return WithCatEar(
       child: Card(
       child: ListTile(
-        leading: Checkbox(value: done, onChanged: (_) => _toggle()),
+        leading: paused
+            ? Icon(Icons.pause_circle_outline, color: faded)
+            : Checkbox(value: done, onChanged: (_) => _toggle()),
         title: Text(
           title,
           style: done
               ? TextStyle(decoration: TextDecoration.lineThrough, color: faded)
-              : null,
+              : paused
+                  ? TextStyle(color: faded)
+                  : null,
         ),
         subtitle: parts.isEmpty
             ? null
             : Text(parts.join(' · '),
-                style: done ? TextStyle(color: faded) : null),
+                style: done || paused ? TextStyle(color: faded) : null),
         trailing: _WeekDots(weekDots(chore, ticks, today)),
         onTap: onOpen,
         onLongPress: () => _edit(context),

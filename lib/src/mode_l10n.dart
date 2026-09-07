@@ -418,10 +418,22 @@ class ModeLocalizations implements AppLocalizations {
   String choreEveryDays(int n) => base.choreEveryDays(n);
 
   @override
+  String choreEveryMonths(int n) => base.choreEveryMonths(n);
+
+  @override
+  String choreEveryWeeks(int n) => base.choreEveryWeeks(n);
+
+  @override
+  String choreEveryYears(int n) => base.choreEveryYears(n);
+
+  @override
   String get choreNoTime => base.choreNoTime;
 
   @override
   String get chorePause => base.chorePause;
+
+  @override
+  String get chorePaused => base.chorePaused;
 
   @override
   String get choreRepeatDaily => base.choreRepeatDaily;

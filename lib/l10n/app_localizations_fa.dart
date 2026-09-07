@@ -2648,10 +2648,28 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    return 'هر $n هفته';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return 'هر $n ماه';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return 'هر $n سال';
+  }
+
+  @override
   String get choreNoTime => 'هر ساعتی از روز';
 
   @override
   String get chorePause => 'توقف موقت';
+
+  @override
+  String get chorePaused => 'متوقف‌شده';
 
   @override
   String get choreResume => 'ادامه';

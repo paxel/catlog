@@ -50,6 +50,42 @@ void main() {
       expect(late[1].done, isTrue);
     });
 
+    test('a gap can be weeks, months or years; months step by calendar', () {
+      final weekly = chore(const ChoreSchedule.every(2, ChoreUnit.weeks));
+      expect(occurrences(weekly, {}, d(0), d(30)).map((o) => o.due),
+          [d(0), d(14), d(28)]);
+      final monthly = chore(const ChoreSchedule.every(1, ChoreUnit.months),
+          start: DateTime(2026, 1, 31));
+      expect(
+          occurrences(monthly, {}, DateTime(2026, 1, 1), DateTime(2026, 4, 30))
+              .map((o) => o.due),
+          [
+            DateTime(2026, 1, 31),
+            DateTime(2026, 2, 28),
+            DateTime(2026, 3, 28),
+            DateTime(2026, 4, 28),
+          ]);
+      final yearly = chore(const ChoreSchedule.every(1, ChoreUnit.years),
+          start: DateTime(2026, 3, 1));
+      // Done late, in April: the next one is a year from then.
+      final ticks = {DateTime(2026, 3, 1): DateTime(2026, 4, 10)};
+      expect(
+          nextDue(yearly, ticks, DateTime(2026, 5, 1)), DateTime(2027, 4, 10));
+      expect(monthsFrom(DateTime(2024, 1, 31), 1), DateTime(2024, 2, 29));
+      expect(monthsFrom(DateTime(2026, 11, 15), 3), DateTime(2027, 2, 15));
+    });
+
+    test('the unit travels in the JSON and old JSON reads as days', () {
+      final s = const ChoreSchedule.every(3, ChoreUnit.months);
+      final back = ChoreSchedule.fromJson(s.toJson());
+      expect(back.unit, ChoreUnit.months);
+      expect(back.every, 3);
+      expect(const ChoreSchedule.everyDays(5).toJson().containsKey('unit'),
+          isFalse);
+      expect(ChoreSchedule.fromJson({'repeat': 'everyDays', 'every': 4}).unit,
+          ChoreUnit.days);
+    });
+
     test('a due day without a tick is missed, today is pending', () {
       final c = chore(const ChoreSchedule.daily());
       final ticks = {d(0): d(0), d(2): d(2)};

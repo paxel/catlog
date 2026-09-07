@@ -2698,10 +2698,55 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n أسبوع',
+      many: 'كل $n أسبوعًا',
+      few: 'كل $n أسابيع',
+      two: 'كل أسبوعين',
+      one: 'كل أسبوع',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n شهر',
+      many: 'كل $n شهرًا',
+      few: 'كل $n أشهر',
+      two: 'كل شهرين',
+      one: 'كل شهر',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'كل $n سنة',
+      many: 'كل $n سنة',
+      few: 'كل $n سنوات',
+      two: 'كل سنتين',
+      one: 'كل سنة',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'في أي وقت من اليوم';
 
   @override
   String get chorePause => 'إيقاف مؤقت';
+
+  @override
+  String get chorePaused => 'متوقف مؤقتًا';
 
   @override
   String get choreResume => 'استئناف';

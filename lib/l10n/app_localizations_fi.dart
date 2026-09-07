@@ -2681,10 +2681,46 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. viikko',
+      one: 'joka viikko',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. kuukausi',
+      one: 'joka kuukausi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'joka $n. vuosi',
+      one: 'joka vuosi',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Mihin aikaan vain';
 
   @override
   String get chorePause => 'Keskeytä';
+
+  @override
+  String get chorePaused => 'Tauolla';
 
   @override
   String get choreResume => 'Jatka';

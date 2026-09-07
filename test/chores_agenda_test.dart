@@ -163,9 +163,23 @@ void main() {
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Eye drops');
     await tester.pumpAndSettle();
+    // Every N days on a new chore starts at two; it used to throw.
+    await tester.tap(find.text('Every…'));
+    await tester.pumpAndSettle();
+    expect(find.text('every 2 days'), findsOneWidget);
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+    expect(find.text('every 3 days'), findsOneWidget);
+    // The unit: a vaccine comes every year, not every 365 days.
+    await tester.tap(find.byType(DropdownButton<ChoreUnit>));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('every 3 years').last);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     expect(store.choresOf(cat).single.title, 'Eye drops');
+    expect(store.choresOf(cat).single.schedule.every, 3);
+    expect(store.choresOf(cat).single.schedule.unit, ChoreUnit.years);
     expect(find.textContaining('Eye drops'), findsOneWidget);
   });
 
@@ -186,6 +200,26 @@ void main() {
     expect(store.choresOf(cat), isEmpty);
     expect(store.choresOf(cat, includeEnded: true).single.id, chore.id);
     expect(find.text('Today'), findsNothing);
+  });
+
+  testWidgets('a paused chore stays in sight, greyed, boxless, editable', (
+    tester,
+  ) async {
+    final chore = feed();
+    store.updateChore(chore.copyWith(paused: true));
+    await pump(tester, AgendaScreen(store: store));
+    expect(find.text('Today'), findsOneWidget);
+    expect(find.textContaining('Feed'), findsOneWidget);
+    expect(find.textContaining('Paused'), findsOneWidget);
+    expect(find.byType(Checkbox), findsNothing);
+    expect(find.byIcon(Icons.pause_circle_outline), findsOneWidget);
+    // Long-press still edits: Resume brings the box back.
+    await tester.longPress(find.textContaining('Feed'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Resume'));
+    await tester.pumpAndSettle();
+    expect(store.choresOf(cat).single.paused, isFalse);
+    expect(find.byType(Checkbox), findsOneWidget);
   });
 
   testWidgets('the cat page lists its chores under Planned', (tester) async {

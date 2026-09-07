@@ -2680,10 +2680,46 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'на всеки $n седмици',
+      one: 'всяка седмица',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'на всеки $n месеца',
+      one: 'всеки месец',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'на всеки $n години',
+      one: 'всяка година',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'По всяко време на деня';
 
   @override
   String get chorePause => 'Пауза';
+
+  @override
+  String get chorePaused => 'На пауза';
 
   @override
   String get choreResume => 'Продължи';

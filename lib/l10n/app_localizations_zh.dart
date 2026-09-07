@@ -2554,10 +2554,28 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    return '每 $n 周';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return '每 $n 个月';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return '每 $n 年';
+  }
+
+  @override
   String get choreNoTime => '一天中任何时间';
 
   @override
   String get chorePause => '暂停';
+
+  @override
+  String get chorePaused => '已暂停';
 
   @override
   String get choreResume => '继续';

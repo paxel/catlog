@@ -2586,10 +2586,28 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    return '$n週間ごと';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    return '$nか月ごと';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    return '$n年ごと';
+  }
+
+  @override
   String get choreNoTime => '時刻は問わない';
 
   @override
   String get chorePause => '一時停止';
+
+  @override
+  String get chorePaused => '一時停止中';
 
   @override
   String get choreResume => '再開';

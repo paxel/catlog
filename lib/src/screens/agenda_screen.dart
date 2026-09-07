@@ -266,9 +266,14 @@ class _AgendaScreenState extends State<AgendaScreen> {
 
   /// The chores due today and the ones due in the coming week, from the
   /// active chores of every cat and home.
-  ({List<Chore> today, List<(Chore, DateTime)> upcoming}) _chores(
-      DateTime today) {
-    final active = [for (final c in store.allChores()) if (c.active) c];
+  ({List<Chore> today, List<(Chore, DateTime)> upcoming, List<Chore> paused})
+      _chores(DateTime today) {
+    final all = store.allChores();
+    final active = [for (final c in all) if (c.active) c];
+    // Paused chores stay in sight, greyed, so one tap on Pause never
+    // hides a chore from the agenda for good.
+    final paused = [for (final c in all) if (c.paused && !c.ended) c]
+      ..sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
     // By time of day; chores without a time first, they fit any hour.
     int byTime(Chore a, Chore b) {
       final ta = a.time == null ? -1 : a.time!.hour * 60 + a.time!.minute;
@@ -286,7 +291,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
         for (final day in upcoming(c, store.choreTicks(c), today).take(1))
           (c, day)
     ]..sort((a, b) => a.$2.compareTo(b.$2));
-    return (today: due, upcoming: soon);
+    return (today: due, upcoming: soon, paused: paused);
   }
 
   /// After a tick: the cheer and the ladders (see afterChoreTick), then
@@ -392,12 +397,12 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 onChanged: (_) => _toggleMirror(),
               ),
             ),
-          if (chores.today.isNotEmpty) ...[
+          if (chores.today.isNotEmpty || chores.paused.isNotEmpty) ...[
             Spotlight(
               id: 'agenda-today',
               child: _header(allDone ? t.allDoneToday : t.todaySection),
             ),
-            for (final c in chores.today)
+            for (final c in [...chores.today, ...chores.paused])
               ChoreRow(
                 store: store,
                 chore: c,
@@ -426,9 +431,14 @@ class _AgendaScreenState extends State<AgendaScreen> {
               ),
           ],
           if (items.isNotEmpty &&
-              (chores.today.isNotEmpty || chores.upcoming.isNotEmpty))
+              (chores.today.isNotEmpty ||
+                  chores.upcoming.isNotEmpty ||
+                  chores.paused.isNotEmpty))
             _header(t.plannedSection),
-          if (items.isEmpty && chores.today.isEmpty && chores.upcoming.isEmpty)
+          if (items.isEmpty &&
+              chores.today.isEmpty &&
+              chores.upcoming.isEmpty &&
+              chores.paused.isEmpty)
             Padding(
               padding: const EdgeInsets.all(24),
               child: Text(t.agendaEmpty),

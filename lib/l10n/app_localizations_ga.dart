@@ -2714,10 +2714,55 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n seachtain',
+      many: 'gach $n seachtain',
+      few: 'gach $n seachtaine',
+      two: 'gach $n sheachtain',
+      one: 'gach seachtain',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n mí',
+      many: 'gach $n mí',
+      few: 'gach $n mhí',
+      two: 'gach $n mhí',
+      one: 'gach mí',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'gach $n bliain',
+      many: 'gach $n mbliana',
+      few: 'gach $n bliana',
+      two: 'gach $n bhliain',
+      one: 'gach bliain',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Am ar bith den lá';
 
   @override
   String get chorePause => 'Cuir ar sos';
+
+  @override
+  String get chorePaused => 'Ar sos';
 
   @override
   String get choreResume => 'Atosaigh';

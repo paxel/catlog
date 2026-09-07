@@ -2672,10 +2672,49 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'כל $n שבועות',
+      two: 'כל שבועיים',
+      one: 'כל שבוע',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'כל $n חודשים',
+      two: 'כל חודשיים',
+      one: 'כל חודש',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'כל $n שנים',
+      two: 'כל שנתיים',
+      one: 'כל שנה',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'בכל שעה ביום';
 
   @override
   String get chorePause => 'השהיה';
+
+  @override
+  String get chorePaused => 'מושהה';
 
   @override
   String get choreResume => 'המשך';

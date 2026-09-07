@@ -2693,10 +2693,49 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n тижнів',
+      few: 'кожні $n тижні',
+      one: 'щотижня',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n місяців',
+      few: 'кожні $n місяці',
+      one: 'щомісяця',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'кожні $n років',
+      few: 'кожні $n роки',
+      one: 'щороку',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Будь-коли протягом дня';
 
   @override
   String get chorePause => 'Призупинити';
+
+  @override
+  String get chorePaused => 'Призупинено';
 
   @override
   String get choreResume => 'Відновити';

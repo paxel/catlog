@@ -4688,6 +4688,24 @@ abstract class AppLocalizations {
   /// **'{n, plural, one{every day} other{every {n} days}}'**
   String choreEveryDays(int n);
 
+  /// No description provided for @choreEveryWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every week} other{every {n} weeks}}'**
+  String choreEveryWeeks(int n);
+
+  /// No description provided for @choreEveryMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every month} other{every {n} months}}'**
+  String choreEveryMonths(int n);
+
+  /// No description provided for @choreEveryYears.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, one{every year} other{every {n} years}}'**
+  String choreEveryYears(int n);
+
   /// No description provided for @choreNoTime.
   ///
   /// In en, this message translates to:
@@ -4699,6 +4717,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pause'**
   String get chorePause;
+
+  /// No description provided for @chorePaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get chorePaused;
 
   /// No description provided for @choreResume.
   ///

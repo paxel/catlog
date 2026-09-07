@@ -2680,10 +2680,46 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n javë',
+      one: 'çdo javë',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n muaj',
+      one: 'çdo muaj',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'çdo $n vjet',
+      one: 'çdo vit',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Në çdo orë të ditës';
 
   @override
   String get chorePause => 'Pusho';
+
+  @override
+  String get chorePaused => 'Në pauzë';
 
   @override
   String get choreResume => 'Vazhdo';

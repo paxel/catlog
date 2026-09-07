@@ -2680,10 +2680,46 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n hetente',
+      one: 'minden héten',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n havonta',
+      one: 'minden hónapban',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n évente',
+      one: 'minden évben',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Bármikor napközben';
 
   @override
   String get chorePause => 'Szünet';
+
+  @override
+  String get chorePaused => 'Szüneteltetve';
 
   @override
   String get choreResume => 'Folytatás';

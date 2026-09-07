@@ -2696,10 +2696,52 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'vsakih $n tednov',
+      few: 'vsake $n tedne',
+      two: 'vsaka $n tedna',
+      one: 'vsak teden',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'vsakih $n mesecev',
+      few: 'vsake $n mesece',
+      two: 'vsaka $n meseca',
+      one: 'vsak mesec',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'vsakih $n let',
+      few: 'vsaka $n leta',
+      two: 'vsaki $n leti',
+      one: 'vsako leto',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Kadar koli čez dan';
 
   @override
   String get chorePause => 'Začasno ustavi';
+
+  @override
+  String get chorePaused => 'Ustavljeno';
 
   @override
   String get choreResume => 'Nadaljuj';

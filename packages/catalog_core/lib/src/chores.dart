@@ -14,12 +14,19 @@ import 'store.dart';
 /// How often a chore comes around.
 enum ChoreRepeat { daily, everyDays, weekdays }
 
+/// The unit of an every-N gap: a vaccine comes every year, not every
+/// 365 days. Months and years step by the calendar — the 31st becomes
+/// the last day of a shorter month.
+enum ChoreUnit { days, weeks, months, years }
+
 class ChoreSchedule {
   final ChoreRepeat repeat;
 
-  /// For [ChoreRepeat.everyDays]: the gap, counted from the day the
-  /// chore was last done — done early or late, the next one moves.
+  /// For [ChoreRepeat.everyDays]: the gap in [unit]s, counted from the
+  /// day the chore was last done — done early or late, the next one
+  /// moves.
   final int every;
+  final ChoreUnit unit;
 
   /// For [ChoreRepeat.weekdays]: `DateTime.monday`..`DateTime.sunday`.
   final Set<int> weekdays;
@@ -27,26 +34,48 @@ class ChoreSchedule {
   const ChoreSchedule.daily()
       : repeat = ChoreRepeat.daily,
         every = 1,
+        unit = ChoreUnit.days,
         weekdays = const {};
 
   const ChoreSchedule.everyDays(this.every)
+      : repeat = ChoreRepeat.everyDays,
+        unit = ChoreUnit.days,
+        weekdays = const {};
+
+  /// Every [every] [unit]s.
+  const ChoreSchedule.every(this.every, this.unit)
       : repeat = ChoreRepeat.everyDays,
         weekdays = const {};
 
   const ChoreSchedule.weekdays(this.weekdays)
       : repeat = ChoreRepeat.weekdays,
-        every = 1;
+        every = 1,
+        unit = ChoreUnit.days;
+
+  /// [day] moved forward by the gap.
+  DateTime step(DateTime day) => switch (unit) {
+        ChoreUnit.days => daysFrom(day, every),
+        ChoreUnit.weeks => daysFrom(day, 7 * every),
+        ChoreUnit.months => monthsFrom(day, every),
+        ChoreUnit.years => monthsFrom(day, 12 * every),
+      };
 
   Map<String, dynamic> toJson() => {
         'repeat': repeat.name,
         if (repeat == ChoreRepeat.everyDays) 'every': every,
+        // Absent for days, so a 1.2.0 reader sees the old shape; it
+        // reads a gap in other units as days, the best it can do.
+        if (repeat == ChoreRepeat.everyDays && unit != ChoreUnit.days)
+          'unit': unit.name,
         if (repeat == ChoreRepeat.weekdays) 'days': weekdays.toList()..sort(),
       };
 
   static ChoreSchedule fromJson(Map<String, dynamic> json) {
     switch (json['repeat']) {
       case 'everyDays':
-        return ChoreSchedule.everyDays((json['every'] as num?)?.toInt() ?? 1);
+        return ChoreSchedule.every(
+            (json['every'] as num?)?.toInt() ?? 1,
+            ChoreUnit.values.asNameMap()[json['unit']] ?? ChoreUnit.days);
       case 'weekdays':
         return ChoreSchedule.weekdays({
           for (final d in json['days'] as List? ?? const []) (d as num).toInt()
@@ -194,6 +223,17 @@ DateTime dayOf(DateTime d) => DateTime(d.year, d.month, d.day);
 /// not the day keyed at 00:00.
 DateTime daysFrom(DateTime d, int n) => DateTime(d.year, d.month, d.day + n);
 
+/// [day] plus [n] calendar months, the day of month kept where the
+/// target month has it and clamped to its last day otherwise (31 Jan +
+/// 1 month = 28 or 29 Feb). Midnight, DST-safe like [daysFrom].
+DateTime monthsFrom(DateTime day, int n) {
+  final month = day.month - 1 + n;
+  final year = day.year + month ~/ 12;
+  final m = month % 12 + 1;
+  final last = DateTime(year, m + 1, 0).day;
+  return DateTime(year, m, day.day < last ? day.day : last);
+}
+
 /// `YYYY-MM-DD` of a day — the tick key's suffix and the tick's value.
 String dayKey(DateTime d) => '${d.year.toString().padLeft(4, '0')}-'
     '${d.month.toString().padLeft(2, '0')}-'
@@ -252,7 +292,9 @@ List<ChoreOccurrence> occurrences(
         }
       }
     case ChoreRepeat.everyDays:
-      final n = chore.schedule.every < 1 ? 1 : chore.schedule.every;
+      final schedule = chore.schedule.every < 1
+          ? ChoreSchedule.every(1, chore.schedule.unit)
+          : chore.schedule;
       // Walk the ticks in order of the occurrence they settled: every
       // due day before a tick's occurrence was missed, the tick's own
       // occurrence is done, and the schedule restarts from its done day.
@@ -261,14 +303,14 @@ List<ChoreOccurrence> occurrences(
       for (final occurrence in settled) {
         while (anchor.isBefore(occurrence)) {
           add(anchor);
-          anchor = daysFrom(anchor, n);
+          anchor = schedule.step(anchor);
         }
         add(occurrence);
-        anchor = daysFrom(dayOf(ticks[occurrence]!), n);
+        anchor = schedule.step(dayOf(ticks[occurrence]!));
       }
       while (!anchor.isAfter(to)) {
         add(anchor);
-        anchor = daysFrom(anchor, n);
+        anchor = schedule.step(anchor);
       }
   }
   return result;
@@ -293,7 +335,7 @@ bool isDueOn(Chore chore, Map<DateTime, DateTime> ticks, DateTime day) =>
 
 /// The first due day on or after [today] that is not done yet.
 DateTime? nextDue(Chore chore, Map<DateTime, DateTime> ticks, DateTime today,
-    {int horizonDays = 366}) {
+    {int horizonDays = 3660}) {
   today = dayOf(today);
   for (final o
       in occurrences(chore, ticks, today, daysFrom(today, horizonDays))) {

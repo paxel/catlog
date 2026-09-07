@@ -2690,10 +2690,49 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String choreEveryWeeks(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de săptămâni',
+      few: 'la fiecare $n săptămâni',
+      one: 'în fiecare săptămână',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryMonths(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de luni',
+      few: 'la fiecare $n luni',
+      one: 'în fiecare lună',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String choreEveryYears(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'la fiecare $n de ani',
+      few: 'la fiecare $n ani',
+      one: 'în fiecare an',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get choreNoTime => 'Oricând în timpul zilei';
 
   @override
   String get chorePause => 'Suspendă';
+
+  @override
+  String get chorePaused => 'În pauză';
 
   @override
   String get choreResume => 'Reia';
