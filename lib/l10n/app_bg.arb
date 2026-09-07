@@ -856,6 +856,7 @@
   "chorePause": "Пауза",
   "choreResume": "Продължи",
   "choreEnd": "Край на задачата",
+  "choreEndConfirm": "Задължението излиза от списъка. Отметнатото остава в историята.",
   "todaySection": "Днес",
   "upcomingSection": "Скоро",
   "allDoneToday": "Днес: всичко е готово",

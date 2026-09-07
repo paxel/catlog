@@ -856,6 +856,7 @@
   "chorePause": "Začasno ustavi",
   "choreResume": "Nadaljuj",
   "choreEnd": "Končaj opravilo",
+  "choreEndConfirm": "Opravilo izgine s seznama. Odkljukano ostane v zgodovini.",
   "todaySection": "Danes",
   "upcomingSection": "Kmalu",
   "allDoneToday": "Danes: vse opravljeno",

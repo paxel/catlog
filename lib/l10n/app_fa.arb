@@ -856,6 +856,7 @@
   "chorePause": "توقف موقت",
   "choreResume": "ادامه",
   "choreEnd": "پایان کار",
+  "choreEndConfirm": "کار از فهرست حذف می‌شود. آنچه تیک خورده در تاریخچه می‌ماند.",
   "todaySection": "امروز",
   "upcomingSection": "به‌زودی",
   "allDoneToday": "امروز: همه انجام شد",

@@ -2693,6 +2693,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get choreEnd => 'Lopeta askare';
 
   @override
+  String get choreEndConfirm =>
+      'Askare poistuu listalta. Merkityt kerrat jäävät historiaan.';
+
+  @override
   String get todaySection => 'Tänään';
 
   @override

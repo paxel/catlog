@@ -856,6 +856,7 @@
   "chorePause": "Pristabdyti",
   "choreResume": "Tęsti",
   "choreEnd": "Baigti darbą",
+  "choreEndConfirm": "Darbas dingsta iš sąrašo. Pažymėta lieka istorijoje.",
   "todaySection": "Šiandien",
   "upcomingSection": "Netrukus",
   "allDoneToday": "Šiandien: viskas padaryta",

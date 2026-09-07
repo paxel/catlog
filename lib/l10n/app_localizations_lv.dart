@@ -2702,6 +2702,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get choreEnd => 'Beigt pienākumu';
 
   @override
+  String get choreEndConfirm =>
+      'Pienākums pazūd no saraksta. Atzīmētais paliek vēsturē.';
+
+  @override
   String get todaySection => 'Šodien';
 
   @override

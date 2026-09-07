@@ -143,6 +143,10 @@ void main() {
     expect(find.text('Edit chore'), findsOneWidget);
     await tester.tap(find.text('End chore'));
     await tester.pumpAndSettle();
+    // One confirmation, then it is gone.
+    expect(find.textContaining('leaves the list'), findsOneWidget);
+    await tester.tap(find.text('End chore').last);
+    await tester.pumpAndSettle();
     expect(store.choresOf(cat), isEmpty);
     expect(store.choresOf(cat, includeEnded: true).single.id, chore.id);
     expect(find.text('Today'), findsNothing);

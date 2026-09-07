@@ -2699,6 +2699,10 @@ class AppLocalizationsBs extends AppLocalizations {
   String get choreEnd => 'Završi zadatak';
 
   @override
+  String get choreEndConfirm =>
+      'Obaveza nestaje s liste. Označeno ostaje u historiji.';
+
+  @override
   String get todaySection => 'Danas';
 
   @override

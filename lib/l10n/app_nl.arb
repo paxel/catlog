@@ -856,6 +856,7 @@
   "chorePause": "Pauzeren",
   "choreResume": "Hervatten",
   "choreEnd": "Taak beëindigen",
+  "choreEndConfirm": "De taak verlaat de lijst. Wat is afgevinkt blijft in de geschiedenis.",
   "todaySection": "Vandaag",
   "upcomingSection": "Binnenkort",
   "allDoneToday": "Vandaag: alles gedaan",

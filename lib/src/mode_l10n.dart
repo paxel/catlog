@@ -412,6 +412,9 @@ class ModeLocalizations implements AppLocalizations {
   String get choreEnd => base.choreEnd;
 
   @override
+  String get choreEndConfirm => base.choreEndConfirm;
+
+  @override
   String choreEveryDays(int n) => base.choreEveryDays(n);
 
   @override

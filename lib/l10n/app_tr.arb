@@ -856,6 +856,7 @@
   "chorePause": "Duraklat",
   "choreResume": "Sürdür",
   "choreEnd": "Görevi bitir",
+  "choreEndConfirm": "Görev listeden çıkar. İşaretlenenler geçmişte kalır.",
   "todaySection": "Bugün",
   "upcomingSection": "Yakında",
   "allDoneToday": "Bugün: hepsi tamam",

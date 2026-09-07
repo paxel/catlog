@@ -2684,6 +2684,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get choreEnd => 'סיום מטלה';
 
   @override
+  String get choreEndConfirm => 'המטלה יוצאת מהרשימה. מה שסומן נשאר בהיסטוריה.';
+
+  @override
   String get todaySection => 'היום';
 
   @override

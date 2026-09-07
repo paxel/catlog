@@ -856,6 +856,7 @@
   "chorePause": "Szünet",
   "choreResume": "Folytatás",
   "choreEnd": "Teendő lezárása",
+  "choreEndConfirm": "A teendő eltűnik a listáról. A kipipáltak a történetben maradnak.",
   "todaySection": "Ma",
   "upcomingSection": "Hamarosan",
   "allDoneToday": "Ma: minden kész",

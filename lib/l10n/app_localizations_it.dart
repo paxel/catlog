@@ -2700,6 +2700,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get choreEnd => 'Chiudi faccenda';
 
   @override
+  String get choreEndConfirm =>
+      'La faccenda esce dalla lista. Ciò che è stato spuntato resta nella cronologia.';
+
+  @override
   String get todaySection => 'Oggi';
 
   @override

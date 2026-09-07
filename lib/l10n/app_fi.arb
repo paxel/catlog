@@ -856,6 +856,7 @@
   "chorePause": "Keskeytä",
   "choreResume": "Jatka",
   "choreEnd": "Lopeta askare",
+  "choreEndConfirm": "Askare poistuu listalta. Merkityt kerrat jäävät historiaan.",
   "todaySection": "Tänään",
   "upcomingSection": "Tulossa",
   "allDoneToday": "Tänään: kaikki tehty",

@@ -856,6 +856,7 @@
   "chorePause": "Peata",
   "choreResume": "Jätka",
   "choreEnd": "Lõpeta toimetus",
+  "choreEndConfirm": "Toimetus kaob loendist. Märgitu jääb ajalukku.",
   "todaySection": "Täna",
   "upcomingSection": "Peagi",
   "allDoneToday": "Täna: kõik tehtud",

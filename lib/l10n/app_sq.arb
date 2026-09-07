@@ -856,6 +856,7 @@
   "chorePause": "Pusho",
   "choreResume": "Vazhdo",
   "choreEnd": "Përfundo detyrën",
+  "choreEndConfirm": "Detyra largohet nga lista. Ç’u shënua mbetet në histori.",
   "todaySection": "Sot",
   "upcomingSection": "Së shpejti",
   "allDoneToday": "Sot: gjithçka u bë",

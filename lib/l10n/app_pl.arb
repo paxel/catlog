@@ -856,6 +856,7 @@
   "chorePause": "Wstrzymaj",
   "choreResume": "Wznów",
   "choreEnd": "Zakończ obowiązek",
+  "choreEndConfirm": "Obowiązek znika z listy. To, co zaznaczono, zostaje w historii.",
   "todaySection": "Dziś",
   "upcomingSection": "Wkrótce",
   "allDoneToday": "Dziś: wszystko zrobione",

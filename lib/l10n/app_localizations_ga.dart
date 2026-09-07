@@ -2726,6 +2726,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get choreEnd => 'Cuir deireadh leis an gcúram';
 
   @override
+  String get choreEndConfirm =>
+      'Imíonn an cúram den liosta. Fanann a bhfuil ticeáilte sa stair.';
+
+  @override
   String get todaySection => 'Inniu';
 
   @override

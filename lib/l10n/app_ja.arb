@@ -856,6 +856,7 @@
   "chorePause": "一時停止",
   "choreResume": "再開",
   "choreEnd": "日課を終了",
+  "choreEndConfirm": "お世話は一覧から消えます。チェック済みの記録は履歴に残ります。",
   "todaySection": "今日",
   "upcomingSection": "近日",
   "allDoneToday": "今日: すべて完了",

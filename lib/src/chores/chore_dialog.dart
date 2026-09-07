@@ -9,9 +9,10 @@ import '../reminders/plan_chooser.dart';
 import 'chore_reminders.dart';
 
 /// Making or editing a chore (1.2.0): a title, whose it is, how often,
-/// at what time of day, and whether the phone should remind. Returns the
-/// chore as saved, null when dismissed. An existing chore can be paused,
-/// resumed or ended here.
+/// at what time of day, and whether the phone should remind. A full
+/// page that scrolls, Save in the top bar; an existing chore has Pause
+/// and End as rows at the bottom. Returns the chore as saved, null when
+/// dismissed.
 Future<Chore?> showChoreDialog(
   BuildContext context,
   CatalogStore store, {
@@ -19,258 +20,324 @@ Future<Chore?> showChoreDialog(
   Chore? existing,
   ReminderPort? reminders,
 }) async {
-  final port = reminders ?? LocalNotificationPort.instance;
   var entity = existing?.entity ?? entityId;
   if (entity == null) {
     entity = await pickPlanEntity(context, store);
     if (entity == null || !context.mounted) return null;
   }
-  final subject = entity;
-  final title = TextEditingController(text: existing?.title ?? '');
-  var repeat = existing?.schedule.repeat ?? ChoreRepeat.daily;
-  var every = existing?.schedule.every ?? 2;
-  if (every < 2) every = 2;
-  final weekdays = {...?existing?.schedule.weekdays};
-  var time = existing?.time;
-  var remind = existing?.remind ?? false;
-  var remindAt = existing?.remindAt ?? existing?.time;
-  final locale = Localizations.localeOf(context).toString();
-  final monday = DateTime(2026, 9, 7);
+  return Navigator.of(context).push<Chore>(
+    MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (_) => ChoreEditorScreen(
+        store: store,
+        entityId: entity!,
+        existing: existing,
+        reminders: reminders,
+      ),
+    ),
+  );
+}
 
-  final result = await showDialog<String>(
-    context: context,
-    builder: (context) => StatefulBuilder(
-      builder: (context, setDialogState) {
-        final t = context.t;
-        final canSave =
-            title.text.trim().isNotEmpty &&
-            (repeat != ChoreRepeat.weekdays || weekdays.isNotEmpty);
-        String clock(({int hour, int minute}) at) =>
-            MaterialLocalizations.of(context)
-                .formatTimeOfDay(TimeOfDay(hour: at.hour, minute: at.minute));
-        return AlertDialog(
-          title: Text(existing == null ? t.newChore : t.choreEdit),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  controller: title,
-                  autofocus: existing == null,
-                  decoration: InputDecoration(labelText: t.choreTitleLabel),
-                  textCapitalization: TextCapitalization.sentences,
-                  onChanged: (_) => setDialogState(() {}),
-                ),
-                const SizedBox(height: 12),
-                SegmentedButton<ChoreRepeat>(
-                  segments: [
-                    ButtonSegment(
-                      value: ChoreRepeat.daily,
-                      label: Text(t.choreRepeatDaily),
-                    ),
-                    ButtonSegment(
-                      value: ChoreRepeat.everyDays,
-                      label: Text(t.choreRepeatEvery),
-                    ),
-                    ButtonSegment(
-                      value: ChoreRepeat.weekdays,
-                      label: Text(t.choreRepeatWeekdays),
-                    ),
-                  ],
-                  selected: {repeat},
-                  onSelectionChanged: (s) =>
-                      setDialogState(() => repeat = s.first),
-                ),
-                if (repeat == ChoreRepeat.everyDays)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.remove),
-                          onPressed: every > 2
-                              ? () => setDialogState(() => every--)
-                              : null,
-                        ),
-                        Text(t.choreEveryDays(every)),
-                        IconButton(
-                          icon: const Icon(Icons.add),
-                          onPressed: every < 365
-                              ? () => setDialogState(() => every++)
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
-                if (repeat == ChoreRepeat.weekdays)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Wrap(
-                      spacing: 4,
-                      children: [
-                        for (var d = DateTime.monday; d <= DateTime.sunday; d++)
-                          FilterChip(
-                            label: Text(
-                              DateFormat.E(locale)
-                                  .format(monday.add(Duration(days: d - 1))),
-                            ),
-                            selected: weekdays.contains(d),
-                            visualDensity: VisualDensity.compact,
-                            onSelected: (on) => setDialogState(
-                              () => on ? weekdays.add(d) : weekdays.remove(d),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.schedule),
-                  title: Text(time == null ? t.choreNoTime : clock(time!)),
-                  trailing: time == null
-                      ? null
-                      : IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () => setDialogState(() => time = null),
-                        ),
-                  onTap: () async {
-                    final picked = await showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay(
-                        hour: time?.hour ?? 8,
-                        minute: time?.minute ?? 0,
-                      ),
-                    );
-                    if (picked != null) {
-                      setDialogState(
-                        () => time = (hour: picked.hour, minute: picked.minute),
-                      );
-                    }
-                  },
-                ),
-                // A phone reminder, off by default: the switch asks for the
-                // permission, then for the time; a refusal is said and the
-                // switch stays off.
-                SwitchListTile(
-                  contentPadding: EdgeInsets.zero,
-                  secondary: const Icon(Icons.notifications_outlined),
-                  title: Text(t.remindMe),
-                  subtitle: remind && remindAt != null
-                      ? Text(clock(remindAt!))
-                      : null,
-                  value: remind,
-                  onChanged: (on) async {
-                    if (on && !await port.ensurePermission()) {
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(t.remindPermissionDenied)),
-                        );
-                      }
-                      return;
-                    }
-                    if (!context.mounted) return;
-                    if (on) {
-                      final picked = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay(
-                          hour: remindAt?.hour ?? time?.hour ?? 8,
-                          minute: remindAt?.minute ?? time?.minute ?? 0,
-                        ),
-                      );
-                      if (picked == null) return;
-                      remindAt = (hour: picked.hour, minute: picked.minute);
-                    }
-                    setDialogState(() => remind = on);
-                  },
-                ),
-                if (remind && Platform.isAndroid)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          t.batteryHint,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        TextButton(
-                          onPressed: port.openBatterySettings,
-                          child: Text(t.batterySettings),
-                        ),
-                      ],
-                    ),
-                  ),
-              ],
-            ),
+class ChoreEditorScreen extends StatefulWidget {
+  final CatalogStore store;
+  final String entityId;
+  final Chore? existing;
+  final ReminderPort? reminders;
+
+  const ChoreEditorScreen({
+    super.key,
+    required this.store,
+    required this.entityId,
+    this.existing,
+    this.reminders,
+  });
+
+  @override
+  State<ChoreEditorScreen> createState() => _ChoreEditorScreenState();
+}
+
+class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
+  CatalogStore get store => widget.store;
+  Chore? get existing => widget.existing;
+  ReminderPort get port => widget.reminders ?? LocalNotificationPort.instance;
+
+  late final TextEditingController _title = TextEditingController(
+    text: existing?.title ?? '',
+  );
+  late ChoreRepeat _repeat = existing?.schedule.repeat ?? ChoreRepeat.daily;
+  late int _every = (existing?.schedule.every ?? 2) < 2
+      ? 2
+      : existing!.schedule.every;
+  late final Set<int> _weekdays = {...?existing?.schedule.weekdays};
+  late ({int hour, int minute})? _time = existing?.time;
+  late bool _remind = existing?.remind ?? false;
+  late ({int hour, int minute})? _remindAt =
+      existing?.remindAt ?? existing?.time;
+
+  static final _monday = DateTime(2026, 9, 7);
+
+  @override
+  void dispose() {
+    _title.dispose();
+    super.dispose();
+  }
+
+  bool get _canSave =>
+      _title.text.trim().isNotEmpty &&
+      (_repeat != ChoreRepeat.weekdays || _weekdays.isNotEmpty);
+
+  String _clock(({int hour, int minute}) at) =>
+      MaterialLocalizations.of(context)
+          .formatTimeOfDay(TimeOfDay(hour: at.hour, minute: at.minute));
+
+  ChoreSchedule get _schedule => switch (_repeat) {
+    ChoreRepeat.daily => const ChoreSchedule.daily(),
+    ChoreRepeat.everyDays => ChoreSchedule.everyDays(_every),
+    ChoreRepeat.weekdays => ChoreSchedule.weekdays(_weekdays),
+  };
+
+  void _save() {
+    final name = _title.text.trim();
+    if (name.isEmpty) return;
+    final Chore saved;
+    if (existing != null) {
+      saved = existing!.copyWith(
+        title: name,
+        schedule: _schedule,
+        time: _time,
+        clearTime: _time == null,
+        remind: _remind,
+        remindAt: _remindAt,
+      );
+      store.updateChore(saved);
+    } else {
+      saved = store.createChore(
+        Chore(
+          id: '',
+          entity: widget.entityId,
+          title: name,
+          schedule: _schedule,
+          time: _time,
+          start: dayOf(DateTime.now()),
+          remind: _remind,
+          remindAt: _remindAt,
+        ),
+      );
+    }
+    Navigator.of(context).pop(saved);
+  }
+
+  void _pauseOrResume() {
+    final changed = existing!.copyWith(paused: !existing!.paused);
+    store.updateChore(changed);
+    Navigator.of(context).pop(changed);
+  }
+
+  Future<void> _end() async {
+    final t = context.t;
+    final sure = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.choreEnd),
+        content: Text(t.choreEndConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(t.cancel),
           ),
-          actions: [
-            if (existing != null) ...[
-              TextButton(
-                onPressed: () => Navigator.of(context).pop('end'),
-                child: Text(t.choreEnd),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(t.choreEnd),
+          ),
+        ],
+      ),
+    );
+    if (sure != true || !mounted) return;
+    final changed = existing!.copyWith(ended: true);
+    store.updateChore(changed);
+    Navigator.of(context).pop(changed);
+  }
+
+  Future<void> _pickTime() async {
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(
+        hour: _time?.hour ?? 8,
+        minute: _time?.minute ?? 0,
+      ),
+    );
+    if (picked != null && mounted) {
+      setState(() => _time = (hour: picked.hour, minute: picked.minute));
+    }
+  }
+
+  /// The reminder switch asks for the permission, then for the time; a
+  /// refusal is said and the switch stays off.
+  Future<void> _toggleRemind(bool on) async {
+    if (on && !await port.ensurePermission()) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(context.t.remindPermissionDenied)),
+        );
+      }
+      return;
+    }
+    if (!mounted) return;
+    if (on) {
+      final picked = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay(
+          hour: _remindAt?.hour ?? _time?.hour ?? 8,
+          minute: _remindAt?.minute ?? _time?.minute ?? 0,
+        ),
+      );
+      if (picked == null || !mounted) return;
+      _remindAt = (hour: picked.hour, minute: picked.minute);
+    }
+    setState(() => _remind = on);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final locale = Localizations.localeOf(context).toString();
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(existing == null ? t.newChore : t.choreEdit),
+        actions: [
+          TextButton(onPressed: _canSave ? _save : null, child: Text(t.save)),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          TextField(
+            controller: _title,
+            autofocus: existing == null,
+            decoration: InputDecoration(labelText: t.choreTitleLabel),
+            textCapitalization: TextCapitalization.sentences,
+            onChanged: (_) => setState(() {}),
+          ),
+          const SizedBox(height: 16),
+          SegmentedButton<ChoreRepeat>(
+            segments: [
+              ButtonSegment(
+                value: ChoreRepeat.daily,
+                label: Text(t.choreRepeatDaily),
               ),
-              TextButton(
-                onPressed: () =>
-                    Navigator.of(context)
-                        .pop(existing.paused ? 'resume' : 'pause'),
-                child: Text(existing.paused ? t.choreResume : t.chorePause),
+              ButtonSegment(
+                value: ChoreRepeat.everyDays,
+                label: Text(t.choreRepeatEvery),
+              ),
+              ButtonSegment(
+                value: ChoreRepeat.weekdays,
+                label: Text(t.choreRepeatWeekdays),
               ),
             ],
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text(t.cancel),
+            selected: {_repeat},
+            onSelectionChanged: (s) => setState(() => _repeat = s.first),
+          ),
+          if (_repeat == ChoreRepeat.everyDays)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: _every > 2
+                        ? () => setState(() => _every--)
+                        : null,
+                  ),
+                  Text(t.choreEveryDays(_every)),
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: _every < 365
+                        ? () => setState(() => _every++)
+                        : null,
+                  ),
+                ],
+              ),
             ),
-            FilledButton(
-              onPressed: canSave
-                  ? () => Navigator.of(context).pop('save')
-                  : null,
-              child: Text(t.save),
+          if (_repeat == ChoreRepeat.weekdays)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Wrap(
+                spacing: 4,
+                children: [
+                  for (var d = DateTime.monday; d <= DateTime.sunday; d++)
+                    FilterChip(
+                      label: Text(
+                        DateFormat.E(locale)
+                            .format(_monday.add(Duration(days: d - 1))),
+                      ),
+                      selected: _weekdays.contains(d),
+                      onSelected: (on) => setState(
+                        () => on ? _weekdays.add(d) : _weekdays.remove(d),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          const SizedBox(height: 8),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.schedule),
+            title: Text(_time == null ? t.choreNoTime : _clock(_time!)),
+            trailing: _time == null
+                ? null
+                : IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: () => setState(() => _time = null),
+                  ),
+            onTap: _pickTime,
+          ),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            secondary: const Icon(Icons.notifications_outlined),
+            title: Text(t.remindMe),
+            subtitle: _remind && _remindAt != null
+                ? Text(_clock(_remindAt!))
+                : null,
+            value: _remind,
+            onChanged: _toggleRemind,
+          ),
+          if (_remind && Platform.isAndroid)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.batteryHint, style: theme.textTheme.bodySmall),
+                TextButton(
+                  onPressed: port.openBatterySettings,
+                  child: Text(t.batterySettings),
+                ),
+              ],
+            ),
+          if (existing != null) ...[
+            const Divider(height: 32),
+            ListTile(
+              leading: Icon(existing!.paused ? Icons.play_arrow : Icons.pause),
+              title: Text(existing!.paused ? t.choreResume : t.chorePause),
+              onTap: _pauseOrResume,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.stop_circle_outlined,
+                color: theme.colorScheme.error,
+              ),
+              title: Text(
+                t.choreEnd,
+                style: TextStyle(color: theme.colorScheme.error),
+              ),
+              onTap: _end,
             ),
           ],
-        );
-      },
-    ),
-  );
-  if (result == null) return null;
-  if (existing != null && result != 'save') {
-    final changed = switch (result) {
-      'end' => existing.copyWith(ended: true),
-      'pause' => existing.copyWith(paused: true),
-      _ => existing.copyWith(paused: false),
-    };
-    store.updateChore(changed);
-    return changed;
-  }
-  final name = title.text.trim();
-  if (name.isEmpty) return null;
-  final schedule = switch (repeat) {
-    ChoreRepeat.daily => const ChoreSchedule.daily(),
-    ChoreRepeat.everyDays => ChoreSchedule.everyDays(every),
-    ChoreRepeat.weekdays => ChoreSchedule.weekdays(weekdays),
-  };
-  if (existing != null) {
-    final changed = existing.copyWith(
-      title: name,
-      schedule: schedule,
-      time: time,
-      clearTime: time == null,
-      remind: remind,
-      remindAt: remindAt,
+        ],
+      ),
     );
-    store.updateChore(changed);
-    return changed;
   }
-  return store.createChore(
-    Chore(
-      id: '',
-      entity: subject,
-      title: name,
-      schedule: schedule,
-      time: time,
-      start: dayOf(DateTime.now()),
-      remind: remind,
-      remindAt: remindAt,
-    ),
-  );
 }

@@ -2702,6 +2702,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get choreEnd => 'Τέλος δουλειάς';
 
   @override
+  String get choreEndConfirm =>
+      'Η δουλειά φεύγει από τη λίστα. Όσα τσεκαρίστηκαν μένουν στο ιστορικό.';
+
+  @override
   String get todaySection => 'Σήμερα';
 
   @override

@@ -2698,6 +2698,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get choreEnd => 'Ukončit úkol';
 
   @override
+  String get choreEndConfirm =>
+      'Úkol zmizí ze seznamu. Co bylo zaškrtnuto, zůstává v historii.';
+
+  @override
   String get todaySection => 'Dnes';
 
   @override

@@ -856,6 +856,7 @@
   "chorePause": "Apturēt",
   "choreResume": "Atsākt",
   "choreEnd": "Beigt pienākumu",
+  "choreEndConfirm": "Pienākums pazūd no saraksta. Atzīmētais paliek vēsturē.",
   "todaySection": "Šodien",
   "upcomingSection": "Drīzumā",
   "allDoneToday": "Šodien: viss padarīts",

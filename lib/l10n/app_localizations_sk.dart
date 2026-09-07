@@ -2697,6 +2697,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get choreEnd => 'Ukončiť úlohu';
 
   @override
+  String get choreEndConfirm =>
+      'Úloha zmizne zo zoznamu. Čo bolo zaškrtnuté, zostáva v histórii.';
+
+  @override
   String get todaySection => 'Dnes';
 
   @override

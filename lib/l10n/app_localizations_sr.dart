@@ -2698,6 +2698,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get choreEnd => 'Заврши задатак';
 
   @override
+  String get choreEndConfirm =>
+      'Обавеза нестаје са листе. Штиклирано остаје у историји.';
+
+  @override
   String get todaySection => 'Данас';
 
   @override

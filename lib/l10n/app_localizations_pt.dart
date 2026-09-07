@@ -2692,6 +2692,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get choreEnd => 'Terminar tarefa';
 
   @override
+  String get choreEndConfirm =>
+      'A tarefa sai da lista. O que foi marcado fica no histórico.';
+
+  @override
   String get todaySection => 'Hoje';
 
   @override

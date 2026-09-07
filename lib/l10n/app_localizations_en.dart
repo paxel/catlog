@@ -2691,6 +2691,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get choreEnd => 'End chore';
 
   @override
+  String get choreEndConfirm =>
+      'The chore leaves the list. What was ticked stays in the history.';
+
+  @override
   String get todaySection => 'Today';
 
   @override

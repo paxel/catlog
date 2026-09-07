@@ -2710,6 +2710,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get choreEnd => 'إنهاء المهمة';
 
   @override
+  String get choreEndConfirm =>
+      'تخرج المهمة من القائمة. ما تم تعليمه يبقى في السجل.';
+
+  @override
   String get todaySection => 'اليوم';
 
   @override

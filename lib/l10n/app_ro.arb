@@ -856,6 +856,7 @@
   "chorePause": "Suspendă",
   "choreResume": "Reia",
   "choreEnd": "Încheie treaba",
+  "choreEndConfirm": "Treaba iese din listă. Ce a fost bifat rămâne în istoric.",
   "todaySection": "Azi",
   "upcomingSection": "În curând",
   "allDoneToday": "Azi: totul făcut",

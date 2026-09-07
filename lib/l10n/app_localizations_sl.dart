@@ -2708,6 +2708,10 @@ class AppLocalizationsSl extends AppLocalizations {
   String get choreEnd => 'Končaj opravilo';
 
   @override
+  String get choreEndConfirm =>
+      'Opravilo izgine s seznama. Odkljukano ostane v zgodovini.';
+
+  @override
   String get todaySection => 'Danes';
 
   @override

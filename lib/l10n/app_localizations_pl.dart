@@ -2705,6 +2705,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get choreEnd => 'Zakończ obowiązek';
 
   @override
+  String get choreEndConfirm =>
+      'Obowiązek znika z listy. To, co zaznaczono, zostaje w historii.';
+
+  @override
   String get todaySection => 'Dziś';
 
   @override

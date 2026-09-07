@@ -856,6 +856,7 @@
   "chorePause": "Пауза",
   "choreResume": "Настави",
   "choreEnd": "Заврши задатак",
+  "choreEndConfirm": "Обавеза нестаје са листе. Штиклирано остаје у историји.",
   "todaySection": "Данас",
   "upcomingSection": "Ускоро",
   "allDoneToday": "Данас: све урађено",

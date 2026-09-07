@@ -2692,6 +2692,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get choreEnd => 'Край на задачата';
 
   @override
+  String get choreEndConfirm =>
+      'Задължението излиза от списъка. Отметнатото остава в историята.';
+
+  @override
   String get todaySection => 'Днес';
 
   @override

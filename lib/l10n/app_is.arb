@@ -856,6 +856,7 @@
   "chorePause": "Gera hlé",
   "choreResume": "Halda áfram",
   "choreEnd": "Ljúka verki",
+  "choreEndConfirm": "Verkið fer af listanum. Það sem var hakað við helst í sögunni.",
   "todaySection": "Í dag",
   "upcomingSection": "Á næstunni",
   "allDoneToday": "Í dag: allt búið",

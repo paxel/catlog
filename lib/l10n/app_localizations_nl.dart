@@ -2697,6 +2697,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get choreEnd => 'Taak beëindigen';
 
   @override
+  String get choreEndConfirm =>
+      'De taak verlaat de lijst. Wat is afgevinkt blijft in de geschiedenis.';
+
+  @override
   String get todaySection => 'Vandaag';
 
   @override

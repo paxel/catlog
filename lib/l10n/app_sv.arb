@@ -856,6 +856,7 @@
   "chorePause": "Pausa",
   "choreResume": "Återuppta",
   "choreEnd": "Avsluta syssla",
+  "choreEndConfirm": "Sysslan lämnar listan. Det som bockats av stannar i historiken.",
   "todaySection": "Idag",
   "upcomingSection": "Snart",
   "allDoneToday": "Idag: allt gjort",

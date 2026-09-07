@@ -2692,6 +2692,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get choreEnd => 'Teendő lezárása';
 
   @override
+  String get choreEndConfirm =>
+      'A teendő eltűnik a listáról. A kipipáltak a történetben maradnak.';
+
+  @override
   String get todaySection => 'Ma';
 
   @override

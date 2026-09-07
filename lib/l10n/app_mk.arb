@@ -856,6 +856,7 @@
   "chorePause": "Пауза",
   "choreResume": "Продолжи",
   "choreEnd": "Заврши обврска",
+  "choreEndConfirm": "Обврската исчезнува од листата. Штиклираното останува во историјата.",
   "todaySection": "Денес",
   "upcomingSection": "Наскоро",
   "allDoneToday": "Денес: сè е завршено",

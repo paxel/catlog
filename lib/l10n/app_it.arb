@@ -856,6 +856,7 @@
   "chorePause": "Sospendi",
   "choreResume": "Riprendi",
   "choreEnd": "Chiudi faccenda",
+  "choreEndConfirm": "La faccenda esce dalla lista. Ciò che è stato spuntato resta nella cronologia.",
   "todaySection": "Oggi",
   "upcomingSection": "In arrivo",
   "allDoneToday": "Oggi: tutto fatto",

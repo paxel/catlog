@@ -2566,6 +2566,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get choreEnd => '结束任务';
 
   @override
+  String get choreEndConfirm => '该事务将从列表中移除。已勾选的记录保留在历史中。';
+
+  @override
   String get todaySection => '今天';
 
   @override

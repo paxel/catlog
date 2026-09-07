@@ -856,6 +856,7 @@
   "chorePause": "Sæt på pause",
   "choreResume": "Genoptag",
   "choreEnd": "Afslut pligt",
+  "choreEndConfirm": "Pligten forlader listen. Det afkrydsede bliver i historikken.",
   "todaySection": "I dag",
   "upcomingSection": "Snart",
   "allDoneToday": "I dag: alt gjort",

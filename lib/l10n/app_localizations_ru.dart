@@ -2705,6 +2705,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get choreEnd => 'Завершить дело';
 
   @override
+  String get choreEndConfirm =>
+      'Дело уходит из списка. Отмеченное остаётся в истории.';
+
+  @override
   String get todaySection => 'Сегодня';
 
   @override

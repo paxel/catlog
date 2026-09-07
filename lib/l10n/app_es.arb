@@ -856,6 +856,7 @@
   "chorePause": "Pausar",
   "choreResume": "Reanudar",
   "choreEnd": "Terminar tarea",
+  "choreEndConfirm": "La tarea sale de la lista. Lo marcado queda en el historial.",
   "todaySection": "Hoy",
   "upcomingSection": "Próximamente",
   "allDoneToday": "Hoy: todo hecho",

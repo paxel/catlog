@@ -2692,6 +2692,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get choreEnd => 'Përfundo detyrën';
 
   @override
+  String get choreEndConfirm =>
+      'Detyra largohet nga lista. Ç’u shënua mbetet në histori.';
+
+  @override
   String get todaySection => 'Sot';
 
   @override

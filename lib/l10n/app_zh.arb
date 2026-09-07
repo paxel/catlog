@@ -856,6 +856,7 @@
   "chorePause": "暂停",
   "choreResume": "继续",
   "choreEnd": "结束任务",
+  "choreEndConfirm": "该事务将从列表中移除。已勾选的记录保留在历史中。",
   "todaySection": "今天",
   "upcomingSection": "即将到来",
   "allDoneToday": "今天：全部完成",

@@ -2700,6 +2700,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get choreEnd => 'Aufgabe beenden';
 
   @override
+  String get choreEndConfirm =>
+      'Die Aufgabe verschwindet aus der Liste. Was abgehakt wurde, bleibt in der Historie.';
+
+  @override
   String get todaySection => 'Heute';
 
   @override

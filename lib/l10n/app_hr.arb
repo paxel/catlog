@@ -856,6 +856,7 @@
   "chorePause": "Pauziraj",
   "choreResume": "Nastavi",
   "choreEnd": "Završi zadatak",
+  "choreEndConfirm": "Obveza nestaje s popisa. Označeno ostaje u povijesti.",
   "todaySection": "Danas",
   "upcomingSection": "Uskoro",
   "allDoneToday": "Danas: sve obavljeno",

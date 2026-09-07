@@ -2598,6 +2598,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get choreEnd => '日課を終了';
 
   @override
+  String get choreEndConfirm => 'お世話は一覧から消えます。チェック済みの記録は履歴に残ります。';
+
+  @override
   String get todaySection => '今日';
 
   @override

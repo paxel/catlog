@@ -778,6 +778,7 @@
   "chorePause": "Pausieren",
   "choreResume": "Fortsetzen",
   "choreEnd": "Aufgabe beenden",
+  "choreEndConfirm": "Die Aufgabe verschwindet aus der Liste. Was abgehakt wurde, bleibt in der Historie.",
   "todaySection": "Heute",
   "upcomingSection": "Demnächst",
   "allDoneToday": "Heute: alles erledigt",

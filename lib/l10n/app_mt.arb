@@ -856,6 +856,7 @@
   "chorePause": "Waqqaf",
   "choreResume": "Kompli",
   "choreEnd": "Temm ix-xogħol",
+  "choreEndConfirm": "Ix-xogħol jitlaq mil-lista. Dak li tmarka jibqa’ fl-istorja.",
   "todaySection": "Illum",
   "upcomingSection": "Dalwaqt",
   "allDoneToday": "Illum: kollox lest",

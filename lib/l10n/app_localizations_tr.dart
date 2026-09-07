@@ -2690,6 +2690,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get choreEnd => 'Görevi bitir';
 
   @override
+  String get choreEndConfirm =>
+      'Görev listeden çıkar. İşaretlenenler geçmişte kalır.';
+
+  @override
   String get todaySection => 'Bugün';
 
   @override

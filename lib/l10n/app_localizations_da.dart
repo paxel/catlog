@@ -2691,6 +2691,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get choreEnd => 'Afslut pligt';
 
   @override
+  String get choreEndConfirm =>
+      'Pligten forlader listen. Det afkrydsede bliver i historikken.';
+
+  @override
   String get todaySection => 'I dag';
 
   @override

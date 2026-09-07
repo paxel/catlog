@@ -2696,6 +2696,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get choreEnd => 'Ljúka verki';
 
   @override
+  String get choreEndConfirm =>
+      'Verkið fer af listanum. Það sem var hakað við helst í sögunni.';
+
+  @override
   String get todaySection => 'Í dag';
 
   @override

@@ -2689,6 +2689,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get choreEnd => 'Lõpeta toimetus';
 
   @override
+  String get choreEndConfirm =>
+      'Toimetus kaob loendist. Märgitu jääb ajalukku.';
+
+  @override
   String get todaySection => 'Täna';
 
   @override

@@ -2703,6 +2703,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get choreEnd => 'Temm ix-xogħol';
 
   @override
+  String get choreEndConfirm =>
+      'Ix-xogħol jitlaq mil-lista. Dak li tmarka jibqa’ fl-istorja.';
+
+  @override
   String get todaySection => 'Illum';
 
   @override

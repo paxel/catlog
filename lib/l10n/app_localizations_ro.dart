@@ -2702,6 +2702,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get choreEnd => 'Încheie treaba';
 
   @override
+  String get choreEndConfirm =>
+      'Treaba iese din listă. Ce a fost bifat rămâne în istoric.';
+
+  @override
   String get todaySection => 'Azi';
 
   @override

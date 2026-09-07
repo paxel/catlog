@@ -856,6 +856,7 @@
   "chorePause": "Suspendre",
   "choreResume": "Reprendre",
   "choreEnd": "Terminer la tâche",
+  "choreEndConfirm": "La tâche quitte la liste. Ce qui a été coché reste dans l’historique.",
   "todaySection": "Aujourd’hui",
   "upcomingSection": "À venir",
   "allDoneToday": "Aujourd’hui : tout est fait",

@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.1] - Unreleased
 
 ### Changed
+- The chore editor is a page that scrolls; Pause and End are rows at its bottom, End asks once.
 - When hosting an in-person sync, the page's private switch decides; the join popup asks no more.
 - Chore rows: the checkbox ticks, a tap opens the cat or home, a long-press edits.
 - Coming up on the agenda is folded until opened.

@@ -2700,6 +2700,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get choreEnd => 'Terminar tarea';
 
   @override
+  String get choreEndConfirm =>
+      'La tarea sale de la lista. Lo marcado queda en el historial.';
+
+  @override
   String get todaySection => 'Hoy';
 
   @override

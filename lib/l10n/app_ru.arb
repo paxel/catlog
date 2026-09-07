@@ -856,6 +856,7 @@
   "chorePause": "Приостановить",
   "choreResume": "Возобновить",
   "choreEnd": "Завершить дело",
+  "choreEndConfirm": "Дело уходит из списка. Отмеченное остаётся в истории.",
   "todaySection": "Сегодня",
   "upcomingSection": "Скоро",
   "allDoneToday": "Сегодня: всё сделано",

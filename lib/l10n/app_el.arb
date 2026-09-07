@@ -856,6 +856,7 @@
   "chorePause": "Παύση",
   "choreResume": "Συνέχεια",
   "choreEnd": "Τέλος δουλειάς",
+  "choreEndConfirm": "Η δουλειά φεύγει από τη λίστα. Όσα τσεκαρίστηκαν μένουν στο ιστορικό.",
   "todaySection": "Σήμερα",
   "upcomingSection": "Προσεχώς",
   "allDoneToday": "Σήμερα: όλα έγιναν",

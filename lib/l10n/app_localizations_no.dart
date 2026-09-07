@@ -2689,6 +2689,10 @@ class AppLocalizationsNo extends AppLocalizations {
   String get choreEnd => 'Avslutt gjøremål';
 
   @override
+  String get choreEndConfirm =>
+      'Gjøremålet forlater listen. Det som ble haket av blir i historikken.';
+
+  @override
   String get todaySection => 'I dag';
 
   @override

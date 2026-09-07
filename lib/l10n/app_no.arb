@@ -856,6 +856,7 @@
   "chorePause": "Sett på pause",
   "choreResume": "Fortsett",
   "choreEnd": "Avslutt gjøremål",
+  "choreEndConfirm": "Gjøremålet forlater listen. Det som ble haket av blir i historikken.",
   "todaySection": "I dag",
   "upcomingSection": "Snart",
   "allDoneToday": "I dag: alt gjort",

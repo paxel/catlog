@@ -856,6 +856,7 @@
   "chorePause": "Pozastavit",
   "choreResume": "Pokračovat",
   "choreEnd": "Ukončit úkol",
+  "choreEndConfirm": "Úkol zmizí ze seznamu. Co bylo zaškrtnuto, zůstává v historii.",
   "todaySection": "Dnes",
   "upcomingSection": "Brzy",
   "allDoneToday": "Dnes: vše hotovo",

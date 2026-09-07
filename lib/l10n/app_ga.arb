@@ -856,6 +856,7 @@
   "chorePause": "Cuir ar sos",
   "choreResume": "Atosaigh",
   "choreEnd": "Cuir deireadh leis an gcúram",
+  "choreEndConfirm": "Imíonn an cúram den liosta. Fanann a bhfuil ticeáilte sa stair.",
   "todaySection": "Inniu",
   "upcomingSection": "Ag teacht",
   "allDoneToday": "Inniu: gach rud déanta",

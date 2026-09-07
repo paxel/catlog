@@ -856,6 +856,7 @@
   "chorePause": "إيقاف مؤقت",
   "choreResume": "استئناف",
   "choreEnd": "إنهاء المهمة",
+  "choreEndConfirm": "تخرج المهمة من القائمة. ما تم تعليمه يبقى في السجل.",
   "todaySection": "اليوم",
   "upcomingSection": "قريبًا",
   "allDoneToday": "اليوم: كل شيء تم",

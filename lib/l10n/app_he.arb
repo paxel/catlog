@@ -856,6 +856,7 @@
   "chorePause": "השהיה",
   "choreResume": "המשך",
   "choreEnd": "סיום מטלה",
+  "choreEndConfirm": "המטלה יוצאת מהרשימה. מה שסומן נשאר בהיסטוריה.",
   "todaySection": "היום",
   "upcomingSection": "בקרוב",
   "allDoneToday": "היום: הכול בוצע",

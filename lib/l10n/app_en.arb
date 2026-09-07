@@ -1121,6 +1121,7 @@
   "chorePause": "Pause",
   "choreResume": "Resume",
   "choreEnd": "End chore",
+  "choreEndConfirm": "The chore leaves the list. What was ticked stays in the history.",
   "todaySection": "Today",
   "upcomingSection": "Coming up",
   "allDoneToday": "Today: all done",

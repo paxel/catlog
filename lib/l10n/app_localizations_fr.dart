@@ -2700,6 +2700,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get choreEnd => 'Terminer la tâche';
 
   @override
+  String get choreEndConfirm =>
+      'La tâche quitte la liste. Ce qui a été coché reste dans l’historique.';
+
+  @override
   String get todaySection => 'Aujourd’hui';
 
   @override

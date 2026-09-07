@@ -2694,6 +2694,10 @@ class AppLocalizationsMk extends AppLocalizations {
   String get choreEnd => 'Заврши обврска';
 
   @override
+  String get choreEndConfirm =>
+      'Обврската исчезнува од листата. Штиклираното останува во историјата.';
+
+  @override
   String get todaySection => 'Денес';
 
   @override

@@ -4712,6 +4712,12 @@ abstract class AppLocalizations {
   /// **'End chore'**
   String get choreEnd;
 
+  /// No description provided for @choreEndConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'The chore leaves the list. What was ticked stays in the history.'**
+  String get choreEndConfirm;
+
   /// No description provided for @todaySection.
   ///
   /// In en, this message translates to:

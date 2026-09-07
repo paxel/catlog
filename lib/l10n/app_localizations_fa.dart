@@ -2660,6 +2660,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get choreEnd => 'پایان کار';
 
   @override
+  String get choreEndConfirm =>
+      'کار از فهرست حذف می‌شود. آنچه تیک خورده در تاریخچه می‌ماند.';
+
+  @override
   String get todaySection => 'امروز';
 
   @override

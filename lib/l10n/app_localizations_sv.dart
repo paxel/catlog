@@ -2690,6 +2690,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get choreEnd => 'Avsluta syssla';
 
   @override
+  String get choreEndConfirm =>
+      'Sysslan lämnar listan. Det som bockats av stannar i historiken.';
+
+  @override
   String get todaySection => 'Idag';
 
   @override
