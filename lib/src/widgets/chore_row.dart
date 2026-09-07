@@ -4,10 +4,12 @@ import 'package:intl/intl.dart';
 
 import '../chores/chore_dialog.dart';
 import '../l10n.dart';
+import 'cat_ear.dart';
 
 /// One chore on one day: a checkbox, the title and time, whose it is,
-/// the streak, and seven dots for the week. Tap ticks or unticks the
-/// occurrence [due]; long-press edits, pauses or ends the chore.
+/// the streak, and seven dots for the week. The checkbox ticks or
+/// unticks the occurrence [due]; a tap opens the cat or home; the
+/// long-press (cat ear) opens the editor, where pause and end live.
 class ChoreRow extends StatelessWidget {
   final CatalogStore store;
   final Chore chore;
@@ -30,7 +32,7 @@ class ChoreRow extends StatelessWidget {
     this.onOpen,
   });
 
-  Future<void> _menu(BuildContext context) async {
+  Future<void> _edit(BuildContext context) async {
     final saved = await showChoreDialog(context, store, existing: chore);
     if (saved != null) onChanged();
   }
@@ -63,7 +65,8 @@ class ChoreRow extends StatelessWidget {
     final title = time == null
         ? chore.title
         : '${chore.title} · ${MaterialLocalizations.of(context).formatTimeOfDay(TimeOfDay(hour: time.hour, minute: time.minute))}';
-    return Card(
+    return WithCatEar(
+      child: Card(
       child: ListTile(
         leading: Checkbox(value: done, onChanged: (_) => _toggle()),
         title: Text(
@@ -74,8 +77,9 @@ class ChoreRow extends StatelessWidget {
         ),
         subtitle: parts.isEmpty ? null : Text(parts.join(' · ')),
         trailing: _WeekDots(weekDots(chore, ticks, today)),
-        onTap: _toggle,
-        onLongPress: () => _menu(context),
+        onTap: onOpen,
+        onLongPress: () => _edit(context),
+      ),
       ),
     );
   }

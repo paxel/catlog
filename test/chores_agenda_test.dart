@@ -88,7 +88,12 @@ void main() {
     );
     feed(); // a daily: never in Coming up
     await pump(tester, AgendaScreen(store: store));
+    // Folded until opened; the fold is remembered on this device.
     expect(find.text('Coming up'), findsOneWidget);
+    expect(find.textContaining('Nails'), findsNothing);
+    await tester.tap(find.text('Coming up'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting('fold:agenda-upcoming'), 'open');
     expect(find.textContaining('Nails'), findsOneWidget);
     expect(find.textContaining('Due'), findsOneWidget);
 
@@ -154,5 +159,19 @@ void main() {
       store.choreTicks(store.choresOf(cat).single).containsKey(today),
       isTrue,
     );
+    // Ticked, the row is still today's: checked, no "Due tomorrow".
+    expect(tester.widget<Checkbox>(find.byType(Checkbox)).value, isTrue);
+    expect(find.textContaining('Due'), findsNothing);
+  });
+
+  testWidgets('a tap on the row opens the cat, only the box ticks', (
+    tester,
+  ) async {
+    final chore = feed();
+    await pump(tester, AgendaScreen(store: store));
+    await tester.tap(find.textContaining('Feed'));
+    await tester.pumpAndSettle();
+    expect(store.choreTicks(chore), isEmpty);
+    expect(find.byType(CatDetailScreen), findsOneWidget);
   });
 }

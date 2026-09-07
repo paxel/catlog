@@ -247,12 +247,16 @@ class _CatDetailScreenState extends State<CatDetailScreen> {
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
-      // Its chores: today's occurrence, or the next due day.
+      // Its chores: today's occurrence while the chore is due today,
+      // ticked or not — a tick must not turn the row into tomorrow's;
+      // otherwise the next due day.
       for (final c in chores)
         ChoreRow(
           store: store,
           chore: c,
-          due: nextDue(c, store.choreTicks(c), today) ?? today,
+          due: isDueOn(c, store.choreTicks(c), today)
+              ? today
+              : nextDue(c, store.choreTicks(c), today) ?? today,
           today: today,
           showEntity: false,
           onChanged: _plansChanged,
