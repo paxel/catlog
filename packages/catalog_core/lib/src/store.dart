@@ -945,6 +945,19 @@ class CatalogStore {
       !field.startsWith(Keys.conflictPrefix) &&
       !field.startsWith(Keys.imagePrefix);
 
+  /// Fields worth a conflict badge: what a keeper reads and can judge.
+  /// Privacy markers, the profile picture choice, appointments and
+  /// chores (JSON documents) are bookkeeping — two edits there merge by
+  /// latest-wins and nobody could pick between them anyway.
+  static bool isConflictable(String field) =>
+      isRevertable(field) &&
+      field != Keys.private &&
+      field != Keys.profileImage &&
+      !field.startsWith(Keys.privatePrefix) &&
+      !field.startsWith(Keys.withheldPrefix) &&
+      !field.startsWith(Keys.appointmentPrefix) &&
+      !field.startsWith(Keys.chorePrefix);
+
   /// Reverts one entry, git-style: appends the value that was current
   /// just before it — for its (entity, field) — as a NEW entry at the
   /// current time. Nothing is deleted; both the change and its undo
@@ -1799,7 +1812,7 @@ class CatalogStore {
     // resolution on any device clears it everywhere.
     if (senderVector != null) {
       for (final e in imported) {
-        if (!isRevertable(e.field)) continue;
+        if (!isConflictable(e.field)) continue;
         final before = pre[(e.entity, e.field)];
         if (before == null) continue; // field was new here
         if (e.value == before.value) continue; // same value, no fight
@@ -1962,7 +1975,11 @@ class CatalogStore {
     );
     return [
       for (final r in rows)
-        if (current(r['entity'] as String, r['field'] as String) == 'open')
+        // Badges raised by older versions on bookkeeping fields stay in
+        // the log but out of sight: nothing there to decide.
+        if (current(r['entity'] as String, r['field'] as String) == 'open' &&
+            isConflictable(
+                (r['field'] as String).substring(Keys.conflictPrefix.length)))
           (
             r['entity'] as String,
             (r['field'] as String).substring(Keys.conflictPrefix.length)

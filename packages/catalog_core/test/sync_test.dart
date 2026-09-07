@@ -189,4 +189,27 @@ void main() {
     expect(slugs.toSet().length, slugs.length);
     expect(state(a), state(b));
   });
+
+  test('bookkeeping fields never raise a conflict; old ones stay hidden', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final cat = a.createCat('Miezi');
+    a.append(cat, 'f:remarks', 'shy');
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    // Both toggle privacy at once, and both pick a profile image.
+    a.setFieldPrivate(cat, 'f:remarks', true);
+    b.setFieldPrivate(cat, 'f:remarks', false);
+    b.setFieldPrivate(cat, 'f:remarks', true);
+    a.applyEntries(b.entriesSince(a.versionVector(), includePrivate: true),
+        senderVector: b.versionVector());
+    expect(a.conflicts(), isEmpty);
+    // A badge an older version raised on a marker is out of sight.
+    a.append(cat, Keys.conflict(Keys.privateField('f:remarks')), 'open');
+    expect(a.conflicts(), isEmpty);
+    expect(CatalogStore.isConflictable('f:remarks'), isTrue);
+    expect(CatalogStore.isConflictable(Keys.withheld('f:remarks')), isFalse);
+    expect(CatalogStore.isConflictable(Keys.chore('x')), isFalse);
+  });
 }
