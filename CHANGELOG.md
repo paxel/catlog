@@ -10,6 +10,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Coming up on the agenda is folded until opened.
 
 ### Fixed
+- No more crash when the day's last chore is ticked and the cheer plays.
+- Crash report mails keep the app's own frames instead of framework noise.
 - Ticking a chore on a cat's or home's page no longer turns the row into tomorrow's.
 
 ---

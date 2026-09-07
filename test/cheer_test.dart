@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:catalog_core/catalog_core.dart';
@@ -53,5 +54,16 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(tester.widget<SwitchListTile>(sound).onChanged, isNull);
+  });
+
+  test('firstOrDone never throws: event, empty stream, silence', () async {
+    await firstOrDone(Stream<void>.value(null), const Duration(seconds: 1));
+    await firstOrDone(const Stream<void>.empty(), const Duration(seconds: 1));
+    final sw = Stopwatch()..start();
+    await firstOrDone(
+      StreamController<void>().stream,
+      const Duration(milliseconds: 50),
+    );
+    expect(sw.elapsedMilliseconds, greaterThanOrEqualTo(40));
   });
 }

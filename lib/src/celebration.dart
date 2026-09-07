@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -75,14 +76,28 @@ Future<void> _playCheer() async {
     _lastCheer = cheer;
     await player.play(AssetSource(cheer));
     // Released when the sound ends — or after a few seconds if the
-    // platform never says so.
-    player.onPlayerComplete.first
-        .timeout(const Duration(seconds: 10), onTimeout: () => null)
+    // platform never says so, or at once when the platform closes the
+    // stream without an event.
+    firstOrDone(player.onPlayerComplete, const Duration(seconds: 10))
         .whenComplete(player.dispose);
   } catch (_) {
     // No audio device or platform quirk — the confetti still flies.
     player.dispose();
   }
+}
+
+/// Completes on the first event of [events], when the stream closes
+/// without one, or after [limit] — never with an error. `Stream.first`
+/// alone throws "No element" on a stream that ends empty, which is what
+/// a disposed audio player does.
+Future<void> firstOrDone(Stream<void> events, Duration limit) {
+  final done = Completer<void>();
+  void finish() {
+    if (!done.isCompleted) done.complete();
+  }
+  late final StreamSubscription<void> sub;
+  sub = events.listen((_) => finish(), onError: (_) => finish(), onDone: finish);
+  return done.future.timeout(limit, onTimeout: () {}).whenComplete(sub.cancel);
 }
 
 void _showConfetti(BuildContext context) {

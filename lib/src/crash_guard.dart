@@ -97,12 +97,41 @@ void clearLastCrash() {
   if (_crashFile.existsSync()) _crashFile.deleteSync();
 }
 
+/// How much of the report fits into a `mailto:` body: mail apps cap the
+/// URL around 2000 characters.
+const mailBodyLimit = 1800;
+
+/// The report as the mail carries it. The trace is thinned first: the
+/// `dart:async` and zone frames say nothing about the app and crowd out
+/// the frames that do, so they go, and the app's own frames move to the
+/// top. Only then is the text cut to [limit].
+String mailBody(String body, {int limit = mailBodyLimit}) {
+  final lines = body.split('\n');
+  final frame = RegExp(r'^#\d+\s');
+  final head = <String>[];
+  final own = <String>[];
+  final other = <String>[];
+  for (final line in lines) {
+    if (!frame.hasMatch(line)) {
+      head.add(line);
+      continue;
+    }
+    if (line.contains('dart:async') || line.contains('zone')) continue;
+    (line.contains('package:catlog') || line.contains('package:catalog_core')
+            ? own
+            : other)
+        .add(line);
+  }
+  final text = [...head, ...own, ...other].join('\n');
+  return text.length > limit ? text.substring(0, limit) : text;
+}
+
 Future<void> mailCrashReport(String body) async {
   final uri = Uri(
     scheme: 'mailto',
     path: crashMail,
     query: 'subject=${Uri.encodeComponent('cat(a)log crash report')}'
-        '&body=${Uri.encodeComponent(body.length > 1800 ? body.substring(0, 1800) : body)}',
+        '&body=${Uri.encodeComponent(mailBody(body))}',
   );
   try {
     await launchUrl(uri);
