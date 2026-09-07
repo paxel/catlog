@@ -472,6 +472,9 @@ class ModeLocalizations implements AppLocalizations {
   String conflictOn(String field) => base.conflictOn(field);
 
   @override
+  String conflictSame(Object value) => base.conflictSame(value);
+
+  @override
   String conflictsMenu(int n) => base.conflictsMenu(n);
 
   @override
@@ -1655,6 +1658,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get privateLabel => base.privateLabel;
+
+  @override
+  String privateMarker(Object field) => base.privateMarker(field);
 
   @override
   String get proposeAnotherName => base.proposeAnotherName;

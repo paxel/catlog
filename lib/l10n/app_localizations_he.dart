@@ -778,6 +778,16 @@ class AppLocalizationsHe extends AppLocalizations {
   String get conflictBody => 'שונה בשני מקומות בו-זמנית. בחרו מה נכון:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (פרטי)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'שני השינויים אומרים אותו דבר: $value. אין מה לבחור; \"פתור\" מסיר את הסימון.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'מיזוג $kind זה עם…';
   }

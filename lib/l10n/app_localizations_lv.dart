@@ -782,6 +782,16 @@ class AppLocalizationsLv extends AppLocalizations {
       'Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privāts)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Abas izmaiņas saka to pašu: $value. Nav ko izvēlēties; Atrisināt noņem atzīmi.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Apvienot šo ierakstu ($kind) ar…';
   }

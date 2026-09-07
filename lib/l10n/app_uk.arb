@@ -141,6 +141,8 @@
   "trailOfPlace": "Маршрут: {name} ({count} позицій)",
   "conflictOn": "Конфлікт — {field}",
   "conflictBody": "Змінено у двох місцях одночасно. Оберіть, що є правдою:",
+  "privateMarker": "{field} (особисте)",
+  "conflictSame": "Обидві зміни кажуть те саме: {value}. Нема чого вибирати; «Розв’язати» знімає позначку.",
   "mergeThisInto": "Об'єднати цей запис ({kind}) з…",
   "noOtherToMergeInto": "Немає іншого запису ({kind}) для об'єднання.",
   "mergeIntoQuestion": "Об'єднати з {name}?",

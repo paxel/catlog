@@ -783,6 +783,16 @@ class AppLocalizationsSq extends AppLocalizations {
       'U ndryshua në dy vende njëkohësisht. Zgjidhni çfarë është e vërtetë:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Të dy ndryshimet thonë të njëjtën gjë: $value. S’ka ç’të zgjidhet; Zgjidh heq shenjën.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Bashko këtë $kind me…';
   }

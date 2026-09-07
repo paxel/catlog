@@ -141,6 +141,8 @@
   "trailOfPlace": "Ślad: {name} ({count} pozycji)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Zmienione w dwóch miejscach naraz. Wybierz, co jest prawdą:",
+  "privateMarker": "{field} (prywatne)",
+  "conflictSame": "Obie zmiany mówią to samo: {value}. Nie ma czego wybierać; Rozwiąż usuwa oznaczenie.",
   "mergeThisInto": "Scal ten {kind} z…",
   "noOtherToMergeInto": "Brak innego ({kind}) do scalenia.",
   "mergeIntoQuestion": "Scalić z {name}?",

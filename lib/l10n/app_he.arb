@@ -141,6 +141,8 @@
   "trailOfPlace": "מסלול: {name} ({count} מיקומים)",
   "conflictOn": "התנגשות — {field}",
   "conflictBody": "שונה בשני מקומות בו-זמנית. בחרו מה נכון:",
+  "privateMarker": "{field} (פרטי)",
+  "conflictSame": "שני השינויים אומרים אותו דבר: {value}. אין מה לבחור; \"פתור\" מסיר את הסימון.",
   "mergeThisInto": "מיזוג {kind} זה עם…",
   "noOtherToMergeInto": "אין {kind} אחר למזג איתו.",
   "mergeIntoQuestion": "למזג עם {name}?",

@@ -781,6 +781,16 @@ class AppLocalizationsSk extends AppLocalizations {
       'Zmenené na dvoch miestach naraz. Vyberte, čo platí:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (súkromné)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Obe zmeny hovoria to isté: $value. Niet čo vyberať; Vyriešiť odstráni značku.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Zlúčiť tento záznam ($kind) s…';
   }

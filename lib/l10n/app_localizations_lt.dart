@@ -782,6 +782,16 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privatu)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Abu pakeitimai sako tą patį: $value. Nėra ko rinktis; „Išspręsti“ nuima žymę.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Sujungti šį įrašą ($kind) su…';
   }

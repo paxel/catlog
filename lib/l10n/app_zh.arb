@@ -141,6 +141,8 @@
   "trailOfPlace": "轨迹：{name}（{count} 个位置）",
   "conflictOn": "冲突 — {field}",
   "conflictBody": "同时在两处被修改。选出正确的：",
+  "privateMarker": "{field}（私密）",
+  "conflictSame": "两处更改内容相同：{value}。无需选择；“解决”会清除标记。",
   "mergeThisInto": "把这个{kind}合并到…",
   "noOtherToMergeInto": "没有其他{kind}可合并。",
   "mergeIntoQuestion": "合并到 {name}？",

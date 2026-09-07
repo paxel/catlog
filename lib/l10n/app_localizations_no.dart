@@ -781,6 +781,16 @@ class AppLocalizationsNo extends AppLocalizations {
   String get conflictBody => 'Endret to steder samtidig. Velg hva som stemmer:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Begge endringene sier det samme: $value. Ingenting å velge; Løs fjerner merket.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Slå sammen denne $kind med…';
   }

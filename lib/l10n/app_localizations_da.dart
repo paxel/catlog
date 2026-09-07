@@ -783,6 +783,16 @@ class AppLocalizationsDa extends AppLocalizations {
       'Ændret to steder på én gang. Vælg, hvad der er sandt:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Begge ændringer siger det samme: $value. Intet at vælge; Løs fjerner mærket.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Flet denne $kind med…';
   }

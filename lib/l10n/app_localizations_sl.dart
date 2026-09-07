@@ -782,6 +782,16 @@ class AppLocalizationsSl extends AppLocalizations {
       'Spremenjeno na dveh mestih hkrati. Izberite, kaj drži:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (zasebno)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Obe spremembi pravita isto: $value. Ni kaj izbrati; Razreši odstrani oznako.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Združi ta zapis ($kind) z…';
   }

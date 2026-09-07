@@ -783,6 +783,16 @@ class AppLocalizationsRo extends AppLocalizations {
       'Modificat în două locuri deodată. Alege ce e adevărat:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Ambele modificări spun același lucru: $value. Nimic de ales; Rezolvă scoate marcajul.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Îmbină acest $kind cu…';
   }

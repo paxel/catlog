@@ -428,6 +428,10 @@
     }
   },
   "conflictBody": "Changed in two places at once. Pick what is true:",
+  "privateMarker": "{field} (private)",
+  "@privateMarker": {"placeholders": {"field": {}}},
+  "conflictSame": "Both changes say the same: {value}. Nothing to pick; Resolve clears the badge.",
+  "@conflictSame": {"placeholders": {"value": {}}},
   "mergeThisInto": "Merge this {kind} into…",
   "@mergeThisInto": {
     "placeholders": {

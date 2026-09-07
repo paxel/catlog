@@ -141,6 +141,8 @@
   "trailOfPlace": "المسار: {name} ({count} مواقع)",
   "conflictOn": "تعارض — {field}",
   "conflictBody": "تغيّر في مكانين في آن واحد. اختر الصحيح:",
+  "privateMarker": "{field} (خاص)",
+  "conflictSame": "كلا التغييرين يقول الشيء نفسه: {value}. لا شيء للاختيار؛ «حل» يزيل العلامة.",
   "mergeThisInto": "دمج هذا ({kind}) مع…",
   "noOtherToMergeInto": "لا يوجد ({kind}) آخر للدمج معه.",
   "mergeIntoQuestion": "الدمج مع {name}؟",

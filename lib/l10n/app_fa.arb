@@ -141,6 +141,8 @@
   "trailOfPlace": "مسیر: {name} ({count} موقعیت)",
   "conflictOn": "تعارض — {field}",
   "conflictBody": "هم‌زمان در دو جا تغییر کرده است. درست را انتخاب کنید:",
+  "privateMarker": "{field} (خصوصی)",
+  "conflictSame": "هر دو تغییر یک چیز می‌گویند: {value}. چیزی برای انتخاب نیست؛ «حل» نشان را برمی‌دارد.",
   "mergeThisInto": "ادغام این ({kind}) با…",
   "noOtherToMergeInto": "مورد دیگری ({kind}) برای ادغام نیست.",
   "mergeIntoQuestion": "با {name} ادغام شود؟",

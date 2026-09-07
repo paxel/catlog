@@ -141,6 +141,8 @@
   "trailOfPlace": "Трага: {name} ({count} позиции)",
   "conflictOn": "Конфликт — {field}",
   "conflictBody": "Променето на две места истовремено. Изберете што е точно:",
+  "privateMarker": "{field} (приватно)",
+  "conflictSame": "Двете промени го велат истото: {value}. Нема што да се избере; „Реши“ ја трга ознаката.",
   "mergeThisInto": "Спои го овој запис ({kind}) со…",
   "noOtherToMergeInto": "Нема друг запис ({kind}) за спојување.",
   "mergeIntoQuestion": "Да се спои со {name}?",

@@ -782,6 +782,16 @@ class AppLocalizationsSv extends AppLocalizations {
       'Ändrat på två ställen samtidigt. Välj vad som stämmer:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Båda ändringarna säger samma sak: $value. Inget att välja; Lös tar bort märket.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Slå ihop denna $kind med…';
   }

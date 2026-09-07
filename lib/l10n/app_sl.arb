@@ -141,6 +141,8 @@
   "trailOfPlace": "Sled: {name} ({count} položajev)",
   "conflictOn": "Spor — {field}",
   "conflictBody": "Spremenjeno na dveh mestih hkrati. Izberite, kaj drži:",
+  "privateMarker": "{field} (zasebno)",
+  "conflictSame": "Obe spremembi pravita isto: {value}. Ni kaj izbrati; Razreši odstrani oznako.",
   "mergeThisInto": "Združi ta zapis ({kind}) z…",
   "noOtherToMergeInto": "Ni drugega zapisa ({kind}) za združitev.",
   "mergeIntoQuestion": "Združim z {name}?",

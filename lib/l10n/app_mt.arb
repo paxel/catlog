@@ -141,6 +141,8 @@
   "trailOfPlace": "Traċċa: {name} ({count} pożizzjonijiet)",
   "conflictOn": "Kunflitt — {field}",
   "conflictBody": "Inbidel f'żewġ postijiet fl-istess ħin. Agħżel x'inhu veru:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Iż-żewġ bidliet jgħidu l-istess: {value}. Xejn x’tagħżel; Solvi tneħħi l-marka.",
   "mergeThisInto": "Għaqqad dan il-{kind} ma'…",
   "noOtherToMergeInto": "M'hemmx {kind} ieħor biex tgħaqqad miegħu.",
   "mergeIntoQuestion": "Tgħaqqad ma' {name}?",

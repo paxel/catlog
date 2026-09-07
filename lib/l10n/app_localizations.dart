@@ -1502,6 +1502,18 @@ abstract class AppLocalizations {
   /// **'Changed in two places at once. Pick what is true:'**
   String get conflictBody;
 
+  /// No description provided for @privateMarker.
+  ///
+  /// In en, this message translates to:
+  /// **'{field} (private)'**
+  String privateMarker(Object field);
+
+  /// No description provided for @conflictSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Both changes say the same: {value}. Nothing to pick; Resolve clears the badge.'**
+  String conflictSame(Object value);
+
   /// No description provided for @mergeThisInto.
   ///
   /// In en, this message translates to:

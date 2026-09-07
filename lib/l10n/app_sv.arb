@@ -141,6 +141,8 @@
   "trailOfPlace": "Spår: {name} ({count} positioner)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Ändrat på två ställen samtidigt. Välj vad som stämmer:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Båda ändringarna säger samma sak: {value}. Inget att välja; Lös tar bort märket.",
   "mergeThisInto": "Slå ihop denna {kind} med…",
   "noOtherToMergeInto": "Ingen annan {kind} att slå ihop med.",
   "mergeIntoQuestion": "Slå ihop med {name}?",

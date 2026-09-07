@@ -141,6 +141,8 @@
   "trailOfPlace": "Ceļš: {name} ({count} pozīcijas)",
   "conflictOn": "Konflikts — {field}",
   "conflictBody": "Mainīts divās vietās vienlaikus. Izvēlieties, kas ir patiesība:",
+  "privateMarker": "{field} (privāts)",
+  "conflictSame": "Abas izmaiņas saka to pašu: {value}. Nav ko izvēlēties; Atrisināt noņem atzīmi.",
   "mergeThisInto": "Apvienot šo ierakstu ({kind}) ar…",
   "noOtherToMergeInto": "Nav cita ieraksta ({kind}), ar ko apvienot.",
   "mergeIntoQuestion": "Apvienot ar {name}?",

@@ -787,6 +787,16 @@ class AppLocalizationsDe extends AppLocalizations {
       'An zwei Orten gleichzeitig geändert. Wähle, was stimmt:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Beide Änderungen sagen dasselbe: $value. Nichts zu wählen; Auflösen entfernt die Markierung.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Diese(n) $kind zusammenführen mit…';
   }

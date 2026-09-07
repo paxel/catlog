@@ -769,6 +769,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get conflictBody => '2 か所で同時に変更されました。正しい方を選んでください:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field（非公開）';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return '両方の変更は同じ内容です：$value。選ぶものはありません。「解決」でマークを消します。';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'この$kindの統合先…';
   }

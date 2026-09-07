@@ -755,6 +755,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get conflictBody => '同时在两处被修改。选出正确的：';
 
   @override
+  String privateMarker(Object field) {
+    return '$field（私密）';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return '两处更改内容相同：$value。无需选择；“解决”会清除标记。';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return '把这个$kind合并到…';
   }

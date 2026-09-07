@@ -786,6 +786,16 @@ class AppLocalizationsGa extends AppLocalizations {
       'Athraithe in dhá áit ag an am céanna. Roghnaigh cad atá fíor:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (príobháideach)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Deir an dá athrú an rud céanna: $value. Níl aon rud le roghnú; glanann Réitigh an marc.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Cumaisc an $kind seo le…';
   }

@@ -780,6 +780,16 @@ class AppLocalizationsFa extends AppLocalizations {
       'هم‌زمان در دو جا تغییر کرده است. درست را انتخاب کنید:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (خصوصی)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'هر دو تغییر یک چیز می‌گویند: $value. چیزی برای انتخاب نیست؛ «حل» نشان را برمی‌دارد.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'ادغام این ($kind) با…';
   }

@@ -141,6 +141,8 @@
   "trailOfPlace": "経路: {name}（位置 {count} 件）",
   "conflictOn": "競合 — {field}",
   "conflictBody": "2 か所で同時に変更されました。正しい方を選んでください:",
+  "privateMarker": "{field}（非公開）",
+  "conflictSame": "両方の変更は同じ内容です：{value}。選ぶものはありません。「解決」でマークを消します。",
   "mergeThisInto": "この{kind}の統合先…",
   "noOtherToMergeInto": "統合できる他の{kind}がありません。",
   "mergeIntoQuestion": "{name} に統合しますか？",

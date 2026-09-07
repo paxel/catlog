@@ -141,6 +141,8 @@
   "trailOfPlace": "Следа: {name} ({count} позиции)",
   "conflictOn": "Конфликт — {field}",
   "conflictBody": "Променено на две места едновременно. Изберете кое е вярно:",
+  "privateMarker": "{field} (лично)",
+  "conflictSame": "И двете промени казват едно и също: {value}. Няма какво да се избира; „Разреши“ маха отметката.",
   "mergeThisInto": "Обедини този запис ({kind}) с…",
   "noOtherToMergeInto": "Няма друг запис ({kind}) за обединяване.",
   "mergeIntoQuestion": "Обединяване с {name}?",

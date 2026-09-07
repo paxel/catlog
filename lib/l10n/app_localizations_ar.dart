@@ -780,6 +780,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get conflictBody => 'تغيّر في مكانين في آن واحد. اختر الصحيح:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (خاص)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'كلا التغييرين يقول الشيء نفسه: $value. لا شيء للاختيار؛ «حل» يزيل العلامة.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'دمج هذا ($kind) مع…';
   }

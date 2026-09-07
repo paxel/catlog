@@ -141,6 +141,8 @@
   "trailOfPlace": "Traseu: {name} ({count} poziții)",
   "conflictOn": "Conflict — {field}",
   "conflictBody": "Modificat în două locuri deodată. Alege ce e adevărat:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Ambele modificări spun același lucru: {value}. Nimic de ales; Rezolvă scoate marcajul.",
   "mergeThisInto": "Îmbină acest {kind} cu…",
   "noOtherToMergeInto": "Niciun alt {kind} cu care să îmbini.",
   "mergeIntoQuestion": "Îmbini cu {name}?",

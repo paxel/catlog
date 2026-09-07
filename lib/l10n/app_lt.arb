@@ -141,6 +141,8 @@
   "trailOfPlace": "Kelias: {name} ({count} pozic.)",
   "conflictOn": "Konfliktas — {field}",
   "conflictBody": "Pakeista dviejose vietose vienu metu. Pasirinkite, kas teisinga:",
+  "privateMarker": "{field} (privatu)",
+  "conflictSame": "Abu pakeitimai sako tą patį: {value}. Nėra ko rinktis; „Išspręsti“ nuima žymę.",
   "mergeThisInto": "Sujungti šį įrašą ({kind}) su…",
   "noOtherToMergeInto": "Nėra kito įrašo ({kind}) sujungimui.",
   "mergeIntoQuestion": "Sujungti su {name}?",

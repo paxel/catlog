@@ -782,6 +782,16 @@ class AppLocalizationsHu extends AppLocalizations {
       'Két helyen módosították egyszerre. Válaszd ki, mi igaz:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privát)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Mindkét változtatás ugyanazt mondja: $value. Nincs mit választani; a Megoldás leveszi a jelölést.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'E(z) $kind egyesítése ezzel…';
   }

@@ -141,6 +141,8 @@
   "trailOfPlace": "Trag: {name} ({count} položaja)",
   "conflictOn": "Sukob — {field}",
   "conflictBody": "Promijenjeno na dva mjesta istodobno. Odaberite što je točno:",
+  "privateMarker": "{field} (privatno)",
+  "conflictSame": "Obje izmjene kažu isto: {value}. Nema što birati; Riješi miče oznaku.",
   "mergeThisInto": "Spoji ovaj zapis ({kind}) s…",
   "noOtherToMergeInto": "Nema drugog zapisa ({kind}) za spajanje.",
   "mergeIntoQuestion": "Spojiti s {name}?",

@@ -784,6 +784,16 @@ class AppLocalizationsMt extends AppLocalizations {
       'Inbidel f\'żewġ postijiet fl-istess ħin. Agħżel x\'inhu veru:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privat)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Iż-żewġ bidliet jgħidu l-istess: $value. Xejn x’tagħżel; Solvi tneħħi l-marka.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Għaqqad dan il-$kind ma\'…';
   }

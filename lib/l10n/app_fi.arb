@@ -141,6 +141,8 @@
   "trailOfPlace": "Reitti: {name} ({count} sijaintia)",
   "conflictOn": "Ristiriita — {field}",
   "conflictBody": "Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:",
+  "privateMarker": "{field} (yksityinen)",
+  "conflictSame": "Molemmat muutokset sanovat saman: {value}. Ei valittavaa; Ratkaise poistaa merkin.",
   "mergeThisInto": "Yhdistä tämä {kind} kohteeseen…",
   "noOtherToMergeInto": "Ei toista kohdetta ({kind}) yhdistettäväksi.",
   "mergeIntoQuestion": "Yhdistetäänkö kohteeseen {name}?",

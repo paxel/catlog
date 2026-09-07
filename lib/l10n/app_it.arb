@@ -141,6 +141,8 @@
   "trailOfPlace": "Percorso: {name} ({count} posizioni)",
   "conflictOn": "Conflitto — {field}",
   "conflictBody": "Modificato in due posti contemporaneamente. Scegli cosa è vero:",
+  "privateMarker": "{field} (privato)",
+  "conflictSame": "Entrambe le modifiche dicono lo stesso: {value}. Niente da scegliere; Risolvi toglie il contrassegno.",
   "mergeThisInto": "Unisci questo {kind} con…",
   "noOtherToMergeInto": "Nessun altro {kind} con cui unire.",
   "mergeIntoQuestion": "Unire con {name}?",

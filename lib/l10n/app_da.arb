@@ -141,6 +141,8 @@
   "trailOfPlace": "Spor: {name} ({count} positioner)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "Ændret to steder på én gang. Vælg, hvad der er sandt:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Begge ændringer siger det samme: {value}. Intet at vælge; Løs fjerner mærket.",
   "mergeThisInto": "Flet denne {kind} med…",
   "noOtherToMergeInto": "Ingen anden {kind} at flette med.",
   "mergeIntoQuestion": "Flet med {name}?",

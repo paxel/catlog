@@ -141,6 +141,8 @@
   "trailOfPlace": "Nyom: {name} ({count} pozíció)",
   "conflictOn": "Ütközés — {field}",
   "conflictBody": "Két helyen módosították egyszerre. Válaszd ki, mi igaz:",
+  "privateMarker": "{field} (privát)",
+  "conflictSame": "Mindkét változtatás ugyanazt mondja: {value}. Nincs mit választani; a Megoldás leveszi a jelölést.",
   "mergeThisInto": "E(z) {kind} egyesítése ezzel…",
   "noOtherToMergeInto": "Nincs másik {kind} az egyesítéshez.",
   "mergeIntoQuestion": "Egyesíted ezzel: {name}?",

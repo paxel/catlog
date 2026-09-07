@@ -787,6 +787,16 @@ class AppLocalizationsEl extends AppLocalizations {
       'Άλλαξε σε δύο μέρη ταυτόχρονα. Διαλέξτε τι ισχύει:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (ιδιωτικό)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Και οι δύο αλλαγές λένε το ίδιο: $value. Τίποτα να διαλέξεις· η Επίλυση αφαιρεί το σήμα.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Συγχώνευση αυτού ($kind) με…';
   }

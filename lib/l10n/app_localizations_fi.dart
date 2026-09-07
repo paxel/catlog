@@ -783,6 +783,16 @@ class AppLocalizationsFi extends AppLocalizations {
       'Muutettu kahdessa paikassa yhtä aikaa. Valitse, mikä on totta:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (yksityinen)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Molemmat muutokset sanovat saman: $value. Ei valittavaa; Ratkaise poistaa merkin.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Yhdistä tämä $kind kohteeseen…';
   }

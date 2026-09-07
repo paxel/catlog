@@ -781,6 +781,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get conflictBody => 'Muudetud kahes kohas korraga. Vali, mis on õige:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (privaatne)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Mõlemad muudatused ütlevad sama: $value. Pole midagi valida; Lahenda eemaldab märgi.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Ühenda see $kind…';
   }

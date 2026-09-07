@@ -222,6 +222,8 @@
   "trailOfPlace": "Route: {name} ({count} Positionen)",
   "conflictOn": "Konflikt — {field}",
   "conflictBody": "An zwei Orten gleichzeitig geändert. Wähle, was stimmt:",
+  "privateMarker": "{field} (privat)",
+  "conflictSame": "Beide Änderungen sagen dasselbe: {value}. Nichts zu wählen; Auflösen entfernt die Markierung.",
   "mergeThisInto": "Diese(n) {kind} zusammenführen mit…",
   "noOtherToMergeInto": "Kein anderes Ziel ({kind}) zum Zusammenführen.",
   "mergeIntoQuestion": "Mit {name} zusammenführen?",

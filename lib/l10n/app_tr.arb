@@ -141,6 +141,8 @@
   "trailOfPlace": "İz: {name} ({count} konum)",
   "conflictOn": "Çakışma — {field}",
   "conflictBody": "Aynı anda iki yerde değiştirildi. Doğru olanı seçin:",
+  "privateMarker": "{field} (özel)",
+  "conflictSame": "İki değişiklik de aynı şeyi söylüyor: {value}. Seçecek bir şey yok; Çöz işareti kaldırır.",
   "mergeThisInto": "Bu {kind} kaydını şununla birleştir…",
   "noOtherToMergeInto": "Birleştirilecek başka {kind} yok.",
   "mergeIntoQuestion": "{name} ile birleştirilsin mi?",

@@ -783,6 +783,16 @@ class AppLocalizationsBg extends AppLocalizations {
       'Променено на две места едновременно. Изберете кое е вярно:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (лично)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'И двете промени казват едно и също: $value. Няма какво да се избира; „Разреши“ маха отметката.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Обедини този запис ($kind) с…';
   }

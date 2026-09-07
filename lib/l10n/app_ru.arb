@@ -141,6 +141,8 @@
   "trailOfPlace": "Маршрут: {name} ({count} позиций)",
   "conflictOn": "Конфликт — {field}",
   "conflictBody": "Изменено в двух местах одновременно. Выберите, что верно:",
+  "privateMarker": "{field} (личное)",
+  "conflictSame": "Оба изменения говорят одно и то же: {value}. Выбирать нечего; «Разрешить» снимает отметку.",
   "mergeThisInto": "Объединить эту запись ({kind}) с…",
   "noOtherToMergeInto": "Нет другой записи ({kind}) для объединения.",
   "mergeIntoQuestion": "Объединить с {name}?",

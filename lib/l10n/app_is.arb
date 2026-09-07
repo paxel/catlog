@@ -141,6 +141,8 @@
   "trailOfPlace": "Slóð: {name} ({count} staðsetningar)",
   "conflictOn": "Árekstur — {field}",
   "conflictBody": "Breytt á tveimur stöðum í einu. Veldu hvað er rétt:",
+  "privateMarker": "{field} (einka)",
+  "conflictSame": "Báðar breytingarnar segja það sama: {value}. Ekkert að velja; Leysa fjarlægir merkið.",
   "mergeThisInto": "Sameina þennan/þetta {kind} við…",
   "noOtherToMergeInto": "Ekkert annað ({kind}) til að sameina við.",
   "mergeIntoQuestion": "Sameina við {name}?",

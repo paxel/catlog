@@ -141,6 +141,8 @@
   "trailOfPlace": "Recorrido: {name} ({count} posiciones)",
   "conflictOn": "Conflicto — {field}",
   "conflictBody": "Cambiado en dos sitios a la vez. Elige qué es lo cierto:",
+  "privateMarker": "{field} (privado)",
+  "conflictSame": "Ambos cambios dicen lo mismo: {value}. Nada que elegir; Resolver quita la marca.",
   "mergeThisInto": "Fusionar este {kind} con…",
   "noOtherToMergeInto": "No hay otro {kind} con el que fusionar.",
   "mergeIntoQuestion": "¿Fusionar con {name}?",

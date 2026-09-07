@@ -780,6 +780,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'Aynı anda iki yerde değiştirildi. Doğru olanı seçin:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (özel)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'İki değişiklik de aynı şeyi söylüyor: $value. Seçecek bir şey yok; Çöz işareti kaldırır.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Bu $kind kaydını şununla birleştir…';
   }

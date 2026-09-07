@@ -781,6 +781,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Changed in two places at once. Pick what is true:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (private)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Both changes say the same: $value. Nothing to pick; Resolve clears the badge.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Merge this $kind into…';
   }

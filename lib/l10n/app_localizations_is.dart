@@ -785,6 +785,16 @@ class AppLocalizationsIs extends AppLocalizations {
       'Breytt á tveimur stöðum í einu. Veldu hvað er rétt:';
 
   @override
+  String privateMarker(Object field) {
+    return '$field (einka)';
+  }
+
+  @override
+  String conflictSame(Object value) {
+    return 'Báðar breytingarnar segja það sama: $value. Ekkert að velja; Leysa fjarlægir merkið.';
+  }
+
+  @override
   String mergeThisInto(String kind) {
     return 'Sameina þennan/þetta $kind við…';
   }
