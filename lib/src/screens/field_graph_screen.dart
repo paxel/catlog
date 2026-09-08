@@ -1,12 +1,17 @@
 import 'dart:math' as math;
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart' hide TextDirection;
+import 'package:share_plus/share_plus.dart';
 
 import '../field_labels.dart';
 import '../l10n.dart';
 import '../layout.dart';
+import '../share.dart';
 import '../units.dart';
 import '../widgets/date_entry.dart';
 
@@ -24,7 +29,10 @@ const graphRangeToKey = 'graphRange:to';
 /// The numeric history of [def] on [entityId], oldest first, in the
 /// device's entry unit for a Unit Value. Non-numbers are skipped.
 List<GraphPoint> graphPoints(
-    CatalogStore store, String entityId, FieldDef def) {
+  CatalogStore store,
+  String entityId,
+  FieldDef def,
+) {
   final points = <GraphPoint>[];
   for (final e in store.fieldHistory(entityId, def.key).reversed) {
     final raw = e.value == null ? null : double.tryParse(e.value!);
@@ -51,7 +59,9 @@ bool hasGraph(CatalogStore store, String entityId, FieldDef def) {
   if (!_graphable(def)) return false;
   var numbers = 0;
   for (final e in store.fieldHistory(entityId, def.key)) {
-    if (e.value != null && double.tryParse(e.value!) != null && ++numbers >= 2) {
+    if (e.value != null &&
+        double.tryParse(e.value!) != null &&
+        ++numbers >= 2) {
       return true;
     }
   }
@@ -64,11 +74,13 @@ bool inRange(DateTime at, DateTime? from, DateTime? to) =>
 
 /// The points inside [from]..[to].
 List<GraphPoint> pointsBetween(
-        List<GraphPoint> points, DateTime? from, DateTime? to) =>
-    [
-      for (final p in points)
-        if (inRange(p.at, from, to)) p
-    ];
+  List<GraphPoint> points,
+  DateTime? from,
+  DateTime? to,
+) => [
+  for (final p in points)
+    if (inRange(p.at, from, to)) p,
+];
 
 /// Where the time axis gets a tick between [from] and [to]: days over a
 /// week or two, weeks over a season, months over a year or two, years
@@ -111,8 +123,10 @@ List<double> valueTicks(double lo, double hi) {
   // The round step whose count comes closest to four.
   final step = [1, 2, 5, 10]
       .map((m) => m * magnitude)
-      .reduce((a, b) =>
-          ((hi - lo) / a - 4).abs() <= ((hi - lo) / b - 4).abs() ? a : b);
+      .reduce(
+        (a, b) =>
+            ((hi - lo) / a - 4).abs() <= ((hi - lo) / b - 4).abs() ? a : b,
+      );
   final ticks = <double>[];
   for (var v = (lo / step).ceil() * step; v <= hi + step * 1e-9; v += step) {
     ticks.add(double.parse(v.toStringAsFixed(6)));
@@ -128,11 +142,12 @@ class FieldGraphScreen extends StatefulWidget {
   final String entityId;
   final FieldDef def;
 
-  const FieldGraphScreen(
-      {super.key,
-      required this.store,
-      required this.entityId,
-      required this.def});
+  const FieldGraphScreen({
+    super.key,
+    required this.store,
+    required this.entityId,
+    required this.def,
+  });
 
   @override
   State<FieldGraphScreen> createState() => _FieldGraphScreenState();
@@ -146,15 +161,15 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
       GraphRange.all;
 
   (DateTime?, DateTime?) _bounds(DateTime now) => switch (_range) {
-        GraphRange.week => (now.subtract(const Duration(days: 7)), null),
-        GraphRange.month => (DateTime(now.year, now.month - 1, now.day), null),
-        GraphRange.year => (DateTime(now.year - 1, now.month, now.day), null),
-        GraphRange.all => (null, null),
-        GraphRange.custom => (
-            _storedDay(graphRangeFromKey),
-            _storedDay(graphRangeToKey)?.add(const Duration(days: 1)),
-          ),
-      };
+    GraphRange.week => (now.subtract(const Duration(days: 7)), null),
+    GraphRange.month => (DateTime(now.year, now.month - 1, now.day), null),
+    GraphRange.year => (DateTime(now.year - 1, now.month, now.day), null),
+    GraphRange.all => (null, null),
+    GraphRange.custom => (
+      _storedDay(graphRangeFromKey),
+      _storedDay(graphRangeToKey)?.add(const Duration(days: 1)),
+    ),
+  };
 
   /// A day kept on this device under [key], or null.
   DateTime? _storedDay(String key) =>
@@ -162,17 +177,26 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
 
   Future<void> _pick(GraphRange range) async {
     if (range == GraphRange.custom) {
-      final from = await pickDay(context,
-          initial: _storedDay(graphRangeFromKey) ??
-              DateTime.now().subtract(const Duration(days: 30)));
+      final from = await pickDay(
+        context,
+        initial:
+            _storedDay(graphRangeFromKey) ??
+            DateTime.now().subtract(const Duration(days: 30)),
+      );
       if (from == null || !mounted) return;
-      final to = await pickDay(context,
-          initial: _storedDay(graphRangeToKey) ?? DateTime.now());
+      final to = await pickDay(
+        context,
+        initial: _storedDay(graphRangeToKey) ?? DateTime.now(),
+      );
       if (to == null || !mounted) return;
       store.setLocalSetting(
-          graphRangeFromKey, from.toIso8601String().substring(0, 10));
+        graphRangeFromKey,
+        from.toIso8601String().substring(0, 10),
+      );
       store.setLocalSetting(
-          graphRangeToKey, to.toIso8601String().substring(0, 10));
+        graphRangeToKey,
+        to.toIso8601String().substring(0, 10),
+      );
     }
     store.setLocalSetting(graphRangeKey, range.name);
     setState(() {});
@@ -188,6 +212,34 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
     return unit.isEmpty ? text : '$text $unit';
   }
 
+  /// The part of the page that goes into the picture: caption and
+  /// curve, no range chips, no bars — what a messenger should show.
+  final _pictureKey = GlobalKey();
+
+  /// The picture as PNG, three device pixels per logical one.
+  Future<Uint8List> pictureAsPng() async {
+    final boundary =
+        _pictureKey.currentContext!.findRenderObject()!
+            as RenderRepaintBoundary;
+    final image = await boundary.toImage(pixelRatio: 3);
+    try {
+      final data = await image.toByteData(format: ui.ImageByteFormat.png);
+      return data!.buffer.asUint8List();
+    } finally {
+      image.dispose();
+    }
+  }
+
+  Future<void> _share() async {
+    final png = await pictureAsPng();
+    if (!mounted) return;
+    final name = store.current(widget.entityId, Keys.name) ?? 'cat';
+    final field = fieldDefName(context.t, widget.def);
+    await shareFiles(context, [
+      XFile.fromData(png, mimeType: 'image/png', name: '$name $field.png'),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = context.t;
@@ -197,70 +249,108 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
     final shown = pointsBetween(all, from, to);
     final appointments = [
       for (final a in store.appointmentsOf(widget.entityId, includeDone: true))
-        if (inRange(a.date, from, to)) a.date
+        if (inRange(a.date, from, to)) a.date,
     ];
     final latest = all.isEmpty ? null : all.last;
     final previous = all.length < 2 ? null : all[all.length - 2];
     final current = store.current(widget.entityId, widget.def.key);
+    final name = store.current(widget.entityId, Keys.name) ?? t.unnamed;
     return Scaffold(
-      appBar: roomyAppBar(context,
-          title: Text(fieldDefName(t, widget.def))),
-      body: ListView(padding: const EdgeInsets.all(16), children: [
-        Text(fieldValueDisplay(t, widget.def, current),
-            style: Theme.of(context).textTheme.headlineMedium),
-        if (latest != null && previous != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: Text(
-              t.changeSince(
+      appBar: roomyAppBar(
+        context,
+        title: Text(fieldDefName(t, widget.def)),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.ios_share),
+            tooltip: t.shareAsImage,
+            onPressed: _share,
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Text(
+            fieldValueDisplay(t, widget.def, current),
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          if (latest != null && previous != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                t.changeSince(
                   '${latest.value - previous.value >= 0 ? '+' : ''}'
                   '${_number(latest.value - previous.value)}',
-                  DateFormat.yMd(locale).format(previous.at)),
-              style: Theme.of(context).textTheme.bodyMedium,
+                  DateFormat.yMd(locale).format(previous.at),
+                ),
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            children: [
+              for (final (range, label) in [
+                (GraphRange.week, t.rangeWeek),
+                (GraphRange.month, t.rangeMonth),
+                (GraphRange.year, t.rangeYear),
+                (GraphRange.all, t.rangeAll),
+                (GraphRange.custom, t.rangeCustom),
+              ])
+                ChoiceChip(
+                  label: Text(label),
+                  selected: _range == range,
+                  onSelected: (_) => _pick(range),
+                ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          RepaintBoundary(
+            key: _pictureKey,
+            child: Container(
+              color: Theme.of(context).colorScheme.surface,
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    '$name · ${fieldDefName(t, widget.def)}',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    height: 260,
+                    child: CustomPaint(
+                      key: const ValueKey('field-graph'),
+                      painter: GraphPainter(
+                        points: shown,
+                        from: from ?? (shown.isEmpty ? null : shown.first.at),
+                        to: to ?? DateTime.now(),
+                        appointments: appointments,
+                        lineColor: Theme.of(context).colorScheme.primary,
+                        // The painter draws its own text: it must carry the app's
+                        // font, or it falls back to the engine's box glyphs.
+                        labelStyle: Theme.of(context).textTheme.bodySmall!,
+                        tickColor: Theme.of(context).colorScheme.tertiary,
+                        format: _number,
+                        dateFormat: (d) => DateFormat.MMMd(locale).format(d),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        const SizedBox(height: 12),
-        Wrap(spacing: 8, children: [
-          for (final (range, label) in [
-            (GraphRange.week, t.rangeWeek),
-            (GraphRange.month, t.rangeMonth),
-            (GraphRange.year, t.rangeYear),
-            (GraphRange.all, t.rangeAll),
-            (GraphRange.custom, t.rangeCustom),
-          ])
-            ChoiceChip(
-              label: Text(label),
-              selected: _range == range,
-              onSelected: (_) => _pick(range),
+          if (shown.isEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                t.searchNoResults,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
-        ]),
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 260,
-          child: CustomPaint(
-            key: const ValueKey('field-graph'),
-            painter: GraphPainter(
-              points: shown,
-              from: from ?? (shown.isEmpty ? null : shown.first.at),
-              to: to ?? DateTime.now(),
-              appointments: appointments,
-              lineColor: Theme.of(context).colorScheme.primary,
-              // The painter draws its own text: it must carry the app's
-              // font, or it falls back to the engine's box glyphs.
-              labelStyle: Theme.of(context).textTheme.bodySmall!,
-              tickColor: Theme.of(context).colorScheme.tertiary,
-              format: _number,
-              dateFormat: (d) => DateFormat.MMMd(locale).format(d),
-            ),
-          ),
-        ),
-        if (shown.isEmpty)
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Text(t.searchNoResults,
-                style: Theme.of(context).textTheme.bodySmall),
-          ),
-      ]),
+        ],
+      ),
     );
   }
 }
@@ -292,9 +382,12 @@ class GraphPainter extends CustomPainter {
   });
 
   TextPainter _text(String s, double size) => TextPainter(
-        text: TextSpan(text: s, style: labelStyle.copyWith(fontSize: size)),
-        textDirection: TextDirection.ltr,
-      )..layout();
+    text: TextSpan(
+      text: s,
+      style: labelStyle.copyWith(fontSize: size),
+    ),
+    textDirection: TextDirection.ltr,
+  )..layout();
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -304,8 +397,11 @@ class GraphPainter extends CustomPainter {
       ..color = textColor.withValues(alpha: 0.3)
       ..strokeWidth = 1;
     if (points.isEmpty || from == null) {
-      canvas.drawLine(Offset(8, size.height - bottom),
-          Offset(size.width - right, size.height - bottom), axis);
+      canvas.drawLine(
+        Offset(8, size.height - bottom),
+        Offset(size.width - right, size.height - bottom),
+        axis,
+      );
       return;
     }
     final start = from!;
@@ -327,7 +423,12 @@ class GraphPainter extends CustomPainter {
     final left = valueLabels.isEmpty
         ? 8.0
         : valueLabels.map((t) => t.width).reduce(math.max) + 12;
-    final plot = Rect.fromLTRB(left, top, size.width - right, size.height - bottom);
+    final plot = Rect.fromLTRB(
+      left,
+      top,
+      size.width - right,
+      size.height - bottom,
+    );
     canvas.drawLine(plot.bottomLeft, plot.bottomRight, axis);
     double x(DateTime d) =>
         plot.left + plot.width * d.difference(start).inMilliseconds / spanMs;
@@ -339,16 +440,28 @@ class GraphPainter extends CustomPainter {
       final gy = y(values[i]);
       canvas.drawLine(Offset(plot.left, gy), Offset(plot.right, gy), grid);
       valueLabels[i].paint(
-          canvas, Offset(plot.left - valueLabels[i].width - 6, gy - valueLabels[i].height / 2));
+        canvas,
+        Offset(
+          plot.left - valueLabels[i].width - 6,
+          gy - valueLabels[i].height / 2,
+        ),
+      );
     }
     // The time axis: adaptive ticks with their dates.
     final dates = timeTicks(start, to);
     var lastLabelRight = plot.left - 1;
     for (final d in dates) {
       final tx = x(d);
-      canvas.drawLine(Offset(tx, plot.bottom), Offset(tx, plot.bottom + 4), axis);
+      canvas.drawLine(
+        Offset(tx, plot.bottom),
+        Offset(tx, plot.bottom + 4),
+        axis,
+      );
       final label = _text(dateFormat(d), 10);
-      final dx = (tx - label.width / 2).clamp(plot.left, plot.right - label.width);
+      final dx = (tx - label.width / 2).clamp(
+        plot.left,
+        plot.right - label.width,
+      );
       if (dx > lastLabelRight + 6) {
         label.paint(canvas, Offset(dx, plot.bottom + 10));
         lastLabelRight = dx + label.width;
@@ -360,7 +473,11 @@ class GraphPainter extends CustomPainter {
       ..strokeWidth = 2;
     for (final a in appointments) {
       final ax = x(a);
-      canvas.drawLine(Offset(ax, plot.bottom), Offset(ax, plot.bottom + 8), tick);
+      canvas.drawLine(
+        Offset(ax, plot.bottom),
+        Offset(ax, plot.bottom + 8),
+        tick,
+      );
     }
     final line = Paint()
       ..color = lineColor
@@ -382,7 +499,10 @@ class GraphPainter extends CustomPainter {
       final o = Offset(x(p.at), y(p.value));
       canvas.drawCircle(o, 4, dot);
       final painter = _text(format(p.value), 11);
-      final dx = (o.dx - painter.width / 2).clamp(plot.left, plot.right - painter.width);
+      final dx = (o.dx - painter.width / 2).clamp(
+        plot.left,
+        plot.right - painter.width,
+      );
       final dy = above ? o.dy - painter.height - 6 : o.dy + 6;
       painter.paint(canvas, Offset(dx, dy));
     }
@@ -397,11 +517,17 @@ class GraphPainter extends CustomPainter {
     }
     // The window's edges, when no tick label sits there already.
     if (dates.isEmpty || x(dates.first) - plot.left > 60) {
-      _text(dateFormat(start), 10).paint(canvas, Offset(plot.left, plot.bottom + 10));
+      _text(
+        dateFormat(start),
+        10,
+      ).paint(canvas, Offset(plot.left, plot.bottom + 10));
     }
     if (dates.isEmpty || plot.right - x(dates.last) > 60) {
       final painter = _text(dateFormat(to), 10);
-      painter.paint(canvas, Offset(plot.right - painter.width, plot.bottom + 10));
+      painter.paint(
+        canvas,
+        Offset(plot.right - painter.width, plot.bottom + 10),
+      );
     }
   }
 

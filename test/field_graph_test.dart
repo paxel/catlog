@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
 import 'package:catlog/src/screens/cat_detail_screen.dart';
@@ -119,5 +120,40 @@ void main() {
     await pump(tester, ClowderDetailScreen(store: store, clowderId: home));
     expect(find.text('4'), findsOneWidget);
     expect(find.byIcon(Icons.show_chart), findsNothing);
+  });
+
+  testWidgets('the page renders its picture: caption and curve as a PNG', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final cat = store.createCat('Miezi');
+    store.append(cat, 'f:weight', '2000', date: DateTime(2026, 5, 1));
+    store.append(cat, 'f:weight', '2600', date: DateTime(2026, 6, 1));
+    final weight = store.fieldDefs().firstWhere((d) => d.slug == 'weight');
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: FieldGraphScreen(store: store, entityId: cat, def: weight),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Share as image'), findsOneWidget);
+    expect(find.text('Miezi · Weight'), findsOneWidget);
+    // The picture boundary holds the caption and the curve, not the chips.
+    final boundary = find.ancestor(
+      of: find.byKey(const ValueKey('field-graph')),
+      matching: find.byType(RepaintBoundary),
+    );
+    expect(boundary, findsWidgets);
+    expect(
+      find.descendant(of: boundary.first, matching: find.byType(ChoiceChip)),
+      findsNothing,
+    );
+    final state = tester.state(find.byType(FieldGraphScreen)) as dynamic;
+    final png = await tester.runAsync(() => state.pictureAsPng() as Future<Uint8List>);
+    expect(png!.length, greaterThan(1000));
+    expect(png.sublist(1, 4), [0x50, 0x4E, 0x47]);
   });
 }

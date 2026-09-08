@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.3] - Unreleased
 
 ### Added
+- The graph page shares its curve as a picture, caption and curve only, through the phone's share sheet.
 - A title you earned can be worn next to your name, chosen in the catalog settings; partners see it on the author rows, and nobody can wear one in your name.
 - Five coats in colour behind the pages, calico to tortoiseshell, one earned per full month of chores; a favourite coat can be pinned in Settings.
 - Titles for chores done, Servant to Minister with the chore in brackets, and a new coat for every full month; the achievements page lists what was earned and nothing to chase.
