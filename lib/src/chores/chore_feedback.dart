@@ -58,3 +58,42 @@ void afterChoreTick(
   }
   if (cheer) celebrate(context, store);
 }
+
+/// The chores of a cat or home, split as the pages list them: due
+/// today by time of day with the timeless ones on top; the rest by
+/// their next due day; paused ones apart.
+({List<Chore> due, List<Chore> later, List<Chore> paused}) partitionChores(
+  CatalogStore store,
+  List<Chore> chores,
+  DateTime today,
+) {
+  int minutes(Chore c) =>
+      c.time == null ? -1 : c.time!.hour * 60 + c.time!.minute;
+  int byTime(Chore a, Chore b) {
+    final t = minutes(a).compareTo(minutes(b));
+    return t != 0 ? t : a.title.toLowerCase().compareTo(b.title.toLowerCase());
+  }
+
+  final due = <Chore>[];
+  final later = <(Chore, DateTime?)>[];
+  final paused = <Chore>[];
+  for (final c in chores) {
+    if (c.paused) {
+      paused.add(c);
+    } else if (isDueOn(c, store.choreTicks(c), today)) {
+      due.add(c);
+    } else {
+      later.add((c, nextDue(c, store.choreTicks(c), today)));
+    }
+  }
+  due.sort(byTime);
+  later.sort((a, b) {
+    if (a.$2 == null && b.$2 == null) return byTime(a.$1, b.$1);
+    if (a.$2 == null) return 1;
+    if (b.$2 == null) return -1;
+    final d = a.$2!.compareTo(b.$2!);
+    return d != 0 ? d : byTime(a.$1, b.$1);
+  });
+  paused.sort(byTime);
+  return (due: due, later: [for (final (c, _) in later) c], paused: paused);
+}

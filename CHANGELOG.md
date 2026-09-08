@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.3] - Unreleased
 
 ### Fixed
+- Chores on a cat's or home's page are ordered like the agenda: due today by time, the rest and the paused ones behind a Coming up fold.
 - Chore reminders of every catalog stay scheduled; opening another catalog used to cancel them.
 - Chore reminders show with their own icon and a sound; a button sends a test reminder at once.
 

@@ -23,6 +23,7 @@ import '../widgets/reminder_card.dart';
 import 'cat_detail_screen.dart';
 import 'clowder_detail_screen.dart';
 import '../widgets/chore_row.dart';
+import '../widgets/fold_section.dart';
 import '../chores/chore_feedback.dart';
 import '../chores/chore_reminders.dart';
 import '../move_to_catalog.dart';
@@ -290,7 +291,10 @@ class _AgendaScreenState extends State<AgendaScreen> {
       for (final c in active)
         for (final day in upcoming(c, store.choreTicks(c), today).take(1))
           (c, day)
-    ]..sort((a, b) => a.$2.compareTo(b.$2));
+    ]..sort((a, b) {
+        final d = a.$2.compareTo(b.$2);
+        return d != 0 ? d : byTime(a.$1, b.$1);
+      });
     return (today: due, upcoming: soon, paused: paused);
   }
 
@@ -316,27 +320,6 @@ class _AgendaScreenState extends State<AgendaScreen> {
   Widget _header(String text) => Padding(
         padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
         child: Text(text, style: Theme.of(context).textTheme.titleSmall),
-      );
-
-  /// Coming up is folded until opened; the fold is remembered on this
-  /// device, closed until the keeper opens it once.
-  static const _upcomingFoldKey = 'fold:agenda-upcoming';
-
-  bool get _upcomingOpen => store.localSetting(_upcomingFoldKey) == 'open';
-
-  Widget _foldHeader(String text, int count, bool open, VoidCallback toggle) =>
-      InkWell(
-        onTap: toggle,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
-          child: Row(children: [
-            Text(text, style: Theme.of(context).textTheme.titleSmall),
-            const SizedBox(width: 8),
-            Text('$count', style: Theme.of(context).textTheme.bodySmall),
-            const Spacer(),
-            Icon(open ? Icons.expand_less : Icons.expand_more),
-          ]),
-        ),
       );
 
   @override
@@ -412,24 +395,25 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 onOpen: () => _openEntity(c.entity),
               ),
           ],
-          if (chores.upcoming.isNotEmpty) ...[
-            _foldHeader(t.upcomingSection, chores.upcoming.length,
-                _upcomingOpen, () {
-              store.setLocalSetting(
-                  _upcomingFoldKey, _upcomingOpen ? 'closed' : 'open');
-              setState(() {});
-            }),
-            if (_upcomingOpen)
-            for (final (c, day) in chores.upcoming)
-              ChoreRow(
-                store: store,
-                chore: c,
-                due: day,
-                today: today,
-                onChanged: _choreChanged,
-                onOpen: () => _openEntity(c.entity),
-              ),
-          ],
+          if (chores.upcoming.isNotEmpty)
+            FoldSection(
+              store: store,
+              id: 'agenda-upcoming',
+              title: t.upcomingSection,
+              count: chores.upcoming.length,
+              padding: const EdgeInsets.fromLTRB(8, 12, 8, 4),
+              children: [
+                for (final (c, day) in chores.upcoming)
+                  ChoreRow(
+                    store: store,
+                    chore: c,
+                    due: day,
+                    today: today,
+                    onChanged: _choreChanged,
+                    onOpen: () => _openEntity(c.entity),
+                  ),
+              ],
+            ),
           if (items.isNotEmpty &&
               (chores.today.isNotEmpty ||
                   chores.upcoming.isNotEmpty ||

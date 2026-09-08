@@ -222,6 +222,54 @@ void main() {
     expect(find.byType(Checkbox), findsOneWidget);
   });
 
+  testWidgets('the cat page orders chores like the agenda', (tester) async {
+    Chore make(
+      String title,
+      ChoreSchedule schedule, {
+      ({int hour, int minute})? time,
+      bool paused = false,
+      DateTime? start,
+    }) => store.createChore(
+      Chore(
+        id: '',
+        entity: cat,
+        title: title,
+        schedule: schedule,
+        time: time,
+        start: start ?? today,
+        paused: paused,
+      ),
+    );
+    make('Evening', const ChoreSchedule.daily(), time: (hour: 19, minute: 0));
+    // Started three days ago: next due in a week, not today.
+    make(
+      'Nails',
+      const ChoreSchedule.every(10, ChoreUnit.days),
+      start: today.subtract(const Duration(days: 3)),
+    );
+    make('Resting', const ChoreSchedule.daily(), paused: true);
+    make('Litter', const ChoreSchedule.daily());
+    make('Morning', const ChoreSchedule.daily(), time: (hour: 7, minute: 0));
+    await pump(tester, CatDetailScreen(store: store, catId: cat));
+    // Due today in order; the rest behind a fold, closed at first.
+    List<String> order() => [
+      for (final r in tester
+          .widgetList<ListTile>(find.byType(ListTile))
+          .map((t) => (t.title as Text).data ?? ''))
+        for (final n in ['Litter', 'Morning', 'Evening', 'Nails', 'Resting'])
+          if (r.startsWith(n)) n,
+    ];
+    await tester.ensureVisible(find.text('Coming up'));
+    await tester.pumpAndSettle();
+    expect(order(), ['Litter', 'Morning', 'Evening']);
+    await tester.tap(find.text('Coming up'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.textContaining('Resting'));
+    await tester.pumpAndSettle();
+    expect(order(), ['Litter', 'Morning', 'Evening', 'Nails', 'Resting']);
+    expect(store.localSetting('fold:page-upcoming'), 'open');
+  });
+
   testWidgets('the cat page lists its chores under Planned', (tester) async {
     feed();
     await pump(tester, CatDetailScreen(store: store, catId: cat));
