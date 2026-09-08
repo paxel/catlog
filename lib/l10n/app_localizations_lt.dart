@@ -935,6 +935,96 @@ class AppLocalizationsLt extends AppLocalizations {
   String get breedSphynx => 'Sfinksas';
 
   @override
+  String get breedAbyssinian => 'Abisinų';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikos trumpaplaukė';
+
+  @override
+  String get breedBalinese => 'Balio';
+
+  @override
+  String get breedBirman => 'Birmos';
+
+  @override
+  String get breedBombay => 'Bombėjaus';
+
+  @override
+  String get breedBurmese => 'Birmos trumpaplaukė';
+
+  @override
+  String get breedBurmilla => 'Burmila';
+
+  @override
+  String get breedBritishLonghair => 'Britų ilgaplaukė';
+
+  @override
+  String get breedChartreux => 'Kartūzų';
+
+  @override
+  String get breedCornishRex => 'Kornvalio reksas';
+
+  @override
+  String get breedDevonRex => 'Devono reksas';
+
+  @override
+  String get breedEgyptianMau => 'Egipto mau';
+
+  @override
+  String get breedExoticShorthair => 'Egzotinė trumpaplaukė';
+
+  @override
+  String get breedHimalayan => 'Himalajų';
+
+  @override
+  String get breedKorat => 'Koratas';
+
+  @override
+  String get breedManx => 'Menkso';
+
+  @override
+  String get breedMunchkin => 'Mančkinas';
+
+  @override
+  String get breedOcicat => 'Ocikatė';
+
+  @override
+  String get breedOrientalShorthair => 'Rytų trumpaplaukė';
+
+  @override
+  String get breedRagamuffin => 'Ragamafinas';
+
+  @override
+  String get breedRussianBlue => 'Rusų mėlynoji';
+
+  @override
+  String get breedSavannah => 'Savana';
+
+  @override
+  String get breedScottishFold => 'Škotų kniurkė';
+
+  @override
+  String get breedSelkirkRex => 'Selkirko reksas';
+
+  @override
+  String get breedSiberian => 'Sibiro katė';
+
+  @override
+  String get breedSnowshoe => 'Snoušu';
+
+  @override
+  String get breedSomali => 'Somalio';
+
+  @override
+  String get breedTonkinese => 'Tonkino';
+
+  @override
+  String get breedTurkishAngora => 'Turkų angora';
+
+  @override
+  String get breedTurkishVan => 'Turkų vanas';
+
+  @override
   String get starterColor => 'Spalva';
 
   @override

@@ -939,6 +939,96 @@ class AppLocalizationsGa extends AppLocalizations {
   String get breedSphynx => 'Sphynx';
 
   @override
+  String get breedAbyssinian => 'Aibisíneach';
+
+  @override
+  String get breedAmericanShorthair => 'Meiriceánach gearrfhionnaidh';
+
+  @override
+  String get breedBalinese => 'Bailíoch';
+
+  @override
+  String get breedBirman => 'Biormach';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmach';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Briotanach fadfhionnaidh';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish Rex';
+
+  @override
+  String get breedDevonRex => 'Devon Rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau Éigipteach';
+
+  @override
+  String get breedExoticShorthair => 'Coimhthíoch gearrfhionnaidh';
+
+  @override
+  String get breedHimalayan => 'Himiléach';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manannach';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oirthearach gearrfhionnaidh';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Gorm Rúiseach';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Fillte Albanach';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk Rex';
+
+  @override
+  String get breedSiberian => 'Sibéarach';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somálach';
+
+  @override
+  String get breedTonkinese => 'Tonkinéiseach';
+
+  @override
+  String get breedTurkishAngora => 'Angóra Turcach';
+
+  @override
+  String get breedTurkishVan => 'Van Turcach';
+
+  @override
   String get starterColor => 'Dath';
 
   @override

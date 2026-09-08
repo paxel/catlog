@@ -936,6 +936,96 @@ class AppLocalizationsUk extends AppLocalizations {
   String get breedSphynx => 'Сфінкс';
 
   @override
+  String get breedAbyssinian => 'Абіссінська';
+
+  @override
+  String get breedAmericanShorthair => 'Американська короткошерста';
+
+  @override
+  String get breedBalinese => 'Балінезійська';
+
+  @override
+  String get breedBirman => 'Бірманська';
+
+  @override
+  String get breedBombay => 'Бомбейська';
+
+  @override
+  String get breedBurmese => 'Бурманська';
+
+  @override
+  String get breedBurmilla => 'Бурмілла';
+
+  @override
+  String get breedBritishLonghair => 'Британська довгошерста';
+
+  @override
+  String get breedChartreux => 'Шартрез';
+
+  @override
+  String get breedCornishRex => 'Корніш-рекс';
+
+  @override
+  String get breedDevonRex => 'Девон-рекс';
+
+  @override
+  String get breedEgyptianMau => 'Єгипетська мау';
+
+  @override
+  String get breedExoticShorthair => 'Екзотична короткошерста';
+
+  @override
+  String get breedHimalayan => 'Гімалайська';
+
+  @override
+  String get breedKorat => 'Корат';
+
+  @override
+  String get breedManx => 'Менкс';
+
+  @override
+  String get breedMunchkin => 'Манчкін';
+
+  @override
+  String get breedOcicat => 'Оцикет';
+
+  @override
+  String get breedOrientalShorthair => 'Орієнтальна короткошерста';
+
+  @override
+  String get breedRagamuffin => 'Рагамаффін';
+
+  @override
+  String get breedRussianBlue => 'Російська блакитна';
+
+  @override
+  String get breedSavannah => 'Савана';
+
+  @override
+  String get breedScottishFold => 'Шотландська висловуха';
+
+  @override
+  String get breedSelkirkRex => 'Селкірк-рекс';
+
+  @override
+  String get breedSiberian => 'Сибірська';
+
+  @override
+  String get breedSnowshoe => 'Сноу-шу';
+
+  @override
+  String get breedSomali => 'Сомалійська';
+
+  @override
+  String get breedTonkinese => 'Тонкінська';
+
+  @override
+  String get breedTurkishAngora => 'Турецька ангора';
+
+  @override
+  String get breedTurkishVan => 'Турецький ван';
+
+  @override
   String get starterColor => 'Забарвлення';
 
   @override

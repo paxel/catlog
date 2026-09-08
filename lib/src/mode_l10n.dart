@@ -241,31 +241,121 @@ class ModeLocalizations implements AppLocalizations {
   String bornAfterDeceased(String date) => base.bornAfterDeceased(date);
 
   @override
+  String get breedAbyssinian => base.breedAbyssinian;
+
+  @override
+  String get breedAmericanShorthair => base.breedAmericanShorthair;
+
+  @override
+  String get breedBalinese => base.breedBalinese;
+
+  @override
   String get breedBengal => base.breedBengal;
+
+  @override
+  String get breedBirman => base.breedBirman;
+
+  @override
+  String get breedBombay => base.breedBombay;
+
+  @override
+  String get breedBritishLonghair => base.breedBritishLonghair;
 
   @override
   String get breedBritishShorthair => base.breedBritishShorthair;
 
   @override
+  String get breedBurmese => base.breedBurmese;
+
+  @override
+  String get breedBurmilla => base.breedBurmilla;
+
+  @override
+  String get breedChartreux => base.breedChartreux;
+
+  @override
+  String get breedCornishRex => base.breedCornishRex;
+
+  @override
+  String get breedDevonRex => base.breedDevonRex;
+
+  @override
+  String get breedEgyptianMau => base.breedEgyptianMau;
+
+  @override
   String get breedEuropeanShorthair => base.breedEuropeanShorthair;
+
+  @override
+  String get breedExoticShorthair => base.breedExoticShorthair;
+
+  @override
+  String get breedHimalayan => base.breedHimalayan;
+
+  @override
+  String get breedKorat => base.breedKorat;
 
   @override
   String get breedMaineCoon => base.breedMaineCoon;
 
   @override
+  String get breedManx => base.breedManx;
+
+  @override
+  String get breedMunchkin => base.breedMunchkin;
+
+  @override
   String get breedNorwegianForestCat => base.breedNorwegianForestCat;
+
+  @override
+  String get breedOcicat => base.breedOcicat;
+
+  @override
+  String get breedOrientalShorthair => base.breedOrientalShorthair;
 
   @override
   String get breedPersian => base.breedPersian;
 
   @override
+  String get breedRagamuffin => base.breedRagamuffin;
+
+  @override
   String get breedRagdoll => base.breedRagdoll;
+
+  @override
+  String get breedRussianBlue => base.breedRussianBlue;
+
+  @override
+  String get breedSavannah => base.breedSavannah;
+
+  @override
+  String get breedScottishFold => base.breedScottishFold;
+
+  @override
+  String get breedSelkirkRex => base.breedSelkirkRex;
 
   @override
   String get breedSiamese => base.breedSiamese;
 
   @override
+  String get breedSiberian => base.breedSiberian;
+
+  @override
+  String get breedSnowshoe => base.breedSnowshoe;
+
+  @override
+  String get breedSomali => base.breedSomali;
+
+  @override
   String get breedSphynx => base.breedSphynx;
+
+  @override
+  String get breedTonkinese => base.breedTonkinese;
+
+  @override
+  String get breedTurkishAngora => base.breedTurkishAngora;
+
+  @override
+  String get breedTurkishVan => base.breedTurkishVan;
 
   @override
   String bundleImportFailed(String error) => base.bundleImportFailed(error);

@@ -935,6 +935,96 @@ class AppLocalizationsHu extends AppLocalizations {
   String get breedSphynx => 'Szfinx';
 
   @override
+  String get breedAbyssinian => 'Abesszin';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikai rövidszőrű';
+
+  @override
+  String get breedBalinese => 'Balinéz';
+
+  @override
+  String get breedBirman => 'Szent birma';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmai';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Brit hosszúszőrű';
+
+  @override
+  String get breedChartreux => 'Karthauzi';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyiptomi mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic rövidszőrű';
+
+  @override
+  String get breedHimalayan => 'Himalája';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Keleti rövidszőrű';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Orosz kék';
+
+  @override
+  String get breedSavannah => 'Szavanna';
+
+  @override
+  String get breedScottishFold => 'Skót lógófülű';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Szibériai';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Szomáli';
+
+  @override
+  String get breedTonkinese => 'Tonkini';
+
+  @override
+  String get breedTurkishAngora => 'Török angóra';
+
+  @override
+  String get breedTurkishVan => 'Török van';
+
+  @override
   String get starterColor => 'Szín';
 
   @override

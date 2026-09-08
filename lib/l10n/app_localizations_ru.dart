@@ -937,6 +937,96 @@ class AppLocalizationsRu extends AppLocalizations {
   String get breedSphynx => 'Сфинкс';
 
   @override
+  String get breedAbyssinian => 'Абиссинская';
+
+  @override
+  String get breedAmericanShorthair => 'Американская короткошёрстная';
+
+  @override
+  String get breedBalinese => 'Балинезийская';
+
+  @override
+  String get breedBirman => 'Бирманская';
+
+  @override
+  String get breedBombay => 'Бомбейская';
+
+  @override
+  String get breedBurmese => 'Бурманская';
+
+  @override
+  String get breedBurmilla => 'Бурмилла';
+
+  @override
+  String get breedBritishLonghair => 'Британская длинношёрстная';
+
+  @override
+  String get breedChartreux => 'Шартрез';
+
+  @override
+  String get breedCornishRex => 'Корниш-рекс';
+
+  @override
+  String get breedDevonRex => 'Девон-рекс';
+
+  @override
+  String get breedEgyptianMau => 'Египетская мау';
+
+  @override
+  String get breedExoticShorthair => 'Экзотическая короткошёрстная';
+
+  @override
+  String get breedHimalayan => 'Гималайская';
+
+  @override
+  String get breedKorat => 'Корат';
+
+  @override
+  String get breedManx => 'Мэнкс';
+
+  @override
+  String get breedMunchkin => 'Манчкин';
+
+  @override
+  String get breedOcicat => 'Оцикет';
+
+  @override
+  String get breedOrientalShorthair => 'Ориентальная короткошёрстная';
+
+  @override
+  String get breedRagamuffin => 'Рагамаффин';
+
+  @override
+  String get breedRussianBlue => 'Русская голубая';
+
+  @override
+  String get breedSavannah => 'Саванна';
+
+  @override
+  String get breedScottishFold => 'Шотландская вислоухая';
+
+  @override
+  String get breedSelkirkRex => 'Селкирк-рекс';
+
+  @override
+  String get breedSiberian => 'Сибирская';
+
+  @override
+  String get breedSnowshoe => 'Сноу-шу';
+
+  @override
+  String get breedSomali => 'Сомалийская';
+
+  @override
+  String get breedTonkinese => 'Тонкинская';
+
+  @override
+  String get breedTurkishAngora => 'Турецкая ангора';
+
+  @override
+  String get breedTurkishVan => 'Турецкий ван';
+
+  @override
   String get starterColor => 'Окрас';
 
   @override

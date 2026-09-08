@@ -935,6 +935,96 @@ class AppLocalizationsLv extends AppLocalizations {
   String get breedSphynx => 'Sfinkss';
 
   @override
+  String get breedAbyssinian => 'Abesīnijas';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikas īsspalvainais';
+
+  @override
+  String get breedBalinese => 'Bali';
+
+  @override
+  String get breedBirman => 'Birmas';
+
+  @override
+  String get breedBombay => 'Bombejas';
+
+  @override
+  String get breedBurmese => 'Birmas īsspalvainais';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britu garspalvainais';
+
+  @override
+  String get breedChartreux => 'Šartrēzs';
+
+  @override
+  String get breedCornishRex => 'Kornvolas rekss';
+
+  @override
+  String get breedDevonRex => 'Devonas rekss';
+
+  @override
+  String get breedEgyptianMau => 'Ēģiptes mau';
+
+  @override
+  String get breedExoticShorthair => 'Eksotiskais īsspalvainais';
+
+  @override
+  String get breedHimalayan => 'Himalaju';
+
+  @override
+  String get breedKorat => 'Korats';
+
+  @override
+  String get breedManx => 'Menksa';
+
+  @override
+  String get breedMunchkin => 'Mančkins';
+
+  @override
+  String get breedOcicat => 'Ocikets';
+
+  @override
+  String get breedOrientalShorthair => 'Austrumu īsspalvainais';
+
+  @override
+  String get breedRagamuffin => 'Ragamafins';
+
+  @override
+  String get breedRussianBlue => 'Krievu zilais';
+
+  @override
+  String get breedSavannah => 'Savanna';
+
+  @override
+  String get breedScottishFold => 'Skotu nokarausainais';
+
+  @override
+  String get breedSelkirkRex => 'Selkirka rekss';
+
+  @override
+  String get breedSiberian => 'Sibīrijas kaķis';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somālijas';
+
+  @override
+  String get breedTonkinese => 'Tonkinas';
+
+  @override
+  String get breedTurkishAngora => 'Turku angora';
+
+  @override
+  String get breedTurkishVan => 'Turku vans';
+
+  @override
   String get starterColor => 'Krāsa';
 
   @override

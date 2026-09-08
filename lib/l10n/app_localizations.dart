@@ -1766,6 +1766,186 @@ abstract class AppLocalizations {
   /// **'Sphynx'**
   String get breedSphynx;
 
+  /// No description provided for @breedAbyssinian.
+  ///
+  /// In en, this message translates to:
+  /// **'Abyssinian'**
+  String get breedAbyssinian;
+
+  /// No description provided for @breedAmericanShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'American Shorthair'**
+  String get breedAmericanShorthair;
+
+  /// No description provided for @breedBalinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Balinese'**
+  String get breedBalinese;
+
+  /// No description provided for @breedBirman.
+  ///
+  /// In en, this message translates to:
+  /// **'Birman'**
+  String get breedBirman;
+
+  /// No description provided for @breedBombay.
+  ///
+  /// In en, this message translates to:
+  /// **'Bombay'**
+  String get breedBombay;
+
+  /// No description provided for @breedBurmese.
+  ///
+  /// In en, this message translates to:
+  /// **'Burmese'**
+  String get breedBurmese;
+
+  /// No description provided for @breedBurmilla.
+  ///
+  /// In en, this message translates to:
+  /// **'Burmilla'**
+  String get breedBurmilla;
+
+  /// No description provided for @breedBritishLonghair.
+  ///
+  /// In en, this message translates to:
+  /// **'British Longhair'**
+  String get breedBritishLonghair;
+
+  /// No description provided for @breedChartreux.
+  ///
+  /// In en, this message translates to:
+  /// **'Chartreux'**
+  String get breedChartreux;
+
+  /// No description provided for @breedCornishRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Cornish Rex'**
+  String get breedCornishRex;
+
+  /// No description provided for @breedDevonRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Devon Rex'**
+  String get breedDevonRex;
+
+  /// No description provided for @breedEgyptianMau.
+  ///
+  /// In en, this message translates to:
+  /// **'Egyptian Mau'**
+  String get breedEgyptianMau;
+
+  /// No description provided for @breedExoticShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'Exotic Shorthair'**
+  String get breedExoticShorthair;
+
+  /// No description provided for @breedHimalayan.
+  ///
+  /// In en, this message translates to:
+  /// **'Himalayan'**
+  String get breedHimalayan;
+
+  /// No description provided for @breedKorat.
+  ///
+  /// In en, this message translates to:
+  /// **'Korat'**
+  String get breedKorat;
+
+  /// No description provided for @breedManx.
+  ///
+  /// In en, this message translates to:
+  /// **'Manx'**
+  String get breedManx;
+
+  /// No description provided for @breedMunchkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Munchkin'**
+  String get breedMunchkin;
+
+  /// No description provided for @breedOcicat.
+  ///
+  /// In en, this message translates to:
+  /// **'Ocicat'**
+  String get breedOcicat;
+
+  /// No description provided for @breedOrientalShorthair.
+  ///
+  /// In en, this message translates to:
+  /// **'Oriental Shorthair'**
+  String get breedOrientalShorthair;
+
+  /// No description provided for @breedRagamuffin.
+  ///
+  /// In en, this message translates to:
+  /// **'Ragamuffin'**
+  String get breedRagamuffin;
+
+  /// No description provided for @breedRussianBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian Blue'**
+  String get breedRussianBlue;
+
+  /// No description provided for @breedSavannah.
+  ///
+  /// In en, this message translates to:
+  /// **'Savannah'**
+  String get breedSavannah;
+
+  /// No description provided for @breedScottishFold.
+  ///
+  /// In en, this message translates to:
+  /// **'Scottish Fold'**
+  String get breedScottishFold;
+
+  /// No description provided for @breedSelkirkRex.
+  ///
+  /// In en, this message translates to:
+  /// **'Selkirk Rex'**
+  String get breedSelkirkRex;
+
+  /// No description provided for @breedSiberian.
+  ///
+  /// In en, this message translates to:
+  /// **'Siberian'**
+  String get breedSiberian;
+
+  /// No description provided for @breedSnowshoe.
+  ///
+  /// In en, this message translates to:
+  /// **'Snowshoe'**
+  String get breedSnowshoe;
+
+  /// No description provided for @breedSomali.
+  ///
+  /// In en, this message translates to:
+  /// **'Somali'**
+  String get breedSomali;
+
+  /// No description provided for @breedTonkinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Tonkinese'**
+  String get breedTonkinese;
+
+  /// No description provided for @breedTurkishAngora.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish Angora'**
+  String get breedTurkishAngora;
+
+  /// No description provided for @breedTurkishVan.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish Van'**
+  String get breedTurkishVan;
+
   /// No description provided for @starterColor.
   ///
   /// In en, this message translates to:

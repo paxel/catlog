@@ -935,6 +935,96 @@ class AppLocalizationsSl extends AppLocalizations {
   String get breedSphynx => 'Sfinks';
 
   @override
+  String get breedAbyssinian => 'Abesinska';
+
+  @override
+  String get breedAmericanShorthair => 'Ameriška kratkodlaka';
+
+  @override
+  String get breedBalinese => 'Balinezijska';
+
+  @override
+  String get breedBirman => 'Birmanska';
+
+  @override
+  String get breedBombay => 'Bombajska';
+
+  @override
+  String get breedBurmese => 'Burmanska';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britanska dolgodlaka';
+
+  @override
+  String get breedChartreux => 'Kartuzijska';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egipčanska mau';
+
+  @override
+  String get breedExoticShorthair => 'Eksotična kratkodlaka';
+
+  @override
+  String get breedHimalayan => 'Himalajska';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Orientalska kratkodlaka';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Ruska modra';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Škotska povešenouha';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Sibirska';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somalijska';
+
+  @override
+  String get breedTonkinese => 'Tonkinška';
+
+  @override
+  String get breedTurkishAngora => 'Turška angora';
+
+  @override
+  String get breedTurkishVan => 'Turška van';
+
+  @override
   String get starterColor => 'Barva';
 
   @override

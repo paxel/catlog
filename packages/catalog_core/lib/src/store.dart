@@ -2283,6 +2283,10 @@ class CatalogStore {
       .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
       .replaceAll(RegExp(r'^-+|-+$'), '');
 
+  /// Runs the starter seeding again — what every open does; here for
+  /// tests of the upgrade paths.
+  void reseedStarterFields() => _seedStarterFields();
+
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';
@@ -2293,6 +2297,25 @@ class CatalogStore {
             current(id, Keys.fieldType) == FieldType.text.name) {
           append(id, Keys.fieldType, FieldType.choice.name, as: seedAuthor);
           append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+        }
+        // The breed list grew (1.2.3): a catalog seeded before gets the
+        // newcomers appended, its own additions and order kept, "mixed"
+        // staying last.
+        if (f.slug == 'breed') {
+          final have = (current(id, Keys.fieldOptions) ?? '')
+              .split('\n')
+              .where((o) => o.isNotEmpty)
+              .toList();
+          final missing = [
+            for (final o in f.options)
+              if (!have.contains(o)) o
+          ];
+          if (missing.isNotEmpty) {
+            final mixed = have.remove('mixed');
+            final merged = [...have, ...missing.where((o) => o != 'mixed')];
+            if (mixed || missing.contains('mixed')) merged.add('mixed');
+            append(id, Keys.fieldOptions, merged.join('\n'), as: seedAuthor);
+          }
         }
         continue;
       }

@@ -938,6 +938,96 @@ class AppLocalizationsNl extends AppLocalizations {
   String get breedSphynx => 'Sphynx';
 
   @override
+  String get breedAbyssinian => 'Abessijn';
+
+  @override
+  String get breedAmericanShorthair => 'Amerikaanse korthaar';
+
+  @override
+  String get breedBalinese => 'Balinees';
+
+  @override
+  String get breedBirman => 'Heilige Birmaan';
+
+  @override
+  String get breedBombay => 'Bombay';
+
+  @override
+  String get breedBurmese => 'Burmees';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Britse langhaar';
+
+  @override
+  String get breedChartreux => 'Chartreux';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Egyptische mau';
+
+  @override
+  String get breedExoticShorthair => 'Exotic korthaar';
+
+  @override
+  String get breedHimalayan => 'Himalayaan';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Oosterse korthaar';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Russisch blauw';
+
+  @override
+  String get breedSavannah => 'Savannah';
+
+  @override
+  String get breedScottishFold => 'Scottish fold';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Siberische kat';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somali';
+
+  @override
+  String get breedTonkinese => 'Tonkinees';
+
+  @override
+  String get breedTurkishAngora => 'Turkse angora';
+
+  @override
+  String get breedTurkishVan => 'Turkse van';
+
+  @override
   String get starterColor => 'Kleur';
 
   @override

@@ -933,6 +933,96 @@ class AppLocalizationsPl extends AppLocalizations {
   String get breedSphynx => 'Sfinks';
 
   @override
+  String get breedAbyssinian => 'Abisyński';
+
+  @override
+  String get breedAmericanShorthair => 'Amerykański krótkowłosy';
+
+  @override
+  String get breedBalinese => 'Balijski';
+
+  @override
+  String get breedBirman => 'Birmański';
+
+  @override
+  String get breedBombay => 'Bombajski';
+
+  @override
+  String get breedBurmese => 'Burmański';
+
+  @override
+  String get breedBurmilla => 'Burmilla';
+
+  @override
+  String get breedBritishLonghair => 'Brytyjski długowłosy';
+
+  @override
+  String get breedChartreux => 'Kartuski';
+
+  @override
+  String get breedCornishRex => 'Cornish rex';
+
+  @override
+  String get breedDevonRex => 'Devon rex';
+
+  @override
+  String get breedEgyptianMau => 'Mau egipski';
+
+  @override
+  String get breedExoticShorthair => 'Egzotyczny krótkowłosy';
+
+  @override
+  String get breedHimalayan => 'Himalajski';
+
+  @override
+  String get breedKorat => 'Korat';
+
+  @override
+  String get breedManx => 'Manx';
+
+  @override
+  String get breedMunchkin => 'Munchkin';
+
+  @override
+  String get breedOcicat => 'Ocicat';
+
+  @override
+  String get breedOrientalShorthair => 'Orientalny krótkowłosy';
+
+  @override
+  String get breedRagamuffin => 'Ragamuffin';
+
+  @override
+  String get breedRussianBlue => 'Rosyjski niebieski';
+
+  @override
+  String get breedSavannah => 'Sawanna';
+
+  @override
+  String get breedScottishFold => 'Szkocki zwisłouchy';
+
+  @override
+  String get breedSelkirkRex => 'Selkirk rex';
+
+  @override
+  String get breedSiberian => 'Syberyjski';
+
+  @override
+  String get breedSnowshoe => 'Snowshoe';
+
+  @override
+  String get breedSomali => 'Somalijski';
+
+  @override
+  String get breedTonkinese => 'Tonkijski';
+
+  @override
+  String get breedTurkishAngora => 'Turecka angora';
+
+  @override
+  String get breedTurkishVan => 'Turecki van';
+
+  @override
   String get starterColor => 'Umaszczenie';
 
   @override

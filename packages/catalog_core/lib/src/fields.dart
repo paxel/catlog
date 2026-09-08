@@ -184,12 +184,57 @@ const clowderStatusKeys = [
   'owner',
 ];
 
+/// The cat breeds a catalog starts with (1.2.3 grew the list; a
+/// catalog from before gets the missing ones appended on open).
+const catBreeds = [
+  'European Shorthair',
+  'Maine Coon',
+  'British Shorthair',
+  'Norwegian Forest Cat',
+  'Ragdoll',
+  'Siamese',
+  'Persian',
+  'Bengal',
+  'Sphynx',
+  'Abyssinian',
+  'American Shorthair',
+  'Balinese',
+  'Birman',
+  'Bombay',
+  'Burmese',
+  'Burmilla',
+  'British Longhair',
+  'Chartreux',
+  'Cornish Rex',
+  'Devon Rex',
+  'Egyptian Mau',
+  'Exotic Shorthair',
+  'Himalayan',
+  'Korat',
+  'Manx',
+  'Munchkin',
+  'Ocicat',
+  'Oriental Shorthair',
+  'Ragamuffin',
+  'Russian Blue',
+  'Savannah',
+  'Scottish Fold',
+  'Selkirk Rex',
+  'Siberian',
+  'Snowshoe',
+  'Somali',
+  'Tonkinese',
+  'Turkish Angora',
+  'Turkish Van',
+  'mixed',
+];
+
 /// Starter Fields seeded on first launch as ordinary entries, so a card
 /// can be filled without any configuration.
 const starterFields = [
   (slug: 'gender', name: 'Gender', type: FieldType.choice, scope: FieldScope.cat, options: ['female', 'male', 'unknown']),
   (slug: 'color', name: 'Color', type: FieldType.text, scope: FieldScope.cat, options: <String>[]),
-  (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: ['European Shorthair', 'Maine Coon', 'British Shorthair', 'Norwegian Forest Cat', 'Ragdoll', 'Siamese', 'Persian', 'Bengal', 'Sphynx', 'mixed']),
+  (slug: 'breed', name: 'Breed', type: FieldType.choice, scope: FieldScope.cat, options: catBreeds),
   (slug: 'chipid', name: 'Chip ID', type: FieldType.id, scope: FieldScope.cat, options: <String>[]),
   (slug: 'neutered', name: 'Neutered', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),
   (slug: 'pregnant', name: 'Pregnant', type: FieldType.yesNo, scope: FieldScope.cat, options: <String>[]),

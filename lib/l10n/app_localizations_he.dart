@@ -930,6 +930,96 @@ class AppLocalizationsHe extends AppLocalizations {
   String get breedSphynx => 'ספינקס';
 
   @override
+  String get breedAbyssinian => 'אביסיני';
+
+  @override
+  String get breedAmericanShorthair => 'אמריקאי קצר שיער';
+
+  @override
+  String get breedBalinese => 'באלינזי';
+
+  @override
+  String get breedBirman => 'בירמן';
+
+  @override
+  String get breedBombay => 'בומביי';
+
+  @override
+  String get breedBurmese => 'בורמזי';
+
+  @override
+  String get breedBurmilla => 'בורמילה';
+
+  @override
+  String get breedBritishLonghair => 'בריטי ארוך שיער';
+
+  @override
+  String get breedChartreux => 'שארטרה';
+
+  @override
+  String get breedCornishRex => 'קורניש רקס';
+
+  @override
+  String get breedDevonRex => 'דבון רקס';
+
+  @override
+  String get breedEgyptianMau => 'מאו מצרי';
+
+  @override
+  String get breedExoticShorthair => 'אקזוטי קצר שיער';
+
+  @override
+  String get breedHimalayan => 'הימלאי';
+
+  @override
+  String get breedKorat => 'קוראט';
+
+  @override
+  String get breedManx => 'מאנקס';
+
+  @override
+  String get breedMunchkin => 'מאנצ\'קין';
+
+  @override
+  String get breedOcicat => 'אוסיקט';
+
+  @override
+  String get breedOrientalShorthair => 'מזרחי קצר שיער';
+
+  @override
+  String get breedRagamuffin => 'ראגאמאפין';
+
+  @override
+  String get breedRussianBlue => 'כחול רוסי';
+
+  @override
+  String get breedSavannah => 'סוואנה';
+
+  @override
+  String get breedScottishFold => 'סקוטיש פולד';
+
+  @override
+  String get breedSelkirkRex => 'סלקירק רקס';
+
+  @override
+  String get breedSiberian => 'סיבירי';
+
+  @override
+  String get breedSnowshoe => 'סנושו';
+
+  @override
+  String get breedSomali => 'סומלי';
+
+  @override
+  String get breedTonkinese => 'טונקינזי';
+
+  @override
+  String get breedTurkishAngora => 'אנגורה טורקי';
+
+  @override
+  String get breedTurkishVan => 'ואן טורקי';
+
+  @override
   String get starterColor => 'צבע';
 
   @override

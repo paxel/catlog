@@ -941,6 +941,96 @@ class AppLocalizationsEl extends AppLocalizations {
   String get breedSphynx => 'Σφίγγα';
 
   @override
+  String get breedAbyssinian => 'Αβησσυνίας';
+
+  @override
+  String get breedAmericanShorthair => 'Αμερικανική κοντότριχη';
+
+  @override
+  String get breedBalinese => 'Μπαλί';
+
+  @override
+  String get breedBirman => 'Βιρμανίας';
+
+  @override
+  String get breedBombay => 'Βομβάης';
+
+  @override
+  String get breedBurmese => 'Βιρμανική';
+
+  @override
+  String get breedBurmilla => 'Μπουρμίλα';
+
+  @override
+  String get breedBritishLonghair => 'Βρετανική μακρύτριχη';
+
+  @override
+  String get breedChartreux => 'Σαρτρέ';
+
+  @override
+  String get breedCornishRex => 'Κόρνις Ρεξ';
+
+  @override
+  String get breedDevonRex => 'Ντέβον Ρεξ';
+
+  @override
+  String get breedEgyptianMau => 'Αιγυπτιακή Μάου';
+
+  @override
+  String get breedExoticShorthair => 'Εξωτική κοντότριχη';
+
+  @override
+  String get breedHimalayan => 'Ιμαλαΐων';
+
+  @override
+  String get breedKorat => 'Κοράτ';
+
+  @override
+  String get breedManx => 'Μανξ';
+
+  @override
+  String get breedMunchkin => 'Μάντσκιν';
+
+  @override
+  String get breedOcicat => 'Οσικάτ';
+
+  @override
+  String get breedOrientalShorthair => 'Ανατολίτικη κοντότριχη';
+
+  @override
+  String get breedRagamuffin => 'Ραγκαμάφιν';
+
+  @override
+  String get breedRussianBlue => 'Ρωσική μπλε';
+
+  @override
+  String get breedSavannah => 'Σαβάνα';
+
+  @override
+  String get breedScottishFold => 'Σκωτσέζικη φολντ';
+
+  @override
+  String get breedSelkirkRex => 'Σέλκιρκ Ρεξ';
+
+  @override
+  String get breedSiberian => 'Σιβηρίας';
+
+  @override
+  String get breedSnowshoe => 'Σνόουσου';
+
+  @override
+  String get breedSomali => 'Σομαλίας';
+
+  @override
+  String get breedTonkinese => 'Τονκινέζικη';
+
+  @override
+  String get breedTurkishAngora => 'Τουρκική Αγκύρα';
+
+  @override
+  String get breedTurkishVan => 'Τουρκική Βαν';
+
+  @override
   String get starterColor => 'Χρώμα';
 
   @override

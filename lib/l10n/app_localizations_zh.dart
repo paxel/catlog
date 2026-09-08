@@ -905,6 +905,96 @@ class AppLocalizationsZh extends AppLocalizations {
   String get breedSphynx => '斯芬克斯猫';
 
   @override
+  String get breedAbyssinian => '阿比西尼亚猫';
+
+  @override
+  String get breedAmericanShorthair => '美国短毛猫';
+
+  @override
+  String get breedBalinese => '巴厘猫';
+
+  @override
+  String get breedBirman => '伯曼猫';
+
+  @override
+  String get breedBombay => '孟买猫';
+
+  @override
+  String get breedBurmese => '缅甸猫';
+
+  @override
+  String get breedBurmilla => '波米拉猫';
+
+  @override
+  String get breedBritishLonghair => '英国长毛猫';
+
+  @override
+  String get breedChartreux => '沙特尔猫';
+
+  @override
+  String get breedCornishRex => '柯尼斯卷毛猫';
+
+  @override
+  String get breedDevonRex => '德文卷毛猫';
+
+  @override
+  String get breedEgyptianMau => '埃及猫';
+
+  @override
+  String get breedExoticShorthair => '异国短毛猫';
+
+  @override
+  String get breedHimalayan => '喜马拉雅猫';
+
+  @override
+  String get breedKorat => '呵叻猫';
+
+  @override
+  String get breedManx => '马恩岛猫';
+
+  @override
+  String get breedMunchkin => '曼基康猫';
+
+  @override
+  String get breedOcicat => '欧西猫';
+
+  @override
+  String get breedOrientalShorthair => '东方短毛猫';
+
+  @override
+  String get breedRagamuffin => '褴褛猫';
+
+  @override
+  String get breedRussianBlue => '俄罗斯蓝猫';
+
+  @override
+  String get breedSavannah => '萨凡纳猫';
+
+  @override
+  String get breedScottishFold => '苏格兰折耳猫';
+
+  @override
+  String get breedSelkirkRex => '塞尔凯克卷毛猫';
+
+  @override
+  String get breedSiberian => '西伯利亚猫';
+
+  @override
+  String get breedSnowshoe => '雪鞋猫';
+
+  @override
+  String get breedSomali => '索马里猫';
+
+  @override
+  String get breedTonkinese => '东奇尼猫';
+
+  @override
+  String get breedTurkishAngora => '土耳其安哥拉猫';
+
+  @override
+  String get breedTurkishVan => '土耳其梵猫';
+
+  @override
   String get starterColor => '毛色';
 
   @override

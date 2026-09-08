@@ -1,5 +1,6 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:catlog/l10n/app_localizations.dart';
+import 'package:catlog/src/field_labels.dart';
 import 'package:catlog/src/looks_labels.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -58,5 +59,25 @@ void main() {
     final t = lookupAppLocalizations(const Locale('en'));
     expect(t.helpMatches, contains('Looks agree in two traits'));
     expect(t.helpMatchesNeutral, contains('Looks agree in two traits'));
+  });
+
+  test('every cat breed has a name in every language', () {
+    for (final locale in AppLocalizations.supportedLocales) {
+      final t = lookupAppLocalizations(locale);
+      final def = const FieldDef(
+          id: 'fielddef:breed',
+          slug: 'breed',
+          name: 'Breed',
+          type: FieldType.choice,
+          scope: FieldScope.cat);
+      for (final breed in catBreeds) {
+        expect(fieldValueDisplay(t, def, breed), isNotEmpty,
+            reason: '${locale.languageCode} $breed');
+        if (locale.languageCode == 'ja' || locale.languageCode == 'ru') {
+          expect(fieldValueDisplay(t, def, breed), isNot(breed),
+              reason: '${locale.languageCode} $breed');
+        }
+      }
+    }
   });
 }
