@@ -212,4 +212,26 @@ void main() {
     expect(CatalogStore.isConflictable(Keys.withheld('f:remarks')), isFalse);
     expect(CatalogStore.isConflictable(Keys.chore('x')), isFalse);
   });
+
+  test('option lists changed on both sides merge instead of fighting', () {
+    final a = CatalogStore.inMemory()..author = 'anna';
+    final b = CatalogStore.inMemory()..author = 'bob';
+    addTearDown(a.close);
+    addTearDown(b.close);
+    final breed = a.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+    a.setFieldOptions(breed.id, ['Maine Coon', 'Hauskatze', 'mixed']);
+    b.setFieldOptions(breed.id, ['Maine Coon', 'Ragdoll', 'Balinese', 'mixed']);
+    a.applyEntries(b.entriesSince(a.versionVector()),
+        senderVector: b.versionVector());
+    expect(a.conflicts(), isEmpty);
+    expect(a.fieldDefs().firstWhere((d) => d.slug == 'breed').options,
+        ['Maine Coon', 'Hauskatze', 'Ragdoll', 'Balinese', 'mixed']);
+    // Bob takes Anna's merge back; both agree, nothing left to merge.
+    b.applyEntries(a.entriesSince(b.versionVector()),
+        senderVector: a.versionVector());
+    expect(b.conflicts(), isEmpty);
+    expect(b.fieldDefs().firstWhere((d) => d.slug == 'breed').options,
+        ['Maine Coon', 'Hauskatze', 'Ragdoll', 'Balinese', 'mixed']);
+  });
 }

@@ -1819,7 +1819,14 @@ class CatalogStore {
         if (e.value == before.value) continue; // same value, no fight
         final senderSawIt =
             (senderVector[before.device] ?? 0) >= before.dseq;
-        if (!senderSawIt && !hasConflict(e.entity, e.field)) {
+        if (senderSawIt) continue;
+        // Two devices grew a choice field's list at once — every
+        // upgrade does that: no fight to settle, both lists merge.
+        if (_isOptionList(e.field)) {
+          _mergeOptionLists(e.entity, e.field, before.value, e.value);
+          continue;
+        }
+        if (!hasConflict(e.entity, e.field)) {
           append(e.entity, Keys.conflict(e.field), 'open',
               as: author ?? 'cat(a)log');
         }
@@ -1827,6 +1834,28 @@ class CatalogStore {
     }
     return imported;
     });
+  }
+
+  static bool _isOptionList(String field) =>
+      field == Keys.fieldOptions || field.startsWith(Keys.fieldOptionsPrefix);
+
+  /// The union of two option lists as the new current value: [ours]
+  /// in its order, then what [theirs] adds, `mixed` kept last. Written
+  /// only when the union differs from what wins now.
+  void _mergeOptionLists(
+      String entity, String field, String? ours, String? theirs) {
+    List<String> split(String? v) =>
+        (v ?? '').split('\n').where((o) => o.isNotEmpty).toList();
+    final mine = split(ours);
+    final merged = [...mine, for (final o in split(theirs)) if (!mine.contains(o)) o];
+    if (merged.remove('mixed')) merged.add('mixed');
+    final now = split(current(entity, field));
+    if (merged.length == now.length &&
+        [for (var i = 0; i < merged.length; i++) merged[i] == now[i]]
+            .every((same) => same)) {
+      return;
+    }
+    append(entity, field, merged.join('\n'), as: author ?? 'cat(a)log');
   }
 
   /// Whether [e] passes under [key]: signed and valid, or older than

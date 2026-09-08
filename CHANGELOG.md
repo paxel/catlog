@@ -10,6 +10,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Thirty more cat breeds, Burmese and Abyssinian among them, named in every language; existing catalogs get them added.
 
 ### Fixed
+- Two devices changing a choice field's option list at the same time get both lists merged instead of a conflict.
 - Chores on a cat's or home's page are ordered like the agenda: due today by time, the rest and the paused ones behind a Coming up fold.
 - Chore reminders of every catalog stay scheduled; opening another catalog used to cancel them.
 - Chore reminders show with their own icon and a sound; a button sends a test reminder at once.
