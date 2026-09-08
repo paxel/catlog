@@ -572,6 +572,8 @@
   "hardDeleteAction": "Șterge tot de la acest autor",
   "hardDeleteWarning": "Elimină fiecare intrare și fotografie de la {name} de pe acest dispozitiv. Celelalte dispozitive le păstrează pe ale lor. Ireversibil.",
   "yourKey": "Cheia ta",
+  "yourTitle": "Titlul tău",
+  "titleNone": "Fără titlu",
   "keyLine": "cheia {code}",
   "keyVerified": "întâlnită în persoană",
   "keyFromFile": "dintr-un fișier, încă neîntâlnită",

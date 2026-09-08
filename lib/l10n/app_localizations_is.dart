@@ -1930,6 +1930,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get yourKey => 'Lykillinn þinn';
 
   @override
+  String get yourTitle => 'Titillinn þinn';
+
+  @override
+  String get titleNone => 'Enginn titill';
+
+  @override
   String keyLine(Object code) {
     return 'lykill $code';
   }

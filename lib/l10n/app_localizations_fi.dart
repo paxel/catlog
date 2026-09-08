@@ -1928,6 +1928,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get yourKey => 'Oma avain';
 
   @override
+  String get yourTitle => 'Arvonimesi';
+
+  @override
+  String get titleNone => 'Ei arvonimeä';
+
+  @override
   String keyLine(Object code) {
     return 'avain $code';
   }

@@ -1926,6 +1926,12 @@ class AppLocalizationsSq extends AppLocalizations {
   String get yourKey => 'Çelësi yt';
 
   @override
+  String get yourTitle => 'Titulli yt';
+
+  @override
+  String get titleNone => 'Pa titull';
+
+  @override
   String keyLine(Object code) {
     return 'çelësi $code';
   }

@@ -572,6 +572,8 @@
   "hardDeleteAction": "Radera allt från denna författare",
   "hardDeleteWarning": "Tar bort alla poster och foton från {name} på den här enheten. Andra enheter behåller sina. Kan inte ångras.",
   "yourKey": "Din nyckel",
+  "yourTitle": "Din titel",
+  "titleNone": "Ingen titel",
   "keyLine": "nyckel {code}",
   "keyVerified": "träffad personligen",
   "keyFromFile": "från en fil, ännu inte träffad",

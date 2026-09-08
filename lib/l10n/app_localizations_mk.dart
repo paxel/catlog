@@ -1930,6 +1930,12 @@ class AppLocalizationsMk extends AppLocalizations {
   String get yourKey => 'Твојот клуч';
 
   @override
+  String get yourTitle => 'Твојата титула';
+
+  @override
+  String get titleNone => 'Без титула';
+
+  @override
   String keyLine(Object code) {
     return 'клуч $code';
   }

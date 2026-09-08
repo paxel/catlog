@@ -275,4 +275,25 @@ void main() {
           containsAll([a.deviceId, b.deviceId]));
     });
   });
+
+  group('person records', () {
+    test('a title travels and only its own device can write it', () {
+      a.createCat('Miezi');
+      a.setOwnTitle('chancellor|Feed');
+      send(a, b);
+      expect(b.titleOf(a.deviceId), 'chancellor|Feed');
+      // Bob forges Anna's record under his own device: dropped.
+      b.append(Keys.person(a.deviceId), Keys.personTitle, 'minister|Feed');
+      expect(b.titleOf(a.deviceId), 'minister|Feed',
+          reason: 'locally written, locally visible');
+      final report = ImportReport();
+      a.applyEntries(b.entriesSince(a.versionVector()),
+          senderVector: b.versionVector(), report: report);
+      expect(a.titleOf(a.deviceId), 'chancellor|Feed');
+      // Taking it off travels too.
+      a.setOwnTitle(null);
+      send(a, b);
+      expect(b.titleOf(a.deviceId), isNull);
+    });
+  });
 }

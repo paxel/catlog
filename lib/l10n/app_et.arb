@@ -572,6 +572,8 @@
   "hardDeleteAction": "Kustuta kõik sellelt autorilt",
   "hardDeleteWarning": "Eemaldab kõik {name} kirjed ja fotod sellest seadmest. Teised seadmed hoiavad omad alles. Ei saa tagasi võtta.",
   "yourKey": "Sinu võti",
+  "yourTitle": "Sinu tiitel",
+  "titleNone": "Tiitlita",
   "keyLine": "võti {code}",
   "keyVerified": "kohtutud isiklikult",
   "keyFromFile": "failist, veel kohtumata",

@@ -64,6 +64,14 @@ abstract final class Keys {
   /// or end it. A tick is `$chore:<id>@<occurrence day>` carrying the
   /// day it was done; null unticks.
   static const chorePrefix = r'$chore:';
+
+  /// A person's own record (1.2.3): `person:<device>`, written only by
+  /// that device — what it wears, for partners to see.
+  static const personPrefix = 'person:';
+  static String person(String device) => '$personPrefix$device';
+
+  /// The title a keeper wears, on their person record: `rank|chore`.
+  static const personTitle = 'title';
   static String chore(String id) => '$chorePrefix$id';
   static String choreTick(String id, String day) => '$chorePrefix$id@$day';
 

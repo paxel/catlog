@@ -572,6 +572,8 @@
   "hardDeleteAction": "Tout supprimer de cet auteur",
   "hardDeleteWarning": "Supprime chaque entrée et photo de {name} de cet appareil. Les autres appareils gardent les leurs. Irréversible.",
   "yourKey": "Ta clé",
+  "yourTitle": "Ton titre",
+  "titleNone": "Aucun titre",
   "keyLine": "clé {code}",
   "keyVerified": "rencontrée en personne",
   "keyFromFile": "d’un fichier, pas encore rencontrée",

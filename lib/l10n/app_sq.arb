@@ -572,6 +572,8 @@
   "hardDeleteAction": "Fshi gjithçka nga ky autor",
   "hardDeleteWarning": "Heq çdo hyrje dhe foto të {name} nga kjo pajisje. Pajisjet e tjera i mbajnë të tyret. Nuk kthehet dot.",
   "yourKey": "Çelësi yt",
+  "yourTitle": "Titulli yt",
+  "titleNone": "Pa titull",
   "keyLine": "çelësi {code}",
   "keyVerified": "i verifikuar personalisht",
   "keyFromFile": "nga një skedar, ende i paverifikuar",

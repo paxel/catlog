@@ -572,6 +572,8 @@
   "hardDeleteAction": "删除该作者的全部内容",
   "hardDeleteWarning": "从此设备移除 {name} 的所有记录和照片。其他设备保留其副本。无法撤销。",
   "yourKey": "你的密钥",
+  "yourTitle": "你的头衔",
+  "titleNone": "无头衔",
   "keyLine": "密钥 {code}",
   "keyVerified": "已当面确认",
   "keyFromFile": "来自文件，尚未确认",

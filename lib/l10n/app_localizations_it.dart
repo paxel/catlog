@@ -1931,6 +1931,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get yourKey => 'La tua chiave';
 
   @override
+  String get yourTitle => 'Il tuo titolo';
+
+  @override
+  String get titleNone => 'Nessun titolo';
+
+  @override
   String keyLine(Object code) {
     return 'chiave $code';
   }

@@ -1928,6 +1928,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get yourKey => 'Twój klucz';
 
   @override
+  String get yourTitle => 'Twój tytuł';
+
+  @override
+  String get titleNone => 'Bez tytułu';
+
+  @override
   String keyLine(Object code) {
     return 'klucz $code';
   }

@@ -572,6 +572,8 @@
   "hardDeleteAction": "Smazat vše od tohoto autora",
   "hardDeleteWarning": "Odstraní každý záznam a fotku od {name} z tohoto zařízení. Ostatní zařízení si své ponechají. Nelze vrátit zpět.",
   "yourKey": "Tvůj klíč",
+  "yourTitle": "Tvůj titul",
+  "titleNone": "Bez titulu",
   "keyLine": "klíč {code}",
   "keyVerified": "ověřen osobně",
   "keyFromFile": "ze souboru, dosud neověřen",

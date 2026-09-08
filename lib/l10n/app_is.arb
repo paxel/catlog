@@ -572,6 +572,8 @@
   "hardDeleteAction": "Eyða öllu frá þessum höfundi",
   "hardDeleteWarning": "Fjarlægir allar færslur og myndir frá {name} af þessu tæki. Önnur tæki halda sínum. Ekki hægt að afturkalla.",
   "yourKey": "Lykillinn þinn",
+  "yourTitle": "Titillinn þinn",
+  "titleNone": "Enginn titill",
   "keyLine": "lykill {code}",
   "keyVerified": "staðfest í eigin persónu",
   "keyFromFile": "úr skrá, ekki enn staðfest",

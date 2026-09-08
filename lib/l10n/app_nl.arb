@@ -572,6 +572,8 @@
   "hardDeleteAction": "Alles van deze auteur verwijderen",
   "hardDeleteWarning": "Verwijdert elke invoer en foto van {name} van dit apparaat. Andere apparaten houden de hunne. Kan niet ongedaan worden gemaakt.",
   "yourKey": "Jouw sleutel",
+  "yourTitle": "Jouw titel",
+  "titleNone": "Geen titel",
   "keyLine": "sleutel {code}",
   "keyVerified": "persoonlijk ontmoet",
   "keyFromFile": "uit een bestand, nog niet ontmoet",

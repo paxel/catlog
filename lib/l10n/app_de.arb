@@ -569,6 +569,8 @@
   "hardDeleteAction": "Alles von dieser Person löschen",
   "hardDeleteWarning": "Entfernt jeden Eintrag und jedes Foto von {name} von diesem Gerät. Andere Geräte behalten ihre Kopie. Das kann nicht rückgängig gemacht werden.",
   "yourKey": "Dein Schlüssel",
+  "yourTitle": "Dein Titel",
+  "titleNone": "Kein Titel",
   "keyLine": "Schlüssel {code}",
   "keyVerified": "persönlich getroffen",
   "keyFromFile": "aus einer Datei, noch nicht getroffen",

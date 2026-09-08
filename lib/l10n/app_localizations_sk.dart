@@ -1925,6 +1925,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get yourKey => 'Tvoj kľúč';
 
   @override
+  String get yourTitle => 'Tvoj titul';
+
+  @override
+  String get titleNone => 'Bez titulu';
+
+  @override
   String keyLine(Object code) {
     return 'kľúč $code';
   }

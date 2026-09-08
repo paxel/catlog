@@ -1929,6 +1929,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get yourKey => 'Ваш ключ';
 
   @override
+  String get yourTitle => 'Ваш титул';
+
+  @override
+  String get titleNone => 'Без титула';
+
+  @override
   String keyLine(Object code) {
     return 'ключ $code';
   }

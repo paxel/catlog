@@ -1927,6 +1927,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get yourKey => 'Tvoj ključ';
 
   @override
+  String get yourTitle => 'Tvoja titula';
+
+  @override
+  String get titleNone => 'Bez titule';
+
+  @override
   String keyLine(Object code) {
     return 'ključ $code';
   }

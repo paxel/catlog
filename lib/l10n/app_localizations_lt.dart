@@ -1928,6 +1928,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get yourKey => 'Jūsų raktas';
 
   @override
+  String get yourTitle => 'Jūsų titulas';
+
+  @override
+  String get titleNone => 'Be titulo';
+
+  @override
   String keyLine(Object code) {
     return 'raktas $code';
   }

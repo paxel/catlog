@@ -1923,6 +1923,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get yourKey => 'Sinu võti';
 
   @override
+  String get yourTitle => 'Sinu tiitel';
+
+  @override
+  String get titleNone => 'Tiitlita';
+
+  @override
   String keyLine(Object code) {
     return 'võti $code';
   }

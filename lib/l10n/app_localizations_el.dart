@@ -1936,6 +1936,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get yourKey => 'Το κλειδί σου';
 
   @override
+  String get yourTitle => 'Ο τίτλος σου';
+
+  @override
+  String get titleNone => 'Χωρίς τίτλο';
+
+  @override
   String keyLine(Object code) {
     return 'κλειδί $code';
   }

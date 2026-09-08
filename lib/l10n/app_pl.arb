@@ -572,6 +572,8 @@
   "hardDeleteAction": "Usuń wszystko od tego autora",
   "hardDeleteWarning": "Usuwa każdy wpis i zdjęcie od {name} z tego urządzenia. Inne urządzenia zachowują swoje. Nie można cofnąć.",
   "yourKey": "Twój klucz",
+  "yourTitle": "Twój tytuł",
+  "titleNone": "Bez tytułu",
   "keyLine": "klucz {code}",
   "keyVerified": "potwierdzony osobiście",
   "keyFromFile": "z pliku, jeszcze niepotwierdzony",

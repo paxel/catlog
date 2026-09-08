@@ -572,6 +572,8 @@
   "hardDeleteAction": "Ħassar kollox minn dan l-awtur",
   "hardDeleteWarning": "Ineħħi kull entrata u ritratt ta' {name} minn dan l-apparat. Apparati oħra jżommu tagħhom. Ma jistax jitreġġa' lura.",
   "yourKey": "Iċ-ċavetta tiegħek",
+  "yourTitle": "It-titlu tiegħek",
+  "titleNone": "Ebda titlu",
   "keyLine": "ċavetta {code}",
   "keyVerified": "ivverifikata personalment",
   "keyFromFile": "minn fajl, għadha mhux ivverifikata",

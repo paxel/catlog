@@ -1918,6 +1918,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get yourKey => 'המפתח שלך';
 
   @override
+  String get yourTitle => 'התואר שלך';
+
+  @override
+  String get titleNone => 'ללא תואר';
+
+  @override
   String keyLine(Object code) {
     return 'מפתח $code';
   }

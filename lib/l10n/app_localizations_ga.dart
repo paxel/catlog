@@ -1934,6 +1934,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get yourKey => 'D’eochair';
 
   @override
+  String get yourTitle => 'Do theideal';
+
+  @override
+  String get titleNone => 'Gan teideal';
+
+  @override
   String keyLine(Object code) {
     return 'eochair $code';
   }

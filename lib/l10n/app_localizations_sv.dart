@@ -1926,6 +1926,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get yourKey => 'Din nyckel';
 
   @override
+  String get yourTitle => 'Din titel';
+
+  @override
+  String get titleNone => 'Ingen titel';
+
+  @override
   String keyLine(Object code) {
     return 'nyckel $code';
   }

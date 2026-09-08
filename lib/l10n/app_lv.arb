@@ -572,6 +572,8 @@
   "hardDeleteAction": "Dzēst visu no šī autora",
   "hardDeleteWarning": "Noņem visus {name} ierakstus un fotoattēlus no šīs ierīces. Citas ierīces patur savus. Nevar atsaukt.",
   "yourKey": "Tava atslēga",
+  "yourTitle": "Tavs tituls",
+  "titleNone": "Bez titula",
   "keyLine": "atslēga {code}",
   "keyVerified": "apstiprināta klātienē",
   "keyFromFile": "no faila, vēl nav apstiprināta",

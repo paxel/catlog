@@ -1928,6 +1928,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get yourKey => 'Tvoj ključ';
 
   @override
+  String get yourTitle => 'Tvoj naziv';
+
+  @override
+  String get titleNone => 'Brez naziva';
+
+  @override
   String keyLine(Object code) {
     return 'ključ $code';
   }

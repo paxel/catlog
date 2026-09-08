@@ -241,6 +241,17 @@ class CatalogStore {
     _db.execute('ALTER TABLE entries ADD COLUMN sig TEXT');
   }
 
+  // ------------------------------------------------------ person (1.2.3)
+
+  /// The title this catalog's keeper wears, as `rank|chore`; null takes
+  /// it off. Written on the own person record, signed like every row.
+  void setOwnTitle(String? title) =>
+      append(Keys.person(deviceId), Keys.personTitle, title);
+
+  /// The title the keeper of [device] wears, as `rank|chore`.
+  String? titleOf(String device) =>
+      current(Keys.person(device), Keys.personTitle);
+
   // ------------------------------------------------ partner keys (1.2.0)
 
   /// The key pinned for a partner's device, if one was ever met.
@@ -1771,6 +1782,12 @@ class CatalogStore {
       // vectors skip this device's real, not yet synced entries for
       // good.
       if (e.device == self && e.dseq > ownMax) continue;
+      // A person record is its own device's to write: anything else
+      // claiming it is dropped, whatever key it carries.
+      if (e.entity.startsWith(Keys.personPrefix) &&
+          e.entity != Keys.person(e.device)) {
+        continue;
+      }
       if (_isBannedEntry(e)) {
         _recordDiscarded(e.device, e.dseq);
         continue;

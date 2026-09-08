@@ -1922,6 +1922,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get yourKey => 'کلید شما';
 
   @override
+  String get yourTitle => 'عنوان شما';
+
+  @override
+  String get titleNone => 'بدون عنوان';
+
+  @override
   String keyLine(Object code) {
     return 'کلید $code';
   }

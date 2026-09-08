@@ -572,6 +572,8 @@
   "hardDeleteAction": "Elimina tutto di questo autore",
   "hardDeleteWarning": "Rimuove ogni voce e foto di {name} da questo dispositivo. Gli altri dispositivi conservano le loro. Irreversibile.",
   "yourKey": "La tua chiave",
+  "yourTitle": "Il tuo titolo",
+  "titleNone": "Nessun titolo",
   "keyLine": "chiave {code}",
   "keyVerified": "incontrata di persona",
   "keyFromFile": "da un file, non ancora incontrata",

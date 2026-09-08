@@ -1931,6 +1931,12 @@ class AppLocalizationsMt extends AppLocalizations {
   String get yourKey => 'Iċ-ċavetta tiegħek';
 
   @override
+  String get yourTitle => 'It-titlu tiegħek';
+
+  @override
+  String get titleNone => 'Ebda titlu';
+
+  @override
   String keyLine(Object code) {
     return 'ċavetta $code';
   }

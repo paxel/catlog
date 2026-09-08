@@ -572,6 +572,8 @@
   "hardDeleteAction": "מחק הכול מהמחבר הזה",
   "hardDeleteWarning": "מסיר כל רשומה ותמונה של {name} מהמכשיר הזה. מכשירים אחרים שומרים את שלהם. לא ניתן לבטל.",
   "yourKey": "המפתח שלך",
+  "yourTitle": "התואר שלך",
+  "titleNone": "ללא תואר",
   "keyLine": "מפתח {code}",
   "keyVerified": "אומת פנים אל פנים",
   "keyFromFile": "מקובץ, טרם אומת",

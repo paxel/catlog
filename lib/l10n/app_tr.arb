@@ -572,6 +572,8 @@
   "hardDeleteAction": "Bu yazarın her şeyini sil",
   "hardDeleteWarning": "{name} tarafından yazılan her kaydı ve fotoğrafı bu cihazdan kaldırır. Diğer cihazlar kendilerininkini tutar. Geri alınamaz.",
   "yourKey": "Anahtarın",
+  "yourTitle": "Unvanın",
+  "titleNone": "Unvan yok",
   "keyLine": "anahtar {code}",
   "keyVerified": "yüz yüze doğrulandı",
   "keyFromFile": "dosyadan, henüz doğrulanmadı",

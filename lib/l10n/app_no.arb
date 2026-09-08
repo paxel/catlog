@@ -572,6 +572,8 @@
   "hardDeleteAction": "Slett alt fra denne forfatteren",
   "hardDeleteWarning": "Fjerner alle oppføringer og bilder fra {name} på denne enheten. Andre enheter beholder sine. Kan ikke angres.",
   "yourKey": "Din nøkkel",
+  "yourTitle": "Din tittel",
+  "titleNone": "Ingen tittel",
   "keyLine": "nøkkel {code}",
   "keyVerified": "møtt personlig",
   "keyFromFile": "fra en fil, ennå ikke møtt",

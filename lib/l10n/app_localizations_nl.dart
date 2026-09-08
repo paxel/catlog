@@ -1931,6 +1931,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get yourKey => 'Jouw sleutel';
 
   @override
+  String get yourTitle => 'Jouw titel';
+
+  @override
+  String get titleNone => 'Geen titel';
+
+  @override
   String keyLine(Object code) {
     return 'sleutel $code';
   }

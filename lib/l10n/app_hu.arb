@@ -572,6 +572,8 @@
   "hardDeleteAction": "Minden törlése ettől a szerzőtől",
   "hardDeleteWarning": "Eltávolítja {name} minden bejegyzését és fotóját erről az eszközről. A többi eszköz megtartja a magáét. Nem vonható vissza.",
   "yourKey": "A kulcsod",
+  "yourTitle": "A címed",
+  "titleNone": "Nincs cím",
   "keyLine": "kulcs: {code}",
   "keyVerified": "személyesen igazolva",
   "keyFromFile": "fájlból, még nem igazolva",

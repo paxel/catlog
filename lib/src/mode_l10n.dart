@@ -2536,6 +2536,9 @@ class ModeLocalizations implements AppLocalizations {
   String timelineOf(String name) => base.timelineOf(name);
 
   @override
+  String get titleNone => base.titleNone;
+
+  @override
   String titleWithChore(Object title, Object chore) => base.titleWithChore(title, chore);
 
   @override
@@ -2756,5 +2759,8 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get yourName => base.yourName;
+
+  @override
+  String get yourTitle => base.yourTitle;
 
 }

@@ -572,6 +572,8 @@
   "hardDeleteAction": "حذف كل شيء من هذا المؤلف",
   "hardDeleteWarning": "يزيل كل إدخال وصورة من {name} من هذا الجهاز. تحتفظ الأجهزة الأخرى بنسخها. لا يمكن التراجع عن ذلك.",
   "yourKey": "مفتاحك",
+  "yourTitle": "لقبك",
+  "titleNone": "بلا لقب",
   "keyLine": "المفتاح {code}",
   "keyVerified": "تم التحقق شخصيًا",
   "keyFromFile": "من ملف، لم يُتحقق منه بعد",

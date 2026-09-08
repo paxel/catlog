@@ -1926,6 +1926,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get yourKey => 'Din nøgle';
 
   @override
+  String get yourTitle => 'Din titel';
+
+  @override
+  String get titleNone => 'Ingen titel';
+
+  @override
   String keyLine(Object code) {
     return 'nøgle $code';
   }

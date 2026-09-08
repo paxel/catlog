@@ -1926,6 +1926,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get yourKey => 'Anahtarın';
 
   @override
+  String get yourTitle => 'Unvanın';
+
+  @override
+  String get titleNone => 'Unvan yok';
+
+  @override
   String keyLine(Object code) {
     return 'anahtar $code';
   }

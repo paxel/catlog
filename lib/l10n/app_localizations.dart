@@ -3578,6 +3578,18 @@ abstract class AppLocalizations {
   /// **'Your key'**
   String get yourKey;
 
+  /// No description provided for @yourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your title'**
+  String get yourTitle;
+
+  /// No description provided for @titleNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No title'**
+  String get titleNone;
+
   /// No description provided for @keyLine.
   ///
   /// In en, this message translates to:

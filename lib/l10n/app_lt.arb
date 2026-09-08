@@ -572,6 +572,8 @@
   "hardDeleteAction": "Ištrinti viską iš šio autoriaus",
   "hardDeleteWarning": "Pašalina visus {name} įrašus ir nuotraukas iš šio įrenginio. Kiti įrenginiai pasilieka savo. Neatšaukiama.",
   "yourKey": "Jūsų raktas",
+  "yourTitle": "Jūsų titulas",
+  "titleNone": "Be titulo",
   "keyLine": "raktas {code}",
   "keyVerified": "patvirtintas asmeniškai",
   "keyFromFile": "iš failo, dar nepatvirtintas",

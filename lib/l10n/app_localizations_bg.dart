@@ -1928,6 +1928,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get yourKey => 'Вашият ключ';
 
   @override
+  String get yourTitle => 'Вашата титла';
+
+  @override
+  String get titleNone => 'Без титла';
+
+  @override
   String keyLine(Object code) {
     return 'ключ $code';
   }

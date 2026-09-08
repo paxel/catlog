@@ -1925,6 +1925,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get yourKey => 'مفتاحك';
 
   @override
+  String get yourTitle => 'لقبك';
+
+  @override
+  String get titleNone => 'بلا لقب';
+
+  @override
   String keyLine(Object code) {
     return 'المفتاح $code';
   }

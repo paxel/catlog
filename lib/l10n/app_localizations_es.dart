@@ -1933,6 +1933,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get yourKey => 'Tu clave';
 
   @override
+  String get yourTitle => 'Tu título';
+
+  @override
+  String get titleNone => 'Sin título';
+
+  @override
   String keyLine(Object code) {
     return 'clave $code';
   }

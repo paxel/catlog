@@ -572,6 +572,8 @@
   "hardDeleteAction": "Scrios gach rud ón údar seo",
   "hardDeleteWarning": "Baineann sé gach iontráil agus grianghraf le {name} den ghléas seo. Coinníonn gléasanna eile a gcuid. Ní féidir é a chealú.",
   "yourKey": "D’eochair",
+  "yourTitle": "Do theideal",
+  "titleNone": "Gan teideal",
   "keyLine": "eochair {code}",
   "keyVerified": "deimhnithe go pearsanta",
   "keyFromFile": "ó chomhad, gan deimhniú fós",

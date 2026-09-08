@@ -572,6 +572,8 @@
   "hardDeleteAction": "Slet alt fra denne forfatter",
   "hardDeleteWarning": "Fjerner alle poster og fotos fra {name} på denne enhed. Andre enheder beholder deres. Kan ikke fortrydes.",
   "yourKey": "Din nøgle",
+  "yourTitle": "Din titel",
+  "titleNone": "Ingen titel",
   "keyLine": "nøgle {code}",
   "keyVerified": "mødt personligt",
   "keyFromFile": "fra en fil, endnu ikke mødt",

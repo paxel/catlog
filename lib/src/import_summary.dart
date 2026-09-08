@@ -6,6 +6,7 @@ import 'event_toasts.dart';
 import 'field_labels.dart';
 import 'l10n.dart';
 import 'pet_mode.dart';
+import 'titles.dart';
 import 'undo_import.dart';
 import 'widgets/cat_avatar.dart';
 
@@ -364,7 +365,7 @@ class _ArrivalScreenState extends State<ArrivalScreen> {
         if (r.device == device) r.author,
     };
     if (names.isEmpty) return device.substring(0, device.length.clamp(0, 8));
-    return names.join(' · ');
+    return personLabel(context.t, store, names.join(' · '), device);
   }
 
   /// The rows the signatures raised: refused entries, a new key wearing

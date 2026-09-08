@@ -572,6 +572,8 @@
   "hardDeleteAction": "この作成者のすべてを削除",
   "hardDeleteWarning": "{name} のすべての記録と写真をこの端末から削除します。他の端末には残ります。元に戻せません。",
   "yourKey": "あなたの鍵",
+  "yourTitle": "あなたの称号",
+  "titleNone": "称号なし",
   "keyLine": "鍵 {code}",
   "keyVerified": "対面で確認済み",
   "keyFromFile": "ファイル経由、未確認",

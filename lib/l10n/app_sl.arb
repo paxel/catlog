@@ -572,6 +572,8 @@
   "hardDeleteAction": "Izbriši vse od tega avtorja",
   "hardDeleteWarning": "Odstrani vsak vnos in fotografijo od {name} s te naprave. Druge naprave obdržijo svoje. Ni mogoče razveljaviti.",
   "yourKey": "Tvoj ključ",
+  "yourTitle": "Tvoj naziv",
+  "titleNone": "Brez naziva",
   "keyLine": "ključ {code}",
   "keyVerified": "potrjen osebno",
   "keyFromFile": "iz datoteke, še nepotrjen",

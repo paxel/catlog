@@ -850,6 +850,8 @@
   "hardDeleteAction": "Delete everything by this author",
   "hardDeleteWarning": "Removes every entry and photo by {name} from this device. Other devices keep theirs. This cannot be undone.",
   "yourKey": "Your key",
+  "yourTitle": "Your title",
+  "titleNone": "No title",
   "keyLine": "key {code}",
   "@keyLine": {"placeholders": {"code": {}}},
   "keyVerified": "met in person",

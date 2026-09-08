@@ -572,6 +572,8 @@
   "hardDeleteAction": "Borrar todo de este autor",
   "hardDeleteWarning": "Elimina cada entrada y foto de {name} de este dispositivo. Los demás dispositivos conservan las suyas. No se puede deshacer.",
   "yourKey": "Tu clave",
+  "yourTitle": "Tu título",
+  "titleNone": "Sin título",
   "keyLine": "clave {code}",
   "keyVerified": "verificada en persona",
   "keyFromFile": "de un archivo, aún sin verificar",

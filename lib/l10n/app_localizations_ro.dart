@@ -1929,6 +1929,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get yourKey => 'Cheia ta';
 
   @override
+  String get yourTitle => 'Titlul tău';
+
+  @override
+  String get titleNone => 'Fără titlu';
+
+  @override
   String keyLine(Object code) {
     return 'cheia $code';
   }

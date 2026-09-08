@@ -1880,6 +1880,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get yourKey => '你的密钥';
 
   @override
+  String get yourTitle => '你的头衔';
+
+  @override
+  String get titleNone => '无头衔';
+
+  @override
   String keyLine(Object code) {
     return '密钥 $code';
   }

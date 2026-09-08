@@ -1927,6 +1927,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get yourKey => 'A kulcsod';
 
   @override
+  String get yourTitle => 'A címed';
+
+  @override
+  String get titleNone => 'Nincs cím';
+
+  @override
   String keyLine(Object code) {
     return 'kulcs: $code';
   }

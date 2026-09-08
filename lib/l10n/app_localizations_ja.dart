@@ -1897,6 +1897,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get yourKey => 'あなたの鍵';
 
   @override
+  String get yourTitle => 'あなたの称号';
+
+  @override
+  String get titleNone => '称号なし';
+
+  @override
   String keyLine(Object code) {
     return '鍵 $code';
   }

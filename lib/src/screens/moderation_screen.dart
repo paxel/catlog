@@ -2,6 +2,7 @@ import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n.dart';
+import '../titles.dart';
 
 /// Moderation (ADR-0006): per-author hard delete behind one plain
 /// confirmation, and the local ban list. Everything here acts on THIS device only —
@@ -115,7 +116,7 @@ class _ModerationScreenState extends State<ModerationScreen> {
                     row.device == store.deviceId
                 ? Icons.verified_user_outlined
                 : Icons.person_outline),
-            title: Text(row.author),
+            title: Text(personLabel(t, store, row.author, row.device)),
             subtitle: Text(
                 '${row.count} · ${t.keyLine(_code(row.device))} · ${_trust(row.device)}'),
             trailing: row.author == store.author
