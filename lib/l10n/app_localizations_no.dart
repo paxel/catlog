@@ -175,6 +175,15 @@ class AppLocalizationsNo extends AppLocalizations {
   String get shareAsImage => 'Del som bilde';
 
   @override
+  String get sortOldestFirst => 'Eldste først';
+
+  @override
+  String get sortNewestFirst => 'Nyeste først';
+
+  @override
+  String get shareAsText => 'Del som tekst';
+
+  @override
   String get shareAsPdf => 'Del som PDF';
 
   @override

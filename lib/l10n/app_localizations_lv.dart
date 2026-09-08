@@ -175,6 +175,15 @@ class AppLocalizationsLv extends AppLocalizations {
   String get shareAsImage => 'Kopīgot kā attēlu';
 
   @override
+  String get sortOldestFirst => 'Vecākie vispirms';
+
+  @override
+  String get sortNewestFirst => 'Jaunākie vispirms';
+
+  @override
+  String get shareAsText => 'Kopīgot kā tekstu';
+
+  @override
   String get shareAsPdf => 'Kopīgot kā PDF';
 
   @override

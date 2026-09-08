@@ -174,6 +174,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get shareAsImage => 'Sdílet jako obrázek';
 
   @override
+  String get sortOldestFirst => 'Nejstarší první';
+
+  @override
+  String get sortNewestFirst => 'Nejnovější první';
+
+  @override
+  String get shareAsText => 'Sdílet jako text';
+
+  @override
   String get shareAsPdf => 'Sdílet jako PDF';
 
   @override

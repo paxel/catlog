@@ -2122,6 +2122,9 @@ class ModeLocalizations implements AppLocalizations {
   String get shareAsPdf => base.shareAsPdf;
 
   @override
+  String get shareAsText => base.shareAsText;
+
+  @override
   String get shareBundle => base.shareBundle;
 
   @override
@@ -2168,6 +2171,12 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get sortLabel => base.sortLabel;
+
+  @override
+  String get sortNewestFirst => base.sortNewestFirst;
+
+  @override
+  String get sortOldestFirst => base.sortOldestFirst;
 
   @override
   String get sourceCode => base.sourceCode;

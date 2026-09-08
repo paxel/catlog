@@ -174,6 +174,15 @@ class AppLocalizationsMt extends AppLocalizations {
   String get shareAsImage => 'Aqsam bħala immaġni';
 
   @override
+  String get sortOldestFirst => 'L-eqdem l-ewwel';
+
+  @override
+  String get sortNewestFirst => 'L-aktar ġdid l-ewwel';
+
+  @override
+  String get shareAsText => 'Aqsam bħala test';
+
+  @override
   String get shareAsPdf => 'Aqsam bħala PDF';
 
   @override

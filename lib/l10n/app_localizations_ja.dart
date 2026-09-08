@@ -173,6 +173,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get shareAsImage => '画像として共有';
 
   @override
+  String get sortOldestFirst => '古い順';
+
+  @override
+  String get sortNewestFirst => '新しい順';
+
+  @override
+  String get shareAsText => 'テキストとして共有';
+
+  @override
   String get shareAsPdf => 'PDF として共有';
 
   @override

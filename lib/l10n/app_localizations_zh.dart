@@ -172,6 +172,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get shareAsImage => '以图片分享';
 
   @override
+  String get sortOldestFirst => '最早的在前';
+
+  @override
+  String get sortNewestFirst => '最新的在前';
+
+  @override
+  String get shareAsText => '以文本分享';
+
+  @override
   String get shareAsPdf => '以 PDF 分享';
 
   @override

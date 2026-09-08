@@ -175,6 +175,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shareAsImage => 'Share as image';
 
   @override
+  String get sortOldestFirst => 'Oldest first';
+
+  @override
+  String get sortNewestFirst => 'Newest first';
+
+  @override
+  String get shareAsText => 'Share as text';
+
+  @override
   String get shareAsPdf => 'Share as PDF';
 
   @override

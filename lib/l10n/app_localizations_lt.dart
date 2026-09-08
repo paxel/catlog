@@ -174,6 +174,15 @@ class AppLocalizationsLt extends AppLocalizations {
   String get shareAsImage => 'Bendrinti kaip paveikslėlį';
 
   @override
+  String get sortOldestFirst => 'Seniausi pirmiausia';
+
+  @override
+  String get sortNewestFirst => 'Naujausi pirmiausia';
+
+  @override
+  String get shareAsText => 'Bendrinti kaip tekstą';
+
+  @override
   String get shareAsPdf => 'Bendrinti kaip PDF';
 
   @override

@@ -476,6 +476,24 @@ abstract class AppLocalizations {
   /// **'Share as image'**
   String get shareAsImage;
 
+  /// No description provided for @sortOldestFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest first'**
+  String get sortOldestFirst;
+
+  /// No description provided for @sortNewestFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Newest first'**
+  String get sortNewestFirst;
+
+  /// No description provided for @shareAsText.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as text'**
+  String get shareAsText;
+
   /// No description provided for @shareAsPdf.
   ///
   /// In en, this message translates to:

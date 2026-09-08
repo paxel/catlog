@@ -175,6 +175,15 @@ class AppLocalizationsMk extends AppLocalizations {
   String get shareAsImage => 'Сподели како слика';
 
   @override
+  String get sortOldestFirst => 'Најстарите прво';
+
+  @override
+  String get sortNewestFirst => 'Најновите прво';
+
+  @override
+  String get shareAsText => 'Сподели како текст';
+
+  @override
   String get shareAsPdf => 'Сподели како PDF';
 
   @override

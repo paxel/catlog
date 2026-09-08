@@ -174,6 +174,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get shareAsImage => 'Megosztás képként';
 
   @override
+  String get sortOldestFirst => 'Legrégebbi elöl';
+
+  @override
+  String get sortNewestFirst => 'Legújabb elöl';
+
+  @override
+  String get shareAsText => 'Megosztás szövegként';
+
+  @override
   String get shareAsPdf => 'Megosztás PDF-ként';
 
   @override

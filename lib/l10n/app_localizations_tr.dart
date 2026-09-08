@@ -174,6 +174,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get shareAsImage => 'Görsel olarak paylaş';
 
   @override
+  String get sortOldestFirst => 'Önce en eski';
+
+  @override
+  String get sortNewestFirst => 'Önce en yeni';
+
+  @override
+  String get shareAsText => 'Metin olarak paylaş';
+
+  @override
   String get shareAsPdf => 'PDF olarak paylaş';
 
   @override

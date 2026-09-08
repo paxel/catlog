@@ -174,6 +174,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get shareAsImage => 'שיתוף כתמונה';
 
   @override
+  String get sortOldestFirst => 'הישן קודם';
+
+  @override
+  String get sortNewestFirst => 'החדש קודם';
+
+  @override
+  String get shareAsText => 'שיתוף כטקסט';
+
+  @override
   String get shareAsPdf => 'שיתוף כ-PDF';
 
   @override

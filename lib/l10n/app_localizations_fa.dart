@@ -174,6 +174,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get shareAsImage => 'اشتراک‌گذاری به‌صورت تصویر';
 
   @override
+  String get sortOldestFirst => 'قدیمی‌ترین اول';
+
+  @override
+  String get sortNewestFirst => 'جدیدترین اول';
+
+  @override
+  String get shareAsText => 'هم‌رسانی به‌صورت متن';
+
+  @override
   String get shareAsPdf => 'اشتراک‌گذاری به‌صورت PDF';
 
   @override

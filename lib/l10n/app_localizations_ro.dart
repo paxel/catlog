@@ -174,6 +174,15 @@ class AppLocalizationsRo extends AppLocalizations {
   String get shareAsImage => 'Distribuie ca imagine';
 
   @override
+  String get sortOldestFirst => 'Cel mai vechi primul';
+
+  @override
+  String get sortNewestFirst => 'Cel mai nou primul';
+
+  @override
+  String get shareAsText => 'Trimite ca text';
+
+  @override
   String get shareAsPdf => 'Distribuie ca PDF';
 
   @override

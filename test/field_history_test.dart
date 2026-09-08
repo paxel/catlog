@@ -115,4 +115,40 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Revert this change'), findsOneWidget);
   });
+
+  testWidgets('the history flips to oldest first and shares as text', (
+    tester,
+  ) async {
+    store.append(cat, 'f:remarks', 'Sneezing', date: DateTime(2026, 5, 1));
+    store.append(cat, 'f:remarks', 'Vet: fine', date: DateTime(2026, 6, 1));
+    final remarks = store.fieldDefs().firstWhere((d) => d.slug == 'remarks');
+    await pump(
+      tester,
+      FieldHistoryScreen(store: store, entityId: cat, def: remarks),
+    );
+    List<String> order() => [
+      for (final w in tester.widgetList<Text>(find.byType(Text)))
+        if (w.data == 'Sneezing' || w.data == 'Vet: fine') w.data!,
+    ];
+    expect(order(), ['Vet: fine', 'Sneezing']);
+    await tester.tap(find.byTooltip('Oldest first'));
+    await tester.pumpAndSettle();
+    expect(order(), ['Sneezing', 'Vet: fine']);
+    expect(store.localSetting('historyOldestFirst'), 'yes');
+    expect(find.byTooltip('Newest first'), findsOneWidget);
+    expect(find.byTooltip('Share as text'), findsOneWidget);
+    // The text follows the order on screen.
+    final t = lookupAppLocalizations(const Locale('en'));
+    final text = historyAsText(
+      t,
+      store,
+      cat,
+      remarks,
+      valueHistory(store, cat, 'f:remarks').reversed.toList(),
+      'en',
+    );
+    expect(text.split('\n').first, 'Miezi · Remarks');
+    expect(text, contains('Sneezing · anna'));
+    expect(text.indexOf('Sneezing'), lessThan(text.indexOf('Vet: fine')));
+  });
 }

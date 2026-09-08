@@ -174,6 +174,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get shareAsImage => 'Zdieľať ako obrázok';
 
   @override
+  String get sortOldestFirst => 'Najstaršie prvé';
+
+  @override
+  String get sortNewestFirst => 'Najnovšie prvé';
+
+  @override
+  String get shareAsText => 'Zdieľať ako text';
+
+  @override
   String get shareAsPdf => 'Zdieľať ako PDF';
 
   @override

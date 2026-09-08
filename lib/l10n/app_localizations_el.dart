@@ -175,6 +175,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get shareAsImage => 'Κοινοποίηση ως εικόνα';
 
   @override
+  String get sortOldestFirst => 'Παλαιότερα πρώτα';
+
+  @override
+  String get sortNewestFirst => 'Νεότερα πρώτα';
+
+  @override
+  String get shareAsText => 'Κοινοποίηση ως κείμενο';
+
+  @override
   String get shareAsPdf => 'Κοινοποίηση ως PDF';
 
   @override

@@ -175,6 +175,15 @@ class AppLocalizationsBg extends AppLocalizations {
   String get shareAsImage => 'Сподели като изображение';
 
   @override
+  String get sortOldestFirst => 'Най-старите първо';
+
+  @override
+  String get sortNewestFirst => 'Най-новите първо';
+
+  @override
+  String get shareAsText => 'Споделяне като текст';
+
+  @override
   String get shareAsPdf => 'Сподели като PDF';
 
   @override

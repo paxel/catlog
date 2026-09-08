@@ -174,6 +174,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get shareAsImage => 'Partilhar como imagem';
 
   @override
+  String get sortOldestFirst => 'Mais antigo primeiro';
+
+  @override
+  String get sortNewestFirst => 'Mais recente primeiro';
+
+  @override
+  String get shareAsText => 'Partilhar como texto';
+
+  @override
   String get shareAsPdf => 'Partilhar como PDF';
 
   @override

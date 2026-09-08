@@ -174,6 +174,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get shareAsImage => 'Roinn mar íomhá';
 
   @override
+  String get sortOldestFirst => 'Is sine ar dtús';
+
+  @override
+  String get sortNewestFirst => 'Is nuaí ar dtús';
+
+  @override
+  String get shareAsText => 'Roinn mar théacs';
+
+  @override
   String get shareAsPdf => 'Roinn mar PDF';
 
   @override

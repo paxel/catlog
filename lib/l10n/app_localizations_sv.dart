@@ -175,6 +175,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get shareAsImage => 'Dela som bild';
 
   @override
+  String get sortOldestFirst => 'Äldst först';
+
+  @override
+  String get sortNewestFirst => 'Nyast först';
+
+  @override
+  String get shareAsText => 'Dela som text';
+
+  @override
   String get shareAsPdf => 'Dela som PDF';
 
   @override

@@ -175,6 +175,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get shareAsImage => 'Поделиться как изображением';
 
   @override
+  String get sortOldestFirst => 'Сначала старые';
+
+  @override
+  String get sortNewestFirst => 'Сначала новые';
+
+  @override
+  String get shareAsText => 'Поделиться текстом';
+
+  @override
   String get shareAsPdf => 'Поделиться как PDF';
 
   @override

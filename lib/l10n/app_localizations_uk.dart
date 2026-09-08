@@ -175,6 +175,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get shareAsImage => 'Поділитися як зображенням';
 
   @override
+  String get sortOldestFirst => 'Спочатку старі';
+
+  @override
+  String get sortNewestFirst => 'Спочатку нові';
+
+  @override
+  String get shareAsText => 'Поділитися текстом';
+
+  @override
   String get shareAsPdf => 'Поділитися як PDF';
 
   @override

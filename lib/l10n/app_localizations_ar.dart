@@ -174,6 +174,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get shareAsImage => 'مشاركة كصورة';
 
   @override
+  String get sortOldestFirst => 'الأقدم أولًا';
+
+  @override
+  String get sortNewestFirst => 'الأحدث أولًا';
+
+  @override
+  String get shareAsText => 'مشاركة كنص';
+
+  @override
   String get shareAsPdf => 'مشاركة كملف PDF';
 
   @override

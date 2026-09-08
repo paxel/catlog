@@ -174,6 +174,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get shareAsImage => 'Jaga pildina';
 
   @override
+  String get sortOldestFirst => 'Vanim ees';
+
+  @override
+  String get sortNewestFirst => 'Uusim ees';
+
+  @override
+  String get shareAsText => 'Jaga tekstina';
+
+  @override
   String get shareAsPdf => 'Jaga PDF-ina';
 
   @override

@@ -174,6 +174,15 @@ class AppLocalizationsSq extends AppLocalizations {
   String get shareAsImage => 'Ndaj si imazh';
 
   @override
+  String get sortOldestFirst => 'Më të vjetrat së pari';
+
+  @override
+  String get sortNewestFirst => 'Më të rejat së pari';
+
+  @override
+  String get shareAsText => 'Ndaj si tekst';
+
+  @override
   String get shareAsPdf => 'Ndaj si PDF';
 
   @override

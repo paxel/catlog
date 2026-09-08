@@ -174,6 +174,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get shareAsImage => 'Jaa kuvana';
 
   @override
+  String get sortOldestFirst => 'Vanhin ensin';
+
+  @override
+  String get sortNewestFirst => 'Uusin ensin';
+
+  @override
+  String get shareAsText => 'Jaa tekstinä';
+
+  @override
   String get shareAsPdf => 'Jaa PDF:nä';
 
   @override
