@@ -1683,6 +1683,78 @@ class AppLocalizationsJa extends AppLocalizations {
   String get looksValueSable => 'セーブル';
 
   @override
+  String get looksGroupEyes => '目';
+
+  @override
+  String get looksGroupFeatures => '特徴';
+
+  @override
+  String get looksValueAmber => 'アンバー';
+
+  @override
+  String get looksValueCopper => 'カッパー';
+
+  @override
+  String get looksValueOddEyed => 'オッドアイ';
+
+  @override
+  String get looksValueChocolate => 'チョコレート';
+
+  @override
+  String get looksValueLilac => 'ライラック';
+
+  @override
+  String get looksValueSilver => 'シルバー';
+
+  @override
+  String get looksValueSmoke => 'スモーク';
+
+  @override
+  String get looksValueTicked => 'ティックド';
+
+  @override
+  String get looksValueVan => 'バン';
+
+  @override
+  String get looksValueCurly => 'カーリー';
+
+  @override
+  String get looksValueWiry => 'ワイヤー';
+
+  @override
+  String get looksValueKinked => '折れ尾';
+
+  @override
+  String get looksValueCropped => '断耳';
+
+  @override
+  String get looksValueTippedEar => '耳先カット';
+
+  @override
+  String get looksValueEarTattoo => '耳の入れ墨';
+
+  @override
+  String get looksValueMissingEar => '片耳欠損';
+
+  @override
+  String get looksValueMissingEye => '片目欠損';
+
+  @override
+  String get looksValueCloudyEye => '白濁した目';
+
+  @override
+  String get looksValueMissingFrontLeg => '前脚欠損';
+
+  @override
+  String get looksValueMissingHindLeg => '後脚欠損';
+
+  @override
+  String get looksValueNoTeeth => '歯なし';
+
+  @override
+  String get looksValueExtraToes => '多指';
+
+  @override
   String get rejectMatch => '同じではない';
 
   @override

@@ -1708,6 +1708,78 @@ class AppLocalizationsPl extends AppLocalizations {
   String get looksValueSable => 'Sobolowy';
 
   @override
+  String get looksGroupEyes => 'Oczy';
+
+  @override
+  String get looksGroupFeatures => 'Cechy szczególne';
+
+  @override
+  String get looksValueAmber => 'Bursztynowe';
+
+  @override
+  String get looksValueCopper => 'Miedziane';
+
+  @override
+  String get looksValueOddEyed => 'Różnobarwne';
+
+  @override
+  String get looksValueChocolate => 'Czekoladowy';
+
+  @override
+  String get looksValueLilac => 'Liliowy';
+
+  @override
+  String get looksValueSilver => 'Srebrny';
+
+  @override
+  String get looksValueSmoke => 'Dymny';
+
+  @override
+  String get looksValueTicked => 'Tykowany';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kręcona';
+
+  @override
+  String get looksValueWiry => 'Szorstka';
+
+  @override
+  String get looksValueKinked => 'Załamany';
+
+  @override
+  String get looksValueCropped => 'Kopiowane';
+
+  @override
+  String get looksValueTippedEar => 'Przycięte ucho';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaż w uchu';
+
+  @override
+  String get looksValueMissingEar => 'Brak ucha';
+
+  @override
+  String get looksValueMissingEye => 'Brak oka';
+
+  @override
+  String get looksValueCloudyEye => 'Zmętniałe oko';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Brak przedniej łapy';
+
+  @override
+  String get looksValueMissingHindLeg => 'Brak tylnej łapy';
+
+  @override
+  String get looksValueNoTeeth => 'Brak zębów';
+
+  @override
+  String get looksValueExtraToes => 'Dodatkowe palce';
+
+  @override
   String get rejectMatch => 'To nie ten sam';
 
   @override

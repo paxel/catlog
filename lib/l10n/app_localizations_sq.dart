@@ -1708,6 +1708,78 @@ class AppLocalizationsSq extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Sytë';
+
+  @override
+  String get looksGroupFeatures => 'Veçori';
+
+  @override
+  String get looksValueAmber => 'Qelibar';
+
+  @override
+  String get looksValueCopper => 'Bakër';
+
+  @override
+  String get looksValueOddEyed => 'Ngjyra të ndryshme';
+
+  @override
+  String get looksValueChocolate => 'Çokollatë';
+
+  @override
+  String get looksValueLilac => 'Jargavan';
+
+  @override
+  String get looksValueSilver => 'Argjend';
+
+  @override
+  String get looksValueSmoke => 'Tym';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kaçurrel';
+
+  @override
+  String get looksValueWiry => 'E ashpër';
+
+  @override
+  String get looksValueKinked => 'E thyer';
+
+  @override
+  String get looksValueCropped => 'Të prera';
+
+  @override
+  String get looksValueTippedEar => 'Vesh i prerë';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuazh në vesh';
+
+  @override
+  String get looksValueMissingEar => 'Mungon veshi';
+
+  @override
+  String get looksValueMissingEye => 'Mungon syri';
+
+  @override
+  String get looksValueCloudyEye => 'Sy i turbullt';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Mungon këmba e përparme';
+
+  @override
+  String get looksValueMissingHindLeg => 'Mungon këmba e pasme';
+
+  @override
+  String get looksValueNoTeeth => 'Pa dhëmbë';
+
+  @override
+  String get looksValueExtraToes => 'Gishta shtesë';
+
+  @override
   String get rejectMatch => 'Jo i njëjti';
 
   @override

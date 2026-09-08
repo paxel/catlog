@@ -1717,6 +1717,78 @@ class AppLocalizationsEl extends AppLocalizations {
   String get looksValueSable => 'Σαμπλ';
 
   @override
+  String get looksGroupEyes => 'Μάτια';
+
+  @override
+  String get looksGroupFeatures => 'Ιδιαιτερότητες';
+
+  @override
+  String get looksValueAmber => 'Κεχριμπάρι';
+
+  @override
+  String get looksValueCopper => 'Χάλκινα';
+
+  @override
+  String get looksValueOddEyed => 'Ετερόχρωμα';
+
+  @override
+  String get looksValueChocolate => 'Σοκολατί';
+
+  @override
+  String get looksValueLilac => 'Λιλά';
+
+  @override
+  String get looksValueSilver => 'Ασημί';
+
+  @override
+  String get looksValueSmoke => 'Καπνί';
+
+  @override
+  String get looksValueTicked => 'Τικ';
+
+  @override
+  String get looksValueVan => 'Βαν';
+
+  @override
+  String get looksValueCurly => 'Σγουρό';
+
+  @override
+  String get looksValueWiry => 'Σκληρό';
+
+  @override
+  String get looksValueKinked => 'Στραβή';
+
+  @override
+  String get looksValueCropped => 'Κομμένα';
+
+  @override
+  String get looksValueTippedEar => 'Κομμένη άκρη αυτιού';
+
+  @override
+  String get looksValueEarTattoo => 'Τατουάζ στο αυτί';
+
+  @override
+  String get looksValueMissingEar => 'Λείπει αυτί';
+
+  @override
+  String get looksValueMissingEye => 'Λείπει μάτι';
+
+  @override
+  String get looksValueCloudyEye => 'Θολό μάτι';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Λείπει μπροστινό πόδι';
+
+  @override
+  String get looksValueMissingHindLeg => 'Λείπει πίσω πόδι';
+
+  @override
+  String get looksValueNoTeeth => 'Χωρίς δόντια';
+
+  @override
+  String get looksValueExtraToes => 'Επιπλέον δάχτυλα';
+
+  @override
   String get rejectMatch => 'Δεν είναι το ίδιο';
 
   @override

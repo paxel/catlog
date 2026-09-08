@@ -1710,6 +1710,78 @@ class AppLocalizationsRo extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Ochi';
+
+  @override
+  String get looksGroupFeatures => 'Particularități';
+
+  @override
+  String get looksValueAmber => 'Chihlimbar';
+
+  @override
+  String get looksValueCopper => 'Aramiu';
+
+  @override
+  String get looksValueOddEyed => 'Culori diferite';
+
+  @override
+  String get looksValueChocolate => 'Ciocolatiu';
+
+  @override
+  String get looksValueLilac => 'Liliachiu';
+
+  @override
+  String get looksValueSilver => 'Argintiu';
+
+  @override
+  String get looksValueSmoke => 'Fumuriu';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Creț';
+
+  @override
+  String get looksValueWiry => 'Sârmos';
+
+  @override
+  String get looksValueKinked => 'Îndoită';
+
+  @override
+  String get looksValueCropped => 'Tăiate';
+
+  @override
+  String get looksValueTippedEar => 'Ureche tăiată';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaj în ureche';
+
+  @override
+  String get looksValueMissingEar => 'Ureche lipsă';
+
+  @override
+  String get looksValueMissingEye => 'Ochi lipsă';
+
+  @override
+  String get looksValueCloudyEye => 'Ochi tulbure';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Picior din față lipsă';
+
+  @override
+  String get looksValueMissingHindLeg => 'Picior din spate lipsă';
+
+  @override
+  String get looksValueNoTeeth => 'Fără dinți';
+
+  @override
+  String get looksValueExtraToes => 'Degete în plus';
+
+  @override
   String get rejectMatch => 'Nu e același';
 
   @override

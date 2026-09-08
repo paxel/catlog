@@ -1712,6 +1712,78 @@ class AppLocalizationsNl extends AppLocalizations {
   String get looksValueSable => 'Sabel';
 
   @override
+  String get looksGroupEyes => 'Ogen';
+
+  @override
+  String get looksGroupFeatures => 'Kenmerken';
+
+  @override
+  String get looksValueAmber => 'Amber';
+
+  @override
+  String get looksValueCopper => 'Koper';
+
+  @override
+  String get looksValueOddEyed => 'Odd-eyed';
+
+  @override
+  String get looksValueChocolate => 'Chocolade';
+
+  @override
+  String get looksValueLilac => 'Lilac';
+
+  @override
+  String get looksValueSilver => 'Zilver';
+
+  @override
+  String get looksValueSmoke => 'Smoke';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Krullend';
+
+  @override
+  String get looksValueWiry => 'Ruwharig';
+
+  @override
+  String get looksValueKinked => 'Geknikt';
+
+  @override
+  String get looksValueCropped => 'Gecoupeerd';
+
+  @override
+  String get looksValueTippedEar => 'Getipt oor';
+
+  @override
+  String get looksValueEarTattoo => 'Oortatoeage';
+
+  @override
+  String get looksValueMissingEar => 'Ontbrekend oor';
+
+  @override
+  String get looksValueMissingEye => 'Ontbrekend oog';
+
+  @override
+  String get looksValueCloudyEye => 'Troebel oog';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Ontbrekende voorpoot';
+
+  @override
+  String get looksValueMissingHindLeg => 'Ontbrekende achterpoot';
+
+  @override
+  String get looksValueNoTeeth => 'Geen tanden';
+
+  @override
+  String get looksValueExtraToes => 'Extra tenen';
+
+  @override
   String get rejectMatch => 'Niet dezelfde';
 
   @override

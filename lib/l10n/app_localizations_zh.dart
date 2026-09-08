@@ -1666,6 +1666,78 @@ class AppLocalizationsZh extends AppLocalizations {
   String get looksValueSable => '貂色';
 
   @override
+  String get looksGroupEyes => '眼睛';
+
+  @override
+  String get looksGroupFeatures => '特征';
+
+  @override
+  String get looksValueAmber => '琥珀色';
+
+  @override
+  String get looksValueCopper => '铜色';
+
+  @override
+  String get looksValueOddEyed => '异色瞳';
+
+  @override
+  String get looksValueChocolate => '巧克力色';
+
+  @override
+  String get looksValueLilac => '淡紫色';
+
+  @override
+  String get looksValueSilver => '银色';
+
+  @override
+  String get looksValueSmoke => '烟色';
+
+  @override
+  String get looksValueTicked => '多层色';
+
+  @override
+  String get looksValueVan => '梵色';
+
+  @override
+  String get looksValueCurly => '卷毛';
+
+  @override
+  String get looksValueWiry => '硬毛';
+
+  @override
+  String get looksValueKinked => '折尾';
+
+  @override
+  String get looksValueCropped => '剪耳';
+
+  @override
+  String get looksValueTippedEar => '耳尖剪';
+
+  @override
+  String get looksValueEarTattoo => '耳纹身';
+
+  @override
+  String get looksValueMissingEar => '缺耳';
+
+  @override
+  String get looksValueMissingEye => '缺眼';
+
+  @override
+  String get looksValueCloudyEye => '浑浊眼';
+
+  @override
+  String get looksValueMissingFrontLeg => '缺前腿';
+
+  @override
+  String get looksValueMissingHindLeg => '缺后腿';
+
+  @override
+  String get looksValueNoTeeth => '无牙';
+
+  @override
+  String get looksValueExtraToes => '多趾';
+
+  @override
   String get rejectMatch => '不是同一只';
 
   @override

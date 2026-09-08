@@ -1712,6 +1712,78 @@ class AppLocalizationsMt extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Għajnejn';
+
+  @override
+  String get looksGroupFeatures => 'Karatteristiċi';
+
+  @override
+  String get looksValueAmber => 'Ambra';
+
+  @override
+  String get looksValueCopper => 'Ram';
+
+  @override
+  String get looksValueOddEyed => 'Kuluri differenti';
+
+  @override
+  String get looksValueChocolate => 'Ċikkulata';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Fidda';
+
+  @override
+  String get looksValueSmoke => 'Duħħan';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Mgħawweġ';
+
+  @override
+  String get looksValueWiry => 'Aħrax';
+
+  @override
+  String get looksValueKinked => 'Milwija';
+
+  @override
+  String get looksValueCropped => 'Maqtugħin';
+
+  @override
+  String get looksValueTippedEar => 'Widna maqtugħa';
+
+  @override
+  String get looksValueEarTattoo => 'Tatwaġġ fil-widna';
+
+  @override
+  String get looksValueMissingEar => 'Nieqsa widna';
+
+  @override
+  String get looksValueMissingEye => 'Nieqsa għajn';
+
+  @override
+  String get looksValueCloudyEye => 'Għajn imċajpra';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Nieqsa sieq ta’ quddiem';
+
+  @override
+  String get looksValueMissingHindLeg => 'Nieqsa sieq ta’ wara';
+
+  @override
+  String get looksValueNoTeeth => 'Bla snien';
+
+  @override
+  String get looksValueExtraToes => 'Swaba’ żejda';
+
+  @override
   String get rejectMatch => 'Mhux l-istess';
 
   @override

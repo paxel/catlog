@@ -1216,6 +1216,12 @@ class ModeLocalizations implements AppLocalizations {
   String get looksGroupEars => base.looksGroupEars;
 
   @override
+  String get looksGroupEyes => base.looksGroupEyes;
+
+  @override
+  String get looksGroupFeatures => base.looksGroupFeatures;
+
+  @override
   String get looksGroupFur => base.looksGroupFur;
 
   @override
@@ -1232,6 +1238,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get looksGroupTail => base.looksGroupTail;
+
+  @override
+  String get looksValueAmber => base.looksValueAmber;
 
   @override
   String get looksValueBicolour => base.looksValueBicolour;
@@ -1258,19 +1267,40 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueCalico => base.looksValueCalico;
 
   @override
+  String get looksValueChocolate => base.looksValueChocolate;
+
+  @override
+  String get looksValueCloudyEye => base.looksValueCloudyEye;
+
+  @override
   String get looksValueCollar => base.looksValueCollar;
 
   @override
   String get looksValueColourpoint => base.looksValueColourpoint;
 
   @override
+  String get looksValueCopper => base.looksValueCopper;
+
+  @override
   String get looksValueCream => base.looksValueCream;
+
+  @override
+  String get looksValueCropped => base.looksValueCropped;
 
   @override
   String get looksValueCurled => base.looksValueCurled;
 
   @override
+  String get looksValueCurly => base.looksValueCurly;
+
+  @override
+  String get looksValueEarTattoo => base.looksValueEarTattoo;
+
+  @override
   String get looksValueEarTip => base.looksValueEarTip;
+
+  @override
+  String get looksValueExtraToes => base.looksValueExtraToes;
 
   @override
   String get looksValueFloppy => base.looksValueFloppy;
@@ -1294,7 +1324,13 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueHairless => base.looksValueHairless;
 
   @override
+  String get looksValueKinked => base.looksValueKinked;
+
+  @override
   String get looksValueLarge => base.looksValueLarge;
+
+  @override
+  String get looksValueLilac => base.looksValueLilac;
 
   @override
   String get looksValueLong => base.looksValueLong;
@@ -1309,10 +1345,28 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueMerle => base.looksValueMerle;
 
   @override
+  String get looksValueMissingEar => base.looksValueMissingEar;
+
+  @override
+  String get looksValueMissingEye => base.looksValueMissingEye;
+
+  @override
+  String get looksValueMissingFrontLeg => base.looksValueMissingFrontLeg;
+
+  @override
+  String get looksValueMissingHindLeg => base.looksValueMissingHindLeg;
+
+  @override
+  String get looksValueNoTeeth => base.looksValueNoTeeth;
+
+  @override
   String get looksValueNone => base.looksValueNone;
 
   @override
   String get looksValueNotchedEar => base.looksValueNotchedEar;
+
+  @override
+  String get looksValueOddEyed => base.looksValueOddEyed;
 
   @override
   String get looksValueOrange => base.looksValueOrange;
@@ -1342,7 +1396,13 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueShort => base.looksValueShort;
 
   @override
+  String get looksValueSilver => base.looksValueSilver;
+
+  @override
   String get looksValueSmall => base.looksValueSmall;
+
+  @override
+  String get looksValueSmoke => base.looksValueSmoke;
 
   @override
   String get looksValueSolid => base.looksValueSolid;
@@ -1363,6 +1423,12 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueTan => base.looksValueTan;
 
   @override
+  String get looksValueTicked => base.looksValueTicked;
+
+  @override
+  String get looksValueTippedEar => base.looksValueTippedEar;
+
+  @override
   String get looksValueTortoiseshell => base.looksValueTortoiseshell;
 
   @override
@@ -1375,6 +1441,9 @@ class ModeLocalizations implements AppLocalizations {
   String get looksValueUpright => base.looksValueUpright;
 
   @override
+  String get looksValueVan => base.looksValueVan;
+
+  @override
   String get looksValueWhite => base.looksValueWhite;
 
   @override
@@ -1385,6 +1454,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get looksValueWhiteTailTip => base.looksValueWhiteTailTip;
+
+  @override
+  String get looksValueWiry => base.looksValueWiry;
 
   @override
   String get looksValueYellow => base.looksValueYellow;

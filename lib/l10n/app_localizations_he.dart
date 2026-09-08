@@ -1701,6 +1701,78 @@ class AppLocalizationsHe extends AppLocalizations {
   String get looksValueSable => 'סייבל';
 
   @override
+  String get looksGroupEyes => 'עיניים';
+
+  @override
+  String get looksGroupFeatures => 'מאפיינים';
+
+  @override
+  String get looksValueAmber => 'ענבר';
+
+  @override
+  String get looksValueCopper => 'נחושת';
+
+  @override
+  String get looksValueOddEyed => 'עיניים בצבעים שונים';
+
+  @override
+  String get looksValueChocolate => 'שוקולד';
+
+  @override
+  String get looksValueLilac => 'לילך';
+
+  @override
+  String get looksValueSilver => 'כסוף';
+
+  @override
+  String get looksValueSmoke => 'עשן';
+
+  @override
+  String get looksValueTicked => 'טיקד';
+
+  @override
+  String get looksValueVan => 'ואן';
+
+  @override
+  String get looksValueCurly => 'מתולתל';
+
+  @override
+  String get looksValueWiry => 'קשיח';
+
+  @override
+  String get looksValueKinked => 'כפוף';
+
+  @override
+  String get looksValueCropped => 'קצוצות';
+
+  @override
+  String get looksValueTippedEar => 'קצה אוזן חתוך';
+
+  @override
+  String get looksValueEarTattoo => 'קעקוע באוזן';
+
+  @override
+  String get looksValueMissingEar => 'אוזן חסרה';
+
+  @override
+  String get looksValueMissingEye => 'עין חסרה';
+
+  @override
+  String get looksValueCloudyEye => 'עין עכורה';
+
+  @override
+  String get looksValueMissingFrontLeg => 'רגל קדמית חסרה';
+
+  @override
+  String get looksValueMissingHindLeg => 'רגל אחורית חסרה';
+
+  @override
+  String get looksValueNoTeeth => 'ללא שיניים';
+
+  @override
+  String get looksValueExtraToes => 'אצבעות נוספות';
+
+  @override
   String get rejectMatch => 'לא אותו אחד';
 
   @override

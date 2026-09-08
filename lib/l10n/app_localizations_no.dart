@@ -1706,6 +1706,78 @@ class AppLocalizationsNo extends AppLocalizations {
   String get looksValueSable => 'Sobel';
 
   @override
+  String get looksGroupEyes => 'Øyne';
+
+  @override
+  String get looksGroupFeatures => 'Særtrekk';
+
+  @override
+  String get looksValueAmber => 'Rav';
+
+  @override
+  String get looksValueCopper => 'Kobber';
+
+  @override
+  String get looksValueOddEyed => 'Ulike farger';
+
+  @override
+  String get looksValueChocolate => 'Sjokolade';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Sølv';
+
+  @override
+  String get looksValueSmoke => 'Røyk';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Krøllete';
+
+  @override
+  String get looksValueWiry => 'Strihåret';
+
+  @override
+  String get looksValueKinked => 'Knekket';
+
+  @override
+  String get looksValueCropped => 'Kuperte';
+
+  @override
+  String get looksValueTippedEar => 'Øremerket (spiss)';
+
+  @override
+  String get looksValueEarTattoo => 'Øretatovering';
+
+  @override
+  String get looksValueMissingEar => 'Manglende øre';
+
+  @override
+  String get looksValueMissingEye => 'Manglende øye';
+
+  @override
+  String get looksValueCloudyEye => 'Uklart øye';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Manglende forbein';
+
+  @override
+  String get looksValueMissingHindLeg => 'Manglende bakbein';
+
+  @override
+  String get looksValueNoTeeth => 'Ingen tenner';
+
+  @override
+  String get looksValueExtraToes => 'Ekstra tær';
+
+  @override
   String get rejectMatch => 'Ikke den samme';
 
   @override

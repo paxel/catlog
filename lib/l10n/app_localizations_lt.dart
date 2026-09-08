@@ -1709,6 +1709,78 @@ class AppLocalizationsLt extends AppLocalizations {
   String get looksValueSable => 'Sabalinis';
 
   @override
+  String get looksGroupEyes => 'Akys';
+
+  @override
+  String get looksGroupFeatures => 'Ypatumai';
+
+  @override
+  String get looksValueAmber => 'Gintariniai';
+
+  @override
+  String get looksValueCopper => 'Variniai';
+
+  @override
+  String get looksValueOddEyed => 'Skirtingų spalvų';
+
+  @override
+  String get looksValueChocolate => 'Šokoladinė';
+
+  @override
+  String get looksValueLilac => 'Alyvinė';
+
+  @override
+  String get looksValueSilver => 'Sidabrinė';
+
+  @override
+  String get looksValueSmoke => 'Dūminė';
+
+  @override
+  String get looksValueTicked => 'Tikuotas';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Garbanotas';
+
+  @override
+  String get looksValueWiry => 'Šiurkštus';
+
+  @override
+  String get looksValueKinked => 'Užlenkta';
+
+  @override
+  String get looksValueCropped => 'Kupiruotos';
+
+  @override
+  String get looksValueTippedEar => 'Nukirptas ausies galiukas';
+
+  @override
+  String get looksValueEarTattoo => 'Ausies tatuiruotė';
+
+  @override
+  String get looksValueMissingEar => 'Trūksta ausies';
+
+  @override
+  String get looksValueMissingEye => 'Trūksta akies';
+
+  @override
+  String get looksValueCloudyEye => 'Drumsta akis';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Trūksta priekinės kojos';
+
+  @override
+  String get looksValueMissingHindLeg => 'Trūksta užpakalinės kojos';
+
+  @override
+  String get looksValueNoTeeth => 'Be dantų';
+
+  @override
+  String get looksValueExtraToes => 'Papildomi pirštai';
+
+  @override
   String get rejectMatch => 'Ne tas pats';
 
   @override

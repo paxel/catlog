@@ -1705,6 +1705,78 @@ class AppLocalizationsFa extends AppLocalizations {
   String get looksValueSable => 'سمور';
 
   @override
+  String get looksGroupEyes => 'چشم‌ها';
+
+  @override
+  String get looksGroupFeatures => 'ویژگی‌ها';
+
+  @override
+  String get looksValueAmber => 'کهربایی';
+
+  @override
+  String get looksValueCopper => 'مسی';
+
+  @override
+  String get looksValueOddEyed => 'چشم‌های ناهمرنگ';
+
+  @override
+  String get looksValueChocolate => 'شکلاتی';
+
+  @override
+  String get looksValueLilac => 'یاسی';
+
+  @override
+  String get looksValueSilver => 'نقره‌ای';
+
+  @override
+  String get looksValueSmoke => 'دودی';
+
+  @override
+  String get looksValueTicked => 'تیک‌دار';
+
+  @override
+  String get looksValueVan => 'وان';
+
+  @override
+  String get looksValueCurly => 'فرفری';
+
+  @override
+  String get looksValueWiry => 'زبر';
+
+  @override
+  String get looksValueKinked => 'شکسته';
+
+  @override
+  String get looksValueCropped => 'بریده';
+
+  @override
+  String get looksValueTippedEar => 'نوک گوش بریده';
+
+  @override
+  String get looksValueEarTattoo => 'خالکوبی گوش';
+
+  @override
+  String get looksValueMissingEar => 'گوش از دست رفته';
+
+  @override
+  String get looksValueMissingEye => 'چشم از دست رفته';
+
+  @override
+  String get looksValueCloudyEye => 'چشم کدر';
+
+  @override
+  String get looksValueMissingFrontLeg => 'پای جلو از دست رفته';
+
+  @override
+  String get looksValueMissingHindLeg => 'پای عقب از دست رفته';
+
+  @override
+  String get looksValueNoTeeth => 'بی‌دندان';
+
+  @override
+  String get looksValueExtraToes => 'انگشتان اضافی';
+
+  @override
   String get rejectMatch => 'همان نیست';
 
   @override

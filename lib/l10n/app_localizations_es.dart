@@ -1714,6 +1714,78 @@ class AppLocalizationsEs extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Ojos';
+
+  @override
+  String get looksGroupFeatures => 'Rasgos';
+
+  @override
+  String get looksValueAmber => 'Ámbar';
+
+  @override
+  String get looksValueCopper => 'Cobre';
+
+  @override
+  String get looksValueOddEyed => 'Ojos dispares';
+
+  @override
+  String get looksValueChocolate => 'Chocolate';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Plateado';
+
+  @override
+  String get looksValueSmoke => 'Humo';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Rizado';
+
+  @override
+  String get looksValueWiry => 'Duro';
+
+  @override
+  String get looksValueKinked => 'Doblada';
+
+  @override
+  String get looksValueCropped => 'Cortadas';
+
+  @override
+  String get looksValueTippedEar => 'Oreja despuntada';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaje en la oreja';
+
+  @override
+  String get looksValueMissingEar => 'Falta una oreja';
+
+  @override
+  String get looksValueMissingEye => 'Falta un ojo';
+
+  @override
+  String get looksValueCloudyEye => 'Ojo nublado';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Falta una pata delantera';
+
+  @override
+  String get looksValueMissingHindLeg => 'Falta una pata trasera';
+
+  @override
+  String get looksValueNoTeeth => 'Sin dientes';
+
+  @override
+  String get looksValueExtraToes => 'Dedos de más';
+
+  @override
   String get rejectMatch => 'No es el mismo';
 
   @override

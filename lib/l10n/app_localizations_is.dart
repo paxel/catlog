@@ -1712,6 +1712,78 @@ class AppLocalizationsIs extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Augu';
+
+  @override
+  String get looksGroupFeatures => 'Sérkenni';
+
+  @override
+  String get looksValueAmber => 'Rafgul';
+
+  @override
+  String get looksValueCopper => 'Kopar';
+
+  @override
+  String get looksValueOddEyed => 'Mislit augu';
+
+  @override
+  String get looksValueChocolate => 'Súkkulaði';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Silfur';
+
+  @override
+  String get looksValueSmoke => 'Reykur';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Krullaður';
+
+  @override
+  String get looksValueWiry => 'Stríður';
+
+  @override
+  String get looksValueKinked => 'Kinkur';
+
+  @override
+  String get looksValueCropped => 'Klippt';
+
+  @override
+  String get looksValueTippedEar => 'Klipptur eyrnaoddur';
+
+  @override
+  String get looksValueEarTattoo => 'Eyrnahúðflúr';
+
+  @override
+  String get looksValueMissingEar => 'Vantar eyra';
+
+  @override
+  String get looksValueMissingEye => 'Vantar auga';
+
+  @override
+  String get looksValueCloudyEye => 'Skýjað auga';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Vantar framfót';
+
+  @override
+  String get looksValueMissingHindLeg => 'Vantar afturfót';
+
+  @override
+  String get looksValueNoTeeth => 'Tannlaus';
+
+  @override
+  String get looksValueExtraToes => 'Aukatær';
+
+  @override
   String get rejectMatch => 'Ekki það sama';
 
   @override

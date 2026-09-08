@@ -1713,6 +1713,78 @@ class AppLocalizationsGa extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Súile';
+
+  @override
+  String get looksGroupFeatures => 'Sainghnéithe';
+
+  @override
+  String get looksValueAmber => 'Ómra';
+
+  @override
+  String get looksValueCopper => 'Copair';
+
+  @override
+  String get looksValueOddEyed => 'Súile éagsúla';
+
+  @override
+  String get looksValueChocolate => 'Seacláid';
+
+  @override
+  String get looksValueLilac => 'Liath-chorcra';
+
+  @override
+  String get looksValueSilver => 'Airgead';
+
+  @override
+  String get looksValueSmoke => 'Deatach';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Catach';
+
+  @override
+  String get looksValueWiry => 'Garbh';
+
+  @override
+  String get looksValueKinked => 'Casta';
+
+  @override
+  String get looksValueCropped => 'Bearrtha';
+
+  @override
+  String get looksValueTippedEar => 'Cluas bearrtha';
+
+  @override
+  String get looksValueEarTattoo => 'Tatú cluaise';
+
+  @override
+  String get looksValueMissingEar => 'Cluas ar iarraidh';
+
+  @override
+  String get looksValueMissingEye => 'Súil ar iarraidh';
+
+  @override
+  String get looksValueCloudyEye => 'Súil scamallach';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Cos tosaigh ar iarraidh';
+
+  @override
+  String get looksValueMissingHindLeg => 'Cos deiridh ar iarraidh';
+
+  @override
+  String get looksValueNoTeeth => 'Gan fiacla';
+
+  @override
+  String get looksValueExtraToes => 'Ladhracha breise';
+
+  @override
   String get rejectMatch => 'Ní hé an ceann céanna';
 
   @override

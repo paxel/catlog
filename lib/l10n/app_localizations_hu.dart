@@ -1708,6 +1708,78 @@ class AppLocalizationsHu extends AppLocalizations {
   String get looksValueSable => 'Coboly';
 
   @override
+  String get looksGroupEyes => 'Szemek';
+
+  @override
+  String get looksGroupFeatures => 'Különlegességek';
+
+  @override
+  String get looksValueAmber => 'Borostyán';
+
+  @override
+  String get looksValueCopper => 'Réz';
+
+  @override
+  String get looksValueOddEyed => 'Felemás';
+
+  @override
+  String get looksValueChocolate => 'Csokoládé';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Ezüst';
+
+  @override
+  String get looksValueSmoke => 'Füst';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Göndör';
+
+  @override
+  String get looksValueWiry => 'Drótszőrű';
+
+  @override
+  String get looksValueKinked => 'Törött';
+
+  @override
+  String get looksValueCropped => 'Kupírozott';
+
+  @override
+  String get looksValueTippedEar => 'Levágott fülhegy';
+
+  @override
+  String get looksValueEarTattoo => 'Fültetoválás';
+
+  @override
+  String get looksValueMissingEar => 'Hiányzó fül';
+
+  @override
+  String get looksValueMissingEye => 'Hiányzó szem';
+
+  @override
+  String get looksValueCloudyEye => 'Homályos szem';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Hiányzó mellső láb';
+
+  @override
+  String get looksValueMissingHindLeg => 'Hiányzó hátsó láb';
+
+  @override
+  String get looksValueNoTeeth => 'Fogatlan';
+
+  @override
+  String get looksValueExtraToes => 'Több lábujj';
+
+  @override
   String get rejectMatch => 'Nem ugyanaz';
 
   @override

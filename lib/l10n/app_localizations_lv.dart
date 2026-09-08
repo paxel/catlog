@@ -1709,6 +1709,78 @@ class AppLocalizationsLv extends AppLocalizations {
   String get looksValueSable => 'Sabuļa';
 
   @override
+  String get looksGroupEyes => 'Acis';
+
+  @override
+  String get looksGroupFeatures => 'Īpatnības';
+
+  @override
+  String get looksValueAmber => 'Dzintara';
+
+  @override
+  String get looksValueCopper => 'Vara';
+
+  @override
+  String get looksValueOddEyed => 'Dažādu krāsu';
+
+  @override
+  String get looksValueChocolate => 'Šokolādes';
+
+  @override
+  String get looksValueLilac => 'Ceriņu';
+
+  @override
+  String get looksValueSilver => 'Sudraba';
+
+  @override
+  String get looksValueSmoke => 'Dūmu';
+
+  @override
+  String get looksValueTicked => 'Tikots';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Cirtains';
+
+  @override
+  String get looksValueWiry => 'Raupjš';
+
+  @override
+  String get looksValueKinked => 'Lauzta';
+
+  @override
+  String get looksValueCropped => 'Kupētas';
+
+  @override
+  String get looksValueTippedEar => 'Apgriezta auss';
+
+  @override
+  String get looksValueEarTattoo => 'Auss tetovējums';
+
+  @override
+  String get looksValueMissingEar => 'Trūkst auss';
+
+  @override
+  String get looksValueMissingEye => 'Trūkst acs';
+
+  @override
+  String get looksValueCloudyEye => 'Duļķaina acs';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Trūkst priekškājas';
+
+  @override
+  String get looksValueMissingHindLeg => 'Trūkst pakaļkājas';
+
+  @override
+  String get looksValueNoTeeth => 'Bez zobiem';
+
+  @override
+  String get looksValueExtraToes => 'Papildu pirksti';
+
+  @override
   String get rejectMatch => 'Nav tas pats';
 
   @override

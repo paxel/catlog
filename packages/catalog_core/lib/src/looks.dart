@@ -25,11 +25,16 @@ const _furColours = LooksGroup('colours', single: false, values: [
   'black',
   'white',
   'grey',
+  'blue',
   'brown',
+  'chocolate',
+  'lilac',
   'ginger',
   'cream',
   'golden',
-  'tan'
+  'tan',
+  'silver',
+  'smoke'
 ]);
 const _plumage = LooksGroup('colours', single: false, values: [
   'green',
@@ -42,6 +47,8 @@ const _plumage = LooksGroup('colours', single: false, values: [
   'black',
   'brown'
 ]);
+const _eyes = LooksGroup('eyes',
+    single: true, values: ['green', 'amber', 'blue', 'copper', 'odd-eyed']);
 const _furMarks = LooksGroup('marks', single: false, values: [
   'white bib',
   'white paws',
@@ -52,25 +59,29 @@ const _furMarks = LooksGroup('marks', single: false, values: [
   'patches',
   'stripes',
   'scar',
-  'notched ear',
-  'ear tip',
   'collar'
 ]);
 const _birdMarks = LooksGroup('marks',
     single: false,
     values: ['spots', 'stripes', 'patches', 'mask', 'collar', 'scar']);
 const _fur = LooksGroup('fur',
-    single: true, values: ['short', 'medium', 'long', 'hairless']);
+    single: true,
+    values: ['short', 'medium', 'long', 'hairless', 'curly', 'wiry']);
 const _tail = LooksGroup('tail',
-    single: true, values: ['long', 'short', 'bobtail', 'none', 'curled']);
+    single: true,
+    values: ['long', 'short', 'bobtail', 'none', 'curled', 'kinked']);
 const _ears = LooksGroup('ears',
-    single: true, values: ['upright', 'floppy', 'folded', 'rounded']);
+    single: true,
+    values: ['upright', 'floppy', 'folded', 'rounded', 'curled', 'cropped']);
 const _catPattern = LooksGroup('pattern', single: true, values: [
   'solid',
   'tabby',
+  'spotted',
+  'ticked',
   'tortoiseshell',
   'calico',
   'colourpoint',
+  'van',
   'bicolour',
   'tuxedo'
 ]);
@@ -88,6 +99,21 @@ const _beak = LooksGroup('beak',
     single: true, values: ['black', 'grey', 'yellow', 'orange', 'red', 'pink']);
 const _ring = LooksGroup('ring', single: true, values: ['yes', 'no']);
 
+/// What never grows back and what was done on purpose: the strongest
+/// evidence two sightings are one animal. Every species has it.
+const _features = LooksGroup('features', single: false, values: [
+  'tipped ear',
+  'notched ear',
+  'ear tattoo',
+  'missing ear',
+  'missing eye',
+  'cloudy eye',
+  'missing front leg',
+  'missing hind leg',
+  'no teeth',
+  'extra toes'
+]);
+
 /// Species with fur, a tail and ears worth describing.
 const _furred = {'cat', 'dog', 'rabbit', 'guinea pig', 'hamster'};
 
@@ -96,6 +122,7 @@ const _furred = {'cat', 'dog', 'rabbit', 'guinea pig', 'hamster'};
 const looksGroupOrder = [
   'size',
   'colours',
+  'eyes',
   'pattern',
   'fur',
   'tail',
@@ -103,10 +130,12 @@ const looksGroupOrder = [
   'marks',
   'crest',
   'beak',
-  'ring'
+  'ring',
+  'features'
 ];
 const _single = {
   'size',
+  'eyes',
   'pattern',
   'fur',
   'tail',
@@ -115,6 +144,11 @@ const _single = {
   'beak',
   'ring'
 };
+
+/// A shared feature weighs like two ordinary agreements: two animals
+/// both missing a hind leg are far more likely one than two sharing
+/// short fur.
+int looksGroupWeight(String group) => group == 'features' ? 2 : 1;
 
 /// Whether [group] takes one value at most.
 bool looksGroupIsSingle(String group) => _single.contains(group);
@@ -127,23 +161,25 @@ String? knownSpecies(String? species) =>
 /// get size and colours only — nothing that presumes fur or feathers.
 List<LooksGroup> looksGroupsFor(String? species) {
   final known = knownSpecies(species);
-  if (known == null) return const [_size, _furColours];
+  if (known == null) return const [_size, _furColours, _features];
   if (known == 'bird') {
-    return const [_size, _plumage, _birdMarks, _crest, _beak, _ring];
+    return const [_size, _plumage, _birdMarks, _crest, _beak, _ring, _features];
   }
   if (_furred.contains(known)) {
     return [
       _size,
       _furColours,
+      if (known == 'cat' || known == 'dog') _eyes,
       if (known == 'cat') _catPattern,
       if (known == 'dog') _dogPattern,
       _fur,
       _tail,
       _ears,
       _furMarks,
+      _features,
     ];
   }
-  return const [_size, _furColours, _furMarks];
+  return const [_size, _furColours, _furMarks, _features];
 }
 
 /// The stored line as a map of group to chosen values. Tolerant: an
@@ -161,6 +197,20 @@ Map<String, Set<String>> parseLooks(String? value) {
         if (v.trim().isNotEmpty) v.trim(),
     };
     if (values.isNotEmpty) result[group] = values;
+  }
+  // Ear marks recorded before the Features group (1.2.2) read as the
+  // features they are; the stored line stays as it was.
+  final marks = result['marks'];
+  if (marks != null) {
+    for (final (old, feature) in const [
+      ('ear tip', 'tipped ear'),
+      ('notched ear', 'notched ear')
+    ]) {
+      if (marks.remove(old)) {
+        result.putIfAbsent('features', () => {}).add(feature);
+      }
+    }
+    if (marks.isEmpty) result.remove('marks');
   }
   return result;
 }
@@ -184,11 +234,14 @@ String? encodeLooks(Map<String, Set<String>> looks) {
 /// animal; [agreeing] the groups (gender included) that say the same.
 class LooksComparison {
   final bool contradiction;
+
+  /// The agreeing groups, features first.
   final List<String> agreeing;
 
   const LooksComparison(this.contradiction, this.agreeing);
 
-  int get agreements => agreeing.length;
+  /// Agreements by weight: a feature counts double.
+  int get agreements => agreeing.fold(0, (sum, g) => sum + looksGroupWeight(g));
 }
 
 /// The rule table. Species differing is a contradiction, an unknown
@@ -216,18 +269,28 @@ LooksComparison compareLooks({
     if (ga != gb) return const LooksComparison(true, []);
     agreeing.add('gender');
   }
+  // Features lead the list: the strongest reason reads first.
+  void addAgreeing(String g) =>
+      g == 'features' ? agreeing.insert(0, g) : agreeing.add(g);
   final groups = [
-    for (final g in looksGroupOrder)
+    for (final g in [
+      'features',
+      ...looksGroupOrder.where((g) => g != 'features')
+    ])
       if (looksA.containsKey(g) && looksB.containsKey(g)) g,
   ];
   for (final g in groups) {
     final a = looksA[g]!, b = looksB[g]!;
     if (looksGroupIsSingle(g)) {
       if (a.first != b.first) return const LooksComparison(true, []);
-      agreeing.add(g);
+      addAgreeing(g);
+    } else if (g == 'features') {
+      // Nobody records the absence of a leg: a feature on one side only
+      // is neither; shared ones agree, and weigh double.
+      if (a.intersection(b).isNotEmpty) addAgreeing(g);
     } else {
       if (a.intersection(b).isEmpty) return const LooksComparison(true, []);
-      agreeing.add(g);
+      addAgreeing(g);
     }
   }
   return LooksComparison(false, agreeing);
@@ -240,6 +303,8 @@ const looksCandidateMinimum = 2;
 class LooksMatch {
   final String a;
   final String b;
+
+  /// The agreeing groups, features first.
   final List<String> agreeing;
 
   /// Meters between their positions, when both have one.
@@ -247,7 +312,7 @@ class LooksMatch {
 
   const LooksMatch(this.a, this.b, this.agreeing, {this.distanceMeters});
 
-  int get agreements => agreeing.length;
+  int get agreements => agreeing.fold(0, (sum, g) => sum + looksGroupWeight(g));
 }
 
 String looksPairKey(String a, String b) =>

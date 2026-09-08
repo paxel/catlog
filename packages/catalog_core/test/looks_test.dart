@@ -11,15 +11,24 @@ void main() {
     test('groups follow the species; unknown gets size and colours', () {
       List<String> ids(String? s) =>
           looksGroupsFor(s).map((g) => g.id).toList();
-      expect(ids('cat'),
-          ['size', 'colours', 'pattern', 'fur', 'tail', 'ears', 'marks']);
+      expect(ids('cat'), [
+        'size',
+        'colours',
+        'eyes',
+        'pattern',
+        'fur',
+        'tail',
+        'ears',
+        'marks',
+        'features'
+      ]);
       expect(ids('dog'), contains('pattern'));
       expect(ids('rabbit'), isNot(contains('pattern')));
-      expect(
-          ids('bird'), ['size', 'colours', 'marks', 'crest', 'beak', 'ring']);
-      expect(ids('horse'), ['size', 'colours', 'marks']);
-      expect(ids(null), ['size', 'colours']);
-      expect(ids('dragon'), ['size', 'colours']);
+      expect(ids('bird'),
+          ['size', 'colours', 'marks', 'crest', 'beak', 'ring', 'features']);
+      expect(ids('horse'), ['size', 'colours', 'marks', 'features']);
+      expect(ids(null), ['size', 'colours', 'features']);
+      expect(ids('dragon'), ['size', 'colours', 'features']);
       expect(looksGroupsFor('bird').firstWhere((g) => g.id == 'colours').values,
           contains('green'));
     });
@@ -107,6 +116,45 @@ void main() {
       });
       expect(overlap.contradiction, isFalse);
       expect(overlap.agreeing, ['colours']);
+    });
+
+    test('a shared feature weighs double and leads; absence never contradicts',
+        () {
+      final one = cmp(a: {
+        'features': {'missing hind leg'}
+      }, b: {
+        'size': {'small'}
+      });
+      expect(one.contradiction, isFalse);
+      expect(one.agreeing, isEmpty);
+      final shared = cmp(
+        a: {
+          'size': {'small'},
+          'features': {'missing hind leg', 'no teeth'}
+        },
+        b: {
+          'size': {'small'},
+          'features': {'no teeth'}
+        },
+      );
+      expect(shared.agreeing, ['features', 'size']);
+      expect(shared.agreements, 3);
+      // One shared feature alone reaches the candidate threshold.
+      expect(
+          cmp(a: {
+            'features': {'ear tattoo'}
+          }, b: {
+            'features': {'ear tattoo'}
+          }).agreements,
+          looksCandidateMinimum);
+    });
+
+    test('old ear marks read as features', () {
+      final looks = parseLooks('marks=ear tip,white bib; size=small');
+      expect(looks['features'], {'tipped ear'});
+      expect(looks['marks'], {'white bib'});
+      expect(parseLooks('marks=notched ear')['features'], {'notched ear'});
+      expect(parseLooks('marks=notched ear').containsKey('marks'), isFalse);
     });
 
     test('gender is one more one-value group, unknown unset', () {

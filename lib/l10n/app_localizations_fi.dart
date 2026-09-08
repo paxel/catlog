@@ -1710,6 +1710,78 @@ class AppLocalizationsFi extends AppLocalizations {
   String get looksValueSable => 'Soopeli';
 
   @override
+  String get looksGroupEyes => 'Silmät';
+
+  @override
+  String get looksGroupFeatures => 'Erityispiirteet';
+
+  @override
+  String get looksValueAmber => 'Meripihka';
+
+  @override
+  String get looksValueCopper => 'Kupari';
+
+  @override
+  String get looksValueOddEyed => 'Erivärinen';
+
+  @override
+  String get looksValueChocolate => 'Suklaa';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Hopea';
+
+  @override
+  String get looksValueSmoke => 'Savu';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kihara';
+
+  @override
+  String get looksValueWiry => 'Karkea';
+
+  @override
+  String get looksValueKinked => 'Mutkainen';
+
+  @override
+  String get looksValueCropped => 'Typistetyt';
+
+  @override
+  String get looksValueTippedEar => 'Merkitty korva';
+
+  @override
+  String get looksValueEarTattoo => 'Korvatatuointi';
+
+  @override
+  String get looksValueMissingEar => 'Puuttuva korva';
+
+  @override
+  String get looksValueMissingEye => 'Puuttuva silmä';
+
+  @override
+  String get looksValueCloudyEye => 'Samea silmä';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Puuttuva etujalka';
+
+  @override
+  String get looksValueMissingHindLeg => 'Puuttuva takajalka';
+
+  @override
+  String get looksValueNoTeeth => 'Ei hampaita';
+
+  @override
+  String get looksValueExtraToes => 'Ylimääräiset varpaat';
+
+  @override
   String get rejectMatch => 'Ei sama';
 
   @override

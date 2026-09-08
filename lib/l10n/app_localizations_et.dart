@@ -1707,6 +1707,78 @@ class AppLocalizationsEt extends AppLocalizations {
   String get looksValueSable => 'Soobel';
 
   @override
+  String get looksGroupEyes => 'Silmad';
+
+  @override
+  String get looksGroupFeatures => 'Eritunnused';
+
+  @override
+  String get looksValueAmber => 'Merevaik';
+
+  @override
+  String get looksValueCopper => 'Vask';
+
+  @override
+  String get looksValueOddEyed => 'Erivärvilised';
+
+  @override
+  String get looksValueChocolate => 'Šokolaad';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Hõbe';
+
+  @override
+  String get looksValueSmoke => 'Suits';
+
+  @override
+  String get looksValueTicked => 'Tikitud';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Lokkis';
+
+  @override
+  String get looksValueWiry => 'Karm';
+
+  @override
+  String get looksValueKinked => 'Kõver';
+
+  @override
+  String get looksValueCropped => 'Kupeeritud';
+
+  @override
+  String get looksValueTippedEar => 'Lõigatud kõrvatipp';
+
+  @override
+  String get looksValueEarTattoo => 'Kõrvatätoveering';
+
+  @override
+  String get looksValueMissingEar => 'Puuduv kõrv';
+
+  @override
+  String get looksValueMissingEye => 'Puuduv silm';
+
+  @override
+  String get looksValueCloudyEye => 'Hägune silm';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Puuduv esijalg';
+
+  @override
+  String get looksValueMissingHindLeg => 'Puuduv tagajalg';
+
+  @override
+  String get looksValueNoTeeth => 'Hambad puuduvad';
+
+  @override
+  String get looksValueExtraToes => 'Lisavarbad';
+
+  @override
   String get rejectMatch => 'Pole sama';
 
   @override

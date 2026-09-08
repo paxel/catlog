@@ -1708,6 +1708,78 @@ class AppLocalizationsSv extends AppLocalizations {
   String get looksValueSable => 'Sobel';
 
   @override
+  String get looksGroupEyes => 'Ögon';
+
+  @override
+  String get looksGroupFeatures => 'Särdrag';
+
+  @override
+  String get looksValueAmber => 'Bärnsten';
+
+  @override
+  String get looksValueCopper => 'Koppar';
+
+  @override
+  String get looksValueOddEyed => 'Olikfärgade';
+
+  @override
+  String get looksValueChocolate => 'Choklad';
+
+  @override
+  String get looksValueLilac => 'Lila';
+
+  @override
+  String get looksValueSilver => 'Silver';
+
+  @override
+  String get looksValueSmoke => 'Rök';
+
+  @override
+  String get looksValueTicked => 'Tickad';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Lockig';
+
+  @override
+  String get looksValueWiry => 'Strävhårig';
+
+  @override
+  String get looksValueKinked => 'Knäckt';
+
+  @override
+  String get looksValueCropped => 'Kuperade';
+
+  @override
+  String get looksValueTippedEar => 'Öronmärkt (spets)';
+
+  @override
+  String get looksValueEarTattoo => 'Örontatuering';
+
+  @override
+  String get looksValueMissingEar => 'Saknat öra';
+
+  @override
+  String get looksValueMissingEye => 'Saknat öga';
+
+  @override
+  String get looksValueCloudyEye => 'Grumligt öga';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Saknat framben';
+
+  @override
+  String get looksValueMissingHindLeg => 'Saknat bakben';
+
+  @override
+  String get looksValueNoTeeth => 'Inga tänder';
+
+  @override
+  String get looksValueExtraToes => 'Extra tår';
+
+  @override
   String get rejectMatch => 'Inte samma';
 
   @override

@@ -3170,6 +3170,150 @@ abstract class AppLocalizations {
   /// **'Sable'**
   String get looksValueSable;
 
+  /// No description provided for @looksGroupEyes.
+  ///
+  /// In en, this message translates to:
+  /// **'Eyes'**
+  String get looksGroupEyes;
+
+  /// No description provided for @looksGroupFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get looksGroupFeatures;
+
+  /// No description provided for @looksValueAmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Amber'**
+  String get looksValueAmber;
+
+  /// No description provided for @looksValueCopper.
+  ///
+  /// In en, this message translates to:
+  /// **'Copper'**
+  String get looksValueCopper;
+
+  /// No description provided for @looksValueOddEyed.
+  ///
+  /// In en, this message translates to:
+  /// **'Odd-eyed'**
+  String get looksValueOddEyed;
+
+  /// No description provided for @looksValueChocolate.
+  ///
+  /// In en, this message translates to:
+  /// **'Chocolate'**
+  String get looksValueChocolate;
+
+  /// No description provided for @looksValueLilac.
+  ///
+  /// In en, this message translates to:
+  /// **'Lilac'**
+  String get looksValueLilac;
+
+  /// No description provided for @looksValueSilver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get looksValueSilver;
+
+  /// No description provided for @looksValueSmoke.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoke'**
+  String get looksValueSmoke;
+
+  /// No description provided for @looksValueTicked.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticked'**
+  String get looksValueTicked;
+
+  /// No description provided for @looksValueVan.
+  ///
+  /// In en, this message translates to:
+  /// **'Van'**
+  String get looksValueVan;
+
+  /// No description provided for @looksValueCurly.
+  ///
+  /// In en, this message translates to:
+  /// **'Curly'**
+  String get looksValueCurly;
+
+  /// No description provided for @looksValueWiry.
+  ///
+  /// In en, this message translates to:
+  /// **'Wiry'**
+  String get looksValueWiry;
+
+  /// No description provided for @looksValueKinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Kinked'**
+  String get looksValueKinked;
+
+  /// No description provided for @looksValueCropped.
+  ///
+  /// In en, this message translates to:
+  /// **'Cropped'**
+  String get looksValueCropped;
+
+  /// No description provided for @looksValueTippedEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Tipped ear'**
+  String get looksValueTippedEar;
+
+  /// No description provided for @looksValueEarTattoo.
+  ///
+  /// In en, this message translates to:
+  /// **'Ear tattoo'**
+  String get looksValueEarTattoo;
+
+  /// No description provided for @looksValueMissingEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing ear'**
+  String get looksValueMissingEar;
+
+  /// No description provided for @looksValueMissingEye.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing eye'**
+  String get looksValueMissingEye;
+
+  /// No description provided for @looksValueCloudyEye.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudy eye'**
+  String get looksValueCloudyEye;
+
+  /// No description provided for @looksValueMissingFrontLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing front leg'**
+  String get looksValueMissingFrontLeg;
+
+  /// No description provided for @looksValueMissingHindLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing hind leg'**
+  String get looksValueMissingHindLeg;
+
+  /// No description provided for @looksValueNoTeeth.
+  ///
+  /// In en, this message translates to:
+  /// **'No teeth'**
+  String get looksValueNoTeeth;
+
+  /// No description provided for @looksValueExtraToes.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra toes'**
+  String get looksValueExtraToes;
+
   /// No description provided for @rejectMatch.
   ///
   /// In en, this message translates to:

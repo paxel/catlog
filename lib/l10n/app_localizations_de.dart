@@ -1715,6 +1715,78 @@ class AppLocalizationsDe extends AppLocalizations {
   String get looksValueSable => 'Zobel';
 
   @override
+  String get looksGroupEyes => 'Augen';
+
+  @override
+  String get looksGroupFeatures => 'Besonderheiten';
+
+  @override
+  String get looksValueAmber => 'Bernstein';
+
+  @override
+  String get looksValueCopper => 'Kupfer';
+
+  @override
+  String get looksValueOddEyed => 'Verschiedenfarbig';
+
+  @override
+  String get looksValueChocolate => 'Schokolade';
+
+  @override
+  String get looksValueLilac => 'Lilac';
+
+  @override
+  String get looksValueSilver => 'Silber';
+
+  @override
+  String get looksValueSmoke => 'Rauch';
+
+  @override
+  String get looksValueTicked => 'Getickt';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Gelockt';
+
+  @override
+  String get looksValueWiry => 'Drahtig';
+
+  @override
+  String get looksValueKinked => 'Geknickt';
+
+  @override
+  String get looksValueCropped => 'Kupiert';
+
+  @override
+  String get looksValueTippedEar => 'Ohrspitze gekappt';
+
+  @override
+  String get looksValueEarTattoo => 'Ohrtätowierung';
+
+  @override
+  String get looksValueMissingEar => 'Fehlendes Ohr';
+
+  @override
+  String get looksValueMissingEye => 'Fehlendes Auge';
+
+  @override
+  String get looksValueCloudyEye => 'Trübes Auge';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Fehlendes Vorderbein';
+
+  @override
+  String get looksValueMissingHindLeg => 'Fehlendes Hinterbein';
+
+  @override
+  String get looksValueNoTeeth => 'Keine Zähne';
+
+  @override
+  String get looksValueExtraToes => 'Zusätzliche Zehen';
+
+  @override
   String get rejectMatch => 'Nicht dieselbe';
 
   @override

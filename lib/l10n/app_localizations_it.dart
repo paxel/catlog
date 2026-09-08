@@ -1713,6 +1713,78 @@ class AppLocalizationsIt extends AppLocalizations {
   String get looksValueSable => 'Zibellino';
 
   @override
+  String get looksGroupEyes => 'Occhi';
+
+  @override
+  String get looksGroupFeatures => 'Particolarità';
+
+  @override
+  String get looksValueAmber => 'Ambra';
+
+  @override
+  String get looksValueCopper => 'Rame';
+
+  @override
+  String get looksValueOddEyed => 'Occhi impari';
+
+  @override
+  String get looksValueChocolate => 'Cioccolato';
+
+  @override
+  String get looksValueLilac => 'Lilla';
+
+  @override
+  String get looksValueSilver => 'Argento';
+
+  @override
+  String get looksValueSmoke => 'Fumo';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Riccio';
+
+  @override
+  String get looksValueWiry => 'Ruvido';
+
+  @override
+  String get looksValueKinked => 'Piegata';
+
+  @override
+  String get looksValueCropped => 'Tagliate';
+
+  @override
+  String get looksValueTippedEar => 'Orecchio tagliato';
+
+  @override
+  String get looksValueEarTattoo => 'Tatuaggio all’orecchio';
+
+  @override
+  String get looksValueMissingEar => 'Orecchio mancante';
+
+  @override
+  String get looksValueMissingEye => 'Occhio mancante';
+
+  @override
+  String get looksValueCloudyEye => 'Occhio velato';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Zampa anteriore mancante';
+
+  @override
+  String get looksValueMissingHindLeg => 'Zampa posteriore mancante';
+
+  @override
+  String get looksValueNoTeeth => 'Senza denti';
+
+  @override
+  String get looksValueExtraToes => 'Dita in più';
+
+  @override
   String get rejectMatch => 'Non è lo stesso';
 
   @override

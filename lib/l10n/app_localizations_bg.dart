@@ -1710,6 +1710,78 @@ class AppLocalizationsBg extends AppLocalizations {
   String get looksValueSable => 'Соболев';
 
   @override
+  String get looksGroupEyes => 'Очи';
+
+  @override
+  String get looksGroupFeatures => 'Особености';
+
+  @override
+  String get looksValueAmber => 'Кехлибарени';
+
+  @override
+  String get looksValueCopper => 'Медни';
+
+  @override
+  String get looksValueOddEyed => 'Разноцветни';
+
+  @override
+  String get looksValueChocolate => 'Шоколадов';
+
+  @override
+  String get looksValueLilac => 'Люляков';
+
+  @override
+  String get looksValueSilver => 'Сребрист';
+
+  @override
+  String get looksValueSmoke => 'Опушен';
+
+  @override
+  String get looksValueTicked => 'Тикиран';
+
+  @override
+  String get looksValueVan => 'Ван';
+
+  @override
+  String get looksValueCurly => 'Къдрава';
+
+  @override
+  String get looksValueWiry => 'Твърда';
+
+  @override
+  String get looksValueKinked => 'Пречупена';
+
+  @override
+  String get looksValueCropped => 'Купирани';
+
+  @override
+  String get looksValueTippedEar => 'Отрязано връхче на ухото';
+
+  @override
+  String get looksValueEarTattoo => 'Татуировка в ухото';
+
+  @override
+  String get looksValueMissingEar => 'Липсващо ухо';
+
+  @override
+  String get looksValueMissingEye => 'Липсващо око';
+
+  @override
+  String get looksValueCloudyEye => 'Мътно око';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Липсващ преден крак';
+
+  @override
+  String get looksValueMissingHindLeg => 'Липсващ заден крак';
+
+  @override
+  String get looksValueNoTeeth => 'Без зъби';
+
+  @override
+  String get looksValueExtraToes => 'Допълнителни пръсти';
+
+  @override
   String get rejectMatch => 'Не е същото';
 
   @override

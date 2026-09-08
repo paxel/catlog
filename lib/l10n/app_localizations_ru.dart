@@ -1709,6 +1709,78 @@ class AppLocalizationsRu extends AppLocalizations {
   String get looksValueSable => 'Соболиный';
 
   @override
+  String get looksGroupEyes => 'Глаза';
+
+  @override
+  String get looksGroupFeatures => 'Особенности';
+
+  @override
+  String get looksValueAmber => 'Янтарные';
+
+  @override
+  String get looksValueCopper => 'Медные';
+
+  @override
+  String get looksValueOddEyed => 'Разноцветные';
+
+  @override
+  String get looksValueChocolate => 'Шоколадный';
+
+  @override
+  String get looksValueLilac => 'Лиловый';
+
+  @override
+  String get looksValueSilver => 'Серебристый';
+
+  @override
+  String get looksValueSmoke => 'Дымчатый';
+
+  @override
+  String get looksValueTicked => 'Тикированный';
+
+  @override
+  String get looksValueVan => 'Ван';
+
+  @override
+  String get looksValueCurly => 'Кудрявая';
+
+  @override
+  String get looksValueWiry => 'Жёсткая';
+
+  @override
+  String get looksValueKinked => 'С изломом';
+
+  @override
+  String get looksValueCropped => 'Купированные';
+
+  @override
+  String get looksValueTippedEar => 'Купированный кончик уха';
+
+  @override
+  String get looksValueEarTattoo => 'Татуировка в ухе';
+
+  @override
+  String get looksValueMissingEar => 'Нет уха';
+
+  @override
+  String get looksValueMissingEye => 'Нет глаза';
+
+  @override
+  String get looksValueCloudyEye => 'Мутный глаз';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Нет передней лапы';
+
+  @override
+  String get looksValueMissingHindLeg => 'Нет задней лапы';
+
+  @override
+  String get looksValueNoTeeth => 'Нет зубов';
+
+  @override
+  String get looksValueExtraToes => 'Лишние пальцы';
+
+  @override
   String get rejectMatch => 'Не тот же';
 
   @override

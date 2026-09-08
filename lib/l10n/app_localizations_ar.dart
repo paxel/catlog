@@ -1704,6 +1704,78 @@ class AppLocalizationsAr extends AppLocalizations {
   String get looksValueSable => 'سمور';
 
   @override
+  String get looksGroupEyes => 'العينان';
+
+  @override
+  String get looksGroupFeatures => 'سمات';
+
+  @override
+  String get looksValueAmber => 'كهرماني';
+
+  @override
+  String get looksValueCopper => 'نحاسي';
+
+  @override
+  String get looksValueOddEyed => 'عينان مختلفتان';
+
+  @override
+  String get looksValueChocolate => 'شوكولاتي';
+
+  @override
+  String get looksValueLilac => 'ليلكي';
+
+  @override
+  String get looksValueSilver => 'فضي';
+
+  @override
+  String get looksValueSmoke => 'دخاني';
+
+  @override
+  String get looksValueTicked => 'مرقّط الشعرة';
+
+  @override
+  String get looksValueVan => 'فان';
+
+  @override
+  String get looksValueCurly => 'مجعد';
+
+  @override
+  String get looksValueWiry => 'خشن';
+
+  @override
+  String get looksValueKinked => 'مثنيّ';
+
+  @override
+  String get looksValueCropped => 'مقصوصة';
+
+  @override
+  String get looksValueTippedEar => 'طرف أذن مقصوص';
+
+  @override
+  String get looksValueEarTattoo => 'وشم في الأذن';
+
+  @override
+  String get looksValueMissingEar => 'أذن مفقودة';
+
+  @override
+  String get looksValueMissingEye => 'عين مفقودة';
+
+  @override
+  String get looksValueCloudyEye => 'عين ضبابية';
+
+  @override
+  String get looksValueMissingFrontLeg => 'ساق أمامية مفقودة';
+
+  @override
+  String get looksValueMissingHindLeg => 'ساق خلفية مفقودة';
+
+  @override
+  String get looksValueNoTeeth => 'بلا أسنان';
+
+  @override
+  String get looksValueExtraToes => 'أصابع زائدة';
+
+  @override
   String get rejectMatch => 'ليس نفسه';
 
   @override

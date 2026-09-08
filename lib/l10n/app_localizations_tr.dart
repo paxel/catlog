@@ -1707,6 +1707,78 @@ class AppLocalizationsTr extends AppLocalizations {
   String get looksValueSable => 'Samur';
 
   @override
+  String get looksGroupEyes => 'Gözler';
+
+  @override
+  String get looksGroupFeatures => 'Özellikler';
+
+  @override
+  String get looksValueAmber => 'Kehribar';
+
+  @override
+  String get looksValueCopper => 'Bakır';
+
+  @override
+  String get looksValueOddEyed => 'Farklı renkli';
+
+  @override
+  String get looksValueChocolate => 'Çikolata';
+
+  @override
+  String get looksValueLilac => 'Leylak';
+
+  @override
+  String get looksValueSilver => 'Gümüş';
+
+  @override
+  String get looksValueSmoke => 'Duman';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kıvırcık';
+
+  @override
+  String get looksValueWiry => 'Sert';
+
+  @override
+  String get looksValueKinked => 'Kıvrık';
+
+  @override
+  String get looksValueCropped => 'Kesik';
+
+  @override
+  String get looksValueTippedEar => 'Kesik kulak ucu';
+
+  @override
+  String get looksValueEarTattoo => 'Kulak dövmesi';
+
+  @override
+  String get looksValueMissingEar => 'Eksik kulak';
+
+  @override
+  String get looksValueMissingEye => 'Eksik göz';
+
+  @override
+  String get looksValueCloudyEye => 'Bulanık göz';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Eksik ön bacak';
+
+  @override
+  String get looksValueMissingHindLeg => 'Eksik arka bacak';
+
+  @override
+  String get looksValueNoTeeth => 'Dişsiz';
+
+  @override
+  String get looksValueExtraToes => 'Fazla parmak';
+
+  @override
   String get rejectMatch => 'Aynı değil';
 
   @override

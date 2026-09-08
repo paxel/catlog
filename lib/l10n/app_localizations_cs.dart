@@ -1709,6 +1709,78 @@ class AppLocalizationsCs extends AppLocalizations {
   String get looksValueSable => 'Sobolí';
 
   @override
+  String get looksGroupEyes => 'Oči';
+
+  @override
+  String get looksGroupFeatures => 'Zvláštnosti';
+
+  @override
+  String get looksValueAmber => 'Jantarové';
+
+  @override
+  String get looksValueCopper => 'Měděné';
+
+  @override
+  String get looksValueOddEyed => 'Různobarevné';
+
+  @override
+  String get looksValueChocolate => 'Čokoládová';
+
+  @override
+  String get looksValueLilac => 'Lilová';
+
+  @override
+  String get looksValueSilver => 'Stříbrná';
+
+  @override
+  String get looksValueSmoke => 'Kouřová';
+
+  @override
+  String get looksValueTicked => 'Tikovaná';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Kudrnatá';
+
+  @override
+  String get looksValueWiry => 'Drsná';
+
+  @override
+  String get looksValueKinked => 'Zalomený';
+
+  @override
+  String get looksValueCropped => 'Kupírované';
+
+  @override
+  String get looksValueTippedEar => 'Zastřižené ucho';
+
+  @override
+  String get looksValueEarTattoo => 'Tetování v uchu';
+
+  @override
+  String get looksValueMissingEar => 'Chybí ucho';
+
+  @override
+  String get looksValueMissingEye => 'Chybí oko';
+
+  @override
+  String get looksValueCloudyEye => 'Zakalené oko';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Chybí přední noha';
+
+  @override
+  String get looksValueMissingHindLeg => 'Chybí zadní noha';
+
+  @override
+  String get looksValueNoTeeth => 'Bez zubů';
+
+  @override
+  String get looksValueExtraToes => 'Přebytečné prsty';
+
+  @override
   String get rejectMatch => 'Není totéž';
 
   @override

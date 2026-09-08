@@ -1707,6 +1707,78 @@ class AppLocalizationsEn extends AppLocalizations {
   String get looksValueSable => 'Sable';
 
   @override
+  String get looksGroupEyes => 'Eyes';
+
+  @override
+  String get looksGroupFeatures => 'Features';
+
+  @override
+  String get looksValueAmber => 'Amber';
+
+  @override
+  String get looksValueCopper => 'Copper';
+
+  @override
+  String get looksValueOddEyed => 'Odd-eyed';
+
+  @override
+  String get looksValueChocolate => 'Chocolate';
+
+  @override
+  String get looksValueLilac => 'Lilac';
+
+  @override
+  String get looksValueSilver => 'Silver';
+
+  @override
+  String get looksValueSmoke => 'Smoke';
+
+  @override
+  String get looksValueTicked => 'Ticked';
+
+  @override
+  String get looksValueVan => 'Van';
+
+  @override
+  String get looksValueCurly => 'Curly';
+
+  @override
+  String get looksValueWiry => 'Wiry';
+
+  @override
+  String get looksValueKinked => 'Kinked';
+
+  @override
+  String get looksValueCropped => 'Cropped';
+
+  @override
+  String get looksValueTippedEar => 'Tipped ear';
+
+  @override
+  String get looksValueEarTattoo => 'Ear tattoo';
+
+  @override
+  String get looksValueMissingEar => 'Missing ear';
+
+  @override
+  String get looksValueMissingEye => 'Missing eye';
+
+  @override
+  String get looksValueCloudyEye => 'Cloudy eye';
+
+  @override
+  String get looksValueMissingFrontLeg => 'Missing front leg';
+
+  @override
+  String get looksValueMissingHindLeg => 'Missing hind leg';
+
+  @override
+  String get looksValueNoTeeth => 'No teeth';
+
+  @override
+  String get looksValueExtraToes => 'Extra toes';
+
+  @override
   String get rejectMatch => 'Not the same';
 
   @override
