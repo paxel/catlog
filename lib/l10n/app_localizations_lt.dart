@@ -2944,6 +2944,26 @@ class AppLocalizationsLt extends AppLocalizations {
   String get choreEnd => 'Baigti darbą';
 
   @override
+  String get choreHistory => 'Istorija';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'atlikta $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'anksčiau';
+
+  @override
+  String get choreDoneLate => 'vėliau';
+
+  @override
+  String get choreMissed => 'Praleista';
+
+  @override
+  String get choreStillOpen => 'Dar neatlikta';
+
+  @override
   String get choreEndConfirm =>
       'Darbas dingsta iš sąrašo. Pažymėta lieka istorijoje.';
 

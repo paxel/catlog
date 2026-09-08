@@ -2940,6 +2940,26 @@ class AppLocalizationsLv extends AppLocalizations {
   String get choreEnd => 'Beigt pienākumu';
 
   @override
+  String get choreHistory => 'Vēsture';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'izdarīts $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'agrāk';
+
+  @override
+  String get choreDoneLate => 'vēlāk';
+
+  @override
+  String get choreMissed => 'Izlaists';
+
+  @override
+  String get choreStillOpen => 'Vēl atvērts';
+
+  @override
   String get choreEndConfirm =>
       'Pienākums pazūd no saraksta. Atzīmētais paliek vēsturē.';
 

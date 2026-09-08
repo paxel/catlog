@@ -2926,6 +2926,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get choreEnd => 'End chore';
 
   @override
+  String get choreHistory => 'History';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'done $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'early';
+
+  @override
+  String get choreDoneLate => 'late';
+
+  @override
+  String get choreMissed => 'Missed';
+
+  @override
+  String get choreStillOpen => 'Still open';
+
+  @override
   String get choreEndConfirm =>
       'The chore leaves the list. What was ticked stays in the history.';
 

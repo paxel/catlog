@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../l10n.dart';
 import '../reminders/plan_chooser.dart';
+import 'chore_history_screen.dart';
 import 'chore_reminders.dart';
 
 /// Making or editing a chore (1.2.0): a title, whose it is, how often,
@@ -419,6 +420,18 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
             ),
           if (existing != null) ...[
             const Divider(height: 32),
+            // Day by day: done when and by whom, missed, open — the
+            // control a medicine needs.
+            ListTile(
+              leading: const Icon(Icons.history),
+              title: Text(t.choreHistory),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      ChoreHistoryScreen(store: store, chore: existing!),
+                ),
+              ),
+            ),
             ListTile(
               leading: Icon(existing!.paused ? Icons.play_arrow : Icons.pause),
               title: Text(existing!.paused ? t.choreResume : t.chorePause),

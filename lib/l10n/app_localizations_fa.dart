@@ -2877,6 +2877,26 @@ class AppLocalizationsFa extends AppLocalizations {
   String get choreEnd => 'پایان کار';
 
   @override
+  String get choreHistory => 'تاریخچه';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'انجام شد $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'زودتر';
+
+  @override
+  String get choreDoneLate => 'دیرتر';
+
+  @override
+  String get choreMissed => 'از دست رفته';
+
+  @override
+  String get choreStillOpen => 'هنوز باز';
+
+  @override
   String get choreEndConfirm =>
       'کار از فهرست حذف می‌شود. آنچه تیک خورده در تاریخچه می‌ماند.';
 

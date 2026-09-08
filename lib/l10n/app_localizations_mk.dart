@@ -2929,6 +2929,26 @@ class AppLocalizationsMk extends AppLocalizations {
   String get choreEnd => 'Заврши обврска';
 
   @override
+  String get choreHistory => 'Историја';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'завршено $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'порано';
+
+  @override
+  String get choreDoneLate => 'подоцна';
+
+  @override
+  String get choreMissed => 'Пропуштено';
+
+  @override
+  String get choreStillOpen => 'Уште отворено';
+
+  @override
   String get choreEndConfirm =>
       'Обврската исчезнува од листата. Штиклираното останува во историјата.';
 

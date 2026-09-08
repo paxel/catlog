@@ -2940,6 +2940,26 @@ class AppLocalizationsRo extends AppLocalizations {
   String get choreEnd => 'Încheie treaba';
 
   @override
+  String get choreHistory => 'Istoric';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'făcut $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'mai devreme';
+
+  @override
+  String get choreDoneLate => 'mai târziu';
+
+  @override
+  String get choreMissed => 'Ratat';
+
+  @override
+  String get choreStillOpen => 'Încă deschis';
+
+  @override
   String get choreEndConfirm =>
       'Treaba iese din listă. Ce a fost bifat rămâne în istoric.';
 

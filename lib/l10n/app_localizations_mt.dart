@@ -2938,6 +2938,26 @@ class AppLocalizationsMt extends AppLocalizations {
   String get choreEnd => 'Temm ix-xogħol';
 
   @override
+  String get choreHistory => 'Storja';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'magħmul $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'kmieni';
+
+  @override
+  String get choreDoneLate => 'tard';
+
+  @override
+  String get choreMissed => 'Maqbuż';
+
+  @override
+  String get choreStillOpen => 'Għadu miftuħ';
+
+  @override
   String get choreEndConfirm =>
       'Ix-xogħol jitlaq mil-lista. Dak li tmarka jibqa’ fl-istorja.';
 

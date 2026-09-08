@@ -2925,6 +2925,26 @@ class AppLocalizationsTr extends AppLocalizations {
   String get choreEnd => 'Görevi bitir';
 
   @override
+  String get choreHistory => 'Geçmiş';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'yapıldı $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'erken';
+
+  @override
+  String get choreDoneLate => 'geç';
+
+  @override
+  String get choreMissed => 'Kaçırıldı';
+
+  @override
+  String get choreStillOpen => 'Hâlâ açık';
+
+  @override
   String get choreEndConfirm =>
       'Görev listeden çıkar. İşaretlenenler geçmişte kalır.';
 

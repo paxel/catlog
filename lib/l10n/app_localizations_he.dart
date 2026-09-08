@@ -2922,6 +2922,26 @@ class AppLocalizationsHe extends AppLocalizations {
   String get choreEnd => 'סיום מטלה';
 
   @override
+  String get choreHistory => 'היסטוריה';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'בוצע $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'מוקדם';
+
+  @override
+  String get choreDoneLate => 'מאוחר';
+
+  @override
+  String get choreMissed => 'הוחמץ';
+
+  @override
+  String get choreStillOpen => 'עדיין פתוח';
+
+  @override
   String get choreEndConfirm => 'המטלה יוצאת מהרשימה. מה שסומן נשאר בהיסטוריה.';
 
   @override

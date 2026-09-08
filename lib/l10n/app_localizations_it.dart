@@ -2935,6 +2935,26 @@ class AppLocalizationsIt extends AppLocalizations {
   String get choreEnd => 'Chiudi faccenda';
 
   @override
+  String get choreHistory => 'Cronologia';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'fatto $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'in anticipo';
+
+  @override
+  String get choreDoneLate => 'in ritardo';
+
+  @override
+  String get choreMissed => 'Saltato';
+
+  @override
+  String get choreStillOpen => 'Ancora da fare';
+
+  @override
   String get choreEndConfirm =>
       'La faccenda esce dalla lista. Ciò che è stato spuntato resta nella cronologia.';
 

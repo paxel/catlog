@@ -5120,6 +5120,42 @@ abstract class AppLocalizations {
   /// **'End chore'**
   String get choreEnd;
 
+  /// No description provided for @choreHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get choreHistory;
+
+  /// No description provided for @choreDoneAt.
+  ///
+  /// In en, this message translates to:
+  /// **'done {when} · {who}'**
+  String choreDoneAt(Object when, Object who);
+
+  /// No description provided for @choreDoneEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'early'**
+  String get choreDoneEarly;
+
+  /// No description provided for @choreDoneLate.
+  ///
+  /// In en, this message translates to:
+  /// **'late'**
+  String get choreDoneLate;
+
+  /// No description provided for @choreMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get choreMissed;
+
+  /// No description provided for @choreStillOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Still open'**
+  String get choreStillOpen;
+
   /// No description provided for @choreEndConfirm.
   ///
   /// In en, this message translates to:

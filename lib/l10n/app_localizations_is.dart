@@ -2931,6 +2931,26 @@ class AppLocalizationsIs extends AppLocalizations {
   String get choreEnd => 'Ljúka verki';
 
   @override
+  String get choreHistory => 'Ferill';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gert $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'snemma';
+
+  @override
+  String get choreDoneLate => 'seint';
+
+  @override
+  String get choreMissed => 'Sleppt';
+
+  @override
+  String get choreStillOpen => 'Enn opið';
+
+  @override
   String get choreEndConfirm =>
       'Verkið fer af listanum. Það sem var hakað við helst í sögunni.';
 

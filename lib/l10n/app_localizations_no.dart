@@ -2924,6 +2924,26 @@ class AppLocalizationsNo extends AppLocalizations {
   String get choreEnd => 'Avslutt gjøremål';
 
   @override
+  String get choreHistory => 'Historikk';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gjort $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'tidlig';
+
+  @override
+  String get choreDoneLate => 'sent';
+
+  @override
+  String get choreMissed => 'Glemt';
+
+  @override
+  String get choreStillOpen => 'Fortsatt åpen';
+
+  @override
   String get choreEndConfirm =>
       'Gjøremålet forlater listen. Det som ble haket av blir i historikken.';
 

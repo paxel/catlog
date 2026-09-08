@@ -2936,6 +2936,26 @@ class AppLocalizationsDe extends AppLocalizations {
   String get choreEnd => 'Aufgabe beenden';
 
   @override
+  String get choreHistory => 'Verlauf';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'erledigt $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'früher';
+
+  @override
+  String get choreDoneLate => 'später';
+
+  @override
+  String get choreMissed => 'Verpasst';
+
+  @override
+  String get choreStillOpen => 'Noch offen';
+
+  @override
   String get choreEndConfirm =>
       'Die Aufgabe verschwindet aus der Liste. Was abgehakt wurde, bleibt in der Historie.';
 

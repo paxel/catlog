@@ -2932,6 +2932,26 @@ class AppLocalizationsNl extends AppLocalizations {
   String get choreEnd => 'Taak beëindigen';
 
   @override
+  String get choreHistory => 'Geschiedenis';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gedaan $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'eerder';
+
+  @override
+  String get choreDoneLate => 'later';
+
+  @override
+  String get choreMissed => 'Gemist';
+
+  @override
+  String get choreStillOpen => 'Nog open';
+
+  @override
   String get choreEndConfirm =>
       'De taak verlaat de lijst. Wat is afgevinkt blijft in de geschiedenis.';
 

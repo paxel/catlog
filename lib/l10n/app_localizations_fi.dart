@@ -2928,6 +2928,26 @@ class AppLocalizationsFi extends AppLocalizations {
   String get choreEnd => 'Lopeta askare';
 
   @override
+  String get choreHistory => 'Historia';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'tehty $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'etuajassa';
+
+  @override
+  String get choreDoneLate => 'myöhässä';
+
+  @override
+  String get choreMissed => 'Väliin';
+
+  @override
+  String get choreStillOpen => 'Vielä auki';
+
+  @override
   String get choreEndConfirm =>
       'Askare poistuu listalta. Merkityt kerrat jäävät historiaan.';
 

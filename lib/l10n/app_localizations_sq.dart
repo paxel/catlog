@@ -2927,6 +2927,26 @@ class AppLocalizationsSq extends AppLocalizations {
   String get choreEnd => 'Përfundo detyrën';
 
   @override
+  String get choreHistory => 'Historiku';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'kryer $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'më herët';
+
+  @override
+  String get choreDoneLate => 'më vonë';
+
+  @override
+  String get choreMissed => 'Humbur';
+
+  @override
+  String get choreStillOpen => 'Ende e hapur';
+
+  @override
   String get choreEndConfirm =>
       'Detyra largohet nga lista. Ç’u shënua mbetet në histori.';
 

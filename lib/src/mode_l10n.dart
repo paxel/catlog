@@ -496,6 +496,15 @@ class ModeLocalizations implements AppLocalizations {
   String get chooseWhatToMove => base.chooseWhatToMove;
 
   @override
+  String choreDoneAt(Object when, Object who) => base.choreDoneAt(when, who);
+
+  @override
+  String get choreDoneEarly => base.choreDoneEarly;
+
+  @override
+  String get choreDoneLate => base.choreDoneLate;
+
+  @override
   String choreDue(String date) => base.choreDue(date);
 
   @override
@@ -520,6 +529,12 @@ class ModeLocalizations implements AppLocalizations {
   String choreEveryYears(int n) => base.choreEveryYears(n);
 
   @override
+  String get choreHistory => base.choreHistory;
+
+  @override
+  String get choreMissed => base.choreMissed;
+
+  @override
   String get choreNoTime => base.choreNoTime;
 
   @override
@@ -539,6 +554,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get choreResume => base.choreResume;
+
+  @override
+  String get choreStillOpen => base.choreStillOpen;
 
   @override
   String get choreTitleLabel => base.choreTitleLabel;

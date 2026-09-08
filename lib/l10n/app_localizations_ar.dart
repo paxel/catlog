@@ -2954,6 +2954,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get choreEnd => 'إنهاء المهمة';
 
   @override
+  String get choreHistory => 'السجل';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'تم $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'مبكرًا';
+
+  @override
+  String get choreDoneLate => 'متأخرًا';
+
+  @override
+  String get choreMissed => 'فائت';
+
+  @override
+  String get choreStillOpen => 'ما زال مفتوحًا';
+
+  @override
   String get choreEndConfirm =>
       'تخرج المهمة من القائمة. ما تم تعليمه يبقى في السجل.';
 

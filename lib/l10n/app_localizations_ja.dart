@@ -2815,6 +2815,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String get choreEnd => '日課を終了';
 
   @override
+  String get choreHistory => '履歴';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return '完了 $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => '前倒し';
+
+  @override
+  String get choreDoneLate => '遅れ';
+
+  @override
+  String get choreMissed => '未実施';
+
+  @override
+  String get choreStillOpen => '未完了';
+
+  @override
   String get choreEndConfirm => 'お世話は一覧から消えます。チェック済みの記録は履歴に残ります。';
 
   @override

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'entry.dart';
 import 'fields.dart';
 import 'store.dart';
 
@@ -73,8 +74,7 @@ class ChoreSchedule {
   static ChoreSchedule fromJson(Map<String, dynamic> json) {
     switch (json['repeat']) {
       case 'everyDays':
-        return ChoreSchedule.every(
-            (json['every'] as num?)?.toInt() ?? 1,
+        return ChoreSchedule.every((json['every'] as num?)?.toInt() ?? 1,
             ChoreUnit.values.asNameMap()[json['unit']] ?? ChoreUnit.days);
       case 'weekdays':
         return ChoreSchedule.weekdays({
@@ -478,4 +478,45 @@ extension Chores on CatalogStore {
       append(chore.entity, Keys.choreTick(chore.id, dayKey(dayOf(occurrence))),
           null,
           date: date);
+}
+
+/// One due day of a chore as the log tells it: done on which day, by
+/// whom and when it was recorded, or missed, or still open today.
+class ChoreLogRow {
+  final DateTime due;
+  final ChoreDay state;
+  final DateTime? doneOn;
+  final String? author;
+  final DateTime? recorded;
+
+  const ChoreLogRow(this.due, this.state,
+      {this.doneOn, this.author, this.recorded});
+
+  bool get early => doneOn != null && doneOn!.isBefore(due);
+  bool get late => doneOn != null && doneOn!.isAfter(due);
+}
+
+/// The chore's due days from its start to [today], newest first, each
+/// with what happened — the control a medicine needs: was it given on
+/// day X, by whom.
+extension ChoreLog on CatalogStore {
+  List<ChoreLogRow> choreLog(Chore chore, DateTime today) {
+    today = dayOf(today);
+    final ticks = choreTicks(chore);
+    final entity = resolveEntity(chore.entity);
+    final rows = <ChoreLogRow>[];
+    for (final o in occurrences(chore, ticks, chore.start, today)) {
+      final state = stateOn(chore, ticks, o.due, today);
+      Entry? tick;
+      if (o.done) {
+        tick = fieldHistory(entity, Keys.choreTick(chore.id, dayKey(o.due)))
+            .where((e) => e.value != null)
+            .firstOrNull;
+      }
+      rows.add(ChoreLogRow(o.due, state,
+          doneOn: o.doneOn, author: tick?.author, recorded: tick?.recorded));
+    }
+    rows.sort((a, b) => b.due.compareTo(a.due));
+    return rows;
+  }
 }

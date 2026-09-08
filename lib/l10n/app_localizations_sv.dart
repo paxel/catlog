@@ -2925,6 +2925,26 @@ class AppLocalizationsSv extends AppLocalizations {
   String get choreEnd => 'Avsluta syssla';
 
   @override
+  String get choreHistory => 'Historik';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gjort $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'tidigt';
+
+  @override
+  String get choreDoneLate => 'sent';
+
+  @override
+  String get choreMissed => 'Missat';
+
+  @override
+  String get choreStillOpen => 'Ännu öppen';
+
+  @override
   String get choreEndConfirm =>
       'Sysslan lämnar listan. Det som bockats av stannar i historiken.';
 

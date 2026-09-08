@@ -2783,6 +2783,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get choreEnd => '结束任务';
 
   @override
+  String get choreHistory => '历史';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return '已完成 $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => '提前';
+
+  @override
+  String get choreDoneLate => '延后';
+
+  @override
+  String get choreMissed => '未完成';
+
+  @override
+  String get choreStillOpen => '尚未完成';
+
+  @override
   String get choreEndConfirm => '该事务将从列表中移除。已勾选的记录保留在历史中。';
 
   @override

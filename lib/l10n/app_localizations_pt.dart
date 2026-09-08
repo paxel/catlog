@@ -2927,6 +2927,26 @@ class AppLocalizationsPt extends AppLocalizations {
   String get choreEnd => 'Terminar tarefa';
 
   @override
+  String get choreHistory => 'Histórico';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'feito $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'antes';
+
+  @override
+  String get choreDoneLate => 'atrasado';
+
+  @override
+  String get choreMissed => 'Falhado';
+
+  @override
+  String get choreStillOpen => 'Ainda por fazer';
+
+  @override
   String get choreEndConfirm =>
       'A tarefa sai da lista. O que foi marcado fica no histórico.';
 

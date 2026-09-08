@@ -2927,6 +2927,26 @@ class AppLocalizationsBg extends AppLocalizations {
   String get choreEnd => 'Край на задачата';
 
   @override
+  String get choreHistory => 'История';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'свършено $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'по-рано';
+
+  @override
+  String get choreDoneLate => 'по-късно';
+
+  @override
+  String get choreMissed => 'Пропуснато';
+
+  @override
+  String get choreStillOpen => 'Още отворено';
+
+  @override
   String get choreEndConfirm =>
       'Задължението излиза от списъка. Отметнатото остава в историята.';
 

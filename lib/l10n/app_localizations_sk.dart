@@ -2935,6 +2935,26 @@ class AppLocalizationsSk extends AppLocalizations {
   String get choreEnd => 'Ukončiť úlohu';
 
   @override
+  String get choreHistory => 'História';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'hotovo $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'skôr';
+
+  @override
+  String get choreDoneLate => 'neskôr';
+
+  @override
+  String get choreMissed => 'Vynechané';
+
+  @override
+  String get choreStillOpen => 'Ešte otvorené';
+
+  @override
   String get choreEndConfirm =>
       'Úloha zmizne zo zoznamu. Čo bolo zaškrtnuté, zostáva v histórii.';
 

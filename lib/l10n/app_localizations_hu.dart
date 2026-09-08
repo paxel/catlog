@@ -2927,6 +2927,26 @@ class AppLocalizationsHu extends AppLocalizations {
   String get choreEnd => 'Teendő lezárása';
 
   @override
+  String get choreHistory => 'Előzmények';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'elvégezve $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'korábban';
+
+  @override
+  String get choreDoneLate => 'később';
+
+  @override
+  String get choreMissed => 'Kimaradt';
+
+  @override
+  String get choreStillOpen => 'Még nyitott';
+
+  @override
   String get choreEndConfirm =>
       'A teendő eltűnik a listáról. A kipipáltak a történetben maradnak.';
 

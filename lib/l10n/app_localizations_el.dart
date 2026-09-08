@@ -2938,6 +2938,26 @@ class AppLocalizationsEl extends AppLocalizations {
   String get choreEnd => 'Τέλος δουλειάς';
 
   @override
+  String get choreHistory => 'Ιστορικό';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'έγινε $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'νωρίτερα';
+
+  @override
+  String get choreDoneLate => 'αργότερα';
+
+  @override
+  String get choreMissed => 'Παραλείφθηκε';
+
+  @override
+  String get choreStillOpen => 'Ακόμη ανοιχτό';
+
+  @override
   String get choreEndConfirm =>
       'Η δουλειά φεύγει από τη λίστα. Όσα τσεκαρίστηκαν μένουν στο ιστορικό.';
 

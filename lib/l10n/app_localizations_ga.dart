@@ -2970,6 +2970,26 @@ class AppLocalizationsGa extends AppLocalizations {
   String get choreEnd => 'Cuir deireadh leis an gcúram';
 
   @override
+  String get choreHistory => 'Stair';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'déanta $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'luath';
+
+  @override
+  String get choreDoneLate => 'déanach';
+
+  @override
+  String get choreMissed => 'Caillte';
+
+  @override
+  String get choreStillOpen => 'Fós oscailte';
+
+  @override
   String get choreEndConfirm =>
       'Imíonn an cúram den liosta. Fanann a bhfuil ticeáilte sa stair.';
 

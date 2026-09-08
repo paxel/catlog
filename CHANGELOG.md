@@ -6,6 +6,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 ## [1.2.3] - Unreleased
 
 ### Added
+- A chore's history page: every due day with done when and by whom, missed, or still open; oldest first on request, shareable as text.
 - A field's history can be read oldest first and shared as text, one line per value with date and author.
 - The graph page shares its curve as a picture, caption and curve only, through the phone's share sheet.
 - A title you earned can be worn next to your name, chosen in the catalog settings; partners see it on the author rows, and nobody can wear one in your name.

@@ -2926,6 +2926,26 @@ class AppLocalizationsDa extends AppLocalizations {
   String get choreEnd => 'Afslut pligt';
 
   @override
+  String get choreHistory => 'Historik';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'gjort $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'tidligt';
+
+  @override
+  String get choreDoneLate => 'sent';
+
+  @override
+  String get choreMissed => 'Sprunget over';
+
+  @override
+  String get choreStillOpen => 'Stadig åben';
+
+  @override
   String get choreEndConfirm =>
       'Pligten forlader listen. Det afkrydsede bliver i historikken.';
 

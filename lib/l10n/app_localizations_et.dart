@@ -2924,6 +2924,26 @@ class AppLocalizationsEt extends AppLocalizations {
   String get choreEnd => 'Lõpeta toimetus';
 
   @override
+  String get choreHistory => 'Ajalugu';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'tehtud $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'varem';
+
+  @override
+  String get choreDoneLate => 'hiljem';
+
+  @override
+  String get choreMissed => 'Vahele jäänud';
+
+  @override
+  String get choreStillOpen => 'Veel lahtine';
+
+  @override
   String get choreEndConfirm =>
       'Toimetus kaob loendist. Märgitu jääb ajalukku.';
 

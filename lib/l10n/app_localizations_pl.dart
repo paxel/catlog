@@ -2943,6 +2943,26 @@ class AppLocalizationsPl extends AppLocalizations {
   String get choreEnd => 'Zakończ obowiązek';
 
   @override
+  String get choreHistory => 'Historia';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'zrobione $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'wcześniej';
+
+  @override
+  String get choreDoneLate => 'później';
+
+  @override
+  String get choreMissed => 'Pominięte';
+
+  @override
+  String get choreStillOpen => 'Jeszcze otwarte';
+
+  @override
   String get choreEndConfirm =>
       'Obowiązek znika z listy. To, co zaznaczono, zostaje w historii.';
 

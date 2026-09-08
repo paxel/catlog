@@ -212,6 +212,30 @@ void main() {
       expect(nextDue(nails, ticks, d(10)), d(24));
     });
 
+    test('the log tells each due day: done by whom, missed, open', () {
+      final cat = a.createCat('Miezi');
+      final meds = a.createChore(Chore(
+          id: '',
+          entity: cat,
+          title: 'Meds',
+          schedule: const ChoreSchedule.daily(),
+          start: d(0)));
+      a.tickChore(meds, d(0), doneOn: d(0));
+      b.applyEntries(a.entriesSince(const {}), senderVector: a.versionVector());
+      final onB = b.choresOf(cat).single;
+      b.tickChore(onB, d(2), doneOn: d(3)); // a day late, by bob
+      exchange();
+      final log = a.choreLog(meds, d(3));
+      expect(log.map((r) => r.due), [d(3), d(2), d(1), d(0)]);
+      expect(log[0].state, ChoreDay.pending);
+      expect(log[1].state, ChoreDay.done);
+      expect(log[1].author, 'bob');
+      expect(log[1].late, isTrue);
+      expect(log[2].state, ChoreDay.missed);
+      expect(log[3].author, 'anna');
+      expect(log[3].early, isFalse);
+    });
+
     test('the chore keys stay out of the cat\'s ordinary fields', () {
       final cat = a.createCat('Miezi');
       a.createChore(Chore(

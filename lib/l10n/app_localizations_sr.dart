@@ -2936,6 +2936,26 @@ class AppLocalizationsSr extends AppLocalizations {
   String get choreEnd => 'Заврши задатак';
 
   @override
+  String get choreHistory => 'Историја';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'урађено $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'раније';
+
+  @override
+  String get choreDoneLate => 'касније';
+
+  @override
+  String get choreMissed => 'Пропуштено';
+
+  @override
+  String get choreStillOpen => 'Још отворено';
+
+  @override
   String get choreEndConfirm =>
       'Обавеза нестаје са листе. Штиклирано остаје у историји.';
 

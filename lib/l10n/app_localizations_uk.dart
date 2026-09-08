@@ -2943,6 +2943,26 @@ class AppLocalizationsUk extends AppLocalizations {
   String get choreEnd => 'Завершити справу';
 
   @override
+  String get choreHistory => 'Історія';
+
+  @override
+  String choreDoneAt(Object when, Object who) {
+    return 'зроблено $when · $who';
+  }
+
+  @override
+  String get choreDoneEarly => 'раніше';
+
+  @override
+  String get choreDoneLate => 'пізніше';
+
+  @override
+  String get choreMissed => 'Пропущено';
+
+  @override
+  String get choreStillOpen => 'Ще не зроблено';
+
+  @override
   String get choreEndConfirm =>
       'Справа зникає зі списку. Позначене залишається в історії.';
 
