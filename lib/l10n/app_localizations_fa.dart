@@ -2929,6 +2929,52 @@ class AppLocalizationsFa extends AppLocalizations {
   String get achievementsTitle => 'دستاوردها';
 
   @override
+  String get rankServant => 'خدمتکار';
+
+  @override
+  String get rankButler => 'پیشخدمت';
+
+  @override
+  String get rankSteward => 'ناظر';
+
+  @override
+  String get rankChancellor => 'صدراعظم';
+
+  @override
+  String get rankMinister => 'وزیر';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'کالیکو';
+
+  @override
+  String get coatSnowLeopard => 'پلنگ برفی';
+
+  @override
+  String get coatSiamese => 'نشان‌های سیامی';
+
+  @override
+  String get coatLynx => 'سیاه‌گوش';
+
+  @override
+  String get coatTortoiseshell => 'لاک‌پشتی';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'پوست جدید: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'یک ماه کامل کارها، همه انجام شده.';
+
+  @override
+  String get achievementsEmpty => 'هنوز هیچ. کارها راه را می‌دانند.';
+
+  @override
   String get achievementMonth => 'یک ماه کامل';
 
   @override

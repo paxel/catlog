@@ -2864,6 +2864,52 @@ class AppLocalizationsJa extends AppLocalizations {
   String get achievementsTitle => '実績';
 
   @override
+  String get rankServant => '従者';
+
+  @override
+  String get rankButler => '執事';
+
+  @override
+  String get rankSteward => '家令';
+
+  @override
+  String get rankChancellor => '宰相';
+
+  @override
+  String get rankMinister => '大臣';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title（$chore）';
+  }
+
+  @override
+  String get coatCalico => '三毛';
+
+  @override
+  String get coatSnowLeopard => 'ユキヒョウ';
+
+  @override
+  String get coatSiamese => 'シャムのポイント';
+
+  @override
+  String get coatLynx => 'オオヤマネコ';
+
+  @override
+  String get coatTortoiseshell => 'サビ';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return '新しい毛皮：$coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'ひと月まるごとのお世話、すべて完了。';
+
+  @override
+  String get achievementsEmpty => 'まだ何もありません。お世話が道を知っています。';
+
+  @override
   String get achievementMonth => '皆勤の1か月';
 
   @override

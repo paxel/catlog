@@ -47,7 +47,7 @@ void afterChoreTick(
                     fullYearId => t.achievementYear,
                     fullDecadeId => t.achievementDecade,
                     fullCenturyId => t.achievementCentury,
-                    _ => t.achievementMaster(s.title ?? ''),
+                    _ => titleWithChore(t, rankFor(s.tier)!, s.title ?? ''),
                   },
               ].join(', '),
             ),

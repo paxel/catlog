@@ -2998,6 +2998,52 @@ class AppLocalizationsMt extends AppLocalizations {
   String get achievementsTitle => 'Kisbiet';
 
   @override
+  String get rankServant => 'Qaddej';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Amministratur';
+
+  @override
+  String get rankChancellor => 'Kanċillier';
+
+  @override
+  String get rankMinister => 'Ministru';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Leopard tas-silġ';
+
+  @override
+  String get coatSiamese => 'Punti Siamiżi';
+
+  @override
+  String get coatLynx => 'Linċi';
+
+  @override
+  String get coatTortoiseshell => 'Fekruna';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Pil ġdid: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Xahar sħiħ ta’ xogħlijiet, kollha magħmula.';
+
+  @override
+  String get achievementsEmpty => 'Xejn s’issa. Ix-xogħlijiet jafu t-triq.';
+
+  @override
   String get achievementMonth => 'Xahar sħiħ';
 
   @override

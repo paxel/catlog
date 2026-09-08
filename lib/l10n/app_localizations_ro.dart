@@ -3000,6 +3000,52 @@ class AppLocalizationsRo extends AppLocalizations {
   String get achievementsTitle => 'Realizări';
 
   @override
+  String get rankServant => 'Servitor';
+
+  @override
+  String get rankButler => 'Majordom';
+
+  @override
+  String get rankSteward => 'Administrator';
+
+  @override
+  String get rankChancellor => 'Cancelar';
+
+  @override
+  String get rankMinister => 'Ministru';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Leopardul zăpezilor';
+
+  @override
+  String get coatSiamese => 'Puncte siameze';
+
+  @override
+  String get coatLynx => 'Râs';
+
+  @override
+  String get coatTortoiseshell => 'Carapace de țestoasă';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Blană nouă: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'O lună întreagă de treburi, toate făcute.';
+
+  @override
+  String get achievementsEmpty => 'Nimic câștigat încă. Treburile știu drumul.';
+
+  @override
   String get achievementMonth => 'O lună întreagă';
 
   @override

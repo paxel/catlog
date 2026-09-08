@@ -3003,6 +3003,53 @@ class AppLocalizationsUk extends AppLocalizations {
   String get achievementsTitle => 'Досягнення';
 
   @override
+  String get rankServant => 'Слуга';
+
+  @override
+  String get rankButler => 'Дворецький';
+
+  @override
+  String get rankSteward => 'Управитель';
+
+  @override
+  String get rankChancellor => 'Канцлер';
+
+  @override
+  String get rankMinister => 'Міністр';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Каліко';
+
+  @override
+  String get coatSnowLeopard => 'Сніговий барс';
+
+  @override
+  String get coatSiamese => 'Сіамські відмітини';
+
+  @override
+  String get coatLynx => 'Рись';
+
+  @override
+  String get coatTortoiseshell => 'Черепаховий';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Нова шубка: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Цілий місяць справ, усі зроблені.';
+
+  @override
+  String get achievementsEmpty =>
+      'Поки нічого не зароблено. Справи знають дорогу.';
+
+  @override
   String get achievementMonth => 'Повний місяць';
 
   @override

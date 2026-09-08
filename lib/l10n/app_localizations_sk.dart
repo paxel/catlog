@@ -2995,6 +2995,52 @@ class AppLocalizationsSk extends AppLocalizations {
   String get achievementsTitle => 'Úspechy';
 
   @override
+  String get rankServant => 'Sluha';
+
+  @override
+  String get rankButler => 'Komorník';
+
+  @override
+  String get rankSteward => 'Správca';
+
+  @override
+  String get rankChancellor => 'Kancelár';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatSnowLeopard => 'Snežný leopard';
+
+  @override
+  String get coatSiamese => 'Siamské znaky';
+
+  @override
+  String get coatLynx => 'Rys';
+
+  @override
+  String get coatTortoiseshell => 'Korytnačina';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nová srsť: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Celý mesiac úloh, všetko hotové.';
+
+  @override
+  String get achievementsEmpty => 'Zatiaľ nič. Úlohy poznajú cestu.';
+
+  @override
   String get achievementMonth => 'Celý mesiac';
 
   @override

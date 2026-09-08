@@ -3035,6 +3035,53 @@ class AppLocalizationsGa extends AppLocalizations {
   String get achievementsTitle => 'Éachtaí';
 
   @override
+  String get rankServant => 'Seirbhíseach';
+
+  @override
+  String get rankButler => 'Buitléir';
+
+  @override
+  String get rankSteward => 'Maor';
+
+  @override
+  String get rankChancellor => 'Seansailéir';
+
+  @override
+  String get rankMinister => 'Aire';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Liopard sneachta';
+
+  @override
+  String get coatSiamese => 'Comharthaí Siamacha';
+
+  @override
+  String get coatLynx => 'Lincse';
+
+  @override
+  String get coatTortoiseshell => 'Toirtís';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Fionnadh nua: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Mí iomlán de chúraimí, iad ar fad déanta.';
+
+  @override
+  String get achievementsEmpty =>
+      'Faic go fóill. Tá an bealach ar eolas ag na cúraimí.';
+
+  @override
   String get achievementMonth => 'Mí iomlán';
 
   @override

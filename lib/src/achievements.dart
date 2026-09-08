@@ -1,5 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Achievements (1.2.0): what the chores add up to over a lifetime.
 /// Counted from the ticks of every catalog on this device, kept in the
 /// app database as the keeper's own — nothing here syncs.
@@ -16,6 +18,32 @@ const fullCenturyId = 'full-century';
 const masterPrefix = 'master:';
 
 const masterTiers = [10, 50, 100, 1000, 10000, 100000];
+
+/// The titles a master ladder hands out, by the cat's reckoning: the
+/// staff of its household, lowest to highest. Nothing below the first
+/// step; the sixth step keeps the highest title.
+const titleRanks = ['servant', 'butler', 'steward', 'chancellor', 'minister'];
+
+/// The rank for a master tier, null below the first step.
+String? rankFor(int tier) => tier <= 0
+    ? null
+    : titleRanks[tier - 1 < titleRanks.length
+          ? tier - 1
+          : titleRanks.length - 1];
+
+/// The coats a keeper earns, one per full month of chores, in this
+/// order. Painted in fur_background.dart.
+const coatUnlocks = [
+  'calico',
+  'snowLeopard',
+  'siamese',
+  'lynx',
+  'tortoiseshell',
+];
+
+/// The coats unlocked by [fullMonths] full months.
+List<String> unlockedCoats(int fullMonths) =>
+    coatUnlocks.take(fullMonths < 0 ? 0 : fullMonths).toList();
 
 /// What the chores of the device's catalogs add up to, as of [today].
 class ChoreStats {
@@ -170,3 +198,23 @@ List<LadderState> recordLadders(
   }
   return climbed;
 }
+
+/// "Chancellor (Feed)": the rank's word with the chore in brackets.
+String titleWithChore(AppLocalizations t, String rank, String chore) =>
+    t.titleWithChore(rankName(t, rank), chore);
+
+String rankName(AppLocalizations t, String rank) => switch (rank) {
+  'servant' => t.rankServant,
+  'butler' => t.rankButler,
+  'steward' => t.rankSteward,
+  'chancellor' => t.rankChancellor,
+  _ => t.rankMinister,
+};
+
+String coatName(AppLocalizations t, String coat) => switch (coat) {
+  'calico' => t.coatCalico,
+  'snowLeopard' => t.coatSnowLeopard,
+  'siamese' => t.coatSiamese,
+  'lynx' => t.coatLynx,
+  _ => t.coatTortoiseshell,
+};

@@ -2830,6 +2830,52 @@ class AppLocalizationsZh extends AppLocalizations {
   String get achievementsTitle => '成就';
 
   @override
+  String get rankServant => '仆人';
+
+  @override
+  String get rankButler => '管家';
+
+  @override
+  String get rankSteward => '总管';
+
+  @override
+  String get rankChancellor => '宰相';
+
+  @override
+  String get rankMinister => '大臣';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title（$chore）';
+  }
+
+  @override
+  String get coatCalico => '三花';
+
+  @override
+  String get coatSnowLeopard => '雪豹';
+
+  @override
+  String get coatSiamese => '暹罗重点色';
+
+  @override
+  String get coatLynx => '猞猁';
+
+  @override
+  String get coatTortoiseshell => '玳瑁';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return '新毛皮：$coat';
+  }
+
+  @override
+  String get coatUnlockedHow => '整整一个月的事务，全部完成。';
+
+  @override
+  String get achievementsEmpty => '尚未获得任何东西。事务知道该怎么走。';
+
+  @override
   String get achievementMonth => '完整的一个月';
 
   @override

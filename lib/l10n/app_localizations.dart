@@ -5186,6 +5186,90 @@ abstract class AppLocalizations {
   /// **'Achievements'**
   String get achievementsTitle;
 
+  /// No description provided for @rankServant.
+  ///
+  /// In en, this message translates to:
+  /// **'Servant'**
+  String get rankServant;
+
+  /// No description provided for @rankButler.
+  ///
+  /// In en, this message translates to:
+  /// **'Butler'**
+  String get rankButler;
+
+  /// No description provided for @rankSteward.
+  ///
+  /// In en, this message translates to:
+  /// **'Steward'**
+  String get rankSteward;
+
+  /// No description provided for @rankChancellor.
+  ///
+  /// In en, this message translates to:
+  /// **'Chancellor'**
+  String get rankChancellor;
+
+  /// No description provided for @rankMinister.
+  ///
+  /// In en, this message translates to:
+  /// **'Minister'**
+  String get rankMinister;
+
+  /// No description provided for @titleWithChore.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} ({chore})'**
+  String titleWithChore(Object title, Object chore);
+
+  /// No description provided for @coatCalico.
+  ///
+  /// In en, this message translates to:
+  /// **'Calico'**
+  String get coatCalico;
+
+  /// No description provided for @coatSnowLeopard.
+  ///
+  /// In en, this message translates to:
+  /// **'Snow leopard'**
+  String get coatSnowLeopard;
+
+  /// No description provided for @coatSiamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Siamese points'**
+  String get coatSiamese;
+
+  /// No description provided for @coatLynx.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynx'**
+  String get coatLynx;
+
+  /// No description provided for @coatTortoiseshell.
+  ///
+  /// In en, this message translates to:
+  /// **'Tortoiseshell'**
+  String get coatTortoiseshell;
+
+  /// No description provided for @coatUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'New coat: {coat}'**
+  String coatUnlocked(Object coat);
+
+  /// No description provided for @coatUnlockedHow.
+  ///
+  /// In en, this message translates to:
+  /// **'A full month of chores, all done.'**
+  String get coatUnlockedHow;
+
+  /// No description provided for @achievementsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing earned yet. The chores know the way.'**
+  String get achievementsEmpty;
+
   /// No description provided for @achievementMonth.
   ///
   /// In en, this message translates to:

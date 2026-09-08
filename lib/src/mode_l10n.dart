@@ -67,6 +67,9 @@ class ModeLocalizations implements AppLocalizations {
   String get achievementYear => base.achievementYear;
 
   @override
+  String get achievementsEmpty => base.achievementsEmpty;
+
+  @override
   String get achievementsTitle => base.achievementsTitle;
 
   @override
@@ -551,6 +554,27 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get clowdersNeutral => base.clowdersNeutral;
+
+  @override
+  String get coatCalico => base.coatCalico;
+
+  @override
+  String get coatLynx => base.coatLynx;
+
+  @override
+  String get coatSiamese => base.coatSiamese;
+
+  @override
+  String get coatSnowLeopard => base.coatSnowLeopard;
+
+  @override
+  String get coatTortoiseshell => base.coatTortoiseshell;
+
+  @override
+  String coatUnlocked(Object coat) => base.coatUnlocked(coat);
+
+  @override
+  String get coatUnlockedHow => base.coatUnlockedHow;
 
   @override
   String get coffeeSubtitle => base.coffeeSubtitle;
@@ -1861,6 +1885,21 @@ class ModeLocalizations implements AppLocalizations {
   String get rangeYear => base.rangeYear;
 
   @override
+  String get rankButler => base.rankButler;
+
+  @override
+  String get rankChancellor => base.rankChancellor;
+
+  @override
+  String get rankMinister => base.rankMinister;
+
+  @override
+  String get rankServant => base.rankServant;
+
+  @override
+  String get rankSteward => base.rankSteward;
+
+  @override
   String get readOnlyCalendar => base.readOnlyCalendar;
 
   @override
@@ -2471,6 +2510,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String timelineOf(String name) => base.timelineOf(name);
+
+  @override
+  String titleWithChore(Object title, Object chore) => base.titleWithChore(title, chore);
 
   @override
   String toastAdopted(Object cat, Object home) => base.toastAdopted(cat, home);

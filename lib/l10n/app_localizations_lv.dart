@@ -2999,6 +2999,52 @@ class AppLocalizationsLv extends AppLocalizations {
   String get achievementsTitle => 'Sasniegumi';
 
   @override
+  String get rankServant => 'Kalps';
+
+  @override
+  String get rankButler => 'Sulainis';
+
+  @override
+  String get rankSteward => 'Pārvaldnieks';
+
+  @override
+  String get rankChancellor => 'Kanclers';
+
+  @override
+  String get rankMinister => 'Ministrs';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatSnowLeopard => 'Sniega leopards';
+
+  @override
+  String get coatSiamese => 'Siāmas zīmes';
+
+  @override
+  String get coatLynx => 'Lūsis';
+
+  @override
+  String get coatTortoiseshell => 'Bruņurupuča';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Jauns kažoks: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Vesels mēnesis pienākumu, visi izdarīti.';
+
+  @override
+  String get achievementsEmpty => 'Vēl nekā. Pienākumi zina ceļu.';
+
+  @override
   String get achievementMonth => 'Pilns mēnesis';
 
   @override

@@ -3004,6 +3004,52 @@ class AppLocalizationsLt extends AppLocalizations {
   String get achievementsTitle => 'Pasiekimai';
 
   @override
+  String get rankServant => 'Tarnas';
+
+  @override
+  String get rankButler => 'Liokajus';
+
+  @override
+  String get rankSteward => 'Ūkvedys';
+
+  @override
+  String get rankChancellor => 'Kancleris';
+
+  @override
+  String get rankMinister => 'Ministras';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kalikas';
+
+  @override
+  String get coatSnowLeopard => 'Snieginis leopardas';
+
+  @override
+  String get coatSiamese => 'Siamo žymės';
+
+  @override
+  String get coatLynx => 'Lūšis';
+
+  @override
+  String get coatTortoiseshell => 'Vėžlio kiautas';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Naujas kailis: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Ištisas mėnuo darbų, visi atlikti.';
+
+  @override
+  String get achievementsEmpty => 'Dar nieko. Darbai žino kelią.';
+
+  @override
   String get achievementMonth => 'Visas mėnuo';
 
   @override

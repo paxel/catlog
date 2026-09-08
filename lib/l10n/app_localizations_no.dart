@@ -2982,6 +2982,53 @@ class AppLocalizationsNo extends AppLocalizations {
   String get achievementsTitle => 'Prestasjoner';
 
   @override
+  String get rankServant => 'Tjener';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Forvalter';
+
+  @override
+  String get rankChancellor => 'Kansler';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Snøleopard';
+
+  @override
+  String get coatSiamese => 'Siamesiske tegninger';
+
+  @override
+  String get coatLynx => 'Gaupe';
+
+  @override
+  String get coatTortoiseshell => 'Skilpadde';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Ny pels: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'En hel måned med gjøremål, alle gjort.';
+
+  @override
+  String get achievementsEmpty =>
+      'Ingenting opptjent ennå. Gjøremålene kjenner veien.';
+
+  @override
   String get achievementMonth => 'En hel måned';
 
   @override

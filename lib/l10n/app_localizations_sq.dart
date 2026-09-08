@@ -2985,6 +2985,53 @@ class AppLocalizationsSq extends AppLocalizations {
   String get achievementsTitle => 'Arritje';
 
   @override
+  String get rankServant => 'Shërbëtor';
+
+  @override
+  String get rankButler => 'Kryeshërbëtor';
+
+  @override
+  String get rankSteward => 'Kujdestar';
+
+  @override
+  String get rankChancellor => 'Kancelar';
+
+  @override
+  String get rankMinister => 'Ministër';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatSnowLeopard => 'Leopard i borës';
+
+  @override
+  String get coatSiamese => 'Shenja siameze';
+
+  @override
+  String get coatLynx => 'Rrëqebull';
+
+  @override
+  String get coatTortoiseshell => 'Breshkë';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Gëzof i ri: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow =>
+      'Një muaj i plotë detyrash, të gjitha të kryera.';
+
+  @override
+  String get achievementsEmpty => 'Ende asgjë. Detyrat e dinë rrugën.';
+
+  @override
   String get achievementMonth => 'Një muaj i plotë';
 
   @override

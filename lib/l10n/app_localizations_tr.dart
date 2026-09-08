@@ -2983,6 +2983,52 @@ class AppLocalizationsTr extends AppLocalizations {
   String get achievementsTitle => 'Başarılar';
 
   @override
+  String get rankServant => 'Hizmetkâr';
+
+  @override
+  String get rankButler => 'Kâhya';
+
+  @override
+  String get rankSteward => 'Vekilharç';
+
+  @override
+  String get rankChancellor => 'Şansölye';
+
+  @override
+  String get rankMinister => 'Bakan';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatSnowLeopard => 'Kar leoparı';
+
+  @override
+  String get coatSiamese => 'Siyam noktaları';
+
+  @override
+  String get coatLynx => 'Vaşak';
+
+  @override
+  String get coatTortoiseshell => 'Bağa';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Yeni kürk: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Tam bir ay görev, hepsi yapıldı.';
+
+  @override
+  String get achievementsEmpty => 'Henüz bir şey yok. Görevler yolu bilir.';
+
+  @override
   String get achievementMonth => 'Tam bir ay';
 
   @override

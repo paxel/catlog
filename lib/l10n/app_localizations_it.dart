@@ -2993,6 +2993,53 @@ class AppLocalizationsIt extends AppLocalizations {
   String get achievementsTitle => 'Traguardi';
 
   @override
+  String get rankServant => 'Servitore';
+
+  @override
+  String get rankButler => 'Maggiordomo';
+
+  @override
+  String get rankSteward => 'Intendente';
+
+  @override
+  String get rankChancellor => 'Cancelliere';
+
+  @override
+  String get rankMinister => 'Ministro';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Leopardo delle nevi';
+
+  @override
+  String get coatSiamese => 'Punti siamesi';
+
+  @override
+  String get coatLynx => 'Lince';
+
+  @override
+  String get coatTortoiseshell => 'Tartaruga';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nuovo manto: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Un mese intero di faccende, tutte fatte.';
+
+  @override
+  String get achievementsEmpty =>
+      'Niente guadagnato ancora. Le faccende conoscono la strada.';
+
+  @override
   String get achievementMonth => 'Un mese intero';
 
   @override

@@ -2986,6 +2986,52 @@ class AppLocalizationsFi extends AppLocalizations {
   String get achievementsTitle => 'Saavutukset';
 
   @override
+  String get rankServant => 'Palvelija';
+
+  @override
+  String get rankButler => 'Hovimestari';
+
+  @override
+  String get rankSteward => 'Taloudenhoitaja';
+
+  @override
+  String get rankChancellor => 'Kansleri';
+
+  @override
+  String get rankMinister => 'Ministeri';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kilpikonna-kalikko';
+
+  @override
+  String get coatSnowLeopard => 'Lumileopardi';
+
+  @override
+  String get coatSiamese => 'Siamilaiset merkit';
+
+  @override
+  String get coatLynx => 'Ilves';
+
+  @override
+  String get coatTortoiseshell => 'Kilpikonna';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Uusi turkki: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Kokonainen kuukausi askareita, kaikki tehty.';
+
+  @override
+  String get achievementsEmpty => 'Ei vielä mitään. Askareet tietävät tien.';
+
+  @override
   String get achievementMonth => 'Kokonainen kuukausi';
 
   @override

@@ -2981,6 +2981,52 @@ class AppLocalizationsHe extends AppLocalizations {
   String get achievementsTitle => 'הישגים';
 
   @override
+  String get rankServant => 'משרת';
+
+  @override
+  String get rankButler => 'משרת ראשי';
+
+  @override
+  String get rankSteward => 'סוכן הבית';
+
+  @override
+  String get rankChancellor => 'קנצלר';
+
+  @override
+  String get rankMinister => 'שר';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'קליקו';
+
+  @override
+  String get coatSnowLeopard => 'נמר שלגים';
+
+  @override
+  String get coatSiamese => 'סימני סיאמי';
+
+  @override
+  String get coatLynx => 'לינקס';
+
+  @override
+  String get coatTortoiseshell => 'צב';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'פרווה חדשה: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'חודש שלם של מטלות, כולן בוצעו.';
+
+  @override
+  String get achievementsEmpty => 'עדיין כלום. המטלות יודעות את הדרך.';
+
+  @override
   String get achievementMonth => 'חודש מלא';
 
   @override

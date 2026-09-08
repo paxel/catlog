@@ -2989,6 +2989,52 @@ class AppLocalizationsIs extends AppLocalizations {
   String get achievementsTitle => 'Afrek';
 
   @override
+  String get rankServant => 'Þjónn';
+
+  @override
+  String get rankButler => 'Bryti';
+
+  @override
+  String get rankSteward => 'Ráðsmaður';
+
+  @override
+  String get rankChancellor => 'Kanslari';
+
+  @override
+  String get rankMinister => 'Ráðherra';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Snæhlébarði';
+
+  @override
+  String get coatSiamese => 'Síamsk mynstur';
+
+  @override
+  String get coatLynx => 'Gaupa';
+
+  @override
+  String get coatTortoiseshell => 'Skjaldbaka';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nýr feldur: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Heill mánuður af verkum, öll unnin.';
+
+  @override
+  String get achievementsEmpty => 'Ekkert enn. Verkin þekkja leiðina.';
+
+  @override
   String get achievementMonth => 'Heill mánuður';
 
   @override

@@ -2985,6 +2985,52 @@ class AppLocalizationsHu extends AppLocalizations {
   String get achievementsTitle => 'Eredmények';
 
   @override
+  String get rankServant => 'Szolga';
+
+  @override
+  String get rankButler => 'Komornyik';
+
+  @override
+  String get rankSteward => 'Intéző';
+
+  @override
+  String get rankChancellor => 'Kancellár';
+
+  @override
+  String get rankMinister => 'Miniszter';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kalikó';
+
+  @override
+  String get coatSnowLeopard => 'Hópárduc';
+
+  @override
+  String get coatSiamese => 'Sziámi jegyek';
+
+  @override
+  String get coatLynx => 'Hiúz';
+
+  @override
+  String get coatTortoiseshell => 'Teknőctarka';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Új bunda: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Egy teljes hónap teendő, mind elvégezve.';
+
+  @override
+  String get achievementsEmpty => 'Még semmi. A teendők ismerik az utat.';
+
+  @override
   String get achievementMonth => 'Egy teljes hónap';
 
   @override

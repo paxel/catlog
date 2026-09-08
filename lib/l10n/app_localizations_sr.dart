@@ -2996,6 +2996,52 @@ class AppLocalizationsSr extends AppLocalizations {
   String get achievementsTitle => 'Достигнућа';
 
   @override
+  String get rankServant => 'Слуга';
+
+  @override
+  String get rankButler => 'Батлер';
+
+  @override
+  String get rankSteward => 'Управитељ';
+
+  @override
+  String get rankChancellor => 'Канцелар';
+
+  @override
+  String get rankMinister => 'Министар';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Калико';
+
+  @override
+  String get coatSnowLeopard => 'Снежни леопард';
+
+  @override
+  String get coatSiamese => 'Сијамске ознаке';
+
+  @override
+  String get coatLynx => 'Рис';
+
+  @override
+  String get coatTortoiseshell => 'Корњачина';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Ново крзно: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Цео месец обавеза, све урађене.';
+
+  @override
+  String get achievementsEmpty => 'Још ништа. Обавезе знају пут.';
+
+  @override
   String get achievementMonth => 'Цео месец';
 
   @override

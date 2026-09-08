@@ -137,12 +137,43 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Achievements'), findsOneWidget);
-    expect(find.text('Feed master'), findsOneWidget);
-    expect(find.text('Next at 10'), findsOneWidget);
+    // Nothing earned: one quiet line, no ladders to chase.
+    expect(find.textContaining('Nothing earned yet'), findsOneWidget);
+    expect(find.textContaining('Next at'), findsNothing);
+    expect(find.text('A full month'), findsNothing);
+  });
+
+  testWidgets('earned titles and coats list by rank and month', (
+    tester,
+  ) async {
+    final today = DateUtils.dateOnly(DateTime.now());
+    // Sixty ticks: Butler (50) on the Feed ladder; a full month behind.
+    dailyDone('Feed', DateTime(2026, 7, 1), DateTime(2026, 8, 31));
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: AchievementsScreen(manager: manager, stores: [store]),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Butler (Feed)'), findsOneWidget);
     expect(find.text('A full month'), findsOneWidget);
-    expect(find.text('A full century'), findsOneWidget);
-    expect(find.text('We will both be very proud.'), findsOneWidget);
-    expect(find.text('Not yet'), findsNWidgets(3));
+    expect(find.text('New coat: Calico'), findsOneWidget);
+    expect(find.text('New coat: Snow leopard'), findsOneWidget);
+    expect(find.textContaining('Next at'), findsNothing);
+    expect(today.isAfter(DateTime(2026, 8, 31)), isTrue);
+  });
+
+  test('ranks follow the tiers, coats the full months', () {
+    expect(rankFor(0), isNull);
+    expect(rankFor(1), 'servant');
+    expect(rankFor(4), 'chancellor');
+    expect(rankFor(5), 'minister');
+    expect(rankFor(6), 'minister');
+    expect(unlockedCoats(0), isEmpty);
+    expect(unlockedCoats(2), ['calico', 'snowLeopard']);
+    expect(unlockedCoats(9), hasLength(5));
   });
 
   testWidgets('a tick that climbs a ladder says so on the agenda', (
@@ -166,7 +197,7 @@ void main() {
     expect(find.byIcon(Icons.emoji_events_outlined), findsOneWidget);
     await tester.tap(find.byType(Checkbox));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Feed master'), findsOneWidget);
+    expect(find.textContaining('Servant (Feed)'), findsOneWidget);
     expect(
       manager.achievements().map((a) => a.id),
       contains('${masterPrefix}feed'),

@@ -2983,6 +2983,52 @@ class AppLocalizationsSv extends AppLocalizations {
   String get achievementsTitle => 'Prestationer';
 
   @override
+  String get rankServant => 'Tjänare';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Förvaltare';
+
+  @override
+  String get rankChancellor => 'Kansler';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Calico';
+
+  @override
+  String get coatSnowLeopard => 'Snöleopard';
+
+  @override
+  String get coatSiamese => 'Siamesiska tecken';
+
+  @override
+  String get coatLynx => 'Lodjur';
+
+  @override
+  String get coatTortoiseshell => 'Sköldpadd';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Ny päls: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'En hel månads sysslor, alla gjorda.';
+
+  @override
+  String get achievementsEmpty => 'Inget intjänat än. Sysslorna vet vägen.';
+
+  @override
   String get achievementMonth => 'En hel månad';
 
   @override

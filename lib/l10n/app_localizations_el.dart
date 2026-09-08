@@ -2996,6 +2996,52 @@ class AppLocalizationsEl extends AppLocalizations {
   String get achievementsTitle => 'Επιτεύγματα';
 
   @override
+  String get rankServant => 'Υπηρέτης';
+
+  @override
+  String get rankButler => 'Μπάτλερ';
+
+  @override
+  String get rankSteward => 'Οικονόμος';
+
+  @override
+  String get rankChancellor => 'Καγκελάριος';
+
+  @override
+  String get rankMinister => 'Υπουργός';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Καλικό';
+
+  @override
+  String get coatSnowLeopard => 'Λεοπάρδαλη του χιονιού';
+
+  @override
+  String get coatSiamese => 'Σιαμέζικα σημάδια';
+
+  @override
+  String get coatLynx => 'Λύγκας';
+
+  @override
+  String get coatTortoiseshell => 'Ταρταρούγα';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Νέα γούνα: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Ένας ολόκληρος μήνας δουλειών, όλες έγιναν.';
+
+  @override
+  String get achievementsEmpty => 'Τίποτα ακόμη. Οι δουλειές ξέρουν τον δρόμο.';
+
+  @override
   String get achievementMonth => 'Ένας ολόκληρος μήνας';
 
   @override

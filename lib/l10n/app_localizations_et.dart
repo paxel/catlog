@@ -2982,6 +2982,52 @@ class AppLocalizationsEt extends AppLocalizations {
   String get achievementsTitle => 'Saavutused';
 
   @override
+  String get rankServant => 'Teener';
+
+  @override
+  String get rankButler => 'Ülemteener';
+
+  @override
+  String get rankSteward => 'Majapidaja';
+
+  @override
+  String get rankChancellor => 'Kantsler';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Kaliko';
+
+  @override
+  String get coatSnowLeopard => 'Lumeleopard';
+
+  @override
+  String get coatSiamese => 'Siiami märgid';
+
+  @override
+  String get coatLynx => 'Ilves';
+
+  @override
+  String get coatTortoiseshell => 'Kilpkonnavärv';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Uus kasukas: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Terve kuu toimetusi, kõik tehtud.';
+
+  @override
+  String get achievementsEmpty => 'Veel pole midagi. Toimetused teavad teed.';
+
+  @override
   String get achievementMonth => 'Terve kuu';
 
   @override

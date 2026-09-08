@@ -2990,6 +2990,52 @@ class AppLocalizationsNl extends AppLocalizations {
   String get achievementsTitle => 'Prestaties';
 
   @override
+  String get rankServant => 'Dienaar';
+
+  @override
+  String get rankButler => 'Butler';
+
+  @override
+  String get rankSteward => 'Rentmeester';
+
+  @override
+  String get rankChancellor => 'Kanselier';
+
+  @override
+  String get rankMinister => 'Minister';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'Lapjeskat';
+
+  @override
+  String get coatSnowLeopard => 'Sneeuwpanter';
+
+  @override
+  String get coatSiamese => 'Siamese points';
+
+  @override
+  String get coatLynx => 'Lynx';
+
+  @override
+  String get coatTortoiseshell => 'Schildpad';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'Nieuwe vacht: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'Een volle maand taken, allemaal gedaan.';
+
+  @override
+  String get achievementsEmpty => 'Nog niets verdiend. De taken kennen de weg.';
+
+  @override
   String get achievementMonth => 'Een volle maand';
 
   @override

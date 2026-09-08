@@ -3018,6 +3018,52 @@ class AppLocalizationsAr extends AppLocalizations {
   String get achievementsTitle => 'الإنجازات';
 
   @override
+  String get rankServant => 'خادم';
+
+  @override
+  String get rankButler => 'كبير الخدم';
+
+  @override
+  String get rankSteward => 'وكيل';
+
+  @override
+  String get rankChancellor => 'مستشار';
+
+  @override
+  String get rankMinister => 'وزير';
+
+  @override
+  String titleWithChore(Object title, Object chore) {
+    return '$title ($chore)';
+  }
+
+  @override
+  String get coatCalico => 'كاليكو';
+
+  @override
+  String get coatSnowLeopard => 'نمر الثلج';
+
+  @override
+  String get coatSiamese => 'علامات سيامية';
+
+  @override
+  String get coatLynx => 'وشق';
+
+  @override
+  String get coatTortoiseshell => 'صدف السلحفاة';
+
+  @override
+  String coatUnlocked(Object coat) {
+    return 'فراء جديد: $coat';
+  }
+
+  @override
+  String get coatUnlockedHow => 'شهر كامل من المهام، كلها منجزة.';
+
+  @override
+  String get achievementsEmpty => 'لا شيء بعد. المهام تعرف الطريق.';
+
+  @override
   String get achievementMonth => 'شهر كامل';
 
   @override
