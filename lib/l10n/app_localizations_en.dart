@@ -3007,6 +3007,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Cheetah';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Paws';
+
+  @override
+  String get coatRosettes => 'Rosettes';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Coat';
+
+  @override
+  String get coatRandom => 'A different one each start';
+
+  @override
   String get coatSnowLeopard => 'Snow leopard';
 
   @override

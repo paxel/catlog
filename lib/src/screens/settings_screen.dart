@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../celebration.dart';
 import '../event_toasts.dart';
 import '../l10n.dart';
+import '../fur_background.dart';
+import '../achievements.dart';
 import '../language_dialog.dart';
 import '../spotlight.dart';
 import '../units.dart';
@@ -25,6 +27,49 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  int get _fullMonths =>
+      catalogManager
+          ?.achievements()
+          .where((a) => a.id == fullMonthId)
+          .firstOrNull
+          ?.times ??
+      0;
+
+  String _coatLabel(AppLocalizations t) {
+    final favourite =
+        FurPattern.values.asNameMap()[widget.store.localSetting('furFavourite')];
+    return favourite == null ? t.coatRandom : coatLabel(t, favourite);
+  }
+
+  Future<void> _chooseCoat() async {
+    final t = context.t;
+    final picked = await showDialog<String>(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: Text(t.coatSetting),
+        children: [
+          SimpleDialogOption(
+            onPressed: () => Navigator.of(context).pop(''),
+            child: Text(t.coatRandom),
+          ),
+          for (final coat in coatsAvailable(_fullMonths))
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(context).pop(coat.name),
+              child: Text(coatLabel(t, coat)),
+            ),
+        ],
+      ),
+    );
+    if (picked == null || !mounted) return;
+    if (picked.isEmpty) {
+      widget.store.removeLocalSetting('furFavourite');
+    } else {
+      widget.store.setLocalSetting('furFavourite', picked);
+    }
+    pickCoat(favourite: picked.isEmpty ? null : picked, fullMonths: _fullMonths);
+    setState(() {});
+  }
+
   Future<void> _pick(
     Future<void> Function(BuildContext, CatalogStore) dialog,
   ) async {
@@ -77,6 +122,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: celebrationsEnabled(widget.store)
                 ? (v) => setState(() => setCheerEnabled(widget.store, v))
                 : null,
+          ),
+          // The coat under every page: a different one each start, or
+          // a favourite among the ones earned.
+          ListTile(
+            leading: const Icon(Icons.texture),
+            title: Text(t.coatSetting),
+            subtitle: Text(_coatLabel(t)),
+            onTap: _chooseCoat,
           ),
           if (catalogManager != null)
             ListTile(

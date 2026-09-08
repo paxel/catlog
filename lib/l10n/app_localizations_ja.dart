@@ -2887,6 +2887,30 @@ class AppLocalizationsJa extends AppLocalizations {
   String get coatCalico => '三毛';
 
   @override
+  String get coatCheetah => 'チーター';
+
+  @override
+  String get coatTiger => 'トラ';
+
+  @override
+  String get coatTabby => 'トラ猫柄';
+
+  @override
+  String get coatPaws => '肉球';
+
+  @override
+  String get coatRosettes => 'ロゼット';
+
+  @override
+  String get coatZebra => 'シマウマ';
+
+  @override
+  String get coatSetting => '毛皮';
+
+  @override
+  String get coatRandom => '起動ごとに別のもの';
+
+  @override
   String get coatSnowLeopard => 'ユキヒョウ';
 
   @override

@@ -3004,6 +3004,30 @@ class AppLocalizationsHe extends AppLocalizations {
   String get coatCalico => 'קליקו';
 
   @override
+  String get coatCheetah => 'ברדלס';
+
+  @override
+  String get coatTiger => 'נמר';
+
+  @override
+  String get coatTabby => 'טאבי';
+
+  @override
+  String get coatPaws => 'כפות';
+
+  @override
+  String get coatRosettes => 'רוזטות';
+
+  @override
+  String get coatZebra => 'זברה';
+
+  @override
+  String get coatSetting => 'פרווה';
+
+  @override
+  String get coatRandom => 'שונה בכל הפעלה';
+
+  @override
   String get coatSnowLeopard => 'נמר שלגים';
 
   @override

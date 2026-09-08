@@ -3018,6 +3018,30 @@ class AppLocalizationsSk extends AppLocalizations {
   String get coatCalico => 'Kaliko';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Mourovatý';
+
+  @override
+  String get coatPaws => 'Labky';
+
+  @override
+  String get coatRosettes => 'Rozety';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Srsť';
+
+  @override
+  String get coatRandom => 'Pri každom spustení iná';
+
+  @override
   String get coatSnowLeopard => 'Snežný leopard';
 
   @override

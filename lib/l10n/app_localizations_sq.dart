@@ -3008,6 +3008,30 @@ class AppLocalizationsSq extends AppLocalizations {
   String get coatCalico => 'Kaliko';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tigër';
+
+  @override
+  String get coatTabby => 'Tigër';
+
+  @override
+  String get coatPaws => 'Putra';
+
+  @override
+  String get coatRosettes => 'Rozeta';
+
+  @override
+  String get coatZebra => 'Zebër';
+
+  @override
+  String get coatSetting => 'Gëzof';
+
+  @override
+  String get coatRandom => 'Ndryshe në çdo nisje';
+
+  @override
   String get coatSnowLeopard => 'Leopard i borës';
 
   @override

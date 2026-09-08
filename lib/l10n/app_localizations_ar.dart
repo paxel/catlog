@@ -3041,6 +3041,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get coatCalico => 'كاليكو';
 
   @override
+  String get coatCheetah => 'فهد';
+
+  @override
+  String get coatTiger => 'نمر';
+
+  @override
+  String get coatTabby => 'مخطط';
+
+  @override
+  String get coatPaws => 'كفوف';
+
+  @override
+  String get coatRosettes => 'وريدات';
+
+  @override
+  String get coatZebra => 'حمار وحشي';
+
+  @override
+  String get coatSetting => 'فراء';
+
+  @override
+  String get coatRandom => 'مختلف في كل تشغيل';
+
+  @override
   String get coatSnowLeopard => 'نمر الثلج';
 
   @override

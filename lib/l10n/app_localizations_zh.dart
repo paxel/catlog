@@ -2853,6 +2853,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get coatCalico => '三花';
 
   @override
+  String get coatCheetah => '猎豹';
+
+  @override
+  String get coatTiger => '老虎';
+
+  @override
+  String get coatTabby => '虎斑';
+
+  @override
+  String get coatPaws => '爪印';
+
+  @override
+  String get coatRosettes => '玫瑰斑';
+
+  @override
+  String get coatZebra => '斑马';
+
+  @override
+  String get coatSetting => '毛皮';
+
+  @override
+  String get coatRandom => '每次启动不同';
+
+  @override
   String get coatSnowLeopard => '雪豹';
 
   @override

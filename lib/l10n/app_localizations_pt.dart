@@ -3008,6 +3008,30 @@ class AppLocalizationsPt extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Chita';
+
+  @override
+  String get coatTiger => 'Tigre';
+
+  @override
+  String get coatTabby => 'Tigrado';
+
+  @override
+  String get coatPaws => 'Patas';
+
+  @override
+  String get coatRosettes => 'Rosetas';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Pelagem';
+
+  @override
+  String get coatRandom => 'Uma diferente a cada arranque';
+
+  @override
   String get coatSnowLeopard => 'Leopardo-das-neves';
 
   @override

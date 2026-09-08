@@ -3013,6 +3013,30 @@ class AppLocalizationsNl extends AppLocalizations {
   String get coatCalico => 'Lapjeskat';
 
   @override
+  String get coatCheetah => 'Cheetah';
+
+  @override
+  String get coatTiger => 'Tijger';
+
+  @override
+  String get coatTabby => 'Cyperse';
+
+  @override
+  String get coatPaws => 'Pootjes';
+
+  @override
+  String get coatRosettes => 'Rozetten';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Vacht';
+
+  @override
+  String get coatRandom => 'Elke start een andere';
+
+  @override
   String get coatSnowLeopard => 'Sneeuwpanter';
 
   @override

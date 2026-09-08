@@ -2952,6 +2952,30 @@ class AppLocalizationsFa extends AppLocalizations {
   String get coatCalico => 'کالیکو';
 
   @override
+  String get coatCheetah => 'یوزپلنگ';
+
+  @override
+  String get coatTiger => 'ببر';
+
+  @override
+  String get coatTabby => 'ببری';
+
+  @override
+  String get coatPaws => 'پنجه‌ها';
+
+  @override
+  String get coatRosettes => 'گل‌سرخی';
+
+  @override
+  String get coatZebra => 'گورخر';
+
+  @override
+  String get coatSetting => 'پوست';
+
+  @override
+  String get coatRandom => 'هر بار متفاوت';
+
+  @override
   String get coatSnowLeopard => 'پلنگ برفی';
 
   @override

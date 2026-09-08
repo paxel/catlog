@@ -3058,6 +3058,30 @@ class AppLocalizationsGa extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Síota';
+
+  @override
+  String get coatTiger => 'Tíogar';
+
+  @override
+  String get coatTabby => 'Tabaí';
+
+  @override
+  String get coatPaws => 'Lapaí';
+
+  @override
+  String get coatRosettes => 'Roiséid';
+
+  @override
+  String get coatZebra => 'Séabra';
+
+  @override
+  String get coatSetting => 'Fionnadh';
+
+  @override
+  String get coatRandom => 'Ceann eile gach uair';
+
+  @override
   String get coatSnowLeopard => 'Liopard sneachta';
 
   @override

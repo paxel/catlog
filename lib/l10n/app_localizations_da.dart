@@ -3007,6 +3007,30 @@ class AppLocalizationsDa extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Poter';
+
+  @override
+  String get coatRosettes => 'Rosetter';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Pels';
+
+  @override
+  String get coatRandom => 'En ny ved hver start';
+
+  @override
   String get coatSnowLeopard => 'Sneleopard';
 
   @override

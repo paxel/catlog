@@ -15,6 +15,7 @@ import 'src/stray_cam.dart';
 import 'src/hidden.dart';
 import 'src/fur_background.dart';
 import 'src/screens/restore_screen.dart';
+import 'src/achievements.dart';
 import 'src/chores/chore_reminders.dart';
 import 'src/l10n.dart';
 import 'src/move_to_catalog.dart';
@@ -189,6 +190,20 @@ class _CatlogAppState extends State<CatlogApp>
     WidgetsBinding.instance.addPostFrameCallback((_) => previous.close());
   }
 
+  /// The coat of this launch: the favourite when earned, else one of
+  /// the coats earned so far at random. Earned ones come from the app
+  /// database's full-month count.
+  void _pickCoat() {
+    if (!_store.isOpen) return;
+    final months = catalogManager
+            ?.achievements()
+            .where((a) => a.id == fullMonthId)
+            .firstOrNull
+            ?.times ??
+        0;
+    pickCoat(favourite: _store.localSetting('furFavourite'), fullMonths: months);
+  }
+
   /// Chore reminders follow the catalog as it is now: rebuilt on start,
   /// on resume and after every change.
   void _refreshReminders() {
@@ -209,7 +224,10 @@ class _CatlogAppState extends State<CatlogApp>
   void initState() {
     super.initState();
     switchCatalog = (to) => _switchCatalog(to);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _refreshReminders());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _refreshReminders();
+      _pickCoat();
+    });
     // The words change with the mode; the whole tree reads them anew.
     petMode.addListener(_rebuild);
     WidgetsBinding.instance.addObserver(this);

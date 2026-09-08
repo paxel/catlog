@@ -25,6 +25,7 @@ const seedAuthor = 'cat(a)log';
 bool isSharedSetting(String key) =>
     key == 'locale' ||
     key == 'syncFolderLast' ||
+    key == 'furFavourite' ||
     key == 'units' ||
     key.startsWith('tls:') ||
     key == 'introSeen' ||

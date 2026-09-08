@@ -5228,6 +5228,54 @@ abstract class AppLocalizations {
   /// **'Calico'**
   String get coatCalico;
 
+  /// No description provided for @coatCheetah.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheetah'**
+  String get coatCheetah;
+
+  /// No description provided for @coatTiger.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiger'**
+  String get coatTiger;
+
+  /// No description provided for @coatTabby.
+  ///
+  /// In en, this message translates to:
+  /// **'Tabby'**
+  String get coatTabby;
+
+  /// No description provided for @coatPaws.
+  ///
+  /// In en, this message translates to:
+  /// **'Paws'**
+  String get coatPaws;
+
+  /// No description provided for @coatRosettes.
+  ///
+  /// In en, this message translates to:
+  /// **'Rosettes'**
+  String get coatRosettes;
+
+  /// No description provided for @coatZebra.
+  ///
+  /// In en, this message translates to:
+  /// **'Zebra'**
+  String get coatZebra;
+
+  /// No description provided for @coatSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Coat'**
+  String get coatSetting;
+
+  /// No description provided for @coatRandom.
+  ///
+  /// In en, this message translates to:
+  /// **'A different one each start'**
+  String get coatRandom;
+
   /// No description provided for @coatSnowLeopard.
   ///
   /// In en, this message translates to:

@@ -3019,6 +3019,30 @@ class AppLocalizationsEl extends AppLocalizations {
   String get coatCalico => 'Καλικό';
 
   @override
+  String get coatCheetah => 'Τσιτάχ';
+
+  @override
+  String get coatTiger => 'Τίγρη';
+
+  @override
+  String get coatTabby => 'Τιγρέ';
+
+  @override
+  String get coatPaws => 'Πατούσες';
+
+  @override
+  String get coatRosettes => 'Ροζέτες';
+
+  @override
+  String get coatZebra => 'Ζέβρα';
+
+  @override
+  String get coatSetting => 'Γούνα';
+
+  @override
+  String get coatRandom => 'Διαφορετική σε κάθε εκκίνηση';
+
+  @override
   String get coatSnowLeopard => 'Λεοπάρδαλη του χιονιού';
 
   @override

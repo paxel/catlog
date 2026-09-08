@@ -3006,6 +3006,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get coatCalico => 'Kaliko';
 
   @override
+  String get coatCheetah => 'Çita';
+
+  @override
+  String get coatTiger => 'Kaplan';
+
+  @override
+  String get coatTabby => 'Tekir';
+
+  @override
+  String get coatPaws => 'Patiler';
+
+  @override
+  String get coatRosettes => 'Rozetler';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Kürk';
+
+  @override
+  String get coatRandom => 'Her açılışta farklı';
+
+  @override
   String get coatSnowLeopard => 'Kar leoparı';
 
   @override

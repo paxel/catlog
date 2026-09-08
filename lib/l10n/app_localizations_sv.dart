@@ -3006,6 +3006,30 @@ class AppLocalizationsSv extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Tassar';
+
+  @override
+  String get coatRosettes => 'Rosetter';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Päls';
+
+  @override
+  String get coatRandom => 'En annan vid varje start';
+
+  @override
   String get coatSnowLeopard => 'Snöleopard';
 
   @override

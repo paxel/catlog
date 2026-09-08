@@ -3026,6 +3026,30 @@ class AppLocalizationsUk extends AppLocalizations {
   String get coatCalico => 'Каліко';
 
   @override
+  String get coatCheetah => 'Гепард';
+
+  @override
+  String get coatTiger => 'Тигр';
+
+  @override
+  String get coatTabby => 'Табі';
+
+  @override
+  String get coatPaws => 'Лапки';
+
+  @override
+  String get coatRosettes => 'Розетки';
+
+  @override
+  String get coatZebra => 'Зебра';
+
+  @override
+  String get coatSetting => 'Шубка';
+
+  @override
+  String get coatRandom => 'Щоразу інша';
+
+  @override
   String get coatSnowLeopard => 'Сніговий барс';
 
   @override

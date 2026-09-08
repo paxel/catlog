@@ -3034,6 +3034,30 @@ class AppLocalizationsSl extends AppLocalizations {
   String get coatCalico => 'Kaliko';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tiger';
+
+  @override
+  String get coatTabby => 'Tigrast';
+
+  @override
+  String get coatPaws => 'Tačke';
+
+  @override
+  String get coatRosettes => 'Rozete';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Kožuh';
+
+  @override
+  String get coatRandom => 'Vsakič drugačen';
+
+  @override
   String get coatSnowLeopard => 'Snežni leopard';
 
   @override

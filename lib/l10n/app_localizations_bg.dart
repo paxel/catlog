@@ -3008,6 +3008,30 @@ class AppLocalizationsBg extends AppLocalizations {
   String get coatCalico => 'Калико';
 
   @override
+  String get coatCheetah => 'Гепард';
+
+  @override
+  String get coatTiger => 'Тигър';
+
+  @override
+  String get coatTabby => 'Табита';
+
+  @override
+  String get coatPaws => 'Лапички';
+
+  @override
+  String get coatRosettes => 'Розетки';
+
+  @override
+  String get coatZebra => 'Зебра';
+
+  @override
+  String get coatSetting => 'Козина';
+
+  @override
+  String get coatRandom => 'Различна при всяко стартиране';
+
+  @override
   String get coatSnowLeopard => 'Снежен леопард';
 
   @override

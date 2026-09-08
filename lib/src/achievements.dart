@@ -1,6 +1,7 @@
 import 'package:catalog_core/catalog_core.dart';
 
 import '../l10n/app_localizations.dart';
+import 'fur_background.dart';
 
 /// Achievements (1.2.0): what the chores add up to over a lifetime.
 /// Counted from the ticks of every catalog on this device, kept in the
@@ -217,4 +218,19 @@ String coatName(AppLocalizations t, String coat) => switch (coat) {
   'siamese' => t.coatSiamese,
   'lynx' => t.coatLynx,
   _ => t.coatTortoiseshell,
+};
+
+/// Every coat's name, base and earned alike.
+String coatLabel(AppLocalizations t, FurPattern coat) => switch (coat) {
+  FurPattern.cheetah => t.coatCheetah,
+  FurPattern.tiger => t.coatTiger,
+  FurPattern.tabby => t.coatTabby,
+  FurPattern.paws => t.coatPaws,
+  FurPattern.rosettes => t.coatRosettes,
+  FurPattern.zebra => t.coatZebra,
+  FurPattern.calico => t.coatCalico,
+  FurPattern.snowLeopard => t.coatSnowLeopard,
+  FurPattern.siamese => t.coatSiamese,
+  FurPattern.lynx => t.coatLynx,
+  FurPattern.tortoiseshell => t.coatTortoiseshell,
 };

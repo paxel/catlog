@@ -3019,6 +3019,30 @@ class AppLocalizationsCs extends AppLocalizations {
   String get coatCalico => 'Kaliko';
 
   @override
+  String get coatCheetah => 'Gepard';
+
+  @override
+  String get coatTiger => 'Tygr';
+
+  @override
+  String get coatTabby => 'Mourovatý';
+
+  @override
+  String get coatPaws => 'Tlapky';
+
+  @override
+  String get coatRosettes => 'Rozety';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Srst';
+
+  @override
+  String get coatRandom => 'Při každém spuštění jiná';
+
+  @override
   String get coatSnowLeopard => 'Sněžný leopard';
 
   @override

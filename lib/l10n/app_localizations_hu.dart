@@ -3008,6 +3008,30 @@ class AppLocalizationsHu extends AppLocalizations {
   String get coatCalico => 'Kalikó';
 
   @override
+  String get coatCheetah => 'Gepárd';
+
+  @override
+  String get coatTiger => 'Tigris';
+
+  @override
+  String get coatTabby => 'Cirmos';
+
+  @override
+  String get coatPaws => 'Mancsok';
+
+  @override
+  String get coatRosettes => 'Rozetták';
+
+  @override
+  String get coatZebra => 'Zebra';
+
+  @override
+  String get coatSetting => 'Bunda';
+
+  @override
+  String get coatRandom => 'Minden indításkor másik';
+
+  @override
   String get coatSnowLeopard => 'Hópárduc';
 
   @override

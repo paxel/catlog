@@ -3023,6 +3023,30 @@ class AppLocalizationsRo extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Ghepard';
+
+  @override
+  String get coatTiger => 'Tigru';
+
+  @override
+  String get coatTabby => 'Tigrat';
+
+  @override
+  String get coatPaws => 'Lăbuțe';
+
+  @override
+  String get coatRosettes => 'Rozete';
+
+  @override
+  String get coatZebra => 'Zebră';
+
+  @override
+  String get coatSetting => 'Blană';
+
+  @override
+  String get coatRandom => 'Alta la fiecare pornire';
+
+  @override
   String get coatSnowLeopard => 'Leopardul zăpezilor';
 
   @override

@@ -559,13 +559,34 @@ class ModeLocalizations implements AppLocalizations {
   String get coatCalico => base.coatCalico;
 
   @override
+  String get coatCheetah => base.coatCheetah;
+
+  @override
   String get coatLynx => base.coatLynx;
+
+  @override
+  String get coatPaws => base.coatPaws;
+
+  @override
+  String get coatRandom => base.coatRandom;
+
+  @override
+  String get coatRosettes => base.coatRosettes;
+
+  @override
+  String get coatSetting => base.coatSetting;
 
   @override
   String get coatSiamese => base.coatSiamese;
 
   @override
   String get coatSnowLeopard => base.coatSnowLeopard;
+
+  @override
+  String get coatTabby => base.coatTabby;
+
+  @override
+  String get coatTiger => base.coatTiger;
 
   @override
   String get coatTortoiseshell => base.coatTortoiseshell;
@@ -575,6 +596,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get coatUnlockedHow => base.coatUnlockedHow;
+
+  @override
+  String get coatZebra => base.coatZebra;
 
   @override
   String get coffeeSubtitle => base.coffeeSubtitle;

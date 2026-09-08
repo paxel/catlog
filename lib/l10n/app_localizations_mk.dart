@@ -3010,6 +3010,30 @@ class AppLocalizationsMk extends AppLocalizations {
   String get coatCalico => 'Калико';
 
   @override
+  String get coatCheetah => 'Гепард';
+
+  @override
+  String get coatTiger => 'Тигар';
+
+  @override
+  String get coatTabby => 'Табита';
+
+  @override
+  String get coatPaws => 'Шепи';
+
+  @override
+  String get coatRosettes => 'Розети';
+
+  @override
+  String get coatZebra => 'Зебра';
+
+  @override
+  String get coatSetting => 'Крзно';
+
+  @override
+  String get coatRandom => 'Различно при секое стартување';
+
+  @override
   String get coatSnowLeopard => 'Снежен леопард';
 
   @override

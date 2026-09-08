@@ -3009,6 +3009,30 @@ class AppLocalizationsFi extends AppLocalizations {
   String get coatCalico => 'Kilpikonna-kalikko';
 
   @override
+  String get coatCheetah => 'Gepardi';
+
+  @override
+  String get coatTiger => 'Tiikeri';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Tassut';
+
+  @override
+  String get coatRosettes => 'Rosetit';
+
+  @override
+  String get coatZebra => 'Seepra';
+
+  @override
+  String get coatSetting => 'Turkki';
+
+  @override
+  String get coatRandom => 'Eri joka käynnistyksellä';
+
+  @override
   String get coatSnowLeopard => 'Lumileopardi';
 
   @override

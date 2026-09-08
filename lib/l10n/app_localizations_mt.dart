@@ -3021,6 +3021,30 @@ class AppLocalizationsMt extends AppLocalizations {
   String get coatCalico => 'Calico';
 
   @override
+  String get coatCheetah => 'Ċita';
+
+  @override
+  String get coatTiger => 'Tigra';
+
+  @override
+  String get coatTabby => 'Tabby';
+
+  @override
+  String get coatPaws => 'Saqajn';
+
+  @override
+  String get coatRosettes => 'Rużetti';
+
+  @override
+  String get coatZebra => 'Żebra';
+
+  @override
+  String get coatSetting => 'Pil';
+
+  @override
+  String get coatRandom => 'Wieħed differenti kull darba';
+
+  @override
   String get coatSnowLeopard => 'Leopard tas-silġ';
 
   @override
