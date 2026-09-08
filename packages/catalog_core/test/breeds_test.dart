@@ -23,6 +23,8 @@ void main() {
     // The 1.2.2 list plus a keeper's own breed.
     store.setFieldOptions(
         breed.id, ['European Shorthair', 'Maine Coon', 'Hauskatze', 'mixed']);
+    // A device from before 1.2.3 never recorded what it offered.
+    store.removeLocalSetting('breedsOffered');
     // Seeding runs on every open; here it runs again by hand.
     store.reseedStarterFields();
     final after = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
@@ -31,5 +33,19 @@ void main() {
     expect(after.options, contains('Burmese'));
     expect(after.options.last, 'mixed');
     expect(after.options.where((o) => o == 'mixed').length, 1);
+  });
+
+  test('a breed a keeper removed stays removed on the next open', () {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    final breed = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    store.setFieldOptions(breed.id, [
+      for (final b in catBreeds)
+        if (b != 'Sphynx') b
+    ]);
+    store.reseedStarterFields();
+    final after = store.fieldDefs().firstWhere((d) => d.slug == 'breed');
+    expect(after.options, isNot(contains('Sphynx')));
+    expect(after.options.last, 'mixed');
   });
 }

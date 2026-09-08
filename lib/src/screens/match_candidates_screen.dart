@@ -64,7 +64,9 @@ class _MatchCandidatesScreenState extends State<MatchCandidatesScreen> {
       case MatchReason.geoDate:
         return Text(t.metersApart(c.distanceMeters!.round().toString()));
       case MatchReason.looks:
-        final line = t.traitsAgree(c.agreeing.length);
+        // Weighted like the ranking: a shared feature counts double.
+        final line = t.traitsAgree(
+            c.agreeing.fold(0, (n, g) => n + looksGroupWeight(g)));
         final apart = c.distanceMeters == null
             ? line
             : '$line · ${t.metersApart(c.distanceMeters!.round().toString())}';

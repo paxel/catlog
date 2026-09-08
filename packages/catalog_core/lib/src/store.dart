@@ -2287,6 +2287,9 @@ class CatalogStore {
   /// tests of the upgrade paths.
   void reseedStarterFields() => _seedStarterFields();
 
+  /// The starter breeds this device has offered so far (local).
+  static const _breedsOfferedKey = 'breedsOffered';
+
   void _seedStarterFields() {
     for (final f in starterFields) {
       final id = 'fielddef:${f.slug}';
@@ -2302,13 +2305,19 @@ class CatalogStore {
         // newcomers appended, its own additions and order kept, "mixed"
         // staying last.
         if (f.slug == 'breed') {
+          // Only breeds this device never offered: one a keeper removed
+          // on purpose stays removed.
+          final offered = (localSetting(_breedsOfferedKey) ?? '')
+              .split('\n')
+              .where((o) => o.isNotEmpty)
+              .toSet();
           final have = (current(id, Keys.fieldOptions) ?? '')
               .split('\n')
               .where((o) => o.isNotEmpty)
               .toList();
           final missing = [
             for (final o in f.options)
-              if (!have.contains(o)) o
+              if (!have.contains(o) && !offered.contains(o)) o
           ];
           if (missing.isNotEmpty) {
             final mixed = have.remove('mixed');
@@ -2316,6 +2325,7 @@ class CatalogStore {
             if (mixed || missing.contains('mixed')) merged.add('mixed');
             append(id, Keys.fieldOptions, merged.join('\n'), as: seedAuthor);
           }
+          setLocalSetting(_breedsOfferedKey, f.options.join('\n'));
         }
         continue;
       }
@@ -2325,6 +2335,9 @@ class CatalogStore {
       append(id, Keys.fieldScope, f.scope.name, as: seedAuthor);
       if (f.options.isNotEmpty) {
         append(id, Keys.fieldOptions, f.options.join('\n'), as: seedAuthor);
+      }
+      if (f.slug == 'breed') {
+        setLocalSetting(_breedsOfferedKey, f.options.join('\n'));
       }
       // Chip IDs are transponder numbers — the Card shows them scannable.
       if (f.type == FieldType.id) {
