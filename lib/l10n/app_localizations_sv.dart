@@ -3317,5 +3317,5 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Säkerhetskopiorna från den förra installationen finns i Downloads/catlog. Välj den mappen en gång; dess kopior visas här.';
+      'Säkerhetskopiorna från den förra installationen finns i Documents/catlog (Downloads/catlog i äldre versioner). Välj den mappen en gång; dess kopior visas här.';
 }

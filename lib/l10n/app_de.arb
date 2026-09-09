@@ -1109,5 +1109,5 @@
   },
   "entryCorrection": "Korrektur",
   "restorePickFolder": "Sicherungsordner wählen…",
-  "restoreAndroidHint": "Die Sicherungen der vorherigen Installation liegen in Downloads/catlog. Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier."
+  "restoreAndroidHint": "Die Sicherungen der vorherigen Installation liegen in Documents/catlog (bei älteren Versionen Downloads/catlog). Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier."
 }

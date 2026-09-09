@@ -12,8 +12,9 @@ import '../restore_backups.dart';
 
 /// The .catsync files of the folder the keeper picks, copied where the
 /// app can read them; null when the picker was dismissed. Android only:
-/// the install before wrote Downloads/catlog through MediaStore, which
-/// survives an uninstall, and only the picker can grant it to this one.
+/// the install before wrote Documents/catlog (Downloads/catlog up to
+/// 1.2.2) through MediaStore, which survives an uninstall, and only the
+/// picker can grant it to this one.
 Future<List<File>?> pickBackupFolderAndroid() async {
   final paths = await const MethodChannel('catlog/restore')
       .invokeListMethod<String>('pickFolder');
@@ -24,7 +25,7 @@ Future<List<File>?> pickBackupFolderAndroid() async {
 /// (#102) and from Manage catalogs. Lists what the backup folder holds,
 /// one row per catalog, all ticked; Restore brings each back as its own
 /// catalog. On Android the folder cannot be read unasked: the page names
-/// Downloads/catlog and a button opens the picker on it. "Pick files…"
+/// Documents/catlog and a button opens the picker on it. "Pick files…"
 /// adds backups kept elsewhere.
 class RestoreScreen extends StatefulWidget {
   final CatalogManager catalogs;

@@ -3318,5 +3318,5 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Önceki kurulumun yedekleri Downloads/catlog içinde. O klasörü bir kez seçin; yedekleri burada listelenir.';
+      'Önceki kurulumun yedekleri Documents/catlog içinde (eski sürümlerde Downloads/catlog). O klasörü bir kez seçin; yedekleri burada listelenir.';
 }

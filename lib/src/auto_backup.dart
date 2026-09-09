@@ -8,7 +8,7 @@ import 'private_temp.dart';
 
 /// Uninstall-proof safety net: whenever the app goes to the background
 /// and the catalog changed, a full sync bundle lands in a location the
-/// system owns — Android: Downloads/catlog (MediaStore, survives
+/// system owns — Android: Documents/catlog (MediaStore, survives
 /// uninstall), desktop: the user's Downloads folder. Restoring is the
 /// ordinary "import sync bundle" button.
 /// Local setting holding the last auto-backup failure; empty after a
@@ -50,7 +50,7 @@ String _fingerprint(String value) {
 
 /// The folder a fresh install looks in for the backups of the install
 /// before it. Desktop: the Downloads folder the backups go to; iOS:
-/// Documents. Android has none: the MediaStore rows in Downloads/catlog
+/// Documents. Android has none: the MediaStore rows in Documents/catlog
 /// survive an uninstall, but the next install owns none of them and
 /// may not list them — the restore page asks for the folder instead
 /// (see RestoreChannel). Null where the platform offers none.
@@ -70,7 +70,7 @@ Future<void> removeBesideBackups(String name) async {
   try {
     if (Platform.isAndroid) {
       await const MethodChannel('catlog/backup')
-          .invokeMethod('deleteFromDownloads', {'name': name});
+          .invokeMethod('deleteFromDocuments', {'name': name});
       return;
     }
     final dir = Platform.isIOS
@@ -86,15 +86,15 @@ Future<void> removeBesideBackups(String name) async {
 
 /// Puts a file where the automatic backups go, and says where that was
 /// in words the reader can act on. Android uses a MediaStore insert into
-/// Downloads/catlog so the file survives an uninstall; desktop uses the
+/// Documents/catlog so the file survives an uninstall; desktop uses the
 /// Downloads folder; iOS has no folder that survives an uninstall, so
 /// the app's Documents directory — visible in Files — is the best there
 /// is.
 Future<String> saveBesideBackups(String path, String name) async {
   if (Platform.isAndroid) {
     await const MethodChannel('catlog/backup')
-        .invokeMethod('saveToDownloads', {'path': path, 'name': name});
-    return 'Downloads/catlog/$name';
+        .invokeMethod('saveToDocuments', {'path': path, 'name': name});
+    return 'Documents/catlog/$name';
   }
   if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
     final downloads = await getDownloadsDirectory();

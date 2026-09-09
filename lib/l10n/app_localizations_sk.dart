@@ -3331,5 +3331,5 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Zálohy predchádzajúcej inštalácie sú v Downloads/catlog. Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu.';
+      'Zálohy predchádzajúcej inštalácie sú v Documents/catlog (v starších verziách Downloads/catlog). Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu.';
 }

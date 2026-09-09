@@ -3331,5 +3331,5 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Τα αντίγραφα της προηγούμενης εγκατάστασης βρίσκονται στο Downloads/catlog. Επιλέξτε αυτόν τον φάκελο μία φορά· τα αντίγραφά του εμφανίζονται εδώ.';
+      'Τα αντίγραφα της προηγούμενης εγκατάστασης βρίσκονται στο Documents/catlog (Downloads/catlog σε παλαιότερες εκδόσεις). Επιλέξτε αυτόν τον φάκελο μία φορά· τα αντίγραφά του εμφανίζονται εδώ.';
 }

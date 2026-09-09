@@ -3340,5 +3340,5 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Ankstesnio įdiegimo atsarginės kopijos yra Downloads/catlog. Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.';
+      'Ankstesnio įdiegimo atsarginės kopijos yra Documents/catlog (senesnėse versijose Downloads/catlog). Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.';
 }

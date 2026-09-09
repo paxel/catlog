@@ -5771,7 +5771,7 @@ abstract class AppLocalizations {
   /// No description provided for @restoreAndroidHint.
   ///
   /// In en, this message translates to:
-  /// **'The backups of the install before this one are in Downloads/catlog. Choose that folder once; its backups are listed here.'**
+  /// **'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.'**
   String get restoreAndroidHint;
 }
 

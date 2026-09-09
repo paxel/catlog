@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "Corrección",
   "restorePickFolder": "Elegir carpeta de copias…",
-  "restoreAndroidHint": "Las copias de la instalación anterior están en Downloads/catlog. Elige esa carpeta una vez; sus copias aparecen aquí."
+  "restoreAndroidHint": "Las copias de la instalación anterior están en Documents/catlog (Downloads/catlog en versiones anteriores). Elige esa carpeta una vez; sus copias aparecen aquí."
 }

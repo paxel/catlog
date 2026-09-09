@@ -47,17 +47,17 @@ class MainActivity : FlutterActivity() {
             .setMethodCallHandler { call, result -> restore.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
-                if (call.method == "saveToDownloads") {
+                if (call.method == "saveToDocuments") {
                     try {
                         val source = call.argument<String>("path")!!
                         val name = call.argument<String>("name")!!
-                        result.success(saveToDownloads(File(source), name))
+                        result.success(saveToDocuments(File(source), name))
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
-                } else if (call.method == "deleteFromDownloads") {
+                } else if (call.method == "deleteFromDocuments") {
                     try {
-                        deleteFromDownloads(call.argument<String>("name")!!)
+                        deleteFromDocuments(call.argument<String>("name")!!)
                         result.success(null)
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
@@ -145,41 +145,48 @@ class MainActivity : FlutterActivity() {
         openChannel?.invokeMethod("sharedImages", paths)
     }
 
-    /// Removes a backup file from Downloads/catlog — used when a catalog
-    /// is renamed, so the folder does not fill with names that no longer
-    /// mean anything.
-    private fun deleteFromDownloads(name: String) {
-        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+    /// Where the backups go on shared storage: Documents/catlog, through
+    /// MediaStore, which keeps the rows across an uninstall. Releases up
+    /// to 1.2.2 used Downloads/catlog; a delete covers both.
+    private val backupPaths = listOf(
+        Environment.DIRECTORY_DOCUMENTS + "/catlog",
+        Environment.DIRECTORY_DOWNLOADS + "/catlog",
+    )
+
+    private val filesUri: Uri
+        get() = MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+
+    /// Removes this app's copies of a backup file, wherever a release put
+    /// them — used when a catalog is renamed, so the folder does not fill
+    /// with names that no longer mean anything. Rows another install
+    /// wrote are not this app's to delete; those stay.
+    private fun deleteFromDocuments(name: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            contentResolver.delete(
-                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
-                arrayOf("$relativePath/", "$name%")
-            )
+            for (path in backupPaths) {
+                contentResolver.delete(
+                    filesUri,
+                    "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
+                    arrayOf("$path/", "$name%")
+                )
+            }
         } else {
             @Suppress("DEPRECATION")
-            val dir = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                "catlog"
-            )
-            File(dir, name).delete()
+            for (dir in listOf(Environment.DIRECTORY_DOCUMENTS, Environment.DIRECTORY_DOWNLOADS)) {
+                File(File(Environment.getExternalStoragePublicDirectory(dir), "catlog"), name).delete()
+            }
         }
     }
 
-    /// Writes into MediaStore Downloads/catlog — system-owned storage
+    /// Writes into MediaStore Documents/catlog — system-owned storage
     /// that survives uninstalling the app. Replaces the previous backup.
-    private fun saveToDownloads(source: File, name: String): String {
+    private fun saveToDocuments(source: File, name: String): String {
         val resolver = contentResolver
-        val relativePath = Environment.DIRECTORY_DOWNLOADS + "/catlog"
+        val relativePath = backupPaths.first()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             // Drop older copies of the same backup file. LIKE, not =:
             // earlier releases used a zip MIME type, and MediaStore renamed
             // those files to "$name.zip" (plus " (1)" duplicates).
-            resolver.delete(
-                MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                "${MediaStore.MediaColumns.RELATIVE_PATH}=? AND ${MediaStore.MediaColumns.DISPLAY_NAME} LIKE ?",
-                arrayOf("$relativePath/", "$name%")
-            )
+            deleteFromDocuments(name)
             val values = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, name)
                 // A recognized MIME type would make MediaStore force its
@@ -187,7 +194,7 @@ class MainActivity : FlutterActivity() {
                 put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
                 put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath)
             }
-            val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)
+            val uri = resolver.insert(filesUri, values)
                 ?: throw IllegalStateException("MediaStore insert failed")
             resolver.openOutputStream(uri)!!.use { out ->
                 source.inputStream().use { it.copyTo(out) }
@@ -196,7 +203,7 @@ class MainActivity : FlutterActivity() {
         } else {
             @Suppress("DEPRECATION")
             val dir = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
                 "catlog"
             )
             dir.mkdirs()

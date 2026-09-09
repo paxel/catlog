@@ -3154,5 +3154,5 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      '上一次安装的备份位于 Downloads/catlog。选择该文件夹一次，其中的备份会列在这里。';
+      '上一次安装的备份位于 Documents/catlog（旧版本为 Downloads/catlog）。选择该文件夹一次，其中的备份会列在这里。';
 }

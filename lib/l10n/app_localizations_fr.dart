@@ -3330,5 +3330,5 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Les sauvegardes de l\'installation précédente sont dans Downloads/catlog. Choisissez ce dossier une fois ; ses sauvegardes s\'affichent ici.';
+      'Les sauvegardes de l\'installation précédente sont dans Documents/catlog (Downloads/catlog pour les versions plus anciennes). Choisissez ce dossier une fois ; ses sauvegardes s\'affichent ici.';
 }

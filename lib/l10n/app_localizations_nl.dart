@@ -3325,5 +3325,5 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'De back-ups van de vorige installatie staan in Downloads/catlog. Kies die map één keer; de back-ups verschijnen hier.';
+      'De back-ups van de vorige installatie staan in Documents/catlog (Downloads/catlog bij oudere versies). Kies die map één keer; de back-ups verschijnen hier.';
 }

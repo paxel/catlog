@@ -3317,5 +3317,5 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Eelmise paigalduse varukoopiad on kaustas Downloads/catlog. Vali see kaust üks kord; selle koopiad kuvatakse siin.';
+      'Eelmise paigalduse varukoopiad on kaustas Documents/catlog (vanematel versioonidel Downloads/catlog). Vali see kaust üks kord; selle koopiad kuvatakse siin.';
 }

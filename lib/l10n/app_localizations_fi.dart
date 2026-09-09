@@ -3321,5 +3321,5 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Edellisen asennuksen varmuuskopiot ovat kansiossa Downloads/catlog. Valitse kansio kerran; sen kopiot näkyvät tässä.';
+      'Edellisen asennuksen varmuuskopiot ovat kansiossa Documents/catlog (vanhemmissa versioissa Downloads/catlog). Valitse kansio kerran; sen kopiot näkyvät tässä.';
 }

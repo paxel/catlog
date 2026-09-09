@@ -1891,5 +1891,5 @@
   },
   "entryCorrection": "Correction",
   "restorePickFolder": "Choose backup folder…",
-  "restoreAndroidHint": "The backups of the install before this one are in Downloads/catlog. Choose that folder once; its backups are listed here."
+  "restoreAndroidHint": "The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here."
 }

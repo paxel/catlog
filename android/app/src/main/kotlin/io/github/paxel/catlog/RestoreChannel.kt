@@ -10,9 +10,9 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
 
-/// The backups of the install before this one live in Downloads/catlog,
-/// written through MediaStore, which the system keeps across an
-/// uninstall. A fresh install owns none of those rows and may not list
+/// The backups of the install before this one live in Documents/catlog
+/// (Downloads/catlog up to 1.2.2), written through MediaStore, which the
+/// system keeps across an uninstall. A fresh install owns none of those rows and may not list
 /// or read them — only the folder picker can grant them, once. This
 /// channel opens the picker on that folder, then copies every .catsync
 /// it holds into the cache and hands the paths to Dart.
@@ -21,8 +21,8 @@ class RestoreChannel(private val activity: Activity) {
 
     companion object {
         const val PICK = 4712
-        private const val DOWNLOADS_CATLOG =
-            "content://com.android.externalstorage.documents/document/primary%3ADownload%2Fcatlog"
+        private const val DOCUMENTS_CATLOG =
+            "content://com.android.externalstorage.documents/document/primary%3ADocuments%2Fcatlog"
     }
 
     fun handle(call: MethodCall, result: MethodChannel.Result) {
@@ -37,7 +37,7 @@ class RestoreChannel(private val activity: Activity) {
                     val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.parse(DOWNLOADS_CATLOG))
+                            putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.parse(DOCUMENTS_CATLOG))
                         }
                     }
                     activity.startActivityForResult(intent, PICK)

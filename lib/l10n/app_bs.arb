@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "Ispravka",
   "restorePickFolder": "Odaberi folder sigurnosnih kopija…",
-  "restoreAndroidHint": "Sigurnosne kopije prethodne instalacije su u Downloads/catlog. Odaberite taj folder jednom; njegove kopije se prikazuju ovdje."
+  "restoreAndroidHint": "Sigurnosne kopije prethodne instalacije su u Documents/catlog (kod starijih verzija Downloads/catlog). Odaberite taj folder jednom; njegove kopije se prikazuju ovdje."
 }

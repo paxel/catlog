@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "تصحيح",
   "restorePickFolder": "اختيار مجلد النسخ الاحتياطية…",
-  "restoreAndroidHint": "النسخ الاحتياطية للتثبيت السابق موجودة في Downloads/catlog. اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا."
+  "restoreAndroidHint": "النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا."
 }

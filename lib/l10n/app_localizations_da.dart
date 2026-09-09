@@ -3319,5 +3319,5 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Backups fra den forrige installation ligger i Downloads/catlog. Vælg den mappe én gang; dens backups vises her.';
+      'Backups fra den forrige installation ligger i Documents/catlog (Downloads/catlog i ældre versioner). Vælg den mappe én gang; dens backups vises her.';
 }

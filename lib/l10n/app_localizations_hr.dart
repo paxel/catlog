@@ -3332,5 +3332,5 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Sigurnosne kopije prethodne instalacije su u Downloads/catlog. Odaberite tu mapu jednom; njezine kopije prikazuju se ovdje.';
+      'Sigurnosne kopije prethodne instalacije su u Documents/catlog (kod starijih verzija Downloads/catlog). Odaberite tu mapu jednom; njezine kopije prikazuju se ovdje.';
 }

@@ -3335,5 +3335,5 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Copiile de siguranță ale instalării anterioare sunt în Downloads/catlog. Alege acel dosar o dată; copiile lui apar aici.';
+      'Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici.';
 }

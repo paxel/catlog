@@ -3374,5 +3374,5 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Tá cúltacaí na suiteála roimhe seo in Downloads/catlog. Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.';
+      'Tá cúltacaí na suiteála roimhe seo in Documents/catlog (Downloads/catlog i leaganacha níos sine). Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.';
 }

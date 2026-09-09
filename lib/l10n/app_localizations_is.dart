@@ -3324,5 +3324,5 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Afrit fyrri uppsetningar eru í Downloads/catlog. Veldu þá möppu einu sinni; afrit hennar birtast hér.';
+      'Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér.';
 }

@@ -3330,5 +3330,5 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Die Sicherungen der vorherigen Installation liegen in Downloads/catlog. Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier.';
+      'Die Sicherungen der vorherigen Installation liegen in Documents/catlog (bei älteren Versionen Downloads/catlog). Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier.';
 }

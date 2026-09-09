@@ -3188,5 +3188,5 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      '以前のインストールのバックアップは Downloads/catlog にあります。そのフォルダを一度選ぶと、バックアップがここに表示されます。';
+      '以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。';
 }

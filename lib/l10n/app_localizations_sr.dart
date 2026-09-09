@@ -3332,5 +3332,5 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Резервне копије претходне инсталације су у Downloads/catlog. Изаберите ту фасциклу једном; њене копије се приказују овде.';
+      'Резервне копије претходне инсталације су у Documents/catlog (код старијих верзија Downloads/catlog). Изаберите ту фасциклу једном; њене копије се приказују овде.';
 }

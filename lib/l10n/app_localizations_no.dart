@@ -3317,5 +3317,5 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Sikkerhetskopiene fra forrige installasjon ligger i Downloads/catlog. Velg den mappen én gang; kopiene vises her.';
+      'Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her.';
 }

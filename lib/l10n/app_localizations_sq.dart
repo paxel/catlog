@@ -3321,5 +3321,5 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Kopjet rezervë të instalimit të mëparshëm janë në Downloads/catlog. Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.';
+      'Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.';
 }

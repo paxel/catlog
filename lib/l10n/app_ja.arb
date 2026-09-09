@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "修正",
   "restorePickFolder": "バックアップフォルダを選択…",
-  "restoreAndroidHint": "以前のインストールのバックアップは Downloads/catlog にあります。そのフォルダを一度選ぶと、バックアップがここに表示されます。"
+  "restoreAndroidHint": "以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。"
 }

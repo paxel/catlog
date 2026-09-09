@@ -3320,5 +3320,5 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'The backups of the install before this one are in Downloads/catlog. Choose that folder once; its backups are listed here.';
+      'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.';
 }

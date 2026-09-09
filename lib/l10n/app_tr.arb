@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "Düzeltme",
   "restorePickFolder": "Yedek klasörünü seç…",
-  "restoreAndroidHint": "Önceki kurulumun yedekleri Downloads/catlog içinde. O klasörü bir kez seçin; yedekleri burada listelenir."
+  "restoreAndroidHint": "Önceki kurulumun yedekleri Documents/catlog içinde (eski sürümlerde Downloads/catlog). O klasörü bir kez seçin; yedekleri burada listelenir."
 }

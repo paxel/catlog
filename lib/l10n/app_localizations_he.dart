@@ -3316,5 +3316,5 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'הגיבויים של ההתקנה הקודמת נמצאים ב-Downloads/catlog. יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.';
+      'הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.';
 }

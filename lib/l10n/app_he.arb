@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "תיקון",
   "restorePickFolder": "בחירת תיקיית גיבויים…",
-  "restoreAndroidHint": "הגיבויים של ההתקנה הקודמת נמצאים ב-Downloads/catlog. יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן."
+  "restoreAndroidHint": "הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן."
 }

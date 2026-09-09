@@ -3320,5 +3320,5 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Az előző telepítés mentései a Downloads/catlog mappában vannak. Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.';
+      'Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.';
 }

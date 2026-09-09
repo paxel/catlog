@@ -3335,5 +3335,5 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Iepriekšējās instalācijas rezerves kopijas ir mapē Downloads/catlog. Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.';
+      'Iepriekšējās instalācijas rezerves kopijas ir mapē Documents/catlog (vecākās versijās Downloads/catlog). Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.';
 }

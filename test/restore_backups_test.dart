@@ -214,7 +214,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(done, 0);
-    expect(find.textContaining('Downloads/catlog'), findsOneWidget);
+    expect(find.textContaining('Documents/catlog'), findsOneWidget);
     await tester.tap(find.text('Choose backup folder…'));
     await tester.pumpAndSettle();
     expect(find.text('Paris'), findsOneWidget);

@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "Corectură",
   "restorePickFolder": "Alege dosarul copiilor de siguranță…",
-  "restoreAndroidHint": "Copiile de siguranță ale instalării anterioare sunt în Downloads/catlog. Alege acel dosar o dată; copiile lui apar aici."
+  "restoreAndroidHint": "Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici."
 }

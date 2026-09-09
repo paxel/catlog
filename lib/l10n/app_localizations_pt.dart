@@ -3321,5 +3321,5 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'As cópias da instalação anterior estão em Downloads/catlog. Escolha essa pasta uma vez; as cópias aparecem aqui.';
+      'As cópias da instalação anterior estão em Documents/catlog (Downloads/catlog em versões anteriores). Escolha essa pasta uma vez; as cópias aparecem aqui.';
 }

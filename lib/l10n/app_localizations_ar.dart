@@ -3354,5 +3354,5 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'النسخ الاحتياطية للتثبيت السابق موجودة في Downloads/catlog. اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.';
+      'النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.';
 }

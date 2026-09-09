@@ -3334,5 +3334,5 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'Il-backups tal-installazzjoni ta\' qabel qegħdin f\'Downloads/catlog. Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.';
+      'Il-backups tal-installazzjoni ta\' qabel qegħdin f\'Documents/catlog (Downloads/catlog f\'verżjonijiet eqdem). Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.';
 }

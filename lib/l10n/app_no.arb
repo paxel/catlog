@@ -1103,5 +1103,5 @@
   },
   "entryCorrection": "Rettelse",
   "restorePickFolder": "Velg sikkerhetskopimappe…",
-  "restoreAndroidHint": "Sikkerhetskopiene fra forrige installasjon ligger i Downloads/catlog. Velg den mappen én gang; kopiene vises her."
+  "restoreAndroidHint": "Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her."
 }

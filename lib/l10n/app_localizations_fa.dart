@@ -3258,5 +3258,5 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get restoreAndroidHint =>
-      'پشتیبان‌های نصب قبلی در Downloads/catlog هستند. آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند.';
+      'پشتیبان‌های نصب قبلی در Documents/catlog هستند (در نسخه‌های قدیمی‌تر Downloads/catlog). آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند.';
 }
