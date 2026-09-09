@@ -19,8 +19,9 @@
         android:label="catlog"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:allowBackup="false"
-        android:fullBackupContent="false">
+        android:allowBackup="true"
+        android:fullBackupOnly="true"
+        android:backupAgent=".CatlogBackupAgent">
         <activity
             android:name=".MainActivity"
             android:exported="true"
