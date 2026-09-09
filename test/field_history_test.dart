@@ -95,7 +95,7 @@ void main() {
     expect(texts.indexOf('Vet: fine'), lessThan(texts.indexOf('Sneezing')));
   });
 
-  testWidgets('edit-mode long-press still opens the revert timeline', (
+  testWidgets('edit-mode long-press still opens the timeline with its menu', (
     tester,
   ) async {
     store.append(cat, 'f:remarks', 'Sneezing');
@@ -113,7 +113,8 @@ void main() {
     expect(find.text('Remarks — Miezi'), findsOneWidget);
     await tester.longPress(find.textContaining('Sneezing'));
     await tester.pumpAndSettle();
-    expect(find.text('Revert this change'), findsOneWidget);
+    expect(find.text('Correct this value'), findsOneWidget);
+    expect(find.text('Remove this value'), findsOneWidget);
   });
 
   testWidgets('the history flips to oldest first and shares as text', (
@@ -150,5 +151,68 @@ void main() {
     expect(text.split('\n').first, 'Miezi · Remarks');
     expect(text, contains('Sneezing · anna'));
     expect(text.indexOf('Sneezing'), lessThan(text.indexOf('Vet: fine')));
+  });
+
+  testWidgets('a tap corrects a value in place, the old one hides', (
+    tester,
+  ) async {
+    final remarks = store.fieldDefs().firstWhere((d) => d.slug == 'remarks');
+    final when = DateTime.utc(2026, 1, 1, 9, 30);
+    store.append(cat, 'f:remarks', 'Sneezng', date: when);
+    store.append(cat, 'f:remarks', 'Vet: fine', date: DateTime.utc(2026, 1, 3));
+    await pump(
+      tester,
+      FieldHistoryScreen(store: store, entityId: cat, def: remarks),
+    );
+    await tester.tap(find.text('Sneezng'));
+    await tester.pumpAndSettle();
+    expect(find.text('As of 1/1/2026'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'Sneezing');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Sneezing'), findsOneWidget);
+    expect(find.text('Sneezng'), findsNothing);
+    expect(find.text('Correction'), findsOneWidget);
+    final fixed = store
+        .fieldHistory(cat, 'f:remarks')
+        .firstWhere((e) => e.value == 'Sneezing');
+    expect(fixed.date, when);
+    expect(store.current(cat, 'f:remarks'), 'Vet: fine');
+
+    // Hidden values show on request, struck through and explained.
+    await tester.tap(find.byTooltip('Show removed values'));
+    await tester.pumpAndSettle();
+    expect(find.text('Sneezng'), findsOneWidget);
+    expect(find.textContaining('Replaced by Sneezing'), findsOneWidget);
+    expect(store.localSetting('historyShowVoided'), 'yes');
+  });
+
+  testWidgets('a long press removes a value, and restores a hidden one', (
+    tester,
+  ) async {
+    final remarks = store.fieldDefs().firstWhere((d) => d.slug == 'remarks');
+    store.append(cat, 'f:remarks', 'Sneezing', date: DateTime.utc(2026, 1, 1));
+    store.append(cat, 'f:remarks', 'Vet: fine', date: DateTime.utc(2026, 1, 3));
+    await pump(
+      tester,
+      FieldHistoryScreen(store: store, entityId: cat, def: remarks),
+    );
+    await tester.longPress(find.text('Vet: fine'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Remove this value'));
+    await tester.pumpAndSettle();
+    expect(find.text('Vet: fine'), findsNothing);
+    expect(store.current(cat, 'f:remarks'), 'Sneezing');
+
+    await tester.tap(find.byTooltip('Show removed values'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Removed · anna'), findsOneWidget);
+    await tester.longPress(find.text('Vet: fine'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Restore this value'));
+    await tester.pumpAndSettle();
+    expect(store.current(cat, 'f:remarks'), 'Vet: fine');
+    expect(find.textContaining('Removed · anna'), findsNothing);
   });
 }

@@ -564,13 +564,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'واگردانی این تغییر';
-
-  @override
-  String get revertSubtitle =>
-      'مقدار قبلی را به‌صورت رکوردی تازه برمی‌گرداند — تاریخچه هر دو را نگه می‌دارد.';
-
-  @override
   String fieldCleared(String field) {
     return '$field خالی شد';
   }
@@ -1220,7 +1213,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'هر تغییری که تا کنون انجام شده، تازه‌ترین در بالا: چه کسی چه چیزی را کی و به چه مقداری تغییر داده. هر مدخل قابل بازگرداندن است — این کار مدخل تازه می‌نویسد و چیزی پاک نمی‌شود.';
+      'هر تغییر، جدیدترین اول: چه کسی، چه زمانی و به چه مقداری. برای اصلاح روی یک مورد بزنید، برای حذف یا بازگرداندن نگه دارید؛ مورد پنهان در گزارش می‌ماند و در صورت درخواست نمایش داده می‌شود.';
 
   @override
   String get helpDuplicates =>
@@ -3231,4 +3224,32 @@ class AppLocalizationsFa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'حذف نوبت برای هر $count حیوان خانگی';
   }
+
+  @override
+  String get correctThisValue => 'اصلاح این مقدار';
+
+  @override
+  String get removeThisValue => 'حذف این مقدار';
+
+  @override
+  String get restoreThisValue => 'بازگرداندن این مقدار';
+
+  @override
+  String get showRemovedValues => 'نمایش مقادیر حذف‌شده';
+
+  @override
+  String get hideRemovedValues => 'پنهان کردن مقادیر حذف‌شده';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'حذف شد · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'جایگزین شد با $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'اصلاح';
 }

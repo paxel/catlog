@@ -566,13 +566,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Kumoa tämä muutos';
-
-  @override
-  String get revertSubtitle =>
-      'Palauttaa edellisen arvon uutena merkintänä — historia säilyttää molemmat.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tyhjennetty';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.';
+      'Jokainen muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi, pidä pohjassa poistaaksesi tai palauttaaksesi; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.';
 
   @override
   String get helpDuplicates =>
@@ -3294,4 +3287,32 @@ class AppLocalizationsFi extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Poista ajanvaraus kaikilta $count lemmikiltä';
   }
+
+  @override
+  String get correctThisValue => 'Korjaa tämä arvo';
+
+  @override
+  String get removeThisValue => 'Poista tämä arvo';
+
+  @override
+  String get restoreThisValue => 'Palauta tämä arvo';
+
+  @override
+  String get showRemovedValues => 'Näytä poistetut arvot';
+
+  @override
+  String get hideRemovedValues => 'Piilota poistetut arvot';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Poistettu · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Korvattu arvolla $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korjaus';
 }

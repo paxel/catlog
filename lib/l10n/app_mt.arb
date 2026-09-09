@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bla dar — tat-triq / ħarab",
   "timelineOf": "Linja taż-żmien — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Reġġa' lura din il-bidla",
-  "revertSubtitle": "Jirrestawra l-valur ta' qabel bħala entrata ġdida — l-istorja żżomm it-tnejn.",
   "fieldCleared": "{field} tbattal",
   "fieldBackTo": "{field} lura għal \"{value}\"",
   "leftStray": "Telaq — tat-triq",
@@ -355,7 +353,7 @@
   "helpSync": "Kif id-data tasal għand ħaddieħor: qabbad direttament, uża folder li jaraw iż-żewġ apparati, jew ibgħat fajl b'messenger. Dejjem int tiddeċiedi x'joħroġ — u l-fajls .catsync li tirċievi jinfetħu hawn ukoll. Kull katalgu jiffirma dak li jikteb biċ-ċavetta tiegħu; is-sħab jaraw il-kodiċi taċ-ċavetta ħdejn ismek. L-ewwel ċavetta ta’ sieħeb tittieħed b’fiduċja minn fajl u tgħodd bħala vverifikata malli tissinkronizzaw personalment. Entrati taħt isem magħruf mingħajr il-firma t-tajba jiġu rrifjutati u elenkati fil-paġna tal-wasla.",
   "helpFields": "L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta' qasam ta' għażla, jew oħloq tiegħek. Qasam ta' identifikatur jista' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq il-qattus isir jingħafas.",
   "helpFieldsNeutral": "L-oqsma li juża l-katalgu tiegħek. Ibdlilhom l-isem, ibdel l-għażliet ta' qasam ta' għażla, jew oħloq tiegħek. Qasam ta' identifikatur jista' jipponta lejn servizz (reġistru), u mbagħad in-numru fuq l-annimal domestiku isir jingħafas.",
-  "helpTimeline": "Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista' titreġġa' lura — dan jikteb entrata ġdida, xejn ma jitħassar.",
+  "helpTimeline": "Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa' fir-reġistru u tidher fuq talba.",
   "helpDuplicates": "Qtates jew kolonji li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa' lura, għalhekk tistaqsi l-ewwel.",
   "helpDuplicatesNeutral": "Annimali domestiċi jew djar li jidhru li jeżistu darbtejn — numri identiċi jew ismijiet simili ħafna b'dettalji li jaqblu. Agħfas par biex tgħaqqadhom; l-għaqda ma tistax titreġġa' lura, għalhekk tistaqsi l-ewwel.",
   "helpMatches": "Qtates li jistgħu jkunu l-istess annimal: numru identiku, jew qattus tat-triq li deher fiż-żona ta' tfittxija ta' qattus mitluf. Agħfas par biex tgħaqqad, għafsa twila tiftaħ l-ewwel qattus biex tqabbel. Jiġu elenkati wkoll pari li d-dehra tagħhom taqbel f’żewġ karatteristiċi jew aktar mingħajr kontradizzjoni; iċ-ċippi juru liema. „Mhux l-istess“ jaħbi par fuq dan it-telefon sakemm tinbidel id-dehra ta’ wieħed mill-annimali.",
@@ -437,7 +435,16 @@
   "rangeAll": "Kollox",
   "rangeCustom": "Personalizzat…",
   "changeSince": "{delta} minn {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Bħal fir-reġjun tiegħek",
   "unitsMetric": "Metriku (kg, cm, ml, °C)",
   "unitsImperial": "Imperjali (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Settings tal-katalgu",
   "deleteCatalogBody": "Kollox f’{name} jisparixxi: il-qtates, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura.",
   "deleteCatalogBodyNeutral": "Kollox f’{name} jisparixxi: l-annimali domestiċi, ir-ritratti, l-istorja. L-ewwel jinħażen fajl sħiħ fejn imorru l-backups awtomatiċi — l-importazzjoni tiegħu ġġib il-katalgu lura. Ikteb l-isem biex tikkonferma.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "L-ebda appuntament ippjanat. Ippjana oħrajn hawn bil-plus, jew fuq il-paġna ta' annimal domestiku jew dar.",
   "dueToday": "illum",
   "dueInDays": "{count, plural, one{fi żmien ġurnata} few{fi żmien {count} ijiem} many{fi żmien {count}-il jum} other{fi żmien {count} jum}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{ġurnata tard} few{{count} ijiem tard} many{{count}-il jum tard} other{{count} jum tard}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Sar",
   "repeatTitle": "Mill-ġdid fi żmien…",
   "noRepeatLabel": "Mingħajr repetizzjoni",
@@ -861,15 +886,33 @@
   "unitMonths": "xhur",
   "unitYears": "snin",
   "ageYears": "{years} sn.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} xhr.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Ibdel id-data",
   "removeReminderLabel": "Neħħi t-tfakkira",
   "exportIcs": "Esporta l-fajl tal-kalendarju",
   "resyncCalendar": "Erġa' ssinkronizza l-kalendarju",
   "icsSavedTo": "Il-fajl tal-kalendarju ġie salvat f'{path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Irrifletti fil-kalendarju tal-apparat",
   "calendarMirrorSubtitle": "L-appuntamenti jidhru bħala avvenimenti ta' ġurnata sħiħa fil-kalendarju. cat(a)log jaġġornahom hemm ma' kull startjar u wara kull bidla. It-twissijiet għall-appuntamenti tista' timmaniġġjahom fil-kalendarju.",
   "syncPeerOlder": "L-apparat l-ieħor għandu cat(a)log eqdem mingħajr tfakkiriet. Aġġorna cat(a)log hemmhekk u ssinkronizza mill-ġdid.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "It-tfakkiriet jelenkaw l-appuntamenti ppjanati skont id-data. Hemm żewġ tipi: appuntamenti b'ħin, u tfakkiriet li jgħoddu għal ġurnata. Dawk mitlufa jibqgħu fuq. Mess jiftaħ l-annimal domestiku jew id-dar. Is-sinjal jikkonferma appuntament: il-valur jinkiteb fil-qasam, u tista' tippjana minnufih dak li jmiss, pereżempju fi tliet xhur. Żomm magħfus biex tibdel id-data jew tħassar l-appuntament. Is-swiċċ ta' fuq jirrifletti l-appuntamenti f'kalendarju tat-telefown tiegħek. Il-menu jesportahom bħala fajl tal-kalendarju. Żjara għand il-veterinarju b'diversi annimali domestiċi hija appuntament wieħed: immarka l-annimali, l-Aġenda turi karta waħda b'isimhom, u fit-tmiem tistaqsi liema annimali ġew ittrattati — neħħi l-marka mill-oħrajn, jibqgħu ppjanati. Ix-xogħlijiet huma l-kompiti rikorrenti, bħall-ikel, il-kaxxa tar-ramel jew il-mediċina. Jinsabu taħt Illum b’marka, serje u l-aħħar sebat ijiem bħala tikek; Dalwaqt juri l-ġimgħa li jmiss mingħajr dawk ta’ kuljum. Xogħol jista’ jfakkrek b’notifika fil-ħin magħżul. It-trofew jiftaħ il-kisbiet.",
   "calendarRowOff": "Kalendarju: mitfi",
   "calendarRowOn": "Kalendarju: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Ippjana appuntament għal dan il-qattus. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
   "spotAddReminderCatNeutral": "Ippjana appuntament għal dan l-annimal domestiku. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
   "spotAddReminderClowder": "Ippjana appuntament għal dan il-clowder. Jidher fit-tfakkiriet u jiġi kkonfermat hemm.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Dar eżistenti",
   "createNewInstead": "Xejn — oħloq ġdid",
   "overwritesValue": "Jissostitwixxi l-valur attwali \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Twaqqaf l-iskan?",
   "abortScanBody": "Xejn ma jiġi salvat.",
   "abortScan": "Waqqaf",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Neħħi l-marka mill-qtates li ma ġewx ittrattati; jibqgħu ppjanati.",
   "finishUntickHintNeutral": "Neħħi l-marka mill-annimali domestiċi li ma ġewx ittrattati; jibqgħu ppjanati.",
   "deleteAppointmentGroup": "Ħassar l-appuntament għall-{count} qtates kollha",
-  "deleteAppointmentGroupNeutral": "Ħassar l-appuntament għall-{count} annimali domestiċi kollha"
+  "deleteAppointmentGroupNeutral": "Ħassar l-appuntament għall-{count} annimali domestiċi kollha",
+  "correctThisValue": "Ikkoreġi dan il-valur",
+  "removeThisValue": "Neħħi dan il-valur",
+  "restoreThisValue": "Irrestawra dan il-valur",
+  "showRemovedValues": "Uri l-valuri mneħħija",
+  "hideRemovedValues": "Aħbi l-valuri mneħħija",
+  "entryRemovedBy": "Imneħħi · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Sostitwit b'{value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korrezzjoni"
 }

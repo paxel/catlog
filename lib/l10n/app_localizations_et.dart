@@ -565,13 +565,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Võta see muudatus tagasi';
-
-  @override
-  String get revertSubtitle =>
-      'Taastab eelmise väärtuse uue kirjena — ajalugu säilitab mõlemad.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tühjendatud';
   }
@@ -1221,7 +1214,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.';
+      'Iga muudatus, uusim esimesena: kes, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, hoia all, et see eemaldada või taastada; peidetud kirje jääb logisse ja kuvatakse soovi korral.';
 
   @override
   String get helpDuplicates =>
@@ -3290,4 +3283,32 @@ class AppLocalizationsEt extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Kustuta kohtumine kõigi $count lemmiklooma jaoks';
   }
+
+  @override
+  String get correctThisValue => 'Paranda see väärtus';
+
+  @override
+  String get removeThisValue => 'Eemalda see väärtus';
+
+  @override
+  String get restoreThisValue => 'Taasta see väärtus';
+
+  @override
+  String get showRemovedValues => 'Näita eemaldatud väärtusi';
+
+  @override
+  String get hideRemovedValues => 'Peida eemaldatud väärtused';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Eemaldatud · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Asendatud väärtusega $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Parandus';
 }

@@ -542,12 +542,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => '撤销此更改';
-
-  @override
-  String get revertSubtitle => '把之前的值作为新记录恢复——历史会保留两者。';
-
-  @override
   String fieldCleared(String field) {
     return '已清空 $field';
   }
@@ -1183,7 +1177,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      '所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。';
+      '所有更改，最新在前：谁在何时改成了什么值。点按条目可修正，长按可移除或恢复；隐藏的条目仍留在记录中，可按需显示。';
 
   @override
   String get helpDuplicates =>
@@ -3126,4 +3120,32 @@ class AppLocalizationsZh extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return '删除全部 $count 只宠物的预约';
   }
+
+  @override
+  String get correctThisValue => '修正此值';
+
+  @override
+  String get removeThisValue => '移除此值';
+
+  @override
+  String get restoreThisValue => '恢复此值';
+
+  @override
+  String get showRemovedValues => '显示已移除的值';
+
+  @override
+  String get hideRemovedValues => '隐藏已移除的值';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return '已移除 · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '已修正为 $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => '修正';
 }

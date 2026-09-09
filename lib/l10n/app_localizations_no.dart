@@ -566,13 +566,6 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Angre denne endringen';
-
-  @override
-  String get revertSubtitle =>
-      'Gjenoppretter forrige verdi som ny oppføring — historikken beholder begge.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tømt';
   }
@@ -1220,7 +1213,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Hver endring som er gjort, nyeste først: hvem som endret hva, når og til hvilken verdi. Enhver oppføring kan angres — det skriver en ny oppføring, ingenting slettes.';
+      'Hver endring, nyeste først: hvem endret hva, når og til hvilken verdi. Trykk på en oppføring for å rette den, hold den for å fjerne eller gjenopprette den; en skjult oppføring blir i loggen og vises på forespørsel.';
 
   @override
   String get helpDuplicates =>
@@ -3290,4 +3283,32 @@ class AppLocalizationsNo extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Slett avtalen for alle $count kjæledyr';
   }
+
+  @override
+  String get correctThisValue => 'Rett denne verdien';
+
+  @override
+  String get removeThisValue => 'Fjern denne verdien';
+
+  @override
+  String get restoreThisValue => 'Gjenopprett denne verdien';
+
+  @override
+  String get showRemovedValues => 'Vis fjernede verdier';
+
+  @override
+  String get hideRemovedValues => 'Skjul fjernede verdier';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Fjernet · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Erstattet av $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Rettelse';
 }

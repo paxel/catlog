@@ -556,12 +556,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'この変更を取り消す';
-
-  @override
-  String get revertSubtitle => '以前の値を新しい記録として復元します — 履歴には両方残ります。';
-
-  @override
   String fieldCleared(String field) {
     return '$field をクリアしました';
   }
@@ -1199,7 +1193,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。';
+      'すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。';
 
   @override
   String get helpDuplicates =>
@@ -3160,4 +3154,32 @@ class AppLocalizationsJa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return '$count匹すべての予定を削除';
   }
+
+  @override
+  String get correctThisValue => 'この値を修正';
+
+  @override
+  String get removeThisValue => 'この値を取り消す';
+
+  @override
+  String get restoreThisValue => 'この値を元に戻す';
+
+  @override
+  String get showRemovedValues => '取り消した値を表示';
+
+  @override
+  String get hideRemovedValues => '取り消した値を隠す';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return '取り消し · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '$value に修正 · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => '修正';
 }

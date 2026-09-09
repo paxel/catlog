@@ -565,13 +565,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Vrátit tuto změnu';
-
-  @override
-  String get revertSubtitle =>
-      'Obnoví předchozí hodnotu jako nový záznam — historie zachová obojí.';
-
-  @override
   String fieldCleared(String field) {
     return '$field vymazáno';
   }
@@ -1222,7 +1215,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Každá provedená změna, nejnovější nahoře: kdo co kdy a na jakou hodnotu změnil. Každý záznam lze vrátit — vznikne tím nový záznam, nic se nikdy nemaže.';
+      'Každá změna, nejnovější první: kdo, kdy a na jakou hodnotu. Klepnutím záznam opravíte, podržením odeberete nebo obnovíte; skrytý záznam zůstává v protokolu a zobrazí se na požádání.';
 
   @override
   String get helpDuplicates =>
@@ -3305,4 +3298,32 @@ class AppLocalizationsCs extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Smazat schůzku pro všech $count mazlíčků';
   }
+
+  @override
+  String get correctThisValue => 'Opravit tuto hodnotu';
+
+  @override
+  String get removeThisValue => 'Odebrat tuto hodnotu';
+
+  @override
+  String get restoreThisValue => 'Obnovit tuto hodnotu';
+
+  @override
+  String get showRemovedValues => 'Zobrazit odebrané hodnoty';
+
+  @override
+  String get hideRemovedValues => 'Skrýt odebrané hodnoty';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Odebráno · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Nahrazeno hodnotou $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Oprava';
 }

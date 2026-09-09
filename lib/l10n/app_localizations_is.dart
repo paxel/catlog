@@ -568,13 +568,6 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Afturkalla þessa breytingu';
-
-  @override
-  String get revertSubtitle =>
-      'Endurheimtir fyrra gildi sem nýja færslu — sagan geymir bæði.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tæmt';
   }
@@ -1226,7 +1219,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Sérhver breyting sem gerð hefur verið, sú nýjasta efst: hver breytti hverju, hvenær og í hvaða gildi. Hverja færslu má afturkalla — það skrifar nýja færslu, engu er nokkurn tíma eytt.';
+      'Hver breyting, nýjasta fyrst: hver, hvenær og í hvaða gildi. Ýttu á færslu til að leiðrétta hana, haltu henni til að fjarlægja eða endurheimta; falin færsla er áfram í skránni og birtist sé þess óskað.';
 
   @override
   String get helpDuplicates =>
@@ -3297,4 +3290,32 @@ class AppLocalizationsIs extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Eyða tíma fyrir öll $count gæludýrin';
   }
+
+  @override
+  String get correctThisValue => 'Leiðrétta þetta gildi';
+
+  @override
+  String get removeThisValue => 'Fjarlægja þetta gildi';
+
+  @override
+  String get restoreThisValue => 'Endurheimta þetta gildi';
+
+  @override
+  String get showRemovedValues => 'Sýna fjarlægð gildi';
+
+  @override
+  String get hideRemovedValues => 'Fela fjarlægð gildi';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Fjarlægt · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Skipt út fyrir $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Leiðrétting';
 }

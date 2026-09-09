@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "世帯なし — 野良／逃走",
   "timelineOf": "履歴 — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "この変更を取り消す",
-  "revertSubtitle": "以前の値を新しい記録として復元します — 履歴には両方残ります。",
   "fieldCleared": "{field} をクリアしました",
   "fieldBackTo": "{field} を「{value}」に戻しました",
   "leftStray": "去った — 野良猫",
@@ -355,7 +353,7 @@
   "helpSync": "データを他の人に渡す方法：直接つなぐ、両方の端末が見えるフォルダーを使う、メッセンジャーでファイルを送る。何を送るかは常にあなたが決めます。受け取った .catsync ファイルもここで開きます。 各カタログは書き込みを自分の鍵で署名します。相手にはあなたの名前の横に鍵コードが表示されます。相手の最初の鍵はファイルから信頼して受け入れ、対面で同期すると確認済みになります。既知の名前で正しい署名のないエントリは拒否され、到着ページに一覧されます。",
   "helpFields": "カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号は猫のページでタップできるようになります。",
   "helpFieldsNeutral": "カタログが使う項目です。名前の変更、選択項目の選択肢の変更、独自項目の追加ができます。ID 項目はサービス（登録機関）を指定でき、その番号はペットのページでタップできるようになります。",
-  "helpTimeline": "これまでのすべての変更（新しい順）：誰が・いつ・何を・どの値に変えたか。どの記録も取り消せます。取り消しは新しい記録として書かれ、消えるものはありません。",
+  "helpTimeline": "すべての変更を新しい順に表示: 誰がいつどの値に変えたか。項目をタップで修正、長押しで取り消しまたは復元。隠した項目も記録に残り、必要なときに表示できます。",
   "helpDuplicates": "同じものが二重に見える猫やコロニー：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。",
   "helpDuplicatesNeutral": "同じものが二重に見えるペットや世帯：同一の番号、または詳細が一致するよく似た名前。ペアをタップすると統合します。統合は取り消せないため、先に確認します。",
   "helpMatches": "同じ個体かもしれない猫：番号が同じ、または迷子猫の捜索範囲内で見つかった野良猫。ペアをタップで統合、長押しで最初の猫を開いて見比べられます。 見た目が2つ以上の特徴で一致し、矛盾がない組も一覧に載ります。チップがどの特徴かを示します。「同じではない」を選ぶと、どちらかの見た目が変わるまでこの端末ではその組を隠します。",
@@ -437,7 +435,16 @@
   "rangeAll": "すべて",
   "rangeCustom": "カスタム…",
   "changeSince": "{date} から {delta}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "地域に合わせる",
   "unitsMetric": "メートル法（kg、cm、ml、°C）",
   "unitsImperial": "ヤード・ポンド法（lb、in、fl oz、°F）",
@@ -732,7 +739,13 @@
   "catalogSettings": "カタログの設定",
   "deleteCatalogBody": "{name} の中身はすべて消えます。猫も写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。",
   "deleteCatalogBodyNeutral": "{name} の中身はすべて消えます。ペットも写真も履歴もです。先に完全なファイルが自動バックアップと同じ場所に保存され、それを読み込めばカタログは戻ります。確認のため名前を入力してください。",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "計画した予定はありません。ここのプラス、またはペットや世帯のページで新しい予定を計画できます。",
   "dueToday": "今日",
   "dueInDays": "{count, plural, other{{count} 日後}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, other{{count} 日超過}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "完了",
   "repeatTitle": "次回は…",
   "noRepeatLabel": "繰り返さない",
@@ -861,15 +886,33 @@
   "unitMonths": "か月後",
   "unitYears": "年後",
   "ageYears": "{years}歳",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months}か月",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "日付を変更",
   "removeReminderLabel": "リマインダーを削除",
   "exportIcs": "カレンダーファイルを書き出す",
   "resyncCalendar": "カレンダーを再同期",
   "icsSavedTo": "カレンダーファイルを {path} に保存しました",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "端末のカレンダーへ反映",
   "calendarMirrorSubtitle": "予定はカレンダーに終日の予定として表示されます。cat(a)log は起動のたび、また変更のたびにカレンダー側を更新します。予定の通知はカレンダーで管理できます。",
   "syncPeerOlder": "相手の端末はリマインダーのない古い cat(a)log です。そちらで cat(a)log を更新して、もう一度同期してください。",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "予定表は計画した予定を日付順に並べます。予定は2種類あります：時刻のある予定と、その日1日に対するリマインダーです。過ぎた予定は上に残ります。タップでペットや世帯を開きます。チェックで予定を確定すると、値がフィールドに書き込まれ、すぐに次の予定（たとえば3か月後）を計画できます。長押しで日付の変更や予定の削除ができます。上のスイッチで予定を端末のカレンダーに反映します。メニューからカレンダーファイルとして書き出せます。 複数のペットでの通院は1つの予定です。ペットにチェックを入れると、アジェンダには名前付きの1枚のカードが表示され、完了時にどのペットが処置されたか尋ねられます。処置されなかったペットはチェックを外すと予定のまま残ります。 お世話は、餌やり・トイレ・薬など繰り返しの作業です。「今日」の下にチェック、連続記録、直近7日間の点が並び、「近日」は毎日のものを除いた翌週を示します。お世話は選んだ時刻に通知で知らせることができます。トロフィーで実績を開きます。",
   "calendarRowOff": "カレンダー：オフ",
   "calendarRowOn": "カレンダー：{name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "この猫の予定を計画します。予定表に表示され、そこで確定します。",
   "spotAddReminderCatNeutral": "このペットの予定を計画します。予定表に表示され、そこで確定します。",
   "spotAddReminderClowder": "このクラウダーの予定を計画します。予定表に表示され、そこで確定します。",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "既存の世帯",
   "createNewInstead": "なし — 新規作成",
   "overwritesValue": "現在の値 \"{value}\" を上書きします",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "取り込みを中止しますか？",
   "abortScanBody": "何も保存されません。",
   "abortScan": "中止",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "処置されなかった猫のチェックを外してください。予定のまま残ります。",
   "finishUntickHintNeutral": "処置されなかったペットのチェックを外してください。予定のまま残ります。",
   "deleteAppointmentGroup": "{count}匹すべての予定を削除",
-  "deleteAppointmentGroupNeutral": "{count}匹すべての予定を削除"
+  "deleteAppointmentGroupNeutral": "{count}匹すべての予定を削除",
+  "correctThisValue": "この値を修正",
+  "removeThisValue": "この値を取り消す",
+  "restoreThisValue": "この値を元に戻す",
+  "showRemovedValues": "取り消した値を表示",
+  "hideRemovedValues": "取り消した値を隠す",
+  "entryRemovedBy": "取り消し · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "{value} に修正 · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "修正"
 }

@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "ללא משק בית — חיית רחוב / ברחה",
   "timelineOf": "ציר זמן — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "ביטול השינוי הזה",
-  "revertSubtitle": "מחזיר את הערך הקודם כרשומה חדשה — ההיסטוריה שומרת את שניהם.",
   "fieldCleared": "{field} רוקן",
   "fieldBackTo": "{field} חזר אל \"{value}\"",
   "leftStray": "עזב — חתול רחוב",
@@ -355,7 +353,7 @@
   "helpSync": "כך הנתונים מגיעים לאחרים: חיבור ישיר, תיקייה ששני המכשירים רואים, או קובץ במסנג'ר. אתם תמיד מחליטים מה יוצא — וקבצי ‎.catsync שהתקבלו נפתחים גם כאן. כל קטלוג חותם על מה שהוא כותב במפתח משלו; שותפים רואים את קוד המפתח ליד שמך. המפתח הראשון של שותף מתקבל באמון מקובץ ונחשב מאומת לאחר סנכרון פנים אל פנים. רשומות בשם מוכר ללא החתימה הנכונה נדחות ומופיעות בדף ההגעה.",
   "helpFields": "השדות שהקטלוג שלכם משתמש בהם. שנו את שמם, שנו אפשרויות של שדה בחירה או צרו שדות משלכם. שדה מזהה יכול להפנות לשירות (מרשם), ואז המספר ניתן ללחיצה אצל החתול.",
   "helpFieldsNeutral": "השדות שהקטלוג שלכם משתמש בהם. שנו את שמם, שנו אפשרויות של שדה בחירה או צרו שדות משלכם. שדה מזהה יכול להפנות לשירות (מרשם), ואז המספר ניתן ללחיצה אצל חיית המחמד.",
-  "helpTimeline": "כל שינוי שנעשה אי פעם, החדש ביותר ראשון: מי שינה מה, מתי ולאיזה ערך. כל רשומה ניתנת לביטול — זה כותב רשומה חדשה, שום דבר לא נמחק.",
+  "helpTimeline": "כל שינוי, החדש ראשון: מי שינה מה, מתי ולאיזה ערך. הקשה על רשומה מתקנת אותה, לחיצה ארוכה מסירה או משחזרת; רשומה מוסתרת נשארת ביומן ומוצגת לפי בקשה.",
   "helpDuplicates": "חתולים או מושבות שנראים כפולים — מזהים זהים או שמות דומים מאוד עם פרטים תואמים. הקישו על זוג כדי למזג; מיזוג בלתי הפיך, ולכן נשאלת שאלה תחילה.",
   "helpDuplicatesNeutral": "חיות מחמד או משקי בית שנראים כפולים — מזהים זהים או שמות דומים מאוד עם פרטים תואמים. הקישו על זוג כדי למזג; מיזוג בלתי הפיך, ולכן נשאלת שאלה תחילה.",
   "helpMatches": "חתולים שעשויים להיות אותה חיה: מזהה זהה, או חתול רחוב שנצפה בתוך אזור החיפוש של חתול נעדר. הקישו על זוג למיזוג, לחיצה ארוכה פותחת את החתול הראשון להשוואה. גם זוגות שהמראה שלהם תואם בשתי תכונות או יותר ללא סתירה מופיעים ברשימה; התגיות מראות אילו. \"לא אותו אחד\" מסתיר זוג בטלפון הזה עד שהמראה של אחת החיות ישתנה.",
@@ -437,7 +435,16 @@
   "rangeAll": "הכל",
   "rangeCustom": "מותאם…",
   "changeSince": "{delta} מאז {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "כמו באזורך",
   "unitsMetric": "מטרי (kg, cm, ml, °C)",
   "unitsImperial": "אימפריאלי (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "הגדרות קטלוג",
   "deleteCatalogBody": "כל מה שיש ב-{name} נעלם: החתולים, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג.",
   "deleteCatalogBodyNeutral": "כל מה שיש ב-{name} נעלם: חיות המחמד, התמונות, ההיסטוריה. קודם נשמר קובץ מלא במקום שאליו הולכים הגיבויים האוטומטיים — ייבוא שלו מחזיר את הקטלוג. הקלד את השם לאישור.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "אין פגישות מתוכננות. תכננו חדשות כאן בפלוס, או בדף של חיית מחמד או משק בית.",
   "dueToday": "היום",
   "dueInDays": "{count, plural, one{בעוד יום} two{בעוד יומיים} other{בעוד {count} ימים}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{באיחור של יום} two{באיחור של יומיים} other{באיחור של {count} ימים}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "בוצע",
   "repeatTitle": "שוב בעוד…",
   "noRepeatLabel": "ללא חזרה",
@@ -861,15 +886,33 @@
   "unitMonths": "חודשים",
   "unitYears": "שנים",
   "ageYears": "{years} שנים",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} חוד׳",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "שינוי תאריך",
   "removeReminderLabel": "הסרת תזכורת",
   "exportIcs": "ייצוא קובץ יומן",
   "resyncCalendar": "סנכרן מחדש את היומן",
   "icsSavedTo": "קובץ היומן נשמר תחת {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "שיקוף ליומן המכשיר",
   "calendarMirrorSubtitle": "הפגישות מופיעות ביומן כאירועים של יום שלם. cat(a)log מעדכן אותן שם בכל הפעלה ואחרי כל שינוי. את ההתראות לפגישות מנהלים ביומן.",
   "syncPeerOlder": "במכשיר השני פועל cat(a)log ישן יותר בלי תזכורות. עדכנו שם את cat(a)log וסנכרנו שוב.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "התזכורות מציגות את הפגישות המתוכננות לפי תאריך. יש שני סוגים: פגישות עם שעה, ותזכורות שתקפות ליום. פגישות שהוחמצו נשארות למעלה. הקשה פותחת את חיית המחמד או משק הבית. הסימון מאשר פגישה: הערך נכתב לשדה ואפשר מיד לתכנן את הבאה, למשל בעוד שלושה חודשים. לחיצה ארוכה משנה את התאריך או מוחקת את הפגישה. המתג למעלה משקף את הפגישות ליומן בטלפון. התפריט מייצא אותן כקובץ יומן. ביקור אצל הווטרינר עם כמה חיות מחמד הוא תור אחד: סמנו את חיות המחמד, סדר היום מציג כרטיס אחד עם שמותיהן, ובסיום נשאל אילו חיות מחמד טופלו — בטלו את הסימון של השאר, הן נשארות מתוכננות. מטלות הן המשימות החוזרות, כמו האכלה, ארגז חול או תרופות. הן עומדות תחת היום עם סימון, רצף ושבעת הימים האחרונים כנקודות; בקרוב מציג את השבוע הבא בלי היומיות. מטלה יכולה להזכיר בהתראה בשעה שנבחרה. הגביע פותח את ההישגים.",
   "calendarRowOff": "יומן: כבוי",
   "calendarRowOn": "יומן: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "תכננו פגישה לחתול הזה. היא מוצגת בתזכורות ומאושרת שם.",
   "spotAddReminderCatNeutral": "תכננו פגישה לחיית המחמד הזו. היא מוצגת בתזכורות ומאושרת שם.",
   "spotAddReminderClowder": "תכננו פגישה לקבוצה הזו. היא מוצגת בתזכורות ומאושרת שם.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "משק בית קיים",
   "createNewInstead": "ללא — ליצור חדש",
   "overwritesValue": "דורס את הערך הנוכחי \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "לבטל את הסריקה?",
   "abortScanBody": "שום דבר לא יישמר.",
   "abortScan": "ביטול",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "בטלו את הסימון של חתולים שלא טופלו; הם נשארים מתוכננים.",
   "finishUntickHintNeutral": "בטלו את הסימון של חיות מחמד שלא טופלו; הן נשארות מתוכננות.",
   "deleteAppointmentGroup": "מחיקת התור לכל {count} החתולים",
-  "deleteAppointmentGroupNeutral": "מחיקת התור לכל {count} חיות המחמד"
+  "deleteAppointmentGroupNeutral": "מחיקת התור לכל {count} חיות המחמד",
+  "correctThisValue": "תיקון הערך הזה",
+  "removeThisValue": "הסרת הערך הזה",
+  "restoreThisValue": "שחזור הערך הזה",
+  "showRemovedValues": "הצגת ערכים שהוסרו",
+  "hideRemovedValues": "הסתרת ערכים שהוסרו",
+  "entryRemovedBy": "הוסר · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "הוחלף ב-{value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "תיקון"
 }

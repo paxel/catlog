@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Nincs háztartás — kóbor / elszökött",
   "timelineOf": "Idővonal — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Változtatás visszavonása",
-  "revertSubtitle": "Az előző értéket új bejegyzésként állítja vissza — az előzmények mindkettőt megőrzik.",
   "fieldCleared": "{field} kiürítve",
   "fieldBackTo": "{field} vissza erre: \"{value}\"",
   "leftStray": "Elment — kóbor",
@@ -355,7 +353,7 @@
   "helpSync": "Így jutnak az adatok másokhoz: közvetlen kapcsolat, mindkét eszköz által látott mappa, vagy fájl küldése üzenetküldővel. Mindig te döntöd el, mi megy el — és a kapott .catsync fájlokat is itt nyitod meg. Minden katalógus a saját kulcsával írja alá, amit ír; a partnerek a kulcskódot látják a neved mellett. A partner első kulcsát fájlból bizalommal vesszük át, és személyes szinkronizálás után számít igazoltnak. Ismert néven, helyes aláírás nélküli bejegyzéseket elutasítunk és az érkezési oldalon felsorolunk.",
   "helpFields": "A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a macskánál koppintható lesz.",
   "helpFieldsNeutral": "A katalógusod mezői. Nevezd át őket, változtasd a választómező lehetőségeit, vagy hozz létre sajátot. Egy azonosító mező mutathat egy szolgáltatásra (nyilvántartásra), így a szám a kisállatnál koppintható lesz.",
-  "helpTimeline": "Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.",
+  "helpTimeline": "Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.",
   "helpDuplicates": "Macskák vagy kolóniák, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.",
   "helpDuplicatesNeutral": "Kisállatok vagy háztartások, amik kétszer szerepelnek — azonos azonosítók vagy nagyon hasonló nevek egyező részletekkel. Koppints egy párra az összevonáshoz; ez nem vonható vissza, ezért előbb rákérdez.",
   "helpMatches": "Macskák, amik ugyanaz az állat lehetnek: azonos azonosító, vagy egy kóborló, akit egy eltűnt macska keresési területén láttak. Koppints egy párra az összevonáshoz, hosszan nyomva megnyílik az első macska összehasonlításhoz. A listán olyan párok is szerepelnek, amelyek külseje legalább két jegyben egyezik, ellentmondás nélkül; a címkék mutatják, melyekben. A „Nem ugyanaz” elrejti a párt ezen a telefonon, amíg valamelyik állat külseje meg nem változik.",
@@ -437,7 +435,16 @@
   "rangeAll": "Mind",
   "rangeCustom": "Egyéni…",
   "changeSince": "{delta} {date} óta",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Ahogy a régiódban",
   "unitsMetric": "Metrikus (kg, cm, ml, °C)",
   "unitsImperial": "Angolszász (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Katalógus beállításai",
   "deleteCatalogBody": "Minden eltűnik a(z) {name} katalógusból: a macskák, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza.",
   "deleteCatalogBodyNeutral": "Minden eltűnik a(z) {name} katalógusból: a kisállatok, a fotók, az előzmények. Előbb teljes fájl készül oda, ahova az automatikus mentések kerülnek — annak importálása visszahozza. Írd be a nevet a megerősítéshez.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Nincs tervezett időpont. Újat itt a plusszal, vagy egy kisállat vagy háztartás oldalán tervezhetsz.",
   "dueToday": "ma esedékes",
   "dueInDays": "{count, plural, one{1 nap múlva} other{{count} nap múlva}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 napja lejárt} other{{count} napja lejárt}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Kész",
   "repeatTitle": "Újra ennyi idő múlva…",
   "noRepeatLabel": "Nincs ismétlés",
@@ -861,15 +886,33 @@
   "unitMonths": "hónap",
   "unitYears": "év",
   "ageYears": "{years} év",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} hó",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Dátum módosítása",
   "removeReminderLabel": "Emlékeztető eltávolítása",
   "exportIcs": "Naptárfájl exportálása",
   "resyncCalendar": "Naptár újraszinkronizálása",
   "icsSavedTo": "A naptárfájl ide került: {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Tükrözés az eszköz naptárába",
   "calendarMirrorSubtitle": "Az időpontok egész napos eseményként jelennek meg a naptárban. A cat(a)log minden indításkor és minden változás után frissíti őket ott. Az időpontok emlékeztetőit a naptárban kezelheted.",
   "syncPeerOlder": "A másik eszközön régebbi, emlékeztetők nélküli cat(a)log fut. Frissítsd ott a cat(a)logot, és szinkronizálj újra.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "A teendők a tervezett időpontokat dátum szerint listázzák. Két fajta van: időpontok órával, és emlékeztetők, amelyek egy napra szólnak. Az elmulasztottak felül maradnak. A koppintás megnyitja a kisállatot vagy a háztartást. A pipa jóváhagy egy időpontot: az érték a mezőbe kerül, és rögtön tervezheted a következőt, például három hónap múlva. A nyomva tartás módosítja a dátumot vagy törli az időpontot. A felső kapcsoló a telefonod egy naptárába tükrözi az időpontokat. A menü naptárfájlként exportálja őket. Egy állatorvosi út több kisállattal egyetlen időpont: jelöld be a kisállatokat, a Napirend egy kártyát mutat a nevükkel, és befejezéskor megkérdezi, mely kisállatokat kezelték — a többinél vedd ki a jelölést, tervezve maradnak. A teendők az ismétlődő feladatok, mint az etetés, az alom vagy a gyógyszer. A Ma alatt állnak pipával, sorozattal és az utolsó hét nappal pontokként; a Hamarosan a következő hetet mutatja a napiak nélkül. Egy teendő értesítéssel emlékeztethet a választott időben. A kupa megnyitja az eredményeket.",
   "calendarRowOff": "Naptár: ki",
   "calendarRowOn": "Naptár: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Tervezz időpontot ennek a macskának. A teendők között jelenik meg, és ott hagyható jóvá.",
   "spotAddReminderCatNeutral": "Tervezz időpontot ennek a kisállatnak. A teendők között jelenik meg, és ott hagyható jóvá.",
   "spotAddReminderClowder": "Tervezz időpontot ennek a clowdernek. A teendők között jelenik meg, és ott hagyható jóvá.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Meglévő háztartás",
   "createNewInstead": "Nincs — új létrehozása",
   "overwritesValue": "Felülírja a jelenlegi értéket: \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Megszakítja a felvételt?",
   "abortScanBody": "Semmi nem lesz mentve.",
   "abortScan": "Megszakítás",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Vedd ki a jelölést azoknál a macskáknál, amelyeket nem kezeltek; tervezve maradnak.",
   "finishUntickHintNeutral": "Vedd ki a jelölést azoknál a kisállatoknál, amelyeket nem kezeltek; tervezve maradnak.",
   "deleteAppointmentGroup": "Időpont törlése mind a {count} macskánál",
-  "deleteAppointmentGroupNeutral": "Időpont törlése mind a {count} kisállatnál"
+  "deleteAppointmentGroupNeutral": "Időpont törlése mind a {count} kisállatnál",
+  "correctThisValue": "Érték javítása",
+  "removeThisValue": "Érték eltávolítása",
+  "restoreThisValue": "Érték visszaállítása",
+  "showRemovedValues": "Eltávolított értékek mutatása",
+  "hideRemovedValues": "Eltávolított értékek elrejtése",
+  "entryRemovedBy": "Eltávolítva · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Erre cserélve: {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Javítás"
 }

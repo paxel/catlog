@@ -567,13 +567,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Отменить это изменение';
-
-  @override
-  String get revertSubtitle =>
-      'Возвращает прежнее значение новой записью — история сохраняет оба.';
-
-  @override
   String fieldCleared(String field) {
     return '$field очищено';
   }
@@ -1224,7 +1217,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Каждое сделанное изменение, новые сверху: кто, когда и на какое значение что менял. Любую запись можно отменить — это создаёт новую запись, ничего никогда не стирается.';
+      'Все изменения, новые сверху: кто, когда и на какое значение. Нажмите на запись, чтобы исправить, удерживайте, чтобы убрать или вернуть; скрытая запись остаётся в журнале и показывается по запросу.';
 
   @override
   String get helpDuplicates =>
@@ -3313,4 +3306,32 @@ class AppLocalizationsRu extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Удалить приём для всех $count питомцев';
   }
+
+  @override
+  String get correctThisValue => 'Исправить это значение';
+
+  @override
+  String get removeThisValue => 'Убрать это значение';
+
+  @override
+  String get restoreThisValue => 'Вернуть это значение';
+
+  @override
+  String get showRemovedValues => 'Показать убранные значения';
+
+  @override
+  String get hideRemovedValues => 'Скрыть убранные значения';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Убрано · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Заменено на $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Исправление';
 }

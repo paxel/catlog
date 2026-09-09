@@ -567,13 +567,6 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Kthe mbrapsht këtë ndryshim';
-
-  @override
-  String get revertSubtitle =>
-      'Rikthen vlerën e mëparshme si regjistrim të ri — historia i ruan të dyja.';
-
-  @override
   String fieldCleared(String field) {
     return '$field u zbraz';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.';
+      'Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.';
 
   @override
   String get helpDuplicates =>
@@ -3294,4 +3287,32 @@ class AppLocalizationsSq extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Fshi takimin për të gjitha $count kafshët';
   }
+
+  @override
+  String get correctThisValue => 'Korrigjo këtë vlerë';
+
+  @override
+  String get removeThisValue => 'Hiq këtë vlerë';
+
+  @override
+  String get restoreThisValue => 'Rikthe këtë vlerë';
+
+  @override
+  String get showRemovedValues => 'Shfaq vlerat e hequra';
+
+  @override
+  String get hideRemovedValues => 'Fshih vlerat e hequra';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Hequr · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Zëvendësuar me $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korrigjim';
 }

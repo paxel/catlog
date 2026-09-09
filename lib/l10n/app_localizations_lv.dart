@@ -566,13 +566,6 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Atsaukt šo izmaiņu';
-
-  @override
-  String get revertSubtitle =>
-      'Atjauno iepriekšējo vērtību kā jaunu ierakstu — vēsture saglabā abus.';
-
-  @override
   String fieldCleared(String field) {
     return '$field iztukšots';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Katra jebkad veiktā izmaiņa, jaunākā augšā: kurš ko, kad un uz kādu vērtību mainīja. Jebkuru ierakstu var atsaukt — tas raksta jaunu ierakstu, nekas nekad netiek dzēsts.';
+      'Katra izmaiņa, jaunākā pirmā: kas, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, turiet, lai noņemtu vai atjaunotu; paslēpts ieraksts paliek žurnālā un tiek rādīts pēc pieprasījuma.';
 
   @override
   String get helpDuplicates =>
@@ -3308,4 +3301,32 @@ class AppLocalizationsLv extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Dzēst pierakstu visiem $count mājdzīvniekiem';
   }
+
+  @override
+  String get correctThisValue => 'Labot šo vērtību';
+
+  @override
+  String get removeThisValue => 'Noņemt šo vērtību';
+
+  @override
+  String get restoreThisValue => 'Atjaunot šo vērtību';
+
+  @override
+  String get showRemovedValues => 'Rādīt noņemtās vērtības';
+
+  @override
+  String get hideRemovedValues => 'Slēpt noņemtās vērtības';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Noņemts · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Aizstāts ar $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Labojums';
 }

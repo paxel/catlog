@@ -565,13 +565,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Revert this change';
-
-  @override
-  String get revertSubtitle =>
-      'Restores the previous value as a new entry — history keeps both.';
-
-  @override
   String fieldCleared(String field) {
     return '$field cleared';
   }
@@ -1221,7 +1214,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.';
+      'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.';
 
   @override
   String get helpDuplicates =>
@@ -3293,4 +3286,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Delete appointment for all $count pets';
   }
+
+  @override
+  String get correctThisValue => 'Correct this value';
+
+  @override
+  String get removeThisValue => 'Remove this value';
+
+  @override
+  String get restoreThisValue => 'Restore this value';
+
+  @override
+  String get showRemovedValues => 'Show removed values';
+
+  @override
+  String get hideRemovedValues => 'Hide removed values';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Removed · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Replaced by $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Correction';
 }

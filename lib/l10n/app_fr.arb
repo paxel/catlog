@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Sans foyer — errant / enfui",
   "timelineOf": "Historique — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Annuler cette modification",
-  "revertSubtitle": "Rétablit la valeur précédente comme nouvelle entrée — l'historique garde les deux.",
   "fieldCleared": "{field} vidé",
   "fieldBackTo": "{field} revenu à « {value} »",
   "leftStray": "Parti — errant",
@@ -355,7 +353,7 @@
   "helpSync": "Transmettre les données à d'autres : se connecter en direct, utiliser un dossier visible par les deux appareils, ou envoyer un fichier par messagerie. C'est toujours vous qui décidez de ce qui part — et un fichier .catsync reçu s'ouvre ici aussi. Chaque catalogue signe ce qu’il écrit avec sa propre clé ; les partenaires voient le code de clé à côté de ton nom. La première clé d’un partenaire est acceptée de confiance depuis un fichier et compte comme rencontrée dès que vous synchronisez en personne. Les entrées sous un nom connu sans la bonne signature sont refusées et listées sur la page d’arrivée.",
   "helpFields": "Les champs utilisés par votre catalogue. Renommez-les, changez les options d'une liste, ou créez les vôtres. Un champ identifiant peut pointer vers un service (un registre) : le numéro devient alors cliquable sur le chat.",
   "helpFieldsNeutral": "Les champs utilisés par votre catalogue. Renommez-les, changez les options d'une liste, ou créez les vôtres. Un champ identifiant peut pointer vers un service (un registre) : le numéro devient alors cliquable sur l'animal.",
-  "helpTimeline": "Chaque modification jamais faite, la plus récente en haut : qui a changé quoi, quand et vers quelle valeur. Toute entrée peut être annulée — cela écrit une nouvelle entrée, rien n'est jamais effacé.",
+  "helpTimeline": "Chaque modification, la plus récente en premier : qui a changé quoi, quand, et pour quelle valeur. Touchez une entrée pour la corriger, maintenez-la pour la supprimer ou la rétablir ; une entrée masquée reste dans le journal et s'affiche sur demande.",
   "helpDuplicates": "Chats ou colonies qui semblent exister en double — identifiants identiques ou noms très proches avec des détails concordants. Touchez une paire pour la fusionner ; la fusion est définitive, elle demande confirmation.",
   "helpDuplicatesNeutral": "Animaux ou foyers qui semblent exister en double — identifiants identiques ou noms très proches avec des détails concordants. Touchez une paire pour la fusionner ; la fusion est définitive, elle demande confirmation.",
   "helpMatches": "Chats qui pourraient être le même animal : identifiant identique, ou errant vu dans la zone de recherche d'un chat disparu. Touchez une paire pour fusionner, appui long pour ouvrir le premier chat et comparer. Les paires dont l’apparence concorde sur au moins deux traits, sans contradiction, sont listées aussi ; les puces montrent lesquels. « Pas le même » masque une paire sur ce téléphone jusqu’à ce que l’apparence de l’un des animaux change.",
@@ -437,7 +435,16 @@
   "rangeAll": "Tout",
   "rangeCustom": "Personnalisé…",
   "changeSince": "{delta} depuis le {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Comme dans votre région",
   "unitsMetric": "Métrique (kg, cm, ml, °C)",
   "unitsImperial": "Impérial (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Réglages du catalogue",
   "deleteCatalogBody": "Tout ce qui est dans {name} disparaît : ses chats, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue.",
   "deleteCatalogBodyNeutral": "Tout ce qui est dans {name} disparaît : ses animaux, ses photos, son historique. Un fichier complet est d’abord enregistré là où vont les sauvegardes automatiques ; l’importer ramène le catalogue. Tape le nom pour confirmer.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Aucun rendez-vous prévu. Prévois-en ici avec le plus, ou sur la page d'un animal ou d'un foyer.",
   "dueToday": "aujourd'hui",
   "dueInDays": "{count, plural, one{dans 1 jour} other{dans {count} jours}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{en retard de 1 jour} other{en retard de {count} jours}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Fait",
   "repeatTitle": "À nouveau dans…",
   "noRepeatLabel": "Pas de répétition",
@@ -861,15 +886,33 @@
   "unitMonths": "mois",
   "unitYears": "ans",
   "ageYears": "{years} ans",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mois",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Changer la date",
   "removeReminderLabel": "Supprimer le rappel",
   "exportIcs": "Exporter le fichier calendrier",
   "resyncCalendar": "Resynchroniser le calendrier",
   "icsSavedTo": "Fichier calendrier enregistré sous {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Refléter dans le calendrier de l'appareil",
   "calendarMirrorSubtitle": "Les rendez-vous apparaissent comme des événements d'une journée dans le calendrier. cat(a)log les y met à jour à chaque démarrage et après chaque modification. Tu peux gérer les alertes de ces rendez-vous dans le calendrier.",
   "syncPeerOlder": "L'autre appareil utilise un cat(a)log plus ancien sans rappels. Mets-y cat(a)log à jour, puis resynchronise.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "L'agenda liste les rendez-vous prévus par date. Il y a deux sortes : les rendez-vous avec une heure, et les rappels qui valent pour une journée. Les rendez-vous manqués restent en haut. Toucher ouvre l'animal ou le foyer. La coche confirme un rendez-vous : la valeur est écrite dans le champ, et tu peux tout de suite prévoir le suivant, par exemple dans trois mois. Rester appuyé change la date ou supprime le rendez-vous. L'interrupteur en haut reflète les rendez-vous dans un calendrier de ton téléphone. Le menu les exporte en fichier calendrier. Une visite chez le vétérinaire avec plusieurs animaux est un seul rendez-vous : cochez les animaux concernés, l'Agenda affiche une carte avec leurs noms, et à la fin on demande quels animaux ont été traités — décochez les autres, ils restent planifiés. Les tâches sont les corvées récurrentes, comme nourrir, la litière ou les médicaments. Elles figurent sous Aujourd’hui avec une coche, une série et les sept derniers jours en points ; À venir montre la semaine suivante sans les quotidiennes. Une tâche peut rappeler par notification à l’heure choisie. Le trophée ouvre les succès.",
   "calendarRowOff": "Calendrier : désactivé",
   "calendarRowOn": "Calendrier : {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Prévoir un rendez-vous pour ce chat. Il apparaît dans l'agenda et s'y confirme.",
   "spotAddReminderCatNeutral": "Prévoir un rendez-vous pour cet animal. Il apparaît dans l'agenda et s'y confirme.",
   "spotAddReminderClowder": "Prévoir un rendez-vous pour ce clowder. Il apparaît dans l'agenda et s'y confirme.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Foyer existant",
   "createNewInstead": "Aucun — créer",
   "overwritesValue": "Remplace la valeur actuelle \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Abandonner la capture ?",
   "abortScanBody": "Rien ne sera enregistré.",
   "abortScan": "Abandonner",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Décochez les chats non traités ; ils restent planifiés.",
   "finishUntickHintNeutral": "Décochez les animaux non traités ; ils restent planifiés.",
   "deleteAppointmentGroup": "Supprimer le rendez-vous pour les {count} chats",
-  "deleteAppointmentGroupNeutral": "Supprimer le rendez-vous pour les {count} animaux"
+  "deleteAppointmentGroupNeutral": "Supprimer le rendez-vous pour les {count} animaux",
+  "correctThisValue": "Corriger cette valeur",
+  "removeThisValue": "Supprimer cette valeur",
+  "restoreThisValue": "Rétablir cette valeur",
+  "showRemovedValues": "Afficher les valeurs supprimées",
+  "hideRemovedValues": "Masquer les valeurs supprimées",
+  "entryRemovedBy": "Supprimé · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Remplacé par {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Correction"
 }

@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "无家庭 — 流浪／跑掉了",
   "timelineOf": "时间线 — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "撤销此更改",
-  "revertSubtitle": "把之前的值作为新记录恢复——历史会保留两者。",
   "fieldCleared": "已清空 {field}",
   "fieldBackTo": "{field} 已恢复为“{value}”",
   "leftStray": "离开了 — 流浪猫",
@@ -355,7 +353,7 @@
   "helpSync": "把数据交给他人的方式：当面直连、使用两台设备都能看到的文件夹，或用即时通讯发送文件。发送什么始终由你决定——收到的 .catsync 文件也在这里打开。 每个目录用自己的密钥为写入内容签名；伙伴会在你的名字旁看到密钥码。伙伴的第一把密钥从文件中先行信任，当面同步后视为已确认。以已知名字写入但签名不正确的条目会被拒绝，并列在到达页面上。",
   "helpFields": "你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在猫页面上就能点按。",
   "helpFieldsNeutral": "你的目录所用的字段。可重命名、修改选择字段的选项，或添加自己的字段。ID 字段可指向某个服务（登记机构），这样编号在宠物页面上就能点按。",
-  "helpTimeline": "所有做过的更改，最新在上：谁在何时把什么改成了什么值。任何记录都可撤销——撤销会写入新记录，任何内容都不会被抹去。",
+  "helpTimeline": "所有更改，最新在前：谁在何时改成了什么值。点按条目可修正，长按可移除或恢复；隐藏的条目仍留在记录中，可按需显示。",
   "helpDuplicates": "看起来重复出现的猫或猫群——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。",
   "helpDuplicatesNeutral": "看起来重复出现的宠物或家庭——编号相同，或名字非常相似且细节吻合。点按一对进行合并；合并无法撤销，因此会先询问。",
   "helpMatches": "可能是同一只动物的猫：编号相同，或在走失猫搜索范围内出现的流浪猫。点按一对合并，长按可打开第一只猫进行比较。 外貌有两项或更多特征相符且无矛盾的配对也会列出；标签显示是哪些特征。“不是同一只”会在本手机上隐藏该配对，直到任一动物的外貌发生变化。",
@@ -437,7 +435,16 @@
   "rangeAll": "全部",
   "rangeCustom": "自定义…",
   "changeSince": "自 {date} 起 {delta}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "按你所在的地区",
   "unitsMetric": "公制（kg、cm、ml、°C）",
   "unitsImperial": "英制（lb、in、fl oz、°F）",
@@ -732,7 +739,13 @@
   "catalogSettings": "目录设置",
   "deleteCatalogBody": "{name} 里的一切都会消失：猫、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。",
   "deleteCatalogBodyNeutral": "{name} 里的一切都会消失：宠物、照片、历史记录。删除前会把完整文件保存到自动备份所在的位置，导入它就能把目录找回来。请输入名称以确认。",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "没有已计划的安排。可以在这里用加号，或在宠物或家庭的页面上计划新的安排。",
   "dueToday": "今天到期",
   "dueInDays": "{count, plural, other{{count} 天后}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, other{已超期 {count} 天}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "完成",
   "repeatTitle": "下次间隔…",
   "noRepeatLabel": "不重复",
@@ -861,15 +886,33 @@
   "unitMonths": "个月后",
   "unitYears": "年后",
   "ageYears": "{years}岁",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months}个月",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "更改日期",
   "removeReminderLabel": "移除提醒",
   "exportIcs": "导出日历文件",
   "resyncCalendar": "重新同步日历",
   "icsSavedTo": "日历文件已保存到 {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "同步到设备日历",
   "calendarMirrorSubtitle": "安排会以全天事件的形式出现在日历中。cat(a)log 每次启动和每次更改后都会在那里更新它们。安排的提醒可以在日历中管理。",
   "syncPeerOlder": "对方设备运行的 cat(a)log 版本较旧，不支持提醒。请在那台设备上更新 cat(a)log 后重新同步。",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "日程按日期列出已计划的安排。有两种类型：带具体时间的安排，以及按天生效的提醒。错过的安排会一直留在顶部。点击可打开宠物或家庭。勾选即确认安排：该值写入字段，并可立即计划下一次，例如三个月后。长按可更改日期或删除安排。顶部的开关把安排同步到手机日历。菜单可导出为日历文件。 多只宠物一起看兽医是一个预约：勾选这些宠物，日程会显示一张带有它们名字的卡片，完成时会询问哪些宠物接受了处理——取消勾选其余的宠物，它们仍保持计划中。 日常事务是喂食、猫砂、喂药等重复的任务。它们位于“今天”下方，带勾选、连续记录和最近七天的圆点；“即将”显示下一周，不含每日事务。事务可在选定时间通过通知提醒你。奖杯打开成就。",
   "calendarRowOff": "日历：关",
   "calendarRowOn": "日历：{name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "为这只猫计划一次安排。它会显示在日程中，并在那里确认。",
   "spotAddReminderCatNeutral": "为这只宠物计划一次安排。它会显示在日程中，并在那里确认。",
   "spotAddReminderClowder": "为这个猫群计划一次安排。它会显示在日程中，并在那里确认。",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "现有的家庭",
   "createNewInstead": "无 — 新建",
   "overwritesValue": "覆盖当前值 \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "中止扫描？",
   "abortScanBody": "不会保存任何内容。",
   "abortScan": "中止",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "取消勾选未接受处理的猫；它们仍保持计划中。",
   "finishUntickHintNeutral": "取消勾选未接受处理的宠物；它们仍保持计划中。",
   "deleteAppointmentGroup": "删除全部 {count} 只猫的预约",
-  "deleteAppointmentGroupNeutral": "删除全部 {count} 只宠物的预约"
+  "deleteAppointmentGroupNeutral": "删除全部 {count} 只宠物的预约",
+  "correctThisValue": "修正此值",
+  "removeThisValue": "移除此值",
+  "restoreThisValue": "恢复此值",
+  "showRemovedValues": "显示已移除的值",
+  "hideRemovedValues": "隐藏已移除的值",
+  "entryRemovedBy": "已移除 · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "已修正为 {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "修正"
 }

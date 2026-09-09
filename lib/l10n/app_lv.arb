@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bez mājsaimniecības — klaiņojošs / aizbēga",
   "timelineOf": "Laika skala — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Atsaukt šo izmaiņu",
-  "revertSubtitle": "Atjauno iepriekšējo vērtību kā jaunu ierakstu — vēsture saglabā abus.",
   "fieldCleared": "{field} iztukšots",
   "fieldBackTo": "{field} atgriezts uz \"{value}\"",
   "leftStray": "Aizgāja — klaiņojošs",
@@ -355,7 +353,7 @@
   "helpSync": "Kā dati nonāk pie citiem: savienojies tieši, izmanto mapi, ko redz abas ierīces, vai sūti failu ar ziņapmaiņu. Vienmēr tu izlem, kas aiziet — un saņemtos .catsync failus atver arī šeit. Katrs katalogs paraksta rakstīto ar savu atslēgu; partneri redz atslēgas kodu blakus tavam vārdam. Partnera pirmā atslēga no faila tiek pieņemta uzticoties un skaitās apstiprināta, kad sinhronizējat klātienē. Ieraksti ar zināmu vārdu bez pareiza paraksta tiek noraidīti un uzskaitīti ierašanās lapā.",
   "helpFields": "Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie kaķa kļūst piespiežams.",
   "helpFieldsNeutral": "Lauki, ko izmanto tavs katalogs. Pārdēvē tos, maini izvēles lauka iespējas vai izveido savus. Identifikatora lauks var norādīt uz pakalpojumu (reģistru), tad numurs pie mājdzīvnieka kļūst piespiežams.",
-  "helpTimeline": "Katra jebkad veiktā izmaiņa, jaunākā augšā: kurš ko, kad un uz kādu vērtību mainīja. Jebkuru ierakstu var atsaukt — tas raksta jaunu ierakstu, nekas nekad netiek dzēsts.",
+  "helpTimeline": "Katra izmaiņa, jaunākā pirmā: kas, kad un uz kādu vērtību. Pieskarieties ierakstam, lai to labotu, turiet, lai noņemtu vai atjaunotu; paslēpts ieraksts paliek žurnālā un tiek rādīts pēc pieprasījuma.",
   "helpDuplicates": "Kaķi vai kolonijas, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.",
   "helpDuplicatesNeutral": "Mājdzīvnieki vai mājsaimniecības, kas šķiet esam divreiz — vienādi numuri vai ļoti līdzīgi vārdi ar saskanīgām detaļām. Pieskaries pārim, lai apvienotu; apvienošanu nevar atsaukt, tāpēc vispirms tiek jautāts.",
   "helpMatches": "Kaķi, kas varētu būt viens un tas pats dzīvnieks: vienāds numurs vai klaiņotājs, redzēts pazuduša kaķa meklēšanas zonā. Pieskaries pārim, lai apvienotu, ilgi turot atver pirmo kaķi salīdzināšanai. Sarakstā ir arī pāri, kuru izskats sakrīt vismaz divās pazīmēs bez pretrunām; mikroshēmas rāda kurās. „Nav tas pats” paslēpj pāri šajā tālrunī, līdz mainās kāda dzīvnieka izskats.",
@@ -437,7 +435,16 @@
   "rangeAll": "Viss",
   "rangeCustom": "Pielāgots…",
   "changeSince": "{delta} kopš {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kā tavā reģionā",
   "unitsMetric": "Metriskā (kg, cm, ml, °C)",
   "unitsImperial": "Imperiālā (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Kataloga iestatījumi",
   "deleteCatalogBody": "Viss katalogā {name} pazūd: kaķi, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež.",
   "deleteCatalogBodyNeutral": "Viss katalogā {name} pazūd: mājdzīvnieki, fotoattēli, vēsture. Vispirms tur, kur nonāk automātiskās rezerves kopijas, tiek saglabāts pilns fails — tā imports katalogu atgriež. Apstiprini, ierakstot nosaukumu.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Nav ieplānotu vizīšu. Jaunas plāno šeit ar plusu vai mājdzīvnieka vai mājsaimniecības lapā.",
   "dueToday": "šodien",
   "dueInDays": "{count, plural, zero{pēc {count} dienām} one{pēc {count} dienas} other{pēc {count} dienām}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, zero{nokavēts par {count} dienām} one{nokavēts par {count} dienu} other{nokavēts par {count} dienām}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Izdarīts",
   "repeatTitle": "Atkal pēc…",
   "noRepeatLabel": "Bez atkārtošanas",
@@ -861,15 +886,33 @@
   "unitMonths": "mēnešiem",
   "unitYears": "gadiem",
   "ageYears": "{years} g.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mēn.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Mainīt datumu",
   "removeReminderLabel": "Noņemt atgādinājumu",
   "exportIcs": "Eksportēt kalendāra failu",
   "resyncCalendar": "Sinhronizēt kalendāru vēlreiz",
   "icsSavedTo": "Kalendāra fails saglabāts {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Atspoguļot ierīces kalendārā",
   "calendarMirrorSubtitle": "Vizītes kalendārā parādās kā visas dienas notikumi. cat(a)log tās tur atjaunina katrā palaišanā un pēc katras izmaiņas. Vizīšu atgādinājumus pārvaldi kalendārā.",
   "syncPeerOlder": "Otrā ierīcē ir vecāks cat(a)log bez atgādinājumiem. Atjaunini cat(a)log tur un sinhronizē vēlreiz.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Atgādinājumi rāda ieplānotās vizītes pēc datuma. Ir divi veidi: vizītes ar pulksteņa laiku un atgādinājumi, kas attiecas uz dienu. Nokavētās paliek augšā. Pieskāriens atver mājdzīvnieku vai mājsaimniecību. Ķeksītis apstiprina vizīti: vērtība tiek ierakstīta laukā, un uzreiz vari ieplānot nākamo, piemēram, pēc trim mēnešiem. Turēšana maina datumu vai dzēš vizīti. Slēdzis augšā atspoguļo vizītes tava tālruņa kalendārā. Izvēlne tās eksportē kā kalendāra failu. Vizīte pie veterinārārsta ar vairākiem mājdzīvniekiem ir viens pieraksts: atzīmē mājdzīvniekus, Dienaskārtība rāda vienu kartīti ar to vārdiem, un pabeidzot jautā, kuri mājdzīvnieki tika ārstēti — noņem atzīmi pārējiem, tie paliek plānoti. Pienākumi ir atkārtoti darbi: barošana, kaste vai zāles. Tie stāv zem Šodien ar atzīmi, sēriju un pēdējām septiņām dienām kā punktiem; Drīzumā rāda nākamo nedēļu bez ikdienas. Pienākums var atgādināt ar paziņojumu izvēlētajā laikā. Kauss atver sasniegumus.",
   "calendarRowOff": "Kalendārs: izslēgts",
   "calendarRowOn": "Kalendārs: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Ieplāno vizīti šim kaķim. Tā rādās atgādinājumos un tur tiek apstiprināta.",
   "spotAddReminderCatNeutral": "Ieplāno vizīti šim mājdzīvniekam. Tā rādās atgādinājumos un tur tiek apstiprināta.",
   "spotAddReminderClowder": "Ieplāno vizīti šim klauderim. Tā rādās atgādinājumos un tur tiek apstiprināta.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Esoša mājsaimniecība",
   "createNewInstead": "Nav — izveidot jaunu",
   "overwritesValue": "Pārraksta pašreizējo vērtību \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Pārtraukt skenēšanu?",
   "abortScanBody": "Nekas netiks saglabāts.",
   "abortScan": "Pārtraukt",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Noņem atzīmi kaķiem, kuri netika ārstēti; tie paliek plānoti.",
   "finishUntickHintNeutral": "Noņem atzīmi mājdzīvniekiem, kuri netika ārstēti; tie paliek plānoti.",
   "deleteAppointmentGroup": "Dzēst pierakstu visiem {count} kaķiem",
-  "deleteAppointmentGroupNeutral": "Dzēst pierakstu visiem {count} mājdzīvniekiem"
+  "deleteAppointmentGroupNeutral": "Dzēst pierakstu visiem {count} mājdzīvniekiem",
+  "correctThisValue": "Labot šo vērtību",
+  "removeThisValue": "Noņemt šo vērtību",
+  "restoreThisValue": "Atjaunot šo vērtību",
+  "showRemovedValues": "Rādīt noņemtās vērtības",
+  "hideRemovedValues": "Slēpt noņemtās vērtības",
+  "entryRemovedBy": "Noņemts · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Aizstāts ar {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Labojums"
 }

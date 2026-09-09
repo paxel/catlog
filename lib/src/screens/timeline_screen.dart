@@ -1,21 +1,22 @@
 import 'package:catalog_core/catalog_core.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../layout.dart';
 import '../help.dart';
+import '../field_editing.dart';
 import '../field_labels.dart';
 import '../hidden.dart';
 import '../l10n.dart';
+import 'field_history_screen.dart';
 
 /// The timeline of an entity: every change in date order with Author —
 /// or, when [field] is given, the history of that one Field.
 ///
 /// Clowder timelines additionally weave in arrivals and departures of
 /// Cats (derived from the Cats' membership histories — membership lives
-/// on the Cat, see CONTEXT.md: Move). Entries can be reverted git-style:
-/// the previous value is appended as a new, authored entry at the
-/// current time; nothing is ever deleted.
+/// on the Cat, see CONTEXT.md: Move). A tap corrects an entry, a long
+/// press removes or restores it: a marker hides the row, nothing is
+/// ever deleted, and hidden rows show on request.
 class TimelineScreen extends StatefulWidget {
   final CatalogStore store;
   final String entityId;
@@ -42,10 +43,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
       ? context.t.stray
       : store.current(id, Keys.name) ?? context.t.unnamed;
 
-  String _date(DateTime d) =>
-      DateFormat.yMd(Localizations.localeOf(context).toString())
-          .add_Hm()
-          .format(d.toLocal());
+  String get _locale => Localizations.localeOf(context).toString();
+
+  String _date(DateTime d) => historyMoment(_locale, d);
+
+  bool get _showVoided => store.localSetting(historyShowVoidedKey) == 'yes';
 
   /// Friendly rendering for a Cat's own membership entry.
   _Row _membershipRow(Entry e) => _Row(
@@ -59,13 +61,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
   List<_Row> _rows() {
     final t = context.t;
     final entries = widget.field == null
-        ? store.timeline(widget.entityId)
-        : store.fieldHistory(widget.entityId, widget.field!);
+        ? store.timeline(widget.entityId, includeVoided: _showVoided)
+        : store.fieldHistory(widget.entityId, widget.field!,
+            includeVoided: _showVoided);
     final rows = <_Row>[
       for (final e in entries.where((e) =>
           e.field != Keys.type &&
           e.field != Keys.private &&
           !e.field.startsWith(Keys.conflictPrefix) &&
+          !e.field.startsWith(Keys.voidPrefix) &&
           (showHidden.value ||
               !e.field.startsWith('f:') ||
               !store.isHidden('fielddef:${e.field.substring(2)}'))))
@@ -100,29 +104,90 @@ class _TimelineScreenState extends State<TimelineScreen> {
     return rows;
   }
 
+  /// The definition an entry's value is edited with: a user field's own,
+  /// a plain text one for the name; nothing for memberships, chores and
+  /// the rest, which have editors of their own.
+  FieldDef? _defOf(Entry e) {
+    if (e.field == Keys.name) {
+      return FieldDef(
+        id: 'fielddef:name',
+        slug: 'name',
+        name: fieldLabel(context.t, store, e.field),
+        type: FieldType.text,
+        scope: FieldScope.cat,
+      );
+    }
+    if (!e.field.startsWith('f:')) return null;
+    for (final def in store.fieldDefs()) {
+      if (def.key == e.field) return def;
+    }
+    return null;
+  }
+
+  Future<void> _correct(Entry e) async {
+    final def = _defOf(e);
+    if (def == null) return;
+    final edit = await editFieldValue(
+      context,
+      def,
+      e.value,
+      store: store,
+      excludeId: e.entity,
+      asOf: e.date,
+    );
+    if (edit == null || !mounted) return;
+    store.correctEntry(e.seq, edit.value, date: edit.date);
+    setState(() {});
+  }
+
+  void _remove(Entry entry) {
+    store.removeEntry(entry.seq);
+    final restored = store.current(entry.entity, entry.field);
+    setState(() {});
+    final label = fieldLabel(context.t, store, entry.field);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(restored == null
+          ? context.t.fieldCleared(label)
+          : context.t.fieldBackTo(
+              label, valueLabel(context.t, store, entry.field, restored))),
+    ));
+  }
+
   void _entryMenu(Entry entry) {
+    final t = context.t;
     showModalBottomSheet<void>(
       context: context,
       builder: (sheetContext) => SafeArea(
         child: Wrap(children: [
-          ListTile(
-            leading: const Icon(Icons.undo),
-            title: Text(context.t.revertThisChange),
-            subtitle: Text(context.t.revertSubtitle),
-            onTap: () {
-              Navigator.of(sheetContext).pop();
-              store.removeEntry(entry.seq);
-              final restored = store.current(entry.entity, entry.field);
-              setState(() {});
-              final label = fieldLabel(context.t, store, entry.field);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(restored == null
-                    ? context.t.fieldCleared(label)
-                    : context.t.fieldBackTo(label,
-                        valueLabel(context.t, store, entry.field, restored))),
-              ));
-            },
-          ),
+          if (entry.voided)
+            ListTile(
+              leading: const Icon(Icons.restore),
+              title: Text(t.restoreThisValue),
+              onTap: () {
+                Navigator.of(sheetContext).pop();
+                store.restoreEntry(entry.seq);
+                setState(() {});
+              },
+            )
+          else ...[
+            if (_defOf(entry) != null)
+              ListTile(
+                leading: const Icon(Icons.edit_outlined),
+                title: Text(t.correctThisValue),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  _correct(entry);
+                },
+              ),
+            ListTile(
+              leading: const Icon(Icons.delete_outline),
+              title: Text(t.removeThisValue),
+              onTap: () {
+                Navigator.of(sheetContext).pop();
+                _remove(entry);
+              },
+            ),
+          ],
         ]),
       ),
     );
@@ -140,20 +205,48 @@ class _TimelineScreenState extends State<TimelineScreen> {
             ? context.t.timelineOf(name)
             : context.t.fieldHistoryOf(
                 fieldLabel(context.t, store, widget.field!), name)),
-        actions: [HelpButton(store: store, screenId: 'timeline')],
+        actions: [
+          IconButton(
+            icon: Icon(_showVoided
+                ? Icons.visibility_off_outlined
+                : Icons.visibility),
+            tooltip: _showVoided
+                ? context.t.hideRemovedValues
+                : context.t.showRemovedValues,
+            onPressed: () {
+              store.setLocalSetting(
+                  historyShowVoidedKey, _showVoided ? 'no' : 'yes');
+              setState(() {});
+            },
+          ),
+          HelpButton(store: store, screenId: 'timeline'),
+        ],
       ),
       body: ListView.builder(
         itemCount: rows.length,
         itemBuilder: (context, i) {
           final row = rows[i];
           final e = row.entry;
-          final revertable = CatalogStore.isCorrectable(e.field);
+          final correctable = CatalogStore.isCorrectable(e.field);
+          final muted = Theme.of(context).colorScheme.onSurfaceVariant;
           return ListTile(
-            leading: Icon(row.icon),
-            title: Text(row.title),
-            subtitle: Text('${_date(e.date)} · ${e.author}'),
-            trailing: revertable ? const Icon(Icons.undo, size: 18) : null,
-            onTap: revertable ? () => _entryMenu(e) : null,
+            leading: Icon(row.icon, color: e.voided ? muted : null),
+            title: Text(
+              row.title,
+              style: e.voided
+                  ? TextStyle(
+                      color: muted, decoration: TextDecoration.lineThrough)
+                  : null,
+            ),
+            subtitle: Text(e.voided
+                ? '${_date(e.date)} · ${e.author}\n'
+                    '${voidedLine(context.t, store, e.field, e, _locale)}'
+                : '${_date(e.date)} · ${e.author}'),
+            isThreeLine: e.voided,
+            onTap: correctable && !e.voided && _defOf(e) != null
+                ? () => _correct(e)
+                : null,
+            onLongPress: correctable ? () => _entryMenu(e) : null,
           );
         },
       ),

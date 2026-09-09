@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "بلا منزل — ضال / هرب",
   "timelineOf": "السجل الزمني — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "التراجع عن هذا التغيير",
-  "revertSubtitle": "يعيد القيمة السابقة كسجل جديد — يحتفظ السجل بالاثنين.",
   "fieldCleared": "أُفرغ {field}",
   "fieldBackTo": "عاد {field} إلى \"{value}\"",
   "leftStray": "غادرت — ضالة",
@@ -355,7 +353,7 @@
   "helpSync": "كيف تصل البيانات إلى الآخرين: اتصال مباشر، مجلد يراه الجهازان، أو ملف عبر تطبيق مراسلة. أنت من يقرر دائمًا ما يخرج — وملفات .catsync المستلمة تُفتح هنا أيضًا. يوقّع كل فهرس ما يكتبه بمفتاحه الخاص؛ يرى الشركاء رمز المفتاح بجوار اسمك. يُقبل أول مفتاح لشريك من ملف على الثقة ويُعد متحققًا منه عند المزامنة شخصيًا. الإدخالات باسم معروف دون التوقيع الصحيح تُرفض وتُدرج في صفحة الوصول.",
   "helpFields": "الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند القطة.",
   "helpFieldsNeutral": "الحقول التي يستخدمها فهرسك. أعد تسميتها، غيّر خيارات حقل الاختيار، أو أنشئ حقولك. يمكن لحقل المعرّف أن يشير إلى خدمة (سجل)، فيصبح الرقم قابلًا للنقر عند الحيوان الأليف.",
-  "helpTimeline": "كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.",
+  "helpTimeline": "كل تغيير، الأحدث أولاً: من غيّر ماذا ومتى وإلى أي قيمة. انقر على إدخال لتصحيحه، واضغط مطولاً لإزالته أو استعادته؛ يبقى الإدخال المخفي في السجل ويظهر عند الطلب.",
   "helpDuplicates": "قطط أو مستعمرات تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.",
   "helpDuplicatesNeutral": "حيوانات أليفة أو منازل تبدو مكررة — أرقام متطابقة أو أسماء متشابهة جدًا بتفاصيل متوافقة. انقر زوجًا لدمجه؛ الدمج لا رجعة فيه لذلك يُسأل أولًا.",
   "helpMatches": "قطط قد تكون الحيوان نفسه: رقم متطابق، أو قطة ضالة شوهدت داخل منطقة البحث عن قطة مفقودة. انقر زوجًا للدمج، والضغط المطوّل يفتح القطة الأولى للمقارنة. تُدرج أيضًا الأزواج التي يتطابق مظهرها في سمتين أو أكثر دون تناقض؛ تُظهر الرقائق أيها. «ليس نفسه» يخفي الزوج على هذا الهاتف حتى يتغير مظهر أحد الحيوانين.",
@@ -437,7 +435,16 @@
   "rangeAll": "الكل",
   "rangeCustom": "مخصص…",
   "changeSince": "{delta} منذ {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "حسب منطقتك",
   "unitsMetric": "متري (كغ، سم، مل، °م)",
   "unitsImperial": "إمبراطوري (رطل، بوصة، أونصة سائلة، °ف)",
@@ -732,7 +739,13 @@
   "catalogSettings": "إعدادات الكتالوج",
   "deleteCatalogBody": "كل ما في {name} سيختفي: القطط والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج.",
   "deleteCatalogBodyNeutral": "كل ما في {name} سيختفي: الحيوانات الأليفة والصور والسجل. تُحفظ أولاً نسخة كاملة حيث تُحفظ النسخ الاحتياطية التلقائية، واستيرادها يعيد الكتالوج. اكتب الاسم للتأكيد.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "لا مواعيد مخططة. خطّط مواعيد جديدة هنا بزر الزائد، أو في صفحة حيوان أليف أو منزل.",
   "dueToday": "اليوم",
   "dueInDays": "{count, plural, one{بعد يوم واحد} two{بعد يومين} few{بعد {count} أيام} many{بعد {count} يومًا} other{بعد {count} يوم}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{متأخر يومًا واحدًا} two{متأخر يومين} few{متأخر {count} أيام} many{متأخر {count} يومًا} other{متأخر {count} يوم}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "تم",
   "repeatTitle": "مجددًا بعد…",
   "noRepeatLabel": "بلا تكرار",
@@ -861,15 +886,33 @@
   "unitMonths": "أشهر",
   "unitYears": "سنوات",
   "ageYears": "{years} سنة",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} شهر",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "تغيير التاريخ",
   "removeReminderLabel": "إزالة التذكير",
   "exportIcs": "تصدير ملف التقويم",
   "resyncCalendar": "إعادة مزامنة التقويم",
   "icsSavedTo": "حُفظ ملف التقويم في {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "انعكاس في تقويم الجهاز",
   "calendarMirrorSubtitle": "تظهر المواعيد كأحداث ليوم كامل في التقويم. يحدّثها cat(a)log هناك عند كل تشغيل وبعد كل تغيير. ويمكنك إدارة تنبيهات المواعيد في التقويم.",
   "syncPeerOlder": "الجهاز الآخر يشغّل نسخة أقدم من cat(a)log بلا تذكيرات. حدّث cat(a)log هناك ثم زامن مجددًا.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "تعرض المواعيد المواعيدَ المخططة حسب التاريخ. هناك نوعان: مواعيد بوقت محدد، وتذكيرات تسري ليوم كامل. الفائتة تبقى في الأعلى. الضغط يفتح الحيوان الأليف أو المنزل. علامة الصح تؤكد الموعد: تُكتب القيمة في الحقل ويمكنك فورًا تخطيط الموعد التالي، مثلًا بعد ثلاثة أشهر. الضغط المطوّل يغيّر التاريخ أو يحذف الموعد. المفتاح في الأعلى يعكس المواعيد في تقويم هاتفك. والقائمة تصدّرها كملف تقويم. زيارة الطبيب البيطري بعدة حيوانات أليفة هي موعد واحد: حدّد الحيوانات، فتعرض الأجندة بطاقة واحدة بأسمائها، وعند الإنهاء تُسأل أي الحيوانات عولجت — ألغِ تحديد الباقي، فتبقى مخططة. المهام هي الواجبات المتكررة مثل الإطعام أو صندوق الرمل أو الدواء. تقع تحت «اليوم» مع علامة وسلسلة وآخر سبعة أيام كنقاط؛ «قريبًا» يعرض الأسبوع التالي دون اليومية. يمكن للمهمة أن تذكّرك بإشعار في وقت مختار. الكأس تفتح الإنجازات.",
   "calendarRowOff": "التقويم: متوقف",
   "calendarRowOn": "التقويم: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "خطّط موعدًا لهذه القطة. يظهر في المواعيد ويُؤكَّد هناك.",
   "spotAddReminderCatNeutral": "خطّط موعدًا لهذا الحيوان الأليف. يظهر في المواعيد ويُؤكَّد هناك.",
   "spotAddReminderClowder": "خطّط موعدًا لهذه المجموعة. يظهر في المواعيد ويُؤكَّد هناك.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "منزل موجود",
   "createNewInstead": "لا شيء — إنشاء جديد",
   "overwritesValue": "يستبدل القيمة الحالية \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "إلغاء المسح؟",
   "abortScanBody": "لن يُحفظ أي شيء.",
   "abortScan": "إلغاء",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "ألغِ تحديد القطط التي لم تُعالج؛ تبقى مخططة.",
   "finishUntickHintNeutral": "ألغِ تحديد الحيوانات الأليفة التي لم تُعالج؛ تبقى مخططة.",
   "deleteAppointmentGroup": "حذف الموعد لكل القطط الـ{count}",
-  "deleteAppointmentGroupNeutral": "حذف الموعد لكل الحيوانات الأليفة الـ{count}"
+  "deleteAppointmentGroupNeutral": "حذف الموعد لكل الحيوانات الأليفة الـ{count}",
+  "correctThisValue": "تصحيح هذه القيمة",
+  "removeThisValue": "إزالة هذه القيمة",
+  "restoreThisValue": "استعادة هذه القيمة",
+  "showRemovedValues": "إظهار القيم المزالة",
+  "hideRemovedValues": "إخفاء القيم المزالة",
+  "entryRemovedBy": "أُزيل · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "استُبدل بـ {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "تصحيح"
 }

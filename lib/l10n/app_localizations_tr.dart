@@ -564,13 +564,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Bu değişikliği geri al';
-
-  @override
-  String get revertSubtitle =>
-      'Önceki değeri yeni bir kayıt olarak geri getirir — geçmiş ikisini de saklar.';
-
-  @override
   String fieldCleared(String field) {
     return '$field temizlendi';
   }
@@ -1221,7 +1214,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.';
+      'Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.';
 
   @override
   String get helpDuplicates =>
@@ -3291,4 +3284,32 @@ class AppLocalizationsTr extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Randevuyu $count evcil hayvanın tümü için sil';
   }
+
+  @override
+  String get correctThisValue => 'Bu değeri düzelt';
+
+  @override
+  String get removeThisValue => 'Bu değeri kaldır';
+
+  @override
+  String get restoreThisValue => 'Bu değeri geri getir';
+
+  @override
+  String get showRemovedValues => 'Kaldırılan değerleri göster';
+
+  @override
+  String get hideRemovedValues => 'Kaldırılan değerleri gizle';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Kaldırıldı · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return '$value ile değiştirildi · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Düzeltme';
 }

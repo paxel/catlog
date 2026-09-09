@@ -564,13 +564,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'التراجع عن هذا التغيير';
-
-  @override
-  String get revertSubtitle =>
-      'يعيد القيمة السابقة كسجل جديد — يحتفظ السجل بالاثنين.';
-
-  @override
   String fieldCleared(String field) {
     return 'أُفرغ $field';
   }
@@ -1219,7 +1212,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'كل تغيير جرى يومًا، الأحدث أولًا: من غيّر ماذا ومتى وإلى أي قيمة. يمكن التراجع عن أي إدخال — يكتب ذلك إدخالًا جديدًا، ولا يُمحى شيء أبدًا.';
+      'كل تغيير، الأحدث أولاً: من غيّر ماذا ومتى وإلى أي قيمة. انقر على إدخال لتصحيحه، واضغط مطولاً لإزالته أو استعادته؛ يبقى الإدخال المخفي في السجل ويظهر عند الطلب.';
 
   @override
   String get helpDuplicates =>
@@ -3327,4 +3320,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'حذف الموعد لكل الحيوانات الأليفة الـ$count';
   }
+
+  @override
+  String get correctThisValue => 'تصحيح هذه القيمة';
+
+  @override
+  String get removeThisValue => 'إزالة هذه القيمة';
+
+  @override
+  String get restoreThisValue => 'استعادة هذه القيمة';
+
+  @override
+  String get showRemovedValues => 'إظهار القيم المزالة';
+
+  @override
+  String get hideRemovedValues => 'إخفاء القيم المزالة';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'أُزيل · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'استُبدل بـ $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'تصحيح';
 }

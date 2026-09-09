@@ -565,13 +565,6 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Változtatás visszavonása';
-
-  @override
-  String get revertSubtitle =>
-      'Az előző értéket új bejegyzésként állítja vissza — az előzmények mindkettőt megőrzik.';
-
-  @override
   String fieldCleared(String field) {
     return '$field kiürítve';
   }
@@ -1222,7 +1215,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Minden valaha végzett változtatás, a legújabb elöl: ki mit mikor és milyen értékre módosított. Bármelyik bejegyzés visszavonható — ez új bejegyzést ír, semmi nem törlődik.';
+      'Minden változás, a legújabb elöl: ki, mikor és milyen értékre. Koppints egy bejegyzésre a javításhoz, tartsd nyomva az eltávolításhoz vagy visszaállításhoz; a rejtett bejegyzés a naplóban marad, és kérésre megjelenik.';
 
   @override
   String get helpDuplicates =>
@@ -3293,4 +3286,32 @@ class AppLocalizationsHu extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Időpont törlése mind a $count kisállatnál';
   }
+
+  @override
+  String get correctThisValue => 'Érték javítása';
+
+  @override
+  String get removeThisValue => 'Érték eltávolítása';
+
+  @override
+  String get restoreThisValue => 'Érték visszaállítása';
+
+  @override
+  String get showRemovedValues => 'Eltávolított értékek mutatása';
+
+  @override
+  String get hideRemovedValues => 'Eltávolított értékek elrejtése';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Eltávolítva · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Erre cserélve: $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Javítás';
 }

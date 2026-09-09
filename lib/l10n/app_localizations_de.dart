@@ -570,13 +570,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Diese Änderung zurücknehmen';
-
-  @override
-  String get revertSubtitle =>
-      'Stellt den vorherigen Wert als neuen Eintrag wieder her — der Verlauf behält beides.';
-
-  @override
   String fieldCleared(String field) {
     return '$field geleert';
   }
@@ -1229,7 +1222,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Jede jemals gemachte Änderung, neueste zuerst: wer wann was auf welchen Wert geändert hat. Jeder Eintrag lässt sich zurücknehmen — das schreibt einen neuen Eintrag, gelöscht wird nie etwas.';
+      'Jede Änderung, neueste zuerst: wer wann was auf welchen Wert gesetzt hat. Tippen korrigiert einen Eintrag, Halten entfernt ihn oder stellt ihn wieder her; ein ausgeblendeter Eintrag bleibt im Protokoll und wird auf Wunsch angezeigt.';
 
   @override
   String get helpDuplicates =>
@@ -3303,4 +3296,32 @@ class AppLocalizationsDe extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Termin für alle $count Tiere löschen';
   }
+
+  @override
+  String get correctThisValue => 'Diesen Wert korrigieren';
+
+  @override
+  String get removeThisValue => 'Diesen Wert entfernen';
+
+  @override
+  String get restoreThisValue => 'Diesen Wert wiederherstellen';
+
+  @override
+  String get showRemovedValues => 'Entfernte Werte anzeigen';
+
+  @override
+  String get hideRemovedValues => 'Entfernte Werte ausblenden';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Entfernt · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Ersetzt durch $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korrektur';
 }

@@ -566,13 +566,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Anulează această modificare';
-
-  @override
-  String get revertSubtitle =>
-      'Restaurează valoarea anterioară ca înregistrare nouă — istoricul le păstrează pe ambele.';
-
-  @override
   String fieldCleared(String field) {
     return '$field golit';
   }
@@ -1224,7 +1217,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Fiecare modificare făcută vreodată, cea mai nouă prima: cine ce a schimbat, când și în ce valoare. Orice intrare poate fi anulată — asta scrie o intrare nouă, nimic nu se șterge.';
+      'Fiecare modificare, cea mai nouă prima: cine, când și la ce valoare. Atinge o intrare pentru a o corecta, ține apăsat pentru a o elimina sau restabili; o intrare ascunsă rămâne în jurnal și apare la cerere.';
 
   @override
   String get helpDuplicates =>
@@ -3308,4 +3301,32 @@ class AppLocalizationsRo extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Șterge programarea pentru toate cele $count animale';
   }
+
+  @override
+  String get correctThisValue => 'Corectează această valoare';
+
+  @override
+  String get removeThisValue => 'Elimină această valoare';
+
+  @override
+  String get restoreThisValue => 'Restabilește această valoare';
+
+  @override
+  String get showRemovedValues => 'Arată valorile eliminate';
+
+  @override
+  String get hideRemovedValues => 'Ascunde valorile eliminate';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Eliminat · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Înlocuit cu $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Corectură';
 }

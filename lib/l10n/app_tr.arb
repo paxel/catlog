@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Hane yok — sokak hayvanı / kaçtı",
   "timelineOf": "Zaman çizelgesi — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Bu değişikliği geri al",
-  "revertSubtitle": "Önceki değeri yeni bir kayıt olarak geri getirir — geçmiş ikisini de saklar.",
   "fieldCleared": "{field} temizlendi",
   "fieldBackTo": "{field} \"{value}\" değerine döndü",
   "leftStray": "Ayrıldı — sokak kedisi",
@@ -355,7 +353,7 @@
   "helpSync": "Veriler başkalarına nasıl ulaşır: doğrudan bağlanın, iki cihazın da gördüğü bir klasör kullanın ya da mesajlaşmayla dosya gönderin. Neyin çıkacağına hep siz karar verirsiniz — gelen .catsync dosyaları da burada açılır. Her katalog yazdıklarını kendi anahtarıyla imzalar; ortaklar adının yanında anahtar kodunu görür. Bir ortağın ilk anahtarı dosyadan güvenle alınır ve yüz yüze eşitleyince doğrulanmış sayılır. Bilinen bir ad altında doğru imzası olmayan kayıtlar reddedilir ve varış sayfasında listelenir.",
   "helpFields": "Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara kedide tıklanabilir olur.",
   "helpFieldsNeutral": "Kataloğunuzun kullandığı alanlar. Adlarını değiştirin, bir seçim alanının seçeneklerini düzenleyin ya da kendi alanınızı ekleyin. Kimlik alanı bir servise (kayıt sistemine) işaret edebilir; o zaman numara evcil hayvanda tıklanabilir olur.",
-  "helpTimeline": "Şimdiye kadar yapılmış her değişiklik, en yenisi üstte: kim neyi, ne zaman, hangi değere değiştirmiş. Her kayıt geri alınabilir — bu yeni bir kayıt yazar, hiçbir şey silinmez.",
+  "helpTimeline": "Her değişiklik, en yenisi önce: kim, ne zaman ve hangi değere. Düzeltmek için bir kayda dokunun, kaldırmak veya geri getirmek için basılı tutun; gizli bir kayıt günlükte kalır ve istendiğinde gösterilir.",
   "helpDuplicates": "İki kez var gibi görünen kediler ya da koloniler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.",
   "helpDuplicatesNeutral": "İki kez var gibi görünen evcil hayvanlar ya da haneler — aynı numaralar veya ayrıntıları uyuşan çok benzer adlar. Birleştirmek için bir çifte dokun; geri alınamaz, bu yüzden önce sorar.",
   "helpMatches": "Aynı hayvan olabilecek kediler: aynı numara ya da kayıp bir kedinin arama alanında görülen bir sokak kedisi. Birleştirmek için çifte dokun, karşılaştırmak için uzun basıp ilk kediyi aç. Görünüşü en az iki özellikte çelişmeden uyuşan çiftler de listelenir; çipler hangileri olduğunu gösterir. „Aynı değil“ bir çifti bu telefonda, hayvanlardan birinin görünüşü değişene dek gizler.",
@@ -437,7 +435,16 @@
   "rangeAll": "Tümü",
   "rangeCustom": "Özel…",
   "changeSince": "{date} tarihinden beri {delta}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Bölgendeki gibi",
   "unitsMetric": "Metrik (kg, cm, ml, °C)",
   "unitsImperial": "İngiliz (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Katalog ayarları",
   "deleteCatalogBody": "{name} içindeki her şey gider: kediler, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir.",
   "deleteCatalogBodyNeutral": "{name} içindeki her şey gider: evcil hayvanlar, fotoğraflar, geçmiş. Önce otomatik yedeklerin gittiği yere eksiksiz bir dosya kaydedilir; onu içe aktarmak kataloğu geri getirir. Onaylamak için adı yaz.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Planlanmış randevu yok. Yenilerini burada artı ile ya da bir evcil hayvanın veya hanenin sayfasında planla.",
   "dueToday": "bugün",
   "dueInDays": "{count, plural, one{1 gün içinde} other{{count} gün içinde}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 gün gecikmiş} other{{count} gün gecikmiş}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Yapıldı",
   "repeatTitle": "Tekrar…",
   "noRepeatLabel": "Tekrar yok",
@@ -861,15 +886,33 @@
   "unitMonths": "ay sonra",
   "unitYears": "yıl sonra",
   "ageYears": "{years} yıl",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} ay",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Tarihi değiştir",
   "removeReminderLabel": "Hatırlatmayı kaldır",
   "exportIcs": "Takvim dosyasını dışa aktar",
   "resyncCalendar": "Takvimi yeniden eşitle",
   "icsSavedTo": "Takvim dosyası {path} konumuna kaydedildi",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Cihaz takvimine yansıt",
   "calendarMirrorSubtitle": "Randevular takvimde tüm gün süren etkinlikler olarak görünür. cat(a)log her açılışta ve her değişiklikten sonra onları orada günceller. Randevu uyarılarını takvimde yönetebilirsin.",
   "syncPeerOlder": "Diğer cihazda hatırlatmasız daha eski bir cat(a)log var. Orada cat(a)log uygulamasını güncelle ve yeniden eşitle.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Ajanda planlanan randevuları tarihe göre listeler. İki tür vardır: saati olan randevular ve bir gün için geçerli hatırlatmalar. Kaçırılanlar üstte kalır. Dokunmak evcil hayvanı veya haneyi açar. Onay işareti randevuyu onaylar: değer alana yazılır ve hemen bir sonrakini, örneğin üç ay sonrasına planlayabilirsin. Basılı tutmak tarihi değiştirir veya randevuyu siler. Üstteki anahtar randevuları telefonunun bir takvimine yansıtır. Menü onları takvim dosyası olarak dışa aktarır. Birkaç evcil hayvanla veteriner ziyareti tek bir randevudur: evcil hayvanları işaretleyin, Ajanda adlarıyla tek bir kart gösterir ve bitirirken hangi evcil hayvanların tedavi edildiğini sorar — diğerlerinin işaretini kaldırın, planlı kalırlar. Görevler, besleme, kum kabı veya ilaç gibi yinelenen işlerdir. Bugün altında onay, seri ve son yedi gün nokta olarak durur; Yakında, günlükler hariç sonraki haftayı gösterir. Bir görev seçilen saatte bildirimle hatırlatabilir. Kupa başarıları açar.",
   "calendarRowOff": "Takvim: kapalı",
   "calendarRowOn": "Takvim: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Bu kedi için bir randevu planla. Ajandada görünür ve orada onaylanır.",
   "spotAddReminderCatNeutral": "Bu evcil hayvan için bir randevu planla. Ajandada görünür ve orada onaylanır.",
   "spotAddReminderClowder": "Bu clowder için bir randevu planla. Ajandada görünür ve orada onaylanır.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Mevcut hane",
   "createNewInstead": "Yok — yeni oluştur",
   "overwritesValue": "Mevcut değerin üzerine yazar: \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Tarama iptal edilsin mi?",
   "abortScanBody": "Hiçbir şey kaydedilmez.",
   "abortScan": "İptal",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Tedavi edilmeyen kedilerin işaretini kaldırın; planlı kalırlar.",
   "finishUntickHintNeutral": "Tedavi edilmeyen evcil hayvanların işaretini kaldırın; planlı kalırlar.",
   "deleteAppointmentGroup": "Randevuyu {count} kedinin tümü için sil",
-  "deleteAppointmentGroupNeutral": "Randevuyu {count} evcil hayvanın tümü için sil"
+  "deleteAppointmentGroupNeutral": "Randevuyu {count} evcil hayvanın tümü için sil",
+  "correctThisValue": "Bu değeri düzelt",
+  "removeThisValue": "Bu değeri kaldır",
+  "restoreThisValue": "Bu değeri geri getir",
+  "showRemovedValues": "Kaldırılan değerleri göster",
+  "hideRemovedValues": "Kaldırılan değerleri gizle",
+  "entryRemovedBy": "Kaldırıldı · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "{value} ile değiştirildi · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Düzeltme"
 }

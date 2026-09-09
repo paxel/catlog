@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Sin hogar — callejero / se escapó",
   "timelineOf": "Historial — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Revertir este cambio",
-  "revertSubtitle": "Restaura el valor anterior como nueva entrada — el historial conserva ambos.",
   "fieldCleared": "{field} vaciado",
   "fieldBackTo": "{field} vuelve a «{value}»",
   "leftStray": "Se fue — callejero",
@@ -355,7 +353,7 @@
   "helpSync": "Cómo llegan los datos a otras personas: conectar en directo, usar una carpeta que ven los dos dispositivos, o enviar un archivo por mensajería. Siempre decides tú qué sale, y los archivos .catsync recibidos también se abren aquí. Cada catálogo firma lo que escribe con su propia clave; los compañeros ven el código de clave junto a tu nombre. La primera clave de un compañero se acepta por confianza desde un archivo y cuenta como verificada cuando sincronizáis en persona. Las entradas con un nombre conocido sin la firma correcta se rechazan y se listan en la página de llegada.",
   "helpFields": "Los campos que usa tu catálogo. Renómbralos, cambia las opciones de un campo de lista o crea los tuyos. Un campo de identificador puede apuntar a un servicio (un registro), y entonces el número se puede tocar en el gato.",
   "helpFieldsNeutral": "Los campos que usa tu catálogo. Renómbralos, cambia las opciones de un campo de lista o crea los tuyos. Un campo de identificador puede apuntar a un servicio (un registro), y entonces el número se puede tocar en la mascota.",
-  "helpTimeline": "Cada cambio realizado, el más reciente primero: quién cambió qué, cuándo y a qué valor. Cualquier entrada se puede revertir: eso escribe una entrada nueva, nunca se borra nada.",
+  "helpTimeline": "Cada cambio, el más reciente primero: quién cambió qué, cuándo y a qué valor. Toca una entrada para corregirla, mantenla pulsada para quitarla o restaurarla; una entrada oculta sigue en el registro y se muestra a petición.",
   "helpDuplicates": "Gatos o colonias que parecen estar dos veces: identificadores iguales o nombres muy parecidos con detalles que coinciden. Toca un par para fusionarlo; la fusión no se puede deshacer, por eso se pregunta antes.",
   "helpDuplicatesNeutral": "Mascotas u hogares que parecen estar dos veces: identificadores iguales o nombres muy parecidos con detalles que coinciden. Toca un par para fusionarlo; la fusión no se puede deshacer, por eso se pregunta antes.",
   "helpMatches": "Gatos que podrían ser el mismo animal: identificador idéntico, o un callejero visto dentro del área de búsqueda de un gato desaparecido. Toca un par para fusionarlo; mantén pulsado para abrir el primer gato y comparar. También se listan los pares cuyo aspecto coincide en dos rasgos o más sin contradicción; los chips muestran cuáles. «No es el mismo» oculta un par en este teléfono hasta que cambie el aspecto de alguno de los animales.",
@@ -437,7 +435,16 @@
   "rangeAll": "Todo",
   "rangeCustom": "Personalizado…",
   "changeSince": "{delta} desde {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Como en tu región",
   "unitsMetric": "Métrico (kg, cm, ml, °C)",
   "unitsImperial": "Imperial (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Ajustes del catálogo",
   "deleteCatalogBody": "Todo lo de {name} desaparece: sus gatos, sus fotos, su historial. Antes se guarda un archivo completo donde van las copias automáticas; importarlo devuelve el catálogo.",
   "deleteCatalogBodyNeutral": "Todo lo de {name} desaparece: sus mascotas, sus fotos, su historial. Antes se guarda un archivo completo donde van las copias automáticas; importarlo devuelve el catálogo. Escribe el nombre para confirmar.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "No hay citas planificadas. Planifica nuevas aquí con el más, o en la página de una mascota o un hogar.",
   "dueToday": "hoy",
   "dueInDays": "{count, plural, one{en 1 día} other{en {count} días}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 día de retraso} other{{count} días de retraso}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Hecho",
   "repeatTitle": "Otra vez en…",
   "noRepeatLabel": "Sin repetición",
@@ -861,15 +886,33 @@
   "unitMonths": "meses",
   "unitYears": "años",
   "ageYears": "{years} a.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} m.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Cambiar fecha",
   "removeReminderLabel": "Quitar recordatorio",
   "exportIcs": "Exportar archivo de calendario",
   "resyncCalendar": "Resincronizar calendario",
   "icsSavedTo": "Archivo de calendario guardado en {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Reflejar en el calendario del dispositivo",
   "calendarMirrorSubtitle": "Las citas aparecen como eventos de día completo en el calendario. cat(a)log las actualiza allí en cada inicio y tras cada cambio. Las alertas de las citas las gestionas en el calendario.",
   "syncPeerOlder": "El otro dispositivo usa un cat(a)log más antiguo sin recordatorios. Actualiza cat(a)log allí y vuelve a sincronizar.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "La agenda lista las citas planificadas por fecha. Hay dos tipos: citas con hora y recordatorios que valen para un día. Las citas pasadas se quedan arriba. Tocar abre la mascota o el hogar. La marca confirma una cita: el valor se escribe en el campo y puedes planificar la siguiente al momento, por ejemplo en tres meses. Mantener pulsado cambia la fecha o borra la cita. El interruptor de arriba refleja las citas en un calendario de tu teléfono. El menú las exporta como archivo de calendario. Una visita al veterinario con varias mascotas es una sola cita: marca las mascotas, la Agenda muestra una tarjeta con sus nombres y al terminar pregunta qué mascotas fueron tratadas; desmarca las demás, siguen planificadas. Las tareas son las obligaciones recurrentes, como alimentar, el arenero o la medicina. Están bajo Hoy con una marca, una racha y los últimos siete días como puntos; Próximamente muestra la semana siguiente sin las diarias. Una tarea puede recordarte con una notificación a la hora elegida. El trofeo abre los logros.",
   "calendarRowOff": "Calendario: apagado",
   "calendarRowOn": "Calendario: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Planifica una cita para este gato. Aparece en la agenda y se confirma allí.",
   "spotAddReminderCatNeutral": "Planifica una cita para esta mascota. Aparece en la agenda y se confirma allí.",
   "spotAddReminderClowder": "Planifica una cita para este clowder. Aparece en la agenda y se confirma allí.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Hogar existente",
   "createNewInstead": "Ninguno — crear nuevo",
   "overwritesValue": "Sobrescribe el valor actual \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "¿Cancelar la captura?",
   "abortScanBody": "No se guardará nada.",
   "abortScan": "Cancelar",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Desmarca los gatos que no fueron tratados; siguen planificados.",
   "finishUntickHintNeutral": "Desmarca las mascotas que no fueron tratadas; siguen planificadas.",
   "deleteAppointmentGroup": "Eliminar la cita para los {count} gatos",
-  "deleteAppointmentGroupNeutral": "Eliminar la cita para las {count} mascotas"
+  "deleteAppointmentGroupNeutral": "Eliminar la cita para las {count} mascotas",
+  "correctThisValue": "Corregir este valor",
+  "removeThisValue": "Quitar este valor",
+  "restoreThisValue": "Restaurar este valor",
+  "showRemovedValues": "Mostrar valores quitados",
+  "hideRemovedValues": "Ocultar valores quitados",
+  "entryRemovedBy": "Quitado · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Sustituido por {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Corrección"
 }

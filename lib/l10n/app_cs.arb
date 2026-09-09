@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bez domácnosti — toulavý / utekl",
   "timelineOf": "Historie — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Vrátit tuto změnu",
-  "revertSubtitle": "Obnoví předchozí hodnotu jako nový záznam — historie zachová obojí.",
   "fieldCleared": "{field} vymazáno",
   "fieldBackTo": "{field} zpět na \"{value}\"",
   "leftStray": "Odešla — toulavá",
@@ -355,7 +353,7 @@
   "helpSync": "Jak se data dostanou k dalším lidem: spojit se osobně, použít složku, kterou vidí obě zařízení, nebo poslat soubor přes messenger. Vždy rozhodujete vy, co odejde — a přijaté soubory .catsync otevřete také zde. Každý katalog podepisuje, co zapíše, vlastním klíčem; partneři vidí kód klíče vedle tvého jména. První klíč partnera se ze souboru přijme na důvěru a platí za ověřený, jakmile synchronizujete osobně. Záznamy pod známým jménem bez správného podpisu se odmítnou a vypíší na stránce příchodu.",
   "helpFields": "Pole, která váš katalog používá. Přejmenujte je, změňte možnosti výběrového pole nebo přidejte vlastní. Pole s identifikátorem může ukazovat na službu (registr), pak jde číslo u kočky klepnout.",
   "helpFieldsNeutral": "Pole, která váš katalog používá. Přejmenujte je, změňte možnosti výběrového pole nebo přidejte vlastní. Pole s identifikátorem může ukazovat na službu (registr), pak jde číslo u mazlíčka klepnout.",
-  "helpTimeline": "Každá provedená změna, nejnovější nahoře: kdo co kdy a na jakou hodnotu změnil. Každý záznam lze vrátit — vznikne tím nový záznam, nic se nikdy nemaže.",
+  "helpTimeline": "Každá změna, nejnovější první: kdo, kdy a na jakou hodnotu. Klepnutím záznam opravíte, podržením odeberete nebo obnovíte; skrytý záznam zůstává v protokolu a zobrazí se na požádání.",
   "helpDuplicates": "Kočky nebo kolonie, které vypadají, že existují dvakrát — stejná čísla nebo velmi podobná jména se souhlasícími údaji. Klepnutím na dvojici ji sloučíte; sloučení nelze vzít zpět, proto se ptá předem.",
   "helpDuplicatesNeutral": "Mazlíčci nebo domácnosti, které vypadají, že existují dvakrát — stejná čísla nebo velmi podobná jména se souhlasícími údaji. Klepnutím na dvojici ji sloučíte; sloučení nelze vzít zpět, proto se ptá předem.",
   "helpMatches": "Kočky, které mohou být totéž zvíře: stejné číslo, nebo toulavá kočka viděná v oblasti hledání pohřešované kočky. Klepnutím dvojici sloučíte, podržením otevřete první kočku k porovnání. V seznamu jsou i dvojice, jejichž vzhled souhlasí aspoň ve dvou znacích bez rozporu; štítky ukazují ve kterých. „Není totéž“ dvojici na tomto telefonu skryje, dokud se vzhled jednoho ze zvířat nezmění.",
@@ -437,7 +435,16 @@
   "rangeAll": "Vše",
   "rangeCustom": "Vlastní…",
   "changeSince": "{delta} od {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Podle tvé oblasti",
   "unitsMetric": "Metrické (kg, cm, ml, °C)",
   "unitsImperial": "Imperiální (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Nastavení katalogu",
   "deleteCatalogBody": "Všechno v {name} zmizí: kočky, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí.",
   "deleteCatalogBodyNeutral": "Všechno v {name} zmizí: mazlíčci, fotky i historie. Nejdřív se uloží úplný soubor tam, kam chodí automatické zálohy — jeho import katalog vrátí. Potvrď napsáním názvu.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Žádné termíny nejsou naplánované. Nové naplánuješ tady plusem nebo na stránce mazlíčka či domácnosti.",
   "dueToday": "dnes",
   "dueInDays": "{count, plural, one{za 1 den} few{za {count} dny} other{za {count} dní}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 den po termínu} few{{count} dny po termínu} other{{count} dní po termínu}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Hotovo",
   "repeatTitle": "Znovu za…",
   "noRepeatLabel": "Bez opakování",
@@ -861,15 +886,33 @@
   "unitMonths": "měsíců",
   "unitYears": "let",
   "ageYears": "{years} r.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} měs.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Změnit datum",
   "removeReminderLabel": "Odebrat připomínku",
   "exportIcs": "Exportovat soubor kalendáře",
   "resyncCalendar": "Znovu synchronizovat kalendář",
   "icsSavedTo": "Soubor kalendáře uložen do {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Zrcadlit do kalendáře zařízení",
   "calendarMirrorSubtitle": "Termíny se v kalendáři objeví jako celodenní události. cat(a)log je tam aktualizuje při každém spuštění a po každé změně. Upozornění na termíny spravuješ v kalendáři.",
   "syncPeerOlder": "Druhé zařízení má starší cat(a)log bez připomínek. Aktualizuj tam cat(a)log a synchronizuj znovu.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Připomínky ukazují naplánované termíny podle data. Jsou dva druhy: termíny s hodinou a připomínky, které platí pro den. Zmeškané zůstávají nahoře. Klepnutí otevře mazlíčka nebo domácnost. Fajfka potvrdí termín: hodnota se zapíše do pole a hned můžeš naplánovat další, třeba za tři měsíce. Podržení změní datum nebo termín smaže. Přepínač nahoře zrcadlí termíny do kalendáře telefonu. Nabídka je exportuje jako soubor kalendáře. Návštěva veterináře s více mazlíčky je jedna schůzka: zaškrtněte mazlíčky, Agenda ukáže jednu kartu s jejich jmény a při dokončení se zeptá, kteří mazlíčci byli ošetřeni — ostatní odškrtněte, zůstanou naplánovaní. Úkoly jsou opakující se povinnosti jako krmení, záchod nebo léky. Stojí pod Dnes se zaškrtnutím, sérií a posledními sedmi dny jako tečky; Brzy ukazuje příští týden bez těch denních. Úkol může připomenout oznámením ve zvolený čas. Pohár otevírá úspěchy.",
   "calendarRowOff": "Kalendář: vypnuto",
   "calendarRowOn": "Kalendář: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Naplánuj termín pro tuto kočku. Zobrazí se v připomínkách a tam se potvrdí.",
   "spotAddReminderCatNeutral": "Naplánuj termín pro tohoto mazlíčka. Zobrazí se v připomínkách a tam se potvrdí.",
   "spotAddReminderClowder": "Naplánuj termín pro tento clowder. Zobrazí se v připomínkách a tam se potvrdí.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Existující domácnost",
   "createNewInstead": "Žádná — vytvořit novou",
   "overwritesValue": "Přepíše aktuální hodnotu \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Přerušit snímání?",
   "abortScanBody": "Nic se neuloží.",
   "abortScan": "Přerušit",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Odškrtněte kočky, které nebyly ošetřeny; zůstanou naplánované.",
   "finishUntickHintNeutral": "Odškrtněte mazlíčky, kteří nebyli ošetřeni; zůstanou naplánovaní.",
   "deleteAppointmentGroup": "Smazat schůzku pro všech {count} koček",
-  "deleteAppointmentGroupNeutral": "Smazat schůzku pro všech {count} mazlíčků"
+  "deleteAppointmentGroupNeutral": "Smazat schůzku pro všech {count} mazlíčků",
+  "correctThisValue": "Opravit tuto hodnotu",
+  "removeThisValue": "Odebrat tuto hodnotu",
+  "restoreThisValue": "Obnovit tuto hodnotu",
+  "showRemovedValues": "Zobrazit odebrané hodnoty",
+  "hideRemovedValues": "Skrýt odebrané hodnoty",
+  "entryRemovedBy": "Odebráno · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Nahrazeno hodnotou {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Oprava"
 }

@@ -566,13 +566,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Ångra den här ändringen';
-
-  @override
-  String get revertSubtitle =>
-      'Återställer föregående värde som ny post — historiken behåller båda.';
-
-  @override
   String fieldCleared(String field) {
     return '$field rensat';
   }
@@ -1222,7 +1215,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Varje ändring som gjorts, nyast först: vem som ändrade vad, när och till vilket värde. Varje post kan ångras — det skriver en ny post, inget raderas någonsin.';
+      'Varje ändring, nyaste först: vem som ändrade vad, när och till vilket värde. Tryck på en post för att rätta den, håll den för att ta bort eller återställa den; en dold post stannar i loggen och visas på begäran.';
 
   @override
   String get helpDuplicates =>
@@ -3290,4 +3283,32 @@ class AppLocalizationsSv extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Ta bort bokningen för alla $count husdjur';
   }
+
+  @override
+  String get correctThisValue => 'Rätta det här värdet';
+
+  @override
+  String get removeThisValue => 'Ta bort det här värdet';
+
+  @override
+  String get restoreThisValue => 'Återställ det här värdet';
+
+  @override
+  String get showRemovedValues => 'Visa borttagna värden';
+
+  @override
+  String get hideRemovedValues => 'Dölj borttagna värden';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Borttagen · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Ersatt av $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Rättelse';
 }

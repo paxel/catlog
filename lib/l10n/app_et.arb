@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Leibkonnata — hulkuja / jooksis ära",
   "timelineOf": "Ajajoon — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Võta see muudatus tagasi",
-  "revertSubtitle": "Taastab eelmise väärtuse uue kirjena — ajalugu säilitab mõlemad.",
   "fieldCleared": "{field} tühjendatud",
   "fieldBackTo": "{field} tagasi väärtusele \"{value}\"",
   "leftStray": "Lahkus — hulkuja",
@@ -355,7 +353,7 @@
   "helpSync": "Kuidas andmed teisteni jõuavad: ühendu otse, kasuta kausta, mida mõlemad seadmed näevad, või saada fail sõnumirakendusega. Alati sina otsustad, mis välja läheb — ja saadud .catsync failid avanevad samuti siin. Iga kataloog allkirjastab kirjutatu oma võtmega; partnerid näevad võtmekoodi sinu nime kõrval. Partneri esimene võti võetakse failist usalduse peale ja loeb kohtutuks, kui sünkroonite isiklikult. Tuttava nime all olevad kirjed ilma õige allkirjata lükatakse tagasi ja loetletakse saabumislehel.",
   "helpFields": "Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit kassi juures puudutada.",
   "helpFieldsNeutral": "Väljad, mida sinu kataloog kasutab. Nimeta neid ümber, muuda valikvälja valikuid või lisa omi. Tunnusväli võib osutada teenusele (registrile), siis saab numbrit lemmiklooma juures puudutada.",
-  "helpTimeline": "Iga kunagi tehtud muudatus, uusim ees: kes mida, millal ja millisele väärtusele muutis. Iga kirje saab tagasi võtta — see kirjutab uue kirje, midagi ei kustutata kunagi.",
+  "helpTimeline": "Iga muudatus, uusim esimesena: kes, millal ja milliseks väärtuseks. Puuduta kirjet, et seda parandada, hoia all, et see eemaldada või taastada; peidetud kirje jääb logisse ja kuvatakse soovi korral.",
   "helpDuplicates": "Kassid või kolooniad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.",
   "helpDuplicatesNeutral": "Lemmikloomad või leibkonnad, mis tunduvad kaks korda olemas — samad numbrid või väga sarnased nimed sobivate üksikasjadega. Puuduta paari, et need ühendada; ühendamist ei saa tagasi võtta, seepärast küsitakse enne.",
   "helpMatches": "Kassid, kes võivad olla sama loom: sama number või hulkur, keda nähti kadunud kassi otsingualal. Puuduta paari ühendamiseks, pikk vajutus avab võrdluseks esimese kassi. Loendis on ka paarid, kelle välimus klapib vähemalt kahes tunnuses ilma vastuoluta; kiibid näitavad, millistes. „Pole sama“ peidab paari selles telefonis, kuni ühe looma välimus muutub.",
@@ -437,7 +435,16 @@
   "rangeAll": "Kõik",
   "rangeCustom": "Kohandatud…",
   "changeSince": "{delta} alates {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Nagu sinu piirkonnas",
   "unitsMetric": "Meetriline (kg, cm, ml, °C)",
   "unitsImperial": "Inglise (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Kataloogi seaded",
   "deleteCatalogBody": "Kõik kataloogis {name} kaob: kassid, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi.",
   "deleteCatalogBodyNeutral": "Kõik kataloogis {name} kaob: lemmikloomad, fotod, ajalugu. Enne salvestatakse täielik fail sinna, kuhu lähevad automaatsed varukoopiad — selle importimine toob kataloogi tagasi. Kinnitamiseks kirjuta nimi.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Visiite pole plaanitud. Uusi plaanid siin plussiga või lemmiklooma või leibkonna lehel.",
   "dueToday": "täna",
   "dueInDays": "{count, plural, one{1 päeva pärast} other{{count} päeva pärast}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 päev üle tähtaja} other{{count} päeva üle tähtaja}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Tehtud",
   "repeatTitle": "Uuesti…",
   "noRepeatLabel": "Ei kordu",
@@ -861,15 +886,33 @@
   "unitMonths": "kuu pärast",
   "unitYears": "aasta pärast",
   "ageYears": "{years} a",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} k",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Muuda kuupäeva",
   "removeReminderLabel": "Eemalda meeldetuletus",
   "exportIcs": "Ekspordi kalendrifail",
   "resyncCalendar": "Sünkrooni kalender uuesti",
   "icsSavedTo": "Kalendrifail salvestatud asukohta {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Peegelda seadme kalendrisse",
   "calendarMirrorSubtitle": "Visiidid ilmuvad kalendrisse kogu päeva sündmustena. cat(a)log uuendab neid seal igal käivitusel ja pärast iga muudatust. Visiitide meeldetuletusi haldad kalendris.",
   "syncPeerOlder": "Teises seadmes on vanem cat(a)log ilma meeldetuletusteta. Uuenda cat(a)log seal ja sünkrooni uuesti.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Meeldetuletused näitavad plaanitud visiite kuupäeva järgi. On kaht liiki: visiidid kellaajaga ja meeldetuletused, mis kehtivad päeva kohta. Möödalastud jäävad üles. Puudutus avab lemmiklooma või leibkonna. Linnuke kinnitab visiidi: väärtus kirjutatakse väljale ja saad kohe plaanida järgmise, näiteks kolme kuu pärast. Allhoidmine muudab kuupäeva või kustutab visiidi. Ülemine lüliti peegeldab visiidid sinu telefoni kalendrisse. Menüü ekspordib need kalendrifailina. Loomaarsti külastus mitme lemmikloomaga on üks kohtumine: märgi lemmikloomad, Päevakava näitab ühte kaarti nende nimedega ja lõpetamisel küsitakse, milliseid lemmikloomi raviti — eemalda märge ülejäänutelt, nad jäävad planeerituks. Toimetused on korduvad kohustused nagu söötmine, liivakast või ravimid. Need seisavad jaotises Täna linnukese, seeria ja viimase seitsme päeva punktidega; Tulekul näitab järgmist nädalat ilma igapäevasteta. Toimetus võib valitud ajal teavitusega meelde tuletada. Karikas avab saavutused.",
   "calendarRowOff": "Kalender: väljas",
   "calendarRowOn": "Kalender: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Plaani sellele kassile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
   "spotAddReminderCatNeutral": "Plaani sellele lemmikloomale visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
   "spotAddReminderClowder": "Plaani sellele klauderile visiit. See kuvatakse meeldetuletustes ja kinnitatakse seal.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Olemasolev leibkond",
   "createNewInstead": "Puudub — loo uus",
   "overwritesValue": "Kirjutab üle praeguse väärtuse \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Katkestada jäädvustamine?",
   "abortScanBody": "Midagi ei salvestata.",
   "abortScan": "Katkesta",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Eemalda märge kassidelt, keda ei ravitud; nad jäävad planeerituks.",
   "finishUntickHintNeutral": "Eemalda märge lemmikloomadelt, keda ei ravitud; nad jäävad planeerituks.",
   "deleteAppointmentGroup": "Kustuta kohtumine kõigi {count} kassi jaoks",
-  "deleteAppointmentGroupNeutral": "Kustuta kohtumine kõigi {count} lemmiklooma jaoks"
+  "deleteAppointmentGroupNeutral": "Kustuta kohtumine kõigi {count} lemmiklooma jaoks",
+  "correctThisValue": "Paranda see väärtus",
+  "removeThisValue": "Eemalda see väärtus",
+  "restoreThisValue": "Taasta see väärtus",
+  "showRemovedValues": "Näita eemaldatud väärtusi",
+  "hideRemovedValues": "Peida eemaldatud väärtused",
+  "entryRemovedBy": "Eemaldatud · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Asendatud väärtusega {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Parandus"
 }

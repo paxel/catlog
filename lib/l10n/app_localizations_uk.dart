@@ -567,13 +567,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Скасувати цю зміну';
-
-  @override
-  String get revertSubtitle =>
-      'Повертає попереднє значення новим записом — історія зберігає обидва.';
-
-  @override
   String fieldCleared(String field) {
     return '$field очищено';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Кожна зроблена зміна, найновіші вгорі: хто, коли і на яке значення щось змінив. Будь-який запис можна скасувати — це створює новий запис, нічого ніколи не стирається.';
+      'Усі зміни, найновіші зверху: хто, коли і на яке значення. Торкніться запису, щоб виправити, утримуйте, щоб прибрати або повернути; прихований запис лишається в журналі й показується на запит.';
 
   @override
   String get helpDuplicates =>
@@ -3313,4 +3306,32 @@ class AppLocalizationsUk extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Видалити прийом для всіх $count улюбленців';
   }
+
+  @override
+  String get correctThisValue => 'Виправити це значення';
+
+  @override
+  String get removeThisValue => 'Прибрати це значення';
+
+  @override
+  String get restoreThisValue => 'Повернути це значення';
+
+  @override
+  String get showRemovedValues => 'Показати прибрані значення';
+
+  @override
+  String get hideRemovedValues => 'Сховати прибрані значення';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Прибрано · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Замінено на $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Виправлення';
 }

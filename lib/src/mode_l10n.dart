@@ -643,6 +643,9 @@ class ModeLocalizations implements AppLocalizations {
   String get copyCode => base.copyCode;
 
   @override
+  String get correctThisValue => base.correctThisValue;
+
+  @override
   String get crashBody => base.crashBody;
 
   @override
@@ -827,6 +830,15 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get editOptions => base.editOptions;
+
+  @override
+  String get entryCorrection => base.entryCorrection;
+
+  @override
+  String entryRemovedBy(Object who, Object when) => base.entryRemovedBy(who, when);
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) => base.entryReplacedBy(value, who, when);
 
   @override
   String get existingCat => pets ? base.existingCatNeutral : base.existingCat;
@@ -1061,6 +1073,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get hideLabel => base.hideLabel;
+
+  @override
+  String get hideRemovedValues => base.hideRemovedValues;
 
   @override
   String get host => base.host;
@@ -2002,6 +2017,9 @@ class ModeLocalizations implements AppLocalizations {
   String get removeReminderLabel => base.removeReminderLabel;
 
   @override
+  String get removeThisValue => base.removeThisValue;
+
+  @override
   String get removeTrust => base.removeTrust;
 
   @override
@@ -2062,16 +2080,13 @@ class ModeLocalizations implements AppLocalizations {
   String get restorePickFiles => base.restorePickFiles;
 
   @override
+  String get restoreThisValue => base.restoreThisValue;
+
+  @override
   String get restoreTitle => base.restoreTitle;
 
   @override
   String get resyncCalendar => base.resyncCalendar;
-
-  @override
-  String get revertSubtitle => base.revertSubtitle;
-
-  @override
-  String get revertThisChange => base.revertThisChange;
 
   @override
   String sameIdField(String field) => base.sameIdField(field);
@@ -2174,6 +2189,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get showOnMap => base.showOnMap;
+
+  @override
+  String get showRemovedValues => base.showRemovedValues;
 
   @override
   String get showTipsAgain => base.showTipsAgain;

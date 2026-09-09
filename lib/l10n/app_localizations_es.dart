@@ -568,13 +568,6 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Revertir este cambio';
-
-  @override
-  String get revertSubtitle =>
-      'Restaura el valor anterior como nueva entrada — el historial conserva ambos.';
-
-  @override
   String fieldCleared(String field) {
     return '$field vaciado';
   }
@@ -1226,7 +1219,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Cada cambio realizado, el más reciente primero: quién cambió qué, cuándo y a qué valor. Cualquier entrada se puede revertir: eso escribe una entrada nueva, nunca se borra nada.';
+      'Cada cambio, el más reciente primero: quién cambió qué, cuándo y a qué valor. Toca una entrada para corregirla, mantenla pulsada para quitarla o restaurarla; una entrada oculta sigue en el registro y se muestra a petición.';
 
   @override
   String get helpDuplicates =>
@@ -3302,4 +3295,32 @@ class AppLocalizationsEs extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Eliminar la cita para las $count mascotas';
   }
+
+  @override
+  String get correctThisValue => 'Corregir este valor';
+
+  @override
+  String get removeThisValue => 'Quitar este valor';
+
+  @override
+  String get restoreThisValue => 'Restaurar este valor';
+
+  @override
+  String get showRemovedValues => 'Mostrar valores quitados';
+
+  @override
+  String get hideRemovedValues => 'Ocultar valores quitados';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Quitado · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Sustituido por $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Corrección';
 }

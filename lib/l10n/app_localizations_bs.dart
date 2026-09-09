@@ -565,13 +565,6 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Poništi ovu promjenu';
-
-  @override
-  String get revertSubtitle =>
-      'Vraća prethodnu vrijednost kao novi zapis — historija čuva oboje.';
-
-  @override
   String fieldCleared(String field) {
     return '$field ispražnjeno';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Svaka ikad napravljena promjena, najnovija prva: tko je što, kada i u koju vrijednost promijenio. Svaki se unos može vratiti — to piše novi unos, ništa se nikad ne briše.';
+      'Svaka promjena, najnovija prva: ko, kada i na koju vrijednost. Dodirnite unos da ga ispravite, zadržite da ga uklonite ili vratite; skriveni unos ostaje u dnevniku i prikazuje se na zahtjev.';
 
   @override
   String get helpDuplicates =>
@@ -3306,4 +3299,32 @@ class AppLocalizationsBs extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Obriši termin za svih $count ljubimaca';
   }
+
+  @override
+  String get correctThisValue => 'Ispravi ovu vrijednost';
+
+  @override
+  String get removeThisValue => 'Ukloni ovu vrijednost';
+
+  @override
+  String get restoreThisValue => 'Vrati ovu vrijednost';
+
+  @override
+  String get showRemovedValues => 'Prikaži uklonjene vrijednosti';
+
+  @override
+  String get hideRemovedValues => 'Sakrij uklonjene vrijednosti';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Uklonjeno · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Zamijenjeno s $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Ispravka';
 }

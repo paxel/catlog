@@ -164,8 +164,6 @@
   "noClowderStrayOptionNeutral": "Kein Haushalt — Streuner / weggelaufen",
   "timelineOf": "Verlauf — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Diese Änderung zurücknehmen",
-  "revertSubtitle": "Stellt den vorherigen Wert als neuen Eintrag wieder her — der Verlauf behält beides.",
   "fieldCleared": "{field} geleert",
   "fieldBackTo": "{field} zurück auf \"{value}\"",
   "leftStray": "Weggelaufen — Streuner",
@@ -352,7 +350,7 @@
   "helpSync": "So kommen Daten zu anderen Leuten: direkt verbinden, wenn ihr euch trefft, einen Ordner nutzen, den beide Geräte sehen, oder eine Datei per Messenger schicken. Du entscheidest immer, was rausgeht — und empfangene .catsync-Dateien öffnest du auch hier. Jeder Katalog signiert, was er schreibt, mit seinem eigenen Schlüssel; Partner sehen den Schlüsselcode neben deinem Namen. Der erste Schlüssel eines Partners wird aus einer Datei auf Vertrauen übernommen und gilt als getroffen, sobald ihr persönlich synchronisiert. Einträge unter einem bekannten Namen ohne passende Signatur werden abgewiesen und auf der Ankunftsseite aufgeführt.",
   "helpFields": "Die Felder, die dein Katalog benutzt. Benenne sie um, ändere die Auswahlmöglichkeiten eines Auswahlfeldes oder leg eigene an. ID-Felder können auf einen Dienst (ein Register) zeigen, dann lässt sich die Nummer bei der Katze antippen.",
   "helpFieldsNeutral": "Die Felder, die dein Katalog benutzt. Benenne sie um, ändere die Auswahlmöglichkeiten eines Auswahlfeldes oder leg eigene an. ID-Felder können auf einen Dienst (ein Register) zeigen, dann lässt sich die Nummer beim Tier antippen.",
-  "helpTimeline": "Jede jemals gemachte Änderung, neueste zuerst: wer wann was auf welchen Wert geändert hat. Jeder Eintrag lässt sich zurücknehmen — das schreibt einen neuen Eintrag, gelöscht wird nie etwas.",
+  "helpTimeline": "Jede Änderung, neueste zuerst: wer wann was auf welchen Wert gesetzt hat. Tippen korrigiert einen Eintrag, Halten entfernt ihn oder stellt ihn wieder her; ein ausgeblendeter Eintrag bleibt im Protokoll und wird auf Wunsch angezeigt.",
   "helpDuplicates": "Katzen oder Kolonien, die zweimal dieselben zu sein scheinen — gleiche IDs oder sehr ähnliche Namen mit passenden Details. Tippe ein Paar an, um es zusammenzuführen; das lässt sich nicht rückgängig machen, deshalb wird vorher gefragt.",
   "helpDuplicatesNeutral": "Tiere oder Haushalte, die zweimal dieselben zu sein scheinen — gleiche IDs oder sehr ähnliche Namen mit passenden Details. Tippe ein Paar an, um es zusammenzuführen; das lässt sich nicht rückgängig machen, deshalb wird vorher gefragt.",
   "helpMatches": "Katzen, die dasselbe Tier sein könnten: gleiche ID oder ein Streuner, der im Suchgebiet einer vermissten Katze gesehen wurde. Tippe ein Paar an, um es zusammenzuführen, langes Drücken öffnet die erste Katze zum Vergleichen. Paare, deren Aussehen in mindestens zwei Merkmalen übereinstimmt und sich in keinem widerspricht, stehen ebenfalls in der Liste; die Chips zeigen welche. „Nicht dieselbe“ blendet ein Paar auf diesem Telefon aus, bis sich das Aussehen eines der Tiere ändert.",
@@ -436,7 +434,16 @@
   "rangeAll": "Alles",
   "rangeCustom": "Eigener…",
   "changeSince": "{delta} seit {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Wie in deiner Region",
   "unitsMetric": "Metrisch (kg, cm, ml, °C)",
   "unitsImperial": "Imperial (lb, in, fl oz, °F)",
@@ -706,7 +713,13 @@
   "intoCatalog": "In Katalog",
   "catalogNameLabel": "Name des Katalogs",
   "catalogNameTaken": "Einen Katalog namens {name} gibt es schon. Wähle einen anderen Namen.",
-  "@catalogNameTaken": {"placeholders": {"name": {"type": "String"}}},
+  "@catalogNameTaken": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "manageCatalogs": "Kataloge verwalten",
   "restoreTitle": "Sicherungen wiederherstellen",
   "restoreIntro": "Auf diesem Gerät liegen Sicherungen einer früheren Installation. Jede wird wieder ein Katalog.",
@@ -723,25 +736,85 @@
   "catalogSettings": "Katalog-Einstellungen",
   "deleteCatalogBody": "Alles in {name} verschwindet: Katzen, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück.",
   "deleteCatalogBodyNeutral": "Alles in {name} verschwindet: Tiere, Fotos, Verlauf. Vorher wird eine vollständige Datei dort gespeichert, wo auch die automatischen Sicherungen liegen — ihr Import holt den Katalog zurück. Tippe den Namen ein, um zu bestätigen.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
-  "@deleteCatalogBody": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteCatalogBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogDeleted": "{name} gelöscht. Die Datei liegt in {where}.",
-  "@catalogDeleted": {"placeholders": {"name": {"type": "String"}, "where": {"type": "String"}}},
+  "@catalogDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "typeTheName": "{name} eintippen",
-  "@typeTheName": {"placeholders": {"name": {"type": "String"}}},
+  "@typeTheName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "catalogExportFailed": "Nichts wurde gelöscht: die Katalogdatei ließ sich nicht schreiben ({error}). Schaff Platz oder versuch es später noch einmal.",
-  "@catalogExportFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@catalogExportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "moveToCatalog": "In einen anderen Katalog verschieben",
   "movedToCatalog": "{count} nach {name} verschoben",
-  "@movedToCatalog": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "@movedToCatalog": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "chooseWhatToMove": "Was soll mit?",
   "moveIntoNewCatalog": "Etwas nach {name} verschieben?",
-  "@moveIntoNewCatalog": {"placeholders": {"name": {"type": "String"}}},
+  "@moveIntoNewCatalog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "undoThisImport": "Diesen Import rückgängig machen",
   "undoImportBody": "Die {count} Änderung(en) aus diesem Import verschwinden. Vorher werden sie in eine Datei geschrieben; deren Import holt sie zurück. Wer schon synchronisiert hat, behält seine Kopie — das lässt sich nicht zurücknehmen.",
-  "@undoImportBody": {"placeholders": {"count": {"type": "int"}}},
+  "@undoImportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "undoneImport": "Rückgängig gemacht. Die Datei liegt in {where}.",
-  "@undoneImport": {"placeholders": {"where": {"type": "String"}}},
+  "@undoneImport": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
   "goBackTitle": "Zurück zu einem früheren Stand",
   "goBackToHere": "Hierher zurück",
   "momentImport": "Vor dem Import",
@@ -752,18 +825,42 @@
   "momentManual": "Von dir markiert",
   "showOlderMoments": "Ältere zeigen",
   "goBackBody": "Alles nach diesem Moment verschwindet — {count} Änderung(en). Vorher wird alles in eine Datei geschrieben; deren Import holt es zurück. Jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält seine Kopie — das lässt sich nicht zurücknehmen.",
-  "@goBackBody": {"placeholders": {"count": {"type": "int"}}},
+  "@goBackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "nameThisMoment": "Diesen Moment benennen",
   "helpGoBack": "Die Momente, in denen sich dieser Katalog stark verändert hat: vor jedem Import und jeder Synchronisation, vor einem Zusammenführen, einem Archivieren oder einem Löschen — und immer dann, wenn du selbst einen markiert hast. Wählst du einen aus, kehrt der Katalog dorthin zurück: Alles danach wird in eine Datei geschrieben, die du behältst, und dann entfernt; jeder neuere Moment geht mit. Wer schon synchronisiert hat, behält, was er bekommen hat.",
   "goBackFileFailed": "Es wurde nichts entfernt: die Datei, die es aufbewahrt, ließ sich nicht schreiben ({error}). Schaff Platz und versuch es noch einmal.",
   "goBackChanged": "Nichts wurde entfernt: Der Katalog hat sich geändert, während die Datei gespeichert wurde. Versuche es noch einmal.",
-  "@goBackFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@goBackFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "switchBeforeDeleting": "Das ist der Katalog, in dem du bist. Wechsle zu einem anderen, dann lösche ihn.",
   "shareFileFailed": "Die Teilen-Datei ließ sich nicht schreiben ({error}). Schaff Platz und versuch es noch einmal.",
-  "@shareFileFailed": {"placeholders": {"error": {"type": "String"}}},
+  "@shareFileFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "privateLabel": "Privat",
   "sharedCatalogIs": "Katalog: {name}",
-  "@sharedCatalogIs": {"placeholders": {"name": {"type": "String"}}},
+  "@sharedCatalogIs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "markPrivate": "Als privat markieren",
   "unmarkPrivate": "Privat-Markierung entfernen",
   "agenda": "Agenda",
@@ -772,9 +869,21 @@
   "agendaEmptyNeutral": "Keine Termine geplant. Neue Termine planst du hier mit dem Plus oder auf der Seite eines Tieres oder Haushalts.",
   "dueToday": "heute fällig",
   "dueInDays": "{count, plural, one{in 1 Tag} other{in {count} Tagen}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 Tag überfällig} other{{count} Tage überfällig}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Erledigt",
   "repeatTitle": "Wieder in…",
   "noRepeatLabel": "Keine Wiederholung",
@@ -783,15 +892,33 @@
   "unitMonths": "Monaten",
   "unitYears": "Jahren",
   "ageYears": "{years} J.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} Mon.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Datum ändern",
   "removeReminderLabel": "Erinnerung entfernen",
   "exportIcs": "Kalenderdatei exportieren",
   "resyncCalendar": "Kalender neu abgleichen",
   "icsSavedTo": "Kalenderdatei gespeichert unter {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "In Gerätekalender spiegeln",
   "calendarMirrorSubtitle": "Die Termine erscheinen als ganztägige Termine im Kalender. cat(a)log aktualisiert sie dort bei jedem Start und nach jeder Änderung. Erinnerungen an die Termine kannst du im Kalender verwalten.",
   "syncPeerOlder": "Das andere Gerät hat ein älteres cat(a)log ohne Erinnerungen. Dort cat(a)log aktualisieren und erneut synchronisieren.",
@@ -819,7 +946,13 @@
   "helpAgendaNeutral": "Die Agenda listet die geplanten Termine nach Datum. Es gibt zwei Arten: Termine mit Uhrzeit und Erinnerungen, die für einen Tag gelten. Verpasste Termine bleiben oben stehen. Tippen öffnet das Tier oder den Haushalt. Der Haken bestätigt einen Termin: Der Wert wird ins Feld geschrieben, und du kannst gleich den nächsten Termin planen, zum Beispiel in drei Monaten. Gedrückt halten ändert das Datum oder löscht den Termin. Mit dem Schalter oben werden die Termine in einen Kalender deines Telefons gespiegelt. Über das Menü lassen sie sich als Kalenderdatei exportieren. Ein Tierarztbesuch mit mehreren Tieren ist ein Termin: Tiere darin anhaken, die Agenda zeigt eine Karte mit ihren Namen, und beim Abschließen wird gefragt, welche Tiere behandelt wurden — nicht behandelte abhaken, sie bleiben geplant. Aufgaben sind die wiederkehrenden Pflichten wie Füttern, Katzenklo oder Medizin. Sie stehen unter Heute mit Haken, Serie und den letzten sieben Tagen als Punkte; Demnächst zeigt die nächste Woche ohne die täglichen. Eine Aufgabe kann zur gewählten Uhrzeit per Benachrichtigung erinnern. Der Pokal öffnet die Erfolge.",
   "calendarRowOff": "Kalender: aus",
   "calendarRowOn": "Kalender: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Einen Termin für diese Katze planen. Der Termin wird in der Agenda angezeigt und kann dort bestätigt werden.",
   "spotAddReminderCatNeutral": "Einen Termin für dieses Tier planen. Der Termin wird in der Agenda angezeigt und kann dort bestätigt werden.",
   "spotAddReminderClowder": "Einen Termin für diese Kolonie planen. Der Termin wird in der Agenda angezeigt und kann dort bestätigt werden.",
@@ -931,7 +1064,13 @@
   "existingClowderNeutral": "Vorhandener Haushalt",
   "createNewInstead": "Keine — neu anlegen",
   "overwritesValue": "Überschreibt aktuellen Wert \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Erfassung abbrechen?",
   "abortScanBody": "Es wird nichts gespeichert.",
   "abortScan": "Abbrechen",
@@ -947,5 +1086,26 @@
   "finishUntickHint": "Hake die Katzen ab, die nicht behandelt wurden; sie bleiben geplant.",
   "finishUntickHintNeutral": "Hake die Tiere ab, die nicht behandelt wurden; sie bleiben geplant.",
   "deleteAppointmentGroup": "Termin für alle {count} Katzen löschen",
-  "deleteAppointmentGroupNeutral": "Termin für alle {count} Tiere löschen"
+  "deleteAppointmentGroupNeutral": "Termin für alle {count} Tiere löschen",
+  "correctThisValue": "Diesen Wert korrigieren",
+  "removeThisValue": "Diesen Wert entfernen",
+  "restoreThisValue": "Diesen Wert wiederherstellen",
+  "showRemovedValues": "Entfernte Werte anzeigen",
+  "hideRemovedValues": "Entfernte Werte ausblenden",
+  "entryRemovedBy": "Entfernt · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Ersetzt durch {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korrektur"
 }

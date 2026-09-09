@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Ei kotitaloutta — koditon / karkasi",
   "timelineOf": "Aikajana — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Kumoa tämä muutos",
-  "revertSubtitle": "Palauttaa edellisen arvon uutena merkintänä — historia säilyttää molemmat.",
   "fieldCleared": "{field} tyhjennetty",
   "fieldBackTo": "{field} palautettu arvoon \"{value}\"",
   "leftStray": "Lähti — kulkukissa",
@@ -355,7 +353,7 @@
   "helpSync": "Näin tiedot kulkevat muille: yhdistäkää suoraan, käyttäkää kansiota jonka molemmat laitteet näkevät, tai lähetä tiedosto pikaviestimellä. Sinä päätät aina mitä lähtee — ja saapuneet .catsync-tiedostot avataan myös täällä. Jokainen luettelo allekirjoittaa kirjoittamansa omalla avaimellaan; kumppanit näkevät avainkoodin nimesi vieressä. Kumppanin ensimmäinen avain otetaan tiedostosta luottamuksella ja lasketaan tavatuksi, kun synkronoitte kasvokkain. Merkinnät tutulla nimellä ilman oikeaa allekirjoitusta hylätään ja listataan saapumissivulla.",
   "helpFields": "Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa kissan kohdalla.",
   "helpFieldsNeutral": "Kentät, joita luettelosi käyttää. Nimeä ne uudelleen, muuta valintakentän vaihtoehtoja tai lisää omia. Tunnuskenttä voi osoittaa palveluun (rekisteriin), jolloin numeroa voi napauttaa lemmikin kohdalla.",
-  "helpTimeline": "Jokainen tehty muutos, uusin ensin: kuka muutti mitä, milloin ja mihin arvoon. Minkä tahansa merkinnän voi perua — se kirjoittaa uuden merkinnän, mitään ei koskaan poisteta.",
+  "helpTimeline": "Jokainen muutos, uusin ensin: kuka muutti mitä, milloin ja miksi arvoksi. Napauta merkintää korjataksesi, pidä pohjassa poistaaksesi tai palauttaaksesi; piilotettu merkintä pysyy lokissa ja näkyy pyynnöstä.",
   "helpDuplicates": "Kissat tai koloniat, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.",
   "helpDuplicatesNeutral": "Lemmikit tai kotitaloudet, jotka näyttävät olevan kahdesti — samat tunnukset tai hyvin samankaltaiset nimet ja täsmäävät tiedot. Napauta paria yhdistääksesi; yhdistämistä ei voi perua, siksi kysytään ensin.",
   "helpMatches": "Kissat, jotka voivat olla sama eläin: sama tunnus tai kulkukissa nähtynä kadonneen kissan hakualueella. Napauta paria yhdistääksesi, pitkä painallus avaa ensimmäisen kissan vertailua varten. Listalla ovat myös parit, joiden ulkonäkö täsmää vähintään kahdessa piirteessä ilman ristiriitaa; sirut näyttävät missä. ”Ei sama” piilottaa parin tällä puhelimella, kunnes jommankumman eläimen ulkonäkö muuttuu.",
@@ -437,7 +435,16 @@
   "rangeAll": "Kaikki",
   "rangeCustom": "Mukautettu…",
   "changeSince": "{delta} alkaen {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kuten alueellasi",
   "unitsMetric": "Metrinen (kg, cm, ml, °C)",
   "unitsImperial": "Brittiläinen (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Luettelon asetukset",
   "deleteCatalogBody": "Kaikki luettelossa {name} katoaa: kissat, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon.",
   "deleteCatalogBodyNeutral": "Kaikki luettelossa {name} katoaa: lemmikit, kuvat, historia. Ensin tallennetaan täydellinen tiedosto sinne, minne automaattiset varmuuskopiot menevät — sen tuonti palauttaa luettelon. Vahvista kirjoittamalla nimi.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Ei suunniteltuja tapaamisia. Suunnittele uusia täältä plussalla tai lemmikin tai kotitalouden sivulta.",
   "dueToday": "tänään",
   "dueInDays": "{count, plural, one{1 päivän päästä} other{{count} päivän päästä}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 päivän myöhässä} other{{count} päivää myöhässä}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Tehty",
   "repeatTitle": "Uudelleen…",
   "noRepeatLabel": "Ei toistoa",
@@ -861,15 +886,33 @@
   "unitMonths": "kuukauden päästä",
   "unitYears": "vuoden päästä",
   "ageYears": "{years} v",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} kk",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Muuta päivämäärää",
   "removeReminderLabel": "Poista muistutus",
   "exportIcs": "Vie kalenteritiedosto",
   "resyncCalendar": "Synkronoi kalenteri uudelleen",
   "icsSavedTo": "Kalenteritiedosto tallennettu polkuun {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Peilaa laitteen kalenteriin",
   "calendarMirrorSubtitle": "Tapaamiset näkyvät koko päivän tapahtumina kalenterissa. cat(a)log päivittää ne siellä jokaisella käynnistyksellä ja jokaisen muutoksen jälkeen. Tapaamisten hälytyksiä hallitset kalenterissa.",
   "syncPeerOlder": "Toisella laitteella on vanhempi cat(a)log ilman muistutuksia. Päivitä cat(a)log siellä ja synkronoi uudelleen.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Muistutukset listaavat suunnitellut tapaamiset päivämäärän mukaan. Lajeja on kaksi: tapaamiset kellonajalla ja muistutukset, jotka koskevat päivää. Ohitetut pysyvät ylimpänä. Napautus avaa lemmikin tai kotitalouden. Väkänen vahvistaa tapaamisen: arvo kirjoitetaan kenttään, ja voit heti suunnitella seuraavan, esimerkiksi kolmen kuukauden päähän. Pitkä painallus muuttaa päivämäärää tai poistaa tapaamisen. Ylälaidan kytkin peilaa tapaamiset puhelimesi kalenteriin. Valikko vie ne kalenteritiedostona. Eläinlääkärikäynti usealla lemmikillä on yksi ajanvaraus: valitse lemmikit, Agenda näyttää yhden kortin nimineen, ja päätettäessä kysytään, mitkä lemmikit hoidettiin — poista valinta muilta, ne pysyvät suunniteltuina. Askareet ovat toistuvia tehtäviä, kuten ruokinta, hiekkalaatikko tai lääkkeet. Ne ovat Tänään-kohdassa merkinnällä, putkella ja viimeisillä seitsemällä päivällä pisteinä; Tulossa näyttää seuraavan viikon ilman päivittäisiä. Askare voi muistuttaa ilmoituksella valittuna aikana. Pokaali avaa saavutukset.",
   "calendarRowOff": "Kalenteri: pois",
   "calendarRowOn": "Kalenteri: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Suunnittele tapaaminen tälle kissalle. Se näkyy muistutuksissa ja vahvistetaan siellä.",
   "spotAddReminderCatNeutral": "Suunnittele tapaaminen tälle lemmikille. Se näkyy muistutuksissa ja vahvistetaan siellä.",
   "spotAddReminderClowder": "Suunnittele tapaaminen tälle clowderille. Se näkyy muistutuksissa ja vahvistetaan siellä.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Olemassa oleva kotitalous",
   "createNewInstead": "Ei mitään — luo uusi",
   "overwritesValue": "Korvaa nykyisen arvon \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Keskeytetäänkö tallennus?",
   "abortScanBody": "Mitään ei tallenneta.",
   "abortScan": "Keskeytä",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Poista valinta kissoilta, joita ei hoidettu; ne pysyvät suunniteltuina.",
   "finishUntickHintNeutral": "Poista valinta lemmikeiltä, joita ei hoidettu; ne pysyvät suunniteltuina.",
   "deleteAppointmentGroup": "Poista ajanvaraus kaikilta {count} kissalta",
-  "deleteAppointmentGroupNeutral": "Poista ajanvaraus kaikilta {count} lemmikiltä"
+  "deleteAppointmentGroupNeutral": "Poista ajanvaraus kaikilta {count} lemmikiltä",
+  "correctThisValue": "Korjaa tämä arvo",
+  "removeThisValue": "Poista tämä arvo",
+  "restoreThisValue": "Palauta tämä arvo",
+  "showRemovedValues": "Näytä poistetut arvot",
+  "hideRemovedValues": "Piilota poistetut arvot",
+  "entryRemovedBy": "Poistettu · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Korvattu arvolla {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korjaus"
 }

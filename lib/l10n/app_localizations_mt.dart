@@ -567,13 +567,6 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Reġġa\' lura din il-bidla';
-
-  @override
-  String get revertSubtitle =>
-      'Jirrestawra l-valur ta\' qabel bħala entrata ġdida — l-istorja żżomm it-tnejn.';
-
-  @override
   String fieldCleared(String field) {
     return '$field tbattal';
   }
@@ -1224,7 +1217,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kull bidla li qatt saret, l-aktar reċenti l-ewwel: min biddel xiex, meta u għal liema valur. Kull entrata tista\' titreġġa\' lura — dan jikteb entrata ġdida, xejn ma jitħassar.';
+      'Kull bidla, l-aktar riċenti l-ewwel: min, meta u għal liema valur. Mess entrata biex tikkoreġiha, żommha biex tneħħiha jew tirrestawraha; entrata moħbija tibqa\' fir-reġistru u tidher fuq talba.';
 
   @override
   String get helpDuplicates =>
@@ -3307,4 +3300,32 @@ class AppLocalizationsMt extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Ħassar l-appuntament għall-$count annimali domestiċi kollha';
   }
+
+  @override
+  String get correctThisValue => 'Ikkoreġi dan il-valur';
+
+  @override
+  String get removeThisValue => 'Neħħi dan il-valur';
+
+  @override
+  String get restoreThisValue => 'Irrestawra dan il-valur';
+
+  @override
+  String get showRemovedValues => 'Uri l-valuri mneħħija';
+
+  @override
+  String get hideRemovedValues => 'Aħbi l-valuri mneħħija';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Imneħħi · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Sostitwit b\'$value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Korrezzjoni';
 }

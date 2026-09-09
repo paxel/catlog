@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Pa familje — endacake / iku",
   "timelineOf": "Kronologjia — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Kthe mbrapsht këtë ndryshim",
-  "revertSubtitle": "Rikthen vlerën e mëparshme si regjistrim të ri — historia i ruan të dyja.",
   "fieldCleared": "{field} u zbraz",
   "fieldBackTo": "{field} u kthye te \"{value}\"",
   "leftStray": "Iku — endacake",
@@ -355,7 +353,7 @@
   "helpSync": "Si shkojnë të dhënat te të tjerët: lidhu drejtpërdrejt, përdor një dosje që e shohin të dyja pajisjet, ose dërgo një skedar me mesazhe. Gjithmonë ti vendos çfarë del — dhe skedarët .catsync të marrë hapen po këtu. Çdo katalog nënshkruan atë që shkruan me çelësin e vet; partnerët shohin kodin e çelësit pranë emrit tënd. Çelësi i parë i një partneri merret me besim nga një skedar dhe vlen si i verifikuar sapo sinkronizoni personalisht. Hyrjet me një emër të njohur pa nënshkrimin e duhur refuzohen dhe listohen në faqen e mbërritjes.",
   "helpFields": "Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te macja bëhet i prekshëm.",
   "helpFieldsNeutral": "Fushat që përdor katalogu yt. Riemërtoji, ndrysho opsionet e një fushe me zgjedhje ose krijo të tuat. Një fushë identifikuesi mund të tregojë drejt një shërbimi (regjistri), dhe atëherë numri te kafsha bëhet i prekshëm.",
-  "helpTimeline": "Çdo ndryshim i bërë ndonjëherë, më i riu i pari: kush ndryshoi çfarë, kur dhe në cilën vlerë. Çdo shënim mund të kthehet — kjo shkruan një shënim të ri, asgjë nuk fshihet.",
+  "helpTimeline": "Çdo ndryshim, më i riu i pari: kush, kur dhe në cilën vlerë. Prek një hyrje për ta korrigjuar, mbaje shtypur për ta hequr ose rikthyer; një hyrje e fshehur mbetet në regjistër dhe shfaqet sipas kërkesës.",
   "helpDuplicates": "Mace ose koloni që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.",
   "helpDuplicatesNeutral": "Kafshë ose familje që duken sikur ekzistojnë dy herë — numra identikë ose emra shumë të ngjashëm me detaje që përputhen. Prek një çift për ta bashkuar; bashkimi nuk kthehet, prandaj pyetet më parë.",
   "helpMatches": "Mace që mund të jenë i njëjti kafshë: numër identik, ose një endacak i parë brenda zonës së kërkimit të një maceje të humbur. Prek një çift për bashkim, shtypja e gjatë hap macen e parë për krahasim. Në listë janë edhe çiftet pamja e të cilëve përputhet në të paktën dy tipare pa kundërshtim; çipat tregojnë cilat. „Jo i njëjti“ e fsheh çiftin në këtë telefon derisa të ndryshojë pamja e njërës prej kafshëve.",
@@ -437,7 +435,16 @@
   "rangeAll": "Të gjitha",
   "rangeCustom": "I personalizuar…",
   "changeSince": "{delta} që nga {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Si në rajonin tënd",
   "unitsMetric": "Metrike (kg, cm, ml, °C)",
   "unitsImperial": "Imperiale (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Cilësimet e katalogut",
   "deleteCatalogBody": "Gjithçka në {name} zhduket: macet, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht.",
   "deleteCatalogBodyNeutral": "Gjithçka në {name} zhduket: kafshët, fotot, historiku. Së pari ruhet një skedar i plotë atje ku shkojnë kopjet automatike — importimi i tij e sjell katalogun mbrapsht. Shkruaj emrin për të konfirmuar.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "S'ka takime të planifikuara. Planifiko të reja këtu me plusin, ose në faqen e një kafshe a familjeje.",
   "dueToday": "sot",
   "dueInDays": "{count, plural, one{pas 1 dite} other{pas {count} ditësh}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 ditë vonesë} other{{count} ditë vonesë}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "U bë",
   "repeatTitle": "Sërish pas…",
   "noRepeatLabel": "Pa përsëritje",
@@ -861,15 +886,33 @@
   "unitMonths": "muajsh",
   "unitYears": "vjetësh",
   "ageYears": "{years} vj.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} muaj",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Ndrysho datën",
   "removeReminderLabel": "Hiq përkujtuesin",
   "exportIcs": "Eksporto skedarin e kalendarit",
   "resyncCalendar": "Risinkronizo kalendarin",
   "icsSavedTo": "Skedari i kalendarit u ruajt te {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Pasqyro në kalendarin e pajisjes",
   "calendarMirrorSubtitle": "Takimet shfaqen si ngjarje gjithëditore në kalendar. cat(a)log i përditëson atje në çdo nisje dhe pas çdo ndryshimi. Sinjalizimet për takimet i menaxhon në kalendar.",
   "syncPeerOlder": "Pajisja tjetër ka një cat(a)log më të vjetër pa përkujtues. Përditëso cat(a)log atje dhe sinkronizo sërish.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Përkujtuesit rendisin takimet e planifikuara sipas datës. Ka dy lloje: takime me orë dhe përkujtues që vlejnë për një ditë. Të humburat mbeten lart. Prekja hap kafshën ose familjen. Shenja konfirmon një takim: vlera shkruhet në fushë dhe mund ta planifikosh menjëherë tjetrin, për shembull pas tre muajsh. Mbajtja shtypur ndryshon datën ose e fshin takimin. Çelësi lart pasqyron takimet në një kalendar të telefonit tënd. Menyja i eksporton si skedar kalendari. Një vizitë te veterineri me disa kafshë është një takim i vetëm: shëno kafshët, Axhenda tregon një kartë me emrat e tyre dhe në përfundim pyet cilat kafshë u trajtuan — hiq shenjën nga të tjerat, ato mbeten të planifikuara. Detyrat janë punët e përsëritura, si ushqimi, kutia e rërës ose ilaçet. Qëndrojnë nën Sot me një shenjë, një seri dhe shtatë ditët e fundit si pika; Së shpejti tregon javën tjetër pa ato të përditshmet. Një detyrë mund të kujtojë me njoftim në orën e zgjedhur. Kupa hap arritjet.",
   "calendarRowOff": "Kalendari: fikur",
   "calendarRowOn": "Kalendari: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Planifiko një takim për këtë mace. Shfaqet te përkujtuesit dhe konfirmohet atje.",
   "spotAddReminderCatNeutral": "Planifiko një takim për këtë kafshë. Shfaqet te përkujtuesit dhe konfirmohet atje.",
   "spotAddReminderClowder": "Planifiko një takim për këtë clowder. Shfaqet te përkujtuesit dhe konfirmohet atje.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Familje ekzistuese",
   "createNewInstead": "Asnjë — krijo të re",
   "overwritesValue": "Mbishkruan vlerën aktuale \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Të ndërpritet skanimi?",
   "abortScanBody": "Asgjë nuk do të ruhet.",
   "abortScan": "Ndërprit",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Hiq shenjën nga macet që nuk u trajtuan; ato mbeten të planifikuara.",
   "finishUntickHintNeutral": "Hiq shenjën nga kafshët që nuk u trajtuan; ato mbeten të planifikuara.",
   "deleteAppointmentGroup": "Fshi takimin për të gjitha {count} macet",
-  "deleteAppointmentGroupNeutral": "Fshi takimin për të gjitha {count} kafshët"
+  "deleteAppointmentGroupNeutral": "Fshi takimin për të gjitha {count} kafshët",
+  "correctThisValue": "Korrigjo këtë vlerë",
+  "removeThisValue": "Hiq këtë vlerë",
+  "restoreThisValue": "Rikthe këtë vlerë",
+  "showRemovedValues": "Shfaq vlerat e hequra",
+  "hideRemovedValues": "Fshih vlerat e hequra",
+  "entryRemovedBy": "Hequr · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Zëvendësuar me {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Korrigjim"
 }

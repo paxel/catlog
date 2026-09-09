@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Ingen husstand — hjemløs / rømte",
   "timelineOf": "Tidslinje — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Angre denne endringen",
-  "revertSubtitle": "Gjenoppretter forrige verdi som ny oppføring — historikken beholder begge.",
   "fieldCleared": "{field} tømt",
   "fieldBackTo": "{field} tilbake til \"{value}\"",
   "leftStray": "Dro — hjemløs",
@@ -355,7 +353,7 @@
   "helpSync": "Slik når data andre folk: koble til direkte, bruk en mappe begge enheter ser, eller send en fil via en meldingsapp. Du bestemmer alltid hva som sendes — og mottatte .catsync-filer åpnes også her. Hver katalog signerer det den skriver med sin egen nøkkel; partnere ser nøkkelkoden ved siden av navnet ditt. En partners første nøkkel tas på tillit fra en fil og regnes som møtt når dere synkroniserer personlig. Oppføringer under et kjent navn uten riktig signatur avvises og listes på ankomstsiden.",
   "helpFields": "Feltene katalogen din bruker. Gi dem nytt navn, endre valgene i et valgfelt, eller lag egne. Et id-felt kan peke på en tjeneste (et register), da blir nummeret trykkbart hos katten.",
   "helpFieldsNeutral": "Feltene katalogen din bruker. Gi dem nytt navn, endre valgene i et valgfelt, eller lag egne. Et id-felt kan peke på en tjeneste (et register), da blir nummeret trykkbart hos kjæledyret.",
-  "helpTimeline": "Hver endring som er gjort, nyeste først: hvem som endret hva, når og til hvilken verdi. Enhver oppføring kan angres — det skriver en ny oppføring, ingenting slettes.",
+  "helpTimeline": "Hver endring, nyeste først: hvem endret hva, når og til hvilken verdi. Trykk på en oppføring for å rette den, hold den for å fjerne eller gjenopprette den; en skjult oppføring blir i loggen og vises på forespørsel.",
   "helpDuplicates": "Katter eller kolonier som ser ut til å finnes to ganger — like numre eller svært like navn med samsvarende detaljer. Trykk på et par for å slå sammen; det kan ikke angres, derfor spørres det først.",
   "helpDuplicatesNeutral": "Kjæledyr eller husstander som ser ut til å finnes to ganger — like numre eller svært like navn med samsvarende detaljer. Trykk på et par for å slå sammen; det kan ikke angres, derfor spørres det først.",
   "helpMatches": "Katter som kan være samme dyr: samme nummer, eller en streifer sett innenfor søkeområdet til en savnet katt. Trykk på et par for å slå sammen, hold inne for å åpne den første katten og sammenligne. Par der utseendet stemmer i to trekk eller flere uten motsigelse står også på listen; chipsene viser hvilke. «Ikke den samme» skjuler et par på denne telefonen til utseendet til et av dyrene endres.",
@@ -437,7 +435,16 @@
   "rangeAll": "Alt",
   "rangeCustom": "Egendefinert…",
   "changeSince": "{delta} siden {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Som i din region",
   "unitsMetric": "Metrisk (kg, cm, ml, °C)",
   "unitsImperial": "Imperial (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Kataloginnstillinger",
   "deleteCatalogBody": "Alt i {name} forsvinner: kattene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake.",
   "deleteCatalogBodyNeutral": "Alt i {name} forsvinner: kjæledyrene, bildene, historikken. Først lagres en komplett fil der de automatiske sikkerhetskopiene havner — å importere den henter katalogen tilbake. Skriv navnet for å bekrefte.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Ingen avtaler planlagt. Planlegg nye her med plusset eller på siden til et kjæledyr eller en husstand.",
   "dueToday": "i dag",
   "dueInDays": "{count, plural, one{om 1 dag} other{om {count} dager}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 dag forsinket} other{{count} dager forsinket}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Utført",
   "repeatTitle": "Igjen om…",
   "noRepeatLabel": "Ingen gjentakelse",
@@ -861,15 +886,33 @@
   "unitMonths": "måneder",
   "unitYears": "år",
   "ageYears": "{years} år",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mnd",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Endre dato",
   "removeReminderLabel": "Fjern påminnelse",
   "exportIcs": "Eksporter kalenderfil",
   "resyncCalendar": "Synkroniser kalender på nytt",
   "icsSavedTo": "Kalenderfil lagret under {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Speil til enhetens kalender",
   "calendarMirrorSubtitle": "Avtalene vises som heldagsavtaler i kalenderen. cat(a)log oppdaterer dem der ved hver start og etter hver endring. Påminnelser om avtalene styrer du i kalenderen.",
   "syncPeerOlder": "Den andre enheten kjører et eldre cat(a)log uten påminnelser. Oppdater cat(a)log der, og synkroniser igjen.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Påminnelsene viser de planlagte avtalene etter dato. Det finnes to slag: avtaler med et klokkeslett og påminnelser som gjelder for en dag. Oversette avtaler blir stående øverst. Trykk åpner kjæledyret eller husstanden. Haken bekrefter en avtale: Verdien skrives i feltet, og du kan straks planlegge den neste, for eksempel om tre måneder. Hold inne for å endre datoen eller slette avtalen. Bryteren øverst speiler avtalene til en kalender på telefonen din. Menyen eksporterer dem som kalenderfil. Et veterinærbesøk med flere kjæledyr er én avtale: kryss av kjæledyrene, Agendaen viser ett kort med navnene deres, og ved avslutning spørres det hvilke kjæledyr som ble behandlet — fjern krysset for de andre, de forblir planlagt. Gjøremål er de gjentakende oppgavene som fôring, kattedo eller medisin. De står under I dag med et hakemerke, en rekke og de siste sju dagene som prikker; Snart viser neste uke uten de daglige. Et gjøremål kan minne deg med et varsel til valgt tid. Pokalen åpner prestasjonene.",
   "calendarRowOff": "Kalender: av",
   "calendarRowOn": "Kalender: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Planlegg en avtale for denne katten. Den vises i påminnelsene og bekreftes der.",
   "spotAddReminderCatNeutral": "Planlegg en avtale for dette kjæledyret. Den vises i påminnelsene og bekreftes der.",
   "spotAddReminderClowder": "Planlegg en avtale for denne clowderen. Den vises i påminnelsene og bekreftes der.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Eksisterende husstand",
   "createNewInstead": "Ingen — opprett ny",
   "overwritesValue": "Overskriver nåværende verdi \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Avbryte registreringen?",
   "abortScanBody": "Ingenting blir lagret.",
   "abortScan": "Avbryt",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Fjern krysset for katter som ikke ble behandlet; de forblir planlagt.",
   "finishUntickHintNeutral": "Fjern krysset for kjæledyr som ikke ble behandlet; de forblir planlagt.",
   "deleteAppointmentGroup": "Slett avtalen for alle {count} katter",
-  "deleteAppointmentGroupNeutral": "Slett avtalen for alle {count} kjæledyr"
+  "deleteAppointmentGroupNeutral": "Slett avtalen for alle {count} kjæledyr",
+  "correctThisValue": "Rett denne verdien",
+  "removeThisValue": "Fjern denne verdien",
+  "restoreThisValue": "Gjenopprett denne verdien",
+  "showRemovedValues": "Vis fjernede verdier",
+  "hideRemovedValues": "Skjul fjernede verdier",
+  "entryRemovedBy": "Fjernet · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Erstattet av {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Rettelse"
 }

@@ -565,13 +565,6 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Atšaukti šį pakeitimą';
-
-  @override
-  String get revertSubtitle =>
-      'Grąžina ankstesnę reikšmę kaip naują įrašą — istorija išsaugo abu.';
-
-  @override
   String fieldCleared(String field) {
     return '$field išvalyta';
   }
@@ -1223,7 +1216,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Kiekvienas kada nors atliktas pakeitimas, naujausi viršuje: kas, kada ir į kokią reikšmę ką pakeitė. Bet kurį įrašą galima atšaukti — tai sukuria naują įrašą, niekas niekada nedingsta.';
+      'Kiekvienas pakeitimas, naujausias pirmas: kas, kada ir į kokią reikšmę. Palieskite įrašą, kad pataisytumėte, palaikykite, kad pašalintumėte ar atkurtumėte; paslėptas įrašas lieka žurnale ir rodomas paprašius.';
 
   @override
   String get helpDuplicates =>
@@ -3313,4 +3306,32 @@ class AppLocalizationsLt extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Ištrinti vizitą visiems $count augintiniams';
   }
+
+  @override
+  String get correctThisValue => 'Pataisyti šią reikšmę';
+
+  @override
+  String get removeThisValue => 'Pašalinti šią reikšmę';
+
+  @override
+  String get restoreThisValue => 'Atkurti šią reikšmę';
+
+  @override
+  String get showRemovedValues => 'Rodyti pašalintas reikšmes';
+
+  @override
+  String get hideRemovedValues => 'Slėpti pašalintas reikšmes';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Pašalinta · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Pakeista į $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Pataisymas';
 }

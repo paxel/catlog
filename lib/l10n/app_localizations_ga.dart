@@ -569,13 +569,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Cuir an t-athrú seo ar ceal';
-
-  @override
-  String get revertSubtitle =>
-      'Athchóiríonn sé an luach roimhe mar iontráil nua — coimeádann an stair an dá cheann.';
-
-  @override
   String fieldCleared(String field) {
     return '$field glanta';
   }
@@ -1227,7 +1220,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Gach athrú a rinneadh riamh, an ceann is nuaí ar dtús: cé a d\'athraigh cad é, cathain agus go dtí cén luach. Is féidir aon iontráil a chur ar ais — scríobhann sé sin iontráil nua, ní scriostar aon rud riamh.';
+      'Gach athrú, an ceann is nuaí ar dtús: cé, cathain agus go dtí cén luach. Tapáil iontráil chun í a cheartú, coinnigh í chun í a bhaint nó a athchóiriú; fanann iontráil fholaithe sa loga agus taispeántar í ar iarratas.';
 
   @override
   String get helpDuplicates =>
@@ -3347,4 +3340,32 @@ class AppLocalizationsGa extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Scrios an choinne do na $count peata ar fad';
   }
+
+  @override
+  String get correctThisValue => 'Ceartaigh an luach seo';
+
+  @override
+  String get removeThisValue => 'Bain an luach seo';
+
+  @override
+  String get restoreThisValue => 'Athchóirigh an luach seo';
+
+  @override
+  String get showRemovedValues => 'Taispeáin luachanna a baineadh';
+
+  @override
+  String get hideRemovedValues => 'Folaigh luachanna a baineadh';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Bainte · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Curtha in ionad $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Ceartúchán';
 }

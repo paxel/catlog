@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Brez gospodinjstva — potepuh / pobegnil",
   "timelineOf": "Časovnica — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Razveljavi to spremembo",
-  "revertSubtitle": "Obnovi prejšnjo vrednost kot nov zapis — zgodovina ohrani oboje.",
   "fieldCleared": "{field} izpraznjeno",
   "fieldBackTo": "{field} nazaj na \"{value}\"",
   "leftStray": "Odšla — potepuška",
@@ -355,7 +353,7 @@
   "helpSync": "Kako podatki pridejo do drugih: neposredna povezava, mapa, ki jo vidita obe napravi, ali datoteka prek sporočilnika. Vedno ti odločaš, kaj gre ven — prejete datoteke .catsync pa odpreš tudi tukaj. Vsak katalog podpiše, kar zapiše, s svojim ključem; partnerji vidijo kodo ključa ob tvojem imenu. Prvi ključ partnerja se iz datoteke sprejme na zaupanje in velja za potrjenega, ko sinhronizirata osebno. Vnosi pod znanim imenom brez pravega podpisa se zavrnejo in izpišejo na strani prihoda.",
   "helpFields": "Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri mački tapljiva.",
   "helpFieldsNeutral": "Polja, ki jih uporablja tvoj katalog. Preimenuj jih, spremeni možnosti izbirnega polja ali ustvari svoja. Polje z identifikatorjem lahko kaže na storitev (register), takrat je številka pri ljubljenčku tapljiva.",
-  "helpTimeline": "Vsaka kdaj narejena sprememba, najnovejša zgoraj: kdo je kaj, kdaj in v katero vrednost spremenil. Vsak vnos je mogoče razveljaviti — to zapiše nov vnos, nič se nikoli ne izbriše.",
+  "helpTimeline": "Vsaka sprememba, najnovejša prva: kdo, kdaj in na katero vrednost. Tapnite vnos, da ga popravite, pridržite, da ga odstranite ali obnovite; skrit vnos ostane v dnevniku in se pokaže na zahtevo.",
   "helpDuplicates": "Mačke ali kolonije, ki se zdijo podvojene — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.",
   "helpDuplicatesNeutral": "Ljubljenčki ali gospodinjstva, ki se zdijo podvojeni — enake številke ali zelo podobna imena z ujemajočimi podrobnostmi. Tapni par za združitev; združitve ni mogoče razveljaviti, zato prej vpraša.",
   "helpMatches": "Mačke, ki bi lahko bile ista žival: enaka številka ali potepuh, viden na območju iskanja pogrešane mačke. Tapni par za združitev, z dolgim pritiskom odpreš prvo mačko za primerjavo. Na seznamu so tudi pari, katerih videz se ujema v vsaj dveh znakih brez nasprotja; čipi kažejo v katerih. „Ni isto“ skrije par na tem telefonu, dokler se videz ene od živali ne spremeni.",
@@ -437,7 +435,16 @@
   "rangeAll": "Vse",
   "rangeCustom": "Po meri…",
   "changeSince": "{delta} od {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Kot v tvoji regiji",
   "unitsMetric": "Metrične (kg, cm, ml, °C)",
   "unitsImperial": "Imperialne (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Nastavitve kataloga",
   "deleteCatalogBody": "Vse v katalogu {name} izgine: mačke, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne.",
   "deleteCatalogBodyNeutral": "Vse v katalogu {name} izgine: ljubljenčki, fotografije, zgodovina. Najprej se shrani celotna datoteka tam, kamor gredo samodejne varnostne kopije — njen uvoz katalog vrne. Za potrditev vpiši ime.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Ni načrtovanih terminov. Nove načrtuješ tukaj s plusom ali na strani ljubljenčka ali gospodinjstva.",
   "dueToday": "danes",
   "dueInDays": "{count, plural, one{čez {count} dan} two{čez {count} dneva} few{čez {count} dni} other{čez {count} dni}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{{count} dan zamude} two{{count} dneva zamude} few{{count} dni zamude} other{{count} dni zamude}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Opravljeno",
   "repeatTitle": "Znova čez…",
   "noRepeatLabel": "Brez ponavljanja",
@@ -861,15 +886,33 @@
   "unitMonths": "mesecev",
   "unitYears": "let",
   "ageYears": "{years} l.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mes.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Spremeni datum",
   "removeReminderLabel": "Odstrani opomnik",
   "exportIcs": "Izvozi koledarsko datoteko",
   "resyncCalendar": "Znova sinhroniziraj koledar",
   "icsSavedTo": "Koledarska datoteka shranjena v {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Zrcali v koledar naprave",
   "calendarMirrorSubtitle": "Termini se v koledarju prikažejo kot celodnevni dogodki. cat(a)log jih tam posodobi ob vsakem zagonu in po vsaki spremembi. Opomnike na termine upravljaš v koledarju.",
   "syncPeerOlder": "Druga naprava ima starejši cat(a)log brez opomnikov. Posodobi cat(a)log tam in znova sinhroniziraj.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Opomniki prikazujejo načrtovane termine po datumu. Obstajata dve vrsti: termini z uro in opomniki, ki veljajo za dan. Zamujeni ostanejo na vrhu. Dotik odpre ljubljenčka ali gospodinjstvo. Kljukica potrdi termin: vrednost se zapiše v polje in takoj lahko načrtuješ naslednjega, na primer čez tri mesece. Pridržanje spremeni datum ali izbriše termin. Stikalo na vrhu zrcali termine v koledar tvojega telefona. Meni jih izvozi kot koledarsko datoteko. Obisk veterinarja z več ljubljenčki je en termin: označi ljubljenčke, Agenda pokaže eno kartico z njihovimi imeni, ob zaključku pa vpraša, kateri ljubljenčki so bili obravnavani — odznači ostale, ostanejo načrtovani. Opravila so ponavljajoče se naloge, kot so hranjenje, pesek ali zdravila. Stojijo pod Danes s kljukico, nizom in zadnjimi sedmimi dnevi kot pikami; Kmalu kaže naslednji teden brez dnevnih. Opravilo lahko opomni z obvestilom ob izbrani uri. Pokal odpre dosežke.",
   "calendarRowOff": "Koledar: izklopljen",
   "calendarRowOn": "Koledar: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Načrtuj termin za to mačko. Prikaže se med opomniki in se tam potrdi.",
   "spotAddReminderCatNeutral": "Načrtuj termin za tega ljubljenčka. Prikaže se med opomniki in se tam potrdi.",
   "spotAddReminderClowder": "Načrtuj termin za ta clowder. Prikaže se med opomniki in se tam potrdi.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Obstoječe gospodinjstvo",
   "createNewInstead": "Brez — ustvari novo",
   "overwritesValue": "Prepiše trenutno vrednost \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Prekinem zajem?",
   "abortScanBody": "Nič ne bo shranjeno.",
   "abortScan": "Prekini",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Odznači mačke, ki niso bile obravnavane; ostanejo načrtovane.",
   "finishUntickHintNeutral": "Odznači ljubljenčke, ki niso bili obravnavani; ostanejo načrtovani.",
   "deleteAppointmentGroup": "Izbriši termin za vseh {count} mačk",
-  "deleteAppointmentGroupNeutral": "Izbriši termin za vseh {count} ljubljenčkov"
+  "deleteAppointmentGroupNeutral": "Izbriši termin za vseh {count} ljubljenčkov",
+  "correctThisValue": "Popravi to vrednost",
+  "removeThisValue": "Odstrani to vrednost",
+  "restoreThisValue": "Obnovi to vrednost",
+  "showRemovedValues": "Pokaži odstranjene vrednosti",
+  "hideRemovedValues": "Skrij odstranjene vrednosti",
+  "entryRemovedBy": "Odstranjeno · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Zamenjano z {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Popravek"
 }

@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Bez domácnosti — túlavý / ušiel",
   "timelineOf": "História — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Vrátiť túto zmenu",
-  "revertSubtitle": "Obnoví predchádzajúcu hodnotu ako nový záznam — história zachová oboje.",
   "fieldCleared": "{field} vyprázdnené",
   "fieldBackTo": "{field} späť na \"{value}\"",
   "leftStray": "Odišla — túlavá",
@@ -355,7 +353,7 @@
   "helpSync": "Ako sa údaje dostanú k ďalším ľuďom: spojiť sa osobne, použiť priečinok, ktorý vidia obe zariadenia, alebo poslať súbor cez messenger. Vždy rozhoduješ ty, čo odíde — a prijaté súbory .catsync otvoríš tiež tu. Každý katalóg podpisuje, čo zapíše, vlastným kľúčom; partneri vidia kód kľúča vedľa tvojho mena. Prvý kľúč partnera sa zo súboru prijme na dôveru a platí za overený, len čo synchronizujete osobne. Záznamy pod známym menom bez správneho podpisu sa odmietnu a vypíšu na stránke príchodu.",
   "helpFields": "Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri mačke ťuknúť.",
   "helpFieldsNeutral": "Polia, ktoré tvoj katalóg používa. Premenuj ich, zmeň možnosti výberového poľa alebo pridaj vlastné. Pole s identifikátorom môže ukazovať na službu (register), potom sa dá číslo pri miláčikovi ťuknúť.",
-  "helpTimeline": "Každá kedy vykonaná zmena, najnovšia hore: kto čo kedy a na akú hodnotu zmenil. Každý záznam sa dá vrátiť — vznikne tým nový záznam, nič sa nikdy nemaže.",
+  "helpTimeline": "Každá zmena, najnovšia prvá: kto, kedy a na akú hodnotu. Ťuknutím záznam opravíte, podržaním odstránite alebo obnovíte; skrytý záznam ostáva v protokole a zobrazí sa na požiadanie.",
   "helpDuplicates": "Mačky alebo kolónie, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.",
   "helpDuplicatesNeutral": "Miláčikovia alebo domácnosti, ktoré vyzerajú, že existujú dvakrát — rovnaké čísla alebo veľmi podobné mená so zhodnými detailmi. Ťukni na dvojicu a zlúč ju; zlúčenie sa nedá vrátiť, preto sa najprv pýta.",
   "helpMatches": "Mačky, ktoré môžu byť to isté zviera: rovnaké číslo alebo túlavá mačka videná v oblasti hľadania nezvestnej mačky. Ťuknutím dvojicu zlúčiš, podržaním otvoríš prvú mačku na porovnanie. V zozname sú aj dvojice, ktorých vzhľad súhlasí aspoň v dvoch znakoch bez rozporu; štítky ukazujú v ktorých. „Nie je to isté“ dvojicu na tomto telefóne skryje, kým sa vzhľad jedného zo zvierat nezmení.",
@@ -437,7 +435,16 @@
   "rangeAll": "Všetko",
   "rangeCustom": "Vlastný…",
   "changeSince": "{delta} od {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Podľa tvojej oblasti",
   "unitsMetric": "Metrické (kg, cm, ml, °C)",
   "unitsImperial": "Imperiálne (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Nastavenia katalógu",
   "deleteCatalogBody": "Všetko v katalógu {name} zmizne: mačky, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti.",
   "deleteCatalogBodyNeutral": "Všetko v katalógu {name} zmizne: miláčikovia, fotky aj história. Najprv sa uloží úplný súbor tam, kam chodia automatické zálohy — jeho import katalóg vráti. Potvrď napísaním názvu.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Žiadne termíny nie sú naplánované. Nové naplánuješ tu plusom alebo na stránke miláčika či domácnosti.",
   "dueToday": "dnes",
   "dueInDays": "{count, plural, one{o 1 deň} few{o {count} dni} other{o {count} dní}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 deň po termíne} few{{count} dni po termíne} other{{count} dní po termíne}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Hotovo",
   "repeatTitle": "Znova o…",
   "noRepeatLabel": "Bez opakovania",
@@ -861,15 +886,33 @@
   "unitMonths": "mesiacov",
   "unitYears": "rokov",
   "ageYears": "{years} r.",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mes.",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Zmeniť dátum",
   "removeReminderLabel": "Odstrániť pripomienku",
   "exportIcs": "Exportovať súbor kalendára",
   "resyncCalendar": "Znovu synchronizovať kalendár",
   "icsSavedTo": "Súbor kalendára uložený do {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Zrkadliť do kalendára zariadenia",
   "calendarMirrorSubtitle": "Termíny sa v kalendári objavia ako celodenné udalosti. cat(a)log ich tam aktualizuje pri každom spustení a po každej zmene. Upozornenia na termíny spravuješ v kalendári.",
   "syncPeerOlder": "Druhé zariadenie má starší cat(a)log bez pripomienok. Aktualizuj tam cat(a)log a synchronizuj znova.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "Pripomienky ukazujú naplánované termíny podľa dátumu. Sú dva druhy: termíny s hodinou a pripomienky, ktoré platia pre deň. Zmeškané ostávajú navrchu. Ťuknutie otvorí miláčika alebo domácnosť. Fajka potvrdí termín: hodnota sa zapíše do poľa a hneď môžeš naplánovať ďalší, napríklad o tri mesiace. Podržanie zmení dátum alebo termín vymaže. Prepínač hore zrkadlí termíny do kalendára telefónu. Ponuka ich exportuje ako súbor kalendára. Návšteva veterinára s viacerými miláčikmi je jedno stretnutie: zaškrtnite miláčikov, Agenda ukáže jednu kartu s ich menami a pri dokončení sa opýta, ktorí miláčikovia boli ošetrení — ostatných odškrtnite, zostanú naplánovaní. Úlohy sú opakujúce sa povinnosti ako kŕmenie, záchod alebo lieky. Stoja pod Dnes so zaškrtnutím, sériou a poslednými siedmimi dňami ako bodky; Čoskoro ukazuje budúci týždeň bez tých denných. Úloha môže pripomenúť upozornením vo zvolený čas. Pohár otvára úspechy.",
   "calendarRowOff": "Kalendár: vypnuté",
   "calendarRowOn": "Kalendár: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Naplánuj termín pre túto mačku. Zobrazí sa v pripomienkach a tam sa potvrdí.",
   "spotAddReminderCatNeutral": "Naplánuj termín pre tohto miláčika. Zobrazí sa v pripomienkach a tam sa potvrdí.",
   "spotAddReminderClowder": "Naplánuj termín pre tento clowder. Zobrazí sa v pripomienkach a tam sa potvrdí.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Existujúca domácnosť",
   "createNewInstead": "Žiadna — vytvoriť novú",
   "overwritesValue": "Prepíše aktuálnu hodnotu \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Prerušiť snímanie?",
   "abortScanBody": "Nič sa neuloží.",
   "abortScan": "Prerušiť",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Odškrtnite mačky, ktoré neboli ošetrené; zostanú naplánované.",
   "finishUntickHintNeutral": "Odškrtnite miláčikov, ktorí neboli ošetrení; zostanú naplánovaní.",
   "deleteAppointmentGroup": "Zmazať stretnutie pre všetkých {count} mačiek",
-  "deleteAppointmentGroupNeutral": "Zmazať stretnutie pre všetkých {count} miláčikov"
+  "deleteAppointmentGroupNeutral": "Zmazať stretnutie pre všetkých {count} miláčikov",
+  "correctThisValue": "Opraviť túto hodnotu",
+  "removeThisValue": "Odstrániť túto hodnotu",
+  "restoreThisValue": "Obnoviť túto hodnotu",
+  "showRemovedValues": "Zobraziť odstránené hodnoty",
+  "hideRemovedValues": "Skryť odstránené hodnoty",
+  "entryRemovedBy": "Odstránené · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Nahradené hodnotou {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Oprava"
 }

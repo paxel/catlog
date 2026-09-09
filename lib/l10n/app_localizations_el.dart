@@ -569,13 +569,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Αναίρεση αυτής της αλλαγής';
-
-  @override
-  String get revertSubtitle =>
-      'Επαναφέρει την προηγούμενη τιμή ως νέα εγγραφή — το ιστορικό κρατά και τις δύο.';
-
-  @override
   String fieldCleared(String field) {
     return 'Το $field καθαρίστηκε';
   }
@@ -1229,7 +1222,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Κάθε αλλαγή που έγινε ποτέ, με τη νεότερη πρώτη: ποιος άλλαξε τι, πότε και σε ποια τιμή. Κάθε καταχώριση αναιρείται — αυτό γράφει νέα καταχώριση, τίποτα δεν σβήνεται.';
+      'Κάθε αλλαγή, η νεότερη πρώτη: ποιος, πότε και σε ποια τιμή. Πατήστε μια καταχώριση για διόρθωση, κρατήστε την για αφαίρεση ή επαναφορά· μια κρυφή καταχώριση μένει στο αρχείο και εμφανίζεται κατόπιν αιτήματος.';
 
   @override
   String get helpDuplicates =>
@@ -3304,4 +3297,32 @@ class AppLocalizationsEl extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Διαγραφή ραντεβού για όλα τα $count κατοικίδια';
   }
+
+  @override
+  String get correctThisValue => 'Διόρθωση αυτής της τιμής';
+
+  @override
+  String get removeThisValue => 'Αφαίρεση αυτής της τιμής';
+
+  @override
+  String get restoreThisValue => 'Επαναφορά αυτής της τιμής';
+
+  @override
+  String get showRemovedValues => 'Εμφάνιση αφαιρεμένων τιμών';
+
+  @override
+  String get hideRemovedValues => 'Απόκρυψη αφαιρεμένων τιμών';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Αφαιρέθηκε · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Αντικαταστάθηκε από $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Διόρθωση';
 }

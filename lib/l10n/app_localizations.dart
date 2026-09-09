@@ -1154,18 +1154,6 @@ abstract class AppLocalizations {
   /// **'{field} — {name}'**
   String fieldHistoryOf(String field, String name);
 
-  /// No description provided for @revertThisChange.
-  ///
-  /// In en, this message translates to:
-  /// **'Revert this change'**
-  String get revertThisChange;
-
-  /// No description provided for @revertSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restores the previous value as a new entry — history keeps both.'**
-  String get revertSubtitle;
-
   /// No description provided for @fieldCleared.
   ///
   /// In en, this message translates to:
@@ -2285,7 +2273,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpTimeline.
   ///
   /// In en, this message translates to:
-  /// **'Every change ever made, newest first: who changed what, when, and to which value. Any entry can be reverted — that writes a new entry, nothing is ever erased.'**
+  /// **'Every change ever made, newest first: who changed what, when, and to which value. Tap an entry to correct it, hold it to remove or restore it; a hidden entry stays in the log and shows on request.'**
   String get helpTimeline;
 
   /// No description provided for @helpDuplicates.
@@ -5725,6 +5713,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete appointment for all {count} pets'**
   String deleteAppointmentGroupNeutral(int count);
+
+  /// No description provided for @correctThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct this value'**
+  String get correctThisValue;
+
+  /// No description provided for @removeThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this value'**
+  String get removeThisValue;
+
+  /// No description provided for @restoreThisValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore this value'**
+  String get restoreThisValue;
+
+  /// No description provided for @showRemovedValues.
+  ///
+  /// In en, this message translates to:
+  /// **'Show removed values'**
+  String get showRemovedValues;
+
+  /// No description provided for @hideRemovedValues.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide removed values'**
+  String get hideRemovedValues;
+
+  /// No description provided for @entryRemovedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed · {who} · {when}'**
+  String entryRemovedBy(Object who, Object when);
+
+  /// No description provided for @entryReplacedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Replaced by {value} · {who} · {when}'**
+  String entryReplacedBy(Object value, Object who, Object when);
+
+  /// No description provided for @entryCorrection.
+  ///
+  /// In en, this message translates to:
+  /// **'Correction'**
+  String get entryCorrection;
 }
 
 class _AppLocalizationsDelegate

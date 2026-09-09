@@ -83,8 +83,6 @@
   "noClowderStrayOptionNeutral": "Geen huishouden — zwerfdier / weggelopen",
   "timelineOf": "Tijdlijn — {name}",
   "fieldHistoryOf": "{field} — {name}",
-  "revertThisChange": "Deze wijziging terugdraaien",
-  "revertSubtitle": "Zet de vorige waarde terug als nieuwe invoer — de tijdlijn bewaart beide.",
   "fieldCleared": "{field} leeggemaakt",
   "fieldBackTo": "{field} terug naar \"{value}\"",
   "leftStray": "Vertrokken — zwerfkat",
@@ -355,7 +353,7 @@
   "helpSync": "Zo komen gegevens bij anderen: direct verbinden, een map gebruiken die beide apparaten zien, of een bestand via een messenger sturen. Jij bepaalt altijd wat weggaat — en ontvangen .catsync-bestanden open je hier ook. Elke catalogus signeert wat hij schrijft met zijn eigen sleutel; partners zien de sleutelcode naast je naam. De eerste sleutel van een partner wordt op vertrouwen uit een bestand overgenomen en geldt als ontmoet zodra jullie persoonlijk synchroniseren. Invoer onder een bekende naam zonder de juiste handtekening wordt geweigerd en op de aankomstpagina getoond.",
   "helpFields": "De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij de kat aantikbaar.",
   "helpFieldsNeutral": "De velden die je catalogus gebruikt. Hernoem ze, wijzig de opties van een keuzeveld of maak eigen velden. Een nummerveld kan naar een dienst (een register) wijzen; dan is het nummer bij het huisdier aantikbaar.",
-  "helpTimeline": "Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.",
+  "helpTimeline": "Elke wijziging, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Tik op een item om het te corrigeren, houd het vast om het te verwijderen of te herstellen; een verborgen item blijft in het logboek en wordt op verzoek getoond.",
   "helpDuplicates": "Katten of kolonies die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.",
   "helpDuplicatesNeutral": "Huisdieren of huishoudens die dubbel lijken te bestaan — gelijke nummers of erg gelijkende namen met kloppende details. Tik op een paar om samen te voegen; dat kan niet ongedaan gemaakt worden, dus er wordt eerst gevraagd.",
   "helpMatches": "Katten die hetzelfde dier kunnen zijn: hetzelfde nummer, of een zwerver gezien binnen het zoekgebied van een vermiste kat. Tik op een paar om samen te voegen, houd ingedrukt om de eerste kat te openen en te vergelijken. Paren waarvan het uiterlijk in twee of meer kenmerken overeenkomt zonder tegenspraak staan ook in de lijst; de chips tonen welke. „Niet dezelfde” verbergt een paar op deze telefoon tot het uiterlijk van een van beide dieren verandert.",
@@ -437,7 +435,16 @@
   "rangeAll": "Alles",
   "rangeCustom": "Aangepast…",
   "changeSince": "{delta} sinds {date}",
-  "@changeSince": {"placeholders": {"delta": {"type": "String"}, "date": {"type": "String"}}},
+  "@changeSince": {
+    "placeholders": {
+      "delta": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "unitsAuto": "Zoals in je regio",
   "unitsMetric": "Metrisch (kg, cm, ml, °C)",
   "unitsImperial": "Imperiaal (lb, in, fl oz, °F)",
@@ -732,7 +739,13 @@
   "catalogSettings": "Catalogusinstellingen",
   "deleteCatalogBody": "Alles in {name} verdwijnt: de katten, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug.",
   "deleteCatalogBodyNeutral": "Alles in {name} verdwijnt: de huisdieren, de foto’s, de geschiedenis. Eerst wordt een volledig bestand opgeslagen waar de automatische back-ups komen; dat importeren haalt de catalogus terug. Typ de naam om te bevestigen.",
-  "@deleteCatalogBodyNeutral": {"placeholders": {"name": {"type": "String"}}},
+  "@deleteCatalogBodyNeutral": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "@deleteCatalogBody": {
     "placeholders": {
       "name": {
@@ -850,9 +863,21 @@
   "agendaEmptyNeutral": "Geen afspraken gepland. Nieuwe afspraken plan je hier met de plus of op de pagina van een huisdier of huishouden.",
   "dueToday": "vandaag",
   "dueInDays": "{count, plural, one{over 1 dag} other{over {count} dagen}}",
-  "@dueInDays": {"placeholders": {"count": {"type": "int"}}},
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "overdueByDays": "{count, plural, one{1 dag te laat} other{{count} dagen te laat}}",
-  "@overdueByDays": {"placeholders": {"count": {"type": "int"}}},
+  "@overdueByDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "markDone": "Klaar",
   "repeatTitle": "Opnieuw over…",
   "noRepeatLabel": "Niet herhalen",
@@ -861,15 +886,33 @@
   "unitMonths": "maanden",
   "unitYears": "jaren",
   "ageYears": "{years} jr",
-  "@ageYears": {"placeholders": {"years": {"type": "int"}}},
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageMonths": "{months} mnd",
-  "@ageMonths": {"placeholders": {"months": {"type": "int"}}},
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
   "changeDateLabel": "Datum wijzigen",
   "removeReminderLabel": "Herinnering verwijderen",
   "exportIcs": "Agendabestand exporteren",
   "resyncCalendar": "Agenda opnieuw synchroniseren",
   "icsSavedTo": "Agendabestand opgeslagen onder {path}",
-  "@icsSavedTo": {"placeholders": {"path": {"type": "String"}}},
+  "@icsSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "calendarMirrorLabel": "Spiegelen naar apparaatagenda",
   "calendarMirrorSubtitle": "De afspraken verschijnen als hele-dag-afspraken in de agenda. cat(a)log werkt ze daar bij bij elke start en na elke wijziging. Herinneringen aan de afspraken beheer je in de agenda.",
   "syncPeerOlder": "Het andere apparaat draait een ouder cat(a)log zonder herinneringen. Werk cat(a)log daar bij en synchroniseer opnieuw.",
@@ -897,7 +940,13 @@
   "helpAgendaNeutral": "De agenda toont de geplande afspraken op datum. Er zijn twee soorten: afspraken met een tijdstip, en herinneringen die voor een dag gelden. Gemiste afspraken blijven bovenaan staan. Tikken opent het huisdier of huishouden. Het vinkje bevestigt een afspraak: de waarde wordt in het veld geschreven en je kunt meteen de volgende plannen, bijvoorbeeld over drie maanden. Ingedrukt houden wijzigt de datum of verwijdert de afspraak. Met de schakelaar bovenaan worden de afspraken naar een agenda van je telefoon gespiegeld. Via het menu exporteer je ze als agendabestand. Een dierenartsbezoek met meerdere huisdieren is één afspraak: vink de huisdieren aan, de Agenda toont één kaart met hun namen, en bij afronden wordt gevraagd welke huisdieren behandeld zijn — vink de andere uit, die blijven gepland. Taken zijn de terugkerende klussen, zoals voeren, kattenbak of medicijnen. Ze staan onder Vandaag met een vinkje, een reeks en de laatste zeven dagen als stippen; Binnenkort toont de komende week zonder de dagelijkse. Een taak kan je met een melding op een gekozen tijd herinneren. De trofee opent de prestaties.",
   "calendarRowOff": "Agenda: uit",
   "calendarRowOn": "Agenda: {name}",
-  "@calendarRowOn": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRowOn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "spotAddReminderCat": "Plan een afspraak voor deze kat. Die staat in de agenda en wordt daar bevestigd.",
   "spotAddReminderCatNeutral": "Plan een afspraak voor dit huisdier. Die staat in de agenda en wordt daar bevestigd.",
   "spotAddReminderClowder": "Plan een afspraak voor deze clowder. Die staat in de agenda en wordt daar bevestigd.",
@@ -1009,7 +1058,13 @@
   "existingClowderNeutral": "Bestaand huishouden",
   "createNewInstead": "Geen — nieuw aanmaken",
   "overwritesValue": "Overschrijft huidige waarde \"{value}\"",
-  "@overwritesValue": {"placeholders": {"value": {"type": "String"}}},
+  "@overwritesValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "abortScanTitle": "Opname afbreken?",
   "abortScanBody": "Er wordt niets opgeslagen.",
   "abortScan": "Afbreken",
@@ -1025,5 +1080,26 @@
   "finishUntickHint": "Vink de katten uit die niet behandeld zijn; ze blijven gepland.",
   "finishUntickHintNeutral": "Vink de huisdieren uit die niet behandeld zijn; ze blijven gepland.",
   "deleteAppointmentGroup": "Afspraak voor alle {count} katten verwijderen",
-  "deleteAppointmentGroupNeutral": "Afspraak voor alle {count} huisdieren verwijderen"
+  "deleteAppointmentGroupNeutral": "Afspraak voor alle {count} huisdieren verwijderen",
+  "correctThisValue": "Deze waarde corrigeren",
+  "removeThisValue": "Deze waarde verwijderen",
+  "restoreThisValue": "Deze waarde herstellen",
+  "showRemovedValues": "Verwijderde waarden tonen",
+  "hideRemovedValues": "Verwijderde waarden verbergen",
+  "entryRemovedBy": "Verwijderd · {who} · {when}",
+  "@entryRemovedBy": {
+    "placeholders": {
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryReplacedBy": "Vervangen door {value} · {who} · {when}",
+  "@entryReplacedBy": {
+    "placeholders": {
+      "value": {},
+      "who": {},
+      "when": {}
+    }
+  },
+  "entryCorrection": "Correctie"
 }

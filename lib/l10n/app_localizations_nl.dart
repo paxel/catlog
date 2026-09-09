@@ -568,13 +568,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get revertThisChange => 'Deze wijziging terugdraaien';
-
-  @override
-  String get revertSubtitle =>
-      'Zet de vorige waarde terug als nieuwe invoer — de tijdlijn bewaart beide.';
-
-  @override
   String fieldCleared(String field) {
     return '$field leeggemaakt';
   }
@@ -1226,7 +1219,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get helpTimeline =>
-      'Elke wijziging ooit, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Elke regel kan teruggedraaid worden — dat schrijft een nieuwe regel, er wordt nooit iets gewist.';
+      'Elke wijziging, nieuwste eerst: wie wat wanneer in welke waarde veranderde. Tik op een item om het te corrigeren, houd het vast om het te verwijderen of te herstellen; een verborgen item blijft in het logboek en wordt op verzoek getoond.';
 
   @override
   String get helpDuplicates =>
@@ -3298,4 +3291,32 @@ class AppLocalizationsNl extends AppLocalizations {
   String deleteAppointmentGroupNeutral(int count) {
     return 'Afspraak voor alle $count huisdieren verwijderen';
   }
+
+  @override
+  String get correctThisValue => 'Deze waarde corrigeren';
+
+  @override
+  String get removeThisValue => 'Deze waarde verwijderen';
+
+  @override
+  String get restoreThisValue => 'Deze waarde herstellen';
+
+  @override
+  String get showRemovedValues => 'Verwijderde waarden tonen';
+
+  @override
+  String get hideRemovedValues => 'Verwijderde waarden verbergen';
+
+  @override
+  String entryRemovedBy(Object who, Object when) {
+    return 'Verwijderd · $who · $when';
+  }
+
+  @override
+  String entryReplacedBy(Object value, Object who, Object when) {
+    return 'Vervangen door $value · $who · $when';
+  }
+
+  @override
+  String get entryCorrection => 'Correctie';
 }
