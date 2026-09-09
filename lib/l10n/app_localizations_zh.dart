@@ -3201,7 +3201,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      '您选择的文件夹也可以收到每份副本：Google 云端硬盘、Dropbox、Nextcloud、Syncthing 文件夹。副本会放在其中的 catlog-backups 里。';
+      '您选择的文件夹也可以收到每份副本：云应用在本机上保持同步的文件夹（Nextcloud、Syncthing 等）、存储卡、选择器提供的任何文件夹。副本会放在其中的 catlog-backups 里。';
 
   @override
   String get backupsFolderPick => '同时复制到文件夹…';

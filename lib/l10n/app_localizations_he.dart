@@ -3365,7 +3365,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'גם תיקייה לבחירתך יכולה לקבל כל עותק: Google Drive, Dropbox, Nextcloud, תיקיית Syncthing. העותקים נשמרים ב-catlog-backups שבתוכה.';
+      'גם תיקייה לבחירתך יכולה לקבל כל עותק: תיקייה שאפליקציית ענן מסנכרנת בטלפון הזה (Nextcloud, Syncthing ואחרות), כרטיס זיכרון, כל תיקייה שהבורר מציע. העותקים נשמרים ב-catlog-backups שבתוכה.';
 
   @override
   String get backupsFolderPick => 'להעתיק גם לתיקייה…';

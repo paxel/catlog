@@ -1132,7 +1132,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "Auch ein Ordner deiner Wahl kann jede Kopie bekommen: Google Drive, Dropbox, Nextcloud, ein Syncthing-Ordner. Die Kopien landen darin in catlog-backups.",
+  "backupsFolderHint": "Auch ein Ordner deiner Wahl kann jede Kopie bekommen: einer, den eine Cloud-App auf diesem Handy abgleicht (Nextcloud, Syncthing und andere), eine Speicherkarte, jeder Ordner, den die Auswahl anbietet. Die Kopien landen darin in catlog-backups.",
   "backupsFolderPick": "Auch in einen Ordner kopieren…",
   "backupsFolderIs": "Auch kopiert nach {name}",
   "@backupsFolderIs": {

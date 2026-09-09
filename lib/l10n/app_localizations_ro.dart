@@ -3384,7 +3384,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Și un dosar la alegerea ta poate primi fiecare copie: Google Drive, Dropbox, Nextcloud, un dosar Syncthing. Copiile ajung în catlog-backups din el.';
+      'Și un dosar la alegerea ta poate primi fiecare copie: unul pe care o aplicație cloud îl ține sincronizat pe acest telefon (Nextcloud, Syncthing și altele), un card de memorie, orice dosar oferit de selector. Copiile ajung în catlog-backups din el.';
 
   @override
   String get backupsFolderPick => 'Copiază și într-un dosar…';

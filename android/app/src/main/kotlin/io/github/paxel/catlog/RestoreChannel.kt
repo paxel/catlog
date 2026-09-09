@@ -61,7 +61,11 @@ class RestoreChannel(private val activity: Activity) {
             return true
         }
         try {
-            val tree = DocumentFile.fromTreeUri(activity, uri)
+            // The folder itself, or the catlog-backups the Backups page
+            // writes into when the keeper picked its parent.
+            val picked = DocumentFile.fromTreeUri(activity, uri)
+            val inside = picked?.findFile("catlog-backups")
+            val tree = if (inside != null && inside.isDirectory) inside else picked
             val out = File(activity.cacheDir, "restore").apply {
                 deleteRecursively()
                 mkdirs()

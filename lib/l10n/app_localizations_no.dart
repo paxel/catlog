@@ -3366,7 +3366,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'En mappe du velger kan også få hver kopi: Google Drive, Dropbox, Nextcloud, en Syncthing-mappe. Kopiene havner i catlog-backups der inne.';
+      'En mappe du velger kan også få hver kopi: en som en skyapp holder synkronisert på denne telefonen (Nextcloud, Syncthing og andre), et minnekort, enhver mappe velgeren tilbyr. Kopiene havner i catlog-backups der inne.';
 
   @override
   String get backupsFolderPick => 'Kopier også til en mappe…';

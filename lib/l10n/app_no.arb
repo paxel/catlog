@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "En mappe du velger kan også få hver kopi: Google Drive, Dropbox, Nextcloud, en Syncthing-mappe. Kopiene havner i catlog-backups der inne.",
+  "backupsFolderHint": "En mappe du velger kan også få hver kopi: en som en skyapp holder synkronisert på denne telefonen (Nextcloud, Syncthing og andre), et minnekort, enhver mappe velgeren tilbyr. Kopiene havner i catlog-backups der inne.",
   "backupsFolderPick": "Kopier også til en mappe…",
   "backupsFolderIs": "Kopieres også til {name}",
   "@backupsFolderIs": {

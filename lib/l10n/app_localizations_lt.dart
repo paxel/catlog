@@ -3389,7 +3389,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: Google Drive, Dropbox, Nextcloud, Syncthing aplankas. Kopijos patenka į catlog-backups jo viduje.';
+      'Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: toks, kurį debesies programėlė šiame telefone sinchronizuoja (Nextcloud, Syncthing ir kitos), atminties kortelė, bet kuris parinkiklio siūlomas aplankas. Kopijos patenka į catlog-backups jo viduje.';
 
   @override
   String get backupsFolderPick => 'Kopijuoti ir į aplanką…';

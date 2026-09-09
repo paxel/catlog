@@ -3403,7 +3403,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: Google Drive أو Dropbox أو Nextcloud أو مجلد Syncthing. تُحفظ النسخ في catlog-backups داخله.';
+      'يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: مجلد يبقيه تطبيق سحابي متزامناً على هذا الهاتف (Nextcloud وSyncthing وغيرهما)، أو بطاقة ذاكرة، أو أي مجلد يعرضه المنتقي. تُحفظ النسخ في catlog-backups داخله.';
 
   @override
   String get backupsFolderPick => 'انسخ أيضاً إلى مجلد…';

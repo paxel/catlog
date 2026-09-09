@@ -3389,7 +3389,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Кожну копію може отримувати й тека на ваш вибір: Google Drive, Dropbox, Nextcloud, тека Syncthing. Копії лягають у catlog-backups усередині неї.';
+      'Кожну копію може отримувати й тека на ваш вибір: та, яку хмарний застосунок синхронізує на цьому телефоні (Nextcloud, Syncthing та інші), карта пам\'яті, будь-яка тека з вікна вибору. Копії лягають у catlog-backups усередині неї.';
 
   @override
   String get backupsFolderPick => 'Копіювати і в теку…';

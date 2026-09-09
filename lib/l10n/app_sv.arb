@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "En mapp du väljer kan också få varje kopia: Google Drive, Dropbox, Nextcloud, en Syncthing-mapp. Kopiorna hamnar i catlog-backups där inne.",
+  "backupsFolderHint": "En mapp du väljer kan också få varje kopia: en som en molnapp håller synkad på den här telefonen (Nextcloud, Syncthing med flera), ett minneskort, vilken mapp väljaren än erbjuder. Kopiorna hamnar i catlog-backups där inne.",
   "backupsFolderPick": "Kopiera även till en mapp…",
   "backupsFolderIs": "Kopieras även till {name}",
   "@backupsFolderIs": {

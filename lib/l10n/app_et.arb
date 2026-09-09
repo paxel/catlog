@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "Iga koopia võib saada ka sinu valitud kaust: Google Drive, Dropbox, Nextcloud, Syncthingi kaust. Koopiad lähevad selle sees kausta catlog-backups.",
+  "backupsFolderHint": "Iga koopia võib saada ka sinu valitud kaust: selline, mida mõni pilverakendus selles telefonis sünkroonis hoiab (Nextcloud, Syncthing jt), mälukaart, mis tahes kaust, mida valija pakub. Koopiad lähevad selle sees kausta catlog-backups.",
   "backupsFolderPick": "Kopeeri ka kausta…",
   "backupsFolderIs": "Kopeeritakse ka kausta {name}",
   "@backupsFolderIs": {

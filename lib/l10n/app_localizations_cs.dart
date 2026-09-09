@@ -3381,7 +3381,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Každou kopii může dostávat i složka podle vašeho výběru: Google Drive, Dropbox, Nextcloud, složka Syncthing. Kopie končí v catlog-backups uvnitř.';
+      'Každou kopii může dostávat i složka podle vašeho výběru: taková, kterou cloudová aplikace na tomto telefonu synchronizuje (Nextcloud, Syncthing a další), paměťová karta, jakákoli složka z výběru. Kopie končí v catlog-backups uvnitř.';
 
   @override
   String get backupsFolderPick => 'Kopírovat i do složky…';

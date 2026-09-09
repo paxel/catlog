@@ -3380,7 +3380,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Každú kópiu môže dostávať aj priečinok podľa vášho výberu: Google Drive, Dropbox, Nextcloud, priečinok Syncthing. Kópie končia v catlog-backups vnútri.';
+      'Každú kópiu môže dostávať aj priečinok podľa vášho výberu: taký, ktorý cloudová aplikácia na tomto telefóne synchronizuje (Nextcloud, Syncthing a ďalšie), pamäťová karta, akýkoľvek priečinok z výberu. Kópie končia v catlog-backups vnútri.';
 
   @override
   String get backupsFolderPick => 'Kopírovať aj do priečinka…';

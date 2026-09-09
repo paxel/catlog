@@ -3383,7 +3383,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Folder li tagħżel int jista\' jirċievi kull kopja wkoll: Google Drive, Dropbox, Nextcloud, folder ta\' Syncthing. Il-kopji jispiċċaw f\'catlog-backups ġo fih.';
+      'Folder li tagħżel int jista\' jirċievi kull kopja wkoll: wieħed li app tal-cloud iżżomm sinkronizzat fuq dan it-telefon (Nextcloud, Syncthing u oħrajn), memory card, kull folder li joffri s-selettur. Il-kopji jispiċċaw f\'catlog-backups ġo fih.';
 
   @override
   String get backupsFolderPick => 'Ikkopja wkoll f\'folder…';

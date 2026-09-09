@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "Каждую копию может получать и папка на ваш выбор: Google Drive, Dropbox, Nextcloud, папка Syncthing. Копии ложатся в catlog-backups внутри неё.",
+  "backupsFolderHint": "Каждую копию может получать и папка на ваш выбор: та, которую облачное приложение синхронизирует на этом телефоне (Nextcloud, Syncthing и другие), карта памяти, любая папка из окна выбора. Копии ложатся в catlog-backups внутри неё.",
   "backupsFolderPick": "Копировать и в папку…",
   "backupsFolderIs": "Копируется и в {name}",
   "@backupsFolderIs": {

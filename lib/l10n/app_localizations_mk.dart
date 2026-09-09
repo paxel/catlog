@@ -3371,7 +3371,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Секоја копија може да ја добива и папка по ваш избор: Google Drive, Dropbox, Nextcloud, папка на Syncthing. Копиите завршуваат во catlog-backups внатре.';
+      'Секоја копија може да ја добива и папка по ваш избор: таква што ја синхронизира облачна апликација на овој телефон (Nextcloud, Syncthing и други), мемориска картичка, која било папка од изборот. Копиите завршуваат во catlog-backups внатре.';
 
   @override
   String get backupsFolderPick => 'Копирај и во папка…';

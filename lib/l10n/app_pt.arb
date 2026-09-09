@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "Uma pasta à tua escolha também pode receber cada cópia: Google Drive, Dropbox, Nextcloud, uma pasta Syncthing. As cópias ficam em catlog-backups dentro dela.",
+  "backupsFolderHint": "Uma pasta à tua escolha também pode receber cada cópia: uma que uma app de nuvem sincronize neste telemóvel (Nextcloud, Syncthing e outras), um cartão de memória, qualquer pasta que o seletor ofereça. As cópias ficam em catlog-backups dentro dela.",
   "backupsFolderPick": "Copiar também para uma pasta…",
   "backupsFolderIs": "Copiado também para {name}",
   "@backupsFolderIs": {

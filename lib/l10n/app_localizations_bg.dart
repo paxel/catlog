@@ -3368,7 +3368,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Всяко копие може да получава и папка по ваш избор: Google Drive, Dropbox, Nextcloud, папка на Syncthing. Копията отиват в catlog-backups вътре в нея.';
+      'Всяко копие може да получава и папка по ваш избор: такава, която облачно приложение синхронизира на този телефон (Nextcloud, Syncthing и други), карта памет, всяка папка, която изборът предлага. Копията отиват в catlog-backups вътре в нея.';
 
   @override
   String get backupsFolderPick => 'Копирай и в папка…';

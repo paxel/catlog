@@ -3390,7 +3390,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Wybrany folder też może otrzymywać każdą kopię: Google Drive, Dropbox, Nextcloud, folder Syncthing. Kopie trafiają do catlog-backups w jego środku.';
+      'Wybrany folder też może otrzymywać każdą kopię: taki, który aplikacja chmurowa synchronizuje na tym telefonie (Nextcloud, Syncthing i inne), karta pamięci, dowolny folder z wybieraka. Kopie trafiają do catlog-backups w jego środku.';
 
   @override
   String get backupsFolderPick => 'Kopiuj też do folderu…';

@@ -3366,7 +3366,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Iga koopia võib saada ka sinu valitud kaust: Google Drive, Dropbox, Nextcloud, Syncthingi kaust. Koopiad lähevad selle sees kausta catlog-backups.';
+      'Iga koopia võib saada ka sinu valitud kaust: selline, mida mõni pilverakendus selles telefonis sünkroonis hoiab (Nextcloud, Syncthing jt), mälukaart, mis tahes kaust, mida valija pakub. Koopiad lähevad selle sees kausta catlog-backups.';
 
   @override
   String get backupsFolderPick => 'Kopeeri ka kausta…';

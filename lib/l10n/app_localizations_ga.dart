@@ -3423,7 +3423,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Is féidir le fillteán de do rogha gach cóip a fháil freisin: Google Drive, Dropbox, Nextcloud, fillteán Syncthing. Téann na cóipeanna isteach i catlog-backups laistigh de.';
+      'Is féidir le fillteán de do rogha gach cóip a fháil freisin: ceann a choinníonn aip néil sioncronaithe ar an nguthán seo (Nextcloud, Syncthing agus eile), cárta cuimhne, aon fhillteán a thairgeann an roghnóir. Téann na cóipeanna isteach i catlog-backups laistigh de.';
 
   @override
   String get backupsFolderPick => 'Cóipeáil chuig fillteán freisin…';

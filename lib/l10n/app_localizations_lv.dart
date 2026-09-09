@@ -3384,7 +3384,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Katru kopiju var saņemt arī jūsu izvēlēta mape: Google Drive, Dropbox, Nextcloud, Syncthing mape. Kopijas nonāk tajā esošajā catlog-backups.';
+      'Katru kopiju var saņemt arī jūsu izvēlēta mape: tāda, ko šajā tālrunī sinhronizē mākoņa lietotne (Nextcloud, Syncthing un citas), atmiņas karte, jebkura mape, ko piedāvā izvēle. Kopijas nonāk tajā esošajā catlog-backups.';
 
   @override
   String get backupsFolderPick => 'Kopēt arī mapē…';

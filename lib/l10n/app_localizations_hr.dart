@@ -3381,7 +3381,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Svaku kopiju može dobivati i mapa po vašem izboru: Google Drive, Dropbox, Nextcloud, Syncthing mapa. Kopije završavaju u catlog-backups unutar nje.';
+      'Svaku kopiju može dobivati i mapa po vašem izboru: ona koju aplikacija za oblak sinkronizira na ovom telefonu (Nextcloud, Syncthing i druge), memorijska kartica, bilo koja mapa iz odabira. Kopije završavaju u catlog-backups unutar nje.';
 
   @override
   String get backupsFolderPick => 'Kopiraj i u mapu…';

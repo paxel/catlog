@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "Seçtiğin bir klasör de her kopyayı alabilir: Google Drive, Dropbox, Nextcloud, bir Syncthing klasörü. Kopyalar içindeki catlog-backups klasörüne düşer.",
+  "backupsFolderHint": "Seçtiğin bir klasör de her kopyayı alabilir: bir bulut uygulamasının bu telefonda eşitlediği bir klasör (Nextcloud, Syncthing ve diğerleri), bir hafıza kartı, seçicinin sunduğu herhangi bir klasör. Kopyalar içindeki catlog-backups klasörüne düşer.",
   "backupsFolderPick": "Bir klasöre de kopyala…",
   "backupsFolderIs": "{name} klasörüne de kopyalanıyor",
   "@backupsFolderIs": {

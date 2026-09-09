@@ -3307,7 +3307,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'پوشه‌ای به انتخاب شما هم می‌تواند هر نسخه را دریافت کند: Google Drive، Dropbox، Nextcloud، یک پوشهٔ Syncthing. نسخه‌ها در catlog-backups داخل آن قرار می‌گیرند.';
+      'پوشه‌ای به انتخاب شما هم می‌تواند هر نسخه را دریافت کند: پوشه‌ای که یک برنامهٔ ابری روی این گوشی همگام نگه می‌دارد (Nextcloud، Syncthing و دیگران)، کارت حافظه، هر پوشه‌ای که انتخابگر ارائه می‌دهد. نسخه‌ها در catlog-backups داخل آن قرار می‌گیرند.';
 
   @override
   String get backupsFolderPick => 'کپی در یک پوشه هم…';

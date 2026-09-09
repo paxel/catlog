@@ -3374,7 +3374,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Ook een map naar keuze kan elke kopie krijgen: Google Drive, Dropbox, Nextcloud, een Syncthing-map. De kopieën komen daarin in catlog-backups.';
+      'Ook een map naar keuze kan elke kopie krijgen: een die een cloud-app op deze telefoon synchroon houdt (Nextcloud, Syncthing en andere), een geheugenkaart, elke map die de kiezer aanbiedt. De kopieën komen daarin in catlog-backups.';
 
   @override
   String get backupsFolderPick => 'Ook naar een map kopiëren…';

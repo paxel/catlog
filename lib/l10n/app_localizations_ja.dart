@@ -3237,7 +3237,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      '任意のフォルダにも各コピーを送れます: Google ドライブ、Dropbox、Nextcloud、Syncthing のフォルダなど。コピーはその中の catlog-backups に入ります。';
+      '任意のフォルダにも各コピーを送れます: クラウドアプリがこの端末上で同期しているフォルダ（Nextcloud、Syncthing など）、メモリーカード、選択画面に出るどのフォルダでも。コピーはその中の catlog-backups に入ります。';
 
   @override
   String get backupsFolderPick => 'フォルダにもコピー…';

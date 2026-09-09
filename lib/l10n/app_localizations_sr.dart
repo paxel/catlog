@@ -3381,7 +3381,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Сваку копију може да добија и фасцикла по вашем избору: Google Drive, Dropbox, Nextcloud, Syncthing фасцикла. Копије завршавају у catlog-backups унутар ње.';
+      'Сваку копију може да добија и фасцикла по вашем избору: она коју апликација за облак синхронизује на овом телефону (Nextcloud, Syncthing и друге), меморијска картица, било која фасцикла из избора. Копије завршавају у catlog-backups унутар ње.';
 
   @override
   String get backupsFolderPick => 'Копирај и у фасциклу…';

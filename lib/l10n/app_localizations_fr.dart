@@ -3379,7 +3379,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Un dossier de votre choix peut aussi recevoir chaque copie : Google Drive, Dropbox, Nextcloud, un dossier Syncthing. Les copies vont dans catlog-backups à l\'intérieur.';
+      'Un dossier de votre choix peut aussi recevoir chaque copie : un dossier qu\'une app cloud synchronise sur ce téléphone (Nextcloud, Syncthing et d\'autres), une carte mémoire, tout dossier proposé par le sélecteur. Les copies vont dans catlog-backups à l\'intérieur.';
 
   @override
   String get backupsFolderPick => 'Copier aussi dans un dossier…';

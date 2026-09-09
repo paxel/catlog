@@ -3370,7 +3370,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Uma pasta à tua escolha também pode receber cada cópia: Google Drive, Dropbox, Nextcloud, uma pasta Syncthing. As cópias ficam em catlog-backups dentro dela.';
+      'Uma pasta à tua escolha também pode receber cada cópia: uma que uma app de nuvem sincronize neste telemóvel (Nextcloud, Syncthing e outras), um cartão de memória, qualquer pasta que o seletor ofereça. As cópias ficam em catlog-backups dentro dela.';
 
   @override
   String get backupsFolderPick => 'Copiar também para uma pasta…';

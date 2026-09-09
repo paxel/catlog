@@ -3370,7 +3370,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Myös valitsemasi kansio voi saada jokaisen kopion: Google Drive, Dropbox, Nextcloud, Syncthing-kansio. Kopiot menevät sen sisällä kansioon catlog-backups.';
+      'Myös valitsemasi kansio voi saada jokaisen kopion: sellainen, jota pilvisovellus pitää tällä puhelimella synkronoituna (Nextcloud, Syncthing ja muut), muistikortti, mikä tahansa valitsimen tarjoama kansio. Kopiot menevät sen sisällä kansioon catlog-backups.';
 
   @override
   String get backupsFolderPick => 'Kopioi myös kansioon…';

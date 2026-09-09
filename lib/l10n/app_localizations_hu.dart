@@ -3369,7 +3369,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Egy általad választott mappa is megkaphat minden másolatot: Google Drive, Dropbox, Nextcloud, Syncthing-mappa. A másolatok a benne lévő catlog-backups mappába kerülnek.';
+      'Egy általad választott mappa is megkaphat minden másolatot: olyan, amelyet egy felhőapp ezen a telefonon szinkronban tart (Nextcloud, Syncthing és mások), memóriakártya, bármely mappa, amit a választó felkínál. A másolatok a benne lévő catlog-backups mappába kerülnek.';
 
   @override
   String get backupsFolderPick => 'Másolás mappába is…';

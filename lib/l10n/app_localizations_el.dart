@@ -3380,7 +3380,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Και ένας φάκελος της επιλογής σας μπορεί να λαμβάνει κάθε αντίγραφο: Google Drive, Dropbox, Nextcloud, φάκελος Syncthing. Τα αντίγραφα μπαίνουν στο catlog-backups μέσα του.';
+      'Και ένας φάκελος της επιλογής σας μπορεί να λαμβάνει κάθε αντίγραφο: ένας που κάποια εφαρμογή cloud κρατά συγχρονισμένο σε αυτό το τηλέφωνο (Nextcloud, Syncthing και άλλες), μια κάρτα μνήμης, όποιος φάκελος προσφέρει ο επιλογέας. Τα αντίγραφα μπαίνουν στο catlog-backups μέσα του.';
 
   @override
   String get backupsFolderPick => 'Αντιγραφή και σε φάκελο…';

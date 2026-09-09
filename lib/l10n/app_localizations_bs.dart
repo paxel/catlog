@@ -3382,7 +3382,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Svaku kopiju može dobijati i folder po vašem izboru: Google Drive, Dropbox, Nextcloud, Syncthing folder. Kopije završavaju u catlog-backups unutar njega.';
+      'Svaku kopiju može dobijati i folder po vašem izboru: onaj koji aplikacija za oblak sinhronizuje na ovom telefonu (Nextcloud, Syncthing i druge), memorijska kartica, bilo koji folder iz odabira. Kopije završavaju u catlog-backups unutar njega.';
 
   @override
   String get backupsFolderPick => 'Kopiraj i u folder…';

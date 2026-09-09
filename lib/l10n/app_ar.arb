@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: Google Drive أو Dropbox أو Nextcloud أو مجلد Syncthing. تُحفظ النسخ في catlog-backups داخله.",
+  "backupsFolderHint": "يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: مجلد يبقيه تطبيق سحابي متزامناً على هذا الهاتف (Nextcloud وSyncthing وغيرهما)، أو بطاقة ذاكرة، أو أي مجلد يعرضه المنتقي. تُحفظ النسخ في catlog-backups داخله.",
   "backupsFolderPick": "انسخ أيضاً إلى مجلد…",
   "backupsFolderIs": "يُنسخ أيضاً إلى {name}",
   "@backupsFolderIs": {

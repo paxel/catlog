@@ -5849,7 +5849,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupsFolderHint.
   ///
   /// In en, this message translates to:
-  /// **'A folder of your choice can receive every copy too: Google Drive, Dropbox, Nextcloud, a Syncthing folder. The copies land in catlog-backups inside it.'**
+  /// **'A folder of your choice can receive every copy too: one a cloud app keeps in sync on this phone (Nextcloud, Syncthing and others), a memory card, any folder the picker offers. The copies land in catlog-backups inside it.'**
   String get backupsFolderHint;
 
   /// No description provided for @backupsFolderPick.

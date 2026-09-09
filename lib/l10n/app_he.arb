@@ -1126,7 +1126,7 @@
       "date": {}
     }
   },
-  "backupsFolderHint": "גם תיקייה לבחירתך יכולה לקבל כל עותק: Google Drive, Dropbox, Nextcloud, תיקיית Syncthing. העותקים נשמרים ב-catlog-backups שבתוכה.",
+  "backupsFolderHint": "גם תיקייה לבחירתך יכולה לקבל כל עותק: תיקייה שאפליקציית ענן מסנכרנת בטלפון הזה (Nextcloud, Syncthing ואחרות), כרטיס זיכרון, כל תיקייה שהבורר מציע. העותקים נשמרים ב-catlog-backups שבתוכה.",
   "backupsFolderPick": "להעתיק גם לתיקייה…",
   "backupsFolderIs": "מועתק גם אל {name}",
   "@backupsFolderIs": {

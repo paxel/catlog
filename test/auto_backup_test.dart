@@ -66,5 +66,7 @@ void main() {
       copy: (tree, path, name) async => throw Exception('drive gone'),
     );
     expect(store.localSetting(backupErrorKey), contains('drive gone'));
+    // The Documents copy was written: the page must not say otherwise.
+    expect(store.localSetting(backupAtKey), isNotNull);
   });
 }

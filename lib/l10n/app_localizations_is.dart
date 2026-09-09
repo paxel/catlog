@@ -3373,7 +3373,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Mappa að eigin vali getur líka fengið hvert afrit: Google Drive, Dropbox, Nextcloud, Syncthing-mappa. Afritin lenda í catlog-backups inni í henni.';
+      'Mappa að eigin vali getur líka fengið hvert afrit: mappa sem skýjaforrit heldur samstilltri á þessum síma (Nextcloud, Syncthing og fleiri), minniskort, hvaða mappa sem valið býður. Afritin lenda í catlog-backups inni í henni.';
 
   @override
   String get backupsFolderPick => 'Afrita líka í möppu…';

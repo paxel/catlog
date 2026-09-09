@@ -3367,7 +3367,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupsFolderHint =>
-      'Seçtiğin bir klasör de her kopyayı alabilir: Google Drive, Dropbox, Nextcloud, bir Syncthing klasörü. Kopyalar içindeki catlog-backups klasörüne düşer.';
+      'Seçtiğin bir klasör de her kopyayı alabilir: bir bulut uygulamasının bu telefonda eşitlediği bir klasör (Nextcloud, Syncthing ve diğerleri), bir hafıza kartı, seçicinin sunduğu herhangi bir klasör. Kopyalar içindeki catlog-backups klasörüne düşer.';
 
   @override
   String get backupsFolderPick => 'Bir klasöre de kopyala…';
