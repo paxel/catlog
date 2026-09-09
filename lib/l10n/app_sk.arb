@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Oprava"
+  "entryCorrection": "Oprava",
+  "restorePickFolder": "Vybrať priečinok záloh…",
+  "restoreAndroidHint": "Zálohy predchádzajúcej inštalácie sú v Downloads/catlog. Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu."
 }

@@ -3324,4 +3324,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Correction';
+
+  @override
+  String get restorePickFolder => 'Choisir le dossier de sauvegardes…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Les sauvegardes de l\'installation précédente sont dans Downloads/catlog. Choisissez ce dossier une fois ; ses sauvegardes s\'affichent ici.';
 }

@@ -5761,6 +5761,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Correction'**
   String get entryCorrection;
+
+  /// No description provided for @restorePickFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose backup folder…'**
+  String get restorePickFolder;
+
+  /// No description provided for @restoreAndroidHint.
+  ///
+  /// In en, this message translates to:
+  /// **'The backups of the install before this one are in Downloads/catlog. Choose that folder once; its backups are listed here.'**
+  String get restoreAndroidHint;
 }
 
 class _AppLocalizationsDelegate

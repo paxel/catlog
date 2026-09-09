@@ -3324,4 +3324,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Korrektur';
+
+  @override
+  String get restorePickFolder => 'Sicherungsordner wählen…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Die Sicherungen der vorherigen Installation liegen in Downloads/catlog. Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier.';
 }

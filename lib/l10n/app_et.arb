@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Parandus"
+  "entryCorrection": "Parandus",
+  "restorePickFolder": "Vali varukoopiate kaust…",
+  "restoreAndroidHint": "Eelmise paigalduse varukoopiad on kaustas Downloads/catlog. Vali see kaust üks kord; selle koopiad kuvatakse siin."
 }

@@ -3325,4 +3325,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Διόρθωση';
+
+  @override
+  String get restorePickFolder => 'Επιλογή φακέλου αντιγράφων…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Τα αντίγραφα της προηγούμενης εγκατάστασης βρίσκονται στο Downloads/catlog. Επιλέξτε αυτόν τον φάκελο μία φορά· τα αντίγραφά του εμφανίζονται εδώ.';
 }

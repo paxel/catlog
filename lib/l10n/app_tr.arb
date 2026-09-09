@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Düzeltme"
+  "entryCorrection": "Düzeltme",
+  "restorePickFolder": "Yedek klasörünü seç…",
+  "restoreAndroidHint": "Önceki kurulumun yedekleri Downloads/catlog içinde. O klasörü bir kez seçin; yedekleri burada listelenir."
 }

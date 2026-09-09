@@ -3,21 +3,38 @@ import 'dart:io';
 import 'package:catalog_core/catalog_core.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../auto_backup.dart';
 import '../l10n.dart';
 import '../restore_backups.dart';
 
+/// The .catsync files of the folder the keeper picks, copied where the
+/// app can read them; null when the picker was dismissed. Android only:
+/// the install before wrote Downloads/catlog through MediaStore, which
+/// survives an uninstall, and only the picker can grant it to this one.
+Future<List<File>?> pickBackupFolderAndroid() async {
+  final paths = await const MethodChannel('catlog/restore')
+      .invokeListMethod<String>('pickFolder');
+  return paths?.map(File.new).toList();
+}
+
 /// Backups from the install before this one, offered on a fresh start
 /// (#102) and from Manage catalogs. Lists what the backup folder holds,
 /// one row per catalog, all ticked; Restore brings each back as its own
-/// catalog. "Pick files…" adds backups kept elsewhere.
+/// catalog. On Android the folder cannot be read unasked: the page names
+/// Downloads/catlog and a button opens the picker on it. "Pick files…"
+/// adds backups kept elsewhere.
 class RestoreScreen extends StatefulWidget {
   final CatalogManager catalogs;
 
   /// Where to look; defaults to the platform's backup folder.
   final Future<Directory?> Function() folder;
+
+  /// Opens the folder picker on the backups; null where the folder is
+  /// readable without one. Defaults to the Android picker there.
+  final Future<List<File>?> Function()? pickFolder;
 
   /// Called when the screen is done, with the first restored catalog or
   /// null when nothing was restored.
@@ -32,8 +49,12 @@ class RestoreScreen extends StatefulWidget {
     required this.catalogs,
     required this.onDone,
     this.folder = backupFolder,
+    this.pickFolder,
     this.skipWhenEmpty = true,
   });
+
+  Future<List<File>?> Function()? get _picker =>
+      pickFolder ?? (Platform.isAndroid ? pickBackupFolderAndroid : null);
 
   @override
   State<RestoreScreen> createState() => _RestoreScreenState();
@@ -58,9 +79,17 @@ class _RestoreScreenState extends State<RestoreScreen> {
       _files.addAll(folder.listSync().whereType<File>());
     }
     _regroup();
-    if (_sets!.isEmpty && widget.skipWhenEmpty) {
+    // Nothing found and no way to ask for a folder: nothing to offer.
+    if (_sets!.isEmpty && widget.skipWhenEmpty && widget._picker == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) => widget.onDone(null));
     }
+  }
+
+  Future<void> _pickFolder() async {
+    final files = await widget._picker!();
+    if (files == null || !mounted) return;
+    _files.addAll(files);
+    _regroup();
   }
 
   void _regroup() {
@@ -112,8 +141,26 @@ class _RestoreScreenState extends State<RestoreScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-                  child: Text(sets.isEmpty ? t.restoreNone : t.restoreIntro),
+                  child: Text(
+                    sets.isNotEmpty
+                        ? t.restoreIntro
+                        : widget._picker != null
+                            ? t.restoreAndroidHint
+                            : t.restoreNone,
+                  ),
                 ),
+                if (widget._picker != null)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                    child: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: FilledButton.tonalIcon(
+                        icon: const Icon(Icons.folder_open),
+                        label: Text(t.restorePickFolder),
+                        onPressed: _restoring ? null : _pickFolder,
+                      ),
+                    ),
+                  ),
                 for (final (i, set) in sets.indexed)
                   CheckboxListTile(
                     value: _selected.contains(i),

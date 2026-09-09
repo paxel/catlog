@@ -3334,4 +3334,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Pataisymas';
+
+  @override
+  String get restorePickFolder => 'Pasirinkti atsarginių kopijų aplanką…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Ankstesnio įdiegimo atsarginės kopijos yra Downloads/catlog. Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.';
 }

@@ -3319,4 +3319,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Correctie';
+
+  @override
+  String get restorePickFolder => 'Back-upmap kiezen…';
+
+  @override
+  String get restoreAndroidHint =>
+      'De back-ups van de vorige installatie staan in Downloads/catlog. Kies die map één keer; de back-ups verschijnen hier.';
 }

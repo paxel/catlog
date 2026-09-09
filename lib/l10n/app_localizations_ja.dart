@@ -3182,4 +3182,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get entryCorrection => '修正';
+
+  @override
+  String get restorePickFolder => 'バックアップフォルダを選択…';
+
+  @override
+  String get restoreAndroidHint =>
+      '以前のインストールのバックアップは Downloads/catlog にあります。そのフォルダを一度選ぶと、バックアップがここに表示されます。';
 }

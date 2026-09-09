@@ -3329,4 +3329,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Corectură';
+
+  @override
+  String get restorePickFolder => 'Alege dosarul copiilor de siguranță…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Copiile de siguranță ale instalării anterioare sunt în Downloads/catlog. Alege acel dosar o dată; copiile lui apar aici.';
 }

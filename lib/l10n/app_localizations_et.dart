@@ -3311,4 +3311,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Parandus';
+
+  @override
+  String get restorePickFolder => 'Vali varukoopiate kaust…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Eelmise paigalduse varukoopiad on kaustas Downloads/catlog. Vali see kaust üks kord; selle koopiad kuvatakse siin.';
 }

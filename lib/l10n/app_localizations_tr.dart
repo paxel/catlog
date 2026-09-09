@@ -3312,4 +3312,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Düzeltme';
+
+  @override
+  String get restorePickFolder => 'Yedek klasörünü seç…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Önceki kurulumun yedekleri Downloads/catlog içinde. O klasörü bir kez seçin; yedekleri burada listelenir.';
 }

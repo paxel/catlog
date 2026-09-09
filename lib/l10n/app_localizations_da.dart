@@ -3313,4 +3313,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Rettelse';
+
+  @override
+  String get restorePickFolder => 'Vælg backupmappe…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Backups fra den forrige installation ligger i Downloads/catlog. Vælg den mappe én gang; dens backups vises her.';
 }

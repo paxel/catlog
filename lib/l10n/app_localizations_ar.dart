@@ -3348,4 +3348,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get entryCorrection => 'تصحيح';
+
+  @override
+  String get restorePickFolder => 'اختيار مجلد النسخ الاحتياطية…';
+
+  @override
+  String get restoreAndroidHint =>
+      'النسخ الاحتياطية للتثبيت السابق موجودة في Downloads/catlog. اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.';
 }

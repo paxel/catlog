@@ -3326,4 +3326,11 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Исправка';
+
+  @override
+  String get restorePickFolder => 'Изабери фасциклу резервних копија…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Резервне копије претходне инсталације су у Downloads/catlog. Изаберите ту фасциклу једном; њене копије се приказују овде.';
 }

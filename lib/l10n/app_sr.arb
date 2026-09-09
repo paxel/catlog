@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Исправка"
+  "entryCorrection": "Исправка",
+  "restorePickFolder": "Изабери фасциклу резервних копија…",
+  "restoreAndroidHint": "Резервне копије претходне инсталације су у Downloads/catlog. Изаберите ту фасциклу једном; њене копије се приказују овде."
 }

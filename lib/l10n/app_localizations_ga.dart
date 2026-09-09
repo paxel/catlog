@@ -3368,4 +3368,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Ceartúchán';
+
+  @override
+  String get restorePickFolder => 'Roghnaigh fillteán na gcúltacaí…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Tá cúltacaí na suiteála roimhe seo in Downloads/catlog. Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.';
 }

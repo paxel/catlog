@@ -3328,4 +3328,11 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Korrezzjoni';
+
+  @override
+  String get restorePickFolder => 'Agħżel il-folder tal-backups…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Il-backups tal-installazzjoni ta\' qabel qegħdin f\'Downloads/catlog. Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.';
 }

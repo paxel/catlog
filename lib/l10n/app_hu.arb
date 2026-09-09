@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Javítás"
+  "entryCorrection": "Javítás",
+  "restorePickFolder": "Mentési mappa kiválasztása…",
+  "restoreAndroidHint": "Az előző telepítés mentései a Downloads/catlog mappában vannak. Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg."
 }

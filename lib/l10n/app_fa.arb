@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "اصلاح"
+  "entryCorrection": "اصلاح",
+  "restorePickFolder": "انتخاب پوشهٔ پشتیبان…",
+  "restoreAndroidHint": "پشتیبان‌های نصب قبلی در Downloads/catlog هستند. آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند."
 }

@@ -3313,4 +3313,11 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Поправка';
+
+  @override
+  String get restorePickFolder => 'Избор на папка с резервни копия…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Резервните копия на предишната инсталация са в Downloads/catlog. Изберете тази папка веднъж; копията ѝ се показват тук.';
 }

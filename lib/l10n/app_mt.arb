@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Korrezzjoni"
+  "entryCorrection": "Korrezzjoni",
+  "restorePickFolder": "Agħżel il-folder tal-backups…",
+  "restoreAndroidHint": "Il-backups tal-installazzjoni ta' qabel qegħdin f'Downloads/catlog. Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn."
 }

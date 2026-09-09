@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Korjaus"
+  "entryCorrection": "Korjaus",
+  "restorePickFolder": "Valitse varmuuskopiokansio…",
+  "restoreAndroidHint": "Edellisen asennuksen varmuuskopiot ovat kansiossa Downloads/catlog. Valitse kansio kerran; sen kopiot näkyvät tässä."
 }

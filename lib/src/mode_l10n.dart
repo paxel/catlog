@@ -2056,6 +2056,9 @@ class ModeLocalizations implements AppLocalizations {
   String get restoreAction => base.restoreAction;
 
   @override
+  String get restoreAndroidHint => base.restoreAndroidHint;
+
+  @override
   String get restoreBackupsMenu => base.restoreBackupsMenu;
 
   @override
@@ -2078,6 +2081,9 @@ class ModeLocalizations implements AppLocalizations {
 
   @override
   String get restorePickFiles => base.restorePickFiles;
+
+  @override
+  String get restorePickFolder => base.restorePickFolder;
 
   @override
   String get restoreThisValue => base.restoreThisValue;

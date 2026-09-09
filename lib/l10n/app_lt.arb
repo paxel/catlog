@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Pataisymas"
+  "entryCorrection": "Pataisymas",
+  "restorePickFolder": "Pasirinkti atsarginių kopijų aplanką…",
+  "restoreAndroidHint": "Ankstesnio įdiegimo atsarginės kopijos yra Downloads/catlog. Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia."
 }

@@ -3334,4 +3334,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Виправлення';
+
+  @override
+  String get restorePickFolder => 'Вибрати теку резервних копій…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Резервні копії попередньої інсталяції лежать у Downloads/catlog. Виберіть цю теку один раз; її копії з\'являться тут.';
 }

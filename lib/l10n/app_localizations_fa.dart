@@ -3252,4 +3252,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get entryCorrection => 'اصلاح';
+
+  @override
+  String get restorePickFolder => 'انتخاب پوشهٔ پشتیبان…';
+
+  @override
+  String get restoreAndroidHint =>
+      'پشتیبان‌های نصب قبلی در Downloads/catlog هستند. آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند.';
 }

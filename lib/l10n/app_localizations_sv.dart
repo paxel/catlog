@@ -3311,4 +3311,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Rättelse';
+
+  @override
+  String get restorePickFolder => 'Välj säkerhetskopiemapp…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Säkerhetskopiorna från den förra installationen finns i Downloads/catlog. Välj den mappen en gång; dess kopior visas här.';
 }

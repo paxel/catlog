@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Labojums"
+  "entryCorrection": "Labojums",
+  "restorePickFolder": "Izvēlēties rezerves kopiju mapi…",
+  "restoreAndroidHint": "Iepriekšējās instalācijas rezerves kopijas ir mapē Downloads/catlog. Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit."
 }

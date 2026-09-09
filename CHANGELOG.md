@@ -22,6 +22,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Reverting a change removes it instead of writing the old value again.
 
 ### Fixed
+- Restoring after a reinstall works on Android: the restore page opens the picker on Downloads/catlog, and one grant lists every backup there.
 - Two devices changing a choice field's option list at the same time get both lists merged instead of a conflict.
 - Chores on a cat's or home's page are ordered like the agenda: due today by time, the rest and the paused ones behind a Coming up fold.
 - Chore reminders of every catalog stay scheduled; opening another catalog used to cancel them.

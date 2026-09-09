@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Исправление"
+  "entryCorrection": "Исправление",
+  "restorePickFolder": "Выбрать папку резервных копий…",
+  "restoreAndroidHint": "Резервные копии прошлой установки лежат в Downloads/catlog. Выберите эту папку один раз; её копии появятся здесь."
 }

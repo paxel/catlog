@@ -36,6 +36,12 @@ void main() {
     return f;
   }
 
+  test('MediaStore copies of a reinstall share the stem', () {
+    expect(backupStem('catlog-berlin (1).catsync'), 'berlin');
+    expect(backupStem('catlog-berlin (2).catsync.zip'), 'berlin');
+    expect(backupStem('catlog-berlin.catsync'), 'berlin');
+  });
+
   test('file names read as catalog names', () {
     expect(catalogNameFromFile('catlog-berlin-nord.catsync'), 'Berlin Nord');
     expect(catalogNameFromFile('catlog-cats-1a2b3c4d.catsync'), 'Cats');
@@ -180,5 +186,40 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(done, 1);
+  });
+
+  testWidgets('with a folder picker the empty page stays and lists the pick', (
+    tester,
+  ) async {
+    final old = CatalogStore.inMemory()..author = 'anna';
+    old.createCat('Miezi');
+    writeBundle(
+      old,
+      '${folder.path}/catlog-paris (1).catsync',
+      includePrivate: true,
+    );
+    old.close();
+    var done = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: RestoreScreen(
+          catalogs: catalogs,
+          folder: () async => null,
+          pickFolder: () async => folder.listSync().whereType<File>().toList(),
+          onDone: (_) => done++,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(done, 0);
+    expect(find.textContaining('Downloads/catlog'), findsOneWidget);
+    await tester.tap(find.text('Choose backup folder…'));
+    await tester.pumpAndSettle();
+    expect(find.text('Paris'), findsOneWidget);
+    await tester.tap(find.text('Restore'));
+    await tester.pumpAndSettle();
+    expect(catalogs.catalogs().map((c) => c.name), ['Berlin', 'Paris']);
   });
 }

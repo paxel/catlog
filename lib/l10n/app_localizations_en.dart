@@ -3314,4 +3314,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Correction';
+
+  @override
+  String get restorePickFolder => 'Choose backup folder…';
+
+  @override
+  String get restoreAndroidHint =>
+      'The backups of the install before this one are in Downloads/catlog. Choose that folder once; its backups are listed here.';
 }

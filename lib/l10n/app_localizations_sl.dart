@@ -3342,4 +3342,11 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Popravek';
+
+  @override
+  String get restorePickFolder => 'Izberi mapo varnostnih kopij…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Varnostne kopije prejšnje namestitve so v Downloads/catlog. Izberite to mapo enkrat; njene kopije so navedene tukaj.';
 }

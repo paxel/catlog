@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Leiðrétting"
+  "entryCorrection": "Leiðrétting",
+  "restorePickFolder": "Velja afritamöppu…",
+  "restoreAndroidHint": "Afrit fyrri uppsetningar eru í Downloads/catlog. Veldu þá möppu einu sinni; afrit hennar birtast hér."
 }

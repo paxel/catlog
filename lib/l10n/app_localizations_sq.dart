@@ -3315,4 +3315,11 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Korrigjim';
+
+  @override
+  String get restorePickFolder => 'Zgjidh dosjen e kopjeve rezervë…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Kopjet rezervë të instalimit të mëparshëm janë në Downloads/catlog. Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.';
 }

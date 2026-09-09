@@ -3326,4 +3326,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Oprava';
+
+  @override
+  String get restorePickFolder => 'Vybrat složku záloh…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Zálohy předchozí instalace jsou v Downloads/catlog. Vyberte tuto složku jednou; její zálohy se zobrazí zde.';
 }

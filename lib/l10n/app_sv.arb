@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Rättelse"
+  "entryCorrection": "Rättelse",
+  "restorePickFolder": "Välj säkerhetskopiemapp…",
+  "restoreAndroidHint": "Säkerhetskopiorna från den förra installationen finns i Downloads/catlog. Välj den mappen en gång; dess kopior visas här."
 }

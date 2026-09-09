@@ -3327,4 +3327,11 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Ispravka';
+
+  @override
+  String get restorePickFolder => 'Odaberi folder sigurnosnih kopija…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Sigurnosne kopije prethodne instalacije su u Downloads/catlog. Odaberite taj folder jednom; njegove kopije se prikazuju ovdje.';
 }

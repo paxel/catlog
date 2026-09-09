@@ -3310,4 +3310,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get entryCorrection => 'תיקון';
+
+  @override
+  String get restorePickFolder => 'בחירת תיקיית גיבויים…';
+
+  @override
+  String get restoreAndroidHint =>
+      'הגיבויים של ההתקנה הקודמת נמצאים ב-Downloads/catlog. יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.';
 }

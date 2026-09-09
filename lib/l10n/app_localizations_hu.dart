@@ -3314,4 +3314,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Javítás';
+
+  @override
+  String get restorePickFolder => 'Mentési mappa kiválasztása…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Az előző telepítés mentései a Downloads/catlog mappában vannak. Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.';
 }

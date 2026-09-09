@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Korrigjim"
+  "entryCorrection": "Korrigjim",
+  "restorePickFolder": "Zgjidh dosjen e kopjeve rezervë…",
+  "restoreAndroidHint": "Kopjet rezervë të instalimit të mëparshëm janë në Downloads/catlog. Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu."
 }

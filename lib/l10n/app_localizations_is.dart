@@ -3318,4 +3318,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Leiðrétting';
+
+  @override
+  String get restorePickFolder => 'Velja afritamöppu…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Afrit fyrri uppsetningar eru í Downloads/catlog. Veldu þá möppu einu sinni; afrit hennar birtast hér.';
 }

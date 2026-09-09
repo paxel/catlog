@@ -3315,4 +3315,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Correção';
+
+  @override
+  String get restorePickFolder => 'Escolher pasta de cópias…';
+
+  @override
+  String get restoreAndroidHint =>
+      'As cópias da instalação anterior estão em Downloads/catlog. Escolha essa pasta uma vez; as cópias aparecem aqui.';
 }

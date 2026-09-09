@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Correctie"
+  "entryCorrection": "Correctie",
+  "restorePickFolder": "Back-upmap kiezen…",
+  "restoreAndroidHint": "De back-ups van de vorige installatie staan in Downloads/catlog. Kies die map één keer; de back-ups verschijnen hier."
 }

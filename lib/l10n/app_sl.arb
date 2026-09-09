@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Popravek"
+  "entryCorrection": "Popravek",
+  "restorePickFolder": "Izberi mapo varnostnih kopij…",
+  "restoreAndroidHint": "Varnostne kopije prejšnje namestitve so v Downloads/catlog. Izberite to mapo enkrat; njene kopije so navedene tukaj."
 }

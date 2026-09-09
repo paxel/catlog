@@ -17,6 +17,7 @@ class MainActivity : FlutterActivity() {
     private var pendingOpen: String? = null
     private var pendingImages: List<String>? = null
     private var folderChannel: FolderChannel? = null
+    private var restoreChannel: RestoreChannel? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -40,6 +41,10 @@ class MainActivity : FlutterActivity() {
         val folder = FolderChannel(this).also { folderChannel = it }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/folder")
             .setMethodCallHandler { call, result -> folder.handle(call, result) }
+        // The backups of the install before, through the picker (1.2.3).
+        val restore = RestoreChannel(this).also { restoreChannel = it }
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/restore")
+            .setMethodCallHandler { call, result -> restore.handle(call, result) }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "catlog/backup")
             .setMethodCallHandler { call, result ->
                 if (call.method == "saveToDownloads") {
@@ -57,8 +62,6 @@ class MainActivity : FlutterActivity() {
                     } catch (e: Exception) {
                         result.error("backup", e.message, null)
                     }
-                } else if (call.method == "mediaBackupDir") {
-                    result.success(mediaBackupDir()?.absolutePath)
                 } else if (call.method == "openBatterySettings") {
                     // Where the maker's battery saver can be told to leave
                     // the app's reminders alone.
@@ -83,6 +86,7 @@ class MainActivity : FlutterActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (folderChannel?.onActivityResult(requestCode, resultCode, data) == true) return
+        if (restoreChannel?.onActivityResult(requestCode, resultCode, data) == true) return
         @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
     }
@@ -139,16 +143,6 @@ class MainActivity : FlutterActivity() {
         if (paths.isEmpty()) return
         pendingImages = paths
         openChannel?.invokeMethod("sharedImages", paths)
-    }
-
-    /// The app's own folder on shared storage, Android/media/<package>/
-    /// backups. Unlike Android/data it is NOT removed on uninstall, and a
-    /// fresh install of the same package reads and writes it without any
-    /// permission — the WhatsApp way of surviving a reinstall. Plain
-    /// file access, so Dart lists and copies there itself.
-    private fun mediaBackupDir(): File? {
-        val root = externalMediaDirs.firstOrNull() ?: return null
-        return File(root, "backups").apply { mkdirs() }
     }
 
     /// Removes a backup file from Downloads/catlog — used when a catalog

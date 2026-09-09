@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Виправлення"
+  "entryCorrection": "Виправлення",
+  "restorePickFolder": "Вибрати теку резервних копій…",
+  "restoreAndroidHint": "Резервні копії попередньої інсталяції лежать у Downloads/catlog. Виберіть цю теку один раз; її копії з'являться тут."
 }

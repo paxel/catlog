@@ -3325,4 +3325,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Oprava';
+
+  @override
+  String get restorePickFolder => 'Vybrať priečinok záloh…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Zálohy predchádzajúcej inštalácie sú v Downloads/catlog. Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu.';
 }

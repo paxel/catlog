@@ -1101,5 +1101,7 @@
       "when": {}
     }
   },
-  "entryCorrection": "Oprava"
+  "entryCorrection": "Oprava",
+  "restorePickFolder": "Vybrat složku záloh…",
+  "restoreAndroidHint": "Zálohy předchozí instalace jsou v Downloads/catlog. Vyberte tuto složku jednou; její zálohy se zobrazí zde."
 }

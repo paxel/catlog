@@ -3315,4 +3315,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Korjaus';
+
+  @override
+  String get restorePickFolder => 'Valitse varmuuskopiokansio…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Edellisen asennuksen varmuuskopiot ovat kansiossa Downloads/catlog. Valitse kansio kerran; sen kopiot näkyvät tässä.';
 }

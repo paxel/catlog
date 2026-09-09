@@ -3311,4 +3311,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Rettelse';
+
+  @override
+  String get restorePickFolder => 'Velg sikkerhetskopimappe…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Sikkerhetskopiene fra forrige installasjon ligger i Downloads/catlog. Velg den mappen én gang; kopiene vises her.';
 }

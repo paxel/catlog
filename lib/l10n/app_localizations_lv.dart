@@ -3329,4 +3329,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get entryCorrection => 'Labojums';
+
+  @override
+  String get restorePickFolder => 'Izvēlēties rezerves kopiju mapi…';
+
+  @override
+  String get restoreAndroidHint =>
+      'Iepriekšējās instalācijas rezerves kopijas ir mapē Downloads/catlog. Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.';
 }
