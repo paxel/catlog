@@ -245,12 +245,14 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     }
     if (!mounted) return;
     if (on) {
+      // Opens at the chore's own time, else now: a fixed 08:00 read as
+      // a wrong time zone on a mid-morning phone.
+      final at = _remindAt ?? _time;
       final picked = await showTimePicker(
         context: context,
-        initialTime: TimeOfDay(
-          hour: _remindAt?.hour ?? _time?.hour ?? 8,
-          minute: _remindAt?.minute ?? _time?.minute ?? 0,
-        ),
+        initialTime: at == null
+            ? TimeOfDay.now()
+            : TimeOfDay(hour: at.hour, minute: at.minute),
       );
       if (picked == null || !mounted) return;
       _remindAt = (hour: picked.hour, minute: picked.minute);
