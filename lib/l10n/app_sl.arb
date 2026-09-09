@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Vsako kopijo lahko prejema tudi mapa po vaši izbiri: Google Drive, Dropbox, Nextcloud, mapa Syncthing. Kopije pristanejo v catlog-backups v njej.",
+  "backupsFolderPick": "Kopiraj tudi v mapo…",
+  "backupsFolderIs": "Kopira se tudi v {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Nehaj kopirati tja"
 }

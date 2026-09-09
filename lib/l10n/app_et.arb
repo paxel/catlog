@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Iga koopia võib saada ka sinu valitud kaust: Google Drive, Dropbox, Nextcloud, Syncthingi kaust. Koopiad lähevad selle sees kausta catlog-backups.",
+  "backupsFolderPick": "Kopeeri ka kausta…",
+  "backupsFolderIs": "Kopeeritakse ka kausta {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Lõpeta sinna kopeerimine"
 }

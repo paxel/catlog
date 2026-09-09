@@ -43,4 +43,28 @@ void main() {
     ]);
     expect(saves, 1);
   });
+
+  test('the chosen folder gets the same file, its failure is recorded',
+      () async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    store.createCat('Miezi');
+    store.setLocalSetting(backupFolderKey, 'content://drive/tree/x');
+    final copies = <(String, String)>[];
+    await autoBackup(
+      store,
+      save: (path, name) async => name,
+      copy: (tree, path, name) async => copies.add((tree, name)),
+    );
+    expect(copies, [('content://drive/tree/x', 'catlog-backup.catsync')]);
+    expect(store.localSetting(backupErrorKey), '');
+
+    store.createCat('Mizzi');
+    await autoBackup(
+      store,
+      save: (path, name) async => name,
+      copy: (tree, path, name) async => throw Exception('drive gone'),
+    );
+    expect(store.localSetting(backupErrorKey), contains('drive gone'));
+  });
 }

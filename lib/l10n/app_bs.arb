@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Svaku kopiju može dobijati i folder po vašem izboru: Google Drive, Dropbox, Nextcloud, Syncthing folder. Kopije završavaju u catlog-backups unutar njega.",
+  "backupsFolderPick": "Kopiraj i u folder…",
+  "backupsFolderIs": "Kopira se i u {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Prestani kopirati tamo"
 }

@@ -3379,4 +3379,19 @@ class AppLocalizationsBs extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Vraćeno iz Google sigurnosne kopije $date. Ako stari telefon još koristi cat(a)log, sinhronizujte jednom s njega, pa tamo uklonite aplikaciju.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Svaku kopiju može dobijati i folder po vašem izboru: Google Drive, Dropbox, Nextcloud, Syncthing folder. Kopije završavaju u catlog-backups unutar njega.';
+
+  @override
+  String get backupsFolderPick => 'Kopiraj i u folder…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopira se i u $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Prestani kopirati tamo';
 }

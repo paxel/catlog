@@ -3367,4 +3367,19 @@ class AppLocalizationsFi extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Palautettu Google-varmuuskopiosta $date. Jos vanhassa puhelimessa on yhä cat(a)log, synkronoi kerran sieltä ja poista sovellus sitten sieltä.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Myös valitsemasi kansio voi saada jokaisen kopion: Google Drive, Dropbox, Nextcloud, Syncthing-kansio. Kopiot menevät sen sisällä kansioon catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Kopioi myös kansioon…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopioidaan myös kansioon $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Lopeta kopiointi sinne';
 }

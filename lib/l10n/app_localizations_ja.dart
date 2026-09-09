@@ -3234,4 +3234,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return '$date に Google バックアップから復元しました。古い端末でまだ cat(a)log を使っている場合は、そこから一度同期してから、その端末のアプリを削除してください。';
   }
+
+  @override
+  String get backupsFolderHint =>
+      '任意のフォルダにも各コピーを送れます: Google ドライブ、Dropbox、Nextcloud、Syncthing のフォルダなど。コピーはその中の catlog-backups に入ります。';
+
+  @override
+  String get backupsFolderPick => 'フォルダにもコピー…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '$name にもコピー';
+  }
+
+  @override
+  String get backupsFolderRemove => 'そこへのコピーをやめる';
 }

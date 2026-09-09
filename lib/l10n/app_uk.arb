@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Кожну копію може отримувати й тека на ваш вибір: Google Drive, Dropbox, Nextcloud, тека Syncthing. Копії лягають у catlog-backups усередині неї.",
+  "backupsFolderPick": "Копіювати і в теку…",
+  "backupsFolderIs": "Копіюється і в {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Більше не копіювати туди"
 }

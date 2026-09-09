@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Каждую копию может получать и папка на ваш выбор: Google Drive, Dropbox, Nextcloud, папка Syncthing. Копии ложатся в catlog-backups внутри неё.",
+  "backupsFolderPick": "Копировать и в папку…",
+  "backupsFolderIs": "Копируется и в {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Больше не копировать туда"
 }

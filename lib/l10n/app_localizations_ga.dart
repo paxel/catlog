@@ -3420,4 +3420,19 @@ class AppLocalizationsGa extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Athchóirithe ó chúltaca Google ar $date. Má tá cat(a)log fós ar an seanghuthán, sioncronaigh uair amháin uaidh, ansin bain an aip ansin.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Is féidir le fillteán de do rogha gach cóip a fháil freisin: Google Drive, Dropbox, Nextcloud, fillteán Syncthing. Téann na cóipeanna isteach i catlog-backups laistigh de.';
+
+  @override
+  String get backupsFolderPick => 'Cóipeáil chuig fillteán freisin…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Cóipeáilte chuig $name freisin';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Stop ag cóipeáil ansin';
 }

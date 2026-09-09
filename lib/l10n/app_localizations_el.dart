@@ -3377,4 +3377,19 @@ class AppLocalizationsEl extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Επαναφορά από το αντίγραφο Google στις $date. Αν το παλιό τηλέφωνο χρησιμοποιεί ακόμη το cat(a)log, συγχρονίστε μία φορά από αυτό και μετά αφαιρέστε εκεί την εφαρμογή.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Και ένας φάκελος της επιλογής σας μπορεί να λαμβάνει κάθε αντίγραφο: Google Drive, Dropbox, Nextcloud, φάκελος Syncthing. Τα αντίγραφα μπαίνουν στο catlog-backups μέσα του.';
+
+  @override
+  String get backupsFolderPick => 'Αντιγραφή και σε φάκελο…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Αντιγράφεται και στο $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Διακοπή αντιγραφής εκεί';
 }

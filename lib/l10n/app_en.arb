@@ -1913,5 +1913,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "A folder of your choice can receive every copy too: Google Drive, Dropbox, Nextcloud, a Syncthing folder. The copies land in catlog-backups inside it.",
+  "backupsFolderPick": "Also copy to a folder…",
+  "backupsFolderIs": "Also copied to {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Stop copying there"
 }

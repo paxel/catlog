@@ -37,7 +37,7 @@ void main() {
         },
       ),
     );
-    expect(find.textContaining('Google'), findsOneWidget);
+    expect(find.textContaining('Google backs up'), findsOneWidget);
     expect(find.textContaining('Documents/catlog'), findsOneWidget);
     expect(find.text('No copy written yet.'), findsOneWidget);
 
@@ -61,5 +61,29 @@ void main() {
     expect(find.textContaining('Files'), findsOneWidget);
     await pump(tester, BackupsScreen(store: store, platform: 'desktop'));
     expect(find.textContaining('Downloads'), findsOneWidget);
+  });
+
+  testWidgets('a folder can be chosen for the copies and forgotten', (
+    tester,
+  ) async {
+    final store = CatalogStore.inMemory()..author = 'anna';
+    addTearDown(store.close);
+    await pump(
+      tester,
+      BackupsScreen(
+        store: store,
+        platform: 'android',
+        pickFolder: () async => 'content://drive/tree/primary%3ABackups',
+        folderName: (tree) async => 'Backups',
+      ),
+    );
+    await tester.tap(find.text('Also copy to a folder…'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting(backupFolderKey), startsWith('content://'));
+    expect(find.text('Also copied to Backups'), findsOneWidget);
+    await tester.tap(find.byTooltip('Stop copying there'));
+    await tester.pumpAndSettle();
+    expect(store.localSetting(backupFolderKey), '');
+    expect(find.text('Also copy to a folder…'), findsOneWidget);
   });
 }

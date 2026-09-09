@@ -3366,4 +3366,19 @@ class AppLocalizationsHu extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Visszaállítva a Google-mentésből: $date. Ha a régi telefonon még fut a cat(a)log, szinkronizálj egyszer onnan, majd ott töröld az appot.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Egy általad választott mappa is megkaphat minden másolatot: Google Drive, Dropbox, Nextcloud, Syncthing-mappa. A másolatok a benne lévő catlog-backups mappába kerülnek.';
+
+  @override
+  String get backupsFolderPick => 'Másolás mappába is…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Másolva ide is: $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Ne másoljon oda többé';
 }

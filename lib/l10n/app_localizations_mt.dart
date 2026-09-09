@@ -3380,4 +3380,19 @@ class AppLocalizationsMt extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Irrestawrat mill-backup ta\' Google fi $date. Jekk it-telefon il-qadim għadu juża cat(a)log, issinkronizza darba minnu, imbagħad neħħi l-app hemm.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Folder li tagħżel int jista\' jirċievi kull kopja wkoll: Google Drive, Dropbox, Nextcloud, folder ta\' Syncthing. Il-kopji jispiċċaw f\'catlog-backups ġo fih.';
+
+  @override
+  String get backupsFolderPick => 'Ikkopja wkoll f\'folder…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Ikkopjat ukoll f\'$name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Ieqaf tikkopja hemm';
 }

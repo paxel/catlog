@@ -3377,4 +3377,19 @@ class AppLocalizationsSk extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Obnovené zo zálohy Google $date. Ak starý telefón stále používa cat(a)log, raz z neho synchronizujte a potom tam aplikáciu odstráňte.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Každú kópiu môže dostávať aj priečinok podľa vášho výberu: Google Drive, Dropbox, Nextcloud, priečinok Syncthing. Kópie končia v catlog-backups vnútri.';
+
+  @override
+  String get backupsFolderPick => 'Kopírovať aj do priečinka…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopírované aj do $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Prestať tam kopírovať';
 }

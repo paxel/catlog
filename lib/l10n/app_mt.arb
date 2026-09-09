@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Folder li tagħżel int jista' jirċievi kull kopja wkoll: Google Drive, Dropbox, Nextcloud, folder ta' Syncthing. Il-kopji jispiċċaw f'catlog-backups ġo fih.",
+  "backupsFolderPick": "Ikkopja wkoll f'folder…",
+  "backupsFolderIs": "Ikkopjat ukoll f'{name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Ieqaf tikkopja hemm"
 }

@@ -3381,4 +3381,19 @@ class AppLocalizationsLv extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Atjaunots no Google dublējuma $date. Ja vecajā tālrunī vēl darbojas cat(a)log, vienreiz sinhronizējiet no tā un pēc tam tur noņemiet lietotni.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Katru kopiju var saņemt arī jūsu izvēlēta mape: Google Drive, Dropbox, Nextcloud, Syncthing mape. Kopijas nonāk tajā esošajā catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Kopēt arī mapē…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopē arī uz $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Vairs nekopēt turp';
 }

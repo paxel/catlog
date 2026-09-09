@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Seçtiğin bir klasör de her kopyayı alabilir: Google Drive, Dropbox, Nextcloud, bir Syncthing klasörü. Kopyalar içindeki catlog-backups klasörüne düşer.",
+  "backupsFolderPick": "Bir klasöre de kopyala…",
+  "backupsFolderIs": "{name} klasörüne de kopyalanıyor",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Oraya kopyalamayı bırak"
 }

@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Και ένας φάκελος της επιλογής σας μπορεί να λαμβάνει κάθε αντίγραφο: Google Drive, Dropbox, Nextcloud, φάκελος Syncthing. Τα αντίγραφα μπαίνουν στο catlog-backups μέσα του.",
+  "backupsFolderPick": "Αντιγραφή και σε φάκελο…",
+  "backupsFolderIs": "Αντιγράφεται και στο {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Διακοπή αντιγραφής εκεί"
 }

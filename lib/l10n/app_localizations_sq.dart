@@ -3367,4 +3367,19 @@ class AppLocalizationsSq extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Rikthyer nga kopja rezervë e Google më $date. Nëse telefoni i vjetër ende përdor cat(a)log, sinkronizo një herë prej tij, pastaj hiqe aplikacionin atje.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Edhe një dosje sipas zgjedhjes sate mund të marrë çdo kopje: Google Drive, Dropbox, Nextcloud, një dosje Syncthing. Kopjet përfundojnë në catlog-backups brenda saj.';
+
+  @override
+  String get backupsFolderPick => 'Kopjo edhe në një dosje…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopjohet edhe në $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Mos kopjo më atje';
 }

@@ -3370,4 +3370,19 @@ class AppLocalizationsIs extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Endurheimt úr Google-afriti $date. Ef cat(a)log keyrir enn á gamla símanum, samstilltu einu sinni þaðan og fjarlægðu svo forritið þar.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Mappa að eigin vali getur líka fengið hvert afrit: Google Drive, Dropbox, Nextcloud, Syncthing-mappa. Afritin lenda í catlog-backups inni í henni.';
+
+  @override
+  String get backupsFolderPick => 'Afrita líka í möppu…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Afritað líka í $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Hætta að afrita þangað';
 }

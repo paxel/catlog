@@ -3386,4 +3386,19 @@ class AppLocalizationsLt extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Atkurta iš Google atsarginės kopijos $date. Jei sename telefone dar veikia cat(a)log, vieną kartą sinchronizuokite iš jo, tada ten pašalinkite programėlę.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: Google Drive, Dropbox, Nextcloud, Syncthing aplankas. Kopijos patenka į catlog-backups jo viduje.';
+
+  @override
+  String get backupsFolderPick => 'Kopijuoti ir į aplanką…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopijuojama ir į $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Nebekopijuoti ten';
 }

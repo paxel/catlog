@@ -1131,5 +1131,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Auch ein Ordner deiner Wahl kann jede Kopie bekommen: Google Drive, Dropbox, Nextcloud, ein Syncthing-Ordner. Die Kopien landen darin in catlog-backups.",
+  "backupsFolderPick": "Auch in einen Ordner kopieren…",
+  "backupsFolderIs": "Auch kopiert nach {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Nicht mehr dorthin kopieren"
 }

@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Сваку копију може да добија и фасцикла по вашем избору: Google Drive, Dropbox, Nextcloud, Syncthing фасцикла. Копије завршавају у catlog-backups унутар ње.",
+  "backupsFolderPick": "Копирај и у фасциклу…",
+  "backupsFolderIs": "Копира се и у {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Престани да копираш тамо"
 }

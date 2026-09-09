@@ -111,11 +111,13 @@ class FolderChannel(private val activity: Activity) {
 
     private fun name(call: MethodCall): String = call.argument<String>("name")!!
 
-    /// `catlog-sync`, or a subfolder of it; made on the way when [create].
+    /// `catlog-sync` (or the `root` the call names), or a subfolder of
+    /// it; made on the way when [create].
     private fun dir(call: MethodCall, create: Boolean): DocumentFile? {
         var dir = tree(call) ?: return null
         val sub = call.argument<String>("dir") ?: ""
-        val path = listOf(ROOT) + sub.split('/').filter { it.isNotEmpty() }
+        val root = call.argument<String>("root") ?: ROOT
+        val path = listOf(root) + sub.split('/').filter { it.isNotEmpty() }
         for (segment in path) {
             val next = dir.findFile(segment)
             dir = when {

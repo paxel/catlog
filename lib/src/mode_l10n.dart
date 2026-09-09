@@ -241,6 +241,18 @@ class ModeLocalizations implements AppLocalizations {
   String get backupsDone => base.backupsDone;
 
   @override
+  String get backupsFolderHint => base.backupsFolderHint;
+
+  @override
+  String backupsFolderIs(Object name) => base.backupsFolderIs(name);
+
+  @override
+  String get backupsFolderPick => base.backupsFolderPick;
+
+  @override
+  String get backupsFolderRemove => base.backupsFolderRemove;
+
+  @override
   String get backupsIosFiles => base.backupsIosFiles;
 
   @override

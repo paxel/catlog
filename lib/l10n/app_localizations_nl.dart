@@ -3371,4 +3371,19 @@ class AppLocalizationsNl extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Hersteld uit de Google-back-up op $date. Draait cat(a)log nog op de oude telefoon, synchroniseer dan één keer vanaf daar en verwijder de app daar.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Ook een map naar keuze kan elke kopie krijgen: Google Drive, Dropbox, Nextcloud, een Syncthing-map. De kopieën komen daarin in catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Ook naar een map kopiëren…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Ook gekopieerd naar $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Daar niet meer naartoe kopiëren';
 }

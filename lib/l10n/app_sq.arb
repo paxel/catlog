@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Edhe një dosje sipas zgjedhjes sate mund të marrë çdo kopje: Google Drive, Dropbox, Nextcloud, një dosje Syncthing. Kopjet përfundojnë në catlog-backups brenda saj.",
+  "backupsFolderPick": "Kopjo edhe në një dosje…",
+  "backupsFolderIs": "Kopjohet edhe në {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Mos kopjo më atje"
 }

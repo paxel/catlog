@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Uma pasta à tua escolha também pode receber cada cópia: Google Drive, Dropbox, Nextcloud, uma pasta Syncthing. As cópias ficam em catlog-backups dentro dela.",
+  "backupsFolderPick": "Copiar também para uma pasta…",
+  "backupsFolderIs": "Copiado também para {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Deixar de copiar para aí"
 }

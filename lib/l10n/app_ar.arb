@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "يمكن لمجلد من اختيارك أن يتلقى كل نسخة أيضاً: Google Drive أو Dropbox أو Nextcloud أو مجلد Syncthing. تُحفظ النسخ في catlog-backups داخله.",
+  "backupsFolderPick": "انسخ أيضاً إلى مجلد…",
+  "backupsFolderIs": "يُنسخ أيضاً إلى {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "توقف عن النسخ إلى هناك"
 }

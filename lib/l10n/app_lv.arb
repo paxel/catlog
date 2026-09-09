@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Katru kopiju var saņemt arī jūsu izvēlēta mape: Google Drive, Dropbox, Nextcloud, Syncthing mape. Kopijas nonāk tajā esošajā catlog-backups.",
+  "backupsFolderPick": "Kopēt arī mapē…",
+  "backupsFolderIs": "Kopē arī uz {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Vairs nekopēt turp"
 }

@@ -3376,4 +3376,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Restauré depuis la sauvegarde Google le $date. Si l\'ancien téléphone utilise encore cat(a)log, synchronisez une fois depuis celui-ci, puis supprimez-y l\'application.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Un dossier de votre choix peut aussi recevoir chaque copie : Google Drive, Dropbox, Nextcloud, un dossier Syncthing. Les copies vont dans catlog-backups à l\'intérieur.';
+
+  @override
+  String get backupsFolderPick => 'Copier aussi dans un dossier…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Copié aussi dans $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Ne plus copier là';
 }

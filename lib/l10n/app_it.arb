@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Anche una cartella a tua scelta può ricevere ogni copia: Google Drive, Dropbox, Nextcloud, una cartella Syncthing. Le copie finiscono in catlog-backups al suo interno.",
+  "backupsFolderPick": "Copia anche in una cartella…",
+  "backupsFolderIs": "Copiato anche in {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Smetti di copiare lì"
 }

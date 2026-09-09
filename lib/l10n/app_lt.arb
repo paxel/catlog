@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Kiekvieną kopiją gali gauti ir jūsų pasirinktas aplankas: Google Drive, Dropbox, Nextcloud, Syncthing aplankas. Kopijos patenka į catlog-backups jo viduje.",
+  "backupsFolderPick": "Kopijuoti ir į aplanką…",
+  "backupsFolderIs": "Kopijuojama ir į {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Nebekopijuoti ten"
 }

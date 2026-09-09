@@ -5845,6 +5845,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restored from the Google backup on {date}. If the old phone still runs cat(a)log, sync from it once, then remove the app there.'**
   String backupsRestoredNote(Object date);
+
+  /// No description provided for @backupsFolderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A folder of your choice can receive every copy too: Google Drive, Dropbox, Nextcloud, a Syncthing folder. The copies land in catlog-backups inside it.'**
+  String get backupsFolderHint;
+
+  /// No description provided for @backupsFolderPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Also copy to a folder…'**
+  String get backupsFolderPick;
+
+  /// No description provided for @backupsFolderIs.
+  ///
+  /// In en, this message translates to:
+  /// **'Also copied to {name}'**
+  String backupsFolderIs(Object name);
+
+  /// No description provided for @backupsFolderRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop copying there'**
+  String get backupsFolderRemove;
 }
 
 class _AppLocalizationsDelegate

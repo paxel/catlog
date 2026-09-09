@@ -3198,4 +3198,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return '已于 $date 从 Google 备份恢复。如果旧手机仍在运行 cat(a)log，请先从它同步一次，然后在旧手机上卸载应用。';
   }
+
+  @override
+  String get backupsFolderHint =>
+      '您选择的文件夹也可以收到每份副本：Google 云端硬盘、Dropbox、Nextcloud、Syncthing 文件夹。副本会放在其中的 catlog-backups 里。';
+
+  @override
+  String get backupsFolderPick => '同时复制到文件夹…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '同时复制到 $name';
+  }
+
+  @override
+  String get backupsFolderRemove => '停止复制到那里';
 }

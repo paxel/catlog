@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Každou kopii může dostávat i složka podle vašeho výběru: Google Drive, Dropbox, Nextcloud, složka Syncthing. Kopie končí v catlog-backups uvnitř.",
+  "backupsFolderPick": "Kopírovat i do složky…",
+  "backupsFolderIs": "Kopírováno i do {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Přestat tam kopírovat"
 }

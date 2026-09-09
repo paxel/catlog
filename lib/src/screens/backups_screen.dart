@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../auto_backup.dart';
 import '../l10n.dart';
+import '../sync/saf_folder.dart';
 
 /// Where the catalogs are kept safe, in the reader's own terms: what the
 /// phone backs up by itself (Google's app backup on Android, iCloud
@@ -21,11 +22,19 @@ class BackupsScreen extends StatefulWidget {
   /// The platform the page speaks for; the running one by default.
   final String? platform;
 
+  /// Opens the folder picker for the copies; the system one by default.
+  final Future<String?> Function()? pickFolder;
+
+  /// A folder's name for the row; the system's answer by default.
+  final Future<String> Function(String tree)? folderName;
+
   const BackupsScreen({
     super.key,
     required this.store,
     this.save,
     this.platform,
+    this.pickFolder,
+    this.folderName,
   });
 
   @override
@@ -36,6 +45,7 @@ class _BackupsScreenState extends State<BackupsScreen> {
   CatalogStore get store => widget.store;
   bool _busy = false;
   DateTime? _restored;
+  String? _folderLabel;
 
   String get _platform =>
       widget.platform ??
@@ -51,6 +61,29 @@ class _BackupsScreenState extends State<BackupsScreen> {
     restoredFromBackupAt().then((at) {
       if (mounted) setState(() => _restored = at);
     });
+    _nameFolder();
+  }
+
+  Future<void> _nameFolder() async {
+    final tree = store.localSetting(backupFolderKey);
+    if (tree == null || tree.isEmpty) {
+      if (mounted) setState(() => _folderLabel = null);
+      return;
+    }
+    final name = await (widget.folderName ?? SafSyncFolder.displayName)(tree);
+    if (mounted) setState(() => _folderLabel = name);
+  }
+
+  Future<void> _pickFolder() async {
+    final tree = await (widget.pickFolder ?? SafSyncFolder.pick)();
+    if (tree == null || !mounted) return;
+    store.setLocalSetting(backupFolderKey, tree);
+    await _nameFolder();
+  }
+
+  void _forgetFolder() {
+    store.setLocalSetting(backupFolderKey, '');
+    setState(() => _folderLabel = null);
   }
 
   Future<void> _backupNow() async {
@@ -109,6 +142,32 @@ class _BackupsScreenState extends State<BackupsScreen> {
               padding: const EdgeInsets.only(top: 12),
               child: Text(t.backupsRestoredNote(when(at))),
             ),
+          if (_platform == 'android') ...[
+            const SizedBox(height: 24),
+            Text(t.backupsFolderHint),
+            const SizedBox(height: 8),
+            if (_folderLabel case final label?)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.folder_shared_outlined),
+                title: Text(t.backupsFolderIs(label)),
+                trailing: IconButton(
+                  icon: const Icon(Icons.close),
+                  tooltip: t.backupsFolderRemove,
+                  onPressed: _forgetFolder,
+                ),
+                onTap: _pickFolder,
+              )
+            else
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.folder_open),
+                  label: Text(t.backupsFolderPick),
+                  onPressed: _pickFolder,
+                ),
+              ),
+          ],
           const SizedBox(height: 16),
           Align(
             alignment: AlignmentDirectional.centerStart,

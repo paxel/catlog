@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Mappa að eigin vali getur líka fengið hvert afrit: Google Drive, Dropbox, Nextcloud, Syncthing-mappa. Afritin lenda í catlog-backups inni í henni.",
+  "backupsFolderPick": "Afrita líka í möppu…",
+  "backupsFolderIs": "Afritað líka í {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Hætta að afrita þangað"
 }

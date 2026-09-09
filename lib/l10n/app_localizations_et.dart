@@ -3363,4 +3363,19 @@ class AppLocalizationsEt extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Taastatud Google\'i varukoopiast $date. Kui vanas telefonis on cat(a)log veel kasutusel, sünkrooni sealt üks kord ja eemalda siis rakendus sealt.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Iga koopia võib saada ka sinu valitud kaust: Google Drive, Dropbox, Nextcloud, Syncthingi kaust. Koopiad lähevad selle sees kausta catlog-backups.';
+
+  @override
+  String get backupsFolderPick => 'Kopeeri ka kausta…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Kopeeritakse ka kausta $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Lõpeta sinna kopeerimine';
 }

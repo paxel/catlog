@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'private_temp.dart';
+import 'sync/saf_folder.dart';
 
 /// Uninstall-proof safety net: whenever the app goes to the background
 /// and the catalog changed, a full sync bundle lands in a location the
@@ -17,6 +18,16 @@ const backupErrorKey = 'lastBackupError';
 
 /// Local setting: when the last automatic copy was written (ISO 8601).
 const backupAtKey = 'lastBackupAt';
+
+/// Shared setting: the tree URI of a folder every copy also goes to —
+/// Google Drive, Dropbox, Nextcloud, whatever the picker offered. Set
+/// on the Backups page; Android only.
+const backupFolderKey = 'backupFolder';
+
+/// Puts [path] as [name] into the chosen folder's `catlog-backups`.
+Future<void> copyToBackupFolder(String tree, String path, String name) =>
+    SafSyncFolder(tree, root: 'catlog-backups')
+        .write('', name, File(path).readAsBytesSync());
 
 /// The marker Android's backup agent leaves after it restored the app's
 /// files (see CatlogBackupAgent.kt); holds the moment as ISO 8601.
@@ -137,10 +148,12 @@ Future<void>? _inFlight;
 /// [force] writes even when nothing changed — the Back up now button.
 Future<void> autoBackup(CatalogStore store,
     {Future<String> Function(String path, String name)? save,
+    Future<void> Function(String tree, String path, String name)? copy,
     bool force = false}) {
   final running = _inFlight;
   if (running != null) return running;
-  final run = _autoBackup(store, save: save, force: force).whenComplete(() {
+  final run =
+      _autoBackup(store, save: save, copy: copy, force: force).whenComplete(() {
     _inFlight = null;
   });
   _inFlight = run;
@@ -149,6 +162,7 @@ Future<void> autoBackup(CatalogStore store,
 
 Future<void> _autoBackup(CatalogStore store,
     {Future<String> Function(String path, String name)? save,
+    Future<void> Function(String tree, String path, String name)? copy,
     bool force = false}) async {
   try {
     // Only when something actually changed since the last backup.
@@ -166,6 +180,11 @@ Future<void> _autoBackup(CatalogStore store,
     await withPrivateFile(name, (path) async {
       writeBundle(store, path, includePrivate: true);
       await (save ?? saveBesideBackups)(path, name);
+      // And the chosen folder, when there is one: the same file again.
+      final tree = store.localSetting(backupFolderKey);
+      if (tree != null && tree.isNotEmpty) {
+        await (copy ?? copyToBackupFolder)(tree, path, name);
+      }
     });
     store.setLocalSetting('lastBackupVector', vector);
     store.setLocalSetting(backupAtKey, DateTime.now().toIso8601String());

@@ -14,7 +14,11 @@ class SafSyncFolder implements SyncFolder {
   /// The tree URI the picker returned.
   final String tree;
 
-  const SafSyncFolder(this.tree);
+  /// The folder inside the tree everything lives in: `catlog-sync` for
+  /// the shared folder, `catlog-backups` for the copies.
+  final String root;
+
+  const SafSyncFolder(this.tree, {this.root = 'catlog-sync'});
 
   /// Whether a stored folder setting is a tree URI rather than a path.
   static bool isTree(String setting) => setting.startsWith('content://');
@@ -37,6 +41,7 @@ class SafSyncFolder implements SyncFolder {
 
   Map<String, Object> _args(String dir, [String? name]) => {
     'tree': tree,
+    'root': root,
     'dir': dir,
     'name': ?name,
   };

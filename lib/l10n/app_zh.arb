@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "您选择的文件夹也可以收到每份副本：Google 云端硬盘、Dropbox、Nextcloud、Syncthing 文件夹。副本会放在其中的 catlog-backups 里。",
+  "backupsFolderPick": "同时复制到文件夹…",
+  "backupsFolderIs": "同时复制到 {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "停止复制到那里"
 }

@@ -3362,4 +3362,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'שוחזר מגיבוי Google ב-$date. אם cat(a)log עדיין פועל בטלפון הישן, יש לסנכרן ממנו פעם אחת ואז להסיר שם את האפליקציה.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'גם תיקייה לבחירתך יכולה לקבל כל עותק: Google Drive, Dropbox, Nextcloud, תיקיית Syncthing. העותקים נשמרים ב-catlog-backups שבתוכה.';
+
+  @override
+  String get backupsFolderPick => 'להעתיק גם לתיקייה…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'מועתק גם אל $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'להפסיק להעתיק לשם';
 }

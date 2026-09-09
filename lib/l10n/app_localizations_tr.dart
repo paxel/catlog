@@ -3364,4 +3364,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return '$date tarihinde Google yedeğinden geri yüklendi. Eski telefonda cat(a)log hâlâ çalışıyorsa, oradan bir kez eşitleyin, sonra uygulamayı orada kaldırın.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Seçtiğin bir klasör de her kopyayı alabilir: Google Drive, Dropbox, Nextcloud, bir Syncthing klasörü. Kopyalar içindeki catlog-backups klasörüne düşer.';
+
+  @override
+  String get backupsFolderPick => 'Bir klasöre de kopyala…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return '$name klasörüne de kopyalanıyor';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Oraya kopyalamayı bırak';
 }

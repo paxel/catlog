@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "Myös valitsemasi kansio voi saada jokaisen kopion: Google Drive, Dropbox, Nextcloud, Syncthing-kansio. Kopiot menevät sen sisällä kansioon catlog-backups.",
+  "backupsFolderPick": "Kopioi myös kansioon…",
+  "backupsFolderIs": "Kopioidaan myös kansioon {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Lopeta kopiointi sinne"
 }

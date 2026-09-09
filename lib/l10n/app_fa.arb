@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "پوشه‌ای به انتخاب شما هم می‌تواند هر نسخه را دریافت کند: Google Drive، Dropbox، Nextcloud، یک پوشهٔ Syncthing. نسخه‌ها در catlog-backups داخل آن قرار می‌گیرند.",
+  "backupsFolderPick": "کپی در یک پوشه هم…",
+  "backupsFolderIs": "در {name} هم کپی می‌شود",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "دیگر آنجا کپی نکن"
 }

@@ -3381,4 +3381,19 @@ class AppLocalizationsRo extends AppLocalizations {
   String backupsRestoredNote(Object date) {
     return 'Restaurat din copia Google la $date. Dacă vechiul telefon mai rulează cat(a)log, sincronizează o dată de pe el, apoi elimină aplicația acolo.';
   }
+
+  @override
+  String get backupsFolderHint =>
+      'Și un dosar la alegerea ta poate primi fiecare copie: Google Drive, Dropbox, Nextcloud, un dosar Syncthing. Copiile ajung în catlog-backups din el.';
+
+  @override
+  String get backupsFolderPick => 'Copiază și într-un dosar…';
+
+  @override
+  String backupsFolderIs(Object name) {
+    return 'Copiat și în $name';
+  }
+
+  @override
+  String get backupsFolderRemove => 'Nu mai copia acolo';
 }

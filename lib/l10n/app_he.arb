@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "גם תיקייה לבחירתך יכולה לקבל כל עותק: Google Drive, Dropbox, Nextcloud, תיקיית Syncthing. העותקים נשמרים ב-catlog-backups שבתוכה.",
+  "backupsFolderPick": "להעתיק גם לתיקייה…",
+  "backupsFolderIs": "מועתק גם אל {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "להפסיק להעתיק לשם"
 }

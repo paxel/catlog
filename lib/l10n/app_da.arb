@@ -1125,5 +1125,14 @@
     "placeholders": {
       "date": {}
     }
-  }
+  },
+  "backupsFolderHint": "En mappe efter eget valg kan også modtage hver kopi: Google Drive, Dropbox, Nextcloud, en Syncthing-mappe. Kopierne lander i catlog-backups derinde.",
+  "backupsFolderPick": "Kopiér også til en mappe…",
+  "backupsFolderIs": "Kopieres også til {name}",
+  "@backupsFolderIs": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "backupsFolderRemove": "Stop med at kopiere dertil"
 }
