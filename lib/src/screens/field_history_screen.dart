@@ -40,7 +40,7 @@ String historyAsText(
   return [
     '$name · ${fieldDefName(t, def)}',
     for (final e in entries)
-      '${DateFormat.yMd(locale).format(e.date.toLocal())} · '
+      '${DateFormat.yMd(locale).add_Hm().format(e.date.toLocal())} · '
           '${valueLabel(t, store, def.key, e.value)} · ${e.author}',
   ].join('\n');
 }
@@ -141,7 +141,7 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '${DateFormat.yMd(locale).format(e.date.toLocal())} · ${e.author}',
+                      '${DateFormat.yMd(locale).add_Hm().format(e.date.toLocal())} · ${e.author}',
                       style: theme.textTheme.bodySmall,
                     ),
                   ],

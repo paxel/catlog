@@ -281,7 +281,7 @@ class _FieldGraphScreenState extends State<FieldGraphScreen> {
                 t.changeSince(
                   '${latest.value - previous.value >= 0 ? '+' : ''}'
                   '${_number(latest.value - previous.value)}',
-                  DateFormat.yMd(locale).format(previous.at),
+                  DateFormat.yMd(locale).add_Hm().format(previous.at.toLocal()),
                 ),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),

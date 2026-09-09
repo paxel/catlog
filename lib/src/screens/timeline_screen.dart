@@ -44,6 +44,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   String _date(DateTime d) =>
       DateFormat.yMd(Localizations.localeOf(context).toString())
+          .add_Hm()
           .format(d.toLocal());
 
   /// Friendly rendering for a Cat's own membership entry.
