@@ -489,8 +489,12 @@ class ChoreLogRow {
   final String? author;
   final DateTime? recorded;
 
+  /// The tick entry behind a done day — what a correction or removal
+  /// acts on. Null unless done.
+  final Entry? tick;
+
   const ChoreLogRow(this.due, this.state,
-      {this.doneOn, this.author, this.recorded});
+      {this.doneOn, this.author, this.recorded, this.tick});
 
   bool get early => doneOn != null && doneOn!.isBefore(due);
   bool get late => doneOn != null && doneOn!.isAfter(due);
@@ -514,7 +518,10 @@ extension ChoreLog on CatalogStore {
             .firstOrNull;
       }
       rows.add(ChoreLogRow(o.due, state,
-          doneOn: o.doneOn, author: tick?.author, recorded: tick?.recorded));
+          doneOn: o.doneOn,
+          author: tick?.author,
+          recorded: tick?.recorded,
+          tick: tick));
     }
     rows.sort((a, b) => b.due.compareTo(a.due));
     return rows;
