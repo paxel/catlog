@@ -3189,4 +3189,49 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       '以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。';
+
+  @override
+  String get backupsTitle => 'バックアップ';
+
+  @override
+  String get backupsSubtitle => 'カタログの保管場所';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google がこのアプリのカタログをアカウントにバックアップします（写真を除く）。再インストール後や新しい端末で自動的に戻ります。';
+
+  @override
+  String get backupsAndroidFiles =>
+      '変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）が Documents/catlog に書き込まれます。';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud バックアップには、この iPhone の他のアプリと同様、このアプリのカタログと写真が含まれます。';
+
+  @override
+  String get backupsIosFiles =>
+      '各カタログの完全なコピーは「ファイル」アプリの cat(a)log にあります。そこから iCloud Drive、AirDrop、別の端末へ送れます。';
+
+  @override
+  String get backupsDesktopFiles =>
+      '変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）がダウンロードフォルダに書き込まれます。';
+
+  @override
+  String backupsLast(Object date) {
+    return '最新のコピー: $date';
+  }
+
+  @override
+  String get backupsNever => 'まだコピーは書き込まれていません。';
+
+  @override
+  String get backupsNow => '今すぐバックアップ';
+
+  @override
+  String get backupsDone => 'コピーを書き込みました。';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return '$date に Google バックアップから復元しました。古い端末でまだ cat(a)log を使っている場合は、そこから一度同期してから、その端末のアプリを削除してください。';
+  }
 }

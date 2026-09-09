@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "تصحيح",
   "restorePickFolder": "اختيار مجلد النسخ الاحتياطية…",
-  "restoreAndroidHint": "النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا."
+  "restoreAndroidHint": "النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.",
+  "backupsTitle": "النسخ الاحتياطية",
+  "backupsSubtitle": "أين تُحفظ فهارسك بأمان",
+  "backupsAndroidSystem": "تنسخ Google فهارس هذا التطبيق احتياطياً مع حسابك، من دون الصور. تعود من تلقاء نفسها بعد إعادة التثبيت أو على هاتف جديد.",
+  "backupsAndroidFiles": "تُكتب نسخة كاملة من كل فهرس، مع الصور، في Documents/catlog كلما غادرت التطبيق بعد تغييرات.",
+  "backupsIosSystem": "يشمل نسخ iCloud الاحتياطي هذا التطبيق بفهارسه وصوره، مثل أي تطبيق آخر على هذا الـ iPhone.",
+  "backupsIosFiles": "توجد نسخة كاملة من كل فهرس في تطبيق الملفات تحت cat(a)log. من هناك يمكن نقلها إلى iCloud Drive أو عبر AirDrop أو إلى هاتف آخر.",
+  "backupsDesktopFiles": "تُكتب نسخة كاملة من كل فهرس، مع الصور، في مجلد التنزيلات كلما غادرت التطبيق بعد تغييرات.",
+  "backupsLast": "آخر نسخة: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "لم تُكتب نسخة بعد.",
+  "backupsNow": "انسخ احتياطياً الآن",
+  "backupsDone": "كُتبت النسخة.",
+  "backupsRestoredNote": "استُعيد من نسخة Google الاحتياطية في {date}. إذا كان الهاتف القديم لا يزال يشغّل cat(a)log، فزامن منه مرة واحدة ثم أزل التطبيق هناك.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

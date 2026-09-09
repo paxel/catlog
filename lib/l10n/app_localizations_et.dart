@@ -3318,4 +3318,49 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Eelmise paigalduse varukoopiad on kaustas Documents/catlog (vanematel versioonidel Downloads/catlog). Vali see kaust üks kord; selle koopiad kuvatakse siin.';
+
+  @override
+  String get backupsTitle => 'Varukoopiad';
+
+  @override
+  String get backupsSubtitle => 'Kus su kataloogid on kaitstud';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google varundab selle rakenduse kataloogid sinu kontoga, ilma fotodeta. Pärast uuesti paigaldamist või uues telefonis tulevad need ise tagasi.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Iga kataloogi täielik koopia koos fotodega kirjutatakse kausta Documents/catlog iga kord, kui pärast muudatusi rakendusest lahkud.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloudi varundus sisaldab seda rakendust koos kataloogide ja fotodega, nagu iga teist rakendust sellel iPhone\'il.';
+
+  @override
+  String get backupsIosFiles =>
+      'Iga kataloogi täielik koopia on rakenduses Failid kausta cat(a)log all. Sealt saab selle viia iCloud Drive\'i, AirDropiga või teise telefoni.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Iga kataloogi täielik koopia koos fotodega kirjutatakse sinu allalaadimiste kausta iga kord, kui pärast muudatusi rakendusest lahkud.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Viimane koopia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Koopiat pole veel kirjutatud.';
+
+  @override
+  String get backupsNow => 'Varunda kohe';
+
+  @override
+  String get backupsDone => 'Koopia kirjutatud.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Taastatud Google\'i varukoopiast $date. Kui vanas telefonis on cat(a)log veel kasutusel, sünkrooni sealt üks kord ja eemalda siis rakendus sealt.';
+  }
 }

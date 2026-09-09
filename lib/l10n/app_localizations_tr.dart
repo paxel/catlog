@@ -3319,4 +3319,49 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Önceki kurulumun yedekleri Documents/catlog içinde (eski sürümlerde Downloads/catlog). O klasörü bir kez seçin; yedekleri burada listelenir.';
+
+  @override
+  String get backupsTitle => 'Yedekler';
+
+  @override
+  String get backupsSubtitle => 'Kataloglarının güvende tutulduğu yer';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google bu uygulamanın kataloglarını hesabınla yedekler, fotoğraflar hariç. Yeniden kurulumdan sonra veya yeni telefonda kendiliğinden geri gelirler.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında Documents/catlog içine yazılır.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud Yedekleme bu uygulamayı katalogları ve fotoğraflarıyla birlikte kapsar, bu iPhone\'daki her uygulama gibi.';
+
+  @override
+  String get backupsIosFiles =>
+      'Her kataloğun tam bir kopyası Dosyalar uygulamasında cat(a)log altında durur. Oradan iCloud Drive\'a, AirDrop ile veya başka bir telefona gidebilir.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Her kataloğun fotoğraflar dahil tam bir kopyası, değişikliklerden sonra uygulamadan her çıkışında İndirilenler klasörüne yazılır.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Son kopya: $date';
+  }
+
+  @override
+  String get backupsNever => 'Henüz kopya yazılmadı.';
+
+  @override
+  String get backupsNow => 'Şimdi yedekle';
+
+  @override
+  String get backupsDone => 'Kopya yazıldı.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return '$date tarihinde Google yedeğinden geri yüklendi. Eski telefonda cat(a)log hâlâ çalışıyorsa, oradan bir kez eşitleyin, sonra uygulamayı orada kaldırın.';
+  }
 }

@@ -3322,4 +3322,49 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'As cópias da instalação anterior estão em Documents/catlog (Downloads/catlog em versões anteriores). Escolha essa pasta uma vez; as cópias aparecem aqui.';
+
+  @override
+  String get backupsTitle => 'Cópias de segurança';
+
+  @override
+  String get backupsSubtitle => 'Onde os teus catálogos ficam a salvo';
+
+  @override
+  String get backupsAndroidSystem =>
+      'A Google guarda os catálogos desta app com a tua conta, sem as fotos. Voltam sozinhos após uma reinstalação ou num telemóvel novo.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Uma cópia completa de cada catálogo, com fotos, é escrita em Documents/catlog sempre que sais da app após alterações.';
+
+  @override
+  String get backupsIosSystem =>
+      'A cópia de segurança do iCloud inclui esta app com os seus catálogos e fotos, como qualquer outra app neste iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Uma cópia completa de cada catálogo está na app Ficheiros, em cat(a)log. Daí pode ir para o iCloud Drive, por AirDrop ou para outro telemóvel.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Uma cópia completa de cada catálogo, com fotos, é escrita na pasta Transferências sempre que sais da app após alterações.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Última cópia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ainda não foi escrita nenhuma cópia.';
+
+  @override
+  String get backupsNow => 'Fazer cópia agora';
+
+  @override
+  String get backupsDone => 'Cópia escrita.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restaurado da cópia Google em $date. Se o telemóvel antigo ainda tiver o cat(a)log, sincroniza uma vez a partir dele e depois remove lá a app.';
+  }
 }

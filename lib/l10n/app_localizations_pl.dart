@@ -3342,4 +3342,49 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Kopie poprzedniej instalacji są w Documents/catlog (w starszych wersjach Downloads/catlog). Wybierz ten folder raz; jego kopie pojawią się tutaj.';
+
+  @override
+  String get backupsTitle => 'Kopie zapasowe';
+
+  @override
+  String get backupsSubtitle => 'Gdzie twoje katalogi są bezpieczne';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google zapisuje katalogi tej aplikacji na twoim koncie, bez zdjęć. Wracają same po ponownej instalacji lub na nowym telefonie.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w Documents/catlog za każdym razem, gdy opuszczasz aplikację po zmianach.';
+
+  @override
+  String get backupsIosSystem =>
+      'Kopia iCloud obejmuje tę aplikację z jej katalogami i zdjęciami, jak każdą inną aplikację na tym iPhonie.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pełna kopia każdego katalogu jest w aplikacji Pliki pod cat(a)log. Stamtąd może trafić na iCloud Drive, przez AirDrop lub na inny telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w folderze Pobrane za każdym razem, gdy opuszczasz aplikację po zmianach.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Ostatnia kopia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nie zapisano jeszcze żadnej kopii.';
+
+  @override
+  String get backupsNow => 'Utwórz kopię teraz';
+
+  @override
+  String get backupsDone => 'Kopia zapisana.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Przywrócono z kopii Google $date. Jeśli stary telefon nadal ma cat(a)log, zsynchronizuj raz z niego, a potem usuń tam aplikację.';
+  }
 }

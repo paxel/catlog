@@ -3321,4 +3321,49 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.';
+
+  @override
+  String get backupsTitle => 'Backups';
+
+  @override
+  String get backupsSubtitle => 'Where your catalogs are kept safe';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google backs up this app\'s catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Last copy: $date';
+  }
+
+  @override
+  String get backupsNever => 'No copy written yet.';
+
+  @override
+  String get backupsNow => 'Back up now';
+
+  @override
+  String get backupsDone => 'Copy written.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restored from the Google backup on $date. If the old phone still runs cat(a)log, sync from it once, then remove the app there.';
+  }
 }

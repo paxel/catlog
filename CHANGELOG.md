@@ -16,6 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Thirty more cat breeds, Burmese and Abyssinian among them, named in every language; existing catalogs get them added.
 - Android backs the catalogs up into the keeper's Google account, photos left out, and puts them back on a reinstall or a new phone.
 - On iPhone the backup files show in the Files app under cat(a)log.
+- A Backups page in Settings says what the phone backs up where, when the last copy was written, and writes one on request.
 - Every value has a time of day: the editor's As of row picks date and time, and the history, the timeline and the graph show it.
 - A wrong value can be corrected or removed from its history; hidden values show on request and can be restored.
 - A done day in a chore's history can be corrected to another moment or removed.

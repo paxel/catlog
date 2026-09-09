@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Korrigjim",
   "restorePickFolder": "Zgjidh dosjen e kopjeve rezervë…",
-  "restoreAndroidHint": "Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu."
+  "restoreAndroidHint": "Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.",
+  "backupsTitle": "Kopje rezervë",
+  "backupsSubtitle": "Ku ruhen të sigurt katalogët e tu",
+  "backupsAndroidSystem": "Google ruan katalogët e këtij aplikacioni me llogarinë tënde, pa foto. Kthehen vetë pas një riinstalimi ose në një telefon të ri.",
+  "backupsAndroidFiles": "Një kopje e plotë e çdo katalogu, me foto, shkruhet në Documents/catlog sa herë që del nga aplikacioni pas ndryshimeve.",
+  "backupsIosSystem": "Kopja rezervë e iCloud e përfshin këtë aplikacion me katalogët dhe fotot e tij, si çdo aplikacion tjetër në këtë iPhone.",
+  "backupsIosFiles": "Një kopje e plotë e çdo katalogu ndodhet në aplikacionin Files nën cat(a)log. Prej aty mund të shkojë në iCloud Drive, me AirDrop ose në një telefon tjetër.",
+  "backupsDesktopFiles": "Një kopje e plotë e çdo katalogu, me foto, shkruhet në dosjen Shkarkime sa herë që del nga aplikacioni pas ndryshimeve.",
+  "backupsLast": "Kopja e fundit: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ende nuk është shkruar asnjë kopje.",
+  "backupsNow": "Bëj kopje tani",
+  "backupsDone": "Kopja u shkrua.",
+  "backupsRestoredNote": "Rikthyer nga kopja rezervë e Google më {date}. Nëse telefoni i vjetër ende përdor cat(a)log, sinkronizo një herë prej tij, pastaj hiqe aplikacionin atje.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

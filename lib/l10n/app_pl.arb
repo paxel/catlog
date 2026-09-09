@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Poprawka",
   "restorePickFolder": "Wybierz folder kopii…",
-  "restoreAndroidHint": "Kopie poprzedniej instalacji są w Documents/catlog (w starszych wersjach Downloads/catlog). Wybierz ten folder raz; jego kopie pojawią się tutaj."
+  "restoreAndroidHint": "Kopie poprzedniej instalacji są w Documents/catlog (w starszych wersjach Downloads/catlog). Wybierz ten folder raz; jego kopie pojawią się tutaj.",
+  "backupsTitle": "Kopie zapasowe",
+  "backupsSubtitle": "Gdzie twoje katalogi są bezpieczne",
+  "backupsAndroidSystem": "Google zapisuje katalogi tej aplikacji na twoim koncie, bez zdjęć. Wracają same po ponownej instalacji lub na nowym telefonie.",
+  "backupsAndroidFiles": "Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w Documents/catlog za każdym razem, gdy opuszczasz aplikację po zmianach.",
+  "backupsIosSystem": "Kopia iCloud obejmuje tę aplikację z jej katalogami i zdjęciami, jak każdą inną aplikację na tym iPhonie.",
+  "backupsIosFiles": "Pełna kopia każdego katalogu jest w aplikacji Pliki pod cat(a)log. Stamtąd może trafić na iCloud Drive, przez AirDrop lub na inny telefon.",
+  "backupsDesktopFiles": "Pełna kopia każdego katalogu, ze zdjęciami, jest zapisywana w folderze Pobrane za każdym razem, gdy opuszczasz aplikację po zmianach.",
+  "backupsLast": "Ostatnia kopia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Nie zapisano jeszcze żadnej kopii.",
+  "backupsNow": "Utwórz kopię teraz",
+  "backupsDone": "Kopia zapisana.",
+  "backupsRestoredNote": "Przywrócono z kopii Google {date}. Jeśli stary telefon nadal ma cat(a)log, zsynchronizuj raz z niego, a potem usuń tam aplikację.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

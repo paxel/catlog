@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "修正",
   "restorePickFolder": "バックアップフォルダを選択…",
-  "restoreAndroidHint": "以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。"
+  "restoreAndroidHint": "以前のインストールのバックアップは Documents/catlog にあります（古いバージョンでは Downloads/catlog）。そのフォルダを一度選ぶと、バックアップがここに表示されます。",
+  "backupsTitle": "バックアップ",
+  "backupsSubtitle": "カタログの保管場所",
+  "backupsAndroidSystem": "Google がこのアプリのカタログをアカウントにバックアップします（写真を除く）。再インストール後や新しい端末で自動的に戻ります。",
+  "backupsAndroidFiles": "変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）が Documents/catlog に書き込まれます。",
+  "backupsIosSystem": "iCloud バックアップには、この iPhone の他のアプリと同様、このアプリのカタログと写真が含まれます。",
+  "backupsIosFiles": "各カタログの完全なコピーは「ファイル」アプリの cat(a)log にあります。そこから iCloud Drive、AirDrop、別の端末へ送れます。",
+  "backupsDesktopFiles": "変更後にアプリを離れるたびに、各カタログの完全なコピー（写真を含む）がダウンロードフォルダに書き込まれます。",
+  "backupsLast": "最新のコピー: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "まだコピーは書き込まれていません。",
+  "backupsNow": "今すぐバックアップ",
+  "backupsDone": "コピーを書き込みました。",
+  "backupsRestoredNote": "{date} に Google バックアップから復元しました。古い端末でまだ cat(a)log を使っている場合は、そこから一度同期してから、その端末のアプリを削除してください。",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

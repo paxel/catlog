@@ -3333,4 +3333,49 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Резервне копије претходне инсталације су у Documents/catlog (код старијих верзија Downloads/catlog). Изаберите ту фасциклу једном; њене копије се приказују овде.';
+
+  @override
+  String get backupsTitle => 'Резервне копије';
+
+  @override
+  String get backupsSubtitle => 'Где су ваши каталози на сигурном';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google чува каталоге ове апликације уз ваш налог, без фотографија. Враћају се сами после поновне инсталације или на новом телефону.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Потпуна копија сваког каталога, са фотографијама, уписује се у Documents/catlog кад год напустите апликацију после измена.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud резервна копија обухвата ову апликацију са њеним каталозима и фотографијама, као и сваку другу апликацију на овом iPhone-у.';
+
+  @override
+  String get backupsIosFiles =>
+      'Потпуна копија сваког каталога налази се у апликацији Files под cat(a)log. Одатле може на iCloud Drive, преко AirDrop-а или на други телефон.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Потпуна копија сваког каталога, са фотографијама, уписује се у фасциклу Преузимања кад год напустите апликацију после измена.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Последња копија: $date';
+  }
+
+  @override
+  String get backupsNever => 'Копија још није уписана.';
+
+  @override
+  String get backupsNow => 'Направи копију сада';
+
+  @override
+  String get backupsDone => 'Копија уписана.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Враћено из Google резервне копије $date. Ако стари телефон и даље користи cat(a)log, синхронизујте једном са њега, па тамо уклоните апликацију.';
+  }
 }

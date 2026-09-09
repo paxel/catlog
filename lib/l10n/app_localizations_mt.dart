@@ -3335,4 +3335,49 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Il-backups tal-installazzjoni ta\' qabel qegħdin f\'Documents/catlog (Downloads/catlog f\'verżjonijiet eqdem). Agħżel dak il-folder darba; il-backups tiegħu jidhru hawn.';
+
+  @override
+  String get backupsTitle => 'Backups';
+
+  @override
+  String get backupsSubtitle => 'Fejn jinżammu fis-sod il-katalogi tiegħek';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google jagħmel backup tal-katalogi ta\' din l-app mal-kont tiegħek, mingħajr ritratti. Jerġgħu lura waħedhom wara installazzjoni mill-ġdid jew fuq telefon ġdid.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Kopja sħiħa ta\' kull katalgu, bir-ritratti, tinkiteb f\'Documents/catlog kull darba li toħroġ mill-app wara bidliet.';
+
+  @override
+  String get backupsIosSystem =>
+      'Il-backup tal-iCloud jinkludi din l-app bil-katalogi u r-ritratti tagħha, bħal kull app oħra fuq dan l-iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Kopja sħiħa ta\' kull katalgu tinsab fl-app Files taħt cat(a)log. Minn hemm tista\' tmur fuq iCloud Drive, b\'AirDrop jew fuq telefon ieħor.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Kopja sħiħa ta\' kull katalgu, bir-ritratti, tinkiteb fil-folder Downloads tiegħek kull darba li toħroġ mill-app wara bidliet.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'L-aħħar kopja: $date';
+  }
+
+  @override
+  String get backupsNever => 'Għad ma nkitbet l-ebda kopja.';
+
+  @override
+  String get backupsNow => 'Agħmel backup issa';
+
+  @override
+  String get backupsDone => 'Kopja miktuba.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Irrestawrat mill-backup ta\' Google fi $date. Jekk it-telefon il-qadim għadu juża cat(a)log, issinkronizza darba minnu, imbagħad neħħi l-app hemm.';
+  }
 }

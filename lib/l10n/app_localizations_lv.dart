@@ -3336,4 +3336,49 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Iepriekšējās instalācijas rezerves kopijas ir mapē Documents/catlog (vecākās versijās Downloads/catlog). Izvēlieties šo mapi vienreiz; tās kopijas parādās šeit.';
+
+  @override
+  String get backupsTitle => 'Rezerves kopijas';
+
+  @override
+  String get backupsSubtitle => 'Kur jūsu katalogi ir drošībā';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google dublē šīs lietotnes katalogus jūsu kontā, bez fotoattēliem. Pēc pārinstalēšanas vai jaunā tālrunī tie atgriežas paši.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta mapē Documents/catlog ikreiz, kad pēc izmaiņām atstājat lietotni.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud dublējums ietver šo lietotni ar tās katalogiem un fotoattēliem, tāpat kā jebkuru citu lietotni šajā iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pilna katra kataloga kopija atrodas lietotnē Faili sadaļā cat(a)log. No turienes to var aizsūtīt uz iCloud Drive, ar AirDrop vai uz citu tālruni.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pilna katra kataloga kopija ar fotoattēliem tiek ierakstīta jūsu Lejupielāžu mapē ikreiz, kad pēc izmaiņām atstājat lietotni.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Pēdējā kopija: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopija vēl nav ierakstīta.';
+
+  @override
+  String get backupsNow => 'Dublēt tagad';
+
+  @override
+  String get backupsDone => 'Kopija ierakstīta.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Atjaunots no Google dublējuma $date. Ja vecajā tālrunī vēl darbojas cat(a)log, vienreiz sinhronizējiet no tā un pēc tam tur noņemiet lietotni.';
+  }
 }

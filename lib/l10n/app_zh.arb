@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "修正",
   "restorePickFolder": "选择备份文件夹…",
-  "restoreAndroidHint": "上一次安装的备份位于 Documents/catlog（旧版本为 Downloads/catlog）。选择该文件夹一次，其中的备份会列在这里。"
+  "restoreAndroidHint": "上一次安装的备份位于 Documents/catlog（旧版本为 Downloads/catlog）。选择该文件夹一次，其中的备份会列在这里。",
+  "backupsTitle": "备份",
+  "backupsSubtitle": "您的目录的安全存放位置",
+  "backupsAndroidSystem": "Google 会用您的账号备份此应用的目录（不含照片）。重新安装或换新手机后会自动恢复。",
+  "backupsAndroidFiles": "每当您在更改后离开应用，每个目录的完整副本（含照片）都会写入 Documents/catlog。",
+  "backupsIosSystem": "iCloud 云备份包含此应用及其目录和照片，与这部 iPhone 上的其他应用一样。",
+  "backupsIosFiles": "每个目录的完整副本位于“文件”应用的 cat(a)log 下。可从那里发送到 iCloud 云盘、隔空投送或另一部手机。",
+  "backupsDesktopFiles": "每当您在更改后离开应用，每个目录的完整副本（含照片）都会写入您的下载文件夹。",
+  "backupsLast": "最近副本：{date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "尚未写入副本。",
+  "backupsNow": "立即备份",
+  "backupsDone": "副本已写入。",
+  "backupsRestoredNote": "已于 {date} 从 Google 备份恢复。如果旧手机仍在运行 cat(a)log，请先从它同步一次，然后在旧手机上卸载应用。",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

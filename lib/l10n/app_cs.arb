@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Oprava",
   "restorePickFolder": "Vybrat složku záloh…",
-  "restoreAndroidHint": "Zálohy předchozí instalace jsou v Documents/catlog (u starších verzí Downloads/catlog). Vyberte tuto složku jednou; její zálohy se zobrazí zde."
+  "restoreAndroidHint": "Zálohy předchozí instalace jsou v Documents/catlog (u starších verzí Downloads/catlog). Vyberte tuto složku jednou; její zálohy se zobrazí zde.",
+  "backupsTitle": "Zálohy",
+  "backupsSubtitle": "Kde jsou vaše katalogy v bezpečí",
+  "backupsAndroidSystem": "Google zálohuje katalogy této aplikace s vaším účtem, bez fotografií. Po přeinstalaci nebo na novém telefonu se vrátí samy.",
+  "backupsAndroidFiles": "Úplná kopie každého katalogu, včetně fotografií, se zapíše do Documents/catlog pokaždé, když aplikaci po změnách opustíte.",
+  "backupsIosSystem": "Záloha iCloud zahrnuje tuto aplikaci s jejími katalogy a fotografiemi, jako každou jinou aplikaci na tomto iPhonu.",
+  "backupsIosFiles": "Úplná kopie každého katalogu je v aplikaci Soubory pod cat(a)log. Odtud může na iCloud Drive, přes AirDrop nebo do jiného telefonu.",
+  "backupsDesktopFiles": "Úplná kopie každého katalogu, včetně fotografií, se zapíše do složky Stažené pokaždé, když aplikaci po změnách opustíte.",
+  "backupsLast": "Poslední kopie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Zatím nebyla zapsána žádná kopie.",
+  "backupsNow": "Zálohovat nyní",
+  "backupsDone": "Kopie zapsána.",
+  "backupsRestoredNote": "Obnoveno ze zálohy Google {date}. Pokud starý telefon stále používá cat(a)log, jednou z něj synchronizujte a pak tam aplikaci odeberte.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "תיקון",
   "restorePickFolder": "בחירת תיקיית גיבויים…",
-  "restoreAndroidHint": "הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן."
+  "restoreAndroidHint": "הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.",
+  "backupsTitle": "גיבויים",
+  "backupsSubtitle": "היכן הקטלוגים שלך נשמרים",
+  "backupsAndroidSystem": "Google מגבה את הקטלוגים של האפליקציה עם החשבון שלך, בלי תמונות. הם חוזרים מעצמם אחרי התקנה מחדש או בטלפון חדש.",
+  "backupsAndroidFiles": "עותק מלא של כל קטלוג, כולל תמונות, נכתב ל-Documents/catlog בכל פעם שיוצאים מהאפליקציה אחרי שינויים.",
+  "backupsIosSystem": "גיבוי iCloud כולל את האפליקציה הזו עם הקטלוגים והתמונות שלה, כמו כל אפליקציה אחרת ב-iPhone הזה.",
+  "backupsIosFiles": "עותק מלא של כל קטלוג נמצא באפליקציית הקבצים תחת cat(a)log. משם אפשר להעביר אותו ל-iCloud Drive, ב-AirDrop או לטלפון אחר.",
+  "backupsDesktopFiles": "עותק מלא של כל קטלוג, כולל תמונות, נכתב לתיקיית ההורדות שלך בכל פעם שיוצאים מהאפליקציה אחרי שינויים.",
+  "backupsLast": "עותק אחרון: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "עדיין לא נכתב עותק.",
+  "backupsNow": "גיבוי עכשיו",
+  "backupsDone": "העותק נכתב.",
+  "backupsRestoredNote": "שוחזר מגיבוי Google ב-{date}. אם cat(a)log עדיין פועל בטלפון הישן, יש לסנכרן ממנו פעם אחת ואז להסיר שם את האפליקציה.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

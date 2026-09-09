@@ -1891,5 +1891,27 @@
   },
   "entryCorrection": "Correction",
   "restorePickFolder": "Choose backup folder…",
-  "restoreAndroidHint": "The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here."
+  "restoreAndroidHint": "The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.",
+  "backupsTitle": "Backups",
+  "backupsSubtitle": "Where your catalogs are kept safe",
+  "backupsAndroidSystem": "Google backs up this app's catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.",
+  "backupsAndroidFiles": "A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.",
+  "backupsIosSystem": "iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.",
+  "backupsIosFiles": "A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.",
+  "backupsDesktopFiles": "A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.",
+  "backupsLast": "Last copy: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "No copy written yet.",
+  "backupsNow": "Back up now",
+  "backupsDone": "Copy written.",
+  "backupsRestoredNote": "Restored from the Google backup on {date}. If the old phone still runs cat(a)log, sync from it once, then remove the app there.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

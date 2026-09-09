@@ -3332,4 +3332,49 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Τα αντίγραφα της προηγούμενης εγκατάστασης βρίσκονται στο Documents/catlog (Downloads/catlog σε παλαιότερες εκδόσεις). Επιλέξτε αυτόν τον φάκελο μία φορά· τα αντίγραφά του εμφανίζονται εδώ.';
+
+  @override
+  String get backupsTitle => 'Αντίγραφα ασφαλείας';
+
+  @override
+  String get backupsSubtitle => 'Πού φυλάσσονται με ασφάλεια οι κατάλογοί σας';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Η Google αποθηκεύει τους καταλόγους της εφαρμογής με τον λογαριασμό σας, χωρίς φωτογραφίες. Επιστρέφουν μόνοι τους μετά από επανεγκατάσταση ή σε νέο τηλέφωνο.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου, με τις φωτογραφίες, γράφεται στο Documents/catlog κάθε φορά που αφήνετε την εφαρμογή μετά από αλλαγές.';
+
+  @override
+  String get backupsIosSystem =>
+      'Το iCloud Backup περιλαμβάνει αυτή την εφαρμογή με τους καταλόγους και τις φωτογραφίες της, όπως κάθε άλλη εφαρμογή σε αυτό το iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου βρίσκεται στην εφαρμογή Αρχεία, στο cat(a)log. Από εκεί μπορεί να πάει στο iCloud Drive, με AirDrop ή σε άλλο τηλέφωνο.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Ένα πλήρες αντίγραφο κάθε καταλόγου, με τις φωτογραφίες, γράφεται στον φάκελο Λήψεις κάθε φορά που αφήνετε την εφαρμογή μετά από αλλαγές.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Τελευταίο αντίγραφο: $date';
+  }
+
+  @override
+  String get backupsNever => 'Δεν έχει γραφτεί ακόμη αντίγραφο.';
+
+  @override
+  String get backupsNow => 'Αντίγραφο τώρα';
+
+  @override
+  String get backupsDone => 'Το αντίγραφο γράφτηκε.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Επαναφορά από το αντίγραφο Google στις $date. Αν το παλιό τηλέφωνο χρησιμοποιεί ακόμη το cat(a)log, συγχρονίστε μία φορά από αυτό και μετά αφαιρέστε εκεί την εφαρμογή.';
+  }
 }

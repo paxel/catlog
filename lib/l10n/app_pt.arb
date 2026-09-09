@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Correção",
   "restorePickFolder": "Escolher pasta de cópias…",
-  "restoreAndroidHint": "As cópias da instalação anterior estão em Documents/catlog (Downloads/catlog em versões anteriores). Escolha essa pasta uma vez; as cópias aparecem aqui."
+  "restoreAndroidHint": "As cópias da instalação anterior estão em Documents/catlog (Downloads/catlog em versões anteriores). Escolha essa pasta uma vez; as cópias aparecem aqui.",
+  "backupsTitle": "Cópias de segurança",
+  "backupsSubtitle": "Onde os teus catálogos ficam a salvo",
+  "backupsAndroidSystem": "A Google guarda os catálogos desta app com a tua conta, sem as fotos. Voltam sozinhos após uma reinstalação ou num telemóvel novo.",
+  "backupsAndroidFiles": "Uma cópia completa de cada catálogo, com fotos, é escrita em Documents/catlog sempre que sais da app após alterações.",
+  "backupsIosSystem": "A cópia de segurança do iCloud inclui esta app com os seus catálogos e fotos, como qualquer outra app neste iPhone.",
+  "backupsIosFiles": "Uma cópia completa de cada catálogo está na app Ficheiros, em cat(a)log. Daí pode ir para o iCloud Drive, por AirDrop ou para outro telemóvel.",
+  "backupsDesktopFiles": "Uma cópia completa de cada catálogo, com fotos, é escrita na pasta Transferências sempre que sais da app após alterações.",
+  "backupsLast": "Última cópia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ainda não foi escrita nenhuma cópia.",
+  "backupsNow": "Fazer cópia agora",
+  "backupsDone": "Cópia escrita.",
+  "backupsRestoredNote": "Restaurado da cópia Google em {date}. Se o telemóvel antigo ainda tiver o cat(a)log, sincroniza uma vez a partir dele e depois remove lá a app.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Ispravka",
   "restorePickFolder": "Odaberi folder sigurnosnih kopija…",
-  "restoreAndroidHint": "Sigurnosne kopije prethodne instalacije su u Documents/catlog (kod starijih verzija Downloads/catlog). Odaberite taj folder jednom; njegove kopije se prikazuju ovdje."
+  "restoreAndroidHint": "Sigurnosne kopije prethodne instalacije su u Documents/catlog (kod starijih verzija Downloads/catlog). Odaberite taj folder jednom; njegove kopije se prikazuju ovdje.",
+  "backupsTitle": "Sigurnosne kopije",
+  "backupsSubtitle": "Gdje su vaši katalozi sigurni",
+  "backupsAndroidSystem": "Google čuva kataloge ove aplikacije uz vaš račun, bez fotografija. Vraćaju se sami nakon ponovne instalacije ili na novom telefonu.",
+  "backupsAndroidFiles": "Potpuna kopija svakog kataloga, s fotografijama, zapisuje se u Documents/catlog kad god napustite aplikaciju nakon promjena.",
+  "backupsIosSystem": "iCloud sigurnosna kopija obuhvata ovu aplikaciju s njenim katalozima i fotografijama, kao i svaku drugu aplikaciju na ovom iPhoneu.",
+  "backupsIosFiles": "Potpuna kopija svakog kataloga nalazi se u aplikaciji Files pod cat(a)log. Odatle može na iCloud Drive, putem AirDropa ili na drugi telefon.",
+  "backupsDesktopFiles": "Potpuna kopija svakog kataloga, s fotografijama, zapisuje se u folder Preuzimanja kad god napustite aplikaciju nakon promjena.",
+  "backupsLast": "Zadnja kopija: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Kopija još nije zapisana.",
+  "backupsNow": "Napravi kopiju sada",
+  "backupsDone": "Kopija zapisana.",
+  "backupsRestoredNote": "Vraćeno iz Google sigurnosne kopije {date}. Ako stari telefon još koristi cat(a)log, sinhronizujte jednom s njega, pa tamo uklonite aplikaciju.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

@@ -3375,4 +3375,49 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Tá cúltacaí na suiteála roimhe seo in Documents/catlog (Downloads/catlog i leaganacha níos sine). Roghnaigh an fillteán sin uair amháin; liostáiltear a chúltacaí anseo.';
+
+  @override
+  String get backupsTitle => 'Cúltacaí';
+
+  @override
+  String get backupsSubtitle => 'An áit a gcoinnítear do chatalóga slán';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Déanann Google cúltaca de chatalóga an aip seo le do chuntas, gan grianghraif. Tagann siad ar ais uathu féin tar éis athshuiteála nó ar ghuthán nua.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig Documents/catlog gach uair a fhágann tú an aip tar éis athruithe.';
+
+  @override
+  String get backupsIosSystem =>
+      'Cuimsíonn Cúltaca iCloud an aip seo lena catalóga agus grianghraif, mar gach aip eile ar an iPhone seo.';
+
+  @override
+  String get backupsIosFiles =>
+      'Tá cóip iomlán de gach catalóg san aip Comhaid faoi cat(a)log. Uaidh sin is féidir í a chur chuig iCloud Drive, trí AirDrop nó chuig guthán eile.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Scríobhtar cóip iomlán de gach catalóg, grianghraif san áireamh, chuig d\'fhillteán Íoslódálacha gach uair a fhágann tú an aip tar éis athruithe.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'An chóip dheireanach: $date';
+  }
+
+  @override
+  String get backupsNever => 'Níor scríobhadh cóip fós.';
+
+  @override
+  String get backupsNow => 'Déan cúltaca anois';
+
+  @override
+  String get backupsDone => 'Cóip scríofa.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Athchóirithe ó chúltaca Google ar $date. Má tá cat(a)log fós ar an seanghuthán, sioncronaigh uair amháin uaidh, ansin bain an aip ansin.';
+  }
 }

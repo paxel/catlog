@@ -3321,4 +3321,49 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.';
+
+  @override
+  String get backupsTitle => 'Mentések';
+
+  @override
+  String get backupsSubtitle => 'Hol vannak biztonságban a katalógusaid';
+
+  @override
+  String get backupsAndroidSystem =>
+      'A Google a fiókoddal menti az app katalógusait, fotók nélkül. Újratelepítés után vagy új telefonon maguktól visszatérnek.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Minden katalógus teljes másolata, fotókkal együtt, a Documents/catlog mappába kerül, valahányszor változtatás után elhagyod az appot.';
+
+  @override
+  String get backupsIosSystem =>
+      'Az iCloud-mentés tartalmazza ezt az appot a katalógusaival és fotóival, mint minden más appot ezen az iPhone-on.';
+
+  @override
+  String get backupsIosFiles =>
+      'Minden katalógus teljes másolata a Fájlok appban, a cat(a)log mappában van. Onnan az iCloud Drive-ra, AirDroppal vagy másik telefonra vihető.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Minden katalógus teljes másolata, fotókkal együtt, a Letöltések mappádba kerül, valahányszor változtatás után elhagyod az appot.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Utolsó másolat: $date';
+  }
+
+  @override
+  String get backupsNever => 'Még nem készült másolat.';
+
+  @override
+  String get backupsNow => 'Mentés most';
+
+  @override
+  String get backupsDone => 'Másolat elkészült.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Visszaállítva a Google-mentésből: $date. Ha a régi telefonon még fut a cat(a)log, szinkronizálj egyszer onnan, majd ott töröld az appot.';
+  }
 }

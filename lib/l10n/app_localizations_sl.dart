@@ -3349,4 +3349,49 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Varnostne kopije prejšnje namestitve so v Documents/catlog (pri starejših različicah Downloads/catlog). Izberite to mapo enkrat; njene kopije so navedene tukaj.';
+
+  @override
+  String get backupsTitle => 'Varnostne kopije';
+
+  @override
+  String get backupsSubtitle => 'Kje so vaši katalogi na varnem';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google varnostno kopira kataloge te aplikacije z vašim računom, brez fotografij. Po ponovni namestitvi ali na novem telefonu se vrnejo sami.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Popolna kopija vsakega kataloga, s fotografijami, se zapiše v Documents/catlog vsakič, ko po spremembah zapustite aplikacijo.';
+
+  @override
+  String get backupsIosSystem =>
+      'Varnostna kopija iCloud vključuje to aplikacijo s katalogi in fotografijami, kot vsako drugo aplikacijo na tem iPhonu.';
+
+  @override
+  String get backupsIosFiles =>
+      'Popolna kopija vsakega kataloga je v aplikaciji Datoteke pod cat(a)log. Od tam lahko gre v iCloud Drive, prek AirDropa ali na drug telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Popolna kopija vsakega kataloga, s fotografijami, se zapiše v mapo Prenosi vsakič, ko po spremembah zapustite aplikacijo.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Zadnja kopija: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopija še ni bila zapisana.';
+
+  @override
+  String get backupsNow => 'Varnostno kopiraj zdaj';
+
+  @override
+  String get backupsDone => 'Kopija zapisana.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Obnovljeno iz Googlove varnostne kopije $date. Če stari telefon še uporablja cat(a)log, enkrat sinhronizirajte z njega, nato tam odstranite aplikacijo.';
+  }
 }

@@ -3330,4 +3330,49 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'I backup dell\'installazione precedente sono in Documents/catlog (Downloads/catlog nelle versioni precedenti). Scegli quella cartella una volta; i suoi backup compaiono qui.';
+
+  @override
+  String get backupsTitle => 'Backup';
+
+  @override
+  String get backupsSubtitle => 'Dove i tuoi cataloghi sono al sicuro';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google salva i cataloghi di questa app con il tuo account, foto escluse. Tornano da soli dopo una reinstallazione o su un nuovo telefono.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Una copia completa di ogni catalogo, foto incluse, viene scritta in Documents/catlog ogni volta che esci dall\'app dopo modifiche.';
+
+  @override
+  String get backupsIosSystem =>
+      'Il backup iCloud include questa app con i suoi cataloghi e le foto, come ogni altra app su questo iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Una copia completa di ogni catalogo si trova nell\'app File sotto cat(a)log. Da lì può andare su iCloud Drive, via AirDrop o su un altro telefono.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Una copia completa di ogni catalogo, foto incluse, viene scritta nella cartella Download ogni volta che esci dall\'app dopo modifiche.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Ultima copia: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nessuna copia scritta finora.';
+
+  @override
+  String get backupsNow => 'Esegui backup ora';
+
+  @override
+  String get backupsDone => 'Copia scritta.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Ripristinato dal backup Google il $date. Se sul vecchio telefono cat(a)log è ancora in uso, sincronizza una volta da lì, poi rimuovi l\'app.';
+  }
 }

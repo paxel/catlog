@@ -1,0 +1,131 @@
+import 'dart:io';
+
+import 'package:catalog_core/catalog_core.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../auto_backup.dart';
+import '../l10n.dart';
+
+/// Where the catalogs are kept safe, in the reader's own terms: what the
+/// phone backs up by itself (Google's app backup on Android, iCloud
+/// Backup on iPhone), where the full `.catsync` copies land, when the
+/// last one was written, the last failure, and a button to write one
+/// now. Restoring stays in Manage catalogs.
+class BackupsScreen extends StatefulWidget {
+  final CatalogStore store;
+
+  /// Where a copy goes; the platform's place by default. Tests inject.
+  final Future<String> Function(String path, String name)? save;
+
+  /// The platform the page speaks for; the running one by default.
+  final String? platform;
+
+  const BackupsScreen({
+    super.key,
+    required this.store,
+    this.save,
+    this.platform,
+  });
+
+  @override
+  State<BackupsScreen> createState() => _BackupsScreenState();
+}
+
+class _BackupsScreenState extends State<BackupsScreen> {
+  CatalogStore get store => widget.store;
+  bool _busy = false;
+  DateTime? _restored;
+
+  String get _platform =>
+      widget.platform ??
+      (Platform.isAndroid
+          ? 'android'
+          : Platform.isIOS
+          ? 'ios'
+          : 'desktop');
+
+  @override
+  void initState() {
+    super.initState();
+    restoredFromBackupAt().then((at) {
+      if (mounted) setState(() => _restored = at);
+    });
+  }
+
+  Future<void> _backupNow() async {
+    setState(() => _busy = true);
+    await autoBackup(store, save: widget.save, force: true);
+    if (!mounted) return;
+    setState(() => _busy = false);
+    final error = store.localSetting(backupErrorKey);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          error == null || error.isEmpty
+              ? context.t.backupsDone
+              : context.t.lastBackupFailed(error),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final theme = Theme.of(context);
+    final locale = Localizations.localeOf(context).toString();
+    String when(DateTime d) =>
+        DateFormat.yMd(locale).add_Hm().format(d.toLocal());
+    final last = DateTime.tryParse(store.localSetting(backupAtKey) ?? '');
+    final error = store.localSetting(backupErrorKey);
+    final (system, files) = switch (_platform) {
+      'android' => (t.backupsAndroidSystem, t.backupsAndroidFiles),
+      'ios' => (t.backupsIosSystem, t.backupsIosFiles),
+      _ => (null, t.backupsDesktopFiles),
+    };
+    return Scaffold(
+      appBar: AppBar(title: Text(t.backupsTitle)),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          if (system != null) ...[Text(system), const SizedBox(height: 12)],
+          Text(files),
+          const SizedBox(height: 16),
+          Text(
+            last == null ? t.backupsNever : t.backupsLast(when(last)),
+            style: theme.textTheme.titleMedium,
+          ),
+          if (error != null && error.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                t.lastBackupFailed(error),
+                style: TextStyle(color: theme.colorScheme.error),
+              ),
+            ),
+          if (_restored case final at?)
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text(t.backupsRestoredNote(when(at))),
+            ),
+          const SizedBox(height: 16),
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: FilledButton.icon(
+              icon: _busy
+                  ? const SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.save_outlined),
+              label: Text(t.backupsNow),
+              onPressed: _busy ? null : _backupNow,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

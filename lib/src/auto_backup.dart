@@ -15,6 +15,27 @@ import 'private_temp.dart';
 /// successful run. Shown on the Sync screen.
 const backupErrorKey = 'lastBackupError';
 
+/// Local setting: when the last automatic copy was written (ISO 8601).
+const backupAtKey = 'lastBackupAt';
+
+/// The marker Android's backup agent leaves after it restored the app's
+/// files (see CatlogBackupAgent.kt); holds the moment as ISO 8601.
+const restoredMarkerName = 'restored-from-backup';
+
+/// When Android put this install's files back from the Google backup,
+/// or null when that never happened here.
+Future<DateTime?> restoredFromBackupAt() async {
+  if (!Platform.isAndroid) return null;
+  try {
+    final dir = await getApplicationSupportDirectory();
+    final marker = File('${dir.path}/$restoredMarkerName');
+    if (!marker.existsSync()) return null;
+    return DateTime.tryParse(marker.readAsStringSync().trim());
+  } catch (_) {
+    return null;
+  }
+}
+
 /// The file a catalog's backup is written to. One per catalog, named
 /// after it, so using one catalog cannot overwrite another's safety net
 /// and a folder of these files still says which city is which.
@@ -113,11 +134,13 @@ Future<void>? _inFlight;
 
 /// One backup at a time: Android fires "inactive" and "paused" back to
 /// back, and both would pass the vector check before either wrote it.
+/// [force] writes even when nothing changed — the Back up now button.
 Future<void> autoBackup(CatalogStore store,
-    {Future<String> Function(String path, String name)? save}) {
+    {Future<String> Function(String path, String name)? save,
+    bool force = false}) {
   final running = _inFlight;
   if (running != null) return running;
-  final run = _autoBackup(store, save: save).whenComplete(() {
+  final run = _autoBackup(store, save: save, force: force).whenComplete(() {
     _inFlight = null;
   });
   _inFlight = run;
@@ -125,11 +148,12 @@ Future<void> autoBackup(CatalogStore store,
 }
 
 Future<void> _autoBackup(CatalogStore store,
-    {Future<String> Function(String path, String name)? save}) async {
+    {Future<String> Function(String path, String name)? save,
+    bool force = false}) async {
   try {
     // Only when something actually changed since the last backup.
     final vector = store.versionVector().toString();
-    if (store.localSetting('lastBackupVector') == vector) return;
+    if (!force && store.localSetting('lastBackupVector') == vector) return;
 
     // A catalog without cats and clowders backs up nothing worth keeping —
     // and a fresh install must not shadow the pre-uninstall backup the
@@ -144,6 +168,7 @@ Future<void> _autoBackup(CatalogStore store,
       await (save ?? saveBesideBackups)(path, name);
     });
     store.setLocalSetting('lastBackupVector', vector);
+    store.setLocalSetting(backupAtKey, DateTime.now().toIso8601String());
     store.setLocalSetting(backupErrorKey, '');
   } catch (e) {
     // A failed background backup must never crash the app; the next

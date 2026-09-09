@@ -3341,4 +3341,49 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Резервные копии прошлой установки лежат в Documents/catlog (в старых версиях Downloads/catlog). Выберите эту папку один раз; её копии появятся здесь.';
+
+  @override
+  String get backupsTitle => 'Резервные копии';
+
+  @override
+  String get backupsSubtitle => 'Где хранятся копии ваших каталогов';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google сохраняет каталоги этого приложения в вашем аккаунте, без фотографий. После переустановки или на новом телефоне они возвращаются сами.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Полная копия каждого каталога, с фотографиями, записывается в Documents/catlog всякий раз, когда вы выходите из приложения после изменений.';
+
+  @override
+  String get backupsIosSystem =>
+      'Резервная копия iCloud включает это приложение с его каталогами и фотографиями, как и любое другое приложение на этом iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Полная копия каждого каталога лежит в приложении «Файлы» в папке cat(a)log. Оттуда её можно отправить в iCloud Drive, по AirDrop или на другой телефон.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Полная копия каждого каталога, с фотографиями, записывается в папку «Загрузки» всякий раз, когда вы выходите из приложения после изменений.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Последняя копия: $date';
+  }
+
+  @override
+  String get backupsNever => 'Копия ещё не записана.';
+
+  @override
+  String get backupsNow => 'Сохранить копию сейчас';
+
+  @override
+  String get backupsDone => 'Копия записана.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Восстановлено из резервной копии Google $date. Если на старом телефоне ещё работает cat(a)log, синхронизируйтесь с ним один раз, затем удалите там приложение.';
+  }
 }

@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Parandus",
   "restorePickFolder": "Vali varukoopiate kaust…",
-  "restoreAndroidHint": "Eelmise paigalduse varukoopiad on kaustas Documents/catlog (vanematel versioonidel Downloads/catlog). Vali see kaust üks kord; selle koopiad kuvatakse siin."
+  "restoreAndroidHint": "Eelmise paigalduse varukoopiad on kaustas Documents/catlog (vanematel versioonidel Downloads/catlog). Vali see kaust üks kord; selle koopiad kuvatakse siin.",
+  "backupsTitle": "Varukoopiad",
+  "backupsSubtitle": "Kus su kataloogid on kaitstud",
+  "backupsAndroidSystem": "Google varundab selle rakenduse kataloogid sinu kontoga, ilma fotodeta. Pärast uuesti paigaldamist või uues telefonis tulevad need ise tagasi.",
+  "backupsAndroidFiles": "Iga kataloogi täielik koopia koos fotodega kirjutatakse kausta Documents/catlog iga kord, kui pärast muudatusi rakendusest lahkud.",
+  "backupsIosSystem": "iCloudi varundus sisaldab seda rakendust koos kataloogide ja fotodega, nagu iga teist rakendust sellel iPhone'il.",
+  "backupsIosFiles": "Iga kataloogi täielik koopia on rakenduses Failid kausta cat(a)log all. Sealt saab selle viia iCloud Drive'i, AirDropiga või teise telefoni.",
+  "backupsDesktopFiles": "Iga kataloogi täielik koopia koos fotodega kirjutatakse sinu allalaadimiste kausta iga kord, kui pärast muudatusi rakendusest lahkud.",
+  "backupsLast": "Viimane koopia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Koopiat pole veel kirjutatud.",
+  "backupsNow": "Varunda kohe",
+  "backupsDone": "Koopia kirjutatud.",
+  "backupsRestoredNote": "Taastatud Google'i varukoopiast {date}. Kui vanas telefonis on cat(a)log veel kasutusel, sünkrooni sealt üks kord ja eemalda siis rakendus sealt.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

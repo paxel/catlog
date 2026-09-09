@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Rettelse",
   "restorePickFolder": "Velg sikkerhetskopimappe…",
-  "restoreAndroidHint": "Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her."
+  "restoreAndroidHint": "Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her.",
+  "backupsTitle": "Sikkerhetskopier",
+  "backupsSubtitle": "Hvor katalogene dine er trygge",
+  "backupsAndroidSystem": "Google sikkerhetskopierer appens kataloger med kontoen din, uten bilder. De kommer tilbake av seg selv etter en reinstallasjon eller på en ny telefon.",
+  "backupsAndroidFiles": "En full kopi av hver katalog, med bilder, skrives til Documents/catlog hver gang du forlater appen etter endringer.",
+  "backupsIosSystem": "iCloud-sikkerhetskopien omfatter denne appen med katalogene og bildene, som enhver annen app på denne iPhonen.",
+  "backupsIosFiles": "En full kopi av hver katalog ligger i Filer-appen under cat(a)log. Derfra kan den gå til iCloud Drive, via AirDrop eller til en annen telefon.",
+  "backupsDesktopFiles": "En full kopi av hver katalog, med bilder, skrives til Nedlastinger-mappen din hver gang du forlater appen etter endringer.",
+  "backupsLast": "Siste kopi: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ingen kopi skrevet ennå.",
+  "backupsNow": "Sikkerhetskopier nå",
+  "backupsDone": "Kopi skrevet.",
+  "backupsRestoredNote": "Gjenopprettet fra Google-sikkerhetskopien {date}. Kjører cat(a)log fortsatt på den gamle telefonen, synkroniser én gang derfra og fjern så appen der.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

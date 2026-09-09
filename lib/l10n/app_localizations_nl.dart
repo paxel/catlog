@@ -3326,4 +3326,49 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'De back-ups van de vorige installatie staan in Documents/catlog (Downloads/catlog bij oudere versies). Kies die map één keer; de back-ups verschijnen hier.';
+
+  @override
+  String get backupsTitle => 'Back-ups';
+
+  @override
+  String get backupsSubtitle => 'Waar je catalogi veilig bewaard worden';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google maakt een back-up van de catalogi van deze app met je account, zonder foto\'s. Ze komen vanzelf terug na een herinstallatie of op een nieuwe telefoon.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Een volledige kopie van elke catalogus, met foto\'s, wordt in Documents/catlog geschreven zodra je de app na wijzigingen verlaat.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-back-up bevat deze app met catalogi en foto\'s, net als elke andere app op deze iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Een volledige kopie van elke catalogus staat in de Bestanden-app onder cat(a)log. Van daaruit kan hij naar iCloud Drive, AirDrop of een andere telefoon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Een volledige kopie van elke catalogus, met foto\'s, wordt in je Downloads-map geschreven zodra je de app na wijzigingen verlaat.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Laatste kopie: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nog geen kopie geschreven.';
+
+  @override
+  String get backupsNow => 'Nu back-up maken';
+
+  @override
+  String get backupsDone => 'Kopie geschreven.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Hersteld uit de Google-back-up op $date. Draait cat(a)log nog op de oude telefoon, synchroniseer dan één keer vanaf daar en verwijder de app daar.';
+  }
 }

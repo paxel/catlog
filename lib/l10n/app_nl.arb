@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Correctie",
   "restorePickFolder": "Back-upmap kiezen…",
-  "restoreAndroidHint": "De back-ups van de vorige installatie staan in Documents/catlog (Downloads/catlog bij oudere versies). Kies die map één keer; de back-ups verschijnen hier."
+  "restoreAndroidHint": "De back-ups van de vorige installatie staan in Documents/catlog (Downloads/catlog bij oudere versies). Kies die map één keer; de back-ups verschijnen hier.",
+  "backupsTitle": "Back-ups",
+  "backupsSubtitle": "Waar je catalogi veilig bewaard worden",
+  "backupsAndroidSystem": "Google maakt een back-up van de catalogi van deze app met je account, zonder foto's. Ze komen vanzelf terug na een herinstallatie of op een nieuwe telefoon.",
+  "backupsAndroidFiles": "Een volledige kopie van elke catalogus, met foto's, wordt in Documents/catlog geschreven zodra je de app na wijzigingen verlaat.",
+  "backupsIosSystem": "iCloud-back-up bevat deze app met catalogi en foto's, net als elke andere app op deze iPhone.",
+  "backupsIosFiles": "Een volledige kopie van elke catalogus staat in de Bestanden-app onder cat(a)log. Van daaruit kan hij naar iCloud Drive, AirDrop of een andere telefoon.",
+  "backupsDesktopFiles": "Een volledige kopie van elke catalogus, met foto's, wordt in je Downloads-map geschreven zodra je de app na wijzigingen verlaat.",
+  "backupsLast": "Laatste kopie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Nog geen kopie geschreven.",
+  "backupsNow": "Nu back-up maken",
+  "backupsDone": "Kopie geschreven.",
+  "backupsRestoredNote": "Hersteld uit de Google-back-up op {date}. Draait cat(a)log nog op de oude telefoon, synchroniseer dan één keer vanaf daar en verwijder de app daar.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

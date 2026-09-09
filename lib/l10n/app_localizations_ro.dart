@@ -3336,4 +3336,49 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici.';
+
+  @override
+  String get backupsTitle => 'Copii de siguranță';
+
+  @override
+  String get backupsSubtitle => 'Unde sunt în siguranță cataloagele tale';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google salvează cataloagele acestei aplicații cu contul tău, fără fotografii. Revin singure după o reinstalare sau pe un telefon nou.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'O copie completă a fiecărui catalog, cu fotografii, este scrisă în Documents/catlog ori de câte ori părăsești aplicația după modificări.';
+
+  @override
+  String get backupsIosSystem =>
+      'Copia de siguranță iCloud include această aplicație cu cataloagele și fotografiile ei, ca orice altă aplicație de pe acest iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'O copie completă a fiecărui catalog se află în aplicația Fișiere, sub cat(a)log. De acolo poate merge în iCloud Drive, prin AirDrop sau pe alt telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'O copie completă a fiecărui catalog, cu fotografii, este scrisă în dosarul Descărcări ori de câte ori părăsești aplicația după modificări.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Ultima copie: $date';
+  }
+
+  @override
+  String get backupsNever => 'Nicio copie scrisă încă.';
+
+  @override
+  String get backupsNow => 'Fă o copie acum';
+
+  @override
+  String get backupsDone => 'Copie scrisă.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restaurat din copia Google la $date. Dacă vechiul telefon mai rulează cat(a)log, sincronizează o dată de pe el, apoi elimină aplicația acolo.';
+  }
 }

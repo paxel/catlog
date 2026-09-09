@@ -5773,6 +5773,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The backups of the install before this one are in Documents/catlog (Downloads/catlog for older versions). Choose that folder once; its backups are listed here.'**
   String get restoreAndroidHint;
+
+  /// No description provided for @backupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups'**
+  String get backupsTitle;
+
+  /// No description provided for @backupsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your catalogs are kept safe'**
+  String get backupsSubtitle;
+
+  /// No description provided for @backupsAndroidSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Google backs up this app\'s catalogs with your account, photos left out. They come back by themselves after a reinstall or on a new phone.'**
+  String get backupsAndroidSystem;
+
+  /// No description provided for @backupsAndroidFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog, photos included, is written to Documents/catlog whenever you leave the app after changes.'**
+  String get backupsAndroidFiles;
+
+  /// No description provided for @backupsIosSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'iCloud Backup includes this app with its catalogs and photos, like every other app on this iPhone.'**
+  String get backupsIosSystem;
+
+  /// No description provided for @backupsIosFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog lies in the Files app under cat(a)log. From there it can go to iCloud Drive, AirDrop or another phone.'**
+  String get backupsIosFiles;
+
+  /// No description provided for @backupsDesktopFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'A full copy of each catalog, photos included, is written to your Downloads folder whenever you leave the app after changes.'**
+  String get backupsDesktopFiles;
+
+  /// No description provided for @backupsLast.
+  ///
+  /// In en, this message translates to:
+  /// **'Last copy: {date}'**
+  String backupsLast(Object date);
+
+  /// No description provided for @backupsNever.
+  ///
+  /// In en, this message translates to:
+  /// **'No copy written yet.'**
+  String get backupsNever;
+
+  /// No description provided for @backupsNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up now'**
+  String get backupsNow;
+
+  /// No description provided for @backupsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy written.'**
+  String get backupsDone;
+
+  /// No description provided for @backupsRestoredNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Restored from the Google backup on {date}. If the old phone still runs cat(a)log, sync from it once, then remove the app there.'**
+  String backupsRestoredNote(Object date);
 }
 
 class _AppLocalizationsDelegate

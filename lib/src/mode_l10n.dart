@@ -229,6 +229,42 @@ class ModeLocalizations implements AppLocalizations {
   String get backLabel => base.backLabel;
 
   @override
+  String get backupsAndroidFiles => base.backupsAndroidFiles;
+
+  @override
+  String get backupsAndroidSystem => base.backupsAndroidSystem;
+
+  @override
+  String get backupsDesktopFiles => base.backupsDesktopFiles;
+
+  @override
+  String get backupsDone => base.backupsDone;
+
+  @override
+  String get backupsIosFiles => base.backupsIosFiles;
+
+  @override
+  String get backupsIosSystem => base.backupsIosSystem;
+
+  @override
+  String backupsLast(Object date) => base.backupsLast(date);
+
+  @override
+  String get backupsNever => base.backupsNever;
+
+  @override
+  String get backupsNow => base.backupsNow;
+
+  @override
+  String backupsRestoredNote(Object date) => base.backupsRestoredNote(date);
+
+  @override
+  String get backupsSubtitle => base.backupsSubtitle;
+
+  @override
+  String get backupsTitle => base.backupsTitle;
+
+  @override
   String get bansSection => base.bansSection;
 
   @override

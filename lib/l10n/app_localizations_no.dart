@@ -3318,4 +3318,49 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Sikkerhetskopiene fra forrige installasjon ligger i Documents/catlog (Downloads/catlog i eldre versjoner). Velg den mappen én gang; kopiene vises her.';
+
+  @override
+  String get backupsTitle => 'Sikkerhetskopier';
+
+  @override
+  String get backupsSubtitle => 'Hvor katalogene dine er trygge';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google sikkerhetskopierer appens kataloger med kontoen din, uten bilder. De kommer tilbake av seg selv etter en reinstallasjon eller på en ny telefon.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'En full kopi av hver katalog, med bilder, skrives til Documents/catlog hver gang du forlater appen etter endringer.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-sikkerhetskopien omfatter denne appen med katalogene og bildene, som enhver annen app på denne iPhonen.';
+
+  @override
+  String get backupsIosFiles =>
+      'En full kopi av hver katalog ligger i Filer-appen under cat(a)log. Derfra kan den gå til iCloud Drive, via AirDrop eller til en annen telefon.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'En full kopi av hver katalog, med bilder, skrives til Nedlastinger-mappen din hver gang du forlater appen etter endringer.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Siste kopi: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ingen kopi skrevet ennå.';
+
+  @override
+  String get backupsNow => 'Sikkerhetskopier nå';
+
+  @override
+  String get backupsDone => 'Kopi skrevet.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Gjenopprettet fra Google-sikkerhetskopien $date. Kjører cat(a)log fortsatt på den gamle telefonen, synkroniser én gang derfra og fjern så appen der.';
+  }
 }

@@ -3341,4 +3341,49 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Ankstesnio įdiegimo atsarginės kopijos yra Documents/catlog (senesnėse versijose Downloads/catlog). Pasirinkite šį aplanką vieną kartą; jo kopijos rodomos čia.';
+
+  @override
+  String get backupsTitle => 'Atsarginės kopijos';
+
+  @override
+  String get backupsSubtitle => 'Kur saugomi jūsų katalogai';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google saugo šios programėlės katalogus jūsų paskyroje, be nuotraukų. Įdiegus iš naujo ar naujame telefone jie grįžta patys.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į Documents/catlog kaskart, kai po pakeitimų išeinate iš programėlės.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud atsarginė kopija apima šią programėlę su jos katalogais ir nuotraukomis, kaip ir kiekvieną kitą programėlę šiame iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Pilna kiekvieno katalogo kopija yra programėlėje „Failai“, aplanke cat(a)log. Iš ten ją galima perkelti į iCloud Drive, per AirDrop ar į kitą telefoną.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Pilna kiekvieno katalogo kopija su nuotraukomis įrašoma į jūsų Atsisiuntimų aplanką kaskart, kai po pakeitimų išeinate iš programėlės.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Paskutinė kopija: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopija dar neįrašyta.';
+
+  @override
+  String get backupsNow => 'Kurti kopiją dabar';
+
+  @override
+  String get backupsDone => 'Kopija įrašyta.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Atkurta iš Google atsarginės kopijos $date. Jei sename telefone dar veikia cat(a)log, vieną kartą sinchronizuokite iš jo, tada ten pašalinkite programėlę.';
+  }
 }

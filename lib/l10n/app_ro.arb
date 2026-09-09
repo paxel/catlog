@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Corectură",
   "restorePickFolder": "Alege dosarul copiilor de siguranță…",
-  "restoreAndroidHint": "Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici."
+  "restoreAndroidHint": "Copiile de siguranță ale instalării anterioare sunt în Documents/catlog (Downloads/catlog la versiunile mai vechi). Alege acel dosar o dată; copiile lui apar aici.",
+  "backupsTitle": "Copii de siguranță",
+  "backupsSubtitle": "Unde sunt în siguranță cataloagele tale",
+  "backupsAndroidSystem": "Google salvează cataloagele acestei aplicații cu contul tău, fără fotografii. Revin singure după o reinstalare sau pe un telefon nou.",
+  "backupsAndroidFiles": "O copie completă a fiecărui catalog, cu fotografii, este scrisă în Documents/catlog ori de câte ori părăsești aplicația după modificări.",
+  "backupsIosSystem": "Copia de siguranță iCloud include această aplicație cu cataloagele și fotografiile ei, ca orice altă aplicație de pe acest iPhone.",
+  "backupsIosFiles": "O copie completă a fiecărui catalog se află în aplicația Fișiere, sub cat(a)log. De acolo poate merge în iCloud Drive, prin AirDrop sau pe alt telefon.",
+  "backupsDesktopFiles": "O copie completă a fiecărui catalog, cu fotografii, este scrisă în dosarul Descărcări ori de câte ori părăsești aplicația după modificări.",
+  "backupsLast": "Ultima copie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Nicio copie scrisă încă.",
+  "backupsNow": "Fă o copie acum",
+  "backupsDone": "Copie scrisă.",
+  "backupsRestoredNote": "Restaurat din copia Google la {date}. Dacă vechiul telefon mai rulează cat(a)log, sincronizează o dată de pe el, apoi elimină aplicația acolo.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

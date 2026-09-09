@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Correzione",
   "restorePickFolder": "Scegli cartella dei backup…",
-  "restoreAndroidHint": "I backup dell'installazione precedente sono in Documents/catlog (Downloads/catlog nelle versioni precedenti). Scegli quella cartella una volta; i suoi backup compaiono qui."
+  "restoreAndroidHint": "I backup dell'installazione precedente sono in Documents/catlog (Downloads/catlog nelle versioni precedenti). Scegli quella cartella una volta; i suoi backup compaiono qui.",
+  "backupsTitle": "Backup",
+  "backupsSubtitle": "Dove i tuoi cataloghi sono al sicuro",
+  "backupsAndroidSystem": "Google salva i cataloghi di questa app con il tuo account, foto escluse. Tornano da soli dopo una reinstallazione o su un nuovo telefono.",
+  "backupsAndroidFiles": "Una copia completa di ogni catalogo, foto incluse, viene scritta in Documents/catlog ogni volta che esci dall'app dopo modifiche.",
+  "backupsIosSystem": "Il backup iCloud include questa app con i suoi cataloghi e le foto, come ogni altra app su questo iPhone.",
+  "backupsIosFiles": "Una copia completa di ogni catalogo si trova nell'app File sotto cat(a)log. Da lì può andare su iCloud Drive, via AirDrop o su un altro telefono.",
+  "backupsDesktopFiles": "Una copia completa di ogni catalogo, foto incluse, viene scritta nella cartella Download ogni volta che esci dall'app dopo modifiche.",
+  "backupsLast": "Ultima copia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Nessuna copia scritta finora.",
+  "backupsNow": "Esegui backup ora",
+  "backupsDone": "Copia scritta.",
+  "backupsRestoredNote": "Ripristinato dal backup Google il {date}. Se sul vecchio telefono cat(a)log è ancora in uso, sincronizza una volta da lì, poi rimuovi l'app.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

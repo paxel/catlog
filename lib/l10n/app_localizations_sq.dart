@@ -3322,4 +3322,49 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Kopjet rezervë të instalimit të mëparshëm janë në Documents/catlog (Downloads/catlog për versionet e vjetra). Zgjidh atë dosje një herë; kopjet e saj shfaqen këtu.';
+
+  @override
+  String get backupsTitle => 'Kopje rezervë';
+
+  @override
+  String get backupsSubtitle => 'Ku ruhen të sigurt katalogët e tu';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google ruan katalogët e këtij aplikacioni me llogarinë tënde, pa foto. Kthehen vetë pas një riinstalimi ose në një telefon të ri.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Një kopje e plotë e çdo katalogu, me foto, shkruhet në Documents/catlog sa herë që del nga aplikacioni pas ndryshimeve.';
+
+  @override
+  String get backupsIosSystem =>
+      'Kopja rezervë e iCloud e përfshin këtë aplikacion me katalogët dhe fotot e tij, si çdo aplikacion tjetër në këtë iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Një kopje e plotë e çdo katalogu ndodhet në aplikacionin Files nën cat(a)log. Prej aty mund të shkojë në iCloud Drive, me AirDrop ose në një telefon tjetër.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Një kopje e plotë e çdo katalogu, me foto, shkruhet në dosjen Shkarkime sa herë që del nga aplikacioni pas ndryshimeve.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Kopja e fundit: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ende nuk është shkruar asnjë kopje.';
+
+  @override
+  String get backupsNow => 'Bëj kopje tani';
+
+  @override
+  String get backupsDone => 'Kopja u shkrua.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Rikthyer nga kopja rezervë e Google më $date. Nëse telefoni i vjetër ende përdor cat(a)log, sinkronizo një herë prej tij, pastaj hiqe aplikacionin atje.';
+  }
 }

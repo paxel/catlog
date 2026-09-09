@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Oprava",
   "restorePickFolder": "Vybrať priečinok záloh…",
-  "restoreAndroidHint": "Zálohy predchádzajúcej inštalácie sú v Documents/catlog (v starších verziách Downloads/catlog). Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu."
+  "restoreAndroidHint": "Zálohy predchádzajúcej inštalácie sú v Documents/catlog (v starších verziách Downloads/catlog). Vyberte tento priečinok raz; jeho zálohy sa zobrazia tu.",
+  "backupsTitle": "Zálohy",
+  "backupsSubtitle": "Kde sú vaše katalógy v bezpečí",
+  "backupsAndroidSystem": "Google zálohuje katalógy tejto aplikácie s vaším účtom, bez fotografií. Po preinštalovaní alebo na novom telefóne sa vrátia samy.",
+  "backupsAndroidFiles": "Úplná kópia každého katalógu, vrátane fotografií, sa zapíše do Documents/catlog vždy, keď aplikáciu po zmenách opustíte.",
+  "backupsIosSystem": "Záloha iCloud zahŕňa túto aplikáciu s jej katalógmi a fotografiami, ako každú inú aplikáciu na tomto iPhone.",
+  "backupsIosFiles": "Úplná kópia každého katalógu je v aplikácii Súbory pod cat(a)log. Odtiaľ môže ísť na iCloud Drive, cez AirDrop alebo do iného telefónu.",
+  "backupsDesktopFiles": "Úplná kópia každého katalógu, vrátane fotografií, sa zapíše do priečinka Stiahnuté vždy, keď aplikáciu po zmenách opustíte.",
+  "backupsLast": "Posledná kópia: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Zatiaľ nebola zapísaná žiadna kópia.",
+  "backupsNow": "Zálohovať teraz",
+  "backupsDone": "Kópia zapísaná.",
+  "backupsRestoredNote": "Obnovené zo zálohy Google {date}. Ak starý telefón stále používa cat(a)log, raz z neho synchronizujte a potom tam aplikáciu odstráňte.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

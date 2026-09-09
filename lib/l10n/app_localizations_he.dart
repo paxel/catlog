@@ -3317,4 +3317,49 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'הגיבויים של ההתקנה הקודמת נמצאים ב-Documents/catlog (בגרסאות ישנות ב-Downloads/catlog). יש לבחור בתיקייה זו פעם אחת; הגיבויים שבה יופיעו כאן.';
+
+  @override
+  String get backupsTitle => 'גיבויים';
+
+  @override
+  String get backupsSubtitle => 'היכן הקטלוגים שלך נשמרים';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google מגבה את הקטלוגים של האפליקציה עם החשבון שלך, בלי תמונות. הם חוזרים מעצמם אחרי התקנה מחדש או בטלפון חדש.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'עותק מלא של כל קטלוג, כולל תמונות, נכתב ל-Documents/catlog בכל פעם שיוצאים מהאפליקציה אחרי שינויים.';
+
+  @override
+  String get backupsIosSystem =>
+      'גיבוי iCloud כולל את האפליקציה הזו עם הקטלוגים והתמונות שלה, כמו כל אפליקציה אחרת ב-iPhone הזה.';
+
+  @override
+  String get backupsIosFiles =>
+      'עותק מלא של כל קטלוג נמצא באפליקציית הקבצים תחת cat(a)log. משם אפשר להעביר אותו ל-iCloud Drive, ב-AirDrop או לטלפון אחר.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'עותק מלא של כל קטלוג, כולל תמונות, נכתב לתיקיית ההורדות שלך בכל פעם שיוצאים מהאפליקציה אחרי שינויים.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'עותק אחרון: $date';
+  }
+
+  @override
+  String get backupsNever => 'עדיין לא נכתב עותק.';
+
+  @override
+  String get backupsNow => 'גיבוי עכשיו';
+
+  @override
+  String get backupsDone => 'העותק נכתב.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'שוחזר מגיבוי Google ב-$date. אם cat(a)log עדיין פועל בטלפון הישן, יש לסנכרן ממנו פעם אחת ואז להסיר שם את האפליקציה.';
+  }
 }

@@ -3322,4 +3322,49 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Edellisen asennuksen varmuuskopiot ovat kansiossa Documents/catlog (vanhemmissa versioissa Downloads/catlog). Valitse kansio kerran; sen kopiot näkyvät tässä.';
+
+  @override
+  String get backupsTitle => 'Varmuuskopiot';
+
+  @override
+  String get backupsSubtitle => 'Missä luettelosi ovat turvassa';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google varmuuskopioi tämän sovelluksen luettelot tilillesi, ilman kuvia. Ne palaavat itsestään uudelleenasennuksen jälkeen tai uudella puhelimella.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan kansioon Documents/catlog aina, kun poistut sovelluksesta muutosten jälkeen.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-varmuuskopio sisältää tämän sovelluksen luetteloineen ja kuvineen, kuten jokaisen muun sovelluksen tällä iPhonella.';
+
+  @override
+  String get backupsIosFiles =>
+      'Täysi kopio jokaisesta luettelosta on Tiedostot-sovelluksessa kohdassa cat(a)log. Sieltä sen voi viedä iCloud Driveen, AirDropilla tai toiseen puhelimeen.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Täysi kopio jokaisesta luettelosta, kuvineen, kirjoitetaan Lataukset-kansioosi aina, kun poistut sovelluksesta muutosten jälkeen.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Viimeisin kopio: $date';
+  }
+
+  @override
+  String get backupsNever => 'Kopiota ei ole vielä kirjoitettu.';
+
+  @override
+  String get backupsNow => 'Varmuuskopioi nyt';
+
+  @override
+  String get backupsDone => 'Kopio kirjoitettu.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Palautettu Google-varmuuskopiosta $date. Jos vanhassa puhelimessa on yhä cat(a)log, synkronoi kerran sieltä ja poista sovellus sitten sieltä.';
+  }
 }

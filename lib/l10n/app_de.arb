@@ -1109,5 +1109,27 @@
   },
   "entryCorrection": "Korrektur",
   "restorePickFolder": "Sicherungsordner wählen…",
-  "restoreAndroidHint": "Die Sicherungen der vorherigen Installation liegen in Documents/catlog (bei älteren Versionen Downloads/catlog). Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier."
+  "restoreAndroidHint": "Die Sicherungen der vorherigen Installation liegen in Documents/catlog (bei älteren Versionen Downloads/catlog). Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier.",
+  "backupsTitle": "Sicherungen",
+  "backupsSubtitle": "Wo deine Kataloge gesichert sind",
+  "backupsAndroidSystem": "Google sichert die Kataloge dieser App mit deinem Konto, ohne Fotos. Nach einer Neuinstallation oder auf einem neuen Handy kommen sie von selbst zurück.",
+  "backupsAndroidFiles": "Eine vollständige Kopie jedes Katalogs, mit Fotos, wird in Documents/catlog geschrieben, sobald du die App nach Änderungen verlässt.",
+  "backupsIosSystem": "Das iCloud-Backup enthält diese App mit ihren Katalogen und Fotos, wie jede andere App auf diesem iPhone.",
+  "backupsIosFiles": "Eine vollständige Kopie jedes Katalogs liegt in der Dateien-App unter cat(a)log. Von dort kann sie nach iCloud Drive, per AirDrop oder auf ein anderes Handy.",
+  "backupsDesktopFiles": "Eine vollständige Kopie jedes Katalogs, mit Fotos, wird in deinen Downloads-Ordner geschrieben, sobald du die App nach Änderungen verlässt.",
+  "backupsLast": "Letzte Kopie: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Noch keine Kopie geschrieben.",
+  "backupsNow": "Jetzt sichern",
+  "backupsDone": "Kopie geschrieben.",
+  "backupsRestoredNote": "Am {date} aus der Google-Sicherung wiederhergestellt. Läuft cat(a)log noch auf dem alten Handy, gleiche einmal von dort ab und entferne die App dann dort.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

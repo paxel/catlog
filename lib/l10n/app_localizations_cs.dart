@@ -3333,4 +3333,49 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Zálohy předchozí instalace jsou v Documents/catlog (u starších verzí Downloads/catlog). Vyberte tuto složku jednou; její zálohy se zobrazí zde.';
+
+  @override
+  String get backupsTitle => 'Zálohy';
+
+  @override
+  String get backupsSubtitle => 'Kde jsou vaše katalogy v bezpečí';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google zálohuje katalogy této aplikace s vaším účtem, bez fotografií. Po přeinstalaci nebo na novém telefonu se vrátí samy.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Úplná kopie každého katalogu, včetně fotografií, se zapíše do Documents/catlog pokaždé, když aplikaci po změnách opustíte.';
+
+  @override
+  String get backupsIosSystem =>
+      'Záloha iCloud zahrnuje tuto aplikaci s jejími katalogy a fotografiemi, jako každou jinou aplikaci na tomto iPhonu.';
+
+  @override
+  String get backupsIosFiles =>
+      'Úplná kopie každého katalogu je v aplikaci Soubory pod cat(a)log. Odtud může na iCloud Drive, přes AirDrop nebo do jiného telefonu.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Úplná kopie každého katalogu, včetně fotografií, se zapíše do složky Stažené pokaždé, když aplikaci po změnách opustíte.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Poslední kopie: $date';
+  }
+
+  @override
+  String get backupsNever => 'Zatím nebyla zapsána žádná kopie.';
+
+  @override
+  String get backupsNow => 'Zálohovat nyní';
+
+  @override
+  String get backupsDone => 'Kopie zapsána.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Obnoveno ze zálohy Google $date. Pokud starý telefon stále používá cat(a)log, jednou z něj synchronizujte a pak tam aplikaci odeberte.';
+  }
 }

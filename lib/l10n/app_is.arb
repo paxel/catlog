@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Leiðrétting",
   "restorePickFolder": "Velja afritamöppu…",
-  "restoreAndroidHint": "Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér."
+  "restoreAndroidHint": "Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér.",
+  "backupsTitle": "Afrit",
+  "backupsSubtitle": "Hvar skrárnar þínar eru geymdar örugglega",
+  "backupsAndroidSystem": "Google afritar skrár þessa forrits með reikningnum þínum, án mynda. Þær koma sjálfkrafa aftur eftir enduruppsetningu eða á nýjum síma.",
+  "backupsAndroidFiles": "Fullt afrit af hverri skrá, með myndum, er skrifað í Documents/catlog í hvert sinn sem þú ferð úr forritinu eftir breytingar.",
+  "backupsIosSystem": "iCloud-afrit inniheldur þetta forrit með skrám þess og myndum, eins og öll önnur forrit á þessum iPhone.",
+  "backupsIosFiles": "Fullt afrit af hverri skrá er í Skrár-forritinu undir cat(a)log. Þaðan getur það farið í iCloud Drive, með AirDrop eða í annan síma.",
+  "backupsDesktopFiles": "Fullt afrit af hverri skrá, með myndum, er skrifað í Niðurhal-möppuna þína í hvert sinn sem þú ferð úr forritinu eftir breytingar.",
+  "backupsLast": "Síðasta afrit: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Ekkert afrit skrifað enn.",
+  "backupsNow": "Taka afrit núna",
+  "backupsDone": "Afrit skrifað.",
+  "backupsRestoredNote": "Endurheimt úr Google-afriti {date}. Ef cat(a)log keyrir enn á gamla símanum, samstilltu einu sinni þaðan og fjarlægðu svo forritið þar.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

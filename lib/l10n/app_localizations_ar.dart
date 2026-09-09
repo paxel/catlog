@@ -3355,4 +3355,49 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'النسخ الاحتياطية للتثبيت السابق موجودة في Documents/catlog (وفي Downloads/catlog للإصدارات الأقدم). اختر ذلك المجلد مرة واحدة؛ تُعرض نسخه هنا.';
+
+  @override
+  String get backupsTitle => 'النسخ الاحتياطية';
+
+  @override
+  String get backupsSubtitle => 'أين تُحفظ فهارسك بأمان';
+
+  @override
+  String get backupsAndroidSystem =>
+      'تنسخ Google فهارس هذا التطبيق احتياطياً مع حسابك، من دون الصور. تعود من تلقاء نفسها بعد إعادة التثبيت أو على هاتف جديد.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'تُكتب نسخة كاملة من كل فهرس، مع الصور، في Documents/catlog كلما غادرت التطبيق بعد تغييرات.';
+
+  @override
+  String get backupsIosSystem =>
+      'يشمل نسخ iCloud الاحتياطي هذا التطبيق بفهارسه وصوره، مثل أي تطبيق آخر على هذا الـ iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'توجد نسخة كاملة من كل فهرس في تطبيق الملفات تحت cat(a)log. من هناك يمكن نقلها إلى iCloud Drive أو عبر AirDrop أو إلى هاتف آخر.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'تُكتب نسخة كاملة من كل فهرس، مع الصور، في مجلد التنزيلات كلما غادرت التطبيق بعد تغييرات.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'آخر نسخة: $date';
+  }
+
+  @override
+  String get backupsNever => 'لم تُكتب نسخة بعد.';
+
+  @override
+  String get backupsNow => 'انسخ احتياطياً الآن';
+
+  @override
+  String get backupsDone => 'كُتبت النسخة.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'استُعيد من نسخة Google الاحتياطية في $date. إذا كان الهاتف القديم لا يزال يشغّل cat(a)log، فزامن منه مرة واحدة ثم أزل التطبيق هناك.';
+  }
 }

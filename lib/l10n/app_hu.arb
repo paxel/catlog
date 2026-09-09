@@ -1103,5 +1103,27 @@
   },
   "entryCorrection": "Javítás",
   "restorePickFolder": "Mentési mappa kiválasztása…",
-  "restoreAndroidHint": "Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg."
+  "restoreAndroidHint": "Az előző telepítés mentései a Documents/catlog mappában vannak (régebbi verzióknál Downloads/catlog). Válaszd ki egyszer azt a mappát; a mentések itt jelennek meg.",
+  "backupsTitle": "Mentések",
+  "backupsSubtitle": "Hol vannak biztonságban a katalógusaid",
+  "backupsAndroidSystem": "A Google a fiókoddal menti az app katalógusait, fotók nélkül. Újratelepítés után vagy új telefonon maguktól visszatérnek.",
+  "backupsAndroidFiles": "Minden katalógus teljes másolata, fotókkal együtt, a Documents/catlog mappába kerül, valahányszor változtatás után elhagyod az appot.",
+  "backupsIosSystem": "Az iCloud-mentés tartalmazza ezt az appot a katalógusaival és fotóival, mint minden más appot ezen az iPhone-on.",
+  "backupsIosFiles": "Minden katalógus teljes másolata a Fájlok appban, a cat(a)log mappában van. Onnan az iCloud Drive-ra, AirDroppal vagy másik telefonra vihető.",
+  "backupsDesktopFiles": "Minden katalógus teljes másolata, fotókkal együtt, a Letöltések mappádba kerül, valahányszor változtatás után elhagyod az appot.",
+  "backupsLast": "Utolsó másolat: {date}",
+  "@backupsLast": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "backupsNever": "Még nem készült másolat.",
+  "backupsNow": "Mentés most",
+  "backupsDone": "Másolat elkészült.",
+  "backupsRestoredNote": "Visszaállítva a Google-mentésből: {date}. Ha a régi telefonon még fut a cat(a)log, szinkronizálj egyszer onnan, majd ott töröld az appot.",
+  "@backupsRestoredNote": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

@@ -13,6 +13,7 @@ import '../units_dialog.dart';
 import 'intro_screen.dart';
 import '../move_to_catalog.dart';
 import 'achievements_screen.dart';
+import 'backups_screen.dart';
 
 /// The settings that belong to the app, not to a catalog: language,
 /// units, celebrations, event toasts and the two replays. One flat
@@ -140,6 +141,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     manager: catalogManager!, stores: [widget.store]),
               )),
             ),
+          ListTile(
+            leading: const Icon(Icons.backup_outlined),
+            title: Text(t.backupsTitle),
+            subtitle: Text(t.backupsSubtitle),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => BackupsScreen(store: widget.store),
+              ),
+            ),
+          ),
           ListTile(
             leading: const Icon(Icons.notifications_active_outlined),
             title: Text(t.toastSettingsTitle),

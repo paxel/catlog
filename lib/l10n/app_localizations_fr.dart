@@ -3331,4 +3331,49 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Les sauvegardes de l\'installation précédente sont dans Documents/catlog (Downloads/catlog pour les versions plus anciennes). Choisissez ce dossier une fois ; ses sauvegardes s\'affichent ici.';
+
+  @override
+  String get backupsTitle => 'Sauvegardes';
+
+  @override
+  String get backupsSubtitle => 'Où vos catalogues sont à l\'abri';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google sauvegarde les catalogues de cette application avec votre compte, sans les photos. Ils reviennent d\'eux-mêmes après une réinstallation ou sur un nouveau téléphone.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Une copie complète de chaque catalogue, photos comprises, est écrite dans Documents/catlog chaque fois que vous quittez l\'application après des modifications.';
+
+  @override
+  String get backupsIosSystem =>
+      'La sauvegarde iCloud inclut cette application avec ses catalogues et photos, comme toute autre application sur cet iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Une copie complète de chaque catalogue se trouve dans l\'app Fichiers sous cat(a)log. De là, elle peut aller vers iCloud Drive, AirDrop ou un autre téléphone.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Une copie complète de chaque catalogue, photos comprises, est écrite dans votre dossier Téléchargements chaque fois que vous quittez l\'application après des modifications.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Dernière copie : $date';
+  }
+
+  @override
+  String get backupsNever => 'Aucune copie écrite pour l\'instant.';
+
+  @override
+  String get backupsNow => 'Sauvegarder maintenant';
+
+  @override
+  String get backupsDone => 'Copie écrite.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Restauré depuis la sauvegarde Google le $date. Si l\'ancien téléphone utilise encore cat(a)log, synchronisez une fois depuis celui-ci, puis supprimez-y l\'application.';
+  }
 }

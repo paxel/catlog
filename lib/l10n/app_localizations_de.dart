@@ -3331,4 +3331,49 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Die Sicherungen der vorherigen Installation liegen in Documents/catlog (bei älteren Versionen Downloads/catlog). Wähle diesen Ordner einmal; seine Sicherungen erscheinen hier.';
+
+  @override
+  String get backupsTitle => 'Sicherungen';
+
+  @override
+  String get backupsSubtitle => 'Wo deine Kataloge gesichert sind';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google sichert die Kataloge dieser App mit deinem Konto, ohne Fotos. Nach einer Neuinstallation oder auf einem neuen Handy kommen sie von selbst zurück.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Eine vollständige Kopie jedes Katalogs, mit Fotos, wird in Documents/catlog geschrieben, sobald du die App nach Änderungen verlässt.';
+
+  @override
+  String get backupsIosSystem =>
+      'Das iCloud-Backup enthält diese App mit ihren Katalogen und Fotos, wie jede andere App auf diesem iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Eine vollständige Kopie jedes Katalogs liegt in der Dateien-App unter cat(a)log. Von dort kann sie nach iCloud Drive, per AirDrop oder auf ein anderes Handy.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Eine vollständige Kopie jedes Katalogs, mit Fotos, wird in deinen Downloads-Ordner geschrieben, sobald du die App nach Änderungen verlässt.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Letzte Kopie: $date';
+  }
+
+  @override
+  String get backupsNever => 'Noch keine Kopie geschrieben.';
+
+  @override
+  String get backupsNow => 'Jetzt sichern';
+
+  @override
+  String get backupsDone => 'Kopie geschrieben.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Am $date aus der Google-Sicherung wiederhergestellt. Läuft cat(a)log noch auf dem alten Handy, gleiche einmal von dort ab und entferne die App dann dort.';
+  }
 }

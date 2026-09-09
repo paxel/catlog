@@ -3325,4 +3325,49 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'Afrit fyrri uppsetningar eru í Documents/catlog (Downloads/catlog í eldri útgáfum). Veldu þá möppu einu sinni; afrit hennar birtast hér.';
+
+  @override
+  String get backupsTitle => 'Afrit';
+
+  @override
+  String get backupsSubtitle => 'Hvar skrárnar þínar eru geymdar örugglega';
+
+  @override
+  String get backupsAndroidSystem =>
+      'Google afritar skrár þessa forrits með reikningnum þínum, án mynda. Þær koma sjálfkrafa aftur eftir enduruppsetningu eða á nýjum síma.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'Fullt afrit af hverri skrá, með myndum, er skrifað í Documents/catlog í hvert sinn sem þú ferð úr forritinu eftir breytingar.';
+
+  @override
+  String get backupsIosSystem =>
+      'iCloud-afrit inniheldur þetta forrit með skrám þess og myndum, eins og öll önnur forrit á þessum iPhone.';
+
+  @override
+  String get backupsIosFiles =>
+      'Fullt afrit af hverri skrá er í Skrár-forritinu undir cat(a)log. Þaðan getur það farið í iCloud Drive, með AirDrop eða í annan síma.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'Fullt afrit af hverri skrá, með myndum, er skrifað í Niðurhal-möppuna þína í hvert sinn sem þú ferð úr forritinu eftir breytingar.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'Síðasta afrit: $date';
+  }
+
+  @override
+  String get backupsNever => 'Ekkert afrit skrifað enn.';
+
+  @override
+  String get backupsNow => 'Taka afrit núna';
+
+  @override
+  String get backupsDone => 'Afrit skrifað.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'Endurheimt úr Google-afriti $date. Ef cat(a)log keyrir enn á gamla símanum, samstilltu einu sinni þaðan og fjarlægðu svo forritið þar.';
+  }
 }

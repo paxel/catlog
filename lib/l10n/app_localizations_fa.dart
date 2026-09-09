@@ -3259,4 +3259,49 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get restoreAndroidHint =>
       'پشتیبان‌های نصب قبلی در Documents/catlog هستند (در نسخه‌های قدیمی‌تر Downloads/catlog). آن پوشه را یک بار انتخاب کنید؛ پشتیبان‌هایش اینجا فهرست می‌شوند.';
+
+  @override
+  String get backupsTitle => 'پشتیبان‌ها';
+
+  @override
+  String get backupsSubtitle => 'جایی که فهرست‌های شما ایمن نگه داشته می‌شوند';
+
+  @override
+  String get backupsAndroidSystem =>
+      'گوگل فهرست‌های این برنامه را با حساب شما پشتیبان می‌گیرد، بدون عکس‌ها. پس از نصب مجدد یا روی گوشی جدید خودبه‌خود برمی‌گردند.';
+
+  @override
+  String get backupsAndroidFiles =>
+      'هر بار که پس از تغییرات از برنامه خارج می‌شوید، نسخهٔ کامل هر فهرست، همراه با عکس‌ها، در Documents/catlog نوشته می‌شود.';
+
+  @override
+  String get backupsIosSystem =>
+      'پشتیبان iCloud این برنامه را همراه با فهرست‌ها و عکس‌هایش شامل می‌شود، مانند هر برنامهٔ دیگری روی این آیفون.';
+
+  @override
+  String get backupsIosFiles =>
+      'نسخهٔ کامل هر فهرست در برنامهٔ Files زیر cat(a)log قرار دارد. از آنجا می‌توان آن را به iCloud Drive، با AirDrop یا به گوشی دیگری فرستاد.';
+
+  @override
+  String get backupsDesktopFiles =>
+      'هر بار که پس از تغییرات از برنامه خارج می‌شوید، نسخهٔ کامل هر فهرست، همراه با عکس‌ها، در پوشهٔ دانلودها نوشته می‌شود.';
+
+  @override
+  String backupsLast(Object date) {
+    return 'آخرین نسخه: $date';
+  }
+
+  @override
+  String get backupsNever => 'هنوز نسخه‌ای نوشته نشده است.';
+
+  @override
+  String get backupsNow => 'اکنون پشتیبان بگیر';
+
+  @override
+  String get backupsDone => 'نسخه نوشته شد.';
+
+  @override
+  String backupsRestoredNote(Object date) {
+    return 'در $date از پشتیبان گوگل بازیابی شد. اگر cat(a)log هنوز روی گوشی قدیمی اجرا می‌شود، یک بار از آن همگام کنید و سپس برنامه را آنجا حذف کنید.';
+  }
 }
