@@ -137,6 +137,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
     );
     if (edit == null || !mounted) return;
     store.correctEntry(e.seq, edit.value, date: edit.date);
+    if (edit.private != store.isFieldPrivate(e.entity, e.field)) {
+      store.setFieldPrivate(e.entity, e.field, edit.private);
+    }
     setState(() {});
   }
 

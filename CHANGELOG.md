@@ -15,11 +15,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Looks grew: eye colour, a Features group for what never changes (tipped or tattooed ear, a missing eye or leg, no teeth, extra toes), more colours, patterns, fur, tail and ear types. A shared feature alone makes a match candidate.
 - Thirty more cat breeds, Burmese and Abyssinian among them, named in every language; existing catalogs get them added.
 - Every value has a time of day: the editor's As of row picks date and time, and the history, the timeline and the graph show it.
-- A wrong value can be corrected in place from the history or the timeline: tap it, fix value or moment, and the old one hides; a long press removes a value or restores a hidden one, and hidden values show on request, struck through with who replaced them and when.
-- A chore's history lets a done day be corrected to another moment or removed; the day then reads missed or open again, and a removed tick can be restored.
+- A wrong value can be corrected or removed from its history; hidden values show on request and can be restored.
+- A done day in a chore's history can be corrected to another moment or removed.
 
 ### Changed
-- Reverting a change no longer writes the old value again as a new entry; the change is removed and can be restored.
+- Reverting a change removes it instead of writing the old value again.
 
 ### Fixed
 - Two devices changing a choice field's option list at the same time get both lists merged instead of a conflict.

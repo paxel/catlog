@@ -165,6 +165,9 @@ class _FieldHistoryScreenState extends State<FieldHistoryScreen> {
     );
     if (edit == null || !mounted) return;
     store.correctEntry(e.seq, edit.value, date: edit.date);
+    if (edit.private != store.isFieldPrivate(widget.entityId, widget.def.key)) {
+      store.setFieldPrivate(widget.entityId, widget.def.key, edit.private);
+    }
     setState(() {});
   }
 
