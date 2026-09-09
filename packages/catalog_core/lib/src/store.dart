@@ -152,6 +152,11 @@ class CatalogStore {
         label TEXT,
         at    TEXT NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS voids (
+        device TEXT NOT NULL,
+        dseq   INTEGER NOT NULL,
+        PRIMARY KEY (device, dseq)
+      );
     ''');
     final store = CatalogStore._(db, blobs);
     store._ensureDeviceId();
@@ -159,6 +164,7 @@ class CatalogStore {
     store._migrateReminder();
     store._migrateSignatures();
     store._normalizeTimestamps();
+    store._rebuildVoids();
     db.execute('''
       CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_device_dseq
         ON entries (device, dseq);
@@ -377,7 +383,62 @@ class CatalogStore {
             recordedIso, reminder),
       ],
     );
+    _noteVoid(field);
   }
+
+  // ---------------------------------------------------------------- voids
+
+  /// The rows the projection skips (1.2.3): every entry a live `$void:`
+  /// marker names. A device-local table, derived from the log and kept
+  /// in step with it — rebuilt on open and after going back, refreshed
+  /// per marker as one arrives or is written.
+  void _rebuildVoids() {
+    _db.execute('DELETE FROM voids');
+    for (final r in _db.select(
+        'SELECT DISTINCT field FROM entries WHERE field LIKE ?',
+        ['${Keys.voidPrefix}%'])) {
+      _noteVoid(r['field'] as String);
+    }
+  }
+
+  /// Brings the void table in step with the latest marker under [field],
+  /// if it is one.
+  void _noteVoid(String field) {
+    if (!field.startsWith(Keys.voidPrefix)) return;
+    final target = _voidTarget(field);
+    if (target == null) return;
+    final rows = _db.select(
+        'SELECT value FROM entries WHERE field = ? $_latest LIMIT 1',
+        [field]);
+    final live = rows.isNotEmpty && rows.first['value'] != null;
+    if (live) {
+      _db.execute('INSERT OR REPLACE INTO voids (device, dseq) VALUES (?, ?)',
+          [target.$1, target.$2]);
+    } else {
+      _db.execute('DELETE FROM voids WHERE device = ? AND dseq = ?',
+          [target.$1, target.$2]);
+    }
+  }
+
+  /// The (device, dseq) a `$void:` key names, or null when malformed.
+  static (String, int)? _voidTarget(String field) {
+    final body = field.substring(Keys.voidPrefix.length);
+    final cut = body.lastIndexOf(':');
+    if (cut <= 0) return null;
+    final dseq = int.tryParse(body.substring(cut + 1));
+    if (dseq == null) return null;
+    return (body.substring(0, cut), dseq);
+  }
+
+  /// SQL: the row is not voided. Appended to every projection query.
+  static const _live = 'AND NOT EXISTS (SELECT 1 FROM voids '
+      'WHERE voids.device = entries.device AND voids.dseq = entries.dseq)';
+
+  /// SQL column: whether the row is voided, for reads that keep hidden
+  /// rows and mark them.
+  static const _voidedColumn = 'EXISTS (SELECT 1 FROM voids '
+      'WHERE voids.device = entries.device AND voids.dseq = entries.dseq) '
+      'AS voided';
 
   /// Timestamps are compared as strings in SQL, so they MUST have fixed
   /// precision: Dart's toIso8601String emits 3 fraction digits when the
@@ -747,6 +808,7 @@ class CatalogStore {
         recorded: DateTime.parse(r['recorded'] as String),
         reminder: (r['reminder'] as int? ?? 0) != 0,
         sig: r['sig'] as String?,
+        voided: r.containsKey('voided') && (r['voided'] as int? ?? 0) != 0,
       );
 
   /// Deterministic latest-wins ordering (ADR-0001): effective date, then
@@ -836,7 +898,7 @@ class CatalogStore {
     final rows = _db.select(
       'SELECT * FROM entries WHERE entity IN (${_placeholders(entities.length)}) '
       'AND field IN (${_placeholders(keys.length)}) '
-      'AND reminder = 0 $_latest LIMIT 1',
+      'AND reminder = 0 $_live $_latest LIMIT 1',
       [...entities, ...keys],
     );
     if (rows.isEmpty) return null;
@@ -852,7 +914,7 @@ class CatalogStore {
     final rows = _db.select(
       'SELECT field, value FROM entries '
       'WHERE entity IN (${_placeholders(entities.length)}) '
-      'AND reminder = 0 $_latest',
+      'AND reminder = 0 $_live $_latest',
       entities,
     );
     final result = <String, String?>{};
@@ -864,13 +926,15 @@ class CatalogStore {
   }
 
   /// Every entry of an entity (including merged-in losers), newest
-  /// effective date first.
-  List<Entry> timeline(String entity) {
+  /// effective date first. Corrected and removed rows stay out unless
+  /// [includeVoided], which brings them marked.
+  List<Entry> timeline(String entity, {bool includeVoided = false}) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     return _dedupe(_db
         .select(
-          'SELECT * FROM entries '
-          'WHERE entity IN (${_placeholders(entities.length)}) $_latest',
+          'SELECT entries.*, $_voidedColumn FROM entries '
+          'WHERE entity IN (${_placeholders(entities.length)}) '
+          '${includeVoided ? '' : _live} $_latest',
           entities,
         )
         .map(_entry));
@@ -890,14 +954,18 @@ class CatalogStore {
   }
 
   /// Every entry of one field of an entity, newest effective date first.
-  List<Entry> fieldHistory(String entity, String field) {
+  /// Corrected and removed rows stay out unless [includeVoided], which
+  /// brings them marked.
+  List<Entry> fieldHistory(String entity, String field,
+      {bool includeVoided = false}) {
     final entities = _unionKind(entity) ? _group(entity) : [entity];
     final keys = _keysFor(field);
     return _dedupe(_db
         .select(
-          'SELECT * FROM entries '
+          'SELECT entries.*, $_voidedColumn FROM entries '
           'WHERE entity IN (${_placeholders(entities.length)}) '
-          'AND field IN (${_placeholders(keys.length)}) $_latest',
+          'AND field IN (${_placeholders(keys.length)}) '
+          '${includeVoided ? '' : _live} $_latest',
           [...entities, ...keys],
         )
         .map(_entry));
@@ -927,7 +995,7 @@ class CatalogStore {
   /// flagged null (cancelled).
   List<ActiveReminder> activeReminders() {
     final rows = _db.select(
-      'SELECT * FROM entries '
+      'SELECT * FROM entries WHERE 1 $_live '
       'ORDER BY recorded DESC, author DESC, device DESC, dseq DESC',
     );
     final newest = <(String, String), Entry>{};
@@ -948,14 +1016,15 @@ class CatalogStore {
     return result;
   }
 
-  /// True when [field] may be reverted from the history UI. Structural
-  /// markers and photo entries are not revertable (photo bytes are gone
-  /// for good once deleted).
-  static bool isRevertable(String field) =>
+  /// True when entries of [field] may be corrected or removed from the
+  /// history UI. Structural markers and photo entries are not (photo
+  /// bytes are gone for good once deleted).
+  static bool isCorrectable(String field) =>
       field != Keys.type &&
       field != Keys.deleted &&
       field != Keys.mergedInto &&
       !field.startsWith(Keys.conflictPrefix) &&
+      !field.startsWith(Keys.voidPrefix) &&
       !field.startsWith(Keys.imagePrefix);
 
   /// Fields worth a conflict badge: what a keeper reads and can judge.
@@ -963,7 +1032,7 @@ class CatalogStore {
   /// chores (JSON documents) are bookkeeping — two edits there merge by
   /// latest-wins and nobody could pick between them anyway.
   static bool isConflictable(String field) =>
-      isRevertable(field) &&
+      isCorrectable(field) &&
       field != Keys.private &&
       field != Keys.profileImage &&
       !field.startsWith(Keys.privatePrefix) &&
@@ -971,39 +1040,105 @@ class CatalogStore {
       !field.startsWith(Keys.appointmentPrefix) &&
       !field.startsWith(Keys.chorePrefix);
 
-  /// Reverts one entry, git-style: appends the value that was current
-  /// just before it — for its (entity, field) — as a NEW entry at the
-  /// current time. Nothing is deleted; both the change and its undo
-  /// stay in history. Returns the value that was restored.
-  String? revertEntry(int seq) {
-    final rows =
-        _db.select('SELECT * FROM entries WHERE seq = ?', [seq]);
-    if (rows.isEmpty) throw ArgumentError('No entry with seq $seq');
-    final entry = _entry(rows.first);
-    if (!isRevertable(entry.field)) {
-      throw ArgumentError('Field ${entry.field} cannot be reverted');
+  // ------------------------------------------------ correct and remove
+
+  /// One row by its local handle, marked when voided; null if unknown.
+  Entry? entryBySeq(int seq) {
+    final rows = _db.select(
+        'SELECT entries.*, $_voidedColumn FROM entries WHERE seq = ?', [seq]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// One row by its wire identity, marked when voided; null if unknown.
+  Entry? entryById(String device, int dseq) {
+    final rows = _db.select(
+        'SELECT entries.*, $_voidedColumn FROM entries '
+        'WHERE device = ? AND dseq = ?',
+        [device, dseq]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// The marker that voids or restored [entry]: who did it, when, and
+  /// what replaced it (its value). Null when never touched.
+  Entry? voidMarker(Entry entry) => _marker(entry.device, entry.dseq);
+
+  Entry? _marker(String device, int dseq) {
+    final rows = _db.select(
+        'SELECT * FROM entries WHERE field = ? $_latest LIMIT 1',
+        [Keys.voided(device, dseq)]);
+    return rows.isEmpty ? null : _entry(rows.first);
+  }
+
+  /// The entry [entry] was corrected into, if its marker names one that
+  /// is still here.
+  Entry? replacementOf(Entry entry) {
+    final marker = voidMarker(entry);
+    final value = marker?.value;
+    if (value == null || value == Keys.voidRemoved) return null;
+    final target = _voidTarget('${Keys.voidPrefix}$value');
+    return target == null ? null : entryById(target.$1, target.$2);
+  }
+
+  /// The entry [entry] replaced, if it is a correction whose marker is
+  /// still live.
+  Entry? correctedBy(Entry entry) {
+    final rows = _db.select(
+        'SELECT * FROM entries WHERE field LIKE ? AND value = ? $_latest',
+        ['${Keys.voidPrefix}%', entry.id]);
+    for (final r in rows) {
+      final target = _voidTarget(r['field'] as String);
+      if (target == null) continue;
+      if (_marker(target.$1, target.$2)?.value != entry.id) continue;
+      return entryById(target.$1, target.$2);
     }
-    // Predecessor: the latest entry for the same (entity, field) that
-    // sorts strictly before the reverted one in projection order.
-    final prev = _db.select(
-      'SELECT * FROM entries WHERE entity = ? AND field = ? '
-      'AND reminder = 0 '
-      'AND (date, recorded, author, device, dseq) < (?, ?, ?, ?, ?) '
-      '$_latest LIMIT 1',
-      [
-        entry.entity,
-        entry.field,
-        _iso(entry.date),
-        _iso(entry.recorded),
-        entry.author,
-        entry.device,
-        entry.dseq,
-      ],
-    );
-    final restored =
-        prev.isEmpty ? null : prev.first['value'] as String?;
-    append(entry.entity, entry.field, restored);
-    return restored;
+    return null;
+  }
+
+  Entry _correctable(int seq) {
+    final entry = entryBySeq(seq);
+    if (entry == null) throw ArgumentError('No entry with seq $seq');
+    if (!isCorrectable(entry.field)) {
+      throw ArgumentError('Field ${entry.field} cannot be corrected');
+    }
+    return entry;
+  }
+
+  void _setVoid(Entry entry, String? value) =>
+      append(entry.entity, Keys.voided(entry.device, entry.dseq), value);
+
+  /// Takes one entry back (1.2.3): a marker hides it from the current
+  /// value, the history and the graph; the row stays and [restoreEntry]
+  /// brings it back. Taking back a correction also restores what it had
+  /// replaced.
+  void removeEntry(int seq) {
+    final entry = _correctable(seq);
+    final original = correctedBy(entry);
+    _setVoid(entry, Keys.voidRemoved);
+    if (original != null) _setVoid(original, null);
+  }
+
+  /// Replaces one entry with [value] as of [date] (the entry's own date
+  /// by default): the new entry is written, the old one is hidden and
+  /// its marker names the new one. Returns the new entry.
+  Entry correctEntry(int seq, String? value, {DateTime? date}) {
+    final entry = _correctable(seq);
+    final device = deviceId;
+    final next = _nextDseq(device);
+    append(entry.entity, entry.field, value, date: date ?? entry.date);
+    final fresh = entryById(device, next)!;
+    _setVoid(entry, fresh.id);
+    return fresh;
+  }
+
+  /// Brings a removed or corrected entry back. A correction that had
+  /// replaced it is taken back in turn, so the value does not show twice.
+  void restoreEntry(int seq) {
+    final entry = _correctable(seq);
+    final replacement = replacementOf(entry);
+    _setVoid(entry, null);
+    if (replacement != null && !replacement.voided) {
+      _setVoid(replacement, Keys.voidRemoved);
+    }
   }
 
   /// Ids of all non-deleted, non-merged entities of a kind, oldest first.
@@ -1474,6 +1609,7 @@ class CatalogStore {
       _db.execute('ROLLBACK');
       rethrow;
     }
+    _rebuildVoids();
   }
 
   // ------------------------------------------------------------------ sync
@@ -1681,7 +1817,7 @@ class CatalogStore {
         .select(
             'SELECT * FROM entries WHERE entity IN '
             '(${_placeholders(entities.length)}) AND field = ? '
-            'ORDER BY device, dseq',
+            '$_live ORDER BY device, dseq',
             [...entities, field])
         .map(_entry)
         .toList();
@@ -1706,7 +1842,7 @@ class CatalogStore {
     final rows = _db
         .select(
             'SELECT * FROM entries WHERE ($where) AND field != ? '
-            'ORDER BY device, dseq',
+            '$_live ORDER BY device, dseq',
             [...args, Keys.private])
         .map(_entry)
         .toList();
@@ -1764,7 +1900,7 @@ class CatalogStore {
         // or a fact arriving over it would flag a bogus conflict.
         final rows = _db.select(
           'SELECT * FROM entries WHERE entity = ? AND field = ? '
-          'AND reminder = 0 $_latest LIMIT 1',
+          'AND reminder = 0 $_live $_latest LIMIT 1',
           [t.$1, t.$2],
         );
         pre[t] = rows.isEmpty ? null : _entry(rows.first);
@@ -1818,6 +1954,9 @@ class CatalogStore {
         ],
       );
       if (_db.updatedRows > 0) imported.add(e);
+    }
+    for (final e in imported) {
+      _noteVoid(e.field);
     }
     // Propagated image deletions: drop bytes with no live reference left.
     for (final e in imported) {
@@ -2004,7 +2143,7 @@ class CatalogStore {
           [for (final e in slice) ...[e.device, e.dseq]]);
     }
     for (final e in rows) {
-      if (isRevertable(e.field) && hasConflict(e.entity, e.field)) {
+      if (isCorrectable(e.field) && hasConflict(e.entity, e.field)) {
         resolveConflict(e.entity, e.field);
       }
     }

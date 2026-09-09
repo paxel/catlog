@@ -312,48 +312,153 @@ void main() {
     });
   });
 
-  group('revert', () {
-    test('reverting a rename restores the previous name as a new entry', () {
+  group('correct and remove', () {
+    test('removing a rename hides it, the previous name is current again',
+        () {
       final cat = store.createCat('Miezi');
       store.append(cat, Keys.name, 'Mizzi');
       final rename = store.fieldHistory(cat, Keys.name).first;
 
-      final restored = store.revertEntry(rename.seq);
-      expect(restored, 'Miezi');
+      store.removeEntry(rename.seq);
       expect(store.current(cat, Keys.name), 'Miezi');
-      // Nothing deleted: original, rename, and revert all in history.
-      expect(store.fieldHistory(cat, Keys.name).length, 3);
+      // Nothing deleted: the row stays, marked, behind the toggle.
+      expect(store.fieldHistory(cat, Keys.name).length, 1);
+      final all = store.fieldHistory(cat, Keys.name, includeVoided: true);
+      expect(all.length, 2);
+      expect(all.first.voided, isTrue);
+      expect(all.last.voided, isFalse);
+      expect(store.voidMarker(all.first)?.value, Keys.voidRemoved);
+      expect(store.timeline(cat).any((e) => e.seq == rename.seq), isFalse);
+      expect(store.timeline(cat, includeVoided: true).any((e) => e.seq == rename.seq),
+          isTrue);
     });
 
-    test('reverting a move puts the cat back', () {
+    test('removing a move puts the cat back', () {
       final a = store.createClowder('A');
       final b = store.createClowder('B');
       final cat = store.createCat('Miezi', clowderId: a);
       store.moveCat(cat, b);
       final move = store.fieldHistory(cat, Keys.clowder).first;
 
-      store.revertEntry(move.seq);
+      store.removeEntry(move.seq);
       expect(store.current(cat, Keys.clowder), a);
     });
 
-    test('reverting the first entry of a field clears it', () {
+    test('removing the only entry of a field clears it', () {
       final cat = store.createCat('Miezi');
       store.append(cat, 'f:color', 'black');
       final first = store.fieldHistory(cat, 'f:color').first;
 
-      expect(store.revertEntry(first.seq), isNull);
+      store.removeEntry(first.seq);
       expect(store.current(cat, 'f:color'), isNull);
     });
 
-    test('structural and photo entries are not revertable', () {
+    test('restoring a removed entry brings it back', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:color', 'black');
+      final first = store.fieldHistory(cat, 'f:color').first;
+      store.removeEntry(first.seq);
+      store.restoreEntry(first.seq);
+      expect(store.current(cat, 'f:color'), 'black');
+      expect(store.fieldHistory(cat, 'f:color').single.voided, isFalse);
+    });
+
+    test('a correction keeps the date, hides the old value, links both',
+        () {
+      final cat = store.createCat('Miezi');
+      final when = DateTime.utc(2025, 3, 4, 10, 30);
+      store.append(cat, 'f:weight', '4100', date: when);
+      store.append(cat, 'f:weight', '4300', date: DateTime.utc(2025, 4, 1));
+      final wrong = store
+          .fieldHistory(cat, 'f:weight')
+          .firstWhere((e) => e.value == '4100');
+
+      final fixed = store.correctEntry(wrong.seq, '4150');
+      expect(fixed.date, when);
+      expect(fixed.value, '4150');
+      final visible = store.fieldHistory(cat, 'f:weight');
+      expect(visible.map((e) => e.value), ['4300', '4150']);
+      expect(store.current(cat, 'f:weight'), '4300');
+      expect(store.replacementOf(wrong)?.seq, fixed.seq);
+      expect(store.correctedBy(fixed)?.seq, wrong.seq);
+      expect(store.voidMarker(wrong)?.value, fixed.id);
+    });
+
+    test('a correction may move the value to another moment', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:weight', '4100', date: DateTime.utc(2025, 3, 4));
+      final wrong = store.fieldHistory(cat, 'f:weight').first;
+      final moved = DateTime.utc(2025, 3, 5, 8);
+      final fixed = store.correctEntry(wrong.seq, '4100', date: moved);
+      expect(fixed.date, moved);
+      expect(store.fieldHistory(cat, 'f:weight').single.seq, fixed.seq);
+    });
+
+    test('removing a correction restores what it replaced', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:weight', '4100');
+      final wrong = store.fieldHistory(cat, 'f:weight').first;
+      final fixed = store.correctEntry(wrong.seq, '4150');
+      store.removeEntry(fixed.seq);
+      expect(store.current(cat, 'f:weight'), '4100');
+      expect(store.fieldHistory(cat, 'f:weight').single.seq, wrong.seq);
+    });
+
+    test('restoring a corrected entry takes the correction back', () {
+      final cat = store.createCat('Miezi');
+      store.append(cat, 'f:weight', '4100');
+      final wrong = store.fieldHistory(cat, 'f:weight').first;
+      store.correctEntry(wrong.seq, '4150');
+      store.restoreEntry(wrong.seq);
+      expect(store.current(cat, 'f:weight'), '4100');
+      expect(store.fieldHistory(cat, 'f:weight').single.seq, wrong.seq);
+    });
+
+    test('a removal syncs and hides the row on the partner too', () {
+      final a = store;
+      final b = CatalogStore.inMemory()..author = 'B';
+      final cat = a.createCat('Miezi');
+      a.append(cat, 'f:color', 'black');
+      b.applyEntries(a.entriesSince({}));
+      expect(b.current(cat, 'f:color'), 'black');
+
+      final row = a.fieldHistory(cat, 'f:color').first;
+      a.removeEntry(row.seq);
+      b.applyEntries(a.entriesSince(b.versionVector()));
+      expect(b.current(cat, 'f:color'), isNull);
+      expect(b.fieldHistory(cat, 'f:color'), isEmpty);
+      expect(b.fieldHistory(cat, 'f:color', includeVoided: true).single.voided,
+          isTrue);
+
+      a.restoreEntry(row.seq);
+      b.applyEntries(a.entriesSince(b.versionVector()));
+      expect(b.current(cat, 'f:color'), 'black');
+      b.close();
+    });
+
+    test('voids survive a reopen', () {
+      final dir = Directory.systemTemp.createTempSync('voids');
+      addTearDown(() => dir.deleteSync(recursive: true));
+      var s = CatalogStore.open('${dir.path}/c.db')..author = 'A';
+      final cat = s.createCat('Miezi');
+      s.append(cat, 'f:color', 'black');
+      s.removeEntry(s.fieldHistory(cat, 'f:color').first.seq);
+      s.close();
+      s = CatalogStore.open('${dir.path}/c.db')..author = 'A';
+      expect(s.current(cat, 'f:color'), isNull);
+      s.close();
+    });
+
+    test('structural and photo entries cannot be corrected', () {
       final cat = store.createCat('Miezi');
       final hash = store.addImage(
           cat, CatalogStore.compressImage(makeJpeg(30, 30)));
       store.deleteImage(cat, hash);
       final marker = store.fieldHistory(cat, Keys.image(hash)).first;
-      expect(() => store.revertEntry(marker.seq), throwsArgumentError);
-      expect(CatalogStore.isRevertable(Keys.type), isFalse);
-      expect(CatalogStore.isRevertable(Keys.name), isTrue);
+      expect(() => store.removeEntry(marker.seq), throwsArgumentError);
+      expect(CatalogStore.isCorrectable(Keys.type), isFalse);
+      expect(CatalogStore.isCorrectable(Keys.name), isTrue);
+      expect(CatalogStore.isCorrectable(Keys.voided('x', 1)), isFalse);
     });
   });
 

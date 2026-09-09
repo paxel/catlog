@@ -424,7 +424,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(store.current(cat, Keys.name), 'Miezi');
-    expect(store.fieldHistory(cat, Keys.name).length, 3);
+    expect(store.fieldHistory(cat, Keys.name).length, 1);
+    expect(store.fieldHistory(cat, Keys.name, includeVoided: true).length, 2);
   });
 
   testWidgets('card screen renders with and without a photo',

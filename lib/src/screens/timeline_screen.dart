@@ -110,7 +110,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
             subtitle: Text(context.t.revertSubtitle),
             onTap: () {
               Navigator.of(sheetContext).pop();
-              final restored = store.revertEntry(entry.seq);
+              store.removeEntry(entry.seq);
+              final restored = store.current(entry.entity, entry.field);
               setState(() {});
               final label = fieldLabel(context.t, store, entry.field);
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -145,7 +146,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
         itemBuilder: (context, i) {
           final row = rows[i];
           final e = row.entry;
-          final revertable = CatalogStore.isRevertable(e.field);
+          final revertable = CatalogStore.isCorrectable(e.field);
           return ListTile(
             leading: Icon(row.icon),
             title: Text(row.title),

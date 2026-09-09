@@ -20,6 +20,17 @@ abstract final class Keys {
 
   static String conflict(String field) => '$conflictPrefix$field';
 
+  /// A correction or removal of one entry (1.2.3): `$void:<device>:<dseq>`
+  /// on the same entity names the row by its wire identity. Value = the
+  /// `device:dseq` of the entry that replaces it, or [voidRemoved] when
+  /// it was simply taken back; null restores it. The row itself stays,
+  /// the projection skips it. An ordinary entry: signed, synced,
+  /// latest-wins, never private.
+  static const voidPrefix = r'$void:';
+  static const voidRemoved = 'removed';
+
+  static String voided(String device, int dseq) => '$voidPrefix$device:$dseq';
+
   /// Display name of a Cat, Clowder, or field definition.
   static const name = 'name';
 
@@ -87,7 +98,8 @@ abstract final class Keys {
       field == private ||
       field.startsWith(privatePrefix) ||
       field.startsWith(withheldPrefix) ||
-      field.startsWith(conflictPrefix);
+      field.startsWith(conflictPrefix) ||
+      field.startsWith(voidPrefix);
 
   /// Field-definition properties.
   static const fieldType = 'type';

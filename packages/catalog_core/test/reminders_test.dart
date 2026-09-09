@@ -250,14 +250,14 @@ void main() {
     expect(b.current(cat, 'f:vaccine'), isNull);
   });
 
-  test('reverting a fact restores the previous fact, never a plan', () async {
+  test('removing a fact restores the previous fact, never a plan', () async {
     final cat = a.createCat('Miezi');
     a.append(cat, 'f:vaccine', 'first');
     a.append(cat, 'f:vaccine', 'planned', date: inDays(30), reminder: true);
     a.append(cat, 'f:vaccine', 'second');
     final latest =
         a.fieldHistory(cat, 'f:vaccine').firstWhere((e) => e.value == 'second');
-    a.revertEntry(latest.seq);
+    a.removeEntry(latest.seq);
     expect(a.current(cat, 'f:vaccine'), 'first');
   });
 

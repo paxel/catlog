@@ -43,6 +43,14 @@ class Entry {
   /// null for rows from before signing.
   final String? sig;
 
+  /// Corrected or removed (1.2.3): a live `$void:` marker names this
+  /// row, so the projection skips it. Derived locally, never on the
+  /// wire; only set on rows read with hidden ones included.
+  final bool voided;
+
+  /// Identity on the wire, as a `$void:` marker names it.
+  String get id => '$device:$dseq';
+
   const Entry({
     required this.seq,
     required this.device,
@@ -55,6 +63,7 @@ class Entry {
     required this.recorded,
     this.reminder = false,
     this.sig,
+    this.voided = false,
   });
 
   @override
