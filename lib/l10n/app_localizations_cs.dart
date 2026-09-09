@@ -734,7 +734,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Obě zařízení používají stejnou složku (např. v Dropboxu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.';
+      'Obě zařízení používají stejnou složku (např. v Nextcloudu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.';
 
   @override
   String get noFolderChosenYet => 'Zatím nevybrána žádná složka';

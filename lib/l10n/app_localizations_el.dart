@@ -740,7 +740,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Και οι δύο συσκευές χρησιμοποιούν τον ίδιο φάκελο (π.χ. στο Dropbox ή σε USB). Κάθε συγχρονισμός αφήνει εκεί τις αλλαγές σου και παίρνει του άλλου.';
+      'Και οι δύο συσκευές χρησιμοποιούν τον ίδιο φάκελο (π.χ. στο Nextcloud ή σε USB). Κάθε συγχρονισμός αφήνει εκεί τις αλλαγές σου και παίρνει του άλλου.';
 
   @override
   String get noFolderChosenYet => 'Δεν έχει επιλεγεί φάκελος ακόμα';

@@ -736,7 +736,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Ambele dispozitive folosesc același dosar (de exemplu în Dropbox sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
+      'Ambele dispozitive folosesc același dosar (de exemplu în Nextcloud sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.';
 
   @override
   String get noFolderChosenYet => 'Niciun dosar ales încă';

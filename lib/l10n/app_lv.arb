@@ -129,7 +129,7 @@
   "syncFailed": "Sinhronizācija neizdevās: {error}",
   "lastSyncWith": "Pēdējā sinhronizācija ar {peer}: {time}",
   "sharedFolder": "Koplietota mape",
-  "sharedFolderExplainer": "Abas ierīces izmanto vienu mapi (piem., Dropbox vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.",
+  "sharedFolderExplainer": "Abas ierīces izmanto vienu mapi (piem., Nextcloud vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.",
   "noFolderChosenYet": "Mape vēl nav izvēlēta",
   "choose": "Izvēlēties…",
   "syncFolderNow": "Sinhronizēt mapi tagad",

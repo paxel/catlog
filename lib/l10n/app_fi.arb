@@ -129,7 +129,7 @@
   "syncFailed": "Synkronointi epäonnistui: {error}",
   "lastSyncWith": "Viimeisin synkronointi ({peer}): {time}",
   "sharedFolder": "Jaettu kansio",
-  "sharedFolderExplainer": "Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.",
+  "sharedFolderExplainer": "Molemmat laitteet käyttävät samaa kansiota (esim. Nextcloudissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.",
   "noFolderChosenYet": "Kansiota ei ole vielä valittu",
   "choose": "Valitse…",
   "syncFolderNow": "Synkronoi kansio nyt",

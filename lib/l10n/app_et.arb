@@ -129,7 +129,7 @@
   "syncFailed": "Sünkroonimine ebaõnnestus: {error}",
   "lastSyncWith": "Viimane sünkroonimine seadmega {peer}: {time}",
   "sharedFolder": "Jagatud kaust",
-  "sharedFolderExplainer": "Mõlemad seadmed kasutavad sama kausta (nt Dropboxis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.",
+  "sharedFolderExplainer": "Mõlemad seadmed kasutavad sama kausta (nt Nextcloudis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.",
   "noFolderChosenYet": "Kausta pole veel valitud",
   "choose": "Vali…",
   "syncFolderNow": "Sünkrooni kaust kohe",

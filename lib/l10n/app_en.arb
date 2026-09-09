@@ -462,7 +462,7 @@
     }
   },
   "sharedFolder": "Shared folder",
-  "sharedFolderExplainer": "Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side's.",
+  "sharedFolderExplainer": "Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side's.",
   "noFolderChosenYet": "No folder chosen yet",
   "choose": "Choose…",
   "syncFolderNow": "Sync folder now",

@@ -740,7 +740,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Beide Geräte nutzen denselben Ordner (z. B. in Dropbox oder auf einem USB-Stick). Beim Synchronisieren landen deine Änderungen dort und die der anderen Seite kommen zu dir.';
+      'Beide Geräte nutzen denselben Ordner (z. B. in Nextcloud oder auf einem USB-Stick). Beim Synchronisieren landen deine Änderungen dort und die der anderen Seite kommen zu dir.';
 
   @override
   String get noFolderChosenYet => 'Noch kein Ordner gewählt';

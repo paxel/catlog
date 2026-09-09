@@ -738,7 +738,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
+      'Bæði tækin nota sömu möppu (t.d. í Nextcloud eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.';
 
   @override
   String get noFolderChosenYet => 'Engin mappa valin ennþá';

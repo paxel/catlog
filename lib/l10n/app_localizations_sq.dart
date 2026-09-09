@@ -736,7 +736,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
+      'Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Nextcloud ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.';
 
   @override
   String get noFolderChosenYet => 'Ende s\'është zgjedhur dosje';

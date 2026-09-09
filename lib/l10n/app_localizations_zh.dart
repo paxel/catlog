@@ -710,7 +710,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      '两台设备使用同一个文件夹（例如 Dropbox 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
+      '两台设备使用同一个文件夹（例如 Nextcloud 或U盘）。每次同步会把你的更改放进去，并取回对方的更改。';
 
   @override
   String get noFolderChosenYet => '尚未选择文件夹';

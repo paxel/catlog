@@ -735,7 +735,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Oba uređaja koriste isti folder (npr. u Dropboxu ili na USB sticku). Svaka sinhronizacija tamo ostavlja vaše promjene i preuzima tuđe.';
+      'Oba uređaja koriste isti folder (npr. u Nextcloudu ili na USB sticku). Svaka sinhronizacija tamo ostavlja vaše promjene i preuzima tuđe.';
 
   @override
   String get noFolderChosenYet => 'Fascikla još nije izabrana';

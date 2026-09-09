@@ -129,7 +129,7 @@
   "syncFailed": "Sikertelen szinkronizálás: {error}",
   "lastSyncWith": "Utolsó szinkronizálás ezzel: {peer}: {time}",
   "sharedFolder": "Megosztott mappa",
-  "sharedFolderExplainer": "Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.",
+  "sharedFolderExplainer": "Mindkét eszköz ugyanazt a mappát használja (pl. Nextcloudban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.",
   "noFolderChosenYet": "Még nincs mappa kiválasztva",
   "choose": "Kiválasztás…",
   "syncFolderNow": "Mappa szinkronizálása most",

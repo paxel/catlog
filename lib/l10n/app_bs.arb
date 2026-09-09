@@ -129,7 +129,7 @@
   "syncFailed": "Sinhronizacija nije uspjela: {error}",
   "lastSyncWith": "Zadnja sinhronizacija sa {peer}: {time}",
   "sharedFolder": "Dijeljena fascikla",
-  "sharedFolderExplainer": "Oba uređaja koriste isti folder (npr. u Dropboxu ili na USB sticku). Svaka sinhronizacija tamo ostavlja vaše promjene i preuzima tuđe.",
+  "sharedFolderExplainer": "Oba uređaja koriste isti folder (npr. u Nextcloudu ili na USB sticku). Svaka sinhronizacija tamo ostavlja vaše promjene i preuzima tuđe.",
   "noFolderChosenYet": "Fascikla još nije izabrana",
   "choose": "Izaberi…",
   "syncFolderNow": "Sinhronizuj fasciklu sada",

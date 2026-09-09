@@ -738,7 +738,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Dropbox of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.';
+      'Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Nextcloud of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.';
 
   @override
   String get noFolderChosenYet => 'Nog geen map gekozen';

@@ -129,7 +129,7 @@
   "syncFailed": "Samstilling mistókst: {error}",
   "lastSyncWith": "Síðasta samstilling við {peer}: {time}",
   "sharedFolder": "Sameiginleg mappa",
-  "sharedFolderExplainer": "Bæði tækin nota sömu möppu (t.d. í Dropbox eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.",
+  "sharedFolderExplainer": "Bæði tækin nota sömu möppu (t.d. í Nextcloud eða á USB-lykli). Hver samstilling skilur breytingarnar þínar eftir þar og sækir hinar.",
   "noFolderChosenYet": "Engin mappa valin ennþá",
   "choose": "Velja…",
   "syncFolderNow": "Samstilla möppu núna",

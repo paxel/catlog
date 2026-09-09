@@ -734,7 +734,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
+      'يستخدم الجهازان المجلد نفسه (مثلًا في Nextcloud أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.';
 
   @override
   String get noFolderChosenYet => 'لم يُختَر مجلد بعد';

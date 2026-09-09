@@ -724,7 +724,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      '両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
+      '両方の端末で同じフォルダーを使います（Nextcloud や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。';
 
   @override
   String get noFolderChosenYet => 'フォルダー未選択';

@@ -735,7 +735,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Obe napravi uporabljata isto mapo (npr. v Dropboxu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.';
+      'Obe napravi uporabljata isto mapo (npr. v Nextcloudu ali na USB ključku). Vsaka sinhronizacija tja odloži vaše spremembe in prevzame spremembe druge strani.';
 
   @override
   String get noFolderChosenYet => 'Mapa še ni izbrana';

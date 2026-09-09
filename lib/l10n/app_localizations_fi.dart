@@ -736,7 +736,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Molemmat laitteet käyttävät samaa kansiota (esim. Dropboxissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
+      'Molemmat laitteet käyttävät samaa kansiota (esim. Nextcloudissa tai USB-tikulla). Jokainen synkronointi vie muutoksesi sinne ja noutaa toisen osapuolen muutokset.';
 
   @override
   String get noFolderChosenYet => 'Kansiota ei ole vielä valittu';

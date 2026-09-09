@@ -734,7 +734,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Obe zariadenia používajú rovnaký priečinok (napr. v Dropboxe alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
+      'Obe zariadenia používajú rovnaký priečinok (napr. v Nextcloude alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.';
 
   @override
   String get noFolderChosenYet => 'Zatiaľ nie je vybraný priečinok';

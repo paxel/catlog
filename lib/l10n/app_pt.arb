@@ -129,7 +129,7 @@
   "syncFailed": "Falha na sincronização: {error}",
   "lastSyncWith": "Última sincronização com {peer}: {time}",
   "sharedFolder": "Pasta partilhada",
-  "sharedFolderExplainer": "Ambos os dispositivos usam a mesma pasta (por exemplo na Dropbox ou numa pen USB). Cada sincronização deixa lá as tuas alterações e recolhe as do outro lado.",
+  "sharedFolderExplainer": "Ambos os dispositivos usam a mesma pasta (por exemplo na Nextcloud ou numa pen USB). Cada sincronização deixa lá as tuas alterações e recolhe as do outro lado.",
   "noFolderChosenYet": "Nenhuma pasta escolhida",
   "choose": "Escolher…",
   "syncFolderNow": "Sincronizar pasta agora",

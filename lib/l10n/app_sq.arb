@@ -129,7 +129,7 @@
   "syncFailed": "Sinkronizimi dështoi: {error}",
   "lastSyncWith": "Sinkronizimi i fundit me {peer}: {time}",
   "sharedFolder": "Dosje e përbashkët",
-  "sharedFolderExplainer": "Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Dropbox ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.",
+  "sharedFolderExplainer": "Të dyja pajisjet përdorin të njëjtën dosje (p.sh. në Nextcloud ose në USB). Çdo sinkronizim i lë aty ndryshimet e tua dhe merr ato të palës tjetër.",
   "noFolderChosenYet": "Ende s'është zgjedhur dosje",
   "choose": "Zgjidh…",
   "syncFolderNow": "Sinkronizo dosjen tani",

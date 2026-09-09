@@ -736,7 +736,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Двете устройства ползват една и съща папка (напр. в Dropbox или на флашка). Всяка синхронизация оставя там вашите промени и взима тези на другата страна.';
+      'Двете устройства ползват една и съща папка (напр. в Nextcloud или на флашка). Всяка синхронизация оставя там вашите промени и взима тези на другата страна.';
 
   @override
   String get noFolderChosenYet => 'Още не е избрана папка';

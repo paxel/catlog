@@ -733,7 +733,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'İki cihaz da aynı klasörü kullanır (örn. Dropbox\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
+      'İki cihaz da aynı klasörü kullanır (örn. Nextcloud\'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.';
 
   @override
   String get noFolderChosenYet => 'Henüz klasör seçilmedi';

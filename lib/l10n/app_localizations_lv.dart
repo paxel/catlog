@@ -735,7 +735,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Abas ierīces izmanto vienu mapi (piem., Dropbox vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.';
+      'Abas ierīces izmanto vienu mapi (piem., Nextcloud vai USB zibatmiņā). Katra sinhronizācija tur atstāj jūsu izmaiņas un paņem otras puses izmaiņas.';
 
   @override
   String get noFolderChosenYet => 'Mape vēl nav izvēlēta';

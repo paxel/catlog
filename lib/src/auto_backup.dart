@@ -20,7 +20,7 @@ const backupErrorKey = 'lastBackupError';
 const backupAtKey = 'lastBackupAt';
 
 /// Shared setting: the tree URI of a folder every copy also goes to —
-/// Google Drive, Dropbox, Nextcloud, whatever the picker offered. Set
+/// Nextcloud, Syncthing, a memory card, whatever the picker offered. Set
 /// on the Backups page; Android only.
 const backupFolderKey = 'backupFolder';
 

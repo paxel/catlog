@@ -129,7 +129,7 @@
   "syncFailed": "Sinchronizavimas nepavyko: {error}",
   "lastSyncWith": "Paskutinis sinchronizavimas su {peer}: {time}",
   "sharedFolder": "Bendras aplankas",
-  "sharedFolderExplainer": "Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.",
+  "sharedFolderExplainer": "Abu įrenginiai naudoja tą patį aplanką (pvz., „Nextcloud“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.",
   "noFolderChosenYet": "Aplankas dar nepasirinktas",
   "choose": "Pasirinkti…",
   "syncFolderNow": "Sinchronizuoti aplanką dabar",

@@ -129,7 +129,7 @@
   "syncFailed": "Échec de la synchronisation : {error}",
   "lastSyncWith": "Dernière synchro avec {peer} : {time}",
   "sharedFolder": "Dossier partagé",
-  "sharedFolderExplainer": "Les deux appareils utilisent le même dossier (par exemple dans Dropbox ou sur une clé USB). Chaque synchronisation y dépose vos changements et récupère ceux de l'autre.",
+  "sharedFolderExplainer": "Les deux appareils utilisent le même dossier (par exemple dans Nextcloud ou sur une clé USB). Chaque synchronisation y dépose vos changements et récupère ceux de l'autre.",
   "noFolderChosenYet": "Aucun dossier choisi",
   "choose": "Choisir…",
   "syncFolderNow": "Synchroniser le dossier",

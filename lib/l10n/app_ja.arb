@@ -129,7 +129,7 @@
   "syncFailed": "同期に失敗: {error}",
   "lastSyncWith": "{peer} との最終同期: {time}",
   "sharedFolder": "共有フォルダー",
-  "sharedFolderExplainer": "両方の端末で同じフォルダーを使います（Dropbox や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。",
+  "sharedFolderExplainer": "両方の端末で同じフォルダーを使います（Nextcloud や USB メモリなど）。同期のたびに自分の変更を置き、相手の変更を受け取ります。",
   "noFolderChosenYet": "フォルダー未選択",
   "choose": "選択…",
   "syncFolderNow": "フォルダーを今すぐ同期",

@@ -736,7 +736,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Begge enheder bruger samme mappe (fx i Dropbox eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.';
+      'Begge enheder bruger samme mappe (fx i Nextcloud eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.';
 
   @override
   String get noFolderChosenYet => 'Ingen mappe valgt endnu';

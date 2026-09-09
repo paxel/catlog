@@ -129,7 +129,7 @@
   "syncFailed": "Theip ar an sioncrónú: {error}",
   "lastSyncWith": "Sioncrónú deireanach le {peer}: {time}",
   "sharedFolder": "Fillteán comhroinnte",
-  "sharedFolderExplainer": "Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.",
+  "sharedFolderExplainer": "Úsáideann an dá ghléas an fillteán céanna (m.sh. i Nextcloud nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.",
   "noFolderChosenYet": "Níl aon fhillteán roghnaithe fós",
   "choose": "Roghnaigh…",
   "syncFolderNow": "Sioncrónaigh an fillteán anois",

@@ -129,7 +129,7 @@
   "syncFailed": "Sinkronizacija nije uspjela: {error}",
   "lastSyncWith": "Zadnja sinkronizacija s {peer}: {time}",
   "sharedFolder": "Dijeljena mapa",
-  "sharedFolderExplainer": "Oba uređaja koriste istu mapu (npr. u Dropboxu ili na USB sticku). Svaka sinkronizacija ondje ostavlja vaše promjene i preuzima tuđe.",
+  "sharedFolderExplainer": "Oba uređaja koriste istu mapu (npr. u Nextcloudu ili na USB sticku). Svaka sinkronizacija ondje ostavlja vaše promjene i preuzima tuđe.",
   "noFolderChosenYet": "Mapa još nije odabrana",
   "choose": "Odaberi…",
   "syncFolderNow": "Sinkroniziraj mapu sada",

@@ -129,7 +129,7 @@
   "syncFailed": "Sincronizzazione fallita: {error}",
   "lastSyncWith": "Ultima sincronizzazione con {peer}: {time}",
   "sharedFolder": "Cartella condivisa",
-  "sharedFolderExplainer": "Entrambi i dispositivi usano la stessa cartella (per esempio in Dropbox o su una chiavetta USB). Ogni sincronizzazione vi deposita le tue modifiche e raccoglie quelle dell'altro.",
+  "sharedFolderExplainer": "Entrambi i dispositivi usano la stessa cartella (per esempio in Nextcloud o su una chiavetta USB). Ogni sincronizzazione vi deposita le tue modifiche e raccoglie quelle dell'altro.",
   "noFolderChosenYet": "Nessuna cartella scelta",
   "choose": "Scegli…",
   "syncFolderNow": "Sincronizza cartella ora",

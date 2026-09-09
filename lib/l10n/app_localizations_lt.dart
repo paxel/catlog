@@ -735,7 +735,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Dropbox“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
+      'Abu įrenginiai naudoja tą patį aplanką (pvz., „Nextcloud“ ar USB rakte). Kiekvienas sinchronizavimas ten palieka jūsų pakeitimus ir paima kitos pusės.';
 
   @override
   String get noFolderChosenYet => 'Aplankas dar nepasirinktas';

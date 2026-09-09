@@ -129,7 +129,7 @@
   "syncFailed": "Is-sinkronizzazzjoni falliet: {error}",
   "lastSyncWith": "L-aħħar sinkronizzazzjoni ma' {peer}: {time}",
   "sharedFolder": "Folder kondiviż",
-  "sharedFolderExplainer": "Iż-żewġ apparati jużaw l-istess folder (eż. f'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.",
+  "sharedFolderExplainer": "Iż-żewġ apparati jużaw l-istess folder (eż. f'Nextcloud jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.",
   "noFolderChosenYet": "Għad m'hemmx folder magħżul",
   "choose": "Agħżel…",
   "syncFolderNow": "Issinkronizza l-folder issa",

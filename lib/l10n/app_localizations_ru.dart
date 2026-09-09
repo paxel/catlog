@@ -737,7 +737,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Оба устройства используют одну папку (например, в Dropbox или на флешке). Каждая синхронизация кладёт туда ваши изменения и забирает чужие.';
+      'Оба устройства используют одну папку (например, в Nextcloud или на флешке). Каждая синхронизация кладёт туда ваши изменения и забирает чужие.';
 
   @override
   String get noFolderChosenYet => 'Папка ещё не выбрана';

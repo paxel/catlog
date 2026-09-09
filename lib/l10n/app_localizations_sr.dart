@@ -735,7 +735,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Оба уређаја користе исту фасциклу (нпр. у Dropbox-у или на USB стику). Свака синхронизација тамо оставља ваше промене и преузима туђе.';
+      'Оба уређаја користе исту фасциклу (нпр. у Nextcloud-у или на USB стику). Свака синхронизација тамо оставља ваше промене и преузима туђе.';
 
   @override
   String get noFolderChosenYet => 'Фасцикла још није изабрана';

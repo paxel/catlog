@@ -129,7 +129,7 @@
   "syncFailed": "Synkronisering mislykkedes: {error}",
   "lastSyncWith": "Sidste synkronisering med {peer}: {time}",
   "sharedFolder": "Delt mappe",
-  "sharedFolderExplainer": "Begge enheder bruger samme mappe (fx i Dropbox eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.",
+  "sharedFolderExplainer": "Begge enheder bruger samme mappe (fx i Nextcloud eller på et USB-stik). Hver synkronisering lægger dine ændringer der og henter den andens.",
   "noFolderChosenYet": "Ingen mappe valgt endnu",
   "choose": "Vælg…",
   "syncFolderNow": "Synkronisér mappe nu",

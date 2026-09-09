@@ -1439,7 +1439,7 @@ abstract class AppLocalizations {
   /// No description provided for @sharedFolderExplainer.
   ///
   /// In en, this message translates to:
-  /// **'Both devices use the same folder (for example in Dropbox or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
+  /// **'Both devices use the same folder (for example in Nextcloud or on a USB stick). Each sync stores your changes there and picks up the other side\'s.'**
   String get sharedFolderExplainer;
 
   /// No description provided for @noFolderChosenYet.

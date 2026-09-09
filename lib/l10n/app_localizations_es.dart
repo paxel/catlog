@@ -738,7 +738,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Ambos dispositivos usan la misma carpeta (por ejemplo en Dropbox o en un USB). Cada sincronización deja allí tus cambios y recoge los del otro lado.';
+      'Ambos dispositivos usan la misma carpeta (por ejemplo en Nextcloud o en un USB). Cada sincronización deja allí tus cambios y recoge los del otro lado.';
 
   @override
   String get noFolderChosenYet => 'Ninguna carpeta elegida aún';

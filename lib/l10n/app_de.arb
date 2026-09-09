@@ -211,7 +211,7 @@
   "syncFailed": "Sync fehlgeschlagen: {error}",
   "lastSyncWith": "Letzter Sync mit {peer}: {time}",
   "sharedFolder": "Gemeinsamer Ordner",
-  "sharedFolderExplainer": "Beide Geräte nutzen denselben Ordner (z. B. in Dropbox oder auf einem USB-Stick). Beim Synchronisieren landen deine Änderungen dort und die der anderen Seite kommen zu dir.",
+  "sharedFolderExplainer": "Beide Geräte nutzen denselben Ordner (z. B. in Nextcloud oder auf einem USB-Stick). Beim Synchronisieren landen deine Änderungen dort und die der anderen Seite kommen zu dir.",
   "noFolderChosenYet": "Noch kein Ordner gewählt",
   "choose": "Auswählen…",
   "syncFolderNow": "Ordner jetzt synchronisieren",

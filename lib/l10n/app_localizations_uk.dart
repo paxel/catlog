@@ -736,7 +736,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Обидва пристрої використовують одну теку (наприклад, у Dropbox або на флешці). Кожна синхронізація кладе туди ваші зміни й забирає чужі.';
+      'Обидва пристрої використовують одну теку (наприклад, у Nextcloud або на флешці). Кожна синхронізація кладе туди ваші зміни й забирає чужі.';
 
   @override
   String get noFolderChosenYet => 'Теку ще не обрано';

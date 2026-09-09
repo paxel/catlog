@@ -737,7 +737,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Dropbox jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
+      'Iż-żewġ apparati jużaw l-istess folder (eż. f\'Nextcloud jew fuq USB stick). Kull sync iħalli l-bidliet tiegħek hemm u jiġbor dawk tan-naħa l-oħra.';
 
   @override
   String get noFolderChosenYet => 'Għad m\'hemmx folder magħżul';

@@ -735,7 +735,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Mindkét eszköz ugyanazt a mappát használja (pl. Dropboxban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
+      'Mindkét eszköz ugyanazt a mappát használja (pl. Nextcloudban vagy pendrive-on). Minden szinkron odaírja a te változásaidat és átveszi a másikét.';
 
   @override
   String get noFolderChosenYet => 'Még nincs mappa kiválasztva';

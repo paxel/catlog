@@ -129,7 +129,7 @@
   "syncFailed": "Synchronizace selhala: {error}",
   "lastSyncWith": "Poslední synchronizace s {peer}: {time}",
   "sharedFolder": "Sdílená složka",
-  "sharedFolderExplainer": "Obě zařízení používají stejnou složku (např. v Dropboxu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.",
+  "sharedFolderExplainer": "Obě zařízení používají stejnou složku (např. v Nextcloudu nebo na flashce). Každá synchronizace tam uloží vaše změny a převezme změny druhé strany.",
   "noFolderChosenYet": "Zatím nevybrána žádná složka",
   "choose": "Vybrat…",
   "syncFolderNow": "Synchronizovat složku teď",

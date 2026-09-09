@@ -129,7 +129,7 @@
   "syncFailed": "فشلت المزامنة: {error}",
   "lastSyncWith": "آخر مزامنة مع {peer}: {time}",
   "sharedFolder": "مجلد مشترك",
-  "sharedFolderExplainer": "يستخدم الجهازان المجلد نفسه (مثلًا في Dropbox أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.",
+  "sharedFolderExplainer": "يستخدم الجهازان المجلد نفسه (مثلًا في Nextcloud أو على ذاكرة USB). كل مزامنة تضع تغييراتك هناك وتأخذ تغييرات الطرف الآخر.",
   "noFolderChosenYet": "لم يُختَر مجلد بعد",
   "choose": "اختيار…",
   "syncFolderNow": "زامن المجلد الآن",

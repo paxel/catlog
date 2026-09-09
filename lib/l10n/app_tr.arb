@@ -129,7 +129,7 @@
   "syncFailed": "Eşitleme başarısız: {error}",
   "lastSyncWith": "{peer} ile son eşitleme: {time}",
   "sharedFolder": "Ortak klasör",
-  "sharedFolderExplainer": "İki cihaz da aynı klasörü kullanır (örn. Dropbox'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.",
+  "sharedFolderExplainer": "İki cihaz da aynı klasörü kullanır (örn. Nextcloud'ta veya USB bellekte). Her eşitleme değişikliklerinizi oraya bırakır ve karşı tarafınkileri alır.",
   "noFolderChosenYet": "Henüz klasör seçilmedi",
   "choose": "Seç…",
   "syncFolderNow": "Klasörü şimdi eşitle",

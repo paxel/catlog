@@ -129,7 +129,7 @@
   "syncFailed": "Sincronizare eșuată: {error}",
   "lastSyncWith": "Ultima sincronizare cu {peer}: {time}",
   "sharedFolder": "Dosar partajat",
-  "sharedFolderExplainer": "Ambele dispozitive folosesc același dosar (de exemplu în Dropbox sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.",
+  "sharedFolderExplainer": "Ambele dispozitive folosesc același dosar (de exemplu în Nextcloud sau pe un stick USB). Fiecare sincronizare lasă acolo schimbările tale și le preia pe ale celuilalt.",
   "noFolderChosenYet": "Niciun dosar ales încă",
   "choose": "Alege…",
   "syncFolderNow": "Sincronizează dosarul acum",

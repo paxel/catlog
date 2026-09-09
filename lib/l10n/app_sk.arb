@@ -129,7 +129,7 @@
   "syncFailed": "Synchronizácia zlyhala: {error}",
   "lastSyncWith": "Posledná synchronizácia s {peer}: {time}",
   "sharedFolder": "Zdieľaný priečinok",
-  "sharedFolderExplainer": "Obe zariadenia používajú rovnaký priečinok (napr. v Dropboxe alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.",
+  "sharedFolderExplainer": "Obe zariadenia používajú rovnaký priečinok (napr. v Nextcloude alebo na USB kľúči). Každá synchronizácia tam uloží vaše zmeny a prevezme zmeny druhej strany.",
   "noFolderChosenYet": "Zatiaľ nie je vybraný priečinok",
   "choose": "Vybrať…",
   "syncFolderNow": "Synchronizovať priečinok teraz",

@@ -129,7 +129,7 @@
   "syncFailed": "הסנכרון נכשל: {error}",
   "lastSyncWith": "סנכרון אחרון עם {peer}: {time}",
   "sharedFolder": "תיקייה משותפת",
-  "sharedFolderExplainer": "שני המכשירים משתמשים באותה תיקייה (למשל ב-Dropbox או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.",
+  "sharedFolderExplainer": "שני המכשירים משתמשים באותה תיקייה (למשל ב-Nextcloud או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.",
   "noFolderChosenYet": "טרם נבחרה תיקייה",
   "choose": "בחירה…",
   "syncFolderNow": "סנכרון התיקייה עכשיו",

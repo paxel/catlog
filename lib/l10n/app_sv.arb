@@ -129,7 +129,7 @@
   "syncFailed": "Synkronisering misslyckades: {error}",
   "lastSyncWith": "Senaste synkronisering med {peer}: {time}",
   "sharedFolder": "Delad mapp",
-  "sharedFolderExplainer": "Båda enheterna använder samma mapp (t.ex. i Dropbox eller på ett USB-minne). Varje synk lägger dina ändringar där och hämtar den andras.",
+  "sharedFolderExplainer": "Båda enheterna använder samma mapp (t.ex. i Nextcloud eller på ett USB-minne). Varje synk lägger dina ändringar där och hämtar den andras.",
   "noFolderChosenYet": "Ingen mapp vald ännu",
   "choose": "Välj…",
   "syncFolderNow": "Synkronisera mappen nu",

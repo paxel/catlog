@@ -739,7 +739,7 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Двата уреда користат иста папка (на пр. во Dropbox или на USB). Секоја синхронизација ги остава таму вашите промени и ги зема туѓите.';
+      'Двата уреда користат иста папка (на пр. во Nextcloud или на USB). Секоја синхронизација ги остава таму вашите промени и ги зема туѓите.';
 
   @override
   String get noFolderChosenYet => 'Сè уште не е избрана папка';

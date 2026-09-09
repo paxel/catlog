@@ -129,7 +129,7 @@
   "syncFailed": "Synchronisatie mislukt: {error}",
   "lastSyncWith": "Laatste synchronisatie met {peer}: {time}",
   "sharedFolder": "Gedeelde map",
-  "sharedFolderExplainer": "Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Dropbox of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.",
+  "sharedFolderExplainer": "Beide apparaten gebruiken dezelfde map (bijvoorbeeld in Nextcloud of op een USB-stick). Elke synchronisatie zet jouw wijzigingen daar neer en haalt die van de ander op.",
   "noFolderChosenYet": "Nog geen map gekozen",
   "choose": "Kiezen…",
   "syncFolderNow": "Map nu synchroniseren",

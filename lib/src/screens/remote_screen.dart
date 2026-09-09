@@ -8,7 +8,7 @@ import '../import_summary.dart';
 import '../l10n.dart';
 import '../sync/saf_folder.dart';
 
-/// "Remote": sync through a shared folder (Dropbox, Google Drive, a USB
+/// "Remote": sync through a shared folder (Nextcloud, Syncthing, a USB
 /// stick) for devices that never meet.
 class RemoteScreen extends StatefulWidget {
   final CatalogStore store;

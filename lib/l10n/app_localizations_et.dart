@@ -735,7 +735,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Mõlemad seadmed kasutavad sama kausta (nt Dropboxis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.';
+      'Mõlemad seadmed kasutavad sama kausta (nt Nextcloudis või USB-pulgal). Iga sünkroonimine paneb sinna sinu muudatused ja võtab teise poole omad.';
 
   @override
   String get noFolderChosenYet => 'Kausta pole veel valitud';

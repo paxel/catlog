@@ -735,7 +735,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Begge enhetene bruker samme mappe (f.eks. i Dropbox eller på en USB-pinne). Hver synkronisering legger endringene dine der og henter den andres.';
+      'Begge enhetene bruker samme mappe (f.eks. i Nextcloud eller på en USB-pinne). Hver synkronisering legger endringene dine der og henter den andres.';
 
   @override
   String get noFolderChosenYet => 'Ingen mappe valgt ennå';

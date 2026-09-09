@@ -739,7 +739,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Dropbox nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
+      'Úsáideann an dá ghléas an fillteán céanna (m.sh. i Nextcloud nó ar mhéaróg USB). Fágann gach sioncronú do chuid athruithe ann agus tógann sé athruithe an taobh eile.';
 
   @override
   String get noFolderChosenYet => 'Níl aon fhillteán roghnaithe fós';

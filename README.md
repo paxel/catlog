@@ -36,8 +36,8 @@ who made it, and you can look at any cat's story like a diary.
 - **Photos of a whole litter?** Crop the right kitten out when you add the
   photo, or draw a circle around it when they're too tangled to crop.
 - **Share with your helpers** — your phone and a friend's phone swap their
-  data directly over your Wi-Fi, or through a shared folder (Dropbox, Google
-  Drive, a USB stick — whatever you already use). No company server ever
+  data directly over your Wi-Fi, or through a shared folder (Nextcloud, Syncthing,
+  a USB stick — whatever you already use). No company server ever
   sees your cats. If two of you changed the same thing at the same time, the
   app shows both versions and you pick what's right.
 - **Sharing without a cloud** — [Syncthing](https://syncthing.net) keeps one

@@ -732,7 +732,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'שני המכשירים משתמשים באותה תיקייה (למשל ב-Dropbox או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.';
+      'שני המכשירים משתמשים באותה תיקייה (למשל ב-Nextcloud או בהתקן USB). כל סנכרון מניח שם את השינויים שלכם ואוסף את של הצד השני.';
 
   @override
   String get noFolderChosenYet => 'טרם נבחרה תיקייה';

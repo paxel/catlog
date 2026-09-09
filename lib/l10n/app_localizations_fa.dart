@@ -733,7 +733,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get sharedFolderExplainer =>
-      'هر دو دستگاه از یک پوشه استفاده می‌کنند (مثلاً در Dropbox یا روی فلش). هر همگام‌سازی تغییرات شما را آنجا می‌گذارد و تغییرات طرف مقابل را برمی‌دارد.';
+      'هر دو دستگاه از یک پوشه استفاده می‌کنند (مثلاً در Nextcloud یا روی فلش). هر همگام‌سازی تغییرات شما را آنجا می‌گذارد و تغییرات طرف مقابل را برمی‌دارد.';
 
   @override
   String get noFolderChosenYet => 'هنوز پوشه‌ای انتخاب نشده';
