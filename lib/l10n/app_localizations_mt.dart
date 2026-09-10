@@ -3395,4 +3395,9 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Ieqaf tikkopja hemm';
+
+  @override
+  String remindFailed(Object error) {
+    return 'In-notifiki mhux qed jaħdmu fuq dan it-telefon: $error';
+  }
 }

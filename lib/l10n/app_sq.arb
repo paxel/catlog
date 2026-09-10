@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Mos kopjo më atje"
+  "backupsFolderRemove": "Mos kopjo më atje",
+  "remindFailed": "Njoftimet nuk funksionojnë në këtë telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

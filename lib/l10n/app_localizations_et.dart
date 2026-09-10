@@ -3378,4 +3378,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Lõpeta sinna kopeerimine';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Teavitused ei tööta selles telefonis: $error';
+  }
 }

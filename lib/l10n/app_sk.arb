@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Prestať tam kopírovať"
+  "backupsFolderRemove": "Prestať tam kopírovať",
+  "remindFailed": "Upozornenia na tomto telefóne nefungujú: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

@@ -3377,4 +3377,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'להפסיק להעתיק לשם';
+
+  @override
+  String remindFailed(Object error) {
+    return 'ההתראות לא פועלות בטלפון הזה: $error';
+  }
 }

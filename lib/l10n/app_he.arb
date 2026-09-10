@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "להפסיק להעתיק לשם"
+  "backupsFolderRemove": "להפסיק להעתיק לשם",
+  "remindFailed": "ההתראות לא פועלות בטלפון הזה: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

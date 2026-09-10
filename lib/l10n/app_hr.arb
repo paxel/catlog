@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Prestani kopirati onamo"
+  "backupsFolderRemove": "Prestani kopirati onamo",
+  "remindFailed": "Obavijesti ne rade na ovom telefonu: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

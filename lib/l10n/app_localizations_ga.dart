@@ -3435,4 +3435,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Stop ag cóipeáil ansin';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Níl na fógraí ag obair ar an nguthán seo: $error';
+  }
 }

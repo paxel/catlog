@@ -3392,4 +3392,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Διακοπή αντιγραφής εκεί';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Οι ειδοποιήσεις δεν λειτουργούν σε αυτό το τηλέφωνο: $error';
+  }
 }

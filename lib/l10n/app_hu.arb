@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Ne másoljon oda többé"
+  "backupsFolderRemove": "Ne másoljon oda többé",
+  "remindFailed": "Az értesítések nem működnek ezen a telefonon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

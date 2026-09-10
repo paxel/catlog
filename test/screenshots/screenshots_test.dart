@@ -26,6 +26,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
 import 'package:catlog/src/screens/field_graph_screen.dart';
 import 'package:catlog/src/screens/agenda_screen.dart';
 import 'package:catlog/src/fur_background.dart';
@@ -574,8 +575,11 @@ void main() {
           key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
       final image = await boundary.toImage(pixelRatio: dpr);
       final data = await image.toByteData(format: ui.ImageByteFormat.png);
-      File('docs/screenshots/$name.png')
-          .writeAsBytesSync(data!.buffer.asUint8List());
+      // Flutter writes RGBA; App Store Connect refuses a screenshot with
+      // an alpha channel. Three channels, nothing else changes.
+      final rgb = img.decodePng(data!.buffer.asUint8List())!
+          .convert(numChannels: 3);
+      File('docs/screenshots/$name.png').writeAsBytesSync(img.encodePng(rgb));
     });
   }
 

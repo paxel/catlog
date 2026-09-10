@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Nehaj kopirati tja"
+  "backupsFolderRemove": "Nehaj kopirati tja",
+  "remindFailed": "Obvestila na tem telefonu ne delujejo: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

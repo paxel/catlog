@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "そこへのコピーをやめる"
+  "backupsFolderRemove": "そこへのコピーをやめる",
+  "remindFailed": "この端末では通知が機能していません: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

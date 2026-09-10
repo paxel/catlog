@@ -3381,4 +3381,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Ne másoljon oda többé';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Az értesítések nem működnek ezen a telefonon: $error';
+  }
 }

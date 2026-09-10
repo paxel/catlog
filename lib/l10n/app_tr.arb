@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Oraya kopyalamayı bırak"
+  "backupsFolderRemove": "Oraya kopyalamayı bırak",
+  "remindFailed": "Bildirimler bu telefonda çalışmıyor: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

@@ -3401,4 +3401,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Nebekopijuoti ten';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Pranešimai šiame telefone neveikia: $error';
+  }
 }

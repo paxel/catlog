@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Nebekopijuoti ten"
+  "backupsFolderRemove": "Nebekopijuoti ten",
+  "remindFailed": "Pranešimai šiame telefone neveikia: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

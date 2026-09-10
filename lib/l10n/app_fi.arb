@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Lopeta kopiointi sinne"
+  "backupsFolderRemove": "Lopeta kopiointi sinne",
+  "remindFailed": "Ilmoitukset eivät toimi tällä puhelimella: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

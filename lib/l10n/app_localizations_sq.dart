@@ -3382,4 +3382,9 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Mos kopjo më atje';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Njoftimet nuk funksionojnë në këtë telefon: $error';
+  }
 }

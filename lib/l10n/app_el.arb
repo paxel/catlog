@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Διακοπή αντιγραφής εκεί"
+  "backupsFolderRemove": "Διακοπή αντιγραφής εκεί",
+  "remindFailed": "Οι ειδοποιήσεις δεν λειτουργούν σε αυτό το τηλέφωνο: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

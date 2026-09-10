@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Nu mai copia acolo"
+  "backupsFolderRemove": "Nu mai copia acolo",
+  "remindFailed": "Notificările nu funcționează pe acest telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

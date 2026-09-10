@@ -167,9 +167,11 @@ class LocalNotificationPort implements ReminderPort {
         return await ios?.requestPermissions(alert: true, sound: true) ?? false;
       }
       return true;
-    } catch (_) {
+    } on MissingPluginException {
+      // No plugin here (desktop, tests): nothing to allow.
       return false;
     }
+    // Anything else is a broken plugin, not a refusal: the caller says so.
   }
 
   @override
@@ -219,7 +221,10 @@ class LocalNotificationPort implements ReminderPort {
           iOS: DarwinNotificationDetails(),
         ),
       );
-    } catch (_) {}
+    } on MissingPluginException {
+      // No plugin here (desktop, tests).
+    }
+    // Anything else is a broken plugin: the test button says so.
   }
 
   @override

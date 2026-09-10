@@ -26,6 +26,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [S
 - Android backups go to Documents/catlog instead of Downloads/catlog.
 
 ### Fixed
+- Chore reminders work in the store build: the release build had stripped the notification plugin's inner workings, so the test button did nothing and the switch reported a missing permission; a broken plugin now reports itself instead of posing as a refusal.
 - Restoring after a reinstall works on Android: the restore page opens the picker on the backup folder, and one grant lists every backup there.
 - Two devices changing a choice field's option list at the same time get both lists merged instead of a conflict.
 - Chores on a cat's or home's page are ordered like the agenda: due today by time, the rest and the paused ones behind a Coming up fold.

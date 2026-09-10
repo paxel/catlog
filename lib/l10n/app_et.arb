@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Lõpeta sinna kopeerimine"
+  "backupsFolderRemove": "Lõpeta sinna kopeerimine",
+  "remindFailed": "Teavitused ei tööta selles telefonis: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

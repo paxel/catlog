@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Больше не копировать туда"
+  "backupsFolderRemove": "Больше не копировать туда",
+  "remindFailed": "Уведомления на этом телефоне не работают: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

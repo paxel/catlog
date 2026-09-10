@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Sluta kopiera dit"
+  "backupsFolderRemove": "Sluta kopiera dit",
+  "remindFailed": "Aviseringar fungerar inte på den här telefonen: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

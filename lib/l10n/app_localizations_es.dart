@@ -3390,4 +3390,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Dejar de copiar ahí';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Las notificaciones no funcionan en este teléfono: $error';
+  }
 }

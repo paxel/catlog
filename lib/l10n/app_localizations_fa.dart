@@ -3319,4 +3319,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'دیگر آنجا کپی نکن';
+
+  @override
+  String remindFailed(Object error) {
+    return 'اعلان‌ها روی این گوشی کار نمی‌کنند: $error';
+  }
 }

@@ -3409,4 +3409,9 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Nehaj kopirati tja';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Obvestila na tem telefonu ne delujejo: $error';
+  }
 }

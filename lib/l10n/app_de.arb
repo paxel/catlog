@@ -1140,5 +1140,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Nicht mehr dorthin kopieren"
+  "backupsFolderRemove": "Nicht mehr dorthin kopieren",
+  "remindFailed": "Benachrichtigungen funktionieren auf diesem Telefon nicht: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

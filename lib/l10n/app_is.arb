@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Hætta að afrita þangað"
+  "backupsFolderRemove": "Hætta að afrita þangað",
+  "remindFailed": "Tilkynningar virka ekki á þessum síma: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

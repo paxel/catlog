@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Престани да копираш таму"
+  "backupsFolderRemove": "Престани да копираш таму",
+  "remindFailed": "Известувањата не работат на овој телефон: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

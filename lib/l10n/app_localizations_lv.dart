@@ -3396,4 +3396,9 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Vairs nekopēt turp';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Paziņojumi šajā tālrunī nedarbojas: $error';
+  }
 }

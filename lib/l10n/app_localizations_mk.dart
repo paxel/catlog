@@ -3383,4 +3383,9 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Престани да копираш таму';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Известувањата не работат на овој телефон: $error';
+  }
 }

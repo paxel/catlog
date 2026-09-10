@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "دیگر آنجا کپی نکن"
+  "backupsFolderRemove": "دیگر آنجا کپی نکن",
+  "remindFailed": "اعلان‌ها روی این گوشی کار نمی‌کنند: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

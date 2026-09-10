@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Slutt å kopiere dit"
+  "backupsFolderRemove": "Slutt å kopiere dit",
+  "remindFailed": "Varsler virker ikke på denne telefonen: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

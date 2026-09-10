@@ -3213,4 +3213,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => '停止复制到那里';
+
+  @override
+  String remindFailed(Object error) {
+    return '此手机上的通知无法使用：$error';
+  }
 }

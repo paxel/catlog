@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Vairs nekopēt turp"
+  "backupsFolderRemove": "Vairs nekopēt turp",
+  "remindFailed": "Paziņojumi šajā tālrunī nedarbojas: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

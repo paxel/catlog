@@ -3385,4 +3385,9 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Hætta að afrita þangað';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Tilkynningar virka ekki á þessum síma: $error';
+  }
 }

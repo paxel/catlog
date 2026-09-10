@@ -3249,4 +3249,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'そこへのコピーをやめる';
+
+  @override
+  String remindFailed(Object error) {
+    return 'この端末では通知が機能していません: $error';
+  }
 }

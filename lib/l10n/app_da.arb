@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Stop med at kopiere dertil"
+  "backupsFolderRemove": "Stop med at kopiere dertil",
+  "remindFailed": "Notifikationer virker ikke på denne telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "停止复制到那里"
+  "backupsFolderRemove": "停止复制到那里",
+  "remindFailed": "此手机上的通知无法使用：{error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

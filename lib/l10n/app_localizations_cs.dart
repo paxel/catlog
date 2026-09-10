@@ -3393,4 +3393,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Přestat tam kopírovat';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Oznámení na tomto telefonu nefungují: $error';
+  }
 }

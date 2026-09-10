@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Deixar de copiar para aí"
+  "backupsFolderRemove": "Deixar de copiar para aí",
+  "remindFailed": "As notificações não funcionam neste telemóvel: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

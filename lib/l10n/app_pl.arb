@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Przestań tam kopiować"
+  "backupsFolderRemove": "Przestań tam kopiować",
+  "remindFailed": "Powiadomienia nie działają na tym telefonie: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

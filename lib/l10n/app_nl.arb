@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Daar niet meer naartoe kopiëren"
+  "backupsFolderRemove": "Daar niet meer naartoe kopiëren",
+  "remindFailed": "Meldingen werken niet op deze telefoon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

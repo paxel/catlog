@@ -3380,4 +3380,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Спри копирането там';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Известията не работят на този телефон: $error';
+  }
 }

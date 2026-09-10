@@ -3393,4 +3393,9 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Prestani kopirati onamo';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Obavijesti ne rade na ovom telefonu: $error';
+  }
 }

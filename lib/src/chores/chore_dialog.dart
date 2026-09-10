@@ -232,17 +232,31 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
     return t.remindNext(DateFormat.MMMEd(locale).add_Hm().format(when));
   }
 
+  void _say(String text) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(text)));
+  }
+
+  /// Whether notifications may be sent: the phone's answer, or the
+  /// reason the question could not even be asked. A refusal and a
+  /// broken plugin read differently — one is fixed in the phone's
+  /// settings, the other is a bug report.
+  Future<bool> _allowed() async {
+    final t = context.t;
+    try {
+      if (await port.ensurePermission()) return true;
+      _say(t.remindPermissionDenied);
+    } catch (e) {
+      _say(t.remindFailed(e.toString()));
+    }
+    return false;
+  }
+
   /// The reminder switch asks for the permission, then for the time; a
   /// refusal is said and the switch stays off.
   Future<void> _toggleRemind(bool on) async {
-    if (on && !await port.ensurePermission()) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.t.remindPermissionDenied)),
-        );
-      }
-      return;
-    }
+    if (on && !await _allowed()) return;
     if (!mounted) return;
     if (on) {
       // Opens at the chore's own time, else now: a fixed 08:00 read as
@@ -401,11 +415,17 @@ class _ChoreEditorScreenState extends State<ChoreEditorScreen> {
               icon: const Icon(Icons.notifications_active_outlined),
               label: Text(t.remindTest),
               onPressed: () async {
-                if (!await port.ensurePermission() || !mounted) return;
-                await port.showNow(
-                  _title.text.trim().isEmpty ? t.newChore : _title.text.trim(),
-                  store.current(widget.entityId, Keys.name) ?? '',
-                );
+                if (!await _allowed() || !mounted) return;
+                try {
+                  await port.showNow(
+                    _title.text.trim().isEmpty
+                        ? t.newChore
+                        : _title.text.trim(),
+                    store.current(widget.entityId, Keys.name) ?? '',
+                  );
+                } catch (e) {
+                  _say(t.remindFailed(e.toString()));
+                }
               },
             ),
           ],

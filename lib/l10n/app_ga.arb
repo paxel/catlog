@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Stop ag cóipeáil ansin"
+  "backupsFolderRemove": "Stop ag cóipeáil ansin",
+  "remindFailed": "Níl na fógraí ag obair ar an nguthán seo: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

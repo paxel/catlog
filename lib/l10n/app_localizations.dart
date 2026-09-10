@@ -5869,6 +5869,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stop copying there'**
   String get backupsFolderRemove;
+
+  /// No description provided for @remindFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are not working on this phone: {error}'**
+  String remindFailed(Object error);
 }
 
 class _AppLocalizationsDelegate

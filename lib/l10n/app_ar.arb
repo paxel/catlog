@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "توقف عن النسخ إلى هناك"
+  "backupsFolderRemove": "توقف عن النسخ إلى هناك",
+  "remindFailed": "الإشعارات لا تعمل على هذا الهاتف: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

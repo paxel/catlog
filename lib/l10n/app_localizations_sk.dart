@@ -3392,4 +3392,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Prestať tam kopírovať';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Upozornenia na tomto telefóne nefungujú: $error';
+  }
 }

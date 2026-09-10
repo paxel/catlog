@@ -3382,4 +3382,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Lopeta kopiointi sinne';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Ilmoitukset eivät toimi tällä puhelimella: $error';
+  }
 }

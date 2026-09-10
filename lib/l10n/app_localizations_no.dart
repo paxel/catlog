@@ -3378,4 +3378,9 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Slutt å kopiere dit';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Varsler virker ikke på denne telefonen: $error';
+  }
 }

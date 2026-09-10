@@ -1922,5 +1922,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Stop copying there"
+  "backupsFolderRemove": "Stop copying there",
+  "remindFailed": "Notifications are not working on this phone: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

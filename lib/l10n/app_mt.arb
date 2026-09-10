@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Ieqaf tikkopja hemm"
+  "backupsFolderRemove": "Ieqaf tikkopja hemm",
+  "remindFailed": "In-notifiki mhux qed jaħdmu fuq dan it-telefon: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

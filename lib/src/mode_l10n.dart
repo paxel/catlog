@@ -2029,6 +2029,9 @@ class ModeLocalizations implements AppLocalizations {
   String get rememberServiceHint => base.rememberServiceHint;
 
   @override
+  String remindFailed(Object error) => base.remindFailed(error);
+
+  @override
   String get remindLateHint => base.remindLateHint;
 
   @override

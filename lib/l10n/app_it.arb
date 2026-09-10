@@ -1134,5 +1134,11 @@
       "name": {}
     }
   },
-  "backupsFolderRemove": "Smetti di copiare lì"
+  "backupsFolderRemove": "Smetti di copiare lì",
+  "remindFailed": "Le notifiche non funzionano su questo telefono: {error}",
+  "@remindFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  }
 }

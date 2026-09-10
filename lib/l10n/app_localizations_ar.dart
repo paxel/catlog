@@ -3415,4 +3415,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'توقف عن النسخ إلى هناك';
+
+  @override
+  String remindFailed(Object error) {
+    return 'الإشعارات لا تعمل على هذا الهاتف: $error';
+  }
 }

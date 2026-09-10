@@ -3378,4 +3378,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get backupsFolderRemove => 'Sluta kopiera dit';
+
+  @override
+  String remindFailed(Object error) {
+    return 'Aviseringar fungerar inte på den här telefonen: $error';
+  }
 }
